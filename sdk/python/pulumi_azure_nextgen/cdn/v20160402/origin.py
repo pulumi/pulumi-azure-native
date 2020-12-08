@@ -55,21 +55,21 @@ class Origin(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if endpoint_name is None:
+            if endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_name'")
             __props__['endpoint_name'] = endpoint_name
-            if host_name is None:
+            if host_name is None and not opts.urn:
                 raise TypeError("Missing required property 'host_name'")
             __props__['host_name'] = host_name
             __props__['http_port'] = http_port
             __props__['https_port'] = https_port
-            if origin_name is None:
+            if origin_name is None and not opts.urn:
                 raise TypeError("Missing required property 'origin_name'")
             __props__['origin_name'] = origin_name
-            if profile_name is None:
+            if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")
             __props__['profile_name'] = profile_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['name'] = None

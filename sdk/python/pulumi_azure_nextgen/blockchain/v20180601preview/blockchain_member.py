@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['BlockchainMember']
@@ -25,7 +26,7 @@ class BlockchainMember(pulumi.CustomResource):
                  firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallRuleArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 protocol: Optional[pulumi.Input[str]] = None,
+                 protocol: Optional[pulumi.Input[Union[str, 'BlockchainProtocol']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -46,7 +47,7 @@ class BlockchainMember(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallRuleArgs']]]] firewall_rules: Gets or sets firewall rules
         :param pulumi.Input[str] location: The GEO location of the blockchain service.
         :param pulumi.Input[str] password: Sets the basic auth password of the blockchain member.
-        :param pulumi.Input[str] protocol: Gets or sets the blockchain protocol.
+        :param pulumi.Input[Union[str, 'BlockchainProtocol']] protocol: Gets or sets the blockchain protocol.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Gets or sets the blockchain member Sku.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the service which is a list of key value pairs that describes the resource.
@@ -69,7 +70,7 @@ class BlockchainMember(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if blockchain_member_name is None:
+            if blockchain_member_name is None and not opts.urn:
                 raise TypeError("Missing required property 'blockchain_member_name'")
             __props__['blockchain_member_name'] = blockchain_member_name
             __props__['consortium'] = consortium
@@ -80,7 +81,7 @@ class BlockchainMember(pulumi.CustomResource):
             __props__['location'] = location
             __props__['password'] = password
             __props__['protocol'] = protocol
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku

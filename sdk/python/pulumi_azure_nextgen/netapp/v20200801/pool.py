@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['Pool']
 
@@ -18,9 +19,9 @@ class Pool(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
-                 qos_type: Optional[pulumi.Input[str]] = None,
+                 qos_type: Optional[pulumi.Input[Union[str, 'QosType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 service_level: Optional[pulumi.Input[str]] = None,
+                 service_level: Optional[pulumi.Input[Union[str, 'ServiceLevel']]] = None,
                  size: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -34,9 +35,9 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The name of the NetApp account
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] pool_name: The name of the capacity pool
-        :param pulumi.Input[str] qos_type: The qos type of the pool
+        :param pulumi.Input[Union[str, 'QosType']] qos_type: The qos type of the pool
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] service_level: The service level of the file system
+        :param pulumi.Input[Union[str, 'ServiceLevel']] service_level: The service level of the file system
         :param pulumi.Input[int] size: Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
@@ -57,23 +58,23 @@ class Pool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_name is None:
+            if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if pool_name is None:
+            if pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'pool_name'")
             __props__['pool_name'] = pool_name
             __props__['qos_type'] = qos_type
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if service_level is None:
+            if service_level is None and not opts.urn:
                 raise TypeError("Missing required property 'service_level'")
             __props__['service_level'] = service_level
-            if size is None:
+            if size is None and not opts.urn:
                 raise TypeError("Missing required property 'size'")
             __props__['size'] = size
             __props__['tags'] = tags

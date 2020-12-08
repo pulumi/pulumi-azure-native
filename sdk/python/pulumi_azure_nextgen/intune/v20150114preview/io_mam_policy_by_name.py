@@ -77,10 +77,10 @@ class IoMAMPolicyByName(pulumi.CustomResource):
             __props__['device_compliance'] = device_compliance
             __props__['file_encryption_level'] = file_encryption_level
             __props__['file_sharing_save_as'] = file_sharing_save_as
-            if friendly_name is None:
+            if friendly_name is None and not opts.urn:
                 raise TypeError("Missing required property 'friendly_name'")
             __props__['friendly_name'] = friendly_name
-            if host_name is None:
+            if host_name is None and not opts.urn:
                 raise TypeError("Missing required property 'host_name'")
             __props__['host_name'] = host_name
             __props__['location'] = location
@@ -88,7 +88,7 @@ class IoMAMPolicyByName(pulumi.CustomResource):
             __props__['offline_wipe_timeout'] = offline_wipe_timeout
             __props__['pin'] = pin
             __props__['pin_num_retry'] = pin_num_retry
-            if policy_name is None:
+            if policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_name'")
             __props__['policy_name'] = policy_name
             __props__['tags'] = tags

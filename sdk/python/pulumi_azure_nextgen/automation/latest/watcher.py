@@ -63,21 +63,21 @@ class Watcher(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if automation_account_name is None:
+            if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
             __props__['description'] = description
             __props__['etag'] = etag
             __props__['execution_frequency_in_seconds'] = execution_frequency_in_seconds
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['script_name'] = script_name
             __props__['script_parameters'] = script_parameters
             __props__['script_run_on'] = script_run_on
             __props__['tags'] = tags
-            if watcher_name is None:
+            if watcher_name is None and not opts.urn:
                 raise TypeError("Missing required property 'watcher_name'")
             __props__['watcher_name'] = watcher_name
             __props__['creation_time'] = None

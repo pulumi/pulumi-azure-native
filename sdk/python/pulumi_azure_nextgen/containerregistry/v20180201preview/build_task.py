@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['BuildTask']
@@ -24,7 +25,7 @@ class BuildTask(pulumi.CustomResource):
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_repository: Optional[pulumi.Input[pulumi.InputType['SourceRepositoryPropertiesArgs']]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'BuildTaskStatus']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  __props__=None,
@@ -42,7 +43,7 @@ class BuildTask(pulumi.CustomResource):
         :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
         :param pulumi.Input[pulumi.InputType['SourceRepositoryPropertiesArgs']] source_repository: The properties that describes the source(code) for the build task.
-        :param pulumi.Input[str] status: The current status of build task.
+        :param pulumi.Input[Union[str, 'BuildTaskStatus']] status: The current status of build task.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[int] timeout: Build timeout in seconds.
         """
@@ -63,25 +64,25 @@ class BuildTask(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if alias is None:
+            if alias is None and not opts.urn:
                 raise TypeError("Missing required property 'alias'")
             __props__['alias'] = alias
-            if build_task_name is None:
+            if build_task_name is None and not opts.urn:
                 raise TypeError("Missing required property 'build_task_name'")
             __props__['build_task_name'] = build_task_name
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if platform is None:
+            if platform is None and not opts.urn:
                 raise TypeError("Missing required property 'platform'")
             __props__['platform'] = platform
-            if registry_name is None:
+            if registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registry_name'")
             __props__['registry_name'] = registry_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if source_repository is None:
+            if source_repository is None and not opts.urn:
                 raise TypeError("Missing required property 'source_repository'")
             __props__['source_repository'] = source_repository
             __props__['status'] = status

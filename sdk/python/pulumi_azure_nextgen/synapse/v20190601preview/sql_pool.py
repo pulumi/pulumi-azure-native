@@ -76,24 +76,24 @@ class SqlPool(pulumi.CustomResource):
             __props__['collation'] = collation
             __props__['create_mode'] = create_mode
             __props__['creation_date'] = creation_date
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['max_size_bytes'] = max_size_bytes
             __props__['provisioning_state'] = provisioning_state
             __props__['recoverable_database_id'] = recoverable_database_id
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['restore_point_in_time'] = restore_point_in_time
             __props__['sku'] = sku
             __props__['source_database_id'] = source_database_id
-            if sql_pool_name is None:
+            if sql_pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sql_pool_name'")
             __props__['sql_pool_name'] = sql_pool_name
             __props__['status'] = status
             __props__['tags'] = tags
-            if workspace_name is None:
+            if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['name'] = None

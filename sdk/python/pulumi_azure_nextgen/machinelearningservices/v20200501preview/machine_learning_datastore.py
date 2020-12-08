@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 
 __all__ = ['MachineLearningDatastore']
 
@@ -24,7 +25,7 @@ class MachineLearningDatastore(pulumi.CustomResource):
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
-                 data_store_type: Optional[pulumi.Input[str]] = None,
+                 data_store_type: Optional[pulumi.Input[Union[str, 'DatastoreTypeArm']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  datastore_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -66,7 +67,7 @@ class MachineLearningDatastore(pulumi.CustomResource):
         :param pulumi.Input[str] client_id: The service principal's client/application ID.
         :param pulumi.Input[str] client_secret: The service principal's secret.
         :param pulumi.Input[str] container_name: The name of the azure blob container.
-        :param pulumi.Input[str] data_store_type: Specifies datastore type.
+        :param pulumi.Input[Union[str, 'DatastoreTypeArm']] data_store_type: Specifies datastore type.
         :param pulumi.Input[str] database_name: The database name.
         :param pulumi.Input[str] datastore_name: The Datastore name.
         :param pulumi.Input[str] description: The description of the datastore.
@@ -118,11 +119,11 @@ class MachineLearningDatastore(pulumi.CustomResource):
             __props__['client_id'] = client_id
             __props__['client_secret'] = client_secret
             __props__['container_name'] = container_name
-            if data_store_type is None:
+            if data_store_type is None and not opts.urn:
                 raise TypeError("Missing required property 'data_store_type'")
             __props__['data_store_type'] = data_store_type
             __props__['database_name'] = database_name
-            if datastore_name is None:
+            if datastore_name is None and not opts.urn:
                 raise TypeError("Missing required property 'datastore_name'")
             __props__['datastore_name'] = datastore_name
             __props__['description'] = description
@@ -134,7 +135,7 @@ class MachineLearningDatastore(pulumi.CustomResource):
             __props__['password'] = password
             __props__['port'] = port
             __props__['protocol'] = protocol
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_url'] = resource_url
@@ -148,7 +149,7 @@ class MachineLearningDatastore(pulumi.CustomResource):
             __props__['tenant_id'] = tenant_id
             __props__['user_id'] = user_id
             __props__['user_name'] = user_name
-            if workspace_name is None:
+            if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['workspace_system_assigned_identity'] = workspace_system_assigned_identity

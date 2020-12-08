@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DscpConfiguration']
@@ -23,7 +24,7 @@ class DscpConfiguration(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  markings: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
-                 protocol: Optional[pulumi.Input[str]] = None,
+                 protocol: Optional[pulumi.Input[Union[str, 'ProtocolType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QosIpRangeArgs']]]]] = None,
                  source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QosPortRangeArgs']]]]] = None,
@@ -42,7 +43,7 @@ class DscpConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] markings: List of markings to be used in the configuration.
-        :param pulumi.Input[str] protocol: RNM supported protocol types.
+        :param pulumi.Input[Union[str, 'ProtocolType']] protocol: RNM supported protocol types.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QosIpRangeArgs']]]] source_ip_ranges: Source IP ranges.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QosPortRangeArgs']]]] source_port_ranges: Sources port ranges.
@@ -67,14 +68,14 @@ class DscpConfiguration(pulumi.CustomResource):
 
             __props__['destination_ip_ranges'] = destination_ip_ranges
             __props__['destination_port_ranges'] = destination_port_ranges
-            if dscp_configuration_name is None:
+            if dscp_configuration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'dscp_configuration_name'")
             __props__['dscp_configuration_name'] = dscp_configuration_name
             __props__['id'] = id
             __props__['location'] = location
             __props__['markings'] = markings
             __props__['protocol'] = protocol
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['source_ip_ranges'] = source_ip_ranges

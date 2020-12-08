@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Resource']
@@ -73,21 +74,21 @@ class Resource(pulumi.CustomResource):
             __props__['kind'] = kind
             __props__['location'] = location
             __props__['managed_by'] = managed_by
-            if parent_resource_path is None:
+            if parent_resource_path is None and not opts.urn:
                 raise TypeError("Missing required property 'parent_resource_path'")
             __props__['parent_resource_path'] = parent_resource_path
             __props__['plan'] = plan
             __props__['properties'] = properties
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if resource_name_ is None:
+            if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
-            if resource_provider_namespace is None:
+            if resource_provider_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_provider_namespace'")
             __props__['resource_provider_namespace'] = resource_provider_namespace
-            if resource_type is None:
+            if resource_type is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_type'")
             __props__['resource_type'] = resource_type
             __props__['sku'] = sku

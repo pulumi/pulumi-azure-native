@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ReferenceDataSet']
@@ -17,7 +18,7 @@ class ReferenceDataSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_string_comparison_behavior: Optional[pulumi.Input[str]] = None,
+                 data_string_comparison_behavior: Optional[pulumi.Input['DataStringComparisonBehavior']] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
                  key_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReferenceDataSetKeyPropertyArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -32,7 +33,7 @@ class ReferenceDataSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] data_string_comparison_behavior: The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
+        :param pulumi.Input['DataStringComparisonBehavior'] data_string_comparison_behavior: The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
         :param pulumi.Input[str] environment_name: The name of the Time Series Insights environment associated with the specified resource group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReferenceDataSetKeyPropertyArgs']]]] key_properties: The list of key properties for the reference data set.
         :param pulumi.Input[str] location: The location of the resource.
@@ -58,19 +59,19 @@ class ReferenceDataSet(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['data_string_comparison_behavior'] = data_string_comparison_behavior
-            if environment_name is None:
+            if environment_name is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_name'")
             __props__['environment_name'] = environment_name
-            if key_properties is None:
+            if key_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'key_properties'")
             __props__['key_properties'] = key_properties
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if reference_data_set_name is None:
+            if reference_data_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'reference_data_set_name'")
             __props__['reference_data_set_name'] = reference_data_set_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

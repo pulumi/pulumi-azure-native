@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DeploymentScript']
@@ -18,7 +19,7 @@ class DeploymentScript(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'ScriptType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  script_name: Optional[pulumi.Input[str]] = None,
@@ -32,7 +33,7 @@ class DeploymentScript(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
-        :param pulumi.Input[str] kind: Type of the script.
+        :param pulumi.Input[Union[str, 'ScriptType']] kind: Type of the script.
         :param pulumi.Input[str] location: The location of the ACI and the storage account for the deployment script.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] script_name: Name of the deployment script.
@@ -55,19 +56,19 @@ class DeploymentScript(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if identity is None:
+            if identity is None and not opts.urn:
                 raise TypeError("Missing required property 'identity'")
             __props__['identity'] = identity
-            if kind is None:
+            if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = kind
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if script_name is None:
+            if script_name is None and not opts.urn:
                 raise TypeError("Missing required property 'script_name'")
             __props__['script_name'] = script_name
             __props__['tags'] = tags

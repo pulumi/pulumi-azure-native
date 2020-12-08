@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ReportConfig']
@@ -19,7 +20,7 @@ class ReportConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  definition: Optional[pulumi.Input[pulumi.InputType['ReportConfigDefinitionArgs']]] = None,
                  delivery_info: Optional[pulumi.Input[pulumi.InputType['ReportConfigDeliveryInfoArgs']]] = None,
-                 format: Optional[pulumi.Input[str]] = None,
+                 format: Optional[pulumi.Input[Union[str, 'FormatType']]] = None,
                  report_config_name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['ReportConfigScheduleArgs']]] = None,
                  __props__=None,
@@ -32,7 +33,7 @@ class ReportConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ReportConfigDefinitionArgs']] definition: Has definition for the report config.
         :param pulumi.Input[pulumi.InputType['ReportConfigDeliveryInfoArgs']] delivery_info: Has delivery information for the report config.
-        :param pulumi.Input[str] format: The format of the report being delivered.
+        :param pulumi.Input[Union[str, 'FormatType']] format: The format of the report being delivered.
         :param pulumi.Input[str] report_config_name: Report Config Name.
         :param pulumi.Input[pulumi.InputType['ReportConfigScheduleArgs']] schedule: Has schedule information for the report config.
         """
@@ -53,14 +54,14 @@ class ReportConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if definition is None:
+            if definition is None and not opts.urn:
                 raise TypeError("Missing required property 'definition'")
             __props__['definition'] = definition
-            if delivery_info is None:
+            if delivery_info is None and not opts.urn:
                 raise TypeError("Missing required property 'delivery_info'")
             __props__['delivery_info'] = delivery_info
             __props__['format'] = format
-            if report_config_name is None:
+            if report_config_name is None and not opts.urn:
                 raise TypeError("Missing required property 'report_config_name'")
             __props__['report_config_name'] = report_config_name
             __props__['schedule'] = schedule

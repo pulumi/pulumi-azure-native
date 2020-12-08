@@ -75,40 +75,40 @@ class Prediction(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if auto_analyze is None:
+            if auto_analyze is None and not opts.urn:
                 raise TypeError("Missing required property 'auto_analyze'")
             __props__['auto_analyze'] = auto_analyze
             __props__['description'] = description
             __props__['display_name'] = display_name
             __props__['grades'] = grades
-            if hub_name is None:
+            if hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'hub_name'")
             __props__['hub_name'] = hub_name
             __props__['involved_interaction_types'] = involved_interaction_types
             __props__['involved_kpi_types'] = involved_kpi_types
             __props__['involved_relationships'] = involved_relationships
-            if mappings is None:
+            if mappings is None and not opts.urn:
                 raise TypeError("Missing required property 'mappings'")
             __props__['mappings'] = mappings
-            if negative_outcome_expression is None:
+            if negative_outcome_expression is None and not opts.urn:
                 raise TypeError("Missing required property 'negative_outcome_expression'")
             __props__['negative_outcome_expression'] = negative_outcome_expression
-            if positive_outcome_expression is None:
+            if positive_outcome_expression is None and not opts.urn:
                 raise TypeError("Missing required property 'positive_outcome_expression'")
             __props__['positive_outcome_expression'] = positive_outcome_expression
-            if prediction_name is None:
+            if prediction_name is None and not opts.urn:
                 raise TypeError("Missing required property 'prediction_name'")
             __props__['prediction_name'] = prediction_name
-            if primary_profile_type is None:
+            if primary_profile_type is None and not opts.urn:
                 raise TypeError("Missing required property 'primary_profile_type'")
             __props__['primary_profile_type'] = primary_profile_type
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if scope_expression is None:
+            if scope_expression is None and not opts.urn:
                 raise TypeError("Missing required property 'scope_expression'")
             __props__['scope_expression'] = scope_expression
-            if score_label is None:
+            if score_label is None and not opts.urn:
                 raise TypeError("Missing required property 'score_label'")
             __props__['score_label'] = score_label
             __props__['name'] = None

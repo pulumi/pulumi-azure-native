@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AutoscaleNotificationArgs',
@@ -26,12 +27,12 @@ __all__ = [
 @pulumi.input_type
 class AutoscaleNotificationArgs:
     def __init__(__self__, *,
-                 operation: pulumi.Input[str],
+                 operation: pulumi.Input['OperationType'],
                  email: Optional[pulumi.Input['EmailNotificationArgs']] = None,
                  webhooks: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookNotificationArgs']]]] = None):
         """
         Autoscale notification.
-        :param pulumi.Input[str] operation: the operation associated with the notification and its value must be "scale"
+        :param pulumi.Input['OperationType'] operation: the operation associated with the notification and its value must be "scale"
         :param pulumi.Input['EmailNotificationArgs'] email: the email notification.
         :param pulumi.Input[Sequence[pulumi.Input['WebhookNotificationArgs']]] webhooks: the collection of webhook notifications.
         """
@@ -43,14 +44,14 @@ class AutoscaleNotificationArgs:
 
     @property
     @pulumi.getter
-    def operation(self) -> pulumi.Input[str]:
+    def operation(self) -> pulumi.Input['OperationType']:
         """
         the operation associated with the notification and its value must be "scale"
         """
         return pulumi.get(self, "operation")
 
     @operation.setter
-    def operation(self, value: pulumi.Input[str]):
+    def operation(self, value: pulumi.Input['OperationType']):
         pulumi.set(self, "operation", value)
 
     @property
@@ -224,10 +225,10 @@ class MetricTriggerArgs:
     def __init__(__self__, *,
                  metric_name: pulumi.Input[str],
                  metric_resource_uri: pulumi.Input[str],
-                 operator: pulumi.Input[str],
-                 statistic: pulumi.Input[str],
+                 operator: pulumi.Input['ComparisonOperationType'],
+                 statistic: pulumi.Input['MetricStatisticType'],
                  threshold: pulumi.Input[float],
-                 time_aggregation: pulumi.Input[str],
+                 time_aggregation: pulumi.Input['TimeAggregationType'],
                  time_grain: pulumi.Input[str],
                  time_window: pulumi.Input[str],
                  dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleMetricDimensionArgs']]]] = None,
@@ -236,10 +237,10 @@ class MetricTriggerArgs:
         The trigger that results in a scaling action.
         :param pulumi.Input[str] metric_name: the name of the metric that defines what the rule monitors.
         :param pulumi.Input[str] metric_resource_uri: the resource identifier of the resource the rule monitors.
-        :param pulumi.Input[str] operator: the operator that is used to compare the metric data and the threshold.
-        :param pulumi.Input[str] statistic: the metric statistic type. How the metrics from multiple instances are combined.
+        :param pulumi.Input['ComparisonOperationType'] operator: the operator that is used to compare the metric data and the threshold.
+        :param pulumi.Input['MetricStatisticType'] statistic: the metric statistic type. How the metrics from multiple instances are combined.
         :param pulumi.Input[float] threshold: the threshold of the metric that triggers the scale action.
-        :param pulumi.Input[str] time_aggregation: time aggregation type. How the data that is collected should be combined over time. The default value is Average.
+        :param pulumi.Input['TimeAggregationType'] time_aggregation: time aggregation type. How the data that is collected should be combined over time. The default value is Average.
         :param pulumi.Input[str] time_grain: the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
         :param pulumi.Input[str] time_window: the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
         :param pulumi.Input[Sequence[pulumi.Input['ScaleRuleMetricDimensionArgs']]] dimensions: List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
@@ -284,26 +285,26 @@ class MetricTriggerArgs:
 
     @property
     @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
+    def operator(self) -> pulumi.Input['ComparisonOperationType']:
         """
         the operator that is used to compare the metric data and the threshold.
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: pulumi.Input[str]):
+    def operator(self, value: pulumi.Input['ComparisonOperationType']):
         pulumi.set(self, "operator", value)
 
     @property
     @pulumi.getter
-    def statistic(self) -> pulumi.Input[str]:
+    def statistic(self) -> pulumi.Input['MetricStatisticType']:
         """
         the metric statistic type. How the metrics from multiple instances are combined.
         """
         return pulumi.get(self, "statistic")
 
     @statistic.setter
-    def statistic(self, value: pulumi.Input[str]):
+    def statistic(self, value: pulumi.Input['MetricStatisticType']):
         pulumi.set(self, "statistic", value)
 
     @property
@@ -320,14 +321,14 @@ class MetricTriggerArgs:
 
     @property
     @pulumi.getter(name="timeAggregation")
-    def time_aggregation(self) -> pulumi.Input[str]:
+    def time_aggregation(self) -> pulumi.Input['TimeAggregationType']:
         """
         time aggregation type. How the data that is collected should be combined over time. The default value is Average.
         """
         return pulumi.get(self, "time_aggregation")
 
     @time_aggregation.setter
-    def time_aggregation(self, value: pulumi.Input[str]):
+    def time_aggregation(self, value: pulumi.Input['TimeAggregationType']):
         pulumi.set(self, "time_aggregation", value)
 
     @property
@@ -382,11 +383,11 @@ class MetricTriggerArgs:
 @pulumi.input_type
 class RecurrenceArgs:
     def __init__(__self__, *,
-                 frequency: pulumi.Input[str],
+                 frequency: pulumi.Input['RecurrenceFrequency'],
                  schedule: pulumi.Input['RecurrentScheduleArgs']):
         """
         The repeating times at which this profile begins. This element is not used if the FixedDate element is used.
-        :param pulumi.Input[str] frequency: the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
+        :param pulumi.Input['RecurrenceFrequency'] frequency: the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
         :param pulumi.Input['RecurrentScheduleArgs'] schedule: the scheduling constraints for when the profile begins.
         """
         pulumi.set(__self__, "frequency", frequency)
@@ -394,14 +395,14 @@ class RecurrenceArgs:
 
     @property
     @pulumi.getter
-    def frequency(self) -> pulumi.Input[str]:
+    def frequency(self) -> pulumi.Input['RecurrenceFrequency']:
         """
         the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
         """
         return pulumi.get(self, "frequency")
 
     @frequency.setter
-    def frequency(self, value: pulumi.Input[str]):
+    def frequency(self, value: pulumi.Input['RecurrenceFrequency']):
         pulumi.set(self, "frequency", value)
 
     @property
@@ -489,14 +490,14 @@ class RecurrentScheduleArgs:
 class ScaleActionArgs:
     def __init__(__self__, *,
                  cooldown: pulumi.Input[str],
-                 direction: pulumi.Input[str],
-                 type: pulumi.Input[str],
+                 direction: pulumi.Input['ScaleDirection'],
+                 type: pulumi.Input['ScaleType'],
                  value: Optional[pulumi.Input[str]] = None):
         """
         The parameters for the scaling action.
         :param pulumi.Input[str] cooldown: the amount of time to wait since the last scaling action before this action occurs. It must be between 1 week and 1 minute in ISO 8601 format.
-        :param pulumi.Input[str] direction: the scale direction. Whether the scaling action increases or decreases the number of instances.
-        :param pulumi.Input[str] type: the type of action that should occur when the scale rule fires.
+        :param pulumi.Input['ScaleDirection'] direction: the scale direction. Whether the scaling action increases or decreases the number of instances.
+        :param pulumi.Input['ScaleType'] type: the type of action that should occur when the scale rule fires.
         :param pulumi.Input[str] value: the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.
         """
         pulumi.set(__self__, "cooldown", cooldown)
@@ -519,26 +520,26 @@ class ScaleActionArgs:
 
     @property
     @pulumi.getter
-    def direction(self) -> pulumi.Input[str]:
+    def direction(self) -> pulumi.Input['ScaleDirection']:
         """
         the scale direction. Whether the scaling action increases or decreases the number of instances.
         """
         return pulumi.get(self, "direction")
 
     @direction.setter
-    def direction(self, value: pulumi.Input[str]):
+    def direction(self, value: pulumi.Input['ScaleDirection']):
         pulumi.set(self, "direction", value)
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['ScaleType']:
         """
         the type of action that should occur when the scale rule fires.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['ScaleType']):
         pulumi.set(self, "type", value)
 
     @property
@@ -649,12 +650,12 @@ class ScaleRuleArgs:
 class ScaleRuleMetricDimensionArgs:
     def __init__(__self__, *,
                  dimension_name: pulumi.Input[str],
-                 operator: pulumi.Input[str],
+                 operator: pulumi.Input[Union[str, 'ScaleRuleMetricDimensionOperationType']],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         Specifies an auto scale rule metric dimension.
         :param pulumi.Input[str] dimension_name: Name of the dimension.
-        :param pulumi.Input[str] operator: the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
+        :param pulumi.Input[Union[str, 'ScaleRuleMetricDimensionOperationType']] operator: the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: list of dimension values. For example: ["App1","App2"].
         """
         pulumi.set(__self__, "dimension_name", dimension_name)
@@ -675,14 +676,14 @@ class ScaleRuleMetricDimensionArgs:
 
     @property
     @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
+    def operator(self) -> pulumi.Input[Union[str, 'ScaleRuleMetricDimensionOperationType']]:
         """
         the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: pulumi.Input[str]):
+    def operator(self, value: pulumi.Input[Union[str, 'ScaleRuleMetricDimensionOperationType']]):
         pulumi.set(self, "operator", value)
 
     @property

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Cluster']
@@ -17,7 +18,7 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 billing_type: Optional[pulumi.Input[str]] = None,
+                 billing_type: Optional[pulumi.Input[Union[str, 'BillingType']]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  is_availability_zones_enabled: Optional[pulumi.Input[bool]] = None,
@@ -35,7 +36,7 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] billing_type: Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
+        :param pulumi.Input[Union[str, 'BillingType']] billing_type: Configures whether billing will be only on the cluster or each workspace will be billed by its proportional use. This does not change the overall billing, only how it will be distributed. Default value is 'Cluster'
         :param pulumi.Input[str] cluster_name: The name of the Log Analytics cluster.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
         :param pulumi.Input[bool] is_availability_zones_enabled: Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
@@ -64,17 +65,17 @@ class Cluster(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['billing_type'] = billing_type
-            if cluster_name is None:
+            if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
             __props__['identity'] = identity
             __props__['is_availability_zones_enabled'] = is_availability_zones_enabled
             __props__['is_double_encryption_enabled'] = is_double_encryption_enabled
             __props__['key_vault_properties'] = key_vault_properties
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku

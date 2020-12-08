@@ -3,9 +3,31 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .commitment_plan import *
 from .get_commitment_plan import *
 from .get_web_service import *
 from .web_service import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:machinelearning/v20160501preview:CommitmentPlan":
+                return CommitmentPlan(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:machinelearning/v20160501preview:WebService":
+                return WebService(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "machinelearning/v20160501preview", _module_instance)
+
+_register_module()

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ARecordArgs',
@@ -88,7 +89,7 @@ class BackendArgs:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[str]] = None,
                  backend_host_header: Optional[pulumi.Input[str]] = None,
-                 enabled_state: Optional[pulumi.Input[str]] = None,
+                 enabled_state: Optional[pulumi.Input[Union[str, 'BackendEnabledState']]] = None,
                  http_port: Optional[pulumi.Input[int]] = None,
                  https_port: Optional[pulumi.Input[int]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
@@ -99,7 +100,7 @@ class BackendArgs:
         Backend address of a frontDoor load balancer.
         :param pulumi.Input[str] address: Location of the backend (IP address or FQDN)
         :param pulumi.Input[str] backend_host_header: The value to use as the host header sent to the backend. If blank or unspecified, this defaults to the incoming host.
-        :param pulumi.Input[str] enabled_state: Whether to enable use of this backend. Permitted values are 'Enabled' or 'Disabled'
+        :param pulumi.Input[Union[str, 'BackendEnabledState']] enabled_state: Whether to enable use of this backend. Permitted values are 'Enabled' or 'Disabled'
         :param pulumi.Input[int] http_port: The HTTP TCP port number. Must be between 1 and 65535.
         :param pulumi.Input[int] https_port: The HTTPS TCP port number. Must be between 1 and 65535.
         :param pulumi.Input[int] priority: Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy.
@@ -152,14 +153,14 @@ class BackendArgs:
 
     @property
     @pulumi.getter(name="enabledState")
-    def enabled_state(self) -> Optional[pulumi.Input[str]]:
+    def enabled_state(self) -> Optional[pulumi.Input[Union[str, 'BackendEnabledState']]]:
         """
         Whether to enable use of this backend. Permitted values are 'Enabled' or 'Disabled'
         """
         return pulumi.get(self, "enabled_state")
 
     @enabled_state.setter
-    def enabled_state(self, value: Optional[pulumi.Input[str]]):
+    def enabled_state(self, value: Optional[pulumi.Input[Union[str, 'BackendEnabledState']]]):
         pulumi.set(self, "enabled_state", value)
 
     @property
@@ -326,11 +327,11 @@ class BackendPoolArgs:
 @pulumi.input_type
 class BackendPoolsSettingsArgs:
     def __init__(__self__, *,
-                 enforce_certificate_name_check: Optional[pulumi.Input[str]] = None,
+                 enforce_certificate_name_check: Optional[pulumi.Input[Union[str, 'EnforceCertificateNameCheckEnabledState']]] = None,
                  send_recv_timeout_seconds: Optional[pulumi.Input[int]] = None):
         """
         Settings that apply to all backend pools.
-        :param pulumi.Input[str] enforce_certificate_name_check: Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
+        :param pulumi.Input[Union[str, 'EnforceCertificateNameCheckEnabledState']] enforce_certificate_name_check: Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
         :param pulumi.Input[int] send_recv_timeout_seconds: Send and receive timeout on forwarding request to the backend. When timeout is reached, the request fails and returns.
         """
         if enforce_certificate_name_check is not None:
@@ -340,14 +341,14 @@ class BackendPoolsSettingsArgs:
 
     @property
     @pulumi.getter(name="enforceCertificateNameCheck")
-    def enforce_certificate_name_check(self) -> Optional[pulumi.Input[str]]:
+    def enforce_certificate_name_check(self) -> Optional[pulumi.Input[Union[str, 'EnforceCertificateNameCheckEnabledState']]]:
         """
         Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
         """
         return pulumi.get(self, "enforce_certificate_name_check")
 
     @enforce_certificate_name_check.setter
-    def enforce_certificate_name_check(self, value: Optional[pulumi.Input[str]]):
+    def enforce_certificate_name_check(self, value: Optional[pulumi.Input[Union[str, 'EnforceCertificateNameCheckEnabledState']]]):
         pulumi.set(self, "enforce_certificate_name_check", value)
 
     @property
@@ -367,14 +368,14 @@ class BackendPoolsSettingsArgs:
 class CacheConfigurationArgs:
     def __init__(__self__, *,
                  cache_duration: Optional[pulumi.Input[str]] = None,
-                 dynamic_compression: Optional[pulumi.Input[str]] = None,
-                 query_parameter_strip_directive: Optional[pulumi.Input[str]] = None,
+                 dynamic_compression: Optional[pulumi.Input[Union[str, 'DynamicCompressionEnabled']]] = None,
+                 query_parameter_strip_directive: Optional[pulumi.Input[Union[str, 'FrontDoorQuery']]] = None,
                  query_parameters: Optional[pulumi.Input[str]] = None):
         """
         Caching settings for a caching-type route. To disable caching, do not provide a cacheConfiguration object.
         :param pulumi.Input[str] cache_duration: The duration for which the content needs to be cached. Allowed format is in ISO 8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations). HTTP requires the value to be no more than a year
-        :param pulumi.Input[str] dynamic_compression: Whether to use dynamic compression for cached content
-        :param pulumi.Input[str] query_parameter_strip_directive: Treatment of URL query terms when forming the cache key.
+        :param pulumi.Input[Union[str, 'DynamicCompressionEnabled']] dynamic_compression: Whether to use dynamic compression for cached content
+        :param pulumi.Input[Union[str, 'FrontDoorQuery']] query_parameter_strip_directive: Treatment of URL query terms when forming the cache key.
         :param pulumi.Input[str] query_parameters: query parameters to include or exclude (comma separated).
         """
         if cache_duration is not None:
@@ -400,26 +401,26 @@ class CacheConfigurationArgs:
 
     @property
     @pulumi.getter(name="dynamicCompression")
-    def dynamic_compression(self) -> Optional[pulumi.Input[str]]:
+    def dynamic_compression(self) -> Optional[pulumi.Input[Union[str, 'DynamicCompressionEnabled']]]:
         """
         Whether to use dynamic compression for cached content
         """
         return pulumi.get(self, "dynamic_compression")
 
     @dynamic_compression.setter
-    def dynamic_compression(self, value: Optional[pulumi.Input[str]]):
+    def dynamic_compression(self, value: Optional[pulumi.Input[Union[str, 'DynamicCompressionEnabled']]]):
         pulumi.set(self, "dynamic_compression", value)
 
     @property
     @pulumi.getter(name="queryParameterStripDirective")
-    def query_parameter_strip_directive(self) -> Optional[pulumi.Input[str]]:
+    def query_parameter_strip_directive(self) -> Optional[pulumi.Input[Union[str, 'FrontDoorQuery']]]:
         """
         Treatment of URL query terms when forming the cache key.
         """
         return pulumi.get(self, "query_parameter_strip_directive")
 
     @query_parameter_strip_directive.setter
-    def query_parameter_strip_directive(self, value: Optional[pulumi.Input[str]]):
+    def query_parameter_strip_directive(self, value: Optional[pulumi.Input[Union[str, 'FrontDoorQuery']]]):
         pulumi.set(self, "query_parameter_strip_directive", value)
 
     @property
@@ -466,13 +467,13 @@ class ForwardingConfigurationArgs:
                  backend_pool: Optional[pulumi.Input['SubResourceArgs']] = None,
                  cache_configuration: Optional[pulumi.Input['CacheConfigurationArgs']] = None,
                  custom_forwarding_path: Optional[pulumi.Input[str]] = None,
-                 forwarding_protocol: Optional[pulumi.Input[str]] = None):
+                 forwarding_protocol: Optional[pulumi.Input[Union[str, 'FrontDoorForwardingProtocol']]] = None):
         """
         Describes Forwarding Route.
         :param pulumi.Input['SubResourceArgs'] backend_pool: A reference to the BackendPool which this rule routes to.
         :param pulumi.Input['CacheConfigurationArgs'] cache_configuration: The caching configuration associated with this rule.
         :param pulumi.Input[str] custom_forwarding_path: A custom path used to rewrite resource paths matched by this rule. Leave empty to use incoming path.
-        :param pulumi.Input[str] forwarding_protocol: Protocol this rule will use when forwarding traffic to backends.
+        :param pulumi.Input[Union[str, 'FrontDoorForwardingProtocol']] forwarding_protocol: Protocol this rule will use when forwarding traffic to backends.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration')
         if backend_pool is not None:
@@ -531,14 +532,14 @@ class ForwardingConfigurationArgs:
 
     @property
     @pulumi.getter(name="forwardingProtocol")
-    def forwarding_protocol(self) -> Optional[pulumi.Input[str]]:
+    def forwarding_protocol(self) -> Optional[pulumi.Input[Union[str, 'FrontDoorForwardingProtocol']]]:
         """
         Protocol this rule will use when forwarding traffic to backends.
         """
         return pulumi.get(self, "forwarding_protocol")
 
     @forwarding_protocol.setter
-    def forwarding_protocol(self, value: Optional[pulumi.Input[str]]):
+    def forwarding_protocol(self, value: Optional[pulumi.Input[Union[str, 'FrontDoorForwardingProtocol']]]):
         pulumi.set(self, "forwarding_protocol", value)
 
 
@@ -548,7 +549,7 @@ class FrontendEndpointArgs:
                  host_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 session_affinity_enabled_state: Optional[pulumi.Input[str]] = None,
+                 session_affinity_enabled_state: Optional[pulumi.Input[Union[str, 'SessionAffinityEnabledState']]] = None,
                  session_affinity_ttl_seconds: Optional[pulumi.Input[int]] = None,
                  web_application_firewall_policy_link: Optional[pulumi.Input['FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs']] = None):
         """
@@ -556,7 +557,7 @@ class FrontendEndpointArgs:
         :param pulumi.Input[str] host_name: The host name of the frontendEndpoint. Must be a domain name.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: Resource name.
-        :param pulumi.Input[str] session_affinity_enabled_state: Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
+        :param pulumi.Input[Union[str, 'SessionAffinityEnabledState']] session_affinity_enabled_state: Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
         :param pulumi.Input[int] session_affinity_ttl_seconds: UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
         :param pulumi.Input['FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs'] web_application_firewall_policy_link: Defines the Web Application Firewall policy for each host (if applicable)
         """
@@ -611,14 +612,14 @@ class FrontendEndpointArgs:
 
     @property
     @pulumi.getter(name="sessionAffinityEnabledState")
-    def session_affinity_enabled_state(self) -> Optional[pulumi.Input[str]]:
+    def session_affinity_enabled_state(self) -> Optional[pulumi.Input[Union[str, 'SessionAffinityEnabledState']]]:
         """
         Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
         """
         return pulumi.get(self, "session_affinity_enabled_state")
 
     @session_affinity_enabled_state.setter
-    def session_affinity_enabled_state(self, value: Optional[pulumi.Input[str]]):
+    def session_affinity_enabled_state(self, value: Optional[pulumi.Input[Union[str, 'SessionAffinityEnabledState']]]):
         pulumi.set(self, "session_affinity_enabled_state", value)
 
     @property
@@ -673,12 +674,12 @@ class FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs:
 @pulumi.input_type
 class HeaderActionArgs:
     def __init__(__self__, *,
-                 header_action_type: pulumi.Input[str],
+                 header_action_type: pulumi.Input[Union[str, 'HeaderActionType']],
                  header_name: pulumi.Input[str],
                  value: Optional[pulumi.Input[str]] = None):
         """
         An action that can manipulate an http header.
-        :param pulumi.Input[str] header_action_type: Which type of manipulation to apply to the header.
+        :param pulumi.Input[Union[str, 'HeaderActionType']] header_action_type: Which type of manipulation to apply to the header.
         :param pulumi.Input[str] header_name: The name of the header this action will apply to.
         :param pulumi.Input[str] value: The value to update the given header name with. This value is not used if the actionType is Delete.
         """
@@ -689,14 +690,14 @@ class HeaderActionArgs:
 
     @property
     @pulumi.getter(name="headerActionType")
-    def header_action_type(self) -> pulumi.Input[str]:
+    def header_action_type(self) -> pulumi.Input[Union[str, 'HeaderActionType']]:
         """
         Which type of manipulation to apply to the header.
         """
         return pulumi.get(self, "header_action_type")
 
     @header_action_type.setter
-    def header_action_type(self, value: pulumi.Input[str]):
+    def header_action_type(self, value: pulumi.Input[Union[str, 'HeaderActionType']]):
         pulumi.set(self, "header_action_type", value)
 
     @property
@@ -727,22 +728,22 @@ class HeaderActionArgs:
 @pulumi.input_type
 class HealthProbeSettingsModelArgs:
     def __init__(__self__, *,
-                 enabled_state: Optional[pulumi.Input[str]] = None,
-                 health_probe_method: Optional[pulumi.Input[str]] = None,
+                 enabled_state: Optional[pulumi.Input[Union[str, 'HealthProbeEnabled']]] = None,
+                 health_probe_method: Optional[pulumi.Input[Union[str, 'FrontDoorHealthProbeMethod']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
-                 protocol: Optional[pulumi.Input[str]] = None):
+                 protocol: Optional[pulumi.Input[Union[str, 'FrontDoorProtocol']]] = None):
         """
         Load balancing settings for a backend pool
-        :param pulumi.Input[str] enabled_state: Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
-        :param pulumi.Input[str] health_probe_method: Configures which HTTP method to use to probe the backends defined under backendPools.
+        :param pulumi.Input[Union[str, 'HealthProbeEnabled']] enabled_state: Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
+        :param pulumi.Input[Union[str, 'FrontDoorHealthProbeMethod']] health_probe_method: Configures which HTTP method to use to probe the backends defined under backendPools.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[int] interval_in_seconds: The number of seconds between health probes.
         :param pulumi.Input[str] name: Resource name.
         :param pulumi.Input[str] path: The path to use for the health probe. Default is /
-        :param pulumi.Input[str] protocol: Protocol scheme to use for this probe
+        :param pulumi.Input[Union[str, 'FrontDoorProtocol']] protocol: Protocol scheme to use for this probe
         """
         if enabled_state is not None:
             pulumi.set(__self__, "enabled_state", enabled_state)
@@ -761,26 +762,26 @@ class HealthProbeSettingsModelArgs:
 
     @property
     @pulumi.getter(name="enabledState")
-    def enabled_state(self) -> Optional[pulumi.Input[str]]:
+    def enabled_state(self) -> Optional[pulumi.Input[Union[str, 'HealthProbeEnabled']]]:
         """
         Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
         """
         return pulumi.get(self, "enabled_state")
 
     @enabled_state.setter
-    def enabled_state(self, value: Optional[pulumi.Input[str]]):
+    def enabled_state(self, value: Optional[pulumi.Input[Union[str, 'HealthProbeEnabled']]]):
         pulumi.set(self, "enabled_state", value)
 
     @property
     @pulumi.getter(name="healthProbeMethod")
-    def health_probe_method(self) -> Optional[pulumi.Input[str]]:
+    def health_probe_method(self) -> Optional[pulumi.Input[Union[str, 'FrontDoorHealthProbeMethod']]]:
         """
         Configures which HTTP method to use to probe the backends defined under backendPools.
         """
         return pulumi.get(self, "health_probe_method")
 
     @health_probe_method.setter
-    def health_probe_method(self, value: Optional[pulumi.Input[str]]):
+    def health_probe_method(self, value: Optional[pulumi.Input[Union[str, 'FrontDoorHealthProbeMethod']]]):
         pulumi.set(self, "health_probe_method", value)
 
     @property
@@ -833,14 +834,14 @@ class HealthProbeSettingsModelArgs:
 
     @property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[str]]:
+    def protocol(self) -> Optional[pulumi.Input[Union[str, 'FrontDoorProtocol']]]:
         """
         Protocol scheme to use for this probe
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[str]]):
+    def protocol(self, value: Optional[pulumi.Input[Union[str, 'FrontDoorProtocol']]]):
         pulumi.set(self, "protocol", value)
 
 
@@ -1004,16 +1005,16 @@ class RedirectConfigurationArgs:
                  custom_host: Optional[pulumi.Input[str]] = None,
                  custom_path: Optional[pulumi.Input[str]] = None,
                  custom_query_string: Optional[pulumi.Input[str]] = None,
-                 redirect_protocol: Optional[pulumi.Input[str]] = None,
-                 redirect_type: Optional[pulumi.Input[str]] = None):
+                 redirect_protocol: Optional[pulumi.Input[Union[str, 'FrontDoorRedirectProtocol']]] = None,
+                 redirect_type: Optional[pulumi.Input[Union[str, 'FrontDoorRedirectType']]] = None):
         """
         Describes Redirect Route.
         :param pulumi.Input[str] custom_fragment: Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.
         :param pulumi.Input[str] custom_host: Host to redirect. Leave empty to use the incoming host as the destination host.
         :param pulumi.Input[str] custom_path: The full path to redirect. Path cannot be empty and must start with /. Leave empty to use the incoming path as destination path.
         :param pulumi.Input[str] custom_query_string: The set of query strings to be placed in the redirect URL. Setting this value would replace any existing query string; leave empty to preserve the incoming query string. Query string must be in <key>=<value> format. The first ? and & will be added automatically so do not include them in the front, but do separate multiple query strings with &.
-        :param pulumi.Input[str] redirect_protocol: The protocol of the destination to where the traffic is redirected
-        :param pulumi.Input[str] redirect_type: The redirect type the rule will use when redirecting traffic.
+        :param pulumi.Input[Union[str, 'FrontDoorRedirectProtocol']] redirect_protocol: The protocol of the destination to where the traffic is redirected
+        :param pulumi.Input[Union[str, 'FrontDoorRedirectType']] redirect_type: The redirect type the rule will use when redirecting traffic.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration')
         if custom_fragment is not None:
@@ -1088,34 +1089,34 @@ class RedirectConfigurationArgs:
 
     @property
     @pulumi.getter(name="redirectProtocol")
-    def redirect_protocol(self) -> Optional[pulumi.Input[str]]:
+    def redirect_protocol(self) -> Optional[pulumi.Input[Union[str, 'FrontDoorRedirectProtocol']]]:
         """
         The protocol of the destination to where the traffic is redirected
         """
         return pulumi.get(self, "redirect_protocol")
 
     @redirect_protocol.setter
-    def redirect_protocol(self, value: Optional[pulumi.Input[str]]):
+    def redirect_protocol(self, value: Optional[pulumi.Input[Union[str, 'FrontDoorRedirectProtocol']]]):
         pulumi.set(self, "redirect_protocol", value)
 
     @property
     @pulumi.getter(name="redirectType")
-    def redirect_type(self) -> Optional[pulumi.Input[str]]:
+    def redirect_type(self) -> Optional[pulumi.Input[Union[str, 'FrontDoorRedirectType']]]:
         """
         The redirect type the rule will use when redirecting traffic.
         """
         return pulumi.get(self, "redirect_type")
 
     @redirect_type.setter
-    def redirect_type(self, value: Optional[pulumi.Input[str]]):
+    def redirect_type(self, value: Optional[pulumi.Input[Union[str, 'FrontDoorRedirectType']]]):
         pulumi.set(self, "redirect_type", value)
 
 
 @pulumi.input_type
 class RoutingRuleArgs:
     def __init__(__self__, *,
-                 accepted_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 enabled_state: Optional[pulumi.Input[str]] = None,
+                 accepted_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'FrontDoorProtocol']]]]] = None,
+                 enabled_state: Optional[pulumi.Input[Union[str, 'RoutingRuleEnabledState']]] = None,
                  frontend_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -1124,8 +1125,8 @@ class RoutingRuleArgs:
                  rules_engine: Optional[pulumi.Input['SubResourceArgs']] = None):
         """
         A routing rule represents a specification for traffic to treat and where to send it, along with health probe information.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] accepted_protocols: Protocol schemes to match for this rule
-        :param pulumi.Input[str] enabled_state: Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'FrontDoorProtocol']]]] accepted_protocols: Protocol schemes to match for this rule
+        :param pulumi.Input[Union[str, 'RoutingRuleEnabledState']] enabled_state: Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] frontend_endpoints: Frontend endpoints associated with this rule
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: Resource name.
@@ -1152,26 +1153,26 @@ class RoutingRuleArgs:
 
     @property
     @pulumi.getter(name="acceptedProtocols")
-    def accepted_protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def accepted_protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'FrontDoorProtocol']]]]]:
         """
         Protocol schemes to match for this rule
         """
         return pulumi.get(self, "accepted_protocols")
 
     @accepted_protocols.setter
-    def accepted_protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def accepted_protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'FrontDoorProtocol']]]]]):
         pulumi.set(self, "accepted_protocols", value)
 
     @property
     @pulumi.getter(name="enabledState")
-    def enabled_state(self) -> Optional[pulumi.Input[str]]:
+    def enabled_state(self) -> Optional[pulumi.Input[Union[str, 'RoutingRuleEnabledState']]]:
         """
         Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
         """
         return pulumi.get(self, "enabled_state")
 
     @enabled_state.setter
-    def enabled_state(self, value: Optional[pulumi.Input[str]]):
+    def enabled_state(self, value: Optional[pulumi.Input[Union[str, 'RoutingRuleEnabledState']]]):
         pulumi.set(self, "enabled_state", value)
 
     @property
@@ -1307,19 +1308,19 @@ class RulesEngineActionArgs:
 class RulesEngineMatchConditionArgs:
     def __init__(__self__, *,
                  rules_engine_match_value: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 rules_engine_match_variable: pulumi.Input[str],
-                 rules_engine_operator: pulumi.Input[str],
+                 rules_engine_match_variable: pulumi.Input[Union[str, 'RulesEngineMatchVariable']],
+                 rules_engine_operator: pulumi.Input[Union[str, 'RulesEngineOperator']],
                  negate_condition: Optional[pulumi.Input[bool]] = None,
                  selector: Optional[pulumi.Input[str]] = None,
-                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]] = None):
         """
         Define a match condition
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rules_engine_match_value: Match values to match against. The operator will apply to each value in here with OR semantics. If any of them match the variable with the given operator this match condition is considered a match.
-        :param pulumi.Input[str] rules_engine_match_variable: Match Variable
-        :param pulumi.Input[str] rules_engine_operator: Describes operator to apply to the match condition.
+        :param pulumi.Input[Union[str, 'RulesEngineMatchVariable']] rules_engine_match_variable: Match Variable
+        :param pulumi.Input[Union[str, 'RulesEngineOperator']] rules_engine_operator: Describes operator to apply to the match condition.
         :param pulumi.Input[bool] negate_condition: Describes if this is negate condition or not
         :param pulumi.Input[str] selector: Name of selector in RequestHeader or RequestBody to be matched
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: List of transforms
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]] transforms: List of transforms
         """
         pulumi.set(__self__, "rules_engine_match_value", rules_engine_match_value)
         pulumi.set(__self__, "rules_engine_match_variable", rules_engine_match_variable)
@@ -1345,26 +1346,26 @@ class RulesEngineMatchConditionArgs:
 
     @property
     @pulumi.getter(name="rulesEngineMatchVariable")
-    def rules_engine_match_variable(self) -> pulumi.Input[str]:
+    def rules_engine_match_variable(self) -> pulumi.Input[Union[str, 'RulesEngineMatchVariable']]:
         """
         Match Variable
         """
         return pulumi.get(self, "rules_engine_match_variable")
 
     @rules_engine_match_variable.setter
-    def rules_engine_match_variable(self, value: pulumi.Input[str]):
+    def rules_engine_match_variable(self, value: pulumi.Input[Union[str, 'RulesEngineMatchVariable']]):
         pulumi.set(self, "rules_engine_match_variable", value)
 
     @property
     @pulumi.getter(name="rulesEngineOperator")
-    def rules_engine_operator(self) -> pulumi.Input[str]:
+    def rules_engine_operator(self) -> pulumi.Input[Union[str, 'RulesEngineOperator']]:
         """
         Describes operator to apply to the match condition.
         """
         return pulumi.get(self, "rules_engine_operator")
 
     @rules_engine_operator.setter
-    def rules_engine_operator(self, value: pulumi.Input[str]):
+    def rules_engine_operator(self, value: pulumi.Input[Union[str, 'RulesEngineOperator']]):
         pulumi.set(self, "rules_engine_operator", value)
 
     @property
@@ -1393,14 +1394,14 @@ class RulesEngineMatchConditionArgs:
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]:
         """
         List of transforms
         """
         return pulumi.get(self, "transforms")
 
     @transforms.setter
-    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Transform']]]]]):
         pulumi.set(self, "transforms", value)
 
 
@@ -1411,14 +1412,14 @@ class RulesEngineRuleArgs:
                  name: pulumi.Input[str],
                  priority: pulumi.Input[int],
                  match_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineMatchConditionArgs']]]] = None,
-                 match_processing_behavior: Optional[pulumi.Input[str]] = None):
+                 match_processing_behavior: Optional[pulumi.Input[Union[str, 'MatchProcessingBehavior']]] = None):
         """
         Contains a list of match conditions, and an action on how to modify the request/response. If multiple rules match, the actions from one rule that conflict with a previous rule overwrite for a singular action, or append in the case of headers manipulation.
         :param pulumi.Input['RulesEngineActionArgs'] action: Actions to perform on the request and response if all of the match conditions are met.
         :param pulumi.Input[str] name: A name to refer to this specific rule.
         :param pulumi.Input[int] priority: A priority assigned to this rule. 
         :param pulumi.Input[Sequence[pulumi.Input['RulesEngineMatchConditionArgs']]] match_conditions: A list of match conditions that must meet in order for the actions of this rule to run. Having no match conditions means the actions will always run.
-        :param pulumi.Input[str] match_processing_behavior: If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
+        :param pulumi.Input[Union[str, 'MatchProcessingBehavior']] match_processing_behavior: If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "name", name)
@@ -1478,14 +1479,14 @@ class RulesEngineRuleArgs:
 
     @property
     @pulumi.getter(name="matchProcessingBehavior")
-    def match_processing_behavior(self) -> Optional[pulumi.Input[str]]:
+    def match_processing_behavior(self) -> Optional[pulumi.Input[Union[str, 'MatchProcessingBehavior']]]:
         """
         If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
         """
         return pulumi.get(self, "match_processing_behavior")
 
     @match_processing_behavior.setter
-    def match_processing_behavior(self, value: Optional[pulumi.Input[str]]):
+    def match_processing_behavior(self, value: Optional[pulumi.Input[Union[str, 'MatchProcessingBehavior']]]):
         pulumi.set(self, "match_processing_behavior", value)
 
 

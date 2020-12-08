@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'CustomerSecretArgs',
@@ -17,12 +18,12 @@ __all__ = [
 @pulumi.input_type
 class CustomerSecretArgs:
     def __init__(__self__, *,
-                 algorithm: pulumi.Input[str],
+                 algorithm: pulumi.Input['SupportedAlgorithm'],
                  key_identifier: pulumi.Input[str],
                  key_value: pulumi.Input[str]):
         """
         The pair of customer secret.
-        :param pulumi.Input[str] algorithm: The encryption algorithm used to encrypt data.
+        :param pulumi.Input['SupportedAlgorithm'] algorithm: The encryption algorithm used to encrypt data.
         :param pulumi.Input[str] key_identifier: The identifier to the data service input object which this secret corresponds to.
         :param pulumi.Input[str] key_value: It contains the encrypted customer secret.
         """
@@ -32,14 +33,14 @@ class CustomerSecretArgs:
 
     @property
     @pulumi.getter
-    def algorithm(self) -> pulumi.Input[str]:
+    def algorithm(self) -> pulumi.Input['SupportedAlgorithm']:
         """
         The encryption algorithm used to encrypt data.
         """
         return pulumi.get(self, "algorithm")
 
     @algorithm.setter
-    def algorithm(self, value: pulumi.Input[str]):
+    def algorithm(self, value: pulumi.Input['SupportedAlgorithm']):
         pulumi.set(self, "algorithm", value)
 
     @property

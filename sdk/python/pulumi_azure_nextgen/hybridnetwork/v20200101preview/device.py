@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Device']
@@ -19,7 +20,7 @@ class Device(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_stack_edge: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 device_type: Optional[pulumi.Input[str]] = None,
+                 device_type: Optional[pulumi.Input[Union[str, 'DeviceType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -33,7 +34,7 @@ class Device(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] azure_stack_edge: The reference to the Azure stack edge device.
         :param pulumi.Input[str] device_name: Resource name for the device resource.
-        :param pulumi.Input[str] device_type: The type of the device.
+        :param pulumi.Input[Union[str, 'DeviceType']] device_type: The type of the device.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -56,16 +57,16 @@ class Device(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['azure_stack_edge'] = azure_stack_edge
-            if device_name is None:
+            if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
-            if device_type is None:
+            if device_type is None and not opts.urn:
                 raise TypeError("Missing required property 'device_type'")
             __props__['device_type'] = device_type
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

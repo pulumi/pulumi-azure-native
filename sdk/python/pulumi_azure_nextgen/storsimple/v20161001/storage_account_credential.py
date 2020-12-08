@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['StorageAccountCredential']
@@ -18,9 +19,9 @@ class StorageAccountCredential(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_key: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
-                 cloud_type: Optional[pulumi.Input[str]] = None,
+                 cloud_type: Optional[pulumi.Input['CloudType']] = None,
                  credential_name: Optional[pulumi.Input[str]] = None,
-                 enable_ssl: Optional[pulumi.Input[str]] = None,
+                 enable_ssl: Optional[pulumi.Input['SslStatus']] = None,
                  end_point: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  login: Optional[pulumi.Input[str]] = None,
@@ -35,9 +36,9 @@ class StorageAccountCredential(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']] access_key: The details of the storage account password
-        :param pulumi.Input[str] cloud_type: The cloud service provider
+        :param pulumi.Input['CloudType'] cloud_type: The cloud service provider
         :param pulumi.Input[str] credential_name: The credential name.
-        :param pulumi.Input[str] enable_ssl: SSL needs to be enabled or not
+        :param pulumi.Input['SslStatus'] enable_ssl: SSL needs to be enabled or not
         :param pulumi.Input[str] end_point: The storage endpoint
         :param pulumi.Input[str] location: The storage account's geo location
         :param pulumi.Input[str] login: The storage account login
@@ -62,26 +63,26 @@ class StorageAccountCredential(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['access_key'] = access_key
-            if cloud_type is None:
+            if cloud_type is None and not opts.urn:
                 raise TypeError("Missing required property 'cloud_type'")
             __props__['cloud_type'] = cloud_type
-            if credential_name is None:
+            if credential_name is None and not opts.urn:
                 raise TypeError("Missing required property 'credential_name'")
             __props__['credential_name'] = credential_name
-            if enable_ssl is None:
+            if enable_ssl is None and not opts.urn:
                 raise TypeError("Missing required property 'enable_ssl'")
             __props__['enable_ssl'] = enable_ssl
-            if end_point is None:
+            if end_point is None and not opts.urn:
                 raise TypeError("Missing required property 'end_point'")
             __props__['end_point'] = end_point
             __props__['location'] = location
-            if login is None:
+            if login is None and not opts.urn:
                 raise TypeError("Missing required property 'login'")
             __props__['login'] = login
-            if manager_name is None:
+            if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")
             __props__['manager_name'] = manager_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['name'] = None

@@ -8,3 +8,22 @@ from .list_open_shift_cluster_credentials import *
 from .open_shift_cluster import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:redhatopenshift/latest:OpenShiftCluster":
+                return OpenShiftCluster(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "redhatopenshift/latest", _module_instance)
+
+_register_module()

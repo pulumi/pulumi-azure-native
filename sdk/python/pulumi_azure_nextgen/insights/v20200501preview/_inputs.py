@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ActionArgs',
@@ -59,9 +60,9 @@ class ActionArgs:
 @pulumi.input_type
 class ConditionArgs:
     def __init__(__self__, *,
-                 operator: pulumi.Input[str],
+                 operator: pulumi.Input[Union[str, 'ConditionOperator']],
                  threshold: pulumi.Input[float],
-                 time_aggregation: pulumi.Input[str],
+                 time_aggregation: pulumi.Input[Union[str, 'TimeAggregation']],
                  dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['DimensionArgs']]]] = None,
                  failing_periods: Optional[pulumi.Input['ConditionFailingPeriodsArgs']] = None,
                  metric_measure_column: Optional[pulumi.Input[str]] = None,
@@ -69,9 +70,9 @@ class ConditionArgs:
                  resource_id_column: Optional[pulumi.Input[str]] = None):
         """
         A condition of the scheduled query rule.
-        :param pulumi.Input[str] operator: The criteria operator.
+        :param pulumi.Input[Union[str, 'ConditionOperator']] operator: The criteria operator.
         :param pulumi.Input[float] threshold: the criteria threshold value that activates the alert.
-        :param pulumi.Input[str] time_aggregation: Aggregation type
+        :param pulumi.Input[Union[str, 'TimeAggregation']] time_aggregation: Aggregation type
         :param pulumi.Input[Sequence[pulumi.Input['DimensionArgs']]] dimensions: List of Dimensions conditions
         :param pulumi.Input['ConditionFailingPeriodsArgs'] failing_periods: The minimum number of violations required within the selected lookback time window required to raise an alert.
         :param pulumi.Input[str] metric_measure_column: The column containing the metric measure number.
@@ -94,14 +95,14 @@ class ConditionArgs:
 
     @property
     @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
+    def operator(self) -> pulumi.Input[Union[str, 'ConditionOperator']]:
         """
         The criteria operator.
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: pulumi.Input[str]):
+    def operator(self, value: pulumi.Input[Union[str, 'ConditionOperator']]):
         pulumi.set(self, "operator", value)
 
     @property
@@ -118,14 +119,14 @@ class ConditionArgs:
 
     @property
     @pulumi.getter(name="timeAggregation")
-    def time_aggregation(self) -> pulumi.Input[str]:
+    def time_aggregation(self) -> pulumi.Input[Union[str, 'TimeAggregation']]:
         """
         Aggregation type
         """
         return pulumi.get(self, "time_aggregation")
 
     @time_aggregation.setter
-    def time_aggregation(self, value: pulumi.Input[str]):
+    def time_aggregation(self, value: pulumi.Input[Union[str, 'TimeAggregation']]):
         pulumi.set(self, "time_aggregation", value)
 
     @property
@@ -233,12 +234,12 @@ class ConditionFailingPeriodsArgs:
 class DimensionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 operator: pulumi.Input[str],
+                 operator: pulumi.Input[Union[str, 'DimensionOperator']],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         Dimension splitting and filtering definition
         :param pulumi.Input[str] name: Name of the dimension
-        :param pulumi.Input[str] operator: Operator for dimension values
+        :param pulumi.Input[Union[str, 'DimensionOperator']] operator: Operator for dimension values
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of dimension values
         """
         pulumi.set(__self__, "name", name)
@@ -259,14 +260,14 @@ class DimensionArgs:
 
     @property
     @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
+    def operator(self) -> pulumi.Input[Union[str, 'DimensionOperator']]:
         """
         Operator for dimension values
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: pulumi.Input[str]):
+    def operator(self, value: pulumi.Input[Union[str, 'DimensionOperator']]):
         pulumi.set(self, "operator", value)
 
     @property

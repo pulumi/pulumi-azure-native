@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['SecurityRule']
 
@@ -15,19 +16,19 @@ class SecurityRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access: Optional[pulumi.Input[str]] = None,
+                 access: Optional[pulumi.Input[Union[str, 'SecurityRuleAccess']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  destination_address_prefix: Optional[pulumi.Input[str]] = None,
                  destination_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  destination_port_range: Optional[pulumi.Input[str]] = None,
                  destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 direction: Optional[pulumi.Input[str]] = None,
+                 direction: Optional[pulumi.Input[Union[str, 'SecurityRuleDirection']]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_security_group_name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
-                 protocol: Optional[pulumi.Input[str]] = None,
+                 protocol: Optional[pulumi.Input[Union[str, 'SecurityRuleProtocol']]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_rule_name: Optional[pulumi.Input[str]] = None,
@@ -43,19 +44,19 @@ class SecurityRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access: The network traffic is allowed or denied. Possible values are: 'Allow' and 'Deny'.
+        :param pulumi.Input[Union[str, 'SecurityRuleAccess']] access: The network traffic is allowed or denied. Possible values are: 'Allow' and 'Deny'.
         :param pulumi.Input[str] description: A description for this rule. Restricted to 140 chars.
         :param pulumi.Input[str] destination_address_prefix: The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_address_prefixes: The destination address prefixes. CIDR or destination IP ranges.
         :param pulumi.Input[str] destination_port_range: The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destination_port_ranges: The destination port ranges.
-        :param pulumi.Input[str] direction: The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are: 'Inbound' and 'Outbound'.
+        :param pulumi.Input[Union[str, 'SecurityRuleDirection']] direction: The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are: 'Inbound' and 'Outbound'.
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] network_security_group_name: The name of the network security group.
         :param pulumi.Input[int] priority: The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-        :param pulumi.Input[str] protocol: Network protocol this rule applies to. Possible values are 'Tcp', 'Udp', and '*'.
+        :param pulumi.Input[Union[str, 'SecurityRuleProtocol']] protocol: Network protocol this rule applies to. Possible values are 'Tcp', 'Udp', and '*'.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] security_rule_name: The name of the security rule.
@@ -81,7 +82,7 @@ class SecurityRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if access is None:
+            if access is None and not opts.urn:
                 raise TypeError("Missing required property 'access'")
             __props__['access'] = access
             __props__['description'] = description
@@ -89,24 +90,24 @@ class SecurityRule(pulumi.CustomResource):
             __props__['destination_address_prefixes'] = destination_address_prefixes
             __props__['destination_port_range'] = destination_port_range
             __props__['destination_port_ranges'] = destination_port_ranges
-            if direction is None:
+            if direction is None and not opts.urn:
                 raise TypeError("Missing required property 'direction'")
             __props__['direction'] = direction
             __props__['etag'] = etag
             __props__['id'] = id
             __props__['name'] = name
-            if network_security_group_name is None:
+            if network_security_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_security_group_name'")
             __props__['network_security_group_name'] = network_security_group_name
             __props__['priority'] = priority
-            if protocol is None:
+            if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__['protocol'] = protocol
             __props__['provisioning_state'] = provisioning_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if security_rule_name is None:
+            if security_rule_name is None and not opts.urn:
                 raise TypeError("Missing required property 'security_rule_name'")
             __props__['security_rule_name'] = security_rule_name
             __props__['source_address_prefix'] = source_address_prefix

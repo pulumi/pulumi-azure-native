@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['EnvironmentSetting']
@@ -17,7 +18,7 @@ class EnvironmentSetting(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_state: Optional[pulumi.Input[str]] = None,
+                 configuration_state: Optional[pulumi.Input[Union[str, 'ConfigurationState']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  environment_setting_name: Optional[pulumi.Input[str]] = None,
                  lab_account_name: Optional[pulumi.Input[str]] = None,
@@ -37,7 +38,7 @@ class EnvironmentSetting(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] configuration_state: Describes the user's progress in configuring their environment setting
+        :param pulumi.Input[Union[str, 'ConfigurationState']] configuration_state: Describes the user's progress in configuring their environment setting
         :param pulumi.Input[str] description: Describes the environment and its resource settings
         :param pulumi.Input[str] environment_setting_name: The name of the environment Setting.
         :param pulumi.Input[str] lab_account_name: The name of the lab Account.
@@ -69,21 +70,21 @@ class EnvironmentSetting(pulumi.CustomResource):
 
             __props__['configuration_state'] = configuration_state
             __props__['description'] = description
-            if environment_setting_name is None:
+            if environment_setting_name is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_setting_name'")
             __props__['environment_setting_name'] = environment_setting_name
-            if lab_account_name is None:
+            if lab_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_account_name'")
             __props__['lab_account_name'] = lab_account_name
-            if lab_name is None:
+            if lab_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_name'")
             __props__['lab_name'] = lab_name
             __props__['location'] = location
             __props__['provisioning_state'] = provisioning_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if resource_settings is None:
+            if resource_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_settings'")
             __props__['resource_settings'] = resource_settings
             __props__['tags'] = tags

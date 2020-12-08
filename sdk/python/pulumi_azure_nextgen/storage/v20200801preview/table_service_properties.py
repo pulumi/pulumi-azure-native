@@ -51,14 +51,14 @@ class TableServiceProperties(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_name is None:
+            if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['cors'] = cors
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if table_service_name is None:
+            if table_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'table_service_name'")
             __props__['table_service_name'] = table_service_name
             __props__['name'] = None

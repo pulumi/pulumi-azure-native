@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ManagedHostingEnvironment']
@@ -28,7 +29,7 @@ class ManagedHostingEnvironment(pulumi.CustomResource):
                  environment_is_healthy: Optional[pulumi.Input[bool]] = None,
                  environment_status: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 internal_load_balancing_mode: Optional[pulumi.Input[str]] = None,
+                 internal_load_balancing_mode: Optional[pulumi.Input['InternalLoadBalancingMode']] = None,
                  ipssl_address_count: Optional[pulumi.Input[int]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  last_action: Optional[pulumi.Input[str]] = None,
@@ -39,10 +40,10 @@ class ManagedHostingEnvironment(pulumi.CustomResource):
                  multi_size: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_access_control_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAccessControlEntryArgs']]]]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input['ProvisioningState']] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['HostingEnvironmentStatus']] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  suspended: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -73,7 +74,7 @@ class ManagedHostingEnvironment(pulumi.CustomResource):
         :param pulumi.Input[bool] environment_is_healthy: True/false indicating whether the hostingEnvironment (App Service Environment) is healthy
         :param pulumi.Input[str] environment_status: Detailed message about with results of the last check of the hostingEnvironment (App Service Environment)
         :param pulumi.Input[str] id: Resource Id
-        :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
+        :param pulumi.Input['InternalLoadBalancingMode'] internal_load_balancing_mode: Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
         :param pulumi.Input[int] ipssl_address_count: Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
         :param pulumi.Input[str] kind: Kind of resource
         :param pulumi.Input[str] last_action: Last deployment action on this hostingEnvironment (App Service Environment)
@@ -84,10 +85,10 @@ class ManagedHostingEnvironment(pulumi.CustomResource):
         :param pulumi.Input[str] multi_size: Front-end VM size, e.g. "Medium", "Large"
         :param pulumi.Input[str] name: Resource Name
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAccessControlEntryArgs']]]] network_access_control_list: Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
-        :param pulumi.Input[str] provisioning_state: Provisioning state of the hostingEnvironment (App Service Environment)
+        :param pulumi.Input['ProvisioningState'] provisioning_state: Provisioning state of the hostingEnvironment (App Service Environment)
         :param pulumi.Input[str] resource_group: Resource group of the hostingEnvironment (App Service Environment)
         :param pulumi.Input[str] resource_group_name: Name of resource group
-        :param pulumi.Input[str] status: Current status of the hostingEnvironment (App Service Environment)
+        :param pulumi.Input['HostingEnvironmentStatus'] status: Current status of the hostingEnvironment (App Service Environment)
         :param pulumi.Input[str] subscription_id: Subscription of the hostingEnvironment (App Service Environment)
         :param pulumi.Input[bool] suspended: True/false indicating whether the hostingEnvironment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
                            (most likely because NSG blocked the incoming traffic)
@@ -134,22 +135,22 @@ class ManagedHostingEnvironment(pulumi.CustomResource):
             __props__['kind'] = kind
             __props__['last_action'] = last_action
             __props__['last_action_result'] = last_action_result
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['maximum_number_of_machines'] = maximum_number_of_machines
             __props__['multi_role_count'] = multi_role_count
             __props__['multi_size'] = multi_size
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['network_access_control_list'] = network_access_control_list
             __props__['provisioning_state'] = provisioning_state
             __props__['resource_group'] = resource_group
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if status is None:
+            if status is None and not opts.urn:
                 raise TypeError("Missing required property 'status'")
             __props__['status'] = status
             __props__['subscription_id'] = subscription_id

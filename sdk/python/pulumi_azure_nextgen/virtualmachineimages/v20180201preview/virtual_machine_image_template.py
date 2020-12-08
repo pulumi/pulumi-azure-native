@@ -57,19 +57,19 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['customize'] = customize
-            if distribute is None:
+            if distribute is None and not opts.urn:
                 raise TypeError("Missing required property 'distribute'")
             __props__['distribute'] = distribute
-            if image_template_name is None:
+            if image_template_name is None and not opts.urn:
                 raise TypeError("Missing required property 'image_template_name'")
             __props__['image_template_name'] = image_template_name
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if source is None:
+            if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__['source'] = source
             __props__['tags'] = tags

@@ -51,16 +51,16 @@ class GuestDiagnosticsSettingsAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if association_name is None:
+            if association_name is None and not opts.urn:
                 raise TypeError("Missing required property 'association_name'")
             __props__['association_name'] = association_name
-            if guest_diagnostic_settings_name is None:
+            if guest_diagnostic_settings_name is None and not opts.urn:
                 raise TypeError("Missing required property 'guest_diagnostic_settings_name'")
             __props__['guest_diagnostic_settings_name'] = guest_diagnostic_settings_name
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_uri is None:
+            if resource_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_uri'")
             __props__['resource_uri'] = resource_uri
             __props__['tags'] = tags

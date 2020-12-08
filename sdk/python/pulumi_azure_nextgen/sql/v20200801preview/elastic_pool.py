@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ElasticPool']
@@ -18,7 +19,7 @@ class ElasticPool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  elastic_pool_name: Optional[pulumi.Input[str]] = None,
-                 license_type: Optional[pulumi.Input[str]] = None,
+                 license_type: Optional[pulumi.Input[Union[str, 'ElasticPoolLicenseType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
                  max_size_bytes: Optional[pulumi.Input[int]] = None,
@@ -37,7 +38,7 @@ class ElasticPool(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] elastic_pool_name: The name of the elastic pool.
-        :param pulumi.Input[str] license_type: The license type to apply for this elastic pool.
+        :param pulumi.Input[Union[str, 'ElasticPoolLicenseType']] license_type: The license type to apply for this elastic pool.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] maintenance_configuration_id: Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
         :param pulumi.Input[int] max_size_bytes: The storage limit for the database elastic pool in bytes.
@@ -71,20 +72,20 @@ class ElasticPool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if elastic_pool_name is None:
+            if elastic_pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'elastic_pool_name'")
             __props__['elastic_pool_name'] = elastic_pool_name
             __props__['license_type'] = license_type
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['maintenance_configuration_id'] = maintenance_configuration_id
             __props__['max_size_bytes'] = max_size_bytes
             __props__['per_database_settings'] = per_database_settings
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if server_name is None:
+            if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
             __props__['sku'] = sku

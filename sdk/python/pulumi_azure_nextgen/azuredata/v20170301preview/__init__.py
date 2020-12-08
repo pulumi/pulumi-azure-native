@@ -7,3 +7,24 @@ from .get_sql_server import *
 from .get_sql_server_registration import *
 from .sql_server import *
 from .sql_server_registration import *
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:azuredata/v20170301preview:SqlServer":
+                return SqlServer(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:azuredata/v20170301preview:SqlServerRegistration":
+                return SqlServerRegistration(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "azuredata/v20170301preview", _module_instance)
+
+_register_module()

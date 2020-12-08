@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Namespace']
@@ -17,7 +18,7 @@ class Namespace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 key_source: Optional[pulumi.Input[str]] = None,
+                 key_source: Optional[pulumi.Input['KeySource']] = None,
                  key_vault_properties: Optional[pulumi.Input[pulumi.InputType['KeyVaultPropertiesArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
@@ -26,7 +27,7 @@ class Namespace(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SBSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['IdentityType']] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None,
                  __name__=None,
@@ -36,7 +37,7 @@ class Namespace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] key_source: Enumerates the possible value of keySource for Encryption
+        :param pulumi.Input['KeySource'] key_source: Enumerates the possible value of keySource for Encryption
         :param pulumi.Input[pulumi.InputType['KeyVaultPropertiesArgs']] key_vault_properties: Properties of KeyVault
         :param pulumi.Input[str] location: The Geo-location where the resource lives
         :param pulumi.Input[str] namespace_name: The namespace name.
@@ -45,7 +46,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SBSkuArgs']] sku: Properties of SKU
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] tenant_id: TenantId from the KeyVault
-        :param pulumi.Input[str] type: Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
+        :param pulumi.Input['IdentityType'] type: Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
         :param pulumi.Input[bool] zone_redundant: Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
         """
         if __name__ is not None:
@@ -67,14 +68,14 @@ class Namespace(pulumi.CustomResource):
 
             __props__['key_source'] = key_source
             __props__['key_vault_properties'] = key_vault_properties
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if namespace_name is None:
+            if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
             __props__['principal_id'] = principal_id
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ClusterSkuArgs',
@@ -20,11 +21,11 @@ __all__ = [
 class ClusterSkuArgs:
     def __init__(__self__, *,
                  capacity: Optional[pulumi.Input[int]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[Union[str, 'ClusterSkuNameEnum']]] = None):
         """
         The cluster sku definition.
         :param pulumi.Input[int] capacity: The capacity value
-        :param pulumi.Input[str] name: The name of the SKU.
+        :param pulumi.Input[Union[str, 'ClusterSkuNameEnum']] name: The name of the SKU.
         """
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
@@ -45,25 +46,25 @@ class ClusterSkuArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    def name(self) -> Optional[pulumi.Input[Union[str, 'ClusterSkuNameEnum']]]:
         """
         The name of the SKU.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
+    def name(self, value: Optional[pulumi.Input[Union[str, 'ClusterSkuNameEnum']]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str],
+                 type: pulumi.Input['IdentityType'],
                  user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Identity for the resource.
-        :param pulumi.Input[str] type: The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
+        :param pulumi.Input['IdentityType'] type: The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
         :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "type", type)
@@ -72,14 +73,14 @@ class IdentityArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['IdentityType']:
         """
         The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['IdentityType']):
         pulumi.set(self, "type", value)
 
     @property
@@ -194,11 +195,11 @@ class WorkspaceCappingArgs:
 @pulumi.input_type
 class WorkspaceSkuArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
+                 name: pulumi.Input[Union[str, 'WorkspaceSkuNameEnum']],
                  capacity_reservation_level: Optional[pulumi.Input[int]] = None):
         """
         The SKU (tier) of a workspace.
-        :param pulumi.Input[str] name: The name of the SKU.
+        :param pulumi.Input[Union[str, 'WorkspaceSkuNameEnum']] name: The name of the SKU.
         :param pulumi.Input[int] capacity_reservation_level: The capacity reservation level for this workspace, when CapacityReservation sku is selected.
         """
         pulumi.set(__self__, "name", name)
@@ -207,14 +208,14 @@ class WorkspaceSkuArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input[Union[str, 'WorkspaceSkuNameEnum']]:
         """
         The name of the SKU.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input[Union[str, 'WorkspaceSkuNameEnum']]):
         pulumi.set(self, "name", value)
 
     @property

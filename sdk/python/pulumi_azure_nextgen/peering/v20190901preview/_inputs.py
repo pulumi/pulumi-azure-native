@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'BgpSessionArgs',
@@ -186,7 +187,7 @@ class DirectConnectionArgs:
                  bgp_session: Optional[pulumi.Input['BgpSessionArgs']] = None,
                  connection_identifier: Optional[pulumi.Input[str]] = None,
                  peering_db_facility_id: Optional[pulumi.Input[int]] = None,
-                 session_address_provider: Optional[pulumi.Input[str]] = None,
+                 session_address_provider: Optional[pulumi.Input[Union[str, 'SessionAddressProvider']]] = None,
                  use_for_peering_service: Optional[pulumi.Input[bool]] = None):
         """
         The properties that define a direct connection.
@@ -194,7 +195,7 @@ class DirectConnectionArgs:
         :param pulumi.Input['BgpSessionArgs'] bgp_session: The BGP session associated with the connection.
         :param pulumi.Input[str] connection_identifier: The unique identifier (GUID) for the connection.
         :param pulumi.Input[int] peering_db_facility_id: The PeeringDB.com ID of the facility at which the connection has to be set up.
-        :param pulumi.Input[str] session_address_provider: The field indicating if Microsoft provides session ip addresses.
+        :param pulumi.Input[Union[str, 'SessionAddressProvider']] session_address_provider: The field indicating if Microsoft provides session ip addresses.
         :param pulumi.Input[bool] use_for_peering_service: The flag that indicates whether or not the connection is used for peering service.
         """
         if bandwidth_in_mbps is not None:
@@ -260,14 +261,14 @@ class DirectConnectionArgs:
 
     @property
     @pulumi.getter(name="sessionAddressProvider")
-    def session_address_provider(self) -> Optional[pulumi.Input[str]]:
+    def session_address_provider(self) -> Optional[pulumi.Input[Union[str, 'SessionAddressProvider']]]:
         """
         The field indicating if Microsoft provides session ip addresses.
         """
         return pulumi.get(self, "session_address_provider")
 
     @session_address_provider.setter
-    def session_address_provider(self, value: Optional[pulumi.Input[str]]):
+    def session_address_provider(self, value: Optional[pulumi.Input[Union[str, 'SessionAddressProvider']]]):
         pulumi.set(self, "session_address_provider", value)
 
     @property
@@ -343,12 +344,12 @@ class ExchangeConnectionArgs:
 class PeeringPropertiesDirectArgs:
     def __init__(__self__, *,
                  connections: Optional[pulumi.Input[Sequence[pulumi.Input['DirectConnectionArgs']]]] = None,
-                 direct_peering_type: Optional[pulumi.Input[str]] = None,
+                 direct_peering_type: Optional[pulumi.Input[Union[str, 'DirectPeeringType']]] = None,
                  peer_asn: Optional[pulumi.Input['SubResourceArgs']] = None):
         """
         The properties that define a direct peering.
         :param pulumi.Input[Sequence[pulumi.Input['DirectConnectionArgs']]] connections: The set of connections that constitute a direct peering.
-        :param pulumi.Input[str] direct_peering_type: The type of direct peering.
+        :param pulumi.Input[Union[str, 'DirectPeeringType']] direct_peering_type: The type of direct peering.
         :param pulumi.Input['SubResourceArgs'] peer_asn: The reference of the peer ASN.
         """
         if connections is not None:
@@ -372,14 +373,14 @@ class PeeringPropertiesDirectArgs:
 
     @property
     @pulumi.getter(name="directPeeringType")
-    def direct_peering_type(self) -> Optional[pulumi.Input[str]]:
+    def direct_peering_type(self) -> Optional[pulumi.Input[Union[str, 'DirectPeeringType']]]:
         """
         The type of direct peering.
         """
         return pulumi.get(self, "direct_peering_type")
 
     @direct_peering_type.setter
-    def direct_peering_type(self, value: Optional[pulumi.Input[str]]):
+    def direct_peering_type(self, value: Optional[pulumi.Input[Union[str, 'DirectPeeringType']]]):
         pulumi.set(self, "direct_peering_type", value)
 
     @property
@@ -438,16 +439,16 @@ class PeeringPropertiesExchangeArgs:
 @pulumi.input_type
 class PeeringSkuArgs:
     def __init__(__self__, *,
-                 family: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 size: Optional[pulumi.Input[str]] = None,
-                 tier: Optional[pulumi.Input[str]] = None):
+                 family: Optional[pulumi.Input[Union[str, 'Family']]] = None,
+                 name: Optional[pulumi.Input[Union[str, 'Name']]] = None,
+                 size: Optional[pulumi.Input[Union[str, 'Size']]] = None,
+                 tier: Optional[pulumi.Input[Union[str, 'Tier']]] = None):
         """
         The SKU that defines the tier and kind of the peering.
-        :param pulumi.Input[str] family: The family of the peering SKU.
-        :param pulumi.Input[str] name: The name of the peering SKU.
-        :param pulumi.Input[str] size: The size of the peering SKU.
-        :param pulumi.Input[str] tier: The tier of the peering SKU.
+        :param pulumi.Input[Union[str, 'Family']] family: The family of the peering SKU.
+        :param pulumi.Input[Union[str, 'Name']] name: The name of the peering SKU.
+        :param pulumi.Input[Union[str, 'Size']] size: The size of the peering SKU.
+        :param pulumi.Input[Union[str, 'Tier']] tier: The tier of the peering SKU.
         """
         if family is not None:
             pulumi.set(__self__, "family", family)
@@ -460,50 +461,50 @@ class PeeringSkuArgs:
 
     @property
     @pulumi.getter
-    def family(self) -> Optional[pulumi.Input[str]]:
+    def family(self) -> Optional[pulumi.Input[Union[str, 'Family']]]:
         """
         The family of the peering SKU.
         """
         return pulumi.get(self, "family")
 
     @family.setter
-    def family(self, value: Optional[pulumi.Input[str]]):
+    def family(self, value: Optional[pulumi.Input[Union[str, 'Family']]]):
         pulumi.set(self, "family", value)
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    def name(self) -> Optional[pulumi.Input[Union[str, 'Name']]]:
         """
         The name of the peering SKU.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
+    def name(self, value: Optional[pulumi.Input[Union[str, 'Name']]]):
         pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[str]]:
+    def size(self) -> Optional[pulumi.Input[Union[str, 'Size']]]:
         """
         The size of the peering SKU.
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: Optional[pulumi.Input[str]]):
+    def size(self, value: Optional[pulumi.Input[Union[str, 'Size']]]):
         pulumi.set(self, "size", value)
 
     @property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[str]]:
+    def tier(self) -> Optional[pulumi.Input[Union[str, 'Tier']]]:
         """
         The tier of the peering SKU.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[str]]):
+    def tier(self, value: Optional[pulumi.Input[Union[str, 'Tier']]]):
         pulumi.set(self, "tier", value)
 
 

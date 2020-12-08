@@ -57,21 +57,21 @@ class Certificate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if automation_account_name is None:
+            if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
-            if base64_value is None:
+            if base64_value is None and not opts.urn:
                 raise TypeError("Missing required property 'base64_value'")
             __props__['base64_value'] = base64_value
-            if certificate_name is None:
+            if certificate_name is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_name'")
             __props__['certificate_name'] = certificate_name
             __props__['description'] = description
             __props__['is_exportable'] = is_exportable
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['thumbprint'] = thumbprint

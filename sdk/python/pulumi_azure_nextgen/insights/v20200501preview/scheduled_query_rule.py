@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ScheduledQueryRule']
@@ -27,7 +28,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 severity: Optional[pulumi.Input[float]] = None,
+                 severity: Optional[pulumi.Input[Union[str, 'AlertSeverity']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  window_size: Optional[pulumi.Input[str]] = None,
@@ -48,7 +49,7 @@ class ScheduledQueryRule(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] rule_name: The name of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: The list of resource id's that this scheduled query rule is scoped to.
-        :param pulumi.Input[float] severity: Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
+        :param pulumi.Input[Union[str, 'AlertSeverity']] severity: Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_resource_types: List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria
         :param pulumi.Input[str] window_size: The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size).
@@ -71,35 +72,35 @@ class ScheduledQueryRule(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['actions'] = actions
-            if criteria is None:
+            if criteria is None and not opts.urn:
                 raise TypeError("Missing required property 'criteria'")
             __props__['criteria'] = criteria
             __props__['description'] = description
-            if enabled is None:
+            if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
             __props__['enabled'] = enabled
-            if evaluation_frequency is None:
+            if evaluation_frequency is None and not opts.urn:
                 raise TypeError("Missing required property 'evaluation_frequency'")
             __props__['evaluation_frequency'] = evaluation_frequency
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['mute_actions_duration'] = mute_actions_duration
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if rule_name is None:
+            if rule_name is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_name'")
             __props__['rule_name'] = rule_name
-            if scopes is None:
+            if scopes is None and not opts.urn:
                 raise TypeError("Missing required property 'scopes'")
             __props__['scopes'] = scopes
-            if severity is None:
+            if severity is None and not opts.urn:
                 raise TypeError("Missing required property 'severity'")
             __props__['severity'] = severity
             __props__['tags'] = tags
             __props__['target_resource_types'] = target_resource_types
-            if window_size is None:
+            if window_size is None and not opts.urn:
                 raise TypeError("Missing required property 'window_size'")
             __props__['window_size'] = window_size
             __props__['name'] = None

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ClusterSkuArgs',
@@ -18,11 +19,11 @@ __all__ = [
 class ClusterSkuArgs:
     def __init__(__self__, *,
                  capacity: Optional[pulumi.Input[int]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[Union[str, 'ClusterSkuName']]] = None):
         """
         The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
         :param pulumi.Input[int] capacity: Denotes the number of streaming units the cluster can support. Valid values for this property are multiples of 36 with a minimum value of 36 and maximum value of 216. Required on PUT (CreateOrUpdate) requests.
-        :param pulumi.Input[str] name: Specifies the SKU name of the cluster. Required on PUT (CreateOrUpdate) requests.
+        :param pulumi.Input[Union[str, 'ClusterSkuName']] name: Specifies the SKU name of the cluster. Required on PUT (CreateOrUpdate) requests.
         """
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
@@ -43,14 +44,14 @@ class ClusterSkuArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    def name(self) -> Optional[pulumi.Input[Union[str, 'ClusterSkuName']]]:
         """
         Specifies the SKU name of the cluster. Required on PUT (CreateOrUpdate) requests.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
+    def name(self, value: Optional[pulumi.Input[Union[str, 'ClusterSkuName']]]):
         pulumi.set(self, "name", value)
 
 

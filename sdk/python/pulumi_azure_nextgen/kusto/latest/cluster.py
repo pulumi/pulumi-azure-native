@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Cluster']
@@ -22,7 +23,7 @@ class Cluster(pulumi.CustomResource):
                  enable_double_encryption: Optional[pulumi.Input[bool]] = None,
                  enable_purge: Optional[pulumi.Input[bool]] = None,
                  enable_streaming_ingest: Optional[pulumi.Input[bool]] = None,
-                 engine_type: Optional[pulumi.Input[str]] = None,
+                 engine_type: Optional[pulumi.Input[Union[str, 'EngineType']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  key_vault_properties: Optional[pulumi.Input[pulumi.InputType['KeyVaultPropertiesArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -46,7 +47,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_double_encryption: A boolean value that indicates if double encryption is enabled.
         :param pulumi.Input[bool] enable_purge: A boolean value that indicates if the purge operations are enabled.
         :param pulumi.Input[bool] enable_streaming_ingest: A boolean value that indicates if the streaming ingest is enabled.
-        :param pulumi.Input[str] engine_type: The engine type
+        :param pulumi.Input[Union[str, 'EngineType']] engine_type: The engine type
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the cluster, if configured.
         :param pulumi.Input[pulumi.InputType['KeyVaultPropertiesArgs']] key_vault_properties: KeyVault properties for the cluster encryption.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -75,7 +76,7 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if cluster_name is None:
+            if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
             __props__['enable_disk_encryption'] = enable_disk_encryption
@@ -85,14 +86,14 @@ class Cluster(pulumi.CustomResource):
             __props__['engine_type'] = engine_type
             __props__['identity'] = identity
             __props__['key_vault_properties'] = key_vault_properties
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['optimized_autoscale'] = optimized_autoscale
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if sku is None:
+            if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags

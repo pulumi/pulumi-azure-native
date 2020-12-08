@@ -63,20 +63,20 @@ class DataExport(pulumi.CustomResource):
 
             __props__['created_date'] = created_date
             __props__['data_export_id'] = data_export_id
-            if data_export_name is None:
+            if data_export_name is None and not opts.urn:
                 raise TypeError("Missing required property 'data_export_name'")
             __props__['data_export_name'] = data_export_name
             __props__['enable'] = enable
             __props__['event_hub_name'] = event_hub_name
             __props__['last_modified_date'] = last_modified_date
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if resource_id is None:
+            if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
             __props__['resource_id'] = resource_id
             __props__['table_names'] = table_names
-            if workspace_name is None:
+            if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['name'] = None

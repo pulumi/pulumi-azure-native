@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['PolicySetDefinition']
@@ -23,7 +24,7 @@ class PolicySetDefinition(pulumi.CustomResource):
                  parameters: Optional[Any] = None,
                  policy_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyDefinitionReferenceArgs']]]]] = None,
                  policy_set_definition_name: Optional[pulumi.Input[str]] = None,
-                 policy_type: Optional[pulumi.Input[str]] = None,
+                 policy_type: Optional[pulumi.Input[Union[str, 'PolicyType']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -38,7 +39,7 @@ class PolicySetDefinition(pulumi.CustomResource):
         :param Any parameters: The policy set definition parameters that can be used in policy definition references.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyDefinitionReferenceArgs']]]] policy_definitions: An array of policy definition references.
         :param pulumi.Input[str] policy_set_definition_name: The name of the policy set definition to create.
-        :param pulumi.Input[str] policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+        :param pulumi.Input[Union[str, 'PolicyType']] policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -61,10 +62,10 @@ class PolicySetDefinition(pulumi.CustomResource):
             __props__['display_name'] = display_name
             __props__['metadata'] = metadata
             __props__['parameters'] = parameters
-            if policy_definitions is None:
+            if policy_definitions is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_definitions'")
             __props__['policy_definitions'] = policy_definitions
-            if policy_set_definition_name is None:
+            if policy_set_definition_name is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_set_definition_name'")
             __props__['policy_set_definition_name'] = policy_set_definition_name
             __props__['policy_type'] = policy_type

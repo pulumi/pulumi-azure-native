@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ApplicationGateway']
@@ -97,7 +98,7 @@ class ApplicationGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if application_gateway_name is None:
+            if application_gateway_name is None and not opts.urn:
                 raise TypeError("Missing required property 'application_gateway_name'")
             __props__['application_gateway_name'] = application_gateway_name
             __props__['authentication_certificates'] = authentication_certificates
@@ -117,7 +118,7 @@ class ApplicationGateway(pulumi.CustomResource):
             __props__['provisioning_state'] = provisioning_state
             __props__['redirect_configurations'] = redirect_configurations
             __props__['request_routing_rules'] = request_routing_rules
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_guid'] = resource_guid

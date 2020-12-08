@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Assessment']
@@ -58,18 +59,18 @@ class Assessment(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['additional_data'] = additional_data
-            if assessment_name is None:
+            if assessment_name is None and not opts.urn:
                 raise TypeError("Missing required property 'assessment_name'")
             __props__['assessment_name'] = assessment_name
             __props__['metadata'] = metadata
             __props__['partners_data'] = partners_data
-            if resource_details is None:
+            if resource_details is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_details'")
             __props__['resource_details'] = resource_details
-            if resource_id is None:
+            if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
             __props__['resource_id'] = resource_id
-            if status is None:
+            if status is None and not opts.urn:
                 raise TypeError("Missing required property 'status'")
             __props__['status'] = status
             __props__['display_name'] = None

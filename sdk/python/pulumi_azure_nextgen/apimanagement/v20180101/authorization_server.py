@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['AuthorizationServer']
@@ -18,17 +19,17 @@ class AuthorizationServer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization_endpoint: Optional[pulumi.Input[str]] = None,
-                 authorization_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 authorization_methods: Optional[pulumi.Input[Sequence[pulumi.Input['AuthorizationMethod']]]] = None,
                  authsid: Optional[pulumi.Input[str]] = None,
-                 bearer_token_sending_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 client_authentication_method: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 bearer_token_sending_methods: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'BearerTokenSendingMethod']]]]] = None,
+                 client_authentication_method: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ClientAuthenticationMethod']]]]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_registration_endpoint: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
                  default_scope: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 grant_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 grant_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'GrantType']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_owner_password: Optional[pulumi.Input[str]] = None,
                  resource_owner_username: Optional[pulumi.Input[str]] = None,
@@ -45,17 +46,17 @@ class AuthorizationServer(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_endpoint: OAuth authorization endpoint. See http://tools.ietf.org/html/rfc6749#section-3.2.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] authorization_methods: HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
+        :param pulumi.Input[Sequence[pulumi.Input['AuthorizationMethod']]] authorization_methods: HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
         :param pulumi.Input[str] authsid: Identifier of the authorization server.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] bearer_token_sending_methods: Specifies the mechanism by which access token is passed to the API. 
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] client_authentication_method: Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'BearerTokenSendingMethod']]]] bearer_token_sending_methods: Specifies the mechanism by which access token is passed to the API. 
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'ClientAuthenticationMethod']]]] client_authentication_method: Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format.
         :param pulumi.Input[str] client_id: Client or app id registered with this authorization server.
         :param pulumi.Input[str] client_registration_endpoint: Optional reference to a page where client or app registration for this authorization server is performed. Contains absolute URL to entity being referenced.
         :param pulumi.Input[str] client_secret: Client or app secret registered with this authorization server.
         :param pulumi.Input[str] default_scope: Access token scope that is going to be requested by default. Can be overridden at the API level. Should be provided in the form of a string containing space-delimited values.
         :param pulumi.Input[str] description: Description of the authorization server. Can contain HTML formatting tags.
         :param pulumi.Input[str] display_name: User-friendly authorization server name.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_types: Form of an authorization grant, which the client uses to request the access token.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'GrantType']]]] grant_types: Form of an authorization grant, which the client uses to request the access token.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_owner_password: Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner password.
         :param pulumi.Input[str] resource_owner_username: Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner username.
@@ -81,36 +82,36 @@ class AuthorizationServer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if authorization_endpoint is None:
+            if authorization_endpoint is None and not opts.urn:
                 raise TypeError("Missing required property 'authorization_endpoint'")
             __props__['authorization_endpoint'] = authorization_endpoint
             __props__['authorization_methods'] = authorization_methods
-            if authsid is None:
+            if authsid is None and not opts.urn:
                 raise TypeError("Missing required property 'authsid'")
             __props__['authsid'] = authsid
             __props__['bearer_token_sending_methods'] = bearer_token_sending_methods
             __props__['client_authentication_method'] = client_authentication_method
-            if client_id is None:
+            if client_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_id'")
             __props__['client_id'] = client_id
-            if client_registration_endpoint is None:
+            if client_registration_endpoint is None and not opts.urn:
                 raise TypeError("Missing required property 'client_registration_endpoint'")
             __props__['client_registration_endpoint'] = client_registration_endpoint
             __props__['client_secret'] = client_secret
             __props__['default_scope'] = default_scope
             __props__['description'] = description
-            if display_name is None:
+            if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
-            if grant_types is None:
+            if grant_types is None and not opts.urn:
                 raise TypeError("Missing required property 'grant_types'")
             __props__['grant_types'] = grant_types
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_owner_password'] = resource_owner_password
             __props__['resource_owner_username'] = resource_owner_username
-            if service_name is None:
+            if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['support_state'] = support_state

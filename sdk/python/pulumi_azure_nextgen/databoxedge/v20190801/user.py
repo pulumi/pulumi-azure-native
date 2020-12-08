@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['User']
@@ -22,7 +23,7 @@ class User(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_access_rights: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ShareAccessRightArgs']]]]] = None,
-                 user_type: Optional[pulumi.Input[str]] = None,
+                 user_type: Optional[pulumi.Input[Union[str, 'UserType']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -36,7 +37,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] name: The user name.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ShareAccessRightArgs']]]] share_access_rights: List of shares that the user has rights on. This field should not be specified during user creation.
-        :param pulumi.Input[str] user_type: Type of the user.
+        :param pulumi.Input[Union[str, 'UserType']] user_type: Type of the user.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -55,18 +56,18 @@ class User(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if device_name is None:
+            if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
             __props__['encrypted_password'] = encrypted_password
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['share_access_rights'] = share_access_rights
-            if user_type is None:
+            if user_type is None and not opts.urn:
                 raise TypeError("Missing required property 'user_type'")
             __props__['user_type'] = user_type
             __props__['type'] = None

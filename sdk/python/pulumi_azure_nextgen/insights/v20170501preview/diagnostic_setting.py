@@ -68,10 +68,10 @@ class DiagnosticSetting(pulumi.CustomResource):
             __props__['log_analytics_destination_type'] = log_analytics_destination_type
             __props__['logs'] = logs
             __props__['metrics'] = metrics
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if resource_uri is None:
+            if resource_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_uri'")
             __props__['resource_uri'] = resource_uri
             __props__['service_bus_rule_id'] = service_bus_rule_id

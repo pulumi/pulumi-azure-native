@@ -59,13 +59,13 @@ class EventSubscription(pulumi.CustomResource):
 
             __props__['dead_letter_destination'] = dead_letter_destination
             __props__['destination'] = destination
-            if event_subscription_name is None:
+            if event_subscription_name is None and not opts.urn:
                 raise TypeError("Missing required property 'event_subscription_name'")
             __props__['event_subscription_name'] = event_subscription_name
             __props__['filter'] = filter
             __props__['labels'] = labels
             __props__['retry_policy'] = retry_policy
-            if scope is None:
+            if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
             __props__['name'] = None

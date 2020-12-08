@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Account']
@@ -20,16 +21,16 @@ class Account(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  default_group: Optional[pulumi.Input[str]] = None,
                  encryption_config: Optional[pulumi.Input[pulumi.InputType['EncryptionConfigArgs']]] = None,
-                 encryption_state: Optional[pulumi.Input[str]] = None,
-                 firewall_allow_azure_ips: Optional[pulumi.Input[str]] = None,
+                 encryption_state: Optional[pulumi.Input['EncryptionState']] = None,
+                 firewall_allow_azure_ips: Optional[pulumi.Input['FirewallAllowAzureIpsState']] = None,
                  firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CreateFirewallRuleWithAccountParametersArgs']]]]] = None,
-                 firewall_state: Optional[pulumi.Input[str]] = None,
+                 firewall_state: Optional[pulumi.Input['FirewallState']] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['EncryptionIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 new_tier: Optional[pulumi.Input[str]] = None,
+                 new_tier: Optional[pulumi.Input['TierType']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 trusted_id_provider_state: Optional[pulumi.Input[str]] = None,
+                 trusted_id_provider_state: Optional[pulumi.Input['TrustedIdProviderState']] = None,
                  trusted_id_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CreateTrustedIdProviderWithAccountParametersArgs']]]]] = None,
                  virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CreateVirtualNetworkRuleWithAccountParametersArgs']]]]] = None,
                  __props__=None,
@@ -43,16 +44,16 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The name of the Data Lake Store account.
         :param pulumi.Input[str] default_group: The default owner group for all new folders and files created in the Data Lake Store account.
         :param pulumi.Input[pulumi.InputType['EncryptionConfigArgs']] encryption_config: The Key Vault encryption configuration.
-        :param pulumi.Input[str] encryption_state: The current state of encryption for this Data Lake Store account.
-        :param pulumi.Input[str] firewall_allow_azure_ips: The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
+        :param pulumi.Input['EncryptionState'] encryption_state: The current state of encryption for this Data Lake Store account.
+        :param pulumi.Input['FirewallAllowAzureIpsState'] firewall_allow_azure_ips: The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CreateFirewallRuleWithAccountParametersArgs']]]] firewall_rules: The list of firewall rules associated with this Data Lake Store account.
-        :param pulumi.Input[str] firewall_state: The current state of the IP address firewall for this Data Lake Store account.
+        :param pulumi.Input['FirewallState'] firewall_state: The current state of the IP address firewall for this Data Lake Store account.
         :param pulumi.Input[pulumi.InputType['EncryptionIdentityArgs']] identity: The Key Vault encryption identity, if any.
         :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[str] new_tier: The commitment tier to use for next month.
+        :param pulumi.Input['TierType'] new_tier: The commitment tier to use for next month.
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
-        :param pulumi.Input[str] trusted_id_provider_state: The current state of the trusted identity provider feature for this Data Lake Store account.
+        :param pulumi.Input['TrustedIdProviderState'] trusted_id_provider_state: The current state of the trusted identity provider feature for this Data Lake Store account.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CreateTrustedIdProviderWithAccountParametersArgs']]]] trusted_id_providers: The list of trusted identity providers associated with this Data Lake Store account.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CreateVirtualNetworkRuleWithAccountParametersArgs']]]] virtual_network_rules: The list of virtual network rules associated with this Data Lake Store account.
         """
@@ -73,7 +74,7 @@ class Account(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_name is None:
+            if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['default_group'] = default_group
@@ -83,11 +84,11 @@ class Account(pulumi.CustomResource):
             __props__['firewall_rules'] = firewall_rules
             __props__['firewall_state'] = firewall_state
             __props__['identity'] = identity
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['new_tier'] = new_tier
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

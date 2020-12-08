@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['HostPool']
@@ -21,12 +22,12 @@ class HostPool(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  host_pool_name: Optional[pulumi.Input[str]] = None,
-                 host_pool_type: Optional[pulumi.Input[str]] = None,
-                 load_balancer_type: Optional[pulumi.Input[str]] = None,
+                 host_pool_type: Optional[pulumi.Input[Union[str, 'HostPoolType']]] = None,
+                 load_balancer_type: Optional[pulumi.Input[Union[str, 'LoadBalancerType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_session_limit: Optional[pulumi.Input[int]] = None,
-                 personal_desktop_assignment_type: Optional[pulumi.Input[str]] = None,
-                 preferred_app_group_type: Optional[pulumi.Input[str]] = None,
+                 personal_desktop_assignment_type: Optional[pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']]] = None,
+                 preferred_app_group_type: Optional[pulumi.Input[Union[str, 'PreferredAppGroupType']]] = None,
                  registration_info: Optional[pulumi.Input[pulumi.InputType['RegistrationInfoArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  ring: Optional[pulumi.Input[int]] = None,
@@ -46,12 +47,12 @@ class HostPool(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of HostPool.
         :param pulumi.Input[str] friendly_name: Friendly name of HostPool.
         :param pulumi.Input[str] host_pool_name: The name of the host pool within the specified resource group
-        :param pulumi.Input[str] host_pool_type: HostPool type for desktop.
-        :param pulumi.Input[str] load_balancer_type: The type of the load balancer.
+        :param pulumi.Input[Union[str, 'HostPoolType']] host_pool_type: HostPool type for desktop.
+        :param pulumi.Input[Union[str, 'LoadBalancerType']] load_balancer_type: The type of the load balancer.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[int] max_session_limit: The max session limit of HostPool.
-        :param pulumi.Input[str] personal_desktop_assignment_type: PersonalDesktopAssignment type for HostPool.
-        :param pulumi.Input[str] preferred_app_group_type: The type of preferred application group type, default to Desktop Application Group
+        :param pulumi.Input[Union[str, 'PersonalDesktopAssignmentType']] personal_desktop_assignment_type: PersonalDesktopAssignment type for HostPool.
+        :param pulumi.Input[Union[str, 'PreferredAppGroupType']] preferred_app_group_type: The type of preferred application group type, default to Desktop Application Group
         :param pulumi.Input[pulumi.InputType['RegistrationInfoArgs']] registration_info: The registration info of HostPool.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[int] ring: The ring number of HostPool.
@@ -80,25 +81,25 @@ class HostPool(pulumi.CustomResource):
             __props__['custom_rdp_property'] = custom_rdp_property
             __props__['description'] = description
             __props__['friendly_name'] = friendly_name
-            if host_pool_name is None:
+            if host_pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'host_pool_name'")
             __props__['host_pool_name'] = host_pool_name
-            if host_pool_type is None:
+            if host_pool_type is None and not opts.urn:
                 raise TypeError("Missing required property 'host_pool_type'")
             __props__['host_pool_type'] = host_pool_type
-            if load_balancer_type is None:
+            if load_balancer_type is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer_type'")
             __props__['load_balancer_type'] = load_balancer_type
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['max_session_limit'] = max_session_limit
             __props__['personal_desktop_assignment_type'] = personal_desktop_assignment_type
-            if preferred_app_group_type is None:
+            if preferred_app_group_type is None and not opts.urn:
                 raise TypeError("Missing required property 'preferred_app_group_type'")
             __props__['preferred_app_group_type'] = preferred_app_group_type
             __props__['registration_info'] = registration_info
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['ring'] = ring

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ResourceSkuArgs',
@@ -20,7 +21,7 @@ class ResourceSkuArgs:
                  capacity: Optional[pulumi.Input[int]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[str]] = None,
-                 tier: Optional[pulumi.Input[str]] = None):
+                 tier: Optional[pulumi.Input[Union[str, 'SignalRSkuTier']]] = None):
         """
         The billing information of the resource.(e.g. basic vs. standard)
         :param pulumi.Input[str] name: The name of the SKU. This is typically a letter + number code, such as A0 or P3.  Required (if sku is specified)
@@ -28,7 +29,7 @@ class ResourceSkuArgs:
                possible for the resource this may be omitted.
         :param pulumi.Input[str] family: Optional, string. If the service has different generations of hardware, for the same SKU, then that can be captured here.
         :param pulumi.Input[str] size: Optional, string. When the name field is the combination of tier and some other value, this would be the standalone code.
-        :param pulumi.Input[str] tier: Optional tier of this particular SKU. `Basic` is deprecated, use `Standard` instead for Basic tier
+        :param pulumi.Input[Union[str, 'SignalRSkuTier']] tier: Optional tier of this particular SKU. `Basic` is deprecated, use `Standard` instead for Basic tier
         """
         pulumi.set(__self__, "name", name)
         if capacity is not None:
@@ -91,14 +92,14 @@ class ResourceSkuArgs:
 
     @property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[str]]:
+    def tier(self) -> Optional[pulumi.Input[Union[str, 'SignalRSkuTier']]]:
         """
         Optional tier of this particular SKU. `Basic` is deprecated, use `Standard` instead for Basic tier
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[str]]):
+    def tier(self, value: Optional[pulumi.Input[Union[str, 'SignalRSkuTier']]]):
         pulumi.set(self, "tier", value)
 
 

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['AzureFirewall']
@@ -30,7 +31,7 @@ class AzureFirewall(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['AzureFirewallSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 threat_intel_mode: Optional[pulumi.Input[str]] = None,
+                 threat_intel_mode: Optional[pulumi.Input[Union[str, 'AzureFirewallThreatIntelMode']]] = None,
                  virtual_hub: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -54,7 +55,7 @@ class AzureFirewall(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['AzureFirewallSkuArgs']] sku: The Azure Firewall Resource SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] threat_intel_mode: The operation mode for Threat Intelligence.
+        :param pulumi.Input[Union[str, 'AzureFirewallThreatIntelMode']] threat_intel_mode: The operation mode for Threat Intelligence.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_hub: The virtualHub to which the firewall belongs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones denoting where the resource needs to come from.
         """
@@ -77,7 +78,7 @@ class AzureFirewall(pulumi.CustomResource):
 
             __props__['additional_properties'] = additional_properties
             __props__['application_rule_collections'] = application_rule_collections
-            if azure_firewall_name is None:
+            if azure_firewall_name is None and not opts.urn:
                 raise TypeError("Missing required property 'azure_firewall_name'")
             __props__['azure_firewall_name'] = azure_firewall_name
             __props__['firewall_policy'] = firewall_policy
@@ -87,7 +88,7 @@ class AzureFirewall(pulumi.CustomResource):
             __props__['management_ip_configuration'] = management_ip_configuration
             __props__['nat_rule_collections'] = nat_rule_collections
             __props__['network_rule_collections'] = network_rule_collections
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku

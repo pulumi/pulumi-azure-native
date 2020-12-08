@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['Volume']
 
@@ -17,15 +18,15 @@ class Volume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_control_record_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input['Kind']] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
-                 monitoring_status: Optional[pulumi.Input[str]] = None,
+                 monitoring_status: Optional[pulumi.Input['MonitoringStatus']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  size_in_bytes: Optional[pulumi.Input[int]] = None,
                  volume_container_name: Optional[pulumi.Input[str]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
-                 volume_status: Optional[pulumi.Input[str]] = None,
-                 volume_type: Optional[pulumi.Input[str]] = None,
+                 volume_status: Optional[pulumi.Input['VolumeStatus']] = None,
+                 volume_type: Optional[pulumi.Input['VolumeType']] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -36,15 +37,15 @@ class Volume(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] access_control_record_ids: The IDs of the access control records, associated with the volume.
         :param pulumi.Input[str] device_name: The device name
-        :param pulumi.Input[str] kind: The Kind of the object. Currently only Series8000 is supported
+        :param pulumi.Input['Kind'] kind: The Kind of the object. Currently only Series8000 is supported
         :param pulumi.Input[str] manager_name: The manager name
-        :param pulumi.Input[str] monitoring_status: The monitoring status of the volume.
+        :param pulumi.Input['MonitoringStatus'] monitoring_status: The monitoring status of the volume.
         :param pulumi.Input[str] resource_group_name: The resource group name
         :param pulumi.Input[int] size_in_bytes: The size of the volume in bytes.
         :param pulumi.Input[str] volume_container_name: The volume container name.
         :param pulumi.Input[str] volume_name: The volume name.
-        :param pulumi.Input[str] volume_status: The volume status.
-        :param pulumi.Input[str] volume_type: The type of the volume.
+        :param pulumi.Input['VolumeStatus'] volume_status: The volume status.
+        :param pulumi.Input['VolumeType'] volume_type: The type of the volume.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -63,35 +64,35 @@ class Volume(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if access_control_record_ids is None:
+            if access_control_record_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'access_control_record_ids'")
             __props__['access_control_record_ids'] = access_control_record_ids
-            if device_name is None:
+            if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
             __props__['kind'] = kind
-            if manager_name is None:
+            if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")
             __props__['manager_name'] = manager_name
-            if monitoring_status is None:
+            if monitoring_status is None and not opts.urn:
                 raise TypeError("Missing required property 'monitoring_status'")
             __props__['monitoring_status'] = monitoring_status
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if size_in_bytes is None:
+            if size_in_bytes is None and not opts.urn:
                 raise TypeError("Missing required property 'size_in_bytes'")
             __props__['size_in_bytes'] = size_in_bytes
-            if volume_container_name is None:
+            if volume_container_name is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_container_name'")
             __props__['volume_container_name'] = volume_container_name
-            if volume_name is None:
+            if volume_name is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_name'")
             __props__['volume_name'] = volume_name
-            if volume_status is None:
+            if volume_status is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_status'")
             __props__['volume_status'] = volume_status
-            if volume_type is None:
+            if volume_type is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_type'")
             __props__['volume_type'] = volume_type
             __props__['backup_policy_ids'] = None

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Appliance']
@@ -70,19 +71,19 @@ class Appliance(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['appliance_definition_id'] = appliance_definition_id
-            if appliance_name is None:
+            if appliance_name is None and not opts.urn:
                 raise TypeError("Missing required property 'appliance_name'")
             __props__['appliance_name'] = appliance_name
             __props__['identity'] = identity
             __props__['kind'] = kind
             __props__['location'] = location
             __props__['managed_by'] = managed_by
-            if managed_resource_group_id is None:
+            if managed_resource_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_resource_group_id'")
             __props__['managed_resource_group_id'] = managed_resource_group_id
             __props__['parameters'] = parameters
             __props__['plan'] = plan
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku

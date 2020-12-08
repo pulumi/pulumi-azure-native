@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['PartnerRegistration']
 
@@ -30,7 +31,7 @@ class PartnerRegistration(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  setup_uri: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 visibility_state: Optional[pulumi.Input[str]] = None,
+                 visibility_state: Optional[pulumi.Input[Union[str, 'PartnerRegistrationVisibilityState']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -62,7 +63,7 @@ class PartnerRegistration(pulumi.CustomResource):
         :param pulumi.Input[str] setup_uri: URI of the partner website that can be used by Azure customers to setup Event Grid
                integration on an event source.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the resource.
-        :param pulumi.Input[str] visibility_state: Visibility state of the partner registration.
+        :param pulumi.Input[Union[str, 'PartnerRegistrationVisibilityState']] visibility_state: Visibility state of the partner registration.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -83,7 +84,7 @@ class PartnerRegistration(pulumi.CustomResource):
 
             __props__['authorized_azure_subscription_ids'] = authorized_azure_subscription_ids
             __props__['customer_service_uri'] = customer_service_uri
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['logo_uri'] = logo_uri
@@ -91,13 +92,13 @@ class PartnerRegistration(pulumi.CustomResource):
             __props__['partner_customer_service_extension'] = partner_customer_service_extension
             __props__['partner_customer_service_number'] = partner_customer_service_number
             __props__['partner_name'] = partner_name
-            if partner_registration_name is None:
+            if partner_registration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'partner_registration_name'")
             __props__['partner_registration_name'] = partner_registration_name
             __props__['partner_resource_type_description'] = partner_resource_type_description
             __props__['partner_resource_type_display_name'] = partner_resource_type_display_name
             __props__['partner_resource_type_name'] = partner_resource_type_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['setup_uri'] = setup_uri

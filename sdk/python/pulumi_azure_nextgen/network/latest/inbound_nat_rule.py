@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['InboundNatRule']
@@ -27,7 +28,7 @@ class InboundNatRule(pulumi.CustomResource):
                  inbound_nat_rule_name: Optional[pulumi.Input[str]] = None,
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 protocol: Optional[pulumi.Input[str]] = None,
+                 protocol: Optional[pulumi.Input[Union[str, 'TransportProtocol']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -47,7 +48,7 @@ class InboundNatRule(pulumi.CustomResource):
         :param pulumi.Input[str] inbound_nat_rule_name: The name of the inbound nat rule.
         :param pulumi.Input[str] load_balancer_name: The name of the load balancer.
         :param pulumi.Input[str] name: The name of the resource that is unique within the set of inbound NAT rules used by the load balancer. This name can be used to access the resource.
-        :param pulumi.Input[str] protocol: The reference to the transport protocol used by the load balancing rule.
+        :param pulumi.Input[Union[str, 'TransportProtocol']] protocol: The reference to the transport protocol used by the load balancing rule.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
         if __name__ is not None:
@@ -74,15 +75,15 @@ class InboundNatRule(pulumi.CustomResource):
             __props__['frontend_port'] = frontend_port
             __props__['id'] = id
             __props__['idle_timeout_in_minutes'] = idle_timeout_in_minutes
-            if inbound_nat_rule_name is None:
+            if inbound_nat_rule_name is None and not opts.urn:
                 raise TypeError("Missing required property 'inbound_nat_rule_name'")
             __props__['inbound_nat_rule_name'] = inbound_nat_rule_name
-            if load_balancer_name is None:
+            if load_balancer_name is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer_name'")
             __props__['load_balancer_name'] = load_balancer_name
             __props__['name'] = name
             __props__['protocol'] = protocol
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['backend_ip_configuration'] = None

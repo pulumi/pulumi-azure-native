@@ -76,7 +76,7 @@ class StreamingEndpoint(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['access_control'] = access_control
-            if account_name is None:
+            if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['auto_start'] = auto_start
@@ -87,17 +87,17 @@ class StreamingEndpoint(pulumi.CustomResource):
             __props__['cross_site_access_policies'] = cross_site_access_policies
             __props__['custom_host_names'] = custom_host_names
             __props__['description'] = description
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['max_cache_age'] = max_cache_age
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if scale_units is None:
+            if scale_units is None and not opts.urn:
                 raise TypeError("Missing required property 'scale_units'")
             __props__['scale_units'] = scale_units
-            if streaming_endpoint_name is None:
+            if streaming_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'streaming_endpoint_name'")
             __props__['streaming_endpoint_name'] = streaming_endpoint_name
             __props__['tags'] = tags

@@ -54,14 +54,14 @@ class Solution(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['etag'] = etag
-            if migrate_project_name is None:
+            if migrate_project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'migrate_project_name'")
             __props__['migrate_project_name'] = migrate_project_name
             __props__['properties'] = properties
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if solution_name is None:
+            if solution_name is None and not opts.urn:
                 raise TypeError("Missing required property 'solution_name'")
             __props__['solution_name'] = solution_name
             __props__['name'] = None

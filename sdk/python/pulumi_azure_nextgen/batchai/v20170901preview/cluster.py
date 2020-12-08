@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Cluster']
@@ -26,7 +27,7 @@ class Cluster(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_account_settings: Optional[pulumi.Input[pulumi.InputType['UserAccountSettingsArgs']]] = None,
                  virtual_machine_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualMachineConfigurationArgs']]] = None,
-                 vm_priority: Optional[pulumi.Input[str]] = None,
+                 vm_priority: Optional[pulumi.Input['VmPriority']] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -45,7 +46,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The user specified tags associated with the Cluster.
         :param pulumi.Input[pulumi.InputType['UserAccountSettingsArgs']] user_account_settings: Settings for user account that gets created on each on the nodes of a cluster.
         :param pulumi.Input[pulumi.InputType['VirtualMachineConfigurationArgs']] virtual_machine_configuration: Settings for OS image.
-        :param pulumi.Input[str] vm_priority: Default is dedicated.
+        :param pulumi.Input['VmPriority'] vm_priority: Default is dedicated.
         :param pulumi.Input[str] vm_size: All virtual machines in a cluster are the same size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace (see Sizes for Virtual Machines (Linux) or Sizes for Virtual Machines (Windows). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
         """
         if __name__ is not None:
@@ -65,25 +66,25 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if cluster_name is None:
+            if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['node_setup'] = node_setup
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['scale_settings'] = scale_settings
             __props__['subnet'] = subnet
             __props__['tags'] = tags
-            if user_account_settings is None:
+            if user_account_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'user_account_settings'")
             __props__['user_account_settings'] = user_account_settings
             __props__['virtual_machine_configuration'] = virtual_machine_configuration
             __props__['vm_priority'] = vm_priority
-            if vm_size is None:
+            if vm_size is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_size'")
             __props__['vm_size'] = vm_size
             __props__['allocation_state'] = None

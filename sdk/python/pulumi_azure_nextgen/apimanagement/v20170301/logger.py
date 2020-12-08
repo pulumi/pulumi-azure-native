@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Logger']
@@ -20,7 +21,7 @@ class Logger(pulumi.CustomResource):
                  credentials: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  is_buffered: Optional[pulumi.Input[bool]] = None,
-                 logger_type: Optional[pulumi.Input[str]] = None,
+                 logger_type: Optional[pulumi.Input[Union[str, 'LoggerType']]] = None,
                  loggerid: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sampling: Optional[pulumi.Input[pulumi.InputType['LoggerSamplingContractArgs']]] = None,
@@ -37,7 +38,7 @@ class Logger(pulumi.CustomResource):
                Instrumentation key for applicationInsights logger.
         :param pulumi.Input[str] description: Logger description.
         :param pulumi.Input[bool] is_buffered: Whether records are buffered in the logger before publishing. Default is assumed to be true.
-        :param pulumi.Input[str] logger_type: Logger type.
+        :param pulumi.Input[Union[str, 'LoggerType']] logger_type: Logger type.
         :param pulumi.Input[str] loggerid: Logger identifier. Must be unique in the API Management service instance.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['LoggerSamplingContractArgs']] sampling: Sampling settings for an ApplicationInsights logger.
@@ -60,22 +61,22 @@ class Logger(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if credentials is None:
+            if credentials is None and not opts.urn:
                 raise TypeError("Missing required property 'credentials'")
             __props__['credentials'] = credentials
             __props__['description'] = description
             __props__['is_buffered'] = is_buffered
-            if logger_type is None:
+            if logger_type is None and not opts.urn:
                 raise TypeError("Missing required property 'logger_type'")
             __props__['logger_type'] = logger_type
-            if loggerid is None:
+            if loggerid is None and not opts.urn:
                 raise TypeError("Missing required property 'loggerid'")
             __props__['loggerid'] = loggerid
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sampling'] = sampling
-            if service_name is None:
+            if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['name'] = None

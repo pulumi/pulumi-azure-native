@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['CostAllocationRule']
@@ -49,11 +50,11 @@ class CostAllocationRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if billing_account_id is None:
+            if billing_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'billing_account_id'")
             __props__['billing_account_id'] = billing_account_id
             __props__['properties'] = properties
-            if rule_name is None:
+            if rule_name is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_name'")
             __props__['rule_name'] = rule_name
             __props__['name'] = None

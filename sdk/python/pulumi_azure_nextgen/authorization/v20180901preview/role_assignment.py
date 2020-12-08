@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['RoleAssignment']
 
@@ -17,7 +18,7 @@ class RoleAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  can_delegate: Optional[pulumi.Input[bool]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
-                 principal_type: Optional[pulumi.Input[str]] = None,
+                 principal_type: Optional[pulumi.Input[Union[str, 'PrincipalType']]] = None,
                  role_assignment_name: Optional[pulumi.Input[str]] = None,
                  role_definition_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
@@ -31,7 +32,7 @@ class RoleAssignment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] can_delegate: The delegation flag used for creating a role assignment
         :param pulumi.Input[str] principal_id: The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
-        :param pulumi.Input[str] principal_type: The principal type of the assigned principal ID.
+        :param pulumi.Input[Union[str, 'PrincipalType']] principal_type: The principal type of the assigned principal ID.
         :param pulumi.Input[str] role_assignment_name: The name of the role assignment to create. It can be any valid GUID.
         :param pulumi.Input[str] role_definition_id: The role definition ID used in the role assignment.
         :param pulumi.Input[str] scope: The scope of the role assignment to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
@@ -54,17 +55,17 @@ class RoleAssignment(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['can_delegate'] = can_delegate
-            if principal_id is None:
+            if principal_id is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_id'")
             __props__['principal_id'] = principal_id
             __props__['principal_type'] = principal_type
-            if role_assignment_name is None:
+            if role_assignment_name is None and not opts.urn:
                 raise TypeError("Missing required property 'role_assignment_name'")
             __props__['role_assignment_name'] = role_assignment_name
-            if role_definition_id is None:
+            if role_definition_id is None and not opts.urn:
                 raise TypeError("Missing required property 'role_definition_id'")
             __props__['role_definition_id'] = role_definition_id
-            if scope is None:
+            if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
             __props__['name'] = None

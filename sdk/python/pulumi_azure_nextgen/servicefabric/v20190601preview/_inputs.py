@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ApplicationDeltaHealthPolicyArgs',
@@ -408,7 +409,7 @@ class ArmApplicationHealthPolicyArgs:
 @pulumi.input_type
 class ArmRollingUpgradeMonitoringPolicyArgs:
     def __init__(__self__, *,
-                 failure_action: Optional[pulumi.Input[str]] = None,
+                 failure_action: Optional[pulumi.Input[Union[str, 'ArmUpgradeFailureAction']]] = None,
                  health_check_retry_timeout: Optional[pulumi.Input[str]] = None,
                  health_check_stable_duration: Optional[pulumi.Input[str]] = None,
                  health_check_wait_duration: Optional[pulumi.Input[str]] = None,
@@ -416,7 +417,7 @@ class ArmRollingUpgradeMonitoringPolicyArgs:
                  upgrade_timeout: Optional[pulumi.Input[str]] = None):
         """
         The policy used for monitoring the application upgrade
-        :param pulumi.Input[str] failure_action: The activation Mode of the service package
+        :param pulumi.Input[Union[str, 'ArmUpgradeFailureAction']] failure_action: The activation Mode of the service package
         :param pulumi.Input[str] health_check_retry_timeout: The amount of time to retry health evaluation when the application or cluster is unhealthy before FailureAction is executed. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
         :param pulumi.Input[str] health_check_stable_duration: The amount of time that the application or cluster must remain healthy before the upgrade proceeds to the next upgrade domain. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
         :param pulumi.Input[str] health_check_wait_duration: The amount of time to wait after completing an upgrade domain before applying health policies. It is first interpreted as a string representing an ISO 8601 duration. If that fails, then it is interpreted as a number representing the total number of milliseconds.
@@ -438,14 +439,14 @@ class ArmRollingUpgradeMonitoringPolicyArgs:
 
     @property
     @pulumi.getter(name="failureAction")
-    def failure_action(self) -> Optional[pulumi.Input[str]]:
+    def failure_action(self) -> Optional[pulumi.Input[Union[str, 'ArmUpgradeFailureAction']]]:
         """
         The activation Mode of the service package
         """
         return pulumi.get(self, "failure_action")
 
     @failure_action.setter
-    def failure_action(self, value: Optional[pulumi.Input[str]]):
+    def failure_action(self, value: Optional[pulumi.Input[Union[str, 'ArmUpgradeFailureAction']]]):
         pulumi.set(self, "failure_action", value)
 
     @property
@@ -1215,11 +1216,11 @@ class EndpointRangeDescriptionArgs:
 @pulumi.input_type
 class ManagedIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['ManagedIdentityType']] = None,
                  user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Describes the managed identities for an Azure resource.
-        :param pulumi.Input[str] type: The type of managed identity for the resource.
+        :param pulumi.Input['ManagedIdentityType'] type: The type of managed identity for the resource.
         :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
                '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
@@ -1230,14 +1231,14 @@ class ManagedIdentityArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['ManagedIdentityType']]:
         """
         The type of managed identity for the resource.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['ManagedIdentityType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -1575,11 +1576,11 @@ class ServerCertificateCommonNamesArgs:
 @pulumi.input_type
 class ServiceCorrelationDescriptionArgs:
     def __init__(__self__, *,
-                 scheme: pulumi.Input[str],
+                 scheme: pulumi.Input[Union[str, 'ServiceCorrelationScheme']],
                  service_name: pulumi.Input[str]):
         """
         Creates a particular correlation between services.
-        :param pulumi.Input[str] scheme: The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
+        :param pulumi.Input[Union[str, 'ServiceCorrelationScheme']] scheme: The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
         :param pulumi.Input[str] service_name: The name of the service that the correlation relationship is established with.
         """
         pulumi.set(__self__, "scheme", scheme)
@@ -1587,14 +1588,14 @@ class ServiceCorrelationDescriptionArgs:
 
     @property
     @pulumi.getter
-    def scheme(self) -> pulumi.Input[str]:
+    def scheme(self) -> pulumi.Input[Union[str, 'ServiceCorrelationScheme']]:
         """
         The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
         """
         return pulumi.get(self, "scheme")
 
     @scheme.setter
-    def scheme(self, value: pulumi.Input[str]):
+    def scheme(self, value: pulumi.Input[Union[str, 'ServiceCorrelationScheme']]):
         pulumi.set(self, "scheme", value)
 
     @property
@@ -1617,14 +1618,14 @@ class ServiceLoadMetricDescriptionArgs:
                  default_load: Optional[pulumi.Input[int]] = None,
                  primary_default_load: Optional[pulumi.Input[int]] = None,
                  secondary_default_load: Optional[pulumi.Input[int]] = None,
-                 weight: Optional[pulumi.Input[str]] = None):
+                 weight: Optional[pulumi.Input[Union[str, 'ServiceLoadMetricWeight']]] = None):
         """
         Specifies a metric to load balance a service during runtime.
         :param pulumi.Input[str] name: The name of the metric. If the service chooses to report load during runtime, the load metric name should match the name that is specified in Name exactly. Note that metric names are case sensitive.
         :param pulumi.Input[int] default_load: Used only for Stateless services. The default amount of load, as a number, that this service creates for this metric.
         :param pulumi.Input[int] primary_default_load: Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Primary replica.
         :param pulumi.Input[int] secondary_default_load: Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Secondary replica.
-        :param pulumi.Input[str] weight: The service load metric relative weight, compared to other metrics configured for this service, as a number.
+        :param pulumi.Input[Union[str, 'ServiceLoadMetricWeight']] weight: The service load metric relative weight, compared to other metrics configured for this service, as a number.
         """
         pulumi.set(__self__, "name", name)
         if default_load is not None:
@@ -1686,37 +1687,37 @@ class ServiceLoadMetricDescriptionArgs:
 
     @property
     @pulumi.getter
-    def weight(self) -> Optional[pulumi.Input[str]]:
+    def weight(self) -> Optional[pulumi.Input[Union[str, 'ServiceLoadMetricWeight']]]:
         """
         The service load metric relative weight, compared to other metrics configured for this service, as a number.
         """
         return pulumi.get(self, "weight")
 
     @weight.setter
-    def weight(self, value: Optional[pulumi.Input[str]]):
+    def weight(self, value: Optional[pulumi.Input[Union[str, 'ServiceLoadMetricWeight']]]):
         pulumi.set(self, "weight", value)
 
 
 @pulumi.input_type
 class ServicePlacementPolicyDescriptionArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input[Union[str, 'ServicePlacementPolicyType']]):
         """
         Describes the policy to be used for placement of a Service Fabric service.
-        :param pulumi.Input[str] type: The type of placement policy for a service fabric service. Following are the possible values.
+        :param pulumi.Input[Union[str, 'ServicePlacementPolicyType']] type: The type of placement policy for a service fabric service. Following are the possible values.
         """
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'ServicePlacementPolicyType']]:
         """
         The type of placement policy for a service fabric service. Following are the possible values.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'ServicePlacementPolicyType']]):
         pulumi.set(self, "type", value)
 
 

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AppServiceCertificateArgs',
@@ -310,7 +311,7 @@ class CertificateOrderCertificateArgs:
                  key_vault_secret_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input['KeyVaultSecretStatus']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
@@ -321,7 +322,7 @@ class CertificateOrderCertificateArgs:
         :param pulumi.Input[str] key_vault_secret_name: Key Vault secret name
         :param pulumi.Input[str] kind: Kind of resource
         :param pulumi.Input[str] name: Resource Name
-        :param pulumi.Input[str] provisioning_state: Status of the Key Vault secret
+        :param pulumi.Input['KeyVaultSecretStatus'] provisioning_state: Status of the Key Vault secret
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] type: Resource type
         """
@@ -417,14 +418,14 @@ class CertificateOrderCertificateArgs:
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
+    def provisioning_state(self) -> Optional[pulumi.Input['KeyVaultSecretStatus']]:
         """
         Status of the Key Vault secret
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
+    def provisioning_state(self, value: Optional[pulumi.Input['KeyVaultSecretStatus']]):
         pulumi.set(self, "provisioning_state", value)
 
     @property

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Bookmark']
@@ -71,28 +72,28 @@ class Bookmark(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if bookmark_id is None:
+            if bookmark_id is None and not opts.urn:
                 raise TypeError("Missing required property 'bookmark_id'")
             __props__['bookmark_id'] = bookmark_id
             __props__['created'] = created
             __props__['created_by'] = created_by
-            if display_name is None:
+            if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
             __props__['etag'] = etag
             __props__['incident_info'] = incident_info
             __props__['labels'] = labels
             __props__['notes'] = notes
-            if query is None:
+            if query is None and not opts.urn:
                 raise TypeError("Missing required property 'query'")
             __props__['query'] = query
             __props__['query_result'] = query_result
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['updated'] = updated
             __props__['updated_by'] = updated_by
-            if workspace_name is None:
+            if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['name'] = None

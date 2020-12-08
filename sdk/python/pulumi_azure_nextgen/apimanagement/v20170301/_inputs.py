@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AdditionalLocationArgs',
@@ -133,34 +134,34 @@ class ApiCreateOrUpdatePropertiesWsdlSelectorArgs:
 @pulumi.input_type
 class ApiManagementServiceIdentityArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input[Union[str, 'ApimIdentityType']]):
         """
         Identity properties of the Api Management service resource.
-        :param pulumi.Input[str] type: The identity type. Currently the only supported type is 'SystemAssigned'.
+        :param pulumi.Input[Union[str, 'ApimIdentityType']] type: The identity type. Currently the only supported type is 'SystemAssigned'.
         """
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'ApimIdentityType']]:
         """
         The identity type. Currently the only supported type is 'SystemAssigned'.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'ApimIdentityType']]):
         pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
 class ApiManagementServiceSkuPropertiesArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
+                 name: pulumi.Input[Union[str, 'SkuType']],
                  capacity: Optional[pulumi.Input[int]] = None):
         """
         API Management service resource SKU properties.
-        :param pulumi.Input[str] name: Name of the Sku.
+        :param pulumi.Input[Union[str, 'SkuType']] name: Name of the Sku.
         :param pulumi.Input[int] capacity: Capacity of the SKU (number of deployed units of the SKU). The default value is 1.
         """
         pulumi.set(__self__, "name", name)
@@ -169,14 +170,14 @@ class ApiManagementServiceSkuPropertiesArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input[Union[str, 'SkuType']]:
         """
         Name of the Sku.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input[Union[str, 'SkuType']]):
         pulumi.set(self, "name", value)
 
     @property
@@ -196,14 +197,14 @@ class ApiManagementServiceSkuPropertiesArgs:
 class ApiVersionSetContractArgs:
     def __init__(__self__, *,
                  display_name: pulumi.Input[str],
-                 versioning_scheme: pulumi.Input[str],
+                 versioning_scheme: pulumi.Input[Union[str, 'VersioningScheme']],
                  description: Optional[pulumi.Input[str]] = None,
                  version_header_name: Optional[pulumi.Input[str]] = None,
                  version_query_name: Optional[pulumi.Input[str]] = None):
         """
         Api Version Set Contract details.
         :param pulumi.Input[str] display_name: Name of API Version Set
-        :param pulumi.Input[str] versioning_scheme: An value that determines where the API Version identifer will be located in a HTTP request.
+        :param pulumi.Input[Union[str, 'VersioningScheme']] versioning_scheme: An value that determines where the API Version identifer will be located in a HTTP request.
         :param pulumi.Input[str] description: Description of API Version Set.
         :param pulumi.Input[str] version_header_name: Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
         :param pulumi.Input[str] version_query_name: Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
@@ -231,14 +232,14 @@ class ApiVersionSetContractArgs:
 
     @property
     @pulumi.getter(name="versioningScheme")
-    def versioning_scheme(self) -> pulumi.Input[str]:
+    def versioning_scheme(self) -> pulumi.Input[Union[str, 'VersioningScheme']]:
         """
         An value that determines where the API Version identifer will be located in a HTTP request.
         """
         return pulumi.get(self, "versioning_scheme")
 
     @versioning_scheme.setter
-    def versioning_scheme(self, value: pulumi.Input[str]):
+    def versioning_scheme(self, value: pulumi.Input[Union[str, 'VersioningScheme']]):
         pulumi.set(self, "versioning_scheme", value)
 
     @property
@@ -732,7 +733,7 @@ class EmailTemplateParametersContractPropertiesArgs:
 class HostnameConfigurationArgs:
     def __init__(__self__, *,
                  host_name: pulumi.Input[str],
-                 type: pulumi.Input[str],
+                 type: pulumi.Input['HostnameType'],
                  certificate_password: Optional[pulumi.Input[str]] = None,
                  default_ssl_binding: Optional[pulumi.Input[bool]] = None,
                  encoded_certificate: Optional[pulumi.Input[str]] = None,
@@ -741,7 +742,7 @@ class HostnameConfigurationArgs:
         """
         Custom hostname configuration.
         :param pulumi.Input[str] host_name: Hostname to configure on the Api Management service.
-        :param pulumi.Input[str] type: Hostname type.
+        :param pulumi.Input['HostnameType'] type: Hostname type.
         :param pulumi.Input[str] certificate_password: Certificate Password.
         :param pulumi.Input[bool] default_ssl_binding: Specify true to setup the certificate associated with this Hostname as the Default SSL Certificate. If a client does not send the SNI header, then this will be the certificate that will be challenged. The property is useful if a service has multiple custom hostname enabled and it needs to decide on the default ssl certificate. The setting only applied to Proxy Hostname Type.
         :param pulumi.Input[str] encoded_certificate: Base64 Encoded certificate.
@@ -775,14 +776,14 @@ class HostnameConfigurationArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['HostnameType']:
         """
         Hostname type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['HostnameType']):
         pulumi.set(self, "type", value)
 
     @property
@@ -858,7 +859,7 @@ class LoggerSamplingContractArgs:
                  percentage: Optional[pulumi.Input[float]] = None,
                  percentage_decrease_timeout: Optional[pulumi.Input[str]] = None,
                  percentage_increase_timeout: Optional[pulumi.Input[str]] = None,
-                 sampling_type: Optional[pulumi.Input[str]] = None):
+                 sampling_type: Optional[pulumi.Input[Union[str, 'SamplingType']]] = None):
         """
         Sampling settings contract.
         :param pulumi.Input[str] evaluation_interval: Rate re-evaluation interval in ISO8601 format.
@@ -870,7 +871,7 @@ class LoggerSamplingContractArgs:
         :param pulumi.Input[float] percentage: Rate of sampling for fixed-rate sampling.
         :param pulumi.Input[str] percentage_decrease_timeout: Duration in ISO8601 format after which it's allowed to lower the sampling rate.
         :param pulumi.Input[str] percentage_increase_timeout: Duration in ISO8601 format after which it's allowed to increase the sampling rate.
-        :param pulumi.Input[str] sampling_type: Sampling type.
+        :param pulumi.Input[Union[str, 'SamplingType']] sampling_type: Sampling type.
         """
         if evaluation_interval is not None:
             pulumi.set(__self__, "evaluation_interval", evaluation_interval)
@@ -1003,14 +1004,14 @@ class LoggerSamplingContractArgs:
 
     @property
     @pulumi.getter(name="samplingType")
-    def sampling_type(self) -> Optional[pulumi.Input[str]]:
+    def sampling_type(self) -> Optional[pulumi.Input[Union[str, 'SamplingType']]]:
         """
         Sampling type.
         """
         return pulumi.get(self, "sampling_type")
 
     @sampling_type.setter
-    def sampling_type(self, value: Optional[pulumi.Input[str]]):
+    def sampling_type(self, value: Optional[pulumi.Input[Union[str, 'SamplingType']]]):
         pulumi.set(self, "sampling_type", value)
 
 

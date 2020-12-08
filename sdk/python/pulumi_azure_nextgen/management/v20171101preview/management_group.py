@@ -49,7 +49,7 @@ class ManagementGroup(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['display_name'] = display_name
-            if group_id is None:
+            if group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'group_id'")
             __props__['group_id'] = group_id
             __props__['parent_id'] = parent_id

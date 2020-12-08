@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Job']
@@ -37,7 +38,7 @@ class Job(pulumi.CustomResource):
                  output_directories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OutputDirectoryArgs']]]]] = None,
                  py_torch_settings: Optional[pulumi.Input[pulumi.InputType['PyTorchSettingsArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 scheduling_priority: Optional[pulumi.Input[str]] = None,
+                 scheduling_priority: Optional[pulumi.Input[Union[str, 'JobPriority']]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentVariableWithSecretValueArgs']]]]] = None,
                  std_out_err_path_prefix: Optional[pulumi.Input[str]] = None,
                  tensor_flow_settings: Optional[pulumi.Input[pulumi.InputType['TensorFlowSettingsArgs']]] = None,
@@ -70,7 +71,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OutputDirectoryArgs']]]] output_directories: A list of output directories for the job.
         :param pulumi.Input[pulumi.InputType['PyTorchSettingsArgs']] py_torch_settings: Settings for pyTorch job.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
-        :param pulumi.Input[str] scheduling_priority: Scheduling priority associated with the job. Possible values: low, normal, high.
+        :param pulumi.Input[Union[str, 'JobPriority']] scheduling_priority: Scheduling priority associated with the job. Possible values: low, normal, high.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentVariableWithSecretValueArgs']]]] secrets: A list of user defined environment variables with secret values which will be setup for the job. Server will never report values of these variables back.
         :param pulumi.Input[str] std_out_err_path_prefix: The path where the Batch AI service will store stdout, stderror and execution log of the job.
         :param pulumi.Input[pulumi.InputType['TensorFlowSettingsArgs']] tensor_flow_settings: Settings for Tensor Flow job.
@@ -96,7 +97,7 @@ class Job(pulumi.CustomResource):
             __props__['caffe2_settings'] = caffe2_settings
             __props__['caffe_settings'] = caffe_settings
             __props__['chainer_settings'] = chainer_settings
-            if cluster is None:
+            if cluster is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster'")
             __props__['cluster'] = cluster
             __props__['cntk_settings'] = cntk_settings
@@ -105,31 +106,31 @@ class Job(pulumi.CustomResource):
             __props__['custom_mpi_settings'] = custom_mpi_settings
             __props__['custom_toolkit_settings'] = custom_toolkit_settings
             __props__['environment_variables'] = environment_variables
-            if experiment_name is None:
+            if experiment_name is None and not opts.urn:
                 raise TypeError("Missing required property 'experiment_name'")
             __props__['experiment_name'] = experiment_name
             __props__['horovod_settings'] = horovod_settings
             __props__['input_directories'] = input_directories
-            if job_name is None:
+            if job_name is None and not opts.urn:
                 raise TypeError("Missing required property 'job_name'")
             __props__['job_name'] = job_name
             __props__['job_preparation'] = job_preparation
             __props__['mount_volumes'] = mount_volumes
-            if node_count is None:
+            if node_count is None and not opts.urn:
                 raise TypeError("Missing required property 'node_count'")
             __props__['node_count'] = node_count
             __props__['output_directories'] = output_directories
             __props__['py_torch_settings'] = py_torch_settings
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['scheduling_priority'] = scheduling_priority
             __props__['secrets'] = secrets
-            if std_out_err_path_prefix is None:
+            if std_out_err_path_prefix is None and not opts.urn:
                 raise TypeError("Missing required property 'std_out_err_path_prefix'")
             __props__['std_out_err_path_prefix'] = std_out_err_path_prefix
             __props__['tensor_flow_settings'] = tensor_flow_settings
-            if workspace_name is None:
+            if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['creation_time'] = None

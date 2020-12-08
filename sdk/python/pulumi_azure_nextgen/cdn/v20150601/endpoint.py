@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Endpoint']
@@ -27,7 +28,7 @@ class Endpoint(pulumi.CustomResource):
                  origin_path: Optional[pulumi.Input[str]] = None,
                  origins: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeepCreatedOriginArgs']]]]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
-                 query_string_caching_behavior: Optional[pulumi.Input[str]] = None,
+                 query_string_caching_behavior: Optional[pulumi.Input['QueryStringCachingBehavior']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -48,7 +49,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] origin_path: The path used for origin requests.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeepCreatedOriginArgs']]]] origins: The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
         :param pulumi.Input[str] profile_name: Name of the CDN profile within the resource group.
-        :param pulumi.Input[str] query_string_caching_behavior: Defines the query string caching behavior.
+        :param pulumi.Input['QueryStringCachingBehavior'] query_string_caching_behavior: Defines the query string caching behavior.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Endpoint tags
         """
@@ -70,25 +71,25 @@ class Endpoint(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['content_types_to_compress'] = content_types_to_compress
-            if endpoint_name is None:
+            if endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_name'")
             __props__['endpoint_name'] = endpoint_name
             __props__['is_compression_enabled'] = is_compression_enabled
             __props__['is_http_allowed'] = is_http_allowed
             __props__['is_https_allowed'] = is_https_allowed
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['origin_host_header'] = origin_host_header
             __props__['origin_path'] = origin_path
-            if origins is None:
+            if origins is None and not opts.urn:
                 raise TypeError("Missing required property 'origins'")
             __props__['origins'] = origins
-            if profile_name is None:
+            if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")
             __props__['profile_name'] = profile_name
             __props__['query_string_caching_behavior'] = query_string_caching_behavior
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

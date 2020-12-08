@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 
 __all__ = ['Webhook']
 
@@ -16,14 +17,14 @@ class Webhook(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'WebhookAction']]]]] = None,
                  custom_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  service_uri: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'WebhookStatus']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  webhook_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -34,14 +35,14 @@ class Webhook(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: The list of actions that trigger the webhook to post notifications.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'WebhookAction']]]] actions: The list of actions that trigger the webhook to post notifications.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_headers: Custom headers that will be added to the webhook notifications.
         :param pulumi.Input[str] location: The location of the webhook. This cannot be changed after the resource is created.
         :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
         :param pulumi.Input[str] scope: The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
         :param pulumi.Input[str] service_uri: The service URI for the webhook to post notifications.
-        :param pulumi.Input[str] status: The status of the webhook at the time the operation was called.
+        :param pulumi.Input[Union[str, 'WebhookStatus']] status: The status of the webhook at the time the operation was called.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags for the webhook.
         :param pulumi.Input[str] webhook_name: The name of the webhook.
         """
@@ -62,26 +63,26 @@ class Webhook(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if actions is None:
+            if actions is None and not opts.urn:
                 raise TypeError("Missing required property 'actions'")
             __props__['actions'] = actions
             __props__['custom_headers'] = custom_headers
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if registry_name is None:
+            if registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registry_name'")
             __props__['registry_name'] = registry_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['scope'] = scope
-            if service_uri is None:
+            if service_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'service_uri'")
             __props__['service_uri'] = service_uri
             __props__['status'] = status
             __props__['tags'] = tags
-            if webhook_name is None:
+            if webhook_name is None and not opts.urn:
                 raise TypeError("Missing required property 'webhook_name'")
             __props__['webhook_name'] = webhook_name
             __props__['name'] = None

@@ -56,20 +56,20 @@ class Database(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if cluster_name is None:
+            if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
-            if database_name is None:
+            if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
             __props__['hot_cache_period_in_days'] = hot_cache_period_in_days
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if soft_delete_period_in_days is None:
+            if soft_delete_period_in_days is None and not opts.urn:
                 raise TypeError("Missing required property 'soft_delete_period_in_days'")
             __props__['soft_delete_period_in_days'] = soft_delete_period_in_days
             __props__['tags'] = tags

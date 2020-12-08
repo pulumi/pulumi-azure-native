@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['SharedPrivateLinkResource']
@@ -52,13 +53,13 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['properties'] = properties
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if search_service_name is None:
+            if search_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'search_service_name'")
             __props__['search_service_name'] = search_service_name
-            if shared_private_link_resource_name is None:
+            if shared_private_link_resource_name is None and not opts.urn:
                 raise TypeError("Missing required property 'shared_private_link_resource_name'")
             __props__['shared_private_link_resource_name'] = shared_private_link_resource_name
             __props__['name'] = None

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AssetItemArgs',
@@ -39,7 +40,7 @@ class AssetItemArgs:
     def __init__(__self__, *,
                  location_info: pulumi.Input['BlobLocationArgs'],
                  name: pulumi.Input[str],
-                 type: pulumi.Input[str],
+                 type: pulumi.Input[Union[str, 'AssetType']],
                  id: Optional[pulumi.Input[str]] = None,
                  input_ports: Optional[pulumi.Input[Mapping[str, pulumi.Input['InputPortArgs']]]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -49,7 +50,7 @@ class AssetItemArgs:
         Information about an asset associated with the web service.
         :param pulumi.Input['BlobLocationArgs'] location_info: Access information for the asset.
         :param pulumi.Input[str] name: Asset's friendly name.
-        :param pulumi.Input[str] type: Asset's type.
+        :param pulumi.Input[Union[str, 'AssetType']] type: Asset's type.
         :param pulumi.Input[str] id: Asset's Id.
         :param pulumi.Input[Mapping[str, pulumi.Input['InputPortArgs']]] input_ports: Information about the asset's input ports.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: If the asset is a custom module, this holds the module's metadata.
@@ -96,14 +97,14 @@ class AssetItemArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'AssetType']]:
         """
         Asset's type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'AssetType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -209,16 +210,16 @@ class BlobLocationArgs:
 @pulumi.input_type
 class ColumnSpecificationArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str],
+                 type: pulumi.Input[Union[str, 'ColumnType']],
                  enum: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 format: Optional[pulumi.Input[str]] = None,
+                 format: Optional[pulumi.Input[Union[str, 'ColumnFormat']]] = None,
                  x_ms_isnullable: Optional[pulumi.Input[bool]] = None,
                  x_ms_isordered: Optional[pulumi.Input[bool]] = None):
         """
         Swagger 2.0 schema for a column within the data table representing a web service input or output. See Swagger specification: http://swagger.io/specification/
-        :param pulumi.Input[str] type: Data type of the column.
+        :param pulumi.Input[Union[str, 'ColumnType']] type: Data type of the column.
         :param pulumi.Input[Sequence[Any]] enum: If the data type is categorical, this provides the list of accepted categories.
-        :param pulumi.Input[str] format: Additional format information for the data type.
+        :param pulumi.Input[Union[str, 'ColumnFormat']] format: Additional format information for the data type.
         :param pulumi.Input[bool] x_ms_isnullable: Flag indicating if the type supports null values or not.
         :param pulumi.Input[bool] x_ms_isordered: Flag indicating whether the categories are treated as an ordered set or not, if this is a categorical column.
         """
@@ -234,14 +235,14 @@ class ColumnSpecificationArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'ColumnType']]:
         """
         Data type of the column.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'ColumnType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -258,14 +259,14 @@ class ColumnSpecificationArgs:
 
     @property
     @pulumi.getter
-    def format(self) -> Optional[pulumi.Input[str]]:
+    def format(self) -> Optional[pulumi.Input[Union[str, 'ColumnFormat']]]:
         """
         Additional format information for the data type.
         """
         return pulumi.get(self, "format")
 
     @format.setter
-    def format(self, value: Optional[pulumi.Input[str]]):
+    def format(self, value: Optional[pulumi.Input[Union[str, 'ColumnFormat']]]):
         pulumi.set(self, "format", value)
 
     @property
@@ -319,11 +320,11 @@ class CommitmentPlanArgs:
 @pulumi.input_type
 class DiagnosticsConfigurationArgs:
     def __init__(__self__, *,
-                 level: pulumi.Input[str],
+                 level: pulumi.Input[Union[str, 'DiagnosticsLevel']],
                  expiry: Optional[pulumi.Input[str]] = None):
         """
         Diagnostics settings for an Azure ML web service.
-        :param pulumi.Input[str] level: Specifies the verbosity of the diagnostic output. Valid values are: None - disables tracing; Error - collects only error (stderr) traces; All - collects all traces (stdout and stderr).
+        :param pulumi.Input[Union[str, 'DiagnosticsLevel']] level: Specifies the verbosity of the diagnostic output. Valid values are: None - disables tracing; Error - collects only error (stderr) traces; All - collects all traces (stdout and stderr).
         :param pulumi.Input[str] expiry: Specifies the date and time when the logging will cease. If null, diagnostic collection is not time limited.
         """
         pulumi.set(__self__, "level", level)
@@ -332,14 +333,14 @@ class DiagnosticsConfigurationArgs:
 
     @property
     @pulumi.getter
-    def level(self) -> pulumi.Input[str]:
+    def level(self) -> pulumi.Input[Union[str, 'DiagnosticsLevel']]:
         """
         Specifies the verbosity of the diagnostic output. Valid values are: None - disables tracing; Error - collects only error (stderr) traces; All - collects all traces (stdout and stderr).
         """
         return pulumi.get(self, "level")
 
     @level.setter
-    def level(self, value: pulumi.Input[str]):
+    def level(self, value: pulumi.Input[Union[str, 'DiagnosticsLevel']]):
         pulumi.set(self, "level", value)
 
     @property
@@ -599,12 +600,12 @@ class GraphPackageArgs:
 class GraphParameterArgs:
     def __init__(__self__, *,
                  links: pulumi.Input[Sequence[pulumi.Input['GraphParameterLinkArgs']]],
-                 type: pulumi.Input[str],
+                 type: pulumi.Input[Union[str, 'ParameterType']],
                  description: Optional[pulumi.Input[str]] = None):
         """
         Defines a global parameter in the graph.
         :param pulumi.Input[Sequence[pulumi.Input['GraphParameterLinkArgs']]] links: Association links for this parameter to nodes in the graph.
-        :param pulumi.Input[str] type: Graph parameter's type.
+        :param pulumi.Input[Union[str, 'ParameterType']] type: Graph parameter's type.
         :param pulumi.Input[str] description: Description of this graph parameter.
         """
         pulumi.set(__self__, "links", links)
@@ -626,14 +627,14 @@ class GraphParameterArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'ParameterType']]:
         """
         Graph parameter's type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'ParameterType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -690,24 +691,24 @@ class GraphParameterLinkArgs:
 @pulumi.input_type
 class InputPortArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input[Union[str, 'InputPortType']]] = None):
         """
         Asset input port
-        :param pulumi.Input[str] type: Port data type.
+        :param pulumi.Input[Union[str, 'InputPortType']] type: Port data type.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'InputPortType']]]:
         """
         Port data type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'InputPortType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -833,24 +834,24 @@ class ModuleAssetParameterArgs:
 @pulumi.input_type
 class OutputPortArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input[Union[str, 'OutputPortType']]] = None):
         """
         Asset output port
-        :param pulumi.Input[str] type: Port data type.
+        :param pulumi.Input[Union[str, 'OutputPortType']] type: Port data type.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'OutputPortType']]]:
         """
         Port data type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'OutputPortType']]]):
         pulumi.set(self, "type", value)
 
 

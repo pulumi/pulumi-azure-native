@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'DeploymentPropertiesArgs',
@@ -18,14 +19,14 @@ __all__ = [
 @pulumi.input_type
 class DeploymentPropertiesArgs:
     def __init__(__self__, *,
-                 mode: Optional[pulumi.Input[str]] = None,
+                 mode: Optional[pulumi.Input['DeploymentMode']] = None,
                  parameters: Optional[Any] = None,
                  parameters_link: Optional[pulumi.Input['ParametersLinkArgs']] = None,
                  template: Optional[Any] = None,
                  template_link: Optional[pulumi.Input['TemplateLinkArgs']] = None):
         """
         Deployment properties.
-        :param pulumi.Input[str] mode: Gets or sets the deployment mode.
+        :param pulumi.Input['DeploymentMode'] mode: Gets or sets the deployment mode.
         :param Any parameters: Deployment parameters. Use only one of Parameters or ParametersLink.
         :param pulumi.Input['ParametersLinkArgs'] parameters_link: Gets or sets the URI referencing the parameters. Use only one of Parameters or ParametersLink.
         :param Any template: Gets or sets the template content. Use only one of Template or TemplateLink.
@@ -44,14 +45,14 @@ class DeploymentPropertiesArgs:
 
     @property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[str]]:
+    def mode(self) -> Optional[pulumi.Input['DeploymentMode']]:
         """
         Gets or sets the deployment mode.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[str]]):
+    def mode(self, value: Optional[pulumi.Input['DeploymentMode']]):
         pulumi.set(self, "mode", value)
 
     @property

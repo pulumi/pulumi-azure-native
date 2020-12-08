@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['FirewallPolicy']
@@ -27,7 +28,7 @@ class FirewallPolicy(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['FirewallPolicySkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 threat_intel_mode: Optional[pulumi.Input[str]] = None,
+                 threat_intel_mode: Optional[pulumi.Input[Union[str, 'AzureFirewallThreatIntelMode']]] = None,
                  threat_intel_whitelist: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyThreatIntelWhitelistArgs']]] = None,
                  transport_security: Optional[pulumi.Input[pulumi.InputType['FirewallPolicyTransportSecurityArgs']]] = None,
                  __props__=None,
@@ -48,7 +49,7 @@ class FirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['FirewallPolicySkuArgs']] sku: The Firewall Policy SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] threat_intel_mode: The operation mode for Threat Intelligence.
+        :param pulumi.Input[Union[str, 'AzureFirewallThreatIntelMode']] threat_intel_mode: The operation mode for Threat Intelligence.
         :param pulumi.Input[pulumi.InputType['FirewallPolicyThreatIntelWhitelistArgs']] threat_intel_whitelist: ThreatIntel Whitelist for Firewall Policy.
         :param pulumi.Input[pulumi.InputType['FirewallPolicyTransportSecurityArgs']] transport_security: TLS Configuration definition.
         """
@@ -71,14 +72,14 @@ class FirewallPolicy(pulumi.CustomResource):
 
             __props__['base_policy'] = base_policy
             __props__['dns_settings'] = dns_settings
-            if firewall_policy_name is None:
+            if firewall_policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'firewall_policy_name'")
             __props__['firewall_policy_name'] = firewall_policy_name
             __props__['id'] = id
             __props__['identity'] = identity
             __props__['intrusion_detection'] = intrusion_detection
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku

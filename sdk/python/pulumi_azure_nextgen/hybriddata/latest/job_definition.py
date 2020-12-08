@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['JobDefinition']
@@ -26,10 +27,10 @@ class JobDefinition(pulumi.CustomResource):
                  job_definition_name: Optional[pulumi.Input[str]] = None,
                  last_modified_time: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 run_location: Optional[pulumi.Input[str]] = None,
+                 run_location: Optional[pulumi.Input['RunLocation']] = None,
                  schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleArgs']]]]] = None,
-                 state: Optional[pulumi.Input[str]] = None,
-                 user_confirmation: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input['State']] = None,
+                 user_confirmation: Optional[pulumi.Input['UserConfirmation']] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -47,10 +48,10 @@ class JobDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] job_definition_name: The job definition name to be created or updated.
         :param pulumi.Input[str] last_modified_time: Last modified time of the job definition.
         :param pulumi.Input[str] resource_group_name: The Resource Group Name
-        :param pulumi.Input[str] run_location: This is the preferred geo location for the job to run.
+        :param pulumi.Input['RunLocation'] run_location: This is the preferred geo location for the job to run.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduleArgs']]]] schedules: Schedule for running the job definition
-        :param pulumi.Input[str] state: State of the job definition.
-        :param pulumi.Input[str] user_confirmation: Enum to detect if user confirmation is required. If not passed will default to NotRequired.
+        :param pulumi.Input['State'] state: State of the job definition.
+        :param pulumi.Input['UserConfirmation'] user_confirmation: Enum to detect if user confirmation is required. If not passed will default to NotRequired.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -70,29 +71,29 @@ class JobDefinition(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['customer_secrets'] = customer_secrets
-            if data_manager_name is None:
+            if data_manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'data_manager_name'")
             __props__['data_manager_name'] = data_manager_name
             __props__['data_service_input'] = data_service_input
-            if data_service_name is None:
+            if data_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'data_service_name'")
             __props__['data_service_name'] = data_service_name
-            if data_sink_id is None:
+            if data_sink_id is None and not opts.urn:
                 raise TypeError("Missing required property 'data_sink_id'")
             __props__['data_sink_id'] = data_sink_id
-            if data_source_id is None:
+            if data_source_id is None and not opts.urn:
                 raise TypeError("Missing required property 'data_source_id'")
             __props__['data_source_id'] = data_source_id
-            if job_definition_name is None:
+            if job_definition_name is None and not opts.urn:
                 raise TypeError("Missing required property 'job_definition_name'")
             __props__['job_definition_name'] = job_definition_name
             __props__['last_modified_time'] = last_modified_time
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['run_location'] = run_location
             __props__['schedules'] = schedules
-            if state is None:
+            if state is None and not opts.urn:
                 raise TypeError("Missing required property 'state'")
             __props__['state'] = state
             __props__['user_confirmation'] = user_confirmation

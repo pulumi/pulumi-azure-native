@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ConnectedRegistry']
@@ -20,7 +21,7 @@ class ConnectedRegistry(pulumi.CustomResource):
                  client_token_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  connected_registry_name: Optional[pulumi.Input[str]] = None,
                  logging: Optional[pulumi.Input[pulumi.InputType['LoggingPropertiesArgs']]] = None,
-                 mode: Optional[pulumi.Input[str]] = None,
+                 mode: Optional[pulumi.Input[Union[str, 'ConnectedRegistryMode']]] = None,
                  parent: Optional[pulumi.Input[pulumi.InputType['ParentPropertiesArgs']]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -35,7 +36,7 @@ class ConnectedRegistry(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_token_ids: The list of the ACR token resource IDs used to authenticate clients to the connected registry.
         :param pulumi.Input[str] connected_registry_name: The name of the connected registry.
         :param pulumi.Input[pulumi.InputType['LoggingPropertiesArgs']] logging: The logging properties of the connected registry.
-        :param pulumi.Input[str] mode: The mode of the connected registry resource that indicates the permissions of the registry.
+        :param pulumi.Input[Union[str, 'ConnectedRegistryMode']] mode: The mode of the connected registry resource that indicates the permissions of the registry.
         :param pulumi.Input[pulumi.InputType['ParentPropertiesArgs']] parent: The parent of the connected registry.
         :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
@@ -58,20 +59,20 @@ class ConnectedRegistry(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['client_token_ids'] = client_token_ids
-            if connected_registry_name is None:
+            if connected_registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'connected_registry_name'")
             __props__['connected_registry_name'] = connected_registry_name
             __props__['logging'] = logging
-            if mode is None:
+            if mode is None and not opts.urn:
                 raise TypeError("Missing required property 'mode'")
             __props__['mode'] = mode
-            if parent is None:
+            if parent is None and not opts.urn:
                 raise TypeError("Missing required property 'parent'")
             __props__['parent'] = parent
-            if registry_name is None:
+            if registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registry_name'")
             __props__['registry_name'] = registry_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['activation'] = None

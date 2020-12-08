@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetLogAnalyticExportRequestRateByIntervalResult',
@@ -108,7 +109,7 @@ def get_log_analytic_export_request_rate_by_interval(blob_container_sas_uri: Opt
                                                      group_by_operation_name: Optional[bool] = None,
                                                      group_by_resource_name: Optional[bool] = None,
                                                      group_by_throttle_policy: Optional[bool] = None,
-                                                     interval_length: Optional[str] = None,
+                                                     interval_length: Optional['IntervalInMins'] = None,
                                                      location: Optional[str] = None,
                                                      to_time: Optional[str] = None,
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogAnalyticExportRequestRateByIntervalResult:
@@ -120,7 +121,7 @@ def get_log_analytic_export_request_rate_by_interval(blob_container_sas_uri: Opt
     :param bool group_by_operation_name: Group query result by Operation Name.
     :param bool group_by_resource_name: Group query result by Resource Name.
     :param bool group_by_throttle_policy: Group query result by Throttle Policy applied.
-    :param str interval_length: Interval value in minutes used to create LogAnalytics call rate logs.
+    :param 'IntervalInMins' interval_length: Interval value in minutes used to create LogAnalytics call rate logs.
     :param str location: The location upon which virtual-machine-sizes is queried.
     :param str to_time: To time of the query
     """

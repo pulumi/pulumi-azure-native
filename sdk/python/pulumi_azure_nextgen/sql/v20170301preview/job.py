@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Job']
@@ -56,17 +57,17 @@ class Job(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['description'] = description
-            if job_agent_name is None:
+            if job_agent_name is None and not opts.urn:
                 raise TypeError("Missing required property 'job_agent_name'")
             __props__['job_agent_name'] = job_agent_name
-            if job_name is None:
+            if job_name is None and not opts.urn:
                 raise TypeError("Missing required property 'job_name'")
             __props__['job_name'] = job_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['schedule'] = schedule
-            if server_name is None:
+            if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
             __props__['name'] = None

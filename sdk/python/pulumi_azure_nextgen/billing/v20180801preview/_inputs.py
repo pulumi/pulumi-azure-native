@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ReportAggregationArgs',
@@ -26,11 +27,11 @@ __all__ = [
 @pulumi.input_type
 class ReportAggregationArgs:
     def __init__(__self__, *,
-                 function: pulumi.Input[str],
+                 function: pulumi.Input[Union[str, 'FunctionType']],
                  name: pulumi.Input[str]):
         """
         The aggregation expression to be used in the report.
-        :param pulumi.Input[str] function: The name of the aggregation function to use.
+        :param pulumi.Input[Union[str, 'FunctionType']] function: The name of the aggregation function to use.
         :param pulumi.Input[str] name: The name of the column to aggregate.
         """
         pulumi.set(__self__, "function", function)
@@ -38,14 +39,14 @@ class ReportAggregationArgs:
 
     @property
     @pulumi.getter
-    def function(self) -> pulumi.Input[str]:
+    def function(self) -> pulumi.Input[Union[str, 'FunctionType']]:
         """
         The name of the aggregation function to use.
         """
         return pulumi.get(self, "function")
 
     @function.setter
-    def function(self, value: pulumi.Input[str]):
+    def function(self, value: pulumi.Input[Union[str, 'FunctionType']]):
         pulumi.set(self, "function", value)
 
     @property
@@ -65,12 +66,12 @@ class ReportAggregationArgs:
 class ReportComparisonExpressionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 operator: pulumi.Input[str],
+                 operator: pulumi.Input[Union[str, 'OperatorType']],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         The comparison expression to be used in the report.
         :param pulumi.Input[str] name: The name of the column to use in comparison.
-        :param pulumi.Input[str] operator: The operator to use for comparison.
+        :param pulumi.Input[Union[str, 'OperatorType']] operator: The operator to use for comparison.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Array of values to use for comparison
         """
         pulumi.set(__self__, "name", name)
@@ -91,14 +92,14 @@ class ReportComparisonExpressionArgs:
 
     @property
     @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
+    def operator(self) -> pulumi.Input[Union[str, 'OperatorType']]:
         """
         The operator to use for comparison.
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: pulumi.Input[str]):
+    def operator(self, value: pulumi.Input[Union[str, 'OperatorType']]):
         pulumi.set(self, "operator", value)
 
     @property
@@ -120,14 +121,14 @@ class ReportDatasetArgs:
                  aggregation: Optional[pulumi.Input[Mapping[str, pulumi.Input['ReportAggregationArgs']]]] = None,
                  configuration: Optional[pulumi.Input['ReportDatasetConfigurationArgs']] = None,
                  filter: Optional[pulumi.Input['ReportFilterArgs']] = None,
-                 granularity: Optional[pulumi.Input[str]] = None,
+                 granularity: Optional[pulumi.Input[Union[str, 'GranularityType']]] = None,
                  grouping: Optional[pulumi.Input[Sequence[pulumi.Input['ReportGroupingArgs']]]] = None):
         """
         The definition of data present in the report.
         :param pulumi.Input[Mapping[str, pulumi.Input['ReportAggregationArgs']]] aggregation: Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
         :param pulumi.Input['ReportDatasetConfigurationArgs'] configuration: Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
         :param pulumi.Input['ReportFilterArgs'] filter: Has filter expression to use in the report.
-        :param pulumi.Input[str] granularity: The granularity of rows in the report.
+        :param pulumi.Input[Union[str, 'GranularityType']] granularity: The granularity of rows in the report.
         :param pulumi.Input[Sequence[pulumi.Input['ReportGroupingArgs']]] grouping: Array of group by expression to use in the report. Report can have up to 2 group by clauses.
         """
         if aggregation is not None:
@@ -179,14 +180,14 @@ class ReportDatasetArgs:
 
     @property
     @pulumi.getter
-    def granularity(self) -> Optional[pulumi.Input[str]]:
+    def granularity(self) -> Optional[pulumi.Input[Union[str, 'GranularityType']]]:
         """
         The granularity of rows in the report.
         """
         return pulumi.get(self, "granularity")
 
     @granularity.setter
-    def granularity(self, value: Optional[pulumi.Input[str]]):
+    def granularity(self, value: Optional[pulumi.Input[Union[str, 'GranularityType']]]):
         pulumi.set(self, "granularity", value)
 
     @property
@@ -229,14 +230,14 @@ class ReportDatasetConfigurationArgs:
 @pulumi.input_type
 class ReportDefinitionArgs:
     def __init__(__self__, *,
-                 timeframe: pulumi.Input[str],
-                 type: pulumi.Input[str],
+                 timeframe: pulumi.Input[Union[str, 'TimeframeType']],
+                 type: pulumi.Input[Union[str, 'ReportType']],
                  dataset: Optional[pulumi.Input['ReportDatasetArgs']] = None,
                  time_period: Optional[pulumi.Input['ReportTimePeriodArgs']] = None):
         """
         The definition of a report.
-        :param pulumi.Input[str] timeframe: The time frame for pulling data for the report. If custom, then a specific time period must be provided.
-        :param pulumi.Input[str] type: The type of the report.
+        :param pulumi.Input[Union[str, 'TimeframeType']] timeframe: The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+        :param pulumi.Input[Union[str, 'ReportType']] type: The type of the report.
         :param pulumi.Input['ReportDatasetArgs'] dataset: Has definition for data in this report.
         :param pulumi.Input['ReportTimePeriodArgs'] time_period: Has time period for pulling data for the report.
         """
@@ -249,26 +250,26 @@ class ReportDefinitionArgs:
 
     @property
     @pulumi.getter
-    def timeframe(self) -> pulumi.Input[str]:
+    def timeframe(self) -> pulumi.Input[Union[str, 'TimeframeType']]:
         """
         The time frame for pulling data for the report. If custom, then a specific time period must be provided.
         """
         return pulumi.get(self, "timeframe")
 
     @timeframe.setter
-    def timeframe(self, value: pulumi.Input[str]):
+    def timeframe(self, value: pulumi.Input[Union[str, 'TimeframeType']]):
         pulumi.set(self, "timeframe", value)
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'ReportType']]:
         """
         The type of the report.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'ReportType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -465,11 +466,11 @@ class ReportFilterArgs:
 class ReportGroupingArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input[Union[str, 'ReportColumnType']]):
         """
         The group by expression to be used in the report.
         :param pulumi.Input[str] name: The name of the column to group.
-        :param pulumi.Input[str] type: Has type of the column to group.
+        :param pulumi.Input[Union[str, 'ReportColumnType']] type: Has type of the column to group.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -488,14 +489,14 @@ class ReportGroupingArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'ReportColumnType']]:
         """
         Has type of the column to group.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'ReportColumnType']]):
         pulumi.set(self, "type", value)
 
 
@@ -541,14 +542,14 @@ class ReportRecurrencePeriodArgs:
 @pulumi.input_type
 class ReportScheduleArgs:
     def __init__(__self__, *,
-                 recurrence: pulumi.Input[str],
+                 recurrence: pulumi.Input[Union[str, 'RecurrenceType']],
                  recurrence_period: Optional[pulumi.Input['ReportRecurrencePeriodArgs']] = None,
-                 status: Optional[pulumi.Input[str]] = None):
+                 status: Optional[pulumi.Input[Union[str, 'StatusType']]] = None):
         """
         The schedule associated with a report.
-        :param pulumi.Input[str] recurrence: The schedule recurrence.
+        :param pulumi.Input[Union[str, 'RecurrenceType']] recurrence: The schedule recurrence.
         :param pulumi.Input['ReportRecurrencePeriodArgs'] recurrence_period: Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
-        :param pulumi.Input[str] status: The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
+        :param pulumi.Input[Union[str, 'StatusType']] status: The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
         """
         pulumi.set(__self__, "recurrence", recurrence)
         if recurrence_period is not None:
@@ -558,14 +559,14 @@ class ReportScheduleArgs:
 
     @property
     @pulumi.getter
-    def recurrence(self) -> pulumi.Input[str]:
+    def recurrence(self) -> pulumi.Input[Union[str, 'RecurrenceType']]:
         """
         The schedule recurrence.
         """
         return pulumi.get(self, "recurrence")
 
     @recurrence.setter
-    def recurrence(self, value: pulumi.Input[str]):
+    def recurrence(self, value: pulumi.Input[Union[str, 'RecurrenceType']]):
         pulumi.set(self, "recurrence", value)
 
     @property
@@ -582,14 +583,14 @@ class ReportScheduleArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input[Union[str, 'StatusType']]]:
         """
         The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input[Union[str, 'StatusType']]]):
         pulumi.set(self, "status", value)
 
 

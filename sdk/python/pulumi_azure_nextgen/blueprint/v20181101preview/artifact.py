@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['Artifact']
 
@@ -17,7 +18,7 @@ class Artifact(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  artifact_name: Optional[pulumi.Input[str]] = None,
                  blueprint_name: Optional[pulumi.Input[str]] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'ArtifactKind']]] = None,
                  resource_scope: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -29,7 +30,7 @@ class Artifact(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] artifact_name: Name of the blueprint artifact.
         :param pulumi.Input[str] blueprint_name: Name of the blueprint definition.
-        :param pulumi.Input[str] kind: Specifies the kind of blueprint artifact.
+        :param pulumi.Input[Union[str, 'ArtifactKind']] kind: Specifies the kind of blueprint artifact.
         :param pulumi.Input[str] resource_scope: The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
         """
         if __name__ is not None:
@@ -49,16 +50,16 @@ class Artifact(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if artifact_name is None:
+            if artifact_name is None and not opts.urn:
                 raise TypeError("Missing required property 'artifact_name'")
             __props__['artifact_name'] = artifact_name
-            if blueprint_name is None:
+            if blueprint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'blueprint_name'")
             __props__['blueprint_name'] = blueprint_name
-            if kind is None:
+            if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = kind
-            if resource_scope is None:
+            if resource_scope is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_scope'")
             __props__['resource_scope'] = resource_scope
             __props__['name'] = None

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['RoleAssignment']
@@ -31,7 +32,7 @@ class RoleAssignment(pulumi.CustomResource):
                  relationship_links: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
                  relationships: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 role: Optional[pulumi.Input[str]] = None,
+                 role: Optional[pulumi.Input['RoleTypes']] = None,
                  role_assignments: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
                  sas_policies: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
                  segments: Optional[pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']]] = None,
@@ -59,7 +60,7 @@ class RoleAssignment(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] relationship_links: The Role assignments set for the relationship links.
         :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] relationships: The Role assignments set for the relationships.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] role: Type of roles.
+        :param pulumi.Input['RoleTypes'] role: Type of roles.
         :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] role_assignments: The Role assignments set for the assignment.
         :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] sas_policies: Sas Policies set for the assignment.
         :param pulumi.Input[pulumi.InputType['ResourceSetDescriptionArgs']] segments: The Role assignments set for the assignment.
@@ -83,29 +84,29 @@ class RoleAssignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if assignment_name is None:
+            if assignment_name is None and not opts.urn:
                 raise TypeError("Missing required property 'assignment_name'")
             __props__['assignment_name'] = assignment_name
             __props__['conflation_policies'] = conflation_policies
             __props__['connectors'] = connectors
             __props__['description'] = description
             __props__['display_name'] = display_name
-            if hub_name is None:
+            if hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'hub_name'")
             __props__['hub_name'] = hub_name
             __props__['interactions'] = interactions
             __props__['kpis'] = kpis
             __props__['links'] = links
-            if principals is None:
+            if principals is None and not opts.urn:
                 raise TypeError("Missing required property 'principals'")
             __props__['principals'] = principals
             __props__['profiles'] = profiles
             __props__['relationship_links'] = relationship_links
             __props__['relationships'] = relationships
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if role is None:
+            if role is None and not opts.urn:
                 raise TypeError("Missing required property 'role'")
             __props__['role'] = role
             __props__['role_assignments'] = role_assignments

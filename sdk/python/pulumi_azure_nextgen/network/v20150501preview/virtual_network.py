@@ -66,17 +66,17 @@ class VirtualNetwork(pulumi.CustomResource):
             __props__['address_space'] = address_space
             __props__['dhcp_options'] = dhcp_options
             __props__['etag'] = etag
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['provisioning_state'] = provisioning_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_guid'] = resource_guid
             __props__['subnets'] = subnets
             __props__['tags'] = tags
-            if virtual_network_name is None:
+            if virtual_network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_name'")
             __props__['virtual_network_name'] = virtual_network_name
             __props__['name'] = None

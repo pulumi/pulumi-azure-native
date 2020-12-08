@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Volume']
@@ -23,7 +24,7 @@ class Volume(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 service_level: Optional[pulumi.Input[str]] = None,
+                 service_level: Optional[pulumi.Input[Union[str, 'ServiceLevel']]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  usage_threshold: Optional[pulumi.Input[int]] = None,
@@ -42,7 +43,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] pool_name: The name of the capacity pool
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] service_level: The service level of the file system
+        :param pulumi.Input[Union[str, 'ServiceLevel']] service_level: The service level of the file system
         :param pulumi.Input[str] subnet_id: The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
         :param Any tags: Resource tags
         :param pulumi.Input[int] usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB.
@@ -65,29 +66,29 @@ class Volume(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_name is None:
+            if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if creation_token is None:
+            if creation_token is None and not opts.urn:
                 raise TypeError("Missing required property 'creation_token'")
             __props__['creation_token'] = creation_token
             __props__['export_policy'] = export_policy
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if pool_name is None:
+            if pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'pool_name'")
             __props__['pool_name'] = pool_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if service_level is None:
+            if service_level is None and not opts.urn:
                 raise TypeError("Missing required property 'service_level'")
             __props__['service_level'] = service_level
             __props__['subnet_id'] = subnet_id
             __props__['tags'] = tags
             __props__['usage_threshold'] = usage_threshold
-            if volume_name is None:
+            if volume_name is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_name'")
             __props__['volume_name'] = volume_name
             __props__['file_system_id'] = None

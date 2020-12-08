@@ -59,16 +59,16 @@ class WorkspaceConnection(pulumi.CustomResource):
 
             __props__['auth_type'] = auth_type
             __props__['category'] = category
-            if connection_name is None:
+            if connection_name is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_name'")
             __props__['connection_name'] = connection_name
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['target'] = target
             __props__['value'] = value
-            if workspace_name is None:
+            if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['type'] = None

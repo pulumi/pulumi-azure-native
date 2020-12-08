@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['LiveEvent']
@@ -28,7 +29,7 @@ class LiveEvent(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  preview: Optional[pulumi.Input[pulumi.InputType['LiveEventPreviewArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 stream_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 stream_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'StreamOptionsFlag']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transcriptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LiveEventTranscriptionArgs']]]]] = None,
                  use_static_hostname: Optional[pulumi.Input[bool]] = None,
@@ -51,7 +52,7 @@ class LiveEvent(pulumi.CustomResource):
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[pulumi.InputType['LiveEventPreviewArgs']] preview: Live event preview settings. Preview allows live event producers to preview the live streaming content without creating any live output.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] stream_options: The options to use for the LiveEvent. This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'StreamOptionsFlag']]]] stream_options: The options to use for the LiveEvent. This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LiveEventTranscriptionArgs']]]] transcriptions: Live transcription settings for the live event. See https://go.microsoft.com/fwlink/?linkid=2133742 for more information about the live transcription feature.
         :param pulumi.Input[bool] use_static_hostname: Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. This value can only be updated if the live event is in Standby state
@@ -73,7 +74,7 @@ class LiveEvent(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_name is None:
+            if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['auto_start'] = auto_start
@@ -81,17 +82,17 @@ class LiveEvent(pulumi.CustomResource):
             __props__['description'] = description
             __props__['encoding'] = encoding
             __props__['hostname_prefix'] = hostname_prefix
-            if input is None:
+            if input is None and not opts.urn:
                 raise TypeError("Missing required property 'input'")
             __props__['input'] = input
-            if live_event_name is None:
+            if live_event_name is None and not opts.urn:
                 raise TypeError("Missing required property 'live_event_name'")
             __props__['live_event_name'] = live_event_name
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['preview'] = preview
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['stream_options'] = stream_options

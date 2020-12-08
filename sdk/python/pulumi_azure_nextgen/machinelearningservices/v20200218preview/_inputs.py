@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AKSArgs',
@@ -377,23 +378,23 @@ class AmlComputeArgs:
 @pulumi.input_type
 class AmlComputePropertiesArgs:
     def __init__(__self__, *,
-                 os_type: Optional[pulumi.Input[str]] = None,
-                 remote_login_port_public_access: Optional[pulumi.Input[str]] = None,
+                 os_type: Optional[pulumi.Input[Union[str, 'OsType']]] = None,
+                 remote_login_port_public_access: Optional[pulumi.Input[Union[str, 'RemoteLoginPortPublicAccess']]] = None,
                  scale_settings: Optional[pulumi.Input['ScaleSettingsArgs']] = None,
                  subnet: Optional[pulumi.Input['ResourceIdArgs']] = None,
                  user_account_credentials: Optional[pulumi.Input['UserAccountCredentialsArgs']] = None,
                  virtual_machine_image: Optional[pulumi.Input['ResourceIdArgs']] = None,
-                 vm_priority: Optional[pulumi.Input[str]] = None,
+                 vm_priority: Optional[pulumi.Input[Union[str, 'VmPriority']]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None):
         """
         AML Compute properties
-        :param pulumi.Input[str] os_type: OS Type.
-        :param pulumi.Input[str] remote_login_port_public_access: State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
+        :param pulumi.Input[Union[str, 'OsType']] os_type: OS Type.
+        :param pulumi.Input[Union[str, 'RemoteLoginPortPublicAccess']] remote_login_port_public_access: State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
         :param pulumi.Input['ScaleSettingsArgs'] scale_settings: Scale settings for AML Compute
         :param pulumi.Input['ResourceIdArgs'] subnet: Virtual network subnet resource ID the compute nodes belong to.
         :param pulumi.Input['UserAccountCredentialsArgs'] user_account_credentials: Credentials for an administrator user account that will be created on each compute node.
         :param pulumi.Input['ResourceIdArgs'] virtual_machine_image: The ARM resource identifier of the virtual machine image for the compute nodes. This is of the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/galleries/{gallery name}/images/{image definition name}/versions/{version id}. The virtual machine image must be in the same region and subscription as the cluster.
-        :param pulumi.Input[str] vm_priority: Virtual Machine priority
+        :param pulumi.Input[Union[str, 'VmPriority']] vm_priority: Virtual Machine priority
         :param pulumi.Input[str] vm_size: Virtual Machine Size
         """
         if os_type is not None:
@@ -415,26 +416,26 @@ class AmlComputePropertiesArgs:
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[str]]:
+    def os_type(self) -> Optional[pulumi.Input[Union[str, 'OsType']]]:
         """
         OS Type.
         """
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[str]]):
+    def os_type(self, value: Optional[pulumi.Input[Union[str, 'OsType']]]):
         pulumi.set(self, "os_type", value)
 
     @property
     @pulumi.getter(name="remoteLoginPortPublicAccess")
-    def remote_login_port_public_access(self) -> Optional[pulumi.Input[str]]:
+    def remote_login_port_public_access(self) -> Optional[pulumi.Input[Union[str, 'RemoteLoginPortPublicAccess']]]:
         """
         State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
         """
         return pulumi.get(self, "remote_login_port_public_access")
 
     @remote_login_port_public_access.setter
-    def remote_login_port_public_access(self, value: Optional[pulumi.Input[str]]):
+    def remote_login_port_public_access(self, value: Optional[pulumi.Input[Union[str, 'RemoteLoginPortPublicAccess']]]):
         pulumi.set(self, "remote_login_port_public_access", value)
 
     @property
@@ -487,14 +488,14 @@ class AmlComputePropertiesArgs:
 
     @property
     @pulumi.getter(name="vmPriority")
-    def vm_priority(self) -> Optional[pulumi.Input[str]]:
+    def vm_priority(self) -> Optional[pulumi.Input[Union[str, 'VmPriority']]]:
         """
         Virtual Machine priority
         """
         return pulumi.get(self, "vm_priority")
 
     @vm_priority.setter
-    def vm_priority(self, value: Optional[pulumi.Input[str]]):
+    def vm_priority(self, value: Optional[pulumi.Input[Union[str, 'VmPriority']]]):
         pulumi.set(self, "vm_priority", value)
 
     @property
@@ -638,16 +639,16 @@ class ComputeInstanceArgs:
 @pulumi.input_type
 class ComputeInstancePropertiesArgs:
     def __init__(__self__, *,
-                 application_sharing_policy: Optional[pulumi.Input[str]] = None,
-                 compute_instance_authorization_type: Optional[pulumi.Input[str]] = None,
+                 application_sharing_policy: Optional[pulumi.Input[Union[str, 'ApplicationSharingPolicy']]] = None,
+                 compute_instance_authorization_type: Optional[pulumi.Input[Union[str, 'ComputeInstanceAuthorizationType']]] = None,
                  personal_compute_instance_settings: Optional[pulumi.Input['PersonalComputeInstanceSettingsArgs']] = None,
                  ssh_settings: Optional[pulumi.Input['ComputeInstanceSshSettingsArgs']] = None,
                  subnet: Optional[pulumi.Input['ResourceIdArgs']] = None,
                  vm_size: Optional[pulumi.Input[str]] = None):
         """
         Compute Instance properties
-        :param pulumi.Input[str] application_sharing_policy: Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
-        :param pulumi.Input[str] compute_instance_authorization_type: The Compute Instance Authorization type. Available values are personal (default).
+        :param pulumi.Input[Union[str, 'ApplicationSharingPolicy']] application_sharing_policy: Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
+        :param pulumi.Input[Union[str, 'ComputeInstanceAuthorizationType']] compute_instance_authorization_type: The Compute Instance Authorization type. Available values are personal (default).
         :param pulumi.Input['PersonalComputeInstanceSettingsArgs'] personal_compute_instance_settings: Settings for a personal compute instance.
         :param pulumi.Input['ComputeInstanceSshSettingsArgs'] ssh_settings: Specifies policy and settings for SSH access.
         :param pulumi.Input['ResourceIdArgs'] subnet: Virtual network subnet resource ID the compute nodes belong to.
@@ -668,26 +669,26 @@ class ComputeInstancePropertiesArgs:
 
     @property
     @pulumi.getter(name="applicationSharingPolicy")
-    def application_sharing_policy(self) -> Optional[pulumi.Input[str]]:
+    def application_sharing_policy(self) -> Optional[pulumi.Input[Union[str, 'ApplicationSharingPolicy']]]:
         """
         Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
         """
         return pulumi.get(self, "application_sharing_policy")
 
     @application_sharing_policy.setter
-    def application_sharing_policy(self, value: Optional[pulumi.Input[str]]):
+    def application_sharing_policy(self, value: Optional[pulumi.Input[Union[str, 'ApplicationSharingPolicy']]]):
         pulumi.set(self, "application_sharing_policy", value)
 
     @property
     @pulumi.getter(name="computeInstanceAuthorizationType")
-    def compute_instance_authorization_type(self) -> Optional[pulumi.Input[str]]:
+    def compute_instance_authorization_type(self) -> Optional[pulumi.Input[Union[str, 'ComputeInstanceAuthorizationType']]]:
         """
         The Compute Instance Authorization type. Available values are personal (default).
         """
         return pulumi.get(self, "compute_instance_authorization_type")
 
     @compute_instance_authorization_type.setter
-    def compute_instance_authorization_type(self, value: Optional[pulumi.Input[str]]):
+    def compute_instance_authorization_type(self, value: Optional[pulumi.Input[Union[str, 'ComputeInstanceAuthorizationType']]]):
         pulumi.set(self, "compute_instance_authorization_type", value)
 
     @property
@@ -743,11 +744,11 @@ class ComputeInstancePropertiesArgs:
 class ComputeInstanceSshSettingsArgs:
     def __init__(__self__, *,
                  admin_public_key: Optional[pulumi.Input[str]] = None,
-                 ssh_public_access: Optional[pulumi.Input[str]] = None):
+                 ssh_public_access: Optional[pulumi.Input[Union[str, 'SshPublicAccess']]] = None):
         """
         Specifies policy and settings for SSH access.
         :param pulumi.Input[str] admin_public_key: Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
-        :param pulumi.Input[str] ssh_public_access: State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on this instance. Enabled - Indicates that the public ssh port is open and accessible according to the VNet/subnet policy if applicable.
+        :param pulumi.Input[Union[str, 'SshPublicAccess']] ssh_public_access: State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on this instance. Enabled - Indicates that the public ssh port is open and accessible according to the VNet/subnet policy if applicable.
         """
         if admin_public_key is not None:
             pulumi.set(__self__, "admin_public_key", admin_public_key)
@@ -768,14 +769,14 @@ class ComputeInstanceSshSettingsArgs:
 
     @property
     @pulumi.getter(name="sshPublicAccess")
-    def ssh_public_access(self) -> Optional[pulumi.Input[str]]:
+    def ssh_public_access(self) -> Optional[pulumi.Input[Union[str, 'SshPublicAccess']]]:
         """
         State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on this instance. Enabled - Indicates that the public ssh port is open and accessible according to the VNet/subnet policy if applicable.
         """
         return pulumi.get(self, "ssh_public_access")
 
     @ssh_public_access.setter
-    def ssh_public_access(self, value: Optional[pulumi.Input[str]]):
+    def ssh_public_access(self, value: Optional[pulumi.Input[Union[str, 'SshPublicAccess']]]):
         pulumi.set(self, "ssh_public_access", value)
 
 
@@ -1066,10 +1067,10 @@ class DatabricksPropertiesArgs:
 class EncryptionPropertyArgs:
     def __init__(__self__, *,
                  key_vault_properties: pulumi.Input['KeyVaultPropertiesArgs'],
-                 status: pulumi.Input[str]):
+                 status: pulumi.Input[Union[str, 'EncryptionStatus']]):
         """
         :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: Customer Key vault properties.
-        :param pulumi.Input[str] status: Indicates whether or not the encryption is enabled for the workspace.
+        :param pulumi.Input[Union[str, 'EncryptionStatus']] status: Indicates whether or not the encryption is enabled for the workspace.
         """
         pulumi.set(__self__, "key_vault_properties", key_vault_properties)
         pulumi.set(__self__, "status", status)
@@ -1088,14 +1089,14 @@ class EncryptionPropertyArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Input[str]:
+    def status(self) -> pulumi.Input[Union[str, 'EncryptionStatus']]:
         """
         Indicates whether or not the encryption is enabled for the workspace.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: pulumi.Input[str]):
+    def status(self, value: pulumi.Input[Union[str, 'EncryptionStatus']]):
         pulumi.set(self, "status", value)
 
 
@@ -1240,24 +1241,24 @@ class HDInsightPropertiesArgs:
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
         """
         Identity for the resource.
-        :param pulumi.Input[str] type: The identity type.
+        :param pulumi.Input['ResourceIdentityType'] type: The identity type.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
         """
         The identity type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
 
@@ -1343,12 +1344,12 @@ class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
                  action_required: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None):
+                 status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[str] action_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
-        :param pulumi.Input[str] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         if action_required is not None:
             pulumi.set(__self__, "action_required", action_required)
@@ -1383,14 +1384,14 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]:
         """
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 

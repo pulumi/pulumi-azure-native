@@ -66,15 +66,15 @@ class StaticSite(pulumi.CustomResource):
             __props__['branch'] = branch
             __props__['build_properties'] = build_properties
             __props__['kind'] = kind
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['repository_token'] = repository_token
             __props__['repository_url'] = repository_url
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku

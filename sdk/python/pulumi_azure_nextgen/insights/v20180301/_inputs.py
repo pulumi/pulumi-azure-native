@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AutomationRunbookReceiverArgs',
@@ -237,26 +238,26 @@ class AzureFunctionReceiverArgs:
 @pulumi.input_type
 class DynamicMetricCriteriaArgs:
     def __init__(__self__, *,
-                 alert_sensitivity: pulumi.Input[str],
+                 alert_sensitivity: pulumi.Input[Union[str, 'DynamicThresholdSensitivity']],
                  criterion_type: pulumi.Input[str],
                  failing_periods: pulumi.Input['DynamicThresholdFailingPeriodsArgs'],
                  metric_name: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 operator: pulumi.Input[str],
-                 time_aggregation: pulumi.Input[str],
+                 operator: pulumi.Input[Union[str, 'DynamicThresholdOperator']],
+                 time_aggregation: pulumi.Input[Union[str, 'AggregationType']],
                  dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]]] = None,
                  ignore_data_before: Optional[pulumi.Input[str]] = None,
                  metric_namespace: Optional[pulumi.Input[str]] = None,
                  skip_metric_validation: Optional[pulumi.Input[bool]] = None):
         """
         Criterion for dynamic threshold.
-        :param pulumi.Input[str] alert_sensitivity: The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
+        :param pulumi.Input[Union[str, 'DynamicThresholdSensitivity']] alert_sensitivity: The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
         :param pulumi.Input[str] criterion_type: Specifies the type of threshold criteria
         :param pulumi.Input['DynamicThresholdFailingPeriodsArgs'] failing_periods: The minimum number of violations required within the selected lookback time window required to raise an alert.
         :param pulumi.Input[str] metric_name: Name of the metric.
         :param pulumi.Input[str] name: Name of the criteria.
-        :param pulumi.Input[str] operator: The operator used to compare the metric value against the threshold.
-        :param pulumi.Input[str] time_aggregation: the criteria time aggregation types.
+        :param pulumi.Input[Union[str, 'DynamicThresholdOperator']] operator: The operator used to compare the metric value against the threshold.
+        :param pulumi.Input[Union[str, 'AggregationType']] time_aggregation: the criteria time aggregation types.
         :param pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]] dimensions: List of dimension conditions.
         :param pulumi.Input[str] ignore_data_before: Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
         :param pulumi.Input[str] metric_namespace: Namespace of the metric.
@@ -280,14 +281,14 @@ class DynamicMetricCriteriaArgs:
 
     @property
     @pulumi.getter(name="alertSensitivity")
-    def alert_sensitivity(self) -> pulumi.Input[str]:
+    def alert_sensitivity(self) -> pulumi.Input[Union[str, 'DynamicThresholdSensitivity']]:
         """
         The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
         """
         return pulumi.get(self, "alert_sensitivity")
 
     @alert_sensitivity.setter
-    def alert_sensitivity(self, value: pulumi.Input[str]):
+    def alert_sensitivity(self, value: pulumi.Input[Union[str, 'DynamicThresholdSensitivity']]):
         pulumi.set(self, "alert_sensitivity", value)
 
     @property
@@ -340,26 +341,26 @@ class DynamicMetricCriteriaArgs:
 
     @property
     @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
+    def operator(self) -> pulumi.Input[Union[str, 'DynamicThresholdOperator']]:
         """
         The operator used to compare the metric value against the threshold.
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: pulumi.Input[str]):
+    def operator(self, value: pulumi.Input[Union[str, 'DynamicThresholdOperator']]):
         pulumi.set(self, "operator", value)
 
     @property
     @pulumi.getter(name="timeAggregation")
-    def time_aggregation(self) -> pulumi.Input[str]:
+    def time_aggregation(self) -> pulumi.Input[Union[str, 'AggregationType']]:
         """
         the criteria time aggregation types.
         """
         return pulumi.get(self, "time_aggregation")
 
     @time_aggregation.setter
-    def time_aggregation(self, value: pulumi.Input[str]):
+    def time_aggregation(self, value: pulumi.Input[Union[str, 'AggregationType']]):
         pulumi.set(self, "time_aggregation", value)
 
     @property
@@ -747,9 +748,9 @@ class MetricCriteriaArgs:
                  criterion_type: pulumi.Input[str],
                  metric_name: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 operator: pulumi.Input[str],
+                 operator: pulumi.Input[Union[str, 'Operator']],
                  threshold: pulumi.Input[float],
-                 time_aggregation: pulumi.Input[str],
+                 time_aggregation: pulumi.Input[Union[str, 'AggregationType']],
                  dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]]] = None,
                  metric_namespace: Optional[pulumi.Input[str]] = None,
                  skip_metric_validation: Optional[pulumi.Input[bool]] = None):
@@ -758,9 +759,9 @@ class MetricCriteriaArgs:
         :param pulumi.Input[str] criterion_type: Specifies the type of threshold criteria
         :param pulumi.Input[str] metric_name: Name of the metric.
         :param pulumi.Input[str] name: Name of the criteria.
-        :param pulumi.Input[str] operator: the criteria operator.
+        :param pulumi.Input[Union[str, 'Operator']] operator: the criteria operator.
         :param pulumi.Input[float] threshold: the criteria threshold value that activates the alert.
-        :param pulumi.Input[str] time_aggregation: the criteria time aggregation types.
+        :param pulumi.Input[Union[str, 'AggregationType']] time_aggregation: the criteria time aggregation types.
         :param pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]] dimensions: List of dimension conditions.
         :param pulumi.Input[str] metric_namespace: Namespace of the metric.
         :param pulumi.Input[bool] skip_metric_validation: Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
@@ -816,14 +817,14 @@ class MetricCriteriaArgs:
 
     @property
     @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
+    def operator(self) -> pulumi.Input[Union[str, 'Operator']]:
         """
         the criteria operator.
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: pulumi.Input[str]):
+    def operator(self, value: pulumi.Input[Union[str, 'Operator']]):
         pulumi.set(self, "operator", value)
 
     @property
@@ -840,14 +841,14 @@ class MetricCriteriaArgs:
 
     @property
     @pulumi.getter(name="timeAggregation")
-    def time_aggregation(self) -> pulumi.Input[str]:
+    def time_aggregation(self) -> pulumi.Input[Union[str, 'AggregationType']]:
         """
         the criteria time aggregation types.
         """
         return pulumi.get(self, "time_aggregation")
 
     @time_aggregation.setter
-    def time_aggregation(self, value: pulumi.Input[str]):
+    def time_aggregation(self, value: pulumi.Input[Union[str, 'AggregationType']]):
         pulumi.set(self, "time_aggregation", value)
 
     @property

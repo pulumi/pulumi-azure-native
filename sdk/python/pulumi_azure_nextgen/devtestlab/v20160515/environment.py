@@ -65,20 +65,20 @@ class Environment(pulumi.CustomResource):
 
             __props__['arm_template_display_name'] = arm_template_display_name
             __props__['deployment_properties'] = deployment_properties
-            if lab_name is None:
+            if lab_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_name'")
             __props__['lab_name'] = lab_name
             __props__['location'] = location
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['provisioning_state'] = provisioning_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['unique_identifier'] = unique_identifier
-            if user_name is None:
+            if user_name is None and not opts.urn:
                 raise TypeError("Missing required property 'user_name'")
             __props__['user_name'] = user_name
             __props__['created_by_user'] = None

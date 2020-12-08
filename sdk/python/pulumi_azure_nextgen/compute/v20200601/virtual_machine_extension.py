@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['VirtualMachineExtension']
@@ -75,22 +76,22 @@ class VirtualMachineExtension(pulumi.CustomResource):
             __props__['enable_automatic_upgrade'] = enable_automatic_upgrade
             __props__['force_update_tag'] = force_update_tag
             __props__['instance_view'] = instance_view
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['protected_settings'] = protected_settings
             __props__['publisher'] = publisher
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['settings'] = settings
             __props__['tags'] = tags
             __props__['type'] = type
             __props__['type_handler_version'] = type_handler_version
-            if vm_extension_name is None:
+            if vm_extension_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_extension_name'")
             __props__['vm_extension_name'] = vm_extension_name
-            if vm_name is None:
+            if vm_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_name'")
             __props__['vm_name'] = vm_name
             __props__['name'] = None

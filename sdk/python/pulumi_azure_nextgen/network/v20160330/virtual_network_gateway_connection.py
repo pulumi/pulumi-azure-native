@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['VirtualNetworkGatewayConnection']
@@ -18,8 +19,8 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization_key: Optional[pulumi.Input[str]] = None,
-                 connection_status: Optional[pulumi.Input[str]] = None,
-                 connection_type: Optional[pulumi.Input[str]] = None,
+                 connection_status: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionStatus']]] = None,
+                 connection_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionType']]] = None,
                  egress_bytes_transferred: Optional[pulumi.Input[int]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
@@ -46,8 +47,8 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_key: The authorizationKey.
-        :param pulumi.Input[str] connection_status: Virtual network Gateway connection status
-        :param pulumi.Input[str] connection_type: Gateway connection type IPsec/Dedicated/VpnClient/Vnet2Vnet
+        :param pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionStatus']] connection_status: Virtual network Gateway connection status
+        :param pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionType']] connection_type: Gateway connection type IPsec/Dedicated/VpnClient/Vnet2Vnet
         :param pulumi.Input[int] egress_bytes_transferred: The Egress Bytes Transferred in this connection
         :param pulumi.Input[bool] enable_bgp: EnableBgp Flag
         :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated
@@ -95,7 +96,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             __props__['location'] = location
             __props__['peer'] = peer
             __props__['provisioning_state'] = provisioning_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_guid'] = resource_guid
@@ -104,7 +105,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['virtual_network_gateway1'] = virtual_network_gateway1
             __props__['virtual_network_gateway2'] = virtual_network_gateway2
-            if virtual_network_gateway_connection_name is None:
+            if virtual_network_gateway_connection_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_gateway_connection_name'")
             __props__['virtual_network_gateway_connection_name'] = virtual_network_gateway_connection_name
             __props__['name'] = None

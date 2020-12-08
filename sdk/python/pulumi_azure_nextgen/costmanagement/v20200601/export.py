@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Export']
@@ -21,7 +22,7 @@ class Export(pulumi.CustomResource):
                  delivery_info: Optional[pulumi.Input[pulumi.InputType['ExportDeliveryInfoArgs']]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  export_name: Optional[pulumi.Input[str]] = None,
-                 format: Optional[pulumi.Input[str]] = None,
+                 format: Optional[pulumi.Input[Union[str, 'FormatType']]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['ExportScheduleArgs']]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -36,7 +37,7 @@ class Export(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ExportDeliveryInfoArgs']] delivery_info: Has delivery information for the export.
         :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         :param pulumi.Input[str] export_name: Export Name.
-        :param pulumi.Input[str] format: The format of the export being delivered. Currently only 'Csv' is supported.
+        :param pulumi.Input[Union[str, 'FormatType']] format: The format of the export being delivered. Currently only 'Csv' is supported.
         :param pulumi.Input[pulumi.InputType['ExportScheduleArgs']] schedule: Has schedule information for the export.
         :param pulumi.Input[str] scope: The scope associated with export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope, and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/customers/{customerId}' specific for partners.
         """
@@ -57,19 +58,19 @@ class Export(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if definition is None:
+            if definition is None and not opts.urn:
                 raise TypeError("Missing required property 'definition'")
             __props__['definition'] = definition
-            if delivery_info is None:
+            if delivery_info is None and not opts.urn:
                 raise TypeError("Missing required property 'delivery_info'")
             __props__['delivery_info'] = delivery_info
             __props__['e_tag'] = e_tag
-            if export_name is None:
+            if export_name is None and not opts.urn:
                 raise TypeError("Missing required property 'export_name'")
             __props__['export_name'] = export_name
             __props__['format'] = format
             __props__['schedule'] = schedule
-            if scope is None:
+            if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
             __props__['name'] = None

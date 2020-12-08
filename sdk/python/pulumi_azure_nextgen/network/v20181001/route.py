@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['Route']
 
@@ -20,7 +21,7 @@ class Route(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  next_hop_ip_address: Optional[pulumi.Input[str]] = None,
-                 next_hop_type: Optional[pulumi.Input[str]] = None,
+                 next_hop_type: Optional[pulumi.Input[Union[str, 'RouteNextHopType']]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  route_name: Optional[pulumi.Input[str]] = None,
@@ -38,7 +39,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] next_hop_ip_address: The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
-        :param pulumi.Input[str] next_hop_type: The type of Azure hop the packet should be sent to. Possible values are: 'VirtualNetworkGateway', 'VnetLocal', 'Internet', 'VirtualAppliance', and 'None'
+        :param pulumi.Input[Union[str, 'RouteNextHopType']] next_hop_type: The type of Azure hop the packet should be sent to. Possible values are: 'VirtualNetworkGateway', 'VnetLocal', 'Internet', 'VirtualAppliance', and 'None'
         :param pulumi.Input[str] provisioning_state: The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] route_name: The name of the route.
@@ -66,17 +67,17 @@ class Route(pulumi.CustomResource):
             __props__['id'] = id
             __props__['name'] = name
             __props__['next_hop_ip_address'] = next_hop_ip_address
-            if next_hop_type is None:
+            if next_hop_type is None and not opts.urn:
                 raise TypeError("Missing required property 'next_hop_type'")
             __props__['next_hop_type'] = next_hop_type
             __props__['provisioning_state'] = provisioning_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if route_name is None:
+            if route_name is None and not opts.urn:
                 raise TypeError("Missing required property 'route_name'")
             __props__['route_name'] = route_name
-            if route_table_name is None:
+            if route_table_name is None and not opts.urn:
                 raise TypeError("Missing required property 'route_table_name'")
             __props__['route_table_name'] = route_table_name
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:Route"), pulumi.Alias(type_="azure-nextgen:network/v20150501preview:Route"), pulumi.Alias(type_="azure-nextgen:network/v20150615:Route"), pulumi.Alias(type_="azure-nextgen:network/v20160330:Route"), pulumi.Alias(type_="azure-nextgen:network/v20160601:Route"), pulumi.Alias(type_="azure-nextgen:network/v20160901:Route"), pulumi.Alias(type_="azure-nextgen:network/v20161201:Route"), pulumi.Alias(type_="azure-nextgen:network/v20170301:Route"), pulumi.Alias(type_="azure-nextgen:network/v20170601:Route"), pulumi.Alias(type_="azure-nextgen:network/v20170801:Route"), pulumi.Alias(type_="azure-nextgen:network/v20170901:Route"), pulumi.Alias(type_="azure-nextgen:network/v20171001:Route"), pulumi.Alias(type_="azure-nextgen:network/v20171101:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180101:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180201:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180401:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180601:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180701:Route"), pulumi.Alias(type_="azure-nextgen:network/v20180801:Route"), pulumi.Alias(type_="azure-nextgen:network/v20181101:Route"), pulumi.Alias(type_="azure-nextgen:network/v20181201:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190201:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190401:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190601:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190701:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190801:Route"), pulumi.Alias(type_="azure-nextgen:network/v20190901:Route"), pulumi.Alias(type_="azure-nextgen:network/v20191101:Route"), pulumi.Alias(type_="azure-nextgen:network/v20191201:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200301:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200401:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200501:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200601:Route"), pulumi.Alias(type_="azure-nextgen:network/v20200701:Route")])

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AddressArgs',
@@ -138,12 +139,12 @@ class AddressArgs:
 @pulumi.input_type
 class AsymmetricEncryptedSecretArgs:
     def __init__(__self__, *,
-                 encryption_algorithm: pulumi.Input[str],
+                 encryption_algorithm: pulumi.Input[Union[str, 'EncryptionAlgorithm']],
                  value: pulumi.Input[str],
                  encryption_cert_thumbprint: Optional[pulumi.Input[str]] = None):
         """
         Represent the secrets intended for encryption with asymmetric key pair.
-        :param pulumi.Input[str] encryption_algorithm: The algorithm used to encrypt "Value".
+        :param pulumi.Input[Union[str, 'EncryptionAlgorithm']] encryption_algorithm: The algorithm used to encrypt "Value".
         :param pulumi.Input[str] value: The value of the secret.
         :param pulumi.Input[str] encryption_cert_thumbprint: Thumbprint certificate used to encrypt \"Value\". If the value is unencrypted, it will be null.
         """
@@ -154,14 +155,14 @@ class AsymmetricEncryptedSecretArgs:
 
     @property
     @pulumi.getter(name="encryptionAlgorithm")
-    def encryption_algorithm(self) -> pulumi.Input[str]:
+    def encryption_algorithm(self) -> pulumi.Input[Union[str, 'EncryptionAlgorithm']]:
         """
         The algorithm used to encrypt "Value".
         """
         return pulumi.get(self, "encryption_algorithm")
 
     @encryption_algorithm.setter
-    def encryption_algorithm(self, value: pulumi.Input[str]):
+    def encryption_algorithm(self, value: pulumi.Input[Union[str, 'EncryptionAlgorithm']]):
         pulumi.set(self, "encryption_algorithm", value)
 
     @property
@@ -193,12 +194,12 @@ class AsymmetricEncryptedSecretArgs:
 class AzureContainerInfoArgs:
     def __init__(__self__, *,
                  container_name: pulumi.Input[str],
-                 data_format: pulumi.Input[str],
+                 data_format: pulumi.Input[Union[str, 'AzureContainerDataFormat']],
                  storage_account_credential_id: pulumi.Input[str]):
         """
         Azure container mapping of the endpoint.
         :param pulumi.Input[str] container_name: Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob).
-        :param pulumi.Input[str] data_format: Storage format used for the file represented by the share.
+        :param pulumi.Input[Union[str, 'AzureContainerDataFormat']] data_format: Storage format used for the file represented by the share.
         :param pulumi.Input[str] storage_account_credential_id: ID of the storage account credential used to access storage.
         """
         pulumi.set(__self__, "container_name", container_name)
@@ -219,14 +220,14 @@ class AzureContainerInfoArgs:
 
     @property
     @pulumi.getter(name="dataFormat")
-    def data_format(self) -> pulumi.Input[str]:
+    def data_format(self) -> pulumi.Input[Union[str, 'AzureContainerDataFormat']]:
         """
         Storage format used for the file represented by the share.
         """
         return pulumi.get(self, "data_format")
 
     @data_format.setter
-    def data_format(self, value: pulumi.Input[str]):
+    def data_format(self, value: pulumi.Input[Union[str, 'AzureContainerDataFormat']]):
         pulumi.set(self, "data_format", value)
 
     @property
@@ -245,11 +246,11 @@ class AzureContainerInfoArgs:
 @pulumi.input_type
 class ClientAccessRightArgs:
     def __init__(__self__, *,
-                 access_permission: pulumi.Input[str],
+                 access_permission: pulumi.Input[Union[str, 'ClientPermissionType']],
                  client: pulumi.Input[str]):
         """
         The mapping between a particular client IP and the type of access client has on the NFS share.
-        :param pulumi.Input[str] access_permission: Type of access to be allowed for the client.
+        :param pulumi.Input[Union[str, 'ClientPermissionType']] access_permission: Type of access to be allowed for the client.
         :param pulumi.Input[str] client: IP of the client.
         """
         pulumi.set(__self__, "access_permission", access_permission)
@@ -257,14 +258,14 @@ class ClientAccessRightArgs:
 
     @property
     @pulumi.getter(name="accessPermission")
-    def access_permission(self) -> pulumi.Input[str]:
+    def access_permission(self) -> pulumi.Input[Union[str, 'ClientPermissionType']]:
         """
         Type of access to be allowed for the client.
         """
         return pulumi.get(self, "access_permission")
 
     @access_permission.setter
-    def access_permission(self, value: pulumi.Input[str]):
+    def access_permission(self, value: pulumi.Input[Union[str, 'ClientPermissionType']]):
         pulumi.set(self, "access_permission", value)
 
     @property
@@ -351,11 +352,11 @@ class ContactDetailsArgs:
 @pulumi.input_type
 class OrderStatusArgs:
     def __init__(__self__, *,
-                 status: pulumi.Input[str],
+                 status: pulumi.Input[Union[str, 'OrderState']],
                  comments: Optional[pulumi.Input[str]] = None):
         """
         Represents a single status change.
-        :param pulumi.Input[str] status: Status of the order as per the allowed status types.
+        :param pulumi.Input[Union[str, 'OrderState']] status: Status of the order as per the allowed status types.
         :param pulumi.Input[str] comments: Comments related to this status change.
         """
         pulumi.set(__self__, "status", status)
@@ -364,14 +365,14 @@ class OrderStatusArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Input[str]:
+    def status(self) -> pulumi.Input[Union[str, 'OrderState']]:
         """
         Status of the order as per the allowed status types.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: pulumi.Input[str]):
+    def status(self, value: pulumi.Input[Union[str, 'OrderState']]):
         pulumi.set(self, "status", value)
 
     @property
@@ -462,12 +463,12 @@ class RefreshDetailsArgs:
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None,
-                 tier: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[Union[str, 'SkuName']]] = None,
+                 tier: Optional[pulumi.Input[Union[str, 'SkuTier']]] = None):
         """
         The SKU type.
-        :param pulumi.Input[str] name: SKU name.
-        :param pulumi.Input[str] tier: The SKU tier. This is based on the SKU name.
+        :param pulumi.Input[Union[str, 'SkuName']] name: SKU name.
+        :param pulumi.Input[Union[str, 'SkuTier']] tier: The SKU tier. This is based on the SKU name.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -476,37 +477,37 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    def name(self) -> Optional[pulumi.Input[Union[str, 'SkuName']]]:
         """
         SKU name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
+    def name(self, value: Optional[pulumi.Input[Union[str, 'SkuName']]]):
         pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[str]]:
+    def tier(self) -> Optional[pulumi.Input[Union[str, 'SkuTier']]]:
         """
         The SKU tier. This is based on the SKU name.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[str]]):
+    def tier(self, value: Optional[pulumi.Input[Union[str, 'SkuTier']]]):
         pulumi.set(self, "tier", value)
 
 
 @pulumi.input_type
 class UserAccessRightArgs:
     def __init__(__self__, *,
-                 access_type: pulumi.Input[str],
+                 access_type: pulumi.Input[Union[str, 'ShareAccessType']],
                  user_id: pulumi.Input[str]):
         """
         The mapping between a particular user and the access type on the SMB share.
-        :param pulumi.Input[str] access_type: Type of access to be allowed for the user.
+        :param pulumi.Input[Union[str, 'ShareAccessType']] access_type: Type of access to be allowed for the user.
         :param pulumi.Input[str] user_id: User ID (already existing in the device).
         """
         pulumi.set(__self__, "access_type", access_type)
@@ -514,14 +515,14 @@ class UserAccessRightArgs:
 
     @property
     @pulumi.getter(name="accessType")
-    def access_type(self) -> pulumi.Input[str]:
+    def access_type(self) -> pulumi.Input[Union[str, 'ShareAccessType']]:
         """
         Type of access to be allowed for the user.
         """
         return pulumi.get(self, "access_type")
 
     @access_type.setter
-    def access_type(self, value: pulumi.Input[str]):
+    def access_type(self, value: pulumi.Input[Union[str, 'ShareAccessType']]):
         pulumi.set(self, "access_type", value)
 
     @property

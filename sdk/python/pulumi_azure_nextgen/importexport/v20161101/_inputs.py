@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'DriveStatusArgs',
@@ -31,7 +32,7 @@ class DriveStatusArgs:
                  manifest_hash: Optional[pulumi.Input[str]] = None,
                  manifest_uri: Optional[pulumi.Input[str]] = None,
                  percent_complete: Optional[pulumi.Input[int]] = None,
-                 state: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[Union[str, 'DriveState']]] = None,
                  verbose_log_uri: Optional[pulumi.Input[str]] = None):
         """
         Provides information about the drive's status
@@ -45,7 +46,7 @@ class DriveStatusArgs:
         :param pulumi.Input[str] manifest_hash: The Base16-encoded MD5 hash of the manifest file on the drive.
         :param pulumi.Input[str] manifest_uri: A URI that points to the blob containing the drive manifest file. 
         :param pulumi.Input[int] percent_complete: Percentage completed for the drive. 
-        :param pulumi.Input[str] state: The drive's current state. 
+        :param pulumi.Input[Union[str, 'DriveState']] state: The drive's current state. 
         :param pulumi.Input[str] verbose_log_uri: A URI that points to the blob containing the verbose log for the data transfer operation. 
         """
         if bit_locker_key is not None:
@@ -195,14 +196,14 @@ class DriveStatusArgs:
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[str]]:
+    def state(self) -> Optional[pulumi.Input[Union[str, 'DriveState']]]:
         """
         The drive's current state. 
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[str]]):
+    def state(self, value: Optional[pulumi.Input[Union[str, 'DriveState']]]):
         pulumi.set(self, "state", value)
 
     @property

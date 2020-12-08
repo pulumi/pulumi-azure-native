@@ -70,17 +70,17 @@ class ExportConfiguration(pulumi.CustomResource):
             __props__['destination_storage_location_id'] = destination_storage_location_id
             __props__['destination_storage_subscription_id'] = destination_storage_subscription_id
             __props__['destination_type'] = destination_type
-            if export_id is None:
+            if export_id is None and not opts.urn:
                 raise TypeError("Missing required property 'export_id'")
             __props__['export_id'] = export_id
             __props__['is_enabled'] = is_enabled
             __props__['notification_queue_enabled'] = notification_queue_enabled
             __props__['notification_queue_uri'] = notification_queue_uri
             __props__['record_types'] = record_types
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if resource_name_ is None:
+            if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
             __props__['application_name'] = None

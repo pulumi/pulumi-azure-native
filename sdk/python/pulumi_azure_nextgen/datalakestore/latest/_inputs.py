@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'CreateFirewallRuleWithAccountParametersArgs',
@@ -149,11 +150,11 @@ class CreateVirtualNetworkRuleWithAccountParametersArgs:
 @pulumi.input_type
 class EncryptionConfigArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str],
+                 type: pulumi.Input['EncryptionConfigType'],
                  key_vault_meta_info: Optional[pulumi.Input['KeyVaultMetaInfoArgs']] = None):
         """
         The encryption configuration for the account.
-        :param pulumi.Input[str] type: The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.
+        :param pulumi.Input['EncryptionConfigType'] type: The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.
         :param pulumi.Input['KeyVaultMetaInfoArgs'] key_vault_meta_info: The Key Vault information for connecting to user managed encryption keys.
         """
         pulumi.set(__self__, "type", type)
@@ -162,14 +163,14 @@ class EncryptionConfigArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['EncryptionConfigType']:
         """
         The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['EncryptionConfigType']):
         pulumi.set(self, "type", value)
 
     @property
@@ -188,23 +189,23 @@ class EncryptionConfigArgs:
 @pulumi.input_type
 class EncryptionIdentityArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input['EncryptionIdentityType']):
         """
         The encryption identity properties.
-        :param pulumi.Input[str] type: The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
+        :param pulumi.Input['EncryptionIdentityType'] type: The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
         """
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['EncryptionIdentityType']:
         """
         The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['EncryptionIdentityType']):
         pulumi.set(self, "type", value)
 
 

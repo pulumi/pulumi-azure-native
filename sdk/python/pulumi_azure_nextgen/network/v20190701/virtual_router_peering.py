@@ -59,13 +59,13 @@ class VirtualRouterPeering(pulumi.CustomResource):
             __props__['name'] = name
             __props__['peer_asn'] = peer_asn
             __props__['peer_ip'] = peer_ip
-            if peering_name is None:
+            if peering_name is None and not opts.urn:
                 raise TypeError("Missing required property 'peering_name'")
             __props__['peering_name'] = peering_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if virtual_router_name is None:
+            if virtual_router_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_router_name'")
             __props__['virtual_router_name'] = virtual_router_name
             __props__['etag'] = None

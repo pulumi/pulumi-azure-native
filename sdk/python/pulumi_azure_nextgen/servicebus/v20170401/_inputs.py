@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ActionArgs',
@@ -245,11 +246,11 @@ class CorrelationFilterArgs:
 @pulumi.input_type
 class NWRuleSetIpRulesArgs:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input[str]] = None,
+                 action: Optional[pulumi.Input[Union[str, 'NetworkRuleIPAction']]] = None,
                  ip_mask: Optional[pulumi.Input[str]] = None):
         """
         Description of NetWorkRuleSet - IpRules resource.
-        :param pulumi.Input[str] action: The IP Filter Action
+        :param pulumi.Input[Union[str, 'NetworkRuleIPAction']] action: The IP Filter Action
         :param pulumi.Input[str] ip_mask: IP Mask
         """
         if action is not None:
@@ -259,14 +260,14 @@ class NWRuleSetIpRulesArgs:
 
     @property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[str]]:
+    def action(self) -> Optional[pulumi.Input[Union[str, 'NetworkRuleIPAction']]]:
         """
         The IP Filter Action
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input[str]]):
+    def action(self, value: Optional[pulumi.Input[Union[str, 'NetworkRuleIPAction']]]):
         pulumi.set(self, "action", value)
 
     @property
@@ -325,14 +326,14 @@ class NWRuleSetVirtualNetworkRulesArgs:
 @pulumi.input_type
 class SBSkuArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
+                 name: pulumi.Input['SkuName'],
                  capacity: Optional[pulumi.Input[int]] = None,
-                 tier: Optional[pulumi.Input[str]] = None):
+                 tier: Optional[pulumi.Input['SkuTier']] = None):
         """
         SKU of the namespace.
-        :param pulumi.Input[str] name: Name of this SKU.
+        :param pulumi.Input['SkuName'] name: Name of this SKU.
         :param pulumi.Input[int] capacity: The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
-        :param pulumi.Input[str] tier: The billing tier of this particular SKU.
+        :param pulumi.Input['SkuTier'] tier: The billing tier of this particular SKU.
         """
         pulumi.set(__self__, "name", name)
         if capacity is not None:
@@ -342,14 +343,14 @@ class SBSkuArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input['SkuName']:
         """
         Name of this SKU.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input['SkuName']):
         pulumi.set(self, "name", value)
 
     @property
@@ -366,14 +367,14 @@ class SBSkuArgs:
 
     @property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[str]]:
+    def tier(self) -> Optional[pulumi.Input['SkuTier']]:
         """
         The billing tier of this particular SKU.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[str]]):
+    def tier(self, value: Optional[pulumi.Input['SkuTier']]):
         pulumi.set(self, "tier", value)
 
 

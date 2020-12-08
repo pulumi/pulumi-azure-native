@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 
 __all__ = ['Queue']
 
@@ -23,7 +24,7 @@ class Queue(pulumi.CustomResource):
                  enable_batched_operations: Optional[pulumi.Input[bool]] = None,
                  enable_express: Optional[pulumi.Input[bool]] = None,
                  enable_partitioning: Optional[pulumi.Input[bool]] = None,
-                 entity_availability_status: Optional[pulumi.Input[str]] = None,
+                 entity_availability_status: Optional[pulumi.Input['EntityAvailabilityStatus']] = None,
                  is_anonymous_accessible: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  lock_duration: Optional[pulumi.Input[str]] = None,
@@ -35,7 +36,7 @@ class Queue(pulumi.CustomResource):
                  requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
                  requires_session: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['EntityStatus']] = None,
                  support_ordering: Optional[pulumi.Input[bool]] = None,
                  __props__=None,
                  __name__=None,
@@ -52,7 +53,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_batched_operations: A value that indicates whether server-side batched operations are enabled.
         :param pulumi.Input[bool] enable_express: A value that indicates whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.
         :param pulumi.Input[bool] enable_partitioning: A value that indicates whether the queue is to be partitioned across multiple message brokers.
-        :param pulumi.Input[str] entity_availability_status: Entity availability status for the queue.
+        :param pulumi.Input['EntityAvailabilityStatus'] entity_availability_status: Entity availability status for the queue.
         :param pulumi.Input[bool] is_anonymous_accessible: A value that indicates whether the message is accessible anonymously.
         :param pulumi.Input[str] location: location of the resource.
         :param pulumi.Input[str] lock_duration: The duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
@@ -64,7 +65,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[bool] requires_duplicate_detection: A value indicating if this queue requires duplicate detection.
         :param pulumi.Input[bool] requires_session: A value that indicates whether the queue supports the concept of sessions.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[str] status: Enumerates the possible values for the status of a messaging entity.
+        :param pulumi.Input['EntityStatus'] status: Enumerates the possible values for the status of a messaging entity.
         :param pulumi.Input[bool] support_ordering: A value that indicates whether the queue supports ordering.
         """
         if __name__ is not None:
@@ -93,22 +94,22 @@ class Queue(pulumi.CustomResource):
             __props__['enable_partitioning'] = enable_partitioning
             __props__['entity_availability_status'] = entity_availability_status
             __props__['is_anonymous_accessible'] = is_anonymous_accessible
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['lock_duration'] = lock_duration
             __props__['max_delivery_count'] = max_delivery_count
             __props__['max_size_in_megabytes'] = max_size_in_megabytes
             __props__['name'] = name
-            if namespace_name is None:
+            if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
-            if queue_name is None:
+            if queue_name is None and not opts.urn:
                 raise TypeError("Missing required property 'queue_name'")
             __props__['queue_name'] = queue_name
             __props__['requires_duplicate_detection'] = requires_duplicate_detection
             __props__['requires_session'] = requires_session
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['status'] = status

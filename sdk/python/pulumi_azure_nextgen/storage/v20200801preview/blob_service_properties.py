@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['BlobServiceProperties']
@@ -67,11 +68,11 @@ class BlobServiceProperties(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_name is None:
+            if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['automatic_snapshot_policy_enabled'] = automatic_snapshot_policy_enabled
-            if blob_services_name is None:
+            if blob_services_name is None and not opts.urn:
                 raise TypeError("Missing required property 'blob_services_name'")
             __props__['blob_services_name'] = blob_services_name
             __props__['change_feed'] = change_feed
@@ -81,7 +82,7 @@ class BlobServiceProperties(pulumi.CustomResource):
             __props__['delete_retention_policy'] = delete_retention_policy
             __props__['is_versioning_enabled'] = is_versioning_enabled
             __props__['last_access_time_tracking_policy'] = last_access_time_tracking_policy
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['restore_policy'] = restore_policy

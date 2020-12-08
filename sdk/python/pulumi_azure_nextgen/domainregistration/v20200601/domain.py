@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Domain']
@@ -24,7 +25,7 @@ class Domain(pulumi.CustomResource):
                  contact_billing: Optional[pulumi.Input[pulumi.InputType['ContactArgs']]] = None,
                  contact_registrant: Optional[pulumi.Input[pulumi.InputType['ContactArgs']]] = None,
                  contact_tech: Optional[pulumi.Input[pulumi.InputType['ContactArgs']]] = None,
-                 dns_type: Optional[pulumi.Input[str]] = None,
+                 dns_type: Optional[pulumi.Input['DnsType']] = None,
                  dns_zone_id: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -32,7 +33,7 @@ class Domain(pulumi.CustomResource):
                  privacy: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 target_dns_type: Optional[pulumi.Input[str]] = None,
+                 target_dns_type: Optional[pulumi.Input['DnsType']] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -47,7 +48,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ContactArgs']] contact_billing: Billing contact.
         :param pulumi.Input[pulumi.InputType['ContactArgs']] contact_registrant: Registrant contact.
         :param pulumi.Input[pulumi.InputType['ContactArgs']] contact_tech: Technical contact.
-        :param pulumi.Input[str] dns_type: Current DNS type
+        :param pulumi.Input['DnsType'] dns_type: Current DNS type
         :param pulumi.Input[str] dns_zone_id: Azure DNS Zone to use
         :param pulumi.Input[str] domain_name: Name of the domain.
         :param pulumi.Input[str] kind: Kind of resource.
@@ -55,7 +56,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[bool] privacy: <code>true</code> if domain privacy is enabled for this domain; otherwise, <code>false</code>.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] target_dns_type: Target DNS type (would be used for migration)
+        :param pulumi.Input['DnsType'] target_dns_type: Target DNS type (would be used for migration)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -76,32 +77,32 @@ class Domain(pulumi.CustomResource):
 
             __props__['auth_code'] = auth_code
             __props__['auto_renew'] = auto_renew
-            if consent is None:
+            if consent is None and not opts.urn:
                 raise TypeError("Missing required property 'consent'")
             __props__['consent'] = consent
-            if contact_admin is None:
+            if contact_admin is None and not opts.urn:
                 raise TypeError("Missing required property 'contact_admin'")
             __props__['contact_admin'] = contact_admin
-            if contact_billing is None:
+            if contact_billing is None and not opts.urn:
                 raise TypeError("Missing required property 'contact_billing'")
             __props__['contact_billing'] = contact_billing
-            if contact_registrant is None:
+            if contact_registrant is None and not opts.urn:
                 raise TypeError("Missing required property 'contact_registrant'")
             __props__['contact_registrant'] = contact_registrant
-            if contact_tech is None:
+            if contact_tech is None and not opts.urn:
                 raise TypeError("Missing required property 'contact_tech'")
             __props__['contact_tech'] = contact_tech
             __props__['dns_type'] = dns_type
             __props__['dns_zone_id'] = dns_zone_id
-            if domain_name is None:
+            if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__['domain_name'] = domain_name
             __props__['kind'] = kind
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['privacy'] = privacy
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

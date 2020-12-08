@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['EventHub']
 
@@ -22,7 +23,7 @@ class EventHub(pulumi.CustomResource):
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  partition_count: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['EntityStatus']] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -39,7 +40,7 @@ class EventHub(pulumi.CustomResource):
         :param pulumi.Input[str] namespace_name: The Namespace name
         :param pulumi.Input[int] partition_count: Number of partitions created for the Event Hub.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
-        :param pulumi.Input[str] status: Enumerates the possible values for the status of the Event Hub.
+        :param pulumi.Input['EntityStatus'] status: Enumerates the possible values for the status of the Event Hub.
         :param pulumi.Input[str] type: ARM type of the Namespace.
         """
         if __name__ is not None:
@@ -59,19 +60,19 @@ class EventHub(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if event_hub_name is None:
+            if event_hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'event_hub_name'")
             __props__['event_hub_name'] = event_hub_name
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['message_retention_in_days'] = message_retention_in_days
             __props__['name'] = name
-            if namespace_name is None:
+            if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
             __props__['partition_count'] = partition_count
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['status'] = status

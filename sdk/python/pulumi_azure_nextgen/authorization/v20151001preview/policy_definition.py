@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['PolicyDefinition']
 
@@ -20,7 +21,7 @@ class PolicyDefinition(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  policy_definition_name: Optional[pulumi.Input[str]] = None,
                  policy_rule: Optional[Any] = None,
-                 policy_type: Optional[pulumi.Input[str]] = None,
+                 policy_type: Optional[pulumi.Input[Union[str, 'PolicyType']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -34,7 +35,7 @@ class PolicyDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
         :param pulumi.Input[str] policy_definition_name: The name of the policy definition to create.
         :param Any policy_rule: The policy rule.
-        :param pulumi.Input[str] policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+        :param pulumi.Input[Union[str, 'PolicyType']] policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -56,7 +57,7 @@ class PolicyDefinition(pulumi.CustomResource):
             __props__['description'] = description
             __props__['display_name'] = display_name
             __props__['name'] = name
-            if policy_definition_name is None:
+            if policy_definition_name is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_definition_name'")
             __props__['policy_definition_name'] = policy_definition_name
             __props__['policy_rule'] = policy_rule

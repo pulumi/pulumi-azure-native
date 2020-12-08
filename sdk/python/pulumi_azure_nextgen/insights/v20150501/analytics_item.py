@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['AnalyticsItem']
@@ -24,9 +25,9 @@ class AnalyticsItem(pulumi.CustomResource):
                  properties: Optional[pulumi.Input[pulumi.InputType['ApplicationInsightsComponentAnalyticsItemPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[Union[str, 'ItemScope']]] = None,
                  scope_path: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'ItemType']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -42,9 +43,9 @@ class AnalyticsItem(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ApplicationInsightsComponentAnalyticsItemPropertiesArgs']] properties: A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the Application Insights component resource.
-        :param pulumi.Input[str] scope: Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+        :param pulumi.Input[Union[str, 'ItemScope']] scope: Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
         :param pulumi.Input[str] scope_path: Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-        :param pulumi.Input[str] type: Enum indicating the type of the Analytics item.
+        :param pulumi.Input[Union[str, 'ItemType']] type: Enum indicating the type of the Analytics item.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -68,14 +69,14 @@ class AnalyticsItem(pulumi.CustomResource):
             __props__['name'] = name
             __props__['override_item'] = override_item
             __props__['properties'] = properties
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if resource_name_ is None:
+            if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
             __props__['scope'] = scope
-            if scope_path is None:
+            if scope_path is None and not opts.urn:
                 raise TypeError("Missing required property 'scope_path'")
             __props__['scope_path'] = scope_path
             __props__['type'] = type

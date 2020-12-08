@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['VendorSkus']
@@ -17,13 +18,13 @@ class VendorSkus(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deployment_mode: Optional[pulumi.Input[str]] = None,
+                 deployment_mode: Optional[pulumi.Input[Union[str, 'SkuDeploymentMode']]] = None,
                  managed_application_parameters: Optional[Any] = None,
                  managed_application_template: Optional[Any] = None,
                  network_function_template: Optional[pulumi.Input[pulumi.InputType['NetworkFunctionTemplateArgs']]] = None,
                  preview: Optional[pulumi.Input[bool]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
-                 sku_type: Optional[pulumi.Input[str]] = None,
+                 sku_type: Optional[pulumi.Input[Union[str, 'SkuType']]] = None,
                  vendor_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -33,13 +34,13 @@ class VendorSkus(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] deployment_mode: The sku deployment mode.
+        :param pulumi.Input[Union[str, 'SkuDeploymentMode']] deployment_mode: The sku deployment mode.
         :param Any managed_application_parameters: The parameters for the managed application to be supplied by the vendor.
         :param Any managed_application_template: The template for the managed application deployment.
         :param pulumi.Input[pulumi.InputType['NetworkFunctionTemplateArgs']] network_function_template: The template definition of the network function.
         :param pulumi.Input[bool] preview: Indicates if the vendor sku is in preview mode.
         :param pulumi.Input[str] sku_name: The name of the sku.
-        :param pulumi.Input[str] sku_type: The sku type.
+        :param pulumi.Input[Union[str, 'SkuType']] sku_type: The sku type.
         :param pulumi.Input[str] vendor_name: The name of the vendor.
         """
         if __name__ is not None:
@@ -64,11 +65,11 @@ class VendorSkus(pulumi.CustomResource):
             __props__['managed_application_template'] = managed_application_template
             __props__['network_function_template'] = network_function_template
             __props__['preview'] = preview
-            if sku_name is None:
+            if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")
             __props__['sku_name'] = sku_name
             __props__['sku_type'] = sku_type
-            if vendor_name is None:
+            if vendor_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vendor_name'")
             __props__['vendor_name'] = vendor_name
             __props__['name'] = None

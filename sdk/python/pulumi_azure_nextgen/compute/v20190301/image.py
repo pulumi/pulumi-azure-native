@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Image']
@@ -17,7 +18,7 @@ class Image(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hyper_v_generation: Optional[pulumi.Input[str]] = None,
+                 hyper_v_generation: Optional[pulumi.Input[Union[str, 'HyperVGenerationTypes']]] = None,
                  image_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -32,7 +33,7 @@ class Image(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] hyper_v_generation: Gets the HyperVGenerationType of the VirtualMachine created from the image
+        :param pulumi.Input[Union[str, 'HyperVGenerationTypes']] hyper_v_generation: Gets the HyperVGenerationType of the VirtualMachine created from the image
         :param pulumi.Input[str] image_name: The name of the image.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -58,13 +59,13 @@ class Image(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['hyper_v_generation'] = hyper_v_generation
-            if image_name is None:
+            if image_name is None and not opts.urn:
                 raise TypeError("Missing required property 'image_name'")
             __props__['image_name'] = image_name
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['source_virtual_machine'] = source_virtual_machine

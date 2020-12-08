@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Pipeline']
@@ -57,20 +58,20 @@ class Pipeline(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if bootstrap_configuration is None:
+            if bootstrap_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'bootstrap_configuration'")
             __props__['bootstrap_configuration'] = bootstrap_configuration
             __props__['location'] = location
-            if organization is None:
+            if organization is None and not opts.urn:
                 raise TypeError("Missing required property 'organization'")
             __props__['organization'] = organization
-            if pipeline_name is None:
+            if pipeline_name is None and not opts.urn:
                 raise TypeError("Missing required property 'pipeline_name'")
             __props__['pipeline_name'] = pipeline_name
-            if project is None:
+            if project is None and not opts.urn:
                 raise TypeError("Missing required property 'project'")
             __props__['project'] = project
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

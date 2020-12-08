@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'CustomRuleArgs',
@@ -23,21 +24,21 @@ __all__ = [
 @pulumi.input_type
 class CustomRuleArgs:
     def __init__(__self__, *,
-                 action: pulumi.Input[str],
+                 action: pulumi.Input[Union[str, 'ActionType']],
                  match_conditions: pulumi.Input[Sequence[pulumi.Input['MatchConditionArgs']]],
                  priority: pulumi.Input[int],
-                 rule_type: pulumi.Input[str],
-                 enabled_state: Optional[pulumi.Input[str]] = None,
+                 rule_type: pulumi.Input[Union[str, 'RuleType']],
+                 enabled_state: Optional[pulumi.Input[Union[str, 'CustomRuleEnabledState']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rate_limit_duration_in_minutes: Optional[pulumi.Input[int]] = None,
                  rate_limit_threshold: Optional[pulumi.Input[int]] = None):
         """
         Defines contents of a web application rule
-        :param pulumi.Input[str] action: Describes what action to be applied when rule matches.
+        :param pulumi.Input[Union[str, 'ActionType']] action: Describes what action to be applied when rule matches.
         :param pulumi.Input[Sequence[pulumi.Input['MatchConditionArgs']]] match_conditions: List of match conditions.
         :param pulumi.Input[int] priority: Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
-        :param pulumi.Input[str] rule_type: Describes type of rule.
-        :param pulumi.Input[str] enabled_state: Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
+        :param pulumi.Input[Union[str, 'RuleType']] rule_type: Describes type of rule.
+        :param pulumi.Input[Union[str, 'CustomRuleEnabledState']] enabled_state: Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
         :param pulumi.Input[str] name: Describes the name of the rule.
         :param pulumi.Input[int] rate_limit_duration_in_minutes: Time window for resetting the rate limit count. Default is 1 minute.
         :param pulumi.Input[int] rate_limit_threshold: Number of allowed requests per client within the time window.
@@ -57,14 +58,14 @@ class CustomRuleArgs:
 
     @property
     @pulumi.getter
-    def action(self) -> pulumi.Input[str]:
+    def action(self) -> pulumi.Input[Union[str, 'ActionType']]:
         """
         Describes what action to be applied when rule matches.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: pulumi.Input[str]):
+    def action(self, value: pulumi.Input[Union[str, 'ActionType']]):
         pulumi.set(self, "action", value)
 
     @property
@@ -93,26 +94,26 @@ class CustomRuleArgs:
 
     @property
     @pulumi.getter(name="ruleType")
-    def rule_type(self) -> pulumi.Input[str]:
+    def rule_type(self) -> pulumi.Input[Union[str, 'RuleType']]:
         """
         Describes type of rule.
         """
         return pulumi.get(self, "rule_type")
 
     @rule_type.setter
-    def rule_type(self, value: pulumi.Input[str]):
+    def rule_type(self, value: pulumi.Input[Union[str, 'RuleType']]):
         pulumi.set(self, "rule_type", value)
 
     @property
     @pulumi.getter(name="enabledState")
-    def enabled_state(self) -> Optional[pulumi.Input[str]]:
+    def enabled_state(self) -> Optional[pulumi.Input[Union[str, 'CustomRuleEnabledState']]]:
         """
         Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
         """
         return pulumi.get(self, "enabled_state")
 
     @enabled_state.setter
-    def enabled_state(self, value: Optional[pulumi.Input[str]]):
+    def enabled_state(self, value: Optional[pulumi.Input[Union[str, 'CustomRuleEnabledState']]]):
         pulumi.set(self, "enabled_state", value)
 
     @property
@@ -179,14 +180,14 @@ class CustomRuleListArgs:
 @pulumi.input_type
 class ManagedRuleExclusionArgs:
     def __init__(__self__, *,
-                 match_variable: pulumi.Input[str],
+                 match_variable: pulumi.Input[Union[str, 'ManagedRuleExclusionMatchVariable']],
                  selector: pulumi.Input[str],
-                 selector_match_operator: pulumi.Input[str]):
+                 selector_match_operator: pulumi.Input[Union[str, 'ManagedRuleExclusionSelectorMatchOperator']]):
         """
         Exclude variables from managed rule evaluation.
-        :param pulumi.Input[str] match_variable: The variable type to be excluded.
+        :param pulumi.Input[Union[str, 'ManagedRuleExclusionMatchVariable']] match_variable: The variable type to be excluded.
         :param pulumi.Input[str] selector: Selector value for which elements in the collection this exclusion applies to.
-        :param pulumi.Input[str] selector_match_operator: Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to.
+        :param pulumi.Input[Union[str, 'ManagedRuleExclusionSelectorMatchOperator']] selector_match_operator: Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to.
         """
         pulumi.set(__self__, "match_variable", match_variable)
         pulumi.set(__self__, "selector", selector)
@@ -194,14 +195,14 @@ class ManagedRuleExclusionArgs:
 
     @property
     @pulumi.getter(name="matchVariable")
-    def match_variable(self) -> pulumi.Input[str]:
+    def match_variable(self) -> pulumi.Input[Union[str, 'ManagedRuleExclusionMatchVariable']]:
         """
         The variable type to be excluded.
         """
         return pulumi.get(self, "match_variable")
 
     @match_variable.setter
-    def match_variable(self, value: pulumi.Input[str]):
+    def match_variable(self, value: pulumi.Input[Union[str, 'ManagedRuleExclusionMatchVariable']]):
         pulumi.set(self, "match_variable", value)
 
     @property
@@ -218,14 +219,14 @@ class ManagedRuleExclusionArgs:
 
     @property
     @pulumi.getter(name="selectorMatchOperator")
-    def selector_match_operator(self) -> pulumi.Input[str]:
+    def selector_match_operator(self) -> pulumi.Input[Union[str, 'ManagedRuleExclusionSelectorMatchOperator']]:
         """
         Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to.
         """
         return pulumi.get(self, "selector_match_operator")
 
     @selector_match_operator.setter
-    def selector_match_operator(self, value: pulumi.Input[str]):
+    def selector_match_operator(self, value: pulumi.Input[Union[str, 'ManagedRuleExclusionSelectorMatchOperator']]):
         pulumi.set(self, "selector_match_operator", value)
 
 
@@ -288,14 +289,14 @@ class ManagedRuleGroupOverrideArgs:
 class ManagedRuleOverrideArgs:
     def __init__(__self__, *,
                  rule_id: pulumi.Input[str],
-                 action: Optional[pulumi.Input[str]] = None,
-                 enabled_state: Optional[pulumi.Input[str]] = None,
+                 action: Optional[pulumi.Input[Union[str, 'ActionType']]] = None,
+                 enabled_state: Optional[pulumi.Input[Union[str, 'ManagedRuleEnabledState']]] = None,
                  exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleExclusionArgs']]]] = None):
         """
         Defines a managed rule group override setting.
         :param pulumi.Input[str] rule_id: Identifier for the managed rule.
-        :param pulumi.Input[str] action: Describes the override action to be applied when rule matches.
-        :param pulumi.Input[str] enabled_state: Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
+        :param pulumi.Input[Union[str, 'ActionType']] action: Describes the override action to be applied when rule matches.
+        :param pulumi.Input[Union[str, 'ManagedRuleEnabledState']] enabled_state: Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
         :param pulumi.Input[Sequence[pulumi.Input['ManagedRuleExclusionArgs']]] exclusions: Describes the exclusions that are applied to this specific rule.
         """
         pulumi.set(__self__, "rule_id", rule_id)
@@ -320,26 +321,26 @@ class ManagedRuleOverrideArgs:
 
     @property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[str]]:
+    def action(self) -> Optional[pulumi.Input[Union[str, 'ActionType']]]:
         """
         Describes the override action to be applied when rule matches.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input[str]]):
+    def action(self, value: Optional[pulumi.Input[Union[str, 'ActionType']]]):
         pulumi.set(self, "action", value)
 
     @property
     @pulumi.getter(name="enabledState")
-    def enabled_state(self) -> Optional[pulumi.Input[str]]:
+    def enabled_state(self) -> Optional[pulumi.Input[Union[str, 'ManagedRuleEnabledState']]]:
         """
         Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
         """
         return pulumi.get(self, "enabled_state")
 
     @enabled_state.setter
-    def enabled_state(self, value: Optional[pulumi.Input[str]]):
+    def enabled_state(self, value: Optional[pulumi.Input[Union[str, 'ManagedRuleEnabledState']]]):
         pulumi.set(self, "enabled_state", value)
 
     @property
@@ -453,19 +454,19 @@ class ManagedRuleSetListArgs:
 class MatchConditionArgs:
     def __init__(__self__, *,
                  match_value: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 match_variable: pulumi.Input[str],
-                 operator: pulumi.Input[str],
+                 match_variable: pulumi.Input[Union[str, 'MatchVariable']],
+                 operator: pulumi.Input[Union[str, 'Operator']],
                  negate_condition: Optional[pulumi.Input[bool]] = None,
                  selector: Optional[pulumi.Input[str]] = None,
-                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'TransformType']]]]] = None):
         """
         Define a match condition.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_value: List of possible match values.
-        :param pulumi.Input[str] match_variable: Request variable to compare with.
-        :param pulumi.Input[str] operator: Comparison type to use for matching with the variable value.
+        :param pulumi.Input[Union[str, 'MatchVariable']] match_variable: Request variable to compare with.
+        :param pulumi.Input[Union[str, 'Operator']] operator: Comparison type to use for matching with the variable value.
         :param pulumi.Input[bool] negate_condition: Describes if the result of this condition should be negated.
         :param pulumi.Input[str] selector: Match against a specific key from the QueryString, PostArgs, RequestHeader or Cookies variables. Default is null.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] transforms: List of transforms.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'TransformType']]]] transforms: List of transforms.
         """
         pulumi.set(__self__, "match_value", match_value)
         pulumi.set(__self__, "match_variable", match_variable)
@@ -491,26 +492,26 @@ class MatchConditionArgs:
 
     @property
     @pulumi.getter(name="matchVariable")
-    def match_variable(self) -> pulumi.Input[str]:
+    def match_variable(self) -> pulumi.Input[Union[str, 'MatchVariable']]:
         """
         Request variable to compare with.
         """
         return pulumi.get(self, "match_variable")
 
     @match_variable.setter
-    def match_variable(self, value: pulumi.Input[str]):
+    def match_variable(self, value: pulumi.Input[Union[str, 'MatchVariable']]):
         pulumi.set(self, "match_variable", value)
 
     @property
     @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
+    def operator(self) -> pulumi.Input[Union[str, 'Operator']]:
         """
         Comparison type to use for matching with the variable value.
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: pulumi.Input[str]):
+    def operator(self, value: pulumi.Input[Union[str, 'Operator']]):
         pulumi.set(self, "operator", value)
 
     @property
@@ -539,14 +540,14 @@ class MatchConditionArgs:
 
     @property
     @pulumi.getter
-    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'TransformType']]]]]:
         """
         List of transforms.
         """
         return pulumi.get(self, "transforms")
 
     @transforms.setter
-    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'TransformType']]]]]):
         pulumi.set(self, "transforms", value)
 
 
@@ -555,15 +556,15 @@ class PolicySettingsArgs:
     def __init__(__self__, *,
                  custom_block_response_body: Optional[pulumi.Input[str]] = None,
                  custom_block_response_status_code: Optional[pulumi.Input[int]] = None,
-                 enabled_state: Optional[pulumi.Input[str]] = None,
-                 mode: Optional[pulumi.Input[str]] = None,
+                 enabled_state: Optional[pulumi.Input[Union[str, 'PolicyEnabledState']]] = None,
+                 mode: Optional[pulumi.Input[Union[str, 'PolicyMode']]] = None,
                  redirect_url: Optional[pulumi.Input[str]] = None):
         """
         Defines top-level WebApplicationFirewallPolicy configuration settings.
         :param pulumi.Input[str] custom_block_response_body: If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
         :param pulumi.Input[int] custom_block_response_status_code: If the action type is block, customer can override the response status code.
-        :param pulumi.Input[str] enabled_state: Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
-        :param pulumi.Input[str] mode: Describes if it is in detection mode or prevention mode at policy level.
+        :param pulumi.Input[Union[str, 'PolicyEnabledState']] enabled_state: Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
+        :param pulumi.Input[Union[str, 'PolicyMode']] mode: Describes if it is in detection mode or prevention mode at policy level.
         :param pulumi.Input[str] redirect_url: If action type is redirect, this field represents redirect URL for the client.
         """
         if custom_block_response_body is not None:
@@ -603,26 +604,26 @@ class PolicySettingsArgs:
 
     @property
     @pulumi.getter(name="enabledState")
-    def enabled_state(self) -> Optional[pulumi.Input[str]]:
+    def enabled_state(self) -> Optional[pulumi.Input[Union[str, 'PolicyEnabledState']]]:
         """
         Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
         """
         return pulumi.get(self, "enabled_state")
 
     @enabled_state.setter
-    def enabled_state(self, value: Optional[pulumi.Input[str]]):
+    def enabled_state(self, value: Optional[pulumi.Input[Union[str, 'PolicyEnabledState']]]):
         pulumi.set(self, "enabled_state", value)
 
     @property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[str]]:
+    def mode(self) -> Optional[pulumi.Input[Union[str, 'PolicyMode']]]:
         """
         Describes if it is in detection mode or prevention mode at policy level.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[str]]):
+    def mode(self, value: Optional[pulumi.Input[Union[str, 'PolicyMode']]]):
         pulumi.set(self, "mode", value)
 
     @property

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['NamespaceNetworkRuleSet']
@@ -17,7 +18,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_action: Optional[pulumi.Input[str]] = None,
+                 default_action: Optional[pulumi.Input[Union[str, 'DefaultAction']]] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NWRuleSetIpRulesArgs']]]]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -30,7 +31,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] default_action: Default Action for Network Rule Set
+        :param pulumi.Input[Union[str, 'DefaultAction']] default_action: Default Action for Network Rule Set
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NWRuleSetIpRulesArgs']]]] ip_rules: List of IpRules
         :param pulumi.Input[str] namespace_name: The namespace name
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
@@ -55,10 +56,10 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
 
             __props__['default_action'] = default_action
             __props__['ip_rules'] = ip_rules
-            if namespace_name is None:
+            if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['virtual_network_rules'] = virtual_network_rules

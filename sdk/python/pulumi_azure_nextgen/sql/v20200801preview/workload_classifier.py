@@ -64,26 +64,26 @@ class WorkloadClassifier(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['context'] = context
-            if database_name is None:
+            if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
             __props__['end_time'] = end_time
             __props__['importance'] = importance
             __props__['label'] = label
-            if member_name is None:
+            if member_name is None and not opts.urn:
                 raise TypeError("Missing required property 'member_name'")
             __props__['member_name'] = member_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if server_name is None:
+            if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
             __props__['start_time'] = start_time
-            if workload_classifier_name is None:
+            if workload_classifier_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workload_classifier_name'")
             __props__['workload_classifier_name'] = workload_classifier_name
-            if workload_group_name is None:
+            if workload_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workload_group_name'")
             __props__['workload_group_name'] = workload_group_name
             __props__['name'] = None

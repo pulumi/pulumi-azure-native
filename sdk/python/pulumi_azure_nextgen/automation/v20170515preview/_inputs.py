@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AdvancedScheduleArgs',
@@ -84,11 +85,11 @@ class AdvancedScheduleArgs:
 @pulumi.input_type
 class AdvancedScheduleMonthlyOccurrenceArgs:
     def __init__(__self__, *,
-                 day: Optional[pulumi.Input[str]] = None,
+                 day: Optional[pulumi.Input[Union[str, 'ScheduleDay']]] = None,
                  occurrence: Optional[pulumi.Input[int]] = None):
         """
         The properties of the create advanced schedule monthly occurrence.
-        :param pulumi.Input[str] day: Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
+        :param pulumi.Input[Union[str, 'ScheduleDay']] day: Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
         :param pulumi.Input[int] occurrence: Occurrence of the week within the month. Must be between 1 and 5
         """
         if day is not None:
@@ -98,14 +99,14 @@ class AdvancedScheduleMonthlyOccurrenceArgs:
 
     @property
     @pulumi.getter
-    def day(self) -> Optional[pulumi.Input[str]]:
+    def day(self) -> Optional[pulumi.Input[Union[str, 'ScheduleDay']]]:
         """
         Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
         """
         return pulumi.get(self, "day")
 
     @day.setter
-    def day(self, value: Optional[pulumi.Input[str]]):
+    def day(self, value: Optional[pulumi.Input[Union[str, 'ScheduleDay']]]):
         pulumi.set(self, "day", value)
 
     @property
@@ -221,13 +222,13 @@ class ErrorResponseArgs:
 class LinuxPropertiesArgs:
     def __init__(__self__, *,
                  excluded_package_name_masks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 included_package_classifications: Optional[pulumi.Input[str]] = None,
+                 included_package_classifications: Optional[pulumi.Input[Union[str, 'LinuxUpdateClasses']]] = None,
                  included_package_name_masks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  reboot_setting: Optional[pulumi.Input[str]] = None):
         """
         Linux specific update configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_package_name_masks: packages excluded from the software update configuration.
-        :param pulumi.Input[str] included_package_classifications: Update classifications included in the software update configuration.
+        :param pulumi.Input[Union[str, 'LinuxUpdateClasses']] included_package_classifications: Update classifications included in the software update configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] included_package_name_masks: packages included from the software update configuration.
         :param pulumi.Input[str] reboot_setting: Reboot setting for the software update configuration.
         """
@@ -254,14 +255,14 @@ class LinuxPropertiesArgs:
 
     @property
     @pulumi.getter(name="includedPackageClassifications")
-    def included_package_classifications(self) -> Optional[pulumi.Input[str]]:
+    def included_package_classifications(self) -> Optional[pulumi.Input[Union[str, 'LinuxUpdateClasses']]]:
         """
         Update classifications included in the software update configuration.
         """
         return pulumi.get(self, "included_package_classifications")
 
     @included_package_classifications.setter
-    def included_package_classifications(self, value: Optional[pulumi.Input[str]]):
+    def included_package_classifications(self, value: Optional[pulumi.Input[Union[str, 'LinuxUpdateClasses']]]):
         pulumi.set(self, "included_package_classifications", value)
 
     @property
@@ -337,7 +338,7 @@ class SchedulePropertiesArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  expiry_time: Optional[pulumi.Input[str]] = None,
                  expiry_time_offset_minutes: Optional[pulumi.Input[float]] = None,
-                 frequency: Optional[pulumi.Input[str]] = None,
+                 frequency: Optional[pulumi.Input[Union[str, 'ScheduleFrequency']]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  last_modified_time: Optional[pulumi.Input[str]] = None,
@@ -352,7 +353,7 @@ class SchedulePropertiesArgs:
         :param pulumi.Input[str] description: Gets or sets the description.
         :param pulumi.Input[str] expiry_time: Gets or sets the end time of the schedule.
         :param pulumi.Input[float] expiry_time_offset_minutes: Gets or sets the expiry time's offset in minutes.
-        :param pulumi.Input[str] frequency: Gets or sets the frequency of the schedule.
+        :param pulumi.Input[Union[str, 'ScheduleFrequency']] frequency: Gets or sets the frequency of the schedule.
         :param pulumi.Input[int] interval: Gets or sets the interval of the schedule.
         :param pulumi.Input[bool] is_enabled: Gets or sets a value indicating whether this schedule is enabled.
         :param pulumi.Input[str] last_modified_time: Gets or sets the last modified time.
@@ -450,14 +451,14 @@ class SchedulePropertiesArgs:
 
     @property
     @pulumi.getter
-    def frequency(self) -> Optional[pulumi.Input[str]]:
+    def frequency(self) -> Optional[pulumi.Input[Union[str, 'ScheduleFrequency']]]:
         """
         Gets or sets the frequency of the schedule.
         """
         return pulumi.get(self, "frequency")
 
     @frequency.setter
-    def frequency(self, value: Optional[pulumi.Input[str]]):
+    def frequency(self, value: Optional[pulumi.Input[Union[str, 'ScheduleFrequency']]]):
         pulumi.set(self, "frequency", value)
 
     @property
@@ -590,11 +591,11 @@ class SourceControlSecurityTokenPropertiesArgs:
     def __init__(__self__, *,
                  access_token: Optional[pulumi.Input[str]] = None,
                  refresh_token: Optional[pulumi.Input[str]] = None,
-                 token_type: Optional[pulumi.Input[str]] = None):
+                 token_type: Optional[pulumi.Input[Union[str, 'TokenType']]] = None):
         """
         :param pulumi.Input[str] access_token: The access token.
         :param pulumi.Input[str] refresh_token: The refresh token.
-        :param pulumi.Input[str] token_type: The token type. Must be either PersonalAccessToken or Oauth.
+        :param pulumi.Input[Union[str, 'TokenType']] token_type: The token type. Must be either PersonalAccessToken or Oauth.
         """
         if access_token is not None:
             pulumi.set(__self__, "access_token", access_token)
@@ -629,25 +630,25 @@ class SourceControlSecurityTokenPropertiesArgs:
 
     @property
     @pulumi.getter(name="tokenType")
-    def token_type(self) -> Optional[pulumi.Input[str]]:
+    def token_type(self) -> Optional[pulumi.Input[Union[str, 'TokenType']]]:
         """
         The token type. Must be either PersonalAccessToken or Oauth.
         """
         return pulumi.get(self, "token_type")
 
     @token_type.setter
-    def token_type(self, value: Optional[pulumi.Input[str]]):
+    def token_type(self, value: Optional[pulumi.Input[Union[str, 'TokenType']]]):
         pulumi.set(self, "token_type", value)
 
 
 @pulumi.input_type
 class TagSettingsPropertiesArgs:
     def __init__(__self__, *,
-                 filter_operator: Optional[pulumi.Input[str]] = None,
+                 filter_operator: Optional[pulumi.Input['TagOperators']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None):
         """
         Tag filter information for the VM.
-        :param pulumi.Input[str] filter_operator: Filter VMs by Any or All specified tags.
+        :param pulumi.Input['TagOperators'] filter_operator: Filter VMs by Any or All specified tags.
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]] tags: Dictionary of tags with its list of values.
         """
         if filter_operator is not None:
@@ -657,14 +658,14 @@ class TagSettingsPropertiesArgs:
 
     @property
     @pulumi.getter(name="filterOperator")
-    def filter_operator(self) -> Optional[pulumi.Input[str]]:
+    def filter_operator(self) -> Optional[pulumi.Input['TagOperators']]:
         """
         Filter VMs by Any or All specified tags.
         """
         return pulumi.get(self, "filter_operator")
 
     @filter_operator.setter
-    def filter_operator(self, value: Optional[pulumi.Input[str]]):
+    def filter_operator(self, value: Optional[pulumi.Input['TagOperators']]):
         pulumi.set(self, "filter_operator", value)
 
     @property
@@ -763,7 +764,7 @@ class TaskPropertiesArgs:
 @pulumi.input_type
 class UpdateConfigurationArgs:
     def __init__(__self__, *,
-                 operating_system: pulumi.Input[str],
+                 operating_system: pulumi.Input['OperatingSystemType'],
                  azure_virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  duration: Optional[pulumi.Input[str]] = None,
                  linux: Optional[pulumi.Input['LinuxPropertiesArgs']] = None,
@@ -772,7 +773,7 @@ class UpdateConfigurationArgs:
                  windows: Optional[pulumi.Input['WindowsPropertiesArgs']] = None):
         """
         Update specific properties of the software update configuration.
-        :param pulumi.Input[str] operating_system: operating system of target machines
+        :param pulumi.Input['OperatingSystemType'] operating_system: operating system of target machines
         :param pulumi.Input[Sequence[pulumi.Input[str]]] azure_virtual_machines: List of azure resource Ids for azure virtual machines targeted by the software update configuration.
         :param pulumi.Input[str] duration: Maximum time allowed for the software update configuration run. Duration needs to be specified using the format PT[n]H[n]M[n]S as per ISO8601
         :param pulumi.Input['LinuxPropertiesArgs'] linux: Linux specific update configuration.
@@ -796,14 +797,14 @@ class UpdateConfigurationArgs:
 
     @property
     @pulumi.getter(name="operatingSystem")
-    def operating_system(self) -> pulumi.Input[str]:
+    def operating_system(self) -> pulumi.Input['OperatingSystemType']:
         """
         operating system of target machines
         """
         return pulumi.get(self, "operating_system")
 
     @operating_system.setter
-    def operating_system(self, value: pulumi.Input[str]):
+    def operating_system(self, value: pulumi.Input['OperatingSystemType']):
         pulumi.set(self, "operating_system", value)
 
     @property
@@ -884,13 +885,13 @@ class WindowsPropertiesArgs:
     def __init__(__self__, *,
                  excluded_kb_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_kb_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 included_update_classifications: Optional[pulumi.Input[str]] = None,
+                 included_update_classifications: Optional[pulumi.Input[Union[str, 'WindowsUpdateClasses']]] = None,
                  reboot_setting: Optional[pulumi.Input[str]] = None):
         """
         Windows specific update configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_kb_numbers: KB numbers excluded from the software update configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] included_kb_numbers: KB numbers included from the software update configuration.
-        :param pulumi.Input[str] included_update_classifications: Update classification included in the software update configuration. A comma separated string with required values
+        :param pulumi.Input[Union[str, 'WindowsUpdateClasses']] included_update_classifications: Update classification included in the software update configuration. A comma separated string with required values
         :param pulumi.Input[str] reboot_setting: Reboot setting for the software update configuration.
         """
         if excluded_kb_numbers is not None:
@@ -928,14 +929,14 @@ class WindowsPropertiesArgs:
 
     @property
     @pulumi.getter(name="includedUpdateClassifications")
-    def included_update_classifications(self) -> Optional[pulumi.Input[str]]:
+    def included_update_classifications(self) -> Optional[pulumi.Input[Union[str, 'WindowsUpdateClasses']]]:
         """
         Update classification included in the software update configuration. A comma separated string with required values
         """
         return pulumi.get(self, "included_update_classifications")
 
     @included_update_classifications.setter
-    def included_update_classifications(self, value: Optional[pulumi.Input[str]]):
+    def included_update_classifications(self, value: Optional[pulumi.Input[Union[str, 'WindowsUpdateClasses']]]):
         pulumi.set(self, "included_update_classifications", value)
 
     @property

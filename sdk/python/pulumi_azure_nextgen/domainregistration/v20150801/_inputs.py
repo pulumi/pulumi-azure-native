@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AddressArgs',
@@ -331,17 +332,17 @@ class DomainPurchaseConsentArgs:
 class HostNameArgs:
     def __init__(__self__, *,
                  azure_resource_name: Optional[pulumi.Input[str]] = None,
-                 azure_resource_type: Optional[pulumi.Input[str]] = None,
-                 custom_host_name_dns_record_type: Optional[pulumi.Input[str]] = None,
-                 host_name_type: Optional[pulumi.Input[str]] = None,
+                 azure_resource_type: Optional[pulumi.Input['AzureResourceType']] = None,
+                 custom_host_name_dns_record_type: Optional[pulumi.Input['CustomHostNameDnsRecordType']] = None,
+                 host_name_type: Optional[pulumi.Input['HostNameType']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  site_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Details of a hostname derived from a domain
         :param pulumi.Input[str] azure_resource_name: Name of the Azure resource the hostname is assigned to. If it is assigned to a traffic manager then it will be the traffic manager name otherwise it will be the website name
-        :param pulumi.Input[str] azure_resource_type: Type of the Azure resource the hostname is assigned to
-        :param pulumi.Input[str] custom_host_name_dns_record_type: Type of the Dns record
-        :param pulumi.Input[str] host_name_type: Type of the hostname
+        :param pulumi.Input['AzureResourceType'] azure_resource_type: Type of the Azure resource the hostname is assigned to
+        :param pulumi.Input['CustomHostNameDnsRecordType'] custom_host_name_dns_record_type: Type of the Dns record
+        :param pulumi.Input['HostNameType'] host_name_type: Type of the hostname
         :param pulumi.Input[str] name: Name of the hostname
         :param pulumi.Input[Sequence[pulumi.Input[str]]] site_names: List of sites the hostname is assigned to. This list will have more than one site only if the hostname is pointing to a Traffic Manager
         """
@@ -372,38 +373,38 @@ class HostNameArgs:
 
     @property
     @pulumi.getter(name="azureResourceType")
-    def azure_resource_type(self) -> Optional[pulumi.Input[str]]:
+    def azure_resource_type(self) -> Optional[pulumi.Input['AzureResourceType']]:
         """
         Type of the Azure resource the hostname is assigned to
         """
         return pulumi.get(self, "azure_resource_type")
 
     @azure_resource_type.setter
-    def azure_resource_type(self, value: Optional[pulumi.Input[str]]):
+    def azure_resource_type(self, value: Optional[pulumi.Input['AzureResourceType']]):
         pulumi.set(self, "azure_resource_type", value)
 
     @property
     @pulumi.getter(name="customHostNameDnsRecordType")
-    def custom_host_name_dns_record_type(self) -> Optional[pulumi.Input[str]]:
+    def custom_host_name_dns_record_type(self) -> Optional[pulumi.Input['CustomHostNameDnsRecordType']]:
         """
         Type of the Dns record
         """
         return pulumi.get(self, "custom_host_name_dns_record_type")
 
     @custom_host_name_dns_record_type.setter
-    def custom_host_name_dns_record_type(self, value: Optional[pulumi.Input[str]]):
+    def custom_host_name_dns_record_type(self, value: Optional[pulumi.Input['CustomHostNameDnsRecordType']]):
         pulumi.set(self, "custom_host_name_dns_record_type", value)
 
     @property
     @pulumi.getter(name="hostNameType")
-    def host_name_type(self) -> Optional[pulumi.Input[str]]:
+    def host_name_type(self) -> Optional[pulumi.Input['HostNameType']]:
         """
         Type of the hostname
         """
         return pulumi.get(self, "host_name_type")
 
     @host_name_type.setter
-    def host_name_type(self, value: Optional[pulumi.Input[str]]):
+    def host_name_type(self, value: Optional[pulumi.Input['HostNameType']]):
         pulumi.set(self, "host_name_type", value)
 
     @property

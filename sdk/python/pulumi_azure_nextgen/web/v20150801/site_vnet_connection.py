@@ -77,20 +77,20 @@ class SiteVNETConnection(pulumi.CustomResource):
             __props__['dns_servers'] = dns_servers
             __props__['id'] = id
             __props__['kind'] = kind
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['resync_required'] = resync_required
             __props__['routes'] = routes
             __props__['tags'] = tags
             __props__['type'] = type
-            if vnet_name is None:
+            if vnet_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vnet_name'")
             __props__['vnet_name'] = vnet_name
             __props__['vnet_resource_id'] = vnet_resource_id

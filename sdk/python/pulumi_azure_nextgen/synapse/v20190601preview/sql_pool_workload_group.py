@@ -62,27 +62,27 @@ class SqlPoolWorkloadGroup(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['importance'] = importance
-            if max_resource_percent is None:
+            if max_resource_percent is None and not opts.urn:
                 raise TypeError("Missing required property 'max_resource_percent'")
             __props__['max_resource_percent'] = max_resource_percent
             __props__['max_resource_percent_per_request'] = max_resource_percent_per_request
-            if min_resource_percent is None:
+            if min_resource_percent is None and not opts.urn:
                 raise TypeError("Missing required property 'min_resource_percent'")
             __props__['min_resource_percent'] = min_resource_percent
-            if min_resource_percent_per_request is None:
+            if min_resource_percent_per_request is None and not opts.urn:
                 raise TypeError("Missing required property 'min_resource_percent_per_request'")
             __props__['min_resource_percent_per_request'] = min_resource_percent_per_request
             __props__['query_execution_timeout'] = query_execution_timeout
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if sql_pool_name is None:
+            if sql_pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sql_pool_name'")
             __props__['sql_pool_name'] = sql_pool_name
-            if workload_group_name is None:
+            if workload_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workload_group_name'")
             __props__['workload_group_name'] = workload_group_name
-            if workspace_name is None:
+            if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['name'] = None

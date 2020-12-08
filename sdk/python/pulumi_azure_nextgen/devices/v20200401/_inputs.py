@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'CloudToDevicePropertiesArgs',
@@ -186,14 +187,14 @@ class FallbackRoutePropertiesArgs:
     def __init__(__self__, *,
                  endpoint_names: pulumi.Input[Sequence[pulumi.Input[str]]],
                  is_enabled: pulumi.Input[bool],
-                 source: pulumi.Input[str],
+                 source: pulumi.Input[Union[str, 'RoutingSource']],
                  condition: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The properties of the fallback route. IoT Hub uses these properties when it routes messages to the fallback endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] endpoint_names: The list of endpoints to which the messages that satisfy the condition are routed to. Currently only 1 endpoint is allowed.
         :param pulumi.Input[bool] is_enabled: Used to specify whether the fallback route is enabled.
-        :param pulumi.Input[str] source: The source to which the routing rule is to be applied to. For example, DeviceMessages
+        :param pulumi.Input[Union[str, 'RoutingSource']] source: The source to which the routing rule is to be applied to. For example, DeviceMessages
         :param pulumi.Input[str] condition: The condition which is evaluated in order to apply the fallback route. If the condition is not provided it will evaluate to true by default. For grammar, See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
         :param pulumi.Input[str] name: The name of the route. The name can only include alphanumeric characters, periods, underscores, hyphens, has a maximum length of 64 characters, and must be unique.
         """
@@ -231,14 +232,14 @@ class FallbackRoutePropertiesArgs:
 
     @property
     @pulumi.getter
-    def source(self) -> pulumi.Input[str]:
+    def source(self) -> pulumi.Input[Union[str, 'RoutingSource']]:
         """
         The source to which the routing rule is to be applied to. For example, DeviceMessages
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: pulumi.Input[str]):
+    def source(self, value: pulumi.Input[Union[str, 'RoutingSource']]):
         pulumi.set(self, "source", value)
 
     @property
@@ -330,12 +331,12 @@ class IotHubPropertiesArgs:
                  comments: Optional[pulumi.Input[str]] = None,
                  enable_file_upload_notifications: Optional[pulumi.Input[bool]] = None,
                  event_hub_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input['EventHubPropertiesArgs']]]] = None,
-                 features: Optional[pulumi.Input[str]] = None,
+                 features: Optional[pulumi.Input[Union[str, 'Capabilities']]] = None,
                  ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpFilterRuleArgs']]]] = None,
                  messaging_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input['MessagingEndpointPropertiesArgs']]]] = None,
                  min_tls_version: Optional[pulumi.Input[str]] = None,
                  private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
-                 public_network_access: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  routing: Optional[pulumi.Input['RoutingPropertiesArgs']] = None,
                  storage_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input['StorageEndpointPropertiesArgs']]]] = None):
         """
@@ -345,12 +346,12 @@ class IotHubPropertiesArgs:
         :param pulumi.Input[str] comments: IoT hub comments.
         :param pulumi.Input[bool] enable_file_upload_notifications: If True, file upload notifications are enabled.
         :param pulumi.Input[Mapping[str, pulumi.Input['EventHubPropertiesArgs']]] event_hub_endpoints: The Event Hub-compatible endpoint properties. The only possible keys to this dictionary is events. This key has to be present in the dictionary while making create or update calls for the IoT hub.
-        :param pulumi.Input[str] features: The capabilities and features enabled for the IoT hub.
+        :param pulumi.Input[Union[str, 'Capabilities']] features: The capabilities and features enabled for the IoT hub.
         :param pulumi.Input[Sequence[pulumi.Input['IpFilterRuleArgs']]] ip_filter_rules: The IP filter rules.
         :param pulumi.Input[Mapping[str, pulumi.Input['MessagingEndpointPropertiesArgs']]] messaging_endpoints: The messaging endpoint properties for the file upload notification queue.
         :param pulumi.Input[str] min_tls_version: Specifies the minimum TLS version to support for this hub. Can be set to "1.2" to have clients that use a TLS version below 1.2 to be rejected.
         :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]] private_endpoint_connections: Private endpoint connections created on this IotHub
-        :param pulumi.Input[str] public_network_access: Whether requests from Public Network are allowed
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether requests from Public Network are allowed
         :param pulumi.Input['RoutingPropertiesArgs'] routing: The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
         :param pulumi.Input[Mapping[str, pulumi.Input['StorageEndpointPropertiesArgs']]] storage_endpoints: The list of Azure Storage endpoints where you can upload files. Currently you can configure only one Azure Storage account and that MUST have its key as $default. Specifying more than one storage account causes an error to be thrown. Not specifying a value for this property when the enableFileUploadNotifications property is set to True, causes an error to be thrown.
         """
@@ -443,14 +444,14 @@ class IotHubPropertiesArgs:
 
     @property
     @pulumi.getter
-    def features(self) -> Optional[pulumi.Input[str]]:
+    def features(self) -> Optional[pulumi.Input[Union[str, 'Capabilities']]]:
         """
         The capabilities and features enabled for the IoT hub.
         """
         return pulumi.get(self, "features")
 
     @features.setter
-    def features(self, value: Optional[pulumi.Input[str]]):
+    def features(self, value: Optional[pulumi.Input[Union[str, 'Capabilities']]]):
         pulumi.set(self, "features", value)
 
     @property
@@ -503,14 +504,14 @@ class IotHubPropertiesArgs:
 
     @property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[str]]:
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
         """
         Whether requests from Public Network are allowed
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[str]]):
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
         pulumi.set(self, "public_network_access", value)
 
     @property
@@ -541,11 +542,11 @@ class IotHubPropertiesArgs:
 @pulumi.input_type
 class IotHubSkuInfoArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
+                 name: pulumi.Input[Union[str, 'IotHubSku']],
                  capacity: Optional[pulumi.Input[int]] = None):
         """
         Information about the SKU of the IoT hub.
-        :param pulumi.Input[str] name: The name of the SKU.
+        :param pulumi.Input[Union[str, 'IotHubSku']] name: The name of the SKU.
         :param pulumi.Input[int] capacity: The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
         """
         pulumi.set(__self__, "name", name)
@@ -554,14 +555,14 @@ class IotHubSkuInfoArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input[Union[str, 'IotHubSku']]:
         """
         The name of the SKU.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input[Union[str, 'IotHubSku']]):
         pulumi.set(self, "name", value)
 
     @property
@@ -580,12 +581,12 @@ class IotHubSkuInfoArgs:
 @pulumi.input_type
 class IpFilterRuleArgs:
     def __init__(__self__, *,
-                 action: pulumi.Input[str],
+                 action: pulumi.Input['IpFilterActionType'],
                  filter_name: pulumi.Input[str],
                  ip_mask: pulumi.Input[str]):
         """
         The IP filter rules for the IoT hub.
-        :param pulumi.Input[str] action: The desired action for requests captured by this rule.
+        :param pulumi.Input['IpFilterActionType'] action: The desired action for requests captured by this rule.
         :param pulumi.Input[str] filter_name: The name of the IP filter rule.
         :param pulumi.Input[str] ip_mask: A string that contains the IP address range in CIDR notation for the rule.
         """
@@ -595,14 +596,14 @@ class IpFilterRuleArgs:
 
     @property
     @pulumi.getter
-    def action(self) -> pulumi.Input[str]:
+    def action(self) -> pulumi.Input['IpFilterActionType']:
         """
         The desired action for requests captured by this rule.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: pulumi.Input[str]):
+    def action(self, value: pulumi.Input['IpFilterActionType']):
         pulumi.set(self, "action", value)
 
     @property
@@ -736,12 +737,12 @@ class PrivateEndpointConnectionPropertiesArgs:
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[str],
-                 status: pulumi.Input[str],
+                 status: pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']],
                  actions_required: Optional[pulumi.Input[str]] = None):
         """
         The current state of a private endpoint connection
         :param pulumi.Input[str] description: The description for the current state of a private endpoint connection
-        :param pulumi.Input[str] status: The status of a private endpoint connection
+        :param pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']] status: The status of a private endpoint connection
         :param pulumi.Input[str] actions_required: Actions required for a private endpoint connection
         """
         pulumi.set(__self__, "description", description)
@@ -763,14 +764,14 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Input[str]:
+    def status(self) -> pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']]:
         """
         The status of a private endpoint connection
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: pulumi.Input[str]):
+    def status(self, value: pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']]):
         pulumi.set(self, "status", value)
 
     @property
@@ -792,14 +793,14 @@ class RoutePropertiesArgs:
                  endpoint_names: pulumi.Input[Sequence[pulumi.Input[str]]],
                  is_enabled: pulumi.Input[bool],
                  name: pulumi.Input[str],
-                 source: pulumi.Input[str],
+                 source: pulumi.Input[Union[str, 'RoutingSource']],
                  condition: Optional[pulumi.Input[str]] = None):
         """
         The properties of a routing rule that your IoT hub uses to route messages to endpoints.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] endpoint_names: The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
         :param pulumi.Input[bool] is_enabled: Used to specify whether a route is enabled.
         :param pulumi.Input[str] name: The name of the route. The name can only include alphanumeric characters, periods, underscores, hyphens, has a maximum length of 64 characters, and must be unique.
-        :param pulumi.Input[str] source: The source that the routing rule is to be applied to, such as DeviceMessages.
+        :param pulumi.Input[Union[str, 'RoutingSource']] source: The source that the routing rule is to be applied to, such as DeviceMessages.
         :param pulumi.Input[str] condition: The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
         """
         pulumi.set(__self__, "endpoint_names", endpoint_names)
@@ -847,14 +848,14 @@ class RoutePropertiesArgs:
 
     @property
     @pulumi.getter
-    def source(self) -> pulumi.Input[str]:
+    def source(self) -> pulumi.Input[Union[str, 'RoutingSource']]:
         """
         The source that the routing rule is to be applied to, such as DeviceMessages.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: pulumi.Input[str]):
+    def source(self, value: pulumi.Input[Union[str, 'RoutingSource']]):
         pulumi.set(self, "source", value)
 
     @property
@@ -946,7 +947,7 @@ class RoutingEndpointsArgs:
 class RoutingEventHubPropertiesArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 authentication_type: Optional[pulumi.Input[str]] = None,
+                 authentication_type: Optional[pulumi.Input[Union[str, 'AuthenticationType']]] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
                  endpoint_uri: Optional[pulumi.Input[str]] = None,
                  entity_path: Optional[pulumi.Input[str]] = None,
@@ -956,7 +957,7 @@ class RoutingEventHubPropertiesArgs:
         """
         The properties related to an event hub endpoint.
         :param pulumi.Input[str] name: The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
-        :param pulumi.Input[str] authentication_type: Method used to authenticate against the event hub endpoint
+        :param pulumi.Input[Union[str, 'AuthenticationType']] authentication_type: Method used to authenticate against the event hub endpoint
         :param pulumi.Input[str] connection_string: The connection string of the event hub endpoint. 
         :param pulumi.Input[str] endpoint_uri: The url of the event hub endpoint. It must include the protocol sb://
         :param pulumi.Input[str] entity_path: Event hub name on the event hub namespace
@@ -994,14 +995,14 @@ class RoutingEventHubPropertiesArgs:
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input[str]]:
+    def authentication_type(self) -> Optional[pulumi.Input[Union[str, 'AuthenticationType']]]:
         """
         Method used to authenticate against the event hub endpoint
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input[str]]):
+    def authentication_type(self, value: Optional[pulumi.Input[Union[str, 'AuthenticationType']]]):
         pulumi.set(self, "authentication_type", value)
 
     @property
@@ -1153,7 +1154,7 @@ class RoutingPropertiesArgs:
 class RoutingServiceBusQueueEndpointPropertiesArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 authentication_type: Optional[pulumi.Input[str]] = None,
+                 authentication_type: Optional[pulumi.Input[Union[str, 'AuthenticationType']]] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
                  endpoint_uri: Optional[pulumi.Input[str]] = None,
                  entity_path: Optional[pulumi.Input[str]] = None,
@@ -1163,7 +1164,7 @@ class RoutingServiceBusQueueEndpointPropertiesArgs:
         """
         The properties related to service bus queue endpoint types.
         :param pulumi.Input[str] name: The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types. The name need not be the same as the actual queue name.
-        :param pulumi.Input[str] authentication_type: Method used to authenticate against the service bus queue endpoint
+        :param pulumi.Input[Union[str, 'AuthenticationType']] authentication_type: Method used to authenticate against the service bus queue endpoint
         :param pulumi.Input[str] connection_string: The connection string of the service bus queue endpoint.
         :param pulumi.Input[str] endpoint_uri: The url of the service bus queue endpoint. It must include the protocol sb://
         :param pulumi.Input[str] entity_path: Queue name on the service bus namespace
@@ -1201,14 +1202,14 @@ class RoutingServiceBusQueueEndpointPropertiesArgs:
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input[str]]:
+    def authentication_type(self) -> Optional[pulumi.Input[Union[str, 'AuthenticationType']]]:
         """
         Method used to authenticate against the service bus queue endpoint
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input[str]]):
+    def authentication_type(self, value: Optional[pulumi.Input[Union[str, 'AuthenticationType']]]):
         pulumi.set(self, "authentication_type", value)
 
     @property
@@ -1288,7 +1289,7 @@ class RoutingServiceBusQueueEndpointPropertiesArgs:
 class RoutingServiceBusTopicEndpointPropertiesArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 authentication_type: Optional[pulumi.Input[str]] = None,
+                 authentication_type: Optional[pulumi.Input[Union[str, 'AuthenticationType']]] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
                  endpoint_uri: Optional[pulumi.Input[str]] = None,
                  entity_path: Optional[pulumi.Input[str]] = None,
@@ -1298,7 +1299,7 @@ class RoutingServiceBusTopicEndpointPropertiesArgs:
         """
         The properties related to service bus topic endpoint types.
         :param pulumi.Input[str] name: The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.  The name need not be the same as the actual topic name.
-        :param pulumi.Input[str] authentication_type: Method used to authenticate against the service bus topic endpoint
+        :param pulumi.Input[Union[str, 'AuthenticationType']] authentication_type: Method used to authenticate against the service bus topic endpoint
         :param pulumi.Input[str] connection_string: The connection string of the service bus topic endpoint.
         :param pulumi.Input[str] endpoint_uri: The url of the service bus topic endpoint. It must include the protocol sb://
         :param pulumi.Input[str] entity_path: Queue name on the service bus topic
@@ -1336,14 +1337,14 @@ class RoutingServiceBusTopicEndpointPropertiesArgs:
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input[str]]:
+    def authentication_type(self) -> Optional[pulumi.Input[Union[str, 'AuthenticationType']]]:
         """
         Method used to authenticate against the service bus topic endpoint
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input[str]]):
+    def authentication_type(self, value: Optional[pulumi.Input[Union[str, 'AuthenticationType']]]):
         pulumi.set(self, "authentication_type", value)
 
     @property
@@ -1424,7 +1425,7 @@ class RoutingStorageContainerPropertiesArgs:
     def __init__(__self__, *,
                  container_name: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 authentication_type: Optional[pulumi.Input[str]] = None,
+                 authentication_type: Optional[pulumi.Input[Union[str, 'AuthenticationType']]] = None,
                  batch_frequency_in_seconds: Optional[pulumi.Input[int]] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
                  encoding: Optional[pulumi.Input[str]] = None,
@@ -1438,7 +1439,7 @@ class RoutingStorageContainerPropertiesArgs:
         The properties related to a storage container endpoint.
         :param pulumi.Input[str] container_name: The name of storage container in the storage account.
         :param pulumi.Input[str] name: The name that identifies this endpoint. The name can only include alphanumeric characters, periods, underscores, hyphens and has a maximum length of 64 characters. The following names are reserved:  events, fileNotifications, $default. Endpoint names must be unique across endpoint types.
-        :param pulumi.Input[str] authentication_type: Method used to authenticate against the storage endpoint
+        :param pulumi.Input[Union[str, 'AuthenticationType']] authentication_type: Method used to authenticate against the storage endpoint
         :param pulumi.Input[int] batch_frequency_in_seconds: Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.
         :param pulumi.Input[str] connection_string: The connection string of the storage account.
         :param pulumi.Input[str] encoding: Encoding that is used to serialize messages to blobs. Supported values are 'avro', 'avrodeflate', and 'JSON'. Default value is 'avro'.
@@ -1498,14 +1499,14 @@ class RoutingStorageContainerPropertiesArgs:
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input[str]]:
+    def authentication_type(self) -> Optional[pulumi.Input[Union[str, 'AuthenticationType']]]:
         """
         Method used to authenticate against the storage endpoint
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input[str]]):
+    def authentication_type(self, value: Optional[pulumi.Input[Union[str, 'AuthenticationType']]]):
         pulumi.set(self, "authentication_type", value)
 
     @property
@@ -1621,13 +1622,13 @@ class RoutingStorageContainerPropertiesArgs:
 class SharedAccessSignatureAuthorizationRuleArgs:
     def __init__(__self__, *,
                  key_name: pulumi.Input[str],
-                 rights: pulumi.Input[str],
+                 rights: pulumi.Input['AccessRights'],
                  primary_key: Optional[pulumi.Input[str]] = None,
                  secondary_key: Optional[pulumi.Input[str]] = None):
         """
         The properties of an IoT hub shared access policy.
         :param pulumi.Input[str] key_name: The name of the shared access policy.
-        :param pulumi.Input[str] rights: The permissions assigned to the shared access policy.
+        :param pulumi.Input['AccessRights'] rights: The permissions assigned to the shared access policy.
         :param pulumi.Input[str] primary_key: The primary key.
         :param pulumi.Input[str] secondary_key: The secondary key.
         """
@@ -1652,14 +1653,14 @@ class SharedAccessSignatureAuthorizationRuleArgs:
 
     @property
     @pulumi.getter
-    def rights(self) -> pulumi.Input[str]:
+    def rights(self) -> pulumi.Input['AccessRights']:
         """
         The permissions assigned to the shared access policy.
         """
         return pulumi.get(self, "rights")
 
     @rights.setter
-    def rights(self, value: pulumi.Input[str]):
+    def rights(self, value: pulumi.Input['AccessRights']):
         pulumi.set(self, "rights", value)
 
     @property
@@ -1692,13 +1693,13 @@ class StorageEndpointPropertiesArgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[str],
                  container_name: pulumi.Input[str],
-                 authentication_type: Optional[pulumi.Input[str]] = None,
+                 authentication_type: Optional[pulumi.Input[Union[str, 'AuthenticationType']]] = None,
                  sas_ttl_as_iso8601: Optional[pulumi.Input[str]] = None):
         """
         The properties of the Azure Storage endpoint for file upload.
         :param pulumi.Input[str] connection_string: The connection string for the Azure Storage account to which files are uploaded.
         :param pulumi.Input[str] container_name: The name of the root container where you upload files. The container need not exist but should be creatable using the connectionString specified.
-        :param pulumi.Input[str] authentication_type: Specifies authentication type being used for connecting to the storage account.
+        :param pulumi.Input[Union[str, 'AuthenticationType']] authentication_type: Specifies authentication type being used for connecting to the storage account.
         :param pulumi.Input[str] sas_ttl_as_iso8601: The period of time for which the SAS URI generated by IoT Hub for file upload is valid. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload#file-upload-notification-configuration-options.
         """
         pulumi.set(__self__, "connection_string", connection_string)
@@ -1734,14 +1735,14 @@ class StorageEndpointPropertiesArgs:
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input[str]]:
+    def authentication_type(self) -> Optional[pulumi.Input[Union[str, 'AuthenticationType']]]:
         """
         Specifies authentication type being used for connecting to the storage account.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input[str]]):
+    def authentication_type(self, value: Optional[pulumi.Input[Union[str, 'AuthenticationType']]]):
         pulumi.set(self, "authentication_type", value)
 
     @property

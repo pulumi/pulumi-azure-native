@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['WorkloadNetworkPortMirroring']
 
@@ -16,7 +17,7 @@ class WorkloadNetworkPortMirroring(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination: Optional[pulumi.Input[str]] = None,
-                 direction: Optional[pulumi.Input[str]] = None,
+                 direction: Optional[pulumi.Input[Union[str, 'PortMirroringDirectionEnum']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  port_mirroring_id: Optional[pulumi.Input[str]] = None,
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
@@ -32,7 +33,7 @@ class WorkloadNetworkPortMirroring(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] destination: Destination VM Group.
-        :param pulumi.Input[str] direction: Direction of port mirroring profile.
+        :param pulumi.Input[Union[str, 'PortMirroringDirectionEnum']] direction: Direction of port mirroring profile.
         :param pulumi.Input[str] display_name: Display name of the port mirroring profile.
         :param pulumi.Input[str] port_mirroring_id: NSX Port Mirroring identifier. Generally the same as the Port Mirroring display name
         :param pulumi.Input[str] private_cloud_name: Name of the private cloud
@@ -60,13 +61,13 @@ class WorkloadNetworkPortMirroring(pulumi.CustomResource):
             __props__['destination'] = destination
             __props__['direction'] = direction
             __props__['display_name'] = display_name
-            if port_mirroring_id is None:
+            if port_mirroring_id is None and not opts.urn:
                 raise TypeError("Missing required property 'port_mirroring_id'")
             __props__['port_mirroring_id'] = port_mirroring_id
-            if private_cloud_name is None:
+            if private_cloud_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_cloud_name'")
             __props__['private_cloud_name'] = private_cloud_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['revision'] = revision

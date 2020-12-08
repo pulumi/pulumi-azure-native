@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Task']
@@ -27,7 +28,7 @@ class Task(pulumi.CustomResource):
                  platform: Optional[pulumi.Input[pulumi.InputType['PlatformPropertiesArgs']]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'TaskStatus']]] = None,
                  step: Optional[pulumi.Input[Union[pulumi.InputType['DockerBuildStepArgs'], pulumi.InputType['EncodedTaskStepArgs'], pulumi.InputType['FileTaskStepArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_name: Optional[pulumi.Input[str]] = None,
@@ -52,7 +53,7 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PlatformPropertiesArgs']] platform: The platform properties against which the run has to happen.
         :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
-        :param pulumi.Input[str] status: The current status of task.
+        :param pulumi.Input[Union[str, 'TaskStatus']] status: The current status of task.
         :param pulumi.Input[Union[pulumi.InputType['DockerBuildStepArgs'], pulumi.InputType['EncodedTaskStepArgs'], pulumi.InputType['FileTaskStepArgs']]] step: The properties of a task step.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] task_name: The name of the container registry task.
@@ -81,21 +82,21 @@ class Task(pulumi.CustomResource):
             __props__['credentials'] = credentials
             __props__['identity'] = identity
             __props__['is_system_task'] = is_system_task
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['log_template'] = log_template
             __props__['platform'] = platform
-            if registry_name is None:
+            if registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registry_name'")
             __props__['registry_name'] = registry_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['status'] = status
             __props__['step'] = step
             __props__['tags'] = tags
-            if task_name is None:
+            if task_name is None and not opts.urn:
                 raise TypeError("Missing required property 'task_name'")
             __props__['task_name'] = task_name
             __props__['timeout'] = timeout

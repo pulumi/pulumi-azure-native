@@ -53,17 +53,17 @@ class WebAppDomainOwnershipIdentifierSlot(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if domain_ownership_identifier_name is None:
+            if domain_ownership_identifier_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_ownership_identifier_name'")
             __props__['domain_ownership_identifier_name'] = domain_ownership_identifier_name
             __props__['kind'] = kind
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if slot is None:
+            if slot is None and not opts.urn:
                 raise TypeError("Missing required property 'slot'")
             __props__['slot'] = slot
             __props__['value'] = value

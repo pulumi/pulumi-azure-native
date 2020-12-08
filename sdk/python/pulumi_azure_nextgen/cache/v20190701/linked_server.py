@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['LinkedServer']
 
@@ -20,7 +21,7 @@ class LinkedServer(pulumi.CustomResource):
                  linked_server_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 server_role: Optional[pulumi.Input[str]] = None,
+                 server_role: Optional[pulumi.Input['ReplicationRole']] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -34,7 +35,7 @@ class LinkedServer(pulumi.CustomResource):
         :param pulumi.Input[str] linked_server_name: The name of the linked server that is being added to the Redis cache.
         :param pulumi.Input[str] name: The name of the Redis cache.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] server_role: Role of the linked server.
+        :param pulumi.Input['ReplicationRole'] server_role: Role of the linked server.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -53,22 +54,22 @@ class LinkedServer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if linked_redis_cache_id is None:
+            if linked_redis_cache_id is None and not opts.urn:
                 raise TypeError("Missing required property 'linked_redis_cache_id'")
             __props__['linked_redis_cache_id'] = linked_redis_cache_id
-            if linked_redis_cache_location is None:
+            if linked_redis_cache_location is None and not opts.urn:
                 raise TypeError("Missing required property 'linked_redis_cache_location'")
             __props__['linked_redis_cache_location'] = linked_redis_cache_location
-            if linked_server_name is None:
+            if linked_server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'linked_server_name'")
             __props__['linked_server_name'] = linked_server_name
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if server_role is None:
+            if server_role is None and not opts.urn:
                 raise TypeError("Missing required property 'server_role'")
             __props__['server_role'] = server_role
             __props__['provisioning_state'] = None

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'MachineExtensionInstanceViewArgs',
@@ -90,14 +91,14 @@ class MachineExtensionInstanceViewStatusArgs:
     def __init__(__self__, *,
                  code: Optional[pulumi.Input[str]] = None,
                  display_status: Optional[pulumi.Input[str]] = None,
-                 level: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input['StatusLevelTypes']] = None,
                  message: Optional[pulumi.Input[str]] = None,
                  time: Optional[pulumi.Input[str]] = None):
         """
         Instance view status.
         :param pulumi.Input[str] code: The status code.
         :param pulumi.Input[str] display_status: The short localizable label for the status.
-        :param pulumi.Input[str] level: The level code.
+        :param pulumi.Input['StatusLevelTypes'] level: The level code.
         :param pulumi.Input[str] message: The detailed status message, including for alerts and error messages.
         :param pulumi.Input[str] time: The time of the status.
         """
@@ -138,14 +139,14 @@ class MachineExtensionInstanceViewStatusArgs:
 
     @property
     @pulumi.getter
-    def level(self) -> Optional[pulumi.Input[str]]:
+    def level(self) -> Optional[pulumi.Input['StatusLevelTypes']]:
         """
         The level code.
         """
         return pulumi.get(self, "level")
 
     @level.setter
-    def level(self, value: Optional[pulumi.Input[str]]):
+    def level(self, value: Optional[pulumi.Input['StatusLevelTypes']]):
         pulumi.set(self, "level", value)
 
     @property

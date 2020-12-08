@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['MachineLearningService']
@@ -17,7 +18,7 @@ class MachineLearningService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute_type: Optional[pulumi.Input[str]] = None,
+                 compute_type: Optional[pulumi.Input[Union[str, 'ComputeEnvironmentType']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  environment_image_request: Optional[pulumi.Input[pulumi.InputType['CreateServiceRequestEnvironmentImageRequestArgs']]] = None,
                  keys: Optional[pulumi.Input[pulumi.InputType['CreateServiceRequestKeysArgs']]] = None,
@@ -35,7 +36,7 @@ class MachineLearningService(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] compute_type: The compute environment type for the service.
+        :param pulumi.Input[Union[str, 'ComputeEnvironmentType']] compute_type: The compute environment type for the service.
         :param pulumi.Input[str] description: The description of the service.
         :param pulumi.Input[pulumi.InputType['CreateServiceRequestEnvironmentImageRequestArgs']] environment_image_request: The Environment, models and assets needed for inferencing.
         :param pulumi.Input[pulumi.InputType['CreateServiceRequestKeysArgs']] keys: The authentication keys.
@@ -63,7 +64,7 @@ class MachineLearningService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if compute_type is None:
+            if compute_type is None and not opts.urn:
                 raise TypeError("Missing required property 'compute_type'")
             __props__['compute_type'] = compute_type
             __props__['description'] = description
@@ -72,13 +73,13 @@ class MachineLearningService(pulumi.CustomResource):
             __props__['kv_tags'] = kv_tags
             __props__['location'] = location
             __props__['properties'] = properties
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if service_name is None:
+            if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
-            if workspace_name is None:
+            if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['identity'] = None

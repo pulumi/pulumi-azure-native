@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ContainerService']
@@ -63,24 +64,24 @@ class ContainerService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if agent_pool_profiles is None:
+            if agent_pool_profiles is None and not opts.urn:
                 raise TypeError("Missing required property 'agent_pool_profiles'")
             __props__['agent_pool_profiles'] = agent_pool_profiles
-            if container_service_name is None:
+            if container_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'container_service_name'")
             __props__['container_service_name'] = container_service_name
             __props__['diagnostics_profile'] = diagnostics_profile
-            if linux_profile is None:
+            if linux_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'linux_profile'")
             __props__['linux_profile'] = linux_profile
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if master_profile is None:
+            if master_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'master_profile'")
             __props__['master_profile'] = master_profile
             __props__['orchestrator_profile'] = orchestrator_profile
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

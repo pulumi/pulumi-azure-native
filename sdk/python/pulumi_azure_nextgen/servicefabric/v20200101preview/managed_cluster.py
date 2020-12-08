@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ManagedCluster']
@@ -81,28 +82,28 @@ class ManagedCluster(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['admin_password'] = admin_password
-            if admin_user_name is None:
+            if admin_user_name is None and not opts.urn:
                 raise TypeError("Missing required property 'admin_user_name'")
             __props__['admin_user_name'] = admin_user_name
             __props__['azure_active_directory'] = azure_active_directory
             __props__['client_connection_port'] = client_connection_port
             __props__['clients'] = clients
             __props__['cluster_code_version'] = cluster_code_version
-            if cluster_name is None:
+            if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
             __props__['cluster_upgrade_description'] = cluster_upgrade_description
             __props__['cluster_upgrade_mode'] = cluster_upgrade_mode
-            if dns_name is None:
+            if dns_name is None and not opts.urn:
                 raise TypeError("Missing required property 'dns_name'")
             __props__['dns_name'] = dns_name
             __props__['fabric_settings'] = fabric_settings
             __props__['http_gateway_connection_port'] = http_gateway_connection_port
             __props__['load_balancing_rules'] = load_balancing_rules
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku

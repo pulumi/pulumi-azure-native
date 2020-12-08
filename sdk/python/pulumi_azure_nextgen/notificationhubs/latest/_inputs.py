@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AdmCredentialArgs',
@@ -366,38 +367,38 @@ class MpnsCredentialArgs:
 @pulumi.input_type
 class SharedAccessAuthorizationRulePropertiesArgs:
     def __init__(__self__, *,
-                 rights: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 rights: Optional[pulumi.Input[Sequence[pulumi.Input['AccessRights']]]] = None):
         """
         SharedAccessAuthorizationRule properties.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] rights: The rights associated with the rule.
+        :param pulumi.Input[Sequence[pulumi.Input['AccessRights']]] rights: The rights associated with the rule.
         """
         if rights is not None:
             pulumi.set(__self__, "rights", rights)
 
     @property
     @pulumi.getter
-    def rights(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def rights(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccessRights']]]]:
         """
         The rights associated with the rule.
         """
         return pulumi.get(self, "rights")
 
     @rights.setter
-    def rights(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def rights(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccessRights']]]]):
         pulumi.set(self, "rights", value)
 
 
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
+                 name: pulumi.Input[Union[str, 'SkuName']],
                  capacity: Optional[pulumi.Input[int]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[str]] = None,
                  tier: Optional[pulumi.Input[str]] = None):
         """
         The Sku description for a namespace
-        :param pulumi.Input[str] name: Name of the notification hub sku
+        :param pulumi.Input[Union[str, 'SkuName']] name: Name of the notification hub sku
         :param pulumi.Input[int] capacity: The capacity of the resource
         :param pulumi.Input[str] family: The Sku Family
         :param pulumi.Input[str] size: The Sku size
@@ -415,14 +416,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input[Union[str, 'SkuName']]:
         """
         Name of the notification hub sku
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
         pulumi.set(self, "name", value)
 
     @property

@@ -44,7 +44,7 @@ class SecurityContact(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if security_contact_name is None:
+            if security_contact_name is None and not opts.urn:
                 raise TypeError("Missing required property 'security_contact_name'")
             __props__['security_contact_name'] = security_contact_name
             __props__['alert_notifications'] = None

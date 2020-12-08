@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['BackupSchedule']
@@ -19,14 +20,14 @@ class BackupSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_policy_name: Optional[pulumi.Input[str]] = None,
                  backup_schedule_name: Optional[pulumi.Input[str]] = None,
-                 backup_type: Optional[pulumi.Input[str]] = None,
+                 backup_type: Optional[pulumi.Input['BackupType']] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input['Kind']] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_count: Optional[pulumi.Input[int]] = None,
                  schedule_recurrence: Optional[pulumi.Input[pulumi.InputType['ScheduleRecurrenceArgs']]] = None,
-                 schedule_status: Optional[pulumi.Input[str]] = None,
+                 schedule_status: Optional[pulumi.Input['ScheduleStatus']] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -38,14 +39,14 @@ class BackupSchedule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backup_policy_name: The backup policy name.
         :param pulumi.Input[str] backup_schedule_name: The backup schedule name.
-        :param pulumi.Input[str] backup_type: The type of backup which needs to be taken.
+        :param pulumi.Input['BackupType'] backup_type: The type of backup which needs to be taken.
         :param pulumi.Input[str] device_name: The device name
-        :param pulumi.Input[str] kind: The Kind of the object. Currently only Series8000 is supported
+        :param pulumi.Input['Kind'] kind: The Kind of the object. Currently only Series8000 is supported
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] resource_group_name: The resource group name
         :param pulumi.Input[int] retention_count: The number of backups to be retained.
         :param pulumi.Input[pulumi.InputType['ScheduleRecurrenceArgs']] schedule_recurrence: The schedule recurrence.
-        :param pulumi.Input[str] schedule_status: The schedule status.
+        :param pulumi.Input['ScheduleStatus'] schedule_status: The schedule status.
         :param pulumi.Input[str] start_time: The start time of the schedule.
         """
         if __name__ is not None:
@@ -65,35 +66,35 @@ class BackupSchedule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if backup_policy_name is None:
+            if backup_policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_policy_name'")
             __props__['backup_policy_name'] = backup_policy_name
-            if backup_schedule_name is None:
+            if backup_schedule_name is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_schedule_name'")
             __props__['backup_schedule_name'] = backup_schedule_name
-            if backup_type is None:
+            if backup_type is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_type'")
             __props__['backup_type'] = backup_type
-            if device_name is None:
+            if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
             __props__['kind'] = kind
-            if manager_name is None:
+            if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")
             __props__['manager_name'] = manager_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if retention_count is None:
+            if retention_count is None and not opts.urn:
                 raise TypeError("Missing required property 'retention_count'")
             __props__['retention_count'] = retention_count
-            if schedule_recurrence is None:
+            if schedule_recurrence is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule_recurrence'")
             __props__['schedule_recurrence'] = schedule_recurrence
-            if schedule_status is None:
+            if schedule_status is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule_status'")
             __props__['schedule_status'] = schedule_status
-            if start_time is None:
+            if start_time is None and not opts.urn:
                 raise TypeError("Missing required property 'start_time'")
             __props__['start_time'] = start_time
             __props__['last_successful_run'] = None

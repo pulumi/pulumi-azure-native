@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AdditionalLocationArgs',
@@ -177,11 +178,11 @@ class ApiCreateOrUpdatePropertiesWsdlSelectorArgs:
 @pulumi.input_type
 class ApiManagementServiceIdentityArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str],
+                 type: pulumi.Input[Union[str, 'ApimIdentityType']],
                  user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityPropertiesArgs']]]] = None):
         """
         Identity properties of the Api Management service resource.
-        :param pulumi.Input[str] type: The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+        :param pulumi.Input[Union[str, 'ApimIdentityType']] type: The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
         :param pulumi.Input[Mapping[str, pulumi.Input['UserIdentityPropertiesArgs']]] user_assigned_identities: The list of user identities associated with the resource. The user identity 
                dictionary key references will be ARM resource ids in the form: 
                '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
@@ -193,14 +194,14 @@ class ApiManagementServiceIdentityArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'ApimIdentityType']]:
         """
         The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'ApimIdentityType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -223,11 +224,11 @@ class ApiManagementServiceIdentityArgs:
 class ApiManagementServiceSkuPropertiesArgs:
     def __init__(__self__, *,
                  capacity: pulumi.Input[int],
-                 name: pulumi.Input[str]):
+                 name: pulumi.Input[Union[str, 'SkuType']]):
         """
         API Management service resource SKU properties.
         :param pulumi.Input[int] capacity: Capacity of the SKU (number of deployed units of the SKU). For Consumption SKU capacity must be specified as 0.
-        :param pulumi.Input[str] name: Name of the Sku.
+        :param pulumi.Input[Union[str, 'SkuType']] name: Name of the Sku.
         """
         pulumi.set(__self__, "capacity", capacity)
         pulumi.set(__self__, "name", name)
@@ -246,14 +247,14 @@ class ApiManagementServiceSkuPropertiesArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input[Union[str, 'SkuType']]:
         """
         Name of the Sku.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input[Union[str, 'SkuType']]):
         pulumi.set(self, "name", value)
 
 
@@ -930,10 +931,10 @@ class DataMaskingArgs:
 @pulumi.input_type
 class DataMaskingEntityArgs:
     def __init__(__self__, *,
-                 mode: Optional[pulumi.Input[str]] = None,
+                 mode: Optional[pulumi.Input[Union[str, 'DataMaskingMode']]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] mode: Data masking mode.
+        :param pulumi.Input[Union[str, 'DataMaskingMode']] mode: Data masking mode.
         :param pulumi.Input[str] value: The name of an entity to mask (e.g. a name of a header or a query parameter).
         """
         if mode is not None:
@@ -943,14 +944,14 @@ class DataMaskingEntityArgs:
 
     @property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[str]]:
+    def mode(self) -> Optional[pulumi.Input[Union[str, 'DataMaskingMode']]]:
         """
         Data masking mode.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[str]]):
+    def mode(self, value: Optional[pulumi.Input[Union[str, 'DataMaskingMode']]]):
         pulumi.set(self, "mode", value)
 
     @property
@@ -1026,7 +1027,7 @@ class EmailTemplateParametersContractPropertiesArgs:
 class HostnameConfigurationArgs:
     def __init__(__self__, *,
                  host_name: pulumi.Input[str],
-                 type: pulumi.Input[str],
+                 type: pulumi.Input[Union[str, 'HostnameType']],
                  certificate: Optional[pulumi.Input['CertificateInformationArgs']] = None,
                  certificate_password: Optional[pulumi.Input[str]] = None,
                  default_ssl_binding: Optional[pulumi.Input[bool]] = None,
@@ -1037,7 +1038,7 @@ class HostnameConfigurationArgs:
         """
         Custom hostname configuration.
         :param pulumi.Input[str] host_name: Hostname to configure on the Api Management service.
-        :param pulumi.Input[str] type: Hostname type.
+        :param pulumi.Input[Union[str, 'HostnameType']] type: Hostname type.
         :param pulumi.Input['CertificateInformationArgs'] certificate: Certificate information.
         :param pulumi.Input[str] certificate_password: Certificate Password.
         :param pulumi.Input[bool] default_ssl_binding: Specify true to setup the certificate associated with this Hostname as the Default SSL Certificate. If a client does not send the SNI header, then this will be the certificate that will be challenged. The property is useful if a service has multiple custom hostname enabled and it needs to decide on the default ssl certificate. The setting only applied to Proxy Hostname Type.
@@ -1077,14 +1078,14 @@ class HostnameConfigurationArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'HostnameType']]:
         """
         Hostname type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'HostnameType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -1311,11 +1312,11 @@ class OAuth2AuthenticationSettingsContractArgs:
 @pulumi.input_type
 class OpenIdAuthenticationSettingsContractArgs:
     def __init__(__self__, *,
-                 bearer_token_sending_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 bearer_token_sending_methods: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'BearerTokenSendingMethods']]]]] = None,
                  openid_provider_id: Optional[pulumi.Input[str]] = None):
         """
         API OAuth2 Authentication settings details.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] bearer_token_sending_methods: How to send token to the server.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'BearerTokenSendingMethods']]]] bearer_token_sending_methods: How to send token to the server.
         :param pulumi.Input[str] openid_provider_id: OAuth authorization server identifier.
         """
         if bearer_token_sending_methods is not None:
@@ -1325,14 +1326,14 @@ class OpenIdAuthenticationSettingsContractArgs:
 
     @property
     @pulumi.getter(name="bearerTokenSendingMethods")
-    def bearer_token_sending_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def bearer_token_sending_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'BearerTokenSendingMethods']]]]]:
         """
         How to send token to the server.
         """
         return pulumi.get(self, "bearer_token_sending_methods")
 
     @bearer_token_sending_methods.setter
-    def bearer_token_sending_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def bearer_token_sending_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'BearerTokenSendingMethods']]]]]):
         pulumi.set(self, "bearer_token_sending_methods", value)
 
     @property
@@ -1795,11 +1796,11 @@ class ResponseContractArgs:
 class SamplingSettingsArgs:
     def __init__(__self__, *,
                  percentage: Optional[pulumi.Input[float]] = None,
-                 sampling_type: Optional[pulumi.Input[str]] = None):
+                 sampling_type: Optional[pulumi.Input[Union[str, 'SamplingType']]] = None):
         """
         Sampling settings for Diagnostic.
         :param pulumi.Input[float] percentage: Rate of sampling for fixed-rate sampling.
-        :param pulumi.Input[str] sampling_type: Sampling type.
+        :param pulumi.Input[Union[str, 'SamplingType']] sampling_type: Sampling type.
         """
         if percentage is not None:
             pulumi.set(__self__, "percentage", percentage)
@@ -1820,14 +1821,14 @@ class SamplingSettingsArgs:
 
     @property
     @pulumi.getter(name="samplingType")
-    def sampling_type(self) -> Optional[pulumi.Input[str]]:
+    def sampling_type(self) -> Optional[pulumi.Input[Union[str, 'SamplingType']]]:
         """
         Sampling type.
         """
         return pulumi.get(self, "sampling_type")
 
     @sampling_type.setter
-    def sampling_type(self, value: Optional[pulumi.Input[str]]):
+    def sampling_type(self, value: Optional[pulumi.Input[Union[str, 'SamplingType']]]):
         pulumi.set(self, "sampling_type", value)
 
 

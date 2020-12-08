@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DscConfiguration']
@@ -65,10 +66,10 @@ class DscConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if automation_account_name is None:
+            if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
-            if configuration_name is None:
+            if configuration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration_name'")
             __props__['configuration_name'] = configuration_name
             __props__['description'] = description
@@ -77,10 +78,10 @@ class DscConfiguration(pulumi.CustomResource):
             __props__['log_verbose'] = log_verbose
             __props__['name'] = name
             __props__['parameters'] = parameters
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if source is None:
+            if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__['source'] = source
             __props__['tags'] = tags

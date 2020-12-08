@@ -10,3 +10,24 @@ from .list_list_tenant_configuration_violation import *
 from .tenant_configuration import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:portal/v20200901preview:Dashboard":
+                return Dashboard(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:portal/v20200901preview:TenantConfiguration":
+                return TenantConfiguration(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "portal/v20200901preview", _module_instance)
+
+_register_module()

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'DataDiskImageEncryptionArgs',
@@ -142,7 +143,7 @@ class GalleryApplicationVersionPublishingProfileArgs:
                  exclude_from_latest: Optional[pulumi.Input[bool]] = None,
                  manage_actions: Optional[pulumi.Input['UserArtifactManageArgs']] = None,
                  replica_count: Optional[pulumi.Input[int]] = None,
-                 storage_account_type: Optional[pulumi.Input[str]] = None,
+                 storage_account_type: Optional[pulumi.Input[Union[str, 'StorageAccountType']]] = None,
                  target_regions: Optional[pulumi.Input[Sequence[pulumi.Input['TargetRegionArgs']]]] = None):
         """
         The publishing profile of a gallery image version.
@@ -151,7 +152,7 @@ class GalleryApplicationVersionPublishingProfileArgs:
         :param pulumi.Input[str] end_of_life_date: The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
         :param pulumi.Input[bool] exclude_from_latest: If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
         :param pulumi.Input[int] replica_count: The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
-        :param pulumi.Input[str] storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
+        :param pulumi.Input[Union[str, 'StorageAccountType']] storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
         :param pulumi.Input[Sequence[pulumi.Input['TargetRegionArgs']]] target_regions: The target regions where the Image Version is going to be replicated to. This property is updatable.
         """
         pulumi.set(__self__, "source", source)
@@ -241,14 +242,14 @@ class GalleryApplicationVersionPublishingProfileArgs:
 
     @property
     @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> Optional[pulumi.Input[str]]:
+    def storage_account_type(self) -> Optional[pulumi.Input[Union[str, 'StorageAccountType']]]:
         """
         Specifies the storage account type to be used to store the image. This property is not updatable.
         """
         return pulumi.get(self, "storage_account_type")
 
     @storage_account_type.setter
-    def storage_account_type(self, value: Optional[pulumi.Input[str]]):
+    def storage_account_type(self, value: Optional[pulumi.Input[Union[str, 'StorageAccountType']]]):
         pulumi.set(self, "storage_account_type", value)
 
     @property
@@ -308,12 +309,12 @@ class GalleryArtifactVersionSourceArgs:
 class GalleryDataDiskImageArgs:
     def __init__(__self__, *,
                  lun: pulumi.Input[int],
-                 host_caching: Optional[pulumi.Input[str]] = None,
+                 host_caching: Optional[pulumi.Input['HostCaching']] = None,
                  source: Optional[pulumi.Input['GalleryArtifactVersionSourceArgs']] = None):
         """
         This is the data disk image.
         :param pulumi.Input[int] lun: This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
-        :param pulumi.Input[str] host_caching: The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
+        :param pulumi.Input['HostCaching'] host_caching: The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
         :param pulumi.Input['GalleryArtifactVersionSourceArgs'] source: The gallery artifact version source.
         """
         pulumi.set(__self__, "lun", lun)
@@ -336,14 +337,14 @@ class GalleryDataDiskImageArgs:
 
     @property
     @pulumi.getter(name="hostCaching")
-    def host_caching(self) -> Optional[pulumi.Input[str]]:
+    def host_caching(self) -> Optional[pulumi.Input['HostCaching']]:
         """
         The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
         """
         return pulumi.get(self, "host_caching")
 
     @host_caching.setter
-    def host_caching(self, value: Optional[pulumi.Input[str]]):
+    def host_caching(self, value: Optional[pulumi.Input['HostCaching']]):
         pulumi.set(self, "host_caching", value)
 
     @property
@@ -458,14 +459,14 @@ class GalleryImageVersionPublishingProfileArgs:
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
                  exclude_from_latest: Optional[pulumi.Input[bool]] = None,
                  replica_count: Optional[pulumi.Input[int]] = None,
-                 storage_account_type: Optional[pulumi.Input[str]] = None,
+                 storage_account_type: Optional[pulumi.Input[Union[str, 'StorageAccountType']]] = None,
                  target_regions: Optional[pulumi.Input[Sequence[pulumi.Input['TargetRegionArgs']]]] = None):
         """
         The publishing profile of a gallery image Version.
         :param pulumi.Input[str] end_of_life_date: The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.
         :param pulumi.Input[bool] exclude_from_latest: If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
         :param pulumi.Input[int] replica_count: The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
-        :param pulumi.Input[str] storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
+        :param pulumi.Input[Union[str, 'StorageAccountType']] storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
         :param pulumi.Input[Sequence[pulumi.Input['TargetRegionArgs']]] target_regions: The target regions where the Image Version is going to be replicated to. This property is updatable.
         """
         if end_of_life_date is not None:
@@ -517,14 +518,14 @@ class GalleryImageVersionPublishingProfileArgs:
 
     @property
     @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> Optional[pulumi.Input[str]]:
+    def storage_account_type(self) -> Optional[pulumi.Input[Union[str, 'StorageAccountType']]]:
         """
         Specifies the storage account type to be used to store the image. This property is not updatable.
         """
         return pulumi.get(self, "storage_account_type")
 
     @storage_account_type.setter
-    def storage_account_type(self, value: Optional[pulumi.Input[str]]):
+    def storage_account_type(self, value: Optional[pulumi.Input[Union[str, 'StorageAccountType']]]):
         pulumi.set(self, "storage_account_type", value)
 
     @property
@@ -599,11 +600,11 @@ class GalleryImageVersionStorageProfileArgs:
 @pulumi.input_type
 class GalleryOSDiskImageArgs:
     def __init__(__self__, *,
-                 host_caching: Optional[pulumi.Input[str]] = None,
+                 host_caching: Optional[pulumi.Input['HostCaching']] = None,
                  source: Optional[pulumi.Input['GalleryArtifactVersionSourceArgs']] = None):
         """
         This is the OS disk image.
-        :param pulumi.Input[str] host_caching: The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
+        :param pulumi.Input['HostCaching'] host_caching: The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
         :param pulumi.Input['GalleryArtifactVersionSourceArgs'] source: The gallery artifact version source.
         """
         if host_caching is not None:
@@ -613,14 +614,14 @@ class GalleryOSDiskImageArgs:
 
     @property
     @pulumi.getter(name="hostCaching")
-    def host_caching(self) -> Optional[pulumi.Input[str]]:
+    def host_caching(self) -> Optional[pulumi.Input['HostCaching']]:
         """
         The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
         """
         return pulumi.get(self, "host_caching")
 
     @host_caching.setter
-    def host_caching(self, value: Optional[pulumi.Input[str]]):
+    def host_caching(self, value: Optional[pulumi.Input['HostCaching']]):
         pulumi.set(self, "host_caching", value)
 
     @property
@@ -799,24 +800,24 @@ class ResourceRangeArgs:
 @pulumi.input_type
 class SharingProfileArgs:
     def __init__(__self__, *,
-                 permissions: Optional[pulumi.Input[str]] = None):
+                 permissions: Optional[pulumi.Input[Union[str, 'GallerySharingPermissionTypes']]] = None):
         """
         Profile for gallery sharing to subscription or tenant
-        :param pulumi.Input[str] permissions: This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
+        :param pulumi.Input[Union[str, 'GallerySharingPermissionTypes']] permissions: This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
         """
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
 
     @property
     @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[str]]:
+    def permissions(self) -> Optional[pulumi.Input[Union[str, 'GallerySharingPermissionTypes']]]:
         """
         This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
         """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[str]]):
+    def permissions(self, value: Optional[pulumi.Input[Union[str, 'GallerySharingPermissionTypes']]]):
         pulumi.set(self, "permissions", value)
 
 
@@ -826,13 +827,13 @@ class TargetRegionArgs:
                  name: pulumi.Input[str],
                  encryption: Optional[pulumi.Input['EncryptionImagesArgs']] = None,
                  regional_replica_count: Optional[pulumi.Input[int]] = None,
-                 storage_account_type: Optional[pulumi.Input[str]] = None):
+                 storage_account_type: Optional[pulumi.Input[Union[str, 'StorageAccountType']]] = None):
         """
         Describes the target region information.
         :param pulumi.Input[str] name: The name of the region.
         :param pulumi.Input['EncryptionImagesArgs'] encryption: Optional. Allows users to provide customer managed keys for encrypting the OS and data disks in the gallery artifact.
         :param pulumi.Input[int] regional_replica_count: The number of replicas of the Image Version to be created per region. This property is updatable.
-        :param pulumi.Input[str] storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
+        :param pulumi.Input[Union[str, 'StorageAccountType']] storage_account_type: Specifies the storage account type to be used to store the image. This property is not updatable.
         """
         pulumi.set(__self__, "name", name)
         if encryption is not None:
@@ -880,14 +881,14 @@ class TargetRegionArgs:
 
     @property
     @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> Optional[pulumi.Input[str]]:
+    def storage_account_type(self) -> Optional[pulumi.Input[Union[str, 'StorageAccountType']]]:
         """
         Specifies the storage account type to be used to store the image. This property is not updatable.
         """
         return pulumi.get(self, "storage_account_type")
 
     @storage_account_type.setter
-    def storage_account_type(self, value: Optional[pulumi.Input[str]]):
+    def storage_account_type(self, value: Optional[pulumi.Input[Union[str, 'StorageAccountType']]]):
         pulumi.set(self, "storage_account_type", value)
 
 

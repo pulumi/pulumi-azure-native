@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AlertingActionArgs',
@@ -24,14 +25,14 @@ __all__ = [
 class AlertingActionArgs:
     def __init__(__self__, *,
                  odata_type: pulumi.Input[str],
-                 severity: pulumi.Input[str],
+                 severity: pulumi.Input[Union[str, 'AlertSeverity']],
                  trigger: pulumi.Input['TriggerConditionArgs'],
                  azns_action: Optional[pulumi.Input['AzNsActionGroupArgs']] = None,
                  throttling_in_min: Optional[pulumi.Input[int]] = None):
         """
         Specify action need to be taken when rule type is Alert
         :param pulumi.Input[str] odata_type: Specifies the action. Supported values - AlertingAction, LogToMetricAction
-        :param pulumi.Input[str] severity: Severity of the alert
+        :param pulumi.Input[Union[str, 'AlertSeverity']] severity: Severity of the alert
         :param pulumi.Input['TriggerConditionArgs'] trigger: The trigger condition that results in the alert rule being.
         :param pulumi.Input['AzNsActionGroupArgs'] azns_action: Azure action group reference.
         :param pulumi.Input[int] throttling_in_min: time (in minutes) for which Alerts should be throttled or suppressed.
@@ -58,14 +59,14 @@ class AlertingActionArgs:
 
     @property
     @pulumi.getter
-    def severity(self) -> pulumi.Input[str]:
+    def severity(self) -> pulumi.Input[Union[str, 'AlertSeverity']]:
         """
         Severity of the alert
         """
         return pulumi.get(self, "severity")
 
     @severity.setter
-    def severity(self, value: pulumi.Input[str]):
+    def severity(self, value: pulumi.Input[Union[str, 'AlertSeverity']]):
         pulumi.set(self, "severity", value)
 
     @property
@@ -204,12 +205,12 @@ class CriteriaArgs:
 class DimensionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 operator: pulumi.Input[str],
+                 operator: pulumi.Input[Union[str, 'Operator']],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         Specifies the criteria for converting log to metric.
         :param pulumi.Input[str] name: Name of the dimension
-        :param pulumi.Input[str] operator: Operator for dimension values
+        :param pulumi.Input[Union[str, 'Operator']] operator: Operator for dimension values
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of dimension values
         """
         pulumi.set(__self__, "name", name)
@@ -230,14 +231,14 @@ class DimensionArgs:
 
     @property
     @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
+    def operator(self) -> pulumi.Input[Union[str, 'Operator']]:
         """
         Operator for dimension values
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: pulumi.Input[str]):
+    def operator(self, value: pulumi.Input[Union[str, 'Operator']]):
         pulumi.set(self, "operator", value)
 
     @property
@@ -257,15 +258,15 @@ class DimensionArgs:
 class LogMetricTriggerArgs:
     def __init__(__self__, *,
                  metric_column: Optional[pulumi.Input[str]] = None,
-                 metric_trigger_type: Optional[pulumi.Input[str]] = None,
+                 metric_trigger_type: Optional[pulumi.Input[Union[str, 'MetricTriggerType']]] = None,
                  threshold: Optional[pulumi.Input[float]] = None,
-                 threshold_operator: Optional[pulumi.Input[str]] = None):
+                 threshold_operator: Optional[pulumi.Input[Union[str, 'ConditionalOperator']]] = None):
         """
         A log metrics trigger descriptor.
         :param pulumi.Input[str] metric_column: Evaluation of metric on a particular column
-        :param pulumi.Input[str] metric_trigger_type: Metric Trigger Type - 'Consecutive' or 'Total'
+        :param pulumi.Input[Union[str, 'MetricTriggerType']] metric_trigger_type: Metric Trigger Type - 'Consecutive' or 'Total'
         :param pulumi.Input[float] threshold: The threshold of the metric trigger.
-        :param pulumi.Input[str] threshold_operator: Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
+        :param pulumi.Input[Union[str, 'ConditionalOperator']] threshold_operator: Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
         """
         if metric_column is not None:
             pulumi.set(__self__, "metric_column", metric_column)
@@ -290,14 +291,14 @@ class LogMetricTriggerArgs:
 
     @property
     @pulumi.getter(name="metricTriggerType")
-    def metric_trigger_type(self) -> Optional[pulumi.Input[str]]:
+    def metric_trigger_type(self) -> Optional[pulumi.Input[Union[str, 'MetricTriggerType']]]:
         """
         Metric Trigger Type - 'Consecutive' or 'Total'
         """
         return pulumi.get(self, "metric_trigger_type")
 
     @metric_trigger_type.setter
-    def metric_trigger_type(self, value: Optional[pulumi.Input[str]]):
+    def metric_trigger_type(self, value: Optional[pulumi.Input[Union[str, 'MetricTriggerType']]]):
         pulumi.set(self, "metric_trigger_type", value)
 
     @property
@@ -314,14 +315,14 @@ class LogMetricTriggerArgs:
 
     @property
     @pulumi.getter(name="thresholdOperator")
-    def threshold_operator(self) -> Optional[pulumi.Input[str]]:
+    def threshold_operator(self) -> Optional[pulumi.Input[Union[str, 'ConditionalOperator']]]:
         """
         Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
         """
         return pulumi.get(self, "threshold_operator")
 
     @threshold_operator.setter
-    def threshold_operator(self, value: Optional[pulumi.Input[str]]):
+    def threshold_operator(self, value: Optional[pulumi.Input[Union[str, 'ConditionalOperator']]]):
         pulumi.set(self, "threshold_operator", value)
 
 
@@ -407,13 +408,13 @@ class SourceArgs:
                  data_source_id: pulumi.Input[str],
                  authorized_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  query: Optional[pulumi.Input[str]] = None,
-                 query_type: Optional[pulumi.Input[str]] = None):
+                 query_type: Optional[pulumi.Input[Union[str, 'QueryType']]] = None):
         """
         Specifies the log search query.
         :param pulumi.Input[str] data_source_id: The resource uri over which log search query is to be run.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_resources: List of  Resource referred into query
         :param pulumi.Input[str] query: Log search query. Required for action type - AlertingAction
-        :param pulumi.Input[str] query_type: Set value to 'ResultCount' .
+        :param pulumi.Input[Union[str, 'QueryType']] query_type: Set value to 'ResultCount' .
         """
         pulumi.set(__self__, "data_source_id", data_source_id)
         if authorized_resources is not None:
@@ -461,14 +462,14 @@ class SourceArgs:
 
     @property
     @pulumi.getter(name="queryType")
-    def query_type(self) -> Optional[pulumi.Input[str]]:
+    def query_type(self) -> Optional[pulumi.Input[Union[str, 'QueryType']]]:
         """
         Set value to 'ResultCount' .
         """
         return pulumi.get(self, "query_type")
 
     @query_type.setter
-    def query_type(self, value: Optional[pulumi.Input[str]]):
+    def query_type(self, value: Optional[pulumi.Input[Union[str, 'QueryType']]]):
         pulumi.set(self, "query_type", value)
 
 
@@ -476,12 +477,12 @@ class SourceArgs:
 class TriggerConditionArgs:
     def __init__(__self__, *,
                  threshold: pulumi.Input[float],
-                 threshold_operator: pulumi.Input[str],
+                 threshold_operator: pulumi.Input[Union[str, 'ConditionalOperator']],
                  metric_trigger: Optional[pulumi.Input['LogMetricTriggerArgs']] = None):
         """
         The condition that results in the Log Search rule.
         :param pulumi.Input[float] threshold: Result or count threshold based on which rule should be triggered.
-        :param pulumi.Input[str] threshold_operator: Evaluation operation for rule - 'GreaterThan' or 'LessThan.
+        :param pulumi.Input[Union[str, 'ConditionalOperator']] threshold_operator: Evaluation operation for rule - 'GreaterThan' or 'LessThan.
         :param pulumi.Input['LogMetricTriggerArgs'] metric_trigger: Trigger condition for metric query rule
         """
         pulumi.set(__self__, "threshold", threshold)
@@ -503,14 +504,14 @@ class TriggerConditionArgs:
 
     @property
     @pulumi.getter(name="thresholdOperator")
-    def threshold_operator(self) -> pulumi.Input[str]:
+    def threshold_operator(self) -> pulumi.Input[Union[str, 'ConditionalOperator']]:
         """
         Evaluation operation for rule - 'GreaterThan' or 'LessThan.
         """
         return pulumi.get(self, "threshold_operator")
 
     @threshold_operator.setter
-    def threshold_operator(self, value: pulumi.Input[str]):
+    def threshold_operator(self, value: pulumi.Input[Union[str, 'ConditionalOperator']]):
         pulumi.set(self, "threshold_operator", value)
 
     @property

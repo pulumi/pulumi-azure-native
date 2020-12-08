@@ -108,13 +108,13 @@ class VirtualMachineResource(pulumi.CustomResource):
             __props__['gallery_image_reference'] = gallery_image_reference
             __props__['id'] = id
             __props__['is_authentication_with_ssh_key'] = is_authentication_with_ssh_key
-            if lab_name is None:
+            if lab_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_name'")
             __props__['lab_name'] = lab_name
             __props__['lab_subnet_name'] = lab_subnet_name
             __props__['lab_virtual_network_id'] = lab_virtual_network_id
             __props__['location'] = location
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['notes'] = notes
@@ -122,7 +122,7 @@ class VirtualMachineResource(pulumi.CustomResource):
             __props__['owner_object_id'] = owner_object_id
             __props__['password'] = password
             __props__['provisioning_state'] = provisioning_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['size'] = size

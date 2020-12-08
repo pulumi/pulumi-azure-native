@@ -62,22 +62,22 @@ class WorkbookTemplate(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['author'] = author
-            if galleries is None:
+            if galleries is None and not opts.urn:
                 raise TypeError("Missing required property 'galleries'")
             __props__['galleries'] = galleries
             __props__['localized'] = localized
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['priority'] = priority
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if resource_name_ is None:
+            if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
             __props__['tags'] = tags
-            if template_data is None:
+            if template_data is None and not opts.urn:
                 raise TypeError("Missing required property 'template_data'")
             __props__['template_data'] = template_data
             __props__['name'] = None

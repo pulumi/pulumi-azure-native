@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'GuestOSCustomizationArgs',
@@ -340,13 +341,13 @@ class SkuArgs:
 class VirtualDiskArgs:
     def __init__(__self__, *,
                  controller_id: pulumi.Input[str],
-                 independence_mode: pulumi.Input[str],
+                 independence_mode: pulumi.Input['DiskIndependenceMode'],
                  total_size: pulumi.Input[int],
                  virtual_disk_id: Optional[pulumi.Input[str]] = None):
         """
         Virtual disk model
         :param pulumi.Input[str] controller_id: Disk's Controller id
-        :param pulumi.Input[str] independence_mode: Disk's independence mode type
+        :param pulumi.Input['DiskIndependenceMode'] independence_mode: Disk's independence mode type
         :param pulumi.Input[int] total_size: Disk's total size
         :param pulumi.Input[str] virtual_disk_id: Disk's id
         """
@@ -370,14 +371,14 @@ class VirtualDiskArgs:
 
     @property
     @pulumi.getter(name="independenceMode")
-    def independence_mode(self) -> pulumi.Input[str]:
+    def independence_mode(self) -> pulumi.Input['DiskIndependenceMode']:
         """
         Disk's independence mode type
         """
         return pulumi.get(self, "independence_mode")
 
     @independence_mode.setter
-    def independence_mode(self, value: pulumi.Input[str]):
+    def independence_mode(self, value: pulumi.Input['DiskIndependenceMode']):
         pulumi.set(self, "independence_mode", value)
 
     @property
@@ -432,7 +433,7 @@ class VirtualNetworkArgs:
 class VirtualNicArgs:
     def __init__(__self__, *,
                  network: pulumi.Input['VirtualNetworkArgs'],
-                 nic_type: pulumi.Input[str],
+                 nic_type: pulumi.Input['NICType'],
                  customization: Optional[pulumi.Input['GuestOSNICCustomizationArgs']] = None,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  mac_address: Optional[pulumi.Input[str]] = None,
@@ -441,7 +442,7 @@ class VirtualNicArgs:
         """
         Virtual NIC model
         :param pulumi.Input['VirtualNetworkArgs'] network: Virtual Network
-        :param pulumi.Input[str] nic_type: NIC type
+        :param pulumi.Input['NICType'] nic_type: NIC type
         :param pulumi.Input['GuestOSNICCustomizationArgs'] customization: guest OS customization for nic
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_addresses: NIC ip address
         :param pulumi.Input[str] mac_address: NIC MAC address
@@ -475,14 +476,14 @@ class VirtualNicArgs:
 
     @property
     @pulumi.getter(name="nicType")
-    def nic_type(self) -> pulumi.Input[str]:
+    def nic_type(self) -> pulumi.Input['NICType']:
         """
         NIC type
         """
         return pulumi.get(self, "nic_type")
 
     @nic_type.setter
-    def nic_type(self, value: pulumi.Input[str]):
+    def nic_type(self, value: pulumi.Input['NICType']):
         pulumi.set(self, "nic_type", value)
 
     @property

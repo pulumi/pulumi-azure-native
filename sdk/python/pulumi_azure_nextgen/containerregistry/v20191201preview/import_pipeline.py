@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ImportPipeline']
@@ -20,7 +21,7 @@ class ImportPipeline(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityPropertiesArgs']]] = None,
                  import_pipeline_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 options: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'PipelineOptions']]]]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[pulumi.InputType['ImportPipelineSourcePropertiesArgs']]] = None,
@@ -36,7 +37,7 @@ class ImportPipeline(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['IdentityPropertiesArgs']] identity: The identity of the import pipeline.
         :param pulumi.Input[str] import_pipeline_name: The name of the import pipeline.
         :param pulumi.Input[str] location: The location of the import pipeline.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] options: The list of all options configured for the pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'PipelineOptions']]]] options: The list of all options configured for the pipeline.
         :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
         :param pulumi.Input[pulumi.InputType['ImportPipelineSourcePropertiesArgs']] source: The source properties of the import pipeline.
@@ -60,18 +61,18 @@ class ImportPipeline(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['identity'] = identity
-            if import_pipeline_name is None:
+            if import_pipeline_name is None and not opts.urn:
                 raise TypeError("Missing required property 'import_pipeline_name'")
             __props__['import_pipeline_name'] = import_pipeline_name
             __props__['location'] = location
             __props__['options'] = options
-            if registry_name is None:
+            if registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registry_name'")
             __props__['registry_name'] = registry_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if source is None:
+            if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__['source'] = source
             __props__['trigger'] = trigger

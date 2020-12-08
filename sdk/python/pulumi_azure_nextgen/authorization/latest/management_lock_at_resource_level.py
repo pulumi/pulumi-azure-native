@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ManagementLockAtResourceLevel']
@@ -17,7 +18,7 @@ class ManagementLockAtResourceLevel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 level: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[Union[str, 'LockLevel']]] = None,
                  lock_name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  owners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagementLockOwnerArgs']]]]] = None,
@@ -34,7 +35,7 @@ class ManagementLockAtResourceLevel(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] level: The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
+        :param pulumi.Input[Union[str, 'LockLevel']] level: The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
         :param pulumi.Input[str] lock_name: The name of lock. The lock name can be a maximum of 260 characters. It cannot contain <, > %, &, :, \, ?, /, or any control characters.
         :param pulumi.Input[str] notes: Notes about the lock. Maximum of 512 characters.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagementLockOwnerArgs']]]] owners: The owners of the lock.
@@ -61,27 +62,27 @@ class ManagementLockAtResourceLevel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if level is None:
+            if level is None and not opts.urn:
                 raise TypeError("Missing required property 'level'")
             __props__['level'] = level
-            if lock_name is None:
+            if lock_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lock_name'")
             __props__['lock_name'] = lock_name
             __props__['notes'] = notes
             __props__['owners'] = owners
-            if parent_resource_path is None:
+            if parent_resource_path is None and not opts.urn:
                 raise TypeError("Missing required property 'parent_resource_path'")
             __props__['parent_resource_path'] = parent_resource_path
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if resource_name_ is None:
+            if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
-            if resource_provider_namespace is None:
+            if resource_provider_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_provider_namespace'")
             __props__['resource_provider_namespace'] = resource_provider_namespace
-            if resource_type is None:
+            if resource_type is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_type'")
             __props__['resource_type'] = resource_type
             __props__['name'] = None

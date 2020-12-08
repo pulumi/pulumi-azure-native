@@ -12,3 +12,26 @@ from .get_batch_account import *
 from .list_batch_account_keys import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:batch/v20151201:Application":
+                return Application(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:batch/v20151201:ApplicationPackage":
+                return ApplicationPackage(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:batch/v20151201:BatchAccount":
+                return BatchAccount(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "batch/v20151201", _module_instance)
+
+_register_module()

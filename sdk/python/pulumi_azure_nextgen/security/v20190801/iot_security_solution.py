@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['IotSecuritySolution']
@@ -17,17 +18,17 @@ class IotSecuritySolution(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 disabled_data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 disabled_data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DataSource']]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 export: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 export: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExportData']]]]] = None,
                  iot_hubs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  recommendations_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecommendationConfigurationPropertiesArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  solution_name: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'SecuritySolutionStatus']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 unmasked_ip_logging_status: Optional[pulumi.Input[str]] = None,
+                 unmasked_ip_logging_status: Optional[pulumi.Input[Union[str, 'UnmaskedIpLoggingStatus']]] = None,
                  user_defined_resources: Optional[pulumi.Input[pulumi.InputType['UserDefinedResourcesPropertiesArgs']]] = None,
                  workspace: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -38,17 +39,17 @@ class IotSecuritySolution(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_data_sources: Disabled data sources. Disabling these data sources compromises the system.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'DataSource']]]] disabled_data_sources: Disabled data sources. Disabling these data sources compromises the system.
         :param pulumi.Input[str] display_name: Resource display name.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] export: List of additional options for exporting to workspace data.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'ExportData']]]] export: List of additional options for exporting to workspace data.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iot_hubs: IoT Hub resource IDs
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecommendationConfigurationPropertiesArgs']]]] recommendations_configuration: List of the configuration status for each recommendation type.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] solution_name: The name of the IoT Security solution.
-        :param pulumi.Input[str] status: Status of the IoT Security solution.
+        :param pulumi.Input[Union[str, 'SecuritySolutionStatus']] status: Status of the IoT Security solution.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input[str] unmasked_ip_logging_status: Unmasked IP address logging status
+        :param pulumi.Input[Union[str, 'UnmaskedIpLoggingStatus']] unmasked_ip_logging_status: Unmasked IP address logging status
         :param pulumi.Input[pulumi.InputType['UserDefinedResourcesPropertiesArgs']] user_defined_resources: Properties of the IoT Security solution's user defined resources.
         :param pulumi.Input[str] workspace: Workspace resource ID
         """
@@ -70,19 +71,19 @@ class IotSecuritySolution(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['disabled_data_sources'] = disabled_data_sources
-            if display_name is None:
+            if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
             __props__['export'] = export
-            if iot_hubs is None:
+            if iot_hubs is None and not opts.urn:
                 raise TypeError("Missing required property 'iot_hubs'")
             __props__['iot_hubs'] = iot_hubs
             __props__['location'] = location
             __props__['recommendations_configuration'] = recommendations_configuration
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if solution_name is None:
+            if solution_name is None and not opts.urn:
                 raise TypeError("Missing required property 'solution_name'")
             __props__['solution_name'] = solution_name
             __props__['status'] = status

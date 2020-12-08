@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['RosettaNetProcessConfiguration']
@@ -69,34 +70,34 @@ class RosettaNetProcessConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if activity_settings is None:
+            if activity_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'activity_settings'")
             __props__['activity_settings'] = activity_settings
             __props__['description'] = description
-            if initiator_role_settings is None:
+            if initiator_role_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'initiator_role_settings'")
             __props__['initiator_role_settings'] = initiator_role_settings
-            if integration_account_name is None:
+            if integration_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'integration_account_name'")
             __props__['integration_account_name'] = integration_account_name
             __props__['location'] = location
             __props__['metadata'] = metadata
-            if process_code is None:
+            if process_code is None and not opts.urn:
                 raise TypeError("Missing required property 'process_code'")
             __props__['process_code'] = process_code
-            if process_name is None:
+            if process_name is None and not opts.urn:
                 raise TypeError("Missing required property 'process_name'")
             __props__['process_name'] = process_name
-            if process_version is None:
+            if process_version is None and not opts.urn:
                 raise TypeError("Missing required property 'process_version'")
             __props__['process_version'] = process_version
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if responder_role_settings is None:
+            if responder_role_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'responder_role_settings'")
             __props__['responder_role_settings'] = responder_role_settings
-            if rosetta_net_process_configuration_name is None:
+            if rosetta_net_process_configuration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'rosetta_net_process_configuration_name'")
             __props__['rosetta_net_process_configuration_name'] = rosetta_net_process_configuration_name
             __props__['tags'] = tags

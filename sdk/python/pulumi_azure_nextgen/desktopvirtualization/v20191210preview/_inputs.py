@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'RegistrationInfoArgs',
@@ -16,12 +17,12 @@ __all__ = [
 class RegistrationInfoArgs:
     def __init__(__self__, *,
                  expiration_time: Optional[pulumi.Input[str]] = None,
-                 registration_token_operation: Optional[pulumi.Input[str]] = None,
+                 registration_token_operation: Optional[pulumi.Input[Union[str, 'RegistrationTokenOperation']]] = None,
                  token: Optional[pulumi.Input[str]] = None):
         """
         Represents a RegistrationInfo definition.
         :param pulumi.Input[str] expiration_time: Expiration time of registration token.
-        :param pulumi.Input[str] registration_token_operation: The type of resetting the token.
+        :param pulumi.Input[Union[str, 'RegistrationTokenOperation']] registration_token_operation: The type of resetting the token.
         :param pulumi.Input[str] token: The registration token base64 encoded string.
         """
         if expiration_time is not None:
@@ -45,14 +46,14 @@ class RegistrationInfoArgs:
 
     @property
     @pulumi.getter(name="registrationTokenOperation")
-    def registration_token_operation(self) -> Optional[pulumi.Input[str]]:
+    def registration_token_operation(self) -> Optional[pulumi.Input[Union[str, 'RegistrationTokenOperation']]]:
         """
         The type of resetting the token.
         """
         return pulumi.get(self, "registration_token_operation")
 
     @registration_token_operation.setter
-    def registration_token_operation(self, value: Optional[pulumi.Input[str]]):
+    def registration_token_operation(self, value: Optional[pulumi.Input[Union[str, 'RegistrationTokenOperation']]]):
         pulumi.set(self, "registration_token_operation", value)
 
     @property

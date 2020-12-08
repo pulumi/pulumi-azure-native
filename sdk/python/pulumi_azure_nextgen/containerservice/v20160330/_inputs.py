@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ContainerServiceAgentPoolProfileArgs',
@@ -25,13 +26,13 @@ class ContainerServiceAgentPoolProfileArgs:
     def __init__(__self__, *,
                  dns_prefix: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 vm_size: pulumi.Input[str],
+                 vm_size: pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']],
                  count: Optional[pulumi.Input[int]] = None):
         """
         Profile for the container service agent pool.
         :param pulumi.Input[str] dns_prefix: DNS prefix to be used to create the FQDN for the agent pool.
         :param pulumi.Input[str] name: Unique name of the agent pool profile in the context of the subscription and resource group.
-        :param pulumi.Input[str] vm_size: Size of agent VMs.
+        :param pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']] vm_size: Size of agent VMs.
         :param pulumi.Input[int] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
         """
         pulumi.set(__self__, "dns_prefix", dns_prefix)
@@ -66,14 +67,14 @@ class ContainerServiceAgentPoolProfileArgs:
 
     @property
     @pulumi.getter(name="vmSize")
-    def vm_size(self) -> pulumi.Input[str]:
+    def vm_size(self) -> pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']]:
         """
         Size of agent VMs.
         """
         return pulumi.get(self, "vm_size")
 
     @vm_size.setter
-    def vm_size(self, value: pulumi.Input[str]):
+    def vm_size(self, value: pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']]):
         pulumi.set(self, "vm_size", value)
 
     @property
@@ -191,23 +192,23 @@ class ContainerServiceMasterProfileArgs:
 @pulumi.input_type
 class ContainerServiceOrchestratorProfileArgs:
     def __init__(__self__, *,
-                 orchestrator_type: pulumi.Input[str]):
+                 orchestrator_type: pulumi.Input['ContainerServiceOchestratorTypes']):
         """
         Profile for the container service orchestrator.
-        :param pulumi.Input[str] orchestrator_type: The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
+        :param pulumi.Input['ContainerServiceOchestratorTypes'] orchestrator_type: The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
         """
         pulumi.set(__self__, "orchestrator_type", orchestrator_type)
 
     @property
     @pulumi.getter(name="orchestratorType")
-    def orchestrator_type(self) -> pulumi.Input[str]:
+    def orchestrator_type(self) -> pulumi.Input['ContainerServiceOchestratorTypes']:
         """
         The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
         """
         return pulumi.get(self, "orchestrator_type")
 
     @orchestrator_type.setter
-    def orchestrator_type(self, value: pulumi.Input[str]):
+    def orchestrator_type(self, value: pulumi.Input['ContainerServiceOchestratorTypes']):
         pulumi.set(self, "orchestrator_type", value)
 
 

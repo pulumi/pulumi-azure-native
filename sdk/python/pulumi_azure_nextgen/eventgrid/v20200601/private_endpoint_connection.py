@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['PrivateEndpointConnection']
@@ -23,7 +24,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  private_endpoint: Optional[pulumi.Input[pulumi.InputType['PrivateEndpointArgs']]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                  private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['ConnectionStateArgs']]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'ResourceProvisioningState']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -38,7 +39,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PrivateEndpointArgs']] private_endpoint: The Private Endpoint resource for this Connection.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection connection.
         :param pulumi.Input[pulumi.InputType['ConnectionStateArgs']] private_link_service_connection_state: Details about the state of the connection.
-        :param pulumi.Input[str] provisioning_state: Provisioning state of the Private Endpoint Connection.
+        :param pulumi.Input[Union[str, 'ResourceProvisioningState']] provisioning_state: Provisioning state of the Private Endpoint Connection.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
         """
         if __name__ is not None:
@@ -59,19 +60,19 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['group_ids'] = group_ids
-            if parent_name is None:
+            if parent_name is None and not opts.urn:
                 raise TypeError("Missing required property 'parent_name'")
             __props__['parent_name'] = parent_name
-            if parent_type is None:
+            if parent_type is None and not opts.urn:
                 raise TypeError("Missing required property 'parent_type'")
             __props__['parent_type'] = parent_type
             __props__['private_endpoint'] = private_endpoint
-            if private_endpoint_connection_name is None:
+            if private_endpoint_connection_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_endpoint_connection_name'")
             __props__['private_endpoint_connection_name'] = private_endpoint_connection_name
             __props__['private_link_service_connection_state'] = private_link_service_connection_state
             __props__['provisioning_state'] = provisioning_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['name'] = None

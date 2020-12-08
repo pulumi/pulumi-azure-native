@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ContainerServiceLinuxProfileArgs',
@@ -72,10 +73,10 @@ class ContainerServiceNetworkProfileArgs:
                  dns_service_ip: Optional[pulumi.Input[str]] = None,
                  docker_bridge_cidr: Optional[pulumi.Input[str]] = None,
                  load_balancer_profile: Optional[pulumi.Input['ManagedClusterLoadBalancerProfileArgs']] = None,
-                 load_balancer_sku: Optional[pulumi.Input[str]] = None,
-                 network_plugin: Optional[pulumi.Input[str]] = None,
-                 network_policy: Optional[pulumi.Input[str]] = None,
-                 outbound_type: Optional[pulumi.Input[str]] = None,
+                 load_balancer_sku: Optional[pulumi.Input[Union[str, 'LoadBalancerSku']]] = None,
+                 network_plugin: Optional[pulumi.Input[Union[str, 'NetworkPlugin']]] = None,
+                 network_policy: Optional[pulumi.Input[Union[str, 'NetworkPolicy']]] = None,
+                 outbound_type: Optional[pulumi.Input[Union[str, 'OutboundType']]] = None,
                  pod_cidr: Optional[pulumi.Input[str]] = None,
                  service_cidr: Optional[pulumi.Input[str]] = None):
         """
@@ -83,10 +84,10 @@ class ContainerServiceNetworkProfileArgs:
         :param pulumi.Input[str] dns_service_ip: An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
         :param pulumi.Input[str] docker_bridge_cidr: A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
         :param pulumi.Input['ManagedClusterLoadBalancerProfileArgs'] load_balancer_profile: Profile of the cluster load balancer.
-        :param pulumi.Input[str] load_balancer_sku: The load balancer sku for the managed cluster.
-        :param pulumi.Input[str] network_plugin: Network plugin used for building Kubernetes network.
-        :param pulumi.Input[str] network_policy: Network policy used for building Kubernetes network.
-        :param pulumi.Input[str] outbound_type: The outbound (egress) routing method.
+        :param pulumi.Input[Union[str, 'LoadBalancerSku']] load_balancer_sku: The load balancer sku for the managed cluster.
+        :param pulumi.Input[Union[str, 'NetworkPlugin']] network_plugin: Network plugin used for building Kubernetes network.
+        :param pulumi.Input[Union[str, 'NetworkPolicy']] network_policy: Network policy used for building Kubernetes network.
+        :param pulumi.Input[Union[str, 'OutboundType']] outbound_type: The outbound (egress) routing method.
         :param pulumi.Input[str] pod_cidr: A CIDR notation IP range from which to assign pod IPs when kubenet is used.
         :param pulumi.Input[str] service_cidr: A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
         """
@@ -147,50 +148,50 @@ class ContainerServiceNetworkProfileArgs:
 
     @property
     @pulumi.getter(name="loadBalancerSku")
-    def load_balancer_sku(self) -> Optional[pulumi.Input[str]]:
+    def load_balancer_sku(self) -> Optional[pulumi.Input[Union[str, 'LoadBalancerSku']]]:
         """
         The load balancer sku for the managed cluster.
         """
         return pulumi.get(self, "load_balancer_sku")
 
     @load_balancer_sku.setter
-    def load_balancer_sku(self, value: Optional[pulumi.Input[str]]):
+    def load_balancer_sku(self, value: Optional[pulumi.Input[Union[str, 'LoadBalancerSku']]]):
         pulumi.set(self, "load_balancer_sku", value)
 
     @property
     @pulumi.getter(name="networkPlugin")
-    def network_plugin(self) -> Optional[pulumi.Input[str]]:
+    def network_plugin(self) -> Optional[pulumi.Input[Union[str, 'NetworkPlugin']]]:
         """
         Network plugin used for building Kubernetes network.
         """
         return pulumi.get(self, "network_plugin")
 
     @network_plugin.setter
-    def network_plugin(self, value: Optional[pulumi.Input[str]]):
+    def network_plugin(self, value: Optional[pulumi.Input[Union[str, 'NetworkPlugin']]]):
         pulumi.set(self, "network_plugin", value)
 
     @property
     @pulumi.getter(name="networkPolicy")
-    def network_policy(self) -> Optional[pulumi.Input[str]]:
+    def network_policy(self) -> Optional[pulumi.Input[Union[str, 'NetworkPolicy']]]:
         """
         Network policy used for building Kubernetes network.
         """
         return pulumi.get(self, "network_policy")
 
     @network_policy.setter
-    def network_policy(self, value: Optional[pulumi.Input[str]]):
+    def network_policy(self, value: Optional[pulumi.Input[Union[str, 'NetworkPolicy']]]):
         pulumi.set(self, "network_policy", value)
 
     @property
     @pulumi.getter(name="outboundType")
-    def outbound_type(self) -> Optional[pulumi.Input[str]]:
+    def outbound_type(self) -> Optional[pulumi.Input[Union[str, 'OutboundType']]]:
         """
         The outbound (egress) routing method.
         """
         return pulumi.get(self, "outbound_type")
 
     @outbound_type.setter
-    def outbound_type(self, value: Optional[pulumi.Input[str]]):
+    def outbound_type(self, value: Optional[pulumi.Input[Union[str, 'OutboundType']]]):
         pulumi.set(self, "outbound_type", value)
 
     @property
@@ -428,12 +429,12 @@ class ManagedClusterAgentPoolProfileArgs:
                  node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
                  os_disk_size_gb: Optional[pulumi.Input[int]] = None,
-                 os_type: Optional[pulumi.Input[str]] = None,
-                 scale_set_eviction_policy: Optional[pulumi.Input[str]] = None,
-                 scale_set_priority: Optional[pulumi.Input[str]] = None,
+                 os_type: Optional[pulumi.Input[Union[str, 'OSType']]] = None,
+                 scale_set_eviction_policy: Optional[pulumi.Input[Union[str, 'ScaleSetEvictionPolicy']]] = None,
+                 scale_set_priority: Optional[pulumi.Input[Union[str, 'ScaleSetPriority']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
-                 vm_size: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'AgentPoolType']]] = None,
+                 vm_size: Optional[pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         Profile for the container service agent pool.
@@ -449,12 +450,12 @@ class ManagedClusterAgentPoolProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
         :param pulumi.Input[str] orchestrator_version: Version of orchestrator specified when creating the managed cluster.
         :param pulumi.Input[int] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-        :param pulumi.Input[str] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-        :param pulumi.Input[str] scale_set_eviction_policy: ScaleSetEvictionPolicy to be used to specify eviction policy for low priority virtual machine scale set. Default to Delete.
-        :param pulumi.Input[str] scale_set_priority: ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
+        :param pulumi.Input[Union[str, 'OSType']] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+        :param pulumi.Input[Union[str, 'ScaleSetEvictionPolicy']] scale_set_eviction_policy: ScaleSetEvictionPolicy to be used to specify eviction policy for low priority virtual machine scale set. Default to Delete.
+        :param pulumi.Input[Union[str, 'ScaleSetPriority']] scale_set_priority: ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Agent pool tags to be persisted on the agent pool virtual machine scale set.
-        :param pulumi.Input[str] type: AgentPoolType represents types of an agent pool
-        :param pulumi.Input[str] vm_size: Size of agent VMs.
+        :param pulumi.Input[Union[str, 'AgentPoolType']] type: AgentPoolType represents types of an agent pool
+        :param pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']] vm_size: Size of agent VMs.
         :param pulumi.Input[str] vnet_subnet_id: VNet SubnetID specifies the VNet's subnet identifier.
         """
         pulumi.set(__self__, "name", name)
@@ -641,38 +642,38 @@ class ManagedClusterAgentPoolProfileArgs:
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[str]]:
+    def os_type(self) -> Optional[pulumi.Input[Union[str, 'OSType']]]:
         """
         OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         """
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[str]]):
+    def os_type(self, value: Optional[pulumi.Input[Union[str, 'OSType']]]):
         pulumi.set(self, "os_type", value)
 
     @property
     @pulumi.getter(name="scaleSetEvictionPolicy")
-    def scale_set_eviction_policy(self) -> Optional[pulumi.Input[str]]:
+    def scale_set_eviction_policy(self) -> Optional[pulumi.Input[Union[str, 'ScaleSetEvictionPolicy']]]:
         """
         ScaleSetEvictionPolicy to be used to specify eviction policy for low priority virtual machine scale set. Default to Delete.
         """
         return pulumi.get(self, "scale_set_eviction_policy")
 
     @scale_set_eviction_policy.setter
-    def scale_set_eviction_policy(self, value: Optional[pulumi.Input[str]]):
+    def scale_set_eviction_policy(self, value: Optional[pulumi.Input[Union[str, 'ScaleSetEvictionPolicy']]]):
         pulumi.set(self, "scale_set_eviction_policy", value)
 
     @property
     @pulumi.getter(name="scaleSetPriority")
-    def scale_set_priority(self) -> Optional[pulumi.Input[str]]:
+    def scale_set_priority(self) -> Optional[pulumi.Input[Union[str, 'ScaleSetPriority']]]:
         """
         ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
         """
         return pulumi.get(self, "scale_set_priority")
 
     @scale_set_priority.setter
-    def scale_set_priority(self, value: Optional[pulumi.Input[str]]):
+    def scale_set_priority(self, value: Optional[pulumi.Input[Union[str, 'ScaleSetPriority']]]):
         pulumi.set(self, "scale_set_priority", value)
 
     @property
@@ -689,26 +690,26 @@ class ManagedClusterAgentPoolProfileArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'AgentPoolType']]]:
         """
         AgentPoolType represents types of an agent pool
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'AgentPoolType']]]):
         pulumi.set(self, "type", value)
 
     @property
     @pulumi.getter(name="vmSize")
-    def vm_size(self) -> Optional[pulumi.Input[str]]:
+    def vm_size(self) -> Optional[pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']]]:
         """
         Size of agent VMs.
         """
         return pulumi.get(self, "vm_size")
 
     @vm_size.setter
-    def vm_size(self, value: Optional[pulumi.Input[str]]):
+    def vm_size(self, value: Optional[pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']]]):
         pulumi.set(self, "vm_size", value)
 
     @property
@@ -727,24 +728,24 @@ class ManagedClusterAgentPoolProfileArgs:
 @pulumi.input_type
 class ManagedClusterIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
         """
         Identity for the managed cluster.
-        :param pulumi.Input[str] type: The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
+        :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
         """
         The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
 

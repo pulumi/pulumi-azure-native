@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DatabaseAccount']
@@ -19,16 +20,16 @@ class DatabaseAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CapabilityArgs']]]]] = None,
-                 connector_offer: Optional[pulumi.Input[str]] = None,
+                 connector_offer: Optional[pulumi.Input[Union[str, 'ConnectorOffer']]] = None,
                  consistency_policy: Optional[pulumi.Input[pulumi.InputType['ConsistencyPolicyArgs']]] = None,
-                 database_account_offer_type: Optional[pulumi.Input[str]] = None,
+                 database_account_offer_type: Optional[pulumi.Input['DatabaseAccountOfferType']] = None,
                  disable_key_based_metadata_write_access: Optional[pulumi.Input[bool]] = None,
                  enable_automatic_failover: Optional[pulumi.Input[bool]] = None,
                  enable_cassandra_connector: Optional[pulumi.Input[bool]] = None,
                  enable_multiple_write_locations: Optional[pulumi.Input[bool]] = None,
                  ip_range_filter: Optional[pulumi.Input[str]] = None,
                  is_virtual_network_filter_enabled: Optional[pulumi.Input[bool]] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'DatabaseAccountKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -44,16 +45,16 @@ class DatabaseAccount(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CapabilityArgs']]]] capabilities: List of Cosmos DB capabilities for the account
-        :param pulumi.Input[str] connector_offer: The cassandra connector offer type for the Cosmos DB database C* account.
+        :param pulumi.Input[Union[str, 'ConnectorOffer']] connector_offer: The cassandra connector offer type for the Cosmos DB database C* account.
         :param pulumi.Input[pulumi.InputType['ConsistencyPolicyArgs']] consistency_policy: The consistency policy for the Cosmos DB account.
-        :param pulumi.Input[str] database_account_offer_type: The offer type for the database
+        :param pulumi.Input['DatabaseAccountOfferType'] database_account_offer_type: The offer type for the database
         :param pulumi.Input[bool] disable_key_based_metadata_write_access: Disable write operations on metadata resources (databases, containers, throughput) via account keys
         :param pulumi.Input[bool] enable_automatic_failover: Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
         :param pulumi.Input[bool] enable_cassandra_connector: Enables the cassandra connector on the Cosmos DB C* account
         :param pulumi.Input[bool] enable_multiple_write_locations: Enables the account to write in multiple locations
         :param pulumi.Input[str] ip_range_filter: Cosmos DB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
         :param pulumi.Input[bool] is_virtual_network_filter_enabled: Flag to indicate whether to enable/disable Virtual Network ACL rules.
-        :param pulumi.Input[str] kind: Indicates the type of database account. This can only be set at database account creation.
+        :param pulumi.Input[Union[str, 'DatabaseAccountKind']] kind: Indicates the type of database account. This can only be set at database account creation.
         :param pulumi.Input[str] location: The location of the resource group to which the resource belongs.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationArgs']]]] locations: An array that contains the georeplication locations enabled for the Cosmos DB account.
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
@@ -77,13 +78,13 @@ class DatabaseAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_name is None:
+            if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['capabilities'] = capabilities
             __props__['connector_offer'] = connector_offer
             __props__['consistency_policy'] = consistency_policy
-            if database_account_offer_type is None:
+            if database_account_offer_type is None and not opts.urn:
                 raise TypeError("Missing required property 'database_account_offer_type'")
             __props__['database_account_offer_type'] = database_account_offer_type
             __props__['disable_key_based_metadata_write_access'] = disable_key_based_metadata_write_access
@@ -94,10 +95,10 @@ class DatabaseAccount(pulumi.CustomResource):
             __props__['is_virtual_network_filter_enabled'] = is_virtual_network_filter_enabled
             __props__['kind'] = kind
             __props__['location'] = location
-            if locations is None:
+            if locations is None and not opts.urn:
                 raise TypeError("Missing required property 'locations'")
             __props__['locations'] = locations
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

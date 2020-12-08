@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ExportPipeline']
@@ -20,7 +21,7 @@ class ExportPipeline(pulumi.CustomResource):
                  export_pipeline_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityPropertiesArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 options: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'PipelineOptions']]]]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  target: Optional[pulumi.Input[pulumi.InputType['ExportPipelineTargetPropertiesArgs']]] = None,
@@ -35,7 +36,7 @@ class ExportPipeline(pulumi.CustomResource):
         :param pulumi.Input[str] export_pipeline_name: The name of the export pipeline.
         :param pulumi.Input[pulumi.InputType['IdentityPropertiesArgs']] identity: The identity of the export pipeline.
         :param pulumi.Input[str] location: The location of the export pipeline.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] options: The list of all options configured for the pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'PipelineOptions']]]] options: The list of all options configured for the pipeline.
         :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
         :param pulumi.Input[pulumi.InputType['ExportPipelineTargetPropertiesArgs']] target: The target properties of the export pipeline.
@@ -57,19 +58,19 @@ class ExportPipeline(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if export_pipeline_name is None:
+            if export_pipeline_name is None and not opts.urn:
                 raise TypeError("Missing required property 'export_pipeline_name'")
             __props__['export_pipeline_name'] = export_pipeline_name
             __props__['identity'] = identity
             __props__['location'] = location
             __props__['options'] = options
-            if registry_name is None:
+            if registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registry_name'")
             __props__['registry_name'] = registry_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if target is None:
+            if target is None and not opts.urn:
                 raise TypeError("Missing required property 'target'")
             __props__['target'] = target
             __props__['name'] = None

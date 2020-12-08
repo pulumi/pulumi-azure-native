@@ -49,13 +49,13 @@ class HybridUseBenefit(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if plan_id is None:
+            if plan_id is None and not opts.urn:
                 raise TypeError("Missing required property 'plan_id'")
             __props__['plan_id'] = plan_id
-            if scope is None:
+            if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
-            if sku is None:
+            if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['created_date'] = None

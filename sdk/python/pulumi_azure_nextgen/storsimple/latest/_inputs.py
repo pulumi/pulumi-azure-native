@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AsymmetricEncryptedSecretArgs',
@@ -20,12 +21,12 @@ __all__ = [
 @pulumi.input_type
 class AsymmetricEncryptedSecretArgs:
     def __init__(__self__, *,
-                 encryption_algorithm: pulumi.Input[str],
+                 encryption_algorithm: pulumi.Input['EncryptionAlgorithm'],
                  value: pulumi.Input[str],
                  encryption_cert_thumbprint: Optional[pulumi.Input[str]] = None):
         """
         Represent the secrets intended for encryption with asymmetric key pair.
-        :param pulumi.Input[str] encryption_algorithm: The algorithm used to encrypt "Value".
+        :param pulumi.Input['EncryptionAlgorithm'] encryption_algorithm: The algorithm used to encrypt "Value".
         :param pulumi.Input[str] value: The value of the secret.
         :param pulumi.Input[str] encryption_cert_thumbprint: Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
         """
@@ -36,14 +37,14 @@ class AsymmetricEncryptedSecretArgs:
 
     @property
     @pulumi.getter(name="encryptionAlgorithm")
-    def encryption_algorithm(self) -> pulumi.Input[str]:
+    def encryption_algorithm(self) -> pulumi.Input['EncryptionAlgorithm']:
         """
         The algorithm used to encrypt "Value".
         """
         return pulumi.get(self, "encryption_algorithm")
 
     @encryption_algorithm.setter
-    def encryption_algorithm(self, value: pulumi.Input[str]):
+    def encryption_algorithm(self, value: pulumi.Input['EncryptionAlgorithm']):
         pulumi.set(self, "encryption_algorithm", value)
 
     @property
@@ -74,13 +75,13 @@ class AsymmetricEncryptedSecretArgs:
 @pulumi.input_type
 class BandwidthScheduleArgs:
     def __init__(__self__, *,
-                 days: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 days: pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]],
                  rate_in_mbps: pulumi.Input[int],
                  start: pulumi.Input['TimeArgs'],
                  stop: pulumi.Input['TimeArgs']):
         """
         The schedule for bandwidth setting.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] days: The days of the week when this schedule is applicable.
+        :param pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]] days: The days of the week when this schedule is applicable.
         :param pulumi.Input[int] rate_in_mbps: The rate in Mbps.
         :param pulumi.Input['TimeArgs'] start: The start time of the schedule.
         :param pulumi.Input['TimeArgs'] stop: The stop time of the schedule.
@@ -92,14 +93,14 @@ class BandwidthScheduleArgs:
 
     @property
     @pulumi.getter
-    def days(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def days(self) -> pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]:
         """
         The days of the week when this schedule is applicable.
         """
         return pulumi.get(self, "days")
 
     @days.setter
-    def days(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def days(self, value: pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]):
         pulumi.set(self, "days", value)
 
     @property
@@ -142,60 +143,60 @@ class BandwidthScheduleArgs:
 @pulumi.input_type
 class ManagerIntrinsicSettingsArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input['ManagerType']):
         """
         Intrinsic settings which refers to the type of the StorSimple Manager.
-        :param pulumi.Input[str] type: The type of StorSimple Manager.
+        :param pulumi.Input['ManagerType'] type: The type of StorSimple Manager.
         """
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['ManagerType']:
         """
         The type of StorSimple Manager.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['ManagerType']):
         pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
 class ManagerSkuArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str]):
+                 name: pulumi.Input['ManagerSkuType']):
         """
         The Sku.
-        :param pulumi.Input[str] name: Refers to the sku name which should be "Standard"
+        :param pulumi.Input['ManagerSkuType'] name: Refers to the sku name which should be "Standard"
         """
         pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input['ManagerSkuType']:
         """
         Refers to the sku name which should be "Standard"
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input['ManagerSkuType']):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class ScheduleRecurrenceArgs:
     def __init__(__self__, *,
-                 recurrence_type: pulumi.Input[str],
+                 recurrence_type: pulumi.Input['RecurrenceType'],
                  recurrence_value: pulumi.Input[int],
-                 weekly_days_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 weekly_days_list: Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]] = None):
         """
         The schedule recurrence.
-        :param pulumi.Input[str] recurrence_type: The recurrence type.
+        :param pulumi.Input['RecurrenceType'] recurrence_type: The recurrence type.
         :param pulumi.Input[int] recurrence_value: The recurrence value.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] weekly_days_list: The week days list. Applicable only for schedules of recurrence type 'weekly'.
+        :param pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]] weekly_days_list: The week days list. Applicable only for schedules of recurrence type 'weekly'.
         """
         pulumi.set(__self__, "recurrence_type", recurrence_type)
         pulumi.set(__self__, "recurrence_value", recurrence_value)
@@ -204,14 +205,14 @@ class ScheduleRecurrenceArgs:
 
     @property
     @pulumi.getter(name="recurrenceType")
-    def recurrence_type(self) -> pulumi.Input[str]:
+    def recurrence_type(self) -> pulumi.Input['RecurrenceType']:
         """
         The recurrence type.
         """
         return pulumi.get(self, "recurrence_type")
 
     @recurrence_type.setter
-    def recurrence_type(self, value: pulumi.Input[str]):
+    def recurrence_type(self, value: pulumi.Input['RecurrenceType']):
         pulumi.set(self, "recurrence_type", value)
 
     @property
@@ -228,14 +229,14 @@ class ScheduleRecurrenceArgs:
 
     @property
     @pulumi.getter(name="weeklyDaysList")
-    def weekly_days_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def weekly_days_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]:
         """
         The week days list. Applicable only for schedules of recurrence type 'weekly'.
         """
         return pulumi.get(self, "weekly_days_list")
 
     @weekly_days_list.setter
-    def weekly_days_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def weekly_days_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]):
         pulumi.set(self, "weekly_days_list", value)
 
 

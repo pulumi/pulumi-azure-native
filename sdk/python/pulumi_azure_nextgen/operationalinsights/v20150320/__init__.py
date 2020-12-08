@@ -10,3 +10,24 @@ from .saved_search import *
 from .storage_insight import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:operationalinsights/v20150320:SavedSearch":
+                return SavedSearch(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:operationalinsights/v20150320:StorageInsight":
+                return StorageInsight(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "operationalinsights/v20150320", _module_instance)
+
+_register_module()

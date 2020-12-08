@@ -54,14 +54,14 @@ class KeyValue(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if config_store_name is None:
+            if config_store_name is None and not opts.urn:
                 raise TypeError("Missing required property 'config_store_name'")
             __props__['config_store_name'] = config_store_name
             __props__['content_type'] = content_type
-            if key_value_name is None:
+            if key_value_name is None and not opts.urn:
                 raise TypeError("Missing required property 'key_value_name'")
             __props__['key_value_name'] = key_value_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

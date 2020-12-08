@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['MachineLearningDataset']
@@ -18,7 +19,7 @@ class MachineLearningDataset(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dataset_name: Optional[pulumi.Input[str]] = None,
-                 dataset_type: Optional[pulumi.Input[str]] = None,
+                 dataset_type: Optional[pulumi.Input[Union[str, 'DatasetType']]] = None,
                  parameters: Optional[pulumi.Input[pulumi.InputType['DatasetCreateRequestParametersArgs']]] = None,
                  registration: Optional[pulumi.Input[pulumi.InputType['DatasetCreateRequestRegistrationArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -34,7 +35,7 @@ class MachineLearningDataset(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dataset_name: The Dataset name.
-        :param pulumi.Input[str] dataset_type: Specifies dataset type.
+        :param pulumi.Input[Union[str, 'DatasetType']] dataset_type: Specifies dataset type.
         :param pulumi.Input[str] resource_group_name: Name of the resource group in which workspace is located.
         :param pulumi.Input[bool] skip_validation: Skip validation that ensures data can be loaded from the dataset before registration.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
@@ -56,24 +57,24 @@ class MachineLearningDataset(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if dataset_name is None:
+            if dataset_name is None and not opts.urn:
                 raise TypeError("Missing required property 'dataset_name'")
             __props__['dataset_name'] = dataset_name
-            if dataset_type is None:
+            if dataset_type is None and not opts.urn:
                 raise TypeError("Missing required property 'dataset_type'")
             __props__['dataset_type'] = dataset_type
-            if parameters is None:
+            if parameters is None and not opts.urn:
                 raise TypeError("Missing required property 'parameters'")
             __props__['parameters'] = parameters
-            if registration is None:
+            if registration is None and not opts.urn:
                 raise TypeError("Missing required property 'registration'")
             __props__['registration'] = registration
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['skip_validation'] = skip_validation
             __props__['time_series'] = time_series
-            if workspace_name is None:
+            if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['identity'] = None

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['NetworkInterfaceTapConfiguration']
@@ -60,13 +61,13 @@ class NetworkInterfaceTapConfiguration(pulumi.CustomResource):
             __props__['etag'] = etag
             __props__['id'] = id
             __props__['name'] = name
-            if network_interface_name is None:
+            if network_interface_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_interface_name'")
             __props__['network_interface_name'] = network_interface_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if tap_configuration_name is None:
+            if tap_configuration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'tap_configuration_name'")
             __props__['tap_configuration_name'] = tap_configuration_name
             __props__['virtual_network_tap'] = virtual_network_tap

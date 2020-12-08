@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ImageTemplateFileCustomizerArgs',
@@ -114,11 +115,11 @@ class ImageTemplateFileCustomizerArgs:
 @pulumi.input_type
 class ImageTemplateIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None,
                  user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Identity for the image template.
-        :param pulumi.Input[str] type: The type of identity used for the image template. The type 'None' will remove any identities from the image template.
+        :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the image template. The type 'None' will remove any identities from the image template.
         :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         if type is not None:
@@ -128,14 +129,14 @@ class ImageTemplateIdentityArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
         """
         The type of identity used for the image template. The type 'None' will remove any identities from the image template.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
     @property

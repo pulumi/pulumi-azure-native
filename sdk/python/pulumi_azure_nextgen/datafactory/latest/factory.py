@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Factory']
@@ -17,11 +18,12 @@ class Factory(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionConfigurationArgs']]] = None,
                  factory_name: Optional[pulumi.Input[str]] = None,
                  global_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['GlobalParameterSpecificationArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['FactoryIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 public_network_access: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  repo_configuration: Optional[pulumi.Input[Union[pulumi.InputType['FactoryGitHubConfigurationArgs'], pulumi.InputType['FactoryVSTSConfigurationArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -33,11 +35,12 @@ class Factory(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['EncryptionConfigurationArgs']] encryption: Properties to enable Customer Managed Key for the factory.
         :param pulumi.Input[str] factory_name: The factory name.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['GlobalParameterSpecificationArgs']]]] global_parameters: List of parameters for factory.
         :param pulumi.Input[pulumi.InputType['FactoryIdentityArgs']] identity: Managed service identity of the factory.
         :param pulumi.Input[str] location: The resource location.
-        :param pulumi.Input[str] public_network_access: Whether or not public network access is allowed for the data factory.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public network access is allowed for the data factory.
         :param pulumi.Input[Union[pulumi.InputType['FactoryGitHubConfigurationArgs'], pulumi.InputType['FactoryVSTSConfigurationArgs']]] repo_configuration: Git repo information of the factory.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
@@ -59,7 +62,8 @@ class Factory(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if factory_name is None:
+            __props__['encryption'] = encryption
+            if factory_name is None and not opts.urn:
                 raise TypeError("Missing required property 'factory_name'")
             __props__['factory_name'] = factory_name
             __props__['global_parameters'] = global_parameters
@@ -67,7 +71,7 @@ class Factory(pulumi.CustomResource):
             __props__['location'] = location
             __props__['public_network_access'] = public_network_access
             __props__['repo_configuration'] = repo_configuration
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
@@ -118,6 +122,14 @@ class Factory(pulumi.CustomResource):
         Etag identifies change in the resource.
         """
         return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> pulumi.Output[Optional['outputs.EncryptionConfigurationResponse']]:
+        """
+        Properties to enable Customer Managed Key for the factory.
+        """
+        return pulumi.get(self, "encryption")
 
     @property
     @pulumi.getter(name="globalParameters")

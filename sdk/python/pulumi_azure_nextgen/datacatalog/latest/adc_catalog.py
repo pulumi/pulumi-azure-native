@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ADCCatalog']
@@ -23,7 +24,7 @@ class ADCCatalog(pulumi.CustomResource):
                  etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[Union[str, 'SkuType']]] = None,
                  successfully_provisioned: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  units: Optional[pulumi.Input[int]] = None,
@@ -42,7 +43,7 @@ class ADCCatalog(pulumi.CustomResource):
         :param pulumi.Input[str] etag: Resource etag
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-        :param pulumi.Input[str] sku: Azure data catalog SKU.
+        :param pulumi.Input[Union[str, 'SkuType']] sku: Azure data catalog SKU.
         :param pulumi.Input[bool] successfully_provisioned: Azure data catalog provision status.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[int] units: Azure data catalog units.
@@ -66,13 +67,13 @@ class ADCCatalog(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['admins'] = admins
-            if catalog_name is None:
+            if catalog_name is None and not opts.urn:
                 raise TypeError("Missing required property 'catalog_name'")
             __props__['catalog_name'] = catalog_name
             __props__['enable_automatic_unit_adjustment'] = enable_automatic_unit_adjustment
             __props__['etag'] = etag
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku

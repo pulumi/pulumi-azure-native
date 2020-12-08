@@ -56,17 +56,17 @@ class File(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['etag'] = etag
-            if file_name is None:
+            if file_name is None and not opts.urn:
                 raise TypeError("Missing required property 'file_name'")
             __props__['file_name'] = file_name
-            if group_name is None:
+            if group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'group_name'")
             __props__['group_name'] = group_name
-            if project_name is None:
+            if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")
             __props__['project_name'] = project_name
             __props__['properties'] = properties
-            if service_name is None:
+            if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['name'] = None

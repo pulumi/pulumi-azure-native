@@ -62,18 +62,18 @@ class GalleryImage(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if gallery_image_name is None:
+            if gallery_image_name is None and not opts.urn:
                 raise TypeError("Missing required property 'gallery_image_name'")
             __props__['gallery_image_name'] = gallery_image_name
             __props__['is_enabled'] = is_enabled
             __props__['is_override'] = is_override
             __props__['is_plan_authorized'] = is_plan_authorized
-            if lab_account_name is None:
+            if lab_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_account_name'")
             __props__['lab_account_name'] = lab_account_name
             __props__['location'] = location
             __props__['provisioning_state'] = provisioning_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

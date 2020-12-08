@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 
 __all__ = ['CustomIPPrefix']
 
@@ -17,7 +18,7 @@ class CustomIPPrefix(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cidr: Optional[pulumi.Input[str]] = None,
-                 commissioned_state: Optional[pulumi.Input[str]] = None,
+                 commissioned_state: Optional[pulumi.Input[Union[str, 'CommissionedState']]] = None,
                  custom_ip_prefix_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -33,7 +34,7 @@ class CustomIPPrefix(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cidr: The prefix range in CIDR notation. Should include the start address and the prefix length.
-        :param pulumi.Input[str] commissioned_state: The commissioned state of the Custom IP Prefix.
+        :param pulumi.Input[Union[str, 'CommissionedState']] commissioned_state: The commissioned state of the Custom IP Prefix.
         :param pulumi.Input[str] custom_ip_prefix_name: The name of the custom IP prefix.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
@@ -60,12 +61,12 @@ class CustomIPPrefix(pulumi.CustomResource):
 
             __props__['cidr'] = cidr
             __props__['commissioned_state'] = commissioned_state
-            if custom_ip_prefix_name is None:
+            if custom_ip_prefix_name is None and not opts.urn:
                 raise TypeError("Missing required property 'custom_ip_prefix_name'")
             __props__['custom_ip_prefix_name'] = custom_ip_prefix_name
             __props__['id'] = id
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

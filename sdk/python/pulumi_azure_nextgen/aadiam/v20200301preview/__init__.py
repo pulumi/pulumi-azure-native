@@ -5,3 +5,22 @@
 # Export this package's modules as members:
 from .getprivate_link_for_azure_ad import *
 from .private_link_for_azure_ad import *
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:aadiam/v20200301preview:privateLinkForAzureAd":
+                return PrivateLinkForAzureAd(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "aadiam/v20200301preview", _module_instance)
+
+_register_module()

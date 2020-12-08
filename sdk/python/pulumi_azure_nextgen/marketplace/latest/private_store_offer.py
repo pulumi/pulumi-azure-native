@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['PrivateStoreOffer']
@@ -59,11 +60,11 @@ class PrivateStoreOffer(pulumi.CustomResource):
 
             __props__['e_tag'] = e_tag
             __props__['icon_file_uris'] = icon_file_uris
-            if offer_id is None:
+            if offer_id is None and not opts.urn:
                 raise TypeError("Missing required property 'offer_id'")
             __props__['offer_id'] = offer_id
             __props__['plans'] = plans
-            if private_store_id is None:
+            if private_store_id is None and not opts.urn:
                 raise TypeError("Missing required property 'private_store_id'")
             __props__['private_store_id'] = private_store_id
             __props__['specific_plan_ids_limitation'] = specific_plan_ids_limitation

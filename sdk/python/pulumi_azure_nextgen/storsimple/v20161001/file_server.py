@@ -57,26 +57,26 @@ class FileServer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if backup_schedule_group_id is None:
+            if backup_schedule_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_schedule_group_id'")
             __props__['backup_schedule_group_id'] = backup_schedule_group_id
             __props__['description'] = description
-            if device_name is None:
+            if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
-            if domain_name is None:
+            if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__['domain_name'] = domain_name
-            if file_server_name is None:
+            if file_server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'file_server_name'")
             __props__['file_server_name'] = file_server_name
-            if manager_name is None:
+            if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")
             __props__['manager_name'] = manager_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if storage_domain_id is None:
+            if storage_domain_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_domain_id'")
             __props__['storage_domain_id'] = storage_domain_id
             __props__['name'] = None

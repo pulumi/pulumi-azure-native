@@ -61,18 +61,18 @@ class StorageInsight(pulumi.CustomResource):
 
             __props__['containers'] = containers
             __props__['e_tag'] = e_tag
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if storage_account is None:
+            if storage_account is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account'")
             __props__['storage_account'] = storage_account
-            if storage_insight_name is None:
+            if storage_insight_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_insight_name'")
             __props__['storage_insight_name'] = storage_insight_name
             __props__['tables'] = tables
             __props__['tags'] = tags
-            if workspace_name is None:
+            if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['name'] = None

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'CapabilityArgs',
@@ -306,12 +307,12 @@ class ConflictResolutionPolicyArgs:
     def __init__(__self__, *,
                  conflict_resolution_path: Optional[pulumi.Input[str]] = None,
                  conflict_resolution_procedure: Optional[pulumi.Input[str]] = None,
-                 mode: Optional[pulumi.Input[str]] = None):
+                 mode: Optional[pulumi.Input[Union[str, 'ConflictResolutionMode']]] = None):
         """
         The conflict resolution policy for the container.
         :param pulumi.Input[str] conflict_resolution_path: The conflict resolution path in the case of LastWriterWins mode.
         :param pulumi.Input[str] conflict_resolution_procedure: The procedure to resolve conflicts in the case of custom mode.
-        :param pulumi.Input[str] mode: Indicates the conflict resolution mode.
+        :param pulumi.Input[Union[str, 'ConflictResolutionMode']] mode: Indicates the conflict resolution mode.
         """
         if conflict_resolution_path is not None:
             pulumi.set(__self__, "conflict_resolution_path", conflict_resolution_path)
@@ -346,26 +347,26 @@ class ConflictResolutionPolicyArgs:
 
     @property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[str]]:
+    def mode(self) -> Optional[pulumi.Input[Union[str, 'ConflictResolutionMode']]]:
         """
         Indicates the conflict resolution mode.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[str]]):
+    def mode(self, value: Optional[pulumi.Input[Union[str, 'ConflictResolutionMode']]]):
         pulumi.set(self, "mode", value)
 
 
 @pulumi.input_type
 class ConsistencyPolicyArgs:
     def __init__(__self__, *,
-                 default_consistency_level: pulumi.Input[str],
+                 default_consistency_level: pulumi.Input['DefaultConsistencyLevel'],
                  max_interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  max_staleness_prefix: Optional[pulumi.Input[int]] = None):
         """
         The consistency policy for the Cosmos DB database account.
-        :param pulumi.Input[str] default_consistency_level: The default consistency level and configuration settings of the Cosmos DB account.
+        :param pulumi.Input['DefaultConsistencyLevel'] default_consistency_level: The default consistency level and configuration settings of the Cosmos DB account.
         :param pulumi.Input[int] max_interval_in_seconds: When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
         :param pulumi.Input[int] max_staleness_prefix: When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
         """
@@ -377,14 +378,14 @@ class ConsistencyPolicyArgs:
 
     @property
     @pulumi.getter(name="defaultConsistencyLevel")
-    def default_consistency_level(self) -> pulumi.Input[str]:
+    def default_consistency_level(self) -> pulumi.Input['DefaultConsistencyLevel']:
         """
         The default consistency level and configuration settings of the Cosmos DB account.
         """
         return pulumi.get(self, "default_consistency_level")
 
     @default_consistency_level.setter
-    def default_consistency_level(self, value: pulumi.Input[str]):
+    def default_consistency_level(self, value: pulumi.Input['DefaultConsistencyLevel']):
         pulumi.set(self, "default_consistency_level", value)
 
     @property
@@ -415,11 +416,11 @@ class ConsistencyPolicyArgs:
 @pulumi.input_type
 class ContainerPartitionKeyArgs:
     def __init__(__self__, *,
-                 kind: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'PartitionKind']]] = None,
                  paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The configuration of the partition key to be used for partitioning data into multiple partitions
-        :param pulumi.Input[str] kind: Indicates the kind of algorithm used for partitioning
+        :param pulumi.Input[Union[str, 'PartitionKind']] kind: Indicates the kind of algorithm used for partitioning
         :param pulumi.Input[Sequence[pulumi.Input[str]]] paths: List of paths using which data within the container can be partitioned
         """
         if kind is not None:
@@ -429,14 +430,14 @@ class ContainerPartitionKeyArgs:
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[str]]:
+    def kind(self) -> Optional[pulumi.Input[Union[str, 'PartitionKind']]]:
         """
         Indicates the kind of algorithm used for partitioning
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[str]]):
+    def kind(self, value: Optional[pulumi.Input[Union[str, 'PartitionKind']]]):
         pulumi.set(self, "kind", value)
 
     @property
@@ -644,13 +645,13 @@ class IncludedPathArgs:
 @pulumi.input_type
 class IndexesArgs:
     def __init__(__self__, *,
-                 data_type: Optional[pulumi.Input[str]] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
+                 data_type: Optional[pulumi.Input[Union[str, 'DataType']]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'IndexKind']]] = None,
                  precision: Optional[pulumi.Input[int]] = None):
         """
         The indexes for the path.
-        :param pulumi.Input[str] data_type: The datatype for which the indexing behavior is applied to.
-        :param pulumi.Input[str] kind: Indicates the type of index.
+        :param pulumi.Input[Union[str, 'DataType']] data_type: The datatype for which the indexing behavior is applied to.
+        :param pulumi.Input[Union[str, 'IndexKind']] kind: Indicates the type of index.
         :param pulumi.Input[int] precision: The precision of the index. -1 is maximum precision.
         """
         if data_type is not None:
@@ -662,26 +663,26 @@ class IndexesArgs:
 
     @property
     @pulumi.getter(name="dataType")
-    def data_type(self) -> Optional[pulumi.Input[str]]:
+    def data_type(self) -> Optional[pulumi.Input[Union[str, 'DataType']]]:
         """
         The datatype for which the indexing behavior is applied to.
         """
         return pulumi.get(self, "data_type")
 
     @data_type.setter
-    def data_type(self, value: Optional[pulumi.Input[str]]):
+    def data_type(self, value: Optional[pulumi.Input[Union[str, 'DataType']]]):
         pulumi.set(self, "data_type", value)
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[str]]:
+    def kind(self) -> Optional[pulumi.Input[Union[str, 'IndexKind']]]:
         """
         Indicates the type of index.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[str]]):
+    def kind(self, value: Optional[pulumi.Input[Union[str, 'IndexKind']]]):
         pulumi.set(self, "kind", value)
 
     @property
@@ -703,13 +704,13 @@ class IndexingPolicyArgs:
                  automatic: Optional[pulumi.Input[bool]] = None,
                  excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input['ExcludedPathArgs']]]] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input['IncludedPathArgs']]]] = None,
-                 indexing_mode: Optional[pulumi.Input[str]] = None):
+                 indexing_mode: Optional[pulumi.Input[Union[str, 'IndexingMode']]] = None):
         """
         Cosmos DB indexing policy
         :param pulumi.Input[bool] automatic: Indicates if the indexing policy is automatic
         :param pulumi.Input[Sequence[pulumi.Input['ExcludedPathArgs']]] excluded_paths: List of paths to exclude from indexing
         :param pulumi.Input[Sequence[pulumi.Input['IncludedPathArgs']]] included_paths: List of paths to include in the indexing
-        :param pulumi.Input[str] indexing_mode: Indicates the indexing mode.
+        :param pulumi.Input[Union[str, 'IndexingMode']] indexing_mode: Indicates the indexing mode.
         """
         if automatic is not None:
             pulumi.set(__self__, "automatic", automatic)
@@ -758,14 +759,14 @@ class IndexingPolicyArgs:
 
     @property
     @pulumi.getter(name="indexingMode")
-    def indexing_mode(self) -> Optional[pulumi.Input[str]]:
+    def indexing_mode(self) -> Optional[pulumi.Input[Union[str, 'IndexingMode']]]:
         """
         Indicates the indexing mode.
         """
         return pulumi.get(self, "indexing_mode")
 
     @indexing_mode.setter
-    def indexing_mode(self, value: Optional[pulumi.Input[str]]):
+    def indexing_mode(self, value: Optional[pulumi.Input[Union[str, 'IndexingMode']]]):
         pulumi.set(self, "indexing_mode", value)
 
 

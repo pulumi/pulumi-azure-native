@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['NatGateway']
@@ -66,12 +67,12 @@ class NatGateway(pulumi.CustomResource):
             __props__['id'] = id
             __props__['idle_timeout_in_minutes'] = idle_timeout_in_minutes
             __props__['location'] = location
-            if nat_gateway_name is None:
+            if nat_gateway_name is None and not opts.urn:
                 raise TypeError("Missing required property 'nat_gateway_name'")
             __props__['nat_gateway_name'] = nat_gateway_name
             __props__['public_ip_addresses'] = public_ip_addresses
             __props__['public_ip_prefixes'] = public_ip_prefixes
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku

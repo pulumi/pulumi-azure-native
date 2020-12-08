@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'JitNetworkAccessPolicyVirtualMachineArgs',
@@ -79,7 +80,7 @@ class JitNetworkAccessPortRuleArgs:
     def __init__(__self__, *,
                  max_request_access_duration: pulumi.Input[str],
                  number: pulumi.Input[int],
-                 protocol: pulumi.Input[str],
+                 protocol: pulumi.Input[Union[str, 'Protocol']],
                  allowed_source_address_prefix: Optional[pulumi.Input[str]] = None,
                  allowed_source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -118,11 +119,11 @@ class JitNetworkAccessPortRuleArgs:
 
     @property
     @pulumi.getter
-    def protocol(self) -> pulumi.Input[str]:
+    def protocol(self) -> pulumi.Input[Union[str, 'Protocol']]:
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: pulumi.Input[str]):
+    def protocol(self, value: pulumi.Input[Union[str, 'Protocol']]):
         pulumi.set(self, "protocol", value)
 
     @property
@@ -219,15 +220,15 @@ class JitNetworkAccessRequestPortArgs:
     def __init__(__self__, *,
                  end_time_utc: pulumi.Input[str],
                  number: pulumi.Input[int],
-                 status: pulumi.Input[str],
-                 status_reason: pulumi.Input[str],
+                 status: pulumi.Input[Union[str, 'Status']],
+                 status_reason: pulumi.Input[Union[str, 'StatusReason']],
                  allowed_source_address_prefix: Optional[pulumi.Input[str]] = None,
                  allowed_source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  mapped_port: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] end_time_utc: The date & time at which the request ends in UTC
-        :param pulumi.Input[str] status: The status of the port
-        :param pulumi.Input[str] status_reason: A description of why the `status` has its value
+        :param pulumi.Input[Union[str, 'Status']] status: The status of the port
+        :param pulumi.Input[Union[str, 'StatusReason']] status_reason: A description of why the `status` has its value
         :param pulumi.Input[str] allowed_source_address_prefix: Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_source_address_prefixes: Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
         :param pulumi.Input[int] mapped_port: The port which is mapped to this port's `number` in the Azure Firewall, if applicable
@@ -266,26 +267,26 @@ class JitNetworkAccessRequestPortArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Input[str]:
+    def status(self) -> pulumi.Input[Union[str, 'Status']]:
         """
         The status of the port
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: pulumi.Input[str]):
+    def status(self, value: pulumi.Input[Union[str, 'Status']]):
         pulumi.set(self, "status", value)
 
     @property
     @pulumi.getter(name="statusReason")
-    def status_reason(self) -> pulumi.Input[str]:
+    def status_reason(self) -> pulumi.Input[Union[str, 'StatusReason']]:
         """
         A description of why the `status` has its value
         """
         return pulumi.get(self, "status_reason")
 
     @status_reason.setter
-    def status_reason(self, value: pulumi.Input[str]):
+    def status_reason(self, value: pulumi.Input[Union[str, 'StatusReason']]):
         pulumi.set(self, "status_reason", value)
 
     @property

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Pool']
@@ -23,7 +24,7 @@ class Pool(pulumi.CustomResource):
                  certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateReferenceArgs']]]]] = None,
                  deployment_configuration: Optional[pulumi.Input[pulumi.InputType['DeploymentConfigurationArgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 inter_node_communication: Optional[pulumi.Input[str]] = None,
+                 inter_node_communication: Optional[pulumi.Input['InterNodeCommunicationState']] = None,
                  max_tasks_per_node: Optional[pulumi.Input[int]] = None,
                  metadata: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetadataItemArgs']]]]] = None,
                  network_configuration: Optional[pulumi.Input[pulumi.InputType['NetworkConfigurationArgs']]] = None,
@@ -48,7 +49,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateReferenceArgs']]]] certificates: For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
         :param pulumi.Input[pulumi.InputType['DeploymentConfigurationArgs']] deployment_configuration: Using CloudServiceConfiguration specifies that the nodes should be creating using Azure Cloud Services (PaaS), while VirtualMachineConfiguration uses Azure Virtual Machines (IaaS).
         :param pulumi.Input[str] display_name: The display name need not be unique and can contain any Unicode characters up to a maximum length of 1024.
-        :param pulumi.Input[str] inter_node_communication: This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
+        :param pulumi.Input['InterNodeCommunicationState'] inter_node_communication: This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetadataItemArgs']]]] metadata: The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
         :param pulumi.Input[pulumi.InputType['NetworkConfigurationArgs']] network_configuration: The network configuration for a pool.
         :param pulumi.Input[str] pool_name: The pool name. This must be unique within the account.
@@ -74,7 +75,7 @@ class Pool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_name is None:
+            if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['application_licenses'] = application_licenses
@@ -86,10 +87,10 @@ class Pool(pulumi.CustomResource):
             __props__['max_tasks_per_node'] = max_tasks_per_node
             __props__['metadata'] = metadata
             __props__['network_configuration'] = network_configuration
-            if pool_name is None:
+            if pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'pool_name'")
             __props__['pool_name'] = pool_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['scale_settings'] = scale_settings

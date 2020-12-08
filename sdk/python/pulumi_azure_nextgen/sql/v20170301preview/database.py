@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Database']
@@ -17,9 +18,9 @@ class Database(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_collation: Optional[pulumi.Input[str]] = None,
+                 catalog_collation: Optional[pulumi.Input[Union[str, 'CatalogCollationType']]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
-                 create_mode: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -30,7 +31,7 @@ class Database(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restorable_dropped_database_id: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
-                 sample_name: Optional[pulumi.Input[str]] = None,
+                 sample_name: Optional[pulumi.Input[Union[str, 'SampleName']]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  source_database_deletion_date: Optional[pulumi.Input[str]] = None,
@@ -45,9 +46,9 @@ class Database(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] catalog_collation: Collation of the metadata catalog.
+        :param pulumi.Input[Union[str, 'CatalogCollationType']] catalog_collation: Collation of the metadata catalog.
         :param pulumi.Input[str] collation: The collation of the database.
-        :param pulumi.Input[str] create_mode: Specifies the mode of database creation.
+        :param pulumi.Input[Union[str, 'CreateMode']] create_mode: Specifies the mode of database creation.
                
                Default: regular database creation.
                
@@ -74,7 +75,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] restorable_dropped_database_id: The resource identifier of the restorable dropped database associated with create operation of this database.
         :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-        :param pulumi.Input[str] sample_name: The name of the sample schema to apply when creating this database.
+        :param pulumi.Input[Union[str, 'SampleName']] sample_name: The name of the sample schema to apply when creating this database.
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The name and tier of the SKU.
         :param pulumi.Input[str] source_database_deletion_date: Specifies the time that the database was deleted.
@@ -102,24 +103,24 @@ class Database(pulumi.CustomResource):
             __props__['catalog_collation'] = catalog_collation
             __props__['collation'] = collation
             __props__['create_mode'] = create_mode
-            if database_name is None:
+            if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
             __props__['elastic_pool_id'] = elastic_pool_id
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['long_term_retention_backup_resource_id'] = long_term_retention_backup_resource_id
             __props__['max_size_bytes'] = max_size_bytes
             __props__['recoverable_database_id'] = recoverable_database_id
             __props__['recovery_services_recovery_point_id'] = recovery_services_recovery_point_id
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['restorable_dropped_database_id'] = restorable_dropped_database_id
             __props__['restore_point_in_time'] = restore_point_in_time
             __props__['sample_name'] = sample_name
-            if server_name is None:
+            if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
             __props__['sku'] = sku

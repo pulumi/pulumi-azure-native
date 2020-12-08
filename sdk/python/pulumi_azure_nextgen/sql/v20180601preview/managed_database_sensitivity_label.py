@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['ManagedDatabaseSensitivityLabel']
 
@@ -22,7 +23,7 @@ class ManagedDatabaseSensitivityLabel(pulumi.CustomResource):
                  label_id: Optional[pulumi.Input[str]] = None,
                  label_name: Optional[pulumi.Input[str]] = None,
                  managed_instance_name: Optional[pulumi.Input[str]] = None,
-                 rank: Optional[pulumi.Input[str]] = None,
+                 rank: Optional[pulumi.Input['SensitivityLabelRank']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
                  sensitivity_label_source: Optional[pulumi.Input[str]] = None,
@@ -64,30 +65,30 @@ class ManagedDatabaseSensitivityLabel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if column_name is None:
+            if column_name is None and not opts.urn:
                 raise TypeError("Missing required property 'column_name'")
             __props__['column_name'] = column_name
-            if database_name is None:
+            if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
             __props__['information_type'] = information_type
             __props__['information_type_id'] = information_type_id
             __props__['label_id'] = label_id
             __props__['label_name'] = label_name
-            if managed_instance_name is None:
+            if managed_instance_name is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_instance_name'")
             __props__['managed_instance_name'] = managed_instance_name
             __props__['rank'] = rank
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if schema_name is None:
+            if schema_name is None and not opts.urn:
                 raise TypeError("Missing required property 'schema_name'")
             __props__['schema_name'] = schema_name
-            if sensitivity_label_source is None:
+            if sensitivity_label_source is None and not opts.urn:
                 raise TypeError("Missing required property 'sensitivity_label_source'")
             __props__['sensitivity_label_source'] = sensitivity_label_source
-            if table_name is None:
+            if table_name is None and not opts.urn:
                 raise TypeError("Missing required property 'table_name'")
             __props__['table_name'] = table_name
             __props__['is_disabled'] = None

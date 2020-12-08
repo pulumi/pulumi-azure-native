@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DiagnosticSetting']
@@ -60,7 +61,7 @@ class DiagnosticSetting(pulumi.CustomResource):
             __props__['event_hub_authorization_rule_id'] = event_hub_authorization_rule_id
             __props__['event_hub_name'] = event_hub_name
             __props__['logs'] = logs
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['service_bus_rule_id'] = service_bus_rule_id

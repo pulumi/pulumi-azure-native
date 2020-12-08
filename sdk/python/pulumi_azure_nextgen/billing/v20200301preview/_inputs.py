@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'CostAllocationProportionArgs',
@@ -98,12 +99,12 @@ class CostAllocationRuleDetailsArgs:
 class CostAllocationRulePropertiesArgs:
     def __init__(__self__, *,
                  details: pulumi.Input['CostAllocationRuleDetailsArgs'],
-                 status: pulumi.Input[str],
+                 status: pulumi.Input[Union[str, 'RuleStatus']],
                  description: Optional[pulumi.Input[str]] = None):
         """
         The properties of a cost allocation rule
         :param pulumi.Input['CostAllocationRuleDetailsArgs'] details: Resource information for the cost allocation rule
-        :param pulumi.Input[str] status: Status of the rule
+        :param pulumi.Input[Union[str, 'RuleStatus']] status: Status of the rule
         :param pulumi.Input[str] description: Description of a cost allocation rule.
         """
         pulumi.set(__self__, "details", details)
@@ -125,14 +126,14 @@ class CostAllocationRulePropertiesArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Input[str]:
+    def status(self) -> pulumi.Input[Union[str, 'RuleStatus']]:
         """
         Status of the rule
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: pulumi.Input[str]):
+    def status(self, value: pulumi.Input[Union[str, 'RuleStatus']]):
         pulumi.set(self, "status", value)
 
     @property
@@ -152,12 +153,12 @@ class CostAllocationRulePropertiesArgs:
 class SourceCostAllocationResourceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 resource_type: pulumi.Input[str],
+                 resource_type: pulumi.Input[Union[str, 'CostAllocationResourceType']],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         Source resources for cost allocation
         :param pulumi.Input[str] name: If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
-        :param pulumi.Input[str] resource_type: Type of resources contained in this cost allocation rule
+        :param pulumi.Input[Union[str, 'CostAllocationResourceType']] resource_type: Type of resources contained in this cost allocation rule
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Source Resources for cost allocation. This list cannot contain more than 25 values.
         """
         pulumi.set(__self__, "name", name)
@@ -178,14 +179,14 @@ class SourceCostAllocationResourceArgs:
 
     @property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> pulumi.Input[str]:
+    def resource_type(self) -> pulumi.Input[Union[str, 'CostAllocationResourceType']]:
         """
         Type of resources contained in this cost allocation rule
         """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
-    def resource_type(self, value: pulumi.Input[str]):
+    def resource_type(self, value: pulumi.Input[Union[str, 'CostAllocationResourceType']]):
         pulumi.set(self, "resource_type", value)
 
     @property
@@ -205,14 +206,14 @@ class SourceCostAllocationResourceArgs:
 class TargetCostAllocationResourceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 policy_type: pulumi.Input[str],
-                 resource_type: pulumi.Input[str],
+                 policy_type: pulumi.Input[Union[str, 'CostAllocationPolicyType']],
+                 resource_type: pulumi.Input[Union[str, 'CostAllocationResourceType']],
                  values: pulumi.Input[Sequence[pulumi.Input['CostAllocationProportionArgs']]]):
         """
         Target resources for cost allocation.
         :param pulumi.Input[str] name: If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag
-        :param pulumi.Input[str] policy_type: Method of cost allocation for the rule
-        :param pulumi.Input[str] resource_type: Type of resources contained in this cost allocation rule
+        :param pulumi.Input[Union[str, 'CostAllocationPolicyType']] policy_type: Method of cost allocation for the rule
+        :param pulumi.Input[Union[str, 'CostAllocationResourceType']] resource_type: Type of resources contained in this cost allocation rule
         :param pulumi.Input[Sequence[pulumi.Input['CostAllocationProportionArgs']]] values: Target resources for cost allocation. This list cannot contain more than 25 values.
         """
         pulumi.set(__self__, "name", name)
@@ -234,26 +235,26 @@ class TargetCostAllocationResourceArgs:
 
     @property
     @pulumi.getter(name="policyType")
-    def policy_type(self) -> pulumi.Input[str]:
+    def policy_type(self) -> pulumi.Input[Union[str, 'CostAllocationPolicyType']]:
         """
         Method of cost allocation for the rule
         """
         return pulumi.get(self, "policy_type")
 
     @policy_type.setter
-    def policy_type(self, value: pulumi.Input[str]):
+    def policy_type(self, value: pulumi.Input[Union[str, 'CostAllocationPolicyType']]):
         pulumi.set(self, "policy_type", value)
 
     @property
     @pulumi.getter(name="resourceType")
-    def resource_type(self) -> pulumi.Input[str]:
+    def resource_type(self) -> pulumi.Input[Union[str, 'CostAllocationResourceType']]:
         """
         Type of resources contained in this cost allocation rule
         """
         return pulumi.get(self, "resource_type")
 
     @resource_type.setter
-    def resource_type(self, value: pulumi.Input[str]):
+    def resource_type(self, value: pulumi.Input[Union[str, 'CostAllocationResourceType']]):
         pulumi.set(self, "resource_type", value)
 
     @property

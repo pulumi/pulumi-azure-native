@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AzureSqlContainerArgs',
@@ -31,14 +32,14 @@ __all__ = [
 @pulumi.input_type
 class AzureSqlContainerArgs:
     def __init__(__self__, *,
-                 backup_management_type: Optional[pulumi.Input[str]] = None,
+                 backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
                  container_type: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  health_status: Optional[pulumi.Input[str]] = None,
                  registration_status: Optional[pulumi.Input[str]] = None):
         """
         Azure Sql workload-specific container.
-        :param pulumi.Input[str] backup_management_type: Type of backup management for the container.
+        :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the container.
         :param pulumi.Input[str] container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
@@ -60,14 +61,14 @@ class AzureSqlContainerArgs:
 
     @property
     @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[pulumi.Input[str]]:
+    def backup_management_type(self) -> Optional[pulumi.Input[Union[str, 'BackupManagementType']]]:
         """
         Type of backup management for the container.
         """
         return pulumi.get(self, "backup_management_type")
 
     @backup_management_type.setter
-    def backup_management_type(self, value: Optional[pulumi.Input[str]]):
+    def backup_management_type(self, value: Optional[pulumi.Input[Union[str, 'BackupManagementType']]]):
         pulumi.set(self, "backup_management_type", value)
 
     @property
@@ -125,7 +126,7 @@ class AzureSqlContainerArgs:
 @pulumi.input_type
 class AzureStorageContainerArgs:
     def __init__(__self__, *,
-                 backup_management_type: Optional[pulumi.Input[str]] = None,
+                 backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
                  container_type: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  health_status: Optional[pulumi.Input[str]] = None,
@@ -136,7 +137,7 @@ class AzureStorageContainerArgs:
                  storage_account_version: Optional[pulumi.Input[str]] = None):
         """
         Azure Storage Account workload-specific container.
-        :param pulumi.Input[str] backup_management_type: Type of backup management for the container.
+        :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the container.
         :param pulumi.Input[str] container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
@@ -170,14 +171,14 @@ class AzureStorageContainerArgs:
 
     @property
     @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[pulumi.Input[str]]:
+    def backup_management_type(self) -> Optional[pulumi.Input[Union[str, 'BackupManagementType']]]:
         """
         Type of backup management for the container.
         """
         return pulumi.get(self, "backup_management_type")
 
     @backup_management_type.setter
-    def backup_management_type(self, value: Optional[pulumi.Input[str]]):
+    def backup_management_type(self, value: Optional[pulumi.Input[Union[str, 'BackupManagementType']]]):
         pulumi.set(self, "backup_management_type", value)
 
     @property
@@ -283,19 +284,19 @@ class AzureStorageContainerArgs:
 @pulumi.input_type
 class AzureWorkloadContainerArgs:
     def __init__(__self__, *,
-                 backup_management_type: Optional[pulumi.Input[str]] = None,
+                 backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
                  container_type: Optional[pulumi.Input[str]] = None,
                  extended_info: Optional[pulumi.Input['AzureWorkloadContainerExtendedInfoArgs']] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  health_status: Optional[pulumi.Input[str]] = None,
                  last_updated_time: Optional[pulumi.Input[str]] = None,
-                 operation_type: Optional[pulumi.Input[str]] = None,
+                 operation_type: Optional[pulumi.Input[Union[str, 'OperationType']]] = None,
                  registration_status: Optional[pulumi.Input[str]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
-                 workload_type: Optional[pulumi.Input[str]] = None):
+                 workload_type: Optional[pulumi.Input[Union[str, 'WorkloadType']]] = None):
         """
         Container for the workloads running inside Azure Compute or Classic Compute.
-        :param pulumi.Input[str] backup_management_type: Type of backup management for the container.
+        :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the container.
         :param pulumi.Input[str] container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
@@ -304,10 +305,10 @@ class AzureWorkloadContainerArgs:
         :param pulumi.Input[str] friendly_name: Friendly name of the container.
         :param pulumi.Input[str] health_status: Status of health of the container.
         :param pulumi.Input[str] last_updated_time: Time stamp when this container was updated.
-        :param pulumi.Input[str] operation_type: Re-Do Operation
+        :param pulumi.Input[Union[str, 'OperationType']] operation_type: Re-Do Operation
         :param pulumi.Input[str] registration_status: Status of registration of the container with the Recovery Services Vault.
         :param pulumi.Input[str] source_resource_id: ARM ID of the virtual machine represented by this Azure Workload Container
-        :param pulumi.Input[str] workload_type: Workload type for which registration was sent.
+        :param pulumi.Input[Union[str, 'WorkloadType']] workload_type: Workload type for which registration was sent.
         """
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
@@ -332,14 +333,14 @@ class AzureWorkloadContainerArgs:
 
     @property
     @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[pulumi.Input[str]]:
+    def backup_management_type(self) -> Optional[pulumi.Input[Union[str, 'BackupManagementType']]]:
         """
         Type of backup management for the container.
         """
         return pulumi.get(self, "backup_management_type")
 
     @backup_management_type.setter
-    def backup_management_type(self, value: Optional[pulumi.Input[str]]):
+    def backup_management_type(self, value: Optional[pulumi.Input[Union[str, 'BackupManagementType']]]):
         pulumi.set(self, "backup_management_type", value)
 
     @property
@@ -407,14 +408,14 @@ class AzureWorkloadContainerArgs:
 
     @property
     @pulumi.getter(name="operationType")
-    def operation_type(self) -> Optional[pulumi.Input[str]]:
+    def operation_type(self) -> Optional[pulumi.Input[Union[str, 'OperationType']]]:
         """
         Re-Do Operation
         """
         return pulumi.get(self, "operation_type")
 
     @operation_type.setter
-    def operation_type(self, value: Optional[pulumi.Input[str]]):
+    def operation_type(self, value: Optional[pulumi.Input[Union[str, 'OperationType']]]):
         pulumi.set(self, "operation_type", value)
 
     @property
@@ -443,14 +444,14 @@ class AzureWorkloadContainerArgs:
 
     @property
     @pulumi.getter(name="workloadType")
-    def workload_type(self) -> Optional[pulumi.Input[str]]:
+    def workload_type(self) -> Optional[pulumi.Input[Union[str, 'WorkloadType']]]:
         """
         Workload type for which registration was sent.
         """
         return pulumi.get(self, "workload_type")
 
     @workload_type.setter
-    def workload_type(self, value: Optional[pulumi.Input[str]]):
+    def workload_type(self, value: Optional[pulumi.Input[Union[str, 'WorkloadType']]]):
         pulumi.set(self, "workload_type", value)
 
 
@@ -651,7 +652,7 @@ class DistributedNodesInfoArgs:
 @pulumi.input_type
 class DpmContainerArgs:
     def __init__(__self__, *,
-                 backup_management_type: Optional[pulumi.Input[str]] = None,
+                 backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
                  can_re_register: Optional[pulumi.Input[bool]] = None,
                  container_id: Optional[pulumi.Input[str]] = None,
                  container_type: Optional[pulumi.Input[str]] = None,
@@ -666,7 +667,7 @@ class DpmContainerArgs:
                  upgrade_available: Optional[pulumi.Input[bool]] = None):
         """
         DPM workload-specific protection container.
-        :param pulumi.Input[str] backup_management_type: Type of backup management for the container.
+        :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the container.
         :param pulumi.Input[bool] can_re_register: Specifies whether the container is re-registrable.
         :param pulumi.Input[str] container_id: ID of container.
         :param pulumi.Input[str] container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
@@ -712,14 +713,14 @@ class DpmContainerArgs:
 
     @property
     @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[pulumi.Input[str]]:
+    def backup_management_type(self) -> Optional[pulumi.Input[Union[str, 'BackupManagementType']]]:
         """
         Type of backup management for the container.
         """
         return pulumi.get(self, "backup_management_type")
 
     @backup_management_type.setter
-    def backup_management_type(self, value: Optional[pulumi.Input[str]]):
+    def backup_management_type(self, value: Optional[pulumi.Input[Union[str, 'BackupManagementType']]]):
         pulumi.set(self, "backup_management_type", value)
 
     @property
@@ -873,7 +874,7 @@ class DpmContainerArgs:
 @pulumi.input_type
 class GenericContainerArgs:
     def __init__(__self__, *,
-                 backup_management_type: Optional[pulumi.Input[str]] = None,
+                 backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
                  container_type: Optional[pulumi.Input[str]] = None,
                  extended_information: Optional[pulumi.Input['GenericContainerExtendedInfoArgs']] = None,
                  fabric_name: Optional[pulumi.Input[str]] = None,
@@ -882,7 +883,7 @@ class GenericContainerArgs:
                  registration_status: Optional[pulumi.Input[str]] = None):
         """
         Base class for generic container of backup items
-        :param pulumi.Input[str] backup_management_type: Type of backup management for the container.
+        :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the container.
         :param pulumi.Input[str] container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
@@ -910,14 +911,14 @@ class GenericContainerArgs:
 
     @property
     @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[pulumi.Input[str]]:
+    def backup_management_type(self) -> Optional[pulumi.Input[Union[str, 'BackupManagementType']]]:
         """
         Type of backup management for the container.
         """
         return pulumi.get(self, "backup_management_type")
 
     @backup_management_type.setter
-    def backup_management_type(self, value: Optional[pulumi.Input[str]]):
+    def backup_management_type(self, value: Optional[pulumi.Input[Union[str, 'BackupManagementType']]]):
         pulumi.set(self, "backup_management_type", value)
 
     @property
@@ -1055,7 +1056,7 @@ class GenericContainerExtendedInfoArgs:
 @pulumi.input_type
 class IaaSVMContainerArgs:
     def __init__(__self__, *,
-                 backup_management_type: Optional[pulumi.Input[str]] = None,
+                 backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
                  container_type: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  health_status: Optional[pulumi.Input[str]] = None,
@@ -1065,7 +1066,7 @@ class IaaSVMContainerArgs:
                  virtual_machine_version: Optional[pulumi.Input[str]] = None):
         """
         IaaS VM workload-specific container.
-        :param pulumi.Input[str] backup_management_type: Type of backup management for the container.
+        :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the container.
         :param pulumi.Input[str] container_type: Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
@@ -1096,14 +1097,14 @@ class IaaSVMContainerArgs:
 
     @property
     @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[pulumi.Input[str]]:
+    def backup_management_type(self) -> Optional[pulumi.Input[Union[str, 'BackupManagementType']]]:
         """
         Type of backup management for the container.
         """
         return pulumi.get(self, "backup_management_type")
 
     @backup_management_type.setter
-    def backup_management_type(self, value: Optional[pulumi.Input[str]]):
+    def backup_management_type(self, value: Optional[pulumi.Input[Union[str, 'BackupManagementType']]]):
         pulumi.set(self, "backup_management_type", value)
 
     @property
@@ -1338,7 +1339,7 @@ class MABContainerHealthDetailsArgs:
 class MabContainerArgs:
     def __init__(__self__, *,
                  agent_version: Optional[pulumi.Input[str]] = None,
-                 backup_management_type: Optional[pulumi.Input[str]] = None,
+                 backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
                  can_re_register: Optional[pulumi.Input[bool]] = None,
                  container_health_state: Optional[pulumi.Input[str]] = None,
                  container_id: Optional[pulumi.Input[int]] = None,
@@ -1352,7 +1353,7 @@ class MabContainerArgs:
         """
         Container with items backed up using MAB backup engine.
         :param pulumi.Input[str] agent_version: Agent version of this container.
-        :param pulumi.Input[str] backup_management_type: Type of backup management for the container.
+        :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the container.
         :param pulumi.Input[bool] can_re_register: Can the container be registered one more time.
         :param pulumi.Input[str] container_health_state: Health state of mab container.
         :param pulumi.Input[int] container_id: ContainerID represents the container.
@@ -1406,14 +1407,14 @@ class MabContainerArgs:
 
     @property
     @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[pulumi.Input[str]]:
+    def backup_management_type(self) -> Optional[pulumi.Input[Union[str, 'BackupManagementType']]]:
         """
         Type of backup management for the container.
         """
         return pulumi.get(self, "backup_management_type")
 
     @backup_management_type.setter
-    def backup_management_type(self, value: Optional[pulumi.Input[str]]):
+    def backup_management_type(self, value: Optional[pulumi.Input[Union[str, 'BackupManagementType']]]):
         pulumi.set(self, "backup_management_type", value)
 
     @property
@@ -1543,14 +1544,14 @@ class MabContainerArgs:
 @pulumi.input_type
 class MabContainerExtendedInfoArgs:
     def __init__(__self__, *,
-                 backup_item_type: Optional[pulumi.Input[str]] = None,
+                 backup_item_type: Optional[pulumi.Input[Union[str, 'BackupItemType']]] = None,
                  backup_items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  last_backup_status: Optional[pulumi.Input[str]] = None,
                  last_refreshed_at: Optional[pulumi.Input[str]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None):
         """
         Additional information of the container.
-        :param pulumi.Input[str] backup_item_type: Type of backup items associated with this container.
+        :param pulumi.Input[Union[str, 'BackupItemType']] backup_item_type: Type of backup items associated with this container.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] backup_items: List of backup items associated with this container.
         :param pulumi.Input[str] last_backup_status: Latest backup status of this container.
         :param pulumi.Input[str] last_refreshed_at: Time stamp when this container was refreshed.
@@ -1569,14 +1570,14 @@ class MabContainerExtendedInfoArgs:
 
     @property
     @pulumi.getter(name="backupItemType")
-    def backup_item_type(self) -> Optional[pulumi.Input[str]]:
+    def backup_item_type(self) -> Optional[pulumi.Input[Union[str, 'BackupItemType']]]:
         """
         Type of backup items associated with this container.
         """
         return pulumi.get(self, "backup_item_type")
 
     @backup_item_type.setter
-    def backup_item_type(self, value: Optional[pulumi.Input[str]]):
+    def backup_item_type(self, value: Optional[pulumi.Input[Union[str, 'BackupItemType']]]):
         pulumi.set(self, "backup_item_type", value)
 
     @property

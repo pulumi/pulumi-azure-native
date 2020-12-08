@@ -66,25 +66,25 @@ class SiteRelayServiceConnectionSlot(pulumi.CustomResource):
 
             __props__['biztalk_uri'] = biztalk_uri
             __props__['entity_connection_string'] = entity_connection_string
-            if entity_name is None:
+            if entity_name is None and not opts.urn:
                 raise TypeError("Missing required property 'entity_name'")
             __props__['entity_name'] = entity_name
             __props__['hostname'] = hostname
             __props__['id'] = id
             __props__['kind'] = kind
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['port'] = port
             __props__['resource_connection_string'] = resource_connection_string
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_type'] = resource_type
-            if slot is None:
+            if slot is None and not opts.urn:
                 raise TypeError("Missing required property 'slot'")
             __props__['slot'] = slot
             __props__['tags'] = tags

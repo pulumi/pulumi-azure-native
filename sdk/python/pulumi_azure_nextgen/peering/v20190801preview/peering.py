@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Peering']
@@ -19,7 +20,7 @@ class Peering(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  direct: Optional[pulumi.Input[pulumi.InputType['PeeringPropertiesDirectArgs']]] = None,
                  exchange: Optional[pulumi.Input[pulumi.InputType['PeeringPropertiesExchangeArgs']]] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  peering_location: Optional[pulumi.Input[str]] = None,
                  peering_name: Optional[pulumi.Input[str]] = None,
@@ -36,7 +37,7 @@ class Peering(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PeeringPropertiesDirectArgs']] direct: The properties that define a direct peering.
         :param pulumi.Input[pulumi.InputType['PeeringPropertiesExchangeArgs']] exchange: The properties that define an exchange peering.
-        :param pulumi.Input[str] kind: The kind of the peering.
+        :param pulumi.Input[Union[str, 'Kind']] kind: The kind of the peering.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] peering_location: The location of the peering.
         :param pulumi.Input[str] peering_name: The name of the peering.
@@ -63,20 +64,20 @@ class Peering(pulumi.CustomResource):
 
             __props__['direct'] = direct
             __props__['exchange'] = exchange
-            if kind is None:
+            if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = kind
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['peering_location'] = peering_location
-            if peering_name is None:
+            if peering_name is None and not opts.urn:
                 raise TypeError("Missing required property 'peering_name'")
             __props__['peering_name'] = peering_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if sku is None:
+            if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'PrivateEndpointArgs',
@@ -43,12 +44,12 @@ class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
                  action_required: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None):
+                 status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         An object that represents the approval state of the private link connection.
         :param pulumi.Input[str] action_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param pulumi.Input[str] description: The reason for approval or rejection.
-        :param pulumi.Input[str] status: Indicates whether the connection has been approved, rejected or removed by the Relay Namespace owner.
+        :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been approved, rejected or removed by the Relay Namespace owner.
         """
         if action_required is not None:
             pulumi.set(__self__, "action_required", action_required)
@@ -83,26 +84,26 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]:
         """
         Indicates whether the connection has been approved, rejected or removed by the Relay Namespace owner.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 tier: Optional[pulumi.Input[str]] = None):
+                 name: pulumi.Input[Union[str, 'SkuName']],
+                 tier: Optional[pulumi.Input[Union[str, 'SkuTier']]] = None):
         """
         SKU of the namespace.
-        :param pulumi.Input[str] name: Name of this SKU.
-        :param pulumi.Input[str] tier: The tier of this SKU.
+        :param pulumi.Input[Union[str, 'SkuName']] name: Name of this SKU.
+        :param pulumi.Input[Union[str, 'SkuTier']] tier: The tier of this SKU.
         """
         pulumi.set(__self__, "name", name)
         if tier is not None:
@@ -110,26 +111,26 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input[Union[str, 'SkuName']]:
         """
         Name of this SKU.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
         pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[str]]:
+    def tier(self) -> Optional[pulumi.Input[Union[str, 'SkuTier']]]:
         """
         The tier of this SKU.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[str]]):
+    def tier(self, value: Optional[pulumi.Input[Union[str, 'SkuTier']]]):
         pulumi.set(self, "tier", value)
 
 

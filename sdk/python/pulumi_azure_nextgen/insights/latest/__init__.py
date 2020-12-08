@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .action_group import *
 from .activity_log_alert import *
 from .alert_rule import *
@@ -34,3 +35,48 @@ from .web_test import *
 from .workbook import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:insights/latest:ActionGroup":
+                return ActionGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:insights/latest:ActivityLogAlert":
+                return ActivityLogAlert(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:insights/latest:AlertRule":
+                return AlertRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:insights/latest:AnalyticsItem":
+                return AnalyticsItem(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:insights/latest:AutoscaleSetting":
+                return AutoscaleSetting(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:insights/latest:Component":
+                return Component(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:insights/latest:ExportConfiguration":
+                return ExportConfiguration(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:insights/latest:Favorite":
+                return Favorite(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:insights/latest:LogProfile":
+                return LogProfile(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:insights/latest:MetricAlert":
+                return MetricAlert(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:insights/latest:MyWorkbook":
+                return MyWorkbook(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:insights/latest:ScheduledQueryRule":
+                return ScheduledQueryRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:insights/latest:WebTest":
+                return WebTest(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:insights/latest:Workbook":
+                return Workbook(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "insights/latest", _module_instance)
+
+_register_module()

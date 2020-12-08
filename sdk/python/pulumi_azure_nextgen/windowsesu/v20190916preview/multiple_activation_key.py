@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['MultipleActivationKey']
 
@@ -20,9 +21,9 @@ class MultipleActivationKey(pulumi.CustomResource):
                  is_eligible: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  multiple_activation_key_name: Optional[pulumi.Input[str]] = None,
-                 os_type: Optional[pulumi.Input[str]] = None,
+                 os_type: Optional[pulumi.Input[Union[str, 'OsType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 support_type: Optional[pulumi.Input[str]] = None,
+                 support_type: Optional[pulumi.Input[Union[str, 'SupportType']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -37,9 +38,9 @@ class MultipleActivationKey(pulumi.CustomResource):
         :param pulumi.Input[bool] is_eligible: <code> true </code> if user has eligible on-premises Windows physical or virtual machines, and that the requested key will only be used in their organization; <code> false </code> otherwise.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] multiple_activation_key_name: The name of the MAK key.
-        :param pulumi.Input[str] os_type: Type of OS for which the key is requested.
+        :param pulumi.Input[Union[str, 'OsType']] os_type: Type of OS for which the key is requested.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] support_type: Type of support
+        :param pulumi.Input[Union[str, 'SupportType']] support_type: Type of support
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
@@ -62,14 +63,14 @@ class MultipleActivationKey(pulumi.CustomResource):
             __props__['agreement_number'] = agreement_number
             __props__['installed_server_number'] = installed_server_number
             __props__['is_eligible'] = is_eligible
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if multiple_activation_key_name is None:
+            if multiple_activation_key_name is None and not opts.urn:
                 raise TypeError("Missing required property 'multiple_activation_key_name'")
             __props__['multiple_activation_key_name'] = multiple_activation_key_name
             __props__['os_type'] = os_type
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['support_type'] = support_type

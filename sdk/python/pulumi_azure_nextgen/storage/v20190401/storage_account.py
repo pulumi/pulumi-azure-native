@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['StorageAccount']
@@ -17,7 +18,7 @@ class StorageAccount(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_tier: Optional[pulumi.Input[str]] = None,
+                 access_tier: Optional[pulumi.Input['AccessTier']] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  allow_blob_public_access: Optional[pulumi.Input[bool]] = None,
                  azure_files_identity_based_authentication: Optional[pulumi.Input[pulumi.InputType['AzureFilesIdentityBasedAuthenticationArgs']]] = None,
@@ -26,10 +27,10 @@ class StorageAccount(pulumi.CustomResource):
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  is_hns_enabled: Optional[pulumi.Input[bool]] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
-                 large_file_shares_state: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
+                 large_file_shares_state: Optional[pulumi.Input[Union[str, 'LargeFileSharesState']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 minimum_tls_version: Optional[pulumi.Input[str]] = None,
+                 minimum_tls_version: Optional[pulumi.Input[Union[str, 'MinimumTlsVersion']]] = None,
                  network_rule_set: Optional[pulumi.Input[pulumi.InputType['NetworkRuleSetArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
@@ -42,7 +43,7 @@ class StorageAccount(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access_tier: Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+        :param pulumi.Input['AccessTier'] access_tier: Required for storage accounts where kind = BlobStorage. The access tier used for billing.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[bool] allow_blob_public_access: Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
         :param pulumi.Input[pulumi.InputType['AzureFilesIdentityBasedAuthenticationArgs']] azure_files_identity_based_authentication: Provides the identity based authentication settings for Azure Files.
@@ -51,10 +52,10 @@ class StorageAccount(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EncryptionArgs']] encryption: Not applicable. Azure Storage encryption is enabled for all storage accounts and cannot be disabled.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
         :param pulumi.Input[bool] is_hns_enabled: Account HierarchicalNamespace enabled if sets to true.
-        :param pulumi.Input[str] kind: Required. Indicates the type of storage account.
-        :param pulumi.Input[str] large_file_shares_state: Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
+        :param pulumi.Input[Union[str, 'Kind']] kind: Required. Indicates the type of storage account.
+        :param pulumi.Input[Union[str, 'LargeFileSharesState']] large_file_shares_state: Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
         :param pulumi.Input[str] location: Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
-        :param pulumi.Input[str] minimum_tls_version: Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
+        :param pulumi.Input[Union[str, 'MinimumTlsVersion']] minimum_tls_version: Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
         :param pulumi.Input[pulumi.InputType['NetworkRuleSetArgs']] network_rule_set: Network rule set
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Required. Gets or sets the SKU name.
@@ -78,7 +79,7 @@ class StorageAccount(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['access_tier'] = access_tier
-            if account_name is None:
+            if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['allow_blob_public_access'] = allow_blob_public_access
@@ -88,19 +89,19 @@ class StorageAccount(pulumi.CustomResource):
             __props__['encryption'] = encryption
             __props__['identity'] = identity
             __props__['is_hns_enabled'] = is_hns_enabled
-            if kind is None:
+            if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = kind
             __props__['large_file_shares_state'] = large_file_shares_state
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['minimum_tls_version'] = minimum_tls_version
             __props__['network_rule_set'] = network_rule_set
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if sku is None:
+            if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags

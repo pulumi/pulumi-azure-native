@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Database']
@@ -18,24 +19,24 @@ class Database(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_pause_delay: Optional[pulumi.Input[int]] = None,
-                 catalog_collation: Optional[pulumi.Input[str]] = None,
+                 catalog_collation: Optional[pulumi.Input[Union[str, 'CatalogCollationType']]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
-                 create_mode: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
-                 license_type: Optional[pulumi.Input[str]] = None,
+                 license_type: Optional[pulumi.Input[Union[str, 'DatabaseLicenseType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  long_term_retention_backup_resource_id: Optional[pulumi.Input[str]] = None,
                  max_size_bytes: Optional[pulumi.Input[int]] = None,
                  min_capacity: Optional[pulumi.Input[float]] = None,
                  read_replica_count: Optional[pulumi.Input[int]] = None,
-                 read_scale: Optional[pulumi.Input[str]] = None,
+                 read_scale: Optional[pulumi.Input[Union[str, 'DatabaseReadScale']]] = None,
                  recoverable_database_id: Optional[pulumi.Input[str]] = None,
                  recovery_services_recovery_point_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restorable_dropped_database_id: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
-                 sample_name: Optional[pulumi.Input[str]] = None,
+                 sample_name: Optional[pulumi.Input[Union[str, 'SampleName']]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  source_database_deletion_date: Optional[pulumi.Input[str]] = None,
@@ -51,9 +52,9 @@ class Database(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] auto_pause_delay: Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled
-        :param pulumi.Input[str] catalog_collation: Collation of the metadata catalog.
+        :param pulumi.Input[Union[str, 'CatalogCollationType']] catalog_collation: Collation of the metadata catalog.
         :param pulumi.Input[str] collation: The collation of the database.
-        :param pulumi.Input[str] create_mode: Specifies the mode of database creation.
+        :param pulumi.Input[Union[str, 'CreateMode']] create_mode: Specifies the mode of database creation.
                
                Default: regular database creation.
                
@@ -72,19 +73,19 @@ class Database(pulumi.CustomResource):
                Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
         :param pulumi.Input[str] database_name: The name of the database.
         :param pulumi.Input[str] elastic_pool_id: The resource identifier of the elastic pool containing this database.
-        :param pulumi.Input[str] license_type: The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
+        :param pulumi.Input[Union[str, 'DatabaseLicenseType']] license_type: The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] long_term_retention_backup_resource_id: The resource identifier of the long term retention backup associated with create operation of this database.
         :param pulumi.Input[int] max_size_bytes: The max size of the database expressed in bytes.
         :param pulumi.Input[float] min_capacity: Minimal capacity that database will always have allocated, if not paused
         :param pulumi.Input[int] read_replica_count: The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases.
-        :param pulumi.Input[str] read_scale: If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
+        :param pulumi.Input[Union[str, 'DatabaseReadScale']] read_scale: If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases.
         :param pulumi.Input[str] recoverable_database_id: The resource identifier of the recoverable database associated with create operation of this database.
         :param pulumi.Input[str] recovery_services_recovery_point_id: The resource identifier of the recovery point associated with create operation of this database.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] restorable_dropped_database_id: The resource identifier of the restorable dropped database associated with create operation of this database.
         :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-        :param pulumi.Input[str] sample_name: The name of the sample schema to apply when creating this database.
+        :param pulumi.Input[Union[str, 'SampleName']] sample_name: The name of the sample schema to apply when creating this database.
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The database SKU.
                
@@ -123,12 +124,12 @@ class Database(pulumi.CustomResource):
             __props__['catalog_collation'] = catalog_collation
             __props__['collation'] = collation
             __props__['create_mode'] = create_mode
-            if database_name is None:
+            if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
             __props__['elastic_pool_id'] = elastic_pool_id
             __props__['license_type'] = license_type
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['long_term_retention_backup_resource_id'] = long_term_retention_backup_resource_id
@@ -138,13 +139,13 @@ class Database(pulumi.CustomResource):
             __props__['read_scale'] = read_scale
             __props__['recoverable_database_id'] = recoverable_database_id
             __props__['recovery_services_recovery_point_id'] = recovery_services_recovery_point_id
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['restorable_dropped_database_id'] = restorable_dropped_database_id
             __props__['restore_point_in_time'] = restore_point_in_time
             __props__['sample_name'] = sample_name
-            if server_name is None:
+            if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
             __props__['sku'] = sku

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'IdentityArgs',
@@ -22,23 +23,23 @@ __all__ = [
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input['IdentityType']):
         """
         Identity for the resource.
-        :param pulumi.Input[str] type: The identity type.
+        :param pulumi.Input['IdentityType'] type: The identity type.
         """
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['IdentityType']:
         """
         The identity type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['IdentityType']):
         pulumi.set(self, "type", value)
 
 
@@ -159,12 +160,12 @@ class PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
                  actions_required: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None):
+                 status: Optional[pulumi.Input['PrivateLinkServiceConnectionStatus']] = None):
         """
         Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
         :param pulumi.Input[str] actions_required: A description of any extra actions that may be required.
         :param pulumi.Input[str] description: The description for the private link service connection state.
-        :param pulumi.Input[str] status: Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
+        :param pulumi.Input['PrivateLinkServiceConnectionStatus'] status: Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
         """
         if actions_required is not None:
             pulumi.set(__self__, "actions_required", actions_required)
@@ -199,14 +200,14 @@ class PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input['PrivateLinkServiceConnectionStatus']]:
         """
         Status of the the private link service connection. Can be Pending, Approved, Rejected, or Disconnected.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input['PrivateLinkServiceConnectionStatus']]):
         pulumi.set(self, "status", value)
 
 
@@ -215,18 +216,18 @@ class SharedPrivateLinkResourcePropertiesArgs:
     def __init__(__self__, *,
                  group_id: Optional[pulumi.Input[str]] = None,
                  private_link_resource_id: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input['SharedPrivateLinkResourceProvisioningState']] = None,
                  request_message: Optional[pulumi.Input[str]] = None,
                  resource_region: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None):
+                 status: Optional[pulumi.Input['SharedPrivateLinkResourceStatus']] = None):
         """
         Describes the properties of an existing Shared Private Link Resource managed by the Azure Cognitive Search service.
         :param pulumi.Input[str] group_id: The group id from the provider of resource the shared private link resource is for.
         :param pulumi.Input[str] private_link_resource_id: The resource id of the resource the shared private link resource is for.
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the shared private link resource. Can be Updating, Deleting, Failed, Succeeded or Incomplete.
+        :param pulumi.Input['SharedPrivateLinkResourceProvisioningState'] provisioning_state: The provisioning state of the shared private link resource. Can be Updating, Deleting, Failed, Succeeded or Incomplete.
         :param pulumi.Input[str] request_message: The request message for requesting approval of the shared private link resource.
         :param pulumi.Input[str] resource_region: Optional. Can be used to specify the Azure Resource Manager location of the resource to which a shared private link is to be created. This is only required for those resources whose DNS configuration are regional (such as Azure Kubernetes Service).
-        :param pulumi.Input[str] status: Status of the shared private link resource. Can be Pending, Approved, Rejected or Disconnected.
+        :param pulumi.Input['SharedPrivateLinkResourceStatus'] status: Status of the shared private link resource. Can be Pending, Approved, Rejected or Disconnected.
         """
         if group_id is not None:
             pulumi.set(__self__, "group_id", group_id)
@@ -267,14 +268,14 @@ class SharedPrivateLinkResourcePropertiesArgs:
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
+    def provisioning_state(self) -> Optional[pulumi.Input['SharedPrivateLinkResourceProvisioningState']]:
         """
         The provisioning state of the shared private link resource. Can be Updating, Deleting, Failed, Succeeded or Incomplete.
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
+    def provisioning_state(self, value: Optional[pulumi.Input['SharedPrivateLinkResourceProvisioningState']]):
         pulumi.set(self, "provisioning_state", value)
 
     @property
@@ -303,38 +304,38 @@ class SharedPrivateLinkResourcePropertiesArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input['SharedPrivateLinkResourceStatus']]:
         """
         Status of the shared private link resource. Can be Pending, Approved, Rejected or Disconnected.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input['SharedPrivateLinkResourceStatus']]):
         pulumi.set(self, "status", value)
 
 
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input['SkuName']] = None):
         """
         Defines the SKU of an Azure Cognitive Search Service, which determines price tier and capacity limits.
-        :param pulumi.Input[str] name: The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
+        :param pulumi.Input['SkuName'] name: The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    def name(self) -> Optional[pulumi.Input['SkuName']]:
         """
         The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
+    def name(self, value: Optional[pulumi.Input['SkuName']]):
         pulumi.set(self, "name", value)
 
 

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['RemediationAtResourceGroup']
@@ -21,7 +22,7 @@ class RemediationAtResourceGroup(pulumi.CustomResource):
                  policy_assignment_id: Optional[pulumi.Input[str]] = None,
                  policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
                  remediation_name: Optional[pulumi.Input[str]] = None,
-                 resource_discovery_mode: Optional[pulumi.Input[str]] = None,
+                 resource_discovery_mode: Optional[pulumi.Input[Union[str, 'ResourceDiscoveryMode']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -35,7 +36,7 @@ class RemediationAtResourceGroup(pulumi.CustomResource):
         :param pulumi.Input[str] policy_assignment_id: The resource ID of the policy assignment that should be remediated.
         :param pulumi.Input[str] policy_definition_reference_id: The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
         :param pulumi.Input[str] remediation_name: The name of the remediation.
-        :param pulumi.Input[str] resource_discovery_mode: The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
+        :param pulumi.Input[Union[str, 'ResourceDiscoveryMode']] resource_discovery_mode: The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
         :param pulumi.Input[str] resource_group_name: Resource group name.
         """
         if __name__ is not None:
@@ -58,11 +59,11 @@ class RemediationAtResourceGroup(pulumi.CustomResource):
             __props__['filters'] = filters
             __props__['policy_assignment_id'] = policy_assignment_id
             __props__['policy_definition_reference_id'] = policy_definition_reference_id
-            if remediation_name is None:
+            if remediation_name is None and not opts.urn:
                 raise TypeError("Missing required property 'remediation_name'")
             __props__['remediation_name'] = remediation_name
             __props__['resource_discovery_mode'] = resource_discovery_mode
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['created_on'] = None

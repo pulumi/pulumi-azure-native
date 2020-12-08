@@ -65,31 +65,31 @@ class DedicatedCloudNode(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if availability_zone_id is None:
+            if availability_zone_id is None and not opts.urn:
                 raise TypeError("Missing required property 'availability_zone_id'")
             __props__['availability_zone_id'] = availability_zone_id
-            if dedicated_cloud_node_name is None:
+            if dedicated_cloud_node_name is None and not opts.urn:
                 raise TypeError("Missing required property 'dedicated_cloud_node_name'")
             __props__['dedicated_cloud_node_name'] = dedicated_cloud_node_name
-            if id is None:
+            if id is None and not opts.urn:
                 raise TypeError("Missing required property 'id'")
             __props__['id'] = id
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if nodes_count is None:
+            if nodes_count is None and not opts.urn:
                 raise TypeError("Missing required property 'nodes_count'")
             __props__['nodes_count'] = nodes_count
-            if placement_group_id is None:
+            if placement_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'placement_group_id'")
             __props__['placement_group_id'] = placement_group_id
-            if purchase_id is None:
+            if purchase_id is None and not opts.urn:
                 raise TypeError("Missing required property 'purchase_id'")
             __props__['purchase_id'] = purchase_id
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku

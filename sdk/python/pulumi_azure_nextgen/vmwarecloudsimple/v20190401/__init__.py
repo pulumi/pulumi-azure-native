@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .dedicated_cloud_node import *
 from .dedicated_cloud_service import *
 from .get_dedicated_cloud_node import *
@@ -11,3 +12,26 @@ from .get_virtual_machine import *
 from .virtual_machine import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:vmwarecloudsimple/v20190401:DedicatedCloudNode":
+                return DedicatedCloudNode(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:vmwarecloudsimple/v20190401:DedicatedCloudService":
+                return DedicatedCloudService(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:vmwarecloudsimple/v20190401:VirtualMachine":
+                return VirtualMachine(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "vmwarecloudsimple/v20190401", _module_instance)
+
+_register_module()

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['PatchSchedule']
@@ -51,16 +52,16 @@ class PatchSchedule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if default is None:
+            if default is None and not opts.urn:
                 raise TypeError("Missing required property 'default'")
             __props__['default'] = default
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if schedule_entries is None:
+            if schedule_entries is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule_entries'")
             __props__['schedule_entries'] = schedule_entries
             __props__['type'] = None

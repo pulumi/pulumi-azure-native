@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['RegistrationDefinition']
@@ -53,10 +54,10 @@ class RegistrationDefinition(pulumi.CustomResource):
 
             __props__['plan'] = plan
             __props__['properties'] = properties
-            if registration_definition_id is None:
+            if registration_definition_id is None and not opts.urn:
                 raise TypeError("Missing required property 'registration_definition_id'")
             __props__['registration_definition_id'] = registration_definition_id
-            if scope is None:
+            if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
             __props__['name'] = None

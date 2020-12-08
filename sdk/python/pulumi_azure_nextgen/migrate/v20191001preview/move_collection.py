@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['MoveCollection']
@@ -57,11 +58,11 @@ class MoveCollection(pulumi.CustomResource):
 
             __props__['identity'] = identity
             __props__['location'] = location
-            if move_collection_name is None:
+            if move_collection_name is None and not opts.urn:
                 raise TypeError("Missing required property 'move_collection_name'")
             __props__['move_collection_name'] = move_collection_name
             __props__['properties'] = properties
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ActiveDirectoryPropertiesArgs',
@@ -143,11 +144,11 @@ class ActiveDirectoryPropertiesArgs:
 @pulumi.input_type
 class AzureFilesIdentityBasedAuthenticationArgs:
     def __init__(__self__, *,
-                 directory_service_options: pulumi.Input[str],
+                 directory_service_options: pulumi.Input[Union[str, 'DirectoryServiceOptions']],
                  active_directory_properties: Optional[pulumi.Input['ActiveDirectoryPropertiesArgs']] = None):
         """
         Settings for Azure Files identity based authentication.
-        :param pulumi.Input[str] directory_service_options: Indicates the directory service used.
+        :param pulumi.Input[Union[str, 'DirectoryServiceOptions']] directory_service_options: Indicates the directory service used.
         :param pulumi.Input['ActiveDirectoryPropertiesArgs'] active_directory_properties: Required if choose AD.
         """
         pulumi.set(__self__, "directory_service_options", directory_service_options)
@@ -156,14 +157,14 @@ class AzureFilesIdentityBasedAuthenticationArgs:
 
     @property
     @pulumi.getter(name="directoryServiceOptions")
-    def directory_service_options(self) -> pulumi.Input[str]:
+    def directory_service_options(self) -> pulumi.Input[Union[str, 'DirectoryServiceOptions']]:
         """
         Indicates the directory service used.
         """
         return pulumi.get(self, "directory_service_options")
 
     @directory_service_options.setter
-    def directory_service_options(self, value: pulumi.Input[str]):
+    def directory_service_options(self, value: pulumi.Input[Union[str, 'DirectoryServiceOptions']]):
         pulumi.set(self, "directory_service_options", value)
 
     @property
@@ -438,13 +439,13 @@ class DeleteRetentionPolicyArgs:
 @pulumi.input_type
 class EncryptionArgs:
     def __init__(__self__, *,
-                 key_source: pulumi.Input[str],
+                 key_source: pulumi.Input[Union[str, 'KeySource']],
                  key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None,
                  require_infrastructure_encryption: Optional[pulumi.Input[bool]] = None,
                  services: Optional[pulumi.Input['EncryptionServicesArgs']] = None):
         """
         The encryption settings on the storage account.
-        :param pulumi.Input[str] key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
+        :param pulumi.Input[Union[str, 'KeySource']] key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
         :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: Properties provided by key vault.
         :param pulumi.Input[bool] require_infrastructure_encryption: A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
         :param pulumi.Input['EncryptionServicesArgs'] services: List of services which support encryption.
@@ -459,14 +460,14 @@ class EncryptionArgs:
 
     @property
     @pulumi.getter(name="keySource")
-    def key_source(self) -> pulumi.Input[str]:
+    def key_source(self) -> pulumi.Input[Union[str, 'KeySource']]:
         """
         The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
         """
         return pulumi.get(self, "key_source")
 
     @key_source.setter
-    def key_source(self, value: pulumi.Input[str]):
+    def key_source(self, value: pulumi.Input[Union[str, 'KeySource']]):
         pulumi.set(self, "key_source", value)
 
     @property
@@ -510,11 +511,11 @@ class EncryptionArgs:
 class EncryptionServiceArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 key_type: Optional[pulumi.Input[str]] = None):
+                 key_type: Optional[pulumi.Input[Union[str, 'KeyType']]] = None):
         """
         A service that allows server-side encryption to be used.
         :param pulumi.Input[bool] enabled: A boolean indicating whether or not the service encrypts the data as it is stored.
-        :param pulumi.Input[str] key_type: Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
+        :param pulumi.Input[Union[str, 'KeyType']] key_type: Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -535,14 +536,14 @@ class EncryptionServiceArgs:
 
     @property
     @pulumi.getter(name="keyType")
-    def key_type(self) -> Optional[pulumi.Input[str]]:
+    def key_type(self) -> Optional[pulumi.Input[Union[str, 'KeyType']]]:
         """
         Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
         """
         return pulumi.get(self, "key_type")
 
     @key_type.setter
-    def key_type(self, value: Optional[pulumi.Input[str]]):
+    def key_type(self, value: Optional[pulumi.Input[Union[str, 'KeyType']]]):
         pulumi.set(self, "key_type", value)
 
 
@@ -622,11 +623,11 @@ class EncryptionServicesArgs:
 class IPRuleArgs:
     def __init__(__self__, *,
                  i_p_address_or_range: pulumi.Input[str],
-                 action: Optional[pulumi.Input[str]] = None):
+                 action: Optional[pulumi.Input['Action']] = None):
         """
         IP rule with specific IP or IP range in CIDR format.
         :param pulumi.Input[str] i_p_address_or_range: Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
-        :param pulumi.Input[str] action: The action of IP ACL rule.
+        :param pulumi.Input['Action'] action: The action of IP ACL rule.
         """
         pulumi.set(__self__, "i_p_address_or_range", i_p_address_or_range)
         if action is not None:
@@ -646,37 +647,37 @@ class IPRuleArgs:
 
     @property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[str]]:
+    def action(self) -> Optional[pulumi.Input['Action']]:
         """
         The action of IP ACL rule.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input[str]]):
+    def action(self, value: Optional[pulumi.Input['Action']]):
         pulumi.set(self, "action", value)
 
 
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input['IdentityType']):
         """
         Identity for the resource.
-        :param pulumi.Input[str] type: The identity type.
+        :param pulumi.Input['IdentityType'] type: The identity type.
         """
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['IdentityType']:
         """
         The identity type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['IdentityType']):
         pulumi.set(self, "type", value)
 
 
@@ -931,13 +932,13 @@ class ManagementPolicyRuleArgs:
     def __init__(__self__, *,
                  definition: pulumi.Input['ManagementPolicyDefinitionArgs'],
                  name: pulumi.Input[str],
-                 type: pulumi.Input[str],
+                 type: pulumi.Input[Union[str, 'RuleType']],
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         An object that wraps the Lifecycle rule. Each rule is uniquely defined by name.
         :param pulumi.Input['ManagementPolicyDefinitionArgs'] definition: An object that defines the Lifecycle rule.
         :param pulumi.Input[str] name: A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
-        :param pulumi.Input[str] type: The valid value is Lifecycle
+        :param pulumi.Input[Union[str, 'RuleType']] type: The valid value is Lifecycle
         :param pulumi.Input[bool] enabled: Rule is enabled if set to true.
         """
         pulumi.set(__self__, "definition", definition)
@@ -972,14 +973,14 @@ class ManagementPolicyRuleArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'RuleType']]:
         """
         The valid value is Lifecycle
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'RuleType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -1045,14 +1046,14 @@ class ManagementPolicySnapShotArgs:
 @pulumi.input_type
 class NetworkRuleSetArgs:
     def __init__(__self__, *,
-                 default_action: pulumi.Input[str],
-                 bypass: Optional[pulumi.Input[str]] = None,
+                 default_action: pulumi.Input['DefaultAction'],
+                 bypass: Optional[pulumi.Input[Union[str, 'Bypass']]] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]] = None,
                  virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
         """
         Network rule set
-        :param pulumi.Input[str] default_action: Specifies the default action of allow or deny when no other rules match.
-        :param pulumi.Input[str] bypass: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
+        :param pulumi.Input['DefaultAction'] default_action: Specifies the default action of allow or deny when no other rules match.
+        :param pulumi.Input[Union[str, 'Bypass']] bypass: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
         :param pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]] ip_rules: Sets the IP ACL rules
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: Sets the virtual network rules
         """
@@ -1066,26 +1067,26 @@ class NetworkRuleSetArgs:
 
     @property
     @pulumi.getter(name="defaultAction")
-    def default_action(self) -> pulumi.Input[str]:
+    def default_action(self) -> pulumi.Input['DefaultAction']:
         """
         Specifies the default action of allow or deny when no other rules match.
         """
         return pulumi.get(self, "default_action")
 
     @default_action.setter
-    def default_action(self, value: pulumi.Input[str]):
+    def default_action(self, value: pulumi.Input['DefaultAction']):
         pulumi.set(self, "default_action", value)
 
     @property
     @pulumi.getter
-    def bypass(self) -> Optional[pulumi.Input[str]]:
+    def bypass(self) -> Optional[pulumi.Input[Union[str, 'Bypass']]]:
         """
         Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
         """
         return pulumi.get(self, "bypass")
 
     @bypass.setter
-    def bypass(self, value: Optional[pulumi.Input[str]]):
+    def bypass(self, value: Optional[pulumi.Input[Union[str, 'Bypass']]]):
         pulumi.set(self, "bypass", value)
 
     @property
@@ -1228,12 +1229,12 @@ class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
                  action_required: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None):
+                 status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[str] action_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
-        :param pulumi.Input[str] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         if action_required is not None:
             pulumi.set(__self__, "action_required", action_required)
@@ -1268,14 +1269,14 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]:
         """
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -1323,12 +1324,12 @@ class RoutingPreferenceArgs:
     def __init__(__self__, *,
                  publish_internet_endpoints: Optional[pulumi.Input[bool]] = None,
                  publish_microsoft_endpoints: Optional[pulumi.Input[bool]] = None,
-                 routing_choice: Optional[pulumi.Input[str]] = None):
+                 routing_choice: Optional[pulumi.Input[Union[str, 'RoutingChoice']]] = None):
         """
         Routing preference defines the type of network, either microsoft or internet routing to be used to deliver the user data, the default option is microsoft routing
         :param pulumi.Input[bool] publish_internet_endpoints: A boolean flag which indicates whether internet routing storage endpoints are to be published
         :param pulumi.Input[bool] publish_microsoft_endpoints: A boolean flag which indicates whether microsoft routing storage endpoints are to be published
-        :param pulumi.Input[str] routing_choice: Routing Choice defines the kind of network routing opted by the user.
+        :param pulumi.Input[Union[str, 'RoutingChoice']] routing_choice: Routing Choice defines the kind of network routing opted by the user.
         """
         if publish_internet_endpoints is not None:
             pulumi.set(__self__, "publish_internet_endpoints", publish_internet_endpoints)
@@ -1363,37 +1364,37 @@ class RoutingPreferenceArgs:
 
     @property
     @pulumi.getter(name="routingChoice")
-    def routing_choice(self) -> Optional[pulumi.Input[str]]:
+    def routing_choice(self) -> Optional[pulumi.Input[Union[str, 'RoutingChoice']]]:
         """
         Routing Choice defines the kind of network routing opted by the user.
         """
         return pulumi.get(self, "routing_choice")
 
     @routing_choice.setter
-    def routing_choice(self, value: Optional[pulumi.Input[str]]):
+    def routing_choice(self, value: Optional[pulumi.Input[Union[str, 'RoutingChoice']]]):
         pulumi.set(self, "routing_choice", value)
 
 
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str]):
+                 name: pulumi.Input[Union[str, 'SkuName']]):
         """
         The SKU of the storage account.
-        :param pulumi.Input[str] name: The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
+        :param pulumi.Input[Union[str, 'SkuName']] name: The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
         """
         pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input[Union[str, 'SkuName']]:
         """
         The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
         pulumi.set(self, "name", value)
 
 
@@ -1454,13 +1455,13 @@ class TagFilterArgs:
 class VirtualNetworkRuleArgs:
     def __init__(__self__, *,
                  virtual_network_resource_id: pulumi.Input[str],
-                 action: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input[str]] = None):
+                 action: Optional[pulumi.Input['Action']] = None,
+                 state: Optional[pulumi.Input['State']] = None):
         """
         Virtual Network rule.
         :param pulumi.Input[str] virtual_network_resource_id: Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
-        :param pulumi.Input[str] action: The action of virtual network rule.
-        :param pulumi.Input[str] state: Gets the state of virtual network rule.
+        :param pulumi.Input['Action'] action: The action of virtual network rule.
+        :param pulumi.Input['State'] state: Gets the state of virtual network rule.
         """
         pulumi.set(__self__, "virtual_network_resource_id", virtual_network_resource_id)
         if action is not None:
@@ -1482,26 +1483,26 @@ class VirtualNetworkRuleArgs:
 
     @property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[str]]:
+    def action(self) -> Optional[pulumi.Input['Action']]:
         """
         The action of virtual network rule.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input[str]]):
+    def action(self, value: Optional[pulumi.Input['Action']]):
         pulumi.set(self, "action", value)
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[str]]:
+    def state(self) -> Optional[pulumi.Input['State']]:
         """
         Gets the state of virtual network rule.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[str]]):
+    def state(self, value: Optional[pulumi.Input['State']]):
         pulumi.set(self, "state", value)
 
 

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 
 __all__ = ['IntegrationAccountMap']
 
@@ -22,7 +23,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
                  integration_account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  map_name: Optional[pulumi.Input[str]] = None,
-                 map_type: Optional[pulumi.Input[str]] = None,
+                 map_type: Optional[pulumi.Input['MapType']] = None,
                  metadata: Optional[Any] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -41,7 +42,7 @@ class IntegrationAccountMap(pulumi.CustomResource):
         :param pulumi.Input[str] integration_account_name: The integration account name.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[str] map_name: The integration account map name.
-        :param pulumi.Input[str] map_type: The map type.
+        :param pulumi.Input['MapType'] map_type: The map type.
         :param Any metadata: The metadata.
         :param pulumi.Input[str] name: The resource name.
         :param pulumi.Input[str] resource_group_name: The resource group name.
@@ -68,17 +69,17 @@ class IntegrationAccountMap(pulumi.CustomResource):
             __props__['content'] = content
             __props__['content_type'] = content_type
             __props__['id'] = id
-            if integration_account_name is None:
+            if integration_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'integration_account_name'")
             __props__['integration_account_name'] = integration_account_name
             __props__['location'] = location
-            if map_name is None:
+            if map_name is None and not opts.urn:
                 raise TypeError("Missing required property 'map_name'")
             __props__['map_name'] = map_name
             __props__['map_type'] = map_type
             __props__['metadata'] = metadata
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

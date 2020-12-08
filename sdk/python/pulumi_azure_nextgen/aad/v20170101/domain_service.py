@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DomainService']
@@ -21,7 +22,7 @@ class DomainService(pulumi.CustomResource):
                  domain_security_settings: Optional[pulumi.Input[pulumi.InputType['DomainSecuritySettingsArgs']]] = None,
                  domain_service_name: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
-                 filtered_sync: Optional[pulumi.Input[str]] = None,
+                 filtered_sync: Optional[pulumi.Input[Union[str, 'FilteredSync']]] = None,
                  ldaps_settings: Optional[pulumi.Input[pulumi.InputType['LdapsSettingsArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  notification_settings: Optional[pulumi.Input[pulumi.InputType['NotificationSettingsArgs']]] = None,
@@ -40,7 +41,7 @@ class DomainService(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DomainSecuritySettingsArgs']] domain_security_settings: DomainSecurity Settings
         :param pulumi.Input[str] domain_service_name: The name of the domain service.
         :param pulumi.Input[str] etag: Resource etag
-        :param pulumi.Input[str] filtered_sync: Enabled or Disabled flag to turn on Group-based filtered sync
+        :param pulumi.Input[Union[str, 'FilteredSync']] filtered_sync: Enabled or Disabled flag to turn on Group-based filtered sync
         :param pulumi.Input[pulumi.InputType['LdapsSettingsArgs']] ldaps_settings: Secure LDAP Settings
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[pulumi.InputType['NotificationSettingsArgs']] notification_settings: Notification Settings
@@ -67,7 +68,7 @@ class DomainService(pulumi.CustomResource):
 
             __props__['domain_name'] = domain_name
             __props__['domain_security_settings'] = domain_security_settings
-            if domain_service_name is None:
+            if domain_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_service_name'")
             __props__['domain_service_name'] = domain_service_name
             __props__['etag'] = etag
@@ -75,7 +76,7 @@ class DomainService(pulumi.CustomResource):
             __props__['ldaps_settings'] = ldaps_settings
             __props__['location'] = location
             __props__['notification_settings'] = notification_settings
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['subnet_id'] = subnet_id

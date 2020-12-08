@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['PrivateCloud']
@@ -18,16 +19,16 @@ class PrivateCloud(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdentitySourceArgs']]]]] = None,
-                 internet: Optional[pulumi.Input[str]] = None,
+                 internet: Optional[pulumi.Input[Union[str, 'InternetEnum']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  management_cluster: Optional[pulumi.Input[pulumi.InputType['ManagementClusterArgs']]] = None,
                  network_block: Optional[pulumi.Input[str]] = None,
-                 nsxt_password: Optional[pulumi.Input[str]] = None,
+                 nsxt_password: Optional[pulumi.Input[Union[str, 'NsxtAdminRotateEnum']]] = None,
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vcenter_password: Optional[pulumi.Input[str]] = None,
+                 vcenter_password: Optional[pulumi.Input[Union[str, 'VcsaAdminRotateEnum']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -37,16 +38,16 @@ class PrivateCloud(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdentitySourceArgs']]]] identity_sources: vCenter Single Sign On Identity Sources
-        :param pulumi.Input[str] internet: Connectivity to internet is enabled or disabled
+        :param pulumi.Input[Union[str, 'InternetEnum']] internet: Connectivity to internet is enabled or disabled
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[pulumi.InputType['ManagementClusterArgs']] management_cluster: The default cluster used for management
         :param pulumi.Input[str] network_block: The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
-        :param pulumi.Input[str] nsxt_password: Indicate to rotate the NSX-T Manager password for the private cloud
+        :param pulumi.Input[Union[str, 'NsxtAdminRotateEnum']] nsxt_password: Indicate to rotate the NSX-T Manager password for the private cloud
         :param pulumi.Input[str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The private cloud SKU
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input[str] vcenter_password: Indicate to rotate the vCenter admin password for the private cloud
+        :param pulumi.Input[Union[str, 'VcsaAdminRotateEnum']] vcenter_password: Indicate to rotate the vCenter admin password for the private cloud
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -67,23 +68,23 @@ class PrivateCloud(pulumi.CustomResource):
 
             __props__['identity_sources'] = identity_sources
             __props__['internet'] = internet
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if management_cluster is None:
+            if management_cluster is None and not opts.urn:
                 raise TypeError("Missing required property 'management_cluster'")
             __props__['management_cluster'] = management_cluster
-            if network_block is None:
+            if network_block is None and not opts.urn:
                 raise TypeError("Missing required property 'network_block'")
             __props__['network_block'] = network_block
             __props__['nsxt_password'] = nsxt_password
-            if private_cloud_name is None:
+            if private_cloud_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_cloud_name'")
             __props__['private_cloud_name'] = private_cloud_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if sku is None:
+            if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags

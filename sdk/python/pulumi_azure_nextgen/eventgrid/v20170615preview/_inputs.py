@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'EventSubscriptionDestinationArgs',
@@ -16,11 +17,11 @@ __all__ = [
 @pulumi.input_type
 class EventSubscriptionDestinationArgs:
     def __init__(__self__, *,
-                 endpoint_type: Optional[pulumi.Input[str]] = None,
+                 endpoint_type: Optional[pulumi.Input[Union[str, 'EndpointType']]] = None,
                  endpoint_url: Optional[pulumi.Input[str]] = None):
         """
         Information about the destination for an event subscription
-        :param pulumi.Input[str] endpoint_type: Type of the endpoint for the event subscription destination
+        :param pulumi.Input[Union[str, 'EndpointType']] endpoint_type: Type of the endpoint for the event subscription destination
         :param pulumi.Input[str] endpoint_url: The URL that represents the endpoint of the destination of an event subscription.
         """
         if endpoint_type is not None:
@@ -30,14 +31,14 @@ class EventSubscriptionDestinationArgs:
 
     @property
     @pulumi.getter(name="endpointType")
-    def endpoint_type(self) -> Optional[pulumi.Input[str]]:
+    def endpoint_type(self) -> Optional[pulumi.Input[Union[str, 'EndpointType']]]:
         """
         Type of the endpoint for the event subscription destination
         """
         return pulumi.get(self, "endpoint_type")
 
     @endpoint_type.setter
-    def endpoint_type(self, value: Optional[pulumi.Input[str]]):
+    def endpoint_type(self, value: Optional[pulumi.Input[Union[str, 'EndpointType']]]):
         pulumi.set(self, "endpoint_type", value)
 
     @property

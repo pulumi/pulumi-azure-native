@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['SourceControlConfiguration']
@@ -21,13 +22,13 @@ class SourceControlConfiguration(pulumi.CustomResource):
                  cluster_resource_name: Optional[pulumi.Input[str]] = None,
                  cluster_rp: Optional[pulumi.Input[str]] = None,
                  configuration_protected_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 enable_helm_operator: Optional[pulumi.Input[bool]] = None,
+                 enable_helm_operator: Optional[pulumi.Input[Union[str, 'EnableHelmOperatorType']]] = None,
                  helm_operator_properties: Optional[pulumi.Input[pulumi.InputType['HelmOperatorPropertiesArgs']]] = None,
                  operator_instance_name: Optional[pulumi.Input[str]] = None,
                  operator_namespace: Optional[pulumi.Input[str]] = None,
                  operator_params: Optional[pulumi.Input[str]] = None,
-                 operator_scope: Optional[pulumi.Input[str]] = None,
-                 operator_type: Optional[pulumi.Input[str]] = None,
+                 operator_scope: Optional[pulumi.Input[Union[str, 'OperatorScopeType']]] = None,
+                 operator_type: Optional[pulumi.Input[Union[str, 'OperatorType']]] = None,
                  repository_url: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_control_configuration_name: Optional[pulumi.Input[str]] = None,
@@ -44,13 +45,13 @@ class SourceControlConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_resource_name: The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
         :param pulumi.Input[str] cluster_rp: The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] configuration_protected_settings: Name-value pairs of protected configuration settings for the configuration
-        :param pulumi.Input[bool] enable_helm_operator: Option to enable Helm Operator for this git configuration.
+        :param pulumi.Input[Union[str, 'EnableHelmOperatorType']] enable_helm_operator: Option to enable Helm Operator for this git configuration.
         :param pulumi.Input[pulumi.InputType['HelmOperatorPropertiesArgs']] helm_operator_properties: Properties for Helm operator.
         :param pulumi.Input[str] operator_instance_name: Instance name of the operator - identifying the specific configuration.
         :param pulumi.Input[str] operator_namespace: The namespace to which this operator is installed to. Maximum of 253 lower case alphanumeric characters, hyphen and period only.
         :param pulumi.Input[str] operator_params: Any Parameters for the Operator instance in string format.
-        :param pulumi.Input[str] operator_scope: Scope at which the operator will be installed.
-        :param pulumi.Input[str] operator_type: Type of the operator
+        :param pulumi.Input[Union[str, 'OperatorScopeType']] operator_scope: Scope at which the operator will be installed.
+        :param pulumi.Input[Union[str, 'OperatorType']] operator_type: Type of the operator
         :param pulumi.Input[str] repository_url: Url of the SourceControl Repository.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] source_control_configuration_name: Name of the Source Control Configuration.
@@ -73,13 +74,13 @@ class SourceControlConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if cluster_name is None:
+            if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
-            if cluster_resource_name is None:
+            if cluster_resource_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_resource_name'")
             __props__['cluster_resource_name'] = cluster_resource_name
-            if cluster_rp is None:
+            if cluster_rp is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_rp'")
             __props__['cluster_rp'] = cluster_rp
             __props__['configuration_protected_settings'] = configuration_protected_settings
@@ -91,10 +92,10 @@ class SourceControlConfiguration(pulumi.CustomResource):
             __props__['operator_scope'] = operator_scope
             __props__['operator_type'] = operator_type
             __props__['repository_url'] = repository_url
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if source_control_configuration_name is None:
+            if source_control_configuration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'source_control_configuration_name'")
             __props__['source_control_configuration_name'] = source_control_configuration_name
             __props__['ssh_known_hosts_contents'] = ssh_known_hosts_contents

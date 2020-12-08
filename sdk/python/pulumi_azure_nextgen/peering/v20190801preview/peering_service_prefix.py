@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['PeeringServicePrefix']
 
@@ -15,11 +16,11 @@ class PeeringServicePrefix(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 learned_type: Optional[pulumi.Input[str]] = None,
+                 learned_type: Optional[pulumi.Input[Union[str, 'LearnedType']]] = None,
                  peering_service_name: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None,
                  prefix_name: Optional[pulumi.Input[str]] = None,
-                 prefix_validation_state: Optional[pulumi.Input[str]] = None,
+                 prefix_validation_state: Optional[pulumi.Input[Union[str, 'PrefixValidationState']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -29,11 +30,11 @@ class PeeringServicePrefix(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] learned_type: The prefix learned type
+        :param pulumi.Input[Union[str, 'LearnedType']] learned_type: The prefix learned type
         :param pulumi.Input[str] peering_service_name: The peering service name.
         :param pulumi.Input[str] prefix: Valid route prefix
         :param pulumi.Input[str] prefix_name: The prefix name
-        :param pulumi.Input[str] prefix_validation_state: The prefix validation state
+        :param pulumi.Input[Union[str, 'PrefixValidationState']] prefix_validation_state: The prefix validation state
         :param pulumi.Input[str] resource_group_name: The resource group name.
         """
         if __name__ is not None:
@@ -54,15 +55,15 @@ class PeeringServicePrefix(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['learned_type'] = learned_type
-            if peering_service_name is None:
+            if peering_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'peering_service_name'")
             __props__['peering_service_name'] = peering_service_name
             __props__['prefix'] = prefix
-            if prefix_name is None:
+            if prefix_name is None and not opts.urn:
                 raise TypeError("Missing required property 'prefix_name'")
             __props__['prefix_name'] = prefix_name
             __props__['prefix_validation_state'] = prefix_validation_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['name'] = None

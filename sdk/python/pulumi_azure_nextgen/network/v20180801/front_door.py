@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['FrontDoor']
@@ -18,7 +19,7 @@ class FrontDoor(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backend_pools: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendPoolArgs']]]]] = None,
-                 enabled_state: Optional[pulumi.Input[str]] = None,
+                 enabled_state: Optional[pulumi.Input[Union[str, 'FrontDoorEnabledState']]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  front_door_name: Optional[pulumi.Input[str]] = None,
                  frontend_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontendEndpointArgs']]]]] = None,
@@ -37,7 +38,7 @@ class FrontDoor(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendPoolArgs']]]] backend_pools: Backend pools available to routing rules.
-        :param pulumi.Input[str] enabled_state: Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
+        :param pulumi.Input[Union[str, 'FrontDoorEnabledState']] enabled_state: Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
         :param pulumi.Input[str] friendly_name: A friendly name for the frontDoor
         :param pulumi.Input[str] front_door_name: Name of the Front Door which is globally unique.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontendEndpointArgs']]]] frontend_endpoints: Frontend endpoints available to routing rules.
@@ -68,14 +69,14 @@ class FrontDoor(pulumi.CustomResource):
             __props__['backend_pools'] = backend_pools
             __props__['enabled_state'] = enabled_state
             __props__['friendly_name'] = friendly_name
-            if front_door_name is None:
+            if front_door_name is None and not opts.urn:
                 raise TypeError("Missing required property 'front_door_name'")
             __props__['front_door_name'] = front_door_name
             __props__['frontend_endpoints'] = frontend_endpoints
             __props__['health_probe_settings'] = health_probe_settings
             __props__['load_balancing_settings'] = load_balancing_settings
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['routing_rules'] = routing_rules

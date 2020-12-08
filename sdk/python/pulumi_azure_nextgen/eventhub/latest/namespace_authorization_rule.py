@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['NamespaceAuthorizationRule']
 
@@ -18,7 +19,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                  authorization_rule_name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 rights: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 rights: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -30,7 +31,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[str] authorization_rule_name: The authorization rule name.
         :param pulumi.Input[str] namespace_name: The Namespace name
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] rights: The rights associated with the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]] rights: The rights associated with the rule.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -49,16 +50,16 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if authorization_rule_name is None:
+            if authorization_rule_name is None and not opts.urn:
                 raise TypeError("Missing required property 'authorization_rule_name'")
             __props__['authorization_rule_name'] = authorization_rule_name
-            if namespace_name is None:
+            if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if rights is None:
+            if rights is None and not opts.urn:
                 raise TypeError("Missing required property 'rights'")
             __props__['rights'] = rights
             __props__['name'] = None

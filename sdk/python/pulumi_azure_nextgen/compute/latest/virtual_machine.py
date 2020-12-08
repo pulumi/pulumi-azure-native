@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['VirtualMachine']
@@ -21,7 +22,7 @@ class VirtualMachine(pulumi.CustomResource):
                  availability_set: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  billing_profile: Optional[pulumi.Input[pulumi.InputType['BillingProfileArgs']]] = None,
                  diagnostics_profile: Optional[pulumi.Input[pulumi.InputType['DiagnosticsProfileArgs']]] = None,
-                 eviction_policy: Optional[pulumi.Input[str]] = None,
+                 eviction_policy: Optional[pulumi.Input[Union[str, 'VirtualMachineEvictionPolicyTypes']]] = None,
                  extensions_time_budget: Optional[pulumi.Input[str]] = None,
                  hardware_profile: Optional[pulumi.Input[pulumi.InputType['HardwareProfileArgs']]] = None,
                  host: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
@@ -32,7 +33,7 @@ class VirtualMachine(pulumi.CustomResource):
                  network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
                  os_profile: Optional[pulumi.Input[pulumi.InputType['OSProfileArgs']]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['PlanArgs']]] = None,
-                 priority: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[Union[str, 'VirtualMachinePriorityTypes']]] = None,
                  proximity_placement_group: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_profile: Optional[pulumi.Input[pulumi.InputType['SecurityProfileArgs']]] = None,
@@ -53,7 +54,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] availability_set: Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
         :param pulumi.Input[pulumi.InputType['BillingProfileArgs']] billing_profile: Specifies the billing related details of a Azure Spot virtual machine. <br><br>Minimum api-version: 2019-03-01.
         :param pulumi.Input[pulumi.InputType['DiagnosticsProfileArgs']] diagnostics_profile: Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
-        :param pulumi.Input[str] eviction_policy: Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
+        :param pulumi.Input[Union[str, 'VirtualMachineEvictionPolicyTypes']] eviction_policy: Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
         :param pulumi.Input[str] extensions_time_budget: Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M). <br><br> Minimum api-version: 2020-06-01
         :param pulumi.Input[pulumi.InputType['HardwareProfileArgs']] hardware_profile: Specifies the hardware settings for the virtual machine.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] host: Specifies information about the dedicated host that the virtual machine resides in. <br><br>Minimum api-version: 2018-10-01.
@@ -64,7 +65,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['NetworkProfileArgs']] network_profile: Specifies the network interfaces of the virtual machine.
         :param pulumi.Input[pulumi.InputType['OSProfileArgs']] os_profile: Specifies the operating system settings used while creating the virtual machine. Some of the settings cannot be changed once VM is provisioned.
         :param pulumi.Input[pulumi.InputType['PlanArgs']] plan: Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
-        :param pulumi.Input[str] priority: Specifies the priority for the virtual machine. <br><br>Minimum api-version: 2019-03-01
+        :param pulumi.Input[Union[str, 'VirtualMachinePriorityTypes']] priority: Specifies the priority for the virtual machine. <br><br>Minimum api-version: 2019-03-01
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] proximity_placement_group: Specifies information about the proximity placement group that the virtual machine should be assigned to. <br><br>Minimum api-version: 2018-04-01.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['SecurityProfileArgs']] security_profile: Specifies the Security related profile settings for the virtual machine.
@@ -102,7 +103,7 @@ class VirtualMachine(pulumi.CustomResource):
             __props__['host_group'] = host_group
             __props__['identity'] = identity
             __props__['license_type'] = license_type
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['network_profile'] = network_profile
@@ -110,14 +111,14 @@ class VirtualMachine(pulumi.CustomResource):
             __props__['plan'] = plan
             __props__['priority'] = priority
             __props__['proximity_placement_group'] = proximity_placement_group
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['security_profile'] = security_profile
             __props__['storage_profile'] = storage_profile
             __props__['tags'] = tags
             __props__['virtual_machine_scale_set'] = virtual_machine_scale_set
-            if vm_name is None:
+            if vm_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_name'")
             __props__['vm_name'] = vm_name
             __props__['zones'] = zones

@@ -53,17 +53,17 @@ class Secret(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if properties is None:
+            if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if secret_name is None:
+            if secret_name is None and not opts.urn:
                 raise TypeError("Missing required property 'secret_name'")
             __props__['secret_name'] = secret_name
             __props__['tags'] = tags
-            if vault_name is None:
+            if vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vault_name'")
             __props__['vault_name'] = vault_name
             __props__['location'] = None

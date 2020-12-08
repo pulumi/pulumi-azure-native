@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['FileServer']
@@ -59,24 +60,24 @@ class FileServer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if data_disks is None:
+            if data_disks is None and not opts.urn:
                 raise TypeError("Missing required property 'data_disks'")
             __props__['data_disks'] = data_disks
-            if file_server_name is None:
+            if file_server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'file_server_name'")
             __props__['file_server_name'] = file_server_name
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if ssh_configuration is None:
+            if ssh_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'ssh_configuration'")
             __props__['ssh_configuration'] = ssh_configuration
             __props__['subnet'] = subnet
             __props__['tags'] = tags
-            if vm_size is None:
+            if vm_size is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_size'")
             __props__['vm_size'] = vm_size
             __props__['creation_time'] = None

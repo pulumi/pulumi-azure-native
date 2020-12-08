@@ -63,26 +63,26 @@ class Account(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_name is None:
+            if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['description'] = description
             __props__['friendly_name'] = friendly_name
-            if key_vault_id is None:
+            if key_vault_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_id'")
             __props__['key_vault_id'] = key_vault_id
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['seats'] = seats
-            if storage_account is None:
+            if storage_account is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account'")
             __props__['storage_account'] = storage_account
             __props__['tags'] = tags
-            if vso_account_id is None:
+            if vso_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vso_account_id'")
             __props__['vso_account_id'] = vso_account_id
             __props__['account_id'] = None

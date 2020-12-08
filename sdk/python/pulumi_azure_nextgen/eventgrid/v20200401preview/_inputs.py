@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AzureFunctionEventSubscriptionDestinationArgs',
@@ -180,12 +181,12 @@ class ConnectionStateArgs:
     def __init__(__self__, *,
                  actions_required: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None):
+                 status: Optional[pulumi.Input[Union[str, 'PersistedConnectionStatus']]] = None):
         """
         ConnectionState information.
         :param pulumi.Input[str] actions_required: Actions required (if any).
         :param pulumi.Input[str] description: Description of the connection state.
-        :param pulumi.Input[str] status: Status of the connection.
+        :param pulumi.Input[Union[str, 'PersistedConnectionStatus']] status: Status of the connection.
         """
         if actions_required is not None:
             pulumi.set(__self__, "actions_required", actions_required)
@@ -220,14 +221,14 @@ class ConnectionStateArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input[Union[str, 'PersistedConnectionStatus']]]:
         """
         Status of the connection.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input[Union[str, 'PersistedConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -563,11 +564,11 @@ class EventSubscriptionFilterArgs:
 @pulumi.input_type
 class EventSubscriptionIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'EventSubscriptionIdentityType']]] = None,
                  user_assigned_identity: Optional[pulumi.Input[str]] = None):
         """
         The identity information with the event subscription.
-        :param pulumi.Input[str] type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+        :param pulumi.Input[Union[str, 'EventSubscriptionIdentityType']] type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
         :param pulumi.Input[str] user_assigned_identity: The user identity associated with the resource.
         """
         if type is not None:
@@ -577,14 +578,14 @@ class EventSubscriptionIdentityArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'EventSubscriptionIdentityType']]]:
         """
         The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'EventSubscriptionIdentityType']]]):
         pulumi.set(self, "type", value)
 
     @property
@@ -644,13 +645,13 @@ class IdentityInfoArgs:
     def __init__(__self__, *,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'IdentityType']]] = None,
                  user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityPropertiesArgs']]]] = None):
         """
         The identity information for the resource.
         :param pulumi.Input[str] principal_id: The principal ID of resource identity.
         :param pulumi.Input[str] tenant_id: The tenant ID of resource.
-        :param pulumi.Input[str] type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+        :param pulumi.Input[Union[str, 'IdentityType']] type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
         :param pulumi.Input[Mapping[str, pulumi.Input['UserIdentityPropertiesArgs']]] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
                '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
                This property is currently not used and reserved for future usage.
@@ -690,14 +691,14 @@ class IdentityInfoArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'IdentityType']]]:
         """
         The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'IdentityType']]]):
         pulumi.set(self, "type", value)
 
     @property
@@ -718,10 +719,10 @@ class IdentityInfoArgs:
 @pulumi.input_type
 class InboundIpRuleArgs:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input[str]] = None,
+                 action: Optional[pulumi.Input[Union[str, 'IpActionType']]] = None,
                  ip_mask: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] action: Action to perform based on the match or no match of the IpMask.
+        :param pulumi.Input[Union[str, 'IpActionType']] action: Action to perform based on the match or no match of the IpMask.
         :param pulumi.Input[str] ip_mask: IP Address in CIDR notation e.g., 10.0.0.0/8.
         """
         if action is not None:
@@ -731,14 +732,14 @@ class InboundIpRuleArgs:
 
     @property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[str]]:
+    def action(self) -> Optional[pulumi.Input[Union[str, 'IpActionType']]]:
         """
         Action to perform based on the match or no match of the IpMask.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input[str]]):
+    def action(self, value: Optional[pulumi.Input[Union[str, 'IpActionType']]]):
         pulumi.set(self, "action", value)
 
     @property
@@ -1300,12 +1301,12 @@ class PrivateEndpointConnectionArgs:
                  group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  private_endpoint: Optional[pulumi.Input['PrivateEndpointArgs']] = None,
                  private_link_service_connection_state: Optional[pulumi.Input['ConnectionStateArgs']] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None):
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'ResourceProvisioningState']]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: GroupIds from the private link service resource.
         :param pulumi.Input['PrivateEndpointArgs'] private_endpoint: The Private Endpoint resource for this Connection.
         :param pulumi.Input['ConnectionStateArgs'] private_link_service_connection_state: Details about the state of the connection.
-        :param pulumi.Input[str] provisioning_state: Provisioning state of the Private Endpoint Connection.
+        :param pulumi.Input[Union[str, 'ResourceProvisioningState']] provisioning_state: Provisioning state of the Private Endpoint Connection.
         """
         if group_ids is not None:
             pulumi.set(__self__, "group_ids", group_ids)
@@ -1354,38 +1355,38 @@ class PrivateEndpointConnectionArgs:
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
+    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ResourceProvisioningState']]]:
         """
         Provisioning state of the Private Endpoint Connection.
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
+    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ResourceProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
 
 
 @pulumi.input_type
 class ResourceSkuArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[Union[str, 'Sku']]] = None):
         """
         Describes an EventGrid Resource Sku.
-        :param pulumi.Input[str] name: The Sku name of the resource. The possible values are: Basic or Premium.
+        :param pulumi.Input[Union[str, 'Sku']] name: The Sku name of the resource. The possible values are: Basic or Premium.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    def name(self) -> Optional[pulumi.Input[Union[str, 'Sku']]]:
         """
         The Sku name of the resource. The possible values are: Basic or Premium.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
+    def name(self, value: Optional[pulumi.Input[Union[str, 'Sku']]]):
         pulumi.set(self, "name", value)
 
 

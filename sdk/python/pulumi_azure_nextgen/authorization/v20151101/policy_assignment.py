@@ -49,11 +49,11 @@ class PolicyAssignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if policy_assignment_name is None:
+            if policy_assignment_name is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_assignment_name'")
             __props__['policy_assignment_name'] = policy_assignment_name
             __props__['properties'] = properties
-            if scope is None:
+            if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
             __props__['name'] = None

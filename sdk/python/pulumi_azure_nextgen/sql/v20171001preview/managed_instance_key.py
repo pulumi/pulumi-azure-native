@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['ManagedInstanceKey']
 
@@ -18,7 +19,7 @@ class ManagedInstanceKey(pulumi.CustomResource):
                  key_name: Optional[pulumi.Input[str]] = None,
                  managed_instance_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 server_key_type: Optional[pulumi.Input[str]] = None,
+                 server_key_type: Optional[pulumi.Input[Union[str, 'ServerKeyType']]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -31,7 +32,7 @@ class ManagedInstanceKey(pulumi.CustomResource):
         :param pulumi.Input[str] key_name: The name of the managed instance key to be operated on (updated or created).
         :param pulumi.Input[str] managed_instance_name: The name of the managed instance.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-        :param pulumi.Input[str] server_key_type: The key type like 'ServiceManaged', 'AzureKeyVault'.
+        :param pulumi.Input[Union[str, 'ServerKeyType']] server_key_type: The key type like 'ServiceManaged', 'AzureKeyVault'.
         :param pulumi.Input[str] uri: The URI of the key. If the ServerKeyType is AzureKeyVault, then the URI is required.
         """
         if __name__ is not None:
@@ -51,16 +52,16 @@ class ManagedInstanceKey(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if key_name is None:
+            if key_name is None and not opts.urn:
                 raise TypeError("Missing required property 'key_name'")
             __props__['key_name'] = key_name
-            if managed_instance_name is None:
+            if managed_instance_name is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_instance_name'")
             __props__['managed_instance_name'] = managed_instance_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if server_key_type is None:
+            if server_key_type is None and not opts.urn:
                 raise TypeError("Missing required property 'server_key_type'")
             __props__['server_key_type'] = server_key_type
             __props__['uri'] = uri

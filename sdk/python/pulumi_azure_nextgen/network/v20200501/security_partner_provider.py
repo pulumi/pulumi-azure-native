@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['SecurityPartnerProvider']
@@ -21,7 +22,7 @@ class SecurityPartnerProvider(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_partner_provider_name: Optional[pulumi.Input[str]] = None,
-                 security_provider_name: Optional[pulumi.Input[str]] = None,
+                 security_provider_name: Optional[pulumi.Input[Union[str, 'SecurityProviderName']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_hub: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
                  __props__=None,
@@ -36,7 +37,7 @@ class SecurityPartnerProvider(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] security_partner_provider_name: The name of the Security Partner Provider.
-        :param pulumi.Input[str] security_provider_name: The security provider name.
+        :param pulumi.Input[Union[str, 'SecurityProviderName']] security_provider_name: The security provider name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_hub: The virtualHub to which the Security Partner Provider belongs.
         """
@@ -59,10 +60,10 @@ class SecurityPartnerProvider(pulumi.CustomResource):
 
             __props__['id'] = id
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if security_partner_provider_name is None:
+            if security_partner_provider_name is None and not opts.urn:
                 raise TypeError("Missing required property 'security_partner_provider_name'")
             __props__['security_partner_provider_name'] = security_partner_provider_name
             __props__['security_provider_name'] = security_provider_name

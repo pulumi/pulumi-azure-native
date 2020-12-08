@@ -64,11 +64,11 @@ class PrivateLinkForAzureAd(pulumi.CustomResource):
             __props__['all_tenants'] = all_tenants
             __props__['name'] = name
             __props__['owner_tenant_id'] = owner_tenant_id
-            if policy_name is None:
+            if policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_name'")
             __props__['policy_name'] = policy_name
             __props__['resource_group'] = resource_group
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_name'] = resource_name_

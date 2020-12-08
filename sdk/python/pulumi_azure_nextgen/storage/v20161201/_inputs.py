@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'CustomDomainArgs',
@@ -161,23 +162,23 @@ class EncryptionServicesArgs:
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str]):
+                 name: pulumi.Input['SkuName']):
         """
         The SKU of the storage account.
-        :param pulumi.Input[str] name: Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
+        :param pulumi.Input['SkuName'] name: Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
         """
         pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input['SkuName']:
         """
         Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input['SkuName']):
         pulumi.set(self, "name", value)
 
 

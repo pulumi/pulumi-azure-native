@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['WebApp']
@@ -20,7 +21,7 @@ class WebApp(pulumi.CustomResource):
                  client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
                  client_cert_enabled: Optional[pulumi.Input[bool]] = None,
                  client_cert_exclusion_paths: Optional[pulumi.Input[str]] = None,
-                 client_cert_mode: Optional[pulumi.Input[str]] = None,
+                 client_cert_mode: Optional[pulumi.Input['ClientCertMode']] = None,
                  cloning_info: Optional[pulumi.Input[pulumi.InputType['CloningInfoArgs']]] = None,
                  container_size: Optional[pulumi.Input[int]] = None,
                  custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
@@ -36,7 +37,7 @@ class WebApp(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 redundancy_mode: Optional[pulumi.Input[str]] = None,
+                 redundancy_mode: Optional[pulumi.Input['RedundancyMode']] = None,
                  reserved: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scm_site_also_stopped: Optional[pulumi.Input[bool]] = None,
@@ -54,7 +55,7 @@ class WebApp(pulumi.CustomResource):
         :param pulumi.Input[bool] client_affinity_enabled: <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
         :param pulumi.Input[bool] client_cert_enabled: <code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.
         :param pulumi.Input[str] client_cert_exclusion_paths: client certificate authentication comma-separated exclusion paths
-        :param pulumi.Input[str] client_cert_mode: This composes with ClientCertEnabled setting.
+        :param pulumi.Input['ClientCertMode'] client_cert_mode: This composes with ClientCertEnabled setting.
                - ClientCertEnabled: false means ClientCert is ignored.
                - ClientCertEnabled: true and ClientCertMode: Required means ClientCert is required.
                - ClientCertEnabled: true and ClientCertMode: Optional means ClientCert is optional or accepted.
@@ -75,7 +76,7 @@ class WebApp(pulumi.CustomResource):
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[str] name: Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
-        :param pulumi.Input[str] redundancy_mode: Site redundancy mode
+        :param pulumi.Input['RedundancyMode'] redundancy_mode: Site redundancy mode
         :param pulumi.Input[bool] reserved: <code>true</code> if reserved; otherwise, <code>false</code>.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[bool] scm_site_also_stopped: <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
@@ -117,15 +118,15 @@ class WebApp(pulumi.CustomResource):
             __props__['identity'] = identity
             __props__['is_xenon'] = is_xenon
             __props__['kind'] = kind
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['redundancy_mode'] = redundancy_mode
             __props__['reserved'] = reserved
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['scm_site_also_stopped'] = scm_site_also_stopped

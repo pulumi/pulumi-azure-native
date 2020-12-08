@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['GalleryImage']
@@ -24,11 +25,11 @@ class GalleryImage(pulumi.CustomResource):
                  features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GalleryImageFeatureArgs']]]]] = None,
                  gallery_image_name: Optional[pulumi.Input[str]] = None,
                  gallery_name: Optional[pulumi.Input[str]] = None,
-                 hyper_v_generation: Optional[pulumi.Input[str]] = None,
+                 hyper_v_generation: Optional[pulumi.Input[Union[str, 'HyperVGeneration']]] = None,
                  identifier: Optional[pulumi.Input[pulumi.InputType['GalleryImageIdentifierArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 os_state: Optional[pulumi.Input[str]] = None,
-                 os_type: Optional[pulumi.Input[str]] = None,
+                 os_state: Optional[pulumi.Input['OperatingSystemStateTypes']] = None,
+                 os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
                  privacy_statement_uri: Optional[pulumi.Input[str]] = None,
                  purchase_plan: Optional[pulumi.Input[pulumi.InputType['ImagePurchasePlanArgs']]] = None,
                  recommended: Optional[pulumi.Input[pulumi.InputType['RecommendedMachineConfigurationArgs']]] = None,
@@ -50,11 +51,11 @@ class GalleryImage(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GalleryImageFeatureArgs']]]] features: A list of gallery image features.
         :param pulumi.Input[str] gallery_image_name: The name of the gallery image definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
         :param pulumi.Input[str] gallery_name: The name of the Shared Image Gallery in which the Image Definition is to be created.
-        :param pulumi.Input[str] hyper_v_generation: The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+        :param pulumi.Input[Union[str, 'HyperVGeneration']] hyper_v_generation: The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         :param pulumi.Input[pulumi.InputType['GalleryImageIdentifierArgs']] identifier: This is the gallery image definition identifier.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] os_state: This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
-        :param pulumi.Input[str] os_type: This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+        :param pulumi.Input['OperatingSystemStateTypes'] os_state: This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
+        :param pulumi.Input['OperatingSystemTypes'] os_type: This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
         :param pulumi.Input[str] privacy_statement_uri: The privacy statement uri.
         :param pulumi.Input[pulumi.InputType['ImagePurchasePlanArgs']] purchase_plan: Describes the gallery image definition purchase plan. This is used by marketplace images.
         :param pulumi.Input[pulumi.InputType['RecommendedMachineConfigurationArgs']] recommended: The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
@@ -84,30 +85,30 @@ class GalleryImage(pulumi.CustomResource):
             __props__['end_of_life_date'] = end_of_life_date
             __props__['eula'] = eula
             __props__['features'] = features
-            if gallery_image_name is None:
+            if gallery_image_name is None and not opts.urn:
                 raise TypeError("Missing required property 'gallery_image_name'")
             __props__['gallery_image_name'] = gallery_image_name
-            if gallery_name is None:
+            if gallery_name is None and not opts.urn:
                 raise TypeError("Missing required property 'gallery_name'")
             __props__['gallery_name'] = gallery_name
             __props__['hyper_v_generation'] = hyper_v_generation
-            if identifier is None:
+            if identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'identifier'")
             __props__['identifier'] = identifier
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if os_state is None:
+            if os_state is None and not opts.urn:
                 raise TypeError("Missing required property 'os_state'")
             __props__['os_state'] = os_state
-            if os_type is None:
+            if os_type is None and not opts.urn:
                 raise TypeError("Missing required property 'os_type'")
             __props__['os_type'] = os_type
             __props__['privacy_statement_uri'] = privacy_statement_uri
             __props__['purchase_plan'] = purchase_plan
             __props__['recommended'] = recommended
             __props__['release_note_uri'] = release_note_uri
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

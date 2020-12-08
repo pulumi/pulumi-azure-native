@@ -65,13 +65,13 @@ class VirtualRouter(pulumi.CustomResource):
             __props__['hosted_subnet'] = hosted_subnet
             __props__['id'] = id
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['virtual_router_asn'] = virtual_router_asn
             __props__['virtual_router_ips'] = virtual_router_ips
-            if virtual_router_name is None:
+            if virtual_router_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_router_name'")
             __props__['virtual_router_name'] = virtual_router_name
             __props__['etag'] = None

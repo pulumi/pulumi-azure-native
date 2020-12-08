@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ContentHashArgs',
@@ -168,10 +169,10 @@ class ResourceReferenceArgs:
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input['SkuName']] = None,
                  plan: Optional[pulumi.Input['ResourceReferenceArgs']] = None):
         """
-        :param pulumi.Input[str] name: Gets or sets the name.
+        :param pulumi.Input['SkuName'] name: Gets or sets the name.
         :param pulumi.Input['ResourceReferenceArgs'] plan: Gets or sets the reference to plan.
         """
         if name is not None:
@@ -181,14 +182,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    def name(self) -> Optional[pulumi.Input['SkuName']]:
         """
         Gets or sets the name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
+    def name(self, value: Optional[pulumi.Input['SkuName']]):
         pulumi.set(self, "name", value)
 
     @property
@@ -208,11 +209,11 @@ class SkuArgs:
 class WorkflowParameterArgs:
     def __init__(__self__, *,
                  metadata: Optional[Any] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['ParameterType']] = None,
                  value: Optional[Any] = None):
         """
         :param Any metadata: Gets or sets the metadata.
-        :param pulumi.Input[str] type: Gets or sets the type.
+        :param pulumi.Input['ParameterType'] type: Gets or sets the type.
         :param Any value: Gets or sets the value.
         """
         if metadata is not None:
@@ -236,14 +237,14 @@ class WorkflowParameterArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['ParameterType']]:
         """
         Gets or sets the type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['ParameterType']]):
         pulumi.set(self, "type", value)
 
     @property

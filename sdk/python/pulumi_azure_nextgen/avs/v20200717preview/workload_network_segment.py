@@ -59,14 +59,14 @@ class WorkloadNetworkSegment(pulumi.CustomResource):
 
             __props__['connected_gateway'] = connected_gateway
             __props__['display_name'] = display_name
-            if private_cloud_name is None:
+            if private_cloud_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_cloud_name'")
             __props__['private_cloud_name'] = private_cloud_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['revision'] = revision
-            if segment_id is None:
+            if segment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'segment_id'")
             __props__['segment_id'] = segment_id
             __props__['subnet'] = subnet

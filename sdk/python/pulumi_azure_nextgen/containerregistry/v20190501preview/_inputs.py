@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ActiveDirectoryObjectArgs',
@@ -60,7 +61,7 @@ class TokenCertificateArgs:
     def __init__(__self__, *,
                  encoded_pem_certificate: Optional[pulumi.Input[str]] = None,
                  expiry: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[Union[str, 'TokenCertificateName']]] = None,
                  thumbprint: Optional[pulumi.Input[str]] = None):
         """
         The properties of a certificate used for authenticating a token.
@@ -103,11 +104,11 @@ class TokenCertificateArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    def name(self) -> Optional[pulumi.Input[Union[str, 'TokenCertificateName']]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
+    def name(self, value: Optional[pulumi.Input[Union[str, 'TokenCertificateName']]]):
         pulumi.set(self, "name", value)
 
     @property
@@ -176,12 +177,12 @@ class TokenPasswordArgs:
     def __init__(__self__, *,
                  creation_time: Optional[pulumi.Input[str]] = None,
                  expiry: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[Union[str, 'TokenPasswordName']]] = None):
         """
         The password that will be used for authenticating the token of a container registry.
         :param pulumi.Input[str] creation_time: The creation datetime of the password.
         :param pulumi.Input[str] expiry: The expiry datetime of the password.
-        :param pulumi.Input[str] name: The password name "password1" or "password2"
+        :param pulumi.Input[Union[str, 'TokenPasswordName']] name: The password name "password1" or "password2"
         """
         if creation_time is not None:
             pulumi.set(__self__, "creation_time", creation_time)
@@ -216,14 +217,14 @@ class TokenPasswordArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    def name(self) -> Optional[pulumi.Input[Union[str, 'TokenPasswordName']]]:
         """
         The password name "password1" or "password2"
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
+    def name(self, value: Optional[pulumi.Input[Union[str, 'TokenPasswordName']]]):
         pulumi.set(self, "name", value)
 
 

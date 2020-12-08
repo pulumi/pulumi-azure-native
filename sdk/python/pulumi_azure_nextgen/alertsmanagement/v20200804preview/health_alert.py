@@ -62,22 +62,22 @@ class HealthAlert(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['actions'] = actions
-            if criteria is None:
+            if criteria is None and not opts.urn:
                 raise TypeError("Missing required property 'criteria'")
             __props__['criteria'] = criteria
-            if description is None:
+            if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")
             __props__['description'] = description
-            if enabled is None:
+            if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
             __props__['enabled'] = enabled
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if rule_name is None:
+            if rule_name is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_name'")
             __props__['rule_name'] = rule_name
             __props__['scopes'] = scopes

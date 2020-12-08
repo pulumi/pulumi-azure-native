@@ -51,19 +51,19 @@ class MigrationConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if config_name is None:
+            if config_name is None and not opts.urn:
                 raise TypeError("Missing required property 'config_name'")
             __props__['config_name'] = config_name
-            if namespace_name is None:
+            if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
-            if post_migration_name is None:
+            if post_migration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'post_migration_name'")
             __props__['post_migration_name'] = post_migration_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if target_namespace is None:
+            if target_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'target_namespace'")
             __props__['target_namespace'] = target_namespace
             __props__['migration_state'] = None

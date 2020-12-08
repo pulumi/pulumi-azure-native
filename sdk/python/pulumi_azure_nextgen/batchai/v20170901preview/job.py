@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Job']
@@ -86,7 +87,7 @@ class Job(pulumi.CustomResource):
             __props__['caffe2_settings'] = caffe2_settings
             __props__['caffe_settings'] = caffe_settings
             __props__['chainer_settings'] = chainer_settings
-            if cluster is None:
+            if cluster is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster'")
             __props__['cluster'] = cluster
             __props__['cntk_settings'] = cntk_settings
@@ -96,22 +97,22 @@ class Job(pulumi.CustomResource):
             __props__['environment_variables'] = environment_variables
             __props__['experiment_name'] = experiment_name
             __props__['input_directories'] = input_directories
-            if job_name is None:
+            if job_name is None and not opts.urn:
                 raise TypeError("Missing required property 'job_name'")
             __props__['job_name'] = job_name
             __props__['job_preparation'] = job_preparation
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if node_count is None:
+            if node_count is None and not opts.urn:
                 raise TypeError("Missing required property 'node_count'")
             __props__['node_count'] = node_count
             __props__['output_directories'] = output_directories
             __props__['priority'] = priority
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if std_out_err_path_prefix is None:
+            if std_out_err_path_prefix is None and not opts.urn:
                 raise TypeError("Missing required property 'std_out_err_path_prefix'")
             __props__['std_out_err_path_prefix'] = std_out_err_path_prefix
             __props__['tags'] = tags

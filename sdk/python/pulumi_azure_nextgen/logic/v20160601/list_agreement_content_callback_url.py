@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'ListAgreementContentCallbackUrlResult',
@@ -105,7 +106,7 @@ class AwaitableListAgreementContentCallbackUrlResult(ListAgreementContentCallbac
 
 def list_agreement_content_callback_url(agreement_name: Optional[str] = None,
                                         integration_account_name: Optional[str] = None,
-                                        key_type: Optional[str] = None,
+                                        key_type: Optional['KeyType'] = None,
                                         not_after: Optional[str] = None,
                                         resource_group_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAgreementContentCallbackUrlResult:
@@ -114,7 +115,7 @@ def list_agreement_content_callback_url(agreement_name: Optional[str] = None,
 
     :param str agreement_name: The integration account agreement name.
     :param str integration_account_name: The integration account name.
-    :param str key_type: The key type.
+    :param 'KeyType' key_type: The key type.
     :param str not_after: The expiry time.
     :param str resource_group_name: The resource group name.
     """

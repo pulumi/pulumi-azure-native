@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['Disk']
 
@@ -17,7 +18,7 @@ class Disk(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  disk_blob_name: Optional[pulumi.Input[str]] = None,
                  disk_size_gi_b: Optional[pulumi.Input[int]] = None,
-                 disk_type: Optional[pulumi.Input[str]] = None,
+                 disk_type: Optional[pulumi.Input[Union[str, 'StorageType']]] = None,
                  disk_uri: Optional[pulumi.Input[str]] = None,
                  host_caching: Optional[pulumi.Input[str]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
@@ -40,7 +41,7 @@ class Disk(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] disk_blob_name: When backed by a blob, the name of the VHD blob without extension.
         :param pulumi.Input[int] disk_size_gi_b: The size of the disk in Gibibytes.
-        :param pulumi.Input[str] disk_type: The storage type for the disk (i.e. Standard, Premium).
+        :param pulumi.Input[Union[str, 'StorageType']] disk_type: The storage type for the disk (i.e. Standard, Premium).
         :param pulumi.Input[str] disk_uri: When backed by a blob, the URI of underlying blob.
         :param pulumi.Input[str] host_caching: The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
         :param pulumi.Input[str] lab_name: The name of the lab.
@@ -76,22 +77,22 @@ class Disk(pulumi.CustomResource):
             __props__['disk_type'] = disk_type
             __props__['disk_uri'] = disk_uri
             __props__['host_caching'] = host_caching
-            if lab_name is None:
+            if lab_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_name'")
             __props__['lab_name'] = lab_name
             __props__['leased_by_lab_vm_id'] = leased_by_lab_vm_id
             __props__['location'] = location
             __props__['managed_disk_id'] = managed_disk_id
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['provisioning_state'] = provisioning_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['unique_identifier'] = unique_identifier
-            if user_name is None:
+            if user_name is None and not opts.urn:
                 raise TypeError("Missing required property 'user_name'")
             __props__['user_name'] = user_name
             __props__['created_date'] = None

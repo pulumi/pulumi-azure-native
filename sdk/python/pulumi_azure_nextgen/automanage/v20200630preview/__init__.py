@@ -3,9 +3,31 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .account import *
 from .configuration_profile_preference import *
 from .get_account import *
 from .get_configuration_profile_preference import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:automanage/v20200630preview:Account":
+                return Account(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:automanage/v20200630preview:ConfigurationProfilePreference":
+                return ConfigurationProfilePreference(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "automanage/v20200630preview", _module_instance)
+
+_register_module()

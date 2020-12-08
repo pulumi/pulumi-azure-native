@@ -9,3 +9,24 @@ from .role_assignment import *
 from .role_definition import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:authorization/v20180101preview:RoleAssignment":
+                return RoleAssignment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:authorization/v20180101preview:RoleDefinition":
+                return RoleDefinition(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "authorization/v20180101preview", _module_instance)
+
+_register_module()

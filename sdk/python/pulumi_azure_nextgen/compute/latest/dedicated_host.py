@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DedicatedHost']
@@ -20,7 +21,7 @@ class DedicatedHost(pulumi.CustomResource):
                  auto_replace_on_failure: Optional[pulumi.Input[bool]] = None,
                  host_group_name: Optional[pulumi.Input[str]] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
-                 license_type: Optional[pulumi.Input[str]] = None,
+                 license_type: Optional[pulumi.Input['DedicatedHostLicenseTypes']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  platform_fault_domain: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -37,7 +38,7 @@ class DedicatedHost(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_replace_on_failure: Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
         :param pulumi.Input[str] host_group_name: The name of the dedicated host group.
         :param pulumi.Input[str] host_name: The name of the dedicated host .
-        :param pulumi.Input[str] license_type: Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
+        :param pulumi.Input['DedicatedHostLicenseTypes'] license_type: Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[int] platform_fault_domain: Fault domain of the dedicated host within a dedicated host group.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -62,21 +63,21 @@ class DedicatedHost(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['auto_replace_on_failure'] = auto_replace_on_failure
-            if host_group_name is None:
+            if host_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'host_group_name'")
             __props__['host_group_name'] = host_group_name
-            if host_name is None:
+            if host_name is None and not opts.urn:
                 raise TypeError("Missing required property 'host_name'")
             __props__['host_name'] = host_name
             __props__['license_type'] = license_type
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['platform_fault_domain'] = platform_fault_domain
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if sku is None:
+            if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags

@@ -61,16 +61,16 @@ class VirtualNetworkLink(pulumi.CustomResource):
 
             __props__['etag'] = etag
             __props__['location'] = location
-            if private_zone_name is None:
+            if private_zone_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_zone_name'")
             __props__['private_zone_name'] = private_zone_name
             __props__['registration_enabled'] = registration_enabled
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['virtual_network'] = virtual_network
-            if virtual_network_link_name is None:
+            if virtual_network_link_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_link_name'")
             __props__['virtual_network_link_name'] = virtual_network_link_name
             __props__['name'] = None

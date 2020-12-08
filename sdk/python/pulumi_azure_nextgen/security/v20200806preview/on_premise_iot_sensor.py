@@ -43,7 +43,7 @@ class OnPremiseIotSensor(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if on_premise_iot_sensor_name is None:
+            if on_premise_iot_sensor_name is None and not opts.urn:
                 raise TypeError("Missing required property 'on_premise_iot_sensor_name'")
             __props__['on_premise_iot_sensor_name'] = on_premise_iot_sensor_name
             __props__['name'] = None

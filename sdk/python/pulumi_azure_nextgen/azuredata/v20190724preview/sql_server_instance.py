@@ -60,29 +60,29 @@ class SqlServerInstance(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if container_resource_id is None:
+            if container_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'container_resource_id'")
             __props__['container_resource_id'] = container_resource_id
-            if edition is None:
+            if edition is None and not opts.urn:
                 raise TypeError("Missing required property 'edition'")
             __props__['edition'] = edition
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if sql_server_instance_name is None:
+            if sql_server_instance_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sql_server_instance_name'")
             __props__['sql_server_instance_name'] = sql_server_instance_name
-            if status is None:
+            if status is None and not opts.urn:
                 raise TypeError("Missing required property 'status'")
             __props__['status'] = status
             __props__['tags'] = tags
-            if v_core is None:
+            if v_core is None and not opts.urn:
                 raise TypeError("Missing required property 'v_core'")
             __props__['v_core'] = v_core
-            if version is None:
+            if version is None and not opts.urn:
                 raise TypeError("Missing required property 'version'")
             __props__['version'] = version
             __props__['create_time'] = None

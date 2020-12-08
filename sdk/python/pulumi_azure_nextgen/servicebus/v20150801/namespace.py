@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Namespace']
@@ -23,7 +24,7 @@ class Namespace(pulumi.CustomResource):
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['NamespaceState']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -39,7 +40,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] namespace_name: The namespace name.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: SKU of the namespace.
-        :param pulumi.Input[str] status: State of the namespace.
+        :param pulumi.Input['NamespaceState'] status: State of the namespace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Namespace tags.
         """
         if __name__ is not None:
@@ -61,13 +62,13 @@ class Namespace(pulumi.CustomResource):
 
             __props__['create_acs_namespace'] = create_acs_namespace
             __props__['enabled'] = enabled
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if namespace_name is None:
+            if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku

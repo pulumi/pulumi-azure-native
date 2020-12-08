@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['SmartDetectorAlertRule']
@@ -24,8 +25,8 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
                  frequency: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 severity: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input[str]] = None,
+                 severity: Optional[pulumi.Input[Union[str, 'Severity']]] = None,
+                 state: Optional[pulumi.Input[Union[str, 'AlertRuleState']]] = None,
                  throttling: Optional[pulumi.Input[pulumi.InputType['ThrottlingInformationArgs']]] = None,
                  __props__=None,
                  __name__=None,
@@ -42,8 +43,8 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
         :param pulumi.Input[str] frequency: The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scope: The alert rule resources scope.
-        :param pulumi.Input[str] severity: The alert rule severity.
-        :param pulumi.Input[str] state: The alert rule state.
+        :param pulumi.Input[Union[str, 'Severity']] severity: The alert rule severity.
+        :param pulumi.Input[Union[str, 'AlertRuleState']] state: The alert rule state.
         :param pulumi.Input[pulumi.InputType['ThrottlingInformationArgs']] throttling: The alert rule throttling information.
         """
         if __name__ is not None:
@@ -63,29 +64,29 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if action_groups is None:
+            if action_groups is None and not opts.urn:
                 raise TypeError("Missing required property 'action_groups'")
             __props__['action_groups'] = action_groups
-            if alert_rule_name is None:
+            if alert_rule_name is None and not opts.urn:
                 raise TypeError("Missing required property 'alert_rule_name'")
             __props__['alert_rule_name'] = alert_rule_name
             __props__['description'] = description
-            if detector is None:
+            if detector is None and not opts.urn:
                 raise TypeError("Missing required property 'detector'")
             __props__['detector'] = detector
-            if frequency is None:
+            if frequency is None and not opts.urn:
                 raise TypeError("Missing required property 'frequency'")
             __props__['frequency'] = frequency
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if scope is None:
+            if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
-            if severity is None:
+            if severity is None and not opts.urn:
                 raise TypeError("Missing required property 'severity'")
             __props__['severity'] = severity
-            if state is None:
+            if state is None and not opts.urn:
                 raise TypeError("Missing required property 'state'")
             __props__['state'] = state
             __props__['throttling'] = throttling

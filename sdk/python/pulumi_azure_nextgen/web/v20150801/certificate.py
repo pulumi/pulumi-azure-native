@@ -96,16 +96,16 @@ class Certificate(pulumi.CustomResource):
             __props__['issue_date'] = issue_date
             __props__['issuer'] = issuer
             __props__['kind'] = kind
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['password'] = password
             __props__['pfx_blob'] = pfx_blob
             __props__['public_key_hash'] = public_key_hash
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['self_link'] = self_link

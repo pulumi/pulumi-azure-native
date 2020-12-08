@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['User']
@@ -17,8 +18,8 @@ class User(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_type: Optional[pulumi.Input[str]] = None,
-                 confirmation: Optional[pulumi.Input[str]] = None,
+                 app_type: Optional[pulumi.Input[Union[str, 'AppType']]] = None,
+                 confirmation: Optional[pulumi.Input[Union[str, 'Confirmation']]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  first_name: Optional[pulumi.Input[str]] = None,
                  identities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserIdentityContractArgs']]]]] = None,
@@ -27,7 +28,7 @@ class User(pulumi.CustomResource):
                  password: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[Union[str, 'UserState']]] = None,
                  user_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -37,8 +38,8 @@ class User(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_type: Determines the type of application which send the create user request. Default is old publisher portal.
-        :param pulumi.Input[str] confirmation: Determines the type of confirmation e-mail that will be sent to the newly created user.
+        :param pulumi.Input[Union[str, 'AppType']] app_type: Determines the type of application which send the create user request. Default is old publisher portal.
+        :param pulumi.Input[Union[str, 'Confirmation']] confirmation: Determines the type of confirmation e-mail that will be sent to the newly created user.
         :param pulumi.Input[str] email: Email address. Must not be empty and must be unique within the service instance.
         :param pulumi.Input[str] first_name: First name.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserIdentityContractArgs']]]] identities: Collection of user identities.
@@ -47,7 +48,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] password: User Password. If no value is provided, a default password is generated.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
-        :param pulumi.Input[str] state: Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
+        :param pulumi.Input[Union[str, 'UserState']] state: Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
         :param pulumi.Input[str] user_id: User identifier. Must be unique in the current API Management service instance.
         """
         if __name__ is not None:
@@ -69,26 +70,26 @@ class User(pulumi.CustomResource):
 
             __props__['app_type'] = app_type
             __props__['confirmation'] = confirmation
-            if email is None:
+            if email is None and not opts.urn:
                 raise TypeError("Missing required property 'email'")
             __props__['email'] = email
-            if first_name is None:
+            if first_name is None and not opts.urn:
                 raise TypeError("Missing required property 'first_name'")
             __props__['first_name'] = first_name
             __props__['identities'] = identities
-            if last_name is None:
+            if last_name is None and not opts.urn:
                 raise TypeError("Missing required property 'last_name'")
             __props__['last_name'] = last_name
             __props__['note'] = note
             __props__['password'] = password
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if service_name is None:
+            if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['state'] = state
-            if user_id is None:
+            if user_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_id'")
             __props__['user_id'] = user_id
             __props__['groups'] = None

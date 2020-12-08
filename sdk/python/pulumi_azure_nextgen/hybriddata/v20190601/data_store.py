@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DataStore']
@@ -24,7 +25,7 @@ class DataStore(pulumi.CustomResource):
                  extended_properties: Optional[Any] = None,
                  repository_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input['State']] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -40,7 +41,7 @@ class DataStore(pulumi.CustomResource):
         :param Any extended_properties: A generic json used differently by each data source type.
         :param pulumi.Input[str] repository_id: Arm Id for the manager resource to which the data source is associated. This is optional.
         :param pulumi.Input[str] resource_group_name: The Resource Group Name
-        :param pulumi.Input[str] state: State of the data source.
+        :param pulumi.Input['State'] state: State of the data source.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -60,21 +61,21 @@ class DataStore(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['customer_secrets'] = customer_secrets
-            if data_manager_name is None:
+            if data_manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'data_manager_name'")
             __props__['data_manager_name'] = data_manager_name
-            if data_store_name is None:
+            if data_store_name is None and not opts.urn:
                 raise TypeError("Missing required property 'data_store_name'")
             __props__['data_store_name'] = data_store_name
-            if data_store_type_id is None:
+            if data_store_type_id is None and not opts.urn:
                 raise TypeError("Missing required property 'data_store_type_id'")
             __props__['data_store_type_id'] = data_store_type_id
             __props__['extended_properties'] = extended_properties
             __props__['repository_id'] = repository_id
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if state is None:
+            if state is None and not opts.urn:
                 raise TypeError("Missing required property 'state'")
             __props__['state'] = state
             __props__['name'] = None

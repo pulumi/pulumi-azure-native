@@ -48,13 +48,13 @@ class PublishedBlueprint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if blueprint_name is None:
+            if blueprint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'blueprint_name'")
             __props__['blueprint_name'] = blueprint_name
-            if management_group_name is None:
+            if management_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'management_group_name'")
             __props__['management_group_name'] = management_group_name
-            if version_id is None:
+            if version_id is None and not opts.urn:
                 raise TypeError("Missing required property 'version_id'")
             __props__['version_id'] = version_id
             __props__['change_notes'] = None

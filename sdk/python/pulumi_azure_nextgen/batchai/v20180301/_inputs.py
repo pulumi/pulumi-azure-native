@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AppInsightsReferenceArgs',
@@ -678,8 +679,8 @@ class DataDisksArgs:
     def __init__(__self__, *,
                  disk_count: pulumi.Input[int],
                  disk_size_in_gb: pulumi.Input[int],
-                 storage_account_type: pulumi.Input[str],
-                 caching_type: Optional[pulumi.Input[str]] = None):
+                 storage_account_type: pulumi.Input[Union[str, 'StorageAccountType']],
+                 caching_type: Optional[pulumi.Input['CachingType']] = None):
         """
         Settings for the data disk which would be created for the File Server.
         """
@@ -709,20 +710,20 @@ class DataDisksArgs:
 
     @property
     @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> pulumi.Input[str]:
+    def storage_account_type(self) -> pulumi.Input[Union[str, 'StorageAccountType']]:
         return pulumi.get(self, "storage_account_type")
 
     @storage_account_type.setter
-    def storage_account_type(self, value: pulumi.Input[str]):
+    def storage_account_type(self, value: pulumi.Input[Union[str, 'StorageAccountType']]):
         pulumi.set(self, "storage_account_type", value)
 
     @property
     @pulumi.getter(name="cachingType")
-    def caching_type(self) -> Optional[pulumi.Input[str]]:
+    def caching_type(self) -> Optional[pulumi.Input['CachingType']]:
         return pulumi.get(self, "caching_type")
 
     @caching_type.setter
-    def caching_type(self, value: Optional[pulumi.Input[str]]):
+    def caching_type(self, value: Optional[pulumi.Input['CachingType']]):
         pulumi.set(self, "caching_type", value)
 
 
@@ -1104,11 +1105,11 @@ class KeyVaultSecretReferenceArgs:
 class ManualScaleSettingsArgs:
     def __init__(__self__, *,
                  target_node_count: pulumi.Input[int],
-                 node_deallocation_option: Optional[pulumi.Input[str]] = None):
+                 node_deallocation_option: Optional[pulumi.Input['DeallocationOption']] = None):
         """
         Manual scale settings for the cluster.
         :param pulumi.Input[int] target_node_count: Default is 0. If autoScaleSettings are not specified, then the Cluster starts with this target.
-        :param pulumi.Input[str] node_deallocation_option: The default value is requeue.
+        :param pulumi.Input['DeallocationOption'] node_deallocation_option: The default value is requeue.
         """
         pulumi.set(__self__, "target_node_count", target_node_count)
         if node_deallocation_option is not None:
@@ -1128,14 +1129,14 @@ class ManualScaleSettingsArgs:
 
     @property
     @pulumi.getter(name="nodeDeallocationOption")
-    def node_deallocation_option(self) -> Optional[pulumi.Input[str]]:
+    def node_deallocation_option(self) -> Optional[pulumi.Input['DeallocationOption']]:
         """
         The default value is requeue.
         """
         return pulumi.get(self, "node_deallocation_option")
 
     @node_deallocation_option.setter
-    def node_deallocation_option(self, value: Optional[pulumi.Input[str]]):
+    def node_deallocation_option(self, value: Optional[pulumi.Input['DeallocationOption']]):
         pulumi.set(self, "node_deallocation_option", value)
 
 
@@ -1266,14 +1267,14 @@ class OutputDirectoryArgs:
                  path_prefix: pulumi.Input[str],
                  create_new: Optional[pulumi.Input[bool]] = None,
                  path_suffix: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input[Union[str, 'OutputType']]] = None):
         """
         Output directory for the job.
         :param pulumi.Input[str] id: The path of the output directory will be available as a value of an environment variable with AZ_BATCHAI_OUTPUT_<id> name, where <id> is the value of id attribute.
         :param pulumi.Input[str] path_prefix: NOTE: This is an absolute path to prefix. E.g. $AZ_BATCHAI_MOUNT_ROOT/MyNFS/MyLogs. You can find the full path to the output directory by combining pathPrefix, jobOutputDirectoryPathSegment (reported by get job) and pathSuffix.
         :param pulumi.Input[bool] create_new: Default is true. If false, then the directory is not created and can be any directory path that the user specifies.
         :param pulumi.Input[str] path_suffix: The suffix path where the output directory will be created. E.g. models. You can find the full path to the output directory by combining pathPrefix, jobOutputDirectoryPathSegment (reported by get job) and pathSuffix.
-        :param pulumi.Input[str] type: Default value is Custom. The possible values are Model, Logs, Summary, and Custom. Users can use multiple enums for a single directory. Eg. outPutType='Model,Logs, Summary'
+        :param pulumi.Input[Union[str, 'OutputType']] type: Default value is Custom. The possible values are Model, Logs, Summary, and Custom. Users can use multiple enums for a single directory. Eg. outPutType='Model,Logs, Summary'
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "path_prefix", path_prefix)
@@ -1334,14 +1335,14 @@ class OutputDirectoryArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'OutputType']]]:
         """
         Default value is Custom. The possible values are Model, Logs, Summary, and Custom. Users can use multiple enums for a single directory. Eg. outPutType='Model,Logs, Summary'
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'OutputType']]]):
         pulumi.set(self, "type", value)
 
 

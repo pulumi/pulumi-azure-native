@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ApplicationPackageReferenceArgs',
@@ -135,11 +136,11 @@ class AutoStorageBasePropertiesArgs:
 @pulumi.input_type
 class AutoUserSpecificationArgs:
     def __init__(__self__, *,
-                 elevation_level: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input[str]] = None):
+                 elevation_level: Optional[pulumi.Input['ElevationLevel']] = None,
+                 scope: Optional[pulumi.Input['AutoUserScope']] = None):
         """
-        :param pulumi.Input[str] elevation_level: nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
-        :param pulumi.Input[str] scope: The default value is task.
+        :param pulumi.Input['ElevationLevel'] elevation_level: nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
+        :param pulumi.Input['AutoUserScope'] scope: The default value is task.
         """
         if elevation_level is not None:
             pulumi.set(__self__, "elevation_level", elevation_level)
@@ -148,26 +149,26 @@ class AutoUserSpecificationArgs:
 
     @property
     @pulumi.getter(name="elevationLevel")
-    def elevation_level(self) -> Optional[pulumi.Input[str]]:
+    def elevation_level(self) -> Optional[pulumi.Input['ElevationLevel']]:
         """
         nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
         """
         return pulumi.get(self, "elevation_level")
 
     @elevation_level.setter
-    def elevation_level(self, value: Optional[pulumi.Input[str]]):
+    def elevation_level(self, value: Optional[pulumi.Input['ElevationLevel']]):
         pulumi.set(self, "elevation_level", value)
 
     @property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input[str]]:
+    def scope(self) -> Optional[pulumi.Input['AutoUserScope']]:
         """
         The default value is task.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input[str]]):
+    def scope(self, value: Optional[pulumi.Input['AutoUserScope']]):
         pulumi.set(self, "scope", value)
 
 
@@ -175,11 +176,11 @@ class AutoUserSpecificationArgs:
 class CertificateReferenceArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
-                 store_location: Optional[pulumi.Input[str]] = None,
+                 store_location: Optional[pulumi.Input['CertificateStoreLocation']] = None,
                  store_name: Optional[pulumi.Input[str]] = None,
-                 visibility: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 visibility: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateVisibility']]]] = None):
         """
-        :param pulumi.Input[str] store_location: The default value is currentUser. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
+        :param pulumi.Input['CertificateStoreLocation'] store_location: The default value is currentUser. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
         :param pulumi.Input[str] store_name: This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: My, Root, CA, Trust, Disallowed, TrustedPeople, TrustedPublisher, AuthRoot, AddressBook, but any custom store name can also be used. The default value is My.
         """
         pulumi.set(__self__, "id", id)
@@ -201,14 +202,14 @@ class CertificateReferenceArgs:
 
     @property
     @pulumi.getter(name="storeLocation")
-    def store_location(self) -> Optional[pulumi.Input[str]]:
+    def store_location(self) -> Optional[pulumi.Input['CertificateStoreLocation']]:
         """
         The default value is currentUser. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
         """
         return pulumi.get(self, "store_location")
 
     @store_location.setter
-    def store_location(self, value: Optional[pulumi.Input[str]]):
+    def store_location(self, value: Optional[pulumi.Input['CertificateStoreLocation']]):
         pulumi.set(self, "store_location", value)
 
     @property
@@ -225,11 +226,11 @@ class CertificateReferenceArgs:
 
     @property
     @pulumi.getter
-    def visibility(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def visibility(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateVisibility']]]]:
         return pulumi.get(self, "visibility")
 
     @visibility.setter
-    def visibility(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def visibility(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateVisibility']]]]):
         pulumi.set(self, "visibility", value)
 
 
@@ -274,7 +275,7 @@ class CloudServiceConfigurationArgs:
 @pulumi.input_type
 class ContainerConfigurationArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str],
+                 type: pulumi.Input['ContainerType'],
                  container_image_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  container_registries: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerRegistryArgs']]]] = None):
         """
@@ -289,11 +290,11 @@ class ContainerConfigurationArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['ContainerType']:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['ContainerType']):
         pulumi.set(self, "type", value)
 
     @property
@@ -371,19 +372,19 @@ class DataDiskArgs:
     def __init__(__self__, *,
                  disk_size_gb: pulumi.Input[int],
                  lun: pulumi.Input[int],
-                 caching: Optional[pulumi.Input[str]] = None,
-                 storage_account_type: Optional[pulumi.Input[str]] = None):
+                 caching: Optional[pulumi.Input['CachingType']] = None,
+                 storage_account_type: Optional[pulumi.Input['StorageAccountType']] = None):
         """
         Data Disk settings which will be used by the data disks associated to Compute Nodes in the pool.
         :param pulumi.Input[int] lun: The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun.
-        :param pulumi.Input[str] caching: Values are:
+        :param pulumi.Input['CachingType'] caching: Values are:
                
                 none - The caching mode for the disk is not enabled.
                 readOnly - The caching mode for the disk is read only.
                 readWrite - The caching mode for the disk is read and write.
                
                 The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
-        :param pulumi.Input[str] storage_account_type: If omitted, the default is "Standard_LRS". Values are:
+        :param pulumi.Input['StorageAccountType'] storage_account_type: If omitted, the default is "Standard_LRS". Values are:
                
                 Standard_LRS - The data disk should use standard locally redundant storage.
                 Premium_LRS - The data disk should use premium locally redundant storage.
@@ -418,7 +419,7 @@ class DataDiskArgs:
 
     @property
     @pulumi.getter
-    def caching(self) -> Optional[pulumi.Input[str]]:
+    def caching(self) -> Optional[pulumi.Input['CachingType']]:
         """
         Values are:
 
@@ -431,12 +432,12 @@ class DataDiskArgs:
         return pulumi.get(self, "caching")
 
     @caching.setter
-    def caching(self, value: Optional[pulumi.Input[str]]):
+    def caching(self, value: Optional[pulumi.Input['CachingType']]):
         pulumi.set(self, "caching", value)
 
     @property
     @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> Optional[pulumi.Input[str]]:
+    def storage_account_type(self) -> Optional[pulumi.Input['StorageAccountType']]:
         """
         If omitted, the default is "Standard_LRS". Values are:
 
@@ -446,7 +447,7 @@ class DataDiskArgs:
         return pulumi.get(self, "storage_account_type")
 
     @storage_account_type.setter
-    def storage_account_type(self, value: Optional[pulumi.Input[str]]):
+    def storage_account_type(self, value: Optional[pulumi.Input['StorageAccountType']]):
         pulumi.set(self, "storage_account_type", value)
 
 
@@ -520,12 +521,12 @@ class EnvironmentSettingArgs:
 @pulumi.input_type
 class FixedScaleSettingsArgs:
     def __init__(__self__, *,
-                 node_deallocation_option: Optional[pulumi.Input[str]] = None,
+                 node_deallocation_option: Optional[pulumi.Input['ComputeNodeDeallocationOption']] = None,
                  resize_timeout: Optional[pulumi.Input[str]] = None,
                  target_dedicated_nodes: Optional[pulumi.Input[int]] = None,
                  target_low_priority_nodes: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] node_deallocation_option: If omitted, the default value is Requeue.
+        :param pulumi.Input['ComputeNodeDeallocationOption'] node_deallocation_option: If omitted, the default value is Requeue.
         :param pulumi.Input[str] resize_timeout: The default value is 15 minutes. Timeout values use ISO 8601 format. For example, use PT10M for 10 minutes. The minimum value is 5 minutes. If you specify a value less than 5 minutes, the Batch service rejects the request with an error; if you are calling the REST API directly, the HTTP status code is 400 (Bad Request).
         :param pulumi.Input[int] target_dedicated_nodes: At least one of targetDedicatedNodes, targetLowPriority nodes must be set.
         :param pulumi.Input[int] target_low_priority_nodes: At least one of targetDedicatedNodes, targetLowPriority nodes must be set.
@@ -541,14 +542,14 @@ class FixedScaleSettingsArgs:
 
     @property
     @pulumi.getter(name="nodeDeallocationOption")
-    def node_deallocation_option(self) -> Optional[pulumi.Input[str]]:
+    def node_deallocation_option(self) -> Optional[pulumi.Input['ComputeNodeDeallocationOption']]:
         """
         If omitted, the default value is Requeue.
         """
         return pulumi.get(self, "node_deallocation_option")
 
     @node_deallocation_option.setter
-    def node_deallocation_option(self, value: Optional[pulumi.Input[str]]):
+    def node_deallocation_option(self, value: Optional[pulumi.Input['ComputeNodeDeallocationOption']]):
         pulumi.set(self, "node_deallocation_option", value)
 
     @property
@@ -682,7 +683,7 @@ class InboundNatPoolArgs:
                  frontend_port_range_end: pulumi.Input[int],
                  frontend_port_range_start: pulumi.Input[int],
                  name: pulumi.Input[str],
-                 protocol: pulumi.Input[str],
+                 protocol: pulumi.Input['InboundEndpointProtocol'],
                  network_security_group_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSecurityGroupRuleArgs']]]] = None):
         """
         :param pulumi.Input[int] backend_port: This must be unique within a Batch pool. Acceptable values are between 1 and 65535 except for 22, 3389, 29876 and 29877 as these are reserved. If any reserved values are provided the request fails with HTTP status code 400.
@@ -749,11 +750,11 @@ class InboundNatPoolArgs:
 
     @property
     @pulumi.getter
-    def protocol(self) -> pulumi.Input[str]:
+    def protocol(self) -> pulumi.Input['InboundEndpointProtocol']:
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: pulumi.Input[str]):
+    def protocol(self, value: pulumi.Input['InboundEndpointProtocol']):
         pulumi.set(self, "protocol", value)
 
     @property
@@ -935,7 +936,7 @@ class NetworkConfigurationArgs:
 @pulumi.input_type
 class NetworkSecurityGroupRuleArgs:
     def __init__(__self__, *,
-                 access: pulumi.Input[str],
+                 access: pulumi.Input['NetworkSecurityGroupRuleAccess'],
                  priority: pulumi.Input[int],
                  source_address_prefix: pulumi.Input[str]):
         """
@@ -948,11 +949,11 @@ class NetworkSecurityGroupRuleArgs:
 
     @property
     @pulumi.getter
-    def access(self) -> pulumi.Input[str]:
+    def access(self) -> pulumi.Input['NetworkSecurityGroupRuleAccess']:
         return pulumi.get(self, "access")
 
     @access.setter
-    def access(self, value: pulumi.Input[str]):
+    def access(self, value: pulumi.Input['NetworkSecurityGroupRuleAccess']):
         pulumi.set(self, "access", value)
 
     @property
@@ -1314,16 +1315,16 @@ class TaskContainerSettingsArgs:
 @pulumi.input_type
 class TaskSchedulingPolicyArgs:
     def __init__(__self__, *,
-                 node_fill_type: pulumi.Input[str]):
+                 node_fill_type: pulumi.Input['ComputeNodeFillType']):
         pulumi.set(__self__, "node_fill_type", node_fill_type)
 
     @property
     @pulumi.getter(name="nodeFillType")
-    def node_fill_type(self) -> pulumi.Input[str]:
+    def node_fill_type(self) -> pulumi.Input['ComputeNodeFillType']:
         return pulumi.get(self, "node_fill_type")
 
     @node_fill_type.setter
-    def node_fill_type(self, value: pulumi.Input[str]):
+    def node_fill_type(self, value: pulumi.Input['ComputeNodeFillType']):
         pulumi.set(self, "node_fill_type", value)
 
 
@@ -1332,11 +1333,11 @@ class UserAccountArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  password: pulumi.Input[str],
-                 elevation_level: Optional[pulumi.Input[str]] = None,
+                 elevation_level: Optional[pulumi.Input['ElevationLevel']] = None,
                  linux_user_configuration: Optional[pulumi.Input['LinuxUserConfigurationArgs']] = None,
                  windows_user_configuration: Optional[pulumi.Input['WindowsUserConfigurationArgs']] = None):
         """
-        :param pulumi.Input[str] elevation_level: nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
+        :param pulumi.Input['ElevationLevel'] elevation_level: nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
         :param pulumi.Input['LinuxUserConfigurationArgs'] linux_user_configuration: This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
         :param pulumi.Input['WindowsUserConfigurationArgs'] windows_user_configuration: This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
         """
@@ -1369,14 +1370,14 @@ class UserAccountArgs:
 
     @property
     @pulumi.getter(name="elevationLevel")
-    def elevation_level(self) -> Optional[pulumi.Input[str]]:
+    def elevation_level(self) -> Optional[pulumi.Input['ElevationLevel']]:
         """
         nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
         """
         return pulumi.get(self, "elevation_level")
 
     @elevation_level.setter
-    def elevation_level(self, value: Optional[pulumi.Input[str]]):
+    def elevation_level(self, value: Optional[pulumi.Input['ElevationLevel']]):
         pulumi.set(self, "elevation_level", value)
 
     @property
@@ -1573,23 +1574,23 @@ class WindowsConfigurationArgs:
 @pulumi.input_type
 class WindowsUserConfigurationArgs:
     def __init__(__self__, *,
-                 login_mode: Optional[pulumi.Input[str]] = None):
+                 login_mode: Optional[pulumi.Input['LoginMode']] = None):
         """
-        :param pulumi.Input[str] login_mode: Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode.
+        :param pulumi.Input['LoginMode'] login_mode: Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode.
         """
         if login_mode is not None:
             pulumi.set(__self__, "login_mode", login_mode)
 
     @property
     @pulumi.getter(name="loginMode")
-    def login_mode(self) -> Optional[pulumi.Input[str]]:
+    def login_mode(self) -> Optional[pulumi.Input['LoginMode']]:
         """
         Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode.
         """
         return pulumi.get(self, "login_mode")
 
     @login_mode.setter
-    def login_mode(self, value: Optional[pulumi.Input[str]]):
+    def login_mode(self, value: Optional[pulumi.Input['LoginMode']]):
         pulumi.set(self, "login_mode", value)
 
 

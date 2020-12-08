@@ -67,30 +67,30 @@ class ApiOperation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if api_id is None:
+            if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
             __props__['api_id'] = api_id
             __props__['description'] = description
-            if display_name is None:
+            if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
-            if method is None:
+            if method is None and not opts.urn:
                 raise TypeError("Missing required property 'method'")
             __props__['method'] = method
-            if operation_id is None:
+            if operation_id is None and not opts.urn:
                 raise TypeError("Missing required property 'operation_id'")
             __props__['operation_id'] = operation_id
             __props__['policies'] = policies
             __props__['request'] = request
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['responses'] = responses
-            if service_name is None:
+            if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['template_parameters'] = template_parameters
-            if url_template is None:
+            if url_template is None and not opts.urn:
                 raise TypeError("Missing required property 'url_template'")
             __props__['url_template'] = url_template
             __props__['name'] = None

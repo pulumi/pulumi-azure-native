@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['BigDataPool']
@@ -28,8 +29,8 @@ class BigDataPool(pulumi.CustomResource):
                  library_requirements: Optional[pulumi.Input[pulumi.InputType['LibraryRequirementsArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
-                 node_size: Optional[pulumi.Input[str]] = None,
-                 node_size_family: Optional[pulumi.Input[str]] = None,
+                 node_size: Optional[pulumi.Input[Union[str, 'NodeSize']]] = None,
+                 node_size_family: Optional[pulumi.Input[Union[str, 'NodeSizeFamily']]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  session_level_packages_enabled: Optional[pulumi.Input[bool]] = None,
@@ -57,8 +58,8 @@ class BigDataPool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LibraryRequirementsArgs']] library_requirements: Library version requirements
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[int] node_count: The number of nodes in the Big Data pool.
-        :param pulumi.Input[str] node_size: The level of compute power that each node in the Big Data pool has.
-        :param pulumi.Input[str] node_size_family: The kind of nodes that the Big Data pool provides.
+        :param pulumi.Input[Union[str, 'NodeSize']] node_size: The level of compute power that each node in the Big Data pool has.
+        :param pulumi.Input[Union[str, 'NodeSizeFamily']] node_size_family: The kind of nodes that the Big Data pool provides.
         :param pulumi.Input[str] provisioning_state: The state of the Big Data pool.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[bool] session_level_packages_enabled: Whether session level packages enabled.
@@ -87,7 +88,7 @@ class BigDataPool(pulumi.CustomResource):
 
             __props__['auto_pause'] = auto_pause
             __props__['auto_scale'] = auto_scale
-            if big_data_pool_name is None:
+            if big_data_pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'big_data_pool_name'")
             __props__['big_data_pool_name'] = big_data_pool_name
             __props__['creation_date'] = creation_date
@@ -96,14 +97,14 @@ class BigDataPool(pulumi.CustomResource):
             __props__['have_library_requirements_changed'] = have_library_requirements_changed
             __props__['is_compute_isolation_enabled'] = is_compute_isolation_enabled
             __props__['library_requirements'] = library_requirements
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['node_count'] = node_count
             __props__['node_size'] = node_size
             __props__['node_size_family'] = node_size_family
             __props__['provisioning_state'] = provisioning_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['session_level_packages_enabled'] = session_level_packages_enabled
@@ -111,7 +112,7 @@ class BigDataPool(pulumi.CustomResource):
             __props__['spark_events_folder'] = spark_events_folder
             __props__['spark_version'] = spark_version
             __props__['tags'] = tags
-            if workspace_name is None:
+            if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['name'] = None

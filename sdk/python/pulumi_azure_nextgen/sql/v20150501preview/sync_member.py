@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['SyncMember']
 
@@ -16,13 +17,13 @@ class SyncMember(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
-                 database_type: Optional[pulumi.Input[str]] = None,
+                 database_type: Optional[pulumi.Input[Union[str, 'SyncMemberDbType']]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  sql_server_database_id: Optional[pulumi.Input[str]] = None,
                  sync_agent_id: Optional[pulumi.Input[str]] = None,
-                 sync_direction: Optional[pulumi.Input[str]] = None,
+                 sync_direction: Optional[pulumi.Input[Union[str, 'SyncDirection']]] = None,
                  sync_group_name: Optional[pulumi.Input[str]] = None,
                  sync_member_name: Optional[pulumi.Input[str]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
@@ -35,13 +36,13 @@ class SyncMember(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: Database name of the member database in the sync member.
-        :param pulumi.Input[str] database_type: Database type of the sync member.
+        :param pulumi.Input[Union[str, 'SyncMemberDbType']] database_type: Database type of the sync member.
         :param pulumi.Input[str] password: Password of the member database in the sync member.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: Server name of the member database in the sync member
         :param pulumi.Input[str] sql_server_database_id: SQL Server database id of the sync member.
         :param pulumi.Input[str] sync_agent_id: ARM resource id of the sync agent in the sync member.
-        :param pulumi.Input[str] sync_direction: Sync direction of the sync member.
+        :param pulumi.Input[Union[str, 'SyncDirection']] sync_direction: Sync direction of the sync member.
         :param pulumi.Input[str] sync_group_name: The name of the sync group on which the sync member is hosted.
         :param pulumi.Input[str] sync_member_name: The name of the sync member.
         :param pulumi.Input[str] user_name: User name of the member database in the sync member.
@@ -63,24 +64,24 @@ class SyncMember(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if database_name is None:
+            if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
             __props__['database_type'] = database_type
             __props__['password'] = password
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if server_name is None:
+            if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
             __props__['sql_server_database_id'] = sql_server_database_id
             __props__['sync_agent_id'] = sync_agent_id
             __props__['sync_direction'] = sync_direction
-            if sync_group_name is None:
+            if sync_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sync_group_name'")
             __props__['sync_group_name'] = sync_group_name
-            if sync_member_name is None:
+            if sync_member_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sync_member_name'")
             __props__['sync_member_name'] = sync_member_name
             __props__['user_name'] = user_name

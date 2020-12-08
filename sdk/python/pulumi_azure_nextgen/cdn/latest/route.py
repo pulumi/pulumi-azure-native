@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Route']
@@ -19,21 +20,21 @@ class Route(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compression_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CompressionSettingsArgs']]]]] = None,
                  custom_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]]] = None,
-                 enabled_state: Optional[pulumi.Input[str]] = None,
+                 enabled_state: Optional[pulumi.Input[Union[str, 'EnabledState']]] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
-                 forwarding_protocol: Optional[pulumi.Input[str]] = None,
-                 https_redirect: Optional[pulumi.Input[str]] = None,
-                 link_to_default_domain: Optional[pulumi.Input[str]] = None,
-                 optimization_type: Optional[pulumi.Input[str]] = None,
+                 forwarding_protocol: Optional[pulumi.Input[Union[str, 'ForwardingProtocol']]] = None,
+                 https_redirect: Optional[pulumi.Input[Union[str, 'HttpsRedirect']]] = None,
+                 link_to_default_domain: Optional[pulumi.Input[Union[str, 'LinkToDefaultDomain']]] = None,
+                 optimization_type: Optional[pulumi.Input[Union[str, 'OptimizationType']]] = None,
                  origin_group: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
                  origin_path: Optional[pulumi.Input[str]] = None,
                  patterns_to_match: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
-                 query_string_caching_behavior: Optional[pulumi.Input[str]] = None,
+                 query_string_caching_behavior: Optional[pulumi.Input['QueryStringCachingBehavior']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  route_name: Optional[pulumi.Input[str]] = None,
                  rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]]] = None,
-                 supported_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 supported_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AFDEndpointProtocols']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -44,21 +45,21 @@ class Route(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CompressionSettingsArgs']]]] compression_settings: compression settings.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]] custom_domains: Domains referenced by this endpoint.
-        :param pulumi.Input[str] enabled_state: Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
+        :param pulumi.Input[Union[str, 'EnabledState']] enabled_state: Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
         :param pulumi.Input[str] endpoint_name: Name of the endpoint under the profile which is unique globally.
-        :param pulumi.Input[str] forwarding_protocol: Protocol this rule will use when forwarding traffic to backends.
-        :param pulumi.Input[str] https_redirect: Whether to automatically redirect HTTP traffic to HTTPS traffic. Note that this is a easy way to set up this rule and it will be the first rule that gets executed.
-        :param pulumi.Input[str] link_to_default_domain: whether this route will be linked to the default endpoint domain.
-        :param pulumi.Input[str] optimization_type: Specifies what scenario the customer wants this AzureFrontDoor endpoint to optimize for, e.g. Download, Media services. With this information, AzureFrontDoor can apply scenario driven optimization.
+        :param pulumi.Input[Union[str, 'ForwardingProtocol']] forwarding_protocol: Protocol this rule will use when forwarding traffic to backends.
+        :param pulumi.Input[Union[str, 'HttpsRedirect']] https_redirect: Whether to automatically redirect HTTP traffic to HTTPS traffic. Note that this is a easy way to set up this rule and it will be the first rule that gets executed.
+        :param pulumi.Input[Union[str, 'LinkToDefaultDomain']] link_to_default_domain: whether this route will be linked to the default endpoint domain.
+        :param pulumi.Input[Union[str, 'OptimizationType']] optimization_type: Specifies what scenario the customer wants this AzureFrontDoor endpoint to optimize for, e.g. Download, Media services. With this information, AzureFrontDoor can apply scenario driven optimization.
         :param pulumi.Input[pulumi.InputType['ResourceReferenceArgs']] origin_group: A reference to the origin group.
         :param pulumi.Input[str] origin_path: A directory path on the origin that AzureFrontDoor can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] patterns_to_match: The route patterns of the rule.
         :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
-        :param pulumi.Input[str] query_string_caching_behavior: Defines how AzureFrontDoor caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
+        :param pulumi.Input['QueryStringCachingBehavior'] query_string_caching_behavior: Defines how AzureFrontDoor caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[str] route_name: Name of the routing rule.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]]] rule_sets: rule sets referenced by this endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_protocols: List of supported protocols for this route.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AFDEndpointProtocols']]]] supported_protocols: List of supported protocols for this route.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -80,26 +81,26 @@ class Route(pulumi.CustomResource):
             __props__['compression_settings'] = compression_settings
             __props__['custom_domains'] = custom_domains
             __props__['enabled_state'] = enabled_state
-            if endpoint_name is None:
+            if endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_name'")
             __props__['endpoint_name'] = endpoint_name
             __props__['forwarding_protocol'] = forwarding_protocol
             __props__['https_redirect'] = https_redirect
             __props__['link_to_default_domain'] = link_to_default_domain
             __props__['optimization_type'] = optimization_type
-            if origin_group is None:
+            if origin_group is None and not opts.urn:
                 raise TypeError("Missing required property 'origin_group'")
             __props__['origin_group'] = origin_group
             __props__['origin_path'] = origin_path
             __props__['patterns_to_match'] = patterns_to_match
-            if profile_name is None:
+            if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")
             __props__['profile_name'] = profile_name
             __props__['query_string_caching_behavior'] = query_string_caching_behavior
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if route_name is None:
+            if route_name is None and not opts.urn:
                 raise TypeError("Missing required property 'route_name'")
             __props__['route_name'] = route_name
             __props__['rule_sets'] = rule_sets

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AzureActiveDirectoryAppArgs',
@@ -442,7 +443,7 @@ class ConnectToSourceSqlServerSyncTaskPropertiesArgs:
 class ConnectToSourceSqlServerTaskInputArgs:
     def __init__(__self__, *,
                  source_connection_info: pulumi.Input['SqlConnectionInfoArgs'],
-                 check_permissions_group: Optional[pulumi.Input[str]] = None,
+                 check_permissions_group: Optional[pulumi.Input[Union[str, 'ServerLevelPermissionsGroup']]] = None,
                  collect_agent_jobs: Optional[pulumi.Input[bool]] = None,
                  collect_databases: Optional[pulumi.Input[bool]] = None,
                  collect_logins: Optional[pulumi.Input[bool]] = None,
@@ -451,7 +452,7 @@ class ConnectToSourceSqlServerTaskInputArgs:
         """
         Input for the task that validates connection to SQL Server and also validates source server requirements
         :param pulumi.Input['SqlConnectionInfoArgs'] source_connection_info: Connection information for Source SQL Server
-        :param pulumi.Input[str] check_permissions_group: Permission group for validations
+        :param pulumi.Input[Union[str, 'ServerLevelPermissionsGroup']] check_permissions_group: Permission group for validations
         :param pulumi.Input[bool] collect_agent_jobs: Flag for whether to collect agent jobs from source server.
         :param pulumi.Input[bool] collect_databases: Flag for whether to collect databases from source server.
         :param pulumi.Input[bool] collect_logins: Flag for whether to collect logins from source server.
@@ -486,14 +487,14 @@ class ConnectToSourceSqlServerTaskInputArgs:
 
     @property
     @pulumi.getter(name="checkPermissionsGroup")
-    def check_permissions_group(self) -> Optional[pulumi.Input[str]]:
+    def check_permissions_group(self) -> Optional[pulumi.Input[Union[str, 'ServerLevelPermissionsGroup']]]:
         """
         Permission group for validations
         """
         return pulumi.get(self, "check_permissions_group")
 
     @check_permissions_group.setter
-    def check_permissions_group(self, value: Optional[pulumi.Input[str]]):
+    def check_permissions_group(self, value: Optional[pulumi.Input[Union[str, 'ServerLevelPermissionsGroup']]]):
         pulumi.set(self, "check_permissions_group", value)
 
     @property
@@ -3364,7 +3365,7 @@ class MigrateSqlServerSqlMITaskInputArgs:
                  target_connection_info: pulumi.Input['SqlConnectionInfoArgs'],
                  aad_domain_name: Optional[pulumi.Input[str]] = None,
                  backup_file_share: Optional[pulumi.Input['FileShareArgs']] = None,
-                 backup_mode: Optional[pulumi.Input[str]] = None,
+                 backup_mode: Optional[pulumi.Input[Union[str, 'BackupMode']]] = None,
                  selected_agent_jobs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  selected_logins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -3375,7 +3376,7 @@ class MigrateSqlServerSqlMITaskInputArgs:
         :param pulumi.Input['SqlConnectionInfoArgs'] target_connection_info: Information for connecting to target
         :param pulumi.Input[str] aad_domain_name: Azure Active Directory domain name in the format of 'contoso.com' for federated Azure AD or 'contoso.onmicrosoft.com' for managed domain, required if and only if Windows logins are selected
         :param pulumi.Input['FileShareArgs'] backup_file_share: Backup file share information for all selected databases.
-        :param pulumi.Input[str] backup_mode: Backup Mode to specify whether to use existing backup or create new backup. If using existing backups, backup file paths are required to be provided in selectedDatabases.
+        :param pulumi.Input[Union[str, 'BackupMode']] backup_mode: Backup Mode to specify whether to use existing backup or create new backup. If using existing backups, backup file paths are required to be provided in selectedDatabases.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] selected_agent_jobs: Agent Jobs to migrate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] selected_logins: Logins to migrate.
         """
@@ -3468,14 +3469,14 @@ class MigrateSqlServerSqlMITaskInputArgs:
 
     @property
     @pulumi.getter(name="backupMode")
-    def backup_mode(self) -> Optional[pulumi.Input[str]]:
+    def backup_mode(self) -> Optional[pulumi.Input[Union[str, 'BackupMode']]]:
         """
         Backup Mode to specify whether to use existing backup or create new backup. If using existing backups, backup file paths are required to be provided in selectedDatabases.
         """
         return pulumi.get(self, "backup_mode")
 
     @backup_mode.setter
-    def backup_mode(self, value: Optional[pulumi.Input[str]]):
+    def backup_mode(self, value: Optional[pulumi.Input[Union[str, 'BackupMode']]]):
         pulumi.set(self, "backup_mode", value)
 
     @property
@@ -3894,7 +3895,7 @@ class MongoDbMigrationSettingsArgs:
                  source: pulumi.Input['MongoDbConnectionInfoArgs'],
                  target: pulumi.Input['MongoDbConnectionInfoArgs'],
                  boost_rus: Optional[pulumi.Input[int]] = None,
-                 replication: Optional[pulumi.Input[str]] = None,
+                 replication: Optional[pulumi.Input[Union[str, 'MongoDbReplication']]] = None,
                  throttling: Optional[pulumi.Input['MongoDbThrottlingSettingsArgs']] = None):
         """
         Describes how a MongoDB data migration should be performed
@@ -3902,7 +3903,7 @@ class MongoDbMigrationSettingsArgs:
         :param pulumi.Input['MongoDbConnectionInfoArgs'] source: Settings used to connect to the source cluster
         :param pulumi.Input['MongoDbConnectionInfoArgs'] target: Settings used to connect to the target cluster
         :param pulumi.Input[int] boost_rus: The RU limit on a CosmosDB target that collections will be temporarily increased to (if lower) during the initial copy of a migration, from 10,000 to 1,000,000, or 0 to use the default boost (which is generally the maximum), or null to not boost the RUs. This setting has no effect on non-CosmosDB targets.
-        :param pulumi.Input[str] replication: Describes how changes will be replicated from the source to the target. The default is OneTime.
+        :param pulumi.Input[Union[str, 'MongoDbReplication']] replication: Describes how changes will be replicated from the source to the target. The default is OneTime.
         :param pulumi.Input['MongoDbThrottlingSettingsArgs'] throttling: Settings used to limit the resource usage of the migration
         """
         pulumi.set(__self__, "databases", databases)
@@ -3965,14 +3966,14 @@ class MongoDbMigrationSettingsArgs:
 
     @property
     @pulumi.getter
-    def replication(self) -> Optional[pulumi.Input[str]]:
+    def replication(self) -> Optional[pulumi.Input[Union[str, 'MongoDbReplication']]]:
         """
         Describes how changes will be replicated from the source to the target. The default is OneTime.
         """
         return pulumi.get(self, "replication")
 
     @replication.setter
-    def replication(self, value: Optional[pulumi.Input[str]]):
+    def replication(self, value: Optional[pulumi.Input[Union[str, 'MongoDbReplication']]]):
         pulumi.set(self, "replication", value)
 
     @property
@@ -3992,11 +3993,11 @@ class MongoDbMigrationSettingsArgs:
 class MongoDbShardKeyFieldArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 order: pulumi.Input[str]):
+                 order: pulumi.Input[Union[str, 'MongoDbShardKeyOrder']]):
         """
         Describes a field reference within a MongoDB shard key
         :param pulumi.Input[str] name: The name of the field
-        :param pulumi.Input[str] order: The field ordering
+        :param pulumi.Input[Union[str, 'MongoDbShardKeyOrder']] order: The field ordering
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "order", order)
@@ -4015,14 +4016,14 @@ class MongoDbShardKeyFieldArgs:
 
     @property
     @pulumi.getter
-    def order(self) -> pulumi.Input[str]:
+    def order(self) -> pulumi.Input[Union[str, 'MongoDbShardKeyOrder']]:
         """
         The field ordering
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: pulumi.Input[str]):
+    def order(self, value: pulumi.Input[Union[str, 'MongoDbShardKeyOrder']]):
         pulumi.set(self, "order", value)
 
 
@@ -4596,10 +4597,10 @@ class SqlConnectionInfoArgs:
                  data_source: pulumi.Input[str],
                  type: pulumi.Input[str],
                  additional_settings: Optional[pulumi.Input[str]] = None,
-                 authentication: Optional[pulumi.Input[str]] = None,
+                 authentication: Optional[pulumi.Input[Union[str, 'AuthenticationType']]] = None,
                  encrypt_connection: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 platform: Optional[pulumi.Input[str]] = None,
+                 platform: Optional[pulumi.Input[Union[str, 'SqlSourcePlatform']]] = None,
                  trust_server_certificate: Optional[pulumi.Input[bool]] = None,
                  user_name: Optional[pulumi.Input[str]] = None):
         """
@@ -4607,10 +4608,10 @@ class SqlConnectionInfoArgs:
         :param pulumi.Input[str] data_source: Data source in the format Protocol:MachineName\SQLServerInstanceName,PortNumber
         :param pulumi.Input[str] type: Type of connection info
         :param pulumi.Input[str] additional_settings: Additional connection settings
-        :param pulumi.Input[str] authentication: Authentication type to use for connection
+        :param pulumi.Input[Union[str, 'AuthenticationType']] authentication: Authentication type to use for connection
         :param pulumi.Input[bool] encrypt_connection: Whether to encrypt the connection
         :param pulumi.Input[str] password: Password credential.
-        :param pulumi.Input[str] platform: Server platform type for connection
+        :param pulumi.Input[Union[str, 'SqlSourcePlatform']] platform: Server platform type for connection
         :param pulumi.Input[bool] trust_server_certificate: Whether to trust the server certificate
         :param pulumi.Input[str] user_name: User name
         """
@@ -4669,14 +4670,14 @@ class SqlConnectionInfoArgs:
 
     @property
     @pulumi.getter
-    def authentication(self) -> Optional[pulumi.Input[str]]:
+    def authentication(self) -> Optional[pulumi.Input[Union[str, 'AuthenticationType']]]:
         """
         Authentication type to use for connection
         """
         return pulumi.get(self, "authentication")
 
     @authentication.setter
-    def authentication(self, value: Optional[pulumi.Input[str]]):
+    def authentication(self, value: Optional[pulumi.Input[Union[str, 'AuthenticationType']]]):
         pulumi.set(self, "authentication", value)
 
     @property
@@ -4705,14 +4706,14 @@ class SqlConnectionInfoArgs:
 
     @property
     @pulumi.getter
-    def platform(self) -> Optional[pulumi.Input[str]]:
+    def platform(self) -> Optional[pulumi.Input[Union[str, 'SqlSourcePlatform']]]:
         """
         Server platform type for connection
         """
         return pulumi.get(self, "platform")
 
     @platform.setter
-    def platform(self, value: Optional[pulumi.Input[str]]):
+    def platform(self, value: Optional[pulumi.Input[Union[str, 'SqlSourcePlatform']]]):
         pulumi.set(self, "platform", value)
 
     @property
@@ -4743,14 +4744,14 @@ class SqlConnectionInfoArgs:
 @pulumi.input_type
 class SsisMigrationInfoArgs:
     def __init__(__self__, *,
-                 environment_overwrite_option: Optional[pulumi.Input[str]] = None,
-                 project_overwrite_option: Optional[pulumi.Input[str]] = None,
-                 ssis_store_type: Optional[pulumi.Input[str]] = None):
+                 environment_overwrite_option: Optional[pulumi.Input[Union[str, 'SsisMigrationOverwriteOption']]] = None,
+                 project_overwrite_option: Optional[pulumi.Input[Union[str, 'SsisMigrationOverwriteOption']]] = None,
+                 ssis_store_type: Optional[pulumi.Input[Union[str, 'SsisStoreType']]] = None):
         """
         SSIS migration info with SSIS store type, overwrite policy.
-        :param pulumi.Input[str] environment_overwrite_option: The overwrite option for the SSIS environment migration
-        :param pulumi.Input[str] project_overwrite_option: The overwrite option for the SSIS project migration
-        :param pulumi.Input[str] ssis_store_type: The SSIS store type of source, only SSIS catalog is supported now in DMS
+        :param pulumi.Input[Union[str, 'SsisMigrationOverwriteOption']] environment_overwrite_option: The overwrite option for the SSIS environment migration
+        :param pulumi.Input[Union[str, 'SsisMigrationOverwriteOption']] project_overwrite_option: The overwrite option for the SSIS project migration
+        :param pulumi.Input[Union[str, 'SsisStoreType']] ssis_store_type: The SSIS store type of source, only SSIS catalog is supported now in DMS
         """
         if environment_overwrite_option is not None:
             pulumi.set(__self__, "environment_overwrite_option", environment_overwrite_option)
@@ -4761,38 +4762,38 @@ class SsisMigrationInfoArgs:
 
     @property
     @pulumi.getter(name="environmentOverwriteOption")
-    def environment_overwrite_option(self) -> Optional[pulumi.Input[str]]:
+    def environment_overwrite_option(self) -> Optional[pulumi.Input[Union[str, 'SsisMigrationOverwriteOption']]]:
         """
         The overwrite option for the SSIS environment migration
         """
         return pulumi.get(self, "environment_overwrite_option")
 
     @environment_overwrite_option.setter
-    def environment_overwrite_option(self, value: Optional[pulumi.Input[str]]):
+    def environment_overwrite_option(self, value: Optional[pulumi.Input[Union[str, 'SsisMigrationOverwriteOption']]]):
         pulumi.set(self, "environment_overwrite_option", value)
 
     @property
     @pulumi.getter(name="projectOverwriteOption")
-    def project_overwrite_option(self) -> Optional[pulumi.Input[str]]:
+    def project_overwrite_option(self) -> Optional[pulumi.Input[Union[str, 'SsisMigrationOverwriteOption']]]:
         """
         The overwrite option for the SSIS project migration
         """
         return pulumi.get(self, "project_overwrite_option")
 
     @project_overwrite_option.setter
-    def project_overwrite_option(self, value: Optional[pulumi.Input[str]]):
+    def project_overwrite_option(self, value: Optional[pulumi.Input[Union[str, 'SsisMigrationOverwriteOption']]]):
         pulumi.set(self, "project_overwrite_option", value)
 
     @property
     @pulumi.getter(name="ssisStoreType")
-    def ssis_store_type(self) -> Optional[pulumi.Input[str]]:
+    def ssis_store_type(self) -> Optional[pulumi.Input[Union[str, 'SsisStoreType']]]:
         """
         The SSIS store type of source, only SSIS catalog is supported now in DMS
         """
         return pulumi.get(self, "ssis_store_type")
 
     @ssis_store_type.setter
-    def ssis_store_type(self, value: Optional[pulumi.Input[str]]):
+    def ssis_store_type(self, value: Optional[pulumi.Input[Union[str, 'SsisStoreType']]]):
         pulumi.set(self, "ssis_store_type", value)
 
 
@@ -5013,7 +5014,7 @@ class ValidateMigrationInputSqlServerSqlMITaskInputArgs:
                  source_connection_info: pulumi.Input['SqlConnectionInfoArgs'],
                  target_connection_info: pulumi.Input['SqlConnectionInfoArgs'],
                  backup_file_share: Optional[pulumi.Input['FileShareArgs']] = None,
-                 backup_mode: Optional[pulumi.Input[str]] = None,
+                 backup_mode: Optional[pulumi.Input[Union[str, 'BackupMode']]] = None,
                  selected_logins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input for task that validates migration input for SQL to Azure SQL Managed Instance
@@ -5022,7 +5023,7 @@ class ValidateMigrationInputSqlServerSqlMITaskInputArgs:
         :param pulumi.Input['SqlConnectionInfoArgs'] source_connection_info: Information for connecting to source
         :param pulumi.Input['SqlConnectionInfoArgs'] target_connection_info: Information for connecting to target
         :param pulumi.Input['FileShareArgs'] backup_file_share: Backup file share information for all selected databases.
-        :param pulumi.Input[str] backup_mode: Backup Mode to specify whether to use existing backup or create new backup.
+        :param pulumi.Input[Union[str, 'BackupMode']] backup_mode: Backup Mode to specify whether to use existing backup or create new backup.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] selected_logins: Logins to migrate
         """
         pulumi.set(__self__, "backup_blob_share", backup_blob_share)
@@ -5098,14 +5099,14 @@ class ValidateMigrationInputSqlServerSqlMITaskInputArgs:
 
     @property
     @pulumi.getter(name="backupMode")
-    def backup_mode(self) -> Optional[pulumi.Input[str]]:
+    def backup_mode(self) -> Optional[pulumi.Input[Union[str, 'BackupMode']]]:
         """
         Backup Mode to specify whether to use existing backup or create new backup.
         """
         return pulumi.get(self, "backup_mode")
 
     @backup_mode.setter
-    def backup_mode(self, value: Optional[pulumi.Input[str]]):
+    def backup_mode(self, value: Optional[pulumi.Input[Union[str, 'BackupMode']]]):
         pulumi.set(self, "backup_mode", value)
 
     @property

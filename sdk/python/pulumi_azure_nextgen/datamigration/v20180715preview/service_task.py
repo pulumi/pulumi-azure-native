@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ServiceTask']
@@ -54,14 +55,14 @@ class ServiceTask(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['etag'] = etag
-            if group_name is None:
+            if group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'group_name'")
             __props__['group_name'] = group_name
             __props__['properties'] = properties
-            if service_name is None:
+            if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
-            if task_name is None:
+            if task_name is None and not opts.urn:
                 raise TypeError("Missing required property 'task_name'")
             __props__['task_name'] = task_name
             __props__['name'] = None

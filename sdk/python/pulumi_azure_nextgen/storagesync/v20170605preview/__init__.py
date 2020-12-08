@@ -13,3 +13,30 @@ from .registered_server import *
 from .server_endpoint import *
 from .storage_sync_service import *
 from .sync_group import *
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:storagesync/v20170605preview:CloudEndpoint":
+                return CloudEndpoint(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storagesync/v20170605preview:RegisteredServer":
+                return RegisteredServer(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storagesync/v20170605preview:ServerEndpoint":
+                return ServerEndpoint(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storagesync/v20170605preview:StorageSyncService":
+                return StorageSyncService(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storagesync/v20170605preview:SyncGroup":
+                return SyncGroup(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "storagesync/v20170605preview", _module_instance)
+
+_register_module()

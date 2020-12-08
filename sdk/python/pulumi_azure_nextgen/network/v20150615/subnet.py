@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Subnet']
@@ -72,14 +73,14 @@ class Subnet(pulumi.CustomResource):
             __props__['name'] = name
             __props__['network_security_group'] = network_security_group
             __props__['provisioning_state'] = provisioning_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['route_table'] = route_table
-            if subnet_name is None:
+            if subnet_name is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_name'")
             __props__['subnet_name'] = subnet_name
-            if virtual_network_name is None:
+            if virtual_network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_name'")
             __props__['virtual_network_name'] = virtual_network_name
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:network/latest:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20150501preview:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20160330:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20160601:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20160901:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20161201:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20170301:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20170601:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20170801:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20170901:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20171001:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20171101:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20180101:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20180201:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20180401:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20180601:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20180701:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20180801:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20181001:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20181101:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20181201:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20190201:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20190401:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20190601:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20190701:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20190801:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20190901:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20191101:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20191201:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20200301:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20200401:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20200501:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20200601:Subnet"), pulumi.Alias(type_="azure-nextgen:network/v20200701:Subnet")])

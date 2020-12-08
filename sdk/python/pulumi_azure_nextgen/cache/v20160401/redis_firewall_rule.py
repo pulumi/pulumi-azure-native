@@ -51,19 +51,19 @@ class RedisFirewallRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if cache_name is None:
+            if cache_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cache_name'")
             __props__['cache_name'] = cache_name
-            if end_ip is None:
+            if end_ip is None and not opts.urn:
                 raise TypeError("Missing required property 'end_ip'")
             __props__['end_ip'] = end_ip
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if rule_name is None:
+            if rule_name is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_name'")
             __props__['rule_name'] = rule_name
-            if start_ip is None:
+            if start_ip is None and not opts.urn:
                 raise TypeError("Missing required property 'start_ip'")
             __props__['start_ip'] = start_ip
             __props__['name'] = None

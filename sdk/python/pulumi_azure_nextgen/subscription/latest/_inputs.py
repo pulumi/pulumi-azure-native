@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'PutAliasRequestPropertiesArgs',
@@ -19,14 +20,14 @@ class PutAliasRequestPropertiesArgs:
                  display_name: Optional[pulumi.Input[str]] = None,
                  reseller_id: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
-                 workload: Optional[pulumi.Input[str]] = None):
+                 workload: Optional[pulumi.Input[Union[str, 'Workload']]] = None):
         """
         Put subscription properties.
         :param pulumi.Input[str] billing_scope: Determines whether subscription is fieldLed, partnerLed or LegacyEA
         :param pulumi.Input[str] display_name: The friendly name of the subscription.
         :param pulumi.Input[str] reseller_id: Reseller ID, basically MPN Id
         :param pulumi.Input[str] subscription_id: This parameter can be used to create alias for existing subscription Id
-        :param pulumi.Input[str] workload: The workload type of the subscription. It can be either Production or DevTest.
+        :param pulumi.Input[Union[str, 'Workload']] workload: The workload type of the subscription. It can be either Production or DevTest.
         """
         if billing_scope is not None:
             pulumi.set(__self__, "billing_scope", billing_scope)
@@ -89,14 +90,14 @@ class PutAliasRequestPropertiesArgs:
 
     @property
     @pulumi.getter
-    def workload(self) -> Optional[pulumi.Input[str]]:
+    def workload(self) -> Optional[pulumi.Input[Union[str, 'Workload']]]:
         """
         The workload type of the subscription. It can be either Production or DevTest.
         """
         return pulumi.get(self, "workload")
 
     @workload.setter
-    def workload(self, value: Optional[pulumi.Input[str]]):
+    def workload(self, value: Optional[pulumi.Input[Union[str, 'Workload']]]):
         pulumi.set(self, "workload", value)
 
 

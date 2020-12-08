@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'LocationDataArgs',
@@ -164,14 +165,14 @@ class MachineExtensionInstanceViewStatusArgs:
     def __init__(__self__, *,
                  code: Optional[pulumi.Input[str]] = None,
                  display_status: Optional[pulumi.Input[str]] = None,
-                 level: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[Union[str, 'StatusLevelTypes']]] = None,
                  message: Optional[pulumi.Input[str]] = None,
                  time: Optional[pulumi.Input[str]] = None):
         """
         Instance view status.
         :param pulumi.Input[str] code: The status code.
         :param pulumi.Input[str] display_status: The short localizable label for the status.
-        :param pulumi.Input[str] level: The level code.
+        :param pulumi.Input[Union[str, 'StatusLevelTypes']] level: The level code.
         :param pulumi.Input[str] message: The detailed status message, including for alerts and error messages.
         :param pulumi.Input[str] time: The time of the status.
         """
@@ -212,14 +213,14 @@ class MachineExtensionInstanceViewStatusArgs:
 
     @property
     @pulumi.getter
-    def level(self) -> Optional[pulumi.Input[str]]:
+    def level(self) -> Optional[pulumi.Input[Union[str, 'StatusLevelTypes']]]:
         """
         The level code.
         """
         return pulumi.get(self, "level")
 
     @level.setter
-    def level(self, value: Optional[pulumi.Input[str]]):
+    def level(self, value: Optional[pulumi.Input[Union[str, 'StatusLevelTypes']]]):
         pulumi.set(self, "level", value)
 
     @property
@@ -322,23 +323,23 @@ class MachineExtensionPropertiesInstanceViewArgs:
 @pulumi.input_type
 class MachineIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
         """
-        :param pulumi.Input[str] type: The identity type.
+        :param pulumi.Input['ResourceIdentityType'] type: The identity type.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
         """
         The identity type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
 

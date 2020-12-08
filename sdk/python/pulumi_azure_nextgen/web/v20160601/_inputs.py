@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ApiConnectionDefinitionPropertiesArgs',
@@ -872,11 +873,11 @@ class ConnectionGatewayReferenceArgs:
 class ConnectionParameterArgs:
     def __init__(__self__, *,
                  o_auth_settings: Optional[pulumi.Input['ApiOAuthSettingsArgs']] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input['ConnectionParameterType']] = None):
         """
         Connection provider parameters
         :param pulumi.Input['ApiOAuthSettingsArgs'] o_auth_settings: OAuth settings for the connection provider
-        :param pulumi.Input[str] type: Type of the parameter
+        :param pulumi.Input['ConnectionParameterType'] type: Type of the parameter
         """
         if o_auth_settings is not None:
             pulumi.set(__self__, "o_auth_settings", o_auth_settings)
@@ -897,14 +898,14 @@ class ConnectionParameterArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['ConnectionParameterType']]:
         """
         Type of the parameter
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['ConnectionParameterType']]):
         pulumi.set(self, "type", value)
 
 
@@ -1040,7 +1041,7 @@ class ConsentLinkParameterDefinitionArgs:
 class CustomApiPropertiesDefinitionArgs:
     def __init__(__self__, *,
                  api_definitions: Optional[pulumi.Input['ApiResourceDefinitionsArgs']] = None,
-                 api_type: Optional[pulumi.Input[str]] = None,
+                 api_type: Optional[pulumi.Input[Union[str, 'ApiType']]] = None,
                  backend_service: Optional[pulumi.Input['ApiResourceBackendServiceArgs']] = None,
                  brand_color: Optional[pulumi.Input[str]] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1054,7 +1055,7 @@ class CustomApiPropertiesDefinitionArgs:
         """
         Custom API properties
         :param pulumi.Input['ApiResourceDefinitionsArgs'] api_definitions: API Definitions
-        :param pulumi.Input[str] api_type: The API type
+        :param pulumi.Input[Union[str, 'ApiType']] api_type: The API type
         :param pulumi.Input['ApiResourceBackendServiceArgs'] backend_service: The API backend service
         :param pulumi.Input[str] brand_color: Brand color
         :param pulumi.Input[Sequence[pulumi.Input[str]]] capabilities: The custom API capabilities
@@ -1105,14 +1106,14 @@ class CustomApiPropertiesDefinitionArgs:
 
     @property
     @pulumi.getter(name="apiType")
-    def api_type(self) -> Optional[pulumi.Input[str]]:
+    def api_type(self) -> Optional[pulumi.Input[Union[str, 'ApiType']]]:
         """
         The API type
         """
         return pulumi.get(self, "api_type")
 
     @api_type.setter
-    def api_type(self, value: Optional[pulumi.Input[str]]):
+    def api_type(self, value: Optional[pulumi.Input[Union[str, 'ApiType']]]):
         pulumi.set(self, "api_type", value)
 
     @property
@@ -1240,13 +1241,13 @@ class CustomApiPropertiesDefinitionArgs:
 class WsdlDefinitionArgs:
     def __init__(__self__, *,
                  content: Optional[pulumi.Input[str]] = None,
-                 import_method: Optional[pulumi.Input[str]] = None,
+                 import_method: Optional[pulumi.Input[Union[str, 'WsdlImportMethod']]] = None,
                  service: Optional[pulumi.Input['WsdlServiceArgs']] = None,
                  url: Optional[pulumi.Input[str]] = None):
         """
         The WSDL definition
         :param pulumi.Input[str] content: The WSDL content
-        :param pulumi.Input[str] import_method: The WSDL import method
+        :param pulumi.Input[Union[str, 'WsdlImportMethod']] import_method: The WSDL import method
         :param pulumi.Input['WsdlServiceArgs'] service: The service with name and endpoint names
         :param pulumi.Input[str] url: The WSDL URL
         """
@@ -1273,14 +1274,14 @@ class WsdlDefinitionArgs:
 
     @property
     @pulumi.getter(name="importMethod")
-    def import_method(self) -> Optional[pulumi.Input[str]]:
+    def import_method(self) -> Optional[pulumi.Input[Union[str, 'WsdlImportMethod']]]:
         """
         The WSDL import method
         """
         return pulumi.get(self, "import_method")
 
     @import_method.setter
-    def import_method(self, value: Optional[pulumi.Input[str]]):
+    def import_method(self, value: Optional[pulumi.Input[Union[str, 'WsdlImportMethod']]]):
         pulumi.set(self, "import_method", value)
 
     @property

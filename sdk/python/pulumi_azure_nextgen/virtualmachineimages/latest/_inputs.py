@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ImageTemplateFileCustomizerArgs',
@@ -116,11 +117,11 @@ class ImageTemplateFileCustomizerArgs:
 @pulumi.input_type
 class ImageTemplateIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None,
                  user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Identity for the image template.
-        :param pulumi.Input[str] type: The type of identity used for the image template. The type 'None' will remove any identities from the image template.
+        :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the image template. The type 'None' will remove any identities from the image template.
         :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         if type is not None:
@@ -130,14 +131,14 @@ class ImageTemplateIdentityArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
         """
         The type of identity used for the image template. The type 'None' will remove any identities from the image template.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -609,7 +610,7 @@ class ImageTemplateSharedImageDistributorArgs:
                  type: pulumi.Input[str],
                  artifact_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  exclude_from_latest: Optional[pulumi.Input[bool]] = None,
-                 storage_account_type: Optional[pulumi.Input[str]] = None):
+                 storage_account_type: Optional[pulumi.Input[Union[str, 'SharedImageStorageAccountType']]] = None):
         """
         Distribute via Shared Image Gallery.
         :param pulumi.Input[str] gallery_image_id: Resource Id of the Shared Image Gallery image
@@ -618,7 +619,7 @@ class ImageTemplateSharedImageDistributorArgs:
         :param pulumi.Input[str] type: Type of distribution.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] artifact_tags: Tags that will be applied to the artifact once it has been created/updated by the distributor.
         :param pulumi.Input[bool] exclude_from_latest: Flag that indicates whether created image version should be excluded from latest. Omit to use the default (false).
-        :param pulumi.Input[str] storage_account_type: Storage account type to be used to store the shared image. Omit to use the default (Standard_LRS).
+        :param pulumi.Input[Union[str, 'SharedImageStorageAccountType']] storage_account_type: Storage account type to be used to store the shared image. Omit to use the default (Standard_LRS).
         """
         pulumi.set(__self__, "gallery_image_id", gallery_image_id)
         pulumi.set(__self__, "replication_regions", replication_regions)
@@ -705,14 +706,14 @@ class ImageTemplateSharedImageDistributorArgs:
 
     @property
     @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> Optional[pulumi.Input[str]]:
+    def storage_account_type(self) -> Optional[pulumi.Input[Union[str, 'SharedImageStorageAccountType']]]:
         """
         Storage account type to be used to store the shared image. Omit to use the default (Standard_LRS).
         """
         return pulumi.get(self, "storage_account_type")
 
     @storage_account_type.setter
-    def storage_account_type(self, value: Optional[pulumi.Input[str]]):
+    def storage_account_type(self, value: Optional[pulumi.Input[Union[str, 'SharedImageStorageAccountType']]]):
         pulumi.set(self, "storage_account_type", value)
 
 

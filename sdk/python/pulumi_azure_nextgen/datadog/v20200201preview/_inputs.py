@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'DatadogOrganizationPropertiesArgs',
@@ -75,23 +76,23 @@ class DatadogOrganizationPropertiesArgs:
 @pulumi.input_type
 class IdentityPropertiesArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input[Union[str, 'ManagedIdentityTypes']]] = None):
         """
-        :param pulumi.Input[str] type: Identity type
+        :param pulumi.Input[Union[str, 'ManagedIdentityTypes']] type: Identity type
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ManagedIdentityTypes']]]:
         """
         Identity type
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ManagedIdentityTypes']]]):
         pulumi.set(self, "type", value)
 
 
@@ -99,15 +100,15 @@ class IdentityPropertiesArgs:
 class MonitorPropertiesArgs:
     def __init__(__self__, *,
                  datadog_organization_properties: Optional[pulumi.Input['DatadogOrganizationPropertiesArgs']] = None,
-                 marketplace_subscription_status: Optional[pulumi.Input[str]] = None,
-                 monitoring_status: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 marketplace_subscription_status: Optional[pulumi.Input[Union[str, 'MarketplaceSubscriptionStatus']]] = None,
+                 monitoring_status: Optional[pulumi.Input[Union[str, 'MonitoringStatus']]] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  user_info: Optional[pulumi.Input['UserInfoArgs']] = None):
         """
         Properties specific to the monitor resource.
         :param pulumi.Input['DatadogOrganizationPropertiesArgs'] datadog_organization_properties: Datadog organization properties
-        :param pulumi.Input[str] marketplace_subscription_status: Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
-        :param pulumi.Input[str] monitoring_status: Flag specifying if the resource monitoring is enabled or disabled.
+        :param pulumi.Input[Union[str, 'MarketplaceSubscriptionStatus']] marketplace_subscription_status: Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
+        :param pulumi.Input[Union[str, 'MonitoringStatus']] monitoring_status: Flag specifying if the resource monitoring is enabled or disabled.
         :param pulumi.Input['UserInfoArgs'] user_info: User info
         """
         if datadog_organization_properties is not None:
@@ -135,35 +136,35 @@ class MonitorPropertiesArgs:
 
     @property
     @pulumi.getter(name="marketplaceSubscriptionStatus")
-    def marketplace_subscription_status(self) -> Optional[pulumi.Input[str]]:
+    def marketplace_subscription_status(self) -> Optional[pulumi.Input[Union[str, 'MarketplaceSubscriptionStatus']]]:
         """
         Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
         """
         return pulumi.get(self, "marketplace_subscription_status")
 
     @marketplace_subscription_status.setter
-    def marketplace_subscription_status(self, value: Optional[pulumi.Input[str]]):
+    def marketplace_subscription_status(self, value: Optional[pulumi.Input[Union[str, 'MarketplaceSubscriptionStatus']]]):
         pulumi.set(self, "marketplace_subscription_status", value)
 
     @property
     @pulumi.getter(name="monitoringStatus")
-    def monitoring_status(self) -> Optional[pulumi.Input[str]]:
+    def monitoring_status(self) -> Optional[pulumi.Input[Union[str, 'MonitoringStatus']]]:
         """
         Flag specifying if the resource monitoring is enabled or disabled.
         """
         return pulumi.get(self, "monitoring_status")
 
     @monitoring_status.setter
-    def monitoring_status(self, value: Optional[pulumi.Input[str]]):
+    def monitoring_status(self, value: Optional[pulumi.Input[Union[str, 'MonitoringStatus']]]):
         pulumi.set(self, "monitoring_status", value)
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
+    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ProvisioningState']]]:
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
+    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
 
     @property

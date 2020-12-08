@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['AFDOriginGroup']
@@ -23,7 +24,7 @@ class AFDOriginGroup(pulumi.CustomResource):
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  response_based_afd_origin_error_detection_settings: Optional[pulumi.Input[pulumi.InputType['ResponseBasedOriginErrorDetectionParametersArgs']]] = None,
-                 session_affinity_state: Optional[pulumi.Input[str]] = None,
+                 session_affinity_state: Optional[pulumi.Input[Union[str, 'EnabledState']]] = None,
                  traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
@@ -39,7 +40,7 @@ class AFDOriginGroup(pulumi.CustomResource):
         :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[pulumi.InputType['ResponseBasedOriginErrorDetectionParametersArgs']] response_based_afd_origin_error_detection_settings: The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
-        :param pulumi.Input[str] session_affinity_state: Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
+        :param pulumi.Input[Union[str, 'EnabledState']] session_affinity_state: Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
         :param pulumi.Input[int] traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
         """
         if __name__ is not None:
@@ -61,13 +62,13 @@ class AFDOriginGroup(pulumi.CustomResource):
 
             __props__['health_probe_settings'] = health_probe_settings
             __props__['load_balancing_settings'] = load_balancing_settings
-            if origin_group_name is None:
+            if origin_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'origin_group_name'")
             __props__['origin_group_name'] = origin_group_name
-            if profile_name is None:
+            if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")
             __props__['profile_name'] = profile_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['response_based_afd_origin_error_detection_settings'] = response_based_afd_origin_error_detection_settings

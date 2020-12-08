@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['Application']
 
@@ -18,7 +19,7 @@ class Application(pulumi.CustomResource):
                  application_group_name: Optional[pulumi.Input[str]] = None,
                  application_name: Optional[pulumi.Input[str]] = None,
                  command_line_arguments: Optional[pulumi.Input[str]] = None,
-                 command_line_setting: Optional[pulumi.Input[str]] = None,
+                 command_line_setting: Optional[pulumi.Input[Union[str, 'CommandLineSetting']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  file_path: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
@@ -37,7 +38,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] application_group_name: The name of the application group
         :param pulumi.Input[str] application_name: The name of the application within the specified application group
         :param pulumi.Input[str] command_line_arguments: Command Line Arguments for Application.
-        :param pulumi.Input[str] command_line_setting: Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
+        :param pulumi.Input[Union[str, 'CommandLineSetting']] command_line_setting: Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
         :param pulumi.Input[str] description: Description of Application.
         :param pulumi.Input[str] file_path: Specifies a path for the executable file for the application.
         :param pulumi.Input[str] friendly_name: Friendly name of Application.
@@ -63,14 +64,14 @@ class Application(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if application_group_name is None:
+            if application_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'application_group_name'")
             __props__['application_group_name'] = application_group_name
-            if application_name is None:
+            if application_name is None and not opts.urn:
                 raise TypeError("Missing required property 'application_name'")
             __props__['application_name'] = application_name
             __props__['command_line_arguments'] = command_line_arguments
-            if command_line_setting is None:
+            if command_line_setting is None and not opts.urn:
                 raise TypeError("Missing required property 'command_line_setting'")
             __props__['command_line_setting'] = command_line_setting
             __props__['description'] = description
@@ -78,7 +79,7 @@ class Application(pulumi.CustomResource):
             __props__['friendly_name'] = friendly_name
             __props__['icon_index'] = icon_index
             __props__['icon_path'] = icon_path
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['show_in_portal'] = show_in_portal

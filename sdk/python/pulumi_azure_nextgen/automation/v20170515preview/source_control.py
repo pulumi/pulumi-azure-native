@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['SourceControl']
@@ -26,7 +27,7 @@ class SourceControl(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_token: Optional[pulumi.Input[pulumi.InputType['SourceControlSecurityTokenPropertiesArgs']]] = None,
                  source_control_name: Optional[pulumi.Input[str]] = None,
-                 source_type: Optional[pulumi.Input[str]] = None,
+                 source_type: Optional[pulumi.Input[Union[str, 'SourceType']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -45,7 +46,7 @@ class SourceControl(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[pulumi.InputType['SourceControlSecurityTokenPropertiesArgs']] security_token: The authorization token for the repo of the source control.
         :param pulumi.Input[str] source_control_name: The source control name.
-        :param pulumi.Input[str] source_type: The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
+        :param pulumi.Input[Union[str, 'SourceType']] source_type: The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -65,7 +66,7 @@ class SourceControl(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['auto_sync'] = auto_sync
-            if automation_account_name is None:
+            if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
             __props__['branch'] = branch
@@ -73,11 +74,11 @@ class SourceControl(pulumi.CustomResource):
             __props__['folder_path'] = folder_path
             __props__['publish_runbook'] = publish_runbook
             __props__['repo_url'] = repo_url
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['security_token'] = security_token
-            if source_control_name is None:
+            if source_control_name is None and not opts.urn:
                 raise TypeError("Missing required property 'source_control_name'")
             __props__['source_control_name'] = source_control_name
             __props__['source_type'] = source_type

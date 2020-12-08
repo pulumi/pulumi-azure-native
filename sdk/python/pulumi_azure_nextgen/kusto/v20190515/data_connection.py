@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['DataConnection']
 
@@ -18,7 +19,7 @@ class DataConnection(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  data_connection_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -32,7 +33,7 @@ class DataConnection(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[str] data_connection_name: The name of the data connection.
         :param pulumi.Input[str] database_name: The name of the database in the Kusto cluster.
-        :param pulumi.Input[str] kind: Kind of the endpoint for the data connection
+        :param pulumi.Input[Union[str, 'Kind']] kind: Kind of the endpoint for the data connection
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
         """
@@ -53,20 +54,20 @@ class DataConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if cluster_name is None:
+            if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
-            if data_connection_name is None:
+            if data_connection_name is None and not opts.urn:
                 raise TypeError("Missing required property 'data_connection_name'")
             __props__['data_connection_name'] = data_connection_name
-            if database_name is None:
+            if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
-            if kind is None:
+            if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = kind
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['name'] = None

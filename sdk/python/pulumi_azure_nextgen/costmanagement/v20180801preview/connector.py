@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 
 __all__ = ['Connector']
 
@@ -24,7 +25,7 @@ class Connector(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  report_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'ConnectorStatus']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -42,7 +43,7 @@ class Connector(pulumi.CustomResource):
         :param pulumi.Input[str] location: Connector location
         :param pulumi.Input[str] report_id: Identifying source report. (For AWS this is a CUR report name, defined with Daily and with Resources)
         :param pulumi.Input[str] resource_group_name: Azure Resource Group Name.
-        :param pulumi.Input[str] status: Connector status
+        :param pulumi.Input[Union[str, 'ConnectorStatus']] status: Connector status
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         if __name__ is not None:
@@ -62,7 +63,7 @@ class Connector(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if connector_name is None:
+            if connector_name is None and not opts.urn:
                 raise TypeError("Missing required property 'connector_name'")
             __props__['connector_name'] = connector_name
             __props__['credentials_key'] = credentials_key
@@ -71,7 +72,7 @@ class Connector(pulumi.CustomResource):
             __props__['kind'] = kind
             __props__['location'] = location
             __props__['report_id'] = report_id
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['status'] = status

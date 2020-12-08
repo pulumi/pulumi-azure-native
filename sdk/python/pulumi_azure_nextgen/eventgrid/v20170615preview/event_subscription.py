@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['EventSubscription']
@@ -54,12 +55,12 @@ class EventSubscription(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['destination'] = destination
-            if event_subscription_name is None:
+            if event_subscription_name is None and not opts.urn:
                 raise TypeError("Missing required property 'event_subscription_name'")
             __props__['event_subscription_name'] = event_subscription_name
             __props__['filter'] = filter
             __props__['labels'] = labels
-            if scope is None:
+            if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
             __props__['name'] = None

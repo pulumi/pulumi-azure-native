@@ -12,3 +12,26 @@ from .list_account_keys import *
 from .private_atlase import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+
+    class Module(pulumi.runtime.ResourceModule):
+        def version(self):
+            return None
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:maps/v20200201preview:Account":
+                return Account(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:maps/v20200201preview:Creator":
+                return Creator(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:maps/v20200201preview:PrivateAtlase":
+                return PrivateAtlase(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "maps/v20200201preview", _module_instance)
+
+_register_module()

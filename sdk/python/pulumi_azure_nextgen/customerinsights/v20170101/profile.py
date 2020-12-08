@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Profile']
@@ -21,7 +22,7 @@ class Profile(pulumi.CustomResource):
                  attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
                  description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 entity_type: Optional[pulumi.Input[str]] = None,
+                 entity_type: Optional[pulumi.Input['EntityTypes']] = None,
                  fields: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PropertyDefinitionArgs']]]]] = None,
                  hub_name: Optional[pulumi.Input[str]] = None,
                  instances_count: Optional[pulumi.Input[int]] = None,
@@ -47,7 +48,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]] attributes: The attributes for the Type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] description: Localized descriptions for the property.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] display_name: Localized display names for the property.
-        :param pulumi.Input[str] entity_type: Type of entity.
+        :param pulumi.Input['EntityTypes'] entity_type: Type of entity.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PropertyDefinitionArgs']]]] fields: The properties of the Profile.
         :param pulumi.Input[str] hub_name: The name of the hub.
         :param pulumi.Input[int] instances_count: The instance count.
@@ -85,17 +86,17 @@ class Profile(pulumi.CustomResource):
             __props__['display_name'] = display_name
             __props__['entity_type'] = entity_type
             __props__['fields'] = fields
-            if hub_name is None:
+            if hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'hub_name'")
             __props__['hub_name'] = hub_name
             __props__['instances_count'] = instances_count
             __props__['large_image'] = large_image
             __props__['localized_attributes'] = localized_attributes
             __props__['medium_image'] = medium_image
-            if profile_name is None:
+            if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")
             __props__['profile_name'] = profile_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['schema_item_type_link'] = schema_item_type_link
