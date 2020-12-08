@@ -51,7 +51,7 @@ const container = new containerinstance.ContainerGroup("containergroup", {
     resourceGroupName: resourceGroup.name,
     containerGroupName: randomString.result,
     location: "westus2",
-    osType: "Linux",
+    osType: containerinstance.OperatingSystemTypes.Linux,
     containers: [{
         name: "foo",
         image: "nginx",
@@ -63,7 +63,7 @@ const container = new containerinstance.ContainerGroup("containergroup", {
         },
     }],
     identity: {
-        type: "UserAssigned",
+        type: containerinstance.ResourceIdentityType.UserAssigned,
         userAssignedIdentities: userIdentity.id.apply(id => {
             const dict: { [key: string] : object } = {};
             dict[id] = {};
@@ -106,7 +106,7 @@ const networkInterface = new network.NetworkInterface("nic", {
         subnet: {
             id: pulumi.interpolate`${vnet.id}/subnets/default`,
         },
-        privateIPAllocationMethod: "Dynamic",
+        privateIPAllocationMethod: network.IPAllocationMethod.Dynamic,
     }],
 });
 
@@ -115,10 +115,10 @@ const publicIP = new network.PublicIPAddress("pip", {
     publicIpAddressName: randomString.result,
     location: "westus2",
     sku: {
-        name: "Basic",  
+        name: network.PublicIPAddressSkuName.Basic,
     },
-    publicIPAddressVersion: "IPv4",
-    publicIPAllocationMethod: "Dynamic",
+    publicIPAddressVersion: network.IPVersion.IPv4,
+    publicIPAllocationMethod: network.IPAllocationMethod.Dynamic,
 });
 
 const virtualmachine  = new compute.VirtualMachine("vm", {
@@ -190,9 +190,9 @@ const storageAccount = new storage.StorageAccount("sa", {
     accountName: randomString.result,
     location: "westus2",
     sku: {
-        name: "Standard_LRS",
+        name: storage.SkuName.Standard_LRS,
     },
-    kind: "StorageV2",
+    kind: storage.Kind.StorageV2,
     enableHttpsTrafficOnly: true,
 });
 

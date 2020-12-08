@@ -21,11 +21,11 @@ const server = new dbforpostgresql.Server("server", {
         administratorLogin: "cloudsa",
         administratorLoginPassword: `pa$$w0rd`,
         createMode: "Default",
-        minimalTlsVersion: "TLS1_2",
-        sslEnforcement: "Enabled",
+        minimalTlsVersion: dbforpostgresql.MinimalTlsVersionEnum.TLS1_2,
+        sslEnforcement: dbforpostgresql.SslEnforcementEnum.Enabled,
         storageProfile: {
             backupRetentionDays: 7,
-            geoRedundantBackup: "Disabled",
+            geoRedundantBackup: dbforpostgresql.GeoRedundantBackup.Disabled,
             storageMB: 128000,
         },
     },
@@ -33,7 +33,7 @@ const server = new dbforpostgresql.Server("server", {
         capacity: 2,
         family: "Gen5",
         name: "B_Gen5_2",
-        tier: "Basic",
+        tier: dbforpostgresql.SkuTier.Basic,
     },
 });
 

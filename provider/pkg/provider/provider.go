@@ -8,6 +8,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"math"
 	"net/http"
@@ -1051,7 +1052,9 @@ func (k *azureNextGenProvider) azureCanCreate(ctx context.Context, id string, re
 	case http.StatusNotFound == resp.StatusCode:
 		return nil
 	default:
-		return fmt.Errorf("cannot check existence of resource '%s': status code %d", id, resp.StatusCode)
+		defer resp.Body.Close()
+		body, _ := ioutil.ReadAll(resp.Body)
+		return fmt.Errorf("cannot check existence of resource '%s': status code %d, %s", id, resp.StatusCode, body)
 	}
 }
 

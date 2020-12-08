@@ -19,7 +19,7 @@ const eventHubNamespace = new eventhub.Namespace("ehns", {
     namespaceName: randomString.result,
     location: resourceGroup.location,
     sku: {
-        name: "Standard",
+        name: eventhub.SkuName.Standard,
     },
 });
 
@@ -34,5 +34,5 @@ const eventHub = new eventhub.EventHub("eh", {
 new eventhub.NamespaceNetworkRuleSet("rs", {
     resourceGroupName: resourceGroup.name,
     namespaceName: eventHubNamespace.name,
-    defaultAction: "Allow",
+    defaultAction: eventhub.DefaultAction.Allow,
 });

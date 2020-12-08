@@ -80,7 +80,7 @@ class MyStack : Stack
             ResourceGroupName = resourceGroup.Name,
             RegistryName = Output.Format($"registry{randomString.Result}"),
             Location = resourceGroup.Location,
-            Sku = new SkuArgs { Name = "Basic" },
+            Sku = new SkuArgs { Name = SkuName.Basic },
             AdminUserEnabled = true
         });
 
