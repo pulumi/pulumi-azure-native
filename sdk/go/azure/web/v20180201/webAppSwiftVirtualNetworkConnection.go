@@ -30,14 +30,15 @@ type WebAppSwiftVirtualNetworkConnection struct {
 // NewWebAppSwiftVirtualNetworkConnection registers a new resource with the given unique name, arguments, and options.
 func NewWebAppSwiftVirtualNetworkConnection(ctx *pulumi.Context,
 	name string, args *WebAppSwiftVirtualNetworkConnectionArgs, opts ...pulumi.ResourceOption) (*WebAppSwiftVirtualNetworkConnection, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &WebAppSwiftVirtualNetworkConnectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

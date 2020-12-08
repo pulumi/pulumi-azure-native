@@ -62,17 +62,18 @@ type PartnerRegistration struct {
 // NewPartnerRegistration registers a new resource with the given unique name, arguments, and options.
 func NewPartnerRegistration(ctx *pulumi.Context,
 	name string, args *PartnerRegistrationArgs, opts ...pulumi.ResourceOption) (*PartnerRegistration, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.PartnerRegistrationName == nil {
-		return nil, errors.New("missing required argument 'PartnerRegistrationName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &PartnerRegistrationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.PartnerRegistrationName == nil {
+		return nil, errors.New("invalid value for required argument 'PartnerRegistrationName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource PartnerRegistration
 	err := ctx.RegisterResource("azure-nextgen:eventgrid/v20200401preview:PartnerRegistration", name, args, &resource, opts...)

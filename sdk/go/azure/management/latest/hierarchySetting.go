@@ -30,11 +30,12 @@ type HierarchySetting struct {
 // NewHierarchySetting registers a new resource with the given unique name, arguments, and options.
 func NewHierarchySetting(ctx *pulumi.Context,
 	name string, args *HierarchySettingArgs, opts ...pulumi.ResourceOption) (*HierarchySetting, error) {
-	if args == nil || args.GroupId == nil {
-		return nil, errors.New("missing required argument 'GroupId'")
-	}
 	if args == nil {
-		args = &HierarchySettingArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.GroupId == nil {
+		return nil, errors.New("invalid value for required argument 'GroupId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

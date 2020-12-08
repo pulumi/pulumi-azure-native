@@ -35,17 +35,18 @@ type DataManager struct {
 // NewDataManager registers a new resource with the given unique name, arguments, and options.
 func NewDataManager(ctx *pulumi.Context,
 	name string, args *DataManagerArgs, opts ...pulumi.ResourceOption) (*DataManager, error) {
-	if args == nil || args.DataManagerName == nil {
-		return nil, errors.New("missing required argument 'DataManagerName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &DataManagerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DataManagerName == nil {
+		return nil, errors.New("invalid value for required argument 'DataManagerName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -49,14 +49,15 @@ type Workflow struct {
 // NewWorkflow registers a new resource with the given unique name, arguments, and options.
 func NewWorkflow(ctx *pulumi.Context,
 	name string, args *WorkflowArgs, opts ...pulumi.ResourceOption) (*Workflow, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.WorkflowName == nil {
-		return nil, errors.New("missing required argument 'WorkflowName'")
-	}
 	if args == nil {
-		args = &WorkflowArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.WorkflowName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkflowName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -214,7 +215,7 @@ type WorkflowArgs struct {
 	// Gets or sets the sku.
 	Sku SkuPtrInput
 	// Gets or sets the state.
-	State pulumi.StringPtrInput
+	State WorkflowState
 	// Gets or sets the resource tags.
 	Tags pulumi.StringMapInput
 	// Gets the resource type.

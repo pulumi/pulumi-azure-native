@@ -38,17 +38,18 @@ type WorkloadNetworkPortMirroring struct {
 // NewWorkloadNetworkPortMirroring registers a new resource with the given unique name, arguments, and options.
 func NewWorkloadNetworkPortMirroring(ctx *pulumi.Context,
 	name string, args *WorkloadNetworkPortMirroringArgs, opts ...pulumi.ResourceOption) (*WorkloadNetworkPortMirroring, error) {
-	if args == nil || args.PortMirroringId == nil {
-		return nil, errors.New("missing required argument 'PortMirroringId'")
-	}
-	if args == nil || args.PrivateCloudName == nil {
-		return nil, errors.New("missing required argument 'PrivateCloudName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &WorkloadNetworkPortMirroringArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PortMirroringId == nil {
+		return nil, errors.New("invalid value for required argument 'PortMirroringId'")
+	}
+	if args.PrivateCloudName == nil {
+		return nil, errors.New("invalid value for required argument 'PrivateCloudName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource WorkloadNetworkPortMirroring
 	err := ctx.RegisterResource("azure-nextgen:avs/v20200717preview:WorkloadNetworkPortMirroring", name, args, &resource, opts...)

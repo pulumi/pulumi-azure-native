@@ -58,20 +58,21 @@ type VirtualMachineScaleSetVM struct {
 // NewVirtualMachineScaleSetVM registers a new resource with the given unique name, arguments, and options.
 func NewVirtualMachineScaleSetVM(ctx *pulumi.Context,
 	name string, args *VirtualMachineScaleSetVMArgs, opts ...pulumi.ResourceOption) (*VirtualMachineScaleSetVM, error) {
-	if args == nil || args.InstanceId == nil {
-		return nil, errors.New("missing required argument 'InstanceId'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VmScaleSetName == nil {
-		return nil, errors.New("missing required argument 'VmScaleSetName'")
-	}
 	if args == nil {
-		args = &VirtualMachineScaleSetVMArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.InstanceId == nil {
+		return nil, errors.New("invalid value for required argument 'InstanceId'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VmScaleSetName == nil {
+		return nil, errors.New("invalid value for required argument 'VmScaleSetName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

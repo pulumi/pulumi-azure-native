@@ -30,14 +30,15 @@ type MasterSite struct {
 // NewMasterSite registers a new resource with the given unique name, arguments, and options.
 func NewMasterSite(ctx *pulumi.Context,
 	name string, args *MasterSiteArgs, opts ...pulumi.ResourceOption) (*MasterSite, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SiteName == nil {
-		return nil, errors.New("missing required argument 'SiteName'")
-	}
 	if args == nil {
-		args = &MasterSiteArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SiteName == nil {
+		return nil, errors.New("invalid value for required argument 'SiteName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

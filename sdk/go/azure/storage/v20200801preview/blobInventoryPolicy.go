@@ -30,20 +30,21 @@ type BlobInventoryPolicy struct {
 // NewBlobInventoryPolicy registers a new resource with the given unique name, arguments, and options.
 func NewBlobInventoryPolicy(ctx *pulumi.Context,
 	name string, args *BlobInventoryPolicyArgs, opts ...pulumi.ResourceOption) (*BlobInventoryPolicy, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.BlobInventoryPolicyName == nil {
-		return nil, errors.New("missing required argument 'BlobInventoryPolicyName'")
-	}
-	if args == nil || args.Policy == nil {
-		return nil, errors.New("missing required argument 'Policy'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &BlobInventoryPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.BlobInventoryPolicyName == nil {
+		return nil, errors.New("invalid value for required argument 'BlobInventoryPolicyName'")
+	}
+	if args.Policy == nil {
+		return nil, errors.New("invalid value for required argument 'Policy'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource BlobInventoryPolicy
 	err := ctx.RegisterResource("azure-nextgen:storage/v20200801preview:BlobInventoryPolicy", name, args, &resource, opts...)

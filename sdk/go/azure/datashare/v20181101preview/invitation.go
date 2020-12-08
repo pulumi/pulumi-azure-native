@@ -44,20 +44,21 @@ type Invitation struct {
 // NewInvitation registers a new resource with the given unique name, arguments, and options.
 func NewInvitation(ctx *pulumi.Context,
 	name string, args *InvitationArgs, opts ...pulumi.ResourceOption) (*Invitation, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.InvitationName == nil {
-		return nil, errors.New("missing required argument 'InvitationName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ShareName == nil {
-		return nil, errors.New("missing required argument 'ShareName'")
-	}
 	if args == nil {
-		args = &InvitationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.InvitationName == nil {
+		return nil, errors.New("invalid value for required argument 'InvitationName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ShareName == nil {
+		return nil, errors.New("invalid value for required argument 'ShareName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

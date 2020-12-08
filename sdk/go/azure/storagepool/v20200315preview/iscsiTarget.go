@@ -32,23 +32,24 @@ type IscsiTarget struct {
 // NewIscsiTarget registers a new resource with the given unique name, arguments, and options.
 func NewIscsiTarget(ctx *pulumi.Context,
 	name string, args *IscsiTargetArgs, opts ...pulumi.ResourceOption) (*IscsiTarget, error) {
-	if args == nil || args.DiskPoolName == nil {
-		return nil, errors.New("missing required argument 'DiskPoolName'")
-	}
-	if args == nil || args.IscsiTargetName == nil {
-		return nil, errors.New("missing required argument 'IscsiTargetName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.TargetIqn == nil {
-		return nil, errors.New("missing required argument 'TargetIqn'")
-	}
-	if args == nil || args.Tpgs == nil {
-		return nil, errors.New("missing required argument 'Tpgs'")
-	}
 	if args == nil {
-		args = &IscsiTargetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DiskPoolName == nil {
+		return nil, errors.New("invalid value for required argument 'DiskPoolName'")
+	}
+	if args.IscsiTargetName == nil {
+		return nil, errors.New("invalid value for required argument 'IscsiTargetName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.TargetIqn == nil {
+		return nil, errors.New("invalid value for required argument 'TargetIqn'")
+	}
+	if args.Tpgs == nil {
+		return nil, errors.New("invalid value for required argument 'Tpgs'")
 	}
 	var resource IscsiTarget
 	err := ctx.RegisterResource("azure-nextgen:storagepool/v20200315preview:IscsiTarget", name, args, &resource, opts...)

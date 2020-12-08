@@ -50,20 +50,21 @@ type VirtualMachineRunCommandByVirtualMachine struct {
 // NewVirtualMachineRunCommandByVirtualMachine registers a new resource with the given unique name, arguments, and options.
 func NewVirtualMachineRunCommandByVirtualMachine(ctx *pulumi.Context,
 	name string, args *VirtualMachineRunCommandByVirtualMachineArgs, opts ...pulumi.ResourceOption) (*VirtualMachineRunCommandByVirtualMachine, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.RunCommandName == nil {
-		return nil, errors.New("missing required argument 'RunCommandName'")
-	}
-	if args == nil || args.VmName == nil {
-		return nil, errors.New("missing required argument 'VmName'")
-	}
 	if args == nil {
-		args = &VirtualMachineRunCommandByVirtualMachineArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.RunCommandName == nil {
+		return nil, errors.New("invalid value for required argument 'RunCommandName'")
+	}
+	if args.VmName == nil {
+		return nil, errors.New("invalid value for required argument 'VmName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

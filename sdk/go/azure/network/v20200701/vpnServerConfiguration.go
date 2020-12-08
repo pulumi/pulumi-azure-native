@@ -56,14 +56,15 @@ type VpnServerConfiguration struct {
 // NewVpnServerConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewVpnServerConfiguration(ctx *pulumi.Context,
 	name string, args *VpnServerConfigurationArgs, opts ...pulumi.ResourceOption) (*VpnServerConfiguration, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VpnServerConfigurationName == nil {
-		return nil, errors.New("missing required argument 'VpnServerConfigurationName'")
-	}
 	if args == nil {
-		args = &VpnServerConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VpnServerConfigurationName == nil {
+		return nil, errors.New("invalid value for required argument 'VpnServerConfigurationName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

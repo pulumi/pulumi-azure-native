@@ -34,23 +34,24 @@ type DeploymentScript struct {
 // NewDeploymentScript registers a new resource with the given unique name, arguments, and options.
 func NewDeploymentScript(ctx *pulumi.Context,
 	name string, args *DeploymentScriptArgs, opts ...pulumi.ResourceOption) (*DeploymentScript, error) {
-	if args == nil || args.Identity == nil {
-		return nil, errors.New("missing required argument 'Identity'")
-	}
-	if args == nil || args.Kind == nil {
-		return nil, errors.New("missing required argument 'Kind'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ScriptName == nil {
-		return nil, errors.New("missing required argument 'ScriptName'")
-	}
 	if args == nil {
-		args = &DeploymentScriptArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Identity == nil {
+		return nil, errors.New("invalid value for required argument 'Identity'")
+	}
+	if args.Kind == nil {
+		return nil, errors.New("invalid value for required argument 'Kind'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ScriptName == nil {
+		return nil, errors.New("invalid value for required argument 'ScriptName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

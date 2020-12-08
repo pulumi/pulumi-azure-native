@@ -28,14 +28,15 @@ type Association struct {
 // NewAssociation registers a new resource with the given unique name, arguments, and options.
 func NewAssociation(ctx *pulumi.Context,
 	name string, args *AssociationArgs, opts ...pulumi.ResourceOption) (*Association, error) {
-	if args == nil || args.AssociationName == nil {
-		return nil, errors.New("missing required argument 'AssociationName'")
-	}
-	if args == nil || args.Scope == nil {
-		return nil, errors.New("missing required argument 'Scope'")
-	}
 	if args == nil {
-		args = &AssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AssociationName == nil {
+		return nil, errors.New("invalid value for required argument 'AssociationName'")
+	}
+	if args.Scope == nil {
+		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
 	var resource Association
 	err := ctx.RegisterResource("azure-nextgen:customproviders/v20180901preview:Association", name, args, &resource, opts...)

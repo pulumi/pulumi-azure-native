@@ -36,26 +36,27 @@ type Snapshot struct {
 // NewSnapshot registers a new resource with the given unique name, arguments, and options.
 func NewSnapshot(ctx *pulumi.Context,
 	name string, args *SnapshotArgs, opts ...pulumi.ResourceOption) (*Snapshot, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.PoolName == nil {
-		return nil, errors.New("missing required argument 'PoolName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SnapshotName == nil {
-		return nil, errors.New("missing required argument 'SnapshotName'")
-	}
-	if args == nil || args.VolumeName == nil {
-		return nil, errors.New("missing required argument 'VolumeName'")
-	}
 	if args == nil {
-		args = &SnapshotArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.PoolName == nil {
+		return nil, errors.New("invalid value for required argument 'PoolName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SnapshotName == nil {
+		return nil, errors.New("invalid value for required argument 'SnapshotName'")
+	}
+	if args.VolumeName == nil {
+		return nil, errors.New("invalid value for required argument 'VolumeName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

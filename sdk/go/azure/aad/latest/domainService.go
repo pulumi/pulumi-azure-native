@@ -60,14 +60,15 @@ type DomainService struct {
 // NewDomainService registers a new resource with the given unique name, arguments, and options.
 func NewDomainService(ctx *pulumi.Context,
 	name string, args *DomainServiceArgs, opts ...pulumi.ResourceOption) (*DomainService, error) {
-	if args == nil || args.DomainServiceName == nil {
-		return nil, errors.New("missing required argument 'DomainServiceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &DomainServiceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DomainServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'DomainServiceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

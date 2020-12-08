@@ -34,17 +34,18 @@ type AvailabilityGroupListener struct {
 // NewAvailabilityGroupListener registers a new resource with the given unique name, arguments, and options.
 func NewAvailabilityGroupListener(ctx *pulumi.Context,
 	name string, args *AvailabilityGroupListenerArgs, opts ...pulumi.ResourceOption) (*AvailabilityGroupListener, error) {
-	if args == nil || args.AvailabilityGroupListenerName == nil {
-		return nil, errors.New("missing required argument 'AvailabilityGroupListenerName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SqlVirtualMachineGroupName == nil {
-		return nil, errors.New("missing required argument 'SqlVirtualMachineGroupName'")
-	}
 	if args == nil {
-		args = &AvailabilityGroupListenerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AvailabilityGroupListenerName == nil {
+		return nil, errors.New("invalid value for required argument 'AvailabilityGroupListenerName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SqlVirtualMachineGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'SqlVirtualMachineGroupName'")
 	}
 	var resource AvailabilityGroupListener
 	err := ctx.RegisterResource("azure-nextgen:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener", name, args, &resource, opts...)

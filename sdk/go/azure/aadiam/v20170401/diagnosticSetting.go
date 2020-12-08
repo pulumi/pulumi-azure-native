@@ -36,11 +36,12 @@ type DiagnosticSetting struct {
 // NewDiagnosticSetting registers a new resource with the given unique name, arguments, and options.
 func NewDiagnosticSetting(ctx *pulumi.Context,
 	name string, args *DiagnosticSettingArgs, opts ...pulumi.ResourceOption) (*DiagnosticSetting, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil {
-		args = &DiagnosticSettingArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

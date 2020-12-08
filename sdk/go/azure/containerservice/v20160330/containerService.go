@@ -42,26 +42,27 @@ type ContainerService struct {
 // NewContainerService registers a new resource with the given unique name, arguments, and options.
 func NewContainerService(ctx *pulumi.Context,
 	name string, args *ContainerServiceArgs, opts ...pulumi.ResourceOption) (*ContainerService, error) {
-	if args == nil || args.AgentPoolProfiles == nil {
-		return nil, errors.New("missing required argument 'AgentPoolProfiles'")
-	}
-	if args == nil || args.ContainerServiceName == nil {
-		return nil, errors.New("missing required argument 'ContainerServiceName'")
-	}
-	if args == nil || args.LinuxProfile == nil {
-		return nil, errors.New("missing required argument 'LinuxProfile'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.MasterProfile == nil {
-		return nil, errors.New("missing required argument 'MasterProfile'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ContainerServiceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AgentPoolProfiles == nil {
+		return nil, errors.New("invalid value for required argument 'AgentPoolProfiles'")
+	}
+	if args.ContainerServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ContainerServiceName'")
+	}
+	if args.LinuxProfile == nil {
+		return nil, errors.New("invalid value for required argument 'LinuxProfile'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.MasterProfile == nil {
+		return nil, errors.New("invalid value for required argument 'MasterProfile'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

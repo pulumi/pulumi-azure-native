@@ -44,20 +44,21 @@ type RedisEnterprise struct {
 // NewRedisEnterprise registers a new resource with the given unique name, arguments, and options.
 func NewRedisEnterprise(ctx *pulumi.Context,
 	name string, args *RedisEnterpriseArgs, opts ...pulumi.ResourceOption) (*RedisEnterprise, error) {
-	if args == nil || args.ClusterName == nil {
-		return nil, errors.New("missing required argument 'ClusterName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Sku == nil {
-		return nil, errors.New("missing required argument 'Sku'")
-	}
 	if args == nil {
-		args = &RedisEnterpriseArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ClusterName == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Sku == nil {
+		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	var resource RedisEnterprise
 	err := ctx.RegisterResource("azure-nextgen:cache/v20201001preview:RedisEnterprise", name, args, &resource, opts...)

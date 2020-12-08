@@ -34,17 +34,18 @@ type PrivateLinkServicePrivateEndpointConnection struct {
 // NewPrivateLinkServicePrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
 func NewPrivateLinkServicePrivateEndpointConnection(ctx *pulumi.Context,
 	name string, args *PrivateLinkServicePrivateEndpointConnectionArgs, opts ...pulumi.ResourceOption) (*PrivateLinkServicePrivateEndpointConnection, error) {
-	if args == nil || args.PeConnectionName == nil {
-		return nil, errors.New("missing required argument 'PeConnectionName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
 	if args == nil {
-		args = &PrivateLinkServicePrivateEndpointConnectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PeConnectionName == nil {
+		return nil, errors.New("invalid value for required argument 'PeConnectionName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

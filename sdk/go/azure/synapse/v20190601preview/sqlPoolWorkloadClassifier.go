@@ -36,26 +36,27 @@ type SqlPoolWorkloadClassifier struct {
 // NewSqlPoolWorkloadClassifier registers a new resource with the given unique name, arguments, and options.
 func NewSqlPoolWorkloadClassifier(ctx *pulumi.Context,
 	name string, args *SqlPoolWorkloadClassifierArgs, opts ...pulumi.ResourceOption) (*SqlPoolWorkloadClassifier, error) {
-	if args == nil || args.MemberName == nil {
-		return nil, errors.New("missing required argument 'MemberName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SqlPoolName == nil {
-		return nil, errors.New("missing required argument 'SqlPoolName'")
-	}
-	if args == nil || args.WorkloadClassifierName == nil {
-		return nil, errors.New("missing required argument 'WorkloadClassifierName'")
-	}
-	if args == nil || args.WorkloadGroupName == nil {
-		return nil, errors.New("missing required argument 'WorkloadGroupName'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &SqlPoolWorkloadClassifierArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.MemberName == nil {
+		return nil, errors.New("invalid value for required argument 'MemberName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SqlPoolName == nil {
+		return nil, errors.New("invalid value for required argument 'SqlPoolName'")
+	}
+	if args.WorkloadClassifierName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkloadClassifierName'")
+	}
+	if args.WorkloadGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkloadGroupName'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	var resource SqlPoolWorkloadClassifier
 	err := ctx.RegisterResource("azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadClassifier", name, args, &resource, opts...)

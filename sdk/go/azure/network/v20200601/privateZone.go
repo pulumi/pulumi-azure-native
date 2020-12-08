@@ -46,14 +46,15 @@ type PrivateZone struct {
 // NewPrivateZone registers a new resource with the given unique name, arguments, and options.
 func NewPrivateZone(ctx *pulumi.Context,
 	name string, args *PrivateZoneArgs, opts ...pulumi.ResourceOption) (*PrivateZone, error) {
-	if args == nil || args.PrivateZoneName == nil {
-		return nil, errors.New("missing required argument 'PrivateZoneName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &PrivateZoneArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PrivateZoneName == nil {
+		return nil, errors.New("invalid value for required argument 'PrivateZoneName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

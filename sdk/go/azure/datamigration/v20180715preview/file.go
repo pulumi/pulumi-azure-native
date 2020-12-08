@@ -28,20 +28,21 @@ type File struct {
 // NewFile registers a new resource with the given unique name, arguments, and options.
 func NewFile(ctx *pulumi.Context,
 	name string, args *FileArgs, opts ...pulumi.ResourceOption) (*File, error) {
-	if args == nil || args.FileName == nil {
-		return nil, errors.New("missing required argument 'FileName'")
-	}
-	if args == nil || args.GroupName == nil {
-		return nil, errors.New("missing required argument 'GroupName'")
-	}
-	if args == nil || args.ProjectName == nil {
-		return nil, errors.New("missing required argument 'ProjectName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
 	if args == nil {
-		args = &FileArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.FileName == nil {
+		return nil, errors.New("invalid value for required argument 'FileName'")
+	}
+	if args.GroupName == nil {
+		return nil, errors.New("invalid value for required argument 'GroupName'")
+	}
+	if args.ProjectName == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
 	var resource File
 	err := ctx.RegisterResource("azure-nextgen:datamigration/v20180715preview:File", name, args, &resource, opts...)

@@ -28,17 +28,18 @@ type GuestConfigurationAssignment struct {
 // NewGuestConfigurationAssignment registers a new resource with the given unique name, arguments, and options.
 func NewGuestConfigurationAssignment(ctx *pulumi.Context,
 	name string, args *GuestConfigurationAssignmentArgs, opts ...pulumi.ResourceOption) (*GuestConfigurationAssignment, error) {
-	if args == nil || args.GuestConfigurationAssignmentName == nil {
-		return nil, errors.New("missing required argument 'GuestConfigurationAssignmentName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VmName == nil {
-		return nil, errors.New("missing required argument 'VmName'")
-	}
 	if args == nil {
-		args = &GuestConfigurationAssignmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.GuestConfigurationAssignmentName == nil {
+		return nil, errors.New("invalid value for required argument 'GuestConfigurationAssignmentName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VmName == nil {
+		return nil, errors.New("invalid value for required argument 'VmName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

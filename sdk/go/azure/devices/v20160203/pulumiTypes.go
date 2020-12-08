@@ -1948,7 +1948,7 @@ type IpFilterRuleInput interface {
 // The IP filter rules for the IoT hub.
 type IpFilterRuleArgs struct {
 	// The desired action for requests captured by this rule.
-	Action pulumi.StringInput `pulumi:"action"`
+	Action IpFilterActionType `pulumi:"action"`
 	// The name of the IP filter rule.
 	FilterName pulumi.StringInput `pulumi:"filterName"`
 	// A string that contains the IP address range in CIDR notation for the rule.
@@ -2684,7 +2684,7 @@ type SharedAccessSignatureAuthorizationRuleArgs struct {
 	// The primary key.
 	PrimaryKey pulumi.StringPtrInput `pulumi:"primaryKey"`
 	// The permissions assigned to the shared access policy.
-	Rights pulumi.StringInput `pulumi:"rights"`
+	Rights AccessRights `pulumi:"rights"`
 	// The secondary key.
 	SecondaryKey pulumi.StringPtrInput `pulumi:"secondaryKey"`
 }

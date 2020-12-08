@@ -40,26 +40,27 @@ type FileServer struct {
 // NewFileServer registers a new resource with the given unique name, arguments, and options.
 func NewFileServer(ctx *pulumi.Context,
 	name string, args *FileServerArgs, opts ...pulumi.ResourceOption) (*FileServer, error) {
-	if args == nil || args.DataDisks == nil {
-		return nil, errors.New("missing required argument 'DataDisks'")
-	}
-	if args == nil || args.FileServerName == nil {
-		return nil, errors.New("missing required argument 'FileServerName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SshConfiguration == nil {
-		return nil, errors.New("missing required argument 'SshConfiguration'")
-	}
-	if args == nil || args.VmSize == nil {
-		return nil, errors.New("missing required argument 'VmSize'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &FileServerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DataDisks == nil {
+		return nil, errors.New("invalid value for required argument 'DataDisks'")
+	}
+	if args.FileServerName == nil {
+		return nil, errors.New("invalid value for required argument 'FileServerName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SshConfiguration == nil {
+		return nil, errors.New("invalid value for required argument 'SshConfiguration'")
+	}
+	if args.VmSize == nil {
+		return nil, errors.New("invalid value for required argument 'VmSize'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

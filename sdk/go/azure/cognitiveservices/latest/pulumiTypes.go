@@ -1477,7 +1477,7 @@ type IdentityInput interface {
 // Managed service identity.
 type IdentityArgs struct {
 	// Type of managed service identity.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type IdentityType `pulumi:"type"`
 	// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
 	UserAssignedIdentities UserAssignedIdentityMapInput `pulumi:"userAssignedIdentities"`
 }

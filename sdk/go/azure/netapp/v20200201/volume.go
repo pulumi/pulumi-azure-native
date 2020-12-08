@@ -58,32 +58,33 @@ type Volume struct {
 // NewVolume registers a new resource with the given unique name, arguments, and options.
 func NewVolume(ctx *pulumi.Context,
 	name string, args *VolumeArgs, opts ...pulumi.ResourceOption) (*Volume, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.CreationToken == nil {
-		return nil, errors.New("missing required argument 'CreationToken'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.PoolName == nil {
-		return nil, errors.New("missing required argument 'PoolName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SubnetId == nil {
-		return nil, errors.New("missing required argument 'SubnetId'")
-	}
-	if args == nil || args.UsageThreshold == nil {
-		return nil, errors.New("missing required argument 'UsageThreshold'")
-	}
-	if args == nil || args.VolumeName == nil {
-		return nil, errors.New("missing required argument 'VolumeName'")
-	}
 	if args == nil {
-		args = &VolumeArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.CreationToken == nil {
+		return nil, errors.New("invalid value for required argument 'CreationToken'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.PoolName == nil {
+		return nil, errors.New("invalid value for required argument 'PoolName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SubnetId == nil {
+		return nil, errors.New("invalid value for required argument 'SubnetId'")
+	}
+	if args.UsageThreshold == nil {
+		return nil, errors.New("invalid value for required argument 'UsageThreshold'")
+	}
+	if args.VolumeName == nil {
+		return nil, errors.New("invalid value for required argument 'VolumeName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

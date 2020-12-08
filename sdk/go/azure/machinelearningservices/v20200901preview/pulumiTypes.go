@@ -9431,7 +9431,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type ResourceIdentityType `pulumi:"type"`
 	// The user assigned identities associated with the resource.
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
@@ -10373,7 +10373,7 @@ type LinkedServicePropsArgs struct {
 	// The creation time of the linked service.
 	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
 	// Type of the link target.
-	LinkType pulumi.StringPtrInput `pulumi:"linkType"`
+	LinkType LinkedServiceLinkType `pulumi:"linkType"`
 	// ResourceId of the link target of the linked service.
 	LinkedServiceResourceId pulumi.StringInput `pulumi:"linkedServiceResourceId"`
 	// The last modified time of the linked service.

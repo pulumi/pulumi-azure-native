@@ -40,38 +40,30 @@ type FileShare struct {
 // NewFileShare registers a new resource with the given unique name, arguments, and options.
 func NewFileShare(ctx *pulumi.Context,
 	name string, args *FileShareArgs, opts ...pulumi.ResourceOption) (*FileShare, error) {
-	if args == nil || args.AdminUser == nil {
-		return nil, errors.New("missing required argument 'AdminUser'")
-	}
-	if args == nil || args.DataPolicy == nil {
-		return nil, errors.New("missing required argument 'DataPolicy'")
-	}
-	if args == nil || args.DeviceName == nil {
-		return nil, errors.New("missing required argument 'DeviceName'")
-	}
-	if args == nil || args.FileServerName == nil {
-		return nil, errors.New("missing required argument 'FileServerName'")
-	}
-	if args == nil || args.ManagerName == nil {
-		return nil, errors.New("missing required argument 'ManagerName'")
-	}
-	if args == nil || args.MonitoringStatus == nil {
-		return nil, errors.New("missing required argument 'MonitoringStatus'")
-	}
-	if args == nil || args.ProvisionedCapacityInBytes == nil {
-		return nil, errors.New("missing required argument 'ProvisionedCapacityInBytes'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ShareName == nil {
-		return nil, errors.New("missing required argument 'ShareName'")
-	}
-	if args == nil || args.ShareStatus == nil {
-		return nil, errors.New("missing required argument 'ShareStatus'")
-	}
 	if args == nil {
-		args = &FileShareArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AdminUser == nil {
+		return nil, errors.New("invalid value for required argument 'AdminUser'")
+	}
+	if args.DeviceName == nil {
+		return nil, errors.New("invalid value for required argument 'DeviceName'")
+	}
+	if args.FileServerName == nil {
+		return nil, errors.New("invalid value for required argument 'FileServerName'")
+	}
+	if args.ManagerName == nil {
+		return nil, errors.New("invalid value for required argument 'ManagerName'")
+	}
+	if args.ProvisionedCapacityInBytes == nil {
+		return nil, errors.New("invalid value for required argument 'ProvisionedCapacityInBytes'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ShareName == nil {
+		return nil, errors.New("invalid value for required argument 'ShareName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -180,7 +172,7 @@ type FileShareArgs struct {
 	// The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\xyz.
 	AdminUser pulumi.StringInput
 	// The data policy
-	DataPolicy pulumi.StringInput
+	DataPolicy DataPolicy
 	// Description for file share
 	Description pulumi.StringPtrInput
 	// The device name.
@@ -190,7 +182,7 @@ type FileShareArgs struct {
 	// The manager name
 	ManagerName pulumi.StringInput
 	// The monitoring status
-	MonitoringStatus pulumi.StringInput
+	MonitoringStatus MonitoringStatus
 	// The total provisioned capacity in Bytes
 	ProvisionedCapacityInBytes pulumi.IntInput
 	// The resource group name
@@ -198,7 +190,7 @@ type FileShareArgs struct {
 	// The file share name.
 	ShareName pulumi.StringInput
 	// The Share Status
-	ShareStatus pulumi.StringInput
+	ShareStatus ShareStatus
 }
 
 func (FileShareArgs) ElementType() reflect.Type {

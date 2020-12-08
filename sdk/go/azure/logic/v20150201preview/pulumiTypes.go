@@ -1044,7 +1044,7 @@ type SkuInput interface {
 
 type SkuArgs struct {
 	// Gets or sets the name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name SkuName `pulumi:"name"`
 	// Gets or sets the reference to plan.
 	Plan ResourceReferencePtrInput `pulumi:"plan"`
 }
@@ -1348,7 +1348,7 @@ type WorkflowParameterArgs struct {
 	// Gets or sets the metadata.
 	Metadata pulumi.Input `pulumi:"metadata"`
 	// Gets or sets the type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type ParameterType `pulumi:"type"`
 	// Gets or sets the value.
 	Value pulumi.Input `pulumi:"value"`
 }

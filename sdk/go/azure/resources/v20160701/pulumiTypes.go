@@ -501,7 +501,7 @@ type DeploymentPropertiesInput interface {
 // Deployment properties.
 type DeploymentPropertiesArgs struct {
 	// The deployment mode.
-	Mode pulumi.StringInput `pulumi:"mode"`
+	Mode DeploymentMode `pulumi:"mode"`
 	// Deployment parameters. It can be a JObject or a well formed JSON string. Use only one of Parameters or ParametersLink.
 	Parameters pulumi.Input `pulumi:"parameters"`
 	// The parameters URI. Use only one of Parameters or ParametersLink.
@@ -1027,7 +1027,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type ResourceIdentityType `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {

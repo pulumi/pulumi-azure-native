@@ -40,17 +40,18 @@ type ManagedNetworkGroup struct {
 // NewManagedNetworkGroup registers a new resource with the given unique name, arguments, and options.
 func NewManagedNetworkGroup(ctx *pulumi.Context,
 	name string, args *ManagedNetworkGroupArgs, opts ...pulumi.ResourceOption) (*ManagedNetworkGroup, error) {
-	if args == nil || args.ManagedNetworkGroupName == nil {
-		return nil, errors.New("missing required argument 'ManagedNetworkGroupName'")
-	}
-	if args == nil || args.ManagedNetworkName == nil {
-		return nil, errors.New("missing required argument 'ManagedNetworkName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ManagedNetworkGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ManagedNetworkGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ManagedNetworkGroupName'")
+	}
+	if args.ManagedNetworkName == nil {
+		return nil, errors.New("invalid value for required argument 'ManagedNetworkName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource ManagedNetworkGroup
 	err := ctx.RegisterResource("azure-nextgen:managednetwork/v20190601preview:ManagedNetworkGroup", name, args, &resource, opts...)

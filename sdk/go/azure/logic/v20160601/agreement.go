@@ -46,35 +46,33 @@ type Agreement struct {
 // NewAgreement registers a new resource with the given unique name, arguments, and options.
 func NewAgreement(ctx *pulumi.Context,
 	name string, args *AgreementArgs, opts ...pulumi.ResourceOption) (*Agreement, error) {
-	if args == nil || args.AgreementName == nil {
-		return nil, errors.New("missing required argument 'AgreementName'")
-	}
-	if args == nil || args.AgreementType == nil {
-		return nil, errors.New("missing required argument 'AgreementType'")
-	}
-	if args == nil || args.Content == nil {
-		return nil, errors.New("missing required argument 'Content'")
-	}
-	if args == nil || args.GuestIdentity == nil {
-		return nil, errors.New("missing required argument 'GuestIdentity'")
-	}
-	if args == nil || args.GuestPartner == nil {
-		return nil, errors.New("missing required argument 'GuestPartner'")
-	}
-	if args == nil || args.HostIdentity == nil {
-		return nil, errors.New("missing required argument 'HostIdentity'")
-	}
-	if args == nil || args.HostPartner == nil {
-		return nil, errors.New("missing required argument 'HostPartner'")
-	}
-	if args == nil || args.IntegrationAccountName == nil {
-		return nil, errors.New("missing required argument 'IntegrationAccountName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &AgreementArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AgreementName == nil {
+		return nil, errors.New("invalid value for required argument 'AgreementName'")
+	}
+	if args.Content == nil {
+		return nil, errors.New("invalid value for required argument 'Content'")
+	}
+	if args.GuestIdentity == nil {
+		return nil, errors.New("invalid value for required argument 'GuestIdentity'")
+	}
+	if args.GuestPartner == nil {
+		return nil, errors.New("invalid value for required argument 'GuestPartner'")
+	}
+	if args.HostIdentity == nil {
+		return nil, errors.New("invalid value for required argument 'HostIdentity'")
+	}
+	if args.HostPartner == nil {
+		return nil, errors.New("invalid value for required argument 'HostPartner'")
+	}
+	if args.IntegrationAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'IntegrationAccountName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -206,7 +204,7 @@ type AgreementArgs struct {
 	// The integration account agreement name.
 	AgreementName pulumi.StringInput
 	// The agreement type.
-	AgreementType pulumi.StringInput
+	AgreementType AgreementType
 	// The agreement content.
 	Content AgreementContentInput
 	// The business identity of the guest partner.

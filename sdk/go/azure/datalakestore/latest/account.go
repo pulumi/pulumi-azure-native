@@ -66,17 +66,18 @@ type Account struct {
 // NewAccount registers a new resource with the given unique name, arguments, and options.
 func NewAccount(ctx *pulumi.Context,
 	name string, args *AccountArgs, opts ...pulumi.ResourceOption) (*Account, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &AccountArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -249,25 +250,25 @@ type AccountArgs struct {
 	// The Key Vault encryption configuration.
 	EncryptionConfig EncryptionConfigPtrInput
 	// The current state of encryption for this Data Lake Store account.
-	EncryptionState pulumi.StringPtrInput
+	EncryptionState EncryptionState
 	// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-	FirewallAllowAzureIps pulumi.StringPtrInput
+	FirewallAllowAzureIps FirewallAllowAzureIpsState
 	// The list of firewall rules associated with this Data Lake Store account.
 	FirewallRules CreateFirewallRuleWithAccountParametersArrayInput
 	// The current state of the IP address firewall for this Data Lake Store account.
-	FirewallState pulumi.StringPtrInput
+	FirewallState FirewallState
 	// The Key Vault encryption identity, if any.
 	Identity EncryptionIdentityPtrInput
 	// The resource location.
 	Location pulumi.StringInput
 	// The commitment tier to use for next month.
-	NewTier pulumi.StringPtrInput
+	NewTier TierType
 	// The name of the Azure resource group.
 	ResourceGroupName pulumi.StringInput
 	// The resource tags.
 	Tags pulumi.StringMapInput
 	// The current state of the trusted identity provider feature for this Data Lake Store account.
-	TrustedIdProviderState pulumi.StringPtrInput
+	TrustedIdProviderState TrustedIdProviderState
 	// The list of trusted identity providers associated with this Data Lake Store account.
 	TrustedIdProviders CreateTrustedIdProviderWithAccountParametersArrayInput
 	// The list of virtual network rules associated with this Data Lake Store account.

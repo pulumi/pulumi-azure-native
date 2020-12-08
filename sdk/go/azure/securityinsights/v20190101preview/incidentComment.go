@@ -34,26 +34,27 @@ type IncidentComment struct {
 // NewIncidentComment registers a new resource with the given unique name, arguments, and options.
 func NewIncidentComment(ctx *pulumi.Context,
 	name string, args *IncidentCommentArgs, opts ...pulumi.ResourceOption) (*IncidentComment, error) {
-	if args == nil || args.IncidentCommentId == nil {
-		return nil, errors.New("missing required argument 'IncidentCommentId'")
-	}
-	if args == nil || args.IncidentId == nil {
-		return nil, errors.New("missing required argument 'IncidentId'")
-	}
-	if args == nil || args.Message == nil {
-		return nil, errors.New("missing required argument 'Message'")
-	}
-	if args == nil || args.OperationalInsightsResourceProvider == nil {
-		return nil, errors.New("missing required argument 'OperationalInsightsResourceProvider'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &IncidentCommentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.IncidentCommentId == nil {
+		return nil, errors.New("invalid value for required argument 'IncidentCommentId'")
+	}
+	if args.IncidentId == nil {
+		return nil, errors.New("invalid value for required argument 'IncidentId'")
+	}
+	if args.Message == nil {
+		return nil, errors.New("invalid value for required argument 'Message'")
+	}
+	if args.OperationalInsightsResourceProvider == nil {
+		return nil, errors.New("invalid value for required argument 'OperationalInsightsResourceProvider'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	var resource IncidentComment
 	err := ctx.RegisterResource("azure-nextgen:securityinsights/v20190101preview:IncidentComment", name, args, &resource, opts...)

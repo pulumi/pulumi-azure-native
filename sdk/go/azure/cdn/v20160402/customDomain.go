@@ -30,23 +30,24 @@ type CustomDomain struct {
 // NewCustomDomain registers a new resource with the given unique name, arguments, and options.
 func NewCustomDomain(ctx *pulumi.Context,
 	name string, args *CustomDomainArgs, opts ...pulumi.ResourceOption) (*CustomDomain, error) {
-	if args == nil || args.CustomDomainName == nil {
-		return nil, errors.New("missing required argument 'CustomDomainName'")
-	}
-	if args == nil || args.EndpointName == nil {
-		return nil, errors.New("missing required argument 'EndpointName'")
-	}
-	if args == nil || args.HostName == nil {
-		return nil, errors.New("missing required argument 'HostName'")
-	}
-	if args == nil || args.ProfileName == nil {
-		return nil, errors.New("missing required argument 'ProfileName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &CustomDomainArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CustomDomainName == nil {
+		return nil, errors.New("invalid value for required argument 'CustomDomainName'")
+	}
+	if args.EndpointName == nil {
+		return nil, errors.New("invalid value for required argument 'EndpointName'")
+	}
+	if args.HostName == nil {
+		return nil, errors.New("invalid value for required argument 'HostName'")
+	}
+	if args.ProfileName == nil {
+		return nil, errors.New("invalid value for required argument 'ProfileName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

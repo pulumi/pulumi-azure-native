@@ -29,14 +29,15 @@ type WorkspaceCollection struct {
 // NewWorkspaceCollection registers a new resource with the given unique name, arguments, and options.
 func NewWorkspaceCollection(ctx *pulumi.Context,
 	name string, args *WorkspaceCollectionArgs, opts ...pulumi.ResourceOption) (*WorkspaceCollection, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.WorkspaceCollectionName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceCollectionName'")
-	}
 	if args == nil {
-		args = &WorkspaceCollectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.WorkspaceCollectionName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceCollectionName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

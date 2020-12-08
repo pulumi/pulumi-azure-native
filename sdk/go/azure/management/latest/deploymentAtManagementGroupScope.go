@@ -30,20 +30,21 @@ type DeploymentAtManagementGroupScope struct {
 // NewDeploymentAtManagementGroupScope registers a new resource with the given unique name, arguments, and options.
 func NewDeploymentAtManagementGroupScope(ctx *pulumi.Context,
 	name string, args *DeploymentAtManagementGroupScopeArgs, opts ...pulumi.ResourceOption) (*DeploymentAtManagementGroupScope, error) {
-	if args == nil || args.DeploymentName == nil {
-		return nil, errors.New("missing required argument 'DeploymentName'")
-	}
-	if args == nil || args.GroupId == nil {
-		return nil, errors.New("missing required argument 'GroupId'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &DeploymentAtManagementGroupScopeArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DeploymentName == nil {
+		return nil, errors.New("invalid value for required argument 'DeploymentName'")
+	}
+	if args.GroupId == nil {
+		return nil, errors.New("invalid value for required argument 'GroupId'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

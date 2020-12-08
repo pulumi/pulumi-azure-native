@@ -34,23 +34,24 @@ type MigrationConfig struct {
 // NewMigrationConfig registers a new resource with the given unique name, arguments, and options.
 func NewMigrationConfig(ctx *pulumi.Context,
 	name string, args *MigrationConfigArgs, opts ...pulumi.ResourceOption) (*MigrationConfig, error) {
-	if args == nil || args.ConfigName == nil {
-		return nil, errors.New("missing required argument 'ConfigName'")
-	}
-	if args == nil || args.NamespaceName == nil {
-		return nil, errors.New("missing required argument 'NamespaceName'")
-	}
-	if args == nil || args.PostMigrationName == nil {
-		return nil, errors.New("missing required argument 'PostMigrationName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.TargetNamespace == nil {
-		return nil, errors.New("missing required argument 'TargetNamespace'")
-	}
 	if args == nil {
-		args = &MigrationConfigArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ConfigName == nil {
+		return nil, errors.New("invalid value for required argument 'ConfigName'")
+	}
+	if args.NamespaceName == nil {
+		return nil, errors.New("invalid value for required argument 'NamespaceName'")
+	}
+	if args.PostMigrationName == nil {
+		return nil, errors.New("invalid value for required argument 'PostMigrationName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.TargetNamespace == nil {
+		return nil, errors.New("invalid value for required argument 'TargetNamespace'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

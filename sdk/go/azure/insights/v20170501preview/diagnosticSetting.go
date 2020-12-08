@@ -40,14 +40,15 @@ type DiagnosticSetting struct {
 // NewDiagnosticSetting registers a new resource with the given unique name, arguments, and options.
 func NewDiagnosticSetting(ctx *pulumi.Context,
 	name string, args *DiagnosticSettingArgs, opts ...pulumi.ResourceOption) (*DiagnosticSetting, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.ResourceUri == nil {
-		return nil, errors.New("missing required argument 'ResourceUri'")
-	}
 	if args == nil {
-		args = &DiagnosticSettingArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.ResourceUri == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceUri'")
 	}
 	var resource DiagnosticSetting
 	err := ctx.RegisterResource("azure-nextgen:insights/v20170501preview:DiagnosticSetting", name, args, &resource, opts...)

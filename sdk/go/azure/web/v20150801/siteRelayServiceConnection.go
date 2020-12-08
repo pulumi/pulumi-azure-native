@@ -37,20 +37,21 @@ type SiteRelayServiceConnection struct {
 // NewSiteRelayServiceConnection registers a new resource with the given unique name, arguments, and options.
 func NewSiteRelayServiceConnection(ctx *pulumi.Context,
 	name string, args *SiteRelayServiceConnectionArgs, opts ...pulumi.ResourceOption) (*SiteRelayServiceConnection, error) {
-	if args == nil || args.EntityName == nil {
-		return nil, errors.New("missing required argument 'EntityName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &SiteRelayServiceConnectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.EntityName == nil {
+		return nil, errors.New("invalid value for required argument 'EntityName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -40,20 +40,21 @@ type PolicyExemption struct {
 // NewPolicyExemption registers a new resource with the given unique name, arguments, and options.
 func NewPolicyExemption(ctx *pulumi.Context,
 	name string, args *PolicyExemptionArgs, opts ...pulumi.ResourceOption) (*PolicyExemption, error) {
-	if args == nil || args.ExemptionCategory == nil {
-		return nil, errors.New("missing required argument 'ExemptionCategory'")
-	}
-	if args == nil || args.PolicyAssignmentId == nil {
-		return nil, errors.New("missing required argument 'PolicyAssignmentId'")
-	}
-	if args == nil || args.PolicyExemptionName == nil {
-		return nil, errors.New("missing required argument 'PolicyExemptionName'")
-	}
-	if args == nil || args.Scope == nil {
-		return nil, errors.New("missing required argument 'Scope'")
-	}
 	if args == nil {
-		args = &PolicyExemptionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ExemptionCategory == nil {
+		return nil, errors.New("invalid value for required argument 'ExemptionCategory'")
+	}
+	if args.PolicyAssignmentId == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyAssignmentId'")
+	}
+	if args.PolicyExemptionName == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyExemptionName'")
+	}
+	if args.Scope == nil {
+		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
 	var resource PolicyExemption
 	err := ctx.RegisterResource("azure-nextgen:authorization/v20200701preview:PolicyExemption", name, args, &resource, opts...)

@@ -56,26 +56,27 @@ type NodeType struct {
 // NewNodeType registers a new resource with the given unique name, arguments, and options.
 func NewNodeType(ctx *pulumi.Context,
 	name string, args *NodeTypeArgs, opts ...pulumi.ResourceOption) (*NodeType, error) {
-	if args == nil || args.ClusterName == nil {
-		return nil, errors.New("missing required argument 'ClusterName'")
-	}
-	if args == nil || args.DataDiskSizeGB == nil {
-		return nil, errors.New("missing required argument 'DataDiskSizeGB'")
-	}
-	if args == nil || args.IsPrimary == nil {
-		return nil, errors.New("missing required argument 'IsPrimary'")
-	}
-	if args == nil || args.NodeTypeName == nil {
-		return nil, errors.New("missing required argument 'NodeTypeName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VmInstanceCount == nil {
-		return nil, errors.New("missing required argument 'VmInstanceCount'")
-	}
 	if args == nil {
-		args = &NodeTypeArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ClusterName == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterName'")
+	}
+	if args.DataDiskSizeGB == nil {
+		return nil, errors.New("invalid value for required argument 'DataDiskSizeGB'")
+	}
+	if args.IsPrimary == nil {
+		return nil, errors.New("invalid value for required argument 'IsPrimary'")
+	}
+	if args.NodeTypeName == nil {
+		return nil, errors.New("invalid value for required argument 'NodeTypeName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VmInstanceCount == nil {
+		return nil, errors.New("invalid value for required argument 'VmInstanceCount'")
 	}
 	var resource NodeType
 	err := ctx.RegisterResource("azure-nextgen:servicefabric/v20200101preview:NodeType", name, args, &resource, opts...)

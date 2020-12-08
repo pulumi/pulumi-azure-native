@@ -28,17 +28,18 @@ type RulesEngine struct {
 // NewRulesEngine registers a new resource with the given unique name, arguments, and options.
 func NewRulesEngine(ctx *pulumi.Context,
 	name string, args *RulesEngineArgs, opts ...pulumi.ResourceOption) (*RulesEngine, error) {
-	if args == nil || args.FrontDoorName == nil {
-		return nil, errors.New("missing required argument 'FrontDoorName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.RulesEngineName == nil {
-		return nil, errors.New("missing required argument 'RulesEngineName'")
-	}
 	if args == nil {
-		args = &RulesEngineArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.FrontDoorName == nil {
+		return nil, errors.New("invalid value for required argument 'FrontDoorName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.RulesEngineName == nil {
+		return nil, errors.New("invalid value for required argument 'RulesEngineName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

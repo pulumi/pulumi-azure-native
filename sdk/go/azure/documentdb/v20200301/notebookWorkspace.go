@@ -28,17 +28,18 @@ type NotebookWorkspace struct {
 // NewNotebookWorkspace registers a new resource with the given unique name, arguments, and options.
 func NewNotebookWorkspace(ctx *pulumi.Context,
 	name string, args *NotebookWorkspaceArgs, opts ...pulumi.ResourceOption) (*NotebookWorkspace, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.NotebookWorkspaceName == nil {
-		return nil, errors.New("missing required argument 'NotebookWorkspaceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &NotebookWorkspaceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.NotebookWorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'NotebookWorkspaceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

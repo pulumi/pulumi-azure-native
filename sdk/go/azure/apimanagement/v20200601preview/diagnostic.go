@@ -42,20 +42,21 @@ type Diagnostic struct {
 // NewDiagnostic registers a new resource with the given unique name, arguments, and options.
 func NewDiagnostic(ctx *pulumi.Context,
 	name string, args *DiagnosticArgs, opts ...pulumi.ResourceOption) (*Diagnostic, error) {
-	if args == nil || args.DiagnosticId == nil {
-		return nil, errors.New("missing required argument 'DiagnosticId'")
-	}
-	if args == nil || args.LoggerId == nil {
-		return nil, errors.New("missing required argument 'LoggerId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
 	if args == nil {
-		args = &DiagnosticArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DiagnosticId == nil {
+		return nil, errors.New("invalid value for required argument 'DiagnosticId'")
+	}
+	if args.LoggerId == nil {
+		return nil, errors.New("invalid value for required argument 'LoggerId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

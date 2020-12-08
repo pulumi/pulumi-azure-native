@@ -44,32 +44,33 @@ type SecurityRule struct {
 // NewSecurityRule registers a new resource with the given unique name, arguments, and options.
 func NewSecurityRule(ctx *pulumi.Context,
 	name string, args *SecurityRuleArgs, opts ...pulumi.ResourceOption) (*SecurityRule, error) {
-	if args == nil || args.Access == nil {
-		return nil, errors.New("missing required argument 'Access'")
-	}
-	if args == nil || args.DestinationAddressPrefix == nil {
-		return nil, errors.New("missing required argument 'DestinationAddressPrefix'")
-	}
-	if args == nil || args.Direction == nil {
-		return nil, errors.New("missing required argument 'Direction'")
-	}
-	if args == nil || args.NetworkSecurityGroupName == nil {
-		return nil, errors.New("missing required argument 'NetworkSecurityGroupName'")
-	}
-	if args == nil || args.Protocol == nil {
-		return nil, errors.New("missing required argument 'Protocol'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SecurityRuleName == nil {
-		return nil, errors.New("missing required argument 'SecurityRuleName'")
-	}
-	if args == nil || args.SourceAddressPrefix == nil {
-		return nil, errors.New("missing required argument 'SourceAddressPrefix'")
-	}
 	if args == nil {
-		args = &SecurityRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Access == nil {
+		return nil, errors.New("invalid value for required argument 'Access'")
+	}
+	if args.DestinationAddressPrefix == nil {
+		return nil, errors.New("invalid value for required argument 'DestinationAddressPrefix'")
+	}
+	if args.Direction == nil {
+		return nil, errors.New("invalid value for required argument 'Direction'")
+	}
+	if args.NetworkSecurityGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkSecurityGroupName'")
+	}
+	if args.Protocol == nil {
+		return nil, errors.New("invalid value for required argument 'Protocol'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SecurityRuleName == nil {
+		return nil, errors.New("invalid value for required argument 'SecurityRuleName'")
+	}
+	if args.SourceAddressPrefix == nil {
+		return nil, errors.New("invalid value for required argument 'SourceAddressPrefix'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

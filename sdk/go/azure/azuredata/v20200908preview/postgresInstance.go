@@ -38,17 +38,18 @@ type PostgresInstance struct {
 // NewPostgresInstance registers a new resource with the given unique name, arguments, and options.
 func NewPostgresInstance(ctx *pulumi.Context,
 	name string, args *PostgresInstanceArgs, opts ...pulumi.ResourceOption) (*PostgresInstance, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.PostgresInstanceName == nil {
-		return nil, errors.New("missing required argument 'PostgresInstanceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &PostgresInstanceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.PostgresInstanceName == nil {
+		return nil, errors.New("invalid value for required argument 'PostgresInstanceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

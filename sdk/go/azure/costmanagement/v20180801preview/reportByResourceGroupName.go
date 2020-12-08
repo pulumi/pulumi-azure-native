@@ -34,20 +34,21 @@ type ReportByResourceGroupName struct {
 // NewReportByResourceGroupName registers a new resource with the given unique name, arguments, and options.
 func NewReportByResourceGroupName(ctx *pulumi.Context,
 	name string, args *ReportByResourceGroupNameArgs, opts ...pulumi.ResourceOption) (*ReportByResourceGroupName, error) {
-	if args == nil || args.Definition == nil {
-		return nil, errors.New("missing required argument 'Definition'")
-	}
-	if args == nil || args.DeliveryInfo == nil {
-		return nil, errors.New("missing required argument 'DeliveryInfo'")
-	}
-	if args == nil || args.ReportName == nil {
-		return nil, errors.New("missing required argument 'ReportName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ReportByResourceGroupNameArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Definition == nil {
+		return nil, errors.New("invalid value for required argument 'Definition'")
+	}
+	if args.DeliveryInfo == nil {
+		return nil, errors.New("invalid value for required argument 'DeliveryInfo'")
+	}
+	if args.ReportName == nil {
+		return nil, errors.New("invalid value for required argument 'ReportName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource ReportByResourceGroupName
 	err := ctx.RegisterResource("azure-nextgen:costmanagement/v20180801preview:ReportByResourceGroupName", name, args, &resource, opts...)

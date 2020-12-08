@@ -34,14 +34,15 @@ type ApplicationSecurityGroup struct {
 // NewApplicationSecurityGroup registers a new resource with the given unique name, arguments, and options.
 func NewApplicationSecurityGroup(ctx *pulumi.Context,
 	name string, args *ApplicationSecurityGroupArgs, opts ...pulumi.ResourceOption) (*ApplicationSecurityGroup, error) {
-	if args == nil || args.ApplicationSecurityGroupName == nil {
-		return nil, errors.New("missing required argument 'ApplicationSecurityGroupName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ApplicationSecurityGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApplicationSecurityGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ApplicationSecurityGroupName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

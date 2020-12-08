@@ -106,23 +106,24 @@ type AppServiceEnvironment struct {
 // NewAppServiceEnvironment registers a new resource with the given unique name, arguments, and options.
 func NewAppServiceEnvironment(ctx *pulumi.Context,
 	name string, args *AppServiceEnvironmentArgs, opts ...pulumi.ResourceOption) (*AppServiceEnvironment, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VirtualNetwork == nil {
-		return nil, errors.New("missing required argument 'VirtualNetwork'")
-	}
-	if args == nil || args.WorkerPools == nil {
-		return nil, errors.New("missing required argument 'WorkerPools'")
-	}
 	if args == nil {
-		args = &AppServiceEnvironmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VirtualNetwork == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualNetwork'")
+	}
+	if args.WorkerPools == nil {
+		return nil, errors.New("invalid value for required argument 'WorkerPools'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -45,17 +45,18 @@ type IntegrationAccountAgreement struct {
 // NewIntegrationAccountAgreement registers a new resource with the given unique name, arguments, and options.
 func NewIntegrationAccountAgreement(ctx *pulumi.Context,
 	name string, args *IntegrationAccountAgreementArgs, opts ...pulumi.ResourceOption) (*IntegrationAccountAgreement, error) {
-	if args == nil || args.AgreementName == nil {
-		return nil, errors.New("missing required argument 'AgreementName'")
-	}
-	if args == nil || args.IntegrationAccountName == nil {
-		return nil, errors.New("missing required argument 'IntegrationAccountName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &IntegrationAccountAgreementArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AgreementName == nil {
+		return nil, errors.New("invalid value for required argument 'AgreementName'")
+	}
+	if args.IntegrationAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'IntegrationAccountName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -193,7 +194,7 @@ type IntegrationAccountAgreementArgs struct {
 	// The integration account agreement name.
 	AgreementName pulumi.StringInput
 	// The agreement type.
-	AgreementType pulumi.StringPtrInput
+	AgreementType AgreementType
 	// The agreement content.
 	Content AgreementContentPtrInput
 	// The guest identity.

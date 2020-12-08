@@ -28,23 +28,24 @@ type DataConnector struct {
 // NewDataConnector registers a new resource with the given unique name, arguments, and options.
 func NewDataConnector(ctx *pulumi.Context,
 	name string, args *DataConnectorArgs, opts ...pulumi.ResourceOption) (*DataConnector, error) {
-	if args == nil || args.DataConnectorId == nil {
-		return nil, errors.New("missing required argument 'DataConnectorId'")
-	}
-	if args == nil || args.Kind == nil {
-		return nil, errors.New("missing required argument 'Kind'")
-	}
-	if args == nil || args.OperationalInsightsResourceProvider == nil {
-		return nil, errors.New("missing required argument 'OperationalInsightsResourceProvider'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &DataConnectorArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DataConnectorId == nil {
+		return nil, errors.New("invalid value for required argument 'DataConnectorId'")
+	}
+	if args.Kind == nil {
+		return nil, errors.New("invalid value for required argument 'Kind'")
+	}
+	if args.OperationalInsightsResourceProvider == nil {
+		return nil, errors.New("invalid value for required argument 'OperationalInsightsResourceProvider'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	var resource DataConnector
 	err := ctx.RegisterResource("azure-nextgen:securityinsights/v20190101preview:DataConnector", name, args, &resource, opts...)

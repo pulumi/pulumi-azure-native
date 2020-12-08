@@ -34,17 +34,18 @@ type IntegrationAccountSession struct {
 // NewIntegrationAccountSession registers a new resource with the given unique name, arguments, and options.
 func NewIntegrationAccountSession(ctx *pulumi.Context,
 	name string, args *IntegrationAccountSessionArgs, opts ...pulumi.ResourceOption) (*IntegrationAccountSession, error) {
-	if args == nil || args.IntegrationAccountName == nil {
-		return nil, errors.New("missing required argument 'IntegrationAccountName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SessionName == nil {
-		return nil, errors.New("missing required argument 'SessionName'")
-	}
 	if args == nil {
-		args = &IntegrationAccountSessionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.IntegrationAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'IntegrationAccountName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SessionName == nil {
+		return nil, errors.New("invalid value for required argument 'SessionName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

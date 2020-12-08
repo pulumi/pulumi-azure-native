@@ -64,23 +64,21 @@ type RoleAssignment struct {
 // NewRoleAssignment registers a new resource with the given unique name, arguments, and options.
 func NewRoleAssignment(ctx *pulumi.Context,
 	name string, args *RoleAssignmentArgs, opts ...pulumi.ResourceOption) (*RoleAssignment, error) {
-	if args == nil || args.AssignmentName == nil {
-		return nil, errors.New("missing required argument 'AssignmentName'")
-	}
-	if args == nil || args.HubName == nil {
-		return nil, errors.New("missing required argument 'HubName'")
-	}
-	if args == nil || args.Principals == nil {
-		return nil, errors.New("missing required argument 'Principals'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Role == nil {
-		return nil, errors.New("missing required argument 'Role'")
-	}
 	if args == nil {
-		args = &RoleAssignmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AssignmentName == nil {
+		return nil, errors.New("invalid value for required argument 'AssignmentName'")
+	}
+	if args.HubName == nil {
+		return nil, errors.New("invalid value for required argument 'HubName'")
+	}
+	if args.Principals == nil {
+		return nil, errors.New("invalid value for required argument 'Principals'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -284,7 +282,7 @@ type RoleAssignmentArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Type of roles.
-	Role pulumi.StringInput
+	Role RoleTypes
 	// The Role assignments set for the assignment.
 	RoleAssignments ResourceSetDescriptionPtrInput
 	// Sas Policies set for the assignment.

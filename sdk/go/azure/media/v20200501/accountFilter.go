@@ -30,17 +30,18 @@ type AccountFilter struct {
 // NewAccountFilter registers a new resource with the given unique name, arguments, and options.
 func NewAccountFilter(ctx *pulumi.Context,
 	name string, args *AccountFilterArgs, opts ...pulumi.ResourceOption) (*AccountFilter, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.FilterName == nil {
-		return nil, errors.New("missing required argument 'FilterName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &AccountFilterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.FilterName == nil {
+		return nil, errors.New("invalid value for required argument 'FilterName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

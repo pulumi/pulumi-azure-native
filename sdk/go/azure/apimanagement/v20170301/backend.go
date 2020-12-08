@@ -42,23 +42,24 @@ type Backend struct {
 // NewBackend registers a new resource with the given unique name, arguments, and options.
 func NewBackend(ctx *pulumi.Context,
 	name string, args *BackendArgs, opts ...pulumi.ResourceOption) (*Backend, error) {
-	if args == nil || args.Backendid == nil {
-		return nil, errors.New("missing required argument 'Backendid'")
-	}
-	if args == nil || args.Protocol == nil {
-		return nil, errors.New("missing required argument 'Protocol'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
-	if args == nil || args.Url == nil {
-		return nil, errors.New("missing required argument 'Url'")
-	}
 	if args == nil {
-		args = &BackendArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Backendid == nil {
+		return nil, errors.New("invalid value for required argument 'Backendid'")
+	}
+	if args.Protocol == nil {
+		return nil, errors.New("invalid value for required argument 'Protocol'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
+	}
+	if args.Url == nil {
+		return nil, errors.New("invalid value for required argument 'Url'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

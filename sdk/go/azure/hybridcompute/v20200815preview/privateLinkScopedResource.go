@@ -28,17 +28,18 @@ type PrivateLinkScopedResource struct {
 // NewPrivateLinkScopedResource registers a new resource with the given unique name, arguments, and options.
 func NewPrivateLinkScopedResource(ctx *pulumi.Context,
 	name string, args *PrivateLinkScopedResourceArgs, opts ...pulumi.ResourceOption) (*PrivateLinkScopedResource, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ScopeName == nil {
-		return nil, errors.New("missing required argument 'ScopeName'")
-	}
 	if args == nil {
-		args = &PrivateLinkScopedResourceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ScopeName == nil {
+		return nil, errors.New("invalid value for required argument 'ScopeName'")
 	}
 	var resource PrivateLinkScopedResource
 	err := ctx.RegisterResource("azure-nextgen:hybridcompute/v20200815preview:PrivateLinkScopedResource", name, args, &resource, opts...)

@@ -27,14 +27,15 @@ type DefaultRollout struct {
 // NewDefaultRollout registers a new resource with the given unique name, arguments, and options.
 func NewDefaultRollout(ctx *pulumi.Context,
 	name string, args *DefaultRolloutArgs, opts ...pulumi.ResourceOption) (*DefaultRollout, error) {
-	if args == nil || args.ProviderNamespace == nil {
-		return nil, errors.New("missing required argument 'ProviderNamespace'")
-	}
-	if args == nil || args.RolloutName == nil {
-		return nil, errors.New("missing required argument 'RolloutName'")
-	}
 	if args == nil {
-		args = &DefaultRolloutArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ProviderNamespace == nil {
+		return nil, errors.New("invalid value for required argument 'ProviderNamespace'")
+	}
+	if args.RolloutName == nil {
+		return nil, errors.New("invalid value for required argument 'RolloutName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

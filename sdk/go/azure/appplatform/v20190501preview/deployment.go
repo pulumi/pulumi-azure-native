@@ -19,6 +19,8 @@ type Deployment struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Properties of the Deployment resource
 	Properties DeploymentResourcePropertiesResponseOutput `pulumi:"properties"`
+	// Sku of the Deployment resource
+	Sku SkuResponsePtrOutput `pulumi:"sku"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -26,20 +28,21 @@ type Deployment struct {
 // NewDeployment registers a new resource with the given unique name, arguments, and options.
 func NewDeployment(ctx *pulumi.Context,
 	name string, args *DeploymentArgs, opts ...pulumi.ResourceOption) (*Deployment, error) {
-	if args == nil || args.AppName == nil {
-		return nil, errors.New("missing required argument 'AppName'")
-	}
-	if args == nil || args.DeploymentName == nil {
-		return nil, errors.New("missing required argument 'DeploymentName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
 	if args == nil {
-		args = &DeploymentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AppName == nil {
+		return nil, errors.New("invalid value for required argument 'AppName'")
+	}
+	if args.DeploymentName == nil {
+		return nil, errors.New("invalid value for required argument 'DeploymentName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -76,6 +79,8 @@ type deploymentState struct {
 	Name *string `pulumi:"name"`
 	// Properties of the Deployment resource
 	Properties *DeploymentResourcePropertiesResponse `pulumi:"properties"`
+	// Sku of the Deployment resource
+	Sku *SkuResponse `pulumi:"sku"`
 	// The type of the resource.
 	Type *string `pulumi:"type"`
 }
@@ -85,6 +90,8 @@ type DeploymentState struct {
 	Name pulumi.StringPtrInput
 	// Properties of the Deployment resource
 	Properties DeploymentResourcePropertiesResponsePtrInput
+	// Sku of the Deployment resource
+	Sku SkuResponsePtrInput
 	// The type of the resource.
 	Type pulumi.StringPtrInput
 }
@@ -104,6 +111,8 @@ type deploymentArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Service resource.
 	ServiceName string `pulumi:"serviceName"`
+	// Sku of the Deployment resource
+	Sku *Sku `pulumi:"sku"`
 }
 
 // The set of arguments for constructing a Deployment resource.
@@ -118,6 +127,8 @@ type DeploymentArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The name of the Service resource.
 	ServiceName pulumi.StringInput
+	// Sku of the Deployment resource
+	Sku SkuPtrInput
 }
 
 func (DeploymentArgs) ElementType() reflect.Type {

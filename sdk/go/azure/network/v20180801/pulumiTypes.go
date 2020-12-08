@@ -28632,7 +28632,7 @@ type MatchCondition struct {
 	// Match value
 	MatchValue []string `pulumi:"matchValue"`
 	// Match Variable
-	MatchVariable string `pulumi:"matchVariable"`
+	MatchVariable interface{} `pulumi:"matchVariable"`
 	// Describes if this is negate condition or not
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// Describes operator to be matched
@@ -28657,7 +28657,7 @@ type MatchConditionArgs struct {
 	// Match value
 	MatchValue pulumi.StringArrayInput `pulumi:"matchValue"`
 	// Match Variable
-	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
+	MatchVariable pulumi.Input `pulumi:"matchVariable"`
 	// Describes if this is negate condition or not
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// Describes operator to be matched
@@ -28724,8 +28724,8 @@ func (o MatchConditionOutput) MatchValue() pulumi.StringArrayOutput {
 }
 
 // Match Variable
-func (o MatchConditionOutput) MatchVariable() pulumi.StringOutput {
-	return o.ApplyT(func(v MatchCondition) string { return v.MatchVariable }).(pulumi.StringOutput)
+func (o MatchConditionOutput) MatchVariable() pulumi.AnyOutput {
+	return o.ApplyT(func(v MatchCondition) interface{} { return v.MatchVariable }).(pulumi.AnyOutput)
 }
 
 // Describes if this is negate condition or not

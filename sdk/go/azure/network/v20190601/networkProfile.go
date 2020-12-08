@@ -38,14 +38,15 @@ type NetworkProfile struct {
 // NewNetworkProfile registers a new resource with the given unique name, arguments, and options.
 func NewNetworkProfile(ctx *pulumi.Context,
 	name string, args *NetworkProfileArgs, opts ...pulumi.ResourceOption) (*NetworkProfile, error) {
-	if args == nil || args.NetworkProfileName == nil {
-		return nil, errors.New("missing required argument 'NetworkProfileName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &NetworkProfileArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.NetworkProfileName == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkProfileName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

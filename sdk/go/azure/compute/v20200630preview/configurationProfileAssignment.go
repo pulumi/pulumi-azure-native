@@ -26,17 +26,18 @@ type ConfigurationProfileAssignment struct {
 // NewConfigurationProfileAssignment registers a new resource with the given unique name, arguments, and options.
 func NewConfigurationProfileAssignment(ctx *pulumi.Context,
 	name string, args *ConfigurationProfileAssignmentArgs, opts ...pulumi.ResourceOption) (*ConfigurationProfileAssignment, error) {
-	if args == nil || args.ConfigurationProfileAssignmentName == nil {
-		return nil, errors.New("missing required argument 'ConfigurationProfileAssignmentName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VmName == nil {
-		return nil, errors.New("missing required argument 'VmName'")
-	}
 	if args == nil {
-		args = &ConfigurationProfileAssignmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ConfigurationProfileAssignmentName == nil {
+		return nil, errors.New("invalid value for required argument 'ConfigurationProfileAssignmentName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VmName == nil {
+		return nil, errors.New("invalid value for required argument 'VmName'")
 	}
 	var resource ConfigurationProfileAssignment
 	err := ctx.RegisterResource("azure-nextgen:compute/v20200630preview:ConfigurationProfileAssignment", name, args, &resource, opts...)

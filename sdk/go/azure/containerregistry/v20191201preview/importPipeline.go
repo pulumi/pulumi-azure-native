@@ -38,20 +38,21 @@ type ImportPipeline struct {
 // NewImportPipeline registers a new resource with the given unique name, arguments, and options.
 func NewImportPipeline(ctx *pulumi.Context,
 	name string, args *ImportPipelineArgs, opts ...pulumi.ResourceOption) (*ImportPipeline, error) {
-	if args == nil || args.ImportPipelineName == nil {
-		return nil, errors.New("missing required argument 'ImportPipelineName'")
-	}
-	if args == nil || args.RegistryName == nil {
-		return nil, errors.New("missing required argument 'RegistryName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Source == nil {
-		return nil, errors.New("missing required argument 'Source'")
-	}
 	if args == nil {
-		args = &ImportPipelineArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ImportPipelineName == nil {
+		return nil, errors.New("invalid value for required argument 'ImportPipelineName'")
+	}
+	if args.RegistryName == nil {
+		return nil, errors.New("invalid value for required argument 'RegistryName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Source == nil {
+		return nil, errors.New("invalid value for required argument 'Source'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

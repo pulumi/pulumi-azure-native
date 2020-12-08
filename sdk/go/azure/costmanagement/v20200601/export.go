@@ -38,20 +38,21 @@ type Export struct {
 // NewExport registers a new resource with the given unique name, arguments, and options.
 func NewExport(ctx *pulumi.Context,
 	name string, args *ExportArgs, opts ...pulumi.ResourceOption) (*Export, error) {
-	if args == nil || args.Definition == nil {
-		return nil, errors.New("missing required argument 'Definition'")
-	}
-	if args == nil || args.DeliveryInfo == nil {
-		return nil, errors.New("missing required argument 'DeliveryInfo'")
-	}
-	if args == nil || args.ExportName == nil {
-		return nil, errors.New("missing required argument 'ExportName'")
-	}
-	if args == nil || args.Scope == nil {
-		return nil, errors.New("missing required argument 'Scope'")
-	}
 	if args == nil {
-		args = &ExportArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Definition == nil {
+		return nil, errors.New("invalid value for required argument 'Definition'")
+	}
+	if args.DeliveryInfo == nil {
+		return nil, errors.New("invalid value for required argument 'DeliveryInfo'")
+	}
+	if args.ExportName == nil {
+		return nil, errors.New("invalid value for required argument 'ExportName'")
+	}
+	if args.Scope == nil {
+		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

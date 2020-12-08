@@ -36,26 +36,27 @@ type WorkloadClassifier struct {
 // NewWorkloadClassifier registers a new resource with the given unique name, arguments, and options.
 func NewWorkloadClassifier(ctx *pulumi.Context,
 	name string, args *WorkloadClassifierArgs, opts ...pulumi.ResourceOption) (*WorkloadClassifier, error) {
-	if args == nil || args.DatabaseName == nil {
-		return nil, errors.New("missing required argument 'DatabaseName'")
-	}
-	if args == nil || args.MemberName == nil {
-		return nil, errors.New("missing required argument 'MemberName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServerName == nil {
-		return nil, errors.New("missing required argument 'ServerName'")
-	}
-	if args == nil || args.WorkloadClassifierName == nil {
-		return nil, errors.New("missing required argument 'WorkloadClassifierName'")
-	}
-	if args == nil || args.WorkloadGroupName == nil {
-		return nil, errors.New("missing required argument 'WorkloadGroupName'")
-	}
 	if args == nil {
-		args = &WorkloadClassifierArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DatabaseName == nil {
+		return nil, errors.New("invalid value for required argument 'DatabaseName'")
+	}
+	if args.MemberName == nil {
+		return nil, errors.New("invalid value for required argument 'MemberName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServerName == nil {
+		return nil, errors.New("invalid value for required argument 'ServerName'")
+	}
+	if args.WorkloadClassifierName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkloadClassifierName'")
+	}
+	if args.WorkloadGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkloadGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

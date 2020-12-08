@@ -28,17 +28,18 @@ type PrivateDnsZoneGroup struct {
 // NewPrivateDnsZoneGroup registers a new resource with the given unique name, arguments, and options.
 func NewPrivateDnsZoneGroup(ctx *pulumi.Context,
 	name string, args *PrivateDnsZoneGroupArgs, opts ...pulumi.ResourceOption) (*PrivateDnsZoneGroup, error) {
-	if args == nil || args.PrivateDnsZoneGroupName == nil {
-		return nil, errors.New("missing required argument 'PrivateDnsZoneGroupName'")
-	}
-	if args == nil || args.PrivateEndpointName == nil {
-		return nil, errors.New("missing required argument 'PrivateEndpointName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &PrivateDnsZoneGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PrivateDnsZoneGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'PrivateDnsZoneGroupName'")
+	}
+	if args.PrivateEndpointName == nil {
+		return nil, errors.New("invalid value for required argument 'PrivateEndpointName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

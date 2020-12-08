@@ -30,20 +30,21 @@ type Channel struct {
 // NewChannel registers a new resource with the given unique name, arguments, and options.
 func NewChannel(ctx *pulumi.Context,
 	name string, args *ChannelArgs, opts ...pulumi.ResourceOption) (*Channel, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.ChannelName == nil {
-		return nil, errors.New("missing required argument 'ChannelName'")
-	}
-	if args == nil || args.ChannelType == nil {
-		return nil, errors.New("missing required argument 'ChannelType'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ChannelArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.ChannelName == nil {
+		return nil, errors.New("invalid value for required argument 'ChannelName'")
+	}
+	if args.ChannelType == nil {
+		return nil, errors.New("invalid value for required argument 'ChannelType'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource Channel
 	err := ctx.RegisterResource("azure-nextgen:engagementfabric/v20180901preview:Channel", name, args, &resource, opts...)

@@ -42,20 +42,21 @@ type WebAppPremierAddOn struct {
 // NewWebAppPremierAddOn registers a new resource with the given unique name, arguments, and options.
 func NewWebAppPremierAddOn(ctx *pulumi.Context,
 	name string, args *WebAppPremierAddOnArgs, opts ...pulumi.ResourceOption) (*WebAppPremierAddOn, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.PremierAddOnName == nil {
-		return nil, errors.New("missing required argument 'PremierAddOnName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &WebAppPremierAddOnArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.PremierAddOnName == nil {
+		return nil, errors.New("invalid value for required argument 'PremierAddOnName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

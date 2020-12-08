@@ -42,17 +42,18 @@ type SourceControl struct {
 // NewSourceControl registers a new resource with the given unique name, arguments, and options.
 func NewSourceControl(ctx *pulumi.Context,
 	name string, args *SourceControlArgs, opts ...pulumi.ResourceOption) (*SourceControl, error) {
-	if args == nil || args.AutomationAccountName == nil {
-		return nil, errors.New("missing required argument 'AutomationAccountName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SourceControlName == nil {
-		return nil, errors.New("missing required argument 'SourceControlName'")
-	}
 	if args == nil {
-		args = &SourceControlArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AutomationAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AutomationAccountName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SourceControlName == nil {
+		return nil, errors.New("invalid value for required argument 'SourceControlName'")
 	}
 	var resource SourceControl
 	err := ctx.RegisterResource("azure-nextgen:automation/v20170515preview:SourceControl", name, args, &resource, opts...)

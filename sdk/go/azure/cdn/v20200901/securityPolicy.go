@@ -31,17 +31,18 @@ type SecurityPolicy struct {
 // NewSecurityPolicy registers a new resource with the given unique name, arguments, and options.
 func NewSecurityPolicy(ctx *pulumi.Context,
 	name string, args *SecurityPolicyArgs, opts ...pulumi.ResourceOption) (*SecurityPolicy, error) {
-	if args == nil || args.ProfileName == nil {
-		return nil, errors.New("missing required argument 'ProfileName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SecurityPolicyName == nil {
-		return nil, errors.New("missing required argument 'SecurityPolicyName'")
-	}
 	if args == nil {
-		args = &SecurityPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ProfileName == nil {
+		return nil, errors.New("invalid value for required argument 'ProfileName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SecurityPolicyName == nil {
+		return nil, errors.New("invalid value for required argument 'SecurityPolicyName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -48,17 +48,18 @@ type Watcher struct {
 // NewWatcher registers a new resource with the given unique name, arguments, and options.
 func NewWatcher(ctx *pulumi.Context,
 	name string, args *WatcherArgs, opts ...pulumi.ResourceOption) (*Watcher, error) {
-	if args == nil || args.AutomationAccountName == nil {
-		return nil, errors.New("missing required argument 'AutomationAccountName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.WatcherName == nil {
-		return nil, errors.New("missing required argument 'WatcherName'")
-	}
 	if args == nil {
-		args = &WatcherArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AutomationAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AutomationAccountName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.WatcherName == nil {
+		return nil, errors.New("invalid value for required argument 'WatcherName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

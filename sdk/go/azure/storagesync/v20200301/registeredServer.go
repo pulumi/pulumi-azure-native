@@ -64,17 +64,18 @@ type RegisteredServer struct {
 // NewRegisteredServer registers a new resource with the given unique name, arguments, and options.
 func NewRegisteredServer(ctx *pulumi.Context,
 	name string, args *RegisteredServerArgs, opts ...pulumi.ResourceOption) (*RegisteredServer, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServerId == nil {
-		return nil, errors.New("missing required argument 'ServerId'")
-	}
-	if args == nil || args.StorageSyncServiceName == nil {
-		return nil, errors.New("missing required argument 'StorageSyncServiceName'")
-	}
 	if args == nil {
-		args = &RegisteredServerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServerId == nil {
+		return nil, errors.New("invalid value for required argument 'ServerId'")
+	}
+	if args.StorageSyncServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'StorageSyncServiceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

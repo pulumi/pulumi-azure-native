@@ -32,17 +32,18 @@ type ExpressRouteCircuitAuthorization struct {
 // NewExpressRouteCircuitAuthorization registers a new resource with the given unique name, arguments, and options.
 func NewExpressRouteCircuitAuthorization(ctx *pulumi.Context,
 	name string, args *ExpressRouteCircuitAuthorizationArgs, opts ...pulumi.ResourceOption) (*ExpressRouteCircuitAuthorization, error) {
-	if args == nil || args.AuthorizationName == nil {
-		return nil, errors.New("missing required argument 'AuthorizationName'")
-	}
-	if args == nil || args.CircuitName == nil {
-		return nil, errors.New("missing required argument 'CircuitName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ExpressRouteCircuitAuthorizationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AuthorizationName == nil {
+		return nil, errors.New("invalid value for required argument 'AuthorizationName'")
+	}
+	if args.CircuitName == nil {
+		return nil, errors.New("invalid value for required argument 'CircuitName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

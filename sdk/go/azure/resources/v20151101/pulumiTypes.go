@@ -283,7 +283,7 @@ type DeploymentPropertiesInput interface {
 // Deployment properties.
 type DeploymentPropertiesArgs struct {
 	// Gets or sets the deployment mode.
-	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	Mode DeploymentMode `pulumi:"mode"`
 	// Deployment parameters. Use only one of Parameters or ParametersLink.
 	Parameters pulumi.Input `pulumi:"parameters"`
 	// Gets or sets the URI referencing the parameters. Use only one of Parameters or ParametersLink.

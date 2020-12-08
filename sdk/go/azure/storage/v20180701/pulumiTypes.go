@@ -2560,7 +2560,7 @@ type IPRuleInput interface {
 // IP rule with specific IP or IP range in CIDR format.
 type IPRuleArgs struct {
 	// The action of IP ACL rule.
-	Action pulumi.StringPtrInput `pulumi:"action"`
+	Action Action `pulumi:"action"`
 	// Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
 	IPAddressOrRange pulumi.StringInput `pulumi:"iPAddressOrRange"`
 }
@@ -2776,7 +2776,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type IdentityType `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -3778,7 +3778,7 @@ type NetworkRuleSetArgs struct {
 	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
 	Bypass pulumi.StringPtrInput `pulumi:"bypass"`
 	// Specifies the default action of allow or deny when no other rules match.
-	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
+	DefaultAction DefaultAction `pulumi:"defaultAction"`
 	// Sets the IP ACL rules
 	IpRules IPRuleArrayInput `pulumi:"ipRules"`
 	// Sets the virtual network rules
@@ -4481,7 +4481,7 @@ type SkuInput interface {
 // The SKU of the storage account.
 type SkuArgs struct {
 	// Gets or sets the SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name SkuName `pulumi:"name"`
 	// The restrictions because of which SKU cannot be used. This is empty if there are no restrictions.
 	Restrictions RestrictionArrayInput `pulumi:"restrictions"`
 }
@@ -5283,9 +5283,9 @@ type VirtualNetworkRuleInput interface {
 // Virtual Network rule.
 type VirtualNetworkRuleArgs struct {
 	// The action of virtual network rule.
-	Action pulumi.StringPtrInput `pulumi:"action"`
+	Action Action `pulumi:"action"`
 	// Gets the state of virtual network rule.
-	State pulumi.StringPtrInput `pulumi:"state"`
+	State State `pulumi:"state"`
 	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
 	VirtualNetworkResourceId pulumi.StringInput `pulumi:"virtualNetworkResourceId"`
 }

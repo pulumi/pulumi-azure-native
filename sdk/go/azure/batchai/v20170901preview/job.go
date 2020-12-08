@@ -72,26 +72,27 @@ type Job struct {
 // NewJob registers a new resource with the given unique name, arguments, and options.
 func NewJob(ctx *pulumi.Context,
 	name string, args *JobArgs, opts ...pulumi.ResourceOption) (*Job, error) {
-	if args == nil || args.Cluster == nil {
-		return nil, errors.New("missing required argument 'Cluster'")
-	}
-	if args == nil || args.JobName == nil {
-		return nil, errors.New("missing required argument 'JobName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.NodeCount == nil {
-		return nil, errors.New("missing required argument 'NodeCount'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.StdOutErrPathPrefix == nil {
-		return nil, errors.New("missing required argument 'StdOutErrPathPrefix'")
-	}
 	if args == nil {
-		args = &JobArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Cluster == nil {
+		return nil, errors.New("invalid value for required argument 'Cluster'")
+	}
+	if args.JobName == nil {
+		return nil, errors.New("invalid value for required argument 'JobName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.NodeCount == nil {
+		return nil, errors.New("invalid value for required argument 'NodeCount'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.StdOutErrPathPrefix == nil {
+		return nil, errors.New("invalid value for required argument 'StdOutErrPathPrefix'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

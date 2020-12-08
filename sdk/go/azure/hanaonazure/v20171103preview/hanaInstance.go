@@ -48,14 +48,15 @@ type HanaInstance struct {
 // NewHanaInstance registers a new resource with the given unique name, arguments, and options.
 func NewHanaInstance(ctx *pulumi.Context,
 	name string, args *HanaInstanceArgs, opts ...pulumi.ResourceOption) (*HanaInstance, error) {
-	if args == nil || args.HanaInstanceName == nil {
-		return nil, errors.New("missing required argument 'HanaInstanceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &HanaInstanceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.HanaInstanceName == nil {
+		return nil, errors.New("invalid value for required argument 'HanaInstanceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource HanaInstance
 	err := ctx.RegisterResource("azure-nextgen:hanaonazure/v20171103preview:HanaInstance", name, args, &resource, opts...)

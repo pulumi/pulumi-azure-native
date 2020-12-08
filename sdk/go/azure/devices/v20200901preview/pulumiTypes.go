@@ -1798,13 +1798,13 @@ type IpFilterRuleInput interface {
 // The IP filter rules for a provisioning Service.
 type IpFilterRuleArgs struct {
 	// The desired action for requests captured by this rule.
-	Action pulumi.StringInput `pulumi:"action"`
+	Action IpFilterActionType `pulumi:"action"`
 	// The name of the IP filter rule.
 	FilterName pulumi.StringInput `pulumi:"filterName"`
 	// A string that contains the IP address range in CIDR notation for the rule.
 	IpMask pulumi.StringInput `pulumi:"ipMask"`
 	// Target for requests captured by this rule.
-	Target pulumi.StringPtrInput `pulumi:"target"`
+	Target IpFilterTargetType `pulumi:"target"`
 }
 
 func (IpFilterRuleArgs) ElementType() reflect.Type {

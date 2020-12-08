@@ -62,29 +62,30 @@ type Watchlist struct {
 // NewWatchlist registers a new resource with the given unique name, arguments, and options.
 func NewWatchlist(ctx *pulumi.Context,
 	name string, args *WatchlistArgs, opts ...pulumi.ResourceOption) (*Watchlist, error) {
-	if args == nil || args.DisplayName == nil {
-		return nil, errors.New("missing required argument 'DisplayName'")
-	}
-	if args == nil || args.OperationalInsightsResourceProvider == nil {
-		return nil, errors.New("missing required argument 'OperationalInsightsResourceProvider'")
-	}
-	if args == nil || args.Provider == nil {
-		return nil, errors.New("missing required argument 'Provider'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Source == nil {
-		return nil, errors.New("missing required argument 'Source'")
-	}
-	if args == nil || args.WatchlistAlias == nil {
-		return nil, errors.New("missing required argument 'WatchlistAlias'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &WatchlistArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DisplayName == nil {
+		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
+	if args.OperationalInsightsResourceProvider == nil {
+		return nil, errors.New("invalid value for required argument 'OperationalInsightsResourceProvider'")
+	}
+	if args.Provider == nil {
+		return nil, errors.New("invalid value for required argument 'Provider'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Source == nil {
+		return nil, errors.New("invalid value for required argument 'Source'")
+	}
+	if args.WatchlistAlias == nil {
+		return nil, errors.New("invalid value for required argument 'WatchlistAlias'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	var resource Watchlist
 	err := ctx.RegisterResource("azure-nextgen:securityinsights/v20190101preview:Watchlist", name, args, &resource, opts...)

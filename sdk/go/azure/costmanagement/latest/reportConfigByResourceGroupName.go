@@ -34,20 +34,21 @@ type ReportConfigByResourceGroupName struct {
 // NewReportConfigByResourceGroupName registers a new resource with the given unique name, arguments, and options.
 func NewReportConfigByResourceGroupName(ctx *pulumi.Context,
 	name string, args *ReportConfigByResourceGroupNameArgs, opts ...pulumi.ResourceOption) (*ReportConfigByResourceGroupName, error) {
-	if args == nil || args.Definition == nil {
-		return nil, errors.New("missing required argument 'Definition'")
-	}
-	if args == nil || args.DeliveryInfo == nil {
-		return nil, errors.New("missing required argument 'DeliveryInfo'")
-	}
-	if args == nil || args.ReportConfigName == nil {
-		return nil, errors.New("missing required argument 'ReportConfigName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ReportConfigByResourceGroupNameArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Definition == nil {
+		return nil, errors.New("invalid value for required argument 'Definition'")
+	}
+	if args.DeliveryInfo == nil {
+		return nil, errors.New("invalid value for required argument 'DeliveryInfo'")
+	}
+	if args.ReportConfigName == nil {
+		return nil, errors.New("invalid value for required argument 'ReportConfigName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

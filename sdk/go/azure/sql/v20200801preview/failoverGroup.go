@@ -40,23 +40,24 @@ type FailoverGroup struct {
 // NewFailoverGroup registers a new resource with the given unique name, arguments, and options.
 func NewFailoverGroup(ctx *pulumi.Context,
 	name string, args *FailoverGroupArgs, opts ...pulumi.ResourceOption) (*FailoverGroup, error) {
-	if args == nil || args.FailoverGroupName == nil {
-		return nil, errors.New("missing required argument 'FailoverGroupName'")
-	}
-	if args == nil || args.PartnerServers == nil {
-		return nil, errors.New("missing required argument 'PartnerServers'")
-	}
-	if args == nil || args.ReadWriteEndpoint == nil {
-		return nil, errors.New("missing required argument 'ReadWriteEndpoint'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServerName == nil {
-		return nil, errors.New("missing required argument 'ServerName'")
-	}
 	if args == nil {
-		args = &FailoverGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.FailoverGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'FailoverGroupName'")
+	}
+	if args.PartnerServers == nil {
+		return nil, errors.New("invalid value for required argument 'PartnerServers'")
+	}
+	if args.ReadWriteEndpoint == nil {
+		return nil, errors.New("invalid value for required argument 'ReadWriteEndpoint'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServerName == nil {
+		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

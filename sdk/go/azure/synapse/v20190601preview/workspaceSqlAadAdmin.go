@@ -32,14 +32,15 @@ type WorkspaceSqlAadAdmin struct {
 // NewWorkspaceSqlAadAdmin registers a new resource with the given unique name, arguments, and options.
 func NewWorkspaceSqlAadAdmin(ctx *pulumi.Context,
 	name string, args *WorkspaceSqlAadAdminArgs, opts ...pulumi.ResourceOption) (*WorkspaceSqlAadAdmin, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &WorkspaceSqlAadAdminArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	var resource WorkspaceSqlAadAdmin
 	err := ctx.RegisterResource("azure-nextgen:synapse/v20190601preview:WorkspaceSqlAadAdmin", name, args, &resource, opts...)

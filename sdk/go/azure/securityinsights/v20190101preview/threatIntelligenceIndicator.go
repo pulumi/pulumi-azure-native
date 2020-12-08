@@ -28,23 +28,24 @@ type ThreatIntelligenceIndicator struct {
 // NewThreatIntelligenceIndicator registers a new resource with the given unique name, arguments, and options.
 func NewThreatIntelligenceIndicator(ctx *pulumi.Context,
 	name string, args *ThreatIntelligenceIndicatorArgs, opts ...pulumi.ResourceOption) (*ThreatIntelligenceIndicator, error) {
-	if args == nil || args.Kind == nil {
-		return nil, errors.New("missing required argument 'Kind'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.OperationalInsightsResourceProvider == nil {
-		return nil, errors.New("missing required argument 'OperationalInsightsResourceProvider'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &ThreatIntelligenceIndicatorArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Kind == nil {
+		return nil, errors.New("invalid value for required argument 'Kind'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.OperationalInsightsResourceProvider == nil {
+		return nil, errors.New("invalid value for required argument 'OperationalInsightsResourceProvider'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	var resource ThreatIntelligenceIndicator
 	err := ctx.RegisterResource("azure-nextgen:securityinsights/v20190101preview:ThreatIntelligenceIndicator", name, args, &resource, opts...)

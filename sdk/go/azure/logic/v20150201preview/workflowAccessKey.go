@@ -27,17 +27,18 @@ type WorkflowAccessKey struct {
 // NewWorkflowAccessKey registers a new resource with the given unique name, arguments, and options.
 func NewWorkflowAccessKey(ctx *pulumi.Context,
 	name string, args *WorkflowAccessKeyArgs, opts ...pulumi.ResourceOption) (*WorkflowAccessKey, error) {
-	if args == nil || args.AccessKeyName == nil {
-		return nil, errors.New("missing required argument 'AccessKeyName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.WorkflowName == nil {
-		return nil, errors.New("missing required argument 'WorkflowName'")
-	}
 	if args == nil {
-		args = &WorkflowAccessKeyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccessKeyName == nil {
+		return nil, errors.New("invalid value for required argument 'AccessKeyName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.WorkflowName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkflowName'")
 	}
 	var resource WorkflowAccessKey
 	err := ctx.RegisterResource("azure-nextgen:logic/v20150201preview:WorkflowAccessKey", name, args, &resource, opts...)

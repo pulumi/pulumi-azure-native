@@ -28,11 +28,12 @@ type Connector struct {
 // NewConnector registers a new resource with the given unique name, arguments, and options.
 func NewConnector(ctx *pulumi.Context,
 	name string, args *ConnectorArgs, opts ...pulumi.ResourceOption) (*Connector, error) {
-	if args == nil || args.ConnectorName == nil {
-		return nil, errors.New("missing required argument 'ConnectorName'")
-	}
 	if args == nil {
-		args = &ConnectorArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ConnectorName == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectorName'")
 	}
 	var resource Connector
 	err := ctx.RegisterResource("azure-nextgen:security/v20200101preview:Connector", name, args, &resource, opts...)

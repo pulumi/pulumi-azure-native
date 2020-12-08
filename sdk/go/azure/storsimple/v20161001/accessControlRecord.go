@@ -26,20 +26,21 @@ type AccessControlRecord struct {
 // NewAccessControlRecord registers a new resource with the given unique name, arguments, and options.
 func NewAccessControlRecord(ctx *pulumi.Context,
 	name string, args *AccessControlRecordArgs, opts ...pulumi.ResourceOption) (*AccessControlRecord, error) {
-	if args == nil || args.AccessControlRecordName == nil {
-		return nil, errors.New("missing required argument 'AccessControlRecordName'")
-	}
-	if args == nil || args.InitiatorName == nil {
-		return nil, errors.New("missing required argument 'InitiatorName'")
-	}
-	if args == nil || args.ManagerName == nil {
-		return nil, errors.New("missing required argument 'ManagerName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &AccessControlRecordArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccessControlRecordName == nil {
+		return nil, errors.New("invalid value for required argument 'AccessControlRecordName'")
+	}
+	if args.InitiatorName == nil {
+		return nil, errors.New("invalid value for required argument 'InitiatorName'")
+	}
+	if args.ManagerName == nil {
+		return nil, errors.New("invalid value for required argument 'ManagerName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

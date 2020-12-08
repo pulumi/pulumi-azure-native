@@ -34,17 +34,18 @@ type MachineLearningCompute struct {
 // NewMachineLearningCompute registers a new resource with the given unique name, arguments, and options.
 func NewMachineLearningCompute(ctx *pulumi.Context,
 	name string, args *MachineLearningComputeArgs, opts ...pulumi.ResourceOption) (*MachineLearningCompute, error) {
-	if args == nil || args.ComputeName == nil {
-		return nil, errors.New("missing required argument 'ComputeName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &MachineLearningComputeArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ComputeName == nil {
+		return nil, errors.New("invalid value for required argument 'ComputeName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

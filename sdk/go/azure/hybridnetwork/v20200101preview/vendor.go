@@ -28,11 +28,12 @@ type Vendor struct {
 // NewVendor registers a new resource with the given unique name, arguments, and options.
 func NewVendor(ctx *pulumi.Context,
 	name string, args *VendorArgs, opts ...pulumi.ResourceOption) (*Vendor, error) {
-	if args == nil || args.VendorName == nil {
-		return nil, errors.New("missing required argument 'VendorName'")
-	}
 	if args == nil {
-		args = &VendorArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.VendorName == nil {
+		return nil, errors.New("invalid value for required argument 'VendorName'")
 	}
 	var resource Vendor
 	err := ctx.RegisterResource("azure-nextgen:hybridnetwork/v20200101preview:Vendor", name, args, &resource, opts...)

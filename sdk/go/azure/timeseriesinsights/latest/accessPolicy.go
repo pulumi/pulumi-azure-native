@@ -30,17 +30,18 @@ type AccessPolicy struct {
 // NewAccessPolicy registers a new resource with the given unique name, arguments, and options.
 func NewAccessPolicy(ctx *pulumi.Context,
 	name string, args *AccessPolicyArgs, opts ...pulumi.ResourceOption) (*AccessPolicy, error) {
-	if args == nil || args.AccessPolicyName == nil {
-		return nil, errors.New("missing required argument 'AccessPolicyName'")
-	}
-	if args == nil || args.EnvironmentName == nil {
-		return nil, errors.New("missing required argument 'EnvironmentName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &AccessPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccessPolicyName == nil {
+		return nil, errors.New("invalid value for required argument 'AccessPolicyName'")
+	}
+	if args.EnvironmentName == nil {
+		return nil, errors.New("invalid value for required argument 'EnvironmentName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -40,14 +40,15 @@ type RemediationAtResourceGroup struct {
 // NewRemediationAtResourceGroup registers a new resource with the given unique name, arguments, and options.
 func NewRemediationAtResourceGroup(ctx *pulumi.Context,
 	name string, args *RemediationAtResourceGroupArgs, opts ...pulumi.ResourceOption) (*RemediationAtResourceGroup, error) {
-	if args == nil || args.RemediationName == nil {
-		return nil, errors.New("missing required argument 'RemediationName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &RemediationAtResourceGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.RemediationName == nil {
+		return nil, errors.New("invalid value for required argument 'RemediationName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

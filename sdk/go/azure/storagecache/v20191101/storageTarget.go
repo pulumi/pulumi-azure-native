@@ -36,17 +36,18 @@ type StorageTarget struct {
 // NewStorageTarget registers a new resource with the given unique name, arguments, and options.
 func NewStorageTarget(ctx *pulumi.Context,
 	name string, args *StorageTargetArgs, opts ...pulumi.ResourceOption) (*StorageTarget, error) {
-	if args == nil || args.CacheName == nil {
-		return nil, errors.New("missing required argument 'CacheName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.StorageTargetName == nil {
-		return nil, errors.New("missing required argument 'StorageTargetName'")
-	}
 	if args == nil {
-		args = &StorageTargetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CacheName == nil {
+		return nil, errors.New("invalid value for required argument 'CacheName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.StorageTargetName == nil {
+		return nil, errors.New("invalid value for required argument 'StorageTargetName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

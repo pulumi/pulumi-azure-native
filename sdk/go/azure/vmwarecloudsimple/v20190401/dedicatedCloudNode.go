@@ -56,35 +56,36 @@ type DedicatedCloudNode struct {
 // NewDedicatedCloudNode registers a new resource with the given unique name, arguments, and options.
 func NewDedicatedCloudNode(ctx *pulumi.Context,
 	name string, args *DedicatedCloudNodeArgs, opts ...pulumi.ResourceOption) (*DedicatedCloudNode, error) {
-	if args == nil || args.AvailabilityZoneId == nil {
-		return nil, errors.New("missing required argument 'AvailabilityZoneId'")
-	}
-	if args == nil || args.DedicatedCloudNodeName == nil {
-		return nil, errors.New("missing required argument 'DedicatedCloudNodeName'")
-	}
-	if args == nil || args.Id == nil {
-		return nil, errors.New("missing required argument 'Id'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.NodesCount == nil {
-		return nil, errors.New("missing required argument 'NodesCount'")
-	}
-	if args == nil || args.PlacementGroupId == nil {
-		return nil, errors.New("missing required argument 'PlacementGroupId'")
-	}
-	if args == nil || args.PurchaseId == nil {
-		return nil, errors.New("missing required argument 'PurchaseId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &DedicatedCloudNodeArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AvailabilityZoneId == nil {
+		return nil, errors.New("invalid value for required argument 'AvailabilityZoneId'")
+	}
+	if args.DedicatedCloudNodeName == nil {
+		return nil, errors.New("invalid value for required argument 'DedicatedCloudNodeName'")
+	}
+	if args.Id == nil {
+		return nil, errors.New("invalid value for required argument 'Id'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.NodesCount == nil {
+		return nil, errors.New("invalid value for required argument 'NodesCount'")
+	}
+	if args.PlacementGroupId == nil {
+		return nil, errors.New("invalid value for required argument 'PlacementGroupId'")
+	}
+	if args.PurchaseId == nil {
+		return nil, errors.New("invalid value for required argument 'PurchaseId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

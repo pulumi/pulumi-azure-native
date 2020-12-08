@@ -29,14 +29,15 @@ type JobCollection struct {
 // NewJobCollection registers a new resource with the given unique name, arguments, and options.
 func NewJobCollection(ctx *pulumi.Context,
 	name string, args *JobCollectionArgs, opts ...pulumi.ResourceOption) (*JobCollection, error) {
-	if args == nil || args.JobCollectionName == nil {
-		return nil, errors.New("missing required argument 'JobCollectionName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &JobCollectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.JobCollectionName == nil {
+		return nil, errors.New("invalid value for required argument 'JobCollectionName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

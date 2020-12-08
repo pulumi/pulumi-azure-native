@@ -42,23 +42,24 @@ type Environment struct {
 // NewEnvironment registers a new resource with the given unique name, arguments, and options.
 func NewEnvironment(ctx *pulumi.Context,
 	name string, args *EnvironmentArgs, opts ...pulumi.ResourceOption) (*Environment, error) {
-	if args == nil || args.DataRetentionTime == nil {
-		return nil, errors.New("missing required argument 'DataRetentionTime'")
-	}
-	if args == nil || args.EnvironmentName == nil {
-		return nil, errors.New("missing required argument 'EnvironmentName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Sku == nil {
-		return nil, errors.New("missing required argument 'Sku'")
-	}
 	if args == nil {
-		args = &EnvironmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DataRetentionTime == nil {
+		return nil, errors.New("invalid value for required argument 'DataRetentionTime'")
+	}
+	if args.EnvironmentName == nil {
+		return nil, errors.New("invalid value for required argument 'EnvironmentName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Sku == nil {
+		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -180,7 +181,7 @@ type EnvironmentArgs struct {
 	// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
 	Sku SkuInput
 	// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
-	StorageLimitExceededBehavior pulumi.StringPtrInput
+	StorageLimitExceededBehavior StorageLimitExceededBehavior
 	// Key-value pairs of additional properties for the resource.
 	Tags pulumi.StringMapInput
 }

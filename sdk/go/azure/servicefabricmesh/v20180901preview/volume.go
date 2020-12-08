@@ -40,20 +40,21 @@ type Volume struct {
 // NewVolume registers a new resource with the given unique name, arguments, and options.
 func NewVolume(ctx *pulumi.Context,
 	name string, args *VolumeArgs, opts ...pulumi.ResourceOption) (*Volume, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Provider == nil {
-		return nil, errors.New("missing required argument 'Provider'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VolumeResourceName == nil {
-		return nil, errors.New("missing required argument 'VolumeResourceName'")
-	}
 	if args == nil {
-		args = &VolumeArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.Provider == nil {
+		return nil, errors.New("invalid value for required argument 'Provider'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VolumeResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'VolumeResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

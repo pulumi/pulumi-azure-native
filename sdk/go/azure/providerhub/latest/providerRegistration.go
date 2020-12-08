@@ -24,11 +24,12 @@ type ProviderRegistration struct {
 // NewProviderRegistration registers a new resource with the given unique name, arguments, and options.
 func NewProviderRegistration(ctx *pulumi.Context,
 	name string, args *ProviderRegistrationArgs, opts ...pulumi.ResourceOption) (*ProviderRegistration, error) {
-	if args == nil || args.ProviderNamespace == nil {
-		return nil, errors.New("missing required argument 'ProviderNamespace'")
-	}
 	if args == nil {
-		args = &ProviderRegistrationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ProviderNamespace == nil {
+		return nil, errors.New("invalid value for required argument 'ProviderNamespace'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

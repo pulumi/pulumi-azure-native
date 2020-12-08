@@ -32,17 +32,18 @@ type FileServiceProperties struct {
 // NewFileServiceProperties registers a new resource with the given unique name, arguments, and options.
 func NewFileServiceProperties(ctx *pulumi.Context,
 	name string, args *FileServicePropertiesArgs, opts ...pulumi.ResourceOption) (*FileServiceProperties, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.FileServicesName == nil {
-		return nil, errors.New("missing required argument 'FileServicesName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &FileServicePropertiesArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.FileServicesName == nil {
+		return nil, errors.New("invalid value for required argument 'FileServicesName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

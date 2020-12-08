@@ -38,14 +38,15 @@ type PolicyDefinitionAtManagementGroup struct {
 // NewPolicyDefinitionAtManagementGroup registers a new resource with the given unique name, arguments, and options.
 func NewPolicyDefinitionAtManagementGroup(ctx *pulumi.Context,
 	name string, args *PolicyDefinitionAtManagementGroupArgs, opts ...pulumi.ResourceOption) (*PolicyDefinitionAtManagementGroup, error) {
-	if args == nil || args.ManagementGroupId == nil {
-		return nil, errors.New("missing required argument 'ManagementGroupId'")
-	}
-	if args == nil || args.PolicyDefinitionName == nil {
-		return nil, errors.New("missing required argument 'PolicyDefinitionName'")
-	}
 	if args == nil {
-		args = &PolicyDefinitionAtManagementGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ManagementGroupId == nil {
+		return nil, errors.New("invalid value for required argument 'ManagementGroupId'")
+	}
+	if args.PolicyDefinitionName == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyDefinitionName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

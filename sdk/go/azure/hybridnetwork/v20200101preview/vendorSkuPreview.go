@@ -24,17 +24,18 @@ type VendorSkuPreview struct {
 // NewVendorSkuPreview registers a new resource with the given unique name, arguments, and options.
 func NewVendorSkuPreview(ctx *pulumi.Context,
 	name string, args *VendorSkuPreviewArgs, opts ...pulumi.ResourceOption) (*VendorSkuPreview, error) {
-	if args == nil || args.PreviewSubscription == nil {
-		return nil, errors.New("missing required argument 'PreviewSubscription'")
-	}
-	if args == nil || args.SkuName == nil {
-		return nil, errors.New("missing required argument 'SkuName'")
-	}
-	if args == nil || args.VendorName == nil {
-		return nil, errors.New("missing required argument 'VendorName'")
-	}
 	if args == nil {
-		args = &VendorSkuPreviewArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PreviewSubscription == nil {
+		return nil, errors.New("invalid value for required argument 'PreviewSubscription'")
+	}
+	if args.SkuName == nil {
+		return nil, errors.New("invalid value for required argument 'SkuName'")
+	}
+	if args.VendorName == nil {
+		return nil, errors.New("invalid value for required argument 'VendorName'")
 	}
 	var resource VendorSkuPreview
 	err := ctx.RegisterResource("azure-nextgen:hybridnetwork/v20200101preview:VendorSkuPreview", name, args, &resource, opts...)

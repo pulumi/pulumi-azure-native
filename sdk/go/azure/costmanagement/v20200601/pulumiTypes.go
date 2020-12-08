@@ -2077,6 +2077,8 @@ func (o ExportExecutionListResultResponsePtrOutput) Value() ExportExecutionRespo
 
 // An export execution.
 type ExportExecutionResponse struct {
+	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+	ETag *string `pulumi:"eTag"`
 	// The details of any error.
 	Error *ErrorDetailsResponse `pulumi:"error"`
 	// The type of the export execution.
@@ -2099,8 +2101,6 @@ type ExportExecutionResponse struct {
 	SubmittedBy *string `pulumi:"submittedBy"`
 	// The time when export was queued to be executed.
 	SubmittedTime *string `pulumi:"submittedTime"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -2118,6 +2118,8 @@ type ExportExecutionResponseInput interface {
 
 // An export execution.
 type ExportExecutionResponseArgs struct {
+	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+	ETag pulumi.StringPtrInput `pulumi:"eTag"`
 	// The details of any error.
 	Error ErrorDetailsResponsePtrInput `pulumi:"error"`
 	// The type of the export execution.
@@ -2140,8 +2142,6 @@ type ExportExecutionResponseArgs struct {
 	SubmittedBy pulumi.StringPtrInput `pulumi:"submittedBy"`
 	// The time when export was queued to be executed.
 	SubmittedTime pulumi.StringPtrInput `pulumi:"submittedTime"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Resource type.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -2198,6 +2198,11 @@ func (o ExportExecutionResponseOutput) ToExportExecutionResponseOutputWithContex
 	return o
 }
 
+// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+func (o ExportExecutionResponseOutput) ETag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExportExecutionResponse) *string { return v.ETag }).(pulumi.StringPtrOutput)
+}
+
 // The details of any error.
 func (o ExportExecutionResponseOutput) Error() ErrorDetailsResponsePtrOutput {
 	return o.ApplyT(func(v ExportExecutionResponse) *ErrorDetailsResponse { return v.Error }).(ErrorDetailsResponsePtrOutput)
@@ -2251,11 +2256,6 @@ func (o ExportExecutionResponseOutput) SubmittedBy() pulumi.StringPtrOutput {
 // The time when export was queued to be executed.
 func (o ExportExecutionResponseOutput) SubmittedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExportExecutionResponse) *string { return v.SubmittedTime }).(pulumi.StringPtrOutput)
-}
-
-// Resource tags.
-func (o ExportExecutionResponseOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ExportExecutionResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // Resource type.
@@ -2592,7 +2592,7 @@ func (o ExportRecurrencePeriodResponsePtrOutput) To() pulumi.StringPtrOutput {
 // The schedule associated with the export.
 type ExportSchedule struct {
 	// The schedule recurrence.
-	Recurrence string `pulumi:"recurrence"`
+	Recurrence *string `pulumi:"recurrence"`
 	// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
 	RecurrencePeriod *ExportRecurrencePeriod `pulumi:"recurrencePeriod"`
 	// The status of the export's schedule. If 'Inactive', the export's schedule is paused.
@@ -2613,7 +2613,7 @@ type ExportScheduleInput interface {
 // The schedule associated with the export.
 type ExportScheduleArgs struct {
 	// The schedule recurrence.
-	Recurrence pulumi.StringInput `pulumi:"recurrence"`
+	Recurrence pulumi.StringPtrInput `pulumi:"recurrence"`
 	// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
 	RecurrencePeriod ExportRecurrencePeriodPtrInput `pulumi:"recurrencePeriod"`
 	// The status of the export's schedule. If 'Inactive', the export's schedule is paused.
@@ -2699,8 +2699,8 @@ func (o ExportScheduleOutput) ToExportSchedulePtrOutputWithContext(ctx context.C
 }
 
 // The schedule recurrence.
-func (o ExportScheduleOutput) Recurrence() pulumi.StringOutput {
-	return o.ApplyT(func(v ExportSchedule) string { return v.Recurrence }).(pulumi.StringOutput)
+func (o ExportScheduleOutput) Recurrence() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExportSchedule) *string { return v.Recurrence }).(pulumi.StringPtrOutput)
 }
 
 // Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
@@ -2737,7 +2737,7 @@ func (o ExportSchedulePtrOutput) Recurrence() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Recurrence
+		return v.Recurrence
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2764,7 +2764,7 @@ func (o ExportSchedulePtrOutput) Status() pulumi.StringPtrOutput {
 // The schedule associated with the export.
 type ExportScheduleResponse struct {
 	// The schedule recurrence.
-	Recurrence string `pulumi:"recurrence"`
+	Recurrence *string `pulumi:"recurrence"`
 	// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
 	RecurrencePeriod *ExportRecurrencePeriodResponse `pulumi:"recurrencePeriod"`
 	// The status of the export's schedule. If 'Inactive', the export's schedule is paused.
@@ -2785,7 +2785,7 @@ type ExportScheduleResponseInput interface {
 // The schedule associated with the export.
 type ExportScheduleResponseArgs struct {
 	// The schedule recurrence.
-	Recurrence pulumi.StringInput `pulumi:"recurrence"`
+	Recurrence pulumi.StringPtrInput `pulumi:"recurrence"`
 	// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
 	RecurrencePeriod ExportRecurrencePeriodResponsePtrInput `pulumi:"recurrencePeriod"`
 	// The status of the export's schedule. If 'Inactive', the export's schedule is paused.
@@ -2871,8 +2871,8 @@ func (o ExportScheduleResponseOutput) ToExportScheduleResponsePtrOutputWithConte
 }
 
 // The schedule recurrence.
-func (o ExportScheduleResponseOutput) Recurrence() pulumi.StringOutput {
-	return o.ApplyT(func(v ExportScheduleResponse) string { return v.Recurrence }).(pulumi.StringOutput)
+func (o ExportScheduleResponseOutput) Recurrence() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExportScheduleResponse) *string { return v.Recurrence }).(pulumi.StringPtrOutput)
 }
 
 // Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
@@ -2909,7 +2909,7 @@ func (o ExportScheduleResponsePtrOutput) Recurrence() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Recurrence
+		return v.Recurrence
 	}).(pulumi.StringPtrOutput)
 }
 

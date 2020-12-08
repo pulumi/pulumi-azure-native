@@ -54,14 +54,15 @@ type ExpressRoutePort struct {
 // NewExpressRoutePort registers a new resource with the given unique name, arguments, and options.
 func NewExpressRoutePort(ctx *pulumi.Context,
 	name string, args *ExpressRoutePortArgs, opts ...pulumi.ResourceOption) (*ExpressRoutePort, error) {
-	if args == nil || args.ExpressRoutePortName == nil {
-		return nil, errors.New("missing required argument 'ExpressRoutePortName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ExpressRoutePortArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ExpressRoutePortName == nil {
+		return nil, errors.New("invalid value for required argument 'ExpressRoutePortName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -10458,7 +10458,7 @@ type EdifactDelimiterOverrideArgs struct {
 	// The data element separator.
 	DataElementSeparator pulumi.IntInput `pulumi:"dataElementSeparator"`
 	// The decimal point indicator.
-	DecimalPointIndicator pulumi.StringInput `pulumi:"decimalPointIndicator"`
+	DecimalPointIndicator EdifactDecimalIndicator `pulumi:"decimalPointIndicator"`
 	// The message association assigned code.
 	MessageAssociationAssignedCode pulumi.StringPtrInput `pulumi:"messageAssociationAssignedCode"`
 	// The message id.
@@ -10474,7 +10474,7 @@ type EdifactDelimiterOverrideArgs struct {
 	// The segment terminator.
 	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
 	// The segment terminator suffix.
-	SegmentTerminatorSuffix pulumi.StringInput `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
 	// The target namespace on which this delimiter settings has to be applied.
 	TargetNamespace pulumi.StringPtrInput `pulumi:"targetNamespace"`
 }
@@ -13098,7 +13098,7 @@ type EdifactFramingSettingsArgs struct {
 	// The data element separator.
 	DataElementSeparator pulumi.IntInput `pulumi:"dataElementSeparator"`
 	// The EDIFACT frame setting decimal indicator.
-	DecimalPointIndicator pulumi.StringInput `pulumi:"decimalPointIndicator"`
+	DecimalPointIndicator EdifactDecimalIndicator `pulumi:"decimalPointIndicator"`
 	// The protocol version.
 	ProtocolVersion pulumi.IntInput `pulumi:"protocolVersion"`
 	// The release indicator.
@@ -13108,7 +13108,7 @@ type EdifactFramingSettingsArgs struct {
 	// The segment terminator.
 	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
 	// The EDIFACT frame setting segment terminator suffix.
-	SegmentTerminatorSuffix pulumi.StringInput `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
 	// The service code list directory version.
 	ServiceCodeListDirectoryVersion pulumi.StringPtrInput `pulumi:"serviceCodeListDirectoryVersion"`
 }
@@ -23788,7 +23788,7 @@ type RecurrenceScheduleArgs struct {
 	// The monthly occurrences.
 	MonthlyOccurrences RecurrenceScheduleOccurrenceArrayInput `pulumi:"monthlyOccurrences"`
 	// The days of the week.
-	WeekDays pulumi.StringArrayInput `pulumi:"weekDays"`
+	WeekDays DaysOfWeekArrayInput `pulumi:"weekDays"`
 }
 
 func (RecurrenceScheduleArgs) ElementType() reflect.Type {
@@ -23984,7 +23984,7 @@ type RecurrenceScheduleOccurrenceInput interface {
 // The recurrence schedule occurrence.
 type RecurrenceScheduleOccurrenceArgs struct {
 	// The day of the week.
-	Day pulumi.StringPtrInput `pulumi:"day"`
+	Day DayOfWeek `pulumi:"day"`
 	// The occurrence.
 	Occurrence pulumi.IntPtrInput `pulumi:"occurrence"`
 }
@@ -25130,7 +25130,7 @@ type RosettaNetPipActivityBehaviorInput interface {
 // The integration account RosettaNet ProcessConfiguration activity behavior.
 type RosettaNetPipActivityBehaviorArgs struct {
 	// The value indicating whether the RosettaNet PIP is used for a single action.
-	ActionType pulumi.StringInput `pulumi:"actionType"`
+	ActionType RosettaNetActionType `pulumi:"actionType"`
 	// The value indicating whether authorization is required.
 	IsAuthorizationRequired pulumi.BoolInput `pulumi:"isAuthorizationRequired"`
 	// The value indicating whether secured transport is required.
@@ -25138,9 +25138,9 @@ type RosettaNetPipActivityBehaviorArgs struct {
 	// The value indicating whether non-repudiation is for origin and content.
 	NonRepudiationOfOriginAndContent pulumi.BoolInput `pulumi:"nonRepudiationOfOriginAndContent"`
 	// The persistent confidentiality encryption scope.
-	PersistentConfidentialityScope pulumi.StringInput `pulumi:"persistentConfidentialityScope"`
+	PersistentConfidentialityScope RosettaNetPipConfidentialityScope `pulumi:"persistentConfidentialityScope"`
 	// The value indicating whether the RosettaNet PIP communication is synchronous.
-	ResponseType pulumi.StringInput `pulumi:"responseType"`
+	ResponseType RosettaNetResponseType `pulumi:"responseType"`
 	// The value indicating retry count.
 	RetryCount pulumi.IntInput `pulumi:"retryCount"`
 	// The time to perform in seconds.
@@ -25658,7 +25658,7 @@ type RosettaNetPipActivitySettingsArgs struct {
 	// The RosettaNet ProcessConfiguration activity behavior.
 	ActivityBehavior RosettaNetPipActivityBehaviorInput `pulumi:"activityBehavior"`
 	// The RosettaNet ProcessConfiguration activity type.
-	ActivityType pulumi.StringInput `pulumi:"activityType"`
+	ActivityType RosettaNetPipActivityType `pulumi:"activityType"`
 }
 
 func (RosettaNetPipActivitySettingsArgs) ElementType() reflect.Type {
@@ -26364,7 +26364,7 @@ type RosettaNetPipRoleSettingsArgs struct {
 	// The role name.
 	Role pulumi.StringInput `pulumi:"role"`
 	// The RosettaNet ProcessConfiguration role type.
-	RoleType pulumi.StringInput `pulumi:"roleType"`
+	RoleType RosettaNetPipRoleType `pulumi:"roleType"`
 	// The service name.
 	Service pulumi.StringInput `pulumi:"service"`
 	// The service classification name.
@@ -29087,7 +29087,7 @@ type X12DelimiterOverridesArgs struct {
 	// The segment terminator.
 	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
 	// The segment terminator suffix.
-	SegmentTerminatorSuffix pulumi.StringInput `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
 	// The target namespace on which this delimiter settings has to be applied.
 	TargetNamespace pulumi.StringPtrInput `pulumi:"targetNamespace"`
 }
@@ -30929,7 +30929,7 @@ type X12FramingSettingsArgs struct {
 	// The segment terminator.
 	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
 	// The segment terminator suffix.
-	SegmentTerminatorSuffix pulumi.StringInput `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
 }
 
 func (X12FramingSettingsArgs) ElementType() reflect.Type {

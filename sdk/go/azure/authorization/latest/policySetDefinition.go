@@ -38,14 +38,15 @@ type PolicySetDefinition struct {
 // NewPolicySetDefinition registers a new resource with the given unique name, arguments, and options.
 func NewPolicySetDefinition(ctx *pulumi.Context,
 	name string, args *PolicySetDefinitionArgs, opts ...pulumi.ResourceOption) (*PolicySetDefinition, error) {
-	if args == nil || args.PolicyDefinitions == nil {
-		return nil, errors.New("missing required argument 'PolicyDefinitions'")
-	}
-	if args == nil || args.PolicySetDefinitionName == nil {
-		return nil, errors.New("missing required argument 'PolicySetDefinitionName'")
-	}
 	if args == nil {
-		args = &PolicySetDefinitionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PolicyDefinitions == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyDefinitions'")
+	}
+	if args.PolicySetDefinitionName == nil {
+		return nil, errors.New("invalid value for required argument 'PolicySetDefinitionName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

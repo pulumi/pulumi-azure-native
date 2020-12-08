@@ -26,20 +26,21 @@ type VirtualNetworkRule struct {
 // NewVirtualNetworkRule registers a new resource with the given unique name, arguments, and options.
 func NewVirtualNetworkRule(ctx *pulumi.Context,
 	name string, args *VirtualNetworkRuleArgs, opts ...pulumi.ResourceOption) (*VirtualNetworkRule, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SubnetId == nil {
-		return nil, errors.New("missing required argument 'SubnetId'")
-	}
-	if args == nil || args.VirtualNetworkRuleName == nil {
-		return nil, errors.New("missing required argument 'VirtualNetworkRuleName'")
-	}
 	if args == nil {
-		args = &VirtualNetworkRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SubnetId == nil {
+		return nil, errors.New("invalid value for required argument 'SubnetId'")
+	}
+	if args.VirtualNetworkRuleName == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualNetworkRuleName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

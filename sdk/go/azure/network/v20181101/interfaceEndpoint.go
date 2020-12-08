@@ -42,14 +42,15 @@ type InterfaceEndpoint struct {
 // NewInterfaceEndpoint registers a new resource with the given unique name, arguments, and options.
 func NewInterfaceEndpoint(ctx *pulumi.Context,
 	name string, args *InterfaceEndpointArgs, opts ...pulumi.ResourceOption) (*InterfaceEndpoint, error) {
-	if args == nil || args.InterfaceEndpointName == nil {
-		return nil, errors.New("missing required argument 'InterfaceEndpointName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &InterfaceEndpointArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.InterfaceEndpointName == nil {
+		return nil, errors.New("invalid value for required argument 'InterfaceEndpointName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

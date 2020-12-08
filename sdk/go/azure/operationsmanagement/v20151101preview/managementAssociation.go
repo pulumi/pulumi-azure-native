@@ -28,23 +28,24 @@ type ManagementAssociation struct {
 // NewManagementAssociation registers a new resource with the given unique name, arguments, and options.
 func NewManagementAssociation(ctx *pulumi.Context,
 	name string, args *ManagementAssociationArgs, opts ...pulumi.ResourceOption) (*ManagementAssociation, error) {
-	if args == nil || args.ManagementAssociationName == nil {
-		return nil, errors.New("missing required argument 'ManagementAssociationName'")
-	}
-	if args == nil || args.ProviderName == nil {
-		return nil, errors.New("missing required argument 'ProviderName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ResourceName == nil {
-		return nil, errors.New("missing required argument 'ResourceName'")
-	}
-	if args == nil || args.ResourceType == nil {
-		return nil, errors.New("missing required argument 'ResourceType'")
-	}
 	if args == nil {
-		args = &ManagementAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ManagementAssociationName == nil {
+		return nil, errors.New("invalid value for required argument 'ManagementAssociationName'")
+	}
+	if args.ProviderName == nil {
+		return nil, errors.New("invalid value for required argument 'ProviderName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceName'")
+	}
+	if args.ResourceType == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceType'")
 	}
 	var resource ManagementAssociation
 	err := ctx.RegisterResource("azure-nextgen:operationsmanagement/v20151101preview:ManagementAssociation", name, args, &resource, opts...)

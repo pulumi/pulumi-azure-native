@@ -44,38 +44,30 @@ type Volume struct {
 // NewVolume registers a new resource with the given unique name, arguments, and options.
 func NewVolume(ctx *pulumi.Context,
 	name string, args *VolumeArgs, opts ...pulumi.ResourceOption) (*Volume, error) {
-	if args == nil || args.AccessControlRecordIds == nil {
-		return nil, errors.New("missing required argument 'AccessControlRecordIds'")
-	}
-	if args == nil || args.DeviceName == nil {
-		return nil, errors.New("missing required argument 'DeviceName'")
-	}
-	if args == nil || args.ManagerName == nil {
-		return nil, errors.New("missing required argument 'ManagerName'")
-	}
-	if args == nil || args.MonitoringStatus == nil {
-		return nil, errors.New("missing required argument 'MonitoringStatus'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SizeInBytes == nil {
-		return nil, errors.New("missing required argument 'SizeInBytes'")
-	}
-	if args == nil || args.VolumeContainerName == nil {
-		return nil, errors.New("missing required argument 'VolumeContainerName'")
-	}
-	if args == nil || args.VolumeName == nil {
-		return nil, errors.New("missing required argument 'VolumeName'")
-	}
-	if args == nil || args.VolumeStatus == nil {
-		return nil, errors.New("missing required argument 'VolumeStatus'")
-	}
-	if args == nil || args.VolumeType == nil {
-		return nil, errors.New("missing required argument 'VolumeType'")
-	}
 	if args == nil {
-		args = &VolumeArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccessControlRecordIds == nil {
+		return nil, errors.New("invalid value for required argument 'AccessControlRecordIds'")
+	}
+	if args.DeviceName == nil {
+		return nil, errors.New("invalid value for required argument 'DeviceName'")
+	}
+	if args.ManagerName == nil {
+		return nil, errors.New("invalid value for required argument 'ManagerName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SizeInBytes == nil {
+		return nil, errors.New("invalid value for required argument 'SizeInBytes'")
+	}
+	if args.VolumeContainerName == nil {
+		return nil, errors.New("invalid value for required argument 'VolumeContainerName'")
+	}
+	if args.VolumeName == nil {
+		return nil, errors.New("invalid value for required argument 'VolumeName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -194,11 +186,11 @@ type VolumeArgs struct {
 	// The device name
 	DeviceName pulumi.StringInput
 	// The Kind of the object. Currently only Series8000 is supported
-	Kind pulumi.StringPtrInput
+	Kind Kind
 	// The manager name
 	ManagerName pulumi.StringInput
 	// The monitoring status of the volume.
-	MonitoringStatus pulumi.StringInput
+	MonitoringStatus MonitoringStatus
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
 	// The size of the volume in bytes.
@@ -208,9 +200,9 @@ type VolumeArgs struct {
 	// The volume name.
 	VolumeName pulumi.StringInput
 	// The volume status.
-	VolumeStatus pulumi.StringInput
+	VolumeStatus VolumeStatus
 	// The type of the volume.
-	VolumeType pulumi.StringInput
+	VolumeType VolumeType
 }
 
 func (VolumeArgs) ElementType() reflect.Type {

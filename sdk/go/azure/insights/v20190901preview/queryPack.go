@@ -36,17 +36,18 @@ type QueryPack struct {
 // NewQueryPack registers a new resource with the given unique name, arguments, and options.
 func NewQueryPack(ctx *pulumi.Context,
 	name string, args *QueryPackArgs, opts ...pulumi.ResourceOption) (*QueryPack, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.QueryPackName == nil {
-		return nil, errors.New("missing required argument 'QueryPackName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &QueryPackArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.QueryPackName == nil {
+		return nil, errors.New("invalid value for required argument 'QueryPackName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource QueryPack
 	err := ctx.RegisterResource("azure-nextgen:insights/v20190901preview:QueryPack", name, args, &resource, opts...)

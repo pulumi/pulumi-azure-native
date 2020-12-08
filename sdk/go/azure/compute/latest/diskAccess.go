@@ -34,17 +34,18 @@ type DiskAccess struct {
 // NewDiskAccess registers a new resource with the given unique name, arguments, and options.
 func NewDiskAccess(ctx *pulumi.Context,
 	name string, args *DiskAccessArgs, opts ...pulumi.ResourceOption) (*DiskAccess, error) {
-	if args == nil || args.DiskAccessName == nil {
-		return nil, errors.New("missing required argument 'DiskAccessName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &DiskAccessArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DiskAccessName == nil {
+		return nil, errors.New("invalid value for required argument 'DiskAccessName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

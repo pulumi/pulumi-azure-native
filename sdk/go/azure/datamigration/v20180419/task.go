@@ -28,20 +28,21 @@ type Task struct {
 // NewTask registers a new resource with the given unique name, arguments, and options.
 func NewTask(ctx *pulumi.Context,
 	name string, args *TaskArgs, opts ...pulumi.ResourceOption) (*Task, error) {
-	if args == nil || args.GroupName == nil {
-		return nil, errors.New("missing required argument 'GroupName'")
-	}
-	if args == nil || args.ProjectName == nil {
-		return nil, errors.New("missing required argument 'ProjectName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
-	if args == nil || args.TaskName == nil {
-		return nil, errors.New("missing required argument 'TaskName'")
-	}
 	if args == nil {
-		args = &TaskArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.GroupName == nil {
+		return nil, errors.New("invalid value for required argument 'GroupName'")
+	}
+	if args.ProjectName == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
+	}
+	if args.TaskName == nil {
+		return nil, errors.New("invalid value for required argument 'TaskName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

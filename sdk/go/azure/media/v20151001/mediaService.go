@@ -32,14 +32,15 @@ type MediaService struct {
 // NewMediaService registers a new resource with the given unique name, arguments, and options.
 func NewMediaService(ctx *pulumi.Context,
 	name string, args *MediaServiceArgs, opts ...pulumi.ResourceOption) (*MediaService, error) {
-	if args == nil || args.MediaServiceName == nil {
-		return nil, errors.New("missing required argument 'MediaServiceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &MediaServiceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.MediaServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'MediaServiceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

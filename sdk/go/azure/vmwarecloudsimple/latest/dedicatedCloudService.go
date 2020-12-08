@@ -36,20 +36,21 @@ type DedicatedCloudService struct {
 // NewDedicatedCloudService registers a new resource with the given unique name, arguments, and options.
 func NewDedicatedCloudService(ctx *pulumi.Context,
 	name string, args *DedicatedCloudServiceArgs, opts ...pulumi.ResourceOption) (*DedicatedCloudService, error) {
-	if args == nil || args.DedicatedCloudServiceName == nil {
-		return nil, errors.New("missing required argument 'DedicatedCloudServiceName'")
-	}
-	if args == nil || args.GatewaySubnet == nil {
-		return nil, errors.New("missing required argument 'GatewaySubnet'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &DedicatedCloudServiceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DedicatedCloudServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'DedicatedCloudServiceName'")
+	}
+	if args.GatewaySubnet == nil {
+		return nil, errors.New("invalid value for required argument 'GatewaySubnet'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

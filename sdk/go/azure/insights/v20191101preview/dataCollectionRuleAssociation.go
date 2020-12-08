@@ -32,17 +32,18 @@ type DataCollectionRuleAssociation struct {
 // NewDataCollectionRuleAssociation registers a new resource with the given unique name, arguments, and options.
 func NewDataCollectionRuleAssociation(ctx *pulumi.Context,
 	name string, args *DataCollectionRuleAssociationArgs, opts ...pulumi.ResourceOption) (*DataCollectionRuleAssociation, error) {
-	if args == nil || args.AssociationName == nil {
-		return nil, errors.New("missing required argument 'AssociationName'")
-	}
-	if args == nil || args.DataCollectionRuleId == nil {
-		return nil, errors.New("missing required argument 'DataCollectionRuleId'")
-	}
-	if args == nil || args.ResourceUri == nil {
-		return nil, errors.New("missing required argument 'ResourceUri'")
-	}
 	if args == nil {
-		args = &DataCollectionRuleAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AssociationName == nil {
+		return nil, errors.New("invalid value for required argument 'AssociationName'")
+	}
+	if args.DataCollectionRuleId == nil {
+		return nil, errors.New("invalid value for required argument 'DataCollectionRuleId'")
+	}
+	if args.ResourceUri == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceUri'")
 	}
 	var resource DataCollectionRuleAssociation
 	err := ctx.RegisterResource("azure-nextgen:insights/v20191101preview:DataCollectionRuleAssociation", name, args, &resource, opts...)

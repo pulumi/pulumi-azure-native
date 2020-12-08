@@ -29,6 +29,8 @@ type LookupFactoryResult struct {
 	CreateTime string `pulumi:"createTime"`
 	// Etag identifies change in the resource.
 	ETag string `pulumi:"eTag"`
+	// Properties to enable Customer Managed Key for the factory.
+	Encryption *EncryptionConfigurationResponse `pulumi:"encryption"`
 	// List of parameters for factory.
 	GlobalParameters map[string]GlobalParameterSpecificationResponse `pulumi:"globalParameters"`
 	// Managed service identity of the factory.

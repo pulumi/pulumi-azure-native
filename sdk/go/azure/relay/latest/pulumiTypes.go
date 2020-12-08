@@ -32,9 +32,9 @@ type SkuInput interface {
 // SKU of the namespace.
 type SkuArgs struct {
 	// Name of this SKU.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name SkuName `pulumi:"name"`
 	// The tier of this SKU.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Tier SkuTier `pulumi:"tier"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {

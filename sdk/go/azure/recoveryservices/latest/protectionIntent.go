@@ -32,20 +32,21 @@ type ProtectionIntent struct {
 // NewProtectionIntent registers a new resource with the given unique name, arguments, and options.
 func NewProtectionIntent(ctx *pulumi.Context,
 	name string, args *ProtectionIntentArgs, opts ...pulumi.ResourceOption) (*ProtectionIntent, error) {
-	if args == nil || args.FabricName == nil {
-		return nil, errors.New("missing required argument 'FabricName'")
-	}
-	if args == nil || args.IntentObjectName == nil {
-		return nil, errors.New("missing required argument 'IntentObjectName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VaultName == nil {
-		return nil, errors.New("missing required argument 'VaultName'")
-	}
 	if args == nil {
-		args = &ProtectionIntentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.FabricName == nil {
+		return nil, errors.New("invalid value for required argument 'FabricName'")
+	}
+	if args.IntentObjectName == nil {
+		return nil, errors.New("invalid value for required argument 'IntentObjectName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VaultName == nil {
+		return nil, errors.New("invalid value for required argument 'VaultName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -33,6 +33,8 @@ type LookupDeploymentResult struct {
 	Name string `pulumi:"name"`
 	// Properties of the Deployment resource
 	Properties DeploymentResourcePropertiesResponse `pulumi:"properties"`
+	// Sku of the Deployment resource
+	Sku *SkuResponse `pulumi:"sku"`
 	// The type of the resource.
 	Type string `pulumi:"type"`
 }

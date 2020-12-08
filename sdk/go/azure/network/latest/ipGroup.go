@@ -38,14 +38,15 @@ type IpGroup struct {
 // NewIpGroup registers a new resource with the given unique name, arguments, and options.
 func NewIpGroup(ctx *pulumi.Context,
 	name string, args *IpGroupArgs, opts ...pulumi.ResourceOption) (*IpGroup, error) {
-	if args == nil || args.IpGroupsName == nil {
-		return nil, errors.New("missing required argument 'IpGroupsName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &IpGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.IpGroupsName == nil {
+		return nil, errors.New("invalid value for required argument 'IpGroupsName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

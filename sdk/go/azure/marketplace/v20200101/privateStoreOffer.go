@@ -46,14 +46,15 @@ type PrivateStoreOffer struct {
 // NewPrivateStoreOffer registers a new resource with the given unique name, arguments, and options.
 func NewPrivateStoreOffer(ctx *pulumi.Context,
 	name string, args *PrivateStoreOfferArgs, opts ...pulumi.ResourceOption) (*PrivateStoreOffer, error) {
-	if args == nil || args.OfferId == nil {
-		return nil, errors.New("missing required argument 'OfferId'")
-	}
-	if args == nil || args.PrivateStoreId == nil {
-		return nil, errors.New("missing required argument 'PrivateStoreId'")
-	}
 	if args == nil {
-		args = &PrivateStoreOfferArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.OfferId == nil {
+		return nil, errors.New("invalid value for required argument 'OfferId'")
+	}
+	if args.PrivateStoreId == nil {
+		return nil, errors.New("invalid value for required argument 'PrivateStoreId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

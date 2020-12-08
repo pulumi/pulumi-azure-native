@@ -46,14 +46,15 @@ type FirewallPolicy struct {
 // NewFirewallPolicy registers a new resource with the given unique name, arguments, and options.
 func NewFirewallPolicy(ctx *pulumi.Context,
 	name string, args *FirewallPolicyArgs, opts ...pulumi.ResourceOption) (*FirewallPolicy, error) {
-	if args == nil || args.FirewallPolicyName == nil {
-		return nil, errors.New("missing required argument 'FirewallPolicyName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &FirewallPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.FirewallPolicyName == nil {
+		return nil, errors.New("invalid value for required argument 'FirewallPolicyName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

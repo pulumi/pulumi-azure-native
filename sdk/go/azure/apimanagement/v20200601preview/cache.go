@@ -32,23 +32,24 @@ type Cache struct {
 // NewCache registers a new resource with the given unique name, arguments, and options.
 func NewCache(ctx *pulumi.Context,
 	name string, args *CacheArgs, opts ...pulumi.ResourceOption) (*Cache, error) {
-	if args == nil || args.CacheId == nil {
-		return nil, errors.New("missing required argument 'CacheId'")
-	}
-	if args == nil || args.ConnectionString == nil {
-		return nil, errors.New("missing required argument 'ConnectionString'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
-	if args == nil || args.UseFromLocation == nil {
-		return nil, errors.New("missing required argument 'UseFromLocation'")
-	}
 	if args == nil {
-		args = &CacheArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CacheId == nil {
+		return nil, errors.New("invalid value for required argument 'CacheId'")
+	}
+	if args.ConnectionString == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectionString'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
+	}
+	if args.UseFromLocation == nil {
+		return nil, errors.New("invalid value for required argument 'UseFromLocation'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

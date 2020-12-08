@@ -36,26 +36,27 @@ type InstanceFailoverGroup struct {
 // NewInstanceFailoverGroup registers a new resource with the given unique name, arguments, and options.
 func NewInstanceFailoverGroup(ctx *pulumi.Context,
 	name string, args *InstanceFailoverGroupArgs, opts ...pulumi.ResourceOption) (*InstanceFailoverGroup, error) {
-	if args == nil || args.FailoverGroupName == nil {
-		return nil, errors.New("missing required argument 'FailoverGroupName'")
-	}
-	if args == nil || args.LocationName == nil {
-		return nil, errors.New("missing required argument 'LocationName'")
-	}
-	if args == nil || args.ManagedInstancePairs == nil {
-		return nil, errors.New("missing required argument 'ManagedInstancePairs'")
-	}
-	if args == nil || args.PartnerRegions == nil {
-		return nil, errors.New("missing required argument 'PartnerRegions'")
-	}
-	if args == nil || args.ReadWriteEndpoint == nil {
-		return nil, errors.New("missing required argument 'ReadWriteEndpoint'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &InstanceFailoverGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.FailoverGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'FailoverGroupName'")
+	}
+	if args.LocationName == nil {
+		return nil, errors.New("invalid value for required argument 'LocationName'")
+	}
+	if args.ManagedInstancePairs == nil {
+		return nil, errors.New("invalid value for required argument 'ManagedInstancePairs'")
+	}
+	if args.PartnerRegions == nil {
+		return nil, errors.New("invalid value for required argument 'PartnerRegions'")
+	}
+	if args.ReadWriteEndpoint == nil {
+		return nil, errors.New("invalid value for required argument 'ReadWriteEndpoint'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

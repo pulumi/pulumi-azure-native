@@ -46,23 +46,24 @@ type SourceControlConfiguration struct {
 // NewSourceControlConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewSourceControlConfiguration(ctx *pulumi.Context,
 	name string, args *SourceControlConfigurationArgs, opts ...pulumi.ResourceOption) (*SourceControlConfiguration, error) {
-	if args == nil || args.ClusterName == nil {
-		return nil, errors.New("missing required argument 'ClusterName'")
-	}
-	if args == nil || args.ClusterResourceName == nil {
-		return nil, errors.New("missing required argument 'ClusterResourceName'")
-	}
-	if args == nil || args.ClusterRp == nil {
-		return nil, errors.New("missing required argument 'ClusterRp'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SourceControlConfigurationName == nil {
-		return nil, errors.New("missing required argument 'SourceControlConfigurationName'")
-	}
 	if args == nil {
-		args = &SourceControlConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ClusterName == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterName'")
+	}
+	if args.ClusterResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterResourceName'")
+	}
+	if args.ClusterRp == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterRp'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SourceControlConfigurationName == nil {
+		return nil, errors.New("invalid value for required argument 'SourceControlConfigurationName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

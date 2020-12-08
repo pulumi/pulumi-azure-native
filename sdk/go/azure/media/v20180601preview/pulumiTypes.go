@@ -10246,7 +10246,7 @@ type LiveEventEncodingInput interface {
 // The Live Event encoding.
 type LiveEventEncodingArgs struct {
 	// The encoding type for Live Event.
-	EncodingType pulumi.StringPtrInput `pulumi:"encodingType"`
+	EncodingType LiveEventEncodingType `pulumi:"encodingType"`
 	// The encoding preset name.
 	PresetName pulumi.StringPtrInput `pulumi:"presetName"`
 }
@@ -10780,7 +10780,7 @@ type LiveEventInputArgs struct {
 	// ISO 8601 timespan duration of the key frame interval duration.
 	KeyFrameIntervalDuration pulumi.StringPtrInput `pulumi:"keyFrameIntervalDuration"`
 	// The streaming protocol for the Live Event.
-	StreamingProtocol pulumi.StringInput `pulumi:"streamingProtocol"`
+	StreamingProtocol LiveEventInputProtocol `pulumi:"streamingProtocol"`
 }
 
 func (LiveEventInputArgs) ElementType() reflect.Type {

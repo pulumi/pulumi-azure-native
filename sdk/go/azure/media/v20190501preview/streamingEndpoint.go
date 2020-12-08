@@ -60,20 +60,21 @@ type StreamingEndpoint struct {
 // NewStreamingEndpoint registers a new resource with the given unique name, arguments, and options.
 func NewStreamingEndpoint(ctx *pulumi.Context,
 	name string, args *StreamingEndpointArgs, opts ...pulumi.ResourceOption) (*StreamingEndpoint, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ScaleUnits == nil {
-		return nil, errors.New("missing required argument 'ScaleUnits'")
-	}
-	if args == nil || args.StreamingEndpointName == nil {
-		return nil, errors.New("missing required argument 'StreamingEndpointName'")
-	}
 	if args == nil {
-		args = &StreamingEndpointArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ScaleUnits == nil {
+		return nil, errors.New("invalid value for required argument 'ScaleUnits'")
+	}
+	if args.StreamingEndpointName == nil {
+		return nil, errors.New("invalid value for required argument 'StreamingEndpointName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

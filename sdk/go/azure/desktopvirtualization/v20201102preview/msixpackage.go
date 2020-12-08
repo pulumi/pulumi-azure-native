@@ -46,17 +46,18 @@ type MSIXPackage struct {
 // NewMSIXPackage registers a new resource with the given unique name, arguments, and options.
 func NewMSIXPackage(ctx *pulumi.Context,
 	name string, args *MSIXPackageArgs, opts ...pulumi.ResourceOption) (*MSIXPackage, error) {
-	if args == nil || args.HostPoolName == nil {
-		return nil, errors.New("missing required argument 'HostPoolName'")
-	}
-	if args == nil || args.MsixPackageFullName == nil {
-		return nil, errors.New("missing required argument 'MsixPackageFullName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &MSIXPackageArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.HostPoolName == nil {
+		return nil, errors.New("invalid value for required argument 'HostPoolName'")
+	}
+	if args.MsixPackageFullName == nil {
+		return nil, errors.New("invalid value for required argument 'MsixPackageFullName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

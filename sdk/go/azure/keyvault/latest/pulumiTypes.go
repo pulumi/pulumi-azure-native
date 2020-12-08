@@ -2398,7 +2398,7 @@ type SkuArgs struct {
 	// SKU family name
 	Family pulumi.StringInput `pulumi:"family"`
 	// SKU name to specify whether the key vault is a standard vault or a premium vault.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name SkuName `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -2706,7 +2706,7 @@ type VaultProperties struct {
 	SoftDeleteRetentionInDays *int `pulumi:"softDeleteRetentionInDays"`
 	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
 	TenantId string `pulumi:"tenantId"`
-	// The URI of the vault for performing operations on keys and secrets.
+	// The URI of the vault for performing operations on keys and secrets. This property is readonly
 	VaultUri *string `pulumi:"vaultUri"`
 }
 
@@ -2726,7 +2726,7 @@ type VaultPropertiesArgs struct {
 	// An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
 	AccessPolicies AccessPolicyEntryArrayInput `pulumi:"accessPolicies"`
 	// The vault's create mode to indicate whether the vault need to be recovered or not.
-	CreateMode pulumi.StringPtrInput `pulumi:"createMode"`
+	CreateMode CreateMode `pulumi:"createMode"`
 	// Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
 	EnablePurgeProtection pulumi.BoolPtrInput `pulumi:"enablePurgeProtection"`
 	// Property that controls how data actions are authorized. When true, the key vault will use Role Based Access Control (RBAC) for authorization of data actions, and the access policies specified in vault properties will be  ignored (warning: this is a preview feature). When false, the key vault will use the access policies specified in vault properties, and any policy stored on Azure Resource Manager will be ignored. If null or not specified, the vault is created with the default value of false. Note that management actions are always authorized with RBAC.
@@ -2747,7 +2747,7 @@ type VaultPropertiesArgs struct {
 	SoftDeleteRetentionInDays pulumi.IntPtrInput `pulumi:"softDeleteRetentionInDays"`
 	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The URI of the vault for performing operations on keys and secrets.
+	// The URI of the vault for performing operations on keys and secrets. This property is readonly
 	VaultUri pulumi.StringPtrInput `pulumi:"vaultUri"`
 }
 
@@ -2889,7 +2889,7 @@ func (o VaultPropertiesOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v VaultProperties) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The URI of the vault for performing operations on keys and secrets.
+// The URI of the vault for performing operations on keys and secrets. This property is readonly
 func (o VaultPropertiesOutput) VaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VaultProperties) *string { return v.VaultUri }).(pulumi.StringPtrOutput)
 }
@@ -3032,7 +3032,7 @@ func (o VaultPropertiesPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URI of the vault for performing operations on keys and secrets.
+// The URI of the vault for performing operations on keys and secrets. This property is readonly
 func (o VaultPropertiesPtrOutput) VaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VaultProperties) *string {
 		if v == nil {
@@ -3070,7 +3070,7 @@ type VaultPropertiesResponse struct {
 	SoftDeleteRetentionInDays *int `pulumi:"softDeleteRetentionInDays"`
 	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
 	TenantId string `pulumi:"tenantId"`
-	// The URI of the vault for performing operations on keys and secrets.
+	// The URI of the vault for performing operations on keys and secrets. This property is readonly
 	VaultUri *string `pulumi:"vaultUri"`
 }
 
@@ -3113,7 +3113,7 @@ type VaultPropertiesResponseArgs struct {
 	SoftDeleteRetentionInDays pulumi.IntPtrInput `pulumi:"softDeleteRetentionInDays"`
 	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The URI of the vault for performing operations on keys and secrets.
+	// The URI of the vault for performing operations on keys and secrets. This property is readonly
 	VaultUri pulumi.StringPtrInput `pulumi:"vaultUri"`
 }
 
@@ -3262,7 +3262,7 @@ func (o VaultPropertiesResponseOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The URI of the vault for performing operations on keys and secrets.
+// The URI of the vault for performing operations on keys and secrets. This property is readonly
 func (o VaultPropertiesResponseOutput) VaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VaultPropertiesResponse) *string { return v.VaultUri }).(pulumi.StringPtrOutput)
 }
@@ -3415,7 +3415,7 @@ func (o VaultPropertiesResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URI of the vault for performing operations on keys and secrets.
+// The URI of the vault for performing operations on keys and secrets. This property is readonly
 func (o VaultPropertiesResponsePtrOutput) VaultUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VaultPropertiesResponse) *string {
 		if v == nil {

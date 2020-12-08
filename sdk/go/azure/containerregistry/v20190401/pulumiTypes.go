@@ -2271,7 +2271,7 @@ type IdentityPropertiesArgs struct {
 	// The tenant ID of resource.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// The identity type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type ResourceIdentityType `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity
 	// dictionary key references will be ARM resource ids in the form:
 	// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/

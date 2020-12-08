@@ -36,17 +36,18 @@ type AnalyticsItem struct {
 // NewAnalyticsItem registers a new resource with the given unique name, arguments, and options.
 func NewAnalyticsItem(ctx *pulumi.Context,
 	name string, args *AnalyticsItemArgs, opts ...pulumi.ResourceOption) (*AnalyticsItem, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ResourceName == nil {
-		return nil, errors.New("missing required argument 'ResourceName'")
-	}
-	if args == nil || args.ScopePath == nil {
-		return nil, errors.New("missing required argument 'ScopePath'")
-	}
 	if args == nil {
-		args = &AnalyticsItemArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceName'")
+	}
+	if args.ScopePath == nil {
+		return nil, errors.New("invalid value for required argument 'ScopePath'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

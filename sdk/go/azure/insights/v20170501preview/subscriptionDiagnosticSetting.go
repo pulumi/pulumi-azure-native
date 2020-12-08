@@ -38,11 +38,12 @@ type SubscriptionDiagnosticSetting struct {
 // NewSubscriptionDiagnosticSetting registers a new resource with the given unique name, arguments, and options.
 func NewSubscriptionDiagnosticSetting(ctx *pulumi.Context,
 	name string, args *SubscriptionDiagnosticSettingArgs, opts ...pulumi.ResourceOption) (*SubscriptionDiagnosticSetting, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil {
-		args = &SubscriptionDiagnosticSettingArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource SubscriptionDiagnosticSetting
 	err := ctx.RegisterResource("azure-nextgen:insights/v20170501preview:SubscriptionDiagnosticSetting", name, args, &resource, opts...)

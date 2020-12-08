@@ -36,29 +36,30 @@ type SqlPoolWorkloadGroup struct {
 // NewSqlPoolWorkloadGroup registers a new resource with the given unique name, arguments, and options.
 func NewSqlPoolWorkloadGroup(ctx *pulumi.Context,
 	name string, args *SqlPoolWorkloadGroupArgs, opts ...pulumi.ResourceOption) (*SqlPoolWorkloadGroup, error) {
-	if args == nil || args.MaxResourcePercent == nil {
-		return nil, errors.New("missing required argument 'MaxResourcePercent'")
-	}
-	if args == nil || args.MinResourcePercent == nil {
-		return nil, errors.New("missing required argument 'MinResourcePercent'")
-	}
-	if args == nil || args.MinResourcePercentPerRequest == nil {
-		return nil, errors.New("missing required argument 'MinResourcePercentPerRequest'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SqlPoolName == nil {
-		return nil, errors.New("missing required argument 'SqlPoolName'")
-	}
-	if args == nil || args.WorkloadGroupName == nil {
-		return nil, errors.New("missing required argument 'WorkloadGroupName'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &SqlPoolWorkloadGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.MaxResourcePercent == nil {
+		return nil, errors.New("invalid value for required argument 'MaxResourcePercent'")
+	}
+	if args.MinResourcePercent == nil {
+		return nil, errors.New("invalid value for required argument 'MinResourcePercent'")
+	}
+	if args.MinResourcePercentPerRequest == nil {
+		return nil, errors.New("invalid value for required argument 'MinResourcePercentPerRequest'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SqlPoolName == nil {
+		return nil, errors.New("invalid value for required argument 'SqlPoolName'")
+	}
+	if args.WorkloadGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkloadGroupName'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	var resource SqlPoolWorkloadGroup
 	err := ctx.RegisterResource("azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadGroup", name, args, &resource, opts...)

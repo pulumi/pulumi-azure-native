@@ -28,17 +28,18 @@ type CustomerSubscription struct {
 // NewCustomerSubscription registers a new resource with the given unique name, arguments, and options.
 func NewCustomerSubscription(ctx *pulumi.Context,
 	name string, args *CustomerSubscriptionArgs, opts ...pulumi.ResourceOption) (*CustomerSubscription, error) {
-	if args == nil || args.CustomerSubscriptionName == nil {
-		return nil, errors.New("missing required argument 'CustomerSubscriptionName'")
-	}
-	if args == nil || args.RegistrationName == nil {
-		return nil, errors.New("missing required argument 'RegistrationName'")
-	}
-	if args == nil || args.ResourceGroup == nil {
-		return nil, errors.New("missing required argument 'ResourceGroup'")
-	}
 	if args == nil {
-		args = &CustomerSubscriptionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CustomerSubscriptionName == nil {
+		return nil, errors.New("invalid value for required argument 'CustomerSubscriptionName'")
+	}
+	if args.RegistrationName == nil {
+		return nil, errors.New("invalid value for required argument 'RegistrationName'")
+	}
+	if args.ResourceGroup == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroup'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

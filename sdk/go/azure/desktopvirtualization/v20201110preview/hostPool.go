@@ -66,26 +66,27 @@ type HostPool struct {
 // NewHostPool registers a new resource with the given unique name, arguments, and options.
 func NewHostPool(ctx *pulumi.Context,
 	name string, args *HostPoolArgs, opts ...pulumi.ResourceOption) (*HostPool, error) {
-	if args == nil || args.HostPoolName == nil {
-		return nil, errors.New("missing required argument 'HostPoolName'")
-	}
-	if args == nil || args.HostPoolType == nil {
-		return nil, errors.New("missing required argument 'HostPoolType'")
-	}
-	if args == nil || args.LoadBalancerType == nil {
-		return nil, errors.New("missing required argument 'LoadBalancerType'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.PreferredAppGroupType == nil {
-		return nil, errors.New("missing required argument 'PreferredAppGroupType'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &HostPoolArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.HostPoolName == nil {
+		return nil, errors.New("invalid value for required argument 'HostPoolName'")
+	}
+	if args.HostPoolType == nil {
+		return nil, errors.New("invalid value for required argument 'HostPoolType'")
+	}
+	if args.LoadBalancerType == nil {
+		return nil, errors.New("invalid value for required argument 'LoadBalancerType'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.PreferredAppGroupType == nil {
+		return nil, errors.New("invalid value for required argument 'PreferredAppGroupType'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

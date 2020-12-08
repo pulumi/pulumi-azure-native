@@ -38,17 +38,18 @@ type RemediationAtManagementGroup struct {
 // NewRemediationAtManagementGroup registers a new resource with the given unique name, arguments, and options.
 func NewRemediationAtManagementGroup(ctx *pulumi.Context,
 	name string, args *RemediationAtManagementGroupArgs, opts ...pulumi.ResourceOption) (*RemediationAtManagementGroup, error) {
-	if args == nil || args.ManagementGroupId == nil {
-		return nil, errors.New("missing required argument 'ManagementGroupId'")
-	}
-	if args == nil || args.ManagementGroupsNamespace == nil {
-		return nil, errors.New("missing required argument 'ManagementGroupsNamespace'")
-	}
-	if args == nil || args.RemediationName == nil {
-		return nil, errors.New("missing required argument 'RemediationName'")
-	}
 	if args == nil {
-		args = &RemediationAtManagementGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ManagementGroupId == nil {
+		return nil, errors.New("invalid value for required argument 'ManagementGroupId'")
+	}
+	if args.ManagementGroupsNamespace == nil {
+		return nil, errors.New("invalid value for required argument 'ManagementGroupsNamespace'")
+	}
+	if args.RemediationName == nil {
+		return nil, errors.New("invalid value for required argument 'RemediationName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

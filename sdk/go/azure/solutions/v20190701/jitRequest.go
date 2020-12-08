@@ -44,23 +44,24 @@ type JitRequest struct {
 // NewJitRequest registers a new resource with the given unique name, arguments, and options.
 func NewJitRequest(ctx *pulumi.Context,
 	name string, args *JitRequestArgs, opts ...pulumi.ResourceOption) (*JitRequest, error) {
-	if args == nil || args.ApplicationResourceId == nil {
-		return nil, errors.New("missing required argument 'ApplicationResourceId'")
-	}
-	if args == nil || args.JitAuthorizationPolicies == nil {
-		return nil, errors.New("missing required argument 'JitAuthorizationPolicies'")
-	}
-	if args == nil || args.JitRequestName == nil {
-		return nil, errors.New("missing required argument 'JitRequestName'")
-	}
-	if args == nil || args.JitSchedulingPolicy == nil {
-		return nil, errors.New("missing required argument 'JitSchedulingPolicy'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &JitRequestArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApplicationResourceId == nil {
+		return nil, errors.New("invalid value for required argument 'ApplicationResourceId'")
+	}
+	if args.JitAuthorizationPolicies == nil {
+		return nil, errors.New("invalid value for required argument 'JitAuthorizationPolicies'")
+	}
+	if args.JitRequestName == nil {
+		return nil, errors.New("invalid value for required argument 'JitRequestName'")
+	}
+	if args.JitSchedulingPolicy == nil {
+		return nil, errors.New("invalid value for required argument 'JitSchedulingPolicy'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

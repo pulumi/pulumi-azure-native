@@ -28,20 +28,21 @@ type AlertRule struct {
 // NewAlertRule registers a new resource with the given unique name, arguments, and options.
 func NewAlertRule(ctx *pulumi.Context,
 	name string, args *AlertRuleArgs, opts ...pulumi.ResourceOption) (*AlertRule, error) {
-	if args == nil || args.Kind == nil {
-		return nil, errors.New("missing required argument 'Kind'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.RuleId == nil {
-		return nil, errors.New("missing required argument 'RuleId'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &AlertRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Kind == nil {
+		return nil, errors.New("invalid value for required argument 'Kind'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.RuleId == nil {
+		return nil, errors.New("invalid value for required argument 'RuleId'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

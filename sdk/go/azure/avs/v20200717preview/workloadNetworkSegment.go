@@ -38,17 +38,18 @@ type WorkloadNetworkSegment struct {
 // NewWorkloadNetworkSegment registers a new resource with the given unique name, arguments, and options.
 func NewWorkloadNetworkSegment(ctx *pulumi.Context,
 	name string, args *WorkloadNetworkSegmentArgs, opts ...pulumi.ResourceOption) (*WorkloadNetworkSegment, error) {
-	if args == nil || args.PrivateCloudName == nil {
-		return nil, errors.New("missing required argument 'PrivateCloudName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SegmentId == nil {
-		return nil, errors.New("missing required argument 'SegmentId'")
-	}
 	if args == nil {
-		args = &WorkloadNetworkSegmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PrivateCloudName == nil {
+		return nil, errors.New("invalid value for required argument 'PrivateCloudName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SegmentId == nil {
+		return nil, errors.New("invalid value for required argument 'SegmentId'")
 	}
 	var resource WorkloadNetworkSegment
 	err := ctx.RegisterResource("azure-nextgen:avs/v20200717preview:WorkloadNetworkSegment", name, args, &resource, opts...)

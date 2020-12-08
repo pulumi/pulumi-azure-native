@@ -34,20 +34,21 @@ type MachineLearningService struct {
 // NewMachineLearningService registers a new resource with the given unique name, arguments, and options.
 func NewMachineLearningService(ctx *pulumi.Context,
 	name string, args *MachineLearningServiceArgs, opts ...pulumi.ResourceOption) (*MachineLearningService, error) {
-	if args == nil || args.ComputeType == nil {
-		return nil, errors.New("missing required argument 'ComputeType'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &MachineLearningServiceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ComputeType == nil {
+		return nil, errors.New("invalid value for required argument 'ComputeType'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

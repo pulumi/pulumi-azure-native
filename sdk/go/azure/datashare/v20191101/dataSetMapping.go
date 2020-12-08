@@ -26,23 +26,24 @@ type DataSetMapping struct {
 // NewDataSetMapping registers a new resource with the given unique name, arguments, and options.
 func NewDataSetMapping(ctx *pulumi.Context,
 	name string, args *DataSetMappingArgs, opts ...pulumi.ResourceOption) (*DataSetMapping, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.DataSetMappingName == nil {
-		return nil, errors.New("missing required argument 'DataSetMappingName'")
-	}
-	if args == nil || args.Kind == nil {
-		return nil, errors.New("missing required argument 'Kind'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ShareSubscriptionName == nil {
-		return nil, errors.New("missing required argument 'ShareSubscriptionName'")
-	}
 	if args == nil {
-		args = &DataSetMappingArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.DataSetMappingName == nil {
+		return nil, errors.New("invalid value for required argument 'DataSetMappingName'")
+	}
+	if args.Kind == nil {
+		return nil, errors.New("invalid value for required argument 'Kind'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ShareSubscriptionName == nil {
+		return nil, errors.New("invalid value for required argument 'ShareSubscriptionName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

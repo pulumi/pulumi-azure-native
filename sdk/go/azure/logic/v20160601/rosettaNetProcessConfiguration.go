@@ -48,35 +48,36 @@ type RosettaNetProcessConfiguration struct {
 // NewRosettaNetProcessConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewRosettaNetProcessConfiguration(ctx *pulumi.Context,
 	name string, args *RosettaNetProcessConfigurationArgs, opts ...pulumi.ResourceOption) (*RosettaNetProcessConfiguration, error) {
-	if args == nil || args.ActivitySettings == nil {
-		return nil, errors.New("missing required argument 'ActivitySettings'")
-	}
-	if args == nil || args.InitiatorRoleSettings == nil {
-		return nil, errors.New("missing required argument 'InitiatorRoleSettings'")
-	}
-	if args == nil || args.IntegrationAccountName == nil {
-		return nil, errors.New("missing required argument 'IntegrationAccountName'")
-	}
-	if args == nil || args.ProcessCode == nil {
-		return nil, errors.New("missing required argument 'ProcessCode'")
-	}
-	if args == nil || args.ProcessName == nil {
-		return nil, errors.New("missing required argument 'ProcessName'")
-	}
-	if args == nil || args.ProcessVersion == nil {
-		return nil, errors.New("missing required argument 'ProcessVersion'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ResponderRoleSettings == nil {
-		return nil, errors.New("missing required argument 'ResponderRoleSettings'")
-	}
-	if args == nil || args.RosettaNetProcessConfigurationName == nil {
-		return nil, errors.New("missing required argument 'RosettaNetProcessConfigurationName'")
-	}
 	if args == nil {
-		args = &RosettaNetProcessConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ActivitySettings == nil {
+		return nil, errors.New("invalid value for required argument 'ActivitySettings'")
+	}
+	if args.InitiatorRoleSettings == nil {
+		return nil, errors.New("invalid value for required argument 'InitiatorRoleSettings'")
+	}
+	if args.IntegrationAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'IntegrationAccountName'")
+	}
+	if args.ProcessCode == nil {
+		return nil, errors.New("invalid value for required argument 'ProcessCode'")
+	}
+	if args.ProcessName == nil {
+		return nil, errors.New("invalid value for required argument 'ProcessName'")
+	}
+	if args.ProcessVersion == nil {
+		return nil, errors.New("invalid value for required argument 'ProcessVersion'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ResponderRoleSettings == nil {
+		return nil, errors.New("invalid value for required argument 'ResponderRoleSettings'")
+	}
+	if args.RosettaNetProcessConfigurationName == nil {
+		return nil, errors.New("invalid value for required argument 'RosettaNetProcessConfigurationName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

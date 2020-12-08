@@ -38,23 +38,24 @@ type LogProfile struct {
 // NewLogProfile registers a new resource with the given unique name, arguments, and options.
 func NewLogProfile(ctx *pulumi.Context,
 	name string, args *LogProfileArgs, opts ...pulumi.ResourceOption) (*LogProfile, error) {
-	if args == nil || args.Categories == nil {
-		return nil, errors.New("missing required argument 'Categories'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Locations == nil {
-		return nil, errors.New("missing required argument 'Locations'")
-	}
-	if args == nil || args.LogProfileName == nil {
-		return nil, errors.New("missing required argument 'LogProfileName'")
-	}
-	if args == nil || args.RetentionPolicy == nil {
-		return nil, errors.New("missing required argument 'RetentionPolicy'")
-	}
 	if args == nil {
-		args = &LogProfileArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Categories == nil {
+		return nil, errors.New("invalid value for required argument 'Categories'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.Locations == nil {
+		return nil, errors.New("invalid value for required argument 'Locations'")
+	}
+	if args.LogProfileName == nil {
+		return nil, errors.New("invalid value for required argument 'LogProfileName'")
+	}
+	if args.RetentionPolicy == nil {
+		return nil, errors.New("invalid value for required argument 'RetentionPolicy'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

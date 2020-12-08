@@ -36,26 +36,27 @@ type InstancePool struct {
 // NewInstancePool registers a new resource with the given unique name, arguments, and options.
 func NewInstancePool(ctx *pulumi.Context,
 	name string, args *InstancePoolArgs, opts ...pulumi.ResourceOption) (*InstancePool, error) {
-	if args == nil || args.InstancePoolName == nil {
-		return nil, errors.New("missing required argument 'InstancePoolName'")
-	}
-	if args == nil || args.LicenseType == nil {
-		return nil, errors.New("missing required argument 'LicenseType'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SubnetId == nil {
-		return nil, errors.New("missing required argument 'SubnetId'")
-	}
-	if args == nil || args.VCores == nil {
-		return nil, errors.New("missing required argument 'VCores'")
-	}
 	if args == nil {
-		args = &InstancePoolArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.InstancePoolName == nil {
+		return nil, errors.New("invalid value for required argument 'InstancePoolName'")
+	}
+	if args.LicenseType == nil {
+		return nil, errors.New("invalid value for required argument 'LicenseType'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SubnetId == nil {
+		return nil, errors.New("invalid value for required argument 'SubnetId'")
+	}
+	if args.VCores == nil {
+		return nil, errors.New("invalid value for required argument 'VCores'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

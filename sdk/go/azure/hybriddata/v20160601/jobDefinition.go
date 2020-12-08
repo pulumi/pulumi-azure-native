@@ -42,29 +42,27 @@ type JobDefinition struct {
 // NewJobDefinition registers a new resource with the given unique name, arguments, and options.
 func NewJobDefinition(ctx *pulumi.Context,
 	name string, args *JobDefinitionArgs, opts ...pulumi.ResourceOption) (*JobDefinition, error) {
-	if args == nil || args.DataManagerName == nil {
-		return nil, errors.New("missing required argument 'DataManagerName'")
-	}
-	if args == nil || args.DataServiceName == nil {
-		return nil, errors.New("missing required argument 'DataServiceName'")
-	}
-	if args == nil || args.DataSinkId == nil {
-		return nil, errors.New("missing required argument 'DataSinkId'")
-	}
-	if args == nil || args.DataSourceId == nil {
-		return nil, errors.New("missing required argument 'DataSourceId'")
-	}
-	if args == nil || args.JobDefinitionName == nil {
-		return nil, errors.New("missing required argument 'JobDefinitionName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.State == nil {
-		return nil, errors.New("missing required argument 'State'")
-	}
 	if args == nil {
-		args = &JobDefinitionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DataManagerName == nil {
+		return nil, errors.New("invalid value for required argument 'DataManagerName'")
+	}
+	if args.DataServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'DataServiceName'")
+	}
+	if args.DataSinkId == nil {
+		return nil, errors.New("invalid value for required argument 'DataSinkId'")
+	}
+	if args.DataSourceId == nil {
+		return nil, errors.New("invalid value for required argument 'DataSourceId'")
+	}
+	if args.JobDefinitionName == nil {
+		return nil, errors.New("invalid value for required argument 'JobDefinitionName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -200,13 +198,13 @@ type JobDefinitionArgs struct {
 	// The Resource Group Name
 	ResourceGroupName pulumi.StringInput
 	// This is the preferred geo location for the job to run.
-	RunLocation pulumi.StringPtrInput
+	RunLocation RunLocation
 	// Schedule for running the job definition
 	Schedules ScheduleArrayInput
 	// State of the job definition.
-	State pulumi.StringInput
+	State State
 	// Enum to detect if user confirmation is required. If not passed will default to NotRequired.
-	UserConfirmation pulumi.StringPtrInput
+	UserConfirmation UserConfirmation
 }
 
 func (JobDefinitionArgs) ElementType() reflect.Type {

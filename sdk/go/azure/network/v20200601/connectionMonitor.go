@@ -56,17 +56,18 @@ type ConnectionMonitor struct {
 // NewConnectionMonitor registers a new resource with the given unique name, arguments, and options.
 func NewConnectionMonitor(ctx *pulumi.Context,
 	name string, args *ConnectionMonitorArgs, opts ...pulumi.ResourceOption) (*ConnectionMonitor, error) {
-	if args == nil || args.ConnectionMonitorName == nil {
-		return nil, errors.New("missing required argument 'ConnectionMonitorName'")
-	}
-	if args == nil || args.NetworkWatcherName == nil {
-		return nil, errors.New("missing required argument 'NetworkWatcherName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ConnectionMonitorArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ConnectionMonitorName == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectionMonitorName'")
+	}
+	if args.NetworkWatcherName == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkWatcherName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

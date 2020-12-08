@@ -26,23 +26,24 @@ type Trigger struct {
 // NewTrigger registers a new resource with the given unique name, arguments, and options.
 func NewTrigger(ctx *pulumi.Context,
 	name string, args *TriggerArgs, opts ...pulumi.ResourceOption) (*Trigger, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.Kind == nil {
-		return nil, errors.New("missing required argument 'Kind'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ShareSubscriptionName == nil {
-		return nil, errors.New("missing required argument 'ShareSubscriptionName'")
-	}
-	if args == nil || args.TriggerName == nil {
-		return nil, errors.New("missing required argument 'TriggerName'")
-	}
 	if args == nil {
-		args = &TriggerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.Kind == nil {
+		return nil, errors.New("invalid value for required argument 'Kind'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ShareSubscriptionName == nil {
+		return nil, errors.New("invalid value for required argument 'ShareSubscriptionName'")
+	}
+	if args.TriggerName == nil {
+		return nil, errors.New("invalid value for required argument 'TriggerName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

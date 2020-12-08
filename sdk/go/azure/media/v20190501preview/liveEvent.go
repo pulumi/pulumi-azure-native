@@ -52,20 +52,21 @@ type LiveEvent struct {
 // NewLiveEvent registers a new resource with the given unique name, arguments, and options.
 func NewLiveEvent(ctx *pulumi.Context,
 	name string, args *LiveEventArgs, opts ...pulumi.ResourceOption) (*LiveEvent, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.Input == nil {
-		return nil, errors.New("missing required argument 'Input'")
-	}
-	if args == nil || args.LiveEventName == nil {
-		return nil, errors.New("missing required argument 'LiveEventName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &LiveEventArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.Input == nil {
+		return nil, errors.New("invalid value for required argument 'Input'")
+	}
+	if args.LiveEventName == nil {
+		return nil, errors.New("invalid value for required argument 'LiveEventName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

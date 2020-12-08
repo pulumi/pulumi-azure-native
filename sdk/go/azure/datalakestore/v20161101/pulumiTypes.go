@@ -370,7 +370,7 @@ type EncryptionConfigArgs struct {
 	// The Key Vault information for connecting to user managed encryption keys.
 	KeyVaultMetaInfo KeyVaultMetaInfoPtrInput `pulumi:"keyVaultMetaInfo"`
 	// The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type EncryptionConfigType `pulumi:"type"`
 }
 
 func (EncryptionConfigArgs) ElementType() reflect.Type {
@@ -672,7 +672,7 @@ type EncryptionIdentityInput interface {
 // The encryption identity properties.
 type EncryptionIdentityArgs struct {
 	// The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type EncryptionIdentityType `pulumi:"type"`
 }
 
 func (EncryptionIdentityArgs) ElementType() reflect.Type {

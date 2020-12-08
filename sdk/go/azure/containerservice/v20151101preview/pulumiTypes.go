@@ -1190,7 +1190,7 @@ type ContainerServiceOrchestratorProfileInput interface {
 // Profile for Orchestrator
 type ContainerServiceOrchestratorProfileArgs struct {
 	// Specifies what orchestrator will be used to manage container cluster resources.
-	OrchestratorType pulumi.StringPtrInput `pulumi:"orchestratorType"`
+	OrchestratorType ContainerServiceOchestratorTypes `pulumi:"orchestratorType"`
 }
 
 func (ContainerServiceOrchestratorProfileArgs) ElementType() reflect.Type {

@@ -64,53 +64,54 @@ type Assessment struct {
 // NewAssessment registers a new resource with the given unique name, arguments, and options.
 func NewAssessment(ctx *pulumi.Context,
 	name string, args *AssessmentArgs, opts ...pulumi.ResourceOption) (*Assessment, error) {
-	if args == nil || args.AssessmentName == nil {
-		return nil, errors.New("missing required argument 'AssessmentName'")
-	}
-	if args == nil || args.AzureHybridUseBenefit == nil {
-		return nil, errors.New("missing required argument 'AzureHybridUseBenefit'")
-	}
-	if args == nil || args.AzureLocation == nil {
-		return nil, errors.New("missing required argument 'AzureLocation'")
-	}
-	if args == nil || args.AzureOfferCode == nil {
-		return nil, errors.New("missing required argument 'AzureOfferCode'")
-	}
-	if args == nil || args.AzurePricingTier == nil {
-		return nil, errors.New("missing required argument 'AzurePricingTier'")
-	}
-	if args == nil || args.AzureStorageRedundancy == nil {
-		return nil, errors.New("missing required argument 'AzureStorageRedundancy'")
-	}
-	if args == nil || args.Currency == nil {
-		return nil, errors.New("missing required argument 'Currency'")
-	}
-	if args == nil || args.DiscountPercentage == nil {
-		return nil, errors.New("missing required argument 'DiscountPercentage'")
-	}
-	if args == nil || args.GroupName == nil {
-		return nil, errors.New("missing required argument 'GroupName'")
-	}
-	if args == nil || args.Percentile == nil {
-		return nil, errors.New("missing required argument 'Percentile'")
-	}
-	if args == nil || args.ProjectName == nil {
-		return nil, errors.New("missing required argument 'ProjectName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ScalingFactor == nil {
-		return nil, errors.New("missing required argument 'ScalingFactor'")
-	}
-	if args == nil || args.Stage == nil {
-		return nil, errors.New("missing required argument 'Stage'")
-	}
-	if args == nil || args.TimeRange == nil {
-		return nil, errors.New("missing required argument 'TimeRange'")
-	}
 	if args == nil {
-		args = &AssessmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AssessmentName == nil {
+		return nil, errors.New("invalid value for required argument 'AssessmentName'")
+	}
+	if args.AzureHybridUseBenefit == nil {
+		return nil, errors.New("invalid value for required argument 'AzureHybridUseBenefit'")
+	}
+	if args.AzureLocation == nil {
+		return nil, errors.New("invalid value for required argument 'AzureLocation'")
+	}
+	if args.AzureOfferCode == nil {
+		return nil, errors.New("invalid value for required argument 'AzureOfferCode'")
+	}
+	if args.AzurePricingTier == nil {
+		return nil, errors.New("invalid value for required argument 'AzurePricingTier'")
+	}
+	if args.AzureStorageRedundancy == nil {
+		return nil, errors.New("invalid value for required argument 'AzureStorageRedundancy'")
+	}
+	if args.Currency == nil {
+		return nil, errors.New("invalid value for required argument 'Currency'")
+	}
+	if args.DiscountPercentage == nil {
+		return nil, errors.New("invalid value for required argument 'DiscountPercentage'")
+	}
+	if args.GroupName == nil {
+		return nil, errors.New("invalid value for required argument 'GroupName'")
+	}
+	if args.Percentile == nil {
+		return nil, errors.New("invalid value for required argument 'Percentile'")
+	}
+	if args.ProjectName == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ScalingFactor == nil {
+		return nil, errors.New("invalid value for required argument 'ScalingFactor'")
+	}
+	if args.Stage == nil {
+		return nil, errors.New("invalid value for required argument 'Stage'")
+	}
+	if args.TimeRange == nil {
+		return nil, errors.New("invalid value for required argument 'TimeRange'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

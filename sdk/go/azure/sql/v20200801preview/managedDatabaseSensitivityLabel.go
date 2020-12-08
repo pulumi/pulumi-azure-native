@@ -43,29 +43,30 @@ type ManagedDatabaseSensitivityLabel struct {
 // NewManagedDatabaseSensitivityLabel registers a new resource with the given unique name, arguments, and options.
 func NewManagedDatabaseSensitivityLabel(ctx *pulumi.Context,
 	name string, args *ManagedDatabaseSensitivityLabelArgs, opts ...pulumi.ResourceOption) (*ManagedDatabaseSensitivityLabel, error) {
-	if args == nil || args.ColumnName == nil {
-		return nil, errors.New("missing required argument 'ColumnName'")
-	}
-	if args == nil || args.DatabaseName == nil {
-		return nil, errors.New("missing required argument 'DatabaseName'")
-	}
-	if args == nil || args.ManagedInstanceName == nil {
-		return nil, errors.New("missing required argument 'ManagedInstanceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SchemaName == nil {
-		return nil, errors.New("missing required argument 'SchemaName'")
-	}
-	if args == nil || args.SensitivityLabelSource == nil {
-		return nil, errors.New("missing required argument 'SensitivityLabelSource'")
-	}
-	if args == nil || args.TableName == nil {
-		return nil, errors.New("missing required argument 'TableName'")
-	}
 	if args == nil {
-		args = &ManagedDatabaseSensitivityLabelArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ColumnName == nil {
+		return nil, errors.New("invalid value for required argument 'ColumnName'")
+	}
+	if args.DatabaseName == nil {
+		return nil, errors.New("invalid value for required argument 'DatabaseName'")
+	}
+	if args.ManagedInstanceName == nil {
+		return nil, errors.New("invalid value for required argument 'ManagedInstanceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SchemaName == nil {
+		return nil, errors.New("invalid value for required argument 'SchemaName'")
+	}
+	if args.SensitivityLabelSource == nil {
+		return nil, errors.New("invalid value for required argument 'SensitivityLabelSource'")
+	}
+	if args.TableName == nil {
+		return nil, errors.New("invalid value for required argument 'TableName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -192,7 +193,7 @@ type ManagedDatabaseSensitivityLabelArgs struct {
 	LabelName pulumi.StringPtrInput
 	// The name of the managed instance.
 	ManagedInstanceName pulumi.StringInput
-	Rank                pulumi.StringPtrInput
+	Rank                SensitivityLabelRank
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// The name of the schema.

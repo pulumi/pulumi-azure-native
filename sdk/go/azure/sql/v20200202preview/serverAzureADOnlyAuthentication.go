@@ -26,20 +26,21 @@ type ServerAzureADOnlyAuthentication struct {
 // NewServerAzureADOnlyAuthentication registers a new resource with the given unique name, arguments, and options.
 func NewServerAzureADOnlyAuthentication(ctx *pulumi.Context,
 	name string, args *ServerAzureADOnlyAuthenticationArgs, opts ...pulumi.ResourceOption) (*ServerAzureADOnlyAuthentication, error) {
-	if args == nil || args.AuthenticationName == nil {
-		return nil, errors.New("missing required argument 'AuthenticationName'")
-	}
-	if args == nil || args.AzureADOnlyAuthentication == nil {
-		return nil, errors.New("missing required argument 'AzureADOnlyAuthentication'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServerName == nil {
-		return nil, errors.New("missing required argument 'ServerName'")
-	}
 	if args == nil {
-		args = &ServerAzureADOnlyAuthenticationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AuthenticationName == nil {
+		return nil, errors.New("invalid value for required argument 'AuthenticationName'")
+	}
+	if args.AzureADOnlyAuthentication == nil {
+		return nil, errors.New("invalid value for required argument 'AzureADOnlyAuthentication'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServerName == nil {
+		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

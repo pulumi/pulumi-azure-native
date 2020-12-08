@@ -34,17 +34,18 @@ type HybridUseBenefit struct {
 // NewHybridUseBenefit registers a new resource with the given unique name, arguments, and options.
 func NewHybridUseBenefit(ctx *pulumi.Context,
 	name string, args *HybridUseBenefitArgs, opts ...pulumi.ResourceOption) (*HybridUseBenefit, error) {
-	if args == nil || args.PlanId == nil {
-		return nil, errors.New("missing required argument 'PlanId'")
-	}
-	if args == nil || args.Scope == nil {
-		return nil, errors.New("missing required argument 'Scope'")
-	}
-	if args == nil || args.Sku == nil {
-		return nil, errors.New("missing required argument 'Sku'")
-	}
 	if args == nil {
-		args = &HybridUseBenefitArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PlanId == nil {
+		return nil, errors.New("invalid value for required argument 'PlanId'")
+	}
+	if args.Scope == nil {
+		return nil, errors.New("invalid value for required argument 'Scope'")
+	}
+	if args.Sku == nil {
+		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

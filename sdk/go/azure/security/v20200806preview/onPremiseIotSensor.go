@@ -24,11 +24,12 @@ type OnPremiseIotSensor struct {
 // NewOnPremiseIotSensor registers a new resource with the given unique name, arguments, and options.
 func NewOnPremiseIotSensor(ctx *pulumi.Context,
 	name string, args *OnPremiseIotSensorArgs, opts ...pulumi.ResourceOption) (*OnPremiseIotSensor, error) {
-	if args == nil || args.OnPremiseIotSensorName == nil {
-		return nil, errors.New("missing required argument 'OnPremiseIotSensorName'")
-	}
 	if args == nil {
-		args = &OnPremiseIotSensorArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.OnPremiseIotSensorName == nil {
+		return nil, errors.New("invalid value for required argument 'OnPremiseIotSensorName'")
 	}
 	var resource OnPremiseIotSensor
 	err := ctx.RegisterResource("azure-nextgen:security/v20200806preview:OnPremiseIotSensor", name, args, &resource, opts...)

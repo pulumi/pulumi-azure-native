@@ -44,20 +44,18 @@ type Map struct {
 // NewMap registers a new resource with the given unique name, arguments, and options.
 func NewMap(ctx *pulumi.Context,
 	name string, args *MapArgs, opts ...pulumi.ResourceOption) (*Map, error) {
-	if args == nil || args.IntegrationAccountName == nil {
-		return nil, errors.New("missing required argument 'IntegrationAccountName'")
-	}
-	if args == nil || args.MapName == nil {
-		return nil, errors.New("missing required argument 'MapName'")
-	}
-	if args == nil || args.MapType == nil {
-		return nil, errors.New("missing required argument 'MapType'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &MapArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.IntegrationAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'IntegrationAccountName'")
+	}
+	if args.MapName == nil {
+		return nil, errors.New("invalid value for required argument 'MapName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -189,7 +187,7 @@ type MapArgs struct {
 	// The integration account map name.
 	MapName pulumi.StringInput
 	// The map type.
-	MapType pulumi.StringInput
+	MapType MapType
 	// The metadata.
 	Metadata pulumi.Input
 	// The parameters schema of integration account map.

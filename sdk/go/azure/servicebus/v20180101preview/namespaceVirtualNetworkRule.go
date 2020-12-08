@@ -26,17 +26,18 @@ type NamespaceVirtualNetworkRule struct {
 // NewNamespaceVirtualNetworkRule registers a new resource with the given unique name, arguments, and options.
 func NewNamespaceVirtualNetworkRule(ctx *pulumi.Context,
 	name string, args *NamespaceVirtualNetworkRuleArgs, opts ...pulumi.ResourceOption) (*NamespaceVirtualNetworkRule, error) {
-	if args == nil || args.NamespaceName == nil {
-		return nil, errors.New("missing required argument 'NamespaceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VirtualNetworkRuleName == nil {
-		return nil, errors.New("missing required argument 'VirtualNetworkRuleName'")
-	}
 	if args == nil {
-		args = &NamespaceVirtualNetworkRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.NamespaceName == nil {
+		return nil, errors.New("invalid value for required argument 'NamespaceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VirtualNetworkRuleName == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualNetworkRuleName'")
 	}
 	var resource NamespaceVirtualNetworkRule
 	err := ctx.RegisterResource("azure-nextgen:servicebus/v20180101preview:NamespaceVirtualNetworkRule", name, args, &resource, opts...)

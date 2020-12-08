@@ -28,26 +28,27 @@ type ApiOperationPolicy struct {
 // NewApiOperationPolicy registers a new resource with the given unique name, arguments, and options.
 func NewApiOperationPolicy(ctx *pulumi.Context,
 	name string, args *ApiOperationPolicyArgs, opts ...pulumi.ResourceOption) (*ApiOperationPolicy, error) {
-	if args == nil || args.ApiId == nil {
-		return nil, errors.New("missing required argument 'ApiId'")
-	}
-	if args == nil || args.OperationId == nil {
-		return nil, errors.New("missing required argument 'OperationId'")
-	}
-	if args == nil || args.PolicyContent == nil {
-		return nil, errors.New("missing required argument 'PolicyContent'")
-	}
-	if args == nil || args.PolicyId == nil {
-		return nil, errors.New("missing required argument 'PolicyId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
 	if args == nil {
-		args = &ApiOperationPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApiId == nil {
+		return nil, errors.New("invalid value for required argument 'ApiId'")
+	}
+	if args.OperationId == nil {
+		return nil, errors.New("invalid value for required argument 'OperationId'")
+	}
+	if args.PolicyContent == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyContent'")
+	}
+	if args.PolicyId == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

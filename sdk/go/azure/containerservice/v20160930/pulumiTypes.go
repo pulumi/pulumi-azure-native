@@ -1458,7 +1458,7 @@ type ContainerServiceOrchestratorProfileInput interface {
 // Profile for the container service orchestrator.
 type ContainerServiceOrchestratorProfileArgs struct {
 	// The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
-	OrchestratorType pulumi.StringInput `pulumi:"orchestratorType"`
+	OrchestratorType ContainerServiceOchestratorTypes `pulumi:"orchestratorType"`
 }
 
 func (ContainerServiceOrchestratorProfileArgs) ElementType() reflect.Type {

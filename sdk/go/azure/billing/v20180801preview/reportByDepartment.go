@@ -34,20 +34,21 @@ type ReportByDepartment struct {
 // NewReportByDepartment registers a new resource with the given unique name, arguments, and options.
 func NewReportByDepartment(ctx *pulumi.Context,
 	name string, args *ReportByDepartmentArgs, opts ...pulumi.ResourceOption) (*ReportByDepartment, error) {
-	if args == nil || args.Definition == nil {
-		return nil, errors.New("missing required argument 'Definition'")
-	}
-	if args == nil || args.DeliveryInfo == nil {
-		return nil, errors.New("missing required argument 'DeliveryInfo'")
-	}
-	if args == nil || args.DepartmentId == nil {
-		return nil, errors.New("missing required argument 'DepartmentId'")
-	}
-	if args == nil || args.ReportName == nil {
-		return nil, errors.New("missing required argument 'ReportName'")
-	}
 	if args == nil {
-		args = &ReportByDepartmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Definition == nil {
+		return nil, errors.New("invalid value for required argument 'Definition'")
+	}
+	if args.DeliveryInfo == nil {
+		return nil, errors.New("invalid value for required argument 'DeliveryInfo'")
+	}
+	if args.DepartmentId == nil {
+		return nil, errors.New("invalid value for required argument 'DepartmentId'")
+	}
+	if args.ReportName == nil {
+		return nil, errors.New("invalid value for required argument 'ReportName'")
 	}
 	var resource ReportByDepartment
 	err := ctx.RegisterResource("azure-nextgen:billing/v20180801preview:ReportByDepartment", name, args, &resource, opts...)

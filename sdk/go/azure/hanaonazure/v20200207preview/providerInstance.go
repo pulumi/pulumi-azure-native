@@ -30,17 +30,18 @@ type ProviderInstance struct {
 // NewProviderInstance registers a new resource with the given unique name, arguments, and options.
 func NewProviderInstance(ctx *pulumi.Context,
 	name string, args *ProviderInstanceArgs, opts ...pulumi.ResourceOption) (*ProviderInstance, error) {
-	if args == nil || args.ProviderInstanceName == nil {
-		return nil, errors.New("missing required argument 'ProviderInstanceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SapMonitorName == nil {
-		return nil, errors.New("missing required argument 'SapMonitorName'")
-	}
 	if args == nil {
-		args = &ProviderInstanceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ProviderInstanceName == nil {
+		return nil, errors.New("invalid value for required argument 'ProviderInstanceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SapMonitorName == nil {
+		return nil, errors.New("invalid value for required argument 'SapMonitorName'")
 	}
 	var resource ProviderInstance
 	err := ctx.RegisterResource("azure-nextgen:hanaonazure/v20200207preview:ProviderInstance", name, args, &resource, opts...)

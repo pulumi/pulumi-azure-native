@@ -32,14 +32,15 @@ type MigrateProject struct {
 // NewMigrateProject registers a new resource with the given unique name, arguments, and options.
 func NewMigrateProject(ctx *pulumi.Context,
 	name string, args *MigrateProjectArgs, opts ...pulumi.ResourceOption) (*MigrateProject, error) {
-	if args == nil || args.MigrateProjectName == nil {
-		return nil, errors.New("missing required argument 'MigrateProjectName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &MigrateProjectArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.MigrateProjectName == nil {
+		return nil, errors.New("invalid value for required argument 'MigrateProjectName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource MigrateProject
 	err := ctx.RegisterResource("azure-nextgen:migrate/v20180901preview:MigrateProject", name, args, &resource, opts...)

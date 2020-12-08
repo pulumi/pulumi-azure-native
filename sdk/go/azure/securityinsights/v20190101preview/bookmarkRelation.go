@@ -34,26 +34,27 @@ type BookmarkRelation struct {
 // NewBookmarkRelation registers a new resource with the given unique name, arguments, and options.
 func NewBookmarkRelation(ctx *pulumi.Context,
 	name string, args *BookmarkRelationArgs, opts ...pulumi.ResourceOption) (*BookmarkRelation, error) {
-	if args == nil || args.BookmarkId == nil {
-		return nil, errors.New("missing required argument 'BookmarkId'")
-	}
-	if args == nil || args.OperationalInsightsResourceProvider == nil {
-		return nil, errors.New("missing required argument 'OperationalInsightsResourceProvider'")
-	}
-	if args == nil || args.RelatedResourceId == nil {
-		return nil, errors.New("missing required argument 'RelatedResourceId'")
-	}
-	if args == nil || args.RelationName == nil {
-		return nil, errors.New("missing required argument 'RelationName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &BookmarkRelationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BookmarkId == nil {
+		return nil, errors.New("invalid value for required argument 'BookmarkId'")
+	}
+	if args.OperationalInsightsResourceProvider == nil {
+		return nil, errors.New("invalid value for required argument 'OperationalInsightsResourceProvider'")
+	}
+	if args.RelatedResourceId == nil {
+		return nil, errors.New("invalid value for required argument 'RelatedResourceId'")
+	}
+	if args.RelationName == nil {
+		return nil, errors.New("invalid value for required argument 'RelationName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	var resource BookmarkRelation
 	err := ctx.RegisterResource("azure-nextgen:securityinsights/v20190101preview:BookmarkRelation", name, args, &resource, opts...)

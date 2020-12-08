@@ -30,17 +30,18 @@ type ServiceTopology struct {
 // NewServiceTopology registers a new resource with the given unique name, arguments, and options.
 func NewServiceTopology(ctx *pulumi.Context,
 	name string, args *ServiceTopologyArgs, opts ...pulumi.ResourceOption) (*ServiceTopology, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceTopologyName == nil {
-		return nil, errors.New("missing required argument 'ServiceTopologyName'")
-	}
 	if args == nil {
-		args = &ServiceTopologyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceTopologyName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceTopologyName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

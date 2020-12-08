@@ -32,20 +32,21 @@ type ServerCommunicationLink struct {
 // NewServerCommunicationLink registers a new resource with the given unique name, arguments, and options.
 func NewServerCommunicationLink(ctx *pulumi.Context,
 	name string, args *ServerCommunicationLinkArgs, opts ...pulumi.ResourceOption) (*ServerCommunicationLink, error) {
-	if args == nil || args.CommunicationLinkName == nil {
-		return nil, errors.New("missing required argument 'CommunicationLinkName'")
-	}
-	if args == nil || args.PartnerServer == nil {
-		return nil, errors.New("missing required argument 'PartnerServer'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServerName == nil {
-		return nil, errors.New("missing required argument 'ServerName'")
-	}
 	if args == nil {
-		args = &ServerCommunicationLinkArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CommunicationLinkName == nil {
+		return nil, errors.New("invalid value for required argument 'CommunicationLinkName'")
+	}
+	if args.PartnerServer == nil {
+		return nil, errors.New("invalid value for required argument 'PartnerServer'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServerName == nil {
+		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

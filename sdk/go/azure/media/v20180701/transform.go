@@ -32,20 +32,21 @@ type Transform struct {
 // NewTransform registers a new resource with the given unique name, arguments, and options.
 func NewTransform(ctx *pulumi.Context,
 	name string, args *TransformArgs, opts ...pulumi.ResourceOption) (*Transform, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.Outputs == nil {
-		return nil, errors.New("missing required argument 'Outputs'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.TransformName == nil {
-		return nil, errors.New("missing required argument 'TransformName'")
-	}
 	if args == nil {
-		args = &TransformArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.Outputs == nil {
+		return nil, errors.New("invalid value for required argument 'Outputs'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.TransformName == nil {
+		return nil, errors.New("invalid value for required argument 'TransformName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

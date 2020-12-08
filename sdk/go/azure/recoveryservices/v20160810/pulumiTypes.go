@@ -162,7 +162,7 @@ type A2APolicyCreationInputArgs struct {
 	// The class type.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-	MultiVmSyncStatus pulumi.StringInput `pulumi:"multiVmSyncStatus"`
+	MultiVmSyncStatus SetMultiVmSyncStatus `pulumi:"multiVmSyncStatus"`
 	// The duration in minutes until which the recovery points need to be stored.
 	RecoveryPointHistory pulumi.IntPtrInput `pulumi:"recoveryPointHistory"`
 }
@@ -2540,7 +2540,7 @@ type CreateRecoveryPlanInputPropertiesInput interface {
 // Recovery plan creation properties.
 type CreateRecoveryPlanInputPropertiesArgs struct {
 	// The failover deployment model.
-	FailoverDeploymentModel pulumi.StringPtrInput `pulumi:"failoverDeploymentModel"`
+	FailoverDeploymentModel FailoverDeploymentModel `pulumi:"failoverDeploymentModel"`
 	// The recovery plan groups.
 	Groups RecoveryPlanGroupArrayInput `pulumi:"groups"`
 	// The primary fabric Id.
@@ -6254,7 +6254,7 @@ type InMageAzureV2PolicyInputArgs struct {
 	// The class type.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-	MultiVmSyncStatus pulumi.StringInput `pulumi:"multiVmSyncStatus"`
+	MultiVmSyncStatus SetMultiVmSyncStatus `pulumi:"multiVmSyncStatus"`
 	// The duration in minutes until which the recovery points need to be stored.
 	RecoveryPointHistory pulumi.IntPtrInput `pulumi:"recoveryPointHistory"`
 	// The recovery point threshold in minutes.
@@ -7638,7 +7638,7 @@ type InMagePolicyInputArgs struct {
 	// The class type.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
-	MultiVmSyncStatus pulumi.StringInput `pulumi:"multiVmSyncStatus"`
+	MultiVmSyncStatus SetMultiVmSyncStatus `pulumi:"multiVmSyncStatus"`
 	// The duration in minutes until which the recovery points need to be stored.
 	RecoveryPointHistory pulumi.IntPtrInput `pulumi:"recoveryPointHistory"`
 	// The recovery point threshold in minutes.
@@ -10769,9 +10769,9 @@ type RecoveryPlanActionArgs struct {
 	// The action name.
 	ActionName pulumi.StringInput `pulumi:"actionName"`
 	// The list of failover directions.
-	FailoverDirections pulumi.StringArrayInput `pulumi:"failoverDirections"`
+	FailoverDirections PossibleOperationsDirectionsArrayInput `pulumi:"failoverDirections"`
 	// The list of failover types.
-	FailoverTypes pulumi.StringArrayInput `pulumi:"failoverTypes"`
+	FailoverTypes ReplicationProtectedItemOperationArrayInput `pulumi:"failoverTypes"`
 }
 
 func (RecoveryPlanActionArgs) ElementType() reflect.Type {
@@ -11098,7 +11098,7 @@ type RecoveryPlanGroupArgs struct {
 	// The end group actions.
 	EndGroupActions RecoveryPlanActionArrayInput `pulumi:"endGroupActions"`
 	// The group type.
-	GroupType pulumi.StringInput `pulumi:"groupType"`
+	GroupType RecoveryPlanGroupType `pulumi:"groupType"`
 	// The list of protected items.
 	ReplicationProtectedItems RecoveryPlanProtectedItemArrayInput `pulumi:"replicationProtectedItems"`
 	// The start group actions.

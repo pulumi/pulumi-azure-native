@@ -44,23 +44,24 @@ type StreamingLocator struct {
 // NewStreamingLocator registers a new resource with the given unique name, arguments, and options.
 func NewStreamingLocator(ctx *pulumi.Context,
 	name string, args *StreamingLocatorArgs, opts ...pulumi.ResourceOption) (*StreamingLocator, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.AssetName == nil {
-		return nil, errors.New("missing required argument 'AssetName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.StreamingLocatorName == nil {
-		return nil, errors.New("missing required argument 'StreamingLocatorName'")
-	}
-	if args == nil || args.StreamingPolicyName == nil {
-		return nil, errors.New("missing required argument 'StreamingPolicyName'")
-	}
 	if args == nil {
-		args = &StreamingLocatorArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.AssetName == nil {
+		return nil, errors.New("invalid value for required argument 'AssetName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.StreamingLocatorName == nil {
+		return nil, errors.New("invalid value for required argument 'StreamingLocatorName'")
+	}
+	if args.StreamingPolicyName == nil {
+		return nil, errors.New("invalid value for required argument 'StreamingPolicyName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

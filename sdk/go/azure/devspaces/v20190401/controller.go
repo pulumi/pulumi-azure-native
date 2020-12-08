@@ -41,26 +41,27 @@ type Controller struct {
 // NewController registers a new resource with the given unique name, arguments, and options.
 func NewController(ctx *pulumi.Context,
 	name string, args *ControllerArgs, opts ...pulumi.ResourceOption) (*Controller, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Sku == nil {
-		return nil, errors.New("missing required argument 'Sku'")
-	}
-	if args == nil || args.TargetContainerHostCredentialsBase64 == nil {
-		return nil, errors.New("missing required argument 'TargetContainerHostCredentialsBase64'")
-	}
-	if args == nil || args.TargetContainerHostResourceId == nil {
-		return nil, errors.New("missing required argument 'TargetContainerHostResourceId'")
-	}
 	if args == nil {
-		args = &ControllerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Sku == nil {
+		return nil, errors.New("invalid value for required argument 'Sku'")
+	}
+	if args.TargetContainerHostCredentialsBase64 == nil {
+		return nil, errors.New("invalid value for required argument 'TargetContainerHostCredentialsBase64'")
+	}
+	if args.TargetContainerHostResourceId == nil {
+		return nil, errors.New("invalid value for required argument 'TargetContainerHostResourceId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

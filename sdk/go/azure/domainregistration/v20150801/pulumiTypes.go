@@ -1416,11 +1416,11 @@ type HostNameArgs struct {
 	// Name of the Azure resource the hostname is assigned to. If it is assigned to a traffic manager then it will be the traffic manager name otherwise it will be the website name
 	AzureResourceName pulumi.StringPtrInput `pulumi:"azureResourceName"`
 	// Type of the Azure resource the hostname is assigned to
-	AzureResourceType pulumi.StringPtrInput `pulumi:"azureResourceType"`
+	AzureResourceType AzureResourceType `pulumi:"azureResourceType"`
 	// Type of the Dns record
-	CustomHostNameDnsRecordType pulumi.StringPtrInput `pulumi:"customHostNameDnsRecordType"`
+	CustomHostNameDnsRecordType CustomHostNameDnsRecordType `pulumi:"customHostNameDnsRecordType"`
 	// Type of the hostname
-	HostNameType pulumi.StringPtrInput `pulumi:"hostNameType"`
+	HostNameType HostNameType `pulumi:"hostNameType"`
 	// Name of the hostname
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// List of sites the hostname is assigned to. This list will have more than one site only if the hostname is pointing to a Traffic Manager

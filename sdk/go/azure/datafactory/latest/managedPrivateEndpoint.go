@@ -28,23 +28,24 @@ type ManagedPrivateEndpoint struct {
 // NewManagedPrivateEndpoint registers a new resource with the given unique name, arguments, and options.
 func NewManagedPrivateEndpoint(ctx *pulumi.Context,
 	name string, args *ManagedPrivateEndpointArgs, opts ...pulumi.ResourceOption) (*ManagedPrivateEndpoint, error) {
-	if args == nil || args.FactoryName == nil {
-		return nil, errors.New("missing required argument 'FactoryName'")
-	}
-	if args == nil || args.ManagedPrivateEndpointName == nil {
-		return nil, errors.New("missing required argument 'ManagedPrivateEndpointName'")
-	}
-	if args == nil || args.ManagedVirtualNetworkName == nil {
-		return nil, errors.New("missing required argument 'ManagedVirtualNetworkName'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ManagedPrivateEndpointArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.FactoryName == nil {
+		return nil, errors.New("invalid value for required argument 'FactoryName'")
+	}
+	if args.ManagedPrivateEndpointName == nil {
+		return nil, errors.New("invalid value for required argument 'ManagedPrivateEndpointName'")
+	}
+	if args.ManagedVirtualNetworkName == nil {
+		return nil, errors.New("invalid value for required argument 'ManagedVirtualNetworkName'")
+	}
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

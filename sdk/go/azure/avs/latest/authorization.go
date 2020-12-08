@@ -30,17 +30,18 @@ type Authorization struct {
 // NewAuthorization registers a new resource with the given unique name, arguments, and options.
 func NewAuthorization(ctx *pulumi.Context,
 	name string, args *AuthorizationArgs, opts ...pulumi.ResourceOption) (*Authorization, error) {
-	if args == nil || args.AuthorizationName == nil {
-		return nil, errors.New("missing required argument 'AuthorizationName'")
-	}
-	if args == nil || args.PrivateCloudName == nil {
-		return nil, errors.New("missing required argument 'PrivateCloudName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &AuthorizationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AuthorizationName == nil {
+		return nil, errors.New("invalid value for required argument 'AuthorizationName'")
+	}
+	if args.PrivateCloudName == nil {
+		return nil, errors.New("invalid value for required argument 'PrivateCloudName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

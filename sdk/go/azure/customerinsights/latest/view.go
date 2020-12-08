@@ -38,20 +38,21 @@ type View struct {
 // NewView registers a new resource with the given unique name, arguments, and options.
 func NewView(ctx *pulumi.Context,
 	name string, args *ViewArgs, opts ...pulumi.ResourceOption) (*View, error) {
-	if args == nil || args.Definition == nil {
-		return nil, errors.New("missing required argument 'Definition'")
-	}
-	if args == nil || args.HubName == nil {
-		return nil, errors.New("missing required argument 'HubName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ViewName == nil {
-		return nil, errors.New("missing required argument 'ViewName'")
-	}
 	if args == nil {
-		args = &ViewArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Definition == nil {
+		return nil, errors.New("invalid value for required argument 'Definition'")
+	}
+	if args.HubName == nil {
+		return nil, errors.New("invalid value for required argument 'HubName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ViewName == nil {
+		return nil, errors.New("invalid value for required argument 'ViewName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

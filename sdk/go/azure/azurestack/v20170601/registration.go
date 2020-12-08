@@ -36,20 +36,21 @@ type Registration struct {
 // NewRegistration registers a new resource with the given unique name, arguments, and options.
 func NewRegistration(ctx *pulumi.Context,
 	name string, args *RegistrationArgs, opts ...pulumi.ResourceOption) (*Registration, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.RegistrationName == nil {
-		return nil, errors.New("missing required argument 'RegistrationName'")
-	}
-	if args == nil || args.RegistrationToken == nil {
-		return nil, errors.New("missing required argument 'RegistrationToken'")
-	}
-	if args == nil || args.ResourceGroup == nil {
-		return nil, errors.New("missing required argument 'ResourceGroup'")
-	}
 	if args == nil {
-		args = &RegistrationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.RegistrationName == nil {
+		return nil, errors.New("invalid value for required argument 'RegistrationName'")
+	}
+	if args.RegistrationToken == nil {
+		return nil, errors.New("invalid value for required argument 'RegistrationToken'")
+	}
+	if args.ResourceGroup == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroup'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

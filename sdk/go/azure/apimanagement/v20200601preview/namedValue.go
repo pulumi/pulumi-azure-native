@@ -34,20 +34,21 @@ type NamedValue struct {
 // NewNamedValue registers a new resource with the given unique name, arguments, and options.
 func NewNamedValue(ctx *pulumi.Context,
 	name string, args *NamedValueArgs, opts ...pulumi.ResourceOption) (*NamedValue, error) {
-	if args == nil || args.DisplayName == nil {
-		return nil, errors.New("missing required argument 'DisplayName'")
-	}
-	if args == nil || args.NamedValueId == nil {
-		return nil, errors.New("missing required argument 'NamedValueId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
 	if args == nil {
-		args = &NamedValueArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DisplayName == nil {
+		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
+	if args.NamedValueId == nil {
+		return nil, errors.New("invalid value for required argument 'NamedValueId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -44,20 +44,21 @@ type WebAppDeploymentSlot struct {
 // NewWebAppDeploymentSlot registers a new resource with the given unique name, arguments, and options.
 func NewWebAppDeploymentSlot(ctx *pulumi.Context,
 	name string, args *WebAppDeploymentSlotArgs, opts ...pulumi.ResourceOption) (*WebAppDeploymentSlot, error) {
-	if args == nil || args.Id == nil {
-		return nil, errors.New("missing required argument 'Id'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Slot == nil {
-		return nil, errors.New("missing required argument 'Slot'")
-	}
 	if args == nil {
-		args = &WebAppDeploymentSlotArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Id == nil {
+		return nil, errors.New("invalid value for required argument 'Id'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Slot == nil {
+		return nil, errors.New("invalid value for required argument 'Slot'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

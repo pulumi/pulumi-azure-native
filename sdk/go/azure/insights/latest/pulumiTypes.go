@@ -2008,7 +2008,7 @@ type AutoscaleNotificationArgs struct {
 	// the email notification.
 	Email EmailNotificationPtrInput `pulumi:"email"`
 	// the operation associated with the notification and its value must be "scale"
-	Operation pulumi.StringInput `pulumi:"operation"`
+	Operation OperationType `pulumi:"operation"`
 	// the collection of webhook notifications.
 	Webhooks WebhookNotificationArrayInput `pulumi:"webhooks"`
 }
@@ -6296,7 +6296,7 @@ type ManagementEventAggregationConditionInput interface {
 // How the data that is collected should be combined over time.
 type ManagementEventAggregationConditionArgs struct {
 	// the condition operator.
-	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	Operator ConditionOperator `pulumi:"operator"`
 	// The threshold value that activates the alert.
 	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
 	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
@@ -7868,13 +7868,13 @@ type MetricTriggerArgs struct {
 	// the resource identifier of the resource the rule monitors.
 	MetricResourceUri pulumi.StringInput `pulumi:"metricResourceUri"`
 	// the operator that is used to compare the metric data and the threshold.
-	Operator pulumi.StringInput `pulumi:"operator"`
+	Operator ComparisonOperationType `pulumi:"operator"`
 	// the metric statistic type. How the metrics from multiple instances are combined.
-	Statistic pulumi.StringInput `pulumi:"statistic"`
+	Statistic MetricStatisticType `pulumi:"statistic"`
 	// the threshold of the metric that triggers the scale action.
 	Threshold pulumi.Float64Input `pulumi:"threshold"`
 	// time aggregation type. How the data that is collected should be combined over time. The default value is Average.
-	TimeAggregation pulumi.StringInput `pulumi:"timeAggregation"`
+	TimeAggregation TimeAggregationType `pulumi:"timeAggregation"`
 	// the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
 	TimeGrain pulumi.StringInput `pulumi:"timeGrain"`
 	// the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
@@ -8225,7 +8225,7 @@ type RecurrenceInput interface {
 // The repeating times at which this profile begins. This element is not used if the FixedDate element is used.
 type RecurrenceArgs struct {
 	// the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
-	Frequency pulumi.StringInput `pulumi:"frequency"`
+	Frequency RecurrenceFrequency `pulumi:"frequency"`
 	// the scheduling constraints for when the profile begins.
 	Schedule RecurrentScheduleInput `pulumi:"schedule"`
 }
@@ -10225,9 +10225,9 @@ type ScaleActionArgs struct {
 	// the amount of time to wait since the last scaling action before this action occurs. It must be between 1 week and 1 minute in ISO 8601 format.
 	Cooldown pulumi.StringInput `pulumi:"cooldown"`
 	// the scale direction. Whether the scaling action increases or decreases the number of instances.
-	Direction pulumi.StringInput `pulumi:"direction"`
+	Direction ScaleDirection `pulumi:"direction"`
 	// the type of action that should occur when the scale rule fires.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type ScaleType `pulumi:"type"`
 	// the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
@@ -11928,11 +11928,11 @@ type ThresholdRuleConditionArgs struct {
 	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// the operator used to compare the data and the threshold.
-	Operator pulumi.StringInput `pulumi:"operator"`
+	Operator ConditionOperator `pulumi:"operator"`
 	// the threshold value that activates the alert.
 	Threshold pulumi.Float64Input `pulumi:"threshold"`
 	// the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
-	TimeAggregation pulumi.StringPtrInput `pulumi:"timeAggregation"`
+	TimeAggregation TimeAggregationOperator `pulumi:"timeAggregation"`
 	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
 	WindowSize pulumi.StringPtrInput `pulumi:"windowSize"`
 }

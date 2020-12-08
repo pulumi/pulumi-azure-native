@@ -38,29 +38,30 @@ type Rollout struct {
 // NewRollout registers a new resource with the given unique name, arguments, and options.
 func NewRollout(ctx *pulumi.Context,
 	name string, args *RolloutArgs, opts ...pulumi.ResourceOption) (*Rollout, error) {
-	if args == nil || args.BuildVersion == nil {
-		return nil, errors.New("missing required argument 'BuildVersion'")
-	}
-	if args == nil || args.Identity == nil {
-		return nil, errors.New("missing required argument 'Identity'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.RolloutName == nil {
-		return nil, errors.New("missing required argument 'RolloutName'")
-	}
-	if args == nil || args.StepGroups == nil {
-		return nil, errors.New("missing required argument 'StepGroups'")
-	}
-	if args == nil || args.TargetServiceTopologyId == nil {
-		return nil, errors.New("missing required argument 'TargetServiceTopologyId'")
-	}
 	if args == nil {
-		args = &RolloutArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BuildVersion == nil {
+		return nil, errors.New("invalid value for required argument 'BuildVersion'")
+	}
+	if args.Identity == nil {
+		return nil, errors.New("invalid value for required argument 'Identity'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.RolloutName == nil {
+		return nil, errors.New("invalid value for required argument 'RolloutName'")
+	}
+	if args.StepGroups == nil {
+		return nil, errors.New("invalid value for required argument 'StepGroups'")
+	}
+	if args.TargetServiceTopologyId == nil {
+		return nil, errors.New("invalid value for required argument 'TargetServiceTopologyId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

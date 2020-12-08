@@ -50,20 +50,21 @@ type RecordSet struct {
 // NewRecordSet registers a new resource with the given unique name, arguments, and options.
 func NewRecordSet(ctx *pulumi.Context,
 	name string, args *RecordSetArgs, opts ...pulumi.ResourceOption) (*RecordSet, error) {
-	if args == nil || args.RecordType == nil {
-		return nil, errors.New("missing required argument 'RecordType'")
-	}
-	if args == nil || args.RelativeRecordSetName == nil {
-		return nil, errors.New("missing required argument 'RelativeRecordSetName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ZoneName == nil {
-		return nil, errors.New("missing required argument 'ZoneName'")
-	}
 	if args == nil {
-		args = &RecordSetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.RecordType == nil {
+		return nil, errors.New("invalid value for required argument 'RecordType'")
+	}
+	if args.RelativeRecordSetName == nil {
+		return nil, errors.New("invalid value for required argument 'RelativeRecordSetName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ZoneName == nil {
+		return nil, errors.New("invalid value for required argument 'ZoneName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

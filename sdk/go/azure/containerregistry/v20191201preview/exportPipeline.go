@@ -36,20 +36,21 @@ type ExportPipeline struct {
 // NewExportPipeline registers a new resource with the given unique name, arguments, and options.
 func NewExportPipeline(ctx *pulumi.Context,
 	name string, args *ExportPipelineArgs, opts ...pulumi.ResourceOption) (*ExportPipeline, error) {
-	if args == nil || args.ExportPipelineName == nil {
-		return nil, errors.New("missing required argument 'ExportPipelineName'")
-	}
-	if args == nil || args.RegistryName == nil {
-		return nil, errors.New("missing required argument 'RegistryName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Target == nil {
-		return nil, errors.New("missing required argument 'Target'")
-	}
 	if args == nil {
-		args = &ExportPipelineArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ExportPipelineName == nil {
+		return nil, errors.New("invalid value for required argument 'ExportPipelineName'")
+	}
+	if args.RegistryName == nil {
+		return nil, errors.New("invalid value for required argument 'RegistryName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Target == nil {
+		return nil, errors.New("invalid value for required argument 'Target'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

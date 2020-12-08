@@ -62,17 +62,18 @@ type WebAppSiteExtension struct {
 // NewWebAppSiteExtension registers a new resource with the given unique name, arguments, and options.
 func NewWebAppSiteExtension(ctx *pulumi.Context,
 	name string, args *WebAppSiteExtensionArgs, opts ...pulumi.ResourceOption) (*WebAppSiteExtension, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SiteExtensionId == nil {
-		return nil, errors.New("missing required argument 'SiteExtensionId'")
-	}
 	if args == nil {
-		args = &WebAppSiteExtensionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SiteExtensionId == nil {
+		return nil, errors.New("invalid value for required argument 'SiteExtensionId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

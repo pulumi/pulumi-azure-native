@@ -48,14 +48,15 @@ type FrontDoor struct {
 // NewFrontDoor registers a new resource with the given unique name, arguments, and options.
 func NewFrontDoor(ctx *pulumi.Context,
 	name string, args *FrontDoorArgs, opts ...pulumi.ResourceOption) (*FrontDoor, error) {
-	if args == nil || args.FrontDoorName == nil {
-		return nil, errors.New("missing required argument 'FrontDoorName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &FrontDoorArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.FrontDoorName == nil {
+		return nil, errors.New("invalid value for required argument 'FrontDoorName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

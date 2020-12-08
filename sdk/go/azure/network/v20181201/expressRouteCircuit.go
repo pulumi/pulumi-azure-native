@@ -62,14 +62,15 @@ type ExpressRouteCircuit struct {
 // NewExpressRouteCircuit registers a new resource with the given unique name, arguments, and options.
 func NewExpressRouteCircuit(ctx *pulumi.Context,
 	name string, args *ExpressRouteCircuitArgs, opts ...pulumi.ResourceOption) (*ExpressRouteCircuit, error) {
-	if args == nil || args.CircuitName == nil {
-		return nil, errors.New("missing required argument 'CircuitName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ExpressRouteCircuitArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CircuitName == nil {
+		return nil, errors.New("invalid value for required argument 'CircuitName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

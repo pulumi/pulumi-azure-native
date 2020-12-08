@@ -451,7 +451,7 @@ type CacheIdentityInput interface {
 // Cache identity properties.
 type CacheIdentityArgs struct {
 	// The type of identity used for the cache
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type CacheIdentityType `pulumi:"type"`
 }
 
 func (CacheIdentityArgs) ElementType() reflect.Type {

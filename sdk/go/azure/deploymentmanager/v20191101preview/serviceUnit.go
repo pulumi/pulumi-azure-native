@@ -34,29 +34,27 @@ type ServiceUnit struct {
 // NewServiceUnit registers a new resource with the given unique name, arguments, and options.
 func NewServiceUnit(ctx *pulumi.Context,
 	name string, args *ServiceUnitArgs, opts ...pulumi.ResourceOption) (*ServiceUnit, error) {
-	if args == nil || args.DeploymentMode == nil {
-		return nil, errors.New("missing required argument 'DeploymentMode'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
-	if args == nil || args.ServiceTopologyName == nil {
-		return nil, errors.New("missing required argument 'ServiceTopologyName'")
-	}
-	if args == nil || args.ServiceUnitName == nil {
-		return nil, errors.New("missing required argument 'ServiceUnitName'")
-	}
-	if args == nil || args.TargetResourceGroup == nil {
-		return nil, errors.New("missing required argument 'TargetResourceGroup'")
-	}
 	if args == nil {
-		args = &ServiceUnitArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
+	}
+	if args.ServiceTopologyName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceTopologyName'")
+	}
+	if args.ServiceUnitName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceUnitName'")
+	}
+	if args.TargetResourceGroup == nil {
+		return nil, errors.New("invalid value for required argument 'TargetResourceGroup'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -149,7 +147,7 @@ type ServiceUnitArgs struct {
 	// The artifacts for the service unit.
 	Artifacts ServiceUnitArtifactsPtrInput
 	// Describes the type of ARM deployment to be performed on the resource.
-	DeploymentMode pulumi.StringInput
+	DeploymentMode DeploymentMode
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.

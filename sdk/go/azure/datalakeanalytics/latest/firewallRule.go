@@ -28,23 +28,24 @@ type FirewallRule struct {
 // NewFirewallRule registers a new resource with the given unique name, arguments, and options.
 func NewFirewallRule(ctx *pulumi.Context,
 	name string, args *FirewallRuleArgs, opts ...pulumi.ResourceOption) (*FirewallRule, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.EndIpAddress == nil {
-		return nil, errors.New("missing required argument 'EndIpAddress'")
-	}
-	if args == nil || args.FirewallRuleName == nil {
-		return nil, errors.New("missing required argument 'FirewallRuleName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.StartIpAddress == nil {
-		return nil, errors.New("missing required argument 'StartIpAddress'")
-	}
 	if args == nil {
-		args = &FirewallRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.EndIpAddress == nil {
+		return nil, errors.New("invalid value for required argument 'EndIpAddress'")
+	}
+	if args.FirewallRuleName == nil {
+		return nil, errors.New("invalid value for required argument 'FirewallRuleName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.StartIpAddress == nil {
+		return nil, errors.New("invalid value for required argument 'StartIpAddress'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

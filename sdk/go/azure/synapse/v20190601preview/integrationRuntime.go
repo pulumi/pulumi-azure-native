@@ -28,20 +28,21 @@ type IntegrationRuntime struct {
 // NewIntegrationRuntime registers a new resource with the given unique name, arguments, and options.
 func NewIntegrationRuntime(ctx *pulumi.Context,
 	name string, args *IntegrationRuntimeArgs, opts ...pulumi.ResourceOption) (*IntegrationRuntime, error) {
-	if args == nil || args.IntegrationRuntimeName == nil {
-		return nil, errors.New("missing required argument 'IntegrationRuntimeName'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &IntegrationRuntimeArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.IntegrationRuntimeName == nil {
+		return nil, errors.New("invalid value for required argument 'IntegrationRuntimeName'")
+	}
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	var resource IntegrationRuntime
 	err := ctx.RegisterResource("azure-nextgen:synapse/v20190601preview:IntegrationRuntime", name, args, &resource, opts...)

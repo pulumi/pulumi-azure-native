@@ -30,7 +30,7 @@ type EnterprisePolicyIdentityInput interface {
 // The identity of the EnterprisePolicy.
 type EnterprisePolicyIdentityArgs struct {
 	// The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type ResourceIdentityType `pulumi:"type"`
 }
 
 func (EnterprisePolicyIdentityArgs) ElementType() reflect.Type {

@@ -24,26 +24,27 @@ type SkusNestedResourceTypeThird struct {
 // NewSkusNestedResourceTypeThird registers a new resource with the given unique name, arguments, and options.
 func NewSkusNestedResourceTypeThird(ctx *pulumi.Context,
 	name string, args *SkusNestedResourceTypeThirdArgs, opts ...pulumi.ResourceOption) (*SkusNestedResourceTypeThird, error) {
-	if args == nil || args.NestedResourceTypeFirst == nil {
-		return nil, errors.New("missing required argument 'NestedResourceTypeFirst'")
-	}
-	if args == nil || args.NestedResourceTypeSecond == nil {
-		return nil, errors.New("missing required argument 'NestedResourceTypeSecond'")
-	}
-	if args == nil || args.NestedResourceTypeThird == nil {
-		return nil, errors.New("missing required argument 'NestedResourceTypeThird'")
-	}
-	if args == nil || args.ProviderNamespace == nil {
-		return nil, errors.New("missing required argument 'ProviderNamespace'")
-	}
-	if args == nil || args.ResourceType == nil {
-		return nil, errors.New("missing required argument 'ResourceType'")
-	}
-	if args == nil || args.Sku == nil {
-		return nil, errors.New("missing required argument 'Sku'")
-	}
 	if args == nil {
-		args = &SkusNestedResourceTypeThirdArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.NestedResourceTypeFirst == nil {
+		return nil, errors.New("invalid value for required argument 'NestedResourceTypeFirst'")
+	}
+	if args.NestedResourceTypeSecond == nil {
+		return nil, errors.New("invalid value for required argument 'NestedResourceTypeSecond'")
+	}
+	if args.NestedResourceTypeThird == nil {
+		return nil, errors.New("invalid value for required argument 'NestedResourceTypeThird'")
+	}
+	if args.ProviderNamespace == nil {
+		return nil, errors.New("invalid value for required argument 'ProviderNamespace'")
+	}
+	if args.ResourceType == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceType'")
+	}
+	if args.Sku == nil {
+		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

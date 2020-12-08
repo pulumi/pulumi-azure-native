@@ -54,17 +54,18 @@ type Subnet struct {
 // NewSubnet registers a new resource with the given unique name, arguments, and options.
 func NewSubnet(ctx *pulumi.Context,
 	name string, args *SubnetArgs, opts ...pulumi.ResourceOption) (*Subnet, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SubnetName == nil {
-		return nil, errors.New("missing required argument 'SubnetName'")
-	}
-	if args == nil || args.VirtualNetworkName == nil {
-		return nil, errors.New("missing required argument 'VirtualNetworkName'")
-	}
 	if args == nil {
-		args = &SubnetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SubnetName == nil {
+		return nil, errors.New("invalid value for required argument 'SubnetName'")
+	}
+	if args.VirtualNetworkName == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualNetworkName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

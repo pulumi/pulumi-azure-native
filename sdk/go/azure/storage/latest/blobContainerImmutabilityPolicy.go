@@ -32,20 +32,21 @@ type BlobContainerImmutabilityPolicy struct {
 // NewBlobContainerImmutabilityPolicy registers a new resource with the given unique name, arguments, and options.
 func NewBlobContainerImmutabilityPolicy(ctx *pulumi.Context,
 	name string, args *BlobContainerImmutabilityPolicyArgs, opts ...pulumi.ResourceOption) (*BlobContainerImmutabilityPolicy, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.ContainerName == nil {
-		return nil, errors.New("missing required argument 'ContainerName'")
-	}
-	if args == nil || args.ImmutabilityPolicyName == nil {
-		return nil, errors.New("missing required argument 'ImmutabilityPolicyName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &BlobContainerImmutabilityPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.ContainerName == nil {
+		return nil, errors.New("invalid value for required argument 'ContainerName'")
+	}
+	if args.ImmutabilityPolicyName == nil {
+		return nil, errors.New("invalid value for required argument 'ImmutabilityPolicyName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

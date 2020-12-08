@@ -52,23 +52,24 @@ type SourceControlConfiguration struct {
 // NewSourceControlConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewSourceControlConfiguration(ctx *pulumi.Context,
 	name string, args *SourceControlConfigurationArgs, opts ...pulumi.ResourceOption) (*SourceControlConfiguration, error) {
-	if args == nil || args.ClusterName == nil {
-		return nil, errors.New("missing required argument 'ClusterName'")
-	}
-	if args == nil || args.ClusterResourceName == nil {
-		return nil, errors.New("missing required argument 'ClusterResourceName'")
-	}
-	if args == nil || args.ClusterRp == nil {
-		return nil, errors.New("missing required argument 'ClusterRp'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SourceControlConfigurationName == nil {
-		return nil, errors.New("missing required argument 'SourceControlConfigurationName'")
-	}
 	if args == nil {
-		args = &SourceControlConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ClusterName == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterName'")
+	}
+	if args.ClusterResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterResourceName'")
+	}
+	if args.ClusterRp == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterRp'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SourceControlConfigurationName == nil {
+		return nil, errors.New("invalid value for required argument 'SourceControlConfigurationName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -181,7 +182,7 @@ type sourceControlConfigurationArgs struct {
 	// Name-value pairs of protected configuration settings for the configuration
 	ConfigurationProtectedSettings map[string]string `pulumi:"configurationProtectedSettings"`
 	// Option to enable Helm Operator for this git configuration.
-	EnableHelmOperator *bool `pulumi:"enableHelmOperator"`
+	EnableHelmOperator *string `pulumi:"enableHelmOperator"`
 	// Properties for Helm operator.
 	HelmOperatorProperties *HelmOperatorProperties `pulumi:"helmOperatorProperties"`
 	// Instance name of the operator - identifying the specific configuration.
@@ -215,7 +216,7 @@ type SourceControlConfigurationArgs struct {
 	// Name-value pairs of protected configuration settings for the configuration
 	ConfigurationProtectedSettings pulumi.StringMapInput
 	// Option to enable Helm Operator for this git configuration.
-	EnableHelmOperator pulumi.BoolPtrInput
+	EnableHelmOperator pulumi.StringPtrInput
 	// Properties for Helm operator.
 	HelmOperatorProperties HelmOperatorPropertiesPtrInput
 	// Instance name of the operator - identifying the specific configuration.

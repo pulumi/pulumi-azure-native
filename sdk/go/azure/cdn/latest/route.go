@@ -55,23 +55,24 @@ type Route struct {
 // NewRoute registers a new resource with the given unique name, arguments, and options.
 func NewRoute(ctx *pulumi.Context,
 	name string, args *RouteArgs, opts ...pulumi.ResourceOption) (*Route, error) {
-	if args == nil || args.EndpointName == nil {
-		return nil, errors.New("missing required argument 'EndpointName'")
-	}
-	if args == nil || args.OriginGroup == nil {
-		return nil, errors.New("missing required argument 'OriginGroup'")
-	}
-	if args == nil || args.ProfileName == nil {
-		return nil, errors.New("missing required argument 'ProfileName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.RouteName == nil {
-		return nil, errors.New("missing required argument 'RouteName'")
-	}
 	if args == nil {
-		args = &RouteArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.EndpointName == nil {
+		return nil, errors.New("invalid value for required argument 'EndpointName'")
+	}
+	if args.OriginGroup == nil {
+		return nil, errors.New("invalid value for required argument 'OriginGroup'")
+	}
+	if args.ProfileName == nil {
+		return nil, errors.New("invalid value for required argument 'ProfileName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.RouteName == nil {
+		return nil, errors.New("invalid value for required argument 'RouteName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -244,7 +245,7 @@ type RouteArgs struct {
 	// Name of the CDN profile which is unique within the resource group.
 	ProfileName pulumi.StringInput
 	// Defines how AzureFrontDoor caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
-	QueryStringCachingBehavior pulumi.StringPtrInput
+	QueryStringCachingBehavior QueryStringCachingBehavior
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Name of the routing rule.

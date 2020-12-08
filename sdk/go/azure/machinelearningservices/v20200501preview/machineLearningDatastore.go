@@ -34,20 +34,21 @@ type MachineLearningDatastore struct {
 // NewMachineLearningDatastore registers a new resource with the given unique name, arguments, and options.
 func NewMachineLearningDatastore(ctx *pulumi.Context,
 	name string, args *MachineLearningDatastoreArgs, opts ...pulumi.ResourceOption) (*MachineLearningDatastore, error) {
-	if args == nil || args.DataStoreType == nil {
-		return nil, errors.New("missing required argument 'DataStoreType'")
-	}
-	if args == nil || args.DatastoreName == nil {
-		return nil, errors.New("missing required argument 'DatastoreName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &MachineLearningDatastoreArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DataStoreType == nil {
+		return nil, errors.New("invalid value for required argument 'DataStoreType'")
+	}
+	if args.DatastoreName == nil {
+		return nil, errors.New("invalid value for required argument 'DatastoreName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	var resource MachineLearningDatastore
 	err := ctx.RegisterResource("azure-nextgen:machinelearningservices/v20200501preview:MachineLearningDatastore", name, args, &resource, opts...)

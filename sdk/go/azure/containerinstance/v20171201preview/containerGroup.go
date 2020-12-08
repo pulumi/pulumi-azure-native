@@ -47,23 +47,24 @@ type ContainerGroup struct {
 // NewContainerGroup registers a new resource with the given unique name, arguments, and options.
 func NewContainerGroup(ctx *pulumi.Context,
 	name string, args *ContainerGroupArgs, opts ...pulumi.ResourceOption) (*ContainerGroup, error) {
-	if args == nil || args.ContainerGroupName == nil {
-		return nil, errors.New("missing required argument 'ContainerGroupName'")
-	}
-	if args == nil || args.Containers == nil {
-		return nil, errors.New("missing required argument 'Containers'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.OsType == nil {
-		return nil, errors.New("missing required argument 'OsType'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ContainerGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ContainerGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ContainerGroupName'")
+	}
+	if args.Containers == nil {
+		return nil, errors.New("invalid value for required argument 'Containers'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.OsType == nil {
+		return nil, errors.New("invalid value for required argument 'OsType'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

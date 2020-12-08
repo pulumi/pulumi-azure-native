@@ -56,17 +56,18 @@ type SqlVirtualMachine struct {
 // NewSqlVirtualMachine registers a new resource with the given unique name, arguments, and options.
 func NewSqlVirtualMachine(ctx *pulumi.Context,
 	name string, args *SqlVirtualMachineArgs, opts ...pulumi.ResourceOption) (*SqlVirtualMachine, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SqlVirtualMachineName == nil {
-		return nil, errors.New("missing required argument 'SqlVirtualMachineName'")
-	}
 	if args == nil {
-		args = &SqlVirtualMachineArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SqlVirtualMachineName == nil {
+		return nil, errors.New("invalid value for required argument 'SqlVirtualMachineName'")
 	}
 	var resource SqlVirtualMachine
 	err := ctx.RegisterResource("azure-nextgen:sqlvirtualmachine/v20170301preview:SqlVirtualMachine", name, args, &resource, opts...)

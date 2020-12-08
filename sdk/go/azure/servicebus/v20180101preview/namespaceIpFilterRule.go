@@ -30,17 +30,18 @@ type NamespaceIpFilterRule struct {
 // NewNamespaceIpFilterRule registers a new resource with the given unique name, arguments, and options.
 func NewNamespaceIpFilterRule(ctx *pulumi.Context,
 	name string, args *NamespaceIpFilterRuleArgs, opts ...pulumi.ResourceOption) (*NamespaceIpFilterRule, error) {
-	if args == nil || args.IpFilterRuleName == nil {
-		return nil, errors.New("missing required argument 'IpFilterRuleName'")
-	}
-	if args == nil || args.NamespaceName == nil {
-		return nil, errors.New("missing required argument 'NamespaceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &NamespaceIpFilterRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.IpFilterRuleName == nil {
+		return nil, errors.New("invalid value for required argument 'IpFilterRuleName'")
+	}
+	if args.NamespaceName == nil {
+		return nil, errors.New("invalid value for required argument 'NamespaceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource NamespaceIpFilterRule
 	err := ctx.RegisterResource("azure-nextgen:servicebus/v20180101preview:NamespaceIpFilterRule", name, args, &resource, opts...)

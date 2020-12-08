@@ -50,23 +50,24 @@ type VirtualMachineScaleSetVMRunCommand struct {
 // NewVirtualMachineScaleSetVMRunCommand registers a new resource with the given unique name, arguments, and options.
 func NewVirtualMachineScaleSetVMRunCommand(ctx *pulumi.Context,
 	name string, args *VirtualMachineScaleSetVMRunCommandArgs, opts ...pulumi.ResourceOption) (*VirtualMachineScaleSetVMRunCommand, error) {
-	if args == nil || args.InstanceId == nil {
-		return nil, errors.New("missing required argument 'InstanceId'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.RunCommandName == nil {
-		return nil, errors.New("missing required argument 'RunCommandName'")
-	}
-	if args == nil || args.VmScaleSetName == nil {
-		return nil, errors.New("missing required argument 'VmScaleSetName'")
-	}
 	if args == nil {
-		args = &VirtualMachineScaleSetVMRunCommandArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.InstanceId == nil {
+		return nil, errors.New("invalid value for required argument 'InstanceId'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.RunCommandName == nil {
+		return nil, errors.New("invalid value for required argument 'RunCommandName'")
+	}
+	if args.VmScaleSetName == nil {
+		return nil, errors.New("invalid value for required argument 'VmScaleSetName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

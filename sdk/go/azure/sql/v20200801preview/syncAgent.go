@@ -36,17 +36,18 @@ type SyncAgent struct {
 // NewSyncAgent registers a new resource with the given unique name, arguments, and options.
 func NewSyncAgent(ctx *pulumi.Context,
 	name string, args *SyncAgentArgs, opts ...pulumi.ResourceOption) (*SyncAgent, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServerName == nil {
-		return nil, errors.New("missing required argument 'ServerName'")
-	}
-	if args == nil || args.SyncAgentName == nil {
-		return nil, errors.New("missing required argument 'SyncAgentName'")
-	}
 	if args == nil {
-		args = &SyncAgentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServerName == nil {
+		return nil, errors.New("invalid value for required argument 'ServerName'")
+	}
+	if args.SyncAgentName == nil {
+		return nil, errors.New("invalid value for required argument 'SyncAgentName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

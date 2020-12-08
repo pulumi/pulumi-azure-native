@@ -32,29 +32,30 @@ type FileServer struct {
 // NewFileServer registers a new resource with the given unique name, arguments, and options.
 func NewFileServer(ctx *pulumi.Context,
 	name string, args *FileServerArgs, opts ...pulumi.ResourceOption) (*FileServer, error) {
-	if args == nil || args.BackupScheduleGroupId == nil {
-		return nil, errors.New("missing required argument 'BackupScheduleGroupId'")
-	}
-	if args == nil || args.DeviceName == nil {
-		return nil, errors.New("missing required argument 'DeviceName'")
-	}
-	if args == nil || args.DomainName == nil {
-		return nil, errors.New("missing required argument 'DomainName'")
-	}
-	if args == nil || args.FileServerName == nil {
-		return nil, errors.New("missing required argument 'FileServerName'")
-	}
-	if args == nil || args.ManagerName == nil {
-		return nil, errors.New("missing required argument 'ManagerName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.StorageDomainId == nil {
-		return nil, errors.New("missing required argument 'StorageDomainId'")
-	}
 	if args == nil {
-		args = &FileServerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BackupScheduleGroupId == nil {
+		return nil, errors.New("invalid value for required argument 'BackupScheduleGroupId'")
+	}
+	if args.DeviceName == nil {
+		return nil, errors.New("invalid value for required argument 'DeviceName'")
+	}
+	if args.DomainName == nil {
+		return nil, errors.New("invalid value for required argument 'DomainName'")
+	}
+	if args.FileServerName == nil {
+		return nil, errors.New("invalid value for required argument 'FileServerName'")
+	}
+	if args.ManagerName == nil {
+		return nil, errors.New("invalid value for required argument 'ManagerName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.StorageDomainId == nil {
+		return nil, errors.New("invalid value for required argument 'StorageDomainId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -52,17 +52,18 @@ type WebAppFunction struct {
 // NewWebAppFunction registers a new resource with the given unique name, arguments, and options.
 func NewWebAppFunction(ctx *pulumi.Context,
 	name string, args *WebAppFunctionArgs, opts ...pulumi.ResourceOption) (*WebAppFunction, error) {
-	if args == nil || args.FunctionName == nil {
-		return nil, errors.New("missing required argument 'FunctionName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &WebAppFunctionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.FunctionName == nil {
+		return nil, errors.New("invalid value for required argument 'FunctionName'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

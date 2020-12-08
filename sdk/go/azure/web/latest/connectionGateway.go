@@ -31,14 +31,15 @@ type ConnectionGateway struct {
 // NewConnectionGateway registers a new resource with the given unique name, arguments, and options.
 func NewConnectionGateway(ctx *pulumi.Context,
 	name string, args *ConnectionGatewayArgs, opts ...pulumi.ResourceOption) (*ConnectionGateway, error) {
-	if args == nil || args.ConnectionGatewayName == nil {
-		return nil, errors.New("missing required argument 'ConnectionGatewayName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ConnectionGatewayArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ConnectionGatewayName == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectionGatewayName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

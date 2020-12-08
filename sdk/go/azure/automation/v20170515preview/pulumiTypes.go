@@ -2956,7 +2956,7 @@ type TagSettingsPropertiesInput interface {
 // Tag filter information for the VM.
 type TagSettingsPropertiesArgs struct {
 	// Filter VMs by Any or All specified tags.
-	FilterOperator pulumi.StringPtrInput `pulumi:"filterOperator"`
+	FilterOperator TagOperators `pulumi:"filterOperator"`
 	// Dictionary of tags with its list of values.
 	Tags pulumi.StringArrayMapInput `pulumi:"tags"`
 }
@@ -3892,7 +3892,7 @@ type UpdateConfigurationArgs struct {
 	// List of names of non-azure machines targeted by the software update configuration.
 	NonAzureComputerNames pulumi.StringArrayInput `pulumi:"nonAzureComputerNames"`
 	// operating system of target machines
-	OperatingSystem pulumi.StringInput `pulumi:"operatingSystem"`
+	OperatingSystem OperatingSystemType `pulumi:"operatingSystem"`
 	// Group targets for the software update configuration.
 	Targets TargetPropertiesPtrInput `pulumi:"targets"`
 	// Windows specific update configuration.

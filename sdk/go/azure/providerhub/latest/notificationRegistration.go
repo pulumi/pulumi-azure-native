@@ -25,14 +25,15 @@ type NotificationRegistration struct {
 // NewNotificationRegistration registers a new resource with the given unique name, arguments, and options.
 func NewNotificationRegistration(ctx *pulumi.Context,
 	name string, args *NotificationRegistrationArgs, opts ...pulumi.ResourceOption) (*NotificationRegistration, error) {
-	if args == nil || args.NotificationRegistrationName == nil {
-		return nil, errors.New("missing required argument 'NotificationRegistrationName'")
-	}
-	if args == nil || args.ProviderNamespace == nil {
-		return nil, errors.New("missing required argument 'ProviderNamespace'")
-	}
 	if args == nil {
-		args = &NotificationRegistrationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.NotificationRegistrationName == nil {
+		return nil, errors.New("invalid value for required argument 'NotificationRegistrationName'")
+	}
+	if args.ProviderNamespace == nil {
+		return nil, errors.New("invalid value for required argument 'ProviderNamespace'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

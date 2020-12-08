@@ -40,17 +40,18 @@ type Asset struct {
 // NewAsset registers a new resource with the given unique name, arguments, and options.
 func NewAsset(ctx *pulumi.Context,
 	name string, args *AssetArgs, opts ...pulumi.ResourceOption) (*Asset, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.AssetName == nil {
-		return nil, errors.New("missing required argument 'AssetName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &AssetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.AssetName == nil {
+		return nil, errors.New("invalid value for required argument 'AssetName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

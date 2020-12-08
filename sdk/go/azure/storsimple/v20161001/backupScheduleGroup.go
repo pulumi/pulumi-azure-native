@@ -26,23 +26,24 @@ type BackupScheduleGroup struct {
 // NewBackupScheduleGroup registers a new resource with the given unique name, arguments, and options.
 func NewBackupScheduleGroup(ctx *pulumi.Context,
 	name string, args *BackupScheduleGroupArgs, opts ...pulumi.ResourceOption) (*BackupScheduleGroup, error) {
-	if args == nil || args.DeviceName == nil {
-		return nil, errors.New("missing required argument 'DeviceName'")
-	}
-	if args == nil || args.ManagerName == nil {
-		return nil, errors.New("missing required argument 'ManagerName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ScheduleGroupName == nil {
-		return nil, errors.New("missing required argument 'ScheduleGroupName'")
-	}
-	if args == nil || args.StartTime == nil {
-		return nil, errors.New("missing required argument 'StartTime'")
-	}
 	if args == nil {
-		args = &BackupScheduleGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DeviceName == nil {
+		return nil, errors.New("invalid value for required argument 'DeviceName'")
+	}
+	if args.ManagerName == nil {
+		return nil, errors.New("invalid value for required argument 'ManagerName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ScheduleGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ScheduleGroupName'")
+	}
+	if args.StartTime == nil {
+		return nil, errors.New("invalid value for required argument 'StartTime'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

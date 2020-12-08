@@ -80,23 +80,24 @@ type ManagedCluster struct {
 // NewManagedCluster registers a new resource with the given unique name, arguments, and options.
 func NewManagedCluster(ctx *pulumi.Context,
 	name string, args *ManagedClusterArgs, opts ...pulumi.ResourceOption) (*ManagedCluster, error) {
-	if args == nil || args.AdminUserName == nil {
-		return nil, errors.New("missing required argument 'AdminUserName'")
-	}
-	if args == nil || args.ClusterName == nil {
-		return nil, errors.New("missing required argument 'ClusterName'")
-	}
-	if args == nil || args.DnsName == nil {
-		return nil, errors.New("missing required argument 'DnsName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ManagedClusterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AdminUserName == nil {
+		return nil, errors.New("invalid value for required argument 'AdminUserName'")
+	}
+	if args.ClusterName == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterName'")
+	}
+	if args.DnsName == nil {
+		return nil, errors.New("invalid value for required argument 'DnsName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource ManagedCluster
 	err := ctx.RegisterResource("azure-nextgen:servicefabric/v20200101preview:ManagedCluster", name, args, &resource, opts...)

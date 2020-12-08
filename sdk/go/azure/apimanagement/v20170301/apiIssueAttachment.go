@@ -30,32 +30,33 @@ type ApiIssueAttachment struct {
 // NewApiIssueAttachment registers a new resource with the given unique name, arguments, and options.
 func NewApiIssueAttachment(ctx *pulumi.Context,
 	name string, args *ApiIssueAttachmentArgs, opts ...pulumi.ResourceOption) (*ApiIssueAttachment, error) {
-	if args == nil || args.ApiId == nil {
-		return nil, errors.New("missing required argument 'ApiId'")
-	}
-	if args == nil || args.AttachmentId == nil {
-		return nil, errors.New("missing required argument 'AttachmentId'")
-	}
-	if args == nil || args.Content == nil {
-		return nil, errors.New("missing required argument 'Content'")
-	}
-	if args == nil || args.ContentFormat == nil {
-		return nil, errors.New("missing required argument 'ContentFormat'")
-	}
-	if args == nil || args.IssueId == nil {
-		return nil, errors.New("missing required argument 'IssueId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
-	if args == nil || args.Title == nil {
-		return nil, errors.New("missing required argument 'Title'")
-	}
 	if args == nil {
-		args = &ApiIssueAttachmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApiId == nil {
+		return nil, errors.New("invalid value for required argument 'ApiId'")
+	}
+	if args.AttachmentId == nil {
+		return nil, errors.New("invalid value for required argument 'AttachmentId'")
+	}
+	if args.Content == nil {
+		return nil, errors.New("invalid value for required argument 'Content'")
+	}
+	if args.ContentFormat == nil {
+		return nil, errors.New("invalid value for required argument 'ContentFormat'")
+	}
+	if args.IssueId == nil {
+		return nil, errors.New("invalid value for required argument 'IssueId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
+	}
+	if args.Title == nil {
+		return nil, errors.New("invalid value for required argument 'Title'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

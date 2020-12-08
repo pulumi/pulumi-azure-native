@@ -28,23 +28,24 @@ type ServerTrustGroup struct {
 // NewServerTrustGroup registers a new resource with the given unique name, arguments, and options.
 func NewServerTrustGroup(ctx *pulumi.Context,
 	name string, args *ServerTrustGroupArgs, opts ...pulumi.ResourceOption) (*ServerTrustGroup, error) {
-	if args == nil || args.GroupMembers == nil {
-		return nil, errors.New("missing required argument 'GroupMembers'")
-	}
-	if args == nil || args.LocationName == nil {
-		return nil, errors.New("missing required argument 'LocationName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServerTrustGroupName == nil {
-		return nil, errors.New("missing required argument 'ServerTrustGroupName'")
-	}
-	if args == nil || args.TrustScopes == nil {
-		return nil, errors.New("missing required argument 'TrustScopes'")
-	}
 	if args == nil {
-		args = &ServerTrustGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.GroupMembers == nil {
+		return nil, errors.New("invalid value for required argument 'GroupMembers'")
+	}
+	if args.LocationName == nil {
+		return nil, errors.New("invalid value for required argument 'LocationName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServerTrustGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ServerTrustGroupName'")
+	}
+	if args.TrustScopes == nil {
+		return nil, errors.New("invalid value for required argument 'TrustScopes'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

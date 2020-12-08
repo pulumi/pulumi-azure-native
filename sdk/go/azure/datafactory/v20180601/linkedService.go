@@ -28,20 +28,21 @@ type LinkedService struct {
 // NewLinkedService registers a new resource with the given unique name, arguments, and options.
 func NewLinkedService(ctx *pulumi.Context,
 	name string, args *LinkedServiceArgs, opts ...pulumi.ResourceOption) (*LinkedService, error) {
-	if args == nil || args.FactoryName == nil {
-		return nil, errors.New("missing required argument 'FactoryName'")
-	}
-	if args == nil || args.LinkedServiceName == nil {
-		return nil, errors.New("missing required argument 'LinkedServiceName'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &LinkedServiceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.FactoryName == nil {
+		return nil, errors.New("invalid value for required argument 'FactoryName'")
+	}
+	if args.LinkedServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'LinkedServiceName'")
+	}
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

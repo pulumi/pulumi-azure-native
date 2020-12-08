@@ -38,17 +38,18 @@ type LoadBalancerBackendAddressPool struct {
 // NewLoadBalancerBackendAddressPool registers a new resource with the given unique name, arguments, and options.
 func NewLoadBalancerBackendAddressPool(ctx *pulumi.Context,
 	name string, args *LoadBalancerBackendAddressPoolArgs, opts ...pulumi.ResourceOption) (*LoadBalancerBackendAddressPool, error) {
-	if args == nil || args.BackendAddressPoolName == nil {
-		return nil, errors.New("missing required argument 'BackendAddressPoolName'")
-	}
-	if args == nil || args.LoadBalancerName == nil {
-		return nil, errors.New("missing required argument 'LoadBalancerName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &LoadBalancerBackendAddressPoolArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BackendAddressPoolName == nil {
+		return nil, errors.New("invalid value for required argument 'BackendAddressPoolName'")
+	}
+	if args.LoadBalancerName == nil {
+		return nil, errors.New("invalid value for required argument 'LoadBalancerName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

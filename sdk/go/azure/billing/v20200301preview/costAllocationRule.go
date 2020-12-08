@@ -26,14 +26,15 @@ type CostAllocationRule struct {
 // NewCostAllocationRule registers a new resource with the given unique name, arguments, and options.
 func NewCostAllocationRule(ctx *pulumi.Context,
 	name string, args *CostAllocationRuleArgs, opts ...pulumi.ResourceOption) (*CostAllocationRule, error) {
-	if args == nil || args.BillingAccountId == nil {
-		return nil, errors.New("missing required argument 'BillingAccountId'")
-	}
-	if args == nil || args.RuleName == nil {
-		return nil, errors.New("missing required argument 'RuleName'")
-	}
 	if args == nil {
-		args = &CostAllocationRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BillingAccountId == nil {
+		return nil, errors.New("invalid value for required argument 'BillingAccountId'")
+	}
+	if args.RuleName == nil {
+		return nil, errors.New("invalid value for required argument 'RuleName'")
 	}
 	var resource CostAllocationRule
 	err := ctx.RegisterResource("azure-nextgen:billing/v20200301preview:CostAllocationRule", name, args, &resource, opts...)

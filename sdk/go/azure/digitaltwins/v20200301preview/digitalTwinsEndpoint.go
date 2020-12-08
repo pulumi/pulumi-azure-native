@@ -26,17 +26,18 @@ type DigitalTwinsEndpoint struct {
 // NewDigitalTwinsEndpoint registers a new resource with the given unique name, arguments, and options.
 func NewDigitalTwinsEndpoint(ctx *pulumi.Context,
 	name string, args *DigitalTwinsEndpointArgs, opts ...pulumi.ResourceOption) (*DigitalTwinsEndpoint, error) {
-	if args == nil || args.EndpointName == nil {
-		return nil, errors.New("missing required argument 'EndpointName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ResourceName == nil {
-		return nil, errors.New("missing required argument 'ResourceName'")
-	}
 	if args == nil {
-		args = &DigitalTwinsEndpointArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.EndpointName == nil {
+		return nil, errors.New("invalid value for required argument 'EndpointName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

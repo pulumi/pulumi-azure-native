@@ -31,14 +31,15 @@ type Site struct {
 // NewSite registers a new resource with the given unique name, arguments, and options.
 func NewSite(ctx *pulumi.Context,
 	name string, args *SiteArgs, opts ...pulumi.ResourceOption) (*Site, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SiteName == nil {
-		return nil, errors.New("missing required argument 'SiteName'")
-	}
 	if args == nil {
-		args = &SiteArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SiteName == nil {
+		return nil, errors.New("invalid value for required argument 'SiteName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -60,20 +60,21 @@ type Runbook struct {
 // NewRunbook registers a new resource with the given unique name, arguments, and options.
 func NewRunbook(ctx *pulumi.Context,
 	name string, args *RunbookArgs, opts ...pulumi.ResourceOption) (*Runbook, error) {
-	if args == nil || args.AutomationAccountName == nil {
-		return nil, errors.New("missing required argument 'AutomationAccountName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.RunbookName == nil {
-		return nil, errors.New("missing required argument 'RunbookName'")
-	}
-	if args == nil || args.RunbookType == nil {
-		return nil, errors.New("missing required argument 'RunbookType'")
-	}
 	if args == nil {
-		args = &RunbookArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AutomationAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AutomationAccountName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.RunbookName == nil {
+		return nil, errors.New("invalid value for required argument 'RunbookName'")
+	}
+	if args.RunbookType == nil {
+		return nil, errors.New("invalid value for required argument 'RunbookType'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -44,26 +44,27 @@ type LiveOutput struct {
 // NewLiveOutput registers a new resource with the given unique name, arguments, and options.
 func NewLiveOutput(ctx *pulumi.Context,
 	name string, args *LiveOutputArgs, opts ...pulumi.ResourceOption) (*LiveOutput, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.ArchiveWindowLength == nil {
-		return nil, errors.New("missing required argument 'ArchiveWindowLength'")
-	}
-	if args == nil || args.AssetName == nil {
-		return nil, errors.New("missing required argument 'AssetName'")
-	}
-	if args == nil || args.LiveEventName == nil {
-		return nil, errors.New("missing required argument 'LiveEventName'")
-	}
-	if args == nil || args.LiveOutputName == nil {
-		return nil, errors.New("missing required argument 'LiveOutputName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &LiveOutputArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.ArchiveWindowLength == nil {
+		return nil, errors.New("invalid value for required argument 'ArchiveWindowLength'")
+	}
+	if args.AssetName == nil {
+		return nil, errors.New("invalid value for required argument 'AssetName'")
+	}
+	if args.LiveEventName == nil {
+		return nil, errors.New("invalid value for required argument 'LiveEventName'")
+	}
+	if args.LiveOutputName == nil {
+		return nil, errors.New("invalid value for required argument 'LiveOutputName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

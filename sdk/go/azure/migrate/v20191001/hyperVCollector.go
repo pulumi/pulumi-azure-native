@@ -23,17 +23,18 @@ type HyperVCollector struct {
 // NewHyperVCollector registers a new resource with the given unique name, arguments, and options.
 func NewHyperVCollector(ctx *pulumi.Context,
 	name string, args *HyperVCollectorArgs, opts ...pulumi.ResourceOption) (*HyperVCollector, error) {
-	if args == nil || args.HyperVCollectorName == nil {
-		return nil, errors.New("missing required argument 'HyperVCollectorName'")
-	}
-	if args == nil || args.ProjectName == nil {
-		return nil, errors.New("missing required argument 'ProjectName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &HyperVCollectorArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.HyperVCollectorName == nil {
+		return nil, errors.New("invalid value for required argument 'HyperVCollectorName'")
+	}
+	if args.ProjectName == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

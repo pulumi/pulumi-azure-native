@@ -32,29 +32,30 @@ type BandwidthSchedule struct {
 // NewBandwidthSchedule registers a new resource with the given unique name, arguments, and options.
 func NewBandwidthSchedule(ctx *pulumi.Context,
 	name string, args *BandwidthScheduleArgs, opts ...pulumi.ResourceOption) (*BandwidthSchedule, error) {
-	if args == nil || args.Days == nil {
-		return nil, errors.New("missing required argument 'Days'")
-	}
-	if args == nil || args.DeviceName == nil {
-		return nil, errors.New("missing required argument 'DeviceName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.RateInMbps == nil {
-		return nil, errors.New("missing required argument 'RateInMbps'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Start == nil {
-		return nil, errors.New("missing required argument 'Start'")
-	}
-	if args == nil || args.Stop == nil {
-		return nil, errors.New("missing required argument 'Stop'")
-	}
 	if args == nil {
-		args = &BandwidthScheduleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Days == nil {
+		return nil, errors.New("invalid value for required argument 'Days'")
+	}
+	if args.DeviceName == nil {
+		return nil, errors.New("invalid value for required argument 'DeviceName'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.RateInMbps == nil {
+		return nil, errors.New("invalid value for required argument 'RateInMbps'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Start == nil {
+		return nil, errors.New("invalid value for required argument 'Start'")
+	}
+	if args.Stop == nil {
+		return nil, errors.New("invalid value for required argument 'Stop'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

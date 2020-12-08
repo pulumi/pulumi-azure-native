@@ -26,20 +26,21 @@ type ContentItem struct {
 // NewContentItem registers a new resource with the given unique name, arguments, and options.
 func NewContentItem(ctx *pulumi.Context,
 	name string, args *ContentItemArgs, opts ...pulumi.ResourceOption) (*ContentItem, error) {
-	if args == nil || args.ContentItemId == nil {
-		return nil, errors.New("missing required argument 'ContentItemId'")
-	}
-	if args == nil || args.ContentTypeId == nil {
-		return nil, errors.New("missing required argument 'ContentTypeId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
 	if args == nil {
-		args = &ContentItemArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ContentItemId == nil {
+		return nil, errors.New("invalid value for required argument 'ContentItemId'")
+	}
+	if args.ContentTypeId == nil {
+		return nil, errors.New("invalid value for required argument 'ContentTypeId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

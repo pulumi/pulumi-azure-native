@@ -34,29 +34,30 @@ type SqlPoolSensitivityLabel struct {
 // NewSqlPoolSensitivityLabel registers a new resource with the given unique name, arguments, and options.
 func NewSqlPoolSensitivityLabel(ctx *pulumi.Context,
 	name string, args *SqlPoolSensitivityLabelArgs, opts ...pulumi.ResourceOption) (*SqlPoolSensitivityLabel, error) {
-	if args == nil || args.ColumnName == nil {
-		return nil, errors.New("missing required argument 'ColumnName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SchemaName == nil {
-		return nil, errors.New("missing required argument 'SchemaName'")
-	}
-	if args == nil || args.SensitivityLabelSource == nil {
-		return nil, errors.New("missing required argument 'SensitivityLabelSource'")
-	}
-	if args == nil || args.SqlPoolName == nil {
-		return nil, errors.New("missing required argument 'SqlPoolName'")
-	}
-	if args == nil || args.TableName == nil {
-		return nil, errors.New("missing required argument 'TableName'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &SqlPoolSensitivityLabelArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ColumnName == nil {
+		return nil, errors.New("invalid value for required argument 'ColumnName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SchemaName == nil {
+		return nil, errors.New("invalid value for required argument 'SchemaName'")
+	}
+	if args.SensitivityLabelSource == nil {
+		return nil, errors.New("invalid value for required argument 'SensitivityLabelSource'")
+	}
+	if args.SqlPoolName == nil {
+		return nil, errors.New("invalid value for required argument 'SqlPoolName'")
+	}
+	if args.TableName == nil {
+		return nil, errors.New("invalid value for required argument 'TableName'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	var resource SqlPoolSensitivityLabel
 	err := ctx.RegisterResource("azure-nextgen:synapse/v20190601preview:SqlPoolSensitivityLabel", name, args, &resource, opts...)

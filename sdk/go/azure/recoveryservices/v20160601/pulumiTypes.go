@@ -54,7 +54,7 @@ type AzureIaaSVMProtectedItemInput interface {
 // This Azure VM workload-specific (also known as IaaS VM workload-specific) backup item has been backed up.
 type AzureIaaSVMProtectedItemArgs struct {
 	// The backup management type associated with the backup item.
-	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	BackupManagementType BackupManagementType `pulumi:"backupManagementType"`
 	// Additional information for this backup item.
 	ExtendedInfo AzureIaaSVMProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
 	// The friendly name of the VM represented by this backup item.
@@ -70,7 +70,7 @@ type AzureIaaSVMProtectedItemArgs struct {
 	// The backup item type.
 	ProtectedItemType pulumi.StringPtrInput `pulumi:"protectedItemType"`
 	// The backup state of this backup item.
-	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
+	ProtectionState ProtectionState `pulumi:"protectionState"`
 	// The backup status of this backup item.
 	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
 	// The ID of the resource to be backed up.
@@ -78,7 +78,7 @@ type AzureIaaSVMProtectedItemArgs struct {
 	// The fully qualified Resource Manager ID of the virtual machine represented by this item.
 	VirtualMachineId pulumi.StringPtrInput `pulumi:"virtualMachineId"`
 	// The workload type for this item.
-	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+	WorkloadType DataSourceType `pulumi:"workloadType"`
 }
 
 func (AzureIaaSVMProtectedItemArgs) ElementType() reflect.Type {
@@ -545,7 +545,7 @@ type AzureSqlProtectedItemInput interface {
 // This is an Azure SQL workload-specific backup item.
 type AzureSqlProtectedItemArgs struct {
 	// The backup management type associated with the backup item.
-	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	BackupManagementType BackupManagementType `pulumi:"backupManagementType"`
 	// Additional information for this backup item.
 	ExtendedInfo AzureSqlProtectedItemExtendedInfoPtrInput `pulumi:"extendedInfo"`
 	// The timestamp when the most recent backup copy was created for this backup item.
@@ -557,11 +557,11 @@ type AzureSqlProtectedItemArgs struct {
 	// The backup item type.
 	ProtectedItemType pulumi.StringPtrInput `pulumi:"protectedItemType"`
 	// The backup state of the backup item.
-	ProtectionState pulumi.StringPtrInput `pulumi:"protectionState"`
+	ProtectionState ProtectedItemState `pulumi:"protectionState"`
 	// The ID of the resource to be backed up.
 	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
 	// The workload type for this item.
-	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+	WorkloadType DataSourceType `pulumi:"workloadType"`
 }
 
 func (AzureSqlProtectedItemArgs) ElementType() reflect.Type {
@@ -2373,7 +2373,7 @@ type MabFileFolderProtectedItemInput interface {
 // This is a file or folder workload-specific backup item.
 type MabFileFolderProtectedItemArgs struct {
 	// The backup management type associated with the backup item.
-	BackupManagementType pulumi.StringPtrInput `pulumi:"backupManagementType"`
+	BackupManagementType BackupManagementType `pulumi:"backupManagementType"`
 	// The name of the computer associated with this backup item.
 	ComputerName pulumi.StringPtrInput `pulumi:"computerName"`
 	// Additional information for this backup item.
@@ -2394,7 +2394,7 @@ type MabFileFolderProtectedItemArgs struct {
 	// The ID of the resource to be backed up.
 	SourceResourceId pulumi.StringPtrInput `pulumi:"sourceResourceId"`
 	// The workload type for this item.
-	WorkloadType pulumi.StringPtrInput `pulumi:"workloadType"`
+	WorkloadType DataSourceType `pulumi:"workloadType"`
 }
 
 func (MabFileFolderProtectedItemArgs) ElementType() reflect.Type {
@@ -2851,7 +2851,7 @@ type MonthlyRetentionScheduleArgs struct {
 	// Daily retention format for the monthly retention policy.
 	RetentionScheduleDaily DailyRetentionFormatPtrInput `pulumi:"retentionScheduleDaily"`
 	// Retention schedule format type for monthly retention policy.
-	RetentionScheduleFormatType pulumi.StringPtrInput `pulumi:"retentionScheduleFormatType"`
+	RetentionScheduleFormatType RetentionScheduleFormat `pulumi:"retentionScheduleFormatType"`
 	// Weekly retention format for the monthly retention policy.
 	RetentionScheduleWeekly WeeklyRetentionFormatPtrInput `pulumi:"retentionScheduleWeekly"`
 	// Retention times of the retention policy.
@@ -3583,7 +3583,7 @@ type RetentionDurationArgs struct {
 	//    For example, if Count = 3 and durationType = Weeks, then the retention duration is three weeks.
 	Count pulumi.IntPtrInput `pulumi:"count"`
 	// The retention duration type of the retention policy.
-	DurationType pulumi.StringPtrInput `pulumi:"durationType"`
+	DurationType RetentionDurationType `pulumi:"durationType"`
 }
 
 func (RetentionDurationArgs) ElementType() reflect.Type {
@@ -4029,9 +4029,9 @@ type SimpleSchedulePolicyArgs struct {
 	// This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	SchedulePolicyType pulumi.StringPtrInput `pulumi:"schedulePolicyType"`
 	// This list is the days of the week when the schedule runs.
-	ScheduleRunDays pulumi.StringArrayInput `pulumi:"scheduleRunDays"`
+	ScheduleRunDays DayOfWeekArrayInput `pulumi:"scheduleRunDays"`
 	// Defines the frequency interval (daily or weekly) for the schedule policy.
-	ScheduleRunFrequency pulumi.StringPtrInput `pulumi:"scheduleRunFrequency"`
+	ScheduleRunFrequency ScheduleRunType `pulumi:"scheduleRunFrequency"`
 	// List of times, during a day, when the schedule runs.
 	ScheduleRunTimes pulumi.StringArrayInput `pulumi:"scheduleRunTimes"`
 	// The number of times per week the schedule runs.
@@ -4969,9 +4969,9 @@ type WeeklyRetentionFormatInput interface {
 // Weekly retention format.
 type WeeklyRetentionFormatArgs struct {
 	// List of days of the week.
-	DaysOfTheWeek pulumi.StringArrayInput `pulumi:"daysOfTheWeek"`
+	DaysOfTheWeek DayOfWeekArrayInput `pulumi:"daysOfTheWeek"`
 	// List of weeks of the month.
-	WeeksOfTheMonth pulumi.StringArrayInput `pulumi:"weeksOfTheMonth"`
+	WeeksOfTheMonth WeekOfMonthArrayInput `pulumi:"weeksOfTheMonth"`
 }
 
 func (WeeklyRetentionFormatArgs) ElementType() reflect.Type {
@@ -5277,7 +5277,7 @@ type WeeklyRetentionScheduleInput interface {
 // Weekly retention schedule.
 type WeeklyRetentionScheduleArgs struct {
 	// List of the days of the week for the weekly retention policy.
-	DaysOfTheWeek pulumi.StringArrayInput `pulumi:"daysOfTheWeek"`
+	DaysOfTheWeek DayOfWeekArrayInput `pulumi:"daysOfTheWeek"`
 	// Retention duration of retention policy.
 	RetentionDuration RetentionDurationPtrInput `pulumi:"retentionDuration"`
 	// Retention times of the retention policy.
@@ -5627,13 +5627,13 @@ type YearlyRetentionScheduleInput interface {
 // Yearly retention schedule.
 type YearlyRetentionScheduleArgs struct {
 	// List of the months of year for the yearly retention policy.
-	MonthsOfYear pulumi.StringArrayInput `pulumi:"monthsOfYear"`
+	MonthsOfYear MonthOfYearArrayInput `pulumi:"monthsOfYear"`
 	// Retention duration for the retention policy.
 	RetentionDuration RetentionDurationPtrInput `pulumi:"retentionDuration"`
 	// Daily retention format for the yearly retention policy.
 	RetentionScheduleDaily DailyRetentionFormatPtrInput `pulumi:"retentionScheduleDaily"`
 	// Retention schedule format for the yearly retention policy.
-	RetentionScheduleFormatType pulumi.StringPtrInput `pulumi:"retentionScheduleFormatType"`
+	RetentionScheduleFormatType RetentionScheduleFormat `pulumi:"retentionScheduleFormatType"`
 	// Weekly retention format for the yearly retention policy.
 	RetentionScheduleWeekly WeeklyRetentionFormatPtrInput `pulumi:"retentionScheduleWeekly"`
 	// Retention times for the retention policy.

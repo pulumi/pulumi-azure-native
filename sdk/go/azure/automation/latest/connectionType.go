@@ -34,23 +34,24 @@ type ConnectionType struct {
 // NewConnectionType registers a new resource with the given unique name, arguments, and options.
 func NewConnectionType(ctx *pulumi.Context,
 	name string, args *ConnectionTypeArgs, opts ...pulumi.ResourceOption) (*ConnectionType, error) {
-	if args == nil || args.AutomationAccountName == nil {
-		return nil, errors.New("missing required argument 'AutomationAccountName'")
-	}
-	if args == nil || args.ConnectionTypeName == nil {
-		return nil, errors.New("missing required argument 'ConnectionTypeName'")
-	}
-	if args == nil || args.FieldDefinitions == nil {
-		return nil, errors.New("missing required argument 'FieldDefinitions'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ConnectionTypeArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AutomationAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AutomationAccountName'")
+	}
+	if args.ConnectionTypeName == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectionTypeName'")
+	}
+	if args.FieldDefinitions == nil {
+		return nil, errors.New("invalid value for required argument 'FieldDefinitions'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

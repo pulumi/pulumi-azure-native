@@ -44,14 +44,15 @@ type NetworkSecurityGroup struct {
 // NewNetworkSecurityGroup registers a new resource with the given unique name, arguments, and options.
 func NewNetworkSecurityGroup(ctx *pulumi.Context,
 	name string, args *NetworkSecurityGroupArgs, opts ...pulumi.ResourceOption) (*NetworkSecurityGroup, error) {
-	if args == nil || args.NetworkSecurityGroupName == nil {
-		return nil, errors.New("missing required argument 'NetworkSecurityGroupName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &NetworkSecurityGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.NetworkSecurityGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkSecurityGroupName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

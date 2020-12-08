@@ -28,14 +28,15 @@ type NotebookProxy struct {
 // NewNotebookProxy registers a new resource with the given unique name, arguments, and options.
 func NewNotebookProxy(ctx *pulumi.Context,
 	name string, args *NotebookProxyArgs, opts ...pulumi.ResourceOption) (*NotebookProxy, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ResourceName == nil {
-		return nil, errors.New("missing required argument 'ResourceName'")
-	}
 	if args == nil {
-		args = &NotebookProxyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	var resource NotebookProxy
 	err := ctx.RegisterResource("azure-nextgen:notebooks/v20191011preview:NotebookProxy", name, args, &resource, opts...)

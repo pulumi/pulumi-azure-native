@@ -30,20 +30,21 @@ type Secret struct {
 // NewSecret registers a new resource with the given unique name, arguments, and options.
 func NewSecret(ctx *pulumi.Context,
 	name string, args *SecretArgs, opts ...pulumi.ResourceOption) (*Secret, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SecretResourceName == nil {
-		return nil, errors.New("missing required argument 'SecretResourceName'")
-	}
 	if args == nil {
-		args = &SecretArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SecretResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'SecretResourceName'")
 	}
 	var resource Secret
 	err := ctx.RegisterResource("azure-nextgen:servicefabricmesh/v20180901preview:Secret", name, args, &resource, opts...)
