@@ -63,21 +63,20 @@ const secret = new keyvault.Secret("mysecret", {
     },
 });
 
-// Doesn't work yet in our tests. We need to figure this out with Azure before publishing.
-// const key = new keyvault.Key("mykey", {
-//     resourceGroupName: resourceGroup.name,
-//     vaultName: vault.name,
-//     keyName: "mykey",
-//     properties: {
-//         kty: "RSA",
-//         keySize: 2048,
-//         keyOps: [
-//             "decrypt",
-//             "encrypt",
-//             "sign",
-//             "unwrapKey",
-//             "verify",
-//             "wrapKey",
-//         ],
-//     },
-// });
+const key = new keyvault.Key("mykey", {
+    resourceGroupName: resourceGroup.name,
+    vaultName: vault.name,
+    keyName: "mykey",
+    properties: {
+        kty: "RSA",
+        keySize: 2048,
+        keyOps: [
+            "decrypt",
+            "encrypt",
+            "sign",
+            "unwrapKey",
+            "verify",
+            "wrapKey",
+        ],
+    },
+});

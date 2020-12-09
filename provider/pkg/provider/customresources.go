@@ -79,7 +79,7 @@ func buildCustomResources(env *azure.Environment, bearerAuth autorest.Authorizer
 		// Azure KeyVault resources
 		keyVaultSecret(env.KeyVaultDNSSuffix, &kvClient),
 		// Doesn't work yet in our tests. We need to figure this out with Azure before publishing.
-		// keyVaultKey(env.KeyVaultDNSSuffix, &kvClient),
+		keyVaultKey(env.KeyVaultDNSSuffix, &kvClient),
 	}
 
 	result := map[string]*customResource{}
