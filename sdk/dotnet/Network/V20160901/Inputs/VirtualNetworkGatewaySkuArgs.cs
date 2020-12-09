@@ -25,13 +25,13 @@ namespace Pulumi.AzureNextGen.Network.V20160901.Inputs
         /// Gateway SKU name. Possible values are: 'Basic', 'HighPerformance','Standard', and 'UltraPerformance'.
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160901.VirtualNetworkGatewaySkuName> Name { get; set; } = null!;
 
         /// <summary>
         /// Gateway SKU tier. Possible values are: 'Basic', 'HighPerformance','Standard', and 'UltraPerformance'.
         /// </summary>
         [Input("tier", required: true)]
-        public Input<string> Tier { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160901.VirtualNetworkGatewaySkuTier> Tier { get; set; } = null!;
 
         public VirtualNetworkGatewaySkuArgs()
         {

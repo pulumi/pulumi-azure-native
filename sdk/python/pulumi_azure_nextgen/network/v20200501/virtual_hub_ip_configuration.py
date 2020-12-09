@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['VirtualHubIpConfiguration']
@@ -21,7 +22,7 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
                  ip_config_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
-                 private_ip_allocation_method: Optional[pulumi.Input[str]] = None,
+                 private_ip_allocation_method: Optional[pulumi.Input[Union[str, 'IPAllocationMethod']]] = None,
                  public_ip_address: Optional[pulumi.Input[pulumi.InputType['PublicIPAddressArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subnet: Optional[pulumi.Input[pulumi.InputType['SubnetArgs']]] = None,
@@ -38,7 +39,7 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] ip_config_name: The name of the ipconfig.
         :param pulumi.Input[str] name: Name of the Ip Configuration.
         :param pulumi.Input[str] private_ip_address: The private IP address of the IP configuration.
-        :param pulumi.Input[str] private_ip_allocation_method: The private IP address allocation method.
+        :param pulumi.Input[Union[str, 'IPAllocationMethod']] private_ip_allocation_method: The private IP address allocation method.
         :param pulumi.Input[pulumi.InputType['PublicIPAddressArgs']] public_ip_address: The reference to the public IP resource.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualHub.
         :param pulumi.Input[pulumi.InputType['SubnetArgs']] subnet: The reference to the subnet resource.
@@ -62,18 +63,18 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['id'] = id
-            if ip_config_name is None:
+            if ip_config_name is None and not opts.urn:
                 raise TypeError("Missing required property 'ip_config_name'")
             __props__['ip_config_name'] = ip_config_name
             __props__['name'] = name
             __props__['private_ip_address'] = private_ip_address
             __props__['private_ip_allocation_method'] = private_ip_allocation_method
             __props__['public_ip_address'] = public_ip_address
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['subnet'] = subnet
-            if virtual_hub_name is None:
+            if virtual_hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_hub_name'")
             __props__['virtual_hub_name'] = virtual_hub_name
             __props__['etag'] = None

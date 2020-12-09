@@ -38,17 +38,18 @@ type ProximityPlacementGroup struct {
 // NewProximityPlacementGroup registers a new resource with the given unique name, arguments, and options.
 func NewProximityPlacementGroup(ctx *pulumi.Context,
 	name string, args *ProximityPlacementGroupArgs, opts ...pulumi.ResourceOption) (*ProximityPlacementGroup, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ProximityPlacementGroupName == nil {
-		return nil, errors.New("missing required argument 'ProximityPlacementGroupName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ProximityPlacementGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ProximityPlacementGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ProximityPlacementGroupName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -61,16 +62,16 @@ export class AlertRule extends pulumi.CustomResource {
     constructor(name: string, args: AlertRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.kind === undefined) {
+            if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kind'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.ruleId === undefined) {
+            if ((!args || args.ruleId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ruleId'");
             }
-            if (!args || args.workspaceName === undefined) {
+            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["etag"] = args ? args.etag : undefined;
@@ -110,7 +111,7 @@ export interface AlertRuleArgs {
     /**
      * The alert rule kind
      */
-    readonly kind: pulumi.Input<string>;
+    readonly kind: pulumi.Input<string | enums.operationalinsights.v20200101.AlertRuleKind>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

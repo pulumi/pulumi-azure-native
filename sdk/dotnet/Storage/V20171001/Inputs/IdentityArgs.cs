@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Storage.V20171001.Inputs
         /// The identity type.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Storage.V20171001.IdentityType> Type { get; set; } = null!;
 
         public IdentityArgs()
         {

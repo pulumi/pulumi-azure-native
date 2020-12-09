@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -126,13 +126,13 @@ export class Profile extends pulumi.CustomResource {
     constructor(name: string, args: ProfileArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.hubName === undefined) {
+            if ((!args || args.hubName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if (!args || args.profileName === undefined) {
+            if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["apiEntitySetName"] = args ? args.apiEntitySetName : undefined;
@@ -216,7 +216,7 @@ export interface ProfileArgs {
     /**
      * Type of entity.
      */
-    readonly entityType?: pulumi.Input<string>;
+    readonly entityType?: pulumi.Input<enums.customerinsights.latest.EntityTypes>;
     /**
      * The properties of the Profile.
      */

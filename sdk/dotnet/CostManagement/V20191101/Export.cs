@@ -137,7 +137,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101
         /// The format of the export being delivered.
         /// </summary>
         [Input("format")]
-        public Input<string>? Format { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20191101.FormatType>? Format { get; set; }
 
         /// <summary>
         /// Has schedule information for the export.

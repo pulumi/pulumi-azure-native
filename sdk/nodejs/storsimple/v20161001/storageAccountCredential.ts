@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -78,25 +78,25 @@ export class StorageAccountCredential extends pulumi.CustomResource {
     constructor(name: string, args: StorageAccountCredentialArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.cloudType === undefined) {
+            if ((!args || args.cloudType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'cloudType'");
             }
-            if (!args || args.credentialName === undefined) {
+            if ((!args || args.credentialName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'credentialName'");
             }
-            if (!args || args.enableSSL === undefined) {
+            if ((!args || args.enableSSL === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'enableSSL'");
             }
-            if (!args || args.endPoint === undefined) {
+            if ((!args || args.endPoint === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'endPoint'");
             }
-            if (!args || args.login === undefined) {
+            if ((!args || args.login === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'login'");
             }
-            if (!args || args.managerName === undefined) {
+            if ((!args || args.managerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accessKey"] = args ? args.accessKey : undefined;
@@ -144,7 +144,7 @@ export interface StorageAccountCredentialArgs {
     /**
      * The cloud service provider
      */
-    readonly cloudType: pulumi.Input<string>;
+    readonly cloudType: pulumi.Input<enums.storsimple.v20161001.CloudType>;
     /**
      * The credential name.
      */
@@ -152,7 +152,7 @@ export interface StorageAccountCredentialArgs {
     /**
      * SSL needs to be enabled or not
      */
-    readonly enableSSL: pulumi.Input<string>;
+    readonly enableSSL: pulumi.Input<enums.storsimple.v20161001.SslStatus>;
     /**
      * The storage endpoint
      */

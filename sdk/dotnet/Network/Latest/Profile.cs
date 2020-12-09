@@ -192,7 +192,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// The status of the Traffic Manager profile.
         /// </summary>
         [Input("profileStatus")]
-        public Input<string>? ProfileStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.ProfileStatus>? ProfileStatus { get; set; }
 
         /// <summary>
         /// The name of the resource group containing the Traffic Manager profile.
@@ -216,13 +216,13 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// The traffic routing method of the Traffic Manager profile.
         /// </summary>
         [Input("trafficRoutingMethod")]
-        public Input<string>? TrafficRoutingMethod { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.TrafficRoutingMethod>? TrafficRoutingMethod { get; set; }
 
         /// <summary>
         /// Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
         /// </summary>
         [Input("trafficViewEnrollmentStatus")]
-        public Input<string>? TrafficViewEnrollmentStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.TrafficViewEnrollmentStatus>? TrafficViewEnrollmentStatus { get; set; }
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.

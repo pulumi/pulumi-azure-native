@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801.Inputs
         /// The family of the SKU. Possible values are: 'UnlimitedData' and 'MeteredData'.
         /// </summary>
         [Input("family")]
-        public Input<string>? Family { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180801.ExpressRouteCircuitSkuFamily>? Family { get; set; }
 
         /// <summary>
         /// The name of the SKU.
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801.Inputs
         /// The tier of the SKU. Possible values are 'Standard', 'Premium' or 'Basic'.
         /// </summary>
         [Input("tier")]
-        public Input<string>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180801.ExpressRouteCircuitSkuTier>? Tier { get; set; }
 
         public ExpressRouteCircuitSkuArgs()
         {

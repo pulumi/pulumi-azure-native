@@ -39,23 +39,24 @@ type VirtualMachineImageTemplate struct {
 // NewVirtualMachineImageTemplate registers a new resource with the given unique name, arguments, and options.
 func NewVirtualMachineImageTemplate(ctx *pulumi.Context,
 	name string, args *VirtualMachineImageTemplateArgs, opts ...pulumi.ResourceOption) (*VirtualMachineImageTemplate, error) {
-	if args == nil || args.Distribute == nil {
-		return nil, errors.New("missing required argument 'Distribute'")
-	}
-	if args == nil || args.ImageTemplateName == nil {
-		return nil, errors.New("missing required argument 'ImageTemplateName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Source == nil {
-		return nil, errors.New("missing required argument 'Source'")
-	}
 	if args == nil {
-		args = &VirtualMachineImageTemplateArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Distribute == nil {
+		return nil, errors.New("invalid value for required argument 'Distribute'")
+	}
+	if args.ImageTemplateName == nil {
+		return nil, errors.New("invalid value for required argument 'ImageTemplateName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Source == nil {
+		return nil, errors.New("invalid value for required argument 'Source'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

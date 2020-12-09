@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -85,19 +86,19 @@ export class GalleryApplication extends pulumi.CustomResource {
     constructor(name: string, args: GalleryApplicationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.galleryApplicationName === undefined) {
+            if ((!args || args.galleryApplicationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'galleryApplicationName'");
             }
-            if (!args || args.galleryName === undefined) {
+            if ((!args || args.galleryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'galleryName'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.supportedOSType === undefined) {
+            if ((!args || args.supportedOSType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'supportedOSType'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -181,7 +182,7 @@ export interface GalleryApplicationArgs {
     /**
      * This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
      */
-    readonly supportedOSType: pulumi.Input<string>;
+    readonly supportedOSType: pulumi.Input<enums.compute.v20191201.OperatingSystemTypes>;
     /**
      * Resource tags
      */

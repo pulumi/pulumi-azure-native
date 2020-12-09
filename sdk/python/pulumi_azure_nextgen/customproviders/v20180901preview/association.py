@@ -47,10 +47,10 @@ class Association(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if association_name is None:
+            if association_name is None and not opts.urn:
                 raise TypeError("Missing required property 'association_name'")
             __props__['association_name'] = association_name
-            if scope is None:
+            if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
             __props__['target_resource_id'] = target_resource_id

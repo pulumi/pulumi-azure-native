@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['FailoverGroup']
@@ -60,20 +61,20 @@ class FailoverGroup(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['databases'] = databases
-            if failover_group_name is None:
+            if failover_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'failover_group_name'")
             __props__['failover_group_name'] = failover_group_name
-            if partner_servers is None:
+            if partner_servers is None and not opts.urn:
                 raise TypeError("Missing required property 'partner_servers'")
             __props__['partner_servers'] = partner_servers
             __props__['read_only_endpoint'] = read_only_endpoint
-            if read_write_endpoint is None:
+            if read_write_endpoint is None and not opts.urn:
                 raise TypeError("Missing required property 'read_write_endpoint'")
             __props__['read_write_endpoint'] = read_write_endpoint
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if server_name is None:
+            if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
             __props__['tags'] = tags

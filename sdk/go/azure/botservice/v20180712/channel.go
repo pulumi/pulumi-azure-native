@@ -36,17 +36,18 @@ type Channel struct {
 // NewChannel registers a new resource with the given unique name, arguments, and options.
 func NewChannel(ctx *pulumi.Context,
 	name string, args *ChannelArgs, opts ...pulumi.ResourceOption) (*Channel, error) {
-	if args == nil || args.ChannelName == nil {
-		return nil, errors.New("missing required argument 'ChannelName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ResourceName == nil {
-		return nil, errors.New("missing required argument 'ResourceName'")
-	}
 	if args == nil {
-		args = &ChannelArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ChannelName == nil {
+		return nil, errors.New("invalid value for required argument 'ChannelName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -40,17 +40,18 @@ type PublishedBlueprint struct {
 // NewPublishedBlueprint registers a new resource with the given unique name, arguments, and options.
 func NewPublishedBlueprint(ctx *pulumi.Context,
 	name string, args *PublishedBlueprintArgs, opts ...pulumi.ResourceOption) (*PublishedBlueprint, error) {
-	if args == nil || args.BlueprintName == nil {
-		return nil, errors.New("missing required argument 'BlueprintName'")
-	}
-	if args == nil || args.ManagementGroupName == nil {
-		return nil, errors.New("missing required argument 'ManagementGroupName'")
-	}
-	if args == nil || args.VersionId == nil {
-		return nil, errors.New("missing required argument 'VersionId'")
-	}
 	if args == nil {
-		args = &PublishedBlueprintArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BlueprintName == nil {
+		return nil, errors.New("invalid value for required argument 'BlueprintName'")
+	}
+	if args.ManagementGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ManagementGroupName'")
+	}
+	if args.VersionId == nil {
+		return nil, errors.New("invalid value for required argument 'VersionId'")
 	}
 	var resource PublishedBlueprint
 	err := ctx.RegisterResource("azure-nextgen:management/v20171111preview:PublishedBlueprint", name, args, &resource, opts...)

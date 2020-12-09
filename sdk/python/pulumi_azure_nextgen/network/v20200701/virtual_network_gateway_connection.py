@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['VirtualNetworkGatewayConnection']
@@ -18,9 +19,9 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization_key: Optional[pulumi.Input[str]] = None,
-                 connection_mode: Optional[pulumi.Input[str]] = None,
-                 connection_protocol: Optional[pulumi.Input[str]] = None,
-                 connection_type: Optional[pulumi.Input[str]] = None,
+                 connection_mode: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionMode']]] = None,
+                 connection_protocol: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionProtocol']]] = None,
+                 connection_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionType']]] = None,
                  dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  enable_bgp: Optional[pulumi.Input[bool]] = None,
                  express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
@@ -48,9 +49,9 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_key: The authorizationKey.
-        :param pulumi.Input[str] connection_mode: The connection mode for this connection.
-        :param pulumi.Input[str] connection_protocol: Connection protocol used for this connection.
-        :param pulumi.Input[str] connection_type: Gateway connection type.
+        :param pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionMode']] connection_mode: The connection mode for this connection.
+        :param pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionProtocol']] connection_protocol: Connection protocol used for this connection.
+        :param pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionType']] connection_type: Gateway connection type.
         :param pulumi.Input[int] dpd_timeout_seconds: The dead peer detection timeout of this connection in seconds.
         :param pulumi.Input[bool] enable_bgp: EnableBgp flag.
         :param pulumi.Input[bool] express_route_gateway_bypass: Bypass ExpressRoute Gateway for data forwarding.
@@ -90,7 +91,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             __props__['authorization_key'] = authorization_key
             __props__['connection_mode'] = connection_mode
             __props__['connection_protocol'] = connection_protocol
-            if connection_type is None:
+            if connection_type is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_type'")
             __props__['connection_type'] = connection_type
             __props__['dpd_timeout_seconds'] = dpd_timeout_seconds
@@ -101,7 +102,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             __props__['local_network_gateway2'] = local_network_gateway2
             __props__['location'] = location
             __props__['peer'] = peer
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['routing_weight'] = routing_weight
@@ -110,11 +111,11 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             __props__['traffic_selector_policies'] = traffic_selector_policies
             __props__['use_local_azure_ip_address'] = use_local_azure_ip_address
             __props__['use_policy_based_traffic_selectors'] = use_policy_based_traffic_selectors
-            if virtual_network_gateway1 is None:
+            if virtual_network_gateway1 is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_gateway1'")
             __props__['virtual_network_gateway1'] = virtual_network_gateway1
             __props__['virtual_network_gateway2'] = virtual_network_gateway2
-            if virtual_network_gateway_connection_name is None:
+            if virtual_network_gateway_connection_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_gateway_connection_name'")
             __props__['virtual_network_gateway_connection_name'] = virtual_network_gateway_connection_name
             __props__['connection_status'] = None

@@ -55,16 +55,16 @@ class TransactionNode(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if blockchain_member_name is None:
+            if blockchain_member_name is None and not opts.urn:
                 raise TypeError("Missing required property 'blockchain_member_name'")
             __props__['blockchain_member_name'] = blockchain_member_name
             __props__['firewall_rules'] = firewall_rules
             __props__['location'] = location
             __props__['password'] = password
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if transaction_node_name is None:
+            if transaction_node_name is None and not opts.urn:
                 raise TypeError("Missing required property 'transaction_node_name'")
             __props__['transaction_node_name'] = transaction_node_name
             __props__['dns'] = None

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -90,13 +90,13 @@ export class StorageSyncService extends pulumi.CustomResource {
     constructor(name: string, args: StorageSyncServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.storageSyncServiceName === undefined) {
+            if ((!args || args.storageSyncServiceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageSyncServiceName'");
             }
             inputs["incomingTrafficPolicy"] = args ? args.incomingTrafficPolicy : undefined;
@@ -145,7 +145,7 @@ export interface StorageSyncServiceArgs {
     /**
      * Incoming Traffic Policy
      */
-    readonly incomingTrafficPolicy?: pulumi.Input<string>;
+    readonly incomingTrafficPolicy?: pulumi.Input<string | enums.storagesync.latest.IncomingTrafficPolicy>;
     /**
      * Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
      */

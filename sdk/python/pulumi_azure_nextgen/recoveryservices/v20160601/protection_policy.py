@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ProtectionPolicy']
@@ -67,16 +68,16 @@ class ProtectionPolicy(pulumi.CustomResource):
             __props__['id'] = id
             __props__['location'] = location
             __props__['name'] = name
-            if policy_name is None:
+            if policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_name'")
             __props__['policy_name'] = policy_name
             __props__['properties'] = properties
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['type'] = type
-            if vault_name is None:
+            if vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vault_name'")
             __props__['vault_name'] = vault_name
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:recoveryservices/latest:ProtectionPolicy"), pulumi.Alias(type_="azure-nextgen:recoveryservices/v20201001:ProtectionPolicy")])

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Runbook']
@@ -28,7 +29,7 @@ class Runbook(pulumi.CustomResource):
                  publish_content_link: Optional[pulumi.Input[pulumi.InputType['ContentLinkArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  runbook_name: Optional[pulumi.Input[str]] = None,
-                 runbook_type: Optional[pulumi.Input[str]] = None,
+                 runbook_type: Optional[pulumi.Input[Union[str, 'RunbookTypeEnum']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -49,7 +50,7 @@ class Runbook(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ContentLinkArgs']] publish_content_link: Gets or sets the published runbook content link.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[str] runbook_name: The runbook name.
-        :param pulumi.Input[str] runbook_type: Gets or sets the type of the runbook.
+        :param pulumi.Input[Union[str, 'RunbookTypeEnum']] runbook_type: Gets or sets the type of the runbook.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the tags attached to the resource.
         """
         if __name__ is not None:
@@ -69,7 +70,7 @@ class Runbook(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if automation_account_name is None:
+            if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
             __props__['description'] = description
@@ -80,13 +81,13 @@ class Runbook(pulumi.CustomResource):
             __props__['log_verbose'] = log_verbose
             __props__['name'] = name
             __props__['publish_content_link'] = publish_content_link
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if runbook_name is None:
+            if runbook_name is None and not opts.urn:
                 raise TypeError("Missing required property 'runbook_name'")
             __props__['runbook_name'] = runbook_name
-            if runbook_type is None:
+            if runbook_type is None and not opts.urn:
                 raise TypeError("Missing required property 'runbook_type'")
             __props__['runbook_type'] = runbook_type
             __props__['tags'] = tags

@@ -153,7 +153,7 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
         /// The kind of workbook. Choices are user and shared.
         /// </summary>
         [Input("kind")]
-        public Input<string>? Kind { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20150501.SharedTypeKind>? Kind { get; set; }
 
         /// <summary>
         /// Resource location
@@ -189,7 +189,7 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
         /// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
         /// </summary>
         [Input("sharedTypeKind", required: true)]
-        public Input<string> SharedTypeKind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20150501.SharedTypeKind> SharedTypeKind { get; set; } = null!;
 
         /// <summary>
         /// Optional resourceId for a source resource.

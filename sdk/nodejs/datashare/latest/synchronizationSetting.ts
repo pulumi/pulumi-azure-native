@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -57,19 +58,19 @@ export class SynchronizationSetting extends pulumi.CustomResource {
     constructor(name: string, args: SynchronizationSettingArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.accountName === undefined) {
+            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.kind === undefined) {
+            if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kind'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.shareName === undefined) {
+            if ((!args || args.shareName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'shareName'");
             }
-            if (!args || args.synchronizationSettingName === undefined) {
+            if ((!args || args.synchronizationSettingName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'synchronizationSettingName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -108,7 +109,7 @@ export interface SynchronizationSettingArgs {
     /**
      * Kind of synchronization
      */
-    readonly kind: pulumi.Input<string>;
+    readonly kind: pulumi.Input<string | enums.datashare.latest.Kind>;
     /**
      * The resource group name.
      */

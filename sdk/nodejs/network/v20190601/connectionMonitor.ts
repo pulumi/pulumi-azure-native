@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -94,19 +94,19 @@ export class ConnectionMonitor extends pulumi.CustomResource {
     constructor(name: string, args: ConnectionMonitorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.connectionMonitorName === undefined) {
+            if ((!args || args.connectionMonitorName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'connectionMonitorName'");
             }
-            if (!args || args.destination === undefined) {
+            if ((!args || args.destination === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'destination'");
             }
-            if (!args || args.networkWatcherName === undefined) {
+            if ((!args || args.networkWatcherName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'networkWatcherName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.source === undefined) {
+            if ((!args || args.source === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'source'");
             }
             inputs["autoStart"] = args ? args.autoStart : undefined;

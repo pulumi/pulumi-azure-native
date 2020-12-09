@@ -44,20 +44,21 @@ type Disk struct {
 // NewDisk registers a new resource with the given unique name, arguments, and options.
 func NewDisk(ctx *pulumi.Context,
 	name string, args *DiskArgs, opts ...pulumi.ResourceOption) (*Disk, error) {
-	if args == nil || args.CreationData == nil {
-		return nil, errors.New("missing required argument 'CreationData'")
-	}
-	if args == nil || args.DiskName == nil {
-		return nil, errors.New("missing required argument 'DiskName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &DiskArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CreationData == nil {
+		return nil, errors.New("invalid value for required argument 'CreationData'")
+	}
+	if args.DiskName == nil {
+		return nil, errors.New("invalid value for required argument 'DiskName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -195,7 +196,7 @@ type diskArgs struct {
 // The set of arguments for constructing a Disk resource.
 type DiskArgs struct {
 	// the storage account type of the disk.
-	AccountType pulumi.StringPtrInput
+	AccountType StorageAccountTypes
 	// Disk source information. CreationData information cannot be changed after the disk has been created.
 	CreationData CreationDataInput
 	// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
@@ -207,7 +208,7 @@ type DiskArgs struct {
 	// Resource location
 	Location pulumi.StringInput
 	// The Operating System type.
-	OsType pulumi.StringPtrInput
+	OsType OperatingSystemTypes
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags

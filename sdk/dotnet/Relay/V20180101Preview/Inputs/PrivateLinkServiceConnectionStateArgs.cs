@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Relay.V20180101Preview.Inputs
         /// Indicates whether the connection has been approved, rejected or removed by the Relay Namespace owner.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Relay.V20180101Preview.PrivateEndpointServiceConnectionStatus>? Status { get; set; }
 
         public PrivateLinkServiceConnectionStateArgs()
         {

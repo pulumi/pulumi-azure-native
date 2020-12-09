@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['StorageDomain']
@@ -18,7 +19,7 @@ class StorageDomain(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  encryption_key: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
-                 encryption_status: Optional[pulumi.Input[str]] = None,
+                 encryption_status: Optional[pulumi.Input['EncryptionStatus']] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account_credential_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -32,7 +33,7 @@ class StorageDomain(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']] encryption_key: The encryption key used to encrypt the data. This is a user secret.
-        :param pulumi.Input[str] encryption_status: The encryption status "Enabled | Disabled".
+        :param pulumi.Input['EncryptionStatus'] encryption_status: The encryption status "Enabled | Disabled".
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] resource_group_name: The resource group name
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_account_credential_ids: The storage account credentials.
@@ -56,19 +57,19 @@ class StorageDomain(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['encryption_key'] = encryption_key
-            if encryption_status is None:
+            if encryption_status is None and not opts.urn:
                 raise TypeError("Missing required property 'encryption_status'")
             __props__['encryption_status'] = encryption_status
-            if manager_name is None:
+            if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")
             __props__['manager_name'] = manager_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if storage_account_credential_ids is None:
+            if storage_account_credential_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_credential_ids'")
             __props__['storage_account_credential_ids'] = storage_account_credential_ids
-            if storage_domain_name is None:
+            if storage_domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_domain_name'")
             __props__['storage_domain_name'] = storage_domain_name
             __props__['name'] = None

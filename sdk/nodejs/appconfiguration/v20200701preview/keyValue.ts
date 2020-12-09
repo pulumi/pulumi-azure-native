@@ -89,13 +89,13 @@ export class KeyValue extends pulumi.CustomResource {
     constructor(name: string, args: KeyValueArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.configStoreName === undefined) {
+            if ((!args || args.configStoreName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'configStoreName'");
             }
-            if (!args || args.keyValueName === undefined) {
+            if ((!args || args.keyValueName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'keyValueName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["configStoreName"] = args ? args.configStoreName : undefined;

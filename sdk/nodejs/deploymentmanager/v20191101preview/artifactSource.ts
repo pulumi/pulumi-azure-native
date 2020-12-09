@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -74,19 +74,19 @@ export class ArtifactSource extends pulumi.CustomResource {
     constructor(name: string, args: ArtifactSourceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.artifactSourceName === undefined) {
+            if ((!args || args.artifactSourceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'artifactSourceName'");
             }
-            if (!args || args.authentication === undefined) {
+            if ((!args || args.authentication === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'authentication'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sourceType === undefined) {
+            if ((!args || args.sourceType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sourceType'");
             }
             inputs["artifactRoot"] = args ? args.artifactRoot : undefined;

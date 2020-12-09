@@ -36,17 +36,18 @@ type BotConnection struct {
 // NewBotConnection registers a new resource with the given unique name, arguments, and options.
 func NewBotConnection(ctx *pulumi.Context,
 	name string, args *BotConnectionArgs, opts ...pulumi.ResourceOption) (*BotConnection, error) {
-	if args == nil || args.ConnectionName == nil {
-		return nil, errors.New("missing required argument 'ConnectionName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ResourceName == nil {
-		return nil, errors.New("missing required argument 'ResourceName'")
-	}
 	if args == nil {
-		args = &BotConnectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ConnectionName == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectionName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

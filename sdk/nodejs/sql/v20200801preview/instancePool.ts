@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -78,22 +78,22 @@ export class InstancePool extends pulumi.CustomResource {
     constructor(name: string, args: InstancePoolArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.instancePoolName === undefined) {
+            if ((!args || args.instancePoolName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'instancePoolName'");
             }
-            if (!args || args.licenseType === undefined) {
+            if ((!args || args.licenseType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'licenseType'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.subnetId === undefined) {
+            if ((!args || args.subnetId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            if (!args || args.vCores === undefined) {
+            if ((!args || args.vCores === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vCores'");
             }
             inputs["instancePoolName"] = args ? args.instancePoolName : undefined;
@@ -140,7 +140,7 @@ export interface InstancePoolArgs {
     /**
      * The license type. Possible values are 'LicenseIncluded' (price for SQL license is included) and 'BasePrice' (without SQL license price).
      */
-    readonly licenseType: pulumi.Input<string>;
+    readonly licenseType: pulumi.Input<string | enums.sql.v20200801preview.InstancePoolLicenseType>;
     /**
      * Resource location.
      */

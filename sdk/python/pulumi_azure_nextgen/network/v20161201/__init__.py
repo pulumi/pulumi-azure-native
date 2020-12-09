@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .application_gateway import *
 from .express_route_circuit import *
 from .express_route_circuit_authorization import *
@@ -50,3 +51,66 @@ from .virtual_network_gateway_connection import *
 from .virtual_network_peering import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:network/v20161201:ApplicationGateway":
+                return ApplicationGateway(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/v20161201:ExpressRouteCircuit":
+                return ExpressRouteCircuit(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/v20161201:ExpressRouteCircuitAuthorization":
+                return ExpressRouteCircuitAuthorization(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/v20161201:ExpressRouteCircuitPeering":
+                return ExpressRouteCircuitPeering(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/v20161201:LoadBalancer":
+                return LoadBalancer(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/v20161201:LocalNetworkGateway":
+                return LocalNetworkGateway(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/v20161201:NetworkInterface":
+                return NetworkInterface(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/v20161201:NetworkSecurityGroup":
+                return NetworkSecurityGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/v20161201:NetworkWatcher":
+                return NetworkWatcher(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/v20161201:PacketCapture":
+                return PacketCapture(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/v20161201:PublicIPAddress":
+                return PublicIPAddress(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/v20161201:Route":
+                return Route(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/v20161201:RouteFilter":
+                return RouteFilter(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/v20161201:RouteFilterRule":
+                return RouteFilterRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/v20161201:RouteTable":
+                return RouteTable(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/v20161201:SecurityRule":
+                return SecurityRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/v20161201:Subnet":
+                return Subnet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/v20161201:VirtualNetwork":
+                return VirtualNetwork(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/v20161201:VirtualNetworkGateway":
+                return VirtualNetworkGateway(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/v20161201:VirtualNetworkGatewayConnection":
+                return VirtualNetworkGatewayConnection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/v20161201:VirtualNetworkPeering":
+                return VirtualNetworkPeering(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "network/v20161201", _module_instance)
+
+_register_module()

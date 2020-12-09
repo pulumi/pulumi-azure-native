@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201.Inputs
         /// HTTP redirection type.
         /// </summary>
         [Input("redirectType")]
-        public Input<string>? RedirectType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20191201.ApplicationGatewayRedirectType>? RedirectType { get; set; }
 
         [Input("requestRoutingRules")]
         private InputList<Inputs.SubResourceArgs>? _requestRoutingRules;

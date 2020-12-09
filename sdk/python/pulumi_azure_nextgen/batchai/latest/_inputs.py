@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AppInsightsReferenceArgs',
@@ -807,14 +808,14 @@ class DataDisksArgs:
     def __init__(__self__, *,
                  disk_count: pulumi.Input[int],
                  disk_size_in_gb: pulumi.Input[int],
-                 storage_account_type: pulumi.Input[str],
-                 caching_type: Optional[pulumi.Input[str]] = None):
+                 storage_account_type: pulumi.Input[Union[str, 'StorageAccountType']],
+                 caching_type: Optional[pulumi.Input['CachingType']] = None):
         """
         Data disks settings.
         :param pulumi.Input[int] disk_count: Number of data disks attached to the File Server. If multiple disks attached, they will be configured in RAID level 0.
         :param pulumi.Input[int] disk_size_in_gb: Disk size in GB for the blank data disks.
-        :param pulumi.Input[str] storage_account_type: Type of storage account to be used on the disk. Possible values are: Standard_LRS or Premium_LRS. Premium storage account type can only be used with VM sizes supporting premium storage.
-        :param pulumi.Input[str] caching_type: Caching type for the disks. Available values are none (default), readonly, readwrite. Caching type can be set only for VM sizes supporting premium storage.
+        :param pulumi.Input[Union[str, 'StorageAccountType']] storage_account_type: Type of storage account to be used on the disk. Possible values are: Standard_LRS or Premium_LRS. Premium storage account type can only be used with VM sizes supporting premium storage.
+        :param pulumi.Input['CachingType'] caching_type: Caching type for the disks. Available values are none (default), readonly, readwrite. Caching type can be set only for VM sizes supporting premium storage.
         """
         pulumi.set(__self__, "disk_count", disk_count)
         pulumi.set(__self__, "disk_size_in_gb", disk_size_in_gb)
@@ -848,26 +849,26 @@ class DataDisksArgs:
 
     @property
     @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> pulumi.Input[str]:
+    def storage_account_type(self) -> pulumi.Input[Union[str, 'StorageAccountType']]:
         """
         Type of storage account to be used on the disk. Possible values are: Standard_LRS or Premium_LRS. Premium storage account type can only be used with VM sizes supporting premium storage.
         """
         return pulumi.get(self, "storage_account_type")
 
     @storage_account_type.setter
-    def storage_account_type(self, value: pulumi.Input[str]):
+    def storage_account_type(self, value: pulumi.Input[Union[str, 'StorageAccountType']]):
         pulumi.set(self, "storage_account_type", value)
 
     @property
     @pulumi.getter(name="cachingType")
-    def caching_type(self) -> Optional[pulumi.Input[str]]:
+    def caching_type(self) -> Optional[pulumi.Input['CachingType']]:
         """
         Caching type for the disks. Available values are none (default), readonly, readwrite. Caching type can be set only for VM sizes supporting premium storage.
         """
         return pulumi.get(self, "caching_type")
 
     @caching_type.setter
-    def caching_type(self, value: Optional[pulumi.Input[str]]):
+    def caching_type(self, value: Optional[pulumi.Input['CachingType']]):
         pulumi.set(self, "caching_type", value)
 
 
@@ -1372,11 +1373,11 @@ class KeyVaultSecretReferenceArgs:
 class ManualScaleSettingsArgs:
     def __init__(__self__, *,
                  target_node_count: pulumi.Input[int],
-                 node_deallocation_option: Optional[pulumi.Input[str]] = None):
+                 node_deallocation_option: Optional[pulumi.Input[Union[str, 'DeallocationOption']]] = None):
         """
         Manual scale settings for the cluster.
         :param pulumi.Input[int] target_node_count: The desired number of compute nodes in the Cluster. Default is 0.
-        :param pulumi.Input[str] node_deallocation_option: An action to be performed when the cluster size is decreasing. The default value is requeue.
+        :param pulumi.Input[Union[str, 'DeallocationOption']] node_deallocation_option: An action to be performed when the cluster size is decreasing. The default value is requeue.
         """
         pulumi.set(__self__, "target_node_count", target_node_count)
         if node_deallocation_option is not None:
@@ -1396,14 +1397,14 @@ class ManualScaleSettingsArgs:
 
     @property
     @pulumi.getter(name="nodeDeallocationOption")
-    def node_deallocation_option(self) -> Optional[pulumi.Input[str]]:
+    def node_deallocation_option(self) -> Optional[pulumi.Input[Union[str, 'DeallocationOption']]]:
         """
         An action to be performed when the cluster size is decreasing. The default value is requeue.
         """
         return pulumi.get(self, "node_deallocation_option")
 
     @node_deallocation_option.setter
-    def node_deallocation_option(self, value: Optional[pulumi.Input[str]]):
+    def node_deallocation_option(self, value: Optional[pulumi.Input[Union[str, 'DeallocationOption']]]):
         pulumi.set(self, "node_deallocation_option", value)
 
 

@@ -26,20 +26,21 @@ type Binding struct {
 // NewBinding registers a new resource with the given unique name, arguments, and options.
 func NewBinding(ctx *pulumi.Context,
 	name string, args *BindingArgs, opts ...pulumi.ResourceOption) (*Binding, error) {
-	if args == nil || args.AppName == nil {
-		return nil, errors.New("missing required argument 'AppName'")
-	}
-	if args == nil || args.BindingName == nil {
-		return nil, errors.New("missing required argument 'BindingName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
 	if args == nil {
-		args = &BindingArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AppName == nil {
+		return nil, errors.New("invalid value for required argument 'AppName'")
+	}
+	if args.BindingName == nil {
+		return nil, errors.New("invalid value for required argument 'BindingName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// The WSDL import method
         /// </summary>
         [Input("importMethod")]
-        public string? ImportMethod { get; set; }
+        public Union<string, Pulumi.AzureNextGen.Web.Latest.WsdlImportMethod>? ImportMethod { get; set; }
 
         /// <summary>
         /// The location

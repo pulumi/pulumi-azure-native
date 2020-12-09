@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -67,10 +67,10 @@ export class Site extends pulumi.CustomResource {
     constructor(name: string, args: SiteArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.siteName === undefined) {
+            if ((!args || args.siteName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'siteName'");
             }
             inputs["eTag"] = args ? args.eTag : undefined;

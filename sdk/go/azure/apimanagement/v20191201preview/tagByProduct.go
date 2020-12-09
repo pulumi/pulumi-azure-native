@@ -26,20 +26,21 @@ type TagByProduct struct {
 // NewTagByProduct registers a new resource with the given unique name, arguments, and options.
 func NewTagByProduct(ctx *pulumi.Context,
 	name string, args *TagByProductArgs, opts ...pulumi.ResourceOption) (*TagByProduct, error) {
-	if args == nil || args.ProductId == nil {
-		return nil, errors.New("missing required argument 'ProductId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
-	if args == nil || args.TagId == nil {
-		return nil, errors.New("missing required argument 'TagId'")
-	}
 	if args == nil {
-		args = &TagByProductArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ProductId == nil {
+		return nil, errors.New("invalid value for required argument 'ProductId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
+	}
+	if args.TagId == nil {
+		return nil, errors.New("invalid value for required argument 'TagId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

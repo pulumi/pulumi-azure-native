@@ -40,17 +40,18 @@ type CommunicationService struct {
 // NewCommunicationService registers a new resource with the given unique name, arguments, and options.
 func NewCommunicationService(ctx *pulumi.Context,
 	name string, args *CommunicationServiceArgs, opts ...pulumi.ResourceOption) (*CommunicationService, error) {
-	if args == nil || args.CommunicationServiceName == nil {
-		return nil, errors.New("missing required argument 'CommunicationServiceName'")
-	}
-	if args == nil || args.DataLocation == nil {
-		return nil, errors.New("missing required argument 'DataLocation'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &CommunicationServiceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CommunicationServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'CommunicationServiceName'")
+	}
+	if args.DataLocation == nil {
+		return nil, errors.New("invalid value for required argument 'DataLocation'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource CommunicationService
 	err := ctx.RegisterResource("azure-nextgen:communication/v20200820preview:CommunicationService", name, args, &resource, opts...)

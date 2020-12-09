@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Bot']
@@ -18,7 +19,7 @@ class Bot(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  etag: Optional[pulumi.Input[str]] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['BotPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -34,7 +35,7 @@ class Bot(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: Entity Tag
-        :param pulumi.Input[str] kind: Required. Gets or sets the Kind of the resource.
+        :param pulumi.Input[Union[str, 'Kind']] kind: Required. Gets or sets the Kind of the resource.
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input[pulumi.InputType['BotPropertiesArgs']] properties: The set of properties specific to bot resource
         :param pulumi.Input[str] resource_group_name: The name of the Bot resource group in the user subscription.
@@ -63,10 +64,10 @@ class Bot(pulumi.CustomResource):
             __props__['kind'] = kind
             __props__['location'] = location
             __props__['properties'] = properties
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if resource_name_ is None:
+            if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
             __props__['sku'] = sku

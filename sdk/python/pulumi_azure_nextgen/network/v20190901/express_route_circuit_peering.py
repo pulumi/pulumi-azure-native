@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ExpressRouteCircuitPeering']
@@ -27,7 +28,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  peer_asn: Optional[pulumi.Input[int]] = None,
                  peering_name: Optional[pulumi.Input[str]] = None,
-                 peering_type: Optional[pulumi.Input[str]] = None,
+                 peering_type: Optional[pulumi.Input[Union[str, 'ExpressRoutePeeringType']]] = None,
                  primary_azure_port: Optional[pulumi.Input[str]] = None,
                  primary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -35,7 +36,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
                  secondary_azure_port: Optional[pulumi.Input[str]] = None,
                  secondary_peer_address_prefix: Optional[pulumi.Input[str]] = None,
                  shared_key: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[Union[str, 'ExpressRoutePeeringState']]] = None,
                  stats: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitStatsArgs']]] = None,
                  vlan_id: Optional[pulumi.Input[int]] = None,
                  __props__=None,
@@ -56,7 +57,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[int] peer_asn: The peer ASN.
         :param pulumi.Input[str] peering_name: The name of the peering.
-        :param pulumi.Input[str] peering_type: The peering type.
+        :param pulumi.Input[Union[str, 'ExpressRoutePeeringType']] peering_type: The peering type.
         :param pulumi.Input[str] primary_azure_port: The primary port.
         :param pulumi.Input[str] primary_peer_address_prefix: The primary address prefix.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -64,7 +65,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         :param pulumi.Input[str] secondary_azure_port: The secondary port.
         :param pulumi.Input[str] secondary_peer_address_prefix: The secondary address prefix.
         :param pulumi.Input[str] shared_key: The shared key.
-        :param pulumi.Input[str] state: The peering state.
+        :param pulumi.Input[Union[str, 'ExpressRoutePeeringState']] state: The peering state.
         :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitStatsArgs']] stats: The peering stats of express route circuit.
         :param pulumi.Input[int] vlan_id: The VLAN ID.
         """
@@ -86,7 +87,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['azure_asn'] = azure_asn
-            if circuit_name is None:
+            if circuit_name is None and not opts.urn:
                 raise TypeError("Missing required property 'circuit_name'")
             __props__['circuit_name'] = circuit_name
             __props__['connections'] = connections
@@ -96,13 +97,13 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             __props__['microsoft_peering_config'] = microsoft_peering_config
             __props__['name'] = name
             __props__['peer_asn'] = peer_asn
-            if peering_name is None:
+            if peering_name is None and not opts.urn:
                 raise TypeError("Missing required property 'peering_name'")
             __props__['peering_name'] = peering_name
             __props__['peering_type'] = peering_type
             __props__['primary_azure_port'] = primary_azure_port
             __props__['primary_peer_address_prefix'] = primary_peer_address_prefix
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['route_filter'] = route_filter

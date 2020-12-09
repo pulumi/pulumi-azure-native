@@ -73,25 +73,25 @@ export class SqlPoolSensitivityLabel extends pulumi.CustomResource {
     constructor(name: string, args: SqlPoolSensitivityLabelArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.columnName === undefined) {
+            if ((!args || args.columnName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'columnName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.schemaName === undefined) {
+            if ((!args || args.schemaName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'schemaName'");
             }
-            if (!args || args.sensitivityLabelSource === undefined) {
+            if ((!args || args.sensitivityLabelSource === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sensitivityLabelSource'");
             }
-            if (!args || args.sqlPoolName === undefined) {
+            if ((!args || args.sqlPoolName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sqlPoolName'");
             }
-            if (!args || args.tableName === undefined) {
+            if ((!args || args.tableName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'tableName'");
             }
-            if (!args || args.workspaceName === undefined) {
+            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["columnName"] = args ? args.columnName : undefined;

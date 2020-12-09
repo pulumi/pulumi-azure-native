@@ -46,20 +46,21 @@ type AssessmentMetadataInSubscription struct {
 // NewAssessmentMetadataInSubscription registers a new resource with the given unique name, arguments, and options.
 func NewAssessmentMetadataInSubscription(ctx *pulumi.Context,
 	name string, args *AssessmentMetadataInSubscriptionArgs, opts ...pulumi.ResourceOption) (*AssessmentMetadataInSubscription, error) {
-	if args == nil || args.AssessmentMetadataName == nil {
-		return nil, errors.New("missing required argument 'AssessmentMetadataName'")
-	}
-	if args == nil || args.AssessmentType == nil {
-		return nil, errors.New("missing required argument 'AssessmentType'")
-	}
-	if args == nil || args.DisplayName == nil {
-		return nil, errors.New("missing required argument 'DisplayName'")
-	}
-	if args == nil || args.Severity == nil {
-		return nil, errors.New("missing required argument 'Severity'")
-	}
 	if args == nil {
-		args = &AssessmentMetadataInSubscriptionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AssessmentMetadataName == nil {
+		return nil, errors.New("invalid value for required argument 'AssessmentMetadataName'")
+	}
+	if args.AssessmentType == nil {
+		return nil, errors.New("invalid value for required argument 'AssessmentType'")
+	}
+	if args.DisplayName == nil {
+		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
+	if args.Severity == nil {
+		return nil, errors.New("invalid value for required argument 'Severity'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

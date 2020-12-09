@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -114,13 +114,13 @@ export class ExpressRouteCrossConnectionPeering extends pulumi.CustomResource {
     constructor(name: string, args: ExpressRouteCrossConnectionPeeringArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.crossConnectionName === undefined) {
+            if ((!args || args.crossConnectionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'crossConnectionName'");
             }
-            if (!args || args.peeringName === undefined) {
+            if ((!args || args.peeringName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'peeringName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["crossConnectionName"] = args ? args.crossConnectionName : undefined;
@@ -219,7 +219,7 @@ export interface ExpressRouteCrossConnectionPeeringArgs {
     /**
      * The peering type.
      */
-    readonly peeringType?: pulumi.Input<string>;
+    readonly peeringType?: pulumi.Input<string | enums.network.v20190601.ExpressRoutePeeringType>;
     /**
      * The primary address prefix.
      */
@@ -239,7 +239,7 @@ export interface ExpressRouteCrossConnectionPeeringArgs {
     /**
      * The peering state.
      */
-    readonly state?: pulumi.Input<string>;
+    readonly state?: pulumi.Input<string | enums.network.v20190601.ExpressRoutePeeringState>;
     /**
      * The VLAN ID.
      */

@@ -139,7 +139,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// The state of the Experiment
         /// </summary>
         [Input("enabledState")]
-        public Input<string>? EnabledState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.State>? EnabledState { get; set; }
 
         /// <summary>
         /// The endpoint A of an experiment

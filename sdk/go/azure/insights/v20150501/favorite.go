@@ -42,17 +42,18 @@ type Favorite struct {
 // NewFavorite registers a new resource with the given unique name, arguments, and options.
 func NewFavorite(ctx *pulumi.Context,
 	name string, args *FavoriteArgs, opts ...pulumi.ResourceOption) (*Favorite, error) {
-	if args == nil || args.FavoriteId == nil {
-		return nil, errors.New("missing required argument 'FavoriteId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ResourceName == nil {
-		return nil, errors.New("missing required argument 'ResourceName'")
-	}
 	if args == nil {
-		args = &FavoriteArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.FavoriteId == nil {
+		return nil, errors.New("invalid value for required argument 'FavoriteId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -169,7 +170,7 @@ type FavoriteArgs struct {
 	// The Id of a specific favorite defined in the Application Insights component
 	FavoriteId pulumi.StringInput
 	// Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-	FavoriteType pulumi.StringPtrInput
+	FavoriteType FavoriteType
 	// Flag denoting wether or not this favorite was generated from a template.
 	IsGeneratedFromTemplate pulumi.BoolPtrInput
 	// The user-defined name of the favorite.

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AvailabilitySetResourceSettingsArgs',
@@ -108,12 +109,12 @@ class IdentityArgs:
     def __init__(__self__, *,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input[Union[str, 'ResourceIdentityType']]] = None):
         """
         Defines the MSI properties of the Move Collection.
         :param pulumi.Input[str] principal_id: Gets or sets the principal id.
         :param pulumi.Input[str] tenant_id: Gets or sets the tenant id.
-        :param pulumi.Input[str] type: The type of identity used for the resource mover service.
+        :param pulumi.Input[Union[str, 'ResourceIdentityType']] type: The type of identity used for the resource mover service.
         """
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
@@ -148,14 +149,14 @@ class IdentityArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ResourceIdentityType']]]:
         """
         The type of identity used for the resource mover service.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ResourceIdentityType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -1146,12 +1147,12 @@ class SqlDatabaseResourceSettingsArgs:
     def __init__(__self__, *,
                  resource_type: pulumi.Input[str],
                  target_resource_name: pulumi.Input[str],
-                 zone_redundant: Optional[pulumi.Input[str]] = None):
+                 zone_redundant: Optional[pulumi.Input[Union[str, 'ZoneRedundant']]] = None):
         """
         Defines the Sql Database resource settings.
         :param pulumi.Input[str] resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
         :param pulumi.Input[str] target_resource_name: Gets or sets the target Resource name.
-        :param pulumi.Input[str] zone_redundant: Defines the zone redundant resource setting.
+        :param pulumi.Input[Union[str, 'ZoneRedundant']] zone_redundant: Defines the zone redundant resource setting.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Sql/servers/databases')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
@@ -1184,14 +1185,14 @@ class SqlDatabaseResourceSettingsArgs:
 
     @property
     @pulumi.getter(name="zoneRedundant")
-    def zone_redundant(self) -> Optional[pulumi.Input[str]]:
+    def zone_redundant(self) -> Optional[pulumi.Input[Union[str, 'ZoneRedundant']]]:
         """
         Defines the zone redundant resource setting.
         """
         return pulumi.get(self, "zone_redundant")
 
     @zone_redundant.setter
-    def zone_redundant(self, value: Optional[pulumi.Input[str]]):
+    def zone_redundant(self, value: Optional[pulumi.Input[Union[str, 'ZoneRedundant']]]):
         pulumi.set(self, "zone_redundant", value)
 
 
@@ -1200,12 +1201,12 @@ class SqlElasticPoolResourceSettingsArgs:
     def __init__(__self__, *,
                  resource_type: pulumi.Input[str],
                  target_resource_name: pulumi.Input[str],
-                 zone_redundant: Optional[pulumi.Input[str]] = None):
+                 zone_redundant: Optional[pulumi.Input[Union[str, 'ZoneRedundant']]] = None):
         """
         Defines the Sql ElasticPool resource settings.
         :param pulumi.Input[str] resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
         :param pulumi.Input[str] target_resource_name: Gets or sets the target Resource name.
-        :param pulumi.Input[str] zone_redundant: Defines the zone redundant resource setting.
+        :param pulumi.Input[Union[str, 'ZoneRedundant']] zone_redundant: Defines the zone redundant resource setting.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Sql/servers/elasticPools')
         pulumi.set(__self__, "target_resource_name", target_resource_name)
@@ -1238,14 +1239,14 @@ class SqlElasticPoolResourceSettingsArgs:
 
     @property
     @pulumi.getter(name="zoneRedundant")
-    def zone_redundant(self) -> Optional[pulumi.Input[str]]:
+    def zone_redundant(self) -> Optional[pulumi.Input[Union[str, 'ZoneRedundant']]]:
         """
         Defines the zone redundant resource setting.
         """
         return pulumi.get(self, "zone_redundant")
 
     @zone_redundant.setter
-    def zone_redundant(self, value: Optional[pulumi.Input[str]]):
+    def zone_redundant(self, value: Optional[pulumi.Input[Union[str, 'ZoneRedundant']]]):
         pulumi.set(self, "zone_redundant", value)
 
 
@@ -1372,14 +1373,14 @@ class VirtualMachineResourceSettingsArgs:
                  resource_type: pulumi.Input[str],
                  target_resource_name: pulumi.Input[str],
                  target_availability_set_id: Optional[pulumi.Input[str]] = None,
-                 target_availability_zone: Optional[pulumi.Input[str]] = None,
+                 target_availability_zone: Optional[pulumi.Input[Union[str, 'TargetAvailabilityZone']]] = None,
                  target_vm_size: Optional[pulumi.Input[str]] = None):
         """
         Gets or sets the virtual machine resource settings.
         :param pulumi.Input[str] resource_type: The resource type. For example, the value can be Microsoft.Compute/virtualMachines.
         :param pulumi.Input[str] target_resource_name: Gets or sets the target Resource name.
         :param pulumi.Input[str] target_availability_set_id: Gets or sets the target availability set id for virtual machines not in an availability set at source.
-        :param pulumi.Input[str] target_availability_zone: Gets or sets the target availability zone.
+        :param pulumi.Input[Union[str, 'TargetAvailabilityZone']] target_availability_zone: Gets or sets the target availability zone.
         :param pulumi.Input[str] target_vm_size: Gets or sets the target virtual machine size.
         """
         pulumi.set(__self__, "resource_type", 'Microsoft.Compute/virtualMachines')
@@ -1429,14 +1430,14 @@ class VirtualMachineResourceSettingsArgs:
 
     @property
     @pulumi.getter(name="targetAvailabilityZone")
-    def target_availability_zone(self) -> Optional[pulumi.Input[str]]:
+    def target_availability_zone(self) -> Optional[pulumi.Input[Union[str, 'TargetAvailabilityZone']]]:
         """
         Gets or sets the target availability zone.
         """
         return pulumi.get(self, "target_availability_zone")
 
     @target_availability_zone.setter
-    def target_availability_zone(self, value: Optional[pulumi.Input[str]]):
+    def target_availability_zone(self, value: Optional[pulumi.Input[Union[str, 'TargetAvailabilityZone']]]):
         pulumi.set(self, "target_availability_zone", value)
 
     @property

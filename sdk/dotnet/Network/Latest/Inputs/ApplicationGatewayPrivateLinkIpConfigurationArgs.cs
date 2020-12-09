@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// The private IP address allocation method.
         /// </summary>
         [Input("privateIPAllocationMethod")]
-        public Input<string>? PrivateIPAllocationMethod { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.IPAllocationMethod>? PrivateIPAllocationMethod { get; set; }
 
         /// <summary>
         /// Reference to the subnet resource.

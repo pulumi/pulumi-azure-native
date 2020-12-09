@@ -55,12 +55,12 @@ class Service(pulumi.CustomResource):
 
             __props__['admin_domain_name'] = admin_domain_name
             __props__['billing_domain_name'] = billing_domain_name
-            if device_name is None:
+            if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
             __props__['notes'] = notes
             __props__['quantity'] = quantity
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['etag'] = None

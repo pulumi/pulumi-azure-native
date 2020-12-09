@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Inputs
     public sealed class AutoscaleScheduleArgs : Pulumi.ResourceArgs
     {
         [Input("days")]
-        private InputList<string>? _days;
+        private InputList<Pulumi.AzureNextGen.HDInsight.V20180601Preview.DaysOfWeek>? _days;
 
         /// <summary>
         /// Days of the week for a schedule-based autoscale rule
         /// </summary>
-        public InputList<string> Days
+        public InputList<Pulumi.AzureNextGen.HDInsight.V20180601Preview.DaysOfWeek> Days
         {
-            get => _days ?? (_days = new InputList<string>());
+            get => _days ?? (_days = new InputList<Pulumi.AzureNextGen.HDInsight.V20180601Preview.DaysOfWeek>());
             set => _days = value;
         }
 

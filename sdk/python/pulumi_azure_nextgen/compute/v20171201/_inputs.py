@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AdditionalUnattendContentArgs',
@@ -66,16 +67,16 @@ __all__ = [
 @pulumi.input_type
 class AdditionalUnattendContentArgs:
     def __init__(__self__, *,
-                 component_name: Optional[pulumi.Input[str]] = None,
+                 component_name: Optional[pulumi.Input['ComponentNames']] = None,
                  content: Optional[pulumi.Input[str]] = None,
-                 pass_name: Optional[pulumi.Input[str]] = None,
-                 setting_name: Optional[pulumi.Input[str]] = None):
+                 pass_name: Optional[pulumi.Input['PassNames']] = None,
+                 setting_name: Optional[pulumi.Input['SettingNames']] = None):
         """
         Specifies additional XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup. Contents are defined by setting name, component name, and the pass in which the content is applied.
-        :param pulumi.Input[str] component_name: The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
+        :param pulumi.Input['ComponentNames'] component_name: The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
         :param pulumi.Input[str] content: Specifies the XML formatted content that is added to the unattend.xml file for the specified path and component. The XML must be less than 4KB and must include the root element for the setting or feature that is being inserted.
-        :param pulumi.Input[str] pass_name: The pass name. Currently, the only allowable value is OobeSystem.
-        :param pulumi.Input[str] setting_name: Specifies the name of the setting to which the content applies. Possible values are: FirstLogonCommands and AutoLogon.
+        :param pulumi.Input['PassNames'] pass_name: The pass name. Currently, the only allowable value is OobeSystem.
+        :param pulumi.Input['SettingNames'] setting_name: Specifies the name of the setting to which the content applies. Possible values are: FirstLogonCommands and AutoLogon.
         """
         if component_name is not None:
             pulumi.set(__self__, "component_name", component_name)
@@ -88,14 +89,14 @@ class AdditionalUnattendContentArgs:
 
     @property
     @pulumi.getter(name="componentName")
-    def component_name(self) -> Optional[pulumi.Input[str]]:
+    def component_name(self) -> Optional[pulumi.Input['ComponentNames']]:
         """
         The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
         """
         return pulumi.get(self, "component_name")
 
     @component_name.setter
-    def component_name(self, value: Optional[pulumi.Input[str]]):
+    def component_name(self, value: Optional[pulumi.Input['ComponentNames']]):
         pulumi.set(self, "component_name", value)
 
     @property
@@ -112,26 +113,26 @@ class AdditionalUnattendContentArgs:
 
     @property
     @pulumi.getter(name="passName")
-    def pass_name(self) -> Optional[pulumi.Input[str]]:
+    def pass_name(self) -> Optional[pulumi.Input['PassNames']]:
         """
         The pass name. Currently, the only allowable value is OobeSystem.
         """
         return pulumi.get(self, "pass_name")
 
     @pass_name.setter
-    def pass_name(self, value: Optional[pulumi.Input[str]]):
+    def pass_name(self, value: Optional[pulumi.Input['PassNames']]):
         pulumi.set(self, "pass_name", value)
 
     @property
     @pulumi.getter(name="settingName")
-    def setting_name(self) -> Optional[pulumi.Input[str]]:
+    def setting_name(self) -> Optional[pulumi.Input['SettingNames']]:
         """
         Specifies the name of the setting to which the content applies. Possible values are: FirstLogonCommands and AutoLogon.
         """
         return pulumi.get(self, "setting_name")
 
     @setting_name.setter
-    def setting_name(self, value: Optional[pulumi.Input[str]]):
+    def setting_name(self, value: Optional[pulumi.Input['SettingNames']]):
         pulumi.set(self, "setting_name", value)
 
 
@@ -226,9 +227,9 @@ class BootDiagnosticsArgs:
 @pulumi.input_type
 class DataDiskArgs:
     def __init__(__self__, *,
-                 create_option: pulumi.Input[str],
+                 create_option: pulumi.Input[Union[str, 'DiskCreateOptionTypes']],
                  lun: pulumi.Input[int],
-                 caching: Optional[pulumi.Input[str]] = None,
+                 caching: Optional[pulumi.Input['CachingTypes']] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  image: Optional[pulumi.Input['VirtualHardDiskArgs']] = None,
                  managed_disk: Optional[pulumi.Input['ManagedDiskParametersArgs']] = None,
@@ -237,9 +238,9 @@ class DataDiskArgs:
                  write_accelerator_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Describes a data disk.
-        :param pulumi.Input[str] create_option: Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
+        :param pulumi.Input[Union[str, 'DiskCreateOptionTypes']] create_option: Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
         :param pulumi.Input[int] lun: Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
-        :param pulumi.Input[str] caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
+        :param pulumi.Input['CachingTypes'] caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
         :param pulumi.Input[int] disk_size_gb: Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
         :param pulumi.Input['VirtualHardDiskArgs'] image: The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
         :param pulumi.Input['ManagedDiskParametersArgs'] managed_disk: The managed disk parameters.
@@ -266,14 +267,14 @@ class DataDiskArgs:
 
     @property
     @pulumi.getter(name="createOption")
-    def create_option(self) -> pulumi.Input[str]:
+    def create_option(self) -> pulumi.Input[Union[str, 'DiskCreateOptionTypes']]:
         """
         Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
         """
         return pulumi.get(self, "create_option")
 
     @create_option.setter
-    def create_option(self, value: pulumi.Input[str]):
+    def create_option(self, value: pulumi.Input[Union[str, 'DiskCreateOptionTypes']]):
         pulumi.set(self, "create_option", value)
 
     @property
@@ -290,14 +291,14 @@ class DataDiskArgs:
 
     @property
     @pulumi.getter
-    def caching(self) -> Optional[pulumi.Input[str]]:
+    def caching(self) -> Optional[pulumi.Input['CachingTypes']]:
         """
         Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
         """
         return pulumi.get(self, "caching")
 
     @caching.setter
-    def caching(self, value: Optional[pulumi.Input[str]]):
+    def caching(self, value: Optional[pulumi.Input['CachingTypes']]):
         pulumi.set(self, "caching", value)
 
     @property
@@ -456,24 +457,24 @@ class DiskEncryptionSettingsArgs:
 @pulumi.input_type
 class HardwareProfileArgs:
     def __init__(__self__, *,
-                 vm_size: Optional[pulumi.Input[str]] = None):
+                 vm_size: Optional[pulumi.Input[Union[str, 'VirtualMachineSizeTypes']]] = None):
         """
         Specifies the hardware settings for the virtual machine.
-        :param pulumi.Input[str] vm_size: Specifies the size of the virtual machine. For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> The available VM sizes depend on region and availability set. For a list of available sizes use these APIs:  <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region](https://docs.microsoft.com/rest/api/compute/virtualmachinesizes/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes)
+        :param pulumi.Input[Union[str, 'VirtualMachineSizeTypes']] vm_size: Specifies the size of the virtual machine. For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> The available VM sizes depend on region and availability set. For a list of available sizes use these APIs:  <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region](https://docs.microsoft.com/rest/api/compute/virtualmachinesizes/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes)
         """
         if vm_size is not None:
             pulumi.set(__self__, "vm_size", vm_size)
 
     @property
     @pulumi.getter(name="vmSize")
-    def vm_size(self) -> Optional[pulumi.Input[str]]:
+    def vm_size(self) -> Optional[pulumi.Input[Union[str, 'VirtualMachineSizeTypes']]]:
         """
         Specifies the size of the virtual machine. For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> The available VM sizes depend on region and availability set. For a list of available sizes use these APIs:  <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region](https://docs.microsoft.com/rest/api/compute/virtualmachinesizes/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes)
         """
         return pulumi.get(self, "vm_size")
 
     @vm_size.setter
-    def vm_size(self, value: Optional[pulumi.Input[str]]):
+    def vm_size(self, value: Optional[pulumi.Input[Union[str, 'VirtualMachineSizeTypes']]]):
         pulumi.set(self, "vm_size", value)
 
 
@@ -482,20 +483,20 @@ class ImageDataDiskArgs:
     def __init__(__self__, *,
                  lun: pulumi.Input[int],
                  blob_uri: Optional[pulumi.Input[str]] = None,
-                 caching: Optional[pulumi.Input[str]] = None,
+                 caching: Optional[pulumi.Input['CachingTypes']] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  managed_disk: Optional[pulumi.Input['SubResourceArgs']] = None,
                  snapshot: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 storage_account_type: Optional[pulumi.Input[str]] = None):
+                 storage_account_type: Optional[pulumi.Input[Union[str, 'StorageAccountTypes']]] = None):
         """
         Describes a data disk.
         :param pulumi.Input[int] lun: Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
         :param pulumi.Input[str] blob_uri: The Virtual Hard Disk.
-        :param pulumi.Input[str] caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
+        :param pulumi.Input['CachingTypes'] caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
         :param pulumi.Input[int] disk_size_gb: Specifies the size of empty data disks in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
         :param pulumi.Input['SubResourceArgs'] managed_disk: The managedDisk.
         :param pulumi.Input['SubResourceArgs'] snapshot: The snapshot.
-        :param pulumi.Input[str] storage_account_type: Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
+        :param pulumi.Input[Union[str, 'StorageAccountTypes']] storage_account_type: Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
         """
         pulumi.set(__self__, "lun", lun)
         if blob_uri is not None:
@@ -537,14 +538,14 @@ class ImageDataDiskArgs:
 
     @property
     @pulumi.getter
-    def caching(self) -> Optional[pulumi.Input[str]]:
+    def caching(self) -> Optional[pulumi.Input['CachingTypes']]:
         """
         Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
         """
         return pulumi.get(self, "caching")
 
     @caching.setter
-    def caching(self, value: Optional[pulumi.Input[str]]):
+    def caching(self, value: Optional[pulumi.Input['CachingTypes']]):
         pulumi.set(self, "caching", value)
 
     @property
@@ -585,38 +586,38 @@ class ImageDataDiskArgs:
 
     @property
     @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> Optional[pulumi.Input[str]]:
+    def storage_account_type(self) -> Optional[pulumi.Input[Union[str, 'StorageAccountTypes']]]:
         """
         Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
         """
         return pulumi.get(self, "storage_account_type")
 
     @storage_account_type.setter
-    def storage_account_type(self, value: Optional[pulumi.Input[str]]):
+    def storage_account_type(self, value: Optional[pulumi.Input[Union[str, 'StorageAccountTypes']]]):
         pulumi.set(self, "storage_account_type", value)
 
 
 @pulumi.input_type
 class ImageOSDiskArgs:
     def __init__(__self__, *,
-                 os_state: pulumi.Input[str],
-                 os_type: pulumi.Input[str],
+                 os_state: pulumi.Input['OperatingSystemStateTypes'],
+                 os_type: pulumi.Input['OperatingSystemTypes'],
                  blob_uri: Optional[pulumi.Input[str]] = None,
-                 caching: Optional[pulumi.Input[str]] = None,
+                 caching: Optional[pulumi.Input['CachingTypes']] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  managed_disk: Optional[pulumi.Input['SubResourceArgs']] = None,
                  snapshot: Optional[pulumi.Input['SubResourceArgs']] = None,
-                 storage_account_type: Optional[pulumi.Input[str]] = None):
+                 storage_account_type: Optional[pulumi.Input[Union[str, 'StorageAccountTypes']]] = None):
         """
         Describes an Operating System disk.
-        :param pulumi.Input[str] os_state: The OS State.
-        :param pulumi.Input[str] os_type: This property allows you to specify the type of the OS that is included in the disk if creating a VM from a custom image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+        :param pulumi.Input['OperatingSystemStateTypes'] os_state: The OS State.
+        :param pulumi.Input['OperatingSystemTypes'] os_type: This property allows you to specify the type of the OS that is included in the disk if creating a VM from a custom image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
         :param pulumi.Input[str] blob_uri: The Virtual Hard Disk.
-        :param pulumi.Input[str] caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
+        :param pulumi.Input['CachingTypes'] caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
         :param pulumi.Input[int] disk_size_gb: Specifies the size of empty data disks in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
         :param pulumi.Input['SubResourceArgs'] managed_disk: The managedDisk.
         :param pulumi.Input['SubResourceArgs'] snapshot: The snapshot.
-        :param pulumi.Input[str] storage_account_type: Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
+        :param pulumi.Input[Union[str, 'StorageAccountTypes']] storage_account_type: Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
         """
         pulumi.set(__self__, "os_state", os_state)
         pulumi.set(__self__, "os_type", os_type)
@@ -635,26 +636,26 @@ class ImageOSDiskArgs:
 
     @property
     @pulumi.getter(name="osState")
-    def os_state(self) -> pulumi.Input[str]:
+    def os_state(self) -> pulumi.Input['OperatingSystemStateTypes']:
         """
         The OS State.
         """
         return pulumi.get(self, "os_state")
 
     @os_state.setter
-    def os_state(self, value: pulumi.Input[str]):
+    def os_state(self, value: pulumi.Input['OperatingSystemStateTypes']):
         pulumi.set(self, "os_state", value)
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> pulumi.Input[str]:
+    def os_type(self) -> pulumi.Input['OperatingSystemTypes']:
         """
         This property allows you to specify the type of the OS that is included in the disk if creating a VM from a custom image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
         """
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: pulumi.Input[str]):
+    def os_type(self, value: pulumi.Input['OperatingSystemTypes']):
         pulumi.set(self, "os_type", value)
 
     @property
@@ -671,14 +672,14 @@ class ImageOSDiskArgs:
 
     @property
     @pulumi.getter
-    def caching(self) -> Optional[pulumi.Input[str]]:
+    def caching(self) -> Optional[pulumi.Input['CachingTypes']]:
         """
         Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
         """
         return pulumi.get(self, "caching")
 
     @caching.setter
-    def caching(self, value: Optional[pulumi.Input[str]]):
+    def caching(self, value: Optional[pulumi.Input['CachingTypes']]):
         pulumi.set(self, "caching", value)
 
     @property
@@ -719,14 +720,14 @@ class ImageOSDiskArgs:
 
     @property
     @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> Optional[pulumi.Input[str]]:
+    def storage_account_type(self) -> Optional[pulumi.Input[Union[str, 'StorageAccountTypes']]]:
         """
         Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
         """
         return pulumi.get(self, "storage_account_type")
 
     @storage_account_type.setter
-    def storage_account_type(self, value: Optional[pulumi.Input[str]]):
+    def storage_account_type(self, value: Optional[pulumi.Input[Union[str, 'StorageAccountTypes']]]):
         pulumi.set(self, "storage_account_type", value)
 
 
@@ -879,14 +880,14 @@ class InstanceViewStatusArgs:
     def __init__(__self__, *,
                  code: Optional[pulumi.Input[str]] = None,
                  display_status: Optional[pulumi.Input[str]] = None,
-                 level: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input['StatusLevelTypes']] = None,
                  message: Optional[pulumi.Input[str]] = None,
                  time: Optional[pulumi.Input[str]] = None):
         """
         Instance view status.
         :param pulumi.Input[str] code: The status code.
         :param pulumi.Input[str] display_status: The short localizable label for the status.
-        :param pulumi.Input[str] level: The level code.
+        :param pulumi.Input['StatusLevelTypes'] level: The level code.
         :param pulumi.Input[str] message: The detailed status message, including for alerts and error messages.
         :param pulumi.Input[str] time: The time of the status.
         """
@@ -927,14 +928,14 @@ class InstanceViewStatusArgs:
 
     @property
     @pulumi.getter
-    def level(self) -> Optional[pulumi.Input[str]]:
+    def level(self) -> Optional[pulumi.Input['StatusLevelTypes']]:
         """
         The level code.
         """
         return pulumi.get(self, "level")
 
     @level.setter
-    def level(self, value: Optional[pulumi.Input[str]]):
+    def level(self, value: Optional[pulumi.Input['StatusLevelTypes']]):
         pulumi.set(self, "level", value)
 
     @property
@@ -1082,11 +1083,11 @@ class LinuxConfigurationArgs:
 class ManagedDiskParametersArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
-                 storage_account_type: Optional[pulumi.Input[str]] = None):
+                 storage_account_type: Optional[pulumi.Input[Union[str, 'StorageAccountTypes']]] = None):
         """
         The parameters of a managed disk.
         :param pulumi.Input[str] id: Resource Id
-        :param pulumi.Input[str] storage_account_type: Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
+        :param pulumi.Input[Union[str, 'StorageAccountTypes']] storage_account_type: Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -1107,14 +1108,14 @@ class ManagedDiskParametersArgs:
 
     @property
     @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> Optional[pulumi.Input[str]]:
+    def storage_account_type(self) -> Optional[pulumi.Input[Union[str, 'StorageAccountTypes']]]:
         """
         Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
         """
         return pulumi.get(self, "storage_account_type")
 
     @storage_account_type.setter
-    def storage_account_type(self, value: Optional[pulumi.Input[str]]):
+    def storage_account_type(self, value: Optional[pulumi.Input[Union[str, 'StorageAccountTypes']]]):
         pulumi.set(self, "storage_account_type", value)
 
 
@@ -1185,26 +1186,26 @@ class NetworkProfileArgs:
 @pulumi.input_type
 class OSDiskArgs:
     def __init__(__self__, *,
-                 create_option: pulumi.Input[str],
-                 caching: Optional[pulumi.Input[str]] = None,
+                 create_option: pulumi.Input[Union[str, 'DiskCreateOptionTypes']],
+                 caching: Optional[pulumi.Input['CachingTypes']] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  encryption_settings: Optional[pulumi.Input['DiskEncryptionSettingsArgs']] = None,
                  image: Optional[pulumi.Input['VirtualHardDiskArgs']] = None,
                  managed_disk: Optional[pulumi.Input['ManagedDiskParametersArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 os_type: Optional[pulumi.Input[str]] = None,
+                 os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
                  vhd: Optional[pulumi.Input['VirtualHardDiskArgs']] = None,
                  write_accelerator_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-        :param pulumi.Input[str] create_option: Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
-        :param pulumi.Input[str] caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
+        :param pulumi.Input[Union[str, 'DiskCreateOptionTypes']] create_option: Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
+        :param pulumi.Input['CachingTypes'] caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
         :param pulumi.Input[int] disk_size_gb: Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
         :param pulumi.Input['DiskEncryptionSettingsArgs'] encryption_settings: Specifies the encryption settings for the OS Disk. <br><br> Minimum api-version: 2015-06-15
         :param pulumi.Input['VirtualHardDiskArgs'] image: The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
         :param pulumi.Input['ManagedDiskParametersArgs'] managed_disk: The managed disk parameters.
         :param pulumi.Input[str] name: The disk name.
-        :param pulumi.Input[str] os_type: This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+        :param pulumi.Input['OperatingSystemTypes'] os_type: This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
         :param pulumi.Input['VirtualHardDiskArgs'] vhd: The virtual hard disk.
         :param pulumi.Input[bool] write_accelerator_enabled: Specifies whether writeAccelerator should be enabled or disabled on the disk.
         """
@@ -1230,26 +1231,26 @@ class OSDiskArgs:
 
     @property
     @pulumi.getter(name="createOption")
-    def create_option(self) -> pulumi.Input[str]:
+    def create_option(self) -> pulumi.Input[Union[str, 'DiskCreateOptionTypes']]:
         """
         Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
         """
         return pulumi.get(self, "create_option")
 
     @create_option.setter
-    def create_option(self, value: pulumi.Input[str]):
+    def create_option(self, value: pulumi.Input[Union[str, 'DiskCreateOptionTypes']]):
         pulumi.set(self, "create_option", value)
 
     @property
     @pulumi.getter
-    def caching(self) -> Optional[pulumi.Input[str]]:
+    def caching(self) -> Optional[pulumi.Input['CachingTypes']]:
         """
         Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
         """
         return pulumi.get(self, "caching")
 
     @caching.setter
-    def caching(self, value: Optional[pulumi.Input[str]]):
+    def caching(self, value: Optional[pulumi.Input['CachingTypes']]):
         pulumi.set(self, "caching", value)
 
     @property
@@ -1314,14 +1315,14 @@ class OSDiskArgs:
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[str]]:
+    def os_type(self) -> Optional[pulumi.Input['OperatingSystemTypes']]:
         """
         This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
         """
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[str]]):
+    def os_type(self, value: Optional[pulumi.Input['OperatingSystemTypes']]):
         pulumi.set(self, "os_type", value)
 
     @property
@@ -1817,13 +1818,13 @@ class UpgradePolicyArgs:
     def __init__(__self__, *,
                  auto_os_upgrade_policy: Optional[pulumi.Input['AutoOSUpgradePolicyArgs']] = None,
                  automatic_os_upgrade: Optional[pulumi.Input[bool]] = None,
-                 mode: Optional[pulumi.Input[str]] = None,
+                 mode: Optional[pulumi.Input['UpgradeMode']] = None,
                  rolling_upgrade_policy: Optional[pulumi.Input['RollingUpgradePolicyArgs']] = None):
         """
         Describes an upgrade policy - automatic, manual, or rolling.
         :param pulumi.Input['AutoOSUpgradePolicyArgs'] auto_os_upgrade_policy: Configuration parameters used for performing automatic OS Upgrade.
         :param pulumi.Input[bool] automatic_os_upgrade: Whether OS upgrades should automatically be applied to scale set instances in a rolling fashion when a newer version of the image becomes available.
-        :param pulumi.Input[str] mode: Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are  automatically updated at the same time.
+        :param pulumi.Input['UpgradeMode'] mode: Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are  automatically updated at the same time.
         :param pulumi.Input['RollingUpgradePolicyArgs'] rolling_upgrade_policy: The configuration parameters used while performing a rolling upgrade.
         """
         if auto_os_upgrade_policy is not None:
@@ -1861,14 +1862,14 @@ class UpgradePolicyArgs:
 
     @property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[str]]:
+    def mode(self) -> Optional[pulumi.Input['UpgradeMode']]:
         """
         Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are  automatically updated at the same time.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[str]]):
+    def mode(self, value: Optional[pulumi.Input['UpgradeMode']]):
         pulumi.set(self, "mode", value)
 
     @property
@@ -2080,11 +2081,11 @@ class VirtualMachineExtensionInstanceViewArgs:
 class VirtualMachineIdentityArgs:
     def __init__(__self__, *,
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
         """
         Identity for the virtual machine.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: The list of user identities associated with the Virtual Machine. The user identity references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/identities/{identityName}'.
-        :param pulumi.Input[str] type: The type of identity used for the virtual machine. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
+        :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the virtual machine. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
         """
         if identity_ids is not None:
             pulumi.set(__self__, "identity_ids", identity_ids)
@@ -2105,32 +2106,32 @@ class VirtualMachineIdentityArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
         """
         The type of identity used for the virtual machine. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
 class VirtualMachineScaleSetDataDiskArgs:
     def __init__(__self__, *,
-                 create_option: pulumi.Input[str],
+                 create_option: pulumi.Input[Union[str, 'DiskCreateOptionTypes']],
                  lun: pulumi.Input[int],
-                 caching: Optional[pulumi.Input[str]] = None,
+                 caching: Optional[pulumi.Input['CachingTypes']] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  managed_disk: Optional[pulumi.Input['VirtualMachineScaleSetManagedDiskParametersArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  write_accelerator_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Describes a virtual machine scale set data disk.
-        :param pulumi.Input[str] create_option: The create option.
+        :param pulumi.Input[Union[str, 'DiskCreateOptionTypes']] create_option: The create option.
         :param pulumi.Input[int] lun: Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
-        :param pulumi.Input[str] caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
+        :param pulumi.Input['CachingTypes'] caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
         :param pulumi.Input[int] disk_size_gb: Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
         :param pulumi.Input['VirtualMachineScaleSetManagedDiskParametersArgs'] managed_disk: The managed disk parameters.
         :param pulumi.Input[str] name: The disk name.
@@ -2151,14 +2152,14 @@ class VirtualMachineScaleSetDataDiskArgs:
 
     @property
     @pulumi.getter(name="createOption")
-    def create_option(self) -> pulumi.Input[str]:
+    def create_option(self) -> pulumi.Input[Union[str, 'DiskCreateOptionTypes']]:
         """
         The create option.
         """
         return pulumi.get(self, "create_option")
 
     @create_option.setter
-    def create_option(self, value: pulumi.Input[str]):
+    def create_option(self, value: pulumi.Input[Union[str, 'DiskCreateOptionTypes']]):
         pulumi.set(self, "create_option", value)
 
     @property
@@ -2175,14 +2176,14 @@ class VirtualMachineScaleSetDataDiskArgs:
 
     @property
     @pulumi.getter
-    def caching(self) -> Optional[pulumi.Input[str]]:
+    def caching(self) -> Optional[pulumi.Input['CachingTypes']]:
         """
         Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
         """
         return pulumi.get(self, "caching")
 
     @caching.setter
-    def caching(self, value: Optional[pulumi.Input[str]]):
+    def caching(self, value: Optional[pulumi.Input['CachingTypes']]):
         pulumi.set(self, "caching", value)
 
     @property
@@ -2403,7 +2404,7 @@ class VirtualMachineScaleSetIPConfigurationArgs:
                  load_balancer_backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
                  load_balancer_inbound_nat_pools: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
                  primary: Optional[pulumi.Input[bool]] = None,
-                 private_ip_address_version: Optional[pulumi.Input[str]] = None,
+                 private_ip_address_version: Optional[pulumi.Input[Union[str, 'IPVersion']]] = None,
                  public_ip_address_configuration: Optional[pulumi.Input['VirtualMachineScaleSetPublicIPAddressConfigurationArgs']] = None,
                  subnet: Optional[pulumi.Input['ApiEntityReferenceArgs']] = None):
         """
@@ -2414,7 +2415,7 @@ class VirtualMachineScaleSetIPConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] load_balancer_backend_address_pools: Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] load_balancer_inbound_nat_pools: Specifies an array of references to inbound Nat pools of the load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer
         :param pulumi.Input[bool] primary: Specifies the primary network interface in case the virtual machine has more than 1 network interface.
-        :param pulumi.Input[str] private_ip_address_version: Available from Api-Version 2017-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.  Possible values are: 'IPv4' and 'IPv6'.
+        :param pulumi.Input[Union[str, 'IPVersion']] private_ip_address_version: Available from Api-Version 2017-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.  Possible values are: 'IPv4' and 'IPv6'.
         :param pulumi.Input['VirtualMachineScaleSetPublicIPAddressConfigurationArgs'] public_ip_address_configuration: The publicIPAddressConfiguration.
         :param pulumi.Input['ApiEntityReferenceArgs'] subnet: Specifies the identifier of the subnet.
         """
@@ -2510,14 +2511,14 @@ class VirtualMachineScaleSetIPConfigurationArgs:
 
     @property
     @pulumi.getter(name="privateIPAddressVersion")
-    def private_ip_address_version(self) -> Optional[pulumi.Input[str]]:
+    def private_ip_address_version(self) -> Optional[pulumi.Input[Union[str, 'IPVersion']]]:
         """
         Available from Api-Version 2017-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.  Possible values are: 'IPv4' and 'IPv6'.
         """
         return pulumi.get(self, "private_ip_address_version")
 
     @private_ip_address_version.setter
-    def private_ip_address_version(self, value: Optional[pulumi.Input[str]]):
+    def private_ip_address_version(self, value: Optional[pulumi.Input[Union[str, 'IPVersion']]]):
         pulumi.set(self, "private_ip_address_version", value)
 
     @property
@@ -2549,11 +2550,11 @@ class VirtualMachineScaleSetIPConfigurationArgs:
 class VirtualMachineScaleSetIdentityArgs:
     def __init__(__self__, *,
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
         """
         Identity for the virtual machine scale set.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_ids: The list of user identities associated with the virtual machine scale set. The user identity references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/identities/{identityName}'.
-        :param pulumi.Input[str] type: The type of identity used for the virtual machine scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine scale set.
+        :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the virtual machine scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine scale set.
         """
         if identity_ids is not None:
             pulumi.set(__self__, "identity_ids", identity_ids)
@@ -2574,38 +2575,38 @@ class VirtualMachineScaleSetIdentityArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
         """
         The type of identity used for the virtual machine scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine scale set.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
 class VirtualMachineScaleSetManagedDiskParametersArgs:
     def __init__(__self__, *,
-                 storage_account_type: Optional[pulumi.Input[str]] = None):
+                 storage_account_type: Optional[pulumi.Input[Union[str, 'StorageAccountTypes']]] = None):
         """
         Describes the parameters of a ScaleSet managed disk.
-        :param pulumi.Input[str] storage_account_type: Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
+        :param pulumi.Input[Union[str, 'StorageAccountTypes']] storage_account_type: Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
         """
         if storage_account_type is not None:
             pulumi.set(__self__, "storage_account_type", storage_account_type)
 
     @property
     @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> Optional[pulumi.Input[str]]:
+    def storage_account_type(self) -> Optional[pulumi.Input[Union[str, 'StorageAccountTypes']]]:
         """
         Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
         """
         return pulumi.get(self, "storage_account_type")
 
     @storage_account_type.setter
-    def storage_account_type(self, value: Optional[pulumi.Input[str]]):
+    def storage_account_type(self, value: Optional[pulumi.Input[Union[str, 'StorageAccountTypes']]]):
         pulumi.set(self, "storage_account_type", value)
 
 
@@ -2810,22 +2811,22 @@ class VirtualMachineScaleSetNetworkProfileArgs:
 @pulumi.input_type
 class VirtualMachineScaleSetOSDiskArgs:
     def __init__(__self__, *,
-                 create_option: pulumi.Input[str],
-                 caching: Optional[pulumi.Input[str]] = None,
+                 create_option: pulumi.Input[Union[str, 'DiskCreateOptionTypes']],
+                 caching: Optional[pulumi.Input['CachingTypes']] = None,
                  image: Optional[pulumi.Input['VirtualHardDiskArgs']] = None,
                  managed_disk: Optional[pulumi.Input['VirtualMachineScaleSetManagedDiskParametersArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 os_type: Optional[pulumi.Input[str]] = None,
+                 os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
                  vhd_containers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  write_accelerator_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Describes a virtual machine scale set operating system disk.
-        :param pulumi.Input[str] create_option: Specifies how the virtual machines in the scale set should be created.<br><br> The only allowed value is: **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
-        :param pulumi.Input[str] caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
+        :param pulumi.Input[Union[str, 'DiskCreateOptionTypes']] create_option: Specifies how the virtual machines in the scale set should be created.<br><br> The only allowed value is: **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
+        :param pulumi.Input['CachingTypes'] caching: Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
         :param pulumi.Input['VirtualHardDiskArgs'] image: Specifies information about the unmanaged user image to base the scale set on.
         :param pulumi.Input['VirtualMachineScaleSetManagedDiskParametersArgs'] managed_disk: The managed disk parameters.
         :param pulumi.Input[str] name: The disk name.
-        :param pulumi.Input[str] os_type: This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+        :param pulumi.Input['OperatingSystemTypes'] os_type: This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vhd_containers: Specifies the container urls that are used to store operating system disks for the scale set.
         :param pulumi.Input[bool] write_accelerator_enabled: Specifies whether writeAccelerator should be enabled or disabled on the disk.
         """
@@ -2847,26 +2848,26 @@ class VirtualMachineScaleSetOSDiskArgs:
 
     @property
     @pulumi.getter(name="createOption")
-    def create_option(self) -> pulumi.Input[str]:
+    def create_option(self) -> pulumi.Input[Union[str, 'DiskCreateOptionTypes']]:
         """
         Specifies how the virtual machines in the scale set should be created.<br><br> The only allowed value is: **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
         """
         return pulumi.get(self, "create_option")
 
     @create_option.setter
-    def create_option(self, value: pulumi.Input[str]):
+    def create_option(self, value: pulumi.Input[Union[str, 'DiskCreateOptionTypes']]):
         pulumi.set(self, "create_option", value)
 
     @property
     @pulumi.getter
-    def caching(self) -> Optional[pulumi.Input[str]]:
+    def caching(self) -> Optional[pulumi.Input['CachingTypes']]:
         """
         Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
         """
         return pulumi.get(self, "caching")
 
     @caching.setter
-    def caching(self, value: Optional[pulumi.Input[str]]):
+    def caching(self, value: Optional[pulumi.Input['CachingTypes']]):
         pulumi.set(self, "caching", value)
 
     @property
@@ -2907,14 +2908,14 @@ class VirtualMachineScaleSetOSDiskArgs:
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[str]]:
+    def os_type(self) -> Optional[pulumi.Input['OperatingSystemTypes']]:
         """
         This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
         """
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[str]]):
+    def os_type(self, value: Optional[pulumi.Input['OperatingSystemTypes']]):
         pulumi.set(self, "os_type", value)
 
     @property
@@ -3200,22 +3201,22 @@ class VirtualMachineScaleSetStorageProfileArgs:
 class VirtualMachineScaleSetVMProfileArgs:
     def __init__(__self__, *,
                  diagnostics_profile: Optional[pulumi.Input['DiagnosticsProfileArgs']] = None,
-                 eviction_policy: Optional[pulumi.Input[str]] = None,
+                 eviction_policy: Optional[pulumi.Input[Union[str, 'VirtualMachineEvictionPolicyTypes']]] = None,
                  extension_profile: Optional[pulumi.Input['VirtualMachineScaleSetExtensionProfileArgs']] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input['VirtualMachineScaleSetNetworkProfileArgs']] = None,
                  os_profile: Optional[pulumi.Input['VirtualMachineScaleSetOSProfileArgs']] = None,
-                 priority: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[Union[str, 'VirtualMachinePriorityTypes']]] = None,
                  storage_profile: Optional[pulumi.Input['VirtualMachineScaleSetStorageProfileArgs']] = None):
         """
         Describes a virtual machine scale set virtual machine profile.
         :param pulumi.Input['DiagnosticsProfileArgs'] diagnostics_profile: Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
-        :param pulumi.Input[str] eviction_policy: Specifies the eviction policy for virtual machines in a low priority scale set. <br><br>Minimum api-version: 2017-10-30-preview
+        :param pulumi.Input[Union[str, 'VirtualMachineEvictionPolicyTypes']] eviction_policy: Specifies the eviction policy for virtual machines in a low priority scale set. <br><br>Minimum api-version: 2017-10-30-preview
         :param pulumi.Input['VirtualMachineScaleSetExtensionProfileArgs'] extension_profile: Specifies a collection of settings for extensions installed on virtual machines in the scale set.
         :param pulumi.Input[str] license_type: Specifies that the image or disk that is being used was licensed on-premises. This element is only used for images that contain the Windows Server operating system. <br><br> Possible values are: <br><br> Windows_Client <br><br> Windows_Server <br><br> If this element is included in a request for an update, the value must match the initial value. This value cannot be updated. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Minimum api-version: 2015-06-15
         :param pulumi.Input['VirtualMachineScaleSetNetworkProfileArgs'] network_profile: Specifies properties of the network interfaces of the virtual machines in the scale set.
         :param pulumi.Input['VirtualMachineScaleSetOSProfileArgs'] os_profile: Specifies the operating system settings for the virtual machines in the scale set.
-        :param pulumi.Input[str] priority: Specifies the priority for the virtual machines in the scale set. <br><br>Minimum api-version: 2017-10-30-preview
+        :param pulumi.Input[Union[str, 'VirtualMachinePriorityTypes']] priority: Specifies the priority for the virtual machines in the scale set. <br><br>Minimum api-version: 2017-10-30-preview
         :param pulumi.Input['VirtualMachineScaleSetStorageProfileArgs'] storage_profile: Specifies the storage settings for the virtual machine disks.
         """
         if diagnostics_profile is not None:
@@ -3249,14 +3250,14 @@ class VirtualMachineScaleSetVMProfileArgs:
 
     @property
     @pulumi.getter(name="evictionPolicy")
-    def eviction_policy(self) -> Optional[pulumi.Input[str]]:
+    def eviction_policy(self) -> Optional[pulumi.Input[Union[str, 'VirtualMachineEvictionPolicyTypes']]]:
         """
         Specifies the eviction policy for virtual machines in a low priority scale set. <br><br>Minimum api-version: 2017-10-30-preview
         """
         return pulumi.get(self, "eviction_policy")
 
     @eviction_policy.setter
-    def eviction_policy(self, value: Optional[pulumi.Input[str]]):
+    def eviction_policy(self, value: Optional[pulumi.Input[Union[str, 'VirtualMachineEvictionPolicyTypes']]]):
         pulumi.set(self, "eviction_policy", value)
 
     @property
@@ -3309,14 +3310,14 @@ class VirtualMachineScaleSetVMProfileArgs:
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[pulumi.Input[str]]:
+    def priority(self) -> Optional[pulumi.Input[Union[str, 'VirtualMachinePriorityTypes']]]:
         """
         Specifies the priority for the virtual machines in the scale set. <br><br>Minimum api-version: 2017-10-30-preview
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: Optional[pulumi.Input[str]]):
+    def priority(self, value: Optional[pulumi.Input[Union[str, 'VirtualMachinePriorityTypes']]]):
         pulumi.set(self, "priority", value)
 
     @property
@@ -3360,11 +3361,11 @@ class WinRMConfigurationArgs:
 class WinRMListenerArgs:
     def __init__(__self__, *,
                  certificate_url: Optional[pulumi.Input[str]] = None,
-                 protocol: Optional[pulumi.Input[str]] = None):
+                 protocol: Optional[pulumi.Input['ProtocolTypes']] = None):
         """
         Describes Protocol and thumbprint of Windows Remote Management listener
         :param pulumi.Input[str] certificate_url: This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
-        :param pulumi.Input[str] protocol: Specifies the protocol of listener. <br><br> Possible values are: <br>**http** <br><br> **https**
+        :param pulumi.Input['ProtocolTypes'] protocol: Specifies the protocol of listener. <br><br> Possible values are: <br>**http** <br><br> **https**
         """
         if certificate_url is not None:
             pulumi.set(__self__, "certificate_url", certificate_url)
@@ -3385,14 +3386,14 @@ class WinRMListenerArgs:
 
     @property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[str]]:
+    def protocol(self) -> Optional[pulumi.Input['ProtocolTypes']]:
         """
         Specifies the protocol of listener. <br><br> Possible values are: <br>**http** <br><br> **https**
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[str]]):
+    def protocol(self, value: Optional[pulumi.Input['ProtocolTypes']]):
         pulumi.set(self, "protocol", value)
 
 

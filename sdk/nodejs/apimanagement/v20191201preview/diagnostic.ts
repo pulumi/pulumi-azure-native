@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -86,16 +86,16 @@ export class Diagnostic extends pulumi.CustomResource {
     constructor(name: string, args: DiagnosticArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.diagnosticId === undefined) {
+            if ((!args || args.diagnosticId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'diagnosticId'");
             }
-            if (!args || args.loggerId === undefined) {
+            if ((!args || args.loggerId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'loggerId'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serviceName === undefined) {
+            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["alwaysLog"] = args ? args.alwaysLog : undefined;
@@ -143,7 +143,7 @@ export interface DiagnosticArgs {
     /**
      * Specifies for what type of messages sampling settings should not apply.
      */
-    readonly alwaysLog?: pulumi.Input<string>;
+    readonly alwaysLog?: pulumi.Input<string | enums.apimanagement.v20191201preview.AlwaysLog>;
     /**
      * Diagnostic settings for incoming/outgoing HTTP messages to the Backend
      */
@@ -159,7 +159,7 @@ export interface DiagnosticArgs {
     /**
      * Sets correlation protocol to use for Application Insights diagnostics.
      */
-    readonly httpCorrelationProtocol?: pulumi.Input<string>;
+    readonly httpCorrelationProtocol?: pulumi.Input<string | enums.apimanagement.v20191201preview.HttpCorrelationProtocol>;
     /**
      * Log the ClientIP. Default is false.
      */
@@ -183,5 +183,5 @@ export interface DiagnosticArgs {
     /**
      * The verbosity level applied to traces emitted by trace policies.
      */
-    readonly verbosity?: pulumi.Input<string>;
+    readonly verbosity?: pulumi.Input<string | enums.apimanagement.v20191201preview.Verbosity>;
 }

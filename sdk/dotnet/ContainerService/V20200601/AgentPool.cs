@@ -284,7 +284,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20200601
         /// AgentPoolMode represents mode of an agent pool
         /// </summary>
         [Input("mode")]
-        public Input<string>? Mode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20200601.AgentPoolMode>? Mode { get; set; }
 
         /// <summary>
         /// Version of node image
@@ -332,7 +332,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20200601
         /// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         /// </summary>
         [Input("osType")]
-        public Input<string>? OsType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20200601.OSType>? OsType { get; set; }
 
         /// <summary>
         /// The ID for Proximity Placement Group.
@@ -356,13 +356,13 @@ namespace Pulumi.AzureNextGen.ContainerService.V20200601
         /// ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
         /// </summary>
         [Input("scaleSetEvictionPolicy")]
-        public Input<string>? ScaleSetEvictionPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20200601.ScaleSetEvictionPolicy>? ScaleSetEvictionPolicy { get; set; }
 
         /// <summary>
         /// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
         /// </summary>
         [Input("scaleSetPriority")]
-        public Input<string>? ScaleSetPriority { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20200601.ScaleSetPriority>? ScaleSetPriority { get; set; }
 
         /// <summary>
         /// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
@@ -386,7 +386,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20200601
         /// AgentPoolType represents types of an agent pool
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20200601.AgentPoolType>? Type { get; set; }
 
         /// <summary>
         /// Settings for upgrading the agentpool
@@ -398,7 +398,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20200601
         /// Size of agent VMs.
         /// </summary>
         [Input("vmSize")]
-        public Input<string>? VmSize { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20200601.ContainerServiceVMSizeTypes>? VmSize { get; set; }
 
         /// <summary>
         /// VNet SubnetID specifies the VNet's subnet identifier.

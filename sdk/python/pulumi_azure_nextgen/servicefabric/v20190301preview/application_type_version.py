@@ -55,21 +55,21 @@ class ApplicationTypeVersion(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if app_package_url is None:
+            if app_package_url is None and not opts.urn:
                 raise TypeError("Missing required property 'app_package_url'")
             __props__['app_package_url'] = app_package_url
-            if application_type_name is None:
+            if application_type_name is None and not opts.urn:
                 raise TypeError("Missing required property 'application_type_name'")
             __props__['application_type_name'] = application_type_name
-            if cluster_name is None:
+            if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            if version is None:
+            if version is None and not opts.urn:
                 raise TypeError("Missing required property 'version'")
             __props__['version'] = version
             __props__['default_parameter_list'] = None

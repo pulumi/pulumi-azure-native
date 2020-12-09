@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ApplianceDefinition']
@@ -24,7 +25,7 @@ class ApplianceDefinition(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 lock_level: Optional[pulumi.Input[str]] = None,
+                 lock_level: Optional[pulumi.Input['ApplianceLockLevel']] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
                  package_file_uri: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -45,7 +46,7 @@ class ApplianceDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The appliance definition display name.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] lock_level: The appliance lock level.
+        :param pulumi.Input['ApplianceLockLevel'] lock_level: The appliance lock level.
         :param pulumi.Input[str] managed_by: ID of the resource that manages this resource.
         :param pulumi.Input[str] package_file_uri: The appliance definition package file Uri.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -69,25 +70,25 @@ class ApplianceDefinition(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if appliance_definition_name is None:
+            if appliance_definition_name is None and not opts.urn:
                 raise TypeError("Missing required property 'appliance_definition_name'")
             __props__['appliance_definition_name'] = appliance_definition_name
             __props__['artifacts'] = artifacts
-            if authorizations is None:
+            if authorizations is None and not opts.urn:
                 raise TypeError("Missing required property 'authorizations'")
             __props__['authorizations'] = authorizations
             __props__['description'] = description
             __props__['display_name'] = display_name
             __props__['identity'] = identity
             __props__['location'] = location
-            if lock_level is None:
+            if lock_level is None and not opts.urn:
                 raise TypeError("Missing required property 'lock_level'")
             __props__['lock_level'] = lock_level
             __props__['managed_by'] = managed_by
-            if package_file_uri is None:
+            if package_file_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'package_file_uri'")
             __props__['package_file_uri'] = package_file_uri
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku

@@ -40,11 +40,12 @@ type Partner struct {
 // NewPartner registers a new resource with the given unique name, arguments, and options.
 func NewPartner(ctx *pulumi.Context,
 	name string, args *PartnerArgs, opts ...pulumi.ResourceOption) (*Partner, error) {
-	if args == nil || args.PartnerId == nil {
-		return nil, errors.New("missing required argument 'PartnerId'")
-	}
 	if args == nil {
-		args = &PartnerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PartnerId == nil {
+		return nil, errors.New("invalid value for required argument 'PartnerId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

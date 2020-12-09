@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ManagedInstance']
@@ -23,19 +24,19 @@ class ManagedInstance(pulumi.CustomResource):
                  dns_zone_partner: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
                  instance_pool_id: Optional[pulumi.Input[str]] = None,
-                 license_type: Optional[pulumi.Input[str]] = None,
+                 license_type: Optional[pulumi.Input[Union[str, 'ManagedInstanceLicenseType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
-                 managed_instance_create_mode: Optional[pulumi.Input[str]] = None,
+                 managed_instance_create_mode: Optional[pulumi.Input[Union[str, 'ManagedServerCreateMode']]] = None,
                  managed_instance_name: Optional[pulumi.Input[str]] = None,
                  minimal_tls_version: Optional[pulumi.Input[str]] = None,
-                 proxy_override: Optional[pulumi.Input[str]] = None,
+                 proxy_override: Optional[pulumi.Input[Union[str, 'ManagedInstanceProxyOverride']]] = None,
                  public_data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  source_managed_instance_id: Optional[pulumi.Input[str]] = None,
-                 storage_account_type: Optional[pulumi.Input[str]] = None,
+                 storage_account_type: Optional[pulumi.Input[Union[str, 'StorageAccountType']]] = None,
                  storage_size_in_gb: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -55,23 +56,23 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[str] dns_zone_partner: The resource id of another managed instance whose DNS zone this managed instance will share after creation.
         :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: The Azure Active Directory identity of the managed instance.
         :param pulumi.Input[str] instance_pool_id: The Id of the instance pool this managed server belongs to.
-        :param pulumi.Input[str] license_type: The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
+        :param pulumi.Input[Union[str, 'ManagedInstanceLicenseType']] license_type: The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] maintenance_configuration_id: Specifies maintenance configuration id to apply to this managed instance.
-        :param pulumi.Input[str] managed_instance_create_mode: Specifies the mode of database creation.
+        :param pulumi.Input[Union[str, 'ManagedServerCreateMode']] managed_instance_create_mode: Specifies the mode of database creation.
                
                Default: Regular instance creation.
                
                Restore: Creates an instance by restoring a set of backups to specific point in time. RestorePointInTime and SourceManagedInstanceId must be specified.
         :param pulumi.Input[str] managed_instance_name: The name of the managed instance.
         :param pulumi.Input[str] minimal_tls_version: Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
-        :param pulumi.Input[str] proxy_override: Connection type used for connecting to the instance.
+        :param pulumi.Input[Union[str, 'ManagedInstanceProxyOverride']] proxy_override: Connection type used for connecting to the instance.
         :param pulumi.Input[bool] public_data_endpoint_enabled: Whether or not the public data endpoint is enabled.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
         :param pulumi.Input[str] source_managed_instance_id: The resource identifier of the source managed instance associated with create operation of this instance.
-        :param pulumi.Input[str] storage_account_type: The storage account type used to store backups for this instance. The options are LRS (LocallyRedundantStorage), ZRS (ZoneRedundantStorage) and GRS (GeoRedundantStorage)
+        :param pulumi.Input[Union[str, 'StorageAccountType']] storage_account_type: The storage account type used to store backups for this instance. The options are LRS (LocallyRedundantStorage), ZRS (ZoneRedundantStorage) and GRS (GeoRedundantStorage)
         :param pulumi.Input[int] storage_size_in_gb: Storage size in GB. Minimum value: 32. Maximum value: 8192. Increments of 32 GB allowed only.
         :param pulumi.Input[str] subnet_id: Subnet resource ID for the managed instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -107,18 +108,18 @@ class ManagedInstance(pulumi.CustomResource):
             __props__['identity'] = identity
             __props__['instance_pool_id'] = instance_pool_id
             __props__['license_type'] = license_type
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['maintenance_configuration_id'] = maintenance_configuration_id
             __props__['managed_instance_create_mode'] = managed_instance_create_mode
-            if managed_instance_name is None:
+            if managed_instance_name is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_instance_name'")
             __props__['managed_instance_name'] = managed_instance_name
             __props__['minimal_tls_version'] = minimal_tls_version
             __props__['proxy_override'] = proxy_override
             __props__['public_data_endpoint_enabled'] = public_data_endpoint_enabled
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['restore_point_in_time'] = restore_point_in_time

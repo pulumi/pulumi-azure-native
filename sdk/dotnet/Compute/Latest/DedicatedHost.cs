@@ -166,7 +166,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **None** &lt;br&gt;&lt;br&gt; **Windows_Server_Hybrid** &lt;br&gt;&lt;br&gt; **Windows_Server_Perpetual** &lt;br&gt;&lt;br&gt; Default: **None**
         /// </summary>
         [Input("licenseType")]
-        public Input<string>? LicenseType { get; set; }
+        public Input<Pulumi.AzureNextGen.Compute.Latest.DedicatedHostLicenseTypes>? LicenseType { get; set; }
 
         /// <summary>
         /// Resource location

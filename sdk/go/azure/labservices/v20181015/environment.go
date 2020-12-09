@@ -52,23 +52,24 @@ type Environment struct {
 // NewEnvironment registers a new resource with the given unique name, arguments, and options.
 func NewEnvironment(ctx *pulumi.Context,
 	name string, args *EnvironmentArgs, opts ...pulumi.ResourceOption) (*Environment, error) {
-	if args == nil || args.EnvironmentName == nil {
-		return nil, errors.New("missing required argument 'EnvironmentName'")
-	}
-	if args == nil || args.EnvironmentSettingName == nil {
-		return nil, errors.New("missing required argument 'EnvironmentSettingName'")
-	}
-	if args == nil || args.LabAccountName == nil {
-		return nil, errors.New("missing required argument 'LabAccountName'")
-	}
-	if args == nil || args.LabName == nil {
-		return nil, errors.New("missing required argument 'LabName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &EnvironmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.EnvironmentName == nil {
+		return nil, errors.New("invalid value for required argument 'EnvironmentName'")
+	}
+	if args.EnvironmentSettingName == nil {
+		return nil, errors.New("invalid value for required argument 'EnvironmentSettingName'")
+	}
+	if args.LabAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'LabAccountName'")
+	}
+	if args.LabName == nil {
+		return nil, errors.New("invalid value for required argument 'LabName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

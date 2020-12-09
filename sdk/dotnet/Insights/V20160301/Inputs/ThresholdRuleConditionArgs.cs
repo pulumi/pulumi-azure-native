@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Insights.V20160301.Inputs
         /// the operator used to compare the data and the threshold.
         /// </summary>
         [Input("operator", required: true)]
-        public Input<string> Operator { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Insights.V20160301.ConditionOperator> Operator { get; set; } = null!;
 
         /// <summary>
         /// the threshold value that activates the alert.
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Insights.V20160301.Inputs
         /// the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
         /// </summary>
         [Input("timeAggregation")]
-        public Input<string>? TimeAggregation { get; set; }
+        public Input<Pulumi.AzureNextGen.Insights.V20160301.TimeAggregationOperator>? TimeAggregation { get; set; }
 
         /// <summary>
         /// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.

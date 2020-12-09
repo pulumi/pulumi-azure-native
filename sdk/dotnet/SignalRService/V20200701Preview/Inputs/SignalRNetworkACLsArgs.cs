@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview.Inputs
         /// Default action when no other rule matches
         /// </summary>
         [Input("defaultAction")]
-        public Input<string>? DefaultAction { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.SignalRService.V20200701Preview.ACLAction>? DefaultAction { get; set; }
 
         [Input("privateEndpoints")]
         private InputList<Inputs.PrivateEndpointACLArgs>? _privateEndpoints;

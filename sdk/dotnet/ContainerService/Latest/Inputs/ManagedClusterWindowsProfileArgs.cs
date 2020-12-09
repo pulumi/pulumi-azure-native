@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
         /// The licenseType to use for Windows VMs. Windows_Server is used to enable Azure Hybrid User Benefits for Windows VMs.
         /// </summary>
         [Input("licenseType")]
-        public Input<string>? LicenseType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.Latest.LicenseType>? LicenseType { get; set; }
 
         public ManagedClusterWindowsProfileArgs()
         {

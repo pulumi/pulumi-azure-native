@@ -232,7 +232,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20170901
         /// The managed application lock level.
         /// </summary>
         [Input("lockLevel", required: true)]
-        public Input<string> LockLevel { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Solutions.V20170901.ApplicationLockLevel> LockLevel { get; set; } = null!;
 
         /// <summary>
         /// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.

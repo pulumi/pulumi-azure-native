@@ -90,19 +90,19 @@ export class WebAppHybridConnectionSlot extends pulumi.CustomResource {
     constructor(name: string, args: WebAppHybridConnectionSlotArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.namespaceName === undefined) {
+            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if (!args || args.relayName === undefined) {
+            if ((!args || args.relayName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'relayName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.slot === undefined) {
+            if ((!args || args.slot === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'slot'");
             }
             inputs["hostname"] = args ? args.hostname : undefined;

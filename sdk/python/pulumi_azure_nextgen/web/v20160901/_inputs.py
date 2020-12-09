@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'CapabilityArgs',
@@ -142,13 +143,13 @@ class NameValuePairArgs:
 @pulumi.input_type
 class NetworkAccessControlEntryArgs:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input[str]] = None,
+                 action: Optional[pulumi.Input['AccessControlEntryAction']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  order: Optional[pulumi.Input[int]] = None,
                  remote_subnet: Optional[pulumi.Input[str]] = None):
         """
         Network access control entry.
-        :param pulumi.Input[str] action: Action object.
+        :param pulumi.Input['AccessControlEntryAction'] action: Action object.
         :param pulumi.Input[str] description: Description of network access control entry.
         :param pulumi.Input[int] order: Order of precedence.
         :param pulumi.Input[str] remote_subnet: Remote subnet.
@@ -164,14 +165,14 @@ class NetworkAccessControlEntryArgs:
 
     @property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[str]]:
+    def action(self) -> Optional[pulumi.Input['AccessControlEntryAction']]:
         """
         Action object.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input[str]]):
+    def action(self, value: Optional[pulumi.Input['AccessControlEntryAction']]):
         pulumi.set(self, "action", value)
 
     @property
@@ -462,13 +463,13 @@ class VirtualNetworkProfileArgs:
 @pulumi.input_type
 class WorkerPoolArgs:
     def __init__(__self__, *,
-                 compute_mode: Optional[pulumi.Input[str]] = None,
+                 compute_mode: Optional[pulumi.Input['ComputeModeOptions']] = None,
                  worker_count: Optional[pulumi.Input[int]] = None,
                  worker_size: Optional[pulumi.Input[str]] = None,
                  worker_size_id: Optional[pulumi.Input[int]] = None):
         """
         Worker pool of an App Service Environment.
-        :param pulumi.Input[str] compute_mode: Shared or dedicated app hosting.
+        :param pulumi.Input['ComputeModeOptions'] compute_mode: Shared or dedicated app hosting.
         :param pulumi.Input[int] worker_count: Number of instances in the worker pool.
         :param pulumi.Input[str] worker_size: VM size of the worker pool instances.
         :param pulumi.Input[int] worker_size_id: Worker size ID for referencing this worker pool.
@@ -484,14 +485,14 @@ class WorkerPoolArgs:
 
     @property
     @pulumi.getter(name="computeMode")
-    def compute_mode(self) -> Optional[pulumi.Input[str]]:
+    def compute_mode(self) -> Optional[pulumi.Input['ComputeModeOptions']]:
         """
         Shared or dedicated app hosting.
         """
         return pulumi.get(self, "compute_mode")
 
     @compute_mode.setter
-    def compute_mode(self, value: Optional[pulumi.Input[str]]):
+    def compute_mode(self, value: Optional[pulumi.Input['ComputeModeOptions']]):
         pulumi.set(self, "compute_mode", value)
 
     @property

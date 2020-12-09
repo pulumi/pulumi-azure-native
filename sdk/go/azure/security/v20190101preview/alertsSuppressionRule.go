@@ -38,20 +38,21 @@ type AlertsSuppressionRule struct {
 // NewAlertsSuppressionRule registers a new resource with the given unique name, arguments, and options.
 func NewAlertsSuppressionRule(ctx *pulumi.Context,
 	name string, args *AlertsSuppressionRuleArgs, opts ...pulumi.ResourceOption) (*AlertsSuppressionRule, error) {
-	if args == nil || args.AlertType == nil {
-		return nil, errors.New("missing required argument 'AlertType'")
-	}
-	if args == nil || args.AlertsSuppressionRuleName == nil {
-		return nil, errors.New("missing required argument 'AlertsSuppressionRuleName'")
-	}
-	if args == nil || args.Reason == nil {
-		return nil, errors.New("missing required argument 'Reason'")
-	}
-	if args == nil || args.State == nil {
-		return nil, errors.New("missing required argument 'State'")
-	}
 	if args == nil {
-		args = &AlertsSuppressionRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AlertType == nil {
+		return nil, errors.New("invalid value for required argument 'AlertType'")
+	}
+	if args.AlertsSuppressionRuleName == nil {
+		return nil, errors.New("invalid value for required argument 'AlertsSuppressionRuleName'")
+	}
+	if args.Reason == nil {
+		return nil, errors.New("invalid value for required argument 'Reason'")
+	}
+	if args.State == nil {
+		return nil, errors.New("invalid value for required argument 'State'")
 	}
 	var resource AlertsSuppressionRule
 	err := ctx.RegisterResource("azure-nextgen:security/v20190101preview:AlertsSuppressionRule", name, args, &resource, opts...)

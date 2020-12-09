@@ -85,19 +85,19 @@ export class Workspace extends pulumi.CustomResource {
     constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.accountName === undefined) {
+            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.friendlyName === undefined) {
+            if ((!args || args.friendlyName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'friendlyName'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.workspaceName === undefined) {
+            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;

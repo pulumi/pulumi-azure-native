@@ -61,13 +61,13 @@ export class ApplicationType extends pulumi.CustomResource {
     constructor(name: string, args: ApplicationTypeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.applicationTypeName === undefined) {
+            if ((!args || args.applicationTypeName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'applicationTypeName'");
             }
-            if (!args || args.clusterName === undefined) {
+            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["applicationTypeName"] = args ? args.applicationTypeName : undefined;

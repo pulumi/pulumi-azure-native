@@ -63,29 +63,29 @@ class SqlPoolSensitivityLabel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if column_name is None:
+            if column_name is None and not opts.urn:
                 raise TypeError("Missing required property 'column_name'")
             __props__['column_name'] = column_name
             __props__['information_type'] = information_type
             __props__['information_type_id'] = information_type_id
             __props__['label_id'] = label_id
             __props__['label_name'] = label_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if schema_name is None:
+            if schema_name is None and not opts.urn:
                 raise TypeError("Missing required property 'schema_name'")
             __props__['schema_name'] = schema_name
-            if sensitivity_label_source is None:
+            if sensitivity_label_source is None and not opts.urn:
                 raise TypeError("Missing required property 'sensitivity_label_source'")
             __props__['sensitivity_label_source'] = sensitivity_label_source
-            if sql_pool_name is None:
+            if sql_pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sql_pool_name'")
             __props__['sql_pool_name'] = sql_pool_name
-            if table_name is None:
+            if table_name is None and not opts.urn:
                 raise TypeError("Missing required property 'table_name'")
             __props__['table_name'] = table_name
-            if workspace_name is None:
+            if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['is_disabled'] = None

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -110,22 +110,22 @@ export class WebTest extends pulumi.CustomResource {
     constructor(name: string, args: WebTestArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.locations === undefined) {
+            if ((!args || args.locations === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'locations'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.syntheticMonitorId === undefined) {
+            if ((!args || args.syntheticMonitorId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'syntheticMonitorId'");
             }
-            if (!args || args.webTestKind === undefined) {
+            if ((!args || args.webTestKind === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'webTestKind'");
             }
-            if (!args || args.webTestName === undefined) {
+            if ((!args || args.webTestName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'webTestName'");
             }
             inputs["configuration"] = args ? args.configuration : undefined;
@@ -199,7 +199,7 @@ export interface WebTestArgs {
     /**
      * The kind of web test that this web test watches. Choices are ping and multistep.
      */
-    readonly kind?: pulumi.Input<string>;
+    readonly kind?: pulumi.Input<enums.insights.v20150501.WebTestKind>;
     /**
      * Resource location
      */
@@ -231,7 +231,7 @@ export interface WebTestArgs {
     /**
      * The kind of web test this is, valid choices are ping and multistep.
      */
-    readonly webTestKind: pulumi.Input<string>;
+    readonly webTestKind: pulumi.Input<enums.insights.v20150501.WebTestKind>;
     /**
      * User defined name if this WebTest.
      */

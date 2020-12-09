@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ReferenceDataSetKeyPropertyArgs',
@@ -17,11 +18,11 @@ __all__ = [
 class ReferenceDataSetKeyPropertyArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input['ReferenceDataKeyPropertyType']] = None):
         """
         A key property for the reference data set. A reference data set can have multiple key properties.
         :param pulumi.Input[str] name: The name of the key property.
-        :param pulumi.Input[str] type: The type of the key property.
+        :param pulumi.Input['ReferenceDataKeyPropertyType'] type: The type of the key property.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -42,14 +43,14 @@ class ReferenceDataSetKeyPropertyArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['ReferenceDataKeyPropertyType']]:
         """
         The type of the key property.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['ReferenceDataKeyPropertyType']]):
         pulumi.set(self, "type", value)
 
 
@@ -57,11 +58,11 @@ class ReferenceDataSetKeyPropertyArgs:
 class SkuArgs:
     def __init__(__self__, *,
                  capacity: pulumi.Input[int],
-                 name: pulumi.Input[str]):
+                 name: pulumi.Input['SkuName']):
         """
         The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
         :param pulumi.Input[int] capacity: The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
-        :param pulumi.Input[str] name: The name of this SKU.
+        :param pulumi.Input['SkuName'] name: The name of this SKU.
         """
         pulumi.set(__self__, "capacity", capacity)
         pulumi.set(__self__, "name", name)
@@ -80,14 +81,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input['SkuName']:
         """
         The name of this SKU.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input['SkuName']):
         pulumi.set(self, "name", value)
 
 

@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview.Inputs
         /// The health state of a resource such as Application, Service, or Network.
         /// </summary>
         [Input("healthState")]
-        public Input<string>? HealthState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview.HealthState>? HealthState { get; set; }
 
         /// <summary>
         /// The name of the resource
@@ -67,7 +67,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview.Inputs
         /// The Operating system type required by the code in service.
         /// </summary>
         [Input("osType", required: true)]
-        public Input<string> OsType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview.OperatingSystemTypes> OsType { get; set; } = null!;
 
         /// <summary>
         /// The number of replicas of the service to create. Defaults to 1 if not specified.

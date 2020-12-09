@@ -38,23 +38,24 @@ type PacketCapture struct {
 // NewPacketCapture registers a new resource with the given unique name, arguments, and options.
 func NewPacketCapture(ctx *pulumi.Context,
 	name string, args *PacketCaptureArgs, opts ...pulumi.ResourceOption) (*PacketCapture, error) {
-	if args == nil || args.NetworkWatcherName == nil {
-		return nil, errors.New("missing required argument 'NetworkWatcherName'")
-	}
-	if args == nil || args.PacketCaptureName == nil {
-		return nil, errors.New("missing required argument 'PacketCaptureName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.StorageLocation == nil {
-		return nil, errors.New("missing required argument 'StorageLocation'")
-	}
-	if args == nil || args.Target == nil {
-		return nil, errors.New("missing required argument 'Target'")
-	}
 	if args == nil {
-		args = &PacketCaptureArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.NetworkWatcherName == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkWatcherName'")
+	}
+	if args.PacketCaptureName == nil {
+		return nil, errors.New("invalid value for required argument 'PacketCaptureName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.StorageLocation == nil {
+		return nil, errors.New("invalid value for required argument 'StorageLocation'")
+	}
+	if args.Target == nil {
+		return nil, errors.New("invalid value for required argument 'Target'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

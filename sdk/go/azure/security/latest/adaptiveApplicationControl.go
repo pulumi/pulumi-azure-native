@@ -38,14 +38,15 @@ type AdaptiveApplicationControl struct {
 // NewAdaptiveApplicationControl registers a new resource with the given unique name, arguments, and options.
 func NewAdaptiveApplicationControl(ctx *pulumi.Context,
 	name string, args *AdaptiveApplicationControlArgs, opts ...pulumi.ResourceOption) (*AdaptiveApplicationControl, error) {
-	if args == nil || args.AscLocation == nil {
-		return nil, errors.New("missing required argument 'AscLocation'")
-	}
-	if args == nil || args.GroupName == nil {
-		return nil, errors.New("missing required argument 'GroupName'")
-	}
 	if args == nil {
-		args = &AdaptiveApplicationControlArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AscLocation == nil {
+		return nil, errors.New("invalid value for required argument 'AscLocation'")
+	}
+	if args.GroupName == nil {
+		return nil, errors.New("invalid value for required argument 'GroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

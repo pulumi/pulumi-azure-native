@@ -25,13 +25,13 @@ namespace Pulumi.AzureNextGen.Cache.V20150801.Inputs
         /// Which family to use. Valid values: (C, P).
         /// </summary>
         [Input("family", required: true)]
-        public Input<string> Family { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Cache.V20150801.SkuFamily> Family { get; set; } = null!;
 
         /// <summary>
         /// What type of Redis cache to deploy. Valid values: (Basic, Standard, Premium).
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Cache.V20150801.SkuName> Name { get; set; } = null!;
 
         public SkuArgs()
         {

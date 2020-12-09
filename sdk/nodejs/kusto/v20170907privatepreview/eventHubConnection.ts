@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -77,22 +78,22 @@ export class EventHubConnection extends pulumi.CustomResource {
     constructor(name: string, args: EventHubConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.clusterName === undefined) {
+            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if (!args || args.consumerGroup === undefined) {
+            if ((!args || args.consumerGroup === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'consumerGroup'");
             }
-            if (!args || args.databaseName === undefined) {
+            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if (!args || args.eventHubConnectionName === undefined) {
+            if ((!args || args.eventHubConnectionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'eventHubConnectionName'");
             }
-            if (!args || args.eventHubResourceId === undefined) {
+            if ((!args || args.eventHubResourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'eventHubResourceId'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["clusterName"] = args ? args.clusterName : undefined;
@@ -145,7 +146,7 @@ export interface EventHubConnectionArgs {
     /**
      * The data format of the message. Optionally the data format can be added to each message.
      */
-    readonly dataFormat?: pulumi.Input<string>;
+    readonly dataFormat?: pulumi.Input<string | enums.kusto.v20170907privatepreview.DataFormat>;
     /**
      * The name of the database in the Kusto cluster.
      */

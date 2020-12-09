@@ -36,14 +36,15 @@ type EnterprisePolicy struct {
 // NewEnterprisePolicy registers a new resource with the given unique name, arguments, and options.
 func NewEnterprisePolicy(ctx *pulumi.Context,
 	name string, args *EnterprisePolicyArgs, opts ...pulumi.ResourceOption) (*EnterprisePolicy, error) {
-	if args == nil || args.EnterprisePolicyName == nil {
-		return nil, errors.New("missing required argument 'EnterprisePolicyName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &EnterprisePolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.EnterprisePolicyName == nil {
+		return nil, errors.New("invalid value for required argument 'EnterprisePolicyName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource EnterprisePolicy
 	err := ctx.RegisterResource("azure-nextgen:powerplatform/v20201030preview:EnterprisePolicy", name, args, &resource, opts...)

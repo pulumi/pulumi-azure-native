@@ -75,17 +75,17 @@ class RegisteredServer(pulumi.CustomResource):
             __props__['last_heart_beat'] = last_heart_beat
             __props__['last_workflow_id'] = last_workflow_id
             __props__['provisioning_state'] = provisioning_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['server_certificate'] = server_certificate
-            if server_id is None:
+            if server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'server_id'")
             __props__['server_id'] = server_id
             __props__['server_managementt_error_code'] = server_managementt_error_code
             __props__['server_os_version'] = server_os_version
             __props__['server_role'] = server_role
-            if storage_sync_service_name is None:
+            if storage_sync_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_sync_service_name'")
             __props__['storage_sync_service_name'] = storage_sync_service_name
             __props__['storage_sync_service_uid'] = storage_sync_service_uid

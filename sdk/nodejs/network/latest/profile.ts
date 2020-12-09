@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -90,10 +90,10 @@ export class Profile extends pulumi.CustomResource {
     constructor(name: string, args: ProfileArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.profileName === undefined) {
+            if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["dnsConfig"] = args ? args.dnsConfig : undefined;
@@ -175,7 +175,7 @@ export interface ProfileArgs {
     /**
      * The status of the Traffic Manager profile.
      */
-    readonly profileStatus?: pulumi.Input<string>;
+    readonly profileStatus?: pulumi.Input<string | enums.network.latest.ProfileStatus>;
     /**
      * The name of the resource group containing the Traffic Manager profile.
      */
@@ -187,11 +187,11 @@ export interface ProfileArgs {
     /**
      * The traffic routing method of the Traffic Manager profile.
      */
-    readonly trafficRoutingMethod?: pulumi.Input<string>;
+    readonly trafficRoutingMethod?: pulumi.Input<string | enums.network.latest.TrafficRoutingMethod>;
     /**
      * Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
      */
-    readonly trafficViewEnrollmentStatus?: pulumi.Input<string>;
+    readonly trafficViewEnrollmentStatus?: pulumi.Input<string | enums.network.latest.TrafficViewEnrollmentStatus>;
     /**
      * The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
      */

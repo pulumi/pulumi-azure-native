@@ -27,18 +27,18 @@ namespace Pulumi.AzureNextGen.Insights.V20191101Preview.Inputs
         /// The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
         /// </summary>
         [Input("scheduledTransferPeriod", required: true)]
-        public Input<string> ScheduledTransferPeriod { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20191101Preview.KnownWindowsEventLogDataSourceScheduledTransferPeriod> ScheduledTransferPeriod { get; set; } = null!;
 
         [Input("streams", required: true)]
-        private InputList<string>? _streams;
+        private InputList<Union<string, Pulumi.AzureNextGen.Insights.V20191101Preview.KnownWindowsEventLogDataSourceStreams>>? _streams;
 
         /// <summary>
         /// List of streams that this data source will be sent to.
         /// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
         /// </summary>
-        public InputList<string> Streams
+        public InputList<Union<string, Pulumi.AzureNextGen.Insights.V20191101Preview.KnownWindowsEventLogDataSourceStreams>> Streams
         {
-            get => _streams ?? (_streams = new InputList<string>());
+            get => _streams ?? (_streams = new InputList<Union<string, Pulumi.AzureNextGen.Insights.V20191101Preview.KnownWindowsEventLogDataSourceStreams>>());
             set => _streams = value;
         }
 

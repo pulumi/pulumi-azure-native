@@ -28,14 +28,15 @@ type IotSite struct {
 // NewIotSite registers a new resource with the given unique name, arguments, and options.
 func NewIotSite(ctx *pulumi.Context,
 	name string, args *IotSiteArgs, opts ...pulumi.ResourceOption) (*IotSite, error) {
-	if args == nil || args.DisplayName == nil {
-		return nil, errors.New("missing required argument 'DisplayName'")
-	}
-	if args == nil || args.Scope == nil {
-		return nil, errors.New("missing required argument 'Scope'")
-	}
 	if args == nil {
-		args = &IotSiteArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DisplayName == nil {
+		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
+	if args.Scope == nil {
+		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
 	var resource IotSite
 	err := ctx.RegisterResource("azure-nextgen:security/v20200806preview:IotSite", name, args, &resource, opts...)

@@ -173,7 +173,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
         /// The event delivery schema for the event subscription.
         /// </summary>
         [Input("eventDeliverySchema")]
-        public Input<string>? EventDeliverySchema { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.EventGrid.V20200401Preview.EventDeliverySchema>? EventDeliverySchema { get; set; }
 
         /// <summary>
         /// Name of the event subscription to be created. Event subscription names must be between 3 and 100 characters in length and use alphanumeric letters only.

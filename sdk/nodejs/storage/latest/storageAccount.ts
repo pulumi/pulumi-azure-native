@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -170,19 +170,19 @@ export class StorageAccount extends pulumi.CustomResource {
     constructor(name: string, args: StorageAccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.accountName === undefined) {
+            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.kind === undefined) {
+            if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kind'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sku === undefined) {
+            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["accessTier"] = args ? args.accessTier : undefined;
@@ -271,7 +271,7 @@ export interface StorageAccountArgs {
     /**
      * Required for storage accounts where kind = BlobStorage. The access tier used for billing.
      */
-    readonly accessTier?: pulumi.Input<string>;
+    readonly accessTier?: pulumi.Input<enums.storage.latest.AccessTier>;
     /**
      * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
      */
@@ -307,11 +307,11 @@ export interface StorageAccountArgs {
     /**
      * Required. Indicates the type of storage account.
      */
-    readonly kind: pulumi.Input<string>;
+    readonly kind: pulumi.Input<string | enums.storage.latest.Kind>;
     /**
      * Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
      */
-    readonly largeFileSharesState?: pulumi.Input<string>;
+    readonly largeFileSharesState?: pulumi.Input<string | enums.storage.latest.LargeFileSharesState>;
     /**
      * Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
      */
@@ -319,7 +319,7 @@ export interface StorageAccountArgs {
     /**
      * Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
      */
-    readonly minimumTlsVersion?: pulumi.Input<string>;
+    readonly minimumTlsVersion?: pulumi.Input<string | enums.storage.latest.MinimumTlsVersion>;
     /**
      * Network rule set
      */

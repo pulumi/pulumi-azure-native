@@ -34,20 +34,21 @@ type Group struct {
 // NewGroup registers a new resource with the given unique name, arguments, and options.
 func NewGroup(ctx *pulumi.Context,
 	name string, args *GroupArgs, opts ...pulumi.ResourceOption) (*Group, error) {
-	if args == nil || args.GroupName == nil {
-		return nil, errors.New("missing required argument 'GroupName'")
-	}
-	if args == nil || args.Machines == nil {
-		return nil, errors.New("missing required argument 'Machines'")
-	}
-	if args == nil || args.ProjectName == nil {
-		return nil, errors.New("missing required argument 'ProjectName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &GroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.GroupName == nil {
+		return nil, errors.New("invalid value for required argument 'GroupName'")
+	}
+	if args.Machines == nil {
+		return nil, errors.New("invalid value for required argument 'Machines'")
+	}
+	if args.ProjectName == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

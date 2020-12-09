@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview.Inputs
         /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.PowerPlatform.V20201030Preview.PrivateEndpointServiceConnectionStatus>? Status { get; set; }
 
         public PrivateLinkServiceConnectionStateArgs()
         {

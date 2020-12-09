@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -61,19 +62,19 @@ export class DataConnection extends pulumi.CustomResource {
     constructor(name: string, args: DataConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.clusterName === undefined) {
+            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if (!args || args.dataConnectionName === undefined) {
+            if ((!args || args.dataConnectionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataConnectionName'");
             }
-            if (!args || args.databaseName === undefined) {
+            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if (!args || args.kind === undefined) {
+            if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kind'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["clusterName"] = args ? args.clusterName : undefined;
@@ -122,7 +123,7 @@ export interface DataConnectionArgs {
     /**
      * Kind of the endpoint for the data connection
      */
-    readonly kind: pulumi.Input<string>;
+    readonly kind: pulumi.Input<string | enums.kusto.v20191109.Kind>;
     /**
      * Resource location.
      */

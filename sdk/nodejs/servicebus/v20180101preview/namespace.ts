@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -106,13 +106,13 @@ export class Namespace extends pulumi.CustomResource {
     constructor(name: string, args: NamespaceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.namespaceName === undefined) {
+            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["keySource"] = args ? args.keySource : undefined;
@@ -169,7 +169,7 @@ export interface NamespaceArgs {
     /**
      * Enumerates the possible value of keySource for Encryption
      */
-    readonly keySource?: pulumi.Input<string>;
+    readonly keySource?: pulumi.Input<enums.servicebus.v20180101preview.KeySource>;
     /**
      * Properties of KeyVault
      */
@@ -205,7 +205,7 @@ export interface NamespaceArgs {
     /**
      * Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type?: pulumi.Input<enums.servicebus.v20180101preview.IdentityType>;
     /**
      * Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
      */

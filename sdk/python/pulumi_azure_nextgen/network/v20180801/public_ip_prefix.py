@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['PublicIPPrefix']
@@ -24,7 +25,7 @@ class PublicIPPrefix(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  prefix_length: Optional[pulumi.Input[int]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
-                 public_ip_address_version: Optional[pulumi.Input[str]] = None,
+                 public_ip_address_version: Optional[pulumi.Input[Union[str, 'IPVersion']]] = None,
                  public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReferencedPublicIpAddressArgs']]]]] = None,
                  public_ip_prefix_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -47,7 +48,7 @@ class PublicIPPrefix(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[int] prefix_length: The Length of the Public IP Prefix.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the Public IP prefix resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-        :param pulumi.Input[str] public_ip_address_version: The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
+        :param pulumi.Input[Union[str, 'IPVersion']] public_ip_address_version: The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReferencedPublicIpAddressArgs']]]] public_ip_addresses: The list of all referenced PublicIPAddresses
         :param pulumi.Input[str] public_ip_prefix_name: The name of the public IP prefix.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -82,10 +83,10 @@ class PublicIPPrefix(pulumi.CustomResource):
             __props__['provisioning_state'] = provisioning_state
             __props__['public_ip_address_version'] = public_ip_address_version
             __props__['public_ip_addresses'] = public_ip_addresses
-            if public_ip_prefix_name is None:
+            if public_ip_prefix_name is None and not opts.urn:
                 raise TypeError("Missing required property 'public_ip_prefix_name'")
             __props__['public_ip_prefix_name'] = public_ip_prefix_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_guid'] = resource_guid

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -98,31 +98,31 @@ export class Agreement extends pulumi.CustomResource {
     constructor(name: string, args: AgreementArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.agreementName === undefined) {
+            if ((!args || args.agreementName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'agreementName'");
             }
-            if (!args || args.agreementType === undefined) {
+            if ((!args || args.agreementType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'agreementType'");
             }
-            if (!args || args.content === undefined) {
+            if ((!args || args.content === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'content'");
             }
-            if (!args || args.guestIdentity === undefined) {
+            if ((!args || args.guestIdentity === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'guestIdentity'");
             }
-            if (!args || args.guestPartner === undefined) {
+            if ((!args || args.guestPartner === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'guestPartner'");
             }
-            if (!args || args.hostIdentity === undefined) {
+            if ((!args || args.hostIdentity === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hostIdentity'");
             }
-            if (!args || args.hostPartner === undefined) {
+            if ((!args || args.hostPartner === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hostPartner'");
             }
-            if (!args || args.integrationAccountName === undefined) {
+            if ((!args || args.integrationAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["agreementName"] = args ? args.agreementName : undefined;
@@ -180,7 +180,7 @@ export interface AgreementArgs {
     /**
      * The agreement type.
      */
-    readonly agreementType: pulumi.Input<string>;
+    readonly agreementType: pulumi.Input<enums.logic.v20160601.AgreementType>;
     /**
      * The agreement content.
      */

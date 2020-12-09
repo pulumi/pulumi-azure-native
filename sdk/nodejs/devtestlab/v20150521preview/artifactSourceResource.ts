@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -93,13 +94,13 @@ export class ArtifactSourceResource extends pulumi.CustomResource {
     constructor(name: string, args: ArtifactSourceResourceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.labName === undefined) {
+            if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'labName'");
             }
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["branchRef"] = args ? args.branchRef : undefined;
@@ -191,11 +192,11 @@ export interface ArtifactSourceResourceArgs {
     /**
      * The type of the artifact source.
      */
-    readonly sourceType?: pulumi.Input<string>;
+    readonly sourceType?: pulumi.Input<string | enums.devtestlab.v20150521preview.SourceControlType>;
     /**
      * The status of the artifact source.
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<string | enums.devtestlab.v20150521preview.EnableStatus>;
     /**
      * The tags of the resource.
      */

@@ -240,7 +240,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20170402
         /// Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.
         /// </summary>
         [Input("optimizationType")]
-        public Input<string>? OptimizationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20170402.OptimizationType>? OptimizationType { get; set; }
 
         /// <summary>
         /// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
@@ -282,7 +282,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20170402
         /// Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
         /// </summary>
         [Input("queryStringCachingBehavior")]
-        public Input<string>? QueryStringCachingBehavior { get; set; }
+        public Input<Pulumi.AzureNextGen.Cdn.V20170402.QueryStringCachingBehavior>? QueryStringCachingBehavior { get; set; }
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.

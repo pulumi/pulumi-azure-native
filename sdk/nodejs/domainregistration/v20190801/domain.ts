@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -144,28 +144,28 @@ export class Domain extends pulumi.CustomResource {
     constructor(name: string, args: DomainArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.consent === undefined) {
+            if ((!args || args.consent === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'consent'");
             }
-            if (!args || args.contactAdmin === undefined) {
+            if ((!args || args.contactAdmin === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'contactAdmin'");
             }
-            if (!args || args.contactBilling === undefined) {
+            if ((!args || args.contactBilling === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'contactBilling'");
             }
-            if (!args || args.contactRegistrant === undefined) {
+            if ((!args || args.contactRegistrant === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'contactRegistrant'");
             }
-            if (!args || args.contactTech === undefined) {
+            if ((!args || args.contactTech === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'contactTech'");
             }
-            if (!args || args.domainName === undefined) {
+            if ((!args || args.domainName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["authCode"] = args ? args.authCode : undefined;
@@ -267,7 +267,7 @@ export interface DomainArgs {
     /**
      * Current DNS type
      */
-    readonly dnsType?: pulumi.Input<string>;
+    readonly dnsType?: pulumi.Input<enums.domainregistration.v20190801.DnsType>;
     /**
      * Azure DNS Zone to use
      */
@@ -299,5 +299,5 @@ export interface DomainArgs {
     /**
      * Target DNS type (would be used for migration)
      */
-    readonly targetDnsType?: pulumi.Input<string>;
+    readonly targetDnsType?: pulumi.Input<enums.domainregistration.v20190801.DnsType>;
 }

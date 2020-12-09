@@ -30,17 +30,18 @@ type ManagementLockAtResourceGroupLevel struct {
 // NewManagementLockAtResourceGroupLevel registers a new resource with the given unique name, arguments, and options.
 func NewManagementLockAtResourceGroupLevel(ctx *pulumi.Context,
 	name string, args *ManagementLockAtResourceGroupLevelArgs, opts ...pulumi.ResourceOption) (*ManagementLockAtResourceGroupLevel, error) {
-	if args == nil || args.Level == nil {
-		return nil, errors.New("missing required argument 'Level'")
-	}
-	if args == nil || args.LockName == nil {
-		return nil, errors.New("missing required argument 'LockName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ManagementLockAtResourceGroupLevelArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Level == nil {
+		return nil, errors.New("invalid value for required argument 'Level'")
+	}
+	if args.LockName == nil {
+		return nil, errors.New("invalid value for required argument 'LockName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

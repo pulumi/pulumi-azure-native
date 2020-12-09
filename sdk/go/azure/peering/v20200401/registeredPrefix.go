@@ -34,17 +34,18 @@ type RegisteredPrefix struct {
 // NewRegisteredPrefix registers a new resource with the given unique name, arguments, and options.
 func NewRegisteredPrefix(ctx *pulumi.Context,
 	name string, args *RegisteredPrefixArgs, opts ...pulumi.ResourceOption) (*RegisteredPrefix, error) {
-	if args == nil || args.PeeringName == nil {
-		return nil, errors.New("missing required argument 'PeeringName'")
-	}
-	if args == nil || args.RegisteredPrefixName == nil {
-		return nil, errors.New("missing required argument 'RegisteredPrefixName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &RegisteredPrefixArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PeeringName == nil {
+		return nil, errors.New("invalid value for required argument 'PeeringName'")
+	}
+	if args.RegisteredPrefixName == nil {
+		return nil, errors.New("invalid value for required argument 'RegisteredPrefixName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -102,25 +102,25 @@ export class Workbook extends pulumi.CustomResource {
     constructor(name: string, args: WorkbookArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.category === undefined) {
+            if ((!args || args.category === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'category'");
             }
-            if (!args || args.displayName === undefined) {
+            if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.resourceName === undefined) {
+            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            if (!args || args.serializedData === undefined) {
+            if ((!args || args.serializedData === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serializedData'");
             }
-            if (!args || args.sourceId === undefined) {
+            if ((!args || args.sourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sourceId'");
             }
             inputs["category"] = args ? args.category : undefined;
@@ -187,7 +187,7 @@ export interface WorkbookArgs {
     /**
      * The kind of workbook. Choices are user and shared.
      */
-    readonly kind?: pulumi.Input<string>;
+    readonly kind?: pulumi.Input<string | enums.insights.latest.SharedTypeKind>;
     /**
      * Resource location
      */

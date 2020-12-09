@@ -32,14 +32,15 @@ type DeviceSecurityGroup struct {
 // NewDeviceSecurityGroup registers a new resource with the given unique name, arguments, and options.
 func NewDeviceSecurityGroup(ctx *pulumi.Context,
 	name string, args *DeviceSecurityGroupArgs, opts ...pulumi.ResourceOption) (*DeviceSecurityGroup, error) {
-	if args == nil || args.DeviceSecurityGroupName == nil {
-		return nil, errors.New("missing required argument 'DeviceSecurityGroupName'")
-	}
-	if args == nil || args.ResourceId == nil {
-		return nil, errors.New("missing required argument 'ResourceId'")
-	}
 	if args == nil {
-		args = &DeviceSecurityGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DeviceSecurityGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'DeviceSecurityGroupName'")
+	}
+	if args.ResourceId == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

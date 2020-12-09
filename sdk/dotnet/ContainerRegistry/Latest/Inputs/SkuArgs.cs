@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Latest.Inputs
         /// The SKU name of the container registry. Required for registry creation.
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.Latest.SkuName> Name { get; set; } = null!;
 
         public SkuArgs()
         {

@@ -200,7 +200,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         /// The status of the schedule (i.e. Enabled, Disabled)
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20160515.EnableStatus>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

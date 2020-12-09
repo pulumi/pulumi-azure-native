@@ -57,28 +57,28 @@ class ApiIssueAttachment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if api_id is None:
+            if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
             __props__['api_id'] = api_id
-            if attachment_id is None:
+            if attachment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'attachment_id'")
             __props__['attachment_id'] = attachment_id
-            if content is None:
+            if content is None and not opts.urn:
                 raise TypeError("Missing required property 'content'")
             __props__['content'] = content
-            if content_format is None:
+            if content_format is None and not opts.urn:
                 raise TypeError("Missing required property 'content_format'")
             __props__['content_format'] = content_format
-            if issue_id is None:
+            if issue_id is None and not opts.urn:
                 raise TypeError("Missing required property 'issue_id'")
             __props__['issue_id'] = issue_id
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if service_name is None:
+            if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
-            if title is None:
+            if title is None and not opts.urn:
                 raise TypeError("Missing required property 'title'")
             __props__['title'] = title
             __props__['name'] = None

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'IncidentInfoArgs',
@@ -20,13 +21,13 @@ class IncidentInfoArgs:
     def __init__(__self__, *,
                  incident_id: pulumi.Input[str],
                  relation_name: pulumi.Input[str],
-                 severity: pulumi.Input[str],
+                 severity: pulumi.Input[Union[str, 'CaseSeverity']],
                  title: pulumi.Input[str]):
         """
         Describes related incident information for the bookmark
         :param pulumi.Input[str] incident_id: Incident Id
         :param pulumi.Input[str] relation_name: Relation Name
-        :param pulumi.Input[str] severity: The severity of the incident
+        :param pulumi.Input[Union[str, 'CaseSeverity']] severity: The severity of the incident
         :param pulumi.Input[str] title: The title of the incident
         """
         pulumi.set(__self__, "incident_id", incident_id)
@@ -60,14 +61,14 @@ class IncidentInfoArgs:
 
     @property
     @pulumi.getter
-    def severity(self) -> pulumi.Input[str]:
+    def severity(self) -> pulumi.Input[Union[str, 'CaseSeverity']]:
         """
         The severity of the incident
         """
         return pulumi.get(self, "severity")
 
     @severity.setter
-    def severity(self, value: pulumi.Input[str]):
+    def severity(self, value: pulumi.Input[Union[str, 'CaseSeverity']]):
         pulumi.set(self, "severity", value)
 
     @property

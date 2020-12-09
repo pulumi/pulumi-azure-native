@@ -66,13 +66,13 @@ class SqlManagedInstance(pulumi.CustomResource):
             __props__['data_controller_id'] = data_controller_id
             __props__['end_time'] = end_time
             __props__['instance_endpoint'] = instance_endpoint
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if sql_managed_instance_name is None:
+            if sql_managed_instance_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sql_managed_instance_name'")
             __props__['sql_managed_instance_name'] = sql_managed_instance_name
             __props__['start_time'] = start_time

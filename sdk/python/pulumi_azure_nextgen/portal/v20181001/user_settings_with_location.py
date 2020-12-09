@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['UserSettingsWithLocation']
@@ -49,13 +50,13 @@ class UserSettingsWithLocation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if properties is None:
+            if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
-            if user_settings_name is None:
+            if user_settings_name is None and not opts.urn:
                 raise TypeError("Missing required property 'user_settings_name'")
             __props__['user_settings_name'] = user_settings_name
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:portal/latest:UserSettingsWithLocation")])

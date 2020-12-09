@@ -149,7 +149,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
         /// The security provider name.
         /// </summary>
         [Input("securityProviderName")]
-        public Input<string>? SecurityProviderName { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200501.SecurityProviderName>? SecurityProviderName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -78,22 +78,22 @@ export class InstanceFailoverGroup extends pulumi.CustomResource {
     constructor(name: string, args: InstanceFailoverGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.failoverGroupName === undefined) {
+            if ((!args || args.failoverGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'failoverGroupName'");
             }
-            if (!args || args.locationName === undefined) {
+            if ((!args || args.locationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'locationName'");
             }
-            if (!args || args.managedInstancePairs === undefined) {
+            if ((!args || args.managedInstancePairs === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managedInstancePairs'");
             }
-            if (!args || args.partnerRegions === undefined) {
+            if ((!args || args.partnerRegions === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'partnerRegions'");
             }
-            if (!args || args.readWriteEndpoint === undefined) {
+            if ((!args || args.readWriteEndpoint === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'readWriteEndpoint'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["failoverGroupName"] = args ? args.failoverGroupName : undefined;

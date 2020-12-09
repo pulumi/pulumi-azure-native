@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AppResourcePropertiesArgs',
@@ -350,7 +351,7 @@ class DeploymentSettingsArgs:
                  jvm_options: Optional[pulumi.Input[str]] = None,
                  memory_in_gb: Optional[pulumi.Input[int]] = None,
                  net_core_main_entry_path: Optional[pulumi.Input[str]] = None,
-                 runtime_version: Optional[pulumi.Input[str]] = None):
+                 runtime_version: Optional[pulumi.Input[Union[str, 'RuntimeVersion']]] = None):
         """
         Deployment settings payload
         :param pulumi.Input[int] cpu: Required CPU, basic tier should be 1, standard tier should be in range (1, 4)
@@ -358,7 +359,7 @@ class DeploymentSettingsArgs:
         :param pulumi.Input[str] jvm_options: JVM parameter
         :param pulumi.Input[int] memory_in_gb: Required Memory size in GB, basic tier should be in range (1, 2), standard tier should be in range (1, 8)
         :param pulumi.Input[str] net_core_main_entry_path: The path to the .NET executable relative to zip root
-        :param pulumi.Input[str] runtime_version: Runtime version
+        :param pulumi.Input[Union[str, 'RuntimeVersion']] runtime_version: Runtime version
         """
         if cpu is not None:
             pulumi.set(__self__, "cpu", cpu)
@@ -435,14 +436,14 @@ class DeploymentSettingsArgs:
 
     @property
     @pulumi.getter(name="runtimeVersion")
-    def runtime_version(self) -> Optional[pulumi.Input[str]]:
+    def runtime_version(self) -> Optional[pulumi.Input[Union[str, 'RuntimeVersion']]]:
         """
         Runtime version
         """
         return pulumi.get(self, "runtime_version")
 
     @runtime_version.setter
-    def runtime_version(self, value: Optional[pulumi.Input[str]]):
+    def runtime_version(self, value: Optional[pulumi.Input[Union[str, 'RuntimeVersion']]]):
         pulumi.set(self, "runtime_version", value)
 
 
@@ -451,12 +452,12 @@ class ManagedIdentityPropertiesArgs:
     def __init__(__self__, *,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input[Union[str, 'ManagedIdentityType']]] = None):
         """
         Managed identity properties retrieved from ARM request headers.
         :param pulumi.Input[str] principal_id: Principal Id
         :param pulumi.Input[str] tenant_id: Tenant Id
-        :param pulumi.Input[str] type: Type of the managed identity
+        :param pulumi.Input[Union[str, 'ManagedIdentityType']] type: Type of the managed identity
         """
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
@@ -491,14 +492,14 @@ class ManagedIdentityPropertiesArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ManagedIdentityType']]]:
         """
         Type of the managed identity
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ManagedIdentityType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -731,14 +732,14 @@ class UserSourceInfoArgs:
     def __init__(__self__, *,
                  artifact_selector: Optional[pulumi.Input[str]] = None,
                  relative_path: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'UserSourceType']]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         Source information for a deployment
         :param pulumi.Input[str] artifact_selector: Selector for the artifact to be used for the deployment for multi-module projects. This should be
                the relative path to the target module/project.
         :param pulumi.Input[str] relative_path: Relative path of the storage which stores the source
-        :param pulumi.Input[str] type: Type of the source uploaded
+        :param pulumi.Input[Union[str, 'UserSourceType']] type: Type of the source uploaded
         :param pulumi.Input[str] version: Version of the source
         """
         if artifact_selector is not None:
@@ -777,14 +778,14 @@ class UserSourceInfoArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'UserSourceType']]]:
         """
         Type of the source uploaded
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'UserSourceType']]]):
         pulumi.set(self, "type", value)
 
     @property

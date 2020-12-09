@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -76,16 +76,16 @@ export class ScopeMap extends pulumi.CustomResource {
     constructor(name: string, args: ScopeMapArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.actions === undefined) {
+            if ((!args || args.actions === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'actions'");
             }
-            if (!args || args.registryName === undefined) {
+            if ((!args || args.registryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'registryName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.scopeMapName === undefined) {
+            if ((!args || args.scopeMapName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scopeMapName'");
             }
             inputs["actions"] = args ? args.actions : undefined;

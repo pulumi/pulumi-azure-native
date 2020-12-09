@@ -61,13 +61,13 @@ export class ManagementPolicy extends pulumi.CustomResource {
     constructor(name: string, args: ManagementPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.accountName === undefined) {
+            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.managementPolicyName === undefined) {
+            if ((!args || args.managementPolicyName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managementPolicyName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;

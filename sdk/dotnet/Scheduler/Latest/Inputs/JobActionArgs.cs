@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.Scheduler.Latest.Inputs
         /// Gets or sets the job action type.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AzureNextGen.Scheduler.Latest.JobActionType>? Type { get; set; }
 
         public JobActionArgs()
         {

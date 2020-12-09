@@ -142,7 +142,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
         /// </summary>
         [Input("matchProcessingBehavior")]
-        public Input<string>? MatchProcessingBehavior { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20200901.MatchProcessingBehavior>? MatchProcessingBehavior { get; set; }
 
         /// <summary>
         /// The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.

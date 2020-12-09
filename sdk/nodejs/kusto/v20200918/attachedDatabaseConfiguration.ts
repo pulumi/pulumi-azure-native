@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -77,22 +78,22 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: AttachedDatabaseConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.attachedDatabaseConfigurationName === undefined) {
+            if ((!args || args.attachedDatabaseConfigurationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'attachedDatabaseConfigurationName'");
             }
-            if (!args || args.clusterName === undefined) {
+            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if (!args || args.clusterResourceId === undefined) {
+            if ((!args || args.clusterResourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterResourceId'");
             }
-            if (!args || args.databaseName === undefined) {
+            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if (!args || args.defaultPrincipalsModificationKind === undefined) {
+            if ((!args || args.defaultPrincipalsModificationKind === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'defaultPrincipalsModificationKind'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["attachedDatabaseConfigurationName"] = args ? args.attachedDatabaseConfigurationName : undefined;
@@ -152,7 +153,7 @@ export interface AttachedDatabaseConfigurationArgs {
     /**
      * The default principals modification kind
      */
-    readonly defaultPrincipalsModificationKind: pulumi.Input<string>;
+    readonly defaultPrincipalsModificationKind: pulumi.Input<string | enums.kusto.v20200918.DefaultPrincipalsModificationKind>;
     /**
      * Resource location.
      */

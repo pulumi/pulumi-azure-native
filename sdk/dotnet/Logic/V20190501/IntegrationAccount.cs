@@ -142,7 +142,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
         /// The workflow state.
         /// </summary>
         [Input("state")]
-        public Input<string>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Logic.V20190501.WorkflowState>? State { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

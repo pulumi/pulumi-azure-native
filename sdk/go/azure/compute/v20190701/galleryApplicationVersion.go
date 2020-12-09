@@ -34,26 +34,27 @@ type GalleryApplicationVersion struct {
 // NewGalleryApplicationVersion registers a new resource with the given unique name, arguments, and options.
 func NewGalleryApplicationVersion(ctx *pulumi.Context,
 	name string, args *GalleryApplicationVersionArgs, opts ...pulumi.ResourceOption) (*GalleryApplicationVersion, error) {
-	if args == nil || args.GalleryApplicationName == nil {
-		return nil, errors.New("missing required argument 'GalleryApplicationName'")
-	}
-	if args == nil || args.GalleryApplicationVersionName == nil {
-		return nil, errors.New("missing required argument 'GalleryApplicationVersionName'")
-	}
-	if args == nil || args.GalleryName == nil {
-		return nil, errors.New("missing required argument 'GalleryName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.PublishingProfile == nil {
-		return nil, errors.New("missing required argument 'PublishingProfile'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &GalleryApplicationVersionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.GalleryApplicationName == nil {
+		return nil, errors.New("invalid value for required argument 'GalleryApplicationName'")
+	}
+	if args.GalleryApplicationVersionName == nil {
+		return nil, errors.New("invalid value for required argument 'GalleryApplicationVersionName'")
+	}
+	if args.GalleryName == nil {
+		return nil, errors.New("invalid value for required argument 'GalleryName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.PublishingProfile == nil {
+		return nil, errors.New("invalid value for required argument 'PublishingProfile'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

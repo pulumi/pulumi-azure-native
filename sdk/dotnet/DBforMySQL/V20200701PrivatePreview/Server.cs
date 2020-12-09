@@ -253,7 +253,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
         /// The mode to create a new MySQL server.
         /// </summary>
         [Input("createMode")]
-        public Input<string>? CreateMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview.CreateMode>? CreateMode { get; set; }
 
         /// <summary>
         /// Delegated subnet arguments.
@@ -265,7 +265,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
         /// Enable HA or not for a server.
         /// </summary>
         [Input("haEnabled")]
-        public Input<string>? HaEnabled { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview.HaEnabledEnum>? HaEnabled { get; set; }
 
         /// <summary>
         /// The Azure Active Directory identity of the server.
@@ -277,7 +277,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
         /// Status showing whether the server enabled infrastructure encryption.
         /// </summary>
         [Input("infrastructureEncryption")]
-        public Input<string>? InfrastructureEncryption { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview.InfrastructureEncryptionEnum>? InfrastructureEncryption { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -331,7 +331,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
         /// Enable ssl enforcement or not when connect to server.
         /// </summary>
         [Input("sslEnforcement")]
-        public Input<string>? SslEnforcement { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview.SslEnforcementEnum>? SslEnforcement { get; set; }
 
         /// <summary>
         /// Storage profile of a server.
@@ -355,7 +355,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
         /// Server version.
         /// </summary>
         [Input("version")]
-        public Input<string>? Version { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview.ServerVersion>? Version { get; set; }
 
         public ServerArgs()
         {

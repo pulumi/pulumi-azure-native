@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -89,19 +90,19 @@ export class IdentityProvider extends pulumi.CustomResource {
     constructor(name: string, args: IdentityProviderArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.clientId === undefined) {
+            if ((!args || args.clientId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if (!args || args.clientSecret === undefined) {
+            if ((!args || args.clientSecret === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clientSecret'");
             }
-            if (!args || args.identityProviderName === undefined) {
+            if ((!args || args.identityProviderName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'identityProviderName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serviceName === undefined) {
+            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["allowedTenants"] = args ? args.allowedTenants : undefined;
@@ -199,5 +200,5 @@ export interface IdentityProviderArgs {
     /**
      * Identity Provider Type identifier.
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type?: pulumi.Input<string | enums.apimanagement.v20191201.IdentityProviderType>;
 }

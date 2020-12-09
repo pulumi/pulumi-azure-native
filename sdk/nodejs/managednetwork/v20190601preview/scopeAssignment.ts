@@ -69,10 +69,10 @@ export class ScopeAssignment extends pulumi.CustomResource {
     constructor(name: string, args: ScopeAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.scope === undefined) {
+            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
-            if (!args || args.scopeAssignmentName === undefined) {
+            if ((!args || args.scopeAssignmentName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scopeAssignmentName'");
             }
             inputs["assignedManagedNetwork"] = args ? args.assignedManagedNetwork : undefined;

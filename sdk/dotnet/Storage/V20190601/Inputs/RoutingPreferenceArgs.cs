@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Storage.V20190601.Inputs
         /// Routing Choice defines the kind of network routing opted by the user.
         /// </summary>
         [Input("routingChoice")]
-        public Input<string>? RoutingChoice { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Storage.V20190601.RoutingChoice>? RoutingChoice { get; set; }
 
         public RoutingPreferenceArgs()
         {

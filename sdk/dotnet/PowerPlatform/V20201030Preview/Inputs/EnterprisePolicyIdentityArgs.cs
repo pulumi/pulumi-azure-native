@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview.Inputs
         /// The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AzureNextGen.PowerPlatform.V20201030Preview.ResourceIdentityType>? Type { get; set; }
 
         public EnterprisePolicyIdentityArgs()
         {

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -74,16 +74,16 @@ export class Export extends pulumi.CustomResource {
     constructor(name: string, args: ExportArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.definition === undefined) {
+            if ((!args || args.definition === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'definition'");
             }
-            if (!args || args.deliveryInfo === undefined) {
+            if ((!args || args.deliveryInfo === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'deliveryInfo'");
             }
-            if (!args || args.exportName === undefined) {
+            if ((!args || args.exportName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'exportName'");
             }
-            if (!args || args.scope === undefined) {
+            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["definition"] = args ? args.definition : undefined;
@@ -136,7 +136,7 @@ export interface ExportArgs {
     /**
      * The format of the export being delivered.
      */
-    readonly format?: pulumi.Input<string>;
+    readonly format?: pulumi.Input<string | enums.costmanagement.v20191001.FormatType>;
     /**
      * Has schedule information for the export.
      */

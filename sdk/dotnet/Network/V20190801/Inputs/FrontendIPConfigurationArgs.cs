@@ -43,13 +43,13 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Inputs
         /// Whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.
         /// </summary>
         [Input("privateIPAddressVersion")]
-        public Input<string>? PrivateIPAddressVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190801.IPVersion>? PrivateIPAddressVersion { get; set; }
 
         /// <summary>
         /// The Private IP allocation method.
         /// </summary>
         [Input("privateIPAllocationMethod")]
-        public Input<string>? PrivateIPAllocationMethod { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190801.IPAllocationMethod>? PrivateIPAllocationMethod { get; set; }
 
         /// <summary>
         /// The reference of the Public IP resource.

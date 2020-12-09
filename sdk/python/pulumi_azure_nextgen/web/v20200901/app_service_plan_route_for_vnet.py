@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 
 __all__ = ['AppServicePlanRouteForVnet']
 
@@ -21,7 +22,7 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  route_name: Optional[pulumi.Input[str]] = None,
-                 route_type: Optional[pulumi.Input[str]] = None,
+                 route_type: Optional[pulumi.Input[Union[str, 'RouteType']]] = None,
                  start_address: Optional[pulumi.Input[str]] = None,
                  vnet_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -37,7 +38,7 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the App Service plan.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] route_name: Name of the Virtual Network route.
-        :param pulumi.Input[str] route_type: The type of route this is:
+        :param pulumi.Input[Union[str, 'RouteType']] route_type: The type of route this is:
                DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
                INHERITED - Routes inherited from the real Virtual Network routes
                STATIC - Static route set on the app only
@@ -65,18 +66,18 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
 
             __props__['end_address'] = end_address
             __props__['kind'] = kind
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if route_name is None:
+            if route_name is None and not opts.urn:
                 raise TypeError("Missing required property 'route_name'")
             __props__['route_name'] = route_name
             __props__['route_type'] = route_type
             __props__['start_address'] = start_address
-            if vnet_name is None:
+            if vnet_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vnet_name'")
             __props__['vnet_name'] = vnet_name
             __props__['system_data'] = None

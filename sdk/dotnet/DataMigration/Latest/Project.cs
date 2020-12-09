@@ -179,7 +179,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest
         /// Source platform for the project
         /// </summary>
         [Input("sourcePlatform", required: true)]
-        public Input<string> SourcePlatform { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataMigration.Latest.ProjectSourcePlatform> SourcePlatform { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -203,7 +203,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest
         /// Target platform for the project
         /// </summary>
         [Input("targetPlatform", required: true)]
-        public Input<string> TargetPlatform { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataMigration.Latest.ProjectTargetPlatform> TargetPlatform { get; set; } = null!;
 
         public ProjectArgs()
         {

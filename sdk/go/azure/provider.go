@@ -21,6 +21,7 @@ func NewProvider(ctx *pulumi.Context,
 	if args == nil {
 		args = &ProviderArgs{}
 	}
+
 	if args.AuxiliaryTenantIds == nil {
 		args.AuxiliaryTenantIds = pulumi.StringArray(getEnvOrDefault(pulumi.StringArray{}, parseEnvStringArray, "ARM_AUXILIARY_TENANT_IDS").(pulumi.StringArray))
 	}

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -65,13 +66,13 @@ export class AccessPolicy extends pulumi.CustomResource {
     constructor(name: string, args: AccessPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.accessPolicyName === undefined) {
+            if ((!args || args.accessPolicyName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accessPolicyName'");
             }
-            if (!args || args.environmentName === undefined) {
+            if ((!args || args.environmentName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'environmentName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accessPolicyName"] = args ? args.accessPolicyName : undefined;
@@ -129,5 +130,5 @@ export interface AccessPolicyArgs {
     /**
      * The list of roles the principal is assigned on the environment.
      */
-    readonly roles?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly roles?: pulumi.Input<pulumi.Input<string | enums.timeseriesinsights.latest.AccessPolicyRole>[]>;
 }

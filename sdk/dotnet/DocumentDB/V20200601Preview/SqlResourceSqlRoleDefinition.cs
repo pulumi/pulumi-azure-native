@@ -141,7 +141,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
         /// Indicates whether the Role Definition was built-in or user created.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AzureNextGen.DocumentDB.V20200601Preview.RoleDefinitionType>? Type { get; set; }
 
         public SqlResourceSqlRoleDefinitionArgs()
         {

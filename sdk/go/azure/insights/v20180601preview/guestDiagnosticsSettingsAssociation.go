@@ -30,20 +30,21 @@ type GuestDiagnosticsSettingsAssociation struct {
 // NewGuestDiagnosticsSettingsAssociation registers a new resource with the given unique name, arguments, and options.
 func NewGuestDiagnosticsSettingsAssociation(ctx *pulumi.Context,
 	name string, args *GuestDiagnosticsSettingsAssociationArgs, opts ...pulumi.ResourceOption) (*GuestDiagnosticsSettingsAssociation, error) {
-	if args == nil || args.AssociationName == nil {
-		return nil, errors.New("missing required argument 'AssociationName'")
-	}
-	if args == nil || args.GuestDiagnosticSettingsName == nil {
-		return nil, errors.New("missing required argument 'GuestDiagnosticSettingsName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceUri == nil {
-		return nil, errors.New("missing required argument 'ResourceUri'")
-	}
 	if args == nil {
-		args = &GuestDiagnosticsSettingsAssociationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AssociationName == nil {
+		return nil, errors.New("invalid value for required argument 'AssociationName'")
+	}
+	if args.GuestDiagnosticSettingsName == nil {
+		return nil, errors.New("invalid value for required argument 'GuestDiagnosticSettingsName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceUri == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceUri'")
 	}
 	var resource GuestDiagnosticsSettingsAssociation
 	err := ctx.RegisterResource("azure-nextgen:insights/v20180601preview:GuestDiagnosticsSettingsAssociation", name, args, &resource, opts...)

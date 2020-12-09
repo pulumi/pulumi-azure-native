@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AccessPolicyEntryArgs',
@@ -87,14 +88,14 @@ class AccessPolicyEntryArgs:
 @pulumi.input_type
 class PermissionsArgs:
     def __init__(__self__, *,
-                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'CertificatePermissions']]]]] = None,
+                 keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'KeyPermissions']]]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SecretPermissions']]]]] = None):
         """
         Permissions the identity has for keys, secrets and certificates.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] certificates: Permissions to certificates
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] keys: Permissions to keys
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] secrets: Permissions to secrets
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'CertificatePermissions']]]] certificates: Permissions to certificates
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'KeyPermissions']]]] keys: Permissions to keys
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'SecretPermissions']]]] secrets: Permissions to secrets
         """
         if certificates is not None:
             pulumi.set(__self__, "certificates", certificates)
@@ -105,76 +106,76 @@ class PermissionsArgs:
 
     @property
     @pulumi.getter
-    def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'CertificatePermissions']]]]]:
         """
         Permissions to certificates
         """
         return pulumi.get(self, "certificates")
 
     @certificates.setter
-    def certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'CertificatePermissions']]]]]):
         pulumi.set(self, "certificates", value)
 
     @property
     @pulumi.getter
-    def keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'KeyPermissions']]]]]:
         """
         Permissions to keys
         """
         return pulumi.get(self, "keys")
 
     @keys.setter
-    def keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'KeyPermissions']]]]]):
         pulumi.set(self, "keys", value)
 
     @property
     @pulumi.getter
-    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SecretPermissions']]]]]:
         """
         Permissions to secrets
         """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
-    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SecretPermissions']]]]]):
         pulumi.set(self, "secrets", value)
 
 
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 family: pulumi.Input[str],
-                 name: pulumi.Input[str]):
+                 family: pulumi.Input[Union[str, 'SkuFamily']],
+                 name: pulumi.Input['SkuName']):
         """
         SKU details
-        :param pulumi.Input[str] family: SKU family name
-        :param pulumi.Input[str] name: SKU name to specify whether the key vault is a standard vault or a premium vault.
+        :param pulumi.Input[Union[str, 'SkuFamily']] family: SKU family name
+        :param pulumi.Input['SkuName'] name: SKU name to specify whether the key vault is a standard vault or a premium vault.
         """
         pulumi.set(__self__, "family", family)
         pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def family(self) -> pulumi.Input[str]:
+    def family(self) -> pulumi.Input[Union[str, 'SkuFamily']]:
         """
         SKU family name
         """
         return pulumi.get(self, "family")
 
     @family.setter
-    def family(self, value: pulumi.Input[str]):
+    def family(self, value: pulumi.Input[Union[str, 'SkuFamily']]):
         pulumi.set(self, "family", value)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input['SkuName']:
         """
         SKU name to specify whether the key vault is a standard vault or a premium vault.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input['SkuName']):
         pulumi.set(self, "name", value)
 
 

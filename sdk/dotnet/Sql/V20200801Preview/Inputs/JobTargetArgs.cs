@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview.Inputs
         /// Whether the target is included or excluded from the group.
         /// </summary>
         [Input("membershipType")]
-        public Input<string>? MembershipType { get; set; }
+        public Input<Pulumi.AzureNextGen.Sql.V20200801Preview.JobTargetGroupMembershipType>? MembershipType { get; set; }
 
         /// <summary>
         /// The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview.Inputs
         /// The target type.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20200801Preview.JobTargetType> Type { get; set; } = null!;
 
         public JobTargetArgs()
         {

@@ -189,7 +189,7 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview
         /// Represents the connectivity status of the connected cluster.
         /// </summary>
         [Input("connectivityStatus")]
-        public Input<string>? ConnectivityStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Kubernetes.V20200101Preview.ConnectivityStatus>? ConnectivityStatus { get; set; }
 
         /// <summary>
         /// The Kubernetes distribution running on this connected cluster.
@@ -219,7 +219,7 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview
         /// Provisioning state of the connected cluster resource.
         /// </summary>
         [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Kubernetes.V20200101Preview.ProvisioningState>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -48,20 +48,21 @@ type IntegrationAccountSchema struct {
 // NewIntegrationAccountSchema registers a new resource with the given unique name, arguments, and options.
 func NewIntegrationAccountSchema(ctx *pulumi.Context,
 	name string, args *IntegrationAccountSchemaArgs, opts ...pulumi.ResourceOption) (*IntegrationAccountSchema, error) {
-	if args == nil || args.IntegrationAccountName == nil {
-		return nil, errors.New("missing required argument 'IntegrationAccountName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SchemaName == nil {
-		return nil, errors.New("missing required argument 'SchemaName'")
-	}
-	if args == nil || args.SchemaType == nil {
-		return nil, errors.New("missing required argument 'SchemaType'")
-	}
 	if args == nil {
-		args = &IntegrationAccountSchemaArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.IntegrationAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'IntegrationAccountName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SchemaName == nil {
+		return nil, errors.New("invalid value for required argument 'SchemaName'")
+	}
+	if args.SchemaType == nil {
+		return nil, errors.New("invalid value for required argument 'SchemaType'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

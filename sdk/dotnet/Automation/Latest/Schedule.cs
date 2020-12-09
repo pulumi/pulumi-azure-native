@@ -187,7 +187,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
         /// Gets or sets the frequency of the schedule.
         /// </summary>
         [Input("frequency", required: true)]
-        public Input<string> Frequency { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Automation.Latest.ScheduleFrequency> Frequency { get; set; } = null!;
 
         /// <summary>
         /// Gets or sets the interval of the schedule.

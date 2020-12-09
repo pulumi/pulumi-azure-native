@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20180531.Inputs
         /// The granularity of rows in the report.
         /// </summary>
         [Input("granularity")]
-        public Input<string>? Granularity { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20180531.GranularityType>? Granularity { get; set; }
 
         [Input("grouping")]
         private InputList<Inputs.ReportConfigGroupingArgs>? _grouping;

@@ -152,7 +152,7 @@ namespace Pulumi.AzureNextGen.PolicyInsights.V20190701
         /// The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
         /// </summary>
         [Input("resourceDiscoveryMode")]
-        public Input<string>? ResourceDiscoveryMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.PolicyInsights.V20190701.ResourceDiscoveryMode>? ResourceDiscoveryMode { get; set; }
 
         public RemediationAtSubscriptionArgs()
         {

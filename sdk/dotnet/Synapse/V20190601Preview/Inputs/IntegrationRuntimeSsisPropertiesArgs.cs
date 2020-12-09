@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Inputs
         /// The edition for the SSIS Integration Runtime
         /// </summary>
         [Input("edition")]
-        public Input<string>? Edition { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Synapse.V20190601Preview.IntegrationRuntimeEdition>? Edition { get; set; }
 
         [Input("expressCustomSetupProperties")]
         private InputList<Union<Inputs.CmdkeySetupArgs, Union<Inputs.ComponentSetupArgs, Inputs.EnvironmentVariableSetupArgs>>>? _expressCustomSetupProperties;
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Inputs
         /// License type for bringing your own license scenario.
         /// </summary>
         [Input("licenseType")]
-        public Input<string>? LicenseType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Synapse.V20190601Preview.IntegrationRuntimeLicenseType>? LicenseType { get; set; }
 
         public IntegrationRuntimeSsisPropertiesArgs()
         {

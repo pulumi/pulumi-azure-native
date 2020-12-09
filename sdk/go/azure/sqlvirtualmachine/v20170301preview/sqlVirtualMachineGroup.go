@@ -42,17 +42,18 @@ type SqlVirtualMachineGroup struct {
 // NewSqlVirtualMachineGroup registers a new resource with the given unique name, arguments, and options.
 func NewSqlVirtualMachineGroup(ctx *pulumi.Context,
 	name string, args *SqlVirtualMachineGroupArgs, opts ...pulumi.ResourceOption) (*SqlVirtualMachineGroup, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SqlVirtualMachineGroupName == nil {
-		return nil, errors.New("missing required argument 'SqlVirtualMachineGroupName'")
-	}
 	if args == nil {
-		args = &SqlVirtualMachineGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SqlVirtualMachineGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'SqlVirtualMachineGroupName'")
 	}
 	var resource SqlVirtualMachineGroup
 	err := ctx.RegisterResource("azure-nextgen:sqlvirtualmachine/v20170301preview:SqlVirtualMachineGroup", name, args, &resource, opts...)

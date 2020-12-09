@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20190513.Inputs
         /// Type of backup management for the backed up item.
         /// </summary>
         [Input("backupManagementType")]
-        public Input<string>? BackupManagementType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20190513.BackupManagementType>? BackupManagementType { get; set; }
 
         /// <summary>
         /// Name of the backup set the backup item belongs to
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20190513.Inputs
         /// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         /// </summary>
         [Input("createMode")]
-        public Input<string>? CreateMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20190513.CreateMode>? CreateMode { get; set; }
 
         /// <summary>
         /// Time for deferred deletion in UTC
@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20190513.Inputs
         /// Health status of protected item
         /// </summary>
         [Input("healthStatus")]
-        public Input<string>? HealthStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20190513.HealthStatus>? HealthStatus { get; set; }
 
         /// <summary>
         /// Flag to identify whether the deferred deleted DS is to be purged soon
@@ -133,7 +133,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20190513.Inputs
         /// Backup state of this backup item.
         /// </summary>
         [Input("protectionState")]
-        public Input<string>? ProtectionState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20190513.ProtectionState>? ProtectionState { get; set; }
 
         /// <summary>
         /// Backup status of this backup item.
@@ -157,7 +157,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20190513.Inputs
         /// Type of workload this item represents.
         /// </summary>
         [Input("workloadType")]
-        public Input<string>? WorkloadType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20190513.DataSourceType>? WorkloadType { get; set; }
 
         public AzureIaaSVMProtectedItemArgs()
         {

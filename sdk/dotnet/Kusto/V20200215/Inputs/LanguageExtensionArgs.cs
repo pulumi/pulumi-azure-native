@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20200215.Inputs
         /// The language extension name.
         /// </summary>
         [Input("languageExtensionName")]
-        public Input<string>? LanguageExtensionName { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Kusto.V20200215.LanguageExtensionName>? LanguageExtensionName { get; set; }
 
         public LanguageExtensionArgs()
         {

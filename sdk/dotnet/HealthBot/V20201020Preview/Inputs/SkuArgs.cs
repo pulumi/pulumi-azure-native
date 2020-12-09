@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.HealthBot.V20201020Preview.Inputs
         /// The name of the HealthBot SKU
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.HealthBot.V20201020Preview.SkuName> Name { get; set; } = null!;
 
         /// <summary>
         /// The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.HealthBot.V20201020Preview.Inputs
         /// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         /// </summary>
         [Input("tier")]
-        public Input<string>? Tier { get; set; }
+        public Input<Pulumi.AzureNextGen.HealthBot.V20201020Preview.SkuTier>? Tier { get; set; }
 
         public SkuArgs()
         {

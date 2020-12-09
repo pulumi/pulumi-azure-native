@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20191027Preview.Inputs
         /// Size of agent VMs.
         /// </summary>
         [Input("vmSize", required: true)]
-        public Input<string> VmSize { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20191027Preview.OpenShiftContainerServiceVMSize> VmSize { get; set; } = null!;
 
         public OpenShiftManagedClusterMasterPoolProfileArgs()
         {

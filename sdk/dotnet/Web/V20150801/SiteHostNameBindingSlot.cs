@@ -145,13 +145,13 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// Azure resource type
         /// </summary>
         [Input("azureResourceType")]
-        public Input<string>? AzureResourceType { get; set; }
+        public Input<Pulumi.AzureNextGen.Web.V20150801.AzureResourceType>? AzureResourceType { get; set; }
 
         /// <summary>
         /// Custom DNS record type
         /// </summary>
         [Input("customHostNameDnsRecordType")]
-        public Input<string>? CustomHostNameDnsRecordType { get; set; }
+        public Input<Pulumi.AzureNextGen.Web.V20150801.CustomHostNameDnsRecordType>? CustomHostNameDnsRecordType { get; set; }
 
         /// <summary>
         /// Fully qualified ARM domain resource URI
@@ -169,7 +169,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// Host name type
         /// </summary>
         [Input("hostNameType")]
-        public Input<string>? HostNameType { get; set; }
+        public Input<Pulumi.AzureNextGen.Web.V20150801.HostNameType>? HostNameType { get; set; }
 
         /// <summary>
         /// Resource Id

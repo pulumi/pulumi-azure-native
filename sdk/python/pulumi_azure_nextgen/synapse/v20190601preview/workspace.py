@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Workspace']
@@ -81,7 +82,7 @@ class Workspace(pulumi.CustomResource):
             __props__['default_data_lake_storage'] = default_data_lake_storage
             __props__['encryption'] = encryption
             __props__['identity'] = identity
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['managed_resource_group_name'] = managed_resource_group_name
@@ -89,14 +90,14 @@ class Workspace(pulumi.CustomResource):
             __props__['managed_virtual_network_settings'] = managed_virtual_network_settings
             __props__['private_endpoint_connections'] = private_endpoint_connections
             __props__['purview_configuration'] = purview_configuration
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sql_administrator_login'] = sql_administrator_login
             __props__['sql_administrator_login_password'] = sql_administrator_login_password
             __props__['tags'] = tags
             __props__['virtual_network_profile'] = virtual_network_profile
-            if workspace_name is None:
+            if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['workspace_repository_configuration'] = workspace_repository_configuration

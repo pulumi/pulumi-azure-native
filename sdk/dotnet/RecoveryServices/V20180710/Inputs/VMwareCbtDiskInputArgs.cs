@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Inputs
         /// The disk type.
         /// </summary>
         [Input("diskType")]
-        public Input<string>? DiskType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20180710.DiskAccountType>? DiskType { get; set; }
 
         /// <summary>
         /// A value indicating whether the disk is the OS disk.

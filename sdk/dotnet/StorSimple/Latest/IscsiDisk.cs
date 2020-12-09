@@ -139,7 +139,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// The data policy.
         /// </summary>
         [Input("dataPolicy", required: true)]
-        public Input<string> DataPolicy { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.StorSimple.Latest.DataPolicy> DataPolicy { get; set; } = null!;
 
         /// <summary>
         /// The description.
@@ -163,7 +163,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// The disk status.
         /// </summary>
         [Input("diskStatus", required: true)]
-        public Input<string> DiskStatus { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.StorSimple.Latest.DiskStatus> DiskStatus { get; set; } = null!;
 
         /// <summary>
         /// The iSCSI server name.
@@ -181,7 +181,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// The monitoring.
         /// </summary>
         [Input("monitoringStatus", required: true)]
-        public Input<string> MonitoringStatus { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.StorSimple.Latest.MonitoringStatus> MonitoringStatus { get; set; } = null!;
 
         /// <summary>
         /// The provisioned capacity in bytes.

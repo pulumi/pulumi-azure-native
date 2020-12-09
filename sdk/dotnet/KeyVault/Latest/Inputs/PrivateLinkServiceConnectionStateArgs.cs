@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest.Inputs
         /// Indicates whether the connection has been approved, rejected or removed by the key vault owner.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.KeyVault.Latest.PrivateEndpointServiceConnectionStatus>? Status { get; set; }
 
         public PrivateLinkServiceConnectionStateArgs()
         {

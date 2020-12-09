@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['RouteFilter']
@@ -61,14 +62,14 @@ class RouteFilter(pulumi.CustomResource):
 
             __props__['id'] = id
             __props__['ipv6_peerings'] = ipv6_peerings
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['peerings'] = peerings
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if route_filter_name is None:
+            if route_filter_name is None and not opts.urn:
                 raise TypeError("Missing required property 'route_filter_name'")
             __props__['route_filter_name'] = route_filter_name
             __props__['rules'] = rules

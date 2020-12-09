@@ -117,7 +117,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20151101Preview
         /// The kind of the DataSource.
         /// </summary>
         [Input("kind", required: true)]
-        public Input<string> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.OperationalInsights.V20151101Preview.DataSourceKind> Kind { get; set; } = null!;
 
         /// <summary>
         /// The data source properties in raw json format, each kind of data source have it's own schema.

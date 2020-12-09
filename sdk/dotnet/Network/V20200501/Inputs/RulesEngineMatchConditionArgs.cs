@@ -37,13 +37,13 @@ namespace Pulumi.AzureNextGen.Network.V20200501.Inputs
         /// Match Variable
         /// </summary>
         [Input("rulesEngineMatchVariable", required: true)]
-        public Input<string> RulesEngineMatchVariable { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200501.RulesEngineMatchVariable> RulesEngineMatchVariable { get; set; } = null!;
 
         /// <summary>
         /// Describes operator to apply to the match condition.
         /// </summary>
         [Input("rulesEngineOperator", required: true)]
-        public Input<string> RulesEngineOperator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200501.RulesEngineOperator> RulesEngineOperator { get; set; } = null!;
 
         /// <summary>
         /// Name of selector in RequestHeader or RequestBody to be matched
@@ -52,14 +52,14 @@ namespace Pulumi.AzureNextGen.Network.V20200501.Inputs
         public Input<string>? Selector { get; set; }
 
         [Input("transforms")]
-        private InputList<string>? _transforms;
+        private InputList<Union<string, Pulumi.AzureNextGen.Network.V20200501.Transform>>? _transforms;
 
         /// <summary>
         /// List of transforms
         /// </summary>
-        public InputList<string> Transforms
+        public InputList<Union<string, Pulumi.AzureNextGen.Network.V20200501.Transform>> Transforms
         {
-            get => _transforms ?? (_transforms = new InputList<string>());
+            get => _transforms ?? (_transforms = new InputList<Union<string, Pulumi.AzureNextGen.Network.V20200501.Transform>>());
             set => _transforms = value;
         }
 

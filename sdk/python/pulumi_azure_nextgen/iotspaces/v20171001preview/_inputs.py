@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'IoTSpacesPropertiesArgs',
@@ -41,23 +42,23 @@ class IoTSpacesPropertiesArgs:
 @pulumi.input_type
 class IoTSpacesSkuInfoArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str]):
+                 name: pulumi.Input[Union[str, 'IoTSpacesSku']]):
         """
         Information about the SKU of the IoTSpaces instance.
-        :param pulumi.Input[str] name: The name of the SKU.
+        :param pulumi.Input[Union[str, 'IoTSpacesSku']] name: The name of the SKU.
         """
         pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input[Union[str, 'IoTSpacesSku']]:
         """
         The name of the SKU.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input[Union[str, 'IoTSpacesSku']]):
         pulumi.set(self, "name", value)
 
 

@@ -46,29 +46,30 @@ type RelationshipLink struct {
 // NewRelationshipLink registers a new resource with the given unique name, arguments, and options.
 func NewRelationshipLink(ctx *pulumi.Context,
 	name string, args *RelationshipLinkArgs, opts ...pulumi.ResourceOption) (*RelationshipLink, error) {
-	if args == nil || args.HubName == nil {
-		return nil, errors.New("missing required argument 'HubName'")
-	}
-	if args == nil || args.InteractionType == nil {
-		return nil, errors.New("missing required argument 'InteractionType'")
-	}
-	if args == nil || args.ProfilePropertyReferences == nil {
-		return nil, errors.New("missing required argument 'ProfilePropertyReferences'")
-	}
-	if args == nil || args.RelatedProfilePropertyReferences == nil {
-		return nil, errors.New("missing required argument 'RelatedProfilePropertyReferences'")
-	}
-	if args == nil || args.RelationshipLinkName == nil {
-		return nil, errors.New("missing required argument 'RelationshipLinkName'")
-	}
-	if args == nil || args.RelationshipName == nil {
-		return nil, errors.New("missing required argument 'RelationshipName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &RelationshipLinkArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.HubName == nil {
+		return nil, errors.New("invalid value for required argument 'HubName'")
+	}
+	if args.InteractionType == nil {
+		return nil, errors.New("invalid value for required argument 'InteractionType'")
+	}
+	if args.ProfilePropertyReferences == nil {
+		return nil, errors.New("invalid value for required argument 'ProfilePropertyReferences'")
+	}
+	if args.RelatedProfilePropertyReferences == nil {
+		return nil, errors.New("invalid value for required argument 'RelatedProfilePropertyReferences'")
+	}
+	if args.RelationshipLinkName == nil {
+		return nil, errors.New("invalid value for required argument 'RelationshipLinkName'")
+	}
+	if args.RelationshipName == nil {
+		return nil, errors.New("invalid value for required argument 'RelationshipName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

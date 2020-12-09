@@ -62,14 +62,14 @@ class VirtualHub(pulumi.CustomResource):
             __props__['address_prefix'] = address_prefix
             __props__['hub_virtual_network_connections'] = hub_virtual_network_connections
             __props__['id'] = id
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            if virtual_hub_name is None:
+            if virtual_hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_hub_name'")
             __props__['virtual_hub_name'] = virtual_hub_name
             __props__['virtual_wan'] = virtual_wan

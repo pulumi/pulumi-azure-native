@@ -259,7 +259,7 @@ namespace Pulumi.AzureNextGen.DomainRegistration.V20190801
         /// Current DNS type
         /// </summary>
         [Input("dnsType")]
-        public Input<string>? DnsType { get; set; }
+        public Input<Pulumi.AzureNextGen.DomainRegistration.V20190801.DnsType>? DnsType { get; set; }
 
         /// <summary>
         /// Azure DNS Zone to use
@@ -313,7 +313,7 @@ namespace Pulumi.AzureNextGen.DomainRegistration.V20190801
         /// Target DNS type (would be used for migration)
         /// </summary>
         [Input("targetDnsType")]
-        public Input<string>? TargetDnsType { get; set; }
+        public Input<Pulumi.AzureNextGen.DomainRegistration.V20190801.DnsType>? TargetDnsType { get; set; }
 
         public DomainArgs()
         {

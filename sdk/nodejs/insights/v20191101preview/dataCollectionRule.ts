@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -87,19 +87,19 @@ export class DataCollectionRule extends pulumi.CustomResource {
     constructor(name: string, args: DataCollectionRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.dataCollectionRuleName === undefined) {
+            if ((!args || args.dataCollectionRuleName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataCollectionRuleName'");
             }
-            if (!args || args.dataFlows === undefined) {
+            if ((!args || args.dataFlows === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataFlows'");
             }
-            if (!args || args.destinations === undefined) {
+            if ((!args || args.destinations === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'destinations'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["dataCollectionRuleName"] = args ? args.dataCollectionRuleName : undefined;

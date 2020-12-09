@@ -93,7 +93,7 @@ namespace Pulumi.AzureNextGen.Management.V20171111Preview
         /// Specifies the kind of Blueprint artifact.
         /// </summary>
         [Input("kind", required: true)]
-        public Input<string> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Management.V20171111Preview.ArtifactKind> Kind { get; set; } = null!;
 
         /// <summary>
         /// ManagementGroup where blueprint stores.

@@ -124,7 +124,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
         /// </summary>
         [Input("enabledState")]
-        public Input<string>? EnabledState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20200901.EnabledState>? EnabledState { get; set; }
 
         /// <summary>
         /// Name of the endpoint under the profile which is unique globally.

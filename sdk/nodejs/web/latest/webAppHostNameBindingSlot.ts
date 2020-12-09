@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -98,16 +98,16 @@ export class WebAppHostNameBindingSlot extends pulumi.CustomResource {
     constructor(name: string, args: WebAppHostNameBindingSlotArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.hostName === undefined) {
+            if ((!args || args.hostName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hostName'");
             }
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.slot === undefined) {
+            if ((!args || args.slot === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'slot'");
             }
             inputs["azureResourceName"] = args ? args.azureResourceName : undefined;
@@ -165,11 +165,11 @@ export interface WebAppHostNameBindingSlotArgs {
     /**
      * Azure resource type.
      */
-    readonly azureResourceType?: pulumi.Input<string>;
+    readonly azureResourceType?: pulumi.Input<enums.web.latest.AzureResourceType>;
     /**
      * Custom DNS record type.
      */
-    readonly customHostNameDnsRecordType?: pulumi.Input<string>;
+    readonly customHostNameDnsRecordType?: pulumi.Input<enums.web.latest.CustomHostNameDnsRecordType>;
     /**
      * Fully qualified ARM domain resource URI.
      */
@@ -181,7 +181,7 @@ export interface WebAppHostNameBindingSlotArgs {
     /**
      * Hostname type.
      */
-    readonly hostNameType?: pulumi.Input<string>;
+    readonly hostNameType?: pulumi.Input<enums.web.latest.HostNameType>;
     /**
      * Kind of resource.
      */
@@ -205,7 +205,7 @@ export interface WebAppHostNameBindingSlotArgs {
     /**
      * SSL type
      */
-    readonly sslState?: pulumi.Input<string>;
+    readonly sslState?: pulumi.Input<enums.web.latest.SslState>;
     /**
      * SSL certificate thumbprint
      */

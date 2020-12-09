@@ -74,13 +74,13 @@ export class PartnerNamespace extends pulumi.CustomResource {
     constructor(name: string, args: PartnerNamespaceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.partnerNamespaceName === undefined) {
+            if ((!args || args.partnerNamespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'partnerNamespaceName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;

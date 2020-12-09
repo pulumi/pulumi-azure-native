@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AzureFileFilterDetailsArgs',
@@ -671,12 +672,12 @@ class DataExportDetailsArgs:
     def __init__(__self__, *,
                  account_details: pulumi.Input[Union['ManagedDiskDetailsArgs', 'StorageAccountDetailsArgs']],
                  transfer_configuration: pulumi.Input['TransferConfigurationArgs'],
-                 log_collection_level: Optional[pulumi.Input[str]] = None):
+                 log_collection_level: Optional[pulumi.Input[Union[str, 'LogCollectionLevel']]] = None):
         """
         Details of the data to be used for exporting data from azure.
         :param pulumi.Input[Union['ManagedDiskDetailsArgs', 'StorageAccountDetailsArgs']] account_details: Account details of the data to be transferred
         :param pulumi.Input['TransferConfigurationArgs'] transfer_configuration: Configuration for the data transfer.
-        :param pulumi.Input[str] log_collection_level: Level of the logs to be collected.
+        :param pulumi.Input[Union[str, 'LogCollectionLevel']] log_collection_level: Level of the logs to be collected.
         """
         pulumi.set(__self__, "account_details", account_details)
         pulumi.set(__self__, "transfer_configuration", transfer_configuration)
@@ -709,14 +710,14 @@ class DataExportDetailsArgs:
 
     @property
     @pulumi.getter(name="logCollectionLevel")
-    def log_collection_level(self) -> Optional[pulumi.Input[str]]:
+    def log_collection_level(self) -> Optional[pulumi.Input[Union[str, 'LogCollectionLevel']]]:
         """
         Level of the logs to be collected.
         """
         return pulumi.get(self, "log_collection_level")
 
     @log_collection_level.setter
-    def log_collection_level(self, value: Optional[pulumi.Input[str]]):
+    def log_collection_level(self, value: Optional[pulumi.Input[Union[str, 'LogCollectionLevel']]]):
         pulumi.set(self, "log_collection_level", value)
 
 
@@ -746,24 +747,24 @@ class DataImportDetailsArgs:
 @pulumi.input_type
 class EncryptionPreferencesArgs:
     def __init__(__self__, *,
-                 double_encryption: Optional[pulumi.Input[str]] = None):
+                 double_encryption: Optional[pulumi.Input[Union[str, 'DoubleEncryption']]] = None):
         """
         Preferences related to the Encryption.
-        :param pulumi.Input[str] double_encryption: Defines secondary layer of software-based encryption enablement.
+        :param pulumi.Input[Union[str, 'DoubleEncryption']] double_encryption: Defines secondary layer of software-based encryption enablement.
         """
         if double_encryption is not None:
             pulumi.set(__self__, "double_encryption", double_encryption)
 
     @property
     @pulumi.getter(name="doubleEncryption")
-    def double_encryption(self) -> Optional[pulumi.Input[str]]:
+    def double_encryption(self) -> Optional[pulumi.Input[Union[str, 'DoubleEncryption']]]:
         """
         Defines secondary layer of software-based encryption enablement.
         """
         return pulumi.get(self, "double_encryption")
 
     @double_encryption.setter
-    def double_encryption(self, value: Optional[pulumi.Input[str]]):
+    def double_encryption(self, value: Optional[pulumi.Input[Union[str, 'DoubleEncryption']]]):
         pulumi.set(self, "double_encryption", value)
 
 
@@ -771,11 +772,11 @@ class EncryptionPreferencesArgs:
 class FilterFileDetailsArgs:
     def __init__(__self__, *,
                  filter_file_path: pulumi.Input[str],
-                 filter_file_type: pulumi.Input[str]):
+                 filter_file_type: pulumi.Input[Union[str, 'FilterFileType']]):
         """
         Details of the filter files to be used for data transfer.
         :param pulumi.Input[str] filter_file_path: Path of the file that contains the details of all items to transfer.
-        :param pulumi.Input[str] filter_file_type: Type of the filter file.
+        :param pulumi.Input[Union[str, 'FilterFileType']] filter_file_type: Type of the filter file.
         """
         pulumi.set(__self__, "filter_file_path", filter_file_path)
         pulumi.set(__self__, "filter_file_type", filter_file_type)
@@ -794,14 +795,14 @@ class FilterFileDetailsArgs:
 
     @property
     @pulumi.getter(name="filterFileType")
-    def filter_file_type(self) -> pulumi.Input[str]:
+    def filter_file_type(self) -> pulumi.Input[Union[str, 'FilterFileType']]:
         """
         Type of the filter file.
         """
         return pulumi.get(self, "filter_file_type")
 
     @filter_file_type.setter
-    def filter_file_type(self, value: pulumi.Input[str]):
+    def filter_file_type(self, value: pulumi.Input[Union[str, 'FilterFileType']]):
         pulumi.set(self, "filter_file_type", value)
 
 
@@ -902,11 +903,11 @@ class ManagedDiskDetailsArgs:
 class NotificationPreferenceArgs:
     def __init__(__self__, *,
                  send_notification: pulumi.Input[bool],
-                 stage_name: pulumi.Input[str]):
+                 stage_name: pulumi.Input[Union[str, 'NotificationStageName']]):
         """
         Notification preference for a job stage.
         :param pulumi.Input[bool] send_notification: Notification is required or not.
-        :param pulumi.Input[str] stage_name: Name of the stage.
+        :param pulumi.Input[Union[str, 'NotificationStageName']] stage_name: Name of the stage.
         """
         pulumi.set(__self__, "send_notification", send_notification)
         pulumi.set(__self__, "stage_name", stage_name)
@@ -925,14 +926,14 @@ class NotificationPreferenceArgs:
 
     @property
     @pulumi.getter(name="stageName")
-    def stage_name(self) -> pulumi.Input[str]:
+    def stage_name(self) -> pulumi.Input[Union[str, 'NotificationStageName']]:
         """
         Name of the stage.
         """
         return pulumi.get(self, "stage_name")
 
     @stage_name.setter
-    def stage_name(self, value: pulumi.Input[str]):
+    def stage_name(self, value: pulumi.Input[Union[str, 'NotificationStageName']]):
         pulumi.set(self, "stage_name", value)
 
 
@@ -1037,7 +1038,7 @@ class ShippingAddressArgs:
     def __init__(__self__, *,
                  country: pulumi.Input[str],
                  street_address1: pulumi.Input[str],
-                 address_type: Optional[pulumi.Input[str]] = None,
+                 address_type: Optional[pulumi.Input[Union[str, 'AddressType']]] = None,
                  city: Optional[pulumi.Input[str]] = None,
                  company_name: Optional[pulumi.Input[str]] = None,
                  postal_code: Optional[pulumi.Input[str]] = None,
@@ -1049,7 +1050,7 @@ class ShippingAddressArgs:
         Shipping address where customer wishes to receive the device.
         :param pulumi.Input[str] country: Name of the Country.
         :param pulumi.Input[str] street_address1: Street Address line 1.
-        :param pulumi.Input[str] address_type: Type of address.
+        :param pulumi.Input[Union[str, 'AddressType']] address_type: Type of address.
         :param pulumi.Input[str] city: Name of the City.
         :param pulumi.Input[str] company_name: Name of the company.
         :param pulumi.Input[str] postal_code: Postal code.
@@ -1103,14 +1104,14 @@ class ShippingAddressArgs:
 
     @property
     @pulumi.getter(name="addressType")
-    def address_type(self) -> Optional[pulumi.Input[str]]:
+    def address_type(self) -> Optional[pulumi.Input[Union[str, 'AddressType']]]:
         """
         Type of address.
         """
         return pulumi.get(self, "address_type")
 
     @address_type.setter
-    def address_type(self, value: Optional[pulumi.Input[str]]):
+    def address_type(self, value: Optional[pulumi.Input[Union[str, 'AddressType']]]):
         pulumi.set(self, "address_type", value)
 
     @property
@@ -1201,12 +1202,12 @@ class ShippingAddressArgs:
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
+                 name: pulumi.Input[Union[str, 'SkuName']],
                  display_name: Optional[pulumi.Input[str]] = None,
                  family: Optional[pulumi.Input[str]] = None):
         """
         The Sku.
-        :param pulumi.Input[str] name: The sku name.
+        :param pulumi.Input[Union[str, 'SkuName']] name: The sku name.
         :param pulumi.Input[str] display_name: The display name of the sku.
         :param pulumi.Input[str] family: The sku family.
         """
@@ -1218,14 +1219,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input[Union[str, 'SkuName']]:
         """
         The sku name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
         pulumi.set(self, "name", value)
 
     @property
@@ -1310,12 +1311,12 @@ class StorageAccountDetailsArgs:
 @pulumi.input_type
 class TransferAllDetailsArgs:
     def __init__(__self__, *,
-                 data_account_type: pulumi.Input[str],
+                 data_account_type: pulumi.Input[Union[str, 'DataAccountType']],
                  transfer_all_blobs: Optional[pulumi.Input[bool]] = None,
                  transfer_all_files: Optional[pulumi.Input[bool]] = None):
         """
         Details to transfer all data.
-        :param pulumi.Input[str] data_account_type: Type of the account of data
+        :param pulumi.Input[Union[str, 'DataAccountType']] data_account_type: Type of the account of data
         :param pulumi.Input[bool] transfer_all_blobs: To indicate if all Azure blobs have to be transferred
         :param pulumi.Input[bool] transfer_all_files: To indicate if all Azure Files have to be transferred
         """
@@ -1327,14 +1328,14 @@ class TransferAllDetailsArgs:
 
     @property
     @pulumi.getter(name="dataAccountType")
-    def data_account_type(self) -> pulumi.Input[str]:
+    def data_account_type(self) -> pulumi.Input[Union[str, 'DataAccountType']]:
         """
         Type of the account of data
         """
         return pulumi.get(self, "data_account_type")
 
     @data_account_type.setter
-    def data_account_type(self, value: pulumi.Input[str]):
+    def data_account_type(self, value: pulumi.Input[Union[str, 'DataAccountType']]):
         pulumi.set(self, "data_account_type", value)
 
     @property
@@ -1365,12 +1366,12 @@ class TransferAllDetailsArgs:
 @pulumi.input_type
 class TransferConfigurationArgs:
     def __init__(__self__, *,
-                 transfer_configuration_type: pulumi.Input[str],
+                 transfer_configuration_type: pulumi.Input[Union[str, 'TransferConfigurationType']],
                  transfer_all_details: Optional[pulumi.Input['TransferConfigurationTransferAllDetailsArgs']] = None,
                  transfer_filter_details: Optional[pulumi.Input['TransferConfigurationTransferFilterDetailsArgs']] = None):
         """
         Configuration for defining the transfer of data.
-        :param pulumi.Input[str] transfer_configuration_type: Type of the configuration for transfer.
+        :param pulumi.Input[Union[str, 'TransferConfigurationType']] transfer_configuration_type: Type of the configuration for transfer.
         :param pulumi.Input['TransferConfigurationTransferAllDetailsArgs'] transfer_all_details: Map of filter type and the details to transfer all data. This field is required only if the TransferConfigurationType is given as TransferAll
         :param pulumi.Input['TransferConfigurationTransferFilterDetailsArgs'] transfer_filter_details: Map of filter type and the details to filter. This field is required only if the TransferConfigurationType is given as TransferUsingFilter.
         """
@@ -1382,14 +1383,14 @@ class TransferConfigurationArgs:
 
     @property
     @pulumi.getter(name="transferConfigurationType")
-    def transfer_configuration_type(self) -> pulumi.Input[str]:
+    def transfer_configuration_type(self) -> pulumi.Input[Union[str, 'TransferConfigurationType']]:
         """
         Type of the configuration for transfer.
         """
         return pulumi.get(self, "transfer_configuration_type")
 
     @transfer_configuration_type.setter
-    def transfer_configuration_type(self, value: pulumi.Input[str]):
+    def transfer_configuration_type(self, value: pulumi.Input[Union[str, 'TransferConfigurationType']]):
         pulumi.set(self, "transfer_configuration_type", value)
 
     @property
@@ -1468,13 +1469,13 @@ class TransferConfigurationTransferFilterDetailsArgs:
 @pulumi.input_type
 class TransferFilterDetailsArgs:
     def __init__(__self__, *,
-                 data_account_type: pulumi.Input[str],
+                 data_account_type: pulumi.Input[Union[str, 'DataAccountType']],
                  azure_file_filter_details: Optional[pulumi.Input['AzureFileFilterDetailsArgs']] = None,
                  blob_filter_details: Optional[pulumi.Input['BlobFilterDetailsArgs']] = None,
                  filter_file_details: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFileDetailsArgs']]]] = None):
         """
         Details of the filtering the transfer of data.
-        :param pulumi.Input[str] data_account_type: Type of the account of data.
+        :param pulumi.Input[Union[str, 'DataAccountType']] data_account_type: Type of the account of data.
         :param pulumi.Input['AzureFileFilterDetailsArgs'] azure_file_filter_details: Filter details to transfer Azure files.
         :param pulumi.Input['BlobFilterDetailsArgs'] blob_filter_details: Filter details to transfer blobs.
         :param pulumi.Input[Sequence[pulumi.Input['FilterFileDetailsArgs']]] filter_file_details: Details of the filter files to be used for data transfer.
@@ -1489,14 +1490,14 @@ class TransferFilterDetailsArgs:
 
     @property
     @pulumi.getter(name="dataAccountType")
-    def data_account_type(self) -> pulumi.Input[str]:
+    def data_account_type(self) -> pulumi.Input[Union[str, 'DataAccountType']]:
         """
         Type of the account of data.
         """
         return pulumi.get(self, "data_account_type")
 
     @data_account_type.setter
-    def data_account_type(self, value: pulumi.Input[str]):
+    def data_account_type(self, value: pulumi.Input[Union[str, 'DataAccountType']]):
         pulumi.set(self, "data_account_type", value)
 
     @property
@@ -1539,23 +1540,23 @@ class TransferFilterDetailsArgs:
 @pulumi.input_type
 class TransportPreferencesArgs:
     def __init__(__self__, *,
-                 preferred_shipment_type: pulumi.Input[str]):
+                 preferred_shipment_type: pulumi.Input[Union[str, 'TransportShipmentTypes']]):
         """
         Preferences related to the shipment logistics of the sku
-        :param pulumi.Input[str] preferred_shipment_type: Indicates Shipment Logistics type that the customer preferred.
+        :param pulumi.Input[Union[str, 'TransportShipmentTypes']] preferred_shipment_type: Indicates Shipment Logistics type that the customer preferred.
         """
         pulumi.set(__self__, "preferred_shipment_type", preferred_shipment_type)
 
     @property
     @pulumi.getter(name="preferredShipmentType")
-    def preferred_shipment_type(self) -> pulumi.Input[str]:
+    def preferred_shipment_type(self) -> pulumi.Input[Union[str, 'TransportShipmentTypes']]:
         """
         Indicates Shipment Logistics type that the customer preferred.
         """
         return pulumi.get(self, "preferred_shipment_type")
 
     @preferred_shipment_type.setter
-    def preferred_shipment_type(self, value: pulumi.Input[str]):
+    def preferred_shipment_type(self, value: pulumi.Input[Union[str, 'TransportShipmentTypes']]):
         pulumi.set(self, "preferred_shipment_type", value)
 
 

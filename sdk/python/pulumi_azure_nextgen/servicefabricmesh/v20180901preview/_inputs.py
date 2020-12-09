@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AddRemoveReplicaScalingMechanismArgs',
@@ -186,12 +187,12 @@ class ApplicationScopedVolumeArgs:
 class ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[str],
-                 size_disk: pulumi.Input[str],
+                 size_disk: pulumi.Input[Union[str, 'SizeTypes']],
                  description: Optional[pulumi.Input[str]] = None):
         """
         Describes parameters for creating application-scoped volumes provided by Service Fabric Volume Disks
         :param pulumi.Input[str] kind: Specifies the application-scoped volume kind.
-        :param pulumi.Input[str] size_disk: Volume size
+        :param pulumi.Input[Union[str, 'SizeTypes']] size_disk: Volume size
         :param pulumi.Input[str] description: User readable description of the volume.
         """
         pulumi.set(__self__, "kind", 'ServiceFabricVolumeDisk')
@@ -213,14 +214,14 @@ class ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs:
 
     @property
     @pulumi.getter(name="sizeDisk")
-    def size_disk(self) -> pulumi.Input[str]:
+    def size_disk(self) -> pulumi.Input[Union[str, 'SizeTypes']]:
         """
         Volume size
         """
         return pulumi.get(self, "size_disk")
 
     @size_disk.setter
-    def size_disk(self, value: pulumi.Input[str]):
+    def size_disk(self, value: pulumi.Input[Union[str, 'SizeTypes']]):
         pulumi.set(self, "size_disk", value)
 
     @property
@@ -293,11 +294,11 @@ class AutoScalingPolicyArgs:
 class AutoScalingResourceMetricArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[str],
-                 name: pulumi.Input[str]):
+                 name: pulumi.Input[Union[str, 'AutoScalingResourceMetricName']]):
         """
         Describes the resource that is used for triggering auto scaling.
         :param pulumi.Input[str] kind: The type of auto scaling metric
-        :param pulumi.Input[str] name: Name of the resource.
+        :param pulumi.Input[Union[str, 'AutoScalingResourceMetricName']] name: Name of the resource.
         """
         pulumi.set(__self__, "kind", 'Resource')
         pulumi.set(__self__, "name", name)
@@ -316,14 +317,14 @@ class AutoScalingResourceMetricArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input[Union[str, 'AutoScalingResourceMetricName']]:
         """
         Name of the resource.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input[Union[str, 'AutoScalingResourceMetricName']]):
         pulumi.set(self, "name", value)
 
 
@@ -1212,12 +1213,12 @@ class HttpRouteConfigArgs:
 class HttpRouteMatchHeaderArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'HeaderMatchType']]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
         Describes header information for http route matching.
         :param pulumi.Input[str] name: Name of header to match in request.
-        :param pulumi.Input[str] type: how to match header value
+        :param pulumi.Input[Union[str, 'HeaderMatchType']] type: how to match header value
         :param pulumi.Input[str] value: Value of header to match in request.
         """
         pulumi.set(__self__, "name", name)
@@ -1240,14 +1241,14 @@ class HttpRouteMatchHeaderArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'HeaderMatchType']]]:
         """
         how to match header value
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'HeaderMatchType']]]):
         pulumi.set(self, "type", value)
 
     @property
@@ -1266,12 +1267,12 @@ class HttpRouteMatchHeaderArgs:
 @pulumi.input_type
 class HttpRouteMatchPathArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str],
+                 type: pulumi.Input[Union[str, 'PathMatchType']],
                  value: pulumi.Input[str],
                  rewrite: Optional[pulumi.Input[str]] = None):
         """
         Path to match for routing.
-        :param pulumi.Input[str] type: how to match value in the Uri
+        :param pulumi.Input[Union[str, 'PathMatchType']] type: how to match value in the Uri
         :param pulumi.Input[str] value: Uri path to match for request.
         :param pulumi.Input[str] rewrite: replacement string for matched part of the Uri.
         """
@@ -1282,14 +1283,14 @@ class HttpRouteMatchPathArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'PathMatchType']]:
         """
         how to match value in the Uri
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'PathMatchType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -1704,7 +1705,7 @@ class SecretResourcePropertiesArgs:
 class ServiceResourceDescriptionArgs:
     def __init__(__self__, *,
                  code_packages: pulumi.Input[Sequence[pulumi.Input['ContainerCodePackagePropertiesArgs']]],
-                 os_type: pulumi.Input[str],
+                 os_type: pulumi.Input[Union[str, 'OperatingSystemType']],
                  auto_scaling_policies: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingPolicyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  diagnostics: Optional[pulumi.Input['DiagnosticsRefArgs']] = None,
@@ -1714,7 +1715,7 @@ class ServiceResourceDescriptionArgs:
         """
         This type describes a service resource.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerCodePackagePropertiesArgs']]] code_packages: Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).
-        :param pulumi.Input[str] os_type: The operation system required by the code in service.
+        :param pulumi.Input[Union[str, 'OperatingSystemType']] os_type: The operation system required by the code in service.
         :param pulumi.Input[Sequence[pulumi.Input['AutoScalingPolicyArgs']]] auto_scaling_policies: Auto scaling policies
         :param pulumi.Input[str] description: User readable description of the service.
         :param pulumi.Input['DiagnosticsRefArgs'] diagnostics: Reference to sinks in DiagnosticsDescription.
@@ -1751,14 +1752,14 @@ class ServiceResourceDescriptionArgs:
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> pulumi.Input[str]:
+    def os_type(self) -> pulumi.Input[Union[str, 'OperatingSystemType']]:
         """
         The operation system required by the code in service.
         """
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: pulumi.Input[str]):
+    def os_type(self, value: pulumi.Input[Union[str, 'OperatingSystemType']]):
         pulumi.set(self, "os_type", value)
 
     @property

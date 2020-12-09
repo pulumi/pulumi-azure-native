@@ -56,16 +56,16 @@ class DedicatedHostGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if host_group_name is None:
+            if host_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'host_group_name'")
             __props__['host_group_name'] = host_group_name
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if platform_fault_domain_count is None:
+            if platform_fault_domain_count is None and not opts.urn:
                 raise TypeError("Missing required property 'platform_fault_domain_count'")
             __props__['platform_fault_domain_count'] = platform_fault_domain_count
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['support_automatic_placement'] = support_automatic_placement

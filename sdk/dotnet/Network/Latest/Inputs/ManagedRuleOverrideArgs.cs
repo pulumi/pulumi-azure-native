@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// The state of the managed rule. Defaults to Disabled if not specified.
         /// </summary>
         [Input("state")]
-        public Input<string>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.ManagedRuleEnabledState>? State { get; set; }
 
         public ManagedRuleOverrideArgs()
         {

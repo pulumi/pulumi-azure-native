@@ -28,17 +28,18 @@ type ManagementPolicy struct {
 // NewManagementPolicy registers a new resource with the given unique name, arguments, and options.
 func NewManagementPolicy(ctx *pulumi.Context,
 	name string, args *ManagementPolicyArgs, opts ...pulumi.ResourceOption) (*ManagementPolicy, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.ManagementPolicyName == nil {
-		return nil, errors.New("missing required argument 'ManagementPolicyName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ManagementPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.ManagementPolicyName == nil {
+		return nil, errors.New("invalid value for required argument 'ManagementPolicyName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

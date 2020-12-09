@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -79,16 +79,16 @@ export class AppServicePlanRouteForVnet extends pulumi.CustomResource {
     constructor(name: string, args: AppServicePlanRouteForVnetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.routeName === undefined) {
+            if ((!args || args.routeName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'routeName'");
             }
-            if (!args || args.vnetName === undefined) {
+            if ((!args || args.vnetName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vnetName'");
             }
             inputs["endAddress"] = args ? args.endAddress : undefined;
@@ -155,7 +155,7 @@ export interface AppServicePlanRouteForVnetArgs {
      *
      * These values will be used for syncing an app's routes with those from a Virtual Network.
      */
-    readonly routeType?: pulumi.Input<string>;
+    readonly routeType?: pulumi.Input<string | enums.web.v20200901.RouteType>;
     /**
      * The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
      */

@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         /// License type.
         /// </summary>
         [Input("licenseType")]
-        public Input<string>? LicenseType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.Latest.LicenseType>? LicenseType { get; set; }
 
         /// <summary>
         /// The snapshot RunAs account Id.

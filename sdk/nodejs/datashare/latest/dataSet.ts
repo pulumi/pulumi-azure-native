@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -57,19 +58,19 @@ export class DataSet extends pulumi.CustomResource {
     constructor(name: string, args: DataSetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.accountName === undefined) {
+            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.dataSetName === undefined) {
+            if ((!args || args.dataSetName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataSetName'");
             }
-            if (!args || args.kind === undefined) {
+            if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kind'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.shareName === undefined) {
+            if ((!args || args.shareName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'shareName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -112,7 +113,7 @@ export interface DataSetArgs {
     /**
      * Kind of data set.
      */
-    readonly kind: pulumi.Input<string>;
+    readonly kind: pulumi.Input<string | enums.datashare.latest.Kind>;
     /**
      * The resource group name.
      */

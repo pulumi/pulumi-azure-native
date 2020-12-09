@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ApplicationDefinition']
@@ -26,7 +27,7 @@ class ApplicationDefinition(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 lock_level: Optional[pulumi.Input[str]] = None,
+                 lock_level: Optional[pulumi.Input['ApplicationLockLevel']] = None,
                  locking_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationPackageLockingPolicyDefinitionArgs']]] = None,
                  main_template: Optional[Any] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
@@ -54,7 +55,7 @@ class ApplicationDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The managed application definition display name.
         :param pulumi.Input[bool] is_enabled: A value indicating whether the package is enabled or not.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] lock_level: The managed application lock level.
+        :param pulumi.Input['ApplicationLockLevel'] lock_level: The managed application lock level.
         :param pulumi.Input[pulumi.InputType['ApplicationPackageLockingPolicyDefinitionArgs']] locking_policy: The managed application locking policy.
         :param Any main_template: The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
         :param pulumi.Input[str] managed_by: ID of the resource that manages this resource.
@@ -83,7 +84,7 @@ class ApplicationDefinition(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if application_definition_name is None:
+            if application_definition_name is None and not opts.urn:
                 raise TypeError("Missing required property 'application_definition_name'")
             __props__['application_definition_name'] = application_definition_name
             __props__['artifacts'] = artifacts
@@ -94,7 +95,7 @@ class ApplicationDefinition(pulumi.CustomResource):
             __props__['display_name'] = display_name
             __props__['is_enabled'] = is_enabled
             __props__['location'] = location
-            if lock_level is None:
+            if lock_level is None and not opts.urn:
                 raise TypeError("Missing required property 'lock_level'")
             __props__['lock_level'] = lock_level
             __props__['locking_policy'] = locking_policy
@@ -104,7 +105,7 @@ class ApplicationDefinition(pulumi.CustomResource):
             __props__['notification_policy'] = notification_policy
             __props__['package_file_uri'] = package_file_uri
             __props__['policies'] = policies
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku

@@ -48,23 +48,24 @@ type MyWorkbook struct {
 // NewMyWorkbook registers a new resource with the given unique name, arguments, and options.
 func NewMyWorkbook(ctx *pulumi.Context,
 	name string, args *MyWorkbookArgs, opts ...pulumi.ResourceOption) (*MyWorkbook, error) {
-	if args == nil || args.Category == nil {
-		return nil, errors.New("missing required argument 'Category'")
-	}
-	if args == nil || args.DisplayName == nil {
-		return nil, errors.New("missing required argument 'DisplayName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ResourceName == nil {
-		return nil, errors.New("missing required argument 'ResourceName'")
-	}
-	if args == nil || args.SerializedData == nil {
-		return nil, errors.New("missing required argument 'SerializedData'")
-	}
 	if args == nil {
-		args = &MyWorkbookArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Category == nil {
+		return nil, errors.New("invalid value for required argument 'Category'")
+	}
+	if args.DisplayName == nil {
+		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceName'")
+	}
+	if args.SerializedData == nil {
+		return nil, errors.New("invalid value for required argument 'SerializedData'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

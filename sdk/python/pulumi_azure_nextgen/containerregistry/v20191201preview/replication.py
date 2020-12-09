@@ -54,17 +54,17 @@ class Replication(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['region_endpoint_enabled'] = region_endpoint_enabled
-            if registry_name is None:
+            if registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registry_name'")
             __props__['registry_name'] = registry_name
-            if replication_name is None:
+            if replication_name is None and not opts.urn:
                 raise TypeError("Missing required property 'replication_name'")
             __props__['replication_name'] = replication_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

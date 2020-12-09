@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180601.Inputs
         /// The sku name.
         /// </summary>
         [Input("name")]
-        public Input<string>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20180601.SnapshotStorageAccountTypes>? Name { get; set; }
 
         public SnapshotSkuArgs()
         {

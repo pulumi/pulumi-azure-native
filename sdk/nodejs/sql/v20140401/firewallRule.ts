@@ -69,19 +69,19 @@ export class FirewallRule extends pulumi.CustomResource {
     constructor(name: string, args: FirewallRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.endIpAddress === undefined) {
+            if ((!args || args.endIpAddress === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'endIpAddress'");
             }
-            if (!args || args.firewallRuleName === undefined) {
+            if ((!args || args.firewallRuleName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'firewallRuleName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverName === undefined) {
+            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if (!args || args.startIpAddress === undefined) {
+            if ((!args || args.startIpAddress === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'startIpAddress'");
             }
             inputs["endIpAddress"] = args ? args.endIpAddress : undefined;

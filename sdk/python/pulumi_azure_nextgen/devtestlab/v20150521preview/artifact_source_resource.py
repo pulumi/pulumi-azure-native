@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['ArtifactSourceResource']
 
@@ -25,8 +26,8 @@ class ArtifactSourceResource(pulumi.CustomResource):
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_token: Optional[pulumi.Input[str]] = None,
-                 source_type: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 source_type: Optional[pulumi.Input[Union[str, 'SourceControlType']]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'EnableStatus']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
@@ -48,8 +49,8 @@ class ArtifactSourceResource(pulumi.CustomResource):
         :param pulumi.Input[str] provisioning_state: The provisioning status of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] security_token: The security token of the artifact source.
-        :param pulumi.Input[str] source_type: The type of the artifact source.
-        :param pulumi.Input[str] status: The status of the artifact source.
+        :param pulumi.Input[Union[str, 'SourceControlType']] source_type: The type of the artifact source.
+        :param pulumi.Input[Union[str, 'EnableStatus']] status: The status of the artifact source.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] type: The type of the resource.
         :param pulumi.Input[str] uri: The URI of the artifact source.
@@ -75,15 +76,15 @@ class ArtifactSourceResource(pulumi.CustomResource):
             __props__['display_name'] = display_name
             __props__['folder_path'] = folder_path
             __props__['id'] = id
-            if lab_name is None:
+            if lab_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_name'")
             __props__['lab_name'] = lab_name
             __props__['location'] = location
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['provisioning_state'] = provisioning_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['security_token'] = security_token

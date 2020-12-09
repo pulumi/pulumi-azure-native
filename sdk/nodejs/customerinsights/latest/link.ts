@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -106,28 +106,28 @@ export class Link extends pulumi.CustomResource {
     constructor(name: string, args: LinkArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.hubName === undefined) {
+            if ((!args || args.hubName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if (!args || args.linkName === undefined) {
+            if ((!args || args.linkName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'linkName'");
             }
-            if (!args || args.participantPropertyReferences === undefined) {
+            if ((!args || args.participantPropertyReferences === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'participantPropertyReferences'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sourceEntityType === undefined) {
+            if ((!args || args.sourceEntityType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sourceEntityType'");
             }
-            if (!args || args.sourceEntityTypeName === undefined) {
+            if ((!args || args.sourceEntityTypeName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sourceEntityTypeName'");
             }
-            if (!args || args.targetEntityType === undefined) {
+            if ((!args || args.targetEntityType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetEntityType'");
             }
-            if (!args || args.targetEntityTypeName === undefined) {
+            if ((!args || args.targetEntityTypeName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetEntityTypeName'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -204,7 +204,7 @@ export interface LinkArgs {
     /**
      * Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
      */
-    readonly operationType?: pulumi.Input<string>;
+    readonly operationType?: pulumi.Input<enums.customerinsights.latest.InstanceOperationType>;
     /**
      * The properties that represent the participating profile.
      */
@@ -220,7 +220,7 @@ export interface LinkArgs {
     /**
      * Type of source entity.
      */
-    readonly sourceEntityType: pulumi.Input<string>;
+    readonly sourceEntityType: pulumi.Input<enums.customerinsights.latest.EntityType>;
     /**
      * Name of the source Entity Type.
      */
@@ -228,7 +228,7 @@ export interface LinkArgs {
     /**
      * Type of target entity.
      */
-    readonly targetEntityType: pulumi.Input<string>;
+    readonly targetEntityType: pulumi.Input<enums.customerinsights.latest.EntityType>;
     /**
      * Name of the target Entity Type.
      */

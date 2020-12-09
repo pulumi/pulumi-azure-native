@@ -69,10 +69,10 @@ export class RoleAssignment extends pulumi.CustomResource {
     constructor(name: string, args: RoleAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.roleAssignmentName === undefined) {
+            if ((!args || args.roleAssignmentName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'roleAssignmentName'");
             }
-            if (!args || args.scope === undefined) {
+            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["canDelegate"] = args ? args.canDelegate : undefined;

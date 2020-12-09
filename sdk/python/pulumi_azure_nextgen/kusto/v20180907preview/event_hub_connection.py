@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['EventHubConnection']
 
@@ -17,7 +18,7 @@ class EventHubConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  consumer_group: Optional[pulumi.Input[str]] = None,
-                 data_format: Optional[pulumi.Input[str]] = None,
+                 data_format: Optional[pulumi.Input[Union[str, 'DataFormat']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  event_hub_connection_name: Optional[pulumi.Input[str]] = None,
                  event_hub_resource_id: Optional[pulumi.Input[str]] = None,
@@ -35,7 +36,7 @@ class EventHubConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[str] consumer_group: The event hub consumer group.
-        :param pulumi.Input[str] data_format: The data format of the message. Optionally the data format can be added to each message.
+        :param pulumi.Input[Union[str, 'DataFormat']] data_format: The data format of the message. Optionally the data format can be added to each message.
         :param pulumi.Input[str] database_name: The name of the database in the Kusto cluster.
         :param pulumi.Input[str] event_hub_connection_name: The name of the event hub connection.
         :param pulumi.Input[str] event_hub_resource_id: The resource ID of the event hub to be used to create a data connection.
@@ -61,25 +62,25 @@ class EventHubConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if cluster_name is None:
+            if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
-            if consumer_group is None:
+            if consumer_group is None and not opts.urn:
                 raise TypeError("Missing required property 'consumer_group'")
             __props__['consumer_group'] = consumer_group
             __props__['data_format'] = data_format
-            if database_name is None:
+            if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
-            if event_hub_connection_name is None:
+            if event_hub_connection_name is None and not opts.urn:
                 raise TypeError("Missing required property 'event_hub_connection_name'")
             __props__['event_hub_connection_name'] = event_hub_connection_name
-            if event_hub_resource_id is None:
+            if event_hub_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'event_hub_resource_id'")
             __props__['event_hub_resource_id'] = event_hub_resource_id
             __props__['location'] = location
             __props__['mapping_rule_name'] = mapping_rule_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['table_name'] = table_name

@@ -40,26 +40,27 @@ type HealthAlert struct {
 // NewHealthAlert registers a new resource with the given unique name, arguments, and options.
 func NewHealthAlert(ctx *pulumi.Context,
 	name string, args *HealthAlertArgs, opts ...pulumi.ResourceOption) (*HealthAlert, error) {
-	if args == nil || args.Criteria == nil {
-		return nil, errors.New("missing required argument 'Criteria'")
-	}
-	if args == nil || args.Description == nil {
-		return nil, errors.New("missing required argument 'Description'")
-	}
-	if args == nil || args.Enabled == nil {
-		return nil, errors.New("missing required argument 'Enabled'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.RuleName == nil {
-		return nil, errors.New("missing required argument 'RuleName'")
-	}
 	if args == nil {
-		args = &HealthAlertArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Criteria == nil {
+		return nil, errors.New("invalid value for required argument 'Criteria'")
+	}
+	if args.Description == nil {
+		return nil, errors.New("invalid value for required argument 'Description'")
+	}
+	if args.Enabled == nil {
+		return nil, errors.New("invalid value for required argument 'Enabled'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.RuleName == nil {
+		return nil, errors.New("invalid value for required argument 'RuleName'")
 	}
 	var resource HealthAlert
 	err := ctx.RegisterResource("azure-nextgen:alertsmanagement/v20200804preview:HealthAlert", name, args, &resource, opts...)

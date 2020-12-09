@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Cdn.V20190615Preview.Inputs
         /// Describes what action to be applied when rule matches
         /// </summary>
         [Input("action", required: true)]
-        public Input<string> Action { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20190615Preview.ActionType> Action { get; set; } = null!;
 
         /// <summary>
         /// Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
         /// </summary>
         [Input("enabledState")]
-        public Input<string>? EnabledState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20190615Preview.CustomRuleEnabledState>? EnabledState { get; set; }
 
         [Input("matchConditions", required: true)]
         private InputList<Inputs.MatchConditionArgs>? _matchConditions;

@@ -56,14 +56,14 @@ class TemplateSpec(pulumi.CustomResource):
 
             __props__['description'] = description
             __props__['display_name'] = display_name
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            if template_spec_name is None:
+            if template_spec_name is None and not opts.urn:
                 raise TypeError("Missing required property 'template_spec_name'")
             __props__['template_spec_name'] = template_spec_name
             __props__['name'] = None

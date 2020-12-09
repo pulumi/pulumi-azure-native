@@ -38,14 +38,15 @@ type ManagementGroupDiagnosticSetting struct {
 // NewManagementGroupDiagnosticSetting registers a new resource with the given unique name, arguments, and options.
 func NewManagementGroupDiagnosticSetting(ctx *pulumi.Context,
 	name string, args *ManagementGroupDiagnosticSettingArgs, opts ...pulumi.ResourceOption) (*ManagementGroupDiagnosticSetting, error) {
-	if args == nil || args.ManagementGroupId == nil {
-		return nil, errors.New("missing required argument 'ManagementGroupId'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil {
-		args = &ManagementGroupDiagnosticSettingArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ManagementGroupId == nil {
+		return nil, errors.New("invalid value for required argument 'ManagementGroupId'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource ManagementGroupDiagnosticSetting
 	err := ctx.RegisterResource("azure-nextgen:management/v20200101preview:ManagementGroupDiagnosticSetting", name, args, &resource, opts...)

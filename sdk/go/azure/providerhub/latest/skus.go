@@ -24,17 +24,18 @@ type Skus struct {
 // NewSkus registers a new resource with the given unique name, arguments, and options.
 func NewSkus(ctx *pulumi.Context,
 	name string, args *SkusArgs, opts ...pulumi.ResourceOption) (*Skus, error) {
-	if args == nil || args.ProviderNamespace == nil {
-		return nil, errors.New("missing required argument 'ProviderNamespace'")
-	}
-	if args == nil || args.ResourceType == nil {
-		return nil, errors.New("missing required argument 'ResourceType'")
-	}
-	if args == nil || args.Sku == nil {
-		return nil, errors.New("missing required argument 'Sku'")
-	}
 	if args == nil {
-		args = &SkusArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ProviderNamespace == nil {
+		return nil, errors.New("invalid value for required argument 'ProviderNamespace'")
+	}
+	if args.ResourceType == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceType'")
+	}
+	if args.Sku == nil {
+		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

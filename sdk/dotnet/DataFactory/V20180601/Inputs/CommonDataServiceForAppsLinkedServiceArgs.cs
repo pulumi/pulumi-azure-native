@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         /// The authentication type to connect to Common Data Service for Apps server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. 'AADServicePrincipal' for Server-To-Server authentication in online scenario. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("authenticationType", required: true)]
-        public Input<string> AuthenticationType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.V20180601.DynamicsAuthenticationType> AuthenticationType { get; set; } = null!;
 
         /// <summary>
         /// The integration runtime reference.
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         /// The deployment type of the Common Data Service for Apps instance. 'Online' for Common Data Service for Apps Online and 'OnPremisesWithIfd' for Common Data Service for Apps on-premises with Ifd. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("deploymentType", required: true)]
-        public Input<string> DeploymentType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.V20180601.DynamicsDeploymentType> DeploymentType { get; set; } = null!;
 
         /// <summary>
         /// Linked service description.
@@ -103,7 +103,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         /// The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("servicePrincipalCredentialType")]
-        public Input<string>? ServicePrincipalCredentialType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.V20180601.DynamicsServicePrincipalCredentialType>? ServicePrincipalCredentialType { get; set; }
 
         /// <summary>
         /// The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).

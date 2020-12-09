@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['ExpressRouteCircuitAuthorization']
 
@@ -17,7 +18,7 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization_key: Optional[pulumi.Input[str]] = None,
                  authorization_name: Optional[pulumi.Input[str]] = None,
-                 authorization_use_status: Optional[pulumi.Input[str]] = None,
+                 authorization_use_status: Optional[pulumi.Input[Union[str, 'AuthorizationUseStatus']]] = None,
                  circuit_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -32,7 +33,7 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_key: The authorization key.
         :param pulumi.Input[str] authorization_name: The name of the authorization.
-        :param pulumi.Input[str] authorization_use_status: The authorization use status.
+        :param pulumi.Input[Union[str, 'AuthorizationUseStatus']] authorization_use_status: The authorization use status.
         :param pulumi.Input[str] circuit_name: The name of the express route circuit.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -56,16 +57,16 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['authorization_key'] = authorization_key
-            if authorization_name is None:
+            if authorization_name is None and not opts.urn:
                 raise TypeError("Missing required property 'authorization_name'")
             __props__['authorization_name'] = authorization_name
             __props__['authorization_use_status'] = authorization_use_status
-            if circuit_name is None:
+            if circuit_name is None and not opts.urn:
                 raise TypeError("Missing required property 'circuit_name'")
             __props__['circuit_name'] = circuit_name
             __props__['id'] = id
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['etag'] = None

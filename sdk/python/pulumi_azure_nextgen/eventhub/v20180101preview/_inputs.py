@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'CaptureDescriptionArgs',
@@ -24,7 +25,7 @@ class CaptureDescriptionArgs:
     def __init__(__self__, *,
                  destination: Optional[pulumi.Input['DestinationArgs']] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 encoding: Optional[pulumi.Input[str]] = None,
+                 encoding: Optional[pulumi.Input['EncodingCaptureDescription']] = None,
                  interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  size_limit_in_bytes: Optional[pulumi.Input[int]] = None,
                  skip_empty_archives: Optional[pulumi.Input[bool]] = None):
@@ -32,7 +33,7 @@ class CaptureDescriptionArgs:
         Properties to configure capture description for eventhub
         :param pulumi.Input['DestinationArgs'] destination: Properties of Destination where capture will be stored. (Storage Account, Blob Names)
         :param pulumi.Input[bool] enabled: A value that indicates whether capture description is enabled. 
-        :param pulumi.Input[str] encoding: Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
+        :param pulumi.Input['EncodingCaptureDescription'] encoding: Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
         :param pulumi.Input[int] interval_in_seconds: The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
         :param pulumi.Input[int] size_limit_in_bytes: The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
         :param pulumi.Input[bool] skip_empty_archives: A value that indicates whether to Skip Empty Archives
@@ -76,14 +77,14 @@ class CaptureDescriptionArgs:
 
     @property
     @pulumi.getter
-    def encoding(self) -> Optional[pulumi.Input[str]]:
+    def encoding(self) -> Optional[pulumi.Input['EncodingCaptureDescription']]:
         """
         Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
         """
         return pulumi.get(self, "encoding")
 
     @encoding.setter
-    def encoding(self, value: Optional[pulumi.Input[str]]):
+    def encoding(self, value: Optional[pulumi.Input['EncodingCaptureDescription']]):
         pulumi.set(self, "encoding", value)
 
     @property
@@ -126,11 +127,11 @@ class CaptureDescriptionArgs:
 @pulumi.input_type
 class ClusterSkuArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
+                 name: pulumi.Input[Union[str, 'ClusterSkuName']],
                  capacity: Optional[pulumi.Input[int]] = None):
         """
         SKU parameters particular to a cluster instance.
-        :param pulumi.Input[str] name: Name of this SKU.
+        :param pulumi.Input[Union[str, 'ClusterSkuName']] name: Name of this SKU.
         :param pulumi.Input[int] capacity: The quantity of Event Hubs Cluster Capacity Units contained in this cluster.
         """
         pulumi.set(__self__, "name", name)
@@ -139,14 +140,14 @@ class ClusterSkuArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input[Union[str, 'ClusterSkuName']]:
         """
         Name of this SKU.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input[Union[str, 'ClusterSkuName']]):
         pulumi.set(self, "name", value)
 
     @property
@@ -166,11 +167,11 @@ class ClusterSkuArgs:
 class ConnectionStateArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None):
+                 status: Optional[pulumi.Input[Union[str, 'PrivateLinkConnectionStatus']]] = None):
         """
         ConnectionState information.
         :param pulumi.Input[str] description: Description of the connection state.
-        :param pulumi.Input[str] status: Status of the connection.
+        :param pulumi.Input[Union[str, 'PrivateLinkConnectionStatus']] status: Status of the connection.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -191,14 +192,14 @@ class ConnectionStateArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input[Union[str, 'PrivateLinkConnectionStatus']]]:
         """
         Status of the connection.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateLinkConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -333,11 +334,11 @@ class KeyVaultPropertiesArgs:
 @pulumi.input_type
 class NWRuleSetIpRulesArgs:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input[str]] = None,
+                 action: Optional[pulumi.Input[Union[str, 'NetworkRuleIPAction']]] = None,
                  ip_mask: Optional[pulumi.Input[str]] = None):
         """
         The response from the List namespace operation.
-        :param pulumi.Input[str] action: The IP Filter Action
+        :param pulumi.Input[Union[str, 'NetworkRuleIPAction']] action: The IP Filter Action
         :param pulumi.Input[str] ip_mask: IP Mask
         """
         if action is not None:
@@ -347,14 +348,14 @@ class NWRuleSetIpRulesArgs:
 
     @property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[str]]:
+    def action(self) -> Optional[pulumi.Input[Union[str, 'NetworkRuleIPAction']]]:
         """
         The IP Filter Action
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input[str]]):
+    def action(self, value: Optional[pulumi.Input[Union[str, 'NetworkRuleIPAction']]]):
         pulumi.set(self, "action", value)
 
     @property
@@ -397,14 +398,14 @@ class PrivateEndpointArgs:
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
+                 name: pulumi.Input[Union[str, 'SkuName']],
                  capacity: Optional[pulumi.Input[int]] = None,
-                 tier: Optional[pulumi.Input[str]] = None):
+                 tier: Optional[pulumi.Input[Union[str, 'SkuTier']]] = None):
         """
         SKU parameters supplied to the create namespace operation
-        :param pulumi.Input[str] name: Name of this SKU.
+        :param pulumi.Input[Union[str, 'SkuName']] name: Name of this SKU.
         :param pulumi.Input[int] capacity: The Event Hubs throughput units, value should be 0 to 20 throughput units.
-        :param pulumi.Input[str] tier: The billing tier of this particular SKU.
+        :param pulumi.Input[Union[str, 'SkuTier']] tier: The billing tier of this particular SKU.
         """
         pulumi.set(__self__, "name", name)
         if capacity is not None:
@@ -414,14 +415,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input[Union[str, 'SkuName']]:
         """
         Name of this SKU.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
         pulumi.set(self, "name", value)
 
     @property
@@ -438,14 +439,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[str]]:
+    def tier(self) -> Optional[pulumi.Input[Union[str, 'SkuTier']]]:
         """
         The billing tier of this particular SKU.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[str]]):
+    def tier(self, value: Optional[pulumi.Input[Union[str, 'SkuTier']]]):
         pulumi.set(self, "tier", value)
 
 

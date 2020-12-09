@@ -1339,9 +1339,9 @@ type AutoUserSpecificationInput interface {
 
 type AutoUserSpecificationArgs struct {
 	// nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
-	ElevationLevel pulumi.StringPtrInput `pulumi:"elevationLevel"`
+	ElevationLevel ElevationLevel `pulumi:"elevationLevel"`
 	// pool - specifies that the task runs as the common auto user account which is created on every node in a pool. task - specifies that the service should create a new user for the task. The default value is task.
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	Scope AutoUserScope `pulumi:"scope"`
 }
 
 func (AutoUserSpecificationArgs) ElementType() reflect.Type {
@@ -1649,7 +1649,7 @@ type CertificateReferenceInput interface {
 type CertificateReferenceArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// The default value is currentUser. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
-	StoreLocation pulumi.StringPtrInput `pulumi:"storeLocation"`
+	StoreLocation CertificateStoreLocation `pulumi:"storeLocation"`
 	// This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: My, Root, CA, Trust, Disallowed, TrustedPeople, TrustedPublisher, AuthRoot, AddressBook, but any custom store name can also be used. The default value is My.
 	StoreName pulumi.StringPtrInput `pulumi:"storeName"`
 	// Values are:
@@ -1659,7 +1659,7 @@ type CertificateReferenceArgs struct {
 	//  remoteuser - The accounts under which users remotely access the node.
 	//
 	//  You can specify more than one visibility in this collection. The default is all accounts.
-	Visibility pulumi.StringArrayInput `pulumi:"visibility"`
+	Visibility CertificateVisibilityArrayInput `pulumi:"visibility"`
 }
 
 func (CertificateReferenceArgs) ElementType() reflect.Type {
@@ -2275,15 +2275,15 @@ type DataDiskArgs struct {
 	//  readWrite - The caching mode for the disk is read and write.
 	//
 	//  The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
-	Caching    pulumi.StringPtrInput `pulumi:"caching"`
-	DiskSizeGB pulumi.IntInput       `pulumi:"diskSizeGB"`
+	Caching    CachingType     `pulumi:"caching"`
+	DiskSizeGB pulumi.IntInput `pulumi:"diskSizeGB"`
 	// The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun.
 	Lun pulumi.IntInput `pulumi:"lun"`
 	// If omitted, the default is "Standard_LRS". Values are:
 	//
 	//  Standard_LRS - The data disk should use standard locally redundant storage.
 	//  Premium_LRS - The data disk should use premium locally redundant storage.
-	StorageAccountType pulumi.StringPtrInput `pulumi:"storageAccountType"`
+	StorageAccountType StorageAccountType `pulumi:"storageAccountType"`
 }
 
 func (DataDiskArgs) ElementType() reflect.Type {
@@ -3301,7 +3301,7 @@ type FixedScaleSettingsInput interface {
 
 type FixedScaleSettingsArgs struct {
 	// If omitted, the default value is Requeue.
-	NodeDeallocationOption pulumi.StringPtrInput `pulumi:"nodeDeallocationOption"`
+	NodeDeallocationOption ComputeNodeDeallocationOption `pulumi:"nodeDeallocationOption"`
 	// The default value is 15 minutes. Timeout values use ISO 8601 format. For example, use PT10M for 10 minutes. The minimum value is 5 minutes. If you specify a value less than 5 minutes, the Batch service rejects the request with an error; if you are calling the REST API directly, the HTTP status code is 400 (Bad Request).
 	ResizeTimeout pulumi.StringPtrInput `pulumi:"resizeTimeout"`
 	// At least one of targetDedicatedNodes, targetLowPriority nodes must be set.
@@ -4103,7 +4103,7 @@ type InboundNatPoolArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The maximum number of rules that can be specified across all the endpoints on a Batch pool is 25. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. If the maximum number of network security group rules is exceeded the request fails with HTTP status code 400.
 	NetworkSecurityGroupRules NetworkSecurityGroupRuleArrayInput `pulumi:"networkSecurityGroupRules"`
-	Protocol                  pulumi.StringInput                 `pulumi:"protocol"`
+	Protocol                  InboundEndpointProtocol            `pulumi:"protocol"`
 }
 
 func (InboundNatPoolArgs) ElementType() reflect.Type {
@@ -5523,7 +5523,7 @@ type NetworkSecurityGroupRuleInput interface {
 }
 
 type NetworkSecurityGroupRuleArgs struct {
-	Access pulumi.StringInput `pulumi:"access"`
+	Access NetworkSecurityGroupRuleAccess `pulumi:"access"`
 	// Priorities within a pool must be unique and are evaluated in order of priority. The lower the number the higher the priority. For example, rules could be specified with order numbers of 150, 250, and 350. The rule with the order number of 150 takes precedence over the rule that has an order of 250. Allowed priorities are 150 to 3500. If any reserved or duplicate values are provided the request fails with HTTP status code 400.
 	Priority pulumi.IntInput `pulumi:"priority"`
 	// Valid values are a single IP address (i.e. 10.10.10.10), IP subnet (i.e. 192.168.1.0/24), default tag, or * (for all addresses).  If any other values are provided the request fails with HTTP status code 400.
@@ -5745,7 +5745,7 @@ type OSDiskInput interface {
 
 type OSDiskArgs struct {
 	// Default value is none.
-	Caching pulumi.StringPtrInput `pulumi:"caching"`
+	Caching CachingType `pulumi:"caching"`
 }
 
 func (OSDiskArgs) ElementType() reflect.Type {
@@ -7562,7 +7562,7 @@ type TaskSchedulingPolicyInput interface {
 }
 
 type TaskSchedulingPolicyArgs struct {
-	NodeFillType pulumi.StringInput `pulumi:"nodeFillType"`
+	NodeFillType ComputeNodeFillType `pulumi:"nodeFillType"`
 }
 
 func (TaskSchedulingPolicyArgs) ElementType() reflect.Type {
@@ -7820,7 +7820,7 @@ type UserAccountInput interface {
 
 type UserAccountArgs struct {
 	// nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
-	ElevationLevel pulumi.StringPtrInput `pulumi:"elevationLevel"`
+	ElevationLevel ElevationLevel `pulumi:"elevationLevel"`
 	// This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
 	LinuxUserConfiguration LinuxUserConfigurationPtrInput `pulumi:"linuxUserConfiguration"`
 	Name                   pulumi.StringInput             `pulumi:"name"`

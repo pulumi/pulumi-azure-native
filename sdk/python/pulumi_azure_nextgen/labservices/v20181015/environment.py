@@ -63,21 +63,21 @@ class Environment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if environment_name is None:
+            if environment_name is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_name'")
             __props__['environment_name'] = environment_name
-            if environment_setting_name is None:
+            if environment_setting_name is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_setting_name'")
             __props__['environment_setting_name'] = environment_setting_name
-            if lab_account_name is None:
+            if lab_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_account_name'")
             __props__['lab_account_name'] = lab_account_name
-            if lab_name is None:
+            if lab_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_name'")
             __props__['lab_name'] = lab_name
             __props__['location'] = location
             __props__['provisioning_state'] = provisioning_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_sets'] = resource_sets

@@ -29,17 +29,18 @@ type AzureADMetric struct {
 // NewAzureADMetric registers a new resource with the given unique name, arguments, and options.
 func NewAzureADMetric(ctx *pulumi.Context,
 	name string, args *AzureADMetricArgs, opts ...pulumi.ResourceOption) (*AzureADMetric, error) {
-	if args == nil || args.AzureADMetricsName == nil {
-		return nil, errors.New("missing required argument 'AzureADMetricsName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &AzureADMetricArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AzureADMetricsName == nil {
+		return nil, errors.New("invalid value for required argument 'AzureADMetricsName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource AzureADMetric
 	err := ctx.RegisterResource("azure-nextgen:aadiam/v20200701preview:azureADMetric", name, args, &resource, opts...)

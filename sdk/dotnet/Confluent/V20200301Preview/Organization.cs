@@ -141,7 +141,7 @@ namespace Pulumi.AzureNextGen.Confluent.V20200301Preview
         /// Provision states for confluent RP
         /// </summary>
         [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Confluent.V20200301Preview.ProvisionState>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Resource group name

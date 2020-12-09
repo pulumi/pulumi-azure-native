@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['LoadBalancer']
@@ -76,17 +77,17 @@ class LoadBalancer(pulumi.CustomResource):
             __props__['frontend_ip_configurations'] = frontend_ip_configurations
             __props__['inbound_nat_pools'] = inbound_nat_pools
             __props__['inbound_nat_rules'] = inbound_nat_rules
-            if load_balancer_name is None:
+            if load_balancer_name is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer_name'")
             __props__['load_balancer_name'] = load_balancer_name
             __props__['load_balancing_rules'] = load_balancing_rules
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['outbound_nat_rules'] = outbound_nat_rules
             __props__['probes'] = probes
             __props__['provisioning_state'] = provisioning_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_guid'] = resource_guid

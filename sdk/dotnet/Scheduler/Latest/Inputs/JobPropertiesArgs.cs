@@ -34,7 +34,7 @@ namespace Pulumi.AzureNextGen.Scheduler.Latest.Inputs
         /// Gets or set the job state.
         /// </summary>
         [Input("state")]
-        public Input<string>? State { get; set; }
+        public Input<Pulumi.AzureNextGen.Scheduler.Latest.JobState>? State { get; set; }
 
         public JobPropertiesArgs()
         {

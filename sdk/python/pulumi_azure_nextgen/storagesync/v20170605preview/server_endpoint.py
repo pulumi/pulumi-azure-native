@@ -101,22 +101,22 @@ class ServerEndpoint(pulumi.CustomResource):
             __props__['last_sync_success'] = last_sync_success
             __props__['last_workflow_id'] = last_workflow_id
             __props__['provisioning_state'] = provisioning_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if server_endpoint_name is None:
+            if server_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_endpoint_name'")
             __props__['server_endpoint_name'] = server_endpoint_name
             __props__['server_local_path'] = server_local_path
             __props__['server_resource_id'] = server_resource_id
-            if storage_sync_service_name is None:
+            if storage_sync_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_sync_service_name'")
             __props__['storage_sync_service_name'] = storage_sync_service_name
             __props__['sync_error_context'] = sync_error_context
             __props__['sync_error_direction'] = sync_error_direction
             __props__['sync_error_state'] = sync_error_state
             __props__['sync_error_state_timestamp'] = sync_error_state_timestamp
-            if sync_group_name is None:
+            if sync_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sync_group_name'")
             __props__['sync_group_name'] = sync_group_name
             __props__['total_progress'] = total_progress

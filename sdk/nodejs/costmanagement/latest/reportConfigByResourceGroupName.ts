@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -74,16 +74,16 @@ export class ReportConfigByResourceGroupName extends pulumi.CustomResource {
     constructor(name: string, args: ReportConfigByResourceGroupNameArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.definition === undefined) {
+            if ((!args || args.definition === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'definition'");
             }
-            if (!args || args.deliveryInfo === undefined) {
+            if ((!args || args.deliveryInfo === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'deliveryInfo'");
             }
-            if (!args || args.reportConfigName === undefined) {
+            if ((!args || args.reportConfigName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'reportConfigName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["definition"] = args ? args.definition : undefined;
@@ -132,7 +132,7 @@ export interface ReportConfigByResourceGroupNameArgs {
     /**
      * The format of the report being delivered.
      */
-    readonly format?: pulumi.Input<string>;
+    readonly format?: pulumi.Input<string | enums.costmanagement.latest.FormatType>;
     /**
      * Report Config Name.
      */

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801.Inputs
         /// Status of the order as per the allowed status types.
         /// </summary>
         [Input("status", required: true)]
-        public Input<string> Status { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.V20190801.OrderState> Status { get; set; } = null!;
 
         public OrderStatusArgs()
         {

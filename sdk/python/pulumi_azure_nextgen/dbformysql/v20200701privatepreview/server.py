@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Server']
@@ -20,11 +21,11 @@ class Server(pulumi.CustomResource):
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
-                 create_mode: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
                  delegated_subnet_arguments: Optional[pulumi.Input[pulumi.InputType['DelegatedSubnetArgumentsArgs']]] = None,
-                 ha_enabled: Optional[pulumi.Input[str]] = None,
+                 ha_enabled: Optional[pulumi.Input[Union[str, 'HaEnabledEnum']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
-                 infrastructure_encryption: Optional[pulumi.Input[str]] = None,
+                 infrastructure_encryption: Optional[pulumi.Input[Union[str, 'InfrastructureEncryptionEnum']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']]] = None,
                  replication_role: Optional[pulumi.Input[str]] = None,
@@ -33,10 +34,10 @@ class Server(pulumi.CustomResource):
                  server_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  source_server_id: Optional[pulumi.Input[str]] = None,
-                 ssl_enforcement: Optional[pulumi.Input[str]] = None,
+                 ssl_enforcement: Optional[pulumi.Input[Union[str, 'SslEnforcementEnum']]] = None,
                  storage_profile: Optional[pulumi.Input[pulumi.InputType['StorageProfileArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 version: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -48,11 +49,11 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] administrator_login: The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
         :param pulumi.Input[str] administrator_login_password: The password of the administrator login (required for server creation).
         :param pulumi.Input[str] availability_zone: availability Zone information of the server.
-        :param pulumi.Input[str] create_mode: The mode to create a new MySQL server.
+        :param pulumi.Input[Union[str, 'CreateMode']] create_mode: The mode to create a new MySQL server.
         :param pulumi.Input[pulumi.InputType['DelegatedSubnetArgumentsArgs']] delegated_subnet_arguments: Delegated subnet arguments.
-        :param pulumi.Input[str] ha_enabled: Enable HA or not for a server.
+        :param pulumi.Input[Union[str, 'HaEnabledEnum']] ha_enabled: Enable HA or not for a server.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The Azure Active Directory identity of the server.
-        :param pulumi.Input[str] infrastructure_encryption: Status showing whether the server enabled infrastructure encryption.
+        :param pulumi.Input[Union[str, 'InfrastructureEncryptionEnum']] infrastructure_encryption: Status showing whether the server enabled infrastructure encryption.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']] maintenance_window: Maintenance window of a server.
         :param pulumi.Input[str] replication_role: The replication role.
@@ -61,10 +62,10 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU (pricing tier) of the server.
         :param pulumi.Input[str] source_server_id: The source MySQL server id.
-        :param pulumi.Input[str] ssl_enforcement: Enable ssl enforcement or not when connect to server.
+        :param pulumi.Input[Union[str, 'SslEnforcementEnum']] ssl_enforcement: Enable ssl enforcement or not when connect to server.
         :param pulumi.Input[pulumi.InputType['StorageProfileArgs']] storage_profile: Storage profile of a server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] version: Server version.
+        :param pulumi.Input[Union[str, 'ServerVersion']] version: Server version.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -91,16 +92,16 @@ class Server(pulumi.CustomResource):
             __props__['ha_enabled'] = ha_enabled
             __props__['identity'] = identity
             __props__['infrastructure_encryption'] = infrastructure_encryption
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['maintenance_window'] = maintenance_window
             __props__['replication_role'] = replication_role
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['restore_point_in_time'] = restore_point_in_time
-            if server_name is None:
+            if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
             __props__['sku'] = sku

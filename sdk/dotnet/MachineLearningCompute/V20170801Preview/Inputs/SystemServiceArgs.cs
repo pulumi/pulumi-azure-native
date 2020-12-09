@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview.Inputs
         /// The system service type
         /// </summary>
         [Input("systemServiceType", required: true)]
-        public Input<string> SystemServiceType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview.SystemServiceType> SystemServiceType { get; set; } = null!;
 
         public SystemServiceArgs()
         {

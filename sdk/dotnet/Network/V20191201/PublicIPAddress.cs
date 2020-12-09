@@ -256,13 +256,13 @@ namespace Pulumi.AzureNextGen.Network.V20191201
         /// The public IP address version.
         /// </summary>
         [Input("publicIPAddressVersion")]
-        public Input<string>? PublicIPAddressVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20191201.IPVersion>? PublicIPAddressVersion { get; set; }
 
         /// <summary>
         /// The public IP address allocation method.
         /// </summary>
         [Input("publicIPAllocationMethod")]
-        public Input<string>? PublicIPAllocationMethod { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20191201.IPAllocationMethod>? PublicIPAllocationMethod { get; set; }
 
         /// <summary>
         /// The Public IP Prefix this Public IP Address should be allocated from.

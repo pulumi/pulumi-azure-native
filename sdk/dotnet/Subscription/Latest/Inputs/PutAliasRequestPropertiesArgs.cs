@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Subscription.Latest.Inputs
         /// The workload type of the subscription. It can be either Production or DevTest.
         /// </summary>
         [Input("workload")]
-        public Input<string>? Workload { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Subscription.Latest.Workload>? Workload { get; set; }
 
         public PutAliasRequestPropertiesArgs()
         {

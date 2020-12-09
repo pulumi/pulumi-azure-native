@@ -93,13 +93,13 @@ export class BillingRoleAssignmentByDepartment extends pulumi.CustomResource {
     constructor(name: string, args: BillingRoleAssignmentByDepartmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.billingAccountName === undefined) {
+            if ((!args || args.billingAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'billingAccountName'");
             }
-            if (!args || args.billingRoleAssignmentName === undefined) {
+            if ((!args || args.billingRoleAssignmentName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'billingRoleAssignmentName'");
             }
-            if (!args || args.departmentName === undefined) {
+            if ((!args || args.departmentName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'departmentName'");
             }
             inputs["billingAccountName"] = args ? args.billingAccountName : undefined;

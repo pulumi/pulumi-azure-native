@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ManagedServiceIdentityArgs',
@@ -17,12 +18,12 @@ __all__ = [
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  tenant_id: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]] = None,
                  user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]] = None):
         """
         Managed identity generic object.
         :param pulumi.Input[str] tenant_id: ID of the Azure Active Directory.
-        :param pulumi.Input[str] type: Type of the managed identity.
+        :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of the managed identity.
         :param pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]] user_assigned_identities: The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
         """
         if tenant_id is not None:
@@ -46,14 +47,14 @@ class ManagedServiceIdentityArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]]:
         """
         Type of the managed identity.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]]):
         pulumi.set(self, "type", value)
 
     @property

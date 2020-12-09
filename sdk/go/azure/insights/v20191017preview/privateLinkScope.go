@@ -32,17 +32,18 @@ type PrivateLinkScope struct {
 // NewPrivateLinkScope registers a new resource with the given unique name, arguments, and options.
 func NewPrivateLinkScope(ctx *pulumi.Context,
 	name string, args *PrivateLinkScopeArgs, opts ...pulumi.ResourceOption) (*PrivateLinkScope, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ScopeName == nil {
-		return nil, errors.New("missing required argument 'ScopeName'")
-	}
 	if args == nil {
-		args = &PrivateLinkScopeArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ScopeName == nil {
+		return nil, errors.New("invalid value for required argument 'ScopeName'")
 	}
 	var resource PrivateLinkScope
 	err := ctx.RegisterResource("azure-nextgen:insights/v20191017preview:PrivateLinkScope", name, args, &resource, opts...)

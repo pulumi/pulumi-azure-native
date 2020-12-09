@@ -225,7 +225,7 @@ namespace Pulumi.AzureNextGen.Network.V20190901
         /// The reference to the transport protocol used by the load balancing rule.
         /// </summary>
         [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190901.TransportProtocol>? Protocol { get; set; }
 
         /// <summary>
         /// The name of the resource group.

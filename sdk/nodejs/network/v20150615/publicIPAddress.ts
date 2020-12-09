@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -91,10 +91,10 @@ export class PublicIPAddress extends pulumi.CustomResource {
     constructor(name: string, args: PublicIPAddressArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.publicIpAddressName === undefined) {
+            if ((!args || args.publicIpAddressName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'publicIpAddressName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["dnsSettings"] = args ? args.dnsSettings : undefined;
@@ -175,7 +175,7 @@ export interface PublicIPAddressArgs {
     /**
      * The public IP allocation method. Possible values are: 'Static' and 'Dynamic'.
      */
-    readonly publicIPAllocationMethod?: pulumi.Input<string>;
+    readonly publicIPAllocationMethod?: pulumi.Input<string | enums.network.v20150615.IPAllocationMethod>;
     /**
      * The name of the public IP address.
      */

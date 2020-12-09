@@ -31,14 +31,14 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         public string EntityId { get; set; } = null!;
 
         [Input("kinds")]
-        private List<string>? _kinds;
+        private List<Union<string, Pulumi.AzureNextGen.SecurityInsights.V20190101Preview.EntityTimelineKind>>? _kinds;
 
         /// <summary>
         /// Array of timeline Item kinds.
         /// </summary>
-        public List<string> Kinds
+        public List<Union<string, Pulumi.AzureNextGen.SecurityInsights.V20190101Preview.EntityTimelineKind>> Kinds
         {
-            get => _kinds ?? (_kinds = new List<string>());
+            get => _kinds ?? (_kinds = new List<Union<string, Pulumi.AzureNextGen.SecurityInsights.V20190101Preview.EntityTimelineKind>>());
             set => _kinds = value;
         }
 

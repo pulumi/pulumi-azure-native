@@ -53,19 +53,19 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if factory_name is None:
+            if factory_name is None and not opts.urn:
                 raise TypeError("Missing required property 'factory_name'")
             __props__['factory_name'] = factory_name
-            if managed_private_endpoint_name is None:
+            if managed_private_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_private_endpoint_name'")
             __props__['managed_private_endpoint_name'] = managed_private_endpoint_name
-            if managed_virtual_network_name is None:
+            if managed_virtual_network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_virtual_network_name'")
             __props__['managed_virtual_network_name'] = managed_virtual_network_name
-            if properties is None:
+            if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['etag'] = None

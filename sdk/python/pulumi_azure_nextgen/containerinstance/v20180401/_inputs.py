@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AzureFileVolumeArgs',
@@ -215,11 +216,11 @@ class ContainerArgs:
 class ContainerPortArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
-                 protocol: Optional[pulumi.Input[str]] = None):
+                 protocol: Optional[pulumi.Input[Union[str, 'ContainerNetworkProtocol']]] = None):
         """
         The port exposed on the container instance.
         :param pulumi.Input[int] port: The port number exposed within the container group.
-        :param pulumi.Input[str] protocol: The protocol associated with the port.
+        :param pulumi.Input[Union[str, 'ContainerNetworkProtocol']] protocol: The protocol associated with the port.
         """
         pulumi.set(__self__, "port", port)
         if protocol is not None:
@@ -239,14 +240,14 @@ class ContainerPortArgs:
 
     @property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[str]]:
+    def protocol(self) -> Optional[pulumi.Input[Union[str, 'ContainerNetworkProtocol']]]:
         """
         The protocol associated with the port.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[str]]):
+    def protocol(self, value: Optional[pulumi.Input[Union[str, 'ContainerNetworkProtocol']]]):
         pulumi.set(self, "protocol", value)
 
 
@@ -401,13 +402,13 @@ class ImageRegistryCredentialArgs:
 class IpAddressArgs:
     def __init__(__self__, *,
                  ports: pulumi.Input[Sequence[pulumi.Input['PortArgs']]],
-                 type: pulumi.Input[str],
+                 type: pulumi.Input[Union[str, 'ContainerGroupIpAddressType']],
                  dns_name_label: Optional[pulumi.Input[str]] = None,
                  ip: Optional[pulumi.Input[str]] = None):
         """
         IP address for the container group.
         :param pulumi.Input[Sequence[pulumi.Input['PortArgs']]] ports: The list of ports exposed on the container group.
-        :param pulumi.Input[str] type: Specifies if the IP is exposed to the public internet.
+        :param pulumi.Input[Union[str, 'ContainerGroupIpAddressType']] type: Specifies if the IP is exposed to the public internet.
         :param pulumi.Input[str] dns_name_label: The Dns name label for the IP.
         :param pulumi.Input[str] ip: The IP exposed to the public internet.
         """
@@ -432,14 +433,14 @@ class IpAddressArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'ContainerGroupIpAddressType']]:
         """
         Specifies if the IP is exposed to the public internet.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'ContainerGroupIpAddressType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -471,11 +472,11 @@ class IpAddressArgs:
 class PortArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
-                 protocol: Optional[pulumi.Input[str]] = None):
+                 protocol: Optional[pulumi.Input[Union[str, 'ContainerGroupNetworkProtocol']]] = None):
         """
         The port exposed on the container group.
         :param pulumi.Input[int] port: The port number.
-        :param pulumi.Input[str] protocol: The protocol associated with the port.
+        :param pulumi.Input[Union[str, 'ContainerGroupNetworkProtocol']] protocol: The protocol associated with the port.
         """
         pulumi.set(__self__, "port", port)
         if protocol is not None:
@@ -495,14 +496,14 @@ class PortArgs:
 
     @property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[str]]:
+    def protocol(self) -> Optional[pulumi.Input[Union[str, 'ContainerGroupNetworkProtocol']]]:
         """
         The protocol associated with the port.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[str]]):
+    def protocol(self, value: Optional[pulumi.Input[Union[str, 'ContainerGroupNetworkProtocol']]]):
         pulumi.set(self, "protocol", value)
 
 

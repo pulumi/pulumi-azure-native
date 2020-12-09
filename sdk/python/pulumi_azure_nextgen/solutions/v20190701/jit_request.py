@@ -57,20 +57,20 @@ class JitRequest(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if application_resource_id is None:
+            if application_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_resource_id'")
             __props__['application_resource_id'] = application_resource_id
-            if jit_authorization_policies is None:
+            if jit_authorization_policies is None and not opts.urn:
                 raise TypeError("Missing required property 'jit_authorization_policies'")
             __props__['jit_authorization_policies'] = jit_authorization_policies
-            if jit_request_name is None:
+            if jit_request_name is None and not opts.urn:
                 raise TypeError("Missing required property 'jit_request_name'")
             __props__['jit_request_name'] = jit_request_name
-            if jit_scheduling_policy is None:
+            if jit_scheduling_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'jit_scheduling_policy'")
             __props__['jit_scheduling_policy'] = jit_scheduling_policy
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

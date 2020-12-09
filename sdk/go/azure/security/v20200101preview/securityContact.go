@@ -32,11 +32,12 @@ type SecurityContact struct {
 // NewSecurityContact registers a new resource with the given unique name, arguments, and options.
 func NewSecurityContact(ctx *pulumi.Context,
 	name string, args *SecurityContactArgs, opts ...pulumi.ResourceOption) (*SecurityContact, error) {
-	if args == nil || args.SecurityContactName == nil {
-		return nil, errors.New("missing required argument 'SecurityContactName'")
-	}
 	if args == nil {
-		args = &SecurityContactArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.SecurityContactName == nil {
+		return nil, errors.New("invalid value for required argument 'SecurityContactName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

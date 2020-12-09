@@ -32,17 +32,18 @@ type PrivateLinkHub struct {
 // NewPrivateLinkHub registers a new resource with the given unique name, arguments, and options.
 func NewPrivateLinkHub(ctx *pulumi.Context,
 	name string, args *PrivateLinkHubArgs, opts ...pulumi.ResourceOption) (*PrivateLinkHub, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.PrivateLinkHubName == nil {
-		return nil, errors.New("missing required argument 'PrivateLinkHubName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &PrivateLinkHubArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.PrivateLinkHubName == nil {
+		return nil, errors.New("invalid value for required argument 'PrivateLinkHubName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource PrivateLinkHub
 	err := ctx.RegisterResource("azure-nextgen:synapse/v20190601preview:PrivateLinkHub", name, args, &resource, opts...)

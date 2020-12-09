@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['IntegrationAccountPartner']
@@ -22,7 +23,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[Any] = None,
                  partner_name: Optional[pulumi.Input[str]] = None,
-                 partner_type: Optional[pulumi.Input[str]] = None,
+                 partner_type: Optional[pulumi.Input[Union[str, 'PartnerType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -38,7 +39,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
         :param pulumi.Input[str] location: The resource location.
         :param Any metadata: The metadata.
         :param pulumi.Input[str] partner_name: The integration account partner name.
-        :param pulumi.Input[str] partner_type: The partner type.
+        :param pulumi.Input[Union[str, 'PartnerType']] partner_type: The partner type.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
@@ -59,21 +60,21 @@ class IntegrationAccountPartner(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if content is None:
+            if content is None and not opts.urn:
                 raise TypeError("Missing required property 'content'")
             __props__['content'] = content
-            if integration_account_name is None:
+            if integration_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'integration_account_name'")
             __props__['integration_account_name'] = integration_account_name
             __props__['location'] = location
             __props__['metadata'] = metadata
-            if partner_name is None:
+            if partner_name is None and not opts.urn:
                 raise TypeError("Missing required property 'partner_name'")
             __props__['partner_name'] = partner_name
-            if partner_type is None:
+            if partner_type is None and not opts.urn:
                 raise TypeError("Missing required property 'partner_type'")
             __props__['partner_type'] = partner_type
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

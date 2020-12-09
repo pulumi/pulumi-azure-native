@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AdmCredentialArgs',
@@ -433,7 +434,7 @@ class NamespacePropertiesArgs:
                  critical: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 namespace_type: Optional[pulumi.Input[str]] = None,
+                 namespace_type: Optional[pulumi.Input['NamespaceType']] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  scale_unit: Optional[pulumi.Input[str]] = None,
@@ -446,7 +447,7 @@ class NamespacePropertiesArgs:
         :param pulumi.Input[bool] critical: Whether or not the namespace is set as Critical.
         :param pulumi.Input[bool] enabled: Whether or not the namespace is currently enabled.
         :param pulumi.Input[str] name: The name of the namespace.
-        :param pulumi.Input[str] namespace_type: Gets or sets the namespace type.
+        :param pulumi.Input['NamespaceType'] namespace_type: Gets or sets the namespace type.
         :param pulumi.Input[str] provisioning_state: Gets or sets provisioning state of the Namespace.
         :param pulumi.Input[str] region: Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
         :param pulumi.Input[str] scale_unit: ScaleUnit where the namespace gets created
@@ -527,14 +528,14 @@ class NamespacePropertiesArgs:
 
     @property
     @pulumi.getter(name="namespaceType")
-    def namespace_type(self) -> Optional[pulumi.Input[str]]:
+    def namespace_type(self) -> Optional[pulumi.Input['NamespaceType']]:
         """
         Gets or sets the namespace type.
         """
         return pulumi.get(self, "namespace_type")
 
     @namespace_type.setter
-    def namespace_type(self, value: Optional[pulumi.Input[str]]):
+    def namespace_type(self, value: Optional[pulumi.Input['NamespaceType']]):
         pulumi.set(self, "namespace_type", value)
 
     @property
@@ -772,7 +773,7 @@ class SharedAccessAuthorizationRulePropertiesArgs:
                  modified_time: Optional[pulumi.Input[str]] = None,
                  primary_key: Optional[pulumi.Input[str]] = None,
                  revision: Optional[pulumi.Input[int]] = None,
-                 rights: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 rights: Optional[pulumi.Input[Sequence[pulumi.Input['AccessRights']]]] = None,
                  secondary_key: Optional[pulumi.Input[str]] = None):
         """
         SharedAccessAuthorizationRule properties.
@@ -783,7 +784,7 @@ class SharedAccessAuthorizationRulePropertiesArgs:
         :param pulumi.Input[str] modified_time: The most recent time the rule was updated.
         :param pulumi.Input[str] primary_key: The primary key that was used.
         :param pulumi.Input[int] revision: The revision number for the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] rights: The rights associated with the rule.
+        :param pulumi.Input[Sequence[pulumi.Input['AccessRights']]] rights: The rights associated with the rule.
         :param pulumi.Input[str] secondary_key: The secondary key that was used.
         """
         if claim_type is not None:
@@ -891,14 +892,14 @@ class SharedAccessAuthorizationRulePropertiesArgs:
 
     @property
     @pulumi.getter
-    def rights(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def rights(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccessRights']]]]:
         """
         The rights associated with the rule.
         """
         return pulumi.get(self, "rights")
 
     @rights.setter
-    def rights(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def rights(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccessRights']]]]):
         pulumi.set(self, "rights", value)
 
     @property

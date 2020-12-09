@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -90,19 +90,19 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
     constructor(name: string, args: ScheduledQueryRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.action === undefined) {
+            if ((!args || args.action === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'action'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.ruleName === undefined) {
+            if ((!args || args.ruleName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ruleName'");
             }
-            if (!args || args.source === undefined) {
+            if ((!args || args.source === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'source'");
             }
             inputs["action"] = args ? args.action : undefined;
@@ -159,7 +159,7 @@ export interface ScheduledQueryRuleArgs {
     /**
      * The flag which indicates whether the Log Search rule is enabled. Value should be true or false
      */
-    readonly enabled?: pulumi.Input<string>;
+    readonly enabled?: pulumi.Input<string | enums.insights.latest.Enabled>;
     /**
      * Resource location
      */

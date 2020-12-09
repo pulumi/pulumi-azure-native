@@ -42,29 +42,30 @@ type BuildTask struct {
 // NewBuildTask registers a new resource with the given unique name, arguments, and options.
 func NewBuildTask(ctx *pulumi.Context,
 	name string, args *BuildTaskArgs, opts ...pulumi.ResourceOption) (*BuildTask, error) {
-	if args == nil || args.Alias == nil {
-		return nil, errors.New("missing required argument 'Alias'")
-	}
-	if args == nil || args.BuildTaskName == nil {
-		return nil, errors.New("missing required argument 'BuildTaskName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Platform == nil {
-		return nil, errors.New("missing required argument 'Platform'")
-	}
-	if args == nil || args.RegistryName == nil {
-		return nil, errors.New("missing required argument 'RegistryName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SourceRepository == nil {
-		return nil, errors.New("missing required argument 'SourceRepository'")
-	}
 	if args == nil {
-		args = &BuildTaskArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Alias == nil {
+		return nil, errors.New("invalid value for required argument 'Alias'")
+	}
+	if args.BuildTaskName == nil {
+		return nil, errors.New("invalid value for required argument 'BuildTaskName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.Platform == nil {
+		return nil, errors.New("invalid value for required argument 'Platform'")
+	}
+	if args.RegistryName == nil {
+		return nil, errors.New("invalid value for required argument 'RegistryName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SourceRepository == nil {
+		return nil, errors.New("invalid value for required argument 'SourceRepository'")
 	}
 	var resource BuildTask
 	err := ctx.RegisterResource("azure-nextgen:containerregistry/v20180201preview:BuildTask", name, args, &resource, opts...)

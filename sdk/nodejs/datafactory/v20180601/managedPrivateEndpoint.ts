@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -62,19 +62,19 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
     constructor(name: string, args: ManagedPrivateEndpointArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.factoryName === undefined) {
+            if ((!args || args.factoryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'factoryName'");
             }
-            if (!args || args.managedPrivateEndpointName === undefined) {
+            if ((!args || args.managedPrivateEndpointName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managedPrivateEndpointName'");
             }
-            if (!args || args.managedVirtualNetworkName === undefined) {
+            if ((!args || args.managedVirtualNetworkName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managedVirtualNetworkName'");
             }
-            if (!args || args.properties === undefined) {
+            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'properties'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["factoryName"] = args ? args.factoryName : undefined;

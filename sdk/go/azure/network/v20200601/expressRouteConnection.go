@@ -34,23 +34,24 @@ type ExpressRouteConnection struct {
 // NewExpressRouteConnection registers a new resource with the given unique name, arguments, and options.
 func NewExpressRouteConnection(ctx *pulumi.Context,
 	name string, args *ExpressRouteConnectionArgs, opts ...pulumi.ResourceOption) (*ExpressRouteConnection, error) {
-	if args == nil || args.ConnectionName == nil {
-		return nil, errors.New("missing required argument 'ConnectionName'")
-	}
-	if args == nil || args.ExpressRouteCircuitPeering == nil {
-		return nil, errors.New("missing required argument 'ExpressRouteCircuitPeering'")
-	}
-	if args == nil || args.ExpressRouteGatewayName == nil {
-		return nil, errors.New("missing required argument 'ExpressRouteGatewayName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ExpressRouteConnectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ConnectionName == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectionName'")
+	}
+	if args.ExpressRouteCircuitPeering == nil {
+		return nil, errors.New("invalid value for required argument 'ExpressRouteCircuitPeering'")
+	}
+	if args.ExpressRouteGatewayName == nil {
+		return nil, errors.New("invalid value for required argument 'ExpressRouteGatewayName'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

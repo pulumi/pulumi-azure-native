@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -114,25 +114,25 @@ export class ConnectorMapping extends pulumi.CustomResource {
     constructor(name: string, args: ConnectorMappingArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.connectorName === undefined) {
+            if ((!args || args.connectorName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'connectorName'");
             }
-            if (!args || args.entityType === undefined) {
+            if ((!args || args.entityType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'entityType'");
             }
-            if (!args || args.entityTypeName === undefined) {
+            if ((!args || args.entityTypeName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'entityTypeName'");
             }
-            if (!args || args.hubName === undefined) {
+            if ((!args || args.hubName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if (!args || args.mappingName === undefined) {
+            if ((!args || args.mappingName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'mappingName'");
             }
-            if (!args || args.mappingProperties === undefined) {
+            if ((!args || args.mappingProperties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'mappingProperties'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["connectorName"] = args ? args.connectorName : undefined;
@@ -198,7 +198,7 @@ export interface ConnectorMappingArgs {
     /**
      * Type of connector.
      */
-    readonly connectorType?: pulumi.Input<string>;
+    readonly connectorType?: pulumi.Input<string | enums.customerinsights.v20170426.ConnectorTypes>;
     /**
      * The description of the connector mapping.
      */
@@ -210,7 +210,7 @@ export interface ConnectorMappingArgs {
     /**
      * Defines which entity type the file should map to.
      */
-    readonly entityType: pulumi.Input<string>;
+    readonly entityType: pulumi.Input<enums.customerinsights.v20170426.EntityTypes>;
     /**
      * The mapping entity name.
      */

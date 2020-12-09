@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -138,16 +138,16 @@ export class DatabaseAccount extends pulumi.CustomResource {
     constructor(name: string, args: DatabaseAccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.accountName === undefined) {
+            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.databaseAccountOfferType === undefined) {
+            if ((!args || args.databaseAccountOfferType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'databaseAccountOfferType'");
             }
-            if (!args || args.locations === undefined) {
+            if ((!args || args.locations === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'locations'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -228,7 +228,7 @@ export interface DatabaseAccountArgs {
     /**
      * The cassandra connector offer type for the Cosmos DB database C* account.
      */
-    readonly connectorOffer?: pulumi.Input<string>;
+    readonly connectorOffer?: pulumi.Input<string | enums.documentdb.v20191212.ConnectorOffer>;
     /**
      * The consistency policy for the Cosmos DB account.
      */
@@ -236,7 +236,7 @@ export interface DatabaseAccountArgs {
     /**
      * The offer type for the database
      */
-    readonly databaseAccountOfferType: pulumi.Input<string>;
+    readonly databaseAccountOfferType: pulumi.Input<enums.documentdb.v20191212.DatabaseAccountOfferType>;
     /**
      * Disable write operations on metadata resources (databases, containers, throughput) via account keys
      */
@@ -268,7 +268,7 @@ export interface DatabaseAccountArgs {
     /**
      * Indicates the type of database account. This can only be set at database account creation.
      */
-    readonly kind?: pulumi.Input<string>;
+    readonly kind?: pulumi.Input<string | enums.documentdb.v20191212.DatabaseAccountKind>;
     /**
      * The location of the resource group to which the resource belongs.
      */

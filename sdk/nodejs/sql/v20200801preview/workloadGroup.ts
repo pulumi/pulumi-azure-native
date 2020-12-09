@@ -77,25 +77,25 @@ export class WorkloadGroup extends pulumi.CustomResource {
     constructor(name: string, args: WorkloadGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.databaseName === undefined) {
+            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if (!args || args.maxResourcePercent === undefined) {
+            if ((!args || args.maxResourcePercent === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'maxResourcePercent'");
             }
-            if (!args || args.minResourcePercent === undefined) {
+            if ((!args || args.minResourcePercent === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'minResourcePercent'");
             }
-            if (!args || args.minResourcePercentPerRequest === undefined) {
+            if ((!args || args.minResourcePercentPerRequest === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'minResourcePercentPerRequest'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverName === undefined) {
+            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if (!args || args.workloadGroupName === undefined) {
+            if ((!args || args.workloadGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workloadGroupName'");
             }
             inputs["databaseName"] = args ? args.databaseName : undefined;

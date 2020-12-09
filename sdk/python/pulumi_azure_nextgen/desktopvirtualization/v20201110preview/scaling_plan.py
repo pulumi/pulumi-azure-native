@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ScalingPlan']
@@ -21,7 +22,7 @@ class ScalingPlan(pulumi.CustomResource):
                  exclusion_tag: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  host_pool_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingHostPoolReferenceArgs']]]]] = None,
-                 host_pool_type: Optional[pulumi.Input[str]] = None,
+                 host_pool_type: Optional[pulumi.Input[Union[str, 'HostPoolType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scaling_plan_name: Optional[pulumi.Input[str]] = None,
@@ -40,7 +41,7 @@ class ScalingPlan(pulumi.CustomResource):
         :param pulumi.Input[str] exclusion_tag: Exclusion tag for scaling plan.
         :param pulumi.Input[str] friendly_name: User friendly name of scaling plan.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingHostPoolReferenceArgs']]]] host_pool_references: List of ScalingHostPoolReference definitions.
-        :param pulumi.Input[str] host_pool_type: HostPool type for scaling plan.
+        :param pulumi.Input[Union[str, 'HostPoolType']] host_pool_type: HostPool type for scaling plan.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] scaling_plan_name: The name of the scaling plan.
@@ -70,13 +71,13 @@ class ScalingPlan(pulumi.CustomResource):
             __props__['friendly_name'] = friendly_name
             __props__['host_pool_references'] = host_pool_references
             __props__['host_pool_type'] = host_pool_type
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if scaling_plan_name is None:
+            if scaling_plan_name is None and not opts.urn:
                 raise TypeError("Missing required property 'scaling_plan_name'")
             __props__['scaling_plan_name'] = scaling_plan_name
             __props__['schedules'] = schedules

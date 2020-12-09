@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview.Inputs
         /// Allowed data types for Resource Manager template parameters.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Blueprint.V20181101Preview.TemplateParameterType> Type { get; set; } = null!;
 
         public ParameterDefinitionArgs()
         {

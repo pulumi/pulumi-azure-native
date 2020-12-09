@@ -37,26 +37,27 @@ type Rule struct {
 // NewRule registers a new resource with the given unique name, arguments, and options.
 func NewRule(ctx *pulumi.Context,
 	name string, args *RuleArgs, opts ...pulumi.ResourceOption) (*Rule, error) {
-	if args == nil || args.Actions == nil {
-		return nil, errors.New("missing required argument 'Actions'")
-	}
-	if args == nil || args.Order == nil {
-		return nil, errors.New("missing required argument 'Order'")
-	}
-	if args == nil || args.ProfileName == nil {
-		return nil, errors.New("missing required argument 'ProfileName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.RuleName == nil {
-		return nil, errors.New("missing required argument 'RuleName'")
-	}
-	if args == nil || args.RuleSetName == nil {
-		return nil, errors.New("missing required argument 'RuleSetName'")
-	}
 	if args == nil {
-		args = &RuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Actions == nil {
+		return nil, errors.New("invalid value for required argument 'Actions'")
+	}
+	if args.Order == nil {
+		return nil, errors.New("invalid value for required argument 'Order'")
+	}
+	if args.ProfileName == nil {
+		return nil, errors.New("invalid value for required argument 'ProfileName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.RuleName == nil {
+		return nil, errors.New("invalid value for required argument 'RuleName'")
+	}
+	if args.RuleSetName == nil {
+		return nil, errors.New("invalid value for required argument 'RuleSetName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

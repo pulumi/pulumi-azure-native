@@ -42,23 +42,24 @@ type SiteHostNameBindingSlot struct {
 // NewSiteHostNameBindingSlot registers a new resource with the given unique name, arguments, and options.
 func NewSiteHostNameBindingSlot(ctx *pulumi.Context,
 	name string, args *SiteHostNameBindingSlotArgs, opts ...pulumi.ResourceOption) (*SiteHostNameBindingSlot, error) {
-	if args == nil || args.HostName == nil {
-		return nil, errors.New("missing required argument 'HostName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Slot == nil {
-		return nil, errors.New("missing required argument 'Slot'")
-	}
 	if args == nil {
-		args = &SiteHostNameBindingSlotArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.HostName == nil {
+		return nil, errors.New("invalid value for required argument 'HostName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Slot == nil {
+		return nil, errors.New("invalid value for required argument 'Slot'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -197,15 +198,15 @@ type SiteHostNameBindingSlotArgs struct {
 	// Azure resource name
 	AzureResourceName pulumi.StringPtrInput
 	// Azure resource type
-	AzureResourceType pulumi.StringPtrInput
+	AzureResourceType AzureResourceType
 	// Custom DNS record type
-	CustomHostNameDnsRecordType pulumi.StringPtrInput
+	CustomHostNameDnsRecordType CustomHostNameDnsRecordType
 	// Fully qualified ARM domain resource URI
 	DomainId pulumi.StringPtrInput
 	// Name of host
 	HostName pulumi.StringInput
 	// Host name type
-	HostNameType pulumi.StringPtrInput
+	HostNameType HostNameType
 	// Resource Id
 	Id pulumi.StringPtrInput
 	// Kind of resource

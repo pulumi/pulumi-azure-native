@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Namespace']
@@ -25,7 +26,7 @@ class Namespace(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_bus_endpoint: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['NamespaceState']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  updated_at: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -44,7 +45,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
         :param pulumi.Input[str] service_bus_endpoint: Endpoint you can use to perform Service Bus operations.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: SKU parameters supplied to the create Namespace operation
-        :param pulumi.Input[str] status: State of the Namespace.
+        :param pulumi.Input['NamespaceState'] status: State of the Namespace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Namespace tags.
         :param pulumi.Input[str] updated_at: The time the Namespace was updated.
         """
@@ -67,14 +68,14 @@ class Namespace(pulumi.CustomResource):
 
             __props__['created_at'] = created_at
             __props__['enabled'] = enabled
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if namespace_name is None:
+            if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
             __props__['provisioning_state'] = provisioning_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['service_bus_endpoint'] = service_bus_endpoint

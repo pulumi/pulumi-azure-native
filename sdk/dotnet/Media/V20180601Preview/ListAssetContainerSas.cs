@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview
         /// The permissions to set on the SAS URL.
         /// </summary>
         [Input("permissions")]
-        public string? Permissions { get; set; }
+        public Union<string, Pulumi.AzureNextGen.Media.V20180601Preview.AssetContainerPermission>? Permissions { get; set; }
 
         /// <summary>
         /// The name of the resource group within the Azure subscription.

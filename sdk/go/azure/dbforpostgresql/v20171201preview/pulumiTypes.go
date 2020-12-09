@@ -712,7 +712,7 @@ type ServerPropertiesForDefaultCreateArgs struct {
 	// Enforce a minimal Tls version for the server.
 	MinimalTlsVersion pulumi.StringPtrInput `pulumi:"minimalTlsVersion"`
 	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement pulumi.StringPtrInput `pulumi:"sslEnforcement"`
+	SslEnforcement SslEnforcementEnum `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
 	StorageProfile StorageProfilePtrInput `pulumi:"storageProfile"`
 	// Server version.
@@ -817,7 +817,7 @@ type ServerPropertiesForGeoRestoreArgs struct {
 	// The source server id to restore from.
 	SourceServerId pulumi.StringInput `pulumi:"sourceServerId"`
 	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement pulumi.StringPtrInput `pulumi:"sslEnforcement"`
+	SslEnforcement SslEnforcementEnum `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
 	StorageProfile StorageProfilePtrInput `pulumi:"storageProfile"`
 	// Server version.
@@ -917,7 +917,7 @@ type ServerPropertiesForReplicaArgs struct {
 	// The master server id to create replica from.
 	SourceServerId pulumi.StringInput `pulumi:"sourceServerId"`
 	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement pulumi.StringPtrInput `pulumi:"sslEnforcement"`
+	SslEnforcement SslEnforcementEnum `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
 	StorageProfile StorageProfilePtrInput `pulumi:"storageProfile"`
 	// Server version.
@@ -1021,7 +1021,7 @@ type ServerPropertiesForRestoreArgs struct {
 	// The source server id to restore from.
 	SourceServerId pulumi.StringInput `pulumi:"sourceServerId"`
 	// Enable ssl enforcement or not when connect to server.
-	SslEnforcement pulumi.StringPtrInput `pulumi:"sslEnforcement"`
+	SslEnforcement SslEnforcementEnum `pulumi:"sslEnforcement"`
 	// Storage profile of a server.
 	StorageProfile StorageProfilePtrInput `pulumi:"storageProfile"`
 	// Server version.

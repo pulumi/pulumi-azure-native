@@ -149,7 +149,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
         /// Logger type.
         /// </summary>
         [Input("loggerType", required: true)]
-        public Input<string> LoggerType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20191201Preview.LoggerType> LoggerType { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

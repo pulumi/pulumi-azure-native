@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['SyncGroup']
@@ -18,7 +19,7 @@ class SyncGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  conflict_logging_retention_in_days: Optional[pulumi.Input[int]] = None,
-                 conflict_resolution_policy: Optional[pulumi.Input[str]] = None,
+                 conflict_resolution_policy: Optional[pulumi.Input[Union[str, 'SyncConflictResolutionPolicy']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  enable_conflict_logging: Optional[pulumi.Input[bool]] = None,
                  hub_database_password: Optional[pulumi.Input[str]] = None,
@@ -40,7 +41,7 @@ class SyncGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] conflict_logging_retention_in_days: Conflict logging retention period.
-        :param pulumi.Input[str] conflict_resolution_policy: Conflict resolution policy of the sync group.
+        :param pulumi.Input[Union[str, 'SyncConflictResolutionPolicy']] conflict_resolution_policy: Conflict resolution policy of the sync group.
         :param pulumi.Input[str] database_name: The name of the database on which the sync group is hosted.
         :param pulumi.Input[bool] enable_conflict_logging: If conflict logging is enabled.
         :param pulumi.Input[str] hub_database_password: Password for the sync group hub database credential.
@@ -73,23 +74,23 @@ class SyncGroup(pulumi.CustomResource):
 
             __props__['conflict_logging_retention_in_days'] = conflict_logging_retention_in_days
             __props__['conflict_resolution_policy'] = conflict_resolution_policy
-            if database_name is None:
+            if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
             __props__['enable_conflict_logging'] = enable_conflict_logging
             __props__['hub_database_password'] = hub_database_password
             __props__['hub_database_user_name'] = hub_database_user_name
             __props__['interval'] = interval
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['schema'] = schema
-            if server_name is None:
+            if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
             __props__['sku'] = sku
             __props__['sync_database_id'] = sync_database_id
-            if sync_group_name is None:
+            if sync_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sync_group_name'")
             __props__['sync_group_name'] = sync_group_name
             __props__['use_private_link_connection'] = use_private_link_connection

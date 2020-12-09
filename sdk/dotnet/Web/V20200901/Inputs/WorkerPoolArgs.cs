@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Web.V20200901.Inputs
         /// Shared or dedicated app hosting.
         /// </summary>
         [Input("computeMode")]
-        public Input<string>? ComputeMode { get; set; }
+        public Input<Pulumi.AzureNextGen.Web.V20200901.ComputeModeOptions>? ComputeMode { get; set; }
 
         /// <summary>
         /// Number of instances in the worker pool.

@@ -73,13 +73,13 @@ export class WorkloadNetworkVMGroup extends pulumi.CustomResource {
     constructor(name: string, args: WorkloadNetworkVMGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.privateCloudName === undefined) {
+            if ((!args || args.privateCloudName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.vmGroupId === undefined) {
+            if ((!args || args.vmGroupId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vmGroupId'");
             }
             inputs["displayName"] = args ? args.displayName : undefined;

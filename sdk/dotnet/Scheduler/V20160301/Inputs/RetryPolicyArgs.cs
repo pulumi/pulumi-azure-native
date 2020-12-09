@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Scheduler.V20160301.Inputs
         /// Gets or sets the retry strategy to be used.
         /// </summary>
         [Input("retryType")]
-        public Input<string>? RetryType { get; set; }
+        public Input<Pulumi.AzureNextGen.Scheduler.V20160301.RetryType>? RetryType { get; set; }
 
         public RetryPolicyArgs()
         {

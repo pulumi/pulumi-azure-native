@@ -133,7 +133,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// Specifies for what type of messages sampling settings should not apply.
         /// </summary>
         [Input("alwaysLog")]
-        public Input<string>? AlwaysLog { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.Latest.AlwaysLog>? AlwaysLog { get; set; }
 
         /// <summary>
         /// API identifier. Must be unique in the current API Management service instance.
@@ -163,7 +163,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// Sets correlation protocol to use for Application Insights diagnostics.
         /// </summary>
         [Input("httpCorrelationProtocol")]
-        public Input<string>? HttpCorrelationProtocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.Latest.HttpCorrelationProtocol>? HttpCorrelationProtocol { get; set; }
 
         /// <summary>
         /// Log the ClientIP. Default is false.
@@ -199,7 +199,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// The verbosity level applied to traces emitted by trace policies.
         /// </summary>
         [Input("verbosity")]
-        public Input<string>? Verbosity { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.Latest.Verbosity>? Verbosity { get; set; }
 
         public ApiDiagnosticArgs()
         {

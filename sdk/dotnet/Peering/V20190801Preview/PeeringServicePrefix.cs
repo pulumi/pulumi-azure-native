@@ -107,7 +107,7 @@ namespace Pulumi.AzureNextGen.Peering.V20190801Preview
         /// The prefix learned type
         /// </summary>
         [Input("learnedType")]
-        public Input<string>? LearnedType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Peering.V20190801Preview.LearnedType>? LearnedType { get; set; }
 
         /// <summary>
         /// The peering service name.
@@ -131,7 +131,7 @@ namespace Pulumi.AzureNextGen.Peering.V20190801Preview
         /// The prefix validation state
         /// </summary>
         [Input("prefixValidationState")]
-        public Input<string>? PrefixValidationState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Peering.V20190801Preview.PrefixValidationState>? PrefixValidationState { get; set; }
 
         /// <summary>
         /// The resource group name.

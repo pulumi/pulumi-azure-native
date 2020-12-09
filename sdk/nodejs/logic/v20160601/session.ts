@@ -73,13 +73,13 @@ export class Session extends pulumi.CustomResource {
     constructor(name: string, args: SessionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.integrationAccountName === undefined) {
+            if ((!args || args.integrationAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sessionName === undefined) {
+            if ((!args || args.sessionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sessionName'");
             }
             inputs["content"] = args ? args.content : undefined;

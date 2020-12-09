@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Namespace']
@@ -20,7 +21,7 @@ class Namespace(pulumi.CustomResource):
                  cluster_arm_id: Optional[pulumi.Input[str]] = None,
                  is_auto_inflate_enabled: Optional[pulumi.Input[bool]] = None,
                  kafka_enabled: Optional[pulumi.Input[bool]] = None,
-                 key_source: Optional[pulumi.Input[str]] = None,
+                 key_source: Optional[pulumi.Input['KeySource']] = None,
                  key_vault_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultPropertiesArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maximum_throughput_units: Optional[pulumi.Input[int]] = None,
@@ -30,7 +31,7 @@ class Namespace(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['IdentityType']] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None,
                  __name__=None,
@@ -43,7 +44,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_arm_id: Cluster ARM ID of the Namespace.
         :param pulumi.Input[bool] is_auto_inflate_enabled: Value that indicates whether AutoInflate is enabled for eventhub namespace.
         :param pulumi.Input[bool] kafka_enabled: Value that indicates whether Kafka is enabled for eventhub namespace.
-        :param pulumi.Input[str] key_source: Enumerates the possible value of keySource for Encryption
+        :param pulumi.Input['KeySource'] key_source: Enumerates the possible value of keySource for Encryption
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeyVaultPropertiesArgs']]]] key_vault_properties: Properties of KeyVault
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[int] maximum_throughput_units: Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
@@ -53,7 +54,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Properties of sku resource
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] tenant_id: TenantId from the KeyVault
-        :param pulumi.Input[str] type: Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
+        :param pulumi.Input['IdentityType'] type: Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
         :param pulumi.Input[bool] zone_redundant: Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
         """
         if __name__ is not None:
@@ -78,15 +79,15 @@ class Namespace(pulumi.CustomResource):
             __props__['kafka_enabled'] = kafka_enabled
             __props__['key_source'] = key_source
             __props__['key_vault_properties'] = key_vault_properties
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['maximum_throughput_units'] = maximum_throughput_units
-            if namespace_name is None:
+            if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
             __props__['principal_id'] = principal_id
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku

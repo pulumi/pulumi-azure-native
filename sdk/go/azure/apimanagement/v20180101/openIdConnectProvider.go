@@ -34,26 +34,27 @@ type OpenIdConnectProvider struct {
 // NewOpenIdConnectProvider registers a new resource with the given unique name, arguments, and options.
 func NewOpenIdConnectProvider(ctx *pulumi.Context,
 	name string, args *OpenIdConnectProviderArgs, opts ...pulumi.ResourceOption) (*OpenIdConnectProvider, error) {
-	if args == nil || args.ClientId == nil {
-		return nil, errors.New("missing required argument 'ClientId'")
-	}
-	if args == nil || args.DisplayName == nil {
-		return nil, errors.New("missing required argument 'DisplayName'")
-	}
-	if args == nil || args.MetadataEndpoint == nil {
-		return nil, errors.New("missing required argument 'MetadataEndpoint'")
-	}
-	if args == nil || args.Opid == nil {
-		return nil, errors.New("missing required argument 'Opid'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
 	if args == nil {
-		args = &OpenIdConnectProviderArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ClientId == nil {
+		return nil, errors.New("invalid value for required argument 'ClientId'")
+	}
+	if args.DisplayName == nil {
+		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
+	if args.MetadataEndpoint == nil {
+		return nil, errors.New("invalid value for required argument 'MetadataEndpoint'")
+	}
+	if args.Opid == nil {
+		return nil, errors.New("invalid value for required argument 'Opid'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

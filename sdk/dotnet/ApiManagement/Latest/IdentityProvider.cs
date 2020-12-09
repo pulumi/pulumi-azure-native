@@ -219,7 +219,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// Identity Provider Type identifier.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.Latest.IdentityProviderType>? Type { get; set; }
 
         public IdentityProviderArgs()
         {

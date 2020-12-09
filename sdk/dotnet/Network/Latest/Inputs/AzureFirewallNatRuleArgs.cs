@@ -52,14 +52,14 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         public Input<string>? Name { get; set; }
 
         [Input("protocols")]
-        private InputList<string>? _protocols;
+        private InputList<Union<string, Pulumi.AzureNextGen.Network.Latest.AzureFirewallNetworkRuleProtocol>>? _protocols;
 
         /// <summary>
         /// Array of AzureFirewallNetworkRuleProtocols applicable to this NAT rule.
         /// </summary>
-        public InputList<string> Protocols
+        public InputList<Union<string, Pulumi.AzureNextGen.Network.Latest.AzureFirewallNetworkRuleProtocol>> Protocols
         {
-            get => _protocols ?? (_protocols = new InputList<string>());
+            get => _protocols ?? (_protocols = new InputList<Union<string, Pulumi.AzureNextGen.Network.Latest.AzureFirewallNetworkRuleProtocol>>());
             set => _protocols = value;
         }
 

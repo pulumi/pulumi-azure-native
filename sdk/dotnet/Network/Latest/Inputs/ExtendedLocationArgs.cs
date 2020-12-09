@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// The type of the extended location.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.ExtendedLocationTypes> Type { get; set; } = null!;
 
         public ExtendedLocationArgs()
         {

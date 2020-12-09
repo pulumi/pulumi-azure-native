@@ -255,13 +255,13 @@ namespace Pulumi.AzureNextGen.Network.V20190901
         /// Connection protocol used for this connection.
         /// </summary>
         [Input("connectionProtocol")]
-        public Input<string>? ConnectionProtocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190901.VirtualNetworkGatewayConnectionProtocol>? ConnectionProtocol { get; set; }
 
         /// <summary>
         /// Gateway connection type.
         /// </summary>
         [Input("connectionType", required: true)]
-        public Input<string> ConnectionType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190901.VirtualNetworkGatewayConnectionType> ConnectionType { get; set; } = null!;
 
         /// <summary>
         /// EnableBgp flag.

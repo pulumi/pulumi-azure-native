@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Endpoint']
@@ -24,12 +25,12 @@ class Endpoint(pulumi.CustomResource):
                  is_http_allowed: Optional[pulumi.Input[bool]] = None,
                  is_https_allowed: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 optimization_type: Optional[pulumi.Input[str]] = None,
+                 optimization_type: Optional[pulumi.Input[Union[str, 'OptimizationType']]] = None,
                  origin_host_header: Optional[pulumi.Input[str]] = None,
                  origin_path: Optional[pulumi.Input[str]] = None,
                  origins: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeepCreatedOriginArgs']]]]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
-                 query_string_caching_behavior: Optional[pulumi.Input[str]] = None,
+                 query_string_caching_behavior: Optional[pulumi.Input['QueryStringCachingBehavior']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -47,12 +48,12 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[bool] is_http_allowed: Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
         :param pulumi.Input[bool] is_https_allowed: Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[str] optimization_type: Customer can specify what scenario they want this CDN endpoint to optimize, e.g. Download, Media services. With this information we can apply scenario driven optimization.
+        :param pulumi.Input[Union[str, 'OptimizationType']] optimization_type: Customer can specify what scenario they want this CDN endpoint to optimize, e.g. Download, Media services. With this information we can apply scenario driven optimization.
         :param pulumi.Input[str] origin_host_header: The host header CDN sends along with content requests to origin. The default value is the host name of the origin.
         :param pulumi.Input[str] origin_path: The path used when CDN sends request to origin.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeepCreatedOriginArgs']]]] origins: The source of the content being delivered via CDN.
         :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
-        :param pulumi.Input[str] query_string_caching_behavior: Defines the query string caching behavior
+        :param pulumi.Input['QueryStringCachingBehavior'] query_string_caching_behavior: Defines the query string caching behavior
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -74,27 +75,27 @@ class Endpoint(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['content_types_to_compress'] = content_types_to_compress
-            if endpoint_name is None:
+            if endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_name'")
             __props__['endpoint_name'] = endpoint_name
             __props__['geo_filters'] = geo_filters
             __props__['is_compression_enabled'] = is_compression_enabled
             __props__['is_http_allowed'] = is_http_allowed
             __props__['is_https_allowed'] = is_https_allowed
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['optimization_type'] = optimization_type
             __props__['origin_host_header'] = origin_host_header
             __props__['origin_path'] = origin_path
-            if origins is None:
+            if origins is None and not opts.urn:
                 raise TypeError("Missing required property 'origins'")
             __props__['origins'] = origins
-            if profile_name is None:
+            if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")
             __props__['profile_name'] = profile_name
             __props__['query_string_caching_behavior'] = query_string_caching_behavior
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

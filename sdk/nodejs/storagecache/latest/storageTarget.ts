@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -86,16 +86,16 @@ export class StorageTarget extends pulumi.CustomResource {
     constructor(name: string, args: StorageTargetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.cacheName === undefined) {
+            if ((!args || args.cacheName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'cacheName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.storageTargetName === undefined) {
+            if ((!args || args.storageTargetName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageTargetName'");
             }
-            if (!args || args.targetType === undefined) {
+            if ((!args || args.targetType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetType'");
             }
             inputs["cacheName"] = args ? args.cacheName : undefined;
@@ -159,7 +159,7 @@ export interface StorageTargetArgs {
     /**
      * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    readonly provisioningState?: pulumi.Input<string | enums.storagecache.latest.ProvisioningStateType>;
     /**
      * Target resource group.
      */
@@ -171,7 +171,7 @@ export interface StorageTargetArgs {
     /**
      * Type of the Storage Target.
      */
-    readonly targetType: pulumi.Input<string>;
+    readonly targetType: pulumi.Input<string | enums.storagecache.latest.StorageTargetType>;
     /**
      * Properties when targetType is unknown.
      */

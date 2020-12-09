@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.ContainerInstance.Latest.Inputs
         /// The scheme.
         /// </summary>
         [Input("scheme")]
-        public Input<string>? Scheme { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerInstance.Latest.Scheme>? Scheme { get; set; }
 
         public ContainerHttpGetArgs()
         {

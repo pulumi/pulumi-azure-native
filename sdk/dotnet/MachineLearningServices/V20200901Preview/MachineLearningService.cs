@@ -110,7 +110,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview
         /// The compute environment type for the service.
         /// </summary>
         [Input("computeType", required: true)]
-        public Input<string> ComputeType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview.ComputeEnvironmentType> ComputeType { get; set; } = null!;
 
         /// <summary>
         /// The description of the service.

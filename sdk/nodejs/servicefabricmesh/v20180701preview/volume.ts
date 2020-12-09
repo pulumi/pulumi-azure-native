@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -78,16 +78,16 @@ export class Volume extends pulumi.CustomResource {
     constructor(name: string, args: VolumeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.provider === undefined) {
+            if ((!args || args.provider === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'provider'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.volumeName === undefined) {
+            if ((!args || args.volumeName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'volumeName'");
             }
             inputs["azureFileParameters"] = args ? args.azureFileParameters : undefined;
@@ -142,7 +142,7 @@ export interface VolumeArgs {
     /**
      * Provider of the volume.
      */
-    readonly provider: pulumi.Input<string>;
+    readonly provider: pulumi.Input<string | enums.servicefabricmesh.v20180701preview.VolumeProvider>;
     /**
      * Azure resource group name
      */

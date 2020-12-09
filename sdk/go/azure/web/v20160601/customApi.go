@@ -32,14 +32,15 @@ type CustomApi struct {
 // NewCustomApi registers a new resource with the given unique name, arguments, and options.
 func NewCustomApi(ctx *pulumi.Context,
 	name string, args *CustomApiArgs, opts ...pulumi.ResourceOption) (*CustomApi, error) {
-	if args == nil || args.ApiName == nil {
-		return nil, errors.New("missing required argument 'ApiName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &CustomApiArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApiName == nil {
+		return nil, errors.New("invalid value for required argument 'ApiName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

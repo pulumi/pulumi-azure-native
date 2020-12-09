@@ -32,7 +32,7 @@ namespace Pulumi.AzureNextGen.Web.V20200601.Inputs
         /// Database type (e.g. SqlAzure / MySql).
         /// </summary>
         [Input("databaseType", required: true)]
-        public string DatabaseType { get; set; } = null!;
+        public Union<string, Pulumi.AzureNextGen.Web.V20200601.DatabaseType> DatabaseType { get; set; } = null!;
 
         [Input("name")]
         public string? Name { get; set; }

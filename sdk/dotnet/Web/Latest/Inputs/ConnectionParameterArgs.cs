@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Web.Latest.Inputs
         /// Type of the parameter
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AzureNextGen.Web.Latest.ConnectionParameterType>? Type { get; set; }
 
         public ConnectionParameterArgs()
         {

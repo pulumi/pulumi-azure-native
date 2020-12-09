@@ -40,23 +40,24 @@ type BackupPolicy struct {
 // NewBackupPolicy registers a new resource with the given unique name, arguments, and options.
 func NewBackupPolicy(ctx *pulumi.Context,
 	name string, args *BackupPolicyArgs, opts ...pulumi.ResourceOption) (*BackupPolicy, error) {
-	if args == nil || args.BackupPolicyName == nil {
-		return nil, errors.New("missing required argument 'BackupPolicyName'")
-	}
-	if args == nil || args.DeviceName == nil {
-		return nil, errors.New("missing required argument 'DeviceName'")
-	}
-	if args == nil || args.ManagerName == nil {
-		return nil, errors.New("missing required argument 'ManagerName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VolumeIds == nil {
-		return nil, errors.New("missing required argument 'VolumeIds'")
-	}
 	if args == nil {
-		args = &BackupPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BackupPolicyName == nil {
+		return nil, errors.New("invalid value for required argument 'BackupPolicyName'")
+	}
+	if args.DeviceName == nil {
+		return nil, errors.New("invalid value for required argument 'DeviceName'")
+	}
+	if args.ManagerName == nil {
+		return nil, errors.New("invalid value for required argument 'ManagerName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VolumeIds == nil {
+		return nil, errors.New("invalid value for required argument 'VolumeIds'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -157,7 +158,7 @@ type BackupPolicyArgs struct {
 	// The device name
 	DeviceName pulumi.StringInput
 	// The Kind of the object. Currently only Series8000 is supported
-	Kind pulumi.StringPtrInput
+	Kind Kind
 	// The manager name
 	ManagerName pulumi.StringInput
 	// The resource group name

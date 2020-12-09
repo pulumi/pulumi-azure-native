@@ -28,17 +28,18 @@ type SyncGroup struct {
 // NewSyncGroup registers a new resource with the given unique name, arguments, and options.
 func NewSyncGroup(ctx *pulumi.Context,
 	name string, args *SyncGroupArgs, opts ...pulumi.ResourceOption) (*SyncGroup, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.StorageSyncServiceName == nil {
-		return nil, errors.New("missing required argument 'StorageSyncServiceName'")
-	}
-	if args == nil || args.SyncGroupName == nil {
-		return nil, errors.New("missing required argument 'SyncGroupName'")
-	}
 	if args == nil {
-		args = &SyncGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.StorageSyncServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'StorageSyncServiceName'")
+	}
+	if args.SyncGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'SyncGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

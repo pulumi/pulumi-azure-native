@@ -81,16 +81,16 @@ export class ManagerExtendedInfo extends pulumi.CustomResource {
     constructor(name: string, args: ManagerExtendedInfoArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.algorithm === undefined) {
+            if ((!args || args.algorithm === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'algorithm'");
             }
-            if (!args || args.integrityKey === undefined) {
+            if ((!args || args.integrityKey === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'integrityKey'");
             }
-            if (!args || args.managerName === undefined) {
+            if ((!args || args.managerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["algorithm"] = args ? args.algorithm : undefined;

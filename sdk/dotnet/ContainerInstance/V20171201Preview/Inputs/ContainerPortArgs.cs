@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20171201Preview.Inputs
         /// The protocol associated with the port.
         /// </summary>
         [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerInstance.V20171201Preview.ContainerNetworkProtocol>? Protocol { get; set; }
 
         public ContainerPortArgs()
         {

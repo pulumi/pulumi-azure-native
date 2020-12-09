@@ -26,23 +26,24 @@ type SynchronizationSetting struct {
 // NewSynchronizationSetting registers a new resource with the given unique name, arguments, and options.
 func NewSynchronizationSetting(ctx *pulumi.Context,
 	name string, args *SynchronizationSettingArgs, opts ...pulumi.ResourceOption) (*SynchronizationSetting, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.Kind == nil {
-		return nil, errors.New("missing required argument 'Kind'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ShareName == nil {
-		return nil, errors.New("missing required argument 'ShareName'")
-	}
-	if args == nil || args.SynchronizationSettingName == nil {
-		return nil, errors.New("missing required argument 'SynchronizationSettingName'")
-	}
 	if args == nil {
-		args = &SynchronizationSettingArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.Kind == nil {
+		return nil, errors.New("invalid value for required argument 'Kind'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ShareName == nil {
+		return nil, errors.New("invalid value for required argument 'ShareName'")
+	}
+	if args.SynchronizationSettingName == nil {
+		return nil, errors.New("invalid value for required argument 'SynchronizationSettingName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

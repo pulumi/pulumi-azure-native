@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20190401Preview.Inputs
         /// KPI type (Forecast, Budget).
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20190401Preview.KpiTypeType>? Type { get; set; }
 
         public KpiPropertiesArgs()
         {

@@ -40,17 +40,18 @@ type EventChannel struct {
 // NewEventChannel registers a new resource with the given unique name, arguments, and options.
 func NewEventChannel(ctx *pulumi.Context,
 	name string, args *EventChannelArgs, opts ...pulumi.ResourceOption) (*EventChannel, error) {
-	if args == nil || args.EventChannelName == nil {
-		return nil, errors.New("missing required argument 'EventChannelName'")
-	}
-	if args == nil || args.PartnerNamespaceName == nil {
-		return nil, errors.New("missing required argument 'PartnerNamespaceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &EventChannelArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.EventChannelName == nil {
+		return nil, errors.New("invalid value for required argument 'EventChannelName'")
+	}
+	if args.PartnerNamespaceName == nil {
+		return nil, errors.New("invalid value for required argument 'PartnerNamespaceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource EventChannel
 	err := ctx.RegisterResource("azure-nextgen:eventgrid/v20200401preview:EventChannel", name, args, &resource, opts...)

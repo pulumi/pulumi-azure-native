@@ -56,22 +56,22 @@ class IncidentRelation(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['etag'] = etag
-            if incident_id is None:
+            if incident_id is None and not opts.urn:
                 raise TypeError("Missing required property 'incident_id'")
             __props__['incident_id'] = incident_id
-            if operational_insights_resource_provider is None:
+            if operational_insights_resource_provider is None and not opts.urn:
                 raise TypeError("Missing required property 'operational_insights_resource_provider'")
             __props__['operational_insights_resource_provider'] = operational_insights_resource_provider
-            if related_resource_id is None:
+            if related_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'related_resource_id'")
             __props__['related_resource_id'] = related_resource_id
-            if relation_name is None:
+            if relation_name is None and not opts.urn:
                 raise TypeError("Missing required property 'relation_name'")
             __props__['relation_name'] = relation_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if workspace_name is None:
+            if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['name'] = None

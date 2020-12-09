@@ -52,29 +52,24 @@ type GalleryImage struct {
 // NewGalleryImage registers a new resource with the given unique name, arguments, and options.
 func NewGalleryImage(ctx *pulumi.Context,
 	name string, args *GalleryImageArgs, opts ...pulumi.ResourceOption) (*GalleryImage, error) {
-	if args == nil || args.GalleryImageName == nil {
-		return nil, errors.New("missing required argument 'GalleryImageName'")
-	}
-	if args == nil || args.GalleryName == nil {
-		return nil, errors.New("missing required argument 'GalleryName'")
-	}
-	if args == nil || args.Identifier == nil {
-		return nil, errors.New("missing required argument 'Identifier'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.OsState == nil {
-		return nil, errors.New("missing required argument 'OsState'")
-	}
-	if args == nil || args.OsType == nil {
-		return nil, errors.New("missing required argument 'OsType'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &GalleryImageArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.GalleryImageName == nil {
+		return nil, errors.New("invalid value for required argument 'GalleryImageName'")
+	}
+	if args.GalleryName == nil {
+		return nil, errors.New("invalid value for required argument 'GalleryName'")
+	}
+	if args.Identifier == nil {
+		return nil, errors.New("invalid value for required argument 'Identifier'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -243,9 +238,9 @@ type GalleryImageArgs struct {
 	// Resource location
 	Location pulumi.StringInput
 	// The allowed values for OS State are 'Generalized'.
-	OsState pulumi.StringInput
+	OsState OperatingSystemStateTypes
 	// This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-	OsType pulumi.StringInput
+	OsType OperatingSystemTypes
 	// The privacy statement uri.
 	PrivacyStatementUri pulumi.StringPtrInput
 	// Describes the gallery Image Definition purchase plan. This is used by marketplace images.

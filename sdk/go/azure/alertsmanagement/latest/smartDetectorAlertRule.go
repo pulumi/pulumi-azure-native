@@ -44,32 +44,33 @@ type SmartDetectorAlertRule struct {
 // NewSmartDetectorAlertRule registers a new resource with the given unique name, arguments, and options.
 func NewSmartDetectorAlertRule(ctx *pulumi.Context,
 	name string, args *SmartDetectorAlertRuleArgs, opts ...pulumi.ResourceOption) (*SmartDetectorAlertRule, error) {
-	if args == nil || args.ActionGroups == nil {
-		return nil, errors.New("missing required argument 'ActionGroups'")
-	}
-	if args == nil || args.AlertRuleName == nil {
-		return nil, errors.New("missing required argument 'AlertRuleName'")
-	}
-	if args == nil || args.Detector == nil {
-		return nil, errors.New("missing required argument 'Detector'")
-	}
-	if args == nil || args.Frequency == nil {
-		return nil, errors.New("missing required argument 'Frequency'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Scope == nil {
-		return nil, errors.New("missing required argument 'Scope'")
-	}
-	if args == nil || args.Severity == nil {
-		return nil, errors.New("missing required argument 'Severity'")
-	}
-	if args == nil || args.State == nil {
-		return nil, errors.New("missing required argument 'State'")
-	}
 	if args == nil {
-		args = &SmartDetectorAlertRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ActionGroups == nil {
+		return nil, errors.New("invalid value for required argument 'ActionGroups'")
+	}
+	if args.AlertRuleName == nil {
+		return nil, errors.New("invalid value for required argument 'AlertRuleName'")
+	}
+	if args.Detector == nil {
+		return nil, errors.New("invalid value for required argument 'Detector'")
+	}
+	if args.Frequency == nil {
+		return nil, errors.New("invalid value for required argument 'Frequency'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Scope == nil {
+		return nil, errors.New("invalid value for required argument 'Scope'")
+	}
+	if args.Severity == nil {
+		return nil, errors.New("invalid value for required argument 'Severity'")
+	}
+	if args.State == nil {
+		return nil, errors.New("invalid value for required argument 'State'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

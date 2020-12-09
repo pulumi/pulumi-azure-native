@@ -30,17 +30,18 @@ type ActionRuleByName struct {
 // NewActionRuleByName registers a new resource with the given unique name, arguments, and options.
 func NewActionRuleByName(ctx *pulumi.Context,
 	name string, args *ActionRuleByNameArgs, opts ...pulumi.ResourceOption) (*ActionRuleByName, error) {
-	if args == nil || args.ActionRuleName == nil {
-		return nil, errors.New("missing required argument 'ActionRuleName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroup == nil {
-		return nil, errors.New("missing required argument 'ResourceGroup'")
-	}
 	if args == nil {
-		args = &ActionRuleByNameArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ActionRuleName == nil {
+		return nil, errors.New("invalid value for required argument 'ActionRuleName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroup == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroup'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -222,7 +222,7 @@ namespace Pulumi.AzureNextGen.Network.V20181001
         /// The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
         /// </summary>
         [Input("publicIPAddressVersion")]
-        public Input<string>? PublicIPAddressVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20181001.IPVersion>? PublicIPAddressVersion { get; set; }
 
         [Input("publicIPAddresses")]
         private InputList<Inputs.ReferencedPublicIpAddressArgs>? _publicIPAddresses;

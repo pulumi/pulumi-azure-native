@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'SkuArgs',
@@ -16,23 +17,23 @@ __all__ = [
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str]):
+                 name: pulumi.Input[Union[str, 'SkuName']]):
         """
         The SKU of a container registry.
-        :param pulumi.Input[str] name: The SKU name of the container registry. Required for registry creation.
+        :param pulumi.Input[Union[str, 'SkuName']] name: The SKU name of the container registry. Required for registry creation.
         """
         pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input[Union[str, 'SkuName']]:
         """
         The SKU name of the container registry. Required for registry creation.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
         pulumi.set(self, "name", value)
 
 

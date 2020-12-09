@@ -151,7 +151,7 @@ namespace Pulumi.AzureNextGen.Sql.V20180601Preview
         public Input<string> ManagedInstanceName { get; set; } = null!;
 
         [Input("rank")]
-        public Input<string>? Rank { get; set; }
+        public Input<Pulumi.AzureNextGen.Sql.V20180601Preview.SensitivityLabelRank>? Rank { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['Role']
 
@@ -16,7 +17,7 @@ class Role(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'RoleTypes']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -28,7 +29,7 @@ class Role(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] device_name: The device name.
-        :param pulumi.Input[str] kind: Role type.
+        :param pulumi.Input[Union[str, 'RoleTypes']] kind: Role type.
         :param pulumi.Input[str] name: The role name.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         """
@@ -49,16 +50,16 @@ class Role(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if device_name is None:
+            if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
-            if kind is None:
+            if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = kind
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['type'] = None

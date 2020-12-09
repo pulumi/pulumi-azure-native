@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AuthorizationArgs',
@@ -160,11 +161,11 @@ class EligibleAuthorizationArgs:
 @pulumi.input_type
 class JustInTimeAccessPolicyArgs:
     def __init__(__self__, *,
-                 multi_factor_auth_provider: pulumi.Input[str],
+                 multi_factor_auth_provider: pulumi.Input[Union[str, 'MultiFactorAuthProvider']],
                  maximum_activation_duration: Optional[pulumi.Input[str]] = None):
         """
         Just-in-time access policy setting.
-        :param pulumi.Input[str] multi_factor_auth_provider: MFA provider.
+        :param pulumi.Input[Union[str, 'MultiFactorAuthProvider']] multi_factor_auth_provider: MFA provider.
         :param pulumi.Input[str] maximum_activation_duration: Maximum access duration in ISO 8601 format.  The default value is "PT8H".
         """
         pulumi.set(__self__, "multi_factor_auth_provider", multi_factor_auth_provider)
@@ -173,14 +174,14 @@ class JustInTimeAccessPolicyArgs:
 
     @property
     @pulumi.getter(name="multiFactorAuthProvider")
-    def multi_factor_auth_provider(self) -> pulumi.Input[str]:
+    def multi_factor_auth_provider(self) -> pulumi.Input[Union[str, 'MultiFactorAuthProvider']]:
         """
         MFA provider.
         """
         return pulumi.get(self, "multi_factor_auth_provider")
 
     @multi_factor_auth_provider.setter
-    def multi_factor_auth_provider(self, value: pulumi.Input[str]):
+    def multi_factor_auth_provider(self, value: pulumi.Input[Union[str, 'MultiFactorAuthProvider']]):
         pulumi.set(self, "multi_factor_auth_provider", value)
 
     @property

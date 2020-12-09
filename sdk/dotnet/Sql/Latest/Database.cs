@@ -317,7 +317,7 @@ namespace Pulumi.AzureNextGen.Sql.Latest
         /// Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
         /// </summary>
         [Input("createMode")]
-        public Input<string>? CreateMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.Latest.CreateMode>? CreateMode { get; set; }
 
         /// <summary>
         /// The name of the database to be operated on (updated or created).
@@ -339,7 +339,7 @@ namespace Pulumi.AzureNextGen.Sql.Latest
         /// ````
         /// </summary>
         [Input("edition")]
-        public Input<string>? Edition { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.Latest.DatabaseEdition>? Edition { get; set; }
 
         /// <summary>
         /// The name of the elastic pool the database is in. If elasticPoolName and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveName is ignored. Not supported for DataWarehouse edition.
@@ -363,7 +363,7 @@ namespace Pulumi.AzureNextGen.Sql.Latest
         /// Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
         /// </summary>
         [Input("readScale")]
-        public Input<string>? ReadScale { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.Latest.ReadScale>? ReadScale { get; set; }
 
         /// <summary>
         /// Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
@@ -393,7 +393,7 @@ namespace Pulumi.AzureNextGen.Sql.Latest
         /// ````
         /// </summary>
         [Input("requestedServiceObjectiveName")]
-        public Input<string>? RequestedServiceObjectiveName { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.Latest.ServiceObjectiveName>? RequestedServiceObjectiveName { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -411,7 +411,7 @@ namespace Pulumi.AzureNextGen.Sql.Latest
         /// Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
         /// </summary>
         [Input("sampleName")]
-        public Input<string>? SampleName { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.Latest.SampleName>? SampleName { get; set; }
 
         /// <summary>
         /// The name of the server.

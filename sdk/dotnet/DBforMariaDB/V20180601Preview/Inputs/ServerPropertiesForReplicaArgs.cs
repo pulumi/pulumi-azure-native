@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601Preview.Inputs
         /// Enable ssl enforcement or not when connect to server.
         /// </summary>
         [Input("sslEnforcement")]
-        public Input<string>? SslEnforcement { get; set; }
+        public Input<Pulumi.AzureNextGen.DBforMariaDB.V20180601Preview.SslEnforcementEnum>? SslEnforcement { get; set; }
 
         /// <summary>
         /// Storage profile of a server.
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601Preview.Inputs
         /// Server version.
         /// </summary>
         [Input("version")]
-        public Input<string>? Version { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DBforMariaDB.V20180601Preview.ServerVersion>? Version { get; set; }
 
         public ServerPropertiesForReplicaArgs()
         {

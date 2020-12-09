@@ -50,17 +50,18 @@ type NetworkFunction struct {
 // NewNetworkFunction registers a new resource with the given unique name, arguments, and options.
 func NewNetworkFunction(ctx *pulumi.Context,
 	name string, args *NetworkFunctionArgs, opts ...pulumi.ResourceOption) (*NetworkFunction, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.NetworkFunctionName == nil {
-		return nil, errors.New("missing required argument 'NetworkFunctionName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &NetworkFunctionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.NetworkFunctionName == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkFunctionName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource NetworkFunction
 	err := ctx.RegisterResource("azure-nextgen:hybridnetwork/v20200101preview:NetworkFunction", name, args, &resource, opts...)

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -126,13 +126,13 @@ export class Device extends pulumi.CustomResource {
     constructor(name: string, args: DeviceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.deviceName === undefined) {
+            if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["dataBoxEdgeDeviceStatus"] = args ? args.dataBoxEdgeDeviceStatus : undefined;
@@ -199,7 +199,7 @@ export interface DeviceArgs {
     /**
      * The status of the Data Box Edge/Gateway device.
      */
-    readonly dataBoxEdgeDeviceStatus?: pulumi.Input<string>;
+    readonly dataBoxEdgeDeviceStatus?: pulumi.Input<string | enums.databoxedge.v20190801.DataBoxEdgeDeviceStatus>;
     /**
      * The Description of the Data Box Edge/Gateway device.
      */

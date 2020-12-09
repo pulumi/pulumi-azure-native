@@ -50,10 +50,10 @@ class RegistrationAssignment(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['properties'] = properties
-            if registration_assignment_id is None:
+            if registration_assignment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'registration_assignment_id'")
             __props__['registration_assignment_id'] = registration_assignment_id
-            if scope is None:
+            if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
             __props__['name'] = None

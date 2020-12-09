@@ -117,7 +117,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         /// The sku deployment mode.
         /// </summary>
         [Input("deploymentMode")]
-        public Input<string>? DeploymentMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.HybridNetwork.V20200101Preview.SkuDeploymentMode>? DeploymentMode { get; set; }
 
         /// <summary>
         /// The parameters for the managed application to be supplied by the vendor.
@@ -153,7 +153,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         /// The sku type.
         /// </summary>
         [Input("skuType")]
-        public Input<string>? SkuType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.HybridNetwork.V20200101Preview.SkuType>? SkuType { get; set; }
 
         /// <summary>
         /// The name of the vendor.

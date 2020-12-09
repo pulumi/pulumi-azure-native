@@ -680,7 +680,7 @@ type ApplicationDefinitionArtifactArgs struct {
 	// The managed application definition artifact name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The managed application definition artifact type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type ApplicationArtifactType `pulumi:"type"`
 	// The managed application definition artifact blob uri.
 	Uri pulumi.StringInput `pulumi:"uri"`
 }
@@ -3135,7 +3135,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type ResourceIdentityType `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -74,16 +74,16 @@ export class MachineLearningDatastore extends pulumi.CustomResource {
     constructor(name: string, args: MachineLearningDatastoreArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.dataStoreType === undefined) {
+            if ((!args || args.dataStoreType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataStoreType'");
             }
-            if (!args || args.datastoreName === undefined) {
+            if ((!args || args.datastoreName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'datastoreName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.workspaceName === undefined) {
+            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["accountKey"] = args ? args.accountKey : undefined;
@@ -185,7 +185,7 @@ export interface MachineLearningDatastoreArgs {
     /**
      * Specifies datastore type.
      */
-    readonly dataStoreType: pulumi.Input<string>;
+    readonly dataStoreType: pulumi.Input<string | enums.machinelearningservices.v20200501preview.DatastoreTypeArm>;
     /**
      * The database name.
      */

@@ -220,13 +220,13 @@ namespace Pulumi.AzureNextGen.Batch.Latest
         /// The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
         /// </summary>
         [Input("poolAllocationMode")]
-        public Input<string>? PoolAllocationMode { get; set; }
+        public Input<Pulumi.AzureNextGen.Batch.Latest.PoolAllocationMode>? PoolAllocationMode { get; set; }
 
         /// <summary>
         /// If not specified, the default value is 'enabled'.
         /// </summary>
         [Input("publicNetworkAccess")]
-        public Input<string>? PublicNetworkAccess { get; set; }
+        public Input<Pulumi.AzureNextGen.Batch.Latest.PublicNetworkAccessType>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the Batch account.

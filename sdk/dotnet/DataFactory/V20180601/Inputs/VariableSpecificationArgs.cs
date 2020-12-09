@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         /// Variable type.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.V20180601.VariableType> Type { get; set; } = null!;
 
         public VariableSpecificationArgs()
         {

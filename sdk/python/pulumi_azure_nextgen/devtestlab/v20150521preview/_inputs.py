@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ArtifactDeploymentStatusPropertiesArgs',
@@ -841,31 +842,31 @@ class LabVirtualMachineArgs:
 @pulumi.input_type
 class LinuxOsInfoArgs:
     def __init__(__self__, *,
-                 linux_os_state: Optional[pulumi.Input[str]] = None):
+                 linux_os_state: Optional[pulumi.Input[Union[str, 'LinuxOsState']]] = None):
         """
         Information about a Linux OS.
-        :param pulumi.Input[str] linux_os_state: The state of the Linux OS.
+        :param pulumi.Input[Union[str, 'LinuxOsState']] linux_os_state: The state of the Linux OS.
         """
         if linux_os_state is not None:
             pulumi.set(__self__, "linux_os_state", linux_os_state)
 
     @property
     @pulumi.getter(name="linuxOsState")
-    def linux_os_state(self) -> Optional[pulumi.Input[str]]:
+    def linux_os_state(self) -> Optional[pulumi.Input[Union[str, 'LinuxOsState']]]:
         """
         The state of the Linux OS.
         """
         return pulumi.get(self, "linux_os_state")
 
     @linux_os_state.setter
-    def linux_os_state(self, value: Optional[pulumi.Input[str]]):
+    def linux_os_state(self, value: Optional[pulumi.Input[Union[str, 'LinuxOsState']]]):
         pulumi.set(self, "linux_os_state", value)
 
 
 @pulumi.input_type
 class SubnetArgs:
     def __init__(__self__, *,
-                 allow_public_ip: Optional[pulumi.Input[str]] = None,
+                 allow_public_ip: Optional[pulumi.Input[Union[str, 'UsagePermissionType']]] = None,
                  lab_subnet_name: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None):
         if allow_public_ip is not None:
@@ -877,11 +878,11 @@ class SubnetArgs:
 
     @property
     @pulumi.getter(name="allowPublicIp")
-    def allow_public_ip(self) -> Optional[pulumi.Input[str]]:
+    def allow_public_ip(self) -> Optional[pulumi.Input[Union[str, 'UsagePermissionType']]]:
         return pulumi.get(self, "allow_public_ip")
 
     @allow_public_ip.setter
-    def allow_public_ip(self, value: Optional[pulumi.Input[str]]):
+    def allow_public_ip(self, value: Optional[pulumi.Input[Union[str, 'UsagePermissionType']]]):
         pulumi.set(self, "allow_public_ip", value)
 
     @property
@@ -908,14 +909,14 @@ class SubnetOverrideArgs:
     def __init__(__self__, *,
                  lab_subnet_name: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
-                 use_in_vm_creation_permission: Optional[pulumi.Input[str]] = None,
-                 use_public_ip_address_permission: Optional[pulumi.Input[str]] = None):
+                 use_in_vm_creation_permission: Optional[pulumi.Input[Union[str, 'UsagePermissionType']]] = None,
+                 use_public_ip_address_permission: Optional[pulumi.Input[Union[str, 'UsagePermissionType']]] = None):
         """
         Property overrides on a subnet of a virtual network.
         :param pulumi.Input[str] lab_subnet_name: The name given to the subnet within the lab.
         :param pulumi.Input[str] resource_id: The resource identifier of the subnet.
-        :param pulumi.Input[str] use_in_vm_creation_permission: Indicates whether this subnet can be used during virtual machine creation.
-        :param pulumi.Input[str] use_public_ip_address_permission: Indicates whether public IP addresses can be assigned to virtual machines on this subnet.
+        :param pulumi.Input[Union[str, 'UsagePermissionType']] use_in_vm_creation_permission: Indicates whether this subnet can be used during virtual machine creation.
+        :param pulumi.Input[Union[str, 'UsagePermissionType']] use_public_ip_address_permission: Indicates whether public IP addresses can be assigned to virtual machines on this subnet.
         """
         if lab_subnet_name is not None:
             pulumi.set(__self__, "lab_subnet_name", lab_subnet_name)
@@ -952,26 +953,26 @@ class SubnetOverrideArgs:
 
     @property
     @pulumi.getter(name="useInVmCreationPermission")
-    def use_in_vm_creation_permission(self) -> Optional[pulumi.Input[str]]:
+    def use_in_vm_creation_permission(self) -> Optional[pulumi.Input[Union[str, 'UsagePermissionType']]]:
         """
         Indicates whether this subnet can be used during virtual machine creation.
         """
         return pulumi.get(self, "use_in_vm_creation_permission")
 
     @use_in_vm_creation_permission.setter
-    def use_in_vm_creation_permission(self, value: Optional[pulumi.Input[str]]):
+    def use_in_vm_creation_permission(self, value: Optional[pulumi.Input[Union[str, 'UsagePermissionType']]]):
         pulumi.set(self, "use_in_vm_creation_permission", value)
 
     @property
     @pulumi.getter(name="usePublicIpAddressPermission")
-    def use_public_ip_address_permission(self) -> Optional[pulumi.Input[str]]:
+    def use_public_ip_address_permission(self) -> Optional[pulumi.Input[Union[str, 'UsagePermissionType']]]:
         """
         Indicates whether public IP addresses can be assigned to virtual machines on this subnet.
         """
         return pulumi.get(self, "use_public_ip_address_permission")
 
     @use_public_ip_address_permission.setter
-    def use_public_ip_address_permission(self, value: Optional[pulumi.Input[str]]):
+    def use_public_ip_address_permission(self, value: Optional[pulumi.Input[Union[str, 'UsagePermissionType']]]):
         pulumi.set(self, "use_public_ip_address_permission", value)
 
 
@@ -1018,24 +1019,24 @@ class WeekDetailsArgs:
 @pulumi.input_type
 class WindowsOsInfoArgs:
     def __init__(__self__, *,
-                 windows_os_state: Optional[pulumi.Input[str]] = None):
+                 windows_os_state: Optional[pulumi.Input[Union[str, 'WindowsOsState']]] = None):
         """
         Information about a Windows OS.
-        :param pulumi.Input[str] windows_os_state: The state of the Windows OS.
+        :param pulumi.Input[Union[str, 'WindowsOsState']] windows_os_state: The state of the Windows OS.
         """
         if windows_os_state is not None:
             pulumi.set(__self__, "windows_os_state", windows_os_state)
 
     @property
     @pulumi.getter(name="windowsOsState")
-    def windows_os_state(self) -> Optional[pulumi.Input[str]]:
+    def windows_os_state(self) -> Optional[pulumi.Input[Union[str, 'WindowsOsState']]]:
         """
         The state of the Windows OS.
         """
         return pulumi.get(self, "windows_os_state")
 
     @windows_os_state.setter
-    def windows_os_state(self, value: Optional[pulumi.Input[str]]):
+    def windows_os_state(self, value: Optional[pulumi.Input[Union[str, 'WindowsOsState']]]):
         pulumi.set(self, "windows_os_state", value)
 
 

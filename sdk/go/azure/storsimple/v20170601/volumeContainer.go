@@ -42,23 +42,24 @@ type VolumeContainer struct {
 // NewVolumeContainer registers a new resource with the given unique name, arguments, and options.
 func NewVolumeContainer(ctx *pulumi.Context,
 	name string, args *VolumeContainerArgs, opts ...pulumi.ResourceOption) (*VolumeContainer, error) {
-	if args == nil || args.DeviceName == nil {
-		return nil, errors.New("missing required argument 'DeviceName'")
-	}
-	if args == nil || args.ManagerName == nil {
-		return nil, errors.New("missing required argument 'ManagerName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.StorageAccountCredentialId == nil {
-		return nil, errors.New("missing required argument 'StorageAccountCredentialId'")
-	}
-	if args == nil || args.VolumeContainerName == nil {
-		return nil, errors.New("missing required argument 'VolumeContainerName'")
-	}
 	if args == nil {
-		args = &VolumeContainerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DeviceName == nil {
+		return nil, errors.New("invalid value for required argument 'DeviceName'")
+	}
+	if args.ManagerName == nil {
+		return nil, errors.New("invalid value for required argument 'ManagerName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.StorageAccountCredentialId == nil {
+		return nil, errors.New("invalid value for required argument 'StorageAccountCredentialId'")
+	}
+	if args.VolumeContainerName == nil {
+		return nil, errors.New("invalid value for required argument 'VolumeContainerName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -173,7 +174,7 @@ type VolumeContainerArgs struct {
 	// The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
 	EncryptionKey AsymmetricEncryptedSecretPtrInput
 	// The Kind of the object. Currently only Series8000 is supported
-	Kind pulumi.StringPtrInput
+	Kind Kind
 	// The manager name
 	ManagerName pulumi.StringInput
 	// The resource group name

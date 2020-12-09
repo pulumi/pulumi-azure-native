@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Network.V20190901.Inputs
         /// Describes if it is in detection mode or prevention mode at policy level.
         /// </summary>
         [Input("mode")]
-        public Input<string>? Mode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190901.WebApplicationFirewallMode>? Mode { get; set; }
 
         /// <summary>
         /// Whether to allow WAF to check request Body.
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Network.V20190901.Inputs
         /// Describes if the policy is in enabled state or disabled state.
         /// </summary>
         [Input("state")]
-        public Input<string>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190901.WebApplicationFirewallEnabledState>? State { get; set; }
 
         public PolicySettingsArgs()
         {

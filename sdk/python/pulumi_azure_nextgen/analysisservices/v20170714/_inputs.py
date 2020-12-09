@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'GatewayDetailsArgs',
@@ -42,11 +43,11 @@ class GatewayDetailsArgs:
 class ResourceSkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 tier: Optional[pulumi.Input[str]] = None):
+                 tier: Optional[pulumi.Input[Union[str, 'SkuTier']]] = None):
         """
         Represents the SKU name and Azure pricing tier for Analysis Services resource.
         :param pulumi.Input[str] name: Name of the SKU level.
-        :param pulumi.Input[str] tier: The name of the Azure pricing tier to which the SKU applies.
+        :param pulumi.Input[Union[str, 'SkuTier']] tier: The name of the Azure pricing tier to which the SKU applies.
         """
         pulumi.set(__self__, "name", name)
         if tier is not None:
@@ -66,14 +67,14 @@ class ResourceSkuArgs:
 
     @property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[str]]:
+    def tier(self) -> Optional[pulumi.Input[Union[str, 'SkuTier']]]:
         """
         The name of the Azure pricing tier to which the SKU applies.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[str]]):
+    def tier(self, value: Optional[pulumi.Input[Union[str, 'SkuTier']]]):
         pulumi.set(self, "tier", value)
 
 

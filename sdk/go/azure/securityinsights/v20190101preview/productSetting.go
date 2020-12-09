@@ -28,23 +28,24 @@ type ProductSetting struct {
 // NewProductSetting registers a new resource with the given unique name, arguments, and options.
 func NewProductSetting(ctx *pulumi.Context,
 	name string, args *ProductSettingArgs, opts ...pulumi.ResourceOption) (*ProductSetting, error) {
-	if args == nil || args.Kind == nil {
-		return nil, errors.New("missing required argument 'Kind'")
-	}
-	if args == nil || args.OperationalInsightsResourceProvider == nil {
-		return nil, errors.New("missing required argument 'OperationalInsightsResourceProvider'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SettingsName == nil {
-		return nil, errors.New("missing required argument 'SettingsName'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &ProductSettingArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Kind == nil {
+		return nil, errors.New("invalid value for required argument 'Kind'")
+	}
+	if args.OperationalInsightsResourceProvider == nil {
+		return nil, errors.New("invalid value for required argument 'OperationalInsightsResourceProvider'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SettingsName == nil {
+		return nil, errors.New("invalid value for required argument 'SettingsName'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	var resource ProductSetting
 	err := ctx.RegisterResource("azure-nextgen:securityinsights/v20190101preview:ProductSetting", name, args, &resource, opts...)

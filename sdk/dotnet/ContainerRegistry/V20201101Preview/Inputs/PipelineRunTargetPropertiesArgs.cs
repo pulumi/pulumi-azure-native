@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.Inputs
         /// The type of the target.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.PipelineRunTargetType>? Type { get; set; }
 
         public PipelineRunTargetPropertiesArgs()
         {

@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Network.V20180801.Inputs
         /// describes if the policy is in enabled state or disabled state
         /// </summary>
         [Input("enabledState")]
-        public Input<string>? EnabledState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180801.EnabledState>? EnabledState { get; set; }
 
         /// <summary>
         /// Describes if it is in detection mode  or prevention mode at policy level
         /// </summary>
         [Input("mode")]
-        public Input<string>? Mode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180801.Mode>? Mode { get; set; }
 
         public PolicySettingsArgs()
         {

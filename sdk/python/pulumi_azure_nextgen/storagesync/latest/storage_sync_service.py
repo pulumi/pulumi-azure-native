@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 
 __all__ = ['StorageSyncService']
 
@@ -16,7 +17,7 @@ class StorageSyncService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 incoming_traffic_policy: Optional[pulumi.Input[str]] = None,
+                 incoming_traffic_policy: Optional[pulumi.Input[Union[str, 'IncomingTrafficPolicy']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_sync_service_name: Optional[pulumi.Input[str]] = None,
@@ -29,7 +30,7 @@ class StorageSyncService(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] incoming_traffic_policy: Incoming Traffic Policy
+        :param pulumi.Input[Union[str, 'IncomingTrafficPolicy']] incoming_traffic_policy: Incoming Traffic Policy
         :param pulumi.Input[str] location: Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] storage_sync_service_name: Name of Storage Sync Service resource.
@@ -53,13 +54,13 @@ class StorageSyncService(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['incoming_traffic_policy'] = incoming_traffic_policy
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if storage_sync_service_name is None:
+            if storage_sync_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_sync_service_name'")
             __props__['storage_sync_service_name'] = storage_sync_service_name
             __props__['tags'] = tags

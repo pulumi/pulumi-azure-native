@@ -46,23 +46,24 @@ type IotSecuritySolution struct {
 // NewIotSecuritySolution registers a new resource with the given unique name, arguments, and options.
 func NewIotSecuritySolution(ctx *pulumi.Context,
 	name string, args *IotSecuritySolutionArgs, opts ...pulumi.ResourceOption) (*IotSecuritySolution, error) {
-	if args == nil || args.DisplayName == nil {
-		return nil, errors.New("missing required argument 'DisplayName'")
-	}
-	if args == nil || args.IotHubs == nil {
-		return nil, errors.New("missing required argument 'IotHubs'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SolutionName == nil {
-		return nil, errors.New("missing required argument 'SolutionName'")
-	}
-	if args == nil || args.Workspace == nil {
-		return nil, errors.New("missing required argument 'Workspace'")
-	}
 	if args == nil {
-		args = &IotSecuritySolutionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DisplayName == nil {
+		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
+	if args.IotHubs == nil {
+		return nil, errors.New("invalid value for required argument 'IotHubs'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SolutionName == nil {
+		return nil, errors.New("invalid value for required argument 'SolutionName'")
+	}
+	if args.Workspace == nil {
+		return nil, errors.New("invalid value for required argument 'Workspace'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

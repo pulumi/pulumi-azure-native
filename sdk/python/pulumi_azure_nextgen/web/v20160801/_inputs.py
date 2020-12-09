@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ApiDefinitionInfoArgs',
@@ -66,12 +67,12 @@ class ApiDefinitionInfoArgs:
 @pulumi.input_type
 class AutoHealActionsArgs:
     def __init__(__self__, *,
-                 action_type: Optional[pulumi.Input[str]] = None,
+                 action_type: Optional[pulumi.Input['AutoHealActionType']] = None,
                  custom_action: Optional[pulumi.Input['AutoHealCustomActionArgs']] = None,
                  min_process_execution_time: Optional[pulumi.Input[str]] = None):
         """
         Actions which to take by the auto-heal module when a rule is triggered.
-        :param pulumi.Input[str] action_type: Predefined action to be taken.
+        :param pulumi.Input['AutoHealActionType'] action_type: Predefined action to be taken.
         :param pulumi.Input['AutoHealCustomActionArgs'] custom_action: Custom action to be taken.
         :param pulumi.Input[str] min_process_execution_time: Minimum time the process must execute
                before taking the action
@@ -85,14 +86,14 @@ class AutoHealActionsArgs:
 
     @property
     @pulumi.getter(name="actionType")
-    def action_type(self) -> Optional[pulumi.Input[str]]:
+    def action_type(self) -> Optional[pulumi.Input['AutoHealActionType']]:
         """
         Predefined action to be taken.
         """
         return pulumi.get(self, "action_type")
 
     @action_type.setter
-    def action_type(self, value: Optional[pulumi.Input[str]]):
+    def action_type(self, value: Optional[pulumi.Input['AutoHealActionType']]):
         pulumi.set(self, "action_type", value)
 
     @property
@@ -278,14 +279,14 @@ class AutoHealTriggersArgs:
 class BackupScheduleArgs:
     def __init__(__self__, *,
                  frequency_interval: int,
-                 frequency_unit: str,
+                 frequency_unit: 'FrequencyUnit',
                  keep_at_least_one_backup: bool,
                  retention_period_in_days: int,
                  start_time: Optional[str] = None):
         """
         Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
         :param int frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
-        :param str frequency_unit: The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
+        :param 'FrequencyUnit' frequency_unit: The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
         :param bool keep_at_least_one_backup: True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
         :param int retention_period_in_days: After how many days backups should be deleted.
         :param str start_time: When the schedule should start working.
@@ -311,14 +312,14 @@ class BackupScheduleArgs:
 
     @property
     @pulumi.getter(name="frequencyUnit")
-    def frequency_unit(self) -> str:
+    def frequency_unit(self) -> 'FrequencyUnit':
         """
         The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
         """
         return pulumi.get(self, "frequency_unit")
 
     @frequency_unit.setter
-    def frequency_unit(self, value: str):
+    def frequency_unit(self, value: 'FrequencyUnit'):
         pulumi.set(self, "frequency_unit", value)
 
     @property
@@ -556,12 +557,12 @@ class ConnStringInfoArgs:
     def __init__(__self__, *,
                  connection_string: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input['ConnectionStringType']] = None):
         """
         Database connection string information.
         :param pulumi.Input[str] connection_string: Connection string value.
         :param pulumi.Input[str] name: Name of connection string.
-        :param pulumi.Input[str] type: Type of database.
+        :param pulumi.Input['ConnectionStringType'] type: Type of database.
         """
         if connection_string is not None:
             pulumi.set(__self__, "connection_string", connection_string)
@@ -596,14 +597,14 @@ class ConnStringInfoArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['ConnectionStringType']]:
         """
         Type of database.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['ConnectionStringType']]):
         pulumi.set(self, "type", value)
 
 
@@ -636,13 +637,13 @@ class CorsSettingsArgs:
 @pulumi.input_type
 class DatabaseBackupSettingArgs:
     def __init__(__self__, *,
-                 database_type: str,
+                 database_type: Union[str, 'DatabaseType'],
                  connection_string: Optional[str] = None,
                  connection_string_name: Optional[str] = None,
                  name: Optional[str] = None):
         """
         Database backup settings.
-        :param str database_type: Database type (e.g. SqlAzure / MySql).
+        :param Union[str, 'DatabaseType'] database_type: Database type (e.g. SqlAzure / MySql).
         :param str connection_string: Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.
         :param str connection_string_name: Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
                This is used during restore with overwrite connection strings options.
@@ -657,14 +658,14 @@ class DatabaseBackupSettingArgs:
 
     @property
     @pulumi.getter(name="databaseType")
-    def database_type(self) -> str:
+    def database_type(self) -> Union[str, 'DatabaseType']:
         """
         Database type (e.g. SqlAzure / MySql).
         """
         return pulumi.get(self, "database_type")
 
     @database_type.setter
-    def database_type(self, value: str):
+    def database_type(self, value: Union[str, 'DatabaseType']):
         pulumi.set(self, "database_type", value)
 
     @property
@@ -786,17 +787,17 @@ class HandlerMappingArgs:
 @pulumi.input_type
 class HostNameSslStateArgs:
     def __init__(__self__, *,
-                 host_type: Optional[pulumi.Input[str]] = None,
+                 host_type: Optional[pulumi.Input['HostType']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 ssl_state: Optional[pulumi.Input[str]] = None,
+                 ssl_state: Optional[pulumi.Input['SslState']] = None,
                  thumbprint: Optional[pulumi.Input[str]] = None,
                  to_update: Optional[pulumi.Input[bool]] = None,
                  virtual_ip: Optional[pulumi.Input[str]] = None):
         """
         SSL-enabled hostname.
-        :param pulumi.Input[str] host_type: Indicates whether the hostname is a standard or repository hostname.
+        :param pulumi.Input['HostType'] host_type: Indicates whether the hostname is a standard or repository hostname.
         :param pulumi.Input[str] name: Hostname.
-        :param pulumi.Input[str] ssl_state: SSL type.
+        :param pulumi.Input['SslState'] ssl_state: SSL type.
         :param pulumi.Input[str] thumbprint: SSL certificate thumbprint.
         :param pulumi.Input[bool] to_update: Set to <code>true</code> to update existing hostname.
         :param pulumi.Input[str] virtual_ip: Virtual IP address assigned to the hostname if IP based SSL is enabled.
@@ -816,14 +817,14 @@ class HostNameSslStateArgs:
 
     @property
     @pulumi.getter(name="hostType")
-    def host_type(self) -> Optional[pulumi.Input[str]]:
+    def host_type(self) -> Optional[pulumi.Input['HostType']]:
         """
         Indicates whether the hostname is a standard or repository hostname.
         """
         return pulumi.get(self, "host_type")
 
     @host_type.setter
-    def host_type(self, value: Optional[pulumi.Input[str]]):
+    def host_type(self, value: Optional[pulumi.Input['HostType']]):
         pulumi.set(self, "host_type", value)
 
     @property
@@ -840,14 +841,14 @@ class HostNameSslStateArgs:
 
     @property
     @pulumi.getter(name="sslState")
-    def ssl_state(self) -> Optional[pulumi.Input[str]]:
+    def ssl_state(self) -> Optional[pulumi.Input['SslState']]:
         """
         SSL type.
         """
         return pulumi.get(self, "ssl_state")
 
     @ssl_state.setter
-    def ssl_state(self, value: Optional[pulumi.Input[str]]):
+    def ssl_state(self, value: Optional[pulumi.Input['SslState']]):
         pulumi.set(self, "ssl_state", value)
 
     @property
@@ -953,24 +954,24 @@ class IpSecurityRestrictionArgs:
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]] = None):
         """
         Managed service identity.
-        :param pulumi.Input[str] type: Type of managed service identity.
+        :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]]:
         """
         Type of managed service identity.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -1314,11 +1315,11 @@ class SiteConfigArgs:
                  java_version: Optional[pulumi.Input[str]] = None,
                  limits: Optional[pulumi.Input['SiteLimitsArgs']] = None,
                  linux_fx_version: Optional[pulumi.Input[str]] = None,
-                 load_balancing: Optional[pulumi.Input[str]] = None,
+                 load_balancing: Optional[pulumi.Input['SiteLoadBalancing']] = None,
                  local_my_sql_enabled: Optional[pulumi.Input[bool]] = None,
                  logs_directory_size_limit: Optional[pulumi.Input[int]] = None,
-                 managed_pipeline_mode: Optional[pulumi.Input[str]] = None,
-                 min_tls_version: Optional[pulumi.Input[str]] = None,
+                 managed_pipeline_mode: Optional[pulumi.Input['ManagedPipelineMode']] = None,
+                 min_tls_version: Optional[pulumi.Input[Union[str, 'SupportedTlsVersions']]] = None,
                  net_framework_version: Optional[pulumi.Input[str]] = None,
                  node_version: Optional[pulumi.Input[str]] = None,
                  number_of_workers: Optional[pulumi.Input[int]] = None,
@@ -1330,7 +1331,7 @@ class SiteConfigArgs:
                  remote_debugging_version: Optional[pulumi.Input[str]] = None,
                  request_tracing_enabled: Optional[pulumi.Input[bool]] = None,
                  request_tracing_expiration_time: Optional[pulumi.Input[str]] = None,
-                 scm_type: Optional[pulumi.Input[str]] = None,
+                 scm_type: Optional[pulumi.Input[Union[str, 'ScmType']]] = None,
                  tracing_options: Optional[pulumi.Input[str]] = None,
                  use32_bit_worker_process: Optional[pulumi.Input[bool]] = None,
                  virtual_applications: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualApplicationArgs']]]] = None,
@@ -1360,11 +1361,11 @@ class SiteConfigArgs:
         :param pulumi.Input[str] java_version: Java version.
         :param pulumi.Input['SiteLimitsArgs'] limits: Site limits.
         :param pulumi.Input[str] linux_fx_version: Linux App Framework and version
-        :param pulumi.Input[str] load_balancing: Site load balancing.
+        :param pulumi.Input['SiteLoadBalancing'] load_balancing: Site load balancing.
         :param pulumi.Input[bool] local_my_sql_enabled: <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
         :param pulumi.Input[int] logs_directory_size_limit: HTTP logs directory size limit.
-        :param pulumi.Input[str] managed_pipeline_mode: Managed pipeline mode.
-        :param pulumi.Input[str] min_tls_version: MinTlsVersion: configures the minimum version of TLS required for SSL requests
+        :param pulumi.Input['ManagedPipelineMode'] managed_pipeline_mode: Managed pipeline mode.
+        :param pulumi.Input[Union[str, 'SupportedTlsVersions']] min_tls_version: MinTlsVersion: configures the minimum version of TLS required for SSL requests
         :param pulumi.Input[str] net_framework_version: .NET Framework version.
         :param pulumi.Input[str] node_version: Version of Node.js.
         :param pulumi.Input[int] number_of_workers: Number of workers.
@@ -1376,7 +1377,7 @@ class SiteConfigArgs:
         :param pulumi.Input[str] remote_debugging_version: Remote debugging version.
         :param pulumi.Input[bool] request_tracing_enabled: <code>true</code> if request tracing is enabled; otherwise, <code>false</code>.
         :param pulumi.Input[str] request_tracing_expiration_time: Request tracing expiration time.
-        :param pulumi.Input[str] scm_type: SCM type.
+        :param pulumi.Input[Union[str, 'ScmType']] scm_type: SCM type.
         :param pulumi.Input[str] tracing_options: Tracing options.
         :param pulumi.Input[bool] use32_bit_worker_process: <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualApplicationArgs']]] virtual_applications: Virtual applications.
@@ -1738,14 +1739,14 @@ class SiteConfigArgs:
 
     @property
     @pulumi.getter(name="loadBalancing")
-    def load_balancing(self) -> Optional[pulumi.Input[str]]:
+    def load_balancing(self) -> Optional[pulumi.Input['SiteLoadBalancing']]:
         """
         Site load balancing.
         """
         return pulumi.get(self, "load_balancing")
 
     @load_balancing.setter
-    def load_balancing(self, value: Optional[pulumi.Input[str]]):
+    def load_balancing(self, value: Optional[pulumi.Input['SiteLoadBalancing']]):
         pulumi.set(self, "load_balancing", value)
 
     @property
@@ -1774,26 +1775,26 @@ class SiteConfigArgs:
 
     @property
     @pulumi.getter(name="managedPipelineMode")
-    def managed_pipeline_mode(self) -> Optional[pulumi.Input[str]]:
+    def managed_pipeline_mode(self) -> Optional[pulumi.Input['ManagedPipelineMode']]:
         """
         Managed pipeline mode.
         """
         return pulumi.get(self, "managed_pipeline_mode")
 
     @managed_pipeline_mode.setter
-    def managed_pipeline_mode(self, value: Optional[pulumi.Input[str]]):
+    def managed_pipeline_mode(self, value: Optional[pulumi.Input['ManagedPipelineMode']]):
         pulumi.set(self, "managed_pipeline_mode", value)
 
     @property
     @pulumi.getter(name="minTlsVersion")
-    def min_tls_version(self) -> Optional[pulumi.Input[str]]:
+    def min_tls_version(self) -> Optional[pulumi.Input[Union[str, 'SupportedTlsVersions']]]:
         """
         MinTlsVersion: configures the minimum version of TLS required for SSL requests
         """
         return pulumi.get(self, "min_tls_version")
 
     @min_tls_version.setter
-    def min_tls_version(self, value: Optional[pulumi.Input[str]]):
+    def min_tls_version(self, value: Optional[pulumi.Input[Union[str, 'SupportedTlsVersions']]]):
         pulumi.set(self, "min_tls_version", value)
 
     @property
@@ -1930,14 +1931,14 @@ class SiteConfigArgs:
 
     @property
     @pulumi.getter(name="scmType")
-    def scm_type(self) -> Optional[pulumi.Input[str]]:
+    def scm_type(self) -> Optional[pulumi.Input[Union[str, 'ScmType']]]:
         """
         SCM type.
         """
         return pulumi.get(self, "scm_type")
 
     @scm_type.setter
-    def scm_type(self, value: Optional[pulumi.Input[str]]):
+    def scm_type(self, value: Optional[pulumi.Input[Union[str, 'ScmType']]]):
         pulumi.set(self, "scm_type", value)
 
     @property

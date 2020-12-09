@@ -73,24 +73,24 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
 
             __props__['async_execution'] = async_execution
             __props__['error_blob_uri'] = error_blob_uri
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['output_blob_uri'] = output_blob_uri
             __props__['parameters'] = parameters
             __props__['protected_parameters'] = protected_parameters
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['run_as_password'] = run_as_password
             __props__['run_as_user'] = run_as_user
-            if run_command_name is None:
+            if run_command_name is None and not opts.urn:
                 raise TypeError("Missing required property 'run_command_name'")
             __props__['run_command_name'] = run_command_name
             __props__['source'] = source
             __props__['tags'] = tags
             __props__['timeout_in_seconds'] = timeout_in_seconds
-            if vm_name is None:
+            if vm_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_name'")
             __props__['vm_name'] = vm_name
             __props__['instance_view'] = None

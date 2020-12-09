@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -122,22 +122,22 @@ export class PrivateCloud extends pulumi.CustomResource {
     constructor(name: string, args: PrivateCloudArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.managementCluster === undefined) {
+            if ((!args || args.managementCluster === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managementCluster'");
             }
-            if (!args || args.networkBlock === undefined) {
+            if ((!args || args.networkBlock === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'networkBlock'");
             }
-            if (!args || args.privateCloudName === undefined) {
+            if ((!args || args.privateCloudName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sku === undefined) {
+            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["identitySources"] = args ? args.identitySources : undefined;
@@ -206,7 +206,7 @@ export interface PrivateCloudArgs {
     /**
      * Connectivity to internet is enabled or disabled
      */
-    readonly internet?: pulumi.Input<string>;
+    readonly internet?: pulumi.Input<string | enums.avs.v20200717preview.InternetEnum>;
     /**
      * Resource location
      */
@@ -222,7 +222,7 @@ export interface PrivateCloudArgs {
     /**
      * Indicate to rotate the NSX-T Manager password for the private cloud
      */
-    readonly nsxtPassword?: pulumi.Input<string>;
+    readonly nsxtPassword?: pulumi.Input<string | enums.avs.v20200717preview.NsxtAdminRotateEnum>;
     /**
      * Name of the private cloud
      */
@@ -242,5 +242,5 @@ export interface PrivateCloudArgs {
     /**
      * Indicate to rotate the vCenter admin password for the private cloud
      */
-    readonly vcenterPassword?: pulumi.Input<string>;
+    readonly vcenterPassword?: pulumi.Input<string | enums.avs.v20200717preview.VcsaAdminRotateEnum>;
 }

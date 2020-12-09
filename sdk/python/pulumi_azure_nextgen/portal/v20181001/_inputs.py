@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ConsoleCreatePropertiesArgs',
@@ -18,13 +19,13 @@ __all__ = [
 @pulumi.input_type
 class ConsoleCreatePropertiesArgs:
     def __init__(__self__, *,
-                 os_type: pulumi.Input[str],
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 os_type: pulumi.Input[Union[str, 'OsType']],
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  uri: Optional[pulumi.Input[str]] = None):
         """
         Cloud shell properties for creating a console.
-        :param pulumi.Input[str] os_type: The operating system type of the cloud shell.
-        :param pulumi.Input[str] provisioning_state: Provisioning state of the console.
+        :param pulumi.Input[Union[str, 'OsType']] os_type: The operating system type of the cloud shell.
+        :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: Provisioning state of the console.
         :param pulumi.Input[str] uri: Uri of the console.
         """
         pulumi.set(__self__, "os_type", os_type)
@@ -35,26 +36,26 @@ class ConsoleCreatePropertiesArgs:
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> pulumi.Input[str]:
+    def os_type(self) -> pulumi.Input[Union[str, 'OsType']]:
         """
         The operating system type of the cloud shell.
         """
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: pulumi.Input[str]):
+    def os_type(self, value: pulumi.Input[Union[str, 'OsType']]):
         pulumi.set(self, "os_type", value)
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
+    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ProvisioningState']]]:
         """
         Provisioning state of the console.
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
+    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
 
     @property
@@ -129,12 +130,12 @@ class StorageProfileArgs:
 @pulumi.input_type
 class TerminalSettingsArgs:
     def __init__(__self__, *,
-                 font_size: Optional[pulumi.Input[str]] = None,
-                 font_style: Optional[pulumi.Input[str]] = None):
+                 font_size: Optional[pulumi.Input[Union[str, 'FontSize']]] = None,
+                 font_style: Optional[pulumi.Input[Union[str, 'FontStyle']]] = None):
         """
         Settings for terminal appearance.
-        :param pulumi.Input[str] font_size: Size of terminal font.
-        :param pulumi.Input[str] font_style: Style of terminal font.
+        :param pulumi.Input[Union[str, 'FontSize']] font_size: Size of terminal font.
+        :param pulumi.Input[Union[str, 'FontStyle']] font_style: Style of terminal font.
         """
         if font_size is not None:
             pulumi.set(__self__, "font_size", font_size)
@@ -143,26 +144,26 @@ class TerminalSettingsArgs:
 
     @property
     @pulumi.getter(name="fontSize")
-    def font_size(self) -> Optional[pulumi.Input[str]]:
+    def font_size(self) -> Optional[pulumi.Input[Union[str, 'FontSize']]]:
         """
         Size of terminal font.
         """
         return pulumi.get(self, "font_size")
 
     @font_size.setter
-    def font_size(self, value: Optional[pulumi.Input[str]]):
+    def font_size(self, value: Optional[pulumi.Input[Union[str, 'FontSize']]]):
         pulumi.set(self, "font_size", value)
 
     @property
     @pulumi.getter(name="fontStyle")
-    def font_style(self) -> Optional[pulumi.Input[str]]:
+    def font_style(self) -> Optional[pulumi.Input[Union[str, 'FontStyle']]]:
         """
         Style of terminal font.
         """
         return pulumi.get(self, "font_style")
 
     @font_style.setter
-    def font_style(self, value: Optional[pulumi.Input[str]]):
+    def font_style(self, value: Optional[pulumi.Input[Union[str, 'FontStyle']]]):
         pulumi.set(self, "font_style", value)
 
 
@@ -170,15 +171,15 @@ class TerminalSettingsArgs:
 class UserPropertiesArgs:
     def __init__(__self__, *,
                  preferred_location: pulumi.Input[str],
-                 preferred_os_type: pulumi.Input[str],
-                 preferred_shell_type: pulumi.Input[str],
+                 preferred_os_type: pulumi.Input[Union[str, 'OsType']],
+                 preferred_shell_type: pulumi.Input[Union[str, 'ShellType']],
                  storage_profile: pulumi.Input['StorageProfileArgs'],
                  terminal_settings: pulumi.Input['TerminalSettingsArgs']):
         """
         The cloud shell user settings properties.
         :param pulumi.Input[str] preferred_location: The preferred location of the cloud shell.
-        :param pulumi.Input[str] preferred_os_type: The operating system type of the cloud shell. Deprecated, use preferredShellType.
-        :param pulumi.Input[str] preferred_shell_type: The shell type of the cloud shell.
+        :param pulumi.Input[Union[str, 'OsType']] preferred_os_type: The operating system type of the cloud shell. Deprecated, use preferredShellType.
+        :param pulumi.Input[Union[str, 'ShellType']] preferred_shell_type: The shell type of the cloud shell.
         :param pulumi.Input['StorageProfileArgs'] storage_profile: The storage profile of the user settings.
         :param pulumi.Input['TerminalSettingsArgs'] terminal_settings: Settings for terminal appearance.
         """
@@ -202,26 +203,26 @@ class UserPropertiesArgs:
 
     @property
     @pulumi.getter(name="preferredOsType")
-    def preferred_os_type(self) -> pulumi.Input[str]:
+    def preferred_os_type(self) -> pulumi.Input[Union[str, 'OsType']]:
         """
         The operating system type of the cloud shell. Deprecated, use preferredShellType.
         """
         return pulumi.get(self, "preferred_os_type")
 
     @preferred_os_type.setter
-    def preferred_os_type(self, value: pulumi.Input[str]):
+    def preferred_os_type(self, value: pulumi.Input[Union[str, 'OsType']]):
         pulumi.set(self, "preferred_os_type", value)
 
     @property
     @pulumi.getter(name="preferredShellType")
-    def preferred_shell_type(self) -> pulumi.Input[str]:
+    def preferred_shell_type(self) -> pulumi.Input[Union[str, 'ShellType']]:
         """
         The shell type of the cloud shell.
         """
         return pulumi.get(self, "preferred_shell_type")
 
     @preferred_shell_type.setter
-    def preferred_shell_type(self, value: pulumi.Input[str]):
+    def preferred_shell_type(self, value: pulumi.Input[Union[str, 'ShellType']]):
         pulumi.set(self, "preferred_shell_type", value)
 
     @property

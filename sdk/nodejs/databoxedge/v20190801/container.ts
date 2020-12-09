@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -70,19 +70,19 @@ export class Container extends pulumi.CustomResource {
     constructor(name: string, args: ContainerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.containerName === undefined) {
+            if ((!args || args.containerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'containerName'");
             }
-            if (!args || args.dataFormat === undefined) {
+            if ((!args || args.dataFormat === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataFormat'");
             }
-            if (!args || args.deviceName === undefined) {
+            if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.storageAccountName === undefined) {
+            if ((!args || args.storageAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
             inputs["containerName"] = args ? args.containerName : undefined;
@@ -127,7 +127,7 @@ export interface ContainerArgs {
     /**
      * DataFormat for Container
      */
-    readonly dataFormat: pulumi.Input<string>;
+    readonly dataFormat: pulumi.Input<string | enums.databoxedge.v20190801.AzureContainerDataFormat>;
     /**
      * The device name.
      */

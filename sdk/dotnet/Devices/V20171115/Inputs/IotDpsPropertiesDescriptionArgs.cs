@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Devices.V20171115.Inputs
         /// Allocation policy to be used by this provisioning service.
         /// </summary>
         [Input("allocationPolicy")]
-        public Input<string>? AllocationPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Devices.V20171115.AllocationPolicy>? AllocationPolicy { get; set; }
 
         [Input("authorizationPolicies")]
         private InputList<Inputs.SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs>? _authorizationPolicies;
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Devices.V20171115.Inputs
         /// Current state of the provisioning service.
         /// </summary>
         [Input("state")]
-        public Input<string>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Devices.V20171115.State>? State { get; set; }
 
         public IotDpsPropertiesDescriptionArgs()
         {

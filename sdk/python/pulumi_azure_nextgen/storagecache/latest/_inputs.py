@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'CacheEncryptionSettingsArgs',
@@ -49,24 +50,24 @@ class CacheEncryptionSettingsArgs:
 @pulumi.input_type
 class CacheIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input['CacheIdentityType']] = None):
         """
         Cache identity properties.
-        :param pulumi.Input[str] type: The type of identity used for the cache
+        :param pulumi.Input['CacheIdentityType'] type: The type of identity used for the cache
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['CacheIdentityType']]:
         """
         The type of identity used for the cache
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['CacheIdentityType']]):
         pulumi.set(self, "type", value)
 
 

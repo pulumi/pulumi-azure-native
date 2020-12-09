@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -63,13 +63,13 @@ export class RuleSet extends pulumi.CustomResource {
     constructor(name: string, args: RuleSetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.profileName === undefined) {
+            if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.ruleSetName === undefined) {
+            if ((!args || args.ruleSetName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ruleSetName'");
             }
             inputs["profileName"] = args ? args.profileName : undefined;

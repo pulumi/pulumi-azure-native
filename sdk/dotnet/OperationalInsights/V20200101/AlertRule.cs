@@ -97,7 +97,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200101
         /// The alert rule kind
         /// </summary>
         [Input("kind", required: true)]
-        public Input<string> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.OperationalInsights.V20200101.AlertRuleKind> Kind { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

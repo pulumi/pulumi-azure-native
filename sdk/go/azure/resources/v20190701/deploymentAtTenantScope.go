@@ -28,14 +28,15 @@ type DeploymentAtTenantScope struct {
 // NewDeploymentAtTenantScope registers a new resource with the given unique name, arguments, and options.
 func NewDeploymentAtTenantScope(ctx *pulumi.Context,
 	name string, args *DeploymentAtTenantScopeArgs, opts ...pulumi.ResourceOption) (*DeploymentAtTenantScope, error) {
-	if args == nil || args.DeploymentName == nil {
-		return nil, errors.New("missing required argument 'DeploymentName'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &DeploymentAtTenantScopeArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DeploymentName == nil {
+		return nil, errors.New("invalid value for required argument 'DeploymentName'")
+	}
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -46,23 +46,24 @@ type FlowLog struct {
 // NewFlowLog registers a new resource with the given unique name, arguments, and options.
 func NewFlowLog(ctx *pulumi.Context,
 	name string, args *FlowLogArgs, opts ...pulumi.ResourceOption) (*FlowLog, error) {
-	if args == nil || args.FlowLogName == nil {
-		return nil, errors.New("missing required argument 'FlowLogName'")
-	}
-	if args == nil || args.NetworkWatcherName == nil {
-		return nil, errors.New("missing required argument 'NetworkWatcherName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.StorageId == nil {
-		return nil, errors.New("missing required argument 'StorageId'")
-	}
-	if args == nil || args.TargetResourceId == nil {
-		return nil, errors.New("missing required argument 'TargetResourceId'")
-	}
 	if args == nil {
-		args = &FlowLogArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.FlowLogName == nil {
+		return nil, errors.New("invalid value for required argument 'FlowLogName'")
+	}
+	if args.NetworkWatcherName == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkWatcherName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.StorageId == nil {
+		return nil, errors.New("invalid value for required argument 'StorageId'")
+	}
+	if args.TargetResourceId == nil {
+		return nil, errors.New("invalid value for required argument 'TargetResourceId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -90,10 +90,10 @@ export class CustomIPPrefix extends pulumi.CustomResource {
     constructor(name: string, args: CustomIPPrefixArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.customIpPrefixName === undefined) {
+            if ((!args || args.customIpPrefixName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'customIpPrefixName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["cidr"] = args ? args.cidr : undefined;
@@ -147,7 +147,7 @@ export interface CustomIPPrefixArgs {
     /**
      * The commissioned state of the Custom IP Prefix.
      */
-    readonly commissionedState?: pulumi.Input<string>;
+    readonly commissionedState?: pulumi.Input<string | enums.network.v20200701.CommissionedState>;
     /**
      * The name of the custom IP prefix.
      */

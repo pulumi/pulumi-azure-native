@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -98,19 +98,19 @@ export class ApplianceDefinition extends pulumi.CustomResource {
     constructor(name: string, args: ApplianceDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.applianceDefinitionName === undefined) {
+            if ((!args || args.applianceDefinitionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'applianceDefinitionName'");
             }
-            if (!args || args.authorizations === undefined) {
+            if ((!args || args.authorizations === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'authorizations'");
             }
-            if (!args || args.lockLevel === undefined) {
+            if ((!args || args.lockLevel === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'lockLevel'");
             }
-            if (!args || args.packageFileUri === undefined) {
+            if ((!args || args.packageFileUri === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'packageFileUri'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["applianceDefinitionName"] = args ? args.applianceDefinitionName : undefined;
@@ -189,7 +189,7 @@ export interface ApplianceDefinitionArgs {
     /**
      * The appliance lock level.
      */
-    readonly lockLevel: pulumi.Input<string>;
+    readonly lockLevel: pulumi.Input<enums.solutions.v20160901preview.ApplianceLockLevel>;
     /**
      * ID of the resource that manages this resource.
      */

@@ -28,20 +28,21 @@ type TransparentDataEncryption struct {
 // NewTransparentDataEncryption registers a new resource with the given unique name, arguments, and options.
 func NewTransparentDataEncryption(ctx *pulumi.Context,
 	name string, args *TransparentDataEncryptionArgs, opts ...pulumi.ResourceOption) (*TransparentDataEncryption, error) {
-	if args == nil || args.DatabaseName == nil {
-		return nil, errors.New("missing required argument 'DatabaseName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServerName == nil {
-		return nil, errors.New("missing required argument 'ServerName'")
-	}
-	if args == nil || args.TransparentDataEncryptionName == nil {
-		return nil, errors.New("missing required argument 'TransparentDataEncryptionName'")
-	}
 	if args == nil {
-		args = &TransparentDataEncryptionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DatabaseName == nil {
+		return nil, errors.New("invalid value for required argument 'DatabaseName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServerName == nil {
+		return nil, errors.New("invalid value for required argument 'ServerName'")
+	}
+	if args.TransparentDataEncryptionName == nil {
+		return nil, errors.New("invalid value for required argument 'TransparentDataEncryptionName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

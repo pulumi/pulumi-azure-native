@@ -32,20 +32,21 @@ type JitNetworkAccessPolicy struct {
 // NewJitNetworkAccessPolicy registers a new resource with the given unique name, arguments, and options.
 func NewJitNetworkAccessPolicy(ctx *pulumi.Context,
 	name string, args *JitNetworkAccessPolicyArgs, opts ...pulumi.ResourceOption) (*JitNetworkAccessPolicy, error) {
-	if args == nil || args.AscLocation == nil {
-		return nil, errors.New("missing required argument 'AscLocation'")
-	}
-	if args == nil || args.JitNetworkAccessPolicyName == nil {
-		return nil, errors.New("missing required argument 'JitNetworkAccessPolicyName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VirtualMachines == nil {
-		return nil, errors.New("missing required argument 'VirtualMachines'")
-	}
 	if args == nil {
-		args = &JitNetworkAccessPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AscLocation == nil {
+		return nil, errors.New("invalid value for required argument 'AscLocation'")
+	}
+	if args.JitNetworkAccessPolicyName == nil {
+		return nil, errors.New("invalid value for required argument 'JitNetworkAccessPolicyName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VirtualMachines == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualMachines'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

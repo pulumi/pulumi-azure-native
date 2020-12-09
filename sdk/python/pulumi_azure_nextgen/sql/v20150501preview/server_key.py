@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['ServerKey']
 
@@ -19,7 +20,7 @@ class ServerKey(pulumi.CustomResource):
                  key_name: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 server_key_type: Optional[pulumi.Input[str]] = None,
+                 server_key_type: Optional[pulumi.Input[Union[str, 'ServerKeyType']]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  thumbprint: Optional[pulumi.Input[str]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
@@ -35,7 +36,7 @@ class ServerKey(pulumi.CustomResource):
         :param pulumi.Input[str] key_name: The name of the server key to be operated on (updated or created). The key name is required to be in the format of 'vault_key_version'. For example, if the keyId is https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901, then the server key name should be formatted as: YourVaultName_YourKeyName_01234567890123456789012345678901
         :param pulumi.Input[str] kind: Kind of encryption protector. This is metadata used for the Azure portal experience.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-        :param pulumi.Input[str] server_key_type: The server key type like 'ServiceManaged', 'AzureKeyVault'.
+        :param pulumi.Input[Union[str, 'ServerKeyType']] server_key_type: The server key type like 'ServiceManaged', 'AzureKeyVault'.
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[str] thumbprint: Thumbprint of the server key.
         :param pulumi.Input[str] uri: The URI of the server key.
@@ -58,17 +59,17 @@ class ServerKey(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['creation_date'] = creation_date
-            if key_name is None:
+            if key_name is None and not opts.urn:
                 raise TypeError("Missing required property 'key_name'")
             __props__['key_name'] = key_name
             __props__['kind'] = kind
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if server_key_type is None:
+            if server_key_type is None and not opts.urn:
                 raise TypeError("Missing required property 'server_key_type'")
             __props__['server_key_type'] = server_key_type
-            if server_name is None:
+            if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
             __props__['thumbprint'] = thumbprint

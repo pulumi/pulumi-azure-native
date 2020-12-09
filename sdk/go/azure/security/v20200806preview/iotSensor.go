@@ -44,14 +44,15 @@ type IotSensor struct {
 // NewIotSensor registers a new resource with the given unique name, arguments, and options.
 func NewIotSensor(ctx *pulumi.Context,
 	name string, args *IotSensorArgs, opts ...pulumi.ResourceOption) (*IotSensor, error) {
-	if args == nil || args.IotSensorName == nil {
-		return nil, errors.New("missing required argument 'IotSensorName'")
-	}
-	if args == nil || args.Scope == nil {
-		return nil, errors.New("missing required argument 'Scope'")
-	}
 	if args == nil {
-		args = &IotSensorArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.IotSensorName == nil {
+		return nil, errors.New("invalid value for required argument 'IotSensorName'")
+	}
+	if args.Scope == nil {
+		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
 	var resource IotSensor
 	err := ctx.RegisterResource("azure-nextgen:security/v20200806preview:IotSensor", name, args, &resource, opts...)

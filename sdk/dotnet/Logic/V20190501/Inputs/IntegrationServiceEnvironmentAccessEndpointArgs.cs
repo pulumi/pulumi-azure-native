@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501.Inputs
         /// The access endpoint type.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Logic.V20190501.IntegrationServiceEnvironmentAccessEndpointType>? Type { get; set; }
 
         public IntegrationServiceEnvironmentAccessEndpointArgs()
         {

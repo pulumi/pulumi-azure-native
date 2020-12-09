@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.Inputs
         /// The password name "password1" or "password2"
         /// </summary>
         [Input("name")]
-        public Input<string>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.TokenPasswordName>? Name { get; set; }
 
         public TokenPasswordArgs()
         {

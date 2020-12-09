@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 export function listIntegrationAccountCallbackUrl(args: ListIntegrationAccountCallbackUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListIntegrationAccountCallbackUrlResult> {
@@ -29,7 +29,7 @@ export interface ListIntegrationAccountCallbackUrlArgs {
     /**
      * The key type.
      */
-    readonly keyType?: string;
+    readonly keyType?: string | enums.logic.v20180701preview.KeyType;
     /**
      * The expiry time.
      */

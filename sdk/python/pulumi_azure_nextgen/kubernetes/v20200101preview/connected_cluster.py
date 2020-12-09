@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ConnectedCluster']
@@ -20,12 +21,12 @@ class ConnectedCluster(pulumi.CustomResource):
                  aad_profile: Optional[pulumi.Input[pulumi.InputType['ConnectedClusterAADProfileArgs']]] = None,
                  agent_public_key_certificate: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 connectivity_status: Optional[pulumi.Input[str]] = None,
+                 connectivity_status: Optional[pulumi.Input[Union[str, 'ConnectivityStatus']]] = None,
                  distribution: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ConnectedClusterIdentityArgs']]] = None,
                  infrastructure: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -39,12 +40,12 @@ class ConnectedCluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ConnectedClusterAADProfileArgs']] aad_profile: AAD profile of the connected cluster.
         :param pulumi.Input[str] agent_public_key_certificate: Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
         :param pulumi.Input[str] cluster_name: The name of the Kubernetes cluster on which get is called.
-        :param pulumi.Input[str] connectivity_status: Represents the connectivity status of the connected cluster.
+        :param pulumi.Input[Union[str, 'ConnectivityStatus']] connectivity_status: Represents the connectivity status of the connected cluster.
         :param pulumi.Input[str] distribution: The Kubernetes distribution running on this connected cluster.
         :param pulumi.Input[pulumi.InputType['ConnectedClusterIdentityArgs']] identity: The identity of the connected cluster.
         :param pulumi.Input[str] infrastructure: The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] provisioning_state: Provisioning state of the connected cluster resource.
+        :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: Provisioning state of the connected cluster resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -65,26 +66,26 @@ class ConnectedCluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if aad_profile is None:
+            if aad_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'aad_profile'")
             __props__['aad_profile'] = aad_profile
-            if agent_public_key_certificate is None:
+            if agent_public_key_certificate is None and not opts.urn:
                 raise TypeError("Missing required property 'agent_public_key_certificate'")
             __props__['agent_public_key_certificate'] = agent_public_key_certificate
-            if cluster_name is None:
+            if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
             __props__['connectivity_status'] = connectivity_status
             __props__['distribution'] = distribution
-            if identity is None:
+            if identity is None and not opts.urn:
                 raise TypeError("Missing required property 'identity'")
             __props__['identity'] = identity
             __props__['infrastructure'] = infrastructure
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['provisioning_state'] = provisioning_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

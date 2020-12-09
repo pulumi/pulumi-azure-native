@@ -21,7 +21,7 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200501.Inputs
         /// - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
         /// </summary>
         [Input("flag", required: true)]
-        public Input<string> Flag { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.SignalRService.V20200501.FeatureFlags> Flag { get; set; } = null!;
 
         [Input("properties")]
         private InputMap<string>? _properties;

@@ -161,7 +161,7 @@ namespace Pulumi.AzureNextGen.Search.V20200313
         /// Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
         /// </summary>
         [Input("hostingMode")]
-        public Input<string>? HostingMode { get; set; }
+        public Input<Pulumi.AzureNextGen.Search.V20200313.HostingMode>? HostingMode { get; set; }
 
         /// <summary>
         /// The identity of the resource.
@@ -191,7 +191,7 @@ namespace Pulumi.AzureNextGen.Search.V20200313
         /// This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
         /// </summary>
         [Input("publicNetworkAccess")]
-        public Input<string>? PublicNetworkAccess { get; set; }
+        public Input<Pulumi.AzureNextGen.Search.V20200313.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The number of replicas in the Search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.

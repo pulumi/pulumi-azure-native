@@ -34,23 +34,24 @@ type IotDpsResource struct {
 // NewIotDpsResource registers a new resource with the given unique name, arguments, and options.
 func NewIotDpsResource(ctx *pulumi.Context,
 	name string, args *IotDpsResourceArgs, opts ...pulumi.ResourceOption) (*IotDpsResource, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
-	if args == nil || args.ProvisioningServiceName == nil {
-		return nil, errors.New("missing required argument 'ProvisioningServiceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Sku == nil {
-		return nil, errors.New("missing required argument 'Sku'")
-	}
 	if args == nil {
-		args = &IotDpsResourceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
+	}
+	if args.ProvisioningServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ProvisioningServiceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Sku == nil {
+		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

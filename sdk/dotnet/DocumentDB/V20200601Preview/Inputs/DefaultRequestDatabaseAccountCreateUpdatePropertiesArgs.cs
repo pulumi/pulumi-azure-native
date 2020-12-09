@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview.Inputs
         /// The cassandra connector offer type for the Cosmos DB database C* account.
         /// </summary>
         [Input("connectorOffer")]
-        public Input<string>? ConnectorOffer { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DocumentDB.V20200601Preview.ConnectorOffer>? ConnectorOffer { get; set; }
 
         /// <summary>
         /// The consistency policy for the Cosmos DB account.
@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview.Inputs
         /// The offer type for the database
         /// </summary>
         [Input("databaseAccountOfferType", required: true)]
-        public Input<string> DatabaseAccountOfferType { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.DocumentDB.V20200601Preview.DatabaseAccountOfferType> DatabaseAccountOfferType { get; set; } = null!;
 
         /// <summary>
         /// Disable write operations on metadata resources (databases, containers, throughput) via account keys

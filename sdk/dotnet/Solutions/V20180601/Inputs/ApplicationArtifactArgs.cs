@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20180601.Inputs
         /// The managed application artifact type.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AzureNextGen.Solutions.V20180601.ApplicationArtifactType>? Type { get; set; }
 
         /// <summary>
         /// The managed application artifact blob uri.

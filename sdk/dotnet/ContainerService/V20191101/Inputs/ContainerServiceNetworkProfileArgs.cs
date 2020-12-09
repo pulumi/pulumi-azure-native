@@ -37,25 +37,25 @@ namespace Pulumi.AzureNextGen.ContainerService.V20191101.Inputs
         /// The load balancer sku for the managed cluster.
         /// </summary>
         [Input("loadBalancerSku")]
-        public Input<string>? LoadBalancerSku { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20191101.LoadBalancerSku>? LoadBalancerSku { get; set; }
 
         /// <summary>
         /// Network plugin used for building Kubernetes network.
         /// </summary>
         [Input("networkPlugin")]
-        public Input<string>? NetworkPlugin { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20191101.NetworkPlugin>? NetworkPlugin { get; set; }
 
         /// <summary>
         /// Network policy used for building Kubernetes network.
         /// </summary>
         [Input("networkPolicy")]
-        public Input<string>? NetworkPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20191101.NetworkPolicy>? NetworkPolicy { get; set; }
 
         /// <summary>
         /// The outbound (egress) routing method.
         /// </summary>
         [Input("outboundType")]
-        public Input<string>? OutboundType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20191101.OutboundType>? OutboundType { get; set; }
 
         /// <summary>
         /// A CIDR notation IP range from which to assign pod IPs when kubenet is used.

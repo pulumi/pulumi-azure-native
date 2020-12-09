@@ -230,7 +230,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
         /// Type of entity.
         /// </summary>
         [Input("entityType")]
-        public Input<string>? EntityType { get; set; }
+        public Input<Pulumi.AzureNextGen.CustomerInsights.Latest.EntityTypes>? EntityType { get; set; }
 
         [Input("fields")]
         private InputList<Inputs.PropertyDefinitionArgs>? _fields;

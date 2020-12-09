@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -118,22 +118,22 @@ export class SecurityRule extends pulumi.CustomResource {
     constructor(name: string, args: SecurityRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.access === undefined) {
+            if ((!args || args.access === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'access'");
             }
-            if (!args || args.direction === undefined) {
+            if ((!args || args.direction === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'direction'");
             }
-            if (!args || args.networkSecurityGroupName === undefined) {
+            if ((!args || args.networkSecurityGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'networkSecurityGroupName'");
             }
-            if (!args || args.protocol === undefined) {
+            if ((!args || args.protocol === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.securityRuleName === undefined) {
+            if ((!args || args.securityRuleName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'securityRuleName'");
             }
             inputs["access"] = args ? args.access : undefined;
@@ -198,7 +198,7 @@ export interface SecurityRuleArgs {
     /**
      * The network traffic is allowed or denied. Possible values are: 'Allow' and 'Deny'.
      */
-    readonly access: pulumi.Input<string>;
+    readonly access: pulumi.Input<string | enums.network.v20180101.SecurityRuleAccess>;
     /**
      * A description for this rule. Restricted to 140 chars.
      */
@@ -226,7 +226,7 @@ export interface SecurityRuleArgs {
     /**
      * The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are: 'Inbound' and 'Outbound'.
      */
-    readonly direction: pulumi.Input<string>;
+    readonly direction: pulumi.Input<string | enums.network.v20180101.SecurityRuleDirection>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -250,7 +250,7 @@ export interface SecurityRuleArgs {
     /**
      * Network protocol this rule applies to. Possible values are 'Tcp', 'Udp', and '*'.
      */
-    readonly protocol: pulumi.Input<string>;
+    readonly protocol: pulumi.Input<string | enums.network.v20180101.SecurityRuleProtocol>;
     /**
      * The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */

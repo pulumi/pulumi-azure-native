@@ -61,13 +61,13 @@ export class LinkedStorageAccount extends pulumi.CustomResource {
     constructor(name: string, args: LinkedStorageAccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.dataSourceType === undefined) {
+            if ((!args || args.dataSourceType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataSourceType'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.workspaceName === undefined) {
+            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["dataSourceType"] = args ? args.dataSourceType : undefined;

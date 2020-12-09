@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ContainerServiceLinuxProfileArgs',
@@ -62,16 +63,16 @@ class ContainerServiceNetworkProfileArgs:
     def __init__(__self__, *,
                  dns_service_ip: Optional[pulumi.Input[str]] = None,
                  docker_bridge_cidr: Optional[pulumi.Input[str]] = None,
-                 network_plugin: Optional[pulumi.Input[str]] = None,
-                 network_policy: Optional[pulumi.Input[str]] = None,
+                 network_plugin: Optional[pulumi.Input[Union[str, 'NetworkPlugin']]] = None,
+                 network_policy: Optional[pulumi.Input[Union[str, 'NetworkPolicy']]] = None,
                  pod_cidr: Optional[pulumi.Input[str]] = None,
                  service_cidr: Optional[pulumi.Input[str]] = None):
         """
         Profile of network configuration.
         :param pulumi.Input[str] dns_service_ip: An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
         :param pulumi.Input[str] docker_bridge_cidr: A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
-        :param pulumi.Input[str] network_plugin: Network plugin used for building Kubernetes network.
-        :param pulumi.Input[str] network_policy: Network policy used for building Kubernetes network.
+        :param pulumi.Input[Union[str, 'NetworkPlugin']] network_plugin: Network plugin used for building Kubernetes network.
+        :param pulumi.Input[Union[str, 'NetworkPolicy']] network_policy: Network policy used for building Kubernetes network.
         :param pulumi.Input[str] pod_cidr: A CIDR notation IP range from which to assign pod IPs when kubenet is used.
         :param pulumi.Input[str] service_cidr: A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
         """
@@ -114,26 +115,26 @@ class ContainerServiceNetworkProfileArgs:
 
     @property
     @pulumi.getter(name="networkPlugin")
-    def network_plugin(self) -> Optional[pulumi.Input[str]]:
+    def network_plugin(self) -> Optional[pulumi.Input[Union[str, 'NetworkPlugin']]]:
         """
         Network plugin used for building Kubernetes network.
         """
         return pulumi.get(self, "network_plugin")
 
     @network_plugin.setter
-    def network_plugin(self, value: Optional[pulumi.Input[str]]):
+    def network_plugin(self, value: Optional[pulumi.Input[Union[str, 'NetworkPlugin']]]):
         pulumi.set(self, "network_plugin", value)
 
     @property
     @pulumi.getter(name="networkPolicy")
-    def network_policy(self) -> Optional[pulumi.Input[str]]:
+    def network_policy(self) -> Optional[pulumi.Input[Union[str, 'NetworkPolicy']]]:
         """
         Network policy used for building Kubernetes network.
         """
         return pulumi.get(self, "network_policy")
 
     @network_policy.setter
-    def network_policy(self, value: Optional[pulumi.Input[str]]):
+    def network_policy(self, value: Optional[pulumi.Input[Union[str, 'NetworkPolicy']]]):
         pulumi.set(self, "network_policy", value)
 
     @property
@@ -320,20 +321,20 @@ class ManagedClusterAddonProfileArgs:
 class ManagedClusterAgentPoolProfileArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 vm_size: pulumi.Input[str],
+                 vm_size: pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']],
                  count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
                  os_disk_size_gb: Optional[pulumi.Input[int]] = None,
-                 os_type: Optional[pulumi.Input[str]] = None,
+                 os_type: Optional[pulumi.Input[Union[str, 'OSType']]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         Profile for the container service agent pool.
         :param pulumi.Input[str] name: Unique name of the agent pool profile in the context of the subscription and resource group.
-        :param pulumi.Input[str] vm_size: Size of agent VMs.
+        :param pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']] vm_size: Size of agent VMs.
         :param pulumi.Input[int] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
         :param pulumi.Input[int] max_pods: Maximum number of pods that can run on a node.
         :param pulumi.Input[int] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-        :param pulumi.Input[str] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+        :param pulumi.Input[Union[str, 'OSType']] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         :param pulumi.Input[str] vnet_subnet_id: VNet SubnetID specifies the VNet's subnet identifier.
         """
         pulumi.set(__self__, "name", name)
@@ -363,14 +364,14 @@ class ManagedClusterAgentPoolProfileArgs:
 
     @property
     @pulumi.getter(name="vmSize")
-    def vm_size(self) -> pulumi.Input[str]:
+    def vm_size(self) -> pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']]:
         """
         Size of agent VMs.
         """
         return pulumi.get(self, "vm_size")
 
     @vm_size.setter
-    def vm_size(self, value: pulumi.Input[str]):
+    def vm_size(self, value: pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']]):
         pulumi.set(self, "vm_size", value)
 
     @property
@@ -411,14 +412,14 @@ class ManagedClusterAgentPoolProfileArgs:
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[str]]:
+    def os_type(self) -> Optional[pulumi.Input[Union[str, 'OSType']]]:
         """
         OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         """
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[str]]):
+    def os_type(self, value: Optional[pulumi.Input[Union[str, 'OSType']]]):
         pulumi.set(self, "os_type", value)
 
     @property

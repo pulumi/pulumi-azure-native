@@ -65,7 +65,7 @@ export class HierarchySetting extends pulumi.CustomResource {
     constructor(name: string, args: HierarchySettingArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.groupId === undefined) {
+            if ((!args || args.groupId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'groupId'");
             }
             inputs["defaultManagementGroup"] = args ? args.defaultManagementGroup : undefined;

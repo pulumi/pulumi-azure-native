@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview.Inputs
         /// The source of the action to execute.
         /// </summary>
         [Input("source")]
-        public Input<string>? Source { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20170301Preview.JobStepActionSource>? Source { get; set; }
 
         /// <summary>
         /// Type of action being executed by the job step.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20170301Preview.JobStepActionType>? Type { get; set; }
 
         /// <summary>
         /// The action value, for example the text of the T-SQL script to execute.

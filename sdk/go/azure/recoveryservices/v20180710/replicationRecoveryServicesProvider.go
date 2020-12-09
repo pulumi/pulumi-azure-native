@@ -28,23 +28,24 @@ type ReplicationRecoveryServicesProvider struct {
 // NewReplicationRecoveryServicesProvider registers a new resource with the given unique name, arguments, and options.
 func NewReplicationRecoveryServicesProvider(ctx *pulumi.Context,
 	name string, args *ReplicationRecoveryServicesProviderArgs, opts ...pulumi.ResourceOption) (*ReplicationRecoveryServicesProvider, error) {
-	if args == nil || args.FabricName == nil {
-		return nil, errors.New("missing required argument 'FabricName'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
-	if args == nil || args.ProviderName == nil {
-		return nil, errors.New("missing required argument 'ProviderName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ResourceName == nil {
-		return nil, errors.New("missing required argument 'ResourceName'")
-	}
 	if args == nil {
-		args = &ReplicationRecoveryServicesProviderArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.FabricName == nil {
+		return nil, errors.New("invalid value for required argument 'FabricName'")
+	}
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
+	}
+	if args.ProviderName == nil {
+		return nil, errors.New("invalid value for required argument 'ProviderName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

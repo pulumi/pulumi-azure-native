@@ -232,13 +232,13 @@ namespace Pulumi.AzureNextGen.Network.V20171001
         /// The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
         /// </summary>
         [Input("publicIPAddressVersion")]
-        public Input<string>? PublicIPAddressVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20171001.IPVersion>? PublicIPAddressVersion { get; set; }
 
         /// <summary>
         /// The public IP allocation method. Possible values are: 'Static' and 'Dynamic'.
         /// </summary>
         [Input("publicIPAllocationMethod")]
-        public Input<string>? PublicIPAllocationMethod { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20171001.IPAllocationMethod>? PublicIPAllocationMethod { get; set; }
 
         /// <summary>
         /// The name of the public IP address.

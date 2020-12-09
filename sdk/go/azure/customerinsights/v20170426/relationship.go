@@ -48,23 +48,24 @@ type Relationship struct {
 // NewRelationship registers a new resource with the given unique name, arguments, and options.
 func NewRelationship(ctx *pulumi.Context,
 	name string, args *RelationshipArgs, opts ...pulumi.ResourceOption) (*Relationship, error) {
-	if args == nil || args.HubName == nil {
-		return nil, errors.New("missing required argument 'HubName'")
-	}
-	if args == nil || args.ProfileType == nil {
-		return nil, errors.New("missing required argument 'ProfileType'")
-	}
-	if args == nil || args.RelatedProfileType == nil {
-		return nil, errors.New("missing required argument 'RelatedProfileType'")
-	}
-	if args == nil || args.RelationshipName == nil {
-		return nil, errors.New("missing required argument 'RelationshipName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &RelationshipArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.HubName == nil {
+		return nil, errors.New("invalid value for required argument 'HubName'")
+	}
+	if args.ProfileType == nil {
+		return nil, errors.New("invalid value for required argument 'ProfileType'")
+	}
+	if args.RelatedProfileType == nil {
+		return nil, errors.New("invalid value for required argument 'RelatedProfileType'")
+	}
+	if args.RelationshipName == nil {
+		return nil, errors.New("invalid value for required argument 'RelationshipName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -190,7 +191,7 @@ type relationshipArgs struct {
 // The set of arguments for constructing a Relationship resource.
 type RelationshipArgs struct {
 	// The Relationship Cardinality.
-	Cardinality pulumi.StringPtrInput
+	Cardinality CardinalityTypes
 	// Localized descriptions for the Relationship.
 	Description pulumi.StringMapInput
 	// Localized display name for the Relationship.

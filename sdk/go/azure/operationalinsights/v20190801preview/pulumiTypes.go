@@ -30,7 +30,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type IdentityType `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {

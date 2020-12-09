@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -135,28 +135,28 @@ export class Volume extends pulumi.CustomResource {
     constructor(name: string, args: VolumeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.accountName === undefined) {
+            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.creationToken === undefined) {
+            if ((!args || args.creationToken === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'creationToken'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.poolName === undefined) {
+            if ((!args || args.poolName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'poolName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.subnetId === undefined) {
+            if ((!args || args.subnetId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            if (!args || args.usageThreshold === undefined) {
+            if ((!args || args.usageThreshold === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'usageThreshold'");
             }
-            if (!args || args.volumeName === undefined) {
+            if ((!args || args.volumeName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'volumeName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -279,11 +279,11 @@ export interface VolumeArgs {
     /**
      * The security style of volume
      */
-    readonly securityStyle?: pulumi.Input<string>;
+    readonly securityStyle?: pulumi.Input<string | enums.netapp.v20200601.SecurityStyle>;
     /**
      * The service level of the file system
      */
-    readonly serviceLevel?: pulumi.Input<string>;
+    readonly serviceLevel?: pulumi.Input<string | enums.netapp.v20200601.ServiceLevel>;
     /**
      * If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).
      */

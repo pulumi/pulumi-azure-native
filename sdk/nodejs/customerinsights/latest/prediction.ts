@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -122,34 +122,34 @@ export class Prediction extends pulumi.CustomResource {
     constructor(name: string, args: PredictionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.autoAnalyze === undefined) {
+            if ((!args || args.autoAnalyze === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'autoAnalyze'");
             }
-            if (!args || args.hubName === undefined) {
+            if ((!args || args.hubName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if (!args || args.mappings === undefined) {
+            if ((!args || args.mappings === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'mappings'");
             }
-            if (!args || args.negativeOutcomeExpression === undefined) {
+            if ((!args || args.negativeOutcomeExpression === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'negativeOutcomeExpression'");
             }
-            if (!args || args.positiveOutcomeExpression === undefined) {
+            if ((!args || args.positiveOutcomeExpression === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'positiveOutcomeExpression'");
             }
-            if (!args || args.predictionName === undefined) {
+            if ((!args || args.predictionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'predictionName'");
             }
-            if (!args || args.primaryProfileType === undefined) {
+            if ((!args || args.primaryProfileType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'primaryProfileType'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.scopeExpression === undefined) {
+            if ((!args || args.scopeExpression === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scopeExpression'");
             }
-            if (!args || args.scoreLabel === undefined) {
+            if ((!args || args.scoreLabel === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scoreLabel'");
             }
             inputs["autoAnalyze"] = args ? args.autoAnalyze : undefined;

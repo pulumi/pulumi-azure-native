@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20171115Preview.Inputs
         /// Authentication type to use for connection
         /// </summary>
         [Input("authentication")]
-        public Input<string>? Authentication { get; set; }
+        public Input<Pulumi.AzureNextGen.DataMigration.V20171115Preview.AuthenticationType>? Authentication { get; set; }
 
         /// <summary>
         /// Data source in the format Protocol:MachineName\SQLServerInstanceName,PortNumber

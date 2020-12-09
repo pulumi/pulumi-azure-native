@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Media.Latest.Inputs
         /// Track property condition operation
         /// </summary>
         [Input("operation", required: true)]
-        public Input<string> Operation { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Media.Latest.TrackPropertyCompareOperation> Operation { get; set; } = null!;
 
         /// <summary>
         /// Track property type
         /// </summary>
         [Input("property", required: true)]
-        public Input<string> Property { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Media.Latest.TrackPropertyType> Property { get; set; } = null!;
 
         /// <summary>
         /// Track property value

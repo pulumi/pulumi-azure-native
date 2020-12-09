@@ -69,25 +69,25 @@ export class FileServer extends pulumi.CustomResource {
     constructor(name: string, args: FileServerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.backupScheduleGroupId === undefined) {
+            if ((!args || args.backupScheduleGroupId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'backupScheduleGroupId'");
             }
-            if (!args || args.deviceName === undefined) {
+            if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if (!args || args.domainName === undefined) {
+            if ((!args || args.domainName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if (!args || args.fileServerName === undefined) {
+            if ((!args || args.fileServerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'fileServerName'");
             }
-            if (!args || args.managerName === undefined) {
+            if ((!args || args.managerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.storageDomainId === undefined) {
+            if ((!args || args.storageDomainId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageDomainId'");
             }
             inputs["backupScheduleGroupId"] = args ? args.backupScheduleGroupId : undefined;

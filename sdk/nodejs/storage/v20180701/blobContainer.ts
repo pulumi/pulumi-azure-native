@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -98,13 +98,13 @@ export class BlobContainer extends pulumi.CustomResource {
     constructor(name: string, args: BlobContainerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.accountName === undefined) {
+            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.containerName === undefined) {
+            if ((!args || args.containerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'containerName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -170,7 +170,7 @@ export interface BlobContainerArgs {
     /**
      * Specifies whether data in the container may be accessed publicly and the level of access.
      */
-    readonly publicAccess?: pulumi.Input<string>;
+    readonly publicAccess?: pulumi.Input<enums.storage.v20180701.PublicAccess>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

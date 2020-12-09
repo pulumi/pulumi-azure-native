@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -86,13 +86,13 @@ export class PublishedBlueprint extends pulumi.CustomResource {
     constructor(name: string, args: PublishedBlueprintArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.blueprintName === undefined) {
+            if ((!args || args.blueprintName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'blueprintName'");
             }
-            if (!args || args.managementGroupName === undefined) {
+            if ((!args || args.managementGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managementGroupName'");
             }
-            if (!args || args.versionId === undefined) {
+            if ((!args || args.versionId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'versionId'");
             }
             inputs["blueprintName"] = args ? args.blueprintName : undefined;

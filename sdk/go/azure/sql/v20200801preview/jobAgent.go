@@ -34,23 +34,24 @@ type JobAgent struct {
 // NewJobAgent registers a new resource with the given unique name, arguments, and options.
 func NewJobAgent(ctx *pulumi.Context,
 	name string, args *JobAgentArgs, opts ...pulumi.ResourceOption) (*JobAgent, error) {
-	if args == nil || args.DatabaseId == nil {
-		return nil, errors.New("missing required argument 'DatabaseId'")
-	}
-	if args == nil || args.JobAgentName == nil {
-		return nil, errors.New("missing required argument 'JobAgentName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServerName == nil {
-		return nil, errors.New("missing required argument 'ServerName'")
-	}
 	if args == nil {
-		args = &JobAgentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DatabaseId == nil {
+		return nil, errors.New("invalid value for required argument 'DatabaseId'")
+	}
+	if args.JobAgentName == nil {
+		return nil, errors.New("invalid value for required argument 'JobAgentName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServerName == nil {
+		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

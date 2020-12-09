@@ -61,10 +61,10 @@ export class Association extends pulumi.CustomResource {
     constructor(name: string, args: AssociationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.associationName === undefined) {
+            if ((!args || args.associationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'associationName'");
             }
-            if (!args || args.scope === undefined) {
+            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["associationName"] = args ? args.associationName : undefined;

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['SqlVirtualMachine']
@@ -25,9 +26,9 @@ class SqlVirtualMachine(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_configurations_management_settings: Optional[pulumi.Input[pulumi.InputType['ServerConfigurationsManagementSettingsArgs']]] = None,
                  sql_image_offer: Optional[pulumi.Input[str]] = None,
-                 sql_image_sku: Optional[pulumi.Input[str]] = None,
-                 sql_management: Optional[pulumi.Input[str]] = None,
-                 sql_server_license_type: Optional[pulumi.Input[str]] = None,
+                 sql_image_sku: Optional[pulumi.Input[Union[str, 'SqlImageSku']]] = None,
+                 sql_management: Optional[pulumi.Input[Union[str, 'SqlManagementMode']]] = None,
+                 sql_server_license_type: Optional[pulumi.Input[Union[str, 'SqlServerLicenseType']]] = None,
                  sql_virtual_machine_group_resource_id: Optional[pulumi.Input[str]] = None,
                  sql_virtual_machine_name: Optional[pulumi.Input[str]] = None,
                  storage_configuration_settings: Optional[pulumi.Input[pulumi.InputType['StorageConfigurationSettingsArgs']]] = None,
@@ -50,9 +51,9 @@ class SqlVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[pulumi.InputType['ServerConfigurationsManagementSettingsArgs']] server_configurations_management_settings: SQL Server configuration management settings.
         :param pulumi.Input[str] sql_image_offer: SQL image offer. Examples include SQL2016-WS2016, SQL2017-WS2016.
-        :param pulumi.Input[str] sql_image_sku: SQL Server edition type.
-        :param pulumi.Input[str] sql_management: SQL Server Management type.
-        :param pulumi.Input[str] sql_server_license_type: SQL Server license type.
+        :param pulumi.Input[Union[str, 'SqlImageSku']] sql_image_sku: SQL Server edition type.
+        :param pulumi.Input[Union[str, 'SqlManagementMode']] sql_management: SQL Server Management type.
+        :param pulumi.Input[Union[str, 'SqlServerLicenseType']] sql_server_license_type: SQL Server license type.
         :param pulumi.Input[str] sql_virtual_machine_group_resource_id: ARM resource id of the SQL virtual machine group this SQL virtual machine is or will be part of.
         :param pulumi.Input[str] sql_virtual_machine_name: Name of the SQL virtual machine.
         :param pulumi.Input[pulumi.InputType['StorageConfigurationSettingsArgs']] storage_configuration_settings: Storage Configuration Settings.
@@ -81,10 +82,10 @@ class SqlVirtualMachine(pulumi.CustomResource):
             __props__['auto_patching_settings'] = auto_patching_settings
             __props__['identity'] = identity
             __props__['key_vault_credential_settings'] = key_vault_credential_settings
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['server_configurations_management_settings'] = server_configurations_management_settings
@@ -93,7 +94,7 @@ class SqlVirtualMachine(pulumi.CustomResource):
             __props__['sql_management'] = sql_management
             __props__['sql_server_license_type'] = sql_server_license_type
             __props__['sql_virtual_machine_group_resource_id'] = sql_virtual_machine_group_resource_id
-            if sql_virtual_machine_name is None:
+            if sql_virtual_machine_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sql_virtual_machine_name'")
             __props__['sql_virtual_machine_name'] = sql_virtual_machine_name
             __props__['storage_configuration_settings'] = storage_configuration_settings

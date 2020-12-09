@@ -46,14 +46,14 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Inputs
         }
 
         [Input("ipProtocols")]
-        private InputList<string>? _ipProtocols;
+        private InputList<Union<string, Pulumi.AzureNextGen.Network.V20190801.FirewallPolicyRuleConditionNetworkProtocol>>? _ipProtocols;
 
         /// <summary>
         /// Array of FirewallPolicyRuleConditionNetworkProtocols.
         /// </summary>
-        public InputList<string> IpProtocols
+        public InputList<Union<string, Pulumi.AzureNextGen.Network.V20190801.FirewallPolicyRuleConditionNetworkProtocol>> IpProtocols
         {
-            get => _ipProtocols ?? (_ipProtocols = new InputList<string>());
+            get => _ipProtocols ?? (_ipProtocols = new InputList<Union<string, Pulumi.AzureNextGen.Network.V20190801.FirewallPolicyRuleConditionNetworkProtocol>>());
             set => _ipProtocols = value;
         }
 

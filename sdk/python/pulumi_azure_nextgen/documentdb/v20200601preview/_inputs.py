@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ApiPropertiesArgs',
@@ -61,23 +62,23 @@ __all__ = [
 @pulumi.input_type
 class ApiPropertiesArgs:
     def __init__(__self__, *,
-                 server_version: Optional[pulumi.Input[str]] = None):
+                 server_version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None):
         """
-        :param pulumi.Input[str] server_version: Describes the ServerVersion of an a MongoDB account.
+        :param pulumi.Input[Union[str, 'ServerVersion']] server_version: Describes the ServerVersion of an a MongoDB account.
         """
         if server_version is not None:
             pulumi.set(__self__, "server_version", server_version)
 
     @property
     @pulumi.getter(name="serverVersion")
-    def server_version(self) -> Optional[pulumi.Input[str]]:
+    def server_version(self) -> Optional[pulumi.Input[Union[str, 'ServerVersion']]]:
         """
         Describes the ServerVersion of an a MongoDB account.
         """
         return pulumi.get(self, "server_version")
 
     @server_version.setter
-    def server_version(self, value: Optional[pulumi.Input[str]]):
+    def server_version(self, value: Optional[pulumi.Input[Union[str, 'ServerVersion']]]):
         pulumi.set(self, "server_version", value)
 
 
@@ -385,10 +386,10 @@ class ColumnArgs:
 @pulumi.input_type
 class CompositePathArgs:
     def __init__(__self__, *,
-                 order: Optional[pulumi.Input[str]] = None,
+                 order: Optional[pulumi.Input[Union[str, 'CompositePathSortOrder']]] = None,
                  path: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] order: Sort order for composite paths.
+        :param pulumi.Input[Union[str, 'CompositePathSortOrder']] order: Sort order for composite paths.
         :param pulumi.Input[str] path: The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
         """
         if order is not None:
@@ -398,14 +399,14 @@ class CompositePathArgs:
 
     @property
     @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[str]]:
+    def order(self) -> Optional[pulumi.Input[Union[str, 'CompositePathSortOrder']]]:
         """
         Sort order for composite paths.
         """
         return pulumi.get(self, "order")
 
     @order.setter
-    def order(self, value: Optional[pulumi.Input[str]]):
+    def order(self, value: Optional[pulumi.Input[Union[str, 'CompositePathSortOrder']]]):
         pulumi.set(self, "order", value)
 
     @property
@@ -426,12 +427,12 @@ class ConflictResolutionPolicyArgs:
     def __init__(__self__, *,
                  conflict_resolution_path: Optional[pulumi.Input[str]] = None,
                  conflict_resolution_procedure: Optional[pulumi.Input[str]] = None,
-                 mode: Optional[pulumi.Input[str]] = None):
+                 mode: Optional[pulumi.Input[Union[str, 'ConflictResolutionMode']]] = None):
         """
         The conflict resolution policy for the container.
         :param pulumi.Input[str] conflict_resolution_path: The conflict resolution path in the case of LastWriterWins mode.
         :param pulumi.Input[str] conflict_resolution_procedure: The procedure to resolve conflicts in the case of custom mode.
-        :param pulumi.Input[str] mode: Indicates the conflict resolution mode.
+        :param pulumi.Input[Union[str, 'ConflictResolutionMode']] mode: Indicates the conflict resolution mode.
         """
         if conflict_resolution_path is not None:
             pulumi.set(__self__, "conflict_resolution_path", conflict_resolution_path)
@@ -466,26 +467,26 @@ class ConflictResolutionPolicyArgs:
 
     @property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[str]]:
+    def mode(self) -> Optional[pulumi.Input[Union[str, 'ConflictResolutionMode']]]:
         """
         Indicates the conflict resolution mode.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[str]]):
+    def mode(self, value: Optional[pulumi.Input[Union[str, 'ConflictResolutionMode']]]):
         pulumi.set(self, "mode", value)
 
 
 @pulumi.input_type
 class ConsistencyPolicyArgs:
     def __init__(__self__, *,
-                 default_consistency_level: pulumi.Input[str],
+                 default_consistency_level: pulumi.Input['DefaultConsistencyLevel'],
                  max_interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  max_staleness_prefix: Optional[pulumi.Input[int]] = None):
         """
         The consistency policy for the Cosmos DB database account.
-        :param pulumi.Input[str] default_consistency_level: The default consistency level and configuration settings of the Cosmos DB account.
+        :param pulumi.Input['DefaultConsistencyLevel'] default_consistency_level: The default consistency level and configuration settings of the Cosmos DB account.
         :param pulumi.Input[int] max_interval_in_seconds: When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
         :param pulumi.Input[int] max_staleness_prefix: When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
         """
@@ -497,14 +498,14 @@ class ConsistencyPolicyArgs:
 
     @property
     @pulumi.getter(name="defaultConsistencyLevel")
-    def default_consistency_level(self) -> pulumi.Input[str]:
+    def default_consistency_level(self) -> pulumi.Input['DefaultConsistencyLevel']:
         """
         The default consistency level and configuration settings of the Cosmos DB account.
         """
         return pulumi.get(self, "default_consistency_level")
 
     @default_consistency_level.setter
-    def default_consistency_level(self, value: pulumi.Input[str]):
+    def default_consistency_level(self, value: pulumi.Input['DefaultConsistencyLevel']):
         pulumi.set(self, "default_consistency_level", value)
 
     @property
@@ -535,12 +536,12 @@ class ConsistencyPolicyArgs:
 @pulumi.input_type
 class ContainerPartitionKeyArgs:
     def __init__(__self__, *,
-                 kind: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'PartitionKind']]] = None,
                  paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[int]] = None):
         """
         The configuration of the partition key to be used for partitioning data into multiple partitions
-        :param pulumi.Input[str] kind: Indicates the kind of algorithm used for partitioning
+        :param pulumi.Input[Union[str, 'PartitionKind']] kind: Indicates the kind of algorithm used for partitioning
         :param pulumi.Input[Sequence[pulumi.Input[str]]] paths: List of paths using which data within the container can be partitioned
         :param pulumi.Input[int] version: Indicates the version of the partition key definition
         """
@@ -553,14 +554,14 @@ class ContainerPartitionKeyArgs:
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[str]]:
+    def kind(self) -> Optional[pulumi.Input[Union[str, 'PartitionKind']]]:
         """
         Indicates the kind of algorithm used for partitioning
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[str]]):
+    def kind(self, value: Optional[pulumi.Input[Union[str, 'PartitionKind']]]):
         pulumi.set(self, "kind", value)
 
     @property
@@ -782,12 +783,12 @@ class DatabaseRestoreResourceArgs:
 class DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs:
     def __init__(__self__, *,
                  create_mode: pulumi.Input[str],
-                 database_account_offer_type: pulumi.Input[str],
+                 database_account_offer_type: pulumi.Input['DatabaseAccountOfferType'],
                  locations: pulumi.Input[Sequence[pulumi.Input['LocationArgs']]],
                  api_properties: Optional[pulumi.Input['ApiPropertiesArgs']] = None,
                  backup_policy: Optional[pulumi.Input[Union['ContinuousModeBackupPolicyArgs', 'PeriodicModeBackupPolicyArgs']]] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]]] = None,
-                 connector_offer: Optional[pulumi.Input[str]] = None,
+                 connector_offer: Optional[pulumi.Input[Union[str, 'ConnectorOffer']]] = None,
                  consistency_policy: Optional[pulumi.Input['ConsistencyPolicyArgs']] = None,
                  cors: Optional[pulumi.Input[Sequence[pulumi.Input['CorsPolicyArgs']]]] = None,
                  disable_key_based_metadata_write_access: Optional[pulumi.Input[bool]] = None,
@@ -803,12 +804,12 @@ class DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs:
         """
         Properties for non-restore Azure Cosmos DB database account requests.
         :param pulumi.Input[str] create_mode: Enum to indicate the mode of account creation.
-        :param pulumi.Input[str] database_account_offer_type: The offer type for the database
+        :param pulumi.Input['DatabaseAccountOfferType'] database_account_offer_type: The offer type for the database
         :param pulumi.Input[Sequence[pulumi.Input['LocationArgs']]] locations: An array that contains the georeplication locations enabled for the Cosmos DB account.
         :param pulumi.Input['ApiPropertiesArgs'] api_properties: API specific properties. Currently, supported only for MongoDB API.
         :param pulumi.Input[Union['ContinuousModeBackupPolicyArgs', 'PeriodicModeBackupPolicyArgs']] backup_policy: The object representing the policy for taking backups on an account.
         :param pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]] capabilities: List of Cosmos DB capabilities for the account
-        :param pulumi.Input[str] connector_offer: The cassandra connector offer type for the Cosmos DB database C* account.
+        :param pulumi.Input[Union[str, 'ConnectorOffer']] connector_offer: The cassandra connector offer type for the Cosmos DB database C* account.
         :param pulumi.Input['ConsistencyPolicyArgs'] consistency_policy: The consistency policy for the Cosmos DB account.
         :param pulumi.Input[Sequence[pulumi.Input['CorsPolicyArgs']]] cors: The CORS policy for the Cosmos DB database account.
         :param pulumi.Input[bool] disable_key_based_metadata_write_access: Disable write operations on metadata resources (databases, containers, throughput) via account keys
@@ -872,14 +873,14 @@ class DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs:
 
     @property
     @pulumi.getter(name="databaseAccountOfferType")
-    def database_account_offer_type(self) -> pulumi.Input[str]:
+    def database_account_offer_type(self) -> pulumi.Input['DatabaseAccountOfferType']:
         """
         The offer type for the database
         """
         return pulumi.get(self, "database_account_offer_type")
 
     @database_account_offer_type.setter
-    def database_account_offer_type(self, value: pulumi.Input[str]):
+    def database_account_offer_type(self, value: pulumi.Input['DatabaseAccountOfferType']):
         pulumi.set(self, "database_account_offer_type", value)
 
     @property
@@ -932,14 +933,14 @@ class DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs:
 
     @property
     @pulumi.getter(name="connectorOffer")
-    def connector_offer(self) -> Optional[pulumi.Input[str]]:
+    def connector_offer(self) -> Optional[pulumi.Input[Union[str, 'ConnectorOffer']]]:
         """
         The cassandra connector offer type for the Cosmos DB database C* account.
         """
         return pulumi.get(self, "connector_offer")
 
     @connector_offer.setter
-    def connector_offer(self, value: Optional[pulumi.Input[str]]):
+    def connector_offer(self, value: Optional[pulumi.Input[Union[str, 'ConnectorOffer']]]):
         pulumi.set(self, "connector_offer", value)
 
     @property
@@ -1279,13 +1280,13 @@ class IncludedPathArgs:
 @pulumi.input_type
 class IndexesArgs:
     def __init__(__self__, *,
-                 data_type: Optional[pulumi.Input[str]] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
+                 data_type: Optional[pulumi.Input[Union[str, 'DataType']]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'IndexKind']]] = None,
                  precision: Optional[pulumi.Input[int]] = None):
         """
         The indexes for the path.
-        :param pulumi.Input[str] data_type: The datatype for which the indexing behavior is applied to.
-        :param pulumi.Input[str] kind: Indicates the type of index.
+        :param pulumi.Input[Union[str, 'DataType']] data_type: The datatype for which the indexing behavior is applied to.
+        :param pulumi.Input[Union[str, 'IndexKind']] kind: Indicates the type of index.
         :param pulumi.Input[int] precision: The precision of the index. -1 is maximum precision.
         """
         if data_type is not None:
@@ -1297,26 +1298,26 @@ class IndexesArgs:
 
     @property
     @pulumi.getter(name="dataType")
-    def data_type(self) -> Optional[pulumi.Input[str]]:
+    def data_type(self) -> Optional[pulumi.Input[Union[str, 'DataType']]]:
         """
         The datatype for which the indexing behavior is applied to.
         """
         return pulumi.get(self, "data_type")
 
     @data_type.setter
-    def data_type(self, value: Optional[pulumi.Input[str]]):
+    def data_type(self, value: Optional[pulumi.Input[Union[str, 'DataType']]]):
         pulumi.set(self, "data_type", value)
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[str]]:
+    def kind(self) -> Optional[pulumi.Input[Union[str, 'IndexKind']]]:
         """
         Indicates the type of index.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[str]]):
+    def kind(self, value: Optional[pulumi.Input[Union[str, 'IndexKind']]]):
         pulumi.set(self, "kind", value)
 
     @property
@@ -1339,7 +1340,7 @@ class IndexingPolicyArgs:
                  composite_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input['CompositePathArgs']]]]]] = None,
                  excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input['ExcludedPathArgs']]]] = None,
                  included_paths: Optional[pulumi.Input[Sequence[pulumi.Input['IncludedPathArgs']]]] = None,
-                 indexing_mode: Optional[pulumi.Input[str]] = None,
+                 indexing_mode: Optional[pulumi.Input[Union[str, 'IndexingMode']]] = None,
                  spatial_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['SpatialSpecArgs']]]] = None):
         """
         Cosmos DB indexing policy
@@ -1347,7 +1348,7 @@ class IndexingPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input['CompositePathArgs']]]]] composite_indexes: List of composite path list
         :param pulumi.Input[Sequence[pulumi.Input['ExcludedPathArgs']]] excluded_paths: List of paths to exclude from indexing
         :param pulumi.Input[Sequence[pulumi.Input['IncludedPathArgs']]] included_paths: List of paths to include in the indexing
-        :param pulumi.Input[str] indexing_mode: Indicates the indexing mode.
+        :param pulumi.Input[Union[str, 'IndexingMode']] indexing_mode: Indicates the indexing mode.
         :param pulumi.Input[Sequence[pulumi.Input['SpatialSpecArgs']]] spatial_indexes: List of spatial specifics
         """
         if automatic is not None:
@@ -1413,14 +1414,14 @@ class IndexingPolicyArgs:
 
     @property
     @pulumi.getter(name="indexingMode")
-    def indexing_mode(self) -> Optional[pulumi.Input[str]]:
+    def indexing_mode(self) -> Optional[pulumi.Input[Union[str, 'IndexingMode']]]:
         """
         Indicates the indexing mode.
         """
         return pulumi.get(self, "indexing_mode")
 
     @indexing_mode.setter
-    def indexing_mode(self, value: Optional[pulumi.Input[str]]):
+    def indexing_mode(self, value: Optional[pulumi.Input[Union[str, 'IndexingMode']]]):
         pulumi.set(self, "indexing_mode", value)
 
     @property
@@ -1519,11 +1520,11 @@ class LocationArgs:
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None,
                  user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Identity for the resource.
-        :param pulumi.Input[str] type: The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+        :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
         :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         if type is not None:
@@ -1533,14 +1534,14 @@ class ManagedServiceIdentityArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
         """
         The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -1877,13 +1878,13 @@ class PermissionArgs:
 class RestoreParametersArgs:
     def __init__(__self__, *,
                  databases_to_restore: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseRestoreResourceArgs']]]] = None,
-                 restore_mode: Optional[pulumi.Input[str]] = None,
+                 restore_mode: Optional[pulumi.Input[Union[str, 'RestoreMode']]] = None,
                  restore_source: Optional[pulumi.Input[str]] = None,
                  restore_timestamp_in_utc: Optional[pulumi.Input[str]] = None):
         """
         Parameters to indicate the information about the restore.
         :param pulumi.Input[Sequence[pulumi.Input['DatabaseRestoreResourceArgs']]] databases_to_restore: List of specific databases to restore.
-        :param pulumi.Input[str] restore_mode: Describes the mode of the restore.
+        :param pulumi.Input[Union[str, 'RestoreMode']] restore_mode: Describes the mode of the restore.
         :param pulumi.Input[str] restore_source: The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
         :param pulumi.Input[str] restore_timestamp_in_utc: Time to which the account has to be restored (ISO-8601 format).
         """
@@ -1910,14 +1911,14 @@ class RestoreParametersArgs:
 
     @property
     @pulumi.getter(name="restoreMode")
-    def restore_mode(self) -> Optional[pulumi.Input[str]]:
+    def restore_mode(self) -> Optional[pulumi.Input[Union[str, 'RestoreMode']]]:
         """
         Describes the mode of the restore.
         """
         return pulumi.get(self, "restore_mode")
 
     @restore_mode.setter
-    def restore_mode(self, value: Optional[pulumi.Input[str]]):
+    def restore_mode(self, value: Optional[pulumi.Input[Union[str, 'RestoreMode']]]):
         pulumi.set(self, "restore_mode", value)
 
     @property
@@ -1949,12 +1950,12 @@ class RestoreParametersArgs:
 class RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs:
     def __init__(__self__, *,
                  create_mode: pulumi.Input[str],
-                 database_account_offer_type: pulumi.Input[str],
+                 database_account_offer_type: pulumi.Input['DatabaseAccountOfferType'],
                  locations: pulumi.Input[Sequence[pulumi.Input['LocationArgs']]],
                  api_properties: Optional[pulumi.Input['ApiPropertiesArgs']] = None,
                  backup_policy: Optional[pulumi.Input[Union['ContinuousModeBackupPolicyArgs', 'PeriodicModeBackupPolicyArgs']]] = None,
                  capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]]] = None,
-                 connector_offer: Optional[pulumi.Input[str]] = None,
+                 connector_offer: Optional[pulumi.Input[Union[str, 'ConnectorOffer']]] = None,
                  consistency_policy: Optional[pulumi.Input['ConsistencyPolicyArgs']] = None,
                  cors: Optional[pulumi.Input[Sequence[pulumi.Input['CorsPolicyArgs']]]] = None,
                  disable_key_based_metadata_write_access: Optional[pulumi.Input[bool]] = None,
@@ -1971,12 +1972,12 @@ class RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs:
         """
         Properties to restore Azure Cosmos DB database account.
         :param pulumi.Input[str] create_mode: Enum to indicate the mode of account creation.
-        :param pulumi.Input[str] database_account_offer_type: The offer type for the database
+        :param pulumi.Input['DatabaseAccountOfferType'] database_account_offer_type: The offer type for the database
         :param pulumi.Input[Sequence[pulumi.Input['LocationArgs']]] locations: An array that contains the georeplication locations enabled for the Cosmos DB account.
         :param pulumi.Input['ApiPropertiesArgs'] api_properties: API specific properties. Currently, supported only for MongoDB API.
         :param pulumi.Input[Union['ContinuousModeBackupPolicyArgs', 'PeriodicModeBackupPolicyArgs']] backup_policy: The object representing the policy for taking backups on an account.
         :param pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]] capabilities: List of Cosmos DB capabilities for the account
-        :param pulumi.Input[str] connector_offer: The cassandra connector offer type for the Cosmos DB database C* account.
+        :param pulumi.Input[Union[str, 'ConnectorOffer']] connector_offer: The cassandra connector offer type for the Cosmos DB database C* account.
         :param pulumi.Input['ConsistencyPolicyArgs'] consistency_policy: The consistency policy for the Cosmos DB account.
         :param pulumi.Input[Sequence[pulumi.Input['CorsPolicyArgs']]] cors: The CORS policy for the Cosmos DB database account.
         :param pulumi.Input[bool] disable_key_based_metadata_write_access: Disable write operations on metadata resources (databases, containers, throughput) via account keys
@@ -2043,14 +2044,14 @@ class RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs:
 
     @property
     @pulumi.getter(name="databaseAccountOfferType")
-    def database_account_offer_type(self) -> pulumi.Input[str]:
+    def database_account_offer_type(self) -> pulumi.Input['DatabaseAccountOfferType']:
         """
         The offer type for the database
         """
         return pulumi.get(self, "database_account_offer_type")
 
     @database_account_offer_type.setter
-    def database_account_offer_type(self, value: pulumi.Input[str]):
+    def database_account_offer_type(self, value: pulumi.Input['DatabaseAccountOfferType']):
         pulumi.set(self, "database_account_offer_type", value)
 
     @property
@@ -2103,14 +2104,14 @@ class RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs:
 
     @property
     @pulumi.getter(name="connectorOffer")
-    def connector_offer(self) -> Optional[pulumi.Input[str]]:
+    def connector_offer(self) -> Optional[pulumi.Input[Union[str, 'ConnectorOffer']]]:
         """
         The cassandra connector offer type for the Cosmos DB database C* account.
         """
         return pulumi.get(self, "connector_offer")
 
     @connector_offer.setter
-    def connector_offer(self, value: Optional[pulumi.Input[str]]):
+    def connector_offer(self, value: Optional[pulumi.Input[Union[str, 'ConnectorOffer']]]):
         pulumi.set(self, "connector_offer", value)
 
     @property
@@ -2274,10 +2275,10 @@ class RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs:
 class SpatialSpecArgs:
     def __init__(__self__, *,
                  path: Optional[pulumi.Input[str]] = None,
-                 types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SpatialType']]]]] = None):
         """
         :param pulumi.Input[str] path: The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] types: List of path's spatial type
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'SpatialType']]]] types: List of path's spatial type
         """
         if path is not None:
             pulumi.set(__self__, "path", path)
@@ -2298,14 +2299,14 @@ class SpatialSpecArgs:
 
     @property
     @pulumi.getter
-    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SpatialType']]]]]:
         """
         List of path's spatial type
         """
         return pulumi.get(self, "types")
 
     @types.setter
-    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SpatialType']]]]]):
         pulumi.set(self, "types", value)
 
 
@@ -2479,14 +2480,14 @@ class SqlTriggerResourceArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  body: Optional[pulumi.Input[str]] = None,
-                 trigger_operation: Optional[pulumi.Input[str]] = None,
-                 trigger_type: Optional[pulumi.Input[str]] = None):
+                 trigger_operation: Optional[pulumi.Input[Union[str, 'TriggerOperation']]] = None,
+                 trigger_type: Optional[pulumi.Input[Union[str, 'TriggerType']]] = None):
         """
         Cosmos DB SQL trigger resource object
         :param pulumi.Input[str] id: Name of the Cosmos DB SQL trigger
         :param pulumi.Input[str] body: Body of the Trigger
-        :param pulumi.Input[str] trigger_operation: The operation the trigger is associated with
-        :param pulumi.Input[str] trigger_type: Type of the Trigger
+        :param pulumi.Input[Union[str, 'TriggerOperation']] trigger_operation: The operation the trigger is associated with
+        :param pulumi.Input[Union[str, 'TriggerType']] trigger_type: Type of the Trigger
         """
         pulumi.set(__self__, "id", id)
         if body is not None:
@@ -2522,26 +2523,26 @@ class SqlTriggerResourceArgs:
 
     @property
     @pulumi.getter(name="triggerOperation")
-    def trigger_operation(self) -> Optional[pulumi.Input[str]]:
+    def trigger_operation(self) -> Optional[pulumi.Input[Union[str, 'TriggerOperation']]]:
         """
         The operation the trigger is associated with
         """
         return pulumi.get(self, "trigger_operation")
 
     @trigger_operation.setter
-    def trigger_operation(self, value: Optional[pulumi.Input[str]]):
+    def trigger_operation(self, value: Optional[pulumi.Input[Union[str, 'TriggerOperation']]]):
         pulumi.set(self, "trigger_operation", value)
 
     @property
     @pulumi.getter(name="triggerType")
-    def trigger_type(self) -> Optional[pulumi.Input[str]]:
+    def trigger_type(self) -> Optional[pulumi.Input[Union[str, 'TriggerType']]]:
         """
         Type of the Trigger
         """
         return pulumi.get(self, "trigger_type")
 
     @trigger_type.setter
-    def trigger_type(self, value: Optional[pulumi.Input[str]]):
+    def trigger_type(self, value: Optional[pulumi.Input[Union[str, 'TriggerType']]]):
         pulumi.set(self, "trigger_type", value)
 
 

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -86,28 +86,28 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
     constructor(name: string, args: SmartDetectorAlertRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.actionGroups === undefined) {
+            if ((!args || args.actionGroups === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'actionGroups'");
             }
-            if (!args || args.alertRuleName === undefined) {
+            if ((!args || args.alertRuleName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'alertRuleName'");
             }
-            if (!args || args.detector === undefined) {
+            if ((!args || args.detector === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'detector'");
             }
-            if (!args || args.frequency === undefined) {
+            if ((!args || args.frequency === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'frequency'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.scope === undefined) {
+            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
-            if (!args || args.severity === undefined) {
+            if ((!args || args.severity === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'severity'");
             }
-            if (!args || args.state === undefined) {
+            if ((!args || args.state === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'state'");
             }
             inputs["actionGroups"] = args ? args.actionGroups : undefined;
@@ -182,11 +182,11 @@ export interface SmartDetectorAlertRuleArgs {
     /**
      * The alert rule severity.
      */
-    readonly severity: pulumi.Input<string>;
+    readonly severity: pulumi.Input<string | enums.alertsmanagement.v20190301.Severity>;
     /**
      * The alert rule state.
      */
-    readonly state: pulumi.Input<string>;
+    readonly state: pulumi.Input<string | enums.alertsmanagement.v20190301.AlertRuleState>;
     /**
      * The alert rule throttling information.
      */

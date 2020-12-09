@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataBox.Latest.Inputs
         /// Defines secondary layer of software-based encryption enablement.
         /// </summary>
         [Input("doubleEncryption")]
-        public Input<string>? DoubleEncryption { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataBox.Latest.DoubleEncryption>? DoubleEncryption { get; set; }
 
         public EncryptionPreferencesArgs()
         {

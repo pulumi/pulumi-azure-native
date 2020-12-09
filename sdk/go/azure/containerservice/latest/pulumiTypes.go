@@ -2710,7 +2710,7 @@ type ContainerServiceOrchestratorProfileInput interface {
 // Profile for the container service orchestrator.
 type ContainerServiceOrchestratorProfileArgs struct {
 	// The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
-	OrchestratorType pulumi.StringInput `pulumi:"orchestratorType"`
+	OrchestratorType ContainerServiceOrchestratorTypes `pulumi:"orchestratorType"`
 }
 
 func (ContainerServiceOrchestratorProfileArgs) ElementType() reflect.Type {
@@ -7487,7 +7487,7 @@ type ManagedClusterIdentityInput interface {
 // Identity for the managed cluster.
 type ManagedClusterIdentityArgs struct {
 	// The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type ResourceIdentityType `pulumi:"type"`
 	// The user identity associated with the managed cluster. This identity will be used in control plane and only one user assigned identity is allowed. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }

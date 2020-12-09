@@ -36,7 +36,7 @@ type ApiKeyAuthenticationInput interface {
 // ApiKey authentication gives a name and a value that can be included in either the request header or query parameters.
 type ApiKeyAuthenticationArgs struct {
 	// The location of the authentication key/value pair in the request.
-	In pulumi.StringInput `pulumi:"in"`
+	In RestAuthLocation `pulumi:"in"`
 	// The key name of the authentication key/value pair.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The authentication type.
@@ -1742,7 +1742,7 @@ type RestRequestArgs struct {
 	// The authentication information required in the request to the health provider.
 	Authentication pulumi.Input `pulumi:"authentication"`
 	// The HTTP method to use for the request.
-	Method pulumi.StringInput `pulumi:"method"`
+	Method RestRequestMethod `pulumi:"method"`
 	// The HTTP URI to use for the request.
 	Uri pulumi.StringInput `pulumi:"uri"`
 }
@@ -2037,7 +2037,7 @@ type RestResponseRegexInput interface {
 // The regular expressions to match the response content with.
 type RestResponseRegexArgs struct {
 	// Indicates whether any or all of the expressions should match with the response content.
-	MatchQuantifier pulumi.StringPtrInput `pulumi:"matchQuantifier"`
+	MatchQuantifier RestMatchQuantifier `pulumi:"matchQuantifier"`
 	// The list of regular expressions.
 	Matches pulumi.StringArrayInput `pulumi:"matches"`
 }

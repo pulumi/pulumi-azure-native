@@ -31,13 +31,13 @@ namespace Pulumi.AzureNextGen.CostManagement.V20190101.Inputs
         /// The time frame for pulling data for the query. If custom, then a specific time period must be provided.
         /// </summary>
         [Input("timeframe", required: true)]
-        public Input<string> Timeframe { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20190101.TimeframeType> Timeframe { get; set; } = null!;
 
         /// <summary>
         /// The type of the query.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20190101.ExportType> Type { get; set; } = null!;
 
         public QueryDefinitionArgs()
         {

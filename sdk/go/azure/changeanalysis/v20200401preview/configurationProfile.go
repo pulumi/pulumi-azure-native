@@ -30,11 +30,12 @@ type ConfigurationProfile struct {
 // NewConfigurationProfile registers a new resource with the given unique name, arguments, and options.
 func NewConfigurationProfile(ctx *pulumi.Context,
 	name string, args *ConfigurationProfileArgs, opts ...pulumi.ResourceOption) (*ConfigurationProfile, error) {
-	if args == nil || args.ProfileName == nil {
-		return nil, errors.New("missing required argument 'ProfileName'")
-	}
 	if args == nil {
-		args = &ConfigurationProfileArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ProfileName == nil {
+		return nil, errors.New("invalid value for required argument 'ProfileName'")
 	}
 	var resource ConfigurationProfile
 	err := ctx.RegisterResource("azure-nextgen:changeanalysis/v20200401preview:ConfigurationProfile", name, args, &resource, opts...)

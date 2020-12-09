@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Share']
@@ -17,17 +18,17 @@ class Share(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_protocol: Optional[pulumi.Input[str]] = None,
+                 access_protocol: Optional[pulumi.Input[Union[str, 'ShareAccessProtocol']]] = None,
                  azure_container_info: Optional[pulumi.Input[pulumi.InputType['AzureContainerInfoArgs']]] = None,
                  client_access_rights: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientAccessRightArgs']]]]] = None,
-                 data_policy: Optional[pulumi.Input[str]] = None,
+                 data_policy: Optional[pulumi.Input[Union[str, 'DataPolicy']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 monitoring_status: Optional[pulumi.Input[str]] = None,
+                 monitoring_status: Optional[pulumi.Input[Union[str, 'MonitoringStatus']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  refresh_details: Optional[pulumi.Input[pulumi.InputType['RefreshDetailsArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 share_status: Optional[pulumi.Input[str]] = None,
+                 share_status: Optional[pulumi.Input[Union[str, 'ShareStatus']]] = None,
                  user_access_rights: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserAccessRightArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -37,17 +38,17 @@ class Share(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access_protocol: Access protocol to be used by the share.
+        :param pulumi.Input[Union[str, 'ShareAccessProtocol']] access_protocol: Access protocol to be used by the share.
         :param pulumi.Input[pulumi.InputType['AzureContainerInfoArgs']] azure_container_info: Azure container mapping for the share.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClientAccessRightArgs']]]] client_access_rights: List of IP addresses and corresponding access rights on the share(required for NFS protocol).
-        :param pulumi.Input[str] data_policy: Data policy of the share.
+        :param pulumi.Input[Union[str, 'DataPolicy']] data_policy: Data policy of the share.
         :param pulumi.Input[str] description: Description for the share.
         :param pulumi.Input[str] device_name: The device name.
-        :param pulumi.Input[str] monitoring_status: Current monitoring status of the share.
+        :param pulumi.Input[Union[str, 'MonitoringStatus']] monitoring_status: Current monitoring status of the share.
         :param pulumi.Input[str] name: The share name.
         :param pulumi.Input[pulumi.InputType['RefreshDetailsArgs']] refresh_details: Details of the refresh job on this share.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[str] share_status: Current status of the share.
+        :param pulumi.Input[Union[str, 'ShareStatus']] share_status: Current status of the share.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserAccessRightArgs']]]] user_access_rights: Mapping of users and corresponding access rights on the share (required for SMB protocol).
         """
         if __name__ is not None:
@@ -67,27 +68,27 @@ class Share(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if access_protocol is None:
+            if access_protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'access_protocol'")
             __props__['access_protocol'] = access_protocol
             __props__['azure_container_info'] = azure_container_info
             __props__['client_access_rights'] = client_access_rights
             __props__['data_policy'] = data_policy
             __props__['description'] = description
-            if device_name is None:
+            if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
-            if monitoring_status is None:
+            if monitoring_status is None and not opts.urn:
                 raise TypeError("Missing required property 'monitoring_status'")
             __props__['monitoring_status'] = monitoring_status
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['refresh_details'] = refresh_details
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if share_status is None:
+            if share_status is None and not opts.urn:
                 raise TypeError("Missing required property 'share_status'")
             __props__['share_status'] = share_status
             __props__['user_access_rights'] = user_access_rights

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -138,13 +138,13 @@ export class Account extends pulumi.CustomResource {
     constructor(name: string, args: AccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.accountName === undefined) {
+            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -229,11 +229,11 @@ export interface AccountArgs {
     /**
      * The current state of encryption for this Data Lake Store account.
      */
-    readonly encryptionState?: pulumi.Input<string>;
+    readonly encryptionState?: pulumi.Input<enums.datalakestore.v20161101.EncryptionState>;
     /**
      * The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
      */
-    readonly firewallAllowAzureIps?: pulumi.Input<string>;
+    readonly firewallAllowAzureIps?: pulumi.Input<enums.datalakestore.v20161101.FirewallAllowAzureIpsState>;
     /**
      * The list of firewall rules associated with this Data Lake Store account.
      */
@@ -241,7 +241,7 @@ export interface AccountArgs {
     /**
      * The current state of the IP address firewall for this Data Lake Store account.
      */
-    readonly firewallState?: pulumi.Input<string>;
+    readonly firewallState?: pulumi.Input<enums.datalakestore.v20161101.FirewallState>;
     /**
      * The Key Vault encryption identity, if any.
      */
@@ -253,7 +253,7 @@ export interface AccountArgs {
     /**
      * The commitment tier to use for next month.
      */
-    readonly newTier?: pulumi.Input<string>;
+    readonly newTier?: pulumi.Input<enums.datalakestore.v20161101.TierType>;
     /**
      * The name of the Azure resource group.
      */
@@ -265,7 +265,7 @@ export interface AccountArgs {
     /**
      * The current state of the trusted identity provider feature for this Data Lake Store account.
      */
-    readonly trustedIdProviderState?: pulumi.Input<string>;
+    readonly trustedIdProviderState?: pulumi.Input<enums.datalakestore.v20161101.TrustedIdProviderState>;
     /**
      * The list of trusted identity providers associated with this Data Lake Store account.
      */

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['JobTargetGroup']
@@ -53,19 +54,19 @@ class JobTargetGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if job_agent_name is None:
+            if job_agent_name is None and not opts.urn:
                 raise TypeError("Missing required property 'job_agent_name'")
             __props__['job_agent_name'] = job_agent_name
-            if members is None:
+            if members is None and not opts.urn:
                 raise TypeError("Missing required property 'members'")
             __props__['members'] = members
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if server_name is None:
+            if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
-            if target_group_name is None:
+            if target_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'target_group_name'")
             __props__['target_group_name'] = target_group_name
             __props__['name'] = None

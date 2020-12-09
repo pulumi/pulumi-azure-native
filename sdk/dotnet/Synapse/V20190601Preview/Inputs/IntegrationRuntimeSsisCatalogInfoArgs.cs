@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Inputs
         /// The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
         /// </summary>
         [Input("catalogPricingTier")]
-        public Input<string>? CatalogPricingTier { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Synapse.V20190601Preview.IntegrationRuntimeSsisCatalogPricingTier>? CatalogPricingTier { get; set; }
 
         /// <summary>
         /// The catalog database server URL.

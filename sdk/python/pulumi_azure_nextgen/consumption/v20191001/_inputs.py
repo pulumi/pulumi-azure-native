@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'BudgetComparisonExpressionArgs',
@@ -20,12 +21,12 @@ __all__ = [
 class BudgetComparisonExpressionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 operator: pulumi.Input[str],
+                 operator: pulumi.Input[Union[str, 'BudgetOperatorType']],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         The comparison expression to be used in the budgets.
         :param pulumi.Input[str] name: The name of the column to use in comparison.
-        :param pulumi.Input[str] operator: The operator to use for comparison.
+        :param pulumi.Input[Union[str, 'BudgetOperatorType']] operator: The operator to use for comparison.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Array of values to use for comparison
         """
         pulumi.set(__self__, "name", name)
@@ -46,14 +47,14 @@ class BudgetComparisonExpressionArgs:
 
     @property
     @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
+    def operator(self) -> pulumi.Input[Union[str, 'BudgetOperatorType']]:
         """
         The operator to use for comparison.
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: pulumi.Input[str]):
+    def operator(self, value: pulumi.Input[Union[str, 'BudgetOperatorType']]):
         pulumi.set(self, "operator", value)
 
     @property
@@ -225,20 +226,20 @@ class NotificationArgs:
     def __init__(__self__, *,
                  contact_emails: pulumi.Input[Sequence[pulumi.Input[str]]],
                  enabled: pulumi.Input[bool],
-                 operator: pulumi.Input[str],
+                 operator: pulumi.Input[Union[str, 'OperatorType']],
                  threshold: pulumi.Input[float],
                  contact_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  contact_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 threshold_type: Optional[pulumi.Input[str]] = None):
+                 threshold_type: Optional[pulumi.Input[Union[str, 'ThresholdType']]] = None):
         """
         The notification associated with a budget.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_emails: Email addresses to send the budget notification to when the threshold is exceeded.
         :param pulumi.Input[bool] enabled: The notification is enabled or not.
-        :param pulumi.Input[str] operator: The comparison operator.
+        :param pulumi.Input[Union[str, 'OperatorType']] operator: The comparison operator.
         :param pulumi.Input[float] threshold: Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_groups: Action groups to send the budget notification to when the threshold is exceeded.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_roles: Contact roles to send the budget notification to when the threshold is exceeded.
-        :param pulumi.Input[str] threshold_type: The type of threshold
+        :param pulumi.Input[Union[str, 'ThresholdType']] threshold_type: The type of threshold
         """
         pulumi.set(__self__, "contact_emails", contact_emails)
         pulumi.set(__self__, "enabled", enabled)
@@ -277,14 +278,14 @@ class NotificationArgs:
 
     @property
     @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
+    def operator(self) -> pulumi.Input[Union[str, 'OperatorType']]:
         """
         The comparison operator.
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: pulumi.Input[str]):
+    def operator(self, value: pulumi.Input[Union[str, 'OperatorType']]):
         pulumi.set(self, "operator", value)
 
     @property
@@ -325,14 +326,14 @@ class NotificationArgs:
 
     @property
     @pulumi.getter(name="thresholdType")
-    def threshold_type(self) -> Optional[pulumi.Input[str]]:
+    def threshold_type(self) -> Optional[pulumi.Input[Union[str, 'ThresholdType']]]:
         """
         The type of threshold
         """
         return pulumi.get(self, "threshold_type")
 
     @threshold_type.setter
-    def threshold_type(self, value: Optional[pulumi.Input[str]]):
+    def threshold_type(self, value: Optional[pulumi.Input[Union[str, 'ThresholdType']]]):
         pulumi.set(self, "threshold_type", value)
 
 

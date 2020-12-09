@@ -238,7 +238,7 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
         /// Gets or sets PeeringType
         /// </summary>
         [Input("peeringType")]
-        public Input<string>? PeeringType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20150501Preview.ExpressRouteCircuitPeeringType>? PeeringType { get; set; }
 
         /// <summary>
         /// Gets or sets the primary port
@@ -286,7 +286,7 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
         /// Gets or sets state of Peering
         /// </summary>
         [Input("state")]
-        public Input<string>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20150501Preview.ExpressRouteCircuitPeeringState>? State { get; set; }
 
         /// <summary>
         /// Gets or peering stats

@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Scheduler.Latest.Inputs
         /// Gets or sets the transport type.
         /// </summary>
         [Input("transportType")]
-        public Input<string>? TransportType { get; set; }
+        public Input<Pulumi.AzureNextGen.Scheduler.Latest.ServiceBusTransportType>? TransportType { get; set; }
 
         public ServiceBusTopicMessageArgs()
         {

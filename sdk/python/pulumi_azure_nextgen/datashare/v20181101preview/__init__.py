@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .account import *
 from .data_set import *
 from .data_set_mapping import *
@@ -26,3 +27,40 @@ from .synchronization_setting import *
 from .trigger import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:datashare/v20181101preview:Account":
+                return Account(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:datashare/v20181101preview:DataSet":
+                return DataSet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:datashare/v20181101preview:DataSetMapping":
+                return DataSetMapping(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:datashare/v20181101preview:Invitation":
+                return Invitation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:datashare/v20181101preview:Share":
+                return Share(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:datashare/v20181101preview:ShareSubscription":
+                return ShareSubscription(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:datashare/v20181101preview:SynchronizationSetting":
+                return SynchronizationSetting(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:datashare/v20181101preview:Trigger":
+                return Trigger(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "datashare/v20181101preview", _module_instance)
+
+_register_module()

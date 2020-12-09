@@ -23,17 +23,18 @@ type VMwareCollector struct {
 // NewVMwareCollector registers a new resource with the given unique name, arguments, and options.
 func NewVMwareCollector(ctx *pulumi.Context,
 	name string, args *VMwareCollectorArgs, opts ...pulumi.ResourceOption) (*VMwareCollector, error) {
-	if args == nil || args.ProjectName == nil {
-		return nil, errors.New("missing required argument 'ProjectName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VmWareCollectorName == nil {
-		return nil, errors.New("missing required argument 'VmWareCollectorName'")
-	}
 	if args == nil {
-		args = &VMwareCollectorArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ProjectName == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VmWareCollectorName == nil {
+		return nil, errors.New("invalid value for required argument 'VmWareCollectorName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

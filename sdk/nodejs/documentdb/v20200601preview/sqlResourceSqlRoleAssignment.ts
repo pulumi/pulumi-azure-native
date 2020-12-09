@@ -65,13 +65,13 @@ export class SqlResourceSqlRoleAssignment extends pulumi.CustomResource {
     constructor(name: string, args: SqlResourceSqlRoleAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.accountName === undefined) {
+            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.roleAssignmentId === undefined) {
+            if ((!args || args.roleAssignmentId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'roleAssignmentId'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;

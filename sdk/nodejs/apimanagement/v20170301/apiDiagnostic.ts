@@ -57,19 +57,19 @@ export class ApiDiagnostic extends pulumi.CustomResource {
     constructor(name: string, args: ApiDiagnosticArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.apiId === undefined) {
+            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if (!args || args.diagnosticId === undefined) {
+            if ((!args || args.diagnosticId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'diagnosticId'");
             }
-            if (!args || args.enabled === undefined) {
+            if ((!args || args.enabled === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serviceName === undefined) {
+            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;

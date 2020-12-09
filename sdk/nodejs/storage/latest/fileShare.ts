@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -109,13 +110,13 @@ export class FileShare extends pulumi.CustomResource {
     constructor(name: string, args: FileShareArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.accountName === undefined) {
+            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.shareName === undefined) {
+            if ((!args || args.shareName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'shareName'");
             }
             inputs["accessTier"] = args ? args.accessTier : undefined;
@@ -175,7 +176,7 @@ export interface FileShareArgs {
     /**
      * Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
      */
-    readonly accessTier?: pulumi.Input<string>;
+    readonly accessTier?: pulumi.Input<string | enums.storage.latest.ShareAccessTier>;
     /**
      * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
      */
@@ -183,7 +184,7 @@ export interface FileShareArgs {
     /**
      * The authentication protocol that is used for the file share. Can only be specified when creating a share.
      */
-    readonly enabledProtocols?: pulumi.Input<string>;
+    readonly enabledProtocols?: pulumi.Input<string | enums.storage.latest.EnabledProtocols>;
     /**
      * A name-value pair to associate with the share as metadata.
      */
@@ -195,7 +196,7 @@ export interface FileShareArgs {
     /**
      * The property is for NFS share only. The default is NoRootSquash.
      */
-    readonly rootSquash?: pulumi.Input<string>;
+    readonly rootSquash?: pulumi.Input<string | enums.storage.latest.RootSquashType>;
     /**
      * The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
      */

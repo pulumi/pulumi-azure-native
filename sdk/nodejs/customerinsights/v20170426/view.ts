@@ -81,16 +81,16 @@ export class View extends pulumi.CustomResource {
     constructor(name: string, args: ViewArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.definition === undefined) {
+            if ((!args || args.definition === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'definition'");
             }
-            if (!args || args.hubName === undefined) {
+            if ((!args || args.hubName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.viewName === undefined) {
+            if ((!args || args.viewName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'viewName'");
             }
             inputs["definition"] = args ? args.definition : undefined;

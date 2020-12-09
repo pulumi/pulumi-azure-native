@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20151101Preview.Inputs
         /// Size of agent VMs
         /// </summary>
         [Input("vmSize")]
-        public Input<string>? VmSize { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20151101Preview.ContainerServiceVMSizeTypes>? VmSize { get; set; }
 
         public ContainerServiceAgentPoolProfileArgs()
         {

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20151101Preview.Inputs
         /// Specifies what orchestrator will be used to manage container cluster resources.
         /// </summary>
         [Input("orchestratorType")]
-        public Input<string>? OrchestratorType { get; set; }
+        public Input<Pulumi.AzureNextGen.ContainerService.V20151101Preview.ContainerServiceOchestratorTypes>? OrchestratorType { get; set; }
 
         public ContainerServiceOrchestratorProfileArgs()
         {

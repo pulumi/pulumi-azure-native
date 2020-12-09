@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150201Preview.Inputs
         /// Gets or sets the type.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AzureNextGen.Logic.V20150201Preview.ParameterType>? Type { get; set; }
 
         /// <summary>
         /// Gets or sets the value.

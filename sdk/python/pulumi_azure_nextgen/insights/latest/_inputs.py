@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ActivityLogAlertActionGroupArgs',
@@ -196,14 +197,14 @@ class ActivityLogAlertLeafConditionArgs:
 class AlertingActionArgs:
     def __init__(__self__, *,
                  odata_type: pulumi.Input[str],
-                 severity: pulumi.Input[str],
+                 severity: pulumi.Input[Union[str, 'AlertSeverity']],
                  trigger: pulumi.Input['TriggerConditionArgs'],
                  azns_action: Optional[pulumi.Input['AzNsActionGroupArgs']] = None,
                  throttling_in_min: Optional[pulumi.Input[int]] = None):
         """
         Specify action need to be taken when rule type is Alert
         :param pulumi.Input[str] odata_type: Specifies the action. Supported values - AlertingAction, LogToMetricAction
-        :param pulumi.Input[str] severity: Severity of the alert
+        :param pulumi.Input[Union[str, 'AlertSeverity']] severity: Severity of the alert
         :param pulumi.Input['TriggerConditionArgs'] trigger: The trigger condition that results in the alert rule being.
         :param pulumi.Input['AzNsActionGroupArgs'] azns_action: Azure action group reference.
         :param pulumi.Input[int] throttling_in_min: time (in minutes) for which Alerts should be throttled or suppressed.
@@ -230,14 +231,14 @@ class AlertingActionArgs:
 
     @property
     @pulumi.getter
-    def severity(self) -> pulumi.Input[str]:
+    def severity(self) -> pulumi.Input[Union[str, 'AlertSeverity']]:
         """
         Severity of the alert
         """
         return pulumi.get(self, "severity")
 
     @severity.setter
-    def severity(self, value: pulumi.Input[str]):
+    def severity(self, value: pulumi.Input[Union[str, 'AlertSeverity']]):
         pulumi.set(self, "severity", value)
 
     @property
@@ -472,12 +473,12 @@ class AutomationRunbookReceiverArgs:
 @pulumi.input_type
 class AutoscaleNotificationArgs:
     def __init__(__self__, *,
-                 operation: pulumi.Input[str],
+                 operation: pulumi.Input['OperationType'],
                  email: Optional[pulumi.Input['EmailNotificationArgs']] = None,
                  webhooks: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookNotificationArgs']]]] = None):
         """
         Autoscale notification.
-        :param pulumi.Input[str] operation: the operation associated with the notification and its value must be "scale"
+        :param pulumi.Input['OperationType'] operation: the operation associated with the notification and its value must be "scale"
         :param pulumi.Input['EmailNotificationArgs'] email: the email notification.
         :param pulumi.Input[Sequence[pulumi.Input['WebhookNotificationArgs']]] webhooks: the collection of webhook notifications.
         """
@@ -489,14 +490,14 @@ class AutoscaleNotificationArgs:
 
     @property
     @pulumi.getter
-    def operation(self) -> pulumi.Input[str]:
+    def operation(self) -> pulumi.Input['OperationType']:
         """
         the operation associated with the notification and its value must be "scale"
         """
         return pulumi.get(self, "operation")
 
     @operation.setter
-    def operation(self, value: pulumi.Input[str]):
+    def operation(self, value: pulumi.Input['OperationType']):
         pulumi.set(self, "operation", value)
 
     @property
@@ -829,12 +830,12 @@ class CriteriaArgs:
 class DimensionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 operator: pulumi.Input[str],
+                 operator: pulumi.Input[Union[str, 'Operator']],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         Specifies the criteria for converting log to metric.
         :param pulumi.Input[str] name: Name of the dimension
-        :param pulumi.Input[str] operator: Operator for dimension values
+        :param pulumi.Input[Union[str, 'Operator']] operator: Operator for dimension values
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of dimension values
         """
         pulumi.set(__self__, "name", name)
@@ -855,14 +856,14 @@ class DimensionArgs:
 
     @property
     @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
+    def operator(self) -> pulumi.Input[Union[str, 'Operator']]:
         """
         Operator for dimension values
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: pulumi.Input[str]):
+    def operator(self, value: pulumi.Input[Union[str, 'Operator']]):
         pulumi.set(self, "operator", value)
 
     @property
@@ -881,26 +882,26 @@ class DimensionArgs:
 @pulumi.input_type
 class DynamicMetricCriteriaArgs:
     def __init__(__self__, *,
-                 alert_sensitivity: pulumi.Input[str],
+                 alert_sensitivity: pulumi.Input[Union[str, 'DynamicThresholdSensitivity']],
                  criterion_type: pulumi.Input[str],
                  failing_periods: pulumi.Input['DynamicThresholdFailingPeriodsArgs'],
                  metric_name: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 operator: pulumi.Input[str],
-                 time_aggregation: pulumi.Input[str],
+                 operator: pulumi.Input[Union[str, 'DynamicThresholdOperator']],
+                 time_aggregation: pulumi.Input[Union[str, 'AggregationType']],
                  dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]]] = None,
                  ignore_data_before: Optional[pulumi.Input[str]] = None,
                  metric_namespace: Optional[pulumi.Input[str]] = None,
                  skip_metric_validation: Optional[pulumi.Input[bool]] = None):
         """
         Criterion for dynamic threshold.
-        :param pulumi.Input[str] alert_sensitivity: The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
+        :param pulumi.Input[Union[str, 'DynamicThresholdSensitivity']] alert_sensitivity: The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
         :param pulumi.Input[str] criterion_type: Specifies the type of threshold criteria
         :param pulumi.Input['DynamicThresholdFailingPeriodsArgs'] failing_periods: The minimum number of violations required within the selected lookback time window required to raise an alert.
         :param pulumi.Input[str] metric_name: Name of the metric.
         :param pulumi.Input[str] name: Name of the criteria.
-        :param pulumi.Input[str] operator: The operator used to compare the metric value against the threshold.
-        :param pulumi.Input[str] time_aggregation: the criteria time aggregation types.
+        :param pulumi.Input[Union[str, 'DynamicThresholdOperator']] operator: The operator used to compare the metric value against the threshold.
+        :param pulumi.Input[Union[str, 'AggregationType']] time_aggregation: the criteria time aggregation types.
         :param pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]] dimensions: List of dimension conditions.
         :param pulumi.Input[str] ignore_data_before: Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)
         :param pulumi.Input[str] metric_namespace: Namespace of the metric.
@@ -924,14 +925,14 @@ class DynamicMetricCriteriaArgs:
 
     @property
     @pulumi.getter(name="alertSensitivity")
-    def alert_sensitivity(self) -> pulumi.Input[str]:
+    def alert_sensitivity(self) -> pulumi.Input[Union[str, 'DynamicThresholdSensitivity']]:
         """
         The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
         """
         return pulumi.get(self, "alert_sensitivity")
 
     @alert_sensitivity.setter
-    def alert_sensitivity(self, value: pulumi.Input[str]):
+    def alert_sensitivity(self, value: pulumi.Input[Union[str, 'DynamicThresholdSensitivity']]):
         pulumi.set(self, "alert_sensitivity", value)
 
     @property
@@ -984,26 +985,26 @@ class DynamicMetricCriteriaArgs:
 
     @property
     @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
+    def operator(self) -> pulumi.Input[Union[str, 'DynamicThresholdOperator']]:
         """
         The operator used to compare the metric value against the threshold.
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: pulumi.Input[str]):
+    def operator(self, value: pulumi.Input[Union[str, 'DynamicThresholdOperator']]):
         pulumi.set(self, "operator", value)
 
     @property
     @pulumi.getter(name="timeAggregation")
-    def time_aggregation(self) -> pulumi.Input[str]:
+    def time_aggregation(self) -> pulumi.Input[Union[str, 'AggregationType']]:
         """
         the criteria time aggregation types.
         """
         return pulumi.get(self, "time_aggregation")
 
     @time_aggregation.setter
-    def time_aggregation(self, value: pulumi.Input[str]):
+    def time_aggregation(self, value: pulumi.Input[Union[str, 'AggregationType']]):
         pulumi.set(self, "time_aggregation", value)
 
     @property
@@ -1359,15 +1360,15 @@ class LocationThresholdRuleConditionArgs:
 class LogMetricTriggerArgs:
     def __init__(__self__, *,
                  metric_column: Optional[pulumi.Input[str]] = None,
-                 metric_trigger_type: Optional[pulumi.Input[str]] = None,
+                 metric_trigger_type: Optional[pulumi.Input[Union[str, 'MetricTriggerType']]] = None,
                  threshold: Optional[pulumi.Input[float]] = None,
-                 threshold_operator: Optional[pulumi.Input[str]] = None):
+                 threshold_operator: Optional[pulumi.Input[Union[str, 'ConditionalOperator']]] = None):
         """
         A log metrics trigger descriptor.
         :param pulumi.Input[str] metric_column: Evaluation of metric on a particular column
-        :param pulumi.Input[str] metric_trigger_type: Metric Trigger Type - 'Consecutive' or 'Total'
+        :param pulumi.Input[Union[str, 'MetricTriggerType']] metric_trigger_type: Metric Trigger Type - 'Consecutive' or 'Total'
         :param pulumi.Input[float] threshold: The threshold of the metric trigger.
-        :param pulumi.Input[str] threshold_operator: Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
+        :param pulumi.Input[Union[str, 'ConditionalOperator']] threshold_operator: Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
         """
         if metric_column is not None:
             pulumi.set(__self__, "metric_column", metric_column)
@@ -1392,14 +1393,14 @@ class LogMetricTriggerArgs:
 
     @property
     @pulumi.getter(name="metricTriggerType")
-    def metric_trigger_type(self) -> Optional[pulumi.Input[str]]:
+    def metric_trigger_type(self) -> Optional[pulumi.Input[Union[str, 'MetricTriggerType']]]:
         """
         Metric Trigger Type - 'Consecutive' or 'Total'
         """
         return pulumi.get(self, "metric_trigger_type")
 
     @metric_trigger_type.setter
-    def metric_trigger_type(self, value: Optional[pulumi.Input[str]]):
+    def metric_trigger_type(self, value: Optional[pulumi.Input[Union[str, 'MetricTriggerType']]]):
         pulumi.set(self, "metric_trigger_type", value)
 
     @property
@@ -1416,14 +1417,14 @@ class LogMetricTriggerArgs:
 
     @property
     @pulumi.getter(name="thresholdOperator")
-    def threshold_operator(self) -> Optional[pulumi.Input[str]]:
+    def threshold_operator(self) -> Optional[pulumi.Input[Union[str, 'ConditionalOperator']]]:
         """
         Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'.
         """
         return pulumi.get(self, "threshold_operator")
 
     @threshold_operator.setter
-    def threshold_operator(self, value: Optional[pulumi.Input[str]]):
+    def threshold_operator(self, value: Optional[pulumi.Input[Union[str, 'ConditionalOperator']]]):
         pulumi.set(self, "threshold_operator", value)
 
 
@@ -1560,12 +1561,12 @@ class ManagedIdentityArgs:
 @pulumi.input_type
 class ManagementEventAggregationConditionArgs:
     def __init__(__self__, *,
-                 operator: Optional[pulumi.Input[str]] = None,
+                 operator: Optional[pulumi.Input['ConditionOperator']] = None,
                  threshold: Optional[pulumi.Input[float]] = None,
                  window_size: Optional[pulumi.Input[str]] = None):
         """
         How the data that is collected should be combined over time.
-        :param pulumi.Input[str] operator: the condition operator.
+        :param pulumi.Input['ConditionOperator'] operator: the condition operator.
         :param pulumi.Input[float] threshold: The threshold value that activates the alert.
         :param pulumi.Input[str] window_size: the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
         """
@@ -1578,14 +1579,14 @@ class ManagementEventAggregationConditionArgs:
 
     @property
     @pulumi.getter
-    def operator(self) -> Optional[pulumi.Input[str]]:
+    def operator(self) -> Optional[pulumi.Input['ConditionOperator']]:
         """
         the condition operator.
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: Optional[pulumi.Input[str]]):
+    def operator(self, value: Optional[pulumi.Input['ConditionOperator']]):
         pulumi.set(self, "operator", value)
 
     @property
@@ -1792,9 +1793,9 @@ class MetricCriteriaArgs:
                  criterion_type: pulumi.Input[str],
                  metric_name: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 operator: pulumi.Input[str],
+                 operator: pulumi.Input[Union[str, 'Operator']],
                  threshold: pulumi.Input[float],
-                 time_aggregation: pulumi.Input[str],
+                 time_aggregation: pulumi.Input[Union[str, 'AggregationType']],
                  dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]]] = None,
                  metric_namespace: Optional[pulumi.Input[str]] = None,
                  skip_metric_validation: Optional[pulumi.Input[bool]] = None):
@@ -1803,9 +1804,9 @@ class MetricCriteriaArgs:
         :param pulumi.Input[str] criterion_type: Specifies the type of threshold criteria
         :param pulumi.Input[str] metric_name: Name of the metric.
         :param pulumi.Input[str] name: Name of the criteria.
-        :param pulumi.Input[str] operator: the criteria operator.
+        :param pulumi.Input[Union[str, 'Operator']] operator: the criteria operator.
         :param pulumi.Input[float] threshold: the criteria threshold value that activates the alert.
-        :param pulumi.Input[str] time_aggregation: the criteria time aggregation types.
+        :param pulumi.Input[Union[str, 'AggregationType']] time_aggregation: the criteria time aggregation types.
         :param pulumi.Input[Sequence[pulumi.Input['MetricDimensionArgs']]] dimensions: List of dimension conditions.
         :param pulumi.Input[str] metric_namespace: Namespace of the metric.
         :param pulumi.Input[bool] skip_metric_validation: Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
@@ -1861,14 +1862,14 @@ class MetricCriteriaArgs:
 
     @property
     @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
+    def operator(self) -> pulumi.Input[Union[str, 'Operator']]:
         """
         the criteria operator.
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: pulumi.Input[str]):
+    def operator(self, value: pulumi.Input[Union[str, 'Operator']]):
         pulumi.set(self, "operator", value)
 
     @property
@@ -1885,14 +1886,14 @@ class MetricCriteriaArgs:
 
     @property
     @pulumi.getter(name="timeAggregation")
-    def time_aggregation(self) -> pulumi.Input[str]:
+    def time_aggregation(self) -> pulumi.Input[Union[str, 'AggregationType']]:
         """
         the criteria time aggregation types.
         """
         return pulumi.get(self, "time_aggregation")
 
     @time_aggregation.setter
-    def time_aggregation(self, value: pulumi.Input[str]):
+    def time_aggregation(self, value: pulumi.Input[Union[str, 'AggregationType']]):
         pulumi.set(self, "time_aggregation", value)
 
     @property
@@ -1990,10 +1991,10 @@ class MetricTriggerArgs:
     def __init__(__self__, *,
                  metric_name: pulumi.Input[str],
                  metric_resource_uri: pulumi.Input[str],
-                 operator: pulumi.Input[str],
-                 statistic: pulumi.Input[str],
+                 operator: pulumi.Input['ComparisonOperationType'],
+                 statistic: pulumi.Input['MetricStatisticType'],
                  threshold: pulumi.Input[float],
-                 time_aggregation: pulumi.Input[str],
+                 time_aggregation: pulumi.Input['TimeAggregationType'],
                  time_grain: pulumi.Input[str],
                  time_window: pulumi.Input[str],
                  dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleRuleMetricDimensionArgs']]]] = None,
@@ -2002,10 +2003,10 @@ class MetricTriggerArgs:
         The trigger that results in a scaling action.
         :param pulumi.Input[str] metric_name: the name of the metric that defines what the rule monitors.
         :param pulumi.Input[str] metric_resource_uri: the resource identifier of the resource the rule monitors.
-        :param pulumi.Input[str] operator: the operator that is used to compare the metric data and the threshold.
-        :param pulumi.Input[str] statistic: the metric statistic type. How the metrics from multiple instances are combined.
+        :param pulumi.Input['ComparisonOperationType'] operator: the operator that is used to compare the metric data and the threshold.
+        :param pulumi.Input['MetricStatisticType'] statistic: the metric statistic type. How the metrics from multiple instances are combined.
         :param pulumi.Input[float] threshold: the threshold of the metric that triggers the scale action.
-        :param pulumi.Input[str] time_aggregation: time aggregation type. How the data that is collected should be combined over time. The default value is Average.
+        :param pulumi.Input['TimeAggregationType'] time_aggregation: time aggregation type. How the data that is collected should be combined over time. The default value is Average.
         :param pulumi.Input[str] time_grain: the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.
         :param pulumi.Input[str] time_window: the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.
         :param pulumi.Input[Sequence[pulumi.Input['ScaleRuleMetricDimensionArgs']]] dimensions: List of dimension conditions. For example: [{"DimensionName":"AppName","Operator":"Equals","Values":["App1"]},{"DimensionName":"Deployment","Operator":"Equals","Values":["default"]}].
@@ -2050,26 +2051,26 @@ class MetricTriggerArgs:
 
     @property
     @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
+    def operator(self) -> pulumi.Input['ComparisonOperationType']:
         """
         the operator that is used to compare the metric data and the threshold.
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: pulumi.Input[str]):
+    def operator(self, value: pulumi.Input['ComparisonOperationType']):
         pulumi.set(self, "operator", value)
 
     @property
     @pulumi.getter
-    def statistic(self) -> pulumi.Input[str]:
+    def statistic(self) -> pulumi.Input['MetricStatisticType']:
         """
         the metric statistic type. How the metrics from multiple instances are combined.
         """
         return pulumi.get(self, "statistic")
 
     @statistic.setter
-    def statistic(self, value: pulumi.Input[str]):
+    def statistic(self, value: pulumi.Input['MetricStatisticType']):
         pulumi.set(self, "statistic", value)
 
     @property
@@ -2086,14 +2087,14 @@ class MetricTriggerArgs:
 
     @property
     @pulumi.getter(name="timeAggregation")
-    def time_aggregation(self) -> pulumi.Input[str]:
+    def time_aggregation(self) -> pulumi.Input['TimeAggregationType']:
         """
         time aggregation type. How the data that is collected should be combined over time. The default value is Average.
         """
         return pulumi.get(self, "time_aggregation")
 
     @time_aggregation.setter
-    def time_aggregation(self, value: pulumi.Input[str]):
+    def time_aggregation(self, value: pulumi.Input['TimeAggregationType']):
         pulumi.set(self, "time_aggregation", value)
 
     @property
@@ -2148,11 +2149,11 @@ class MetricTriggerArgs:
 @pulumi.input_type
 class RecurrenceArgs:
     def __init__(__self__, *,
-                 frequency: pulumi.Input[str],
+                 frequency: pulumi.Input['RecurrenceFrequency'],
                  schedule: pulumi.Input['RecurrentScheduleArgs']):
         """
         The repeating times at which this profile begins. This element is not used if the FixedDate element is used.
-        :param pulumi.Input[str] frequency: the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
+        :param pulumi.Input['RecurrenceFrequency'] frequency: the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
         :param pulumi.Input['RecurrentScheduleArgs'] schedule: the scheduling constraints for when the profile begins.
         """
         pulumi.set(__self__, "frequency", frequency)
@@ -2160,14 +2161,14 @@ class RecurrenceArgs:
 
     @property
     @pulumi.getter
-    def frequency(self) -> pulumi.Input[str]:
+    def frequency(self) -> pulumi.Input['RecurrenceFrequency']:
         """
         the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
         """
         return pulumi.get(self, "frequency")
 
     @frequency.setter
-    def frequency(self, value: pulumi.Input[str]):
+    def frequency(self, value: pulumi.Input['RecurrenceFrequency']):
         pulumi.set(self, "frequency", value)
 
     @property
@@ -2665,14 +2666,14 @@ class RuleWebhookActionArgs:
 class ScaleActionArgs:
     def __init__(__self__, *,
                  cooldown: pulumi.Input[str],
-                 direction: pulumi.Input[str],
-                 type: pulumi.Input[str],
+                 direction: pulumi.Input['ScaleDirection'],
+                 type: pulumi.Input['ScaleType'],
                  value: Optional[pulumi.Input[str]] = None):
         """
         The parameters for the scaling action.
         :param pulumi.Input[str] cooldown: the amount of time to wait since the last scaling action before this action occurs. It must be between 1 week and 1 minute in ISO 8601 format.
-        :param pulumi.Input[str] direction: the scale direction. Whether the scaling action increases or decreases the number of instances.
-        :param pulumi.Input[str] type: the type of action that should occur when the scale rule fires.
+        :param pulumi.Input['ScaleDirection'] direction: the scale direction. Whether the scaling action increases or decreases the number of instances.
+        :param pulumi.Input['ScaleType'] type: the type of action that should occur when the scale rule fires.
         :param pulumi.Input[str] value: the number of instances that are involved in the scaling action. This value must be 1 or greater. The default value is 1.
         """
         pulumi.set(__self__, "cooldown", cooldown)
@@ -2695,26 +2696,26 @@ class ScaleActionArgs:
 
     @property
     @pulumi.getter
-    def direction(self) -> pulumi.Input[str]:
+    def direction(self) -> pulumi.Input['ScaleDirection']:
         """
         the scale direction. Whether the scaling action increases or decreases the number of instances.
         """
         return pulumi.get(self, "direction")
 
     @direction.setter
-    def direction(self, value: pulumi.Input[str]):
+    def direction(self, value: pulumi.Input['ScaleDirection']):
         pulumi.set(self, "direction", value)
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['ScaleType']:
         """
         the type of action that should occur when the scale rule fires.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['ScaleType']):
         pulumi.set(self, "type", value)
 
     @property
@@ -2825,12 +2826,12 @@ class ScaleRuleArgs:
 class ScaleRuleMetricDimensionArgs:
     def __init__(__self__, *,
                  dimension_name: pulumi.Input[str],
-                 operator: pulumi.Input[str],
+                 operator: pulumi.Input[Union[str, 'ScaleRuleMetricDimensionOperationType']],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         Specifies an auto scale rule metric dimension.
         :param pulumi.Input[str] dimension_name: Name of the dimension.
-        :param pulumi.Input[str] operator: the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
+        :param pulumi.Input[Union[str, 'ScaleRuleMetricDimensionOperationType']] operator: the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: list of dimension values. For example: ["App1","App2"].
         """
         pulumi.set(__self__, "dimension_name", dimension_name)
@@ -2851,14 +2852,14 @@ class ScaleRuleMetricDimensionArgs:
 
     @property
     @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
+    def operator(self) -> pulumi.Input[Union[str, 'ScaleRuleMetricDimensionOperationType']]:
         """
         the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: pulumi.Input[str]):
+    def operator(self, value: pulumi.Input[Union[str, 'ScaleRuleMetricDimensionOperationType']]):
         pulumi.set(self, "operator", value)
 
     @property
@@ -2971,13 +2972,13 @@ class SourceArgs:
                  data_source_id: pulumi.Input[str],
                  authorized_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  query: Optional[pulumi.Input[str]] = None,
-                 query_type: Optional[pulumi.Input[str]] = None):
+                 query_type: Optional[pulumi.Input[Union[str, 'QueryType']]] = None):
         """
         Specifies the log search query.
         :param pulumi.Input[str] data_source_id: The resource uri over which log search query is to be run.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_resources: List of  Resource referred into query
         :param pulumi.Input[str] query: Log search query. Required for action type - AlertingAction
-        :param pulumi.Input[str] query_type: Set value to 'ResultCount' .
+        :param pulumi.Input[Union[str, 'QueryType']] query_type: Set value to 'ResultCount' .
         """
         pulumi.set(__self__, "data_source_id", data_source_id)
         if authorized_resources is not None:
@@ -3025,14 +3026,14 @@ class SourceArgs:
 
     @property
     @pulumi.getter(name="queryType")
-    def query_type(self) -> Optional[pulumi.Input[str]]:
+    def query_type(self) -> Optional[pulumi.Input[Union[str, 'QueryType']]]:
         """
         Set value to 'ResultCount' .
         """
         return pulumi.get(self, "query_type")
 
     @query_type.setter
-    def query_type(self, value: Optional[pulumi.Input[str]]):
+    def query_type(self, value: Optional[pulumi.Input[Union[str, 'QueryType']]]):
         pulumi.set(self, "query_type", value)
 
 
@@ -3040,18 +3041,18 @@ class SourceArgs:
 class ThresholdRuleConditionArgs:
     def __init__(__self__, *,
                  odata_type: pulumi.Input[str],
-                 operator: pulumi.Input[str],
+                 operator: pulumi.Input['ConditionOperator'],
                  threshold: pulumi.Input[float],
                  data_source: Optional[pulumi.Input[Union['RuleManagementEventDataSourceArgs', 'RuleMetricDataSourceArgs']]] = None,
-                 time_aggregation: Optional[pulumi.Input[str]] = None,
+                 time_aggregation: Optional[pulumi.Input['TimeAggregationOperator']] = None,
                  window_size: Optional[pulumi.Input[str]] = None):
         """
         A rule condition based on a metric crossing a threshold.
         :param pulumi.Input[str] odata_type: specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-        :param pulumi.Input[str] operator: the operator used to compare the data and the threshold.
+        :param pulumi.Input['ConditionOperator'] operator: the operator used to compare the data and the threshold.
         :param pulumi.Input[float] threshold: the threshold value that activates the alert.
         :param pulumi.Input[Union['RuleManagementEventDataSourceArgs', 'RuleMetricDataSourceArgs']] data_source: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
-        :param pulumi.Input[str] time_aggregation: the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
+        :param pulumi.Input['TimeAggregationOperator'] time_aggregation: the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
         :param pulumi.Input[str] window_size: the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition')
@@ -3078,14 +3079,14 @@ class ThresholdRuleConditionArgs:
 
     @property
     @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
+    def operator(self) -> pulumi.Input['ConditionOperator']:
         """
         the operator used to compare the data and the threshold.
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: pulumi.Input[str]):
+    def operator(self, value: pulumi.Input['ConditionOperator']):
         pulumi.set(self, "operator", value)
 
     @property
@@ -3114,14 +3115,14 @@ class ThresholdRuleConditionArgs:
 
     @property
     @pulumi.getter(name="timeAggregation")
-    def time_aggregation(self) -> Optional[pulumi.Input[str]]:
+    def time_aggregation(self) -> Optional[pulumi.Input['TimeAggregationOperator']]:
         """
         the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
         """
         return pulumi.get(self, "time_aggregation")
 
     @time_aggregation.setter
-    def time_aggregation(self, value: Optional[pulumi.Input[str]]):
+    def time_aggregation(self, value: Optional[pulumi.Input['TimeAggregationOperator']]):
         pulumi.set(self, "time_aggregation", value)
 
     @property
@@ -3195,12 +3196,12 @@ class TimeWindowArgs:
 class TriggerConditionArgs:
     def __init__(__self__, *,
                  threshold: pulumi.Input[float],
-                 threshold_operator: pulumi.Input[str],
+                 threshold_operator: pulumi.Input[Union[str, 'ConditionalOperator']],
                  metric_trigger: Optional[pulumi.Input['LogMetricTriggerArgs']] = None):
         """
         The condition that results in the Log Search rule.
         :param pulumi.Input[float] threshold: Result or count threshold based on which rule should be triggered.
-        :param pulumi.Input[str] threshold_operator: Evaluation operation for rule - 'GreaterThan' or 'LessThan.
+        :param pulumi.Input[Union[str, 'ConditionalOperator']] threshold_operator: Evaluation operation for rule - 'GreaterThan' or 'LessThan.
         :param pulumi.Input['LogMetricTriggerArgs'] metric_trigger: Trigger condition for metric query rule
         """
         pulumi.set(__self__, "threshold", threshold)
@@ -3222,14 +3223,14 @@ class TriggerConditionArgs:
 
     @property
     @pulumi.getter(name="thresholdOperator")
-    def threshold_operator(self) -> pulumi.Input[str]:
+    def threshold_operator(self) -> pulumi.Input[Union[str, 'ConditionalOperator']]:
         """
         Evaluation operation for rule - 'GreaterThan' or 'LessThan.
         """
         return pulumi.get(self, "threshold_operator")
 
     @threshold_operator.setter
-    def threshold_operator(self, value: pulumi.Input[str]):
+    def threshold_operator(self, value: pulumi.Input[Union[str, 'ConditionalOperator']]):
         pulumi.set(self, "threshold_operator", value)
 
     @property

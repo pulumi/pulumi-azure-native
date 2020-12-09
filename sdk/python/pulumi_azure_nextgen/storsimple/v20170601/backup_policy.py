@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['BackupPolicy']
 
@@ -17,7 +18,7 @@ class BackupPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_policy_name: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input['Kind']] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  volume_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -31,7 +32,7 @@ class BackupPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backup_policy_name: The name of the backup policy to be created/updated.
         :param pulumi.Input[str] device_name: The device name
-        :param pulumi.Input[str] kind: The Kind of the object. Currently only Series8000 is supported
+        :param pulumi.Input['Kind'] kind: The Kind of the object. Currently only Series8000 is supported
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] resource_group_name: The resource group name
         :param pulumi.Input[Sequence[pulumi.Input[str]]] volume_ids: The path IDs of the volumes which are part of the backup policy.
@@ -53,20 +54,20 @@ class BackupPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if backup_policy_name is None:
+            if backup_policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_policy_name'")
             __props__['backup_policy_name'] = backup_policy_name
-            if device_name is None:
+            if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
             __props__['kind'] = kind
-            if manager_name is None:
+            if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")
             __props__['manager_name'] = manager_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if volume_ids is None:
+            if volume_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_ids'")
             __props__['volume_ids'] = volume_ids
             __props__['backup_policy_creation_type'] = None

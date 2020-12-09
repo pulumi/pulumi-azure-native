@@ -32,23 +32,24 @@ type ProtectedItem struct {
 // NewProtectedItem registers a new resource with the given unique name, arguments, and options.
 func NewProtectedItem(ctx *pulumi.Context,
 	name string, args *ProtectedItemArgs, opts ...pulumi.ResourceOption) (*ProtectedItem, error) {
-	if args == nil || args.ContainerName == nil {
-		return nil, errors.New("missing required argument 'ContainerName'")
-	}
-	if args == nil || args.FabricName == nil {
-		return nil, errors.New("missing required argument 'FabricName'")
-	}
-	if args == nil || args.ProtectedItemName == nil {
-		return nil, errors.New("missing required argument 'ProtectedItemName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VaultName == nil {
-		return nil, errors.New("missing required argument 'VaultName'")
-	}
 	if args == nil {
-		args = &ProtectedItemArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ContainerName == nil {
+		return nil, errors.New("invalid value for required argument 'ContainerName'")
+	}
+	if args.FabricName == nil {
+		return nil, errors.New("invalid value for required argument 'FabricName'")
+	}
+	if args.ProtectedItemName == nil {
+		return nil, errors.New("invalid value for required argument 'ProtectedItemName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VaultName == nil {
+		return nil, errors.New("invalid value for required argument 'VaultName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

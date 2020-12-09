@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview.Inputs
         /// The type of managed identity for the workspace
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AzureNextGen.Synapse.V20190601Preview.ResourceIdentityType>? Type { get; set; }
 
         public ManagedIdentityArgs()
         {

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ConnectorMapping']
@@ -18,10 +19,10 @@ class ConnectorMapping(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connector_name: Optional[pulumi.Input[str]] = None,
-                 connector_type: Optional[pulumi.Input[str]] = None,
+                 connector_type: Optional[pulumi.Input[Union[str, 'ConnectorTypes']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 entity_type: Optional[pulumi.Input[str]] = None,
+                 entity_type: Optional[pulumi.Input['EntityTypes']] = None,
                  entity_type_name: Optional[pulumi.Input[str]] = None,
                  hub_name: Optional[pulumi.Input[str]] = None,
                  mapping_name: Optional[pulumi.Input[str]] = None,
@@ -36,10 +37,10 @@ class ConnectorMapping(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connector_name: The name of the connector.
-        :param pulumi.Input[str] connector_type: Type of connector.
+        :param pulumi.Input[Union[str, 'ConnectorTypes']] connector_type: Type of connector.
         :param pulumi.Input[str] description: The description of the connector mapping.
         :param pulumi.Input[str] display_name: Display name for the connector mapping.
-        :param pulumi.Input[str] entity_type: Defines which entity type the file should map to.
+        :param pulumi.Input['EntityTypes'] entity_type: Defines which entity type the file should map to.
         :param pulumi.Input[str] entity_type_name: The mapping entity name.
         :param pulumi.Input[str] hub_name: The name of the hub.
         :param pulumi.Input[str] mapping_name: The name of the connector mapping.
@@ -63,28 +64,28 @@ class ConnectorMapping(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if connector_name is None:
+            if connector_name is None and not opts.urn:
                 raise TypeError("Missing required property 'connector_name'")
             __props__['connector_name'] = connector_name
             __props__['connector_type'] = connector_type
             __props__['description'] = description
             __props__['display_name'] = display_name
-            if entity_type is None:
+            if entity_type is None and not opts.urn:
                 raise TypeError("Missing required property 'entity_type'")
             __props__['entity_type'] = entity_type
-            if entity_type_name is None:
+            if entity_type_name is None and not opts.urn:
                 raise TypeError("Missing required property 'entity_type_name'")
             __props__['entity_type_name'] = entity_type_name
-            if hub_name is None:
+            if hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'hub_name'")
             __props__['hub_name'] = hub_name
-            if mapping_name is None:
+            if mapping_name is None and not opts.urn:
                 raise TypeError("Missing required property 'mapping_name'")
             __props__['mapping_name'] = mapping_name
-            if mapping_properties is None:
+            if mapping_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'mapping_properties'")
             __props__['mapping_properties'] = mapping_properties
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['connector_mapping_name'] = None

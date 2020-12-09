@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -78,13 +78,13 @@ export class Image extends pulumi.CustomResource {
     constructor(name: string, args: ImageArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.imageName === undefined) {
+            if ((!args || args.imageName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'imageName'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
@@ -127,7 +127,7 @@ export interface ImageArgs {
     /**
      * Gets the HyperVGenerationType of the VirtualMachine created from the image
      */
-    readonly hyperVGeneration?: pulumi.Input<string>;
+    readonly hyperVGeneration?: pulumi.Input<string | enums.compute.v20191201.HyperVGenerationTypes>;
     /**
      * The name of the image.
      */

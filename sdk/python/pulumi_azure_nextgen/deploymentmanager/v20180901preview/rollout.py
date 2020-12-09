@@ -62,26 +62,26 @@ class Rollout(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['artifact_source_id'] = artifact_source_id
-            if build_version is None:
+            if build_version is None and not opts.urn:
                 raise TypeError("Missing required property 'build_version'")
             __props__['build_version'] = build_version
-            if identity is None:
+            if identity is None and not opts.urn:
                 raise TypeError("Missing required property 'identity'")
             __props__['identity'] = identity
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if rollout_name is None:
+            if rollout_name is None and not opts.urn:
                 raise TypeError("Missing required property 'rollout_name'")
             __props__['rollout_name'] = rollout_name
-            if step_groups is None:
+            if step_groups is None and not opts.urn:
                 raise TypeError("Missing required property 'step_groups'")
             __props__['step_groups'] = step_groups
             __props__['tags'] = tags
-            if target_service_topology_id is None:
+            if target_service_topology_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_service_topology_id'")
             __props__['target_service_topology_id'] = target_service_topology_id
             __props__['name'] = None

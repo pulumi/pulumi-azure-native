@@ -161,7 +161,7 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.V20150801
         /// Status of the Key Vault secret
         /// </summary>
         [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
+        public Input<Pulumi.AzureNextGen.CertificateRegistration.V20150801.KeyVaultSecretStatus>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Azure resource group name

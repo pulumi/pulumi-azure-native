@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview.Inputs
         /// The type of the VM switch.
         /// </summary>
         [Input("vmSwitchType")]
-        public Input<string>? VmSwitchType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.HybridNetwork.V20200101Preview.VMSwitchType>? VmSwitchType { get; set; }
 
         public NetworkInterfaceArgs()
         {

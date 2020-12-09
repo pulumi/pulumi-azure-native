@@ -36,20 +36,21 @@ type TemplateSpecVersion struct {
 // NewTemplateSpecVersion registers a new resource with the given unique name, arguments, and options.
 func NewTemplateSpecVersion(ctx *pulumi.Context,
 	name string, args *TemplateSpecVersionArgs, opts ...pulumi.ResourceOption) (*TemplateSpecVersion, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.TemplateSpecName == nil {
-		return nil, errors.New("missing required argument 'TemplateSpecName'")
-	}
-	if args == nil || args.TemplateSpecVersion == nil {
-		return nil, errors.New("missing required argument 'TemplateSpecVersion'")
-	}
 	if args == nil {
-		args = &TemplateSpecVersionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.TemplateSpecName == nil {
+		return nil, errors.New("invalid value for required argument 'TemplateSpecName'")
+	}
+	if args.TemplateSpecVersion == nil {
+		return nil, errors.New("invalid value for required argument 'TemplateSpecVersion'")
 	}
 	var resource TemplateSpecVersion
 	err := ctx.RegisterResource("azure-nextgen:resources/v20190601preview:TemplateSpecVersion", name, args, &resource, opts...)

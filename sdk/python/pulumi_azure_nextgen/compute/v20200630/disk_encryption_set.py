@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DiskEncryptionSet']
@@ -19,7 +20,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active_key: Optional[pulumi.Input[pulumi.InputType['KeyVaultAndKeyReferenceArgs']]] = None,
                  disk_encryption_set_name: Optional[pulumi.Input[str]] = None,
-                 encryption_type: Optional[pulumi.Input[str]] = None,
+                 encryption_type: Optional[pulumi.Input[Union[str, 'DiskEncryptionSetType']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['EncryptionSetIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -34,7 +35,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['KeyVaultAndKeyReferenceArgs']] active_key: The key vault key which is currently used by this disk encryption set.
         :param pulumi.Input[str] disk_encryption_set_name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-        :param pulumi.Input[str] encryption_type: The type of key used to encrypt the data of the disk.
+        :param pulumi.Input[Union[str, 'DiskEncryptionSetType']] encryption_type: The type of key used to encrypt the data of the disk.
         :param pulumi.Input[pulumi.InputType['EncryptionSetIdentityArgs']] identity: The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -58,15 +59,15 @@ class DiskEncryptionSet(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['active_key'] = active_key
-            if disk_encryption_set_name is None:
+            if disk_encryption_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'disk_encryption_set_name'")
             __props__['disk_encryption_set_name'] = disk_encryption_set_name
             __props__['encryption_type'] = encryption_type
             __props__['identity'] = identity
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

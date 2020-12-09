@@ -34,7 +34,7 @@ type AsymmetricEncryptedSecretInput interface {
 // Represent the secrets intended for encryption with asymmetric key pair.
 type AsymmetricEncryptedSecretArgs struct {
 	// The algorithm used to encrypt "Value".
-	EncryptionAlgorithm pulumi.StringInput `pulumi:"encryptionAlgorithm"`
+	EncryptionAlgorithm EncryptionAlgorithm `pulumi:"encryptionAlgorithm"`
 	// Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
 	EncryptionCertThumbprint pulumi.StringPtrInput `pulumi:"encryptionCertThumbprint"`
 	// The value of the secret.
@@ -380,7 +380,7 @@ type BandwidthScheduleInput interface {
 // The schedule for bandwidth setting.
 type BandwidthScheduleArgs struct {
 	// The days of the week when this schedule is applicable.
-	Days pulumi.StringArrayInput `pulumi:"days"`
+	Days DayOfWeekArrayInput `pulumi:"days"`
 	// The rate in Mbps.
 	RateInMbps pulumi.IntInput `pulumi:"rateInMbps"`
 	// The start time of the schedule.
@@ -1080,7 +1080,7 @@ type ManagerIntrinsicSettingsInput interface {
 // Intrinsic settings which refers to the type of the StorSimple Manager.
 type ManagerIntrinsicSettingsArgs struct {
 	// The type of StorSimple Manager.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type ManagerType `pulumi:"type"`
 }
 
 func (ManagerIntrinsicSettingsArgs) ElementType() reflect.Type {
@@ -1348,7 +1348,7 @@ type ManagerSkuInput interface {
 // The Sku.
 type ManagerSkuArgs struct {
 	// Refers to the sku name which should be "Standard"
-	Name pulumi.StringInput `pulumi:"name"`
+	Name ManagerSkuType `pulumi:"name"`
 }
 
 func (ManagerSkuArgs) ElementType() reflect.Type {
@@ -1620,11 +1620,11 @@ type ScheduleRecurrenceInput interface {
 // The schedule recurrence.
 type ScheduleRecurrenceArgs struct {
 	// The recurrence type.
-	RecurrenceType pulumi.StringInput `pulumi:"recurrenceType"`
+	RecurrenceType RecurrenceType `pulumi:"recurrenceType"`
 	// The recurrence value.
 	RecurrenceValue pulumi.IntInput `pulumi:"recurrenceValue"`
 	// The week days list. Applicable only for schedules of recurrence type 'weekly'.
-	WeeklyDaysList pulumi.StringArrayInput `pulumi:"weeklyDaysList"`
+	WeeklyDaysList DayOfWeekArrayInput `pulumi:"weeklyDaysList"`
 }
 
 func (ScheduleRecurrenceArgs) ElementType() reflect.Type {

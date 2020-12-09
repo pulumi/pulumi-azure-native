@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Storage.Latest.Inputs
         /// The action of virtual network rule.
         /// </summary>
         [Input("action")]
-        public Input<string>? Action { get; set; }
+        public Input<Pulumi.AzureNextGen.Storage.Latest.Action>? Action { get; set; }
 
         /// <summary>
         /// Gets the state of virtual network rule.
         /// </summary>
         [Input("state")]
-        public Input<string>? State { get; set; }
+        public Input<Pulumi.AzureNextGen.Storage.Latest.State>? State { get; set; }
 
         /// <summary>
         /// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.

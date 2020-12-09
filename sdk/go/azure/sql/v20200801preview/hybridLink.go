@@ -40,17 +40,18 @@ type HybridLink struct {
 // NewHybridLink registers a new resource with the given unique name, arguments, and options.
 func NewHybridLink(ctx *pulumi.Context,
 	name string, args *HybridLinkArgs, opts ...pulumi.ResourceOption) (*HybridLink, error) {
-	if args == nil || args.DistributedAvailabilityGroupName == nil {
-		return nil, errors.New("missing required argument 'DistributedAvailabilityGroupName'")
-	}
-	if args == nil || args.ManagedInstanceName == nil {
-		return nil, errors.New("missing required argument 'ManagedInstanceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &HybridLinkArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DistributedAvailabilityGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'DistributedAvailabilityGroupName'")
+	}
+	if args.ManagedInstanceName == nil {
+		return nil, errors.New("invalid value for required argument 'ManagedInstanceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource HybridLink
 	err := ctx.RegisterResource("azure-nextgen:sql/v20200801preview:HybridLink", name, args, &resource, opts...)

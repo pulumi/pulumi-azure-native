@@ -32,14 +32,15 @@ type IntegrationServiceEnvironment struct {
 // NewIntegrationServiceEnvironment registers a new resource with the given unique name, arguments, and options.
 func NewIntegrationServiceEnvironment(ctx *pulumi.Context,
 	name string, args *IntegrationServiceEnvironmentArgs, opts ...pulumi.ResourceOption) (*IntegrationServiceEnvironment, error) {
-	if args == nil || args.IntegrationServiceEnvironmentName == nil {
-		return nil, errors.New("missing required argument 'IntegrationServiceEnvironmentName'")
-	}
-	if args == nil || args.ResourceGroup == nil {
-		return nil, errors.New("missing required argument 'ResourceGroup'")
-	}
 	if args == nil {
-		args = &IntegrationServiceEnvironmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.IntegrationServiceEnvironmentName == nil {
+		return nil, errors.New("invalid value for required argument 'IntegrationServiceEnvironmentName'")
+	}
+	if args.ResourceGroup == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroup'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

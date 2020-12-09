@@ -62,16 +62,16 @@ class EventChannel(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['destination'] = destination
-            if event_channel_name is None:
+            if event_channel_name is None and not opts.urn:
                 raise TypeError("Missing required property 'event_channel_name'")
             __props__['event_channel_name'] = event_channel_name
             __props__['expiration_time_if_not_activated_utc'] = expiration_time_if_not_activated_utc
             __props__['filter'] = filter
-            if partner_namespace_name is None:
+            if partner_namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'partner_namespace_name'")
             __props__['partner_namespace_name'] = partner_namespace_name
             __props__['partner_topic_friendly_description'] = partner_topic_friendly_description
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['source'] = source

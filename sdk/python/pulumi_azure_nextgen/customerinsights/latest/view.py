@@ -53,18 +53,18 @@ class View(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if definition is None:
+            if definition is None and not opts.urn:
                 raise TypeError("Missing required property 'definition'")
             __props__['definition'] = definition
             __props__['display_name'] = display_name
-            if hub_name is None:
+            if hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'hub_name'")
             __props__['hub_name'] = hub_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['user_id'] = user_id
-            if view_name is None:
+            if view_name is None and not opts.urn:
                 raise TypeError("Missing required property 'view_name'")
             __props__['view_name'] = view_name
             __props__['changed'] = None

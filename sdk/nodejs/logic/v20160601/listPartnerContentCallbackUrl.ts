@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 export function listPartnerContentCallbackUrl(args: ListPartnerContentCallbackUrlArgs, opts?: pulumi.InvokeOptions): Promise<ListPartnerContentCallbackUrlResult> {
@@ -30,7 +30,7 @@ export interface ListPartnerContentCallbackUrlArgs {
     /**
      * The key type.
      */
-    readonly keyType?: string;
+    readonly keyType?: enums.logic.v20160601.KeyType;
     /**
      * The expiry time.
      */

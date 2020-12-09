@@ -81,17 +81,18 @@ type ManagedInstance struct {
 // NewManagedInstance registers a new resource with the given unique name, arguments, and options.
 func NewManagedInstance(ctx *pulumi.Context,
 	name string, args *ManagedInstanceArgs, opts ...pulumi.ResourceOption) (*ManagedInstance, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ManagedInstanceName == nil {
-		return nil, errors.New("missing required argument 'ManagedInstanceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ManagedInstanceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ManagedInstanceName == nil {
+		return nil, errors.New("invalid value for required argument 'ManagedInstanceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

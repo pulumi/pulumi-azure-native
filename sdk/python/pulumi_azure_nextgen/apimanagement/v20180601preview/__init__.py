@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .api import *
 from .api_diagnostic import *
 from .api_issue import *
@@ -72,3 +73,90 @@ from .tag_description import *
 from .user import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:apimanagement/v20180601preview:Api":
+                return Api(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20180601preview:ApiDiagnostic":
+                return ApiDiagnostic(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20180601preview:ApiIssue":
+                return ApiIssue(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20180601preview:ApiIssueAttachment":
+                return ApiIssueAttachment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20180601preview:ApiIssueComment":
+                return ApiIssueComment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20180601preview:ApiManagementService":
+                return ApiManagementService(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20180601preview:ApiOperation":
+                return ApiOperation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20180601preview:ApiOperationPolicy":
+                return ApiOperationPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20180601preview:ApiPolicy":
+                return ApiPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20180601preview:ApiRelease":
+                return ApiRelease(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20180601preview:ApiSchema":
+                return ApiSchema(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20180601preview:ApiVersionSet":
+                return ApiVersionSet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20180601preview:AuthorizationServer":
+                return AuthorizationServer(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20180601preview:Backend":
+                return Backend(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20180601preview:Cache":
+                return Cache(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20180601preview:Certificate":
+                return Certificate(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20180601preview:Diagnostic":
+                return Diagnostic(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20180601preview:EmailTemplate":
+                return EmailTemplate(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20180601preview:Group":
+                return Group(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20180601preview:IdentityProvider":
+                return IdentityProvider(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20180601preview:Logger":
+                return Logger(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20180601preview:OpenIdConnectProvider":
+                return OpenIdConnectProvider(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20180601preview:Policy":
+                return Policy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20180601preview:Product":
+                return Product(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20180601preview:ProductPolicy":
+                return ProductPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20180601preview:Property":
+                return Property(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20180601preview:Subscription":
+                return Subscription(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20180601preview:Tag":
+                return Tag(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20180601preview:TagByApi":
+                return TagByApi(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20180601preview:TagByOperation":
+                return TagByOperation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20180601preview:TagByProduct":
+                return TagByProduct(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20180601preview:TagDescription":
+                return TagDescription(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:apimanagement/v20180601preview:User":
+                return User(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "apimanagement/v20180601preview", _module_instance)
+
+_register_module()

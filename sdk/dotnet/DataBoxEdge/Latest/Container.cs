@@ -110,7 +110,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// DataFormat for Container
         /// </summary>
         [Input("dataFormat", required: true)]
-        public Input<string> DataFormat { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.Latest.AzureContainerDataFormat> DataFormat { get; set; } = null!;
 
         /// <summary>
         /// The device name.

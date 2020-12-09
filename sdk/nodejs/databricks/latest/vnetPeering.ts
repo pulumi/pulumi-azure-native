@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -94,16 +94,16 @@ export class VNetPeering extends pulumi.CustomResource {
     constructor(name: string, args: VNetPeeringArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.peeringName === undefined) {
+            if ((!args || args.peeringName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'peeringName'");
             }
-            if (!args || args.remoteVirtualNetwork === undefined) {
+            if ((!args || args.remoteVirtualNetwork === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'remoteVirtualNetwork'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.workspaceName === undefined) {
+            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["allowForwardedTraffic"] = args ? args.allowForwardedTraffic : undefined;

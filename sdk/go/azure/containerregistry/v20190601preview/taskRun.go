@@ -39,17 +39,18 @@ type TaskRun struct {
 // NewTaskRun registers a new resource with the given unique name, arguments, and options.
 func NewTaskRun(ctx *pulumi.Context,
 	name string, args *TaskRunArgs, opts ...pulumi.ResourceOption) (*TaskRun, error) {
-	if args == nil || args.RegistryName == nil {
-		return nil, errors.New("missing required argument 'RegistryName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.TaskRunName == nil {
-		return nil, errors.New("missing required argument 'TaskRunName'")
-	}
 	if args == nil {
-		args = &TaskRunArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.RegistryName == nil {
+		return nil, errors.New("invalid value for required argument 'RegistryName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.TaskRunName == nil {
+		return nil, errors.New("invalid value for required argument 'TaskRunName'")
 	}
 	var resource TaskRun
 	err := ctx.RegisterResource("azure-nextgen:containerregistry/v20190601preview:TaskRun", name, args, &resource, opts...)

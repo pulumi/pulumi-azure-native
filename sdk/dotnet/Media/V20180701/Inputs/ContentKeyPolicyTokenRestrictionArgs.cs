@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.Media.V20180701.Inputs
         /// The type of token.
         /// </summary>
         [Input("restrictionTokenType", required: true)]
-        public Input<string> RestrictionTokenType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Media.V20180701.ContentKeyPolicyRestrictionTokenType> RestrictionTokenType { get; set; } = null!;
 
         public ContentKeyPolicyTokenRestrictionArgs()
         {

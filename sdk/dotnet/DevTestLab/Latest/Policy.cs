@@ -153,7 +153,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
         /// The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
         /// </summary>
         [Input("evaluatorType")]
-        public Input<string>? EvaluatorType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.Latest.PolicyEvaluatorType>? EvaluatorType { get; set; }
 
         /// <summary>
         /// The fact data of the policy.
@@ -165,7 +165,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
         /// The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
         /// </summary>
         [Input("factName")]
-        public Input<string>? FactName { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.Latest.PolicyFactName>? FactName { get; set; }
 
         /// <summary>
         /// The name of the lab.
@@ -201,7 +201,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
         /// The status of the policy.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.Latest.PolicyStatus>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

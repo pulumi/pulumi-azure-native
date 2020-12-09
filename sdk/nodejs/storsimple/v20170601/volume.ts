@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -93,34 +94,34 @@ export class Volume extends pulumi.CustomResource {
     constructor(name: string, args: VolumeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.accessControlRecordIds === undefined) {
+            if ((!args || args.accessControlRecordIds === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accessControlRecordIds'");
             }
-            if (!args || args.deviceName === undefined) {
+            if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if (!args || args.managerName === undefined) {
+            if ((!args || args.managerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if (!args || args.monitoringStatus === undefined) {
+            if ((!args || args.monitoringStatus === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'monitoringStatus'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sizeInBytes === undefined) {
+            if ((!args || args.sizeInBytes === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sizeInBytes'");
             }
-            if (!args || args.volumeContainerName === undefined) {
+            if ((!args || args.volumeContainerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'volumeContainerName'");
             }
-            if (!args || args.volumeName === undefined) {
+            if ((!args || args.volumeName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'volumeName'");
             }
-            if (!args || args.volumeStatus === undefined) {
+            if ((!args || args.volumeStatus === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'volumeStatus'");
             }
-            if (!args || args.volumeType === undefined) {
+            if ((!args || args.volumeType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'volumeType'");
             }
             inputs["accessControlRecordIds"] = args ? args.accessControlRecordIds : undefined;
@@ -182,7 +183,7 @@ export interface VolumeArgs {
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    readonly kind?: pulumi.Input<string>;
+    readonly kind?: pulumi.Input<enums.storsimple.v20170601.Kind>;
     /**
      * The manager name
      */
@@ -190,7 +191,7 @@ export interface VolumeArgs {
     /**
      * The monitoring status of the volume.
      */
-    readonly monitoringStatus: pulumi.Input<string>;
+    readonly monitoringStatus: pulumi.Input<enums.storsimple.v20170601.MonitoringStatus>;
     /**
      * The resource group name
      */
@@ -210,9 +211,9 @@ export interface VolumeArgs {
     /**
      * The volume status.
      */
-    readonly volumeStatus: pulumi.Input<string>;
+    readonly volumeStatus: pulumi.Input<enums.storsimple.v20170601.VolumeStatus>;
     /**
      * The type of the volume.
      */
-    readonly volumeType: pulumi.Input<string>;
+    readonly volumeType: pulumi.Input<enums.storsimple.v20170601.VolumeType>;
 }

@@ -73,22 +73,22 @@ export class IscsiServer extends pulumi.CustomResource {
     constructor(name: string, args: IscsiServerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.backupScheduleGroupId === undefined) {
+            if ((!args || args.backupScheduleGroupId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'backupScheduleGroupId'");
             }
-            if (!args || args.deviceName === undefined) {
+            if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if (!args || args.iscsiServerName === undefined) {
+            if ((!args || args.iscsiServerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'iscsiServerName'");
             }
-            if (!args || args.managerName === undefined) {
+            if ((!args || args.managerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.storageDomainId === undefined) {
+            if ((!args || args.storageDomainId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageDomainId'");
             }
             inputs["backupScheduleGroupId"] = args ? args.backupScheduleGroupId : undefined;

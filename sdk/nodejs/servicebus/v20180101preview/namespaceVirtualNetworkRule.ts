@@ -57,13 +57,13 @@ export class NamespaceVirtualNetworkRule extends pulumi.CustomResource {
     constructor(name: string, args: NamespaceVirtualNetworkRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.namespaceName === undefined) {
+            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.virtualNetworkRuleName === undefined) {
+            if ((!args || args.virtualNetworkRuleName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualNetworkRuleName'");
             }
             inputs["namespaceName"] = args ? args.namespaceName : undefined;

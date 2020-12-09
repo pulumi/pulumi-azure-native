@@ -55,13 +55,13 @@ class ProviderInstance(pulumi.CustomResource):
 
             __props__['metadata'] = metadata
             __props__['properties'] = properties
-            if provider_instance_name is None:
+            if provider_instance_name is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_instance_name'")
             __props__['provider_instance_name'] = provider_instance_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if sap_monitor_name is None:
+            if sap_monitor_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sap_monitor_name'")
             __props__['sap_monitor_name'] = sap_monitor_name
             __props__['type'] = type

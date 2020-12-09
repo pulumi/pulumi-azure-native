@@ -32,17 +32,18 @@ type VirtualRouterPeering struct {
 // NewVirtualRouterPeering registers a new resource with the given unique name, arguments, and options.
 func NewVirtualRouterPeering(ctx *pulumi.Context,
 	name string, args *VirtualRouterPeeringArgs, opts ...pulumi.ResourceOption) (*VirtualRouterPeering, error) {
-	if args == nil || args.PeeringName == nil {
-		return nil, errors.New("missing required argument 'PeeringName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VirtualRouterName == nil {
-		return nil, errors.New("missing required argument 'VirtualRouterName'")
-	}
 	if args == nil {
-		args = &VirtualRouterPeeringArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PeeringName == nil {
+		return nil, errors.New("invalid value for required argument 'PeeringName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VirtualRouterName == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualRouterName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

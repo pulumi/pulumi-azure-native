@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         /// The Deflate compression level.
         /// </summary>
         [Input("level")]
-        public Input<string>? Level { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.Latest.DatasetCompressionLevel>? Level { get; set; }
 
         /// <summary>
         /// Type of dataset compression.

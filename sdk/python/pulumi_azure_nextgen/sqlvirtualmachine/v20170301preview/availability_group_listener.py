@@ -57,17 +57,17 @@ class AvailabilityGroupListener(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if availability_group_listener_name is None:
+            if availability_group_listener_name is None and not opts.urn:
                 raise TypeError("Missing required property 'availability_group_listener_name'")
             __props__['availability_group_listener_name'] = availability_group_listener_name
             __props__['availability_group_name'] = availability_group_name
             __props__['create_default_availability_group_if_not_exist'] = create_default_availability_group_if_not_exist
             __props__['load_balancer_configurations'] = load_balancer_configurations
             __props__['port'] = port
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if sql_virtual_machine_group_name is None:
+            if sql_virtual_machine_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sql_virtual_machine_group_name'")
             __props__['sql_virtual_machine_group_name'] = sql_virtual_machine_group_name
             __props__['name'] = None

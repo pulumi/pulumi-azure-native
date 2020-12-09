@@ -32,20 +32,21 @@ type Group struct {
 // NewGroup registers a new resource with the given unique name, arguments, and options.
 func NewGroup(ctx *pulumi.Context,
 	name string, args *GroupArgs, opts ...pulumi.ResourceOption) (*Group, error) {
-	if args == nil || args.DisplayName == nil {
-		return nil, errors.New("missing required argument 'DisplayName'")
-	}
-	if args == nil || args.GroupId == nil {
-		return nil, errors.New("missing required argument 'GroupId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
 	if args == nil {
-		args = &GroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DisplayName == nil {
+		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
+	if args.GroupId == nil {
+		return nil, errors.New("invalid value for required argument 'GroupId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -164,7 +165,7 @@ type GroupArgs struct {
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
 	// Group type.
-	Type pulumi.StringPtrInput
+	Type GroupType
 }
 
 func (GroupArgs) ElementType() reflect.Type {

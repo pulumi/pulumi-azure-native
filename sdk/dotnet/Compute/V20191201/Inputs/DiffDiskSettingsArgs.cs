@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Compute.V20191201.Inputs
         /// Specifies the ephemeral disk settings for operating system disk.
         /// </summary>
         [Input("option")]
-        public Input<string>? Option { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20191201.DiffDiskOptions>? Option { get; set; }
 
         /// <summary>
         /// Specifies the ephemeral disk placement for operating system disk.&lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **CacheDisk** &lt;br&gt;&lt;br&gt; **ResourceDisk** &lt;br&gt;&lt;br&gt; Default: **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk** is used.&lt;br&gt;&lt;br&gt; Refer to VM size documentation for Windows VM at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes and Linux VM at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes to check which VM sizes exposes a cache disk.
         /// </summary>
         [Input("placement")]
-        public Input<string>? Placement { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20191201.DiffDiskPlacement>? Placement { get; set; }
 
         public DiffDiskSettingsArgs()
         {

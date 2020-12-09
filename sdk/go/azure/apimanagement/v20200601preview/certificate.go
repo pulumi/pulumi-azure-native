@@ -32,17 +32,18 @@ type Certificate struct {
 // NewCertificate registers a new resource with the given unique name, arguments, and options.
 func NewCertificate(ctx *pulumi.Context,
 	name string, args *CertificateArgs, opts ...pulumi.ResourceOption) (*Certificate, error) {
-	if args == nil || args.CertificateId == nil {
-		return nil, errors.New("missing required argument 'CertificateId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
 	if args == nil {
-		args = &CertificateArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CertificateId == nil {
+		return nil, errors.New("invalid value for required argument 'CertificateId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -38,23 +38,24 @@ type OriginGroup struct {
 // NewOriginGroup registers a new resource with the given unique name, arguments, and options.
 func NewOriginGroup(ctx *pulumi.Context,
 	name string, args *OriginGroupArgs, opts ...pulumi.ResourceOption) (*OriginGroup, error) {
-	if args == nil || args.EndpointName == nil {
-		return nil, errors.New("missing required argument 'EndpointName'")
-	}
-	if args == nil || args.OriginGroupName == nil {
-		return nil, errors.New("missing required argument 'OriginGroupName'")
-	}
-	if args == nil || args.Origins == nil {
-		return nil, errors.New("missing required argument 'Origins'")
-	}
-	if args == nil || args.ProfileName == nil {
-		return nil, errors.New("missing required argument 'ProfileName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &OriginGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.EndpointName == nil {
+		return nil, errors.New("invalid value for required argument 'EndpointName'")
+	}
+	if args.OriginGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'OriginGroupName'")
+	}
+	if args.Origins == nil {
+		return nil, errors.New("invalid value for required argument 'Origins'")
+	}
+	if args.ProfileName == nil {
+		return nil, errors.New("invalid value for required argument 'ProfileName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -32,17 +32,18 @@ type ServiceEndpointPolicyDefinition struct {
 // NewServiceEndpointPolicyDefinition registers a new resource with the given unique name, arguments, and options.
 func NewServiceEndpointPolicyDefinition(ctx *pulumi.Context,
 	name string, args *ServiceEndpointPolicyDefinitionArgs, opts ...pulumi.ResourceOption) (*ServiceEndpointPolicyDefinition, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceEndpointPolicyDefinitionName == nil {
-		return nil, errors.New("missing required argument 'ServiceEndpointPolicyDefinitionName'")
-	}
-	if args == nil || args.ServiceEndpointPolicyName == nil {
-		return nil, errors.New("missing required argument 'ServiceEndpointPolicyName'")
-	}
 	if args == nil {
-		args = &ServiceEndpointPolicyDefinitionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceEndpointPolicyDefinitionName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceEndpointPolicyDefinitionName'")
+	}
+	if args.ServiceEndpointPolicyName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceEndpointPolicyName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

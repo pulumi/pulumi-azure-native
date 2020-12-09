@@ -82,7 +82,7 @@ namespace Pulumi.AzureNextGen.Web.V20160801
         /// Type of the backup.
         /// </summary>
         [Input("type")]
-        public string? Type { get; set; }
+        public Pulumi.AzureNextGen.Web.V20160801.BackupRestoreOperationType? Type { get; set; }
 
         public ListWebAppBackupStatusSecretsArgs()
         {

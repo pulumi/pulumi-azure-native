@@ -101,13 +101,13 @@ export class RegisteredServer extends pulumi.CustomResource {
     constructor(name: string, args: RegisteredServerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverId === undefined) {
+            if ((!args || args.serverId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverId'");
             }
-            if (!args || args.storageSyncServiceName === undefined) {
+            if ((!args || args.storageSyncServiceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageSyncServiceName'");
             }
             inputs["agentVersion"] = args ? args.agentVersion : undefined;

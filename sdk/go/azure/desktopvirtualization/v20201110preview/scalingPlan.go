@@ -42,17 +42,18 @@ type ScalingPlan struct {
 // NewScalingPlan registers a new resource with the given unique name, arguments, and options.
 func NewScalingPlan(ctx *pulumi.Context,
 	name string, args *ScalingPlanArgs, opts ...pulumi.ResourceOption) (*ScalingPlan, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ScalingPlanName == nil {
-		return nil, errors.New("missing required argument 'ScalingPlanName'")
-	}
 	if args == nil {
-		args = &ScalingPlanArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ScalingPlanName == nil {
+		return nil, errors.New("invalid value for required argument 'ScalingPlanName'")
 	}
 	var resource ScalingPlan
 	err := ctx.RegisterResource("azure-nextgen:desktopvirtualization/v20201110preview:ScalingPlan", name, args, &resource, opts...)

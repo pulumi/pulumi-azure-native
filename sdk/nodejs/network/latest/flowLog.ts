@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -98,19 +98,19 @@ export class FlowLog extends pulumi.CustomResource {
     constructor(name: string, args: FlowLogArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.flowLogName === undefined) {
+            if ((!args || args.flowLogName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'flowLogName'");
             }
-            if (!args || args.networkWatcherName === undefined) {
+            if ((!args || args.networkWatcherName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'networkWatcherName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.storageId === undefined) {
+            if ((!args || args.storageId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageId'");
             }
-            if (!args || args.targetResourceId === undefined) {
+            if ((!args || args.targetResourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
             inputs["enabled"] = args ? args.enabled : undefined;

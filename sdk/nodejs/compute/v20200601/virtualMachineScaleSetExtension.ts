@@ -89,13 +89,13 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
     constructor(name: string, args: VirtualMachineScaleSetExtensionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.vmScaleSetName === undefined) {
+            if ((!args || args.vmScaleSetName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vmScaleSetName'");
             }
-            if (!args || args.vmssExtensionName === undefined) {
+            if ((!args || args.vmssExtensionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vmssExtensionName'");
             }
             inputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;

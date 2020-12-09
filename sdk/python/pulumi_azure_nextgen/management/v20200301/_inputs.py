@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ParameterDefinitionsValueArgs',
@@ -22,13 +23,13 @@ class ParameterDefinitionsValueArgs:
                  allowed_values: Optional[pulumi.Input[Sequence[Any]]] = None,
                  default_value: Optional[Any] = None,
                  metadata: Optional[pulumi.Input['ParameterDefinitionsValueMetadataArgs']] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input[Union[str, 'ParameterType']]] = None):
         """
         The definition of a parameter that can be provided to the policy.
         :param pulumi.Input[Sequence[Any]] allowed_values: The allowed values for the parameter.
         :param Any default_value: The default value for the parameter if no value is provided.
         :param pulumi.Input['ParameterDefinitionsValueMetadataArgs'] metadata: General metadata for the parameter.
-        :param pulumi.Input[str] type: The data type of the parameter.
+        :param pulumi.Input[Union[str, 'ParameterType']] type: The data type of the parameter.
         """
         if allowed_values is not None:
             pulumi.set(__self__, "allowed_values", allowed_values)
@@ -77,14 +78,14 @@ class ParameterDefinitionsValueArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ParameterType']]]:
         """
         The data type of the parameter.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ParameterType']]]):
         pulumi.set(self, "type", value)
 
 

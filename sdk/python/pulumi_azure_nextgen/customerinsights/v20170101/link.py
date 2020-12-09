@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Link']
@@ -22,7 +23,7 @@ class Link(pulumi.CustomResource):
                  hub_name: Optional[pulumi.Input[str]] = None,
                  link_name: Optional[pulumi.Input[str]] = None,
                  mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TypePropertiesMappingArgs']]]]] = None,
-                 operation_type: Optional[pulumi.Input[str]] = None,
+                 operation_type: Optional[pulumi.Input['InstanceOperationType']] = None,
                  participant_property_references: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParticipantPropertyReferenceArgs']]]]] = None,
                  reference_only: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -41,7 +42,7 @@ class Link(pulumi.CustomResource):
         :param pulumi.Input[str] hub_name: The name of the hub.
         :param pulumi.Input[str] link_name: The name of the link.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TypePropertiesMappingArgs']]]] mappings: The set of properties mappings between the source and target Types.
-        :param pulumi.Input[str] operation_type: Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
+        :param pulumi.Input['InstanceOperationType'] operation_type: Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ParticipantPropertyReferenceArgs']]]] participant_property_references: The properties that represent the participating profile.
         :param pulumi.Input[bool] reference_only: Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -67,25 +68,25 @@ class Link(pulumi.CustomResource):
 
             __props__['description'] = description
             __props__['display_name'] = display_name
-            if hub_name is None:
+            if hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'hub_name'")
             __props__['hub_name'] = hub_name
-            if link_name is None:
+            if link_name is None and not opts.urn:
                 raise TypeError("Missing required property 'link_name'")
             __props__['link_name'] = link_name
             __props__['mappings'] = mappings
             __props__['operation_type'] = operation_type
-            if participant_property_references is None:
+            if participant_property_references is None and not opts.urn:
                 raise TypeError("Missing required property 'participant_property_references'")
             __props__['participant_property_references'] = participant_property_references
             __props__['reference_only'] = reference_only
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if source_interaction_type is None:
+            if source_interaction_type is None and not opts.urn:
                 raise TypeError("Missing required property 'source_interaction_type'")
             __props__['source_interaction_type'] = source_interaction_type
-            if target_profile_type is None:
+            if target_profile_type is None and not opts.urn:
                 raise TypeError("Missing required property 'target_profile_type'")
             __props__['target_profile_type'] = target_profile_type
             __props__['name'] = None

@@ -38,20 +38,21 @@ type Device struct {
 // NewDevice registers a new resource with the given unique name, arguments, and options.
 func NewDevice(ctx *pulumi.Context,
 	name string, args *DeviceArgs, opts ...pulumi.ResourceOption) (*Device, error) {
-	if args == nil || args.DeviceName == nil {
-		return nil, errors.New("missing required argument 'DeviceName'")
-	}
-	if args == nil || args.DeviceType == nil {
-		return nil, errors.New("missing required argument 'DeviceType'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &DeviceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DeviceName == nil {
+		return nil, errors.New("invalid value for required argument 'DeviceName'")
+	}
+	if args.DeviceType == nil {
+		return nil, errors.New("invalid value for required argument 'DeviceType'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource Device
 	err := ctx.RegisterResource("azure-nextgen:hybridnetwork/v20200101preview:Device", name, args, &resource, opts...)

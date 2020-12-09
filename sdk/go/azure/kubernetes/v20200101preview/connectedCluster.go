@@ -56,26 +56,27 @@ type ConnectedCluster struct {
 // NewConnectedCluster registers a new resource with the given unique name, arguments, and options.
 func NewConnectedCluster(ctx *pulumi.Context,
 	name string, args *ConnectedClusterArgs, opts ...pulumi.ResourceOption) (*ConnectedCluster, error) {
-	if args == nil || args.AadProfile == nil {
-		return nil, errors.New("missing required argument 'AadProfile'")
-	}
-	if args == nil || args.AgentPublicKeyCertificate == nil {
-		return nil, errors.New("missing required argument 'AgentPublicKeyCertificate'")
-	}
-	if args == nil || args.ClusterName == nil {
-		return nil, errors.New("missing required argument 'ClusterName'")
-	}
-	if args == nil || args.Identity == nil {
-		return nil, errors.New("missing required argument 'Identity'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ConnectedClusterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AadProfile == nil {
+		return nil, errors.New("invalid value for required argument 'AadProfile'")
+	}
+	if args.AgentPublicKeyCertificate == nil {
+		return nil, errors.New("invalid value for required argument 'AgentPublicKeyCertificate'")
+	}
+	if args.ClusterName == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterName'")
+	}
+	if args.Identity == nil {
+		return nil, errors.New("invalid value for required argument 'Identity'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource ConnectedCluster
 	err := ctx.RegisterResource("azure-nextgen:kubernetes/v20200101preview:ConnectedCluster", name, args, &resource, opts...)

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['LabResource']
 
@@ -20,7 +21,7 @@ class LabResource(pulumi.CustomResource):
                  default_storage_account: Optional[pulumi.Input[str]] = None,
                  default_virtual_network_id: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 lab_storage_type: Optional[pulumi.Input[str]] = None,
+                 lab_storage_type: Optional[pulumi.Input[Union[str, 'LabStorageType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
@@ -42,7 +43,7 @@ class LabResource(pulumi.CustomResource):
         :param pulumi.Input[str] default_storage_account: The lab's default storage account.
         :param pulumi.Input[str] default_virtual_network_id: The default virtual network identifier of the lab.
         :param pulumi.Input[str] id: The identifier of the resource.
-        :param pulumi.Input[str] lab_storage_type: The type of the lab storage.
+        :param pulumi.Input[Union[str, 'LabStorageType']] lab_storage_type: The type of the lab storage.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: The name of the resource.
         :param pulumi.Input[str] provisioning_state: The provisioning status of the resource.
@@ -76,11 +77,11 @@ class LabResource(pulumi.CustomResource):
             __props__['id'] = id
             __props__['lab_storage_type'] = lab_storage_type
             __props__['location'] = location
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['provisioning_state'] = provisioning_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['storage_accounts'] = storage_accounts

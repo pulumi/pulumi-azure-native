@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -78,19 +78,19 @@ export class MediaGraph extends pulumi.CustomResource {
     constructor(name: string, args: MediaGraphArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.accountName === undefined) {
+            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.mediaGraphName === undefined) {
+            if ((!args || args.mediaGraphName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'mediaGraphName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sinks === undefined) {
+            if ((!args || args.sinks === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sinks'");
             }
-            if (!args || args.sources === undefined) {
+            if ((!args || args.sources === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sources'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['WCFRelay']
 
@@ -17,7 +18,7 @@ class WCFRelay(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  relay_name: Optional[pulumi.Input[str]] = None,
-                 relay_type: Optional[pulumi.Input[str]] = None,
+                 relay_type: Optional[pulumi.Input[Union[str, 'Relaytype']]] = None,
                  requires_client_authorization: Optional[pulumi.Input[bool]] = None,
                  requires_transport_security: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -32,7 +33,7 @@ class WCFRelay(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] namespace_name: The Namespace Name
         :param pulumi.Input[str] relay_name: The relay name
-        :param pulumi.Input[str] relay_type: WCFRelay Type.
+        :param pulumi.Input[Union[str, 'Relaytype']] relay_type: WCFRelay Type.
         :param pulumi.Input[bool] requires_client_authorization: true if client authorization is needed for this relay; otherwise, false.
         :param pulumi.Input[bool] requires_transport_security: true if transport security is needed for this relay; otherwise, false.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
@@ -55,16 +56,16 @@ class WCFRelay(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if namespace_name is None:
+            if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
-            if relay_name is None:
+            if relay_name is None and not opts.urn:
                 raise TypeError("Missing required property 'relay_name'")
             __props__['relay_name'] = relay_name
             __props__['relay_type'] = relay_type
             __props__['requires_client_authorization'] = requires_client_authorization
             __props__['requires_transport_security'] = requires_transport_security
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['user_metadata'] = user_metadata

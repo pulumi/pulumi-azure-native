@@ -28,23 +28,24 @@ type DataConnection struct {
 // NewDataConnection registers a new resource with the given unique name, arguments, and options.
 func NewDataConnection(ctx *pulumi.Context,
 	name string, args *DataConnectionArgs, opts ...pulumi.ResourceOption) (*DataConnection, error) {
-	if args == nil || args.ClusterName == nil {
-		return nil, errors.New("missing required argument 'ClusterName'")
-	}
-	if args == nil || args.DataConnectionName == nil {
-		return nil, errors.New("missing required argument 'DataConnectionName'")
-	}
-	if args == nil || args.DatabaseName == nil {
-		return nil, errors.New("missing required argument 'DatabaseName'")
-	}
-	if args == nil || args.Kind == nil {
-		return nil, errors.New("missing required argument 'Kind'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &DataConnectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ClusterName == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterName'")
+	}
+	if args.DataConnectionName == nil {
+		return nil, errors.New("invalid value for required argument 'DataConnectionName'")
+	}
+	if args.DatabaseName == nil {
+		return nil, errors.New("invalid value for required argument 'DatabaseName'")
+	}
+	if args.Kind == nil {
+		return nil, errors.New("invalid value for required argument 'Kind'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

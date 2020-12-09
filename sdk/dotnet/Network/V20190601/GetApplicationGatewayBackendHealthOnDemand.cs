@@ -70,7 +70,7 @@ namespace Pulumi.AzureNextGen.Network.V20190601
         /// The protocol used for the probe.
         /// </summary>
         [Input("protocol")]
-        public string? Protocol { get; set; }
+        public Union<string, Pulumi.AzureNextGen.Network.V20190601.ApplicationGatewayProtocol>? Protocol { get; set; }
 
         /// <summary>
         /// The name of the resource group.

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview.Inputs
         /// A valid event source type.
         /// </summary>
         [Input("eventSource")]
-        public Input<string>? EventSource { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Security.V20190101Preview.EventSource>? EventSource { get; set; }
 
         [Input("ruleSets")]
         private InputList<Inputs.AutomationRuleSetArgs>? _ruleSets;

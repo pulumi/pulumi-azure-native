@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -73,22 +74,22 @@ export class RouteFilterRule extends pulumi.CustomResource {
     constructor(name: string, args: RouteFilterRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.access === undefined) {
+            if ((!args || args.access === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'access'");
             }
-            if (!args || args.communities === undefined) {
+            if ((!args || args.communities === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'communities'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.routeFilterName === undefined) {
+            if ((!args || args.routeFilterName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'routeFilterName'");
             }
-            if (!args || args.routeFilterRuleType === undefined) {
+            if ((!args || args.routeFilterRuleType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'routeFilterRuleType'");
             }
-            if (!args || args.ruleName === undefined) {
+            if ((!args || args.ruleName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ruleName'");
             }
             inputs["access"] = args ? args.access : undefined;
@@ -131,7 +132,7 @@ export interface RouteFilterRuleArgs {
     /**
      * The access type of the rule.
      */
-    readonly access: pulumi.Input<string>;
+    readonly access: pulumi.Input<string | enums.network.v20190901.Access>;
     /**
      * The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
      */
@@ -159,7 +160,7 @@ export interface RouteFilterRuleArgs {
     /**
      * The rule type of the rule.
      */
-    readonly routeFilterRuleType: pulumi.Input<string>;
+    readonly routeFilterRuleType: pulumi.Input<string | enums.network.v20190901.RouteFilterRuleType>;
     /**
      * The name of the route filter rule.
      */

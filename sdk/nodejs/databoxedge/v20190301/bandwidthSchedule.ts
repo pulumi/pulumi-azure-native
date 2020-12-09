@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -69,25 +70,25 @@ export class BandwidthSchedule extends pulumi.CustomResource {
     constructor(name: string, args: BandwidthScheduleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.days === undefined) {
+            if ((!args || args.days === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'days'");
             }
-            if (!args || args.deviceName === undefined) {
+            if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.rateInMbps === undefined) {
+            if ((!args || args.rateInMbps === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'rateInMbps'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.start === undefined) {
+            if ((!args || args.start === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'start'");
             }
-            if (!args || args.stop === undefined) {
+            if ((!args || args.stop === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'stop'");
             }
             inputs["days"] = args ? args.days : undefined;
@@ -126,7 +127,7 @@ export interface BandwidthScheduleArgs {
     /**
      * The days of the week when this schedule is applicable.
      */
-    readonly days: pulumi.Input<pulumi.Input<string>[]>;
+    readonly days: pulumi.Input<pulumi.Input<string | enums.databoxedge.v20190301.DayOfWeek>[]>;
     /**
      * The device name.
      */

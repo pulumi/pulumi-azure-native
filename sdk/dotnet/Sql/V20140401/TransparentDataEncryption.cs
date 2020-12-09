@@ -110,7 +110,7 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
         /// The status of the database transparent data encryption.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20140401.TransparentDataEncryptionStatus>? Status { get; set; }
 
         /// <summary>
         /// The name of the transparent data encryption configuration.

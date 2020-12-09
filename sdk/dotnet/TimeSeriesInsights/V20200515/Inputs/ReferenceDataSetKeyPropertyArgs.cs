@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20200515.Inputs
         /// The type of the key property.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.TimeSeriesInsights.V20200515.ReferenceDataKeyPropertyType>? Type { get; set; }
 
         public ReferenceDataSetKeyPropertyArgs()
         {

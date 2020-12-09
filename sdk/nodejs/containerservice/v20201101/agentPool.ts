@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -166,13 +166,13 @@ export class AgentPool extends pulumi.CustomResource {
     constructor(name: string, args: AgentPoolArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.agentPoolName === undefined) {
+            if ((!args || args.agentPoolName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'agentPoolName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.resourceName === undefined) {
+            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["agentPoolName"] = args ? args.agentPoolName : undefined;
@@ -300,7 +300,7 @@ export interface AgentPoolArgs {
     /**
      * AgentPoolMode represents mode of an agent pool
      */
-    readonly mode?: pulumi.Input<string>;
+    readonly mode?: pulumi.Input<string | enums.containerservice.v20201101.AgentPoolMode>;
     /**
      * Agent pool node labels to be persisted across all nodes in agent pool.
      */
@@ -320,11 +320,11 @@ export interface AgentPoolArgs {
     /**
      * OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. May not be changed after creation.
      */
-    readonly osDiskType?: pulumi.Input<string>;
+    readonly osDiskType?: pulumi.Input<string | enums.containerservice.v20201101.OSDiskType>;
     /**
      * OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
      */
-    readonly osType?: pulumi.Input<string>;
+    readonly osType?: pulumi.Input<string | enums.containerservice.v20201101.OSType>;
     /**
      * Pod SubnetID specifies the VNet's subnet identifier for pods.
      */
@@ -344,11 +344,11 @@ export interface AgentPoolArgs {
     /**
      * ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
      */
-    readonly scaleSetEvictionPolicy?: pulumi.Input<string>;
+    readonly scaleSetEvictionPolicy?: pulumi.Input<string | enums.containerservice.v20201101.ScaleSetEvictionPolicy>;
     /**
      * ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
      */
-    readonly scaleSetPriority?: pulumi.Input<string>;
+    readonly scaleSetPriority?: pulumi.Input<string | enums.containerservice.v20201101.ScaleSetPriority>;
     /**
      * SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
      */
@@ -360,7 +360,7 @@ export interface AgentPoolArgs {
     /**
      * AgentPoolType represents types of an agent pool
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type?: pulumi.Input<string | enums.containerservice.v20201101.AgentPoolType>;
     /**
      * Settings for upgrading the agentpool
      */
@@ -368,7 +368,7 @@ export interface AgentPoolArgs {
     /**
      * Size of agent VMs.
      */
-    readonly vmSize?: pulumi.Input<string>;
+    readonly vmSize?: pulumi.Input<string | enums.containerservice.v20201101.ContainerServiceVMSizeTypes>;
     /**
      * VNet SubnetID specifies the VNet's subnet identifier for nodes and maybe pods
      */

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview.Inputs
         /// The identity type.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview.ResourceIdentityType>? Type { get; set; }
 
         public IdentityArgs()
         {

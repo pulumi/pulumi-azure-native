@@ -43,13 +43,13 @@ namespace Pulumi.AzureNextGen.Network.V20190401.Inputs
         /// Available from Api-Version 2016-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.
         /// </summary>
         [Input("privateIPAddressVersion")]
-        public Input<string>? PrivateIPAddressVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190401.IPVersion>? PrivateIPAddressVersion { get; set; }
 
         /// <summary>
         /// The private IP address allocation method.
         /// </summary>
         [Input("privateIPAllocationMethod")]
-        public Input<string>? PrivateIPAllocationMethod { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190401.IPAllocationMethod>? PrivateIPAllocationMethod { get; set; }
 
         /// <summary>
         /// The reference of the subnet resource.

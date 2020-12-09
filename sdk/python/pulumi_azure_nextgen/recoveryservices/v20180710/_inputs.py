@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'A2AContainerMappingInputArgs',
@@ -64,12 +65,12 @@ __all__ = [
 @pulumi.input_type
 class A2AContainerMappingInputArgs:
     def __init__(__self__, *,
-                 agent_auto_update_status: Optional[pulumi.Input[str]] = None,
+                 agent_auto_update_status: Optional[pulumi.Input[Union[str, 'AgentAutoUpdateStatus']]] = None,
                  automation_account_arm_id: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None):
         """
         A2A container mapping input.
-        :param pulumi.Input[str] agent_auto_update_status: A value indicating whether the auto update is enabled.
+        :param pulumi.Input[Union[str, 'AgentAutoUpdateStatus']] agent_auto_update_status: A value indicating whether the auto update is enabled.
         :param pulumi.Input[str] automation_account_arm_id: The automation account arm id.
         :param pulumi.Input[str] instance_type: The class type.
         """
@@ -82,14 +83,14 @@ class A2AContainerMappingInputArgs:
 
     @property
     @pulumi.getter(name="agentAutoUpdateStatus")
-    def agent_auto_update_status(self) -> Optional[pulumi.Input[str]]:
+    def agent_auto_update_status(self) -> Optional[pulumi.Input[Union[str, 'AgentAutoUpdateStatus']]]:
         """
         A value indicating whether the auto update is enabled.
         """
         return pulumi.get(self, "agent_auto_update_status")
 
     @agent_auto_update_status.setter
-    def agent_auto_update_status(self, value: Optional[pulumi.Input[str]]):
+    def agent_auto_update_status(self, value: Optional[pulumi.Input[Union[str, 'AgentAutoUpdateStatus']]]):
         pulumi.set(self, "agent_auto_update_status", value)
 
     @property
@@ -368,14 +369,14 @@ class A2AEnableProtectionInputArgs:
 @pulumi.input_type
 class A2APolicyCreationInputArgs:
     def __init__(__self__, *,
-                 multi_vm_sync_status: pulumi.Input[str],
+                 multi_vm_sync_status: pulumi.Input[Union[str, 'SetMultiVmSyncStatus']],
                  app_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
                  crash_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  recovery_point_history: Optional[pulumi.Input[int]] = None):
         """
         A2A Policy creation input.
-        :param pulumi.Input[str] multi_vm_sync_status: A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
+        :param pulumi.Input[Union[str, 'SetMultiVmSyncStatus']] multi_vm_sync_status: A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
         :param pulumi.Input[int] app_consistent_frequency_in_minutes: The app consistent snapshot frequency (in minutes).
         :param pulumi.Input[int] crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency (in minutes).
         :param pulumi.Input[str] instance_type: The class type.
@@ -393,14 +394,14 @@ class A2APolicyCreationInputArgs:
 
     @property
     @pulumi.getter(name="multiVmSyncStatus")
-    def multi_vm_sync_status(self) -> pulumi.Input[str]:
+    def multi_vm_sync_status(self) -> pulumi.Input[Union[str, 'SetMultiVmSyncStatus']]:
         """
         A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
         """
         return pulumi.get(self, "multi_vm_sync_status")
 
     @multi_vm_sync_status.setter
-    def multi_vm_sync_status(self, value: pulumi.Input[str]):
+    def multi_vm_sync_status(self, value: pulumi.Input[Union[str, 'SetMultiVmSyncStatus']]):
         pulumi.set(self, "multi_vm_sync_status", value)
 
     @property
@@ -1023,14 +1024,14 @@ class CreateRecoveryPlanInputPropertiesArgs:
                  groups: pulumi.Input[Sequence[pulumi.Input['RecoveryPlanGroupArgs']]],
                  primary_fabric_id: pulumi.Input[str],
                  recovery_fabric_id: pulumi.Input[str],
-                 failover_deployment_model: Optional[pulumi.Input[str]] = None,
+                 failover_deployment_model: Optional[pulumi.Input[Union[str, 'FailoverDeploymentModel']]] = None,
                  provider_specific_input: Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryPlanA2AInputArgs']]]] = None):
         """
         Recovery plan creation properties.
         :param pulumi.Input[Sequence[pulumi.Input['RecoveryPlanGroupArgs']]] groups: The recovery plan groups.
         :param pulumi.Input[str] primary_fabric_id: The primary fabric Id.
         :param pulumi.Input[str] recovery_fabric_id: The recovery fabric Id.
-        :param pulumi.Input[str] failover_deployment_model: The failover deployment model.
+        :param pulumi.Input[Union[str, 'FailoverDeploymentModel']] failover_deployment_model: The failover deployment model.
         :param pulumi.Input[Sequence[pulumi.Input['RecoveryPlanA2AInputArgs']]] provider_specific_input: The provider specific input.
         """
         pulumi.set(__self__, "groups", groups)
@@ -1079,14 +1080,14 @@ class CreateRecoveryPlanInputPropertiesArgs:
 
     @property
     @pulumi.getter(name="failoverDeploymentModel")
-    def failover_deployment_model(self) -> Optional[pulumi.Input[str]]:
+    def failover_deployment_model(self) -> Optional[pulumi.Input[Union[str, 'FailoverDeploymentModel']]]:
         """
         The failover deployment model.
         """
         return pulumi.get(self, "failover_deployment_model")
 
     @failover_deployment_model.setter
-    def failover_deployment_model(self, value: Optional[pulumi.Input[str]]):
+    def failover_deployment_model(self, value: Optional[pulumi.Input[Union[str, 'FailoverDeploymentModel']]]):
         pulumi.set(self, "failover_deployment_model", value)
 
     @property
@@ -2156,13 +2157,13 @@ class InMageAzureV2DiskInputDetailsArgs:
     def __init__(__self__, *,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  disk_id: Optional[pulumi.Input[str]] = None,
-                 disk_type: Optional[pulumi.Input[str]] = None,
+                 disk_type: Optional[pulumi.Input[Union[str, 'DiskAccountType']]] = None,
                  log_storage_account_id: Optional[pulumi.Input[str]] = None):
         """
         Disk input details.
         :param pulumi.Input[str] disk_encryption_set_id: The DiskEncryptionSet ARM ID.
         :param pulumi.Input[str] disk_id: The DiskId.
-        :param pulumi.Input[str] disk_type: The DiskType.
+        :param pulumi.Input[Union[str, 'DiskAccountType']] disk_type: The DiskType.
         :param pulumi.Input[str] log_storage_account_id: The LogStorageAccountId.
         """
         if disk_encryption_set_id is not None:
@@ -2200,14 +2201,14 @@ class InMageAzureV2DiskInputDetailsArgs:
 
     @property
     @pulumi.getter(name="diskType")
-    def disk_type(self) -> Optional[pulumi.Input[str]]:
+    def disk_type(self) -> Optional[pulumi.Input[Union[str, 'DiskAccountType']]]:
         """
         The DiskType.
         """
         return pulumi.get(self, "disk_type")
 
     @disk_type.setter
-    def disk_type(self, value: Optional[pulumi.Input[str]]):
+    def disk_type(self, value: Optional[pulumi.Input[Union[str, 'DiskAccountType']]]):
         pulumi.set(self, "disk_type", value)
 
     @property
@@ -2227,7 +2228,7 @@ class InMageAzureV2DiskInputDetailsArgs:
 class InMageAzureV2EnableProtectionInputArgs:
     def __init__(__self__, *,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
-                 disk_type: Optional[pulumi.Input[str]] = None,
+                 disk_type: Optional[pulumi.Input[Union[str, 'DiskAccountType']]] = None,
                  disks_to_include: Optional[pulumi.Input[Sequence[pulumi.Input['InMageAzureV2DiskInputDetailsArgs']]]] = None,
                  enable_rdp_on_target_option: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
@@ -2248,7 +2249,7 @@ class InMageAzureV2EnableProtectionInputArgs:
         """
         VMware Azure specific enable protection input.
         :param pulumi.Input[str] disk_encryption_set_id: The DiskEncryptionSet ARM ID.
-        :param pulumi.Input[str] disk_type: The DiskType.
+        :param pulumi.Input[Union[str, 'DiskAccountType']] disk_type: The DiskType.
         :param pulumi.Input[Sequence[pulumi.Input['InMageAzureV2DiskInputDetailsArgs']]] disks_to_include: The disks to include list.
         :param pulumi.Input[str] enable_rdp_on_target_option: The selected option to enable RDP\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
         :param pulumi.Input[str] instance_type: The class type.
@@ -2320,14 +2321,14 @@ class InMageAzureV2EnableProtectionInputArgs:
 
     @property
     @pulumi.getter(name="diskType")
-    def disk_type(self) -> Optional[pulumi.Input[str]]:
+    def disk_type(self) -> Optional[pulumi.Input[Union[str, 'DiskAccountType']]]:
         """
         The DiskType.
         """
         return pulumi.get(self, "disk_type")
 
     @disk_type.setter
-    def disk_type(self, value: Optional[pulumi.Input[str]]):
+    def disk_type(self, value: Optional[pulumi.Input[Union[str, 'DiskAccountType']]]):
         pulumi.set(self, "disk_type", value)
 
     @property
@@ -2538,7 +2539,7 @@ class InMageAzureV2EnableProtectionInputArgs:
 @pulumi.input_type
 class InMageAzureV2PolicyInputArgs:
     def __init__(__self__, *,
-                 multi_vm_sync_status: pulumi.Input[str],
+                 multi_vm_sync_status: pulumi.Input[Union[str, 'SetMultiVmSyncStatus']],
                  app_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
                  crash_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
@@ -2546,7 +2547,7 @@ class InMageAzureV2PolicyInputArgs:
                  recovery_point_threshold_in_minutes: Optional[pulumi.Input[int]] = None):
         """
         VMWare Azure specific policy Input.
-        :param pulumi.Input[str] multi_vm_sync_status: A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
+        :param pulumi.Input[Union[str, 'SetMultiVmSyncStatus']] multi_vm_sync_status: A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
         :param pulumi.Input[int] app_consistent_frequency_in_minutes: The app consistent snapshot frequency (in minutes).
         :param pulumi.Input[int] crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency (in minutes).
         :param pulumi.Input[str] instance_type: The class type.
@@ -2567,14 +2568,14 @@ class InMageAzureV2PolicyInputArgs:
 
     @property
     @pulumi.getter(name="multiVmSyncStatus")
-    def multi_vm_sync_status(self) -> pulumi.Input[str]:
+    def multi_vm_sync_status(self) -> pulumi.Input[Union[str, 'SetMultiVmSyncStatus']]:
         """
         A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
         """
         return pulumi.get(self, "multi_vm_sync_status")
 
     @multi_vm_sync_status.setter
-    def multi_vm_sync_status(self, value: pulumi.Input[str]):
+    def multi_vm_sync_status(self, value: pulumi.Input[Union[str, 'SetMultiVmSyncStatus']]):
         pulumi.set(self, "multi_vm_sync_status", value)
 
     @property
@@ -2884,14 +2885,14 @@ class InMageEnableProtectionInputArgs:
 @pulumi.input_type
 class InMagePolicyInputArgs:
     def __init__(__self__, *,
-                 multi_vm_sync_status: pulumi.Input[str],
+                 multi_vm_sync_status: pulumi.Input[Union[str, 'SetMultiVmSyncStatus']],
                  app_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  recovery_point_history: Optional[pulumi.Input[int]] = None,
                  recovery_point_threshold_in_minutes: Optional[pulumi.Input[int]] = None):
         """
         VMWare Azure specific protection profile Input.
-        :param pulumi.Input[str] multi_vm_sync_status: A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
+        :param pulumi.Input[Union[str, 'SetMultiVmSyncStatus']] multi_vm_sync_status: A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
         :param pulumi.Input[int] app_consistent_frequency_in_minutes: The app consistent snapshot frequency (in minutes).
         :param pulumi.Input[str] instance_type: The class type.
         :param pulumi.Input[int] recovery_point_history: The duration in minutes until which the recovery points need to be stored.
@@ -2909,14 +2910,14 @@ class InMagePolicyInputArgs:
 
     @property
     @pulumi.getter(name="multiVmSyncStatus")
-    def multi_vm_sync_status(self) -> pulumi.Input[str]:
+    def multi_vm_sync_status(self) -> pulumi.Input[Union[str, 'SetMultiVmSyncStatus']]:
         """
         A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
         """
         return pulumi.get(self, "multi_vm_sync_status")
 
     @multi_vm_sync_status.setter
-    def multi_vm_sync_status(self, value: pulumi.Input[str]):
+    def multi_vm_sync_status(self, value: pulumi.Input[Union[str, 'SetMultiVmSyncStatus']]):
         pulumi.set(self, "multi_vm_sync_status", value)
 
     @property
@@ -2973,13 +2974,13 @@ class InMageRcmDiskInputArgs:
     def __init__(__self__, *,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  disk_id: Optional[pulumi.Input[str]] = None,
-                 disk_type: Optional[pulumi.Input[str]] = None,
+                 disk_type: Optional[pulumi.Input[Union[str, 'DiskAccountType']]] = None,
                  log_storage_account_id: Optional[pulumi.Input[str]] = None):
         """
         InMageRcm disk input.
         :param pulumi.Input[str] disk_encryption_set_id: The disk encryption set ARM Id.
         :param pulumi.Input[str] disk_id: The disk Id.
-        :param pulumi.Input[str] disk_type: The disk type.
+        :param pulumi.Input[Union[str, 'DiskAccountType']] disk_type: The disk type.
         :param pulumi.Input[str] log_storage_account_id: The log storage account ARM Id.
         """
         if disk_encryption_set_id is not None:
@@ -3017,14 +3018,14 @@ class InMageRcmDiskInputArgs:
 
     @property
     @pulumi.getter(name="diskType")
-    def disk_type(self) -> Optional[pulumi.Input[str]]:
+    def disk_type(self) -> Optional[pulumi.Input[Union[str, 'DiskAccountType']]]:
         """
         The disk type.
         """
         return pulumi.get(self, "disk_type")
 
     @disk_type.setter
-    def disk_type(self, value: Optional[pulumi.Input[str]]):
+    def disk_type(self, value: Optional[pulumi.Input[Union[str, 'DiskAccountType']]]):
         pulumi.set(self, "disk_type", value)
 
     @property
@@ -3044,12 +3045,12 @@ class InMageRcmDiskInputArgs:
 class InMageRcmDisksDefaultInputArgs:
     def __init__(__self__, *,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
-                 disk_type: Optional[pulumi.Input[str]] = None,
+                 disk_type: Optional[pulumi.Input[Union[str, 'DiskAccountType']]] = None,
                  log_storage_account_id: Optional[pulumi.Input[str]] = None):
         """
         InMageRcm disk input.
         :param pulumi.Input[str] disk_encryption_set_id: The disk encryption set ARM Id.
-        :param pulumi.Input[str] disk_type: The disk type.
+        :param pulumi.Input[Union[str, 'DiskAccountType']] disk_type: The disk type.
         :param pulumi.Input[str] log_storage_account_id: The log storage account ARM Id.
         """
         if disk_encryption_set_id is not None:
@@ -3073,14 +3074,14 @@ class InMageRcmDisksDefaultInputArgs:
 
     @property
     @pulumi.getter(name="diskType")
-    def disk_type(self) -> Optional[pulumi.Input[str]]:
+    def disk_type(self) -> Optional[pulumi.Input[Union[str, 'DiskAccountType']]]:
         """
         The disk type.
         """
         return pulumi.get(self, "disk_type")
 
     @disk_type.setter
-    def disk_type(self, value: Optional[pulumi.Input[str]]):
+    def disk_type(self, value: Optional[pulumi.Input[Union[str, 'DiskAccountType']]]):
         pulumi.set(self, "disk_type", value)
 
     @property
@@ -3103,7 +3104,7 @@ class InMageRcmEnableProtectionInputArgs:
                  disks_to_include: Optional[pulumi.Input[Sequence[pulumi.Input['InMageRcmDiskInputArgs']]]] = None,
                  fabric_discovery_machine_id: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
-                 license_type: Optional[pulumi.Input[str]] = None,
+                 license_type: Optional[pulumi.Input[Union[str, 'LicenseType']]] = None,
                  multi_vm_group_name: Optional[pulumi.Input[str]] = None,
                  process_server_id: Optional[pulumi.Input[str]] = None,
                  run_as_account_id: Optional[pulumi.Input[str]] = None,
@@ -3124,7 +3125,7 @@ class InMageRcmEnableProtectionInputArgs:
         :param pulumi.Input[Sequence[pulumi.Input['InMageRcmDiskInputArgs']]] disks_to_include: The disks to include list.
         :param pulumi.Input[str] fabric_discovery_machine_id: The ARM Id of discovered machine.
         :param pulumi.Input[str] instance_type: The class type.
-        :param pulumi.Input[str] license_type: The license type.
+        :param pulumi.Input[Union[str, 'LicenseType']] license_type: The license type.
         :param pulumi.Input[str] multi_vm_group_name: The multi VM group name.
         :param pulumi.Input[str] process_server_id: The process server Id.
         :param pulumi.Input[str] run_as_account_id: The run-as account Id.
@@ -3229,14 +3230,14 @@ class InMageRcmEnableProtectionInputArgs:
 
     @property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[pulumi.Input[str]]:
+    def license_type(self) -> Optional[pulumi.Input[Union[str, 'LicenseType']]]:
         """
         The license type.
         """
         return pulumi.get(self, "license_type")
 
     @license_type.setter
-    def license_type(self, value: Optional[pulumi.Input[str]]):
+    def license_type(self, value: Optional[pulumi.Input[Union[str, 'LicenseType']]]):
         pulumi.set(self, "license_type", value)
 
     @property
@@ -3724,13 +3725,13 @@ class RecoveryPlanA2AInputArgs:
 class RecoveryPlanActionArgs:
     def __init__(__self__, *,
                  action_name: pulumi.Input[str],
-                 failover_directions: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 failover_types: pulumi.Input[Sequence[pulumi.Input[str]]]):
+                 failover_directions: pulumi.Input[Sequence[pulumi.Input[Union[str, 'PossibleOperationsDirections']]]],
+                 failover_types: pulumi.Input[Sequence[pulumi.Input[Union[str, 'ReplicationProtectedItemOperation']]]]):
         """
         Recovery plan action details.
         :param pulumi.Input[str] action_name: The action name.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] failover_directions: The list of failover directions.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] failover_types: The list of failover types.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'PossibleOperationsDirections']]]] failover_directions: The list of failover directions.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'ReplicationProtectedItemOperation']]]] failover_types: The list of failover types.
         """
         pulumi.set(__self__, "action_name", action_name)
         pulumi.set(__self__, "failover_directions", failover_directions)
@@ -3750,39 +3751,39 @@ class RecoveryPlanActionArgs:
 
     @property
     @pulumi.getter(name="failoverDirections")
-    def failover_directions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def failover_directions(self) -> pulumi.Input[Sequence[pulumi.Input[Union[str, 'PossibleOperationsDirections']]]]:
         """
         The list of failover directions.
         """
         return pulumi.get(self, "failover_directions")
 
     @failover_directions.setter
-    def failover_directions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def failover_directions(self, value: pulumi.Input[Sequence[pulumi.Input[Union[str, 'PossibleOperationsDirections']]]]):
         pulumi.set(self, "failover_directions", value)
 
     @property
     @pulumi.getter(name="failoverTypes")
-    def failover_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def failover_types(self) -> pulumi.Input[Sequence[pulumi.Input[Union[str, 'ReplicationProtectedItemOperation']]]]:
         """
         The list of failover types.
         """
         return pulumi.get(self, "failover_types")
 
     @failover_types.setter
-    def failover_types(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def failover_types(self, value: pulumi.Input[Sequence[pulumi.Input[Union[str, 'ReplicationProtectedItemOperation']]]]):
         pulumi.set(self, "failover_types", value)
 
 
 @pulumi.input_type
 class RecoveryPlanGroupArgs:
     def __init__(__self__, *,
-                 group_type: pulumi.Input[str],
+                 group_type: pulumi.Input[Union[str, 'RecoveryPlanGroupType']],
                  end_group_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryPlanActionArgs']]]] = None,
                  replication_protected_items: Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryPlanProtectedItemArgs']]]] = None,
                  start_group_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryPlanActionArgs']]]] = None):
         """
         Recovery plan group details.
-        :param pulumi.Input[str] group_type: The group type.
+        :param pulumi.Input[Union[str, 'RecoveryPlanGroupType']] group_type: The group type.
         :param pulumi.Input[Sequence[pulumi.Input['RecoveryPlanActionArgs']]] end_group_actions: The end group actions.
         :param pulumi.Input[Sequence[pulumi.Input['RecoveryPlanProtectedItemArgs']]] replication_protected_items: The list of protected items.
         :param pulumi.Input[Sequence[pulumi.Input['RecoveryPlanActionArgs']]] start_group_actions: The start group actions.
@@ -3797,14 +3798,14 @@ class RecoveryPlanGroupArgs:
 
     @property
     @pulumi.getter(name="groupType")
-    def group_type(self) -> pulumi.Input[str]:
+    def group_type(self) -> pulumi.Input[Union[str, 'RecoveryPlanGroupType']]:
         """
         The group type.
         """
         return pulumi.get(self, "group_type")
 
     @group_type.setter
-    def group_type(self, value: pulumi.Input[str]):
+    def group_type(self, value: pulumi.Input[Union[str, 'RecoveryPlanGroupType']]):
         pulumi.set(self, "group_type", value)
 
     @property
@@ -4053,14 +4054,14 @@ class VMwareCbtDiskInputArgs:
                  is_os_disk: pulumi.Input[str],
                  log_storage_account_id: pulumi.Input[str],
                  log_storage_account_sas_secret_name: pulumi.Input[str],
-                 disk_type: Optional[pulumi.Input[str]] = None):
+                 disk_type: Optional[pulumi.Input[Union[str, 'DiskAccountType']]] = None):
         """
         VMwareCbt disk input.
         :param pulumi.Input[str] disk_id: The disk Id.
         :param pulumi.Input[str] is_os_disk: A value indicating whether the disk is the OS disk.
         :param pulumi.Input[str] log_storage_account_id: The log storage account ARM Id.
         :param pulumi.Input[str] log_storage_account_sas_secret_name: The key vault secret name of the log storage account.
-        :param pulumi.Input[str] disk_type: The disk type.
+        :param pulumi.Input[Union[str, 'DiskAccountType']] disk_type: The disk type.
         """
         pulumi.set(__self__, "disk_id", disk_id)
         pulumi.set(__self__, "is_os_disk", is_os_disk)
@@ -4119,14 +4120,14 @@ class VMwareCbtDiskInputArgs:
 
     @property
     @pulumi.getter(name="diskType")
-    def disk_type(self) -> Optional[pulumi.Input[str]]:
+    def disk_type(self) -> Optional[pulumi.Input[Union[str, 'DiskAccountType']]]:
         """
         The disk type.
         """
         return pulumi.get(self, "disk_type")
 
     @disk_type.setter
-    def disk_type(self, value: Optional[pulumi.Input[str]]):
+    def disk_type(self, value: Optional[pulumi.Input[Union[str, 'DiskAccountType']]]):
         pulumi.set(self, "disk_type", value)
 
 
@@ -4140,7 +4141,7 @@ class VMwareCbtEnableMigrationInputArgs:
                  target_network_id: pulumi.Input[str],
                  target_resource_group_id: pulumi.Input[str],
                  vmware_machine_id: pulumi.Input[str],
-                 license_type: Optional[pulumi.Input[str]] = None,
+                 license_type: Optional[pulumi.Input[Union[str, 'LicenseType']]] = None,
                  target_availability_set_id: Optional[pulumi.Input[str]] = None,
                  target_boot_diagnostics_storage_account_id: Optional[pulumi.Input[str]] = None,
                  target_subnet_name: Optional[pulumi.Input[str]] = None,
@@ -4155,7 +4156,7 @@ class VMwareCbtEnableMigrationInputArgs:
         :param pulumi.Input[str] target_network_id: The target network ARM Id.
         :param pulumi.Input[str] target_resource_group_id: The target resource group ARM Id.
         :param pulumi.Input[str] vmware_machine_id: The ARM Id of the VM discovered in VMware.
-        :param pulumi.Input[str] license_type: License type.
+        :param pulumi.Input[Union[str, 'LicenseType']] license_type: License type.
         :param pulumi.Input[str] target_availability_set_id: The target availability set ARM Id.
         :param pulumi.Input[str] target_boot_diagnostics_storage_account_id: The target boot diagnostics storage account ARM Id.
         :param pulumi.Input[str] target_subnet_name: The target subnet name.
@@ -4268,14 +4269,14 @@ class VMwareCbtEnableMigrationInputArgs:
 
     @property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[pulumi.Input[str]]:
+    def license_type(self) -> Optional[pulumi.Input[Union[str, 'LicenseType']]]:
         """
         License type.
         """
         return pulumi.get(self, "license_type")
 
     @license_type.setter
-    def license_type(self, value: Optional[pulumi.Input[str]]):
+    def license_type(self, value: Optional[pulumi.Input[Union[str, 'LicenseType']]]):
         pulumi.set(self, "license_type", value)
 
     @property

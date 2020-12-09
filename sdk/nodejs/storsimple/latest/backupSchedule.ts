@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -82,34 +82,34 @@ export class BackupSchedule extends pulumi.CustomResource {
     constructor(name: string, args: BackupScheduleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.backupPolicyName === undefined) {
+            if ((!args || args.backupPolicyName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'backupPolicyName'");
             }
-            if (!args || args.backupScheduleName === undefined) {
+            if ((!args || args.backupScheduleName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'backupScheduleName'");
             }
-            if (!args || args.backupType === undefined) {
+            if ((!args || args.backupType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'backupType'");
             }
-            if (!args || args.deviceName === undefined) {
+            if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if (!args || args.managerName === undefined) {
+            if ((!args || args.managerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.retentionCount === undefined) {
+            if ((!args || args.retentionCount === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'retentionCount'");
             }
-            if (!args || args.scheduleRecurrence === undefined) {
+            if ((!args || args.scheduleRecurrence === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scheduleRecurrence'");
             }
-            if (!args || args.scheduleStatus === undefined) {
+            if ((!args || args.scheduleStatus === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scheduleStatus'");
             }
-            if (!args || args.startTime === undefined) {
+            if ((!args || args.startTime === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'startTime'");
             }
             inputs["backupPolicyName"] = args ? args.backupPolicyName : undefined;
@@ -165,7 +165,7 @@ export interface BackupScheduleArgs {
     /**
      * The type of backup which needs to be taken.
      */
-    readonly backupType: pulumi.Input<string>;
+    readonly backupType: pulumi.Input<enums.storsimple.latest.BackupType>;
     /**
      * The device name
      */
@@ -173,7 +173,7 @@ export interface BackupScheduleArgs {
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    readonly kind?: pulumi.Input<string>;
+    readonly kind?: pulumi.Input<enums.storsimple.latest.Kind>;
     /**
      * The manager name
      */
@@ -193,7 +193,7 @@ export interface BackupScheduleArgs {
     /**
      * The schedule status.
      */
-    readonly scheduleStatus: pulumi.Input<string>;
+    readonly scheduleStatus: pulumi.Input<enums.storsimple.latest.ScheduleStatus>;
     /**
      * The start time of the schedule.
      */

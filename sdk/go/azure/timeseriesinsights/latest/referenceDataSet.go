@@ -36,23 +36,24 @@ type ReferenceDataSet struct {
 // NewReferenceDataSet registers a new resource with the given unique name, arguments, and options.
 func NewReferenceDataSet(ctx *pulumi.Context,
 	name string, args *ReferenceDataSetArgs, opts ...pulumi.ResourceOption) (*ReferenceDataSet, error) {
-	if args == nil || args.EnvironmentName == nil {
-		return nil, errors.New("missing required argument 'EnvironmentName'")
-	}
-	if args == nil || args.KeyProperties == nil {
-		return nil, errors.New("missing required argument 'KeyProperties'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ReferenceDataSetName == nil {
-		return nil, errors.New("missing required argument 'ReferenceDataSetName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ReferenceDataSetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.EnvironmentName == nil {
+		return nil, errors.New("invalid value for required argument 'EnvironmentName'")
+	}
+	if args.KeyProperties == nil {
+		return nil, errors.New("invalid value for required argument 'KeyProperties'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ReferenceDataSetName == nil {
+		return nil, errors.New("invalid value for required argument 'ReferenceDataSetName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

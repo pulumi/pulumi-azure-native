@@ -61,16 +61,16 @@ export class WebAppDomainOwnershipIdentifierSlot extends pulumi.CustomResource {
     constructor(name: string, args: WebAppDomainOwnershipIdentifierSlotArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.domainOwnershipIdentifierName === undefined) {
+            if ((!args || args.domainOwnershipIdentifierName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'domainOwnershipIdentifierName'");
             }
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.slot === undefined) {
+            if ((!args || args.slot === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'slot'");
             }
             inputs["domainOwnershipIdentifierName"] = args ? args.domainOwnershipIdentifierName : undefined;

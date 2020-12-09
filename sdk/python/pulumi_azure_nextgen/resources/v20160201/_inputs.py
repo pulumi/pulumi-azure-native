@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'DeploymentPropertiesArgs',
@@ -20,14 +21,14 @@ __all__ = [
 @pulumi.input_type
 class DeploymentPropertiesArgs:
     def __init__(__self__, *,
-                 mode: pulumi.Input[str],
+                 mode: pulumi.Input['DeploymentMode'],
                  parameters: Optional[Any] = None,
                  parameters_link: Optional[pulumi.Input['ParametersLinkArgs']] = None,
                  template: Optional[Any] = None,
                  template_link: Optional[pulumi.Input['TemplateLinkArgs']] = None):
         """
         Deployment properties.
-        :param pulumi.Input[str] mode: The deployment mode.
+        :param pulumi.Input['DeploymentMode'] mode: The deployment mode.
         :param Any parameters: Deployment parameters. It can be a JObject or a well formed JSON string. Use only one of Parameters or ParametersLink.
         :param pulumi.Input['ParametersLinkArgs'] parameters_link: The parameters URI. Use only one of Parameters or ParametersLink.
         :param Any template: The template content. It can be a JObject or a well formed JSON string. Use only one of Template or TemplateLink.
@@ -45,14 +46,14 @@ class DeploymentPropertiesArgs:
 
     @property
     @pulumi.getter
-    def mode(self) -> pulumi.Input[str]:
+    def mode(self) -> pulumi.Input['DeploymentMode']:
         """
         The deployment mode.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: pulumi.Input[str]):
+    def mode(self, value: pulumi.Input['DeploymentMode']):
         pulumi.set(self, "mode", value)
 
     @property
@@ -107,24 +108,24 @@ class DeploymentPropertiesArgs:
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
         """
         Identity for the resource.
-        :param pulumi.Input[str] type: The identity type.
+        :param pulumi.Input['ResourceIdentityType'] type: The identity type.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
         """
         The identity type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
 

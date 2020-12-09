@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Relationship']
@@ -17,7 +18,7 @@ class Relationship(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cardinality: Optional[pulumi.Input[str]] = None,
+                 cardinality: Optional[pulumi.Input['CardinalityTypes']] = None,
                  description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  expiry_date_time_utc: Optional[pulumi.Input[str]] = None,
@@ -36,7 +37,7 @@ class Relationship(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cardinality: The Relationship Cardinality.
+        :param pulumi.Input['CardinalityTypes'] cardinality: The Relationship Cardinality.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] description: Localized descriptions for the Relationship.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] display_name: Localized display name for the Relationship.
         :param pulumi.Input[str] expiry_date_time_utc: The expiry date time in UTC.
@@ -70,20 +71,20 @@ class Relationship(pulumi.CustomResource):
             __props__['display_name'] = display_name
             __props__['expiry_date_time_utc'] = expiry_date_time_utc
             __props__['fields'] = fields
-            if hub_name is None:
+            if hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'hub_name'")
             __props__['hub_name'] = hub_name
             __props__['lookup_mappings'] = lookup_mappings
-            if profile_type is None:
+            if profile_type is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_type'")
             __props__['profile_type'] = profile_type
-            if related_profile_type is None:
+            if related_profile_type is None and not opts.urn:
                 raise TypeError("Missing required property 'related_profile_type'")
             __props__['related_profile_type'] = related_profile_type
-            if relationship_name is None:
+            if relationship_name is None and not opts.urn:
                 raise TypeError("Missing required property 'relationship_name'")
             __props__['relationship_name'] = relationship_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['name'] = None

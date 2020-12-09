@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20190615Preview.Inputs
         /// Protocol to use for the redirect. The default value is MatchRequest
         /// </summary>
         [Input("destinationProtocol")]
-        public Input<string>? DestinationProtocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20190615Preview.DestinationProtocol>? DestinationProtocol { get; set; }
 
         [Input("odataType", required: true)]
         public Input<string> OdataType { get; set; } = null!;
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20190615Preview.Inputs
         /// The redirect type the rule will use when redirecting traffic.
         /// </summary>
         [Input("redirectType", required: true)]
-        public Input<string> RedirectType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20190615Preview.RedirectType> RedirectType { get; set; } = null!;
 
         public UrlRedirectActionParametersArgs()
         {

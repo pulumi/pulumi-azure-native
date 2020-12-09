@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataLakeStore.V20161101.Inputs
         /// The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.DataLakeStore.V20161101.EncryptionIdentityType> Type { get; set; } = null!;
 
         public EncryptionIdentityArgs()
         {

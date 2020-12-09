@@ -322,7 +322,7 @@ namespace Pulumi.AzureNextGen.Network.V20200401
         /// The ServiceProviderProvisioningState state of the resource.
         /// </summary>
         [Input("serviceProviderProvisioningState")]
-        public Input<string>? ServiceProviderProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200401.ServiceProviderProvisioningState>? ServiceProviderProvisioningState { get; set; }
 
         /// <summary>
         /// The SKU.

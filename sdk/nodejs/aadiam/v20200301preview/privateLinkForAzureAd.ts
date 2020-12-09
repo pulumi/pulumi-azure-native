@@ -81,10 +81,10 @@ export class PrivateLinkForAzureAd extends pulumi.CustomResource {
     constructor(name: string, args: PrivateLinkForAzureAdArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.policyName === undefined) {
+            if ((!args || args.policyName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policyName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["allTenants"] = args ? args.allTenants : undefined;

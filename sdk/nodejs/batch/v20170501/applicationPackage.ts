@@ -69,16 +69,16 @@ export class ApplicationPackage extends pulumi.CustomResource {
     constructor(name: string, args: ApplicationPackageArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.accountName === undefined) {
+            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.applicationId === undefined) {
+            if ((!args || args.applicationId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.version === undefined) {
+            if ((!args || args.version === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'version'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;

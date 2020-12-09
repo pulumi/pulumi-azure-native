@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214PrivatePreview.Inputs
         /// The tier of the particular SKU, e.g. Burstable.
         /// </summary>
         [Input("tier", required: true)]
-        public Input<string> Tier { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DBforPostgreSQL.V20200214PrivatePreview.SkuTier> Tier { get; set; } = null!;
 
         public SkuArgs()
         {

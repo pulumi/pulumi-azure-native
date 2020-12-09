@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'NetworkProfileArgs',
@@ -167,17 +168,17 @@ class OpenShiftManagedClusterAgentPoolProfileArgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
                  name: pulumi.Input[str],
-                 vm_size: pulumi.Input[str],
-                 os_type: Optional[pulumi.Input[str]] = None,
-                 role: Optional[pulumi.Input[str]] = None,
+                 vm_size: pulumi.Input[Union[str, 'OpenShiftContainerServiceVMSize']],
+                 os_type: Optional[pulumi.Input[Union[str, 'OSType']]] = None,
+                 role: Optional[pulumi.Input[Union[str, 'OpenShiftAgentPoolProfileRole']]] = None,
                  subnet_cidr: Optional[pulumi.Input[str]] = None):
         """
         Defines the configuration of the OpenShift cluster VMs.
         :param pulumi.Input[int] count: Number of agents (VMs) to host docker containers.
         :param pulumi.Input[str] name: Unique name of the pool profile in the context of the subscription and resource group.
-        :param pulumi.Input[str] vm_size: Size of agent VMs.
-        :param pulumi.Input[str] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-        :param pulumi.Input[str] role: Define the role of the AgentPoolProfile.
+        :param pulumi.Input[Union[str, 'OpenShiftContainerServiceVMSize']] vm_size: Size of agent VMs.
+        :param pulumi.Input[Union[str, 'OSType']] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+        :param pulumi.Input[Union[str, 'OpenShiftAgentPoolProfileRole']] role: Define the role of the AgentPoolProfile.
         :param pulumi.Input[str] subnet_cidr: Subnet CIDR for the peering.
         """
         pulumi.set(__self__, "count", count)
@@ -216,38 +217,38 @@ class OpenShiftManagedClusterAgentPoolProfileArgs:
 
     @property
     @pulumi.getter(name="vmSize")
-    def vm_size(self) -> pulumi.Input[str]:
+    def vm_size(self) -> pulumi.Input[Union[str, 'OpenShiftContainerServiceVMSize']]:
         """
         Size of agent VMs.
         """
         return pulumi.get(self, "vm_size")
 
     @vm_size.setter
-    def vm_size(self, value: pulumi.Input[str]):
+    def vm_size(self, value: pulumi.Input[Union[str, 'OpenShiftContainerServiceVMSize']]):
         pulumi.set(self, "vm_size", value)
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[str]]:
+    def os_type(self) -> Optional[pulumi.Input[Union[str, 'OSType']]]:
         """
         OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         """
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[str]]):
+    def os_type(self, value: Optional[pulumi.Input[Union[str, 'OSType']]]):
         pulumi.set(self, "os_type", value)
 
     @property
     @pulumi.getter
-    def role(self) -> Optional[pulumi.Input[str]]:
+    def role(self) -> Optional[pulumi.Input[Union[str, 'OpenShiftAgentPoolProfileRole']]]:
         """
         Define the role of the AgentPoolProfile.
         """
         return pulumi.get(self, "role")
 
     @role.setter
-    def role(self, value: Optional[pulumi.Input[str]]):
+    def role(self, value: Optional[pulumi.Input[Union[str, 'OpenShiftAgentPoolProfileRole']]]):
         pulumi.set(self, "role", value)
 
     @property
@@ -331,16 +332,16 @@ class OpenShiftManagedClusterIdentityProviderArgs:
 class OpenShiftManagedClusterMasterPoolProfileArgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
-                 vm_size: pulumi.Input[str],
+                 vm_size: pulumi.Input[Union[str, 'OpenShiftContainerServiceVMSize']],
                  name: Optional[pulumi.Input[str]] = None,
-                 os_type: Optional[pulumi.Input[str]] = None,
+                 os_type: Optional[pulumi.Input[Union[str, 'OSType']]] = None,
                  subnet_cidr: Optional[pulumi.Input[str]] = None):
         """
         OpenShiftManagedClusterMaterPoolProfile contains configuration for OpenShift master VMs.
         :param pulumi.Input[int] count: Number of masters (VMs) to host docker containers. The default value is 3.
-        :param pulumi.Input[str] vm_size: Size of agent VMs.
+        :param pulumi.Input[Union[str, 'OpenShiftContainerServiceVMSize']] vm_size: Size of agent VMs.
         :param pulumi.Input[str] name: Unique name of the master pool profile in the context of the subscription and resource group.
-        :param pulumi.Input[str] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+        :param pulumi.Input[Union[str, 'OSType']] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         :param pulumi.Input[str] subnet_cidr: Subnet CIDR for the peering.
         """
         pulumi.set(__self__, "count", count)
@@ -366,14 +367,14 @@ class OpenShiftManagedClusterMasterPoolProfileArgs:
 
     @property
     @pulumi.getter(name="vmSize")
-    def vm_size(self) -> pulumi.Input[str]:
+    def vm_size(self) -> pulumi.Input[Union[str, 'OpenShiftContainerServiceVMSize']]:
         """
         Size of agent VMs.
         """
         return pulumi.get(self, "vm_size")
 
     @vm_size.setter
-    def vm_size(self, value: pulumi.Input[str]):
+    def vm_size(self, value: pulumi.Input[Union[str, 'OpenShiftContainerServiceVMSize']]):
         pulumi.set(self, "vm_size", value)
 
     @property
@@ -390,14 +391,14 @@ class OpenShiftManagedClusterMasterPoolProfileArgs:
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[str]]:
+    def os_type(self) -> Optional[pulumi.Input[Union[str, 'OSType']]]:
         """
         OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         """
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[str]]):
+    def os_type(self, value: Optional[pulumi.Input[Union[str, 'OSType']]]):
         pulumi.set(self, "os_type", value)
 
     @property

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Devices.V20200801.Inputs
         /// Method used to authenticate against the service bus topic endpoint
         /// </summary>
         [Input("authenticationType")]
-        public Input<string>? AuthenticationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Devices.V20200801.AuthenticationType>? AuthenticationType { get; set; }
 
         /// <summary>
         /// The connection string of the service bus topic endpoint.

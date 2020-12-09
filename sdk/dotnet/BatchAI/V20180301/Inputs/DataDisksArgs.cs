@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180301.Inputs
     public sealed class DataDisksArgs : Pulumi.ResourceArgs
     {
         [Input("cachingType")]
-        public Input<string>? CachingType { get; set; }
+        public Input<Pulumi.AzureNextGen.BatchAI.V20180301.CachingType>? CachingType { get; set; }
 
         [Input("diskCount", required: true)]
         public Input<int> DiskCount { get; set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180301.Inputs
         public Input<int> DiskSizeInGB { get; set; } = null!;
 
         [Input("storageAccountType", required: true)]
-        public Input<string> StorageAccountType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.BatchAI.V20180301.StorageAccountType> StorageAccountType { get; set; } = null!;
 
         public DataDisksArgs()
         {

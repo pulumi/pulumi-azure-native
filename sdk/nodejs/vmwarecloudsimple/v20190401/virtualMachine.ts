@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -150,22 +150,22 @@ export class VirtualMachine extends pulumi.CustomResource {
     constructor(name: string, args: VirtualMachineArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.amountOfRam === undefined) {
+            if ((!args || args.amountOfRam === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'amountOfRam'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.numberOfCores === undefined) {
+            if ((!args || args.numberOfCores === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'numberOfCores'");
             }
-            if (!args || args.privateCloudId === undefined) {
+            if ((!args || args.privateCloudId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'privateCloudId'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.virtualMachineName === undefined) {
+            if ((!args || args.virtualMachineName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualMachineName'");
             }
             inputs["amountOfRam"] = args ? args.amountOfRam : undefined;

@@ -123,7 +123,7 @@ namespace Pulumi.AzureNextGen.ManagedNetwork.V20190601Preview
         /// Responsibility role under which this Managed Network Group will be created
         /// </summary>
         [Input("kind")]
-        public Input<string>? Kind { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ManagedNetwork.V20190601Preview.Kind>? Kind { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['ClusterPrincipalAssignment']
 
@@ -18,9 +19,9 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  principal_assignment_name: Optional[pulumi.Input[str]] = None,
                  principal_id: Optional[pulumi.Input[str]] = None,
-                 principal_type: Optional[pulumi.Input[str]] = None,
+                 principal_type: Optional[pulumi.Input[Union[str, 'PrincipalType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 role: Optional[pulumi.Input[str]] = None,
+                 role: Optional[pulumi.Input[Union[str, 'ClusterPrincipalRole']]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -33,9 +34,9 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[str] principal_assignment_name: The name of the Kusto principalAssignment.
         :param pulumi.Input[str] principal_id: The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.
-        :param pulumi.Input[str] principal_type: Principal type.
+        :param pulumi.Input[Union[str, 'PrincipalType']] principal_type: Principal type.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
-        :param pulumi.Input[str] role: Cluster principal role.
+        :param pulumi.Input[Union[str, 'ClusterPrincipalRole']] role: Cluster principal role.
         :param pulumi.Input[str] tenant_id: The tenant id of the principal
         """
         if __name__ is not None:
@@ -55,22 +56,22 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if cluster_name is None:
+            if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
-            if principal_assignment_name is None:
+            if principal_assignment_name is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_assignment_name'")
             __props__['principal_assignment_name'] = principal_assignment_name
-            if principal_id is None:
+            if principal_id is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_id'")
             __props__['principal_id'] = principal_id
-            if principal_type is None:
+            if principal_type is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_type'")
             __props__['principal_type'] = principal_type
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if role is None:
+            if role is None and not opts.urn:
                 raise TypeError("Missing required property 'role'")
             __props__['role'] = role
             __props__['tenant_id'] = tenant_id

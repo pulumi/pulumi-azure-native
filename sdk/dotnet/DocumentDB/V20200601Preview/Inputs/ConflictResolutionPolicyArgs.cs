@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview.Inputs
         /// Indicates the conflict resolution mode.
         /// </summary>
         [Input("mode")]
-        public Input<string>? Mode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DocumentDB.V20200601Preview.ConflictResolutionMode>? Mode { get; set; }
 
         public ConflictResolutionPolicyArgs()
         {

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 
 __all__ = ['WebAppPublicCertificate']
 
@@ -19,7 +20,7 @@ class WebAppPublicCertificate(pulumi.CustomResource):
                  blob: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 public_certificate_location: Optional[pulumi.Input[str]] = None,
+                 public_certificate_location: Optional[pulumi.Input['PublicCertificateLocation']] = None,
                  public_certificate_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -33,7 +34,7 @@ class WebAppPublicCertificate(pulumi.CustomResource):
         :param pulumi.Input[str] blob: Public Certificate byte array
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] name: Name of the app.
-        :param pulumi.Input[str] public_certificate_location: Public Certificate Location
+        :param pulumi.Input['PublicCertificateLocation'] public_certificate_location: Public Certificate Location
         :param pulumi.Input[str] public_certificate_name: Public certificate name.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         """
@@ -56,14 +57,14 @@ class WebAppPublicCertificate(pulumi.CustomResource):
 
             __props__['blob'] = blob
             __props__['kind'] = kind
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['public_certificate_location'] = public_certificate_location
-            if public_certificate_name is None:
+            if public_certificate_name is None and not opts.urn:
                 raise TypeError("Missing required property 'public_certificate_name'")
             __props__['public_certificate_name'] = public_certificate_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['system_data'] = None

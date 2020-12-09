@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101.Inputs
         /// The frequency to update.
         /// </summary>
         [Input("frequency")]
-        public Input<string>? Frequency { get; set; }
+        public Input<Pulumi.AzureNextGen.CustomerInsights.V20170101.FrequencyTypes>? Frequency { get; set; }
 
         /// <summary>
         /// The interval of the given frequency to use.

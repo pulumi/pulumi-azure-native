@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -106,13 +106,13 @@ export class View extends pulumi.CustomResource {
     constructor(name: string, args: ViewArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.timeframe === undefined) {
+            if ((!args || args.timeframe === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'timeframe'");
             }
-            if (!args || args.type === undefined) {
+            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'type'");
             }
-            if (!args || args.viewName === undefined) {
+            if ((!args || args.viewName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'viewName'");
             }
             inputs["accumulated"] = args ? args.accumulated : undefined;
@@ -168,11 +168,11 @@ export interface ViewArgs {
     /**
      * Show costs accumulated over time.
      */
-    readonly accumulated?: pulumi.Input<string>;
+    readonly accumulated?: pulumi.Input<string | enums.costmanagement.latest.AccumulatedType>;
     /**
      * Chart type of the main view in Cost Analysis. Required.
      */
-    readonly chart?: pulumi.Input<string>;
+    readonly chart?: pulumi.Input<string | enums.costmanagement.latest.ChartType>;
     /**
      * Has definition for data in this report config.
      */
@@ -192,7 +192,7 @@ export interface ViewArgs {
     /**
      * Metric to use when displaying costs.
      */
-    readonly metric?: pulumi.Input<string>;
+    readonly metric?: pulumi.Input<string | enums.costmanagement.latest.MetricType>;
     /**
      * Configuration of 3 sub-views in the Cost Analysis UI.
      */
@@ -208,11 +208,11 @@ export interface ViewArgs {
     /**
      * The time frame for pulling data for the report. If custom, then a specific time period must be provided.
      */
-    readonly timeframe: pulumi.Input<string>;
+    readonly timeframe: pulumi.Input<string | enums.costmanagement.latest.ReportTimeframeType>;
     /**
      * The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
      */
-    readonly type: pulumi.Input<string>;
+    readonly type: pulumi.Input<string | enums.costmanagement.latest.ReportType>;
     /**
      * View name
      */

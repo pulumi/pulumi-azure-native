@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AssignmentLockSettingsArgs',
@@ -25,12 +26,12 @@ class AssignmentLockSettingsArgs:
     def __init__(__self__, *,
                  excluded_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  excluded_principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 mode: Optional[pulumi.Input[str]] = None):
+                 mode: Optional[pulumi.Input[Union[str, 'AssignmentLockMode']]] = None):
         """
         Defines how resources deployed by a blueprint assignment are locked.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_actions: List of management operations that are excluded from blueprint locks. Up to 200 actions are permitted. If the lock mode is set to 'AllResourcesReadOnly', then the following actions are automatically appended to 'excludedActions': '*/read', 'Microsoft.Network/virtualNetworks/subnets/join/action' and 'Microsoft.Authorization/locks/delete'. If the lock mode is set to 'AllResourcesDoNotDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will get removed.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_principals: List of AAD principals excluded from blueprint locks. Up to 5 principals are permitted.
-        :param pulumi.Input[str] mode: Lock mode.
+        :param pulumi.Input[Union[str, 'AssignmentLockMode']] mode: Lock mode.
         """
         if excluded_actions is not None:
             pulumi.set(__self__, "excluded_actions", excluded_actions)
@@ -65,14 +66,14 @@ class AssignmentLockSettingsArgs:
 
     @property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[str]]:
+    def mode(self) -> Optional[pulumi.Input[Union[str, 'AssignmentLockMode']]]:
         """
         Lock mode.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[str]]):
+    def mode(self, value: Optional[pulumi.Input[Union[str, 'AssignmentLockMode']]]):
         pulumi.set(self, "mode", value)
 
 
@@ -102,13 +103,13 @@ class KeyVaultReferenceArgs:
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str],
+                 type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]] = None):
         """
         Managed identity generic object.
-        :param pulumi.Input[str] type: Type of the managed identity.
+        :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of the managed identity.
         :param pulumi.Input[str] principal_id: Azure Active Directory principal ID associated with this Identity.
         :param pulumi.Input[str] tenant_id: ID of the Azure Active Directory.
         :param pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]] user_assigned_identities: The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
@@ -123,14 +124,14 @@ class ManagedServiceIdentityArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'ManagedServiceIdentityType']]:
         """
         Type of the managed identity.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -173,7 +174,7 @@ class ManagedServiceIdentityArgs:
 @pulumi.input_type
 class ParameterDefinitionArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str],
+                 type: pulumi.Input[Union[str, 'TemplateParameterType']],
                  allowed_values: Optional[pulumi.Input[Sequence[Any]]] = None,
                  default_value: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -181,7 +182,7 @@ class ParameterDefinitionArgs:
                  strong_type: Optional[pulumi.Input[str]] = None):
         """
         Represent a parameter with constrains and metadata.
-        :param pulumi.Input[str] type: Allowed data types for Resource Manager template parameters.
+        :param pulumi.Input[Union[str, 'TemplateParameterType']] type: Allowed data types for Resource Manager template parameters.
         :param pulumi.Input[Sequence[Any]] allowed_values: Array of allowed values for this parameter.
         :param Any default_value: Default Value for this parameter.
         :param pulumi.Input[str] description: Description of this parameter/resourceGroup.
@@ -202,14 +203,14 @@ class ParameterDefinitionArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'TemplateParameterType']]:
         """
         Allowed data types for Resource Manager template parameters.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'TemplateParameterType']]):
         pulumi.set(self, "type", value)
 
     @property

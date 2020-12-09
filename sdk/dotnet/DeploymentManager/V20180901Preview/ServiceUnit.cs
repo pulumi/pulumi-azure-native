@@ -115,7 +115,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20180901Preview
         /// Describes the type of ARM deployment to be performed on the resource.
         /// </summary>
         [Input("deploymentMode", required: true)]
-        public Input<string> DeploymentMode { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.DeploymentManager.V20180901Preview.DeploymentMode> DeploymentMode { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

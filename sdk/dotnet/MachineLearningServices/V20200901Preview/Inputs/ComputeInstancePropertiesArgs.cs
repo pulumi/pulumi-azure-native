@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview.Inputs
         /// Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
         /// </summary>
         [Input("applicationSharingPolicy")]
-        public Input<string>? ApplicationSharingPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview.ApplicationSharingPolicy>? ApplicationSharingPolicy { get; set; }
 
         /// <summary>
         /// The Compute Instance Authorization type. Available values are personal (default).
         /// </summary>
         [Input("computeInstanceAuthorizationType")]
-        public Input<string>? ComputeInstanceAuthorizationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview.ComputeInstanceAuthorizationType>? ComputeInstanceAuthorizationType { get; set; }
 
         /// <summary>
         /// Settings for a personal compute instance.

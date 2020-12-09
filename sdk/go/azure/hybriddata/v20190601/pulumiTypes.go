@@ -34,7 +34,7 @@ type CustomerSecretInput interface {
 // The pair of customer secret.
 type CustomerSecretArgs struct {
 	// The encryption algorithm used to encrypt data.
-	Algorithm pulumi.StringInput `pulumi:"algorithm"`
+	Algorithm SupportedAlgorithm `pulumi:"algorithm"`
 	// The identifier to the data service input object which this secret corresponds to.
 	KeyIdentifier pulumi.StringInput `pulumi:"keyIdentifier"`
 	// It contains the encrypted customer secret.

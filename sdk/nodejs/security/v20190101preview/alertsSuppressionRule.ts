@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -82,16 +82,16 @@ export class AlertsSuppressionRule extends pulumi.CustomResource {
     constructor(name: string, args: AlertsSuppressionRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.alertType === undefined) {
+            if ((!args || args.alertType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'alertType'");
             }
-            if (!args || args.alertsSuppressionRuleName === undefined) {
+            if ((!args || args.alertsSuppressionRuleName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'alertsSuppressionRuleName'");
             }
-            if (!args || args.reason === undefined) {
+            if ((!args || args.reason === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'reason'");
             }
-            if (!args || args.state === undefined) {
+            if ((!args || args.state === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'state'");
             }
             inputs["alertType"] = args ? args.alertType : undefined;
@@ -153,7 +153,7 @@ export interface AlertsSuppressionRuleArgs {
     /**
      * Possible states of the rule
      */
-    readonly state: pulumi.Input<string>;
+    readonly state: pulumi.Input<string | enums.security.v20190101preview.RuleState>;
     /**
      * The suppression conditions
      */

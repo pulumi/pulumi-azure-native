@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'BotPropertiesArgs',
@@ -610,13 +611,13 @@ class EnterpriseChannelNodeArgs:
                  azure_location: pulumi.Input[str],
                  azure_sku: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 state: Optional[pulumi.Input[str]] = None):
+                 state: Optional[pulumi.Input[Union[str, 'EnterpriseChannelNodeState']]] = None):
         """
         The properties specific to an Enterprise Channel Node.
         :param pulumi.Input[str] azure_location: The location of the Enterprise Channel Node.
         :param pulumi.Input[str] azure_sku: The sku of the Enterprise Channel Node.
         :param pulumi.Input[str] name: The name of the Enterprise Channel Node.
-        :param pulumi.Input[str] state: The current state of the Enterprise Channel Node.
+        :param pulumi.Input[Union[str, 'EnterpriseChannelNodeState']] state: The current state of the Enterprise Channel Node.
         """
         pulumi.set(__self__, "azure_location", azure_location)
         pulumi.set(__self__, "azure_sku", azure_sku)
@@ -662,14 +663,14 @@ class EnterpriseChannelNodeArgs:
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[str]]:
+    def state(self) -> Optional[pulumi.Input[Union[str, 'EnterpriseChannelNodeState']]]:
         """
         The current state of the Enterprise Channel Node.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[str]]):
+    def state(self, value: Optional[pulumi.Input[Union[str, 'EnterpriseChannelNodeState']]]):
         pulumi.set(self, "state", value)
 
 
@@ -677,11 +678,11 @@ class EnterpriseChannelNodeArgs:
 class EnterpriseChannelPropertiesArgs:
     def __init__(__self__, *,
                  nodes: pulumi.Input[Sequence[pulumi.Input['EnterpriseChannelNodeArgs']]],
-                 state: Optional[pulumi.Input[str]] = None):
+                 state: Optional[pulumi.Input[Union[str, 'EnterpriseChannelState']]] = None):
         """
         The parameters to provide for the Enterprise Channel.
         :param pulumi.Input[Sequence[pulumi.Input['EnterpriseChannelNodeArgs']]] nodes: The nodes associated with the Enterprise Channel.
-        :param pulumi.Input[str] state: The current state of the Enterprise Channel.
+        :param pulumi.Input[Union[str, 'EnterpriseChannelState']] state: The current state of the Enterprise Channel.
         """
         pulumi.set(__self__, "nodes", nodes)
         if state is not None:
@@ -701,14 +702,14 @@ class EnterpriseChannelPropertiesArgs:
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[str]]:
+    def state(self) -> Optional[pulumi.Input[Union[str, 'EnterpriseChannelState']]]:
         """
         The current state of the Enterprise Channel.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[str]]):
+    def state(self, value: Optional[pulumi.Input[Union[str, 'EnterpriseChannelState']]]):
         pulumi.set(self, "state", value)
 
 
@@ -1063,23 +1064,23 @@ class MsTeamsChannelPropertiesArgs:
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str]):
+                 name: pulumi.Input[Union[str, 'SkuName']]):
         """
         The SKU of the cognitive services account.
-        :param pulumi.Input[str] name: The sku name
+        :param pulumi.Input[Union[str, 'SkuName']] name: The sku name
         """
         pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input[Union[str, 'SkuName']]:
         """
         The sku name
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
         pulumi.set(self, "name", value)
 
 

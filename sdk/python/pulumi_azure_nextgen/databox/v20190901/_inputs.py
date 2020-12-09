@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ContactDetailsArgs',
@@ -671,11 +672,11 @@ class JobDeliveryInfoArgs:
 class NotificationPreferenceArgs:
     def __init__(__self__, *,
                  send_notification: pulumi.Input[bool],
-                 stage_name: pulumi.Input[str]):
+                 stage_name: pulumi.Input[Union[str, 'NotificationStageName']]):
         """
         Notification preference for a job stage.
         :param pulumi.Input[bool] send_notification: Notification is required or not.
-        :param pulumi.Input[str] stage_name: Name of the stage.
+        :param pulumi.Input[Union[str, 'NotificationStageName']] stage_name: Name of the stage.
         """
         pulumi.set(__self__, "send_notification", send_notification)
         pulumi.set(__self__, "stage_name", stage_name)
@@ -694,14 +695,14 @@ class NotificationPreferenceArgs:
 
     @property
     @pulumi.getter(name="stageName")
-    def stage_name(self) -> pulumi.Input[str]:
+    def stage_name(self) -> pulumi.Input[Union[str, 'NotificationStageName']]:
         """
         Name of the stage.
         """
         return pulumi.get(self, "stage_name")
 
     @stage_name.setter
-    def stage_name(self, value: pulumi.Input[str]):
+    def stage_name(self, value: pulumi.Input[Union[str, 'NotificationStageName']]):
         pulumi.set(self, "stage_name", value)
 
 
@@ -751,7 +752,7 @@ class ShippingAddressArgs:
                  country: pulumi.Input[str],
                  postal_code: pulumi.Input[str],
                  street_address1: pulumi.Input[str],
-                 address_type: Optional[pulumi.Input[str]] = None,
+                 address_type: Optional[pulumi.Input[Union[str, 'AddressType']]] = None,
                  city: Optional[pulumi.Input[str]] = None,
                  company_name: Optional[pulumi.Input[str]] = None,
                  state_or_province: Optional[pulumi.Input[str]] = None,
@@ -763,7 +764,7 @@ class ShippingAddressArgs:
         :param pulumi.Input[str] country: Name of the Country.
         :param pulumi.Input[str] postal_code: Postal code.
         :param pulumi.Input[str] street_address1: Street Address line 1.
-        :param pulumi.Input[str] address_type: Type of address.
+        :param pulumi.Input[Union[str, 'AddressType']] address_type: Type of address.
         :param pulumi.Input[str] city: Name of the City.
         :param pulumi.Input[str] company_name: Name of the company.
         :param pulumi.Input[str] state_or_province: Name of the State or Province.
@@ -827,14 +828,14 @@ class ShippingAddressArgs:
 
     @property
     @pulumi.getter(name="addressType")
-    def address_type(self) -> Optional[pulumi.Input[str]]:
+    def address_type(self) -> Optional[pulumi.Input[Union[str, 'AddressType']]]:
         """
         Type of address.
         """
         return pulumi.get(self, "address_type")
 
     @address_type.setter
-    def address_type(self, value: Optional[pulumi.Input[str]]):
+    def address_type(self, value: Optional[pulumi.Input[Union[str, 'AddressType']]]):
         pulumi.set(self, "address_type", value)
 
     @property
@@ -913,12 +914,12 @@ class ShippingAddressArgs:
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
+                 name: pulumi.Input[Union[str, 'SkuName']],
                  display_name: Optional[pulumi.Input[str]] = None,
                  family: Optional[pulumi.Input[str]] = None):
         """
         The Sku.
-        :param pulumi.Input[str] name: The sku name.
+        :param pulumi.Input[Union[str, 'SkuName']] name: The sku name.
         :param pulumi.Input[str] display_name: The display name of the sku.
         :param pulumi.Input[str] family: The sku family.
         """
@@ -930,14 +931,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input[Union[str, 'SkuName']]:
         """
         The sku name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
         pulumi.set(self, "name", value)
 
     @property
@@ -968,23 +969,23 @@ class SkuArgs:
 @pulumi.input_type
 class TransportPreferencesArgs:
     def __init__(__self__, *,
-                 preferred_shipment_type: pulumi.Input[str]):
+                 preferred_shipment_type: pulumi.Input[Union[str, 'TransportShipmentTypes']]):
         """
         Preferences related to the shipment logistics of the sku
-        :param pulumi.Input[str] preferred_shipment_type: Indicates Shipment Logistics type that the customer preferred.
+        :param pulumi.Input[Union[str, 'TransportShipmentTypes']] preferred_shipment_type: Indicates Shipment Logistics type that the customer preferred.
         """
         pulumi.set(__self__, "preferred_shipment_type", preferred_shipment_type)
 
     @property
     @pulumi.getter(name="preferredShipmentType")
-    def preferred_shipment_type(self) -> pulumi.Input[str]:
+    def preferred_shipment_type(self) -> pulumi.Input[Union[str, 'TransportShipmentTypes']]:
         """
         Indicates Shipment Logistics type that the customer preferred.
         """
         return pulumi.get(self, "preferred_shipment_type")
 
     @preferred_shipment_type.setter
-    def preferred_shipment_type(self, value: pulumi.Input[str]):
+    def preferred_shipment_type(self, value: pulumi.Input[Union[str, 'TransportShipmentTypes']]):
         pulumi.set(self, "preferred_shipment_type", value)
 
 

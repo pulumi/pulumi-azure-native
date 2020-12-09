@@ -177,7 +177,7 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
         /// The scope where this blueprint definition can be assigned.
         /// </summary>
         [Input("targetScope")]
-        public Input<string>? TargetScope { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Blueprint.V20181101Preview.BlueprintTargetScope>? TargetScope { get; set; }
 
         /// <summary>
         /// Version of the published blueprint definition.

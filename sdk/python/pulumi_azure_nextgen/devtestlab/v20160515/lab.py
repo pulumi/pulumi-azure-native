@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['Lab']
 
@@ -15,10 +16,10 @@ class Lab(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 lab_storage_type: Optional[pulumi.Input[str]] = None,
+                 lab_storage_type: Optional[pulumi.Input[Union[str, 'StorageType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 premium_data_disks: Optional[pulumi.Input[str]] = None,
+                 premium_data_disks: Optional[pulumi.Input[Union[str, 'PremiumDataDisk']]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -31,10 +32,10 @@ class Lab(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] lab_storage_type: Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+        :param pulumi.Input[Union[str, 'StorageType']] lab_storage_type: Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: The name of the lab.
-        :param pulumi.Input[str] premium_data_disks: The setting to enable usage of premium data disks.
+        :param pulumi.Input[Union[str, 'PremiumDataDisk']] premium_data_disks: The setting to enable usage of premium data disks.
                When its value is 'Enabled', creation of standard or premium data disks is allowed.
                When its value is 'Disabled', only creation of standard data disks is allowed.
         :param pulumi.Input[str] provisioning_state: The provisioning status of the resource.
@@ -61,12 +62,12 @@ class Lab(pulumi.CustomResource):
 
             __props__['lab_storage_type'] = lab_storage_type
             __props__['location'] = location
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['premium_data_disks'] = premium_data_disks
             __props__['provisioning_state'] = provisioning_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

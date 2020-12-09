@@ -159,7 +159,7 @@ namespace Pulumi.AzureNextGen.StorageCache.V20200301
         /// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         /// </summary>
         [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.StorageCache.V20200301.ProvisioningStateType>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Target resource group.
@@ -177,7 +177,7 @@ namespace Pulumi.AzureNextGen.StorageCache.V20200301
         /// Type of the Storage Target.
         /// </summary>
         [Input("targetType", required: true)]
-        public Input<string> TargetType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.StorageCache.V20200301.StorageTargetType> TargetType { get; set; } = null!;
 
         /// <summary>
         /// Properties when targetType is unknown.

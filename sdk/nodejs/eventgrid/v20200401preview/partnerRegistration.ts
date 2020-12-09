@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -121,13 +122,13 @@ export class PartnerRegistration extends pulumi.CustomResource {
     constructor(name: string, args: PartnerRegistrationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.partnerRegistrationName === undefined) {
+            if ((!args || args.partnerRegistrationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'partnerRegistrationName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["authorizedAzureSubscriptionIds"] = args ? args.authorizedAzureSubscriptionIds : undefined;
@@ -254,5 +255,5 @@ export interface PartnerRegistrationArgs {
     /**
      * Visibility state of the partner registration.
      */
-    readonly visibilityState?: pulumi.Input<string>;
+    readonly visibilityState?: pulumi.Input<string | enums.eventgrid.v20200401preview.PartnerRegistrationVisibilityState>;
 }

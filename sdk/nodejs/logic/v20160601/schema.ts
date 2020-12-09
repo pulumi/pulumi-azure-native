@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -102,16 +102,16 @@ export class Schema extends pulumi.CustomResource {
     constructor(name: string, args: SchemaArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.integrationAccountName === undefined) {
+            if ((!args || args.integrationAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.schemaName === undefined) {
+            if ((!args || args.schemaName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'schemaName'");
             }
-            if (!args || args.schemaType === undefined) {
+            if ((!args || args.schemaType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'schemaType'");
             }
             inputs["content"] = args ? args.content : undefined;
@@ -203,7 +203,7 @@ export interface SchemaArgs {
     /**
      * The schema type.
      */
-    readonly schemaType: pulumi.Input<string>;
+    readonly schemaType: pulumi.Input<enums.logic.v20160601.SchemaType>;
     /**
      * The resource tags.
      */

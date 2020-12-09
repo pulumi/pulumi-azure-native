@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20200614.Inputs
         /// The identity type.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Kusto.V20200614.IdentityType> Type { get; set; } = null!;
 
         [Input("userAssignedIdentities")]
         private InputMap<object>? _userAssignedIdentities;

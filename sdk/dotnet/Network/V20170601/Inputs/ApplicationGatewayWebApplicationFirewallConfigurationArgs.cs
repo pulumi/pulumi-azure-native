@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Network.V20170601.Inputs
         /// Web application firewall mode.
         /// </summary>
         [Input("firewallMode", required: true)]
-        public Input<string> FirewallMode { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20170601.ApplicationGatewayFirewallMode> FirewallMode { get; set; } = null!;
 
         /// <summary>
         /// The type of the web application firewall rule set. Possible values are: 'OWASP'.

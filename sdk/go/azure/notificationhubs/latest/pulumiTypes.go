@@ -1902,7 +1902,7 @@ type SharedAccessAuthorizationRulePropertiesInput interface {
 // SharedAccessAuthorizationRule properties.
 type SharedAccessAuthorizationRulePropertiesArgs struct {
 	// The rights associated with the rule.
-	Rights pulumi.StringArrayInput `pulumi:"rights"`
+	Rights AccessRightsArrayInput `pulumi:"rights"`
 }
 
 func (SharedAccessAuthorizationRulePropertiesArgs) ElementType() reflect.Type {

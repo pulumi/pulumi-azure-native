@@ -47,13 +47,13 @@ class DisasterRecoveryConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if disaster_recovery_configuration_name is None:
+            if disaster_recovery_configuration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'disaster_recovery_configuration_name'")
             __props__['disaster_recovery_configuration_name'] = disaster_recovery_configuration_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if server_name is None:
+            if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
             __props__['auto_failover'] = None

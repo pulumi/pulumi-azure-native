@@ -16,10 +16,10 @@ namespace Pulumi.AzureNextGen.Devices.V20180122.Inputs
     public sealed class OperationsMonitoringPropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("events")]
-        private InputMap<string>? _events;
-        public InputMap<string> Events
+        private InputMap<Union<string, Pulumi.AzureNextGen.Devices.V20180122.OperationMonitoringLevel>>? _events;
+        public InputMap<Union<string, Pulumi.AzureNextGen.Devices.V20180122.OperationMonitoringLevel>> Events
         {
-            get => _events ?? (_events = new InputMap<string>());
+            get => _events ?? (_events = new InputMap<Union<string, Pulumi.AzureNextGen.Devices.V20180122.OperationMonitoringLevel>>());
             set => _events = value;
         }
 

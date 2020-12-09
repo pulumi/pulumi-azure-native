@@ -324,7 +324,7 @@ namespace Pulumi.AzureNextGen.DomainRegistration.V20150801
         /// Domain provisioning state
         /// </summary>
         [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
+        public Input<Pulumi.AzureNextGen.DomainRegistration.V20150801.ProvisioningState>? ProvisioningState { get; set; }
 
         /// <summary>
         /// If true then Azure can assign this domain to Web Apps. This value will be true if domain registration status is active and it is hosted on name servers Azure has programmatic access to
@@ -336,7 +336,7 @@ namespace Pulumi.AzureNextGen.DomainRegistration.V20150801
         /// Domain registration status
         /// </summary>
         [Input("registrationStatus")]
-        public Input<string>? RegistrationStatus { get; set; }
+        public Input<Pulumi.AzureNextGen.DomainRegistration.V20150801.DomainStatus>? RegistrationStatus { get; set; }
 
         /// <summary>
         /// &amp;gt;Name of the resource group

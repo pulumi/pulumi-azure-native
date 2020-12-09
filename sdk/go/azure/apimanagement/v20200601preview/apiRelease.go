@@ -32,20 +32,21 @@ type ApiRelease struct {
 // NewApiRelease registers a new resource with the given unique name, arguments, and options.
 func NewApiRelease(ctx *pulumi.Context,
 	name string, args *ApiReleaseArgs, opts ...pulumi.ResourceOption) (*ApiRelease, error) {
-	if args == nil || args.ApiId == nil {
-		return nil, errors.New("missing required argument 'ApiId'")
-	}
-	if args == nil || args.ReleaseId == nil {
-		return nil, errors.New("missing required argument 'ReleaseId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
 	if args == nil {
-		args = &ApiReleaseArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApiId == nil {
+		return nil, errors.New("invalid value for required argument 'ApiId'")
+	}
+	if args.ReleaseId == nil {
+		return nil, errors.New("invalid value for required argument 'ReleaseId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

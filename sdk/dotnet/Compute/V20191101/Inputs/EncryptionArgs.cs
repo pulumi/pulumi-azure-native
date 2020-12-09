@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Compute.V20191101.Inputs
         /// The type of key used to encrypt the data of the disk.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20191101.EncryptionType>? Type { get; set; }
 
         public EncryptionArgs()
         {

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.PowerBIDedicated.V20171001.Inputs
         /// The name of the Azure pricing tier to which the SKU applies.
         /// </summary>
         [Input("tier")]
-        public Input<string>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.PowerBIDedicated.V20171001.SkuTier>? Tier { get; set; }
 
         public ResourceSkuArgs()
         {

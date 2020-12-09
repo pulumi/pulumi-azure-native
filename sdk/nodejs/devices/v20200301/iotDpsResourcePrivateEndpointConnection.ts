@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -58,16 +58,16 @@ export class IotDpsResourcePrivateEndpointConnection extends pulumi.CustomResour
     constructor(name: string, args: IotDpsResourcePrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.privateEndpointConnectionName === undefined) {
+            if ((!args || args.privateEndpointConnectionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'privateEndpointConnectionName'");
             }
-            if (!args || args.properties === undefined) {
+            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'properties'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.resourceName === undefined) {
+            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;

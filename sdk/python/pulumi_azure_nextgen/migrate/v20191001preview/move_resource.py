@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['MoveResource']
@@ -51,14 +52,14 @@ class MoveResource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if move_collection_name is None:
+            if move_collection_name is None and not opts.urn:
                 raise TypeError("Missing required property 'move_collection_name'")
             __props__['move_collection_name'] = move_collection_name
-            if move_resource_name is None:
+            if move_resource_name is None and not opts.urn:
                 raise TypeError("Missing required property 'move_resource_name'")
             __props__['move_resource_name'] = move_resource_name
             __props__['properties'] = properties
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['name'] = None

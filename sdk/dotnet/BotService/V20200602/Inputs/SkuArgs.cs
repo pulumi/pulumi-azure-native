@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.BotService.V20200602.Inputs
         /// The sku name
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.BotService.V20200602.SkuName> Name { get; set; } = null!;
 
         public SkuArgs()
         {

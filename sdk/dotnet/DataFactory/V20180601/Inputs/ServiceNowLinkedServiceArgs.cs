@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         /// The authentication type to use.
         /// </summary>
         [Input("authenticationType", required: true)]
-        public Input<string> AuthenticationType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.V20180601.ServiceNowAuthenticationType> AuthenticationType { get; set; } = null!;
 
         /// <summary>
         /// The client id for OAuth2 authentication.

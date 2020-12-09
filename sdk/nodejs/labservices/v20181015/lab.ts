@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -106,13 +106,13 @@ export class Lab extends pulumi.CustomResource {
     constructor(name: string, args: LabArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.labAccountName === undefined) {
+            if ((!args || args.labAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'labAccountName'");
             }
-            if (!args || args.labName === undefined) {
+            if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'labName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["labAccountName"] = args ? args.labAccountName : undefined;
@@ -206,5 +206,5 @@ export interface LabArgs {
     /**
      * Lab user access mode (open to all vs. restricted to those listed on the lab).
      */
-    readonly userAccessMode?: pulumi.Input<string>;
+    readonly userAccessMode?: pulumi.Input<string | enums.labservices.v20181015.LabUserAccessMode>;
 }

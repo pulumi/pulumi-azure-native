@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -104,16 +104,16 @@ export class ElasticPool extends pulumi.CustomResource {
     constructor(name: string, args: ElasticPoolArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.elasticPoolName === undefined) {
+            if ((!args || args.elasticPoolName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'elasticPoolName'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverName === undefined) {
+            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverName'");
             }
             inputs["elasticPoolName"] = args ? args.elasticPoolName : undefined;
@@ -171,7 +171,7 @@ export interface ElasticPoolArgs {
     /**
      * The license type to apply for this elastic pool.
      */
-    readonly licenseType?: pulumi.Input<string>;
+    readonly licenseType?: pulumi.Input<string | enums.sql.v20200801preview.ElasticPoolLicenseType>;
     /**
      * Resource location.
      */

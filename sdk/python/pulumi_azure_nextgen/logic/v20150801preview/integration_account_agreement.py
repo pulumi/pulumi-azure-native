@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['IntegrationAccountAgreement']
@@ -18,7 +19,7 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agreement_name: Optional[pulumi.Input[str]] = None,
-                 agreement_type: Optional[pulumi.Input[str]] = None,
+                 agreement_type: Optional[pulumi.Input['AgreementType']] = None,
                  content: Optional[pulumi.Input[pulumi.InputType['AgreementContentArgs']]] = None,
                  guest_identity: Optional[pulumi.Input[pulumi.InputType['BusinessIdentityArgs']]] = None,
                  guest_partner: Optional[pulumi.Input[str]] = None,
@@ -40,7 +41,7 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agreement_name: The integration account agreement name.
-        :param pulumi.Input[str] agreement_type: The agreement type.
+        :param pulumi.Input['AgreementType'] agreement_type: The agreement type.
         :param pulumi.Input[pulumi.InputType['AgreementContentArgs']] content: The agreement content.
         :param pulumi.Input[pulumi.InputType['BusinessIdentityArgs']] guest_identity: The guest identity.
         :param pulumi.Input[str] guest_partner: The guest partner.
@@ -72,7 +73,7 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if agreement_name is None:
+            if agreement_name is None and not opts.urn:
                 raise TypeError("Missing required property 'agreement_name'")
             __props__['agreement_name'] = agreement_name
             __props__['agreement_type'] = agreement_type
@@ -82,13 +83,13 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
             __props__['host_identity'] = host_identity
             __props__['host_partner'] = host_partner
             __props__['id'] = id
-            if integration_account_name is None:
+            if integration_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'integration_account_name'")
             __props__['integration_account_name'] = integration_account_name
             __props__['location'] = location
             __props__['metadata'] = metadata
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

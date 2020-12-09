@@ -40,29 +40,30 @@ type ApiOperation struct {
 // NewApiOperation registers a new resource with the given unique name, arguments, and options.
 func NewApiOperation(ctx *pulumi.Context,
 	name string, args *ApiOperationArgs, opts ...pulumi.ResourceOption) (*ApiOperation, error) {
-	if args == nil || args.ApiId == nil {
-		return nil, errors.New("missing required argument 'ApiId'")
-	}
-	if args == nil || args.DisplayName == nil {
-		return nil, errors.New("missing required argument 'DisplayName'")
-	}
-	if args == nil || args.Method == nil {
-		return nil, errors.New("missing required argument 'Method'")
-	}
-	if args == nil || args.OperationId == nil {
-		return nil, errors.New("missing required argument 'OperationId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
-	if args == nil || args.UrlTemplate == nil {
-		return nil, errors.New("missing required argument 'UrlTemplate'")
-	}
 	if args == nil {
-		args = &ApiOperationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApiId == nil {
+		return nil, errors.New("invalid value for required argument 'ApiId'")
+	}
+	if args.DisplayName == nil {
+		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
+	if args.Method == nil {
+		return nil, errors.New("invalid value for required argument 'Method'")
+	}
+	if args.OperationId == nil {
+		return nil, errors.New("invalid value for required argument 'OperationId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
+	}
+	if args.UrlTemplate == nil {
+		return nil, errors.New("invalid value for required argument 'UrlTemplate'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -122,10 +122,10 @@ export class BlockchainMember extends pulumi.CustomResource {
     constructor(name: string, args: BlockchainMemberArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.blockchainMemberName === undefined) {
+            if ((!args || args.blockchainMemberName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'blockchainMemberName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["blockchainMemberName"] = args ? args.blockchainMemberName : undefined;
@@ -220,7 +220,7 @@ export interface BlockchainMemberArgs {
     /**
      * Gets or sets the blockchain protocol.
      */
-    readonly protocol?: pulumi.Input<string>;
+    readonly protocol?: pulumi.Input<string | enums.blockchain.v20180601preview.BlockchainProtocol>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201001.Inputs
         /// Type of backup management for the backed up item.
         /// </summary>
         [Input("backupManagementType")]
-        public Input<string>? BackupManagementType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20201001.BackupManagementType>? BackupManagementType { get; set; }
 
         /// <summary>
         /// Name of the backup set the backup item belongs to
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201001.Inputs
         /// Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         /// </summary>
         [Input("createMode")]
-        public Input<string>? CreateMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20201001.CreateMode>? CreateMode { get; set; }
 
         /// <summary>
         /// Time for deferred deletion in UTC
@@ -97,7 +97,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201001.Inputs
         /// Last backup operation status. Possible values: Healthy, Unhealthy.
         /// </summary>
         [Input("lastBackupStatus")]
-        public Input<string>? LastBackupStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20201001.LastBackupStatus>? LastBackupStatus { get; set; }
 
         /// <summary>
         /// Timestamp of the last backup operation on this backup item.
@@ -139,7 +139,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201001.Inputs
         /// Health status of the backup item, evaluated based on last heartbeat received
         /// </summary>
         [Input("protectedItemHealthStatus")]
-        public Input<string>? ProtectedItemHealthStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20201001.ProtectedItemHealthStatus>? ProtectedItemHealthStatus { get; set; }
 
         /// <summary>
         /// backup item type.
@@ -151,7 +151,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201001.Inputs
         /// Backup state of this backup item.
         /// </summary>
         [Input("protectionState")]
-        public Input<string>? ProtectionState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20201001.ProtectionState>? ProtectionState { get; set; }
 
         /// <summary>
         /// Backup status of this backup item.
@@ -175,7 +175,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201001.Inputs
         /// Type of workload this item represents.
         /// </summary>
         [Input("workloadType")]
-        public Input<string>? WorkloadType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20201001.DataSourceType>? WorkloadType { get; set; }
 
         public AzureVmWorkloadProtectedItemArgs()
         {

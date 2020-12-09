@@ -177,7 +177,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// The OS type of the custom image.
         /// </summary>
         [Input("osType")]
-        public Input<string>? OsType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20150521Preview.CustomImageOsType>? OsType { get; set; }
 
         /// <summary>
         /// The provisioning status of the resource.

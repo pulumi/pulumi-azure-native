@@ -30,26 +30,27 @@ type DscNodeConfiguration struct {
 // NewDscNodeConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewDscNodeConfiguration(ctx *pulumi.Context,
 	name string, args *DscNodeConfigurationArgs, opts ...pulumi.ResourceOption) (*DscNodeConfiguration, error) {
-	if args == nil || args.AutomationAccountName == nil {
-		return nil, errors.New("missing required argument 'AutomationAccountName'")
-	}
-	if args == nil || args.Configuration == nil {
-		return nil, errors.New("missing required argument 'Configuration'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.NodeConfigurationName == nil {
-		return nil, errors.New("missing required argument 'NodeConfigurationName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Source == nil {
-		return nil, errors.New("missing required argument 'Source'")
-	}
 	if args == nil {
-		args = &DscNodeConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AutomationAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AutomationAccountName'")
+	}
+	if args.Configuration == nil {
+		return nil, errors.New("invalid value for required argument 'Configuration'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.NodeConfigurationName == nil {
+		return nil, errors.New("invalid value for required argument 'NodeConfigurationName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Source == nil {
+		return nil, errors.New("invalid value for required argument 'Source'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

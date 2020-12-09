@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest.Inputs
         /// Caching option for a data disk (i.e. None, ReadOnly, ReadWrite).
         /// </summary>
         [Input("hostCaching")]
-        public Input<string>? HostCaching { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.Latest.HostCachingOptions>? HostCaching { get; set; }
 
         public DataDiskPropertiesArgs()
         {

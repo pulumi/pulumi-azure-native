@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -118,13 +118,13 @@ export class Topic extends pulumi.CustomResource {
     constructor(name: string, args: TopicArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.namespaceName === undefined) {
+            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.topicName === undefined) {
+            if ((!args || args.topicName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'topicName'");
             }
             inputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
@@ -228,7 +228,7 @@ export interface TopicArgs {
     /**
      * Enumerates the possible values for the status of a messaging entity.
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<enums.servicebus.latest.EntityStatus>;
     /**
      * Value that indicates whether the topic supports ordering.
      */

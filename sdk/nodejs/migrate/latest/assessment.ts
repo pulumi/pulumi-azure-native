@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -62,19 +62,19 @@ export class Assessment extends pulumi.CustomResource {
     constructor(name: string, args: AssessmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.assessmentName === undefined) {
+            if ((!args || args.assessmentName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'assessmentName'");
             }
-            if (!args || args.groupName === undefined) {
+            if ((!args || args.groupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if (!args || args.projectName === undefined) {
+            if ((!args || args.projectName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'projectName'");
             }
-            if (!args || args.properties === undefined) {
+            if ((!args || args.properties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'properties'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["assessmentName"] = args ? args.assessmentName : undefined;

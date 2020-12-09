@@ -106,23 +106,23 @@ class Cluster(pulumi.CustomResource):
             __props__['client_certificate_common_names'] = client_certificate_common_names
             __props__['client_certificate_thumbprints'] = client_certificate_thumbprints
             __props__['cluster_code_version'] = cluster_code_version
-            if cluster_name is None:
+            if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
             __props__['diagnostics_storage_account_config'] = diagnostics_storage_account_config
             __props__['event_store_service_enabled'] = event_store_service_enabled
             __props__['fabric_settings'] = fabric_settings
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if management_endpoint is None:
+            if management_endpoint is None and not opts.urn:
                 raise TypeError("Missing required property 'management_endpoint'")
             __props__['management_endpoint'] = management_endpoint
-            if node_types is None:
+            if node_types is None and not opts.urn:
                 raise TypeError("Missing required property 'node_types'")
             __props__['node_types'] = node_types
             __props__['reliability_level'] = reliability_level
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['reverse_proxy_certificate'] = reverse_proxy_certificate

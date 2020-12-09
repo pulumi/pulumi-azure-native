@@ -44,17 +44,18 @@ type KeyValue struct {
 // NewKeyValue registers a new resource with the given unique name, arguments, and options.
 func NewKeyValue(ctx *pulumi.Context,
 	name string, args *KeyValueArgs, opts ...pulumi.ResourceOption) (*KeyValue, error) {
-	if args == nil || args.ConfigStoreName == nil {
-		return nil, errors.New("missing required argument 'ConfigStoreName'")
-	}
-	if args == nil || args.KeyValueName == nil {
-		return nil, errors.New("missing required argument 'KeyValueName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &KeyValueArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ConfigStoreName == nil {
+		return nil, errors.New("invalid value for required argument 'ConfigStoreName'")
+	}
+	if args.KeyValueName == nil {
+		return nil, errors.New("invalid value for required argument 'KeyValueName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource KeyValue
 	err := ctx.RegisterResource("azure-nextgen:appconfiguration/v20200701preview:KeyValue", name, args, &resource, opts...)

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ExportDeliveryDestinationArgs',
@@ -143,14 +144,14 @@ class ExportRecurrencePeriodArgs:
 @pulumi.input_type
 class ExportScheduleArgs:
     def __init__(__self__, *,
-                 recurrence: pulumi.Input[str],
+                 recurrence: pulumi.Input[Union[str, 'RecurrenceType']],
                  recurrence_period: Optional[pulumi.Input['ExportRecurrencePeriodArgs']] = None,
-                 status: Optional[pulumi.Input[str]] = None):
+                 status: Optional[pulumi.Input[Union[str, 'StatusType']]] = None):
         """
         The schedule associated with a export.
-        :param pulumi.Input[str] recurrence: The schedule recurrence.
+        :param pulumi.Input[Union[str, 'RecurrenceType']] recurrence: The schedule recurrence.
         :param pulumi.Input['ExportRecurrencePeriodArgs'] recurrence_period: Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
-        :param pulumi.Input[str] status: The status of the schedule. Whether active or not. If inactive, the export's scheduled execution is paused.
+        :param pulumi.Input[Union[str, 'StatusType']] status: The status of the schedule. Whether active or not. If inactive, the export's scheduled execution is paused.
         """
         pulumi.set(__self__, "recurrence", recurrence)
         if recurrence_period is not None:
@@ -160,14 +161,14 @@ class ExportScheduleArgs:
 
     @property
     @pulumi.getter
-    def recurrence(self) -> pulumi.Input[str]:
+    def recurrence(self) -> pulumi.Input[Union[str, 'RecurrenceType']]:
         """
         The schedule recurrence.
         """
         return pulumi.get(self, "recurrence")
 
     @recurrence.setter
-    def recurrence(self, value: pulumi.Input[str]):
+    def recurrence(self, value: pulumi.Input[Union[str, 'RecurrenceType']]):
         pulumi.set(self, "recurrence", value)
 
     @property
@@ -184,25 +185,25 @@ class ExportScheduleArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input[Union[str, 'StatusType']]]:
         """
         The status of the schedule. Whether active or not. If inactive, the export's scheduled execution is paused.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input[Union[str, 'StatusType']]]):
         pulumi.set(self, "status", value)
 
 
 @pulumi.input_type
 class QueryAggregationArgs:
     def __init__(__self__, *,
-                 function: pulumi.Input[str],
+                 function: pulumi.Input[Union[str, 'FunctionType']],
                  name: pulumi.Input[str]):
         """
         The aggregation expression to be used in the query.
-        :param pulumi.Input[str] function: The name of the aggregation function to use.
+        :param pulumi.Input[Union[str, 'FunctionType']] function: The name of the aggregation function to use.
         :param pulumi.Input[str] name: The name of the column to aggregate.
         """
         pulumi.set(__self__, "function", function)
@@ -210,14 +211,14 @@ class QueryAggregationArgs:
 
     @property
     @pulumi.getter
-    def function(self) -> pulumi.Input[str]:
+    def function(self) -> pulumi.Input[Union[str, 'FunctionType']]:
         """
         The name of the aggregation function to use.
         """
         return pulumi.get(self, "function")
 
     @function.setter
-    def function(self, value: pulumi.Input[str]):
+    def function(self, value: pulumi.Input[Union[str, 'FunctionType']]):
         pulumi.set(self, "function", value)
 
     @property
@@ -237,12 +238,12 @@ class QueryAggregationArgs:
 class QueryComparisonExpressionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 operator: pulumi.Input[str],
+                 operator: pulumi.Input[Union[str, 'OperatorType']],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         The comparison expression to be used in the query.
         :param pulumi.Input[str] name: The name of the column to use in comparison.
-        :param pulumi.Input[str] operator: The operator to use for comparison.
+        :param pulumi.Input[Union[str, 'OperatorType']] operator: The operator to use for comparison.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Array of values to use for comparison
         """
         pulumi.set(__self__, "name", name)
@@ -263,14 +264,14 @@ class QueryComparisonExpressionArgs:
 
     @property
     @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
+    def operator(self) -> pulumi.Input[Union[str, 'OperatorType']]:
         """
         The operator to use for comparison.
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: pulumi.Input[str]):
+    def operator(self, value: pulumi.Input[Union[str, 'OperatorType']]):
         pulumi.set(self, "operator", value)
 
     @property
@@ -292,7 +293,7 @@ class QueryDatasetArgs:
                  aggregation: Optional[pulumi.Input[Mapping[str, pulumi.Input['QueryAggregationArgs']]]] = None,
                  configuration: Optional[pulumi.Input['QueryDatasetConfigurationArgs']] = None,
                  filter: Optional[pulumi.Input['QueryFilterArgs']] = None,
-                 granularity: Optional[pulumi.Input[str]] = None,
+                 granularity: Optional[pulumi.Input[Union[str, 'GranularityType']]] = None,
                  grouping: Optional[pulumi.Input[Sequence[pulumi.Input['QueryGroupingArgs']]]] = None,
                  sorting: Optional[pulumi.Input[Sequence[pulumi.Input['QuerySortingConfigurationArgs']]]] = None):
         """
@@ -300,7 +301,7 @@ class QueryDatasetArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input['QueryAggregationArgs']]] aggregation: Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
         :param pulumi.Input['QueryDatasetConfigurationArgs'] configuration: Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
         :param pulumi.Input['QueryFilterArgs'] filter: Has filter expression to use in the query.
-        :param pulumi.Input[str] granularity: The granularity of rows in the query.
+        :param pulumi.Input[Union[str, 'GranularityType']] granularity: The granularity of rows in the query.
         :param pulumi.Input[Sequence[pulumi.Input['QueryGroupingArgs']]] grouping: Array of group by expression to use in the query. Query can have up to 2 group by clauses.
         :param pulumi.Input[Sequence[pulumi.Input['QuerySortingConfigurationArgs']]] sorting: Array of sorting by columns in query.
         """
@@ -355,14 +356,14 @@ class QueryDatasetArgs:
 
     @property
     @pulumi.getter
-    def granularity(self) -> Optional[pulumi.Input[str]]:
+    def granularity(self) -> Optional[pulumi.Input[Union[str, 'GranularityType']]]:
         """
         The granularity of rows in the query.
         """
         return pulumi.get(self, "granularity")
 
     @granularity.setter
-    def granularity(self, value: Optional[pulumi.Input[str]]):
+    def granularity(self, value: Optional[pulumi.Input[Union[str, 'GranularityType']]]):
         pulumi.set(self, "granularity", value)
 
     @property
@@ -417,14 +418,14 @@ class QueryDatasetConfigurationArgs:
 @pulumi.input_type
 class QueryDefinitionArgs:
     def __init__(__self__, *,
-                 timeframe: pulumi.Input[str],
-                 type: pulumi.Input[str],
+                 timeframe: pulumi.Input[Union[str, 'TimeframeType']],
+                 type: pulumi.Input[Union[str, 'ExportType']],
                  dataset: Optional[pulumi.Input['QueryDatasetArgs']] = None,
                  time_period: Optional[pulumi.Input['QueryTimePeriodArgs']] = None):
         """
         The definition of a query.
-        :param pulumi.Input[str] timeframe: The time frame for pulling data for the query. If custom, then a specific time period must be provided.
-        :param pulumi.Input[str] type: The type of the query.
+        :param pulumi.Input[Union[str, 'TimeframeType']] timeframe: The time frame for pulling data for the query. If custom, then a specific time period must be provided.
+        :param pulumi.Input[Union[str, 'ExportType']] type: The type of the query.
         :param pulumi.Input['QueryDatasetArgs'] dataset: Has definition for data in this query.
         :param pulumi.Input['QueryTimePeriodArgs'] time_period: Has time period for pulling data for the query.
         """
@@ -437,26 +438,26 @@ class QueryDefinitionArgs:
 
     @property
     @pulumi.getter
-    def timeframe(self) -> pulumi.Input[str]:
+    def timeframe(self) -> pulumi.Input[Union[str, 'TimeframeType']]:
         """
         The time frame for pulling data for the query. If custom, then a specific time period must be provided.
         """
         return pulumi.get(self, "timeframe")
 
     @timeframe.setter
-    def timeframe(self, value: pulumi.Input[str]):
+    def timeframe(self, value: pulumi.Input[Union[str, 'TimeframeType']]):
         pulumi.set(self, "timeframe", value)
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'ExportType']]:
         """
         The type of the query.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'ExportType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -576,11 +577,11 @@ class QueryFilterArgs:
 class QueryGroupingArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input[Union[str, 'QueryColumnType']]):
         """
         The group by expression to be used in the query.
         :param pulumi.Input[str] name: The name of the column to group.
-        :param pulumi.Input[str] type: Has type of the column to group.
+        :param pulumi.Input[Union[str, 'QueryColumnType']] type: Has type of the column to group.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -599,14 +600,14 @@ class QueryGroupingArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'QueryColumnType']]:
         """
         Has type of the column to group.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'QueryColumnType']]):
         pulumi.set(self, "type", value)
 
 
@@ -614,11 +615,11 @@ class QueryGroupingArgs:
 class QuerySortingConfigurationArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
-                 query_sorting_direction: Optional[pulumi.Input[str]] = None):
+                 query_sorting_direction: Optional[pulumi.Input[Union[str, 'SortDirection']]] = None):
         """
         The configuration for sorting in the query.
         :param pulumi.Input[str] name: The name of the column to use in sorting.
-        :param pulumi.Input[str] query_sorting_direction: The sorting direction
+        :param pulumi.Input[Union[str, 'SortDirection']] query_sorting_direction: The sorting direction
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -639,14 +640,14 @@ class QuerySortingConfigurationArgs:
 
     @property
     @pulumi.getter(name="querySortingDirection")
-    def query_sorting_direction(self) -> Optional[pulumi.Input[str]]:
+    def query_sorting_direction(self) -> Optional[pulumi.Input[Union[str, 'SortDirection']]]:
         """
         The sorting direction
         """
         return pulumi.get(self, "query_sorting_direction")
 
     @query_sorting_direction.setter
-    def query_sorting_direction(self, value: Optional[pulumi.Input[str]]):
+    def query_sorting_direction(self, value: Optional[pulumi.Input[Union[str, 'SortDirection']]]):
         pulumi.set(self, "query_sorting_direction", value)
 
 

@@ -36,11 +36,12 @@ type ManagementGroup struct {
 // NewManagementGroup registers a new resource with the given unique name, arguments, and options.
 func NewManagementGroup(ctx *pulumi.Context,
 	name string, args *ManagementGroupArgs, opts ...pulumi.ResourceOption) (*ManagementGroup, error) {
-	if args == nil || args.GroupId == nil {
-		return nil, errors.New("missing required argument 'GroupId'")
-	}
 	if args == nil {
-		args = &ManagementGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.GroupId == nil {
+		return nil, errors.New("invalid value for required argument 'GroupId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

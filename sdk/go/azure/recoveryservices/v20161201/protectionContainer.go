@@ -32,20 +32,21 @@ type ProtectionContainer struct {
 // NewProtectionContainer registers a new resource with the given unique name, arguments, and options.
 func NewProtectionContainer(ctx *pulumi.Context,
 	name string, args *ProtectionContainerArgs, opts ...pulumi.ResourceOption) (*ProtectionContainer, error) {
-	if args == nil || args.ContainerName == nil {
-		return nil, errors.New("missing required argument 'ContainerName'")
-	}
-	if args == nil || args.FabricName == nil {
-		return nil, errors.New("missing required argument 'FabricName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VaultName == nil {
-		return nil, errors.New("missing required argument 'VaultName'")
-	}
 	if args == nil {
-		args = &ProtectionContainerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ContainerName == nil {
+		return nil, errors.New("invalid value for required argument 'ContainerName'")
+	}
+	if args.FabricName == nil {
+		return nil, errors.New("invalid value for required argument 'FabricName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VaultName == nil {
+		return nil, errors.New("invalid value for required argument 'VaultName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

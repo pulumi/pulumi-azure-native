@@ -38,17 +38,18 @@ type TransactionNode struct {
 // NewTransactionNode registers a new resource with the given unique name, arguments, and options.
 func NewTransactionNode(ctx *pulumi.Context,
 	name string, args *TransactionNodeArgs, opts ...pulumi.ResourceOption) (*TransactionNode, error) {
-	if args == nil || args.BlockchainMemberName == nil {
-		return nil, errors.New("missing required argument 'BlockchainMemberName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.TransactionNodeName == nil {
-		return nil, errors.New("missing required argument 'TransactionNodeName'")
-	}
 	if args == nil {
-		args = &TransactionNodeArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BlockchainMemberName == nil {
+		return nil, errors.New("invalid value for required argument 'BlockchainMemberName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.TransactionNodeName == nil {
+		return nil, errors.New("invalid value for required argument 'TransactionNodeName'")
 	}
 	var resource TransactionNode
 	err := ctx.RegisterResource("azure-nextgen:blockchain/v20180601preview:TransactionNode", name, args, &resource, opts...)

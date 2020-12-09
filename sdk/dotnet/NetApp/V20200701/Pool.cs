@@ -163,7 +163,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200701
         /// The qos type of the pool
         /// </summary>
         [Input("qosType")]
-        public Input<string>? QosType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.NetApp.V20200701.QosType>? QosType { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -175,7 +175,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200701
         /// The service level of the file system
         /// </summary>
         [Input("serviceLevel", required: true)]
-        public Input<string> ServiceLevel { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.NetApp.V20200701.ServiceLevel> ServiceLevel { get; set; } = null!;
 
         /// <summary>
         /// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).

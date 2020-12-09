@@ -50,20 +50,21 @@ type OperationalizationCluster struct {
 // NewOperationalizationCluster registers a new resource with the given unique name, arguments, and options.
 func NewOperationalizationCluster(ctx *pulumi.Context,
 	name string, args *OperationalizationClusterArgs, opts ...pulumi.ResourceOption) (*OperationalizationCluster, error) {
-	if args == nil || args.ClusterName == nil {
-		return nil, errors.New("missing required argument 'ClusterName'")
-	}
-	if args == nil || args.ClusterType == nil {
-		return nil, errors.New("missing required argument 'ClusterType'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &OperationalizationClusterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ClusterName == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterName'")
+	}
+	if args.ClusterType == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterType'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

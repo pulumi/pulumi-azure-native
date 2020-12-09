@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Kpi']
@@ -18,16 +19,16 @@ class Kpi(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aliases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KpiAliasArgs']]]]] = None,
-                 calculation_window: Optional[pulumi.Input[str]] = None,
+                 calculation_window: Optional[pulumi.Input['CalculationWindowTypes']] = None,
                  calculation_window_field_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 entity_type: Optional[pulumi.Input[str]] = None,
+                 entity_type: Optional[pulumi.Input['EntityTypes']] = None,
                  entity_type_name: Optional[pulumi.Input[str]] = None,
                  expression: Optional[pulumi.Input[str]] = None,
                  extracts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KpiExtractArgs']]]]] = None,
                  filter: Optional[pulumi.Input[str]] = None,
-                 function: Optional[pulumi.Input[str]] = None,
+                 function: Optional[pulumi.Input['KpiFunctions']] = None,
                  group_by: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  hub_name: Optional[pulumi.Input[str]] = None,
                  kpi_name: Optional[pulumi.Input[str]] = None,
@@ -43,16 +44,16 @@ class Kpi(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KpiAliasArgs']]]] aliases: The aliases.
-        :param pulumi.Input[str] calculation_window: The calculation window.
+        :param pulumi.Input['CalculationWindowTypes'] calculation_window: The calculation window.
         :param pulumi.Input[str] calculation_window_field_name: Name of calculation window field.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] description: Localized description for the KPI.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] display_name: Localized display name for the KPI.
-        :param pulumi.Input[str] entity_type: The mapping entity type.
+        :param pulumi.Input['EntityTypes'] entity_type: The mapping entity type.
         :param pulumi.Input[str] entity_type_name: The mapping entity name.
         :param pulumi.Input[str] expression: The computation expression for the KPI.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KpiExtractArgs']]]] extracts: The KPI extracts.
         :param pulumi.Input[str] filter: The filter expression for the KPI.
-        :param pulumi.Input[str] function: The computation function for the KPI.
+        :param pulumi.Input['KpiFunctions'] function: The computation function for the KPI.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_by: the group by properties for the KPI.
         :param pulumi.Input[str] hub_name: The name of the hub.
         :param pulumi.Input[str] kpi_name: The name of the KPI.
@@ -78,34 +79,34 @@ class Kpi(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['aliases'] = aliases
-            if calculation_window is None:
+            if calculation_window is None and not opts.urn:
                 raise TypeError("Missing required property 'calculation_window'")
             __props__['calculation_window'] = calculation_window
             __props__['calculation_window_field_name'] = calculation_window_field_name
             __props__['description'] = description
             __props__['display_name'] = display_name
-            if entity_type is None:
+            if entity_type is None and not opts.urn:
                 raise TypeError("Missing required property 'entity_type'")
             __props__['entity_type'] = entity_type
-            if entity_type_name is None:
+            if entity_type_name is None and not opts.urn:
                 raise TypeError("Missing required property 'entity_type_name'")
             __props__['entity_type_name'] = entity_type_name
-            if expression is None:
+            if expression is None and not opts.urn:
                 raise TypeError("Missing required property 'expression'")
             __props__['expression'] = expression
             __props__['extracts'] = extracts
             __props__['filter'] = filter
-            if function is None:
+            if function is None and not opts.urn:
                 raise TypeError("Missing required property 'function'")
             __props__['function'] = function
             __props__['group_by'] = group_by
-            if hub_name is None:
+            if hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'hub_name'")
             __props__['hub_name'] = hub_name
-            if kpi_name is None:
+            if kpi_name is None and not opts.urn:
                 raise TypeError("Missing required property 'kpi_name'")
             __props__['kpi_name'] = kpi_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['thres_holds'] = thres_holds

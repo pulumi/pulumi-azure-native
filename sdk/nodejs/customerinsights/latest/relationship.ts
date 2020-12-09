@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -102,19 +102,19 @@ export class Relationship extends pulumi.CustomResource {
     constructor(name: string, args: RelationshipArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.hubName === undefined) {
+            if ((!args || args.hubName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if (!args || args.profileType === undefined) {
+            if ((!args || args.profileType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'profileType'");
             }
-            if (!args || args.relatedProfileType === undefined) {
+            if ((!args || args.relatedProfileType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'relatedProfileType'");
             }
-            if (!args || args.relationshipName === undefined) {
+            if ((!args || args.relationshipName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'relationshipName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["cardinality"] = args ? args.cardinality : undefined;
@@ -169,7 +169,7 @@ export interface RelationshipArgs {
     /**
      * The Relationship Cardinality.
      */
-    readonly cardinality?: pulumi.Input<string>;
+    readonly cardinality?: pulumi.Input<enums.customerinsights.latest.CardinalityTypes>;
     /**
      * Localized descriptions for the Relationship.
      */

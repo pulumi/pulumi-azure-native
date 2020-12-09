@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// The access type of the rule.
         /// </summary>
         [Input("access", required: true)]
-        public Input<string> Access { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.Access> Access { get; set; } = null!;
 
         [Input("communities", required: true)]
         private InputList<string>? _communities;
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// The rule type of the rule.
         /// </summary>
         [Input("routeFilterRuleType", required: true)]
-        public Input<string> RouteFilterRuleType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.RouteFilterRuleType> RouteFilterRuleType { get; set; } = null!;
 
         public RouteFilterRuleArgs()
         {

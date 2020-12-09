@@ -243,7 +243,7 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
         /// Collation of the metadata catalog.
         /// </summary>
         [Input("catalogCollation")]
-        public Input<string>? CatalogCollation { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20170301Preview.CatalogCollationType>? CatalogCollation { get; set; }
 
         /// <summary>
         /// The collation of the database.
@@ -271,7 +271,7 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
         /// Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
         /// </summary>
         [Input("createMode")]
-        public Input<string>? CreateMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20170301Preview.CreateMode>? CreateMode { get; set; }
 
         /// <summary>
         /// The name of the database.
@@ -337,7 +337,7 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
         /// The name of the sample schema to apply when creating this database.
         /// </summary>
         [Input("sampleName")]
-        public Input<string>? SampleName { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20170301Preview.SampleName>? SampleName { get; set; }
 
         /// <summary>
         /// The name of the server.

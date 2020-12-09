@@ -30,17 +30,18 @@ type ManagedInstancePrivateEndpointConnection struct {
 // NewManagedInstancePrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
 func NewManagedInstancePrivateEndpointConnection(ctx *pulumi.Context,
 	name string, args *ManagedInstancePrivateEndpointConnectionArgs, opts ...pulumi.ResourceOption) (*ManagedInstancePrivateEndpointConnection, error) {
-	if args == nil || args.ManagedInstanceName == nil {
-		return nil, errors.New("missing required argument 'ManagedInstanceName'")
-	}
-	if args == nil || args.PrivateEndpointConnectionName == nil {
-		return nil, errors.New("missing required argument 'PrivateEndpointConnectionName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ManagedInstancePrivateEndpointConnectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ManagedInstanceName == nil {
+		return nil, errors.New("invalid value for required argument 'ManagedInstanceName'")
+	}
+	if args.PrivateEndpointConnectionName == nil {
+		return nil, errors.New("invalid value for required argument 'PrivateEndpointConnectionName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource ManagedInstancePrivateEndpointConnection
 	err := ctx.RegisterResource("azure-nextgen:sql/v20200801preview:ManagedInstancePrivateEndpointConnection", name, args, &resource, opts...)

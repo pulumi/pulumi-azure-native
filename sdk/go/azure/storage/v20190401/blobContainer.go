@@ -46,17 +46,18 @@ type BlobContainer struct {
 // NewBlobContainer registers a new resource with the given unique name, arguments, and options.
 func NewBlobContainer(ctx *pulumi.Context,
 	name string, args *BlobContainerArgs, opts ...pulumi.ResourceOption) (*BlobContainer, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.ContainerName == nil {
-		return nil, errors.New("missing required argument 'ContainerName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &BlobContainerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.ContainerName == nil {
+		return nil, errors.New("invalid value for required argument 'ContainerName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -187,7 +188,7 @@ type BlobContainerArgs struct {
 	// A name-value pair to associate with the container as metadata.
 	Metadata pulumi.StringMapInput
 	// Specifies whether data in the container may be accessed publicly and the level of access.
-	PublicAccess pulumi.StringPtrInput
+	PublicAccess PublicAccess
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 }

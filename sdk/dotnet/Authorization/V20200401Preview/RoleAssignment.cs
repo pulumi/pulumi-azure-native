@@ -191,7 +191,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20200401Preview
         /// The principal type of the assigned principal ID.
         /// </summary>
         [Input("principalType")]
-        public Input<string>? PrincipalType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Authorization.V20200401Preview.PrincipalType>? PrincipalType { get; set; }
 
         /// <summary>
         /// The name of the role assignment to create. It can be any valid GUID.

@@ -31,13 +31,13 @@ namespace Pulumi.AzureNextGen.CostManagement.V20180531.Inputs
         /// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
         /// </summary>
         [Input("timeframe", required: true)]
-        public Input<string> Timeframe { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20180531.TimeframeType> Timeframe { get; set; } = null!;
 
         /// <summary>
         /// The type of the report.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20180531.ReportType> Type { get; set; } = null!;
 
         public ReportConfigDefinitionArgs()
         {

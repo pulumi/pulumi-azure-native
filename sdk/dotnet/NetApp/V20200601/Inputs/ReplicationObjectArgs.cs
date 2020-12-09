@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200601.Inputs
         /// Indicates whether the local volume is the source or destination for the Volume Replication
         /// </summary>
         [Input("endpointType")]
-        public Input<string>? EndpointType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.NetApp.V20200601.EndpointType>? EndpointType { get; set; }
 
         /// <summary>
         /// The remote region for the other end of the Volume Replication.
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200601.Inputs
         /// Schedule
         /// </summary>
         [Input("replicationSchedule", required: true)]
-        public Input<string> ReplicationSchedule { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.NetApp.V20200601.ReplicationSchedule> ReplicationSchedule { get; set; } = null!;
 
         public ReplicationObjectArgs()
         {

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AssessmentStatusArgs',
@@ -26,12 +27,12 @@ __all__ = [
 @pulumi.input_type
 class AssessmentStatusArgs:
     def __init__(__self__, *,
-                 code: pulumi.Input[str],
+                 code: pulumi.Input[Union[str, 'AssessmentStatusCode']],
                  cause: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None):
         """
         The result of the assessment
-        :param pulumi.Input[str] code: Programmatic code for the status of the assessment
+        :param pulumi.Input[Union[str, 'AssessmentStatusCode']] code: Programmatic code for the status of the assessment
         :param pulumi.Input[str] cause: Programmatic code for the cause of the assessment status
         :param pulumi.Input[str] description: Human readable description of the assessment status
         """
@@ -43,14 +44,14 @@ class AssessmentStatusArgs:
 
     @property
     @pulumi.getter
-    def code(self) -> pulumi.Input[str]:
+    def code(self) -> pulumi.Input[Union[str, 'AssessmentStatusCode']]:
         """
         Programmatic code for the status of the assessment
         """
         return pulumi.get(self, "code")
 
     @code.setter
-    def code(self, value: pulumi.Input[str]):
+    def code(self, value: pulumi.Input[Union[str, 'AssessmentStatusCode']]):
         pulumi.set(self, "code", value)
 
     @property
@@ -290,11 +291,11 @@ class AutomationScopeArgs:
 @pulumi.input_type
 class AutomationSourceArgs:
     def __init__(__self__, *,
-                 event_source: Optional[pulumi.Input[str]] = None,
+                 event_source: Optional[pulumi.Input[Union[str, 'EventSource']]] = None,
                  rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleSetArgs']]]] = None):
         """
         The source event types which evaluate the security automation set of rules. For example - security alerts and security assessments. To learn more about the supported security events data models schemas - please visit https://aka.ms/ASCAutomationSchemas.
-        :param pulumi.Input[str] event_source: A valid event source type.
+        :param pulumi.Input[Union[str, 'EventSource']] event_source: A valid event source type.
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleSetArgs']]] rule_sets: A set of rules which evaluate upon event interception. A logical disjunction is applied between defined rule sets (logical 'or').
         """
         if event_source is not None:
@@ -304,14 +305,14 @@ class AutomationSourceArgs:
 
     @property
     @pulumi.getter(name="eventSource")
-    def event_source(self) -> Optional[pulumi.Input[str]]:
+    def event_source(self) -> Optional[pulumi.Input[Union[str, 'EventSource']]]:
         """
         A valid event source type.
         """
         return pulumi.get(self, "event_source")
 
     @event_source.setter
-    def event_source(self, value: Optional[pulumi.Input[str]]):
+    def event_source(self, value: Optional[pulumi.Input[Union[str, 'EventSource']]]):
         pulumi.set(self, "event_source", value)
 
     @property
@@ -331,15 +332,15 @@ class AutomationSourceArgs:
 class AutomationTriggeringRuleArgs:
     def __init__(__self__, *,
                  expected_value: Optional[pulumi.Input[str]] = None,
-                 operator: Optional[pulumi.Input[str]] = None,
+                 operator: Optional[pulumi.Input[Union[str, 'Operator']]] = None,
                  property_j_path: Optional[pulumi.Input[str]] = None,
-                 property_type: Optional[pulumi.Input[str]] = None):
+                 property_type: Optional[pulumi.Input[Union[str, 'PropertyType']]] = None):
         """
         A rule which is evaluated upon event interception. The rule is configured by comparing a specific value from the event model to an expected value. This comparison is done by using one of the supported operators set.
         :param pulumi.Input[str] expected_value: The expected value.
-        :param pulumi.Input[str] operator: A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
+        :param pulumi.Input[Union[str, 'Operator']] operator: A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
         :param pulumi.Input[str] property_j_path: The JPath of the entity model property that should be checked.
-        :param pulumi.Input[str] property_type: The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
+        :param pulumi.Input[Union[str, 'PropertyType']] property_type: The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
         """
         if expected_value is not None:
             pulumi.set(__self__, "expected_value", expected_value)
@@ -364,14 +365,14 @@ class AutomationTriggeringRuleArgs:
 
     @property
     @pulumi.getter
-    def operator(self) -> Optional[pulumi.Input[str]]:
+    def operator(self) -> Optional[pulumi.Input[Union[str, 'Operator']]]:
         """
         A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType.
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: Optional[pulumi.Input[str]]):
+    def operator(self, value: Optional[pulumi.Input[Union[str, 'Operator']]]):
         pulumi.set(self, "operator", value)
 
     @property
@@ -388,14 +389,14 @@ class AutomationTriggeringRuleArgs:
 
     @property
     @pulumi.getter(name="propertyType")
-    def property_type(self) -> Optional[pulumi.Input[str]]:
+    def property_type(self) -> Optional[pulumi.Input[Union[str, 'PropertyType']]]:
         """
         The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]
         """
         return pulumi.get(self, "property_type")
 
     @property_type.setter
-    def property_type(self, value: Optional[pulumi.Input[str]]):
+    def property_type(self, value: Optional[pulumi.Input[Union[str, 'PropertyType']]]):
         pulumi.set(self, "property_type", value)
 
 

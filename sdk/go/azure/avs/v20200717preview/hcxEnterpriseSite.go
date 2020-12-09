@@ -28,17 +28,18 @@ type HcxEnterpriseSite struct {
 // NewHcxEnterpriseSite registers a new resource with the given unique name, arguments, and options.
 func NewHcxEnterpriseSite(ctx *pulumi.Context,
 	name string, args *HcxEnterpriseSiteArgs, opts ...pulumi.ResourceOption) (*HcxEnterpriseSite, error) {
-	if args == nil || args.HcxEnterpriseSiteName == nil {
-		return nil, errors.New("missing required argument 'HcxEnterpriseSiteName'")
-	}
-	if args == nil || args.PrivateCloudName == nil {
-		return nil, errors.New("missing required argument 'PrivateCloudName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &HcxEnterpriseSiteArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.HcxEnterpriseSiteName == nil {
+		return nil, errors.New("invalid value for required argument 'HcxEnterpriseSiteName'")
+	}
+	if args.PrivateCloudName == nil {
+		return nil, errors.New("invalid value for required argument 'PrivateCloudName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

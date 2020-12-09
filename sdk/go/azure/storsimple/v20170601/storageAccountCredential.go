@@ -34,23 +34,21 @@ type StorageAccountCredential struct {
 // NewStorageAccountCredential registers a new resource with the given unique name, arguments, and options.
 func NewStorageAccountCredential(ctx *pulumi.Context,
 	name string, args *StorageAccountCredentialArgs, opts ...pulumi.ResourceOption) (*StorageAccountCredential, error) {
-	if args == nil || args.EndPoint == nil {
-		return nil, errors.New("missing required argument 'EndPoint'")
-	}
-	if args == nil || args.ManagerName == nil {
-		return nil, errors.New("missing required argument 'ManagerName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SslStatus == nil {
-		return nil, errors.New("missing required argument 'SslStatus'")
-	}
-	if args == nil || args.StorageAccountCredentialName == nil {
-		return nil, errors.New("missing required argument 'StorageAccountCredentialName'")
-	}
 	if args == nil {
-		args = &StorageAccountCredentialArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.EndPoint == nil {
+		return nil, errors.New("invalid value for required argument 'EndPoint'")
+	}
+	if args.ManagerName == nil {
+		return nil, errors.New("invalid value for required argument 'ManagerName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.StorageAccountCredentialName == nil {
+		return nil, errors.New("invalid value for required argument 'StorageAccountCredentialName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -144,13 +142,13 @@ type StorageAccountCredentialArgs struct {
 	// The storage endpoint
 	EndPoint pulumi.StringInput
 	// The Kind of the object. Currently only Series8000 is supported
-	Kind pulumi.StringPtrInput
+	Kind Kind
 	// The manager name
 	ManagerName pulumi.StringInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
 	// Signifies whether SSL needs to be enabled or not.
-	SslStatus pulumi.StringInput
+	SslStatus SslStatus
 	// The storage account credential name.
 	StorageAccountCredentialName pulumi.StringInput
 }

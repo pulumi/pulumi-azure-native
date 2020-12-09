@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.V20190401.Inputs
         /// NIC type
         /// </summary>
         [Input("nicType", required: true)]
-        public Input<string> NicType { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.VMwareCloudSimple.V20190401.NICType> NicType { get; set; } = null!;
 
         /// <summary>
         /// Is NIC powered on/off on boot

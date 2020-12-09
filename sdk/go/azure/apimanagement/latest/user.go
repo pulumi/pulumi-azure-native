@@ -40,26 +40,27 @@ type User struct {
 // NewUser registers a new resource with the given unique name, arguments, and options.
 func NewUser(ctx *pulumi.Context,
 	name string, args *UserArgs, opts ...pulumi.ResourceOption) (*User, error) {
-	if args == nil || args.Email == nil {
-		return nil, errors.New("missing required argument 'Email'")
-	}
-	if args == nil || args.FirstName == nil {
-		return nil, errors.New("missing required argument 'FirstName'")
-	}
-	if args == nil || args.LastName == nil {
-		return nil, errors.New("missing required argument 'LastName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
-	if args == nil || args.UserId == nil {
-		return nil, errors.New("missing required argument 'UserId'")
-	}
 	if args == nil {
-		args = &UserArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Email == nil {
+		return nil, errors.New("invalid value for required argument 'Email'")
+	}
+	if args.FirstName == nil {
+		return nil, errors.New("invalid value for required argument 'FirstName'")
+	}
+	if args.LastName == nil {
+		return nil, errors.New("invalid value for required argument 'LastName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
+	}
+	if args.UserId == nil {
+		return nil, errors.New("invalid value for required argument 'UserId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

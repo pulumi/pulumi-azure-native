@@ -38,23 +38,24 @@ type ApplicationGroup struct {
 // NewApplicationGroup registers a new resource with the given unique name, arguments, and options.
 func NewApplicationGroup(ctx *pulumi.Context,
 	name string, args *ApplicationGroupArgs, opts ...pulumi.ResourceOption) (*ApplicationGroup, error) {
-	if args == nil || args.ApplicationGroupName == nil {
-		return nil, errors.New("missing required argument 'ApplicationGroupName'")
-	}
-	if args == nil || args.ApplicationGroupType == nil {
-		return nil, errors.New("missing required argument 'ApplicationGroupType'")
-	}
-	if args == nil || args.HostPoolArmPath == nil {
-		return nil, errors.New("missing required argument 'HostPoolArmPath'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ApplicationGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApplicationGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ApplicationGroupName'")
+	}
+	if args.ApplicationGroupType == nil {
+		return nil, errors.New("invalid value for required argument 'ApplicationGroupType'")
+	}
+	if args.HostPoolArmPath == nil {
+		return nil, errors.New("invalid value for required argument 'HostPoolArmPath'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

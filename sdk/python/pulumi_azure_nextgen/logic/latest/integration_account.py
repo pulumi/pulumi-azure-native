@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['IntegrationAccount']
@@ -22,7 +23,7 @@ class IntegrationAccount(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['IntegrationAccountSkuArgs']]] = None,
-                 state: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[Union[str, 'WorkflowState']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -37,7 +38,7 @@ class IntegrationAccount(pulumi.CustomResource):
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[pulumi.InputType['IntegrationAccountSkuArgs']] sku: The sku.
-        :param pulumi.Input[str] state: The workflow state.
+        :param pulumi.Input[Union[str, 'WorkflowState']] state: The workflow state.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
         if __name__ is not None:
@@ -57,12 +58,12 @@ class IntegrationAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if integration_account_name is None:
+            if integration_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'integration_account_name'")
             __props__['integration_account_name'] = integration_account_name
             __props__['integration_service_environment'] = integration_service_environment
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku

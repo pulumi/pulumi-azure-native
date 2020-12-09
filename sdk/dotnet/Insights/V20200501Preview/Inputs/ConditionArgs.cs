@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview.Inputs
         /// The criteria operator.
         /// </summary>
         [Input("operator", required: true)]
-        public Input<string> Operator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20200501Preview.ConditionOperator> Operator { get; set; } = null!;
 
         /// <summary>
         /// Log query alert
@@ -67,7 +67,7 @@ namespace Pulumi.AzureNextGen.Insights.V20200501Preview.Inputs
         /// Aggregation type
         /// </summary>
         [Input("timeAggregation", required: true)]
-        public Input<string> TimeAggregation { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20200501Preview.TimeAggregation> TimeAggregation { get; set; } = null!;
 
         public ConditionArgs()
         {

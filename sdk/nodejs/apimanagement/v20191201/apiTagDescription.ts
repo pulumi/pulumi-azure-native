@@ -73,16 +73,16 @@ export class ApiTagDescription extends pulumi.CustomResource {
     constructor(name: string, args: ApiTagDescriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.apiId === undefined) {
+            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serviceName === undefined) {
+            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if (!args || args.tagDescriptionId === undefined) {
+            if ((!args || args.tagDescriptionId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'tagDescriptionId'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;

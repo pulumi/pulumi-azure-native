@@ -30,14 +30,15 @@ type ManagementLockAtSubscriptionLevel struct {
 // NewManagementLockAtSubscriptionLevel registers a new resource with the given unique name, arguments, and options.
 func NewManagementLockAtSubscriptionLevel(ctx *pulumi.Context,
 	name string, args *ManagementLockAtSubscriptionLevelArgs, opts ...pulumi.ResourceOption) (*ManagementLockAtSubscriptionLevel, error) {
-	if args == nil || args.Level == nil {
-		return nil, errors.New("missing required argument 'Level'")
-	}
-	if args == nil || args.LockName == nil {
-		return nil, errors.New("missing required argument 'LockName'")
-	}
 	if args == nil {
-		args = &ManagementLockAtSubscriptionLevelArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Level == nil {
+		return nil, errors.New("invalid value for required argument 'Level'")
+	}
+	if args.LockName == nil {
+		return nil, errors.New("invalid value for required argument 'LockName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

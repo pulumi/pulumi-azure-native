@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest.Inputs
         /// Caching type for the disks. Available values are none (default), readonly, readwrite. Caching type can be set only for VM sizes supporting premium storage.
         /// </summary>
         [Input("cachingType")]
-        public Input<string>? CachingType { get; set; }
+        public Input<Pulumi.AzureNextGen.BatchAI.Latest.CachingType>? CachingType { get; set; }
 
         /// <summary>
         /// Number of data disks attached to the File Server. If multiple disks attached, they will be configured in RAID level 0.
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest.Inputs
         /// Type of storage account to be used on the disk. Possible values are: Standard_LRS or Premium_LRS. Premium storage account type can only be used with VM sizes supporting premium storage.
         /// </summary>
         [Input("storageAccountType", required: true)]
-        public Input<string> StorageAccountType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.BatchAI.Latest.StorageAccountType> StorageAccountType { get; set; } = null!;
 
         public DataDisksArgs()
         {

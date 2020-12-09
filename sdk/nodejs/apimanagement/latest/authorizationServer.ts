@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -118,28 +118,28 @@ export class AuthorizationServer extends pulumi.CustomResource {
     constructor(name: string, args: AuthorizationServerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.authorizationEndpoint === undefined) {
+            if ((!args || args.authorizationEndpoint === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'authorizationEndpoint'");
             }
-            if (!args || args.authsid === undefined) {
+            if ((!args || args.authsid === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'authsid'");
             }
-            if (!args || args.clientId === undefined) {
+            if ((!args || args.clientId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if (!args || args.clientRegistrationEndpoint === undefined) {
+            if ((!args || args.clientRegistrationEndpoint === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clientRegistrationEndpoint'");
             }
-            if (!args || args.displayName === undefined) {
+            if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if (!args || args.grantTypes === undefined) {
+            if ((!args || args.grantTypes === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'grantTypes'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serviceName === undefined) {
+            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["authorizationEndpoint"] = args ? args.authorizationEndpoint : undefined;
@@ -207,7 +207,7 @@ export interface AuthorizationServerArgs {
     /**
      * HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
      */
-    readonly authorizationMethods?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly authorizationMethods?: pulumi.Input<pulumi.Input<enums.apimanagement.latest.AuthorizationMethod>[]>;
     /**
      * Identifier of the authorization server.
      */
@@ -215,11 +215,11 @@ export interface AuthorizationServerArgs {
     /**
      * Specifies the mechanism by which access token is passed to the API. 
      */
-    readonly bearerTokenSendingMethods?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly bearerTokenSendingMethods?: pulumi.Input<pulumi.Input<string | enums.apimanagement.latest.BearerTokenSendingMethod>[]>;
     /**
      * Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format.
      */
-    readonly clientAuthenticationMethod?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly clientAuthenticationMethod?: pulumi.Input<pulumi.Input<string | enums.apimanagement.latest.ClientAuthenticationMethod>[]>;
     /**
      * Client or app id registered with this authorization server.
      */
@@ -247,7 +247,7 @@ export interface AuthorizationServerArgs {
     /**
      * Form of an authorization grant, which the client uses to request the access token.
      */
-    readonly grantTypes: pulumi.Input<pulumi.Input<string>[]>;
+    readonly grantTypes: pulumi.Input<pulumi.Input<string | enums.apimanagement.latest.GrantType>[]>;
     /**
      * The name of the resource group.
      */

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -118,13 +118,13 @@ export class Namespace extends pulumi.CustomResource {
     constructor(name: string, args: NamespaceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.namespaceName === undefined) {
+            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["createdAt"] = args ? args.createdAt : undefined;
@@ -215,7 +215,7 @@ export interface NamespaceArgs {
     /**
      * The namespace type.
      */
-    readonly namespaceType?: pulumi.Input<string>;
+    readonly namespaceType?: pulumi.Input<enums.notificationhubs.v20170401.NamespaceType>;
     /**
      * Provisioning state of the Namespace.
      */

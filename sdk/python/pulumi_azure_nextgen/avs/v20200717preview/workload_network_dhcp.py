@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['WorkloadNetworkDhcp']
 
@@ -16,7 +17,7 @@ class WorkloadNetworkDhcp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dhcp_id: Optional[pulumi.Input[str]] = None,
-                 dhcp_type: Optional[pulumi.Input[str]] = None,
+                 dhcp_type: Optional[pulumi.Input[Union[str, 'DhcpTypeEnum']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -30,7 +31,7 @@ class WorkloadNetworkDhcp(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dhcp_id: NSX DHCP identifier. Generally the same as the DHCP display name
-        :param pulumi.Input[str] dhcp_type: Type of DHCP: SERVER or RELAY.
+        :param pulumi.Input[Union[str, 'DhcpTypeEnum']] dhcp_type: Type of DHCP: SERVER or RELAY.
         :param pulumi.Input[str] display_name: Display name of the DHCP entity.
         :param pulumi.Input[str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -53,17 +54,17 @@ class WorkloadNetworkDhcp(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if dhcp_id is None:
+            if dhcp_id is None and not opts.urn:
                 raise TypeError("Missing required property 'dhcp_id'")
             __props__['dhcp_id'] = dhcp_id
-            if dhcp_type is None:
+            if dhcp_type is None and not opts.urn:
                 raise TypeError("Missing required property 'dhcp_type'")
             __props__['dhcp_type'] = dhcp_type
             __props__['display_name'] = display_name
-            if private_cloud_name is None:
+            if private_cloud_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_cloud_name'")
             __props__['private_cloud_name'] = private_cloud_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['revision'] = revision

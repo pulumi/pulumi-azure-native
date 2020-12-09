@@ -49,16 +49,16 @@ class AccessControlRecord(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if access_control_record_name is None:
+            if access_control_record_name is None and not opts.urn:
                 raise TypeError("Missing required property 'access_control_record_name'")
             __props__['access_control_record_name'] = access_control_record_name
-            if initiator_name is None:
+            if initiator_name is None and not opts.urn:
                 raise TypeError("Missing required property 'initiator_name'")
             __props__['initiator_name'] = initiator_name
-            if manager_name is None:
+            if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")
             __props__['manager_name'] = manager_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['name'] = None

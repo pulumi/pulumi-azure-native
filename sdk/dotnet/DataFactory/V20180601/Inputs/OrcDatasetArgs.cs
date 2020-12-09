@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         public InputUnion<Inputs.AmazonS3LocationArgs, InputUnion<Inputs.AzureBlobFSLocationArgs, InputUnion<Inputs.AzureBlobStorageLocationArgs, InputUnion<Inputs.AzureDataLakeStoreLocationArgs, InputUnion<Inputs.AzureFileStorageLocationArgs, InputUnion<Inputs.FileServerLocationArgs, InputUnion<Inputs.FtpServerLocationArgs, InputUnion<Inputs.GoogleCloudStorageLocationArgs, InputUnion<Inputs.HdfsLocationArgs, InputUnion<Inputs.HttpServerLocationArgs, Inputs.SftpLocationArgs>>>>>>>>>> Location { get; set; } = null!;
 
         [Input("orcCompressionCodec")]
-        public Input<string>? OrcCompressionCodec { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.V20180601.OrcCompressionCodec>? OrcCompressionCodec { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;

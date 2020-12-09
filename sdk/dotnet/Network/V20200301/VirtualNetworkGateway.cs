@@ -267,7 +267,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301
         /// The type of this virtual network gateway.
         /// </summary>
         [Input("gatewayType")]
-        public Input<string>? GatewayType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200301.VirtualNetworkGatewayType>? GatewayType { get; set; }
 
         /// <summary>
         /// Resource ID.
@@ -333,13 +333,13 @@ namespace Pulumi.AzureNextGen.Network.V20200301
         /// The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
         /// </summary>
         [Input("vpnGatewayGeneration")]
-        public Input<string>? VpnGatewayGeneration { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200301.VpnGatewayGeneration>? VpnGatewayGeneration { get; set; }
 
         /// <summary>
         /// The type of this virtual network gateway.
         /// </summary>
         [Input("vpnType")]
-        public Input<string>? VpnType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200301.VpnType>? VpnType { get; set; }
 
         public VirtualNetworkGatewayArgs()
         {

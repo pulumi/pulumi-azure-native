@@ -67,7 +67,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701.Inputs
         /// The rule bypass protocol.
         /// </summary>
         [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200701.FirewallPolicyIntrusionDetectionProtocol>? Protocol { get; set; }
 
         [Input("sourceAddresses")]
         private InputList<string>? _sourceAddresses;

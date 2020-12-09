@@ -23,9 +23,9 @@ const storageAccount = new storage.StorageAccount("websitesa", {
     accountName: randomString.result,
     location: "westus2",
     sku: {
-        name: "Standard_LRS",
+        name: storage.SkuName.Standard_LRS,
     },
-    kind: "StorageV2",
+    kind: storage.Kind.StorageV2,
     // Apparently, this is not supported via ARM.
     // staticWebsite: {
     //     indexDocument: "index.html",
@@ -56,7 +56,7 @@ const profile =  new cdn.Profile("website-cdn", {
     profileName: randomString.result,
     location: "global",
     sku: {
-          name: "Standard_Microsoft",
+          name: cdn.SkuName.Standard_Microsoft,
     },
 });
 

@@ -103,13 +103,13 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview
         /// Whether to send security alerts notifications to the security contact
         /// </summary>
         [Input("alertNotifications", required: true)]
-        public Input<string> AlertNotifications { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Security.V20170801Preview.AlertNotifications> AlertNotifications { get; set; } = null!;
 
         /// <summary>
         /// Whether to send security alerts notifications to subscription admins
         /// </summary>
         [Input("alertsToAdmins", required: true)]
-        public Input<string> AlertsToAdmins { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Security.V20170801Preview.AlertsToAdmins> AlertsToAdmins { get; set; } = null!;
 
         /// <summary>
         /// The email of this security contact

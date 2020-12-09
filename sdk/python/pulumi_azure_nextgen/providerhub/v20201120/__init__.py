@@ -21,3 +21,42 @@ from .skus_nested_resource_type_first import *
 from .skus_nested_resource_type_second import *
 from .skus_nested_resource_type_third import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:providerhub/v20201120:DefaultRollout":
+                return DefaultRollout(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:providerhub/v20201120:NotificationRegistration":
+                return NotificationRegistration(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:providerhub/v20201120:OperationByProviderRegistration":
+                return OperationByProviderRegistration(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:providerhub/v20201120:ProviderRegistration":
+                return ProviderRegistration(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:providerhub/v20201120:ResourceTypeRegistration":
+                return ResourceTypeRegistration(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:providerhub/v20201120:Skus":
+                return Skus(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:providerhub/v20201120:SkusNestedResourceTypeFirst":
+                return SkusNestedResourceTypeFirst(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:providerhub/v20201120:SkusNestedResourceTypeSecond":
+                return SkusNestedResourceTypeSecond(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:providerhub/v20201120:SkusNestedResourceTypeThird":
+                return SkusNestedResourceTypeThird(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "providerhub/v20201120", _module_instance)
+
+_register_module()

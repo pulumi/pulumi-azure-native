@@ -32,17 +32,18 @@ type FirewallPolicyRuleGroup struct {
 // NewFirewallPolicyRuleGroup registers a new resource with the given unique name, arguments, and options.
 func NewFirewallPolicyRuleGroup(ctx *pulumi.Context,
 	name string, args *FirewallPolicyRuleGroupArgs, opts ...pulumi.ResourceOption) (*FirewallPolicyRuleGroup, error) {
-	if args == nil || args.FirewallPolicyName == nil {
-		return nil, errors.New("missing required argument 'FirewallPolicyName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.RuleGroupName == nil {
-		return nil, errors.New("missing required argument 'RuleGroupName'")
-	}
 	if args == nil {
-		args = &FirewallPolicyRuleGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.FirewallPolicyName == nil {
+		return nil, errors.New("invalid value for required argument 'FirewallPolicyName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.RuleGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'RuleGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20171012.Inputs
         /// Action of the geo filter, i.e. allow or block access.
         /// </summary>
         [Input("action", required: true)]
-        public Input<string> Action { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Cdn.V20171012.GeoFilterActions> Action { get; set; } = null!;
 
         [Input("countryCodes", required: true)]
         private InputList<string>? _countryCodes;

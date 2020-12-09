@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['DataConnector']
 
@@ -17,7 +18,7 @@ class DataConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_connector_id: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'DataConnectorKind']]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -31,7 +32,7 @@ class DataConnector(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_connector_id: Connector ID
         :param pulumi.Input[str] etag: Etag of the azure resource
-        :param pulumi.Input[str] kind: The kind of the data connector
+        :param pulumi.Input[Union[str, 'DataConnectorKind']] kind: The kind of the data connector
         :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
@@ -53,20 +54,20 @@ class DataConnector(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if data_connector_id is None:
+            if data_connector_id is None and not opts.urn:
                 raise TypeError("Missing required property 'data_connector_id'")
             __props__['data_connector_id'] = data_connector_id
             __props__['etag'] = etag
-            if kind is None:
+            if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = kind
-            if operational_insights_resource_provider is None:
+            if operational_insights_resource_provider is None and not opts.urn:
                 raise TypeError("Missing required property 'operational_insights_resource_provider'")
             __props__['operational_insights_resource_provider'] = operational_insights_resource_provider
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if workspace_name is None:
+            if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['name'] = None

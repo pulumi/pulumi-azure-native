@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Automation.V20170515Preview.Inputs
         /// Filter VMs by Any or All specified tags.
         /// </summary>
         [Input("filterOperator")]
-        public Input<string>? FilterOperator { get; set; }
+        public Input<Pulumi.AzureNextGen.Automation.V20170515Preview.TagOperators>? FilterOperator { get; set; }
 
         [Input("tags")]
         private InputMap<ImmutableArray<string>>? _tags;

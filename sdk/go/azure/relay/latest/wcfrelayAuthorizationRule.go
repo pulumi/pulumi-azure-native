@@ -26,23 +26,24 @@ type WCFRelayAuthorizationRule struct {
 // NewWCFRelayAuthorizationRule registers a new resource with the given unique name, arguments, and options.
 func NewWCFRelayAuthorizationRule(ctx *pulumi.Context,
 	name string, args *WCFRelayAuthorizationRuleArgs, opts ...pulumi.ResourceOption) (*WCFRelayAuthorizationRule, error) {
-	if args == nil || args.AuthorizationRuleName == nil {
-		return nil, errors.New("missing required argument 'AuthorizationRuleName'")
-	}
-	if args == nil || args.NamespaceName == nil {
-		return nil, errors.New("missing required argument 'NamespaceName'")
-	}
-	if args == nil || args.RelayName == nil {
-		return nil, errors.New("missing required argument 'RelayName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Rights == nil {
-		return nil, errors.New("missing required argument 'Rights'")
-	}
 	if args == nil {
-		args = &WCFRelayAuthorizationRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AuthorizationRuleName == nil {
+		return nil, errors.New("invalid value for required argument 'AuthorizationRuleName'")
+	}
+	if args.NamespaceName == nil {
+		return nil, errors.New("invalid value for required argument 'NamespaceName'")
+	}
+	if args.RelayName == nil {
+		return nil, errors.New("invalid value for required argument 'RelayName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Rights == nil {
+		return nil, errors.New("invalid value for required argument 'Rights'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -120,7 +121,7 @@ type WCFRelayAuthorizationRuleArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// The rights associated with the rule.
-	Rights pulumi.StringArrayInput
+	Rights AccessRightsArrayInput
 }
 
 func (WCFRelayAuthorizationRuleArgs) ElementType() reflect.Type {

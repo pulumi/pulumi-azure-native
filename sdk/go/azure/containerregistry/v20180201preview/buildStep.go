@@ -26,20 +26,21 @@ type BuildStep struct {
 // NewBuildStep registers a new resource with the given unique name, arguments, and options.
 func NewBuildStep(ctx *pulumi.Context,
 	name string, args *BuildStepArgs, opts ...pulumi.ResourceOption) (*BuildStep, error) {
-	if args == nil || args.BuildTaskName == nil {
-		return nil, errors.New("missing required argument 'BuildTaskName'")
-	}
-	if args == nil || args.RegistryName == nil {
-		return nil, errors.New("missing required argument 'RegistryName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.StepName == nil {
-		return nil, errors.New("missing required argument 'StepName'")
-	}
 	if args == nil {
-		args = &BuildStepArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BuildTaskName == nil {
+		return nil, errors.New("invalid value for required argument 'BuildTaskName'")
+	}
+	if args.RegistryName == nil {
+		return nil, errors.New("invalid value for required argument 'RegistryName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.StepName == nil {
+		return nil, errors.New("invalid value for required argument 'StepName'")
 	}
 	var resource BuildStep
 	err := ctx.RegisterResource("azure-nextgen:containerregistry/v20180201preview:BuildStep", name, args, &resource, opts...)

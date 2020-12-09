@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -85,16 +85,16 @@ export class Certificate extends pulumi.CustomResource {
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.accountName === undefined) {
+            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.certificateName === undefined) {
+            if ((!args || args.certificateName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'certificateName'");
             }
-            if (!args || args.data === undefined) {
+            if ((!args || args.data === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'data'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -160,7 +160,7 @@ export interface CertificateArgs {
     /**
      * The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
      */
-    readonly format?: pulumi.Input<string>;
+    readonly format?: pulumi.Input<enums.batch.v20190801.CertificateFormat>;
     /**
      * This is required if the certificate format is pfx and must be omitted if the certificate format is cer.
      */

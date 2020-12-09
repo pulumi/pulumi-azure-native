@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'CircuitArgs',
@@ -125,7 +126,7 @@ class IdentitySourceArgs:
                  password: Optional[pulumi.Input[str]] = None,
                  primary_server: Optional[pulumi.Input[str]] = None,
                  secondary_server: Optional[pulumi.Input[str]] = None,
-                 ssl: Optional[pulumi.Input[str]] = None,
+                 ssl: Optional[pulumi.Input[Union[str, 'SslEnum']]] = None,
                  username: Optional[pulumi.Input[str]] = None):
         """
         vCenter Single Sign On Identity Source
@@ -137,7 +138,7 @@ class IdentitySourceArgs:
         :param pulumi.Input[str] password: The password of the Active Directory user with a minimum of read-only access to Base DN for users and groups.
         :param pulumi.Input[str] primary_server: Primary server URL
         :param pulumi.Input[str] secondary_server: Secondary server URL
-        :param pulumi.Input[str] ssl: Protect LDAP communication using SSL certificate (LDAPS)
+        :param pulumi.Input[Union[str, 'SslEnum']] ssl: Protect LDAP communication using SSL certificate (LDAPS)
         :param pulumi.Input[str] username: The ID of an Active Directory user with a minimum of read-only access to Base DN for users and group
         """
         if alias is not None:
@@ -259,14 +260,14 @@ class IdentitySourceArgs:
 
     @property
     @pulumi.getter
-    def ssl(self) -> Optional[pulumi.Input[str]]:
+    def ssl(self) -> Optional[pulumi.Input[Union[str, 'SslEnum']]]:
         """
         Protect LDAP communication using SSL certificate (LDAPS)
         """
         return pulumi.get(self, "ssl")
 
     @ssl.setter
-    def ssl(self, value: Optional[pulumi.Input[str]]):
+    def ssl(self, value: Optional[pulumi.Input[Union[str, 'SslEnum']]]):
         pulumi.set(self, "ssl", value)
 
     @property
@@ -288,7 +289,7 @@ class PrivateCloudPropertiesArgs:
                  circuit: Optional[pulumi.Input['CircuitArgs']] = None,
                  cluster: Optional[pulumi.Input['DefaultClusterPropertiesArgs']] = None,
                  identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input['IdentitySourceArgs']]]] = None,
-                 internet: Optional[pulumi.Input[str]] = None,
+                 internet: Optional[pulumi.Input[Union[str, 'InternetEnum']]] = None,
                  network_block: Optional[pulumi.Input[str]] = None,
                  nsxt_password: Optional[pulumi.Input[str]] = None,
                  vcenter_password: Optional[pulumi.Input[str]] = None):
@@ -297,7 +298,7 @@ class PrivateCloudPropertiesArgs:
         :param pulumi.Input['CircuitArgs'] circuit: An ExpressRoute Circuit
         :param pulumi.Input['DefaultClusterPropertiesArgs'] cluster: The default cluster used for management
         :param pulumi.Input[Sequence[pulumi.Input['IdentitySourceArgs']]] identity_sources: vCenter Single Sign On Identity Sources
-        :param pulumi.Input[str] internet: Connectivity to internet is enabled or disabled
+        :param pulumi.Input[Union[str, 'InternetEnum']] internet: Connectivity to internet is enabled or disabled
         :param pulumi.Input[str] network_block: The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
         :param pulumi.Input[str] nsxt_password: Optionally, set the NSX-T Manager password when the private cloud is created
         :param pulumi.Input[str] vcenter_password: Optionally, set the vCenter admin password when the private cloud is created
@@ -355,14 +356,14 @@ class PrivateCloudPropertiesArgs:
 
     @property
     @pulumi.getter
-    def internet(self) -> Optional[pulumi.Input[str]]:
+    def internet(self) -> Optional[pulumi.Input[Union[str, 'InternetEnum']]]:
         """
         Connectivity to internet is enabled or disabled
         """
         return pulumi.get(self, "internet")
 
     @internet.setter
-    def internet(self, value: Optional[pulumi.Input[str]]):
+    def internet(self, value: Optional[pulumi.Input[Union[str, 'InternetEnum']]]):
         pulumi.set(self, "internet", value)
 
     @property

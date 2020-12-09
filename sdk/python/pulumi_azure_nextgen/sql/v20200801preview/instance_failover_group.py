@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['InstanceFailoverGroup']
@@ -57,23 +58,23 @@ class InstanceFailoverGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if failover_group_name is None:
+            if failover_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'failover_group_name'")
             __props__['failover_group_name'] = failover_group_name
-            if location_name is None:
+            if location_name is None and not opts.urn:
                 raise TypeError("Missing required property 'location_name'")
             __props__['location_name'] = location_name
-            if managed_instance_pairs is None:
+            if managed_instance_pairs is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_instance_pairs'")
             __props__['managed_instance_pairs'] = managed_instance_pairs
-            if partner_regions is None:
+            if partner_regions is None and not opts.urn:
                 raise TypeError("Missing required property 'partner_regions'")
             __props__['partner_regions'] = partner_regions
             __props__['read_only_endpoint'] = read_only_endpoint
-            if read_write_endpoint is None:
+            if read_write_endpoint is None and not opts.urn:
                 raise TypeError("Missing required property 'read_write_endpoint'")
             __props__['read_write_endpoint'] = read_write_endpoint
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['name'] = None

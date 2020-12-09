@@ -72,20 +72,21 @@ type VirtualNetworkGatewayConnection struct {
 // NewVirtualNetworkGatewayConnection registers a new resource with the given unique name, arguments, and options.
 func NewVirtualNetworkGatewayConnection(ctx *pulumi.Context,
 	name string, args *VirtualNetworkGatewayConnectionArgs, opts ...pulumi.ResourceOption) (*VirtualNetworkGatewayConnection, error) {
-	if args == nil || args.ConnectionType == nil {
-		return nil, errors.New("missing required argument 'ConnectionType'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VirtualNetworkGateway1 == nil {
-		return nil, errors.New("missing required argument 'VirtualNetworkGateway1'")
-	}
-	if args == nil || args.VirtualNetworkGatewayConnectionName == nil {
-		return nil, errors.New("missing required argument 'VirtualNetworkGatewayConnectionName'")
-	}
 	if args == nil {
-		args = &VirtualNetworkGatewayConnectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ConnectionType == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectionType'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VirtualNetworkGateway1 == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualNetworkGateway1'")
+	}
+	if args.VirtualNetworkGatewayConnectionName == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualNetworkGatewayConnectionName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

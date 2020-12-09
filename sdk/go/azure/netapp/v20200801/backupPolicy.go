@@ -44,20 +44,21 @@ type BackupPolicy struct {
 // NewBackupPolicy registers a new resource with the given unique name, arguments, and options.
 func NewBackupPolicy(ctx *pulumi.Context,
 	name string, args *BackupPolicyArgs, opts ...pulumi.ResourceOption) (*BackupPolicy, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.BackupPolicyName == nil {
-		return nil, errors.New("missing required argument 'BackupPolicyName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &BackupPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.BackupPolicyName == nil {
+		return nil, errors.New("invalid value for required argument 'BackupPolicyName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

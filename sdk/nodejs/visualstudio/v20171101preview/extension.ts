@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -70,13 +70,13 @@ export class Extension extends pulumi.CustomResource {
     constructor(name: string, args: ExtensionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.accountResourceName === undefined) {
+            if ((!args || args.accountResourceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountResourceName'");
             }
-            if (!args || args.extensionResourceName === undefined) {
+            if ((!args || args.extensionResourceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'extensionResourceName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountResourceName"] = args ? args.accountResourceName : undefined;

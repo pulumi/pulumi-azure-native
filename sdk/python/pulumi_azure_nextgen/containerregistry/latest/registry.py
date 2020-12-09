@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Registry']
@@ -62,18 +63,18 @@ class Registry(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['admin_user_enabled'] = admin_user_enabled
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['network_rule_set'] = network_rule_set
             __props__['policies'] = policies
-            if registry_name is None:
+            if registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registry_name'")
             __props__['registry_name'] = registry_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if sku is None:
+            if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['storage_account'] = storage_account

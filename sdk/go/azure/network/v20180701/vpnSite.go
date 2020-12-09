@@ -44,17 +44,18 @@ type VpnSite struct {
 // NewVpnSite registers a new resource with the given unique name, arguments, and options.
 func NewVpnSite(ctx *pulumi.Context,
 	name string, args *VpnSiteArgs, opts ...pulumi.ResourceOption) (*VpnSite, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VpnSiteName == nil {
-		return nil, errors.New("missing required argument 'VpnSiteName'")
-	}
 	if args == nil {
-		args = &VpnSiteArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VpnSiteName == nil {
+		return nil, errors.New("invalid value for required argument 'VpnSiteName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

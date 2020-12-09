@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190701.Inputs
         /// Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. &lt;br&gt;&lt;br&gt;For Azure Spot virtual machines, the only supported value is 'Deallocate' and the minimum api-version is 2019-03-01. &lt;br&gt;&lt;br&gt;For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
         /// </summary>
         [Input("evictionPolicy")]
-        public Input<string>? EvictionPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20190701.VirtualMachineEvictionPolicyTypes>? EvictionPolicy { get; set; }
 
         /// <summary>
         /// Specifies a collection of settings for extensions installed on virtual machines in the scale set.
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190701.Inputs
         /// Specifies the priority for the virtual machines in the scale set. &lt;br&gt;&lt;br&gt;Minimum api-version: 2017-10-30-preview
         /// </summary>
         [Input("priority")]
-        public Input<string>? Priority { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20190701.VirtualMachinePriorityTypes>? Priority { get; set; }
 
         /// <summary>
         /// Specifies Scheduled Event related configurations.

@@ -30,17 +30,18 @@ type IntegrationServiceEnvironmentManagedApi struct {
 // NewIntegrationServiceEnvironmentManagedApi registers a new resource with the given unique name, arguments, and options.
 func NewIntegrationServiceEnvironmentManagedApi(ctx *pulumi.Context,
 	name string, args *IntegrationServiceEnvironmentManagedApiArgs, opts ...pulumi.ResourceOption) (*IntegrationServiceEnvironmentManagedApi, error) {
-	if args == nil || args.ApiName == nil {
-		return nil, errors.New("missing required argument 'ApiName'")
-	}
-	if args == nil || args.IntegrationServiceEnvironmentName == nil {
-		return nil, errors.New("missing required argument 'IntegrationServiceEnvironmentName'")
-	}
-	if args == nil || args.ResourceGroup == nil {
-		return nil, errors.New("missing required argument 'ResourceGroup'")
-	}
 	if args == nil {
-		args = &IntegrationServiceEnvironmentManagedApiArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApiName == nil {
+		return nil, errors.New("invalid value for required argument 'ApiName'")
+	}
+	if args.IntegrationServiceEnvironmentName == nil {
+		return nil, errors.New("invalid value for required argument 'IntegrationServiceEnvironmentName'")
+	}
+	if args.ResourceGroup == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroup'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -42,14 +42,15 @@ type Cache struct {
 // NewCache registers a new resource with the given unique name, arguments, and options.
 func NewCache(ctx *pulumi.Context,
 	name string, args *CacheArgs, opts ...pulumi.ResourceOption) (*Cache, error) {
-	if args == nil || args.CacheName == nil {
-		return nil, errors.New("missing required argument 'CacheName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &CacheArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CacheName == nil {
+		return nil, errors.New("invalid value for required argument 'CacheName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

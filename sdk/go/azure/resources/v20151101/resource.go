@@ -32,26 +32,27 @@ type Resource struct {
 // NewResource registers a new resource with the given unique name, arguments, and options.
 func NewResource(ctx *pulumi.Context,
 	name string, args *ResourceArgs, opts ...pulumi.ResourceOption) (*Resource, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ParentResourcePath == nil {
-		return nil, errors.New("missing required argument 'ParentResourcePath'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ResourceName == nil {
-		return nil, errors.New("missing required argument 'ResourceName'")
-	}
-	if args == nil || args.ResourceProviderNamespace == nil {
-		return nil, errors.New("missing required argument 'ResourceProviderNamespace'")
-	}
-	if args == nil || args.ResourceType == nil {
-		return nil, errors.New("missing required argument 'ResourceType'")
-	}
 	if args == nil {
-		args = &ResourceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ParentResourcePath == nil {
+		return nil, errors.New("invalid value for required argument 'ParentResourcePath'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceName'")
+	}
+	if args.ResourceProviderNamespace == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceProviderNamespace'")
+	}
+	if args.ResourceType == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceType'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

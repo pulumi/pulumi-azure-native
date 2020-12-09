@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Inputs
         /// This enumerates the possible sources of a disk's creation.
         /// </summary>
         [Input("createOption", required: true)]
-        public Input<string> CreateOption { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.Latest.DiskCreateOption> CreateOption { get; set; } = null!;
 
         /// <summary>
         /// Required if creating from a Gallery Image. The id of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.

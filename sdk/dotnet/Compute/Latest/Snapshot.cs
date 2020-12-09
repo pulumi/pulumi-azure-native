@@ -226,7 +226,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         /// </summary>
         [Input("hyperVGeneration")]
-        public Input<string>? HyperVGeneration { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.Latest.HyperVGeneration>? HyperVGeneration { get; set; }
 
         /// <summary>
         /// Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
@@ -244,13 +244,13 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// Policy for accessing the disk via network.
         /// </summary>
         [Input("networkAccessPolicy")]
-        public Input<string>? NetworkAccessPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.Latest.NetworkAccessPolicy>? NetworkAccessPolicy { get; set; }
 
         /// <summary>
         /// The Operating System type.
         /// </summary>
         [Input("osType")]
-        public Input<string>? OsType { get; set; }
+        public Input<Pulumi.AzureNextGen.Compute.Latest.OperatingSystemTypes>? OsType { get; set; }
 
         /// <summary>
         /// The name of the resource group.

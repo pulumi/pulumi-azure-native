@@ -47,23 +47,24 @@ type AFDOrigin struct {
 // NewAFDOrigin registers a new resource with the given unique name, arguments, and options.
 func NewAFDOrigin(ctx *pulumi.Context,
 	name string, args *AFDOriginArgs, opts ...pulumi.ResourceOption) (*AFDOrigin, error) {
-	if args == nil || args.HostName == nil {
-		return nil, errors.New("missing required argument 'HostName'")
-	}
-	if args == nil || args.OriginGroupName == nil {
-		return nil, errors.New("missing required argument 'OriginGroupName'")
-	}
-	if args == nil || args.OriginName == nil {
-		return nil, errors.New("missing required argument 'OriginName'")
-	}
-	if args == nil || args.ProfileName == nil {
-		return nil, errors.New("missing required argument 'ProfileName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &AFDOriginArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.HostName == nil {
+		return nil, errors.New("invalid value for required argument 'HostName'")
+	}
+	if args.OriginGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'OriginGroupName'")
+	}
+	if args.OriginName == nil {
+		return nil, errors.New("invalid value for required argument 'OriginName'")
+	}
+	if args.ProfileName == nil {
+		return nil, errors.New("invalid value for required argument 'ProfileName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

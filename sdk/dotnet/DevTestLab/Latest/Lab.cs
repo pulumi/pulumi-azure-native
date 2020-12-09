@@ -221,7 +221,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
         /// The access rights to be granted to the user when provisioning an environment
         /// </summary>
         [Input("environmentPermission")]
-        public Input<string>? EnvironmentPermission { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.Latest.EnvironmentPermission>? EnvironmentPermission { get; set; }
 
         [Input("extendedProperties")]
         private InputMap<string>? _extendedProperties;
@@ -239,7 +239,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
         /// Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
         /// </summary>
         [Input("labStorageType")]
-        public Input<string>? LabStorageType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.Latest.StorageType>? LabStorageType { get; set; }
 
         /// <summary>
         /// The location of the resource.
@@ -283,7 +283,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
         /// When its value is 'Disabled', only creation of standard data disks is allowed.
         /// </summary>
         [Input("premiumDataDisks")]
-        public Input<string>? PremiumDataDisks { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.Latest.PremiumDataDisk>? PremiumDataDisks { get; set; }
 
         /// <summary>
         /// The name of the resource group.

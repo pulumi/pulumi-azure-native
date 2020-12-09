@@ -28,17 +28,18 @@ type WorkspaceSetting struct {
 // NewWorkspaceSetting registers a new resource with the given unique name, arguments, and options.
 func NewWorkspaceSetting(ctx *pulumi.Context,
 	name string, args *WorkspaceSettingArgs, opts ...pulumi.ResourceOption) (*WorkspaceSetting, error) {
-	if args == nil || args.Scope == nil {
-		return nil, errors.New("missing required argument 'Scope'")
-	}
-	if args == nil || args.WorkspaceId == nil {
-		return nil, errors.New("missing required argument 'WorkspaceId'")
-	}
-	if args == nil || args.WorkspaceSettingName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceSettingName'")
-	}
 	if args == nil {
-		args = &WorkspaceSettingArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Scope == nil {
+		return nil, errors.New("invalid value for required argument 'Scope'")
+	}
+	if args.WorkspaceId == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceId'")
+	}
+	if args.WorkspaceSettingName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceSettingName'")
 	}
 	var resource WorkspaceSetting
 	err := ctx.RegisterResource("azure-nextgen:security/v20170801preview:WorkspaceSetting", name, args, &resource, opts...)

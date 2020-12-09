@@ -53,13 +53,13 @@ export class VendorSkuPreview extends pulumi.CustomResource {
     constructor(name: string, args: VendorSkuPreviewArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.previewSubscription === undefined) {
+            if ((!args || args.previewSubscription === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'previewSubscription'");
             }
-            if (!args || args.skuName === undefined) {
+            if ((!args || args.skuName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'skuName'");
             }
-            if (!args || args.vendorName === undefined) {
+            if ((!args || args.vendorName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vendorName'");
             }
             inputs["previewSubscription"] = args ? args.previewSubscription : undefined;

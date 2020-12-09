@@ -69,13 +69,13 @@ export class VirtualRouterPeering extends pulumi.CustomResource {
     constructor(name: string, args: VirtualRouterPeeringArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.peeringName === undefined) {
+            if ((!args || args.peeringName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'peeringName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.virtualRouterName === undefined) {
+            if ((!args || args.virtualRouterName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualRouterName'");
             }
             inputs["id"] = args ? args.id : undefined;

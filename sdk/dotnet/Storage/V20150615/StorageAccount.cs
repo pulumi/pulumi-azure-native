@@ -176,7 +176,7 @@ namespace Pulumi.AzureNextGen.Storage.V20150615
         /// The sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
         /// </summary>
         [Input("accountType", required: true)]
-        public Input<string> AccountType { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Storage.V20150615.AccountType> AccountType { get; set; } = null!;
 
         /// <summary>
         /// The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.

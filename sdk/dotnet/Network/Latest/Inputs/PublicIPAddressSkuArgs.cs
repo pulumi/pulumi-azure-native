@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// Name of a public IP address SKU.
         /// </summary>
         [Input("name")]
-        public Input<string>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.PublicIPAddressSkuName>? Name { get; set; }
 
         /// <summary>
         /// Tier of a public IP address SKU.
         /// </summary>
         [Input("tier")]
-        public Input<string>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.PublicIPAddressSkuTier>? Tier { get; set; }
 
         public PublicIPAddressSkuArgs()
         {

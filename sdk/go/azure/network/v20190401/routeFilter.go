@@ -38,17 +38,18 @@ type RouteFilter struct {
 // NewRouteFilter registers a new resource with the given unique name, arguments, and options.
 func NewRouteFilter(ctx *pulumi.Context,
 	name string, args *RouteFilterArgs, opts ...pulumi.ResourceOption) (*RouteFilter, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.RouteFilterName == nil {
-		return nil, errors.New("missing required argument 'RouteFilterName'")
-	}
 	if args == nil {
-		args = &RouteFilterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.RouteFilterName == nil {
+		return nil, errors.New("invalid value for required argument 'RouteFilterName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

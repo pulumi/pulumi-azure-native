@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -74,19 +74,19 @@ export class DeploymentScript extends pulumi.CustomResource {
     constructor(name: string, args: DeploymentScriptArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.identity === undefined) {
+            if ((!args || args.identity === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'identity'");
             }
-            if (!args || args.kind === undefined) {
+            if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kind'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.scriptName === undefined) {
+            if ((!args || args.scriptName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scriptName'");
             }
             inputs["identity"] = args ? args.identity : undefined;
@@ -131,7 +131,7 @@ export interface DeploymentScriptArgs {
     /**
      * Type of the script.
      */
-    readonly kind: pulumi.Input<string>;
+    readonly kind: pulumi.Input<string | enums.resources.v20191001preview.ScriptType>;
     /**
      * The location of the ACI and the storage account for the deployment script.
      */

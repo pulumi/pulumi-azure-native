@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['PeerAsn']
@@ -21,7 +22,7 @@ class PeerAsn(pulumi.CustomResource):
                  peer_asn_name: Optional[pulumi.Input[str]] = None,
                  peer_contact_info: Optional[pulumi.Input[pulumi.InputType['ContactInfoArgs']]] = None,
                  peer_name: Optional[pulumi.Input[str]] = None,
-                 validation_state: Optional[pulumi.Input[str]] = None,
+                 validation_state: Optional[pulumi.Input[Union[str, 'ValidationState']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -34,7 +35,7 @@ class PeerAsn(pulumi.CustomResource):
         :param pulumi.Input[str] peer_asn_name: The peer ASN name.
         :param pulumi.Input[pulumi.InputType['ContactInfoArgs']] peer_contact_info: The contact information of the peer.
         :param pulumi.Input[str] peer_name: The name of the peer.
-        :param pulumi.Input[str] validation_state: The validation state of the ASN associated with the peer.
+        :param pulumi.Input[Union[str, 'ValidationState']] validation_state: The validation state of the ASN associated with the peer.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -54,7 +55,7 @@ class PeerAsn(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['peer_asn'] = peer_asn
-            if peer_asn_name is None:
+            if peer_asn_name is None and not opts.urn:
                 raise TypeError("Missing required property 'peer_asn_name'")
             __props__['peer_asn_name'] = peer_asn_name
             __props__['peer_contact_info'] = peer_contact_info

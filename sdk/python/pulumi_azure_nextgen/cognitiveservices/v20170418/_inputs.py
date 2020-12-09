@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'CognitiveServicesAccountApiPropertiesArgs',
@@ -169,7 +170,7 @@ class CognitiveServicesAccountPropertiesArgs:
                  encryption: Optional[pulumi.Input['EncryptionArgs']] = None,
                  network_acls: Optional[pulumi.Input['NetworkRuleSetArgs']] = None,
                  private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
-                 public_network_access: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  user_owned_storage: Optional[pulumi.Input[Sequence[pulumi.Input['UserOwnedStorageArgs']]]] = None):
         """
         Properties of Cognitive Services account.
@@ -178,7 +179,7 @@ class CognitiveServicesAccountPropertiesArgs:
         :param pulumi.Input['EncryptionArgs'] encryption: The encryption properties for this resource.
         :param pulumi.Input['NetworkRuleSetArgs'] network_acls: A collection of rules governing the accessibility from specific network locations.
         :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]] private_endpoint_connections: The private endpoint connection associated with the Cognitive Services account.
-        :param pulumi.Input[str] public_network_access: Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         :param pulumi.Input[Sequence[pulumi.Input['UserOwnedStorageArgs']]] user_owned_storage: The storage accounts for this resource.
         """
         if api_properties is not None:
@@ -258,14 +259,14 @@ class CognitiveServicesAccountPropertiesArgs:
 
     @property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[str]]:
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
         """
         Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[str]]):
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
         pulumi.set(self, "public_network_access", value)
 
     @property
@@ -284,11 +285,11 @@ class CognitiveServicesAccountPropertiesArgs:
 @pulumi.input_type
 class EncryptionArgs:
     def __init__(__self__, *,
-                 key_source: Optional[pulumi.Input[str]] = None,
+                 key_source: Optional[pulumi.Input[Union[str, 'KeySource']]] = None,
                  key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None):
         """
         Properties to configure Encryption
-        :param pulumi.Input[str] key_source: Enumerates the possible value of keySource for Encryption
+        :param pulumi.Input[Union[str, 'KeySource']] key_source: Enumerates the possible value of keySource for Encryption
         :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: Properties of KeyVault
         """
         if key_source is not None:
@@ -298,14 +299,14 @@ class EncryptionArgs:
 
     @property
     @pulumi.getter(name="keySource")
-    def key_source(self) -> Optional[pulumi.Input[str]]:
+    def key_source(self) -> Optional[pulumi.Input[Union[str, 'KeySource']]]:
         """
         Enumerates the possible value of keySource for Encryption
         """
         return pulumi.get(self, "key_source")
 
     @key_source.setter
-    def key_source(self, value: Optional[pulumi.Input[str]]):
+    def key_source(self, value: Optional[pulumi.Input[Union[str, 'KeySource']]]):
         pulumi.set(self, "key_source", value)
 
     @property
@@ -324,11 +325,11 @@ class EncryptionArgs:
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['IdentityType']] = None,
                  user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]] = None):
         """
         Managed service identity.
-        :param pulumi.Input[str] type: Type of managed service identity.
+        :param pulumi.Input['IdentityType'] type: Type of managed service identity.
         :param pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]] user_assigned_identities: The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
         """
         if type is not None:
@@ -338,14 +339,14 @@ class IdentityArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['IdentityType']]:
         """
         Type of managed service identity.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['IdentityType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -443,12 +444,12 @@ class KeyVaultPropertiesArgs:
 @pulumi.input_type
 class NetworkRuleSetArgs:
     def __init__(__self__, *,
-                 default_action: Optional[pulumi.Input[str]] = None,
+                 default_action: Optional[pulumi.Input[Union[str, 'NetworkRuleAction']]] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpRuleArgs']]]] = None,
                  virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
         """
         A set of rules governing the network accessibility.
-        :param pulumi.Input[str] default_action: The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
+        :param pulumi.Input[Union[str, 'NetworkRuleAction']] default_action: The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
         :param pulumi.Input[Sequence[pulumi.Input['IpRuleArgs']]] ip_rules: The list of IP address rules.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: The list of virtual network rules.
         """
@@ -461,14 +462,14 @@ class NetworkRuleSetArgs:
 
     @property
     @pulumi.getter(name="defaultAction")
-    def default_action(self) -> Optional[pulumi.Input[str]]:
+    def default_action(self) -> Optional[pulumi.Input[Union[str, 'NetworkRuleAction']]]:
         """
         The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
         """
         return pulumi.get(self, "default_action")
 
     @default_action.setter
-    def default_action(self, value: Optional[pulumi.Input[str]]):
+    def default_action(self, value: Optional[pulumi.Input[Union[str, 'NetworkRuleAction']]]):
         pulumi.set(self, "default_action", value)
 
     @property
@@ -564,12 +565,12 @@ class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
                  action_required: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None):
+                 status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[str] action_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
-        :param pulumi.Input[str] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         if action_required is not None:
             pulumi.set(__self__, "action_required", action_required)
@@ -604,14 +605,14 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]:
         """
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 

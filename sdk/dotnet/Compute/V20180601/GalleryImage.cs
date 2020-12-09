@@ -215,13 +215,13 @@ namespace Pulumi.AzureNextGen.Compute.V20180601
         /// The allowed values for OS State are 'Generalized'.
         /// </summary>
         [Input("osState", required: true)]
-        public Input<string> OsState { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Compute.V20180601.OperatingSystemStateTypes> OsState { get; set; } = null!;
 
         /// <summary>
         /// This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Windows** &lt;br&gt;&lt;br&gt; **Linux**
         /// </summary>
         [Input("osType", required: true)]
-        public Input<string> OsType { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Compute.V20180601.OperatingSystemTypes> OsType { get; set; } = null!;
 
         /// <summary>
         /// The privacy statement uri.

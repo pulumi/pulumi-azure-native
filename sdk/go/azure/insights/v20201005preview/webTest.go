@@ -64,26 +64,24 @@ type WebTest struct {
 // NewWebTest registers a new resource with the given unique name, arguments, and options.
 func NewWebTest(ctx *pulumi.Context,
 	name string, args *WebTestArgs, opts ...pulumi.ResourceOption) (*WebTest, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Locations == nil {
-		return nil, errors.New("missing required argument 'Locations'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SyntheticMonitorId == nil {
-		return nil, errors.New("missing required argument 'SyntheticMonitorId'")
-	}
-	if args == nil || args.WebTestKind == nil {
-		return nil, errors.New("missing required argument 'WebTestKind'")
-	}
-	if args == nil || args.WebTestName == nil {
-		return nil, errors.New("missing required argument 'WebTestName'")
-	}
 	if args == nil {
-		args = &WebTestArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.Locations == nil {
+		return nil, errors.New("invalid value for required argument 'Locations'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SyntheticMonitorId == nil {
+		return nil, errors.New("invalid value for required argument 'SyntheticMonitorId'")
+	}
+	if args.WebTestName == nil {
+		return nil, errors.New("invalid value for required argument 'WebTestName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -273,7 +271,7 @@ type WebTestArgs struct {
 	// When set, validation will ignore the status code.
 	IgnoreHttpsStatusCode pulumi.BoolPtrInput
 	// The kind of WebTest that this web test watches. Choices are ping and multistep.
-	Kind pulumi.StringPtrInput
+	Kind WebTestKind
 	// Resource location
 	Location pulumi.StringInput
 	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
@@ -295,7 +293,7 @@ type WebTestArgs struct {
 	// Seconds until this WebTest will timeout and fail. Default value is 30.
 	Timeout pulumi.IntPtrInput
 	// The kind of web test this is, valid choices are ping, multistep, basic, and standard.
-	WebTestKind pulumi.StringInput
+	WebTestKind WebTestKindEnum
 	// User defined name if this WebTest.
 	WebTestName pulumi.StringInput
 }

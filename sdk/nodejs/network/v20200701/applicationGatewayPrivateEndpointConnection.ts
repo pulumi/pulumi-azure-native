@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -74,13 +74,13 @@ export class ApplicationGatewayPrivateEndpointConnection extends pulumi.CustomRe
     constructor(name: string, args: ApplicationGatewayPrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.applicationGatewayName === undefined) {
+            if ((!args || args.applicationGatewayName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'applicationGatewayName'");
             }
-            if (!args || args.connectionName === undefined) {
+            if ((!args || args.connectionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'connectionName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["applicationGatewayName"] = args ? args.applicationGatewayName : undefined;

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Batch.V20200301.Inputs
         /// Type of the key source.
         /// </summary>
         [Input("keySource")]
-        public Input<string>? KeySource { get; set; }
+        public Input<Pulumi.AzureNextGen.Batch.V20200301.KeySource>? KeySource { get; set; }
 
         /// <summary>
         /// Additional details when using Microsoft.KeyVault

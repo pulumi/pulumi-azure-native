@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview.Inputs
         /// Type of the parameter
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AzureNextGen.Web.V20150801Preview.ConnectionParameterType>? Type { get; set; }
 
         /// <summary>
         /// UI definitions

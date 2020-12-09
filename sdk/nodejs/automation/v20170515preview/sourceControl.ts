@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -90,13 +90,13 @@ export class SourceControl extends pulumi.CustomResource {
     constructor(name: string, args: SourceControlArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.automationAccountName === undefined) {
+            if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sourceControlName === undefined) {
+            if ((!args || args.sourceControlName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sourceControlName'");
             }
             inputs["autoSync"] = args ? args.autoSync : undefined;
@@ -185,5 +185,5 @@ export interface SourceControlArgs {
     /**
      * The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
      */
-    readonly sourceType?: pulumi.Input<string>;
+    readonly sourceType?: pulumi.Input<string | enums.automation.v20170515preview.SourceType>;
 }

@@ -36,26 +36,27 @@ type GalleryImageVersion struct {
 // NewGalleryImageVersion registers a new resource with the given unique name, arguments, and options.
 func NewGalleryImageVersion(ctx *pulumi.Context,
 	name string, args *GalleryImageVersionArgs, opts ...pulumi.ResourceOption) (*GalleryImageVersion, error) {
-	if args == nil || args.GalleryImageName == nil {
-		return nil, errors.New("missing required argument 'GalleryImageName'")
-	}
-	if args == nil || args.GalleryImageVersionName == nil {
-		return nil, errors.New("missing required argument 'GalleryImageVersionName'")
-	}
-	if args == nil || args.GalleryName == nil {
-		return nil, errors.New("missing required argument 'GalleryName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.PublishingProfile == nil {
-		return nil, errors.New("missing required argument 'PublishingProfile'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &GalleryImageVersionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.GalleryImageName == nil {
+		return nil, errors.New("invalid value for required argument 'GalleryImageName'")
+	}
+	if args.GalleryImageVersionName == nil {
+		return nil, errors.New("invalid value for required argument 'GalleryImageVersionName'")
+	}
+	if args.GalleryName == nil {
+		return nil, errors.New("invalid value for required argument 'GalleryName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.PublishingProfile == nil {
+		return nil, errors.New("invalid value for required argument 'PublishingProfile'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

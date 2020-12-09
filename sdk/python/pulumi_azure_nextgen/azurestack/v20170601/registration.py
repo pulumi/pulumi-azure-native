@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['Registration']
 
@@ -15,7 +16,7 @@ class Registration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[Union[str, 'Location']]] = None,
                  registration_name: Optional[pulumi.Input[str]] = None,
                  registration_token: Optional[pulumi.Input[str]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
@@ -27,7 +28,7 @@ class Registration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: Location of the resource.
+        :param pulumi.Input[Union[str, 'Location']] location: Location of the resource.
         :param pulumi.Input[str] registration_name: Name of the Azure Stack registration.
         :param pulumi.Input[str] registration_token: The token identifying registered Azure Stack
         :param pulumi.Input[str] resource_group: Name of the resource group.
@@ -49,16 +50,16 @@ class Registration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if registration_name is None:
+            if registration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registration_name'")
             __props__['registration_name'] = registration_name
-            if registration_token is None:
+            if registration_token is None and not opts.urn:
                 raise TypeError("Missing required property 'registration_token'")
             __props__['registration_token'] = registration_token
-            if resource_group is None:
+            if resource_group is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group'")
             __props__['resource_group'] = resource_group
             __props__['billing_model'] = None

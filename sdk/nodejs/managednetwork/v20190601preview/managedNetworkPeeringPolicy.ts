@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -62,13 +62,13 @@ export class ManagedNetworkPeeringPolicy extends pulumi.CustomResource {
     constructor(name: string, args: ManagedNetworkPeeringPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.managedNetworkName === undefined) {
+            if ((!args || args.managedNetworkName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managedNetworkName'");
             }
-            if (!args || args.managedNetworkPeeringPolicyName === undefined) {
+            if ((!args || args.managedNetworkPeeringPolicyName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managedNetworkPeeringPolicyName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;

@@ -57,16 +57,16 @@ export class ServerAzureADOnlyAuthentication extends pulumi.CustomResource {
     constructor(name: string, args: ServerAzureADOnlyAuthenticationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.authenticationName === undefined) {
+            if ((!args || args.authenticationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'authenticationName'");
             }
-            if (!args || args.azureADOnlyAuthentication === undefined) {
+            if ((!args || args.azureADOnlyAuthentication === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'azureADOnlyAuthentication'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverName === undefined) {
+            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverName'");
             }
             inputs["authenticationName"] = args ? args.authenticationName : undefined;

@@ -62,17 +62,18 @@ type Domain struct {
 // NewDomain registers a new resource with the given unique name, arguments, and options.
 func NewDomain(ctx *pulumi.Context,
 	name string, args *DomainArgs, opts ...pulumi.ResourceOption) (*Domain, error) {
-	if args == nil || args.DomainName == nil {
-		return nil, errors.New("missing required argument 'DomainName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &DomainArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DomainName == nil {
+		return nil, errors.New("invalid value for required argument 'DomainName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -300,11 +301,11 @@ type DomainArgs struct {
 	// If true then domain privacy is enabled for this domain
 	Privacy pulumi.BoolPtrInput
 	// Domain provisioning state
-	ProvisioningState pulumi.StringPtrInput
+	ProvisioningState ProvisioningState
 	// If true then Azure can assign this domain to Web Apps. This value will be true if domain registration status is active and it is hosted on name servers Azure has programmatic access to
 	ReadyForDnsRecordManagement pulumi.BoolPtrInput
 	// Domain registration status
-	RegistrationStatus pulumi.StringPtrInput
+	RegistrationStatus DomainStatus
 	// &gt;Name of the resource group
 	ResourceGroupName pulumi.StringInput
 	// Resource tags

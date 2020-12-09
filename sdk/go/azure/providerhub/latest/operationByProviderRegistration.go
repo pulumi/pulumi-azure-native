@@ -30,11 +30,12 @@ type OperationByProviderRegistration struct {
 // NewOperationByProviderRegistration registers a new resource with the given unique name, arguments, and options.
 func NewOperationByProviderRegistration(ctx *pulumi.Context,
 	name string, args *OperationByProviderRegistrationArgs, opts ...pulumi.ResourceOption) (*OperationByProviderRegistration, error) {
-	if args == nil || args.ProviderNamespace == nil {
-		return nil, errors.New("missing required argument 'ProviderNamespace'")
-	}
 	if args == nil {
-		args = &OperationByProviderRegistrationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ProviderNamespace == nil {
+		return nil, errors.New("invalid value for required argument 'ProviderNamespace'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

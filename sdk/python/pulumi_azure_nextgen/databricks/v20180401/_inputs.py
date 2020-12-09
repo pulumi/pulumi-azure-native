@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AddressSpaceArgs',
@@ -49,13 +50,13 @@ class AddressSpaceArgs:
 class EncryptionArgs:
     def __init__(__self__, *,
                  key_name: Optional[pulumi.Input[str]] = None,
-                 key_source: Optional[pulumi.Input[str]] = None,
+                 key_source: Optional[pulumi.Input[Union[str, 'KeySource']]] = None,
                  key_vault_uri: Optional[pulumi.Input[str]] = None,
                  key_version: Optional[pulumi.Input[str]] = None):
         """
         The object that contains details of encryption used on the workspace.
         :param pulumi.Input[str] key_name: The name of KeyVault key.
-        :param pulumi.Input[str] key_source: The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
+        :param pulumi.Input[Union[str, 'KeySource']] key_source: The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
         :param pulumi.Input[str] key_vault_uri: The Uri of KeyVault.
         :param pulumi.Input[str] key_version: The version of KeyVault key.
         """
@@ -82,14 +83,14 @@ class EncryptionArgs:
 
     @property
     @pulumi.getter(name="keySource")
-    def key_source(self) -> Optional[pulumi.Input[str]]:
+    def key_source(self) -> Optional[pulumi.Input[Union[str, 'KeySource']]]:
         """
         The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
         """
         return pulumi.get(self, "key_source")
 
     @key_source.setter
-    def key_source(self, value: Optional[pulumi.Input[str]]):
+    def key_source(self, value: Optional[pulumi.Input[Union[str, 'KeySource']]]):
         pulumi.set(self, "key_source", value)
 
     @property

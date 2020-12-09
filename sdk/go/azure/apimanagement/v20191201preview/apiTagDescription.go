@@ -34,20 +34,21 @@ type ApiTagDescription struct {
 // NewApiTagDescription registers a new resource with the given unique name, arguments, and options.
 func NewApiTagDescription(ctx *pulumi.Context,
 	name string, args *ApiTagDescriptionArgs, opts ...pulumi.ResourceOption) (*ApiTagDescription, error) {
-	if args == nil || args.ApiId == nil {
-		return nil, errors.New("missing required argument 'ApiId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
-	if args == nil || args.TagDescriptionId == nil {
-		return nil, errors.New("missing required argument 'TagDescriptionId'")
-	}
 	if args == nil {
-		args = &ApiTagDescriptionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApiId == nil {
+		return nil, errors.New("invalid value for required argument 'ApiId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
+	}
+	if args.TagDescriptionId == nil {
+		return nil, errors.New("invalid value for required argument 'TagDescriptionId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

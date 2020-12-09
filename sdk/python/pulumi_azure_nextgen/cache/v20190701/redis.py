@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Redis']
@@ -19,7 +20,7 @@ class Redis(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enable_non_ssl_port: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 minimum_tls_version: Optional[pulumi.Input[str]] = None,
+                 minimum_tls_version: Optional[pulumi.Input[Union[str, 'TlsVersion']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  redis_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  replicas_per_master: Optional[pulumi.Input[int]] = None,
@@ -41,7 +42,7 @@ class Redis(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enable_non_ssl_port: Specifies whether the non-ssl Redis server port (6379) is enabled.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] minimum_tls_version: Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
+        :param pulumi.Input[Union[str, 'TlsVersion']] minimum_tls_version: Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
         :param pulumi.Input[str] name: The name of the Redis cache.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] redis_configuration: All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
         :param pulumi.Input[int] replicas_per_master: The number of replicas to be created per master.
@@ -72,20 +73,20 @@ class Redis(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['enable_non_ssl_port'] = enable_non_ssl_port
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['minimum_tls_version'] = minimum_tls_version
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['redis_configuration'] = redis_configuration
             __props__['replicas_per_master'] = replicas_per_master
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['shard_count'] = shard_count
-            if sku is None:
+            if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['static_ip'] = static_ip

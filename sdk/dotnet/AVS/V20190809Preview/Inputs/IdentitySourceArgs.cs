@@ -67,7 +67,7 @@ namespace Pulumi.AzureNextGen.AVS.V20190809Preview.Inputs
         /// Protect LDAP communication using SSL certificate (LDAPS)
         /// </summary>
         [Input("ssl")]
-        public Input<string>? Ssl { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.AVS.V20190809Preview.SslEnum>? Ssl { get; set; }
 
         /// <summary>
         /// The ID of an Active Directory user with a minimum of read-only access to Base DN for users and group

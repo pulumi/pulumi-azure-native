@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.Latest.Inputs
         /// Type of identity being specified, currently SystemAssigned and None are allowed.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.HealthcareApis.Latest.ManagedServiceIdentityType>? Type { get; set; }
 
         public ServicesResourceIdentityArgs()
         {

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901.Inputs
         /// Indicates the purpose of the parameter
         /// </summary>
         [Input("paramIndicator", required: true)]
-        public Input<string> ParamIndicator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20200901.ParamIndicator> ParamIndicator { get; set; } = null!;
 
         /// <summary>
         /// Parameter name

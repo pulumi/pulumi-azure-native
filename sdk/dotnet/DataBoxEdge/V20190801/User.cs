@@ -136,7 +136,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801
         /// Type of the user.
         /// </summary>
         [Input("userType", required: true)]
-        public Input<string> UserType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.V20190801.UserType> UserType { get; set; } = null!;
 
         public UserArgs()
         {

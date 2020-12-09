@@ -48,17 +48,18 @@ type AndroidMAMPolicyByName struct {
 // NewAndroidMAMPolicyByName registers a new resource with the given unique name, arguments, and options.
 func NewAndroidMAMPolicyByName(ctx *pulumi.Context,
 	name string, args *AndroidMAMPolicyByNameArgs, opts ...pulumi.ResourceOption) (*AndroidMAMPolicyByName, error) {
-	if args == nil || args.FriendlyName == nil {
-		return nil, errors.New("missing required argument 'FriendlyName'")
-	}
-	if args == nil || args.HostName == nil {
-		return nil, errors.New("missing required argument 'HostName'")
-	}
-	if args == nil || args.PolicyName == nil {
-		return nil, errors.New("missing required argument 'PolicyName'")
-	}
 	if args == nil {
-		args = &AndroidMAMPolicyByNameArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.FriendlyName == nil {
+		return nil, errors.New("invalid value for required argument 'FriendlyName'")
+	}
+	if args.HostName == nil {
+		return nil, errors.New("invalid value for required argument 'HostName'")
+	}
+	if args.PolicyName == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

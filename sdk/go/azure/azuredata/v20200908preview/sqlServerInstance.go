@@ -44,32 +44,33 @@ type SqlServerInstance struct {
 // NewSqlServerInstance registers a new resource with the given unique name, arguments, and options.
 func NewSqlServerInstance(ctx *pulumi.Context,
 	name string, args *SqlServerInstanceArgs, opts ...pulumi.ResourceOption) (*SqlServerInstance, error) {
-	if args == nil || args.ContainerResourceId == nil {
-		return nil, errors.New("missing required argument 'ContainerResourceId'")
-	}
-	if args == nil || args.Edition == nil {
-		return nil, errors.New("missing required argument 'Edition'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SqlServerInstanceName == nil {
-		return nil, errors.New("missing required argument 'SqlServerInstanceName'")
-	}
-	if args == nil || args.Status == nil {
-		return nil, errors.New("missing required argument 'Status'")
-	}
-	if args == nil || args.VCore == nil {
-		return nil, errors.New("missing required argument 'VCore'")
-	}
-	if args == nil || args.Version == nil {
-		return nil, errors.New("missing required argument 'Version'")
-	}
 	if args == nil {
-		args = &SqlServerInstanceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ContainerResourceId == nil {
+		return nil, errors.New("invalid value for required argument 'ContainerResourceId'")
+	}
+	if args.Edition == nil {
+		return nil, errors.New("invalid value for required argument 'Edition'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SqlServerInstanceName == nil {
+		return nil, errors.New("invalid value for required argument 'SqlServerInstanceName'")
+	}
+	if args.Status == nil {
+		return nil, errors.New("invalid value for required argument 'Status'")
+	}
+	if args.VCore == nil {
+		return nil, errors.New("invalid value for required argument 'VCore'")
+	}
+	if args.Version == nil {
+		return nil, errors.New("invalid value for required argument 'Version'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

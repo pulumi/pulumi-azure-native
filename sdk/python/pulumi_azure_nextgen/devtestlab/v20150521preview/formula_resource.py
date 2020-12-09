@@ -76,16 +76,16 @@ class FormulaResource(pulumi.CustomResource):
             __props__['description'] = description
             __props__['formula_content'] = formula_content
             __props__['id'] = id
-            if lab_name is None:
+            if lab_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_name'")
             __props__['lab_name'] = lab_name
             __props__['location'] = location
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['os_type'] = os_type
             __props__['provisioning_state'] = provisioning_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

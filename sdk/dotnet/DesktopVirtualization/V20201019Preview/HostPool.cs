@@ -228,13 +228,13 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201019Preview
         /// HostPool type for desktop.
         /// </summary>
         [Input("hostPoolType", required: true)]
-        public Input<string> HostPoolType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DesktopVirtualization.V20201019Preview.HostPoolType> HostPoolType { get; set; } = null!;
 
         /// <summary>
         /// The type of the load balancer.
         /// </summary>
         [Input("loadBalancerType", required: true)]
-        public Input<string> LoadBalancerType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DesktopVirtualization.V20201019Preview.LoadBalancerType> LoadBalancerType { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -252,13 +252,13 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201019Preview
         /// PersonalDesktopAssignment type for HostPool.
         /// </summary>
         [Input("personalDesktopAssignmentType")]
-        public Input<string>? PersonalDesktopAssignmentType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DesktopVirtualization.V20201019Preview.PersonalDesktopAssignmentType>? PersonalDesktopAssignmentType { get; set; }
 
         /// <summary>
         /// The type of preferred application group type, default to Desktop Application Group
         /// </summary>
         [Input("preferredAppGroupType", required: true)]
-        public Input<string> PreferredAppGroupType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DesktopVirtualization.V20201019Preview.PreferredAppGroupType> PreferredAppGroupType { get; set; } = null!;
 
         /// <summary>
         /// The registration info of HostPool.
@@ -300,7 +300,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201019Preview
         /// The type of single sign on Secret Type.
         /// </summary>
         [Input("ssoSecretType")]
-        public Input<string>? SsoSecretType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DesktopVirtualization.V20201019Preview.SSOSecretType>? SsoSecretType { get; set; }
 
         /// <summary>
         /// URL to customer ADFS server for signing WVD SSO certificates.

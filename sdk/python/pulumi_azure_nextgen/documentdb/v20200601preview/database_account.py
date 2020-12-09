@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DatabaseAccount']
@@ -19,7 +20,7 @@ class DatabaseAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'DatabaseAccountKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Union[pulumi.InputType['DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs'], pulumi.InputType['RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -34,7 +35,7 @@ class DatabaseAccount(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Identity for the resource.
-        :param pulumi.Input[str] kind: Indicates the type of database account. This can only be set at database account creation.
+        :param pulumi.Input[Union[str, 'DatabaseAccountKind']] kind: Indicates the type of database account. This can only be set at database account creation.
         :param pulumi.Input[str] location: The location of the resource group to which the resource belongs.
         :param pulumi.Input[Union[pulumi.InputType['DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs'], pulumi.InputType['RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs']]] properties: Properties to create and update Azure Cosmos DB database accounts.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -57,16 +58,16 @@ class DatabaseAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_name is None:
+            if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['identity'] = identity
             __props__['kind'] = kind
             __props__['location'] = location
-            if properties is None:
+            if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

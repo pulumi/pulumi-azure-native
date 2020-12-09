@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Web.Latest.Inputs
         /// Shared/Dedicated workers
         /// </summary>
         [Input("computeMode")]
-        public Input<string>? ComputeMode { get; set; }
+        public Input<Pulumi.AzureNextGen.Web.Latest.ComputeModeOptions>? ComputeMode { get; set; }
 
         /// <summary>
         /// If true it includes basic sites
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNextGen.Web.Latest.Inputs
         /// Size of the machines
         /// </summary>
         [Input("workerSize")]
-        public Input<string>? WorkerSize { get; set; }
+        public Input<Pulumi.AzureNextGen.Web.Latest.WorkerSizeOptions>? WorkerSize { get; set; }
 
         /// <summary>
         /// Size Id of machines: 

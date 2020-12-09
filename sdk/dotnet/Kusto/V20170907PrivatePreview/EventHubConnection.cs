@@ -127,7 +127,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20170907PrivatePreview
         /// The data format of the message. Optionally the data format can be added to each message.
         /// </summary>
         [Input("dataFormat")]
-        public Input<string>? DataFormat { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Kusto.V20170907PrivatePreview.DataFormat>? DataFormat { get; set; }
 
         /// <summary>
         /// The name of the database in the Kusto cluster.

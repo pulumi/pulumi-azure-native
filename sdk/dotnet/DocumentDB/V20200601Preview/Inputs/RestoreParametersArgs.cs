@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview.Inputs
         /// Describes the mode of the restore.
         /// </summary>
         [Input("restoreMode")]
-        public Input<string>? RestoreMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DocumentDB.V20200601Preview.RestoreMode>? RestoreMode { get; set; }
 
         /// <summary>
         /// The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}

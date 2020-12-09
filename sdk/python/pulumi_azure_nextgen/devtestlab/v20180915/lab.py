@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Lab']
@@ -18,14 +19,14 @@ class Lab(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  announcement: Optional[pulumi.Input[pulumi.InputType['LabAnnouncementPropertiesArgs']]] = None,
-                 environment_permission: Optional[pulumi.Input[str]] = None,
+                 environment_permission: Optional[pulumi.Input[Union[str, 'EnvironmentPermission']]] = None,
                  extended_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 lab_storage_type: Optional[pulumi.Input[str]] = None,
+                 lab_storage_type: Optional[pulumi.Input[Union[str, 'StorageType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mandatory_artifacts_resource_ids_linux: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  mandatory_artifacts_resource_ids_windows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 premium_data_disks: Optional[pulumi.Input[str]] = None,
+                 premium_data_disks: Optional[pulumi.Input[Union[str, 'PremiumDataDisk']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  support: Optional[pulumi.Input[pulumi.InputType['LabSupportPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -38,14 +39,14 @@ class Lab(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['LabAnnouncementPropertiesArgs']] announcement: The properties of any lab announcement associated with this lab
-        :param pulumi.Input[str] environment_permission: The access rights to be granted to the user when provisioning an environment
+        :param pulumi.Input[Union[str, 'EnvironmentPermission']] environment_permission: The access rights to be granted to the user when provisioning an environment
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extended_properties: Extended properties of the lab used for experimental features
-        :param pulumi.Input[str] lab_storage_type: Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+        :param pulumi.Input[Union[str, 'StorageType']] lab_storage_type: Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] mandatory_artifacts_resource_ids_linux: The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] mandatory_artifacts_resource_ids_windows: The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
         :param pulumi.Input[str] name: The name of the lab.
-        :param pulumi.Input[str] premium_data_disks: The setting to enable usage of premium data disks.
+        :param pulumi.Input[Union[str, 'PremiumDataDisk']] premium_data_disks: The setting to enable usage of premium data disks.
                When its value is 'Enabled', creation of standard or premium data disks is allowed.
                When its value is 'Disabled', only creation of standard data disks is allowed.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -76,11 +77,11 @@ class Lab(pulumi.CustomResource):
             __props__['location'] = location
             __props__['mandatory_artifacts_resource_ids_linux'] = mandatory_artifacts_resource_ids_linux
             __props__['mandatory_artifacts_resource_ids_windows'] = mandatory_artifacts_resource_ids_windows
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['premium_data_disks'] = premium_data_disks
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['support'] = support

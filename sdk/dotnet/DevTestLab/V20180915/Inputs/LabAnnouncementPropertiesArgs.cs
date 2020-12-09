@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915.Inputs
         /// Is the lab announcement active/enabled at this time?
         /// </summary>
         [Input("enabled")]
-        public Input<string>? Enabled { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20180915.EnableStatus>? Enabled { get; set; }
 
         /// <summary>
         /// The time at which the announcement expires (null for never)

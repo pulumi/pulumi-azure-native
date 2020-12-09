@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Compute.V20190301.Inputs
         /// Specifies the caching requirements. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **None** &lt;br&gt;&lt;br&gt; **ReadOnly** &lt;br&gt;&lt;br&gt; **ReadWrite** &lt;br&gt;&lt;br&gt; Default: **None for Standard storage. ReadOnly for Premium storage**
         /// </summary>
         [Input("caching")]
-        public Input<string>? Caching { get; set; }
+        public Input<Pulumi.AzureNextGen.Compute.V20190301.CachingTypes>? Caching { get; set; }
 
         /// <summary>
         /// Specifies how the virtual machine should be created.&lt;br&gt;&lt;br&gt; Possible values are:&lt;br&gt;&lt;br&gt; **Attach** \u2013 This value is used when you are using a specialized disk to create the virtual machine.&lt;br&gt;&lt;br&gt; **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
         /// </summary>
         [Input("createOption", required: true)]
-        public Input<string> CreateOption { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20190301.DiskCreateOptionTypes> CreateOption { get; set; } = null!;
 
         /// <summary>
         /// Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. &lt;br&gt;&lt;br&gt; This value cannot be larger than 1023 GB

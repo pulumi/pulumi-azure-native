@@ -223,13 +223,13 @@ namespace Pulumi.AzureNextGen.DataLakeStore.Latest
         /// The current state of encryption for this Data Lake Store account.
         /// </summary>
         [Input("encryptionState")]
-        public Input<string>? EncryptionState { get; set; }
+        public Input<Pulumi.AzureNextGen.DataLakeStore.Latest.EncryptionState>? EncryptionState { get; set; }
 
         /// <summary>
         /// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
         /// </summary>
         [Input("firewallAllowAzureIps")]
-        public Input<string>? FirewallAllowAzureIps { get; set; }
+        public Input<Pulumi.AzureNextGen.DataLakeStore.Latest.FirewallAllowAzureIpsState>? FirewallAllowAzureIps { get; set; }
 
         [Input("firewallRules")]
         private InputList<Inputs.CreateFirewallRuleWithAccountParametersArgs>? _firewallRules;
@@ -247,7 +247,7 @@ namespace Pulumi.AzureNextGen.DataLakeStore.Latest
         /// The current state of the IP address firewall for this Data Lake Store account.
         /// </summary>
         [Input("firewallState")]
-        public Input<string>? FirewallState { get; set; }
+        public Input<Pulumi.AzureNextGen.DataLakeStore.Latest.FirewallState>? FirewallState { get; set; }
 
         /// <summary>
         /// The Key Vault encryption identity, if any.
@@ -265,7 +265,7 @@ namespace Pulumi.AzureNextGen.DataLakeStore.Latest
         /// The commitment tier to use for next month.
         /// </summary>
         [Input("newTier")]
-        public Input<string>? NewTier { get; set; }
+        public Input<Pulumi.AzureNextGen.DataLakeStore.Latest.TierType>? NewTier { get; set; }
 
         /// <summary>
         /// The name of the Azure resource group.
@@ -289,7 +289,7 @@ namespace Pulumi.AzureNextGen.DataLakeStore.Latest
         /// The current state of the trusted identity provider feature for this Data Lake Store account.
         /// </summary>
         [Input("trustedIdProviderState")]
-        public Input<string>? TrustedIdProviderState { get; set; }
+        public Input<Pulumi.AzureNextGen.DataLakeStore.Latest.TrustedIdProviderState>? TrustedIdProviderState { get; set; }
 
         [Input("trustedIdProviders")]
         private InputList<Inputs.CreateTrustedIdProviderWithAccountParametersArgs>? _trustedIdProviders;

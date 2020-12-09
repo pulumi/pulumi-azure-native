@@ -41,20 +41,21 @@ type AgentPool struct {
 // NewAgentPool registers a new resource with the given unique name, arguments, and options.
 func NewAgentPool(ctx *pulumi.Context,
 	name string, args *AgentPoolArgs, opts ...pulumi.ResourceOption) (*AgentPool, error) {
-	if args == nil || args.AgentPoolName == nil {
-		return nil, errors.New("missing required argument 'AgentPoolName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.RegistryName == nil {
-		return nil, errors.New("missing required argument 'RegistryName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &AgentPoolArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AgentPoolName == nil {
+		return nil, errors.New("invalid value for required argument 'AgentPoolName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.RegistryName == nil {
+		return nil, errors.New("invalid value for required argument 'RegistryName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource AgentPool
 	err := ctx.RegisterResource("azure-nextgen:containerregistry/v20190601preview:AgentPool", name, args, &resource, opts...)

@@ -69,16 +69,16 @@ export class ServerCommunicationLink extends pulumi.CustomResource {
     constructor(name: string, args: ServerCommunicationLinkArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.communicationLinkName === undefined) {
+            if ((!args || args.communicationLinkName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'communicationLinkName'");
             }
-            if (!args || args.partnerServer === undefined) {
+            if ((!args || args.partnerServer === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'partnerServer'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverName === undefined) {
+            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverName'");
             }
             inputs["communicationLinkName"] = args ? args.communicationLinkName : undefined;

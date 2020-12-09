@@ -42,14 +42,15 @@ type VirtualNetworkTap struct {
 // NewVirtualNetworkTap registers a new resource with the given unique name, arguments, and options.
 func NewVirtualNetworkTap(ctx *pulumi.Context,
 	name string, args *VirtualNetworkTapArgs, opts ...pulumi.ResourceOption) (*VirtualNetworkTap, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.TapName == nil {
-		return nil, errors.New("missing required argument 'TapName'")
-	}
 	if args == nil {
-		args = &VirtualNetworkTapArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.TapName == nil {
+		return nil, errors.New("invalid value for required argument 'TapName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

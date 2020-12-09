@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['PublicIPAddress']
@@ -25,8 +26,8 @@ class PublicIPAddress(pulumi.CustomResource):
                  ip_configuration: Optional[pulumi.Input[pulumi.InputType['IPConfigurationArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
-                 public_ip_address_version: Optional[pulumi.Input[str]] = None,
-                 public_ip_allocation_method: Optional[pulumi.Input[str]] = None,
+                 public_ip_address_version: Optional[pulumi.Input[Union[str, 'IPVersion']]] = None,
+                 public_ip_allocation_method: Optional[pulumi.Input[Union[str, 'IPAllocationMethod']]] = None,
                  public_ip_address_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_guid: Optional[pulumi.Input[str]] = None,
@@ -46,8 +47,8 @@ class PublicIPAddress(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['IPConfigurationArgs']] ip_configuration: IPConfiguration
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] provisioning_state: Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
-        :param pulumi.Input[str] public_ip_address_version: Gets or sets PublicIP address version (IPv4/IPv6)
-        :param pulumi.Input[str] public_ip_allocation_method: Gets or sets PublicIP allocation method (Static/Dynamic)
+        :param pulumi.Input[Union[str, 'IPVersion']] public_ip_address_version: Gets or sets PublicIP address version (IPv4/IPv6)
+        :param pulumi.Input[Union[str, 'IPAllocationMethod']] public_ip_allocation_method: Gets or sets PublicIP allocation method (Static/Dynamic)
         :param pulumi.Input[str] public_ip_address_name: The name of the publicIpAddress.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] resource_guid: Gets or sets resource GUID property of the PublicIP resource
@@ -80,10 +81,10 @@ class PublicIPAddress(pulumi.CustomResource):
             __props__['provisioning_state'] = provisioning_state
             __props__['public_ip_address_version'] = public_ip_address_version
             __props__['public_ip_allocation_method'] = public_ip_allocation_method
-            if public_ip_address_name is None:
+            if public_ip_address_name is None and not opts.urn:
                 raise TypeError("Missing required property 'public_ip_address_name'")
             __props__['public_ip_address_name'] = public_ip_address_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_guid'] = resource_guid

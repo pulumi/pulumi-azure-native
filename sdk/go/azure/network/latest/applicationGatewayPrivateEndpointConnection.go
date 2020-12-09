@@ -34,17 +34,18 @@ type ApplicationGatewayPrivateEndpointConnection struct {
 // NewApplicationGatewayPrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
 func NewApplicationGatewayPrivateEndpointConnection(ctx *pulumi.Context,
 	name string, args *ApplicationGatewayPrivateEndpointConnectionArgs, opts ...pulumi.ResourceOption) (*ApplicationGatewayPrivateEndpointConnection, error) {
-	if args == nil || args.ApplicationGatewayName == nil {
-		return nil, errors.New("missing required argument 'ApplicationGatewayName'")
-	}
-	if args == nil || args.ConnectionName == nil {
-		return nil, errors.New("missing required argument 'ConnectionName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ApplicationGatewayPrivateEndpointConnectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApplicationGatewayName == nil {
+		return nil, errors.New("invalid value for required argument 'ApplicationGatewayName'")
+	}
+	if args.ConnectionName == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectionName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

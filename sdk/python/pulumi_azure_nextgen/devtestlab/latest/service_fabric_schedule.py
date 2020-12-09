@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ServiceFabricSchedule']
@@ -25,7 +26,7 @@ class ServiceFabricSchedule(pulumi.CustomResource):
                  notification_settings: Optional[pulumi.Input[pulumi.InputType['NotificationSettingsArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_fabric_name: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'EnableStatus']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  task_type: Optional[pulumi.Input[str]] = None,
@@ -48,7 +49,7 @@ class ServiceFabricSchedule(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['NotificationSettingsArgs']] notification_settings: Notification settings.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_fabric_name: The name of the service fabric.
-        :param pulumi.Input[str] status: The status of the schedule (i.e. Enabled, Disabled)
+        :param pulumi.Input[Union[str, 'EnableStatus']] status: The status of the schedule (i.e. Enabled, Disabled)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] target_resource_id: The resource ID to which the schedule belongs
         :param pulumi.Input[str] task_type: The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
@@ -75,18 +76,18 @@ class ServiceFabricSchedule(pulumi.CustomResource):
 
             __props__['daily_recurrence'] = daily_recurrence
             __props__['hourly_recurrence'] = hourly_recurrence
-            if lab_name is None:
+            if lab_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_name'")
             __props__['lab_name'] = lab_name
             __props__['location'] = location
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['notification_settings'] = notification_settings
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if service_fabric_name is None:
+            if service_fabric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_fabric_name'")
             __props__['service_fabric_name'] = service_fabric_name
             __props__['status'] = status
@@ -94,7 +95,7 @@ class ServiceFabricSchedule(pulumi.CustomResource):
             __props__['target_resource_id'] = target_resource_id
             __props__['task_type'] = task_type
             __props__['time_zone_id'] = time_zone_id
-            if user_name is None:
+            if user_name is None and not opts.urn:
                 raise TypeError("Missing required property 'user_name'")
             __props__['user_name'] = user_name
             __props__['weekly_recurrence'] = weekly_recurrence

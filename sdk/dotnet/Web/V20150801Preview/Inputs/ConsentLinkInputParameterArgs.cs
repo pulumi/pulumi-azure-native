@@ -29,7 +29,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview.Inputs
         /// Principal type
         /// </summary>
         [Input("principalType")]
-        public string? PrincipalType { get; set; }
+        public Pulumi.AzureNextGen.Web.V20150801Preview.PrincipalType? PrincipalType { get; set; }
 
         /// <summary>
         /// Name of the parameter in the connection provider's oauthSettings

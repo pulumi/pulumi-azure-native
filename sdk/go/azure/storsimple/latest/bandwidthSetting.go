@@ -30,20 +30,21 @@ type BandwidthSetting struct {
 // NewBandwidthSetting registers a new resource with the given unique name, arguments, and options.
 func NewBandwidthSetting(ctx *pulumi.Context,
 	name string, args *BandwidthSettingArgs, opts ...pulumi.ResourceOption) (*BandwidthSetting, error) {
-	if args == nil || args.BandwidthSettingName == nil {
-		return nil, errors.New("missing required argument 'BandwidthSettingName'")
-	}
-	if args == nil || args.ManagerName == nil {
-		return nil, errors.New("missing required argument 'ManagerName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Schedules == nil {
-		return nil, errors.New("missing required argument 'Schedules'")
-	}
 	if args == nil {
-		args = &BandwidthSettingArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BandwidthSettingName == nil {
+		return nil, errors.New("invalid value for required argument 'BandwidthSettingName'")
+	}
+	if args.ManagerName == nil {
+		return nil, errors.New("invalid value for required argument 'ManagerName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Schedules == nil {
+		return nil, errors.New("invalid value for required argument 'Schedules'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -120,7 +121,7 @@ type BandwidthSettingArgs struct {
 	// The bandwidth setting name.
 	BandwidthSettingName pulumi.StringInput
 	// The Kind of the object. Currently only Series8000 is supported
-	Kind pulumi.StringPtrInput
+	Kind Kind
 	// The manager name
 	ManagerName pulumi.StringInput
 	// The resource group name

@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601.Inputs
         /// The RosettaNet ProcessConfiguration role type.
         /// </summary>
         [Input("roleType", required: true)]
-        public Input<string> RoleType { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Logic.V20160601.RosettaNetPipRoleType> RoleType { get; set; } = null!;
 
         /// <summary>
         /// The service name.

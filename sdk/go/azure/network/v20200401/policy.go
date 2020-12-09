@@ -43,14 +43,15 @@ type Policy struct {
 // NewPolicy registers a new resource with the given unique name, arguments, and options.
 func NewPolicy(ctx *pulumi.Context,
 	name string, args *PolicyArgs, opts ...pulumi.ResourceOption) (*Policy, error) {
-	if args == nil || args.PolicyName == nil {
-		return nil, errors.New("missing required argument 'PolicyName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &PolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PolicyName == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

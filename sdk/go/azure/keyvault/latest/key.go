@@ -41,20 +41,21 @@ type Key struct {
 // NewKey registers a new resource with the given unique name, arguments, and options.
 func NewKey(ctx *pulumi.Context,
 	name string, args *KeyArgs, opts ...pulumi.ResourceOption) (*Key, error) {
-	if args == nil || args.KeyName == nil {
-		return nil, errors.New("missing required argument 'KeyName'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VaultName == nil {
-		return nil, errors.New("missing required argument 'VaultName'")
-	}
 	if args == nil {
-		args = &KeyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.KeyName == nil {
+		return nil, errors.New("invalid value for required argument 'KeyName'")
+	}
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VaultName == nil {
+		return nil, errors.New("invalid value for required argument 'VaultName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

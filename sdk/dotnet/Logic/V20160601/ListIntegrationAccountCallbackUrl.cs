@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
         /// The key type.
         /// </summary>
         [Input("keyType")]
-        public string? KeyType { get; set; }
+        public Pulumi.AzureNextGen.Logic.V20160601.KeyType? KeyType { get; set; }
 
         /// <summary>
         /// The expiry time.

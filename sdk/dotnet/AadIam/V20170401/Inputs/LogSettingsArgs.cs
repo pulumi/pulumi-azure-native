@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.AadIam.V20170401.Inputs
         /// Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
         /// </summary>
         [Input("category")]
-        public Input<string>? Category { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.AadIam.V20170401.Category>? Category { get; set; }
 
         /// <summary>
         /// A value indicating whether this log is enabled.

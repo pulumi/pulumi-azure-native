@@ -46,26 +46,27 @@ type Assignment struct {
 // NewAssignment registers a new resource with the given unique name, arguments, and options.
 func NewAssignment(ctx *pulumi.Context,
 	name string, args *AssignmentArgs, opts ...pulumi.ResourceOption) (*Assignment, error) {
-	if args == nil || args.AssignmentName == nil {
-		return nil, errors.New("missing required argument 'AssignmentName'")
-	}
-	if args == nil || args.Identity == nil {
-		return nil, errors.New("missing required argument 'Identity'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Parameters == nil {
-		return nil, errors.New("missing required argument 'Parameters'")
-	}
-	if args == nil || args.ResourceGroups == nil {
-		return nil, errors.New("missing required argument 'ResourceGroups'")
-	}
-	if args == nil || args.ResourceScope == nil {
-		return nil, errors.New("missing required argument 'ResourceScope'")
-	}
 	if args == nil {
-		args = &AssignmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AssignmentName == nil {
+		return nil, errors.New("invalid value for required argument 'AssignmentName'")
+	}
+	if args.Identity == nil {
+		return nil, errors.New("invalid value for required argument 'Identity'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.Parameters == nil {
+		return nil, errors.New("invalid value for required argument 'Parameters'")
+	}
+	if args.ResourceGroups == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroups'")
+	}
+	if args.ResourceScope == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceScope'")
 	}
 	var resource Assignment
 	err := ctx.RegisterResource("azure-nextgen:blueprint/v20181101preview:Assignment", name, args, &resource, opts...)

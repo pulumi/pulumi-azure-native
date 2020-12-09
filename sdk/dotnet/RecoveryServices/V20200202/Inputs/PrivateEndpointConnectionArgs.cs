@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20200202.Inputs
         /// Gets or sets provisioning state of the private endpoint connection
         /// </summary>
         [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20200202.ProvisioningState>? ProvisioningState { get; set; }
 
         public PrivateEndpointConnectionArgs()
         {

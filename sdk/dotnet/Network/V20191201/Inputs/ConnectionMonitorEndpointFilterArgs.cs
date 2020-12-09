@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201.Inputs
         /// The behavior of the endpoint filter. Currently only 'Include' is supported.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20191201.ConnectionMonitorEndpointFilterType>? Type { get; set; }
 
         public ConnectionMonitorEndpointFilterArgs()
         {

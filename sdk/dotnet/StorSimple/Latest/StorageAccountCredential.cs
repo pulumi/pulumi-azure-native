@@ -122,7 +122,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         [Input("kind")]
-        public Input<string>? Kind { get; set; }
+        public Input<Pulumi.AzureNextGen.StorSimple.Latest.Kind>? Kind { get; set; }
 
         /// <summary>
         /// The manager name
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// Signifies whether SSL needs to be enabled or not.
         /// </summary>
         [Input("sslStatus", required: true)]
-        public Input<string> SslStatus { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.StorSimple.Latest.SslStatus> SslStatus { get; set; } = null!;
 
         /// <summary>
         /// The storage account credential name.

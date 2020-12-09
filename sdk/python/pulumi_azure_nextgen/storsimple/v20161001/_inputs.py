@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AsymmetricEncryptedSecretArgs',
@@ -18,12 +19,12 @@ __all__ = [
 @pulumi.input_type
 class AsymmetricEncryptedSecretArgs:
     def __init__(__self__, *,
-                 encryption_algorithm: pulumi.Input[str],
+                 encryption_algorithm: pulumi.Input['EncryptionAlgorithm'],
                  value: pulumi.Input[str],
                  encryption_certificate_thumbprint: Optional[pulumi.Input[str]] = None):
         """
         This class can be used as the Type for any secret entity represented as Password, CertThumbprint, Algorithm. This class is intended to be used when the secret is encrypted with an asymmetric key pair. The encryptionAlgorithm field is mainly for future usage to potentially allow different entities encrypted using different algorithms.
-        :param pulumi.Input[str] encryption_algorithm: Algorithm used to encrypt "Value"
+        :param pulumi.Input['EncryptionAlgorithm'] encryption_algorithm: Algorithm used to encrypt "Value"
         :param pulumi.Input[str] value: The value of the secret itself. If the secret is in plaintext then EncryptionAlgorithm will be none and EncryptionCertThumbprint will be null.
         :param pulumi.Input[str] encryption_certificate_thumbprint: Thumbprint certificate that was used to encrypt "Value"
         """
@@ -34,14 +35,14 @@ class AsymmetricEncryptedSecretArgs:
 
     @property
     @pulumi.getter(name="encryptionAlgorithm")
-    def encryption_algorithm(self) -> pulumi.Input[str]:
+    def encryption_algorithm(self) -> pulumi.Input['EncryptionAlgorithm']:
         """
         Algorithm used to encrypt "Value"
         """
         return pulumi.get(self, "encryption_algorithm")
 
     @encryption_algorithm.setter
-    def encryption_algorithm(self, value: pulumi.Input[str]):
+    def encryption_algorithm(self, value: pulumi.Input['EncryptionAlgorithm']):
         pulumi.set(self, "encryption_algorithm", value)
 
     @property
@@ -72,46 +73,46 @@ class AsymmetricEncryptedSecretArgs:
 @pulumi.input_type
 class ManagerIntrinsicSettingsArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input['ManagerType']):
         """
         Intrinsic settings which refers to the type of the StorSimple manager
-        :param pulumi.Input[str] type: Refers to the type of the StorSimple Manager
+        :param pulumi.Input['ManagerType'] type: Refers to the type of the StorSimple Manager
         """
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['ManagerType']:
         """
         Refers to the type of the StorSimple Manager
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['ManagerType']):
         pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
 class ManagerSkuArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str]):
+                 name: pulumi.Input['ManagerSkuType']):
         """
         The Sku.
-        :param pulumi.Input[str] name: Refers to the sku name which should be "Standard"
+        :param pulumi.Input['ManagerSkuType'] name: Refers to the sku name which should be "Standard"
         """
         pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input['ManagerSkuType']:
         """
         Refers to the sku name which should be "Standard"
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input['ManagerSkuType']):
         pulumi.set(self, "name", value)
 
 

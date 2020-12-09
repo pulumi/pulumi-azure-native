@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['RouteFilterRule']
 
@@ -15,14 +16,14 @@ class RouteFilterRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access: Optional[pulumi.Input[str]] = None,
+                 access: Optional[pulumi.Input[Union[str, 'Access']]] = None,
                  communities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  route_filter_name: Optional[pulumi.Input[str]] = None,
-                 route_filter_rule_type: Optional[pulumi.Input[str]] = None,
+                 route_filter_rule_type: Optional[pulumi.Input[Union[str, 'RouteFilterRuleType']]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -32,14 +33,14 @@ class RouteFilterRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access: The access type of the rule.
+        :param pulumi.Input[Union[str, 'Access']] access: The access type of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] communities: The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] route_filter_name: The name of the route filter.
-        :param pulumi.Input[str] route_filter_rule_type: The rule type of the rule. Valid value is: 'Community'
+        :param pulumi.Input[Union[str, 'RouteFilterRuleType']] route_filter_rule_type: The rule type of the rule. Valid value is: 'Community'
         :param pulumi.Input[str] rule_name: The name of the route filter rule.
         """
         if __name__ is not None:
@@ -59,25 +60,25 @@ class RouteFilterRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if access is None:
+            if access is None and not opts.urn:
                 raise TypeError("Missing required property 'access'")
             __props__['access'] = access
-            if communities is None:
+            if communities is None and not opts.urn:
                 raise TypeError("Missing required property 'communities'")
             __props__['communities'] = communities
             __props__['id'] = id
             __props__['location'] = location
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if route_filter_name is None:
+            if route_filter_name is None and not opts.urn:
                 raise TypeError("Missing required property 'route_filter_name'")
             __props__['route_filter_name'] = route_filter_name
-            if route_filter_rule_type is None:
+            if route_filter_rule_type is None and not opts.urn:
                 raise TypeError("Missing required property 'route_filter_rule_type'")
             __props__['route_filter_rule_type'] = route_filter_rule_type
-            if rule_name is None:
+            if rule_name is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_name'")
             __props__['rule_name'] = rule_name
             __props__['etag'] = None

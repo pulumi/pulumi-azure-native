@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -86,16 +86,16 @@ export class PolicyExemption extends pulumi.CustomResource {
     constructor(name: string, args: PolicyExemptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.exemptionCategory === undefined) {
+            if ((!args || args.exemptionCategory === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'exemptionCategory'");
             }
-            if (!args || args.policyAssignmentId === undefined) {
+            if ((!args || args.policyAssignmentId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policyAssignmentId'");
             }
-            if (!args || args.policyExemptionName === undefined) {
+            if ((!args || args.policyExemptionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policyExemptionName'");
             }
-            if (!args || args.scope === undefined) {
+            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -148,7 +148,7 @@ export interface PolicyExemptionArgs {
     /**
      * The policy exemption category. Possible values are Waiver and Mitigated.
      */
-    readonly exemptionCategory: pulumi.Input<string>;
+    readonly exemptionCategory: pulumi.Input<string | enums.authorization.v20200701preview.ExemptionCategory>;
     /**
      * The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
      */

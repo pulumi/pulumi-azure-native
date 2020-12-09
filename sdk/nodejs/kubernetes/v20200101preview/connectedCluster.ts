@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -118,22 +118,22 @@ export class ConnectedCluster extends pulumi.CustomResource {
     constructor(name: string, args: ConnectedClusterArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.aadProfile === undefined) {
+            if ((!args || args.aadProfile === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'aadProfile'");
             }
-            if (!args || args.agentPublicKeyCertificate === undefined) {
+            if ((!args || args.agentPublicKeyCertificate === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'agentPublicKeyCertificate'");
             }
-            if (!args || args.clusterName === undefined) {
+            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if (!args || args.identity === undefined) {
+            if ((!args || args.identity === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'identity'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["aadProfile"] = args ? args.aadProfile : undefined;
@@ -206,7 +206,7 @@ export interface ConnectedClusterArgs {
     /**
      * Represents the connectivity status of the connected cluster.
      */
-    readonly connectivityStatus?: pulumi.Input<string>;
+    readonly connectivityStatus?: pulumi.Input<string | enums.kubernetes.v20200101preview.ConnectivityStatus>;
     /**
      * The Kubernetes distribution running on this connected cluster.
      */
@@ -226,7 +226,7 @@ export interface ConnectedClusterArgs {
     /**
      * Provisioning state of the connected cluster resource.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    readonly provisioningState?: pulumi.Input<string | enums.kubernetes.v20200101preview.ProvisioningState>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

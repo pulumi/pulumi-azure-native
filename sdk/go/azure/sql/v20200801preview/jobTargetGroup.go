@@ -26,23 +26,24 @@ type JobTargetGroup struct {
 // NewJobTargetGroup registers a new resource with the given unique name, arguments, and options.
 func NewJobTargetGroup(ctx *pulumi.Context,
 	name string, args *JobTargetGroupArgs, opts ...pulumi.ResourceOption) (*JobTargetGroup, error) {
-	if args == nil || args.JobAgentName == nil {
-		return nil, errors.New("missing required argument 'JobAgentName'")
-	}
-	if args == nil || args.Members == nil {
-		return nil, errors.New("missing required argument 'Members'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServerName == nil {
-		return nil, errors.New("missing required argument 'ServerName'")
-	}
-	if args == nil || args.TargetGroupName == nil {
-		return nil, errors.New("missing required argument 'TargetGroupName'")
-	}
 	if args == nil {
-		args = &JobTargetGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.JobAgentName == nil {
+		return nil, errors.New("invalid value for required argument 'JobAgentName'")
+	}
+	if args.Members == nil {
+		return nil, errors.New("invalid value for required argument 'Members'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServerName == nil {
+		return nil, errors.New("invalid value for required argument 'ServerName'")
+	}
+	if args.TargetGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'TargetGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

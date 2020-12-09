@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['PipelineRun']
@@ -54,14 +55,14 @@ class PipelineRun(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['force_update_tag'] = force_update_tag
-            if pipeline_run_name is None:
+            if pipeline_run_name is None and not opts.urn:
                 raise TypeError("Missing required property 'pipeline_run_name'")
             __props__['pipeline_run_name'] = pipeline_run_name
-            if registry_name is None:
+            if registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registry_name'")
             __props__['registry_name'] = registry_name
             __props__['request'] = request
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['name'] = None

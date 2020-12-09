@@ -67,10 +67,10 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
 
             __props__['address_prefix'] = address_prefix
             __props__['authorization_key'] = authorization_key
-            if circuit_name is None:
+            if circuit_name is None and not opts.urn:
                 raise TypeError("Missing required property 'circuit_name'")
             __props__['circuit_name'] = circuit_name
-            if connection_name is None:
+            if connection_name is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_name'")
             __props__['connection_name'] = connection_name
             __props__['express_route_circuit_peering'] = express_route_circuit_peering
@@ -78,10 +78,10 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
             __props__['ipv6_circuit_connection_config'] = ipv6_circuit_connection_config
             __props__['name'] = name
             __props__['peer_express_route_circuit_peering'] = peer_express_route_circuit_peering
-            if peering_name is None:
+            if peering_name is None and not opts.urn:
                 raise TypeError("Missing required property 'peering_name'")
             __props__['peering_name'] = peering_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['circuit_connection_status'] = None

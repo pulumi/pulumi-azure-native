@@ -226,7 +226,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview
         /// The mode to create a new PostgreSQL server.
         /// </summary>
         [Input("createMode")]
-        public Input<string>? CreateMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview.CreateMode>? CreateMode { get; set; }
 
         [Input("delegatedSubnetArguments")]
         public Input<Inputs.ServerPropertiesDelegatedSubnetArgumentsArgs>? DelegatedSubnetArguments { get; set; }
@@ -241,7 +241,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview
         /// stand by count value can be either enabled or disabled
         /// </summary>
         [Input("haEnabled")]
-        public Input<string>? HaEnabled { get; set; }
+        public Input<Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview.HAEnabledEnum>? HaEnabled { get; set; }
 
         /// <summary>
         /// The Azure Active Directory identity of the server.
@@ -313,7 +313,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview
         /// PostgreSQL Server version.
         /// </summary>
         [Input("version")]
-        public Input<string>? Version { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview.ServerVersion>? Version { get; set; }
 
         public ServerArgs()
         {

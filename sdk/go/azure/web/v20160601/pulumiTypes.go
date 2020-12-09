@@ -4003,7 +4003,7 @@ type ConnectionParameterArgs struct {
 	// OAuth settings for the connection provider
 	OAuthSettings ApiOAuthSettingsPtrInput `pulumi:"oAuthSettings"`
 	// Type of the parameter
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type ConnectionParameterType `pulumi:"type"`
 }
 
 func (ConnectionParameterArgs) ElementType() reflect.Type {

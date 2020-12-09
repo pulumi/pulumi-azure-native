@@ -65,28 +65,28 @@ export class ApiIssueAttachment extends pulumi.CustomResource {
     constructor(name: string, args: ApiIssueAttachmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.apiId === undefined) {
+            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if (!args || args.attachmentId === undefined) {
+            if ((!args || args.attachmentId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'attachmentId'");
             }
-            if (!args || args.content === undefined) {
+            if ((!args || args.content === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'content'");
             }
-            if (!args || args.contentFormat === undefined) {
+            if ((!args || args.contentFormat === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'contentFormat'");
             }
-            if (!args || args.issueId === undefined) {
+            if ((!args || args.issueId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'issueId'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serviceName === undefined) {
+            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if (!args || args.title === undefined) {
+            if ((!args || args.title === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'title'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;

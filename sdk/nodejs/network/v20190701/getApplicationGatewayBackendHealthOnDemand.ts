@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 export function getApplicationGatewayBackendHealthOnDemand(args: GetApplicationGatewayBackendHealthOnDemandArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGatewayBackendHealthOnDemandResult> {
@@ -64,7 +64,7 @@ export interface GetApplicationGatewayBackendHealthOnDemandArgs {
     /**
      * The protocol used for the probe.
      */
-    readonly protocol?: string;
+    readonly protocol?: string | enums.network.v20190701.ApplicationGatewayProtocol;
     /**
      * The name of the resource group.
      */

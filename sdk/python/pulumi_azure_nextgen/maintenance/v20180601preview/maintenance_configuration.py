@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['MaintenanceConfiguration']
 
@@ -17,7 +18,7 @@ class MaintenanceConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  extension_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 maintenance_scope: Optional[pulumi.Input[str]] = None,
+                 maintenance_scope: Optional[pulumi.Input[Union[str, 'MaintenanceScope']]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
@@ -32,7 +33,7 @@ class MaintenanceConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extension_properties: Gets or sets extensionProperties of the maintenanceConfiguration
         :param pulumi.Input[str] location: Gets or sets location of the resource
-        :param pulumi.Input[str] maintenance_scope: Gets or sets maintenanceScope of the configuration
+        :param pulumi.Input[Union[str, 'MaintenanceScope']] maintenance_scope: Gets or sets maintenanceScope of the configuration
         :param pulumi.Input[str] namespace: Gets or sets namespace of the resource
         :param pulumi.Input[str] resource_group_name: Resource Group Name
         :param pulumi.Input[str] resource_name_: Resource Identifier
@@ -59,10 +60,10 @@ class MaintenanceConfiguration(pulumi.CustomResource):
             __props__['location'] = location
             __props__['maintenance_scope'] = maintenance_scope
             __props__['namespace'] = namespace
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if resource_name_ is None:
+            if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
             __props__['tags'] = tags

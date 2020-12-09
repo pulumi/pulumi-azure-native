@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview.Inputs
         /// The private link service connection status.
         /// </summary>
         [Input("status", required: true)]
-        public Input<string> Status { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20200801Preview.PrivateLinkServiceConnectionStateStatus> Status { get; set; } = null!;
 
         public PrivateLinkServiceConnectionStatePropertyArgs()
         {

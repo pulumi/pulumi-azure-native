@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -106,16 +106,16 @@ export class LiveEvent extends pulumi.CustomResource {
     constructor(name: string, args: LiveEventArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.accountName === undefined) {
+            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.input === undefined) {
+            if ((!args || args.input === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'input'");
             }
-            if (!args || args.liveEventName === undefined) {
+            if ((!args || args.liveEventName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'liveEventName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -214,7 +214,7 @@ export interface LiveEventArgs {
     /**
      * The stream options.
      */
-    readonly streamOptions?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly streamOptions?: pulumi.Input<pulumi.Input<enums.media.v20180601preview.StreamOptionsFlag>[]>;
     /**
      * Resource tags.
      */

@@ -58,20 +58,21 @@ type BigDataPool struct {
 // NewBigDataPool registers a new resource with the given unique name, arguments, and options.
 func NewBigDataPool(ctx *pulumi.Context,
 	name string, args *BigDataPoolArgs, opts ...pulumi.ResourceOption) (*BigDataPool, error) {
-	if args == nil || args.BigDataPoolName == nil {
-		return nil, errors.New("missing required argument 'BigDataPoolName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &BigDataPoolArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BigDataPoolName == nil {
+		return nil, errors.New("invalid value for required argument 'BigDataPoolName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	var resource BigDataPool
 	err := ctx.RegisterResource("azure-nextgen:synapse/v20190601preview:BigDataPool", name, args, &resource, opts...)

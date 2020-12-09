@@ -52,7 +52,7 @@ namespace Pulumi.AzureNextGen.Compute.V20181001
         /// Interval value in minutes used to create LogAnalytics call rate logs.
         /// </summary>
         [Input("intervalLength", required: true)]
-        public string IntervalLength { get; set; } = null!;
+        public Pulumi.AzureNextGen.Compute.V20181001.IntervalInMins IntervalLength { get; set; }
 
         /// <summary>
         /// The location upon which virtual-machine-sizes is queried.

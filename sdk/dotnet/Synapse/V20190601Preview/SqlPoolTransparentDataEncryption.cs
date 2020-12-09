@@ -99,7 +99,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// The status of the database transparent data encryption.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Synapse.V20190601Preview.TransparentDataEncryptionStatus>? Status { get; set; }
 
         /// <summary>
         /// The name of the transparent data encryption configuration.

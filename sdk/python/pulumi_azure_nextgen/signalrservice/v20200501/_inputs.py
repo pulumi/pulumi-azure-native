@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'NetworkACLArgs',
@@ -24,12 +25,12 @@ __all__ = [
 @pulumi.input_type
 class NetworkACLArgs:
     def __init__(__self__, *,
-                 allow: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 deny: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 allow: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SignalRRequestType']]]]] = None,
+                 deny: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SignalRRequestType']]]]] = None):
         """
         Network ACL
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allow: Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] deny: Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'SignalRRequestType']]]] allow: Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'SignalRRequestType']]]] deny: Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
         """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
@@ -38,26 +39,26 @@ class NetworkACLArgs:
 
     @property
     @pulumi.getter
-    def allow(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def allow(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SignalRRequestType']]]]]:
         """
         Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
         """
         return pulumi.get(self, "allow")
 
     @allow.setter
-    def allow(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def allow(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SignalRRequestType']]]]]):
         pulumi.set(self, "allow", value)
 
     @property
     @pulumi.getter
-    def deny(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def deny(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SignalRRequestType']]]]]:
         """
         Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
         """
         return pulumi.get(self, "deny")
 
     @deny.setter
-    def deny(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def deny(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SignalRRequestType']]]]]):
         pulumi.set(self, "deny", value)
 
 
@@ -89,13 +90,13 @@ class PrivateEndpointArgs:
 class PrivateEndpointACLArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 allow: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 deny: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 allow: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SignalRRequestType']]]]] = None,
+                 deny: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SignalRRequestType']]]]] = None):
         """
         ACL for a private endpoint
         :param pulumi.Input[str] name: Name of the private endpoint connection
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allow: Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] deny: Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'SignalRRequestType']]]] allow: Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'SignalRRequestType']]]] deny: Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
         """
         pulumi.set(__self__, "name", name)
         if allow is not None:
@@ -117,26 +118,26 @@ class PrivateEndpointACLArgs:
 
     @property
     @pulumi.getter
-    def allow(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def allow(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SignalRRequestType']]]]]:
         """
         Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
         """
         return pulumi.get(self, "allow")
 
     @allow.setter
-    def allow(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def allow(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SignalRRequestType']]]]]):
         pulumi.set(self, "allow", value)
 
     @property
     @pulumi.getter
-    def deny(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def deny(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SignalRRequestType']]]]]:
         """
         Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
         """
         return pulumi.get(self, "deny")
 
     @deny.setter
-    def deny(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def deny(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SignalRRequestType']]]]]):
         pulumi.set(self, "deny", value)
 
 
@@ -145,12 +146,12 @@ class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
                  actions_required: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None):
+                 status: Optional[pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']]] = None):
         """
         Connection state of the private endpoint connection
         :param pulumi.Input[str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
-        :param pulumi.Input[str] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        :param pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         if actions_required is not None:
             pulumi.set(__self__, "actions_required", actions_required)
@@ -185,14 +186,14 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']]]:
         """
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -203,7 +204,7 @@ class ResourceSkuArgs:
                  capacity: Optional[pulumi.Input[int]] = None,
                  family: Optional[pulumi.Input[str]] = None,
                  size: Optional[pulumi.Input[str]] = None,
-                 tier: Optional[pulumi.Input[str]] = None):
+                 tier: Optional[pulumi.Input[Union[str, 'SignalRSkuTier']]] = None):
         """
         The billing information of the SignalR resource.
         :param pulumi.Input[str] name: The name of the SKU. Required.
@@ -216,7 +217,7 @@ class ResourceSkuArgs:
                    Standard: 1,2,5,10,20,50,100
         :param pulumi.Input[str] family: Optional string. For future use.
         :param pulumi.Input[str] size: Optional string. For future use.
-        :param pulumi.Input[str] tier: Optional tier of this particular SKU. 'Standard' or 'Free'. 
+        :param pulumi.Input[Union[str, 'SignalRSkuTier']] tier: Optional tier of this particular SKU. 'Standard' or 'Free'. 
                
                `Basic` is deprecated, use `Standard` instead.
         """
@@ -286,7 +287,7 @@ class ResourceSkuArgs:
 
     @property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[str]]:
+    def tier(self) -> Optional[pulumi.Input[Union[str, 'SignalRSkuTier']]]:
         """
         Optional tier of this particular SKU. 'Standard' or 'Free'. 
         
@@ -295,7 +296,7 @@ class ResourceSkuArgs:
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[str]]):
+    def tier(self, value: Optional[pulumi.Input[Union[str, 'SignalRSkuTier']]]):
         pulumi.set(self, "tier", value)
 
 
@@ -350,12 +351,12 @@ class SignalRCorsSettingsArgs:
 @pulumi.input_type
 class SignalRFeatureArgs:
     def __init__(__self__, *,
-                 flag: pulumi.Input[str],
+                 flag: pulumi.Input[Union[str, 'FeatureFlags']],
                  value: pulumi.Input[str],
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Feature of a SignalR resource, which controls the SignalR runtime behavior.
-        :param pulumi.Input[str] flag: FeatureFlags is the supported features of Azure SignalR service.
+        :param pulumi.Input[Union[str, 'FeatureFlags']] flag: FeatureFlags is the supported features of Azure SignalR service.
                - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
                - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
         :param pulumi.Input[str] value: Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
@@ -368,7 +369,7 @@ class SignalRFeatureArgs:
 
     @property
     @pulumi.getter
-    def flag(self) -> pulumi.Input[str]:
+    def flag(self) -> pulumi.Input[Union[str, 'FeatureFlags']]:
         """
         FeatureFlags is the supported features of Azure SignalR service.
         - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
@@ -377,7 +378,7 @@ class SignalRFeatureArgs:
         return pulumi.get(self, "flag")
 
     @flag.setter
-    def flag(self, value: pulumi.Input[str]):
+    def flag(self, value: pulumi.Input[Union[str, 'FeatureFlags']]):
         pulumi.set(self, "flag", value)
 
     @property
@@ -408,12 +409,12 @@ class SignalRFeatureArgs:
 @pulumi.input_type
 class SignalRNetworkACLsArgs:
     def __init__(__self__, *,
-                 default_action: Optional[pulumi.Input[str]] = None,
+                 default_action: Optional[pulumi.Input[Union[str, 'ACLAction']]] = None,
                  private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointACLArgs']]]] = None,
                  public_network: Optional[pulumi.Input['NetworkACLArgs']] = None):
         """
         Network ACLs for SignalR
-        :param pulumi.Input[str] default_action: Default action when no other rule matches
+        :param pulumi.Input[Union[str, 'ACLAction']] default_action: Default action when no other rule matches
         :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointACLArgs']]] private_endpoints: ACLs for requests from private endpoints
         :param pulumi.Input['NetworkACLArgs'] public_network: ACL for requests from public network
         """
@@ -426,14 +427,14 @@ class SignalRNetworkACLsArgs:
 
     @property
     @pulumi.getter(name="defaultAction")
-    def default_action(self) -> Optional[pulumi.Input[str]]:
+    def default_action(self) -> Optional[pulumi.Input[Union[str, 'ACLAction']]]:
         """
         Default action when no other rule matches
         """
         return pulumi.get(self, "default_action")
 
     @default_action.setter
-    def default_action(self, value: Optional[pulumi.Input[str]]):
+    def default_action(self, value: Optional[pulumi.Input[Union[str, 'ACLAction']]]):
         pulumi.set(self, "default_action", value)
 
     @property

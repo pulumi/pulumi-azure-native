@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20190615Preview.Inputs
         /// Caching behavior for the requests
         /// </summary>
         [Input("cacheBehavior", required: true)]
-        public Input<string> CacheBehavior { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20190615Preview.CacheBehavior> CacheBehavior { get; set; } = null!;
 
         /// <summary>
         /// The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20190615Preview.Inputs
         /// The level at which the content needs to be cached.
         /// </summary>
         [Input("cacheType", required: true)]
-        public Input<string> CacheType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20190615Preview.CacheType> CacheType { get; set; } = null!;
 
         [Input("odataType", required: true)]
         public Input<string> OdataType { get; set; } = null!;

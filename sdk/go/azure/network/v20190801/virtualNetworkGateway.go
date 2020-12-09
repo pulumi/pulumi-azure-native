@@ -60,14 +60,15 @@ type VirtualNetworkGateway struct {
 // NewVirtualNetworkGateway registers a new resource with the given unique name, arguments, and options.
 func NewVirtualNetworkGateway(ctx *pulumi.Context,
 	name string, args *VirtualNetworkGatewayArgs, opts ...pulumi.ResourceOption) (*VirtualNetworkGateway, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VirtualNetworkGatewayName == nil {
-		return nil, errors.New("missing required argument 'VirtualNetworkGatewayName'")
-	}
 	if args == nil {
-		args = &VirtualNetworkGatewayArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VirtualNetworkGatewayName == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualNetworkGatewayName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

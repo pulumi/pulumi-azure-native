@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190701.Inputs
         /// This enumerates the possible sources of a disk's creation.
         /// </summary>
         [Input("createOption", required: true)]
-        public Input<string> CreateOption { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20190701.DiskCreateOption> CreateOption { get; set; } = null!;
 
         /// <summary>
         /// Disk source information.

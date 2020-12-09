@@ -166,7 +166,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// The type of Azure hop the packet should be sent to.
         /// </summary>
         [Input("nextHopType", required: true)]
-        public Input<string> NextHopType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190801.RouteNextHopType> NextHopType { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

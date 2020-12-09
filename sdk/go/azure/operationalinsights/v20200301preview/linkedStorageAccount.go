@@ -28,17 +28,18 @@ type LinkedStorageAccount struct {
 // NewLinkedStorageAccount registers a new resource with the given unique name, arguments, and options.
 func NewLinkedStorageAccount(ctx *pulumi.Context,
 	name string, args *LinkedStorageAccountArgs, opts ...pulumi.ResourceOption) (*LinkedStorageAccount, error) {
-	if args == nil || args.DataSourceType == nil {
-		return nil, errors.New("missing required argument 'DataSourceType'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &LinkedStorageAccountArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DataSourceType == nil {
+		return nil, errors.New("invalid value for required argument 'DataSourceType'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['PolicyAssignment']
@@ -19,7 +20,7 @@ class PolicyAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 enforcement_mode: Optional[pulumi.Input[str]] = None,
+                 enforcement_mode: Optional[pulumi.Input[Union[str, 'EnforcementMode']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[Any] = None,
@@ -39,7 +40,7 @@ class PolicyAssignment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: This message will be part of response in case of policy violation.
         :param pulumi.Input[str] display_name: The display name of the policy assignment.
-        :param pulumi.Input[str] enforcement_mode: The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+        :param pulumi.Input[Union[str, 'EnforcementMode']] enforcement_mode: The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The managed identity associated with the policy assignment.
         :param pulumi.Input[str] location: The location of the policy assignment. Only required when utilizing managed identity.
         :param Any metadata: The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
@@ -75,11 +76,11 @@ class PolicyAssignment(pulumi.CustomResource):
             __props__['metadata'] = metadata
             __props__['not_scopes'] = not_scopes
             __props__['parameters'] = parameters
-            if policy_assignment_name is None:
+            if policy_assignment_name is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_assignment_name'")
             __props__['policy_assignment_name'] = policy_assignment_name
             __props__['policy_definition_id'] = policy_definition_id
-            if scope is None:
+            if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
             __props__['sku'] = sku

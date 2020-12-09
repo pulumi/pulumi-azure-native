@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         /// Type of backup management for the container.
         /// </summary>
         [Input("backupManagementType")]
-        public Input<string>? BackupManagementType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.Latest.BackupManagementType>? BackupManagementType { get; set; }
 
         /// <summary>
         /// Can the container be registered one more time.

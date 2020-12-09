@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Inputs
         /// The private IP address allocation method.
         /// </summary>
         [Input("privateIPAllocationMethod")]
-        public Input<string>? PrivateIPAllocationMethod { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190801.IPAllocationMethod>? PrivateIPAllocationMethod { get; set; }
 
         /// <summary>
         /// The reference of the public IP resource.

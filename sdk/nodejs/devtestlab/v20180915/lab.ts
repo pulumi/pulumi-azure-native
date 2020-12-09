@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -144,10 +144,10 @@ export class Lab extends pulumi.CustomResource {
     constructor(name: string, args: LabArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["announcement"] = args ? args.announcement : undefined;
@@ -225,7 +225,7 @@ export interface LabArgs {
     /**
      * The access rights to be granted to the user when provisioning an environment
      */
-    readonly environmentPermission?: pulumi.Input<string>;
+    readonly environmentPermission?: pulumi.Input<string | enums.devtestlab.v20180915.EnvironmentPermission>;
     /**
      * Extended properties of the lab used for experimental features
      */
@@ -233,7 +233,7 @@ export interface LabArgs {
     /**
      * Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
      */
-    readonly labStorageType?: pulumi.Input<string>;
+    readonly labStorageType?: pulumi.Input<string | enums.devtestlab.v20180915.StorageType>;
     /**
      * The location of the resource.
      */
@@ -255,7 +255,7 @@ export interface LabArgs {
      * When its value is 'Enabled', creation of standard or premium data disks is allowed.
      * When its value is 'Disabled', only creation of standard data disks is allowed.
      */
-    readonly premiumDataDisks?: pulumi.Input<string>;
+    readonly premiumDataDisks?: pulumi.Input<string | enums.devtestlab.v20180915.PremiumDataDisk>;
     /**
      * The name of the resource group.
      */

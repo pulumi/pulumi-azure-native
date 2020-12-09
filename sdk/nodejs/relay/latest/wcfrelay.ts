@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -85,13 +86,13 @@ export class WCFRelay extends pulumi.CustomResource {
     constructor(name: string, args: WCFRelayArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.namespaceName === undefined) {
+            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if (!args || args.relayName === undefined) {
+            if ((!args || args.relayName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'relayName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
@@ -147,7 +148,7 @@ export interface WCFRelayArgs {
     /**
      * WCF relay type.
      */
-    readonly relayType?: pulumi.Input<string>;
+    readonly relayType?: pulumi.Input<enums.relay.latest.Relaytype>;
     /**
      * Returns true if client authorization is needed for this relay; otherwise, false.
      */

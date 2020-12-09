@@ -57,16 +57,16 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
     constructor(name: string, args: VirtualNetworkRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.accountName === undefined) {
+            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.subnetId === undefined) {
+            if ((!args || args.subnetId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            if (!args || args.virtualNetworkRuleName === undefined) {
+            if ((!args || args.virtualNetworkRuleName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualNetworkRuleName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;

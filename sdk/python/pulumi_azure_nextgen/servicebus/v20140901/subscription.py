@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 
 __all__ = ['Subscription']
 
@@ -21,7 +22,7 @@ class Subscription(pulumi.CustomResource):
                  dead_lettering_on_message_expiration: Optional[pulumi.Input[bool]] = None,
                  default_message_time_to_live: Optional[pulumi.Input[str]] = None,
                  enable_batched_operations: Optional[pulumi.Input[bool]] = None,
-                 entity_availability_status: Optional[pulumi.Input[str]] = None,
+                 entity_availability_status: Optional[pulumi.Input['EntityAvailabilityStatus']] = None,
                  is_read_only: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  lock_duration: Optional[pulumi.Input[str]] = None,
@@ -29,7 +30,7 @@ class Subscription(pulumi.CustomResource):
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  requires_session: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['EntityStatus']] = None,
                  subscription_name: Optional[pulumi.Input[str]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -46,7 +47,7 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[bool] dead_lettering_on_message_expiration: Value that indicates whether a subscription has dead letter support when a message expires.
         :param pulumi.Input[str] default_message_time_to_live: Default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
         :param pulumi.Input[bool] enable_batched_operations: Value that indicates whether server-side batched operations are enabled.
-        :param pulumi.Input[str] entity_availability_status: Entity availability status for the topic.
+        :param pulumi.Input['EntityAvailabilityStatus'] entity_availability_status: Entity availability status for the topic.
         :param pulumi.Input[bool] is_read_only: Value that indicates whether the entity description is read-only.
         :param pulumi.Input[str] location: Subscription data center location.
         :param pulumi.Input[str] lock_duration: The lock duration time span for the subscription.
@@ -54,7 +55,7 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[str] namespace_name: The namespace name
         :param pulumi.Input[bool] requires_session: Value indicating if a subscription supports the concept of sessions.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[str] status: Enumerates the possible values for the status of a messaging entity.
+        :param pulumi.Input['EntityStatus'] status: Enumerates the possible values for the status of a messaging entity.
         :param pulumi.Input[str] subscription_name: The subscription name.
         :param pulumi.Input[str] topic_name: The topic name.
         :param pulumi.Input[str] type: Resource manager type of the resource.
@@ -83,23 +84,23 @@ class Subscription(pulumi.CustomResource):
             __props__['enable_batched_operations'] = enable_batched_operations
             __props__['entity_availability_status'] = entity_availability_status
             __props__['is_read_only'] = is_read_only
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['lock_duration'] = lock_duration
             __props__['max_delivery_count'] = max_delivery_count
-            if namespace_name is None:
+            if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
             __props__['requires_session'] = requires_session
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['status'] = status
-            if subscription_name is None:
+            if subscription_name is None and not opts.urn:
                 raise TypeError("Missing required property 'subscription_name'")
             __props__['subscription_name'] = subscription_name
-            if topic_name is None:
+            if topic_name is None and not opts.urn:
                 raise TypeError("Missing required property 'topic_name'")
             __props__['topic_name'] = topic_name
             __props__['type'] = type

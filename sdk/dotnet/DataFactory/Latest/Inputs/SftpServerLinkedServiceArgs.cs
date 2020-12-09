@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         /// The authentication type to be used to connect to the FTP server.
         /// </summary>
         [Input("authenticationType")]
-        public Input<string>? AuthenticationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.Latest.SftpAuthenticationType>? AuthenticationType { get; set; }
 
         /// <summary>
         /// The integration runtime reference.

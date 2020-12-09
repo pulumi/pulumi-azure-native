@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         /// Type of backup policy type
         /// </summary>
         [Input("policyType")]
-        public Input<string>? PolicyType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.Latest.PolicyType>? PolicyType { get; set; }
 
         /// <summary>
         /// Retention policy with the details on backup copy retention ranges.

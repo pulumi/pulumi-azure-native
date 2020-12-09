@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801.Inputs
         /// SSL type
         /// </summary>
         [Input("sslState", required: true)]
-        public Input<string> SslState { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Web.V20150801.SslState> SslState { get; set; } = null!;
 
         /// <summary>
         /// SSL cert thumbprint

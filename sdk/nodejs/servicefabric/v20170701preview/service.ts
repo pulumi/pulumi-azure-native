@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -94,19 +94,19 @@ export class Service extends pulumi.CustomResource {
     constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.applicationName === undefined) {
+            if ((!args || args.applicationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'applicationName'");
             }
-            if (!args || args.clusterName === undefined) {
+            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serviceKind === undefined) {
+            if ((!args || args.serviceKind === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceKind'");
             }
-            if (!args || args.serviceName === undefined) {
+            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["applicationName"] = args ? args.applicationName : undefined;
@@ -171,7 +171,7 @@ export interface ServiceArgs {
     /**
      * Specifies the move cost for the service.
      */
-    readonly defaultMoveCost?: pulumi.Input<string>;
+    readonly defaultMoveCost?: pulumi.Input<string | enums.servicefabric.v20170701preview.MoveCost>;
     /**
      * Azure resource location.
      */
@@ -191,7 +191,7 @@ export interface ServiceArgs {
     /**
      * The kind of service (Stateless or Stateful).
      */
-    readonly serviceKind: pulumi.Input<string>;
+    readonly serviceKind: pulumi.Input<string | enums.servicefabric.v20170701preview.ServiceKind>;
     /**
      * The service load metrics is given as an array of ServiceLoadMetricDescription objects.
      */

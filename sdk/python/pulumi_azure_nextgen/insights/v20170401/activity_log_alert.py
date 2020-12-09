@@ -61,24 +61,24 @@ class ActivityLogAlert(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if actions is None:
+            if actions is None and not opts.urn:
                 raise TypeError("Missing required property 'actions'")
             __props__['actions'] = actions
-            if activity_log_alert_name is None:
+            if activity_log_alert_name is None and not opts.urn:
                 raise TypeError("Missing required property 'activity_log_alert_name'")
             __props__['activity_log_alert_name'] = activity_log_alert_name
-            if condition is None:
+            if condition is None and not opts.urn:
                 raise TypeError("Missing required property 'condition'")
             __props__['condition'] = condition
             __props__['description'] = description
             __props__['enabled'] = enabled
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if scopes is None:
+            if scopes is None and not opts.urn:
                 raise TypeError("Missing required property 'scopes'")
             __props__['scopes'] = scopes
             __props__['tags'] = tags

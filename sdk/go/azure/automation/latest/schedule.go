@@ -52,26 +52,27 @@ type Schedule struct {
 // NewSchedule registers a new resource with the given unique name, arguments, and options.
 func NewSchedule(ctx *pulumi.Context,
 	name string, args *ScheduleArgs, opts ...pulumi.ResourceOption) (*Schedule, error) {
-	if args == nil || args.AutomationAccountName == nil {
-		return nil, errors.New("missing required argument 'AutomationAccountName'")
-	}
-	if args == nil || args.Frequency == nil {
-		return nil, errors.New("missing required argument 'Frequency'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ScheduleName == nil {
-		return nil, errors.New("missing required argument 'ScheduleName'")
-	}
-	if args == nil || args.StartTime == nil {
-		return nil, errors.New("missing required argument 'StartTime'")
-	}
 	if args == nil {
-		args = &ScheduleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AutomationAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AutomationAccountName'")
+	}
+	if args.Frequency == nil {
+		return nil, errors.New("invalid value for required argument 'Frequency'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ScheduleName == nil {
+		return nil, errors.New("invalid value for required argument 'ScheduleName'")
+	}
+	if args.StartTime == nil {
+		return nil, errors.New("invalid value for required argument 'StartTime'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

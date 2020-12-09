@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Network.V20161201.Inputs
         /// Web application firewall mode. Possible values are: 'Detection' and 'Prevention'.
         /// </summary>
         [Input("firewallMode")]
-        public Input<string>? FirewallMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20161201.ApplicationGatewayFirewallMode>? FirewallMode { get; set; }
 
         public ApplicationGatewayWebApplicationFirewallConfigurationArgs()
         {

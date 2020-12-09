@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -61,16 +62,16 @@ export class TransparentDataEncryption extends pulumi.CustomResource {
     constructor(name: string, args: TransparentDataEncryptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.databaseName === undefined) {
+            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverName === undefined) {
+            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if (!args || args.transparentDataEncryptionName === undefined) {
+            if ((!args || args.transparentDataEncryptionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'transparentDataEncryptionName'");
             }
             inputs["databaseName"] = args ? args.databaseName : undefined;
@@ -119,7 +120,7 @@ export interface TransparentDataEncryptionArgs {
     /**
      * The status of the database transparent data encryption.
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<string | enums.sql.v20140401.TransparentDataEncryptionStatus>;
     /**
      * The name of the transparent data encryption configuration.
      */

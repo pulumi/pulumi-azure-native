@@ -44,20 +44,21 @@ type PublicIpAddress struct {
 // NewPublicIpAddress registers a new resource with the given unique name, arguments, and options.
 func NewPublicIpAddress(ctx *pulumi.Context,
 	name string, args *PublicIpAddressArgs, opts ...pulumi.ResourceOption) (*PublicIpAddress, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.PublicIPAllocationMethod == nil {
-		return nil, errors.New("missing required argument 'PublicIPAllocationMethod'")
-	}
-	if args == nil || args.PublicIpAddressName == nil {
-		return nil, errors.New("missing required argument 'PublicIpAddressName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &PublicIpAddressArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.PublicIPAllocationMethod == nil {
+		return nil, errors.New("invalid value for required argument 'PublicIPAllocationMethod'")
+	}
+	if args.PublicIpAddressName == nil {
+		return nil, errors.New("invalid value for required argument 'PublicIpAddressName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

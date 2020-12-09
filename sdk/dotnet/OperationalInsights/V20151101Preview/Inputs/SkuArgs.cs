@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20151101Preview.Inputs
         /// The name of the SKU.
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.OperationalInsights.V20151101Preview.SkuNameEnum> Name { get; set; } = null!;
 
         public SkuArgs()
         {

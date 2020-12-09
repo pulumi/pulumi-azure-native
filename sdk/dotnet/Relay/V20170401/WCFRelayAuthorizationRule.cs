@@ -107,14 +107,14 @@ namespace Pulumi.AzureNextGen.Relay.V20170401
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("rights", required: true)]
-        private InputList<string>? _rights;
+        private InputList<Pulumi.AzureNextGen.Relay.V20170401.AccessRights>? _rights;
 
         /// <summary>
         /// The rights associated with the rule.
         /// </summary>
-        public InputList<string> Rights
+        public InputList<Pulumi.AzureNextGen.Relay.V20170401.AccessRights> Rights
         {
-            get => _rights ?? (_rights = new InputList<string>());
+            get => _rights ?? (_rights = new InputList<Pulumi.AzureNextGen.Relay.V20170401.AccessRights>());
             set => _rights = value;
         }
 

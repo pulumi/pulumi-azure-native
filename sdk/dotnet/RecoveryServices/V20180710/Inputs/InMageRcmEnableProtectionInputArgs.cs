@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710.Inputs
         /// The license type.
         /// </summary>
         [Input("licenseType")]
-        public Input<string>? LicenseType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20180710.LicenseType>? LicenseType { get; set; }
 
         /// <summary>
         /// The multi VM group name.

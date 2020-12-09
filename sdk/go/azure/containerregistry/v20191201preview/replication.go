@@ -36,20 +36,21 @@ type Replication struct {
 // NewReplication registers a new resource with the given unique name, arguments, and options.
 func NewReplication(ctx *pulumi.Context,
 	name string, args *ReplicationArgs, opts ...pulumi.ResourceOption) (*Replication, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.RegistryName == nil {
-		return nil, errors.New("missing required argument 'RegistryName'")
-	}
-	if args == nil || args.ReplicationName == nil {
-		return nil, errors.New("missing required argument 'ReplicationName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ReplicationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.RegistryName == nil {
+		return nil, errors.New("invalid value for required argument 'RegistryName'")
+	}
+	if args.ReplicationName == nil {
+		return nil, errors.New("invalid value for required argument 'ReplicationName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

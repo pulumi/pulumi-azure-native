@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -83,13 +83,13 @@ export class AFDOriginGroup extends pulumi.CustomResource {
     constructor(name: string, args: AFDOriginGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.originGroupName === undefined) {
+            if ((!args || args.originGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'originGroupName'");
             }
-            if (!args || args.profileName === undefined) {
+            if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["healthProbeSettings"] = args ? args.healthProbeSettings : undefined;
@@ -161,7 +161,7 @@ export interface AFDOriginGroupArgs {
     /**
      * Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
      */
-    readonly sessionAffinityState?: pulumi.Input<string>;
+    readonly sessionAffinityState?: pulumi.Input<string | enums.cdn.v20200901.EnabledState>;
     /**
      * Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
      */

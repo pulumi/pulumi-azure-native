@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['Policy']
 
@@ -16,15 +17,15 @@ class Policy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 evaluator_type: Optional[pulumi.Input[str]] = None,
+                 evaluator_type: Optional[pulumi.Input[Union[str, 'PolicyEvaluatorType']]] = None,
                  fact_data: Optional[pulumi.Input[str]] = None,
-                 fact_name: Optional[pulumi.Input[str]] = None,
+                 fact_name: Optional[pulumi.Input[Union[str, 'PolicyFactName']]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy_set_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'PolicyStatus']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  threshold: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -36,15 +37,15 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the policy.
-        :param pulumi.Input[str] evaluator_type: The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
+        :param pulumi.Input[Union[str, 'PolicyEvaluatorType']] evaluator_type: The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
         :param pulumi.Input[str] fact_data: The fact data of the policy.
-        :param pulumi.Input[str] fact_name: The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
+        :param pulumi.Input[Union[str, 'PolicyFactName']] fact_name: The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
         :param pulumi.Input[str] lab_name: The name of the lab.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: The name of the policy.
         :param pulumi.Input[str] policy_set_name: The name of the policy set.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] status: The status of the policy.
+        :param pulumi.Input[Union[str, 'PolicyStatus']] status: The status of the policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] threshold: The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
         """
@@ -69,17 +70,17 @@ class Policy(pulumi.CustomResource):
             __props__['evaluator_type'] = evaluator_type
             __props__['fact_data'] = fact_data
             __props__['fact_name'] = fact_name
-            if lab_name is None:
+            if lab_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_name'")
             __props__['lab_name'] = lab_name
             __props__['location'] = location
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if policy_set_name is None:
+            if policy_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_set_name'")
             __props__['policy_set_name'] = policy_set_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['status'] = status

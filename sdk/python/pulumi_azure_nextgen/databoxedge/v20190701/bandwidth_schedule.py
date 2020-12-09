@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['BandwidthSchedule']
 
@@ -15,7 +16,7 @@ class BandwidthSchedule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 days: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rate_in_mbps: Optional[pulumi.Input[int]] = None,
@@ -30,7 +31,7 @@ class BandwidthSchedule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] days: The days of the week when this schedule is applicable.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]] days: The days of the week when this schedule is applicable.
         :param pulumi.Input[str] device_name: The device name.
         :param pulumi.Input[str] name: The bandwidth schedule name which needs to be added/updated.
         :param pulumi.Input[int] rate_in_mbps: The bandwidth rate in Mbps.
@@ -55,25 +56,25 @@ class BandwidthSchedule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if days is None:
+            if days is None and not opts.urn:
                 raise TypeError("Missing required property 'days'")
             __props__['days'] = days
-            if device_name is None:
+            if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if rate_in_mbps is None:
+            if rate_in_mbps is None and not opts.urn:
                 raise TypeError("Missing required property 'rate_in_mbps'")
             __props__['rate_in_mbps'] = rate_in_mbps
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if start is None:
+            if start is None and not opts.urn:
                 raise TypeError("Missing required property 'start'")
             __props__['start'] = start
-            if stop is None:
+            if stop is None and not opts.urn:
                 raise TypeError("Missing required property 'stop'")
             __props__['stop'] = stop
             __props__['type'] = None

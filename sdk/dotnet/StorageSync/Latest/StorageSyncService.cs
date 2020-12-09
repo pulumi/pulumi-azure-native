@@ -142,7 +142,7 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
         /// Incoming Traffic Policy
         /// </summary>
         [Input("incomingTrafficPolicy")]
-        public Input<string>? IncomingTrafficPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.StorageSync.Latest.IncomingTrafficPolicy>? IncomingTrafficPolicy { get; set; }
 
         /// <summary>
         /// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.

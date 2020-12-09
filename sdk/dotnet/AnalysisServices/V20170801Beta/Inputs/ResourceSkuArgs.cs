@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20170801Beta.Inputs
         /// The name of the Azure pricing tier to which the SKU applies.
         /// </summary>
         [Input("tier")]
-        public Input<string>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.AnalysisServices.V20170801Beta.SkuTier>? Tier { get; set; }
 
         public ResourceSkuArgs()
         {

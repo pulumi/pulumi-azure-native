@@ -254,7 +254,7 @@ namespace Pulumi.AzureNextGen.Automation.V20180630
         /// Gets or sets the type of the runbook.
         /// </summary>
         [Input("runbookType", required: true)]
-        public Input<string> RunbookType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Automation.V20180630.RunbookTypeEnum> RunbookType { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

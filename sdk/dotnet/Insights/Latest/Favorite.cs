@@ -151,7 +151,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
         /// </summary>
         [Input("favoriteType")]
-        public Input<string>? FavoriteType { get; set; }
+        public Input<Pulumi.AzureNextGen.Insights.Latest.FavoriteType>? FavoriteType { get; set; }
 
         /// <summary>
         /// Flag denoting wether or not this favorite was generated from a template.

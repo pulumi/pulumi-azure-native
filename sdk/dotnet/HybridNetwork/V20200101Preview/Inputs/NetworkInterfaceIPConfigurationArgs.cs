@@ -43,13 +43,13 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview.Inputs
         /// IP address allocation method.
         /// </summary>
         [Input("ipAllocationMethod")]
-        public Input<string>? IpAllocationMethod { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.HybridNetwork.V20200101Preview.IPAllocationMethod>? IpAllocationMethod { get; set; }
 
         /// <summary>
         /// IP address version.
         /// </summary>
         [Input("ipVersion")]
-        public Input<string>? IpVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.HybridNetwork.V20200101Preview.IPVersion>? IpVersion { get; set; }
 
         /// <summary>
         /// The value of the subnet.

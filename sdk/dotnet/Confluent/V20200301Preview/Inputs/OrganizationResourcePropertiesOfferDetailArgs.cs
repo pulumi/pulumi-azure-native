@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Confluent.V20200301Preview.Inputs
         /// SaaS Offer Status
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Confluent.V20200301Preview.SaaSOfferStatus>? Status { get; set; }
 
         /// <summary>
         /// Offer Plan Term unit

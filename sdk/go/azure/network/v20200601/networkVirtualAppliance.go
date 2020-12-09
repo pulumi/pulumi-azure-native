@@ -54,14 +54,15 @@ type NetworkVirtualAppliance struct {
 // NewNetworkVirtualAppliance registers a new resource with the given unique name, arguments, and options.
 func NewNetworkVirtualAppliance(ctx *pulumi.Context,
 	name string, args *NetworkVirtualApplianceArgs, opts ...pulumi.ResourceOption) (*NetworkVirtualAppliance, error) {
-	if args == nil || args.NetworkVirtualApplianceName == nil {
-		return nil, errors.New("missing required argument 'NetworkVirtualApplianceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &NetworkVirtualApplianceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.NetworkVirtualApplianceName == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkVirtualApplianceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

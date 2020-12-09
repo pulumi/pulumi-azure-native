@@ -61,7 +61,7 @@ namespace Pulumi.AzureNextGen.Network.V20180701.Inputs
         /// Supported http redirection types - Permanent, Temporary, Found, SeeOther.
         /// </summary>
         [Input("redirectType")]
-        public Input<string>? RedirectType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180701.ApplicationGatewayRedirectType>? RedirectType { get; set; }
 
         [Input("requestRoutingRules")]
         private InputList<Inputs.SubResourceArgs>? _requestRoutingRules;

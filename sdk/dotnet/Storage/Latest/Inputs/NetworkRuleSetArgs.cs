@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Storage.Latest.Inputs
         /// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
         /// </summary>
         [Input("bypass")]
-        public Input<string>? Bypass { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Storage.Latest.Bypass>? Bypass { get; set; }
 
         /// <summary>
         /// Specifies the default action of allow or deny when no other rules match.
         /// </summary>
         [Input("defaultAction", required: true)]
-        public Input<string> DefaultAction { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Storage.Latest.DefaultAction> DefaultAction { get; set; } = null!;
 
         [Input("ipRules")]
         private InputList<Inputs.IPRuleArgs>? _ipRules;

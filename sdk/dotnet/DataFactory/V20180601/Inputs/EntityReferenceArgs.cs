@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         /// The type of this referenced entity.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.V20180601.IntegrationRuntimeEntityReferenceType>? Type { get; set; }
 
         public EntityReferenceArgs()
         {

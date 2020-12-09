@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview.Inputs
         /// The algorithm used to encrypt "Value".
         /// </summary>
         [Input("encryptionAlgorithm", required: true)]
-        public Input<string> EncryptionAlgorithm { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.V20200501Preview.EncryptionAlgorithm> EncryptionAlgorithm { get; set; } = null!;
 
         /// <summary>
         /// Thumbprint certificate used to encrypt \"Value\". If the value is unencrypted, it will be null.

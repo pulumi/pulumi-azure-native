@@ -48,7 +48,7 @@ setup(name='pulumi_azure_nextgen',
       packages=find_packages(),
       package_data={
           'pulumi_azure_nextgen': [
-              'py.typed'
+              'py.typed',
           ]
       },
       install_requires=[

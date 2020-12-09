@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .alert_rule import *
 from .alert_rule_action import *
 from .bookmark import *
@@ -32,3 +33,50 @@ from .storage_insight_config import *
 from .workspace import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:operationalinsights/latest:AlertRule":
+                return AlertRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:operationalinsights/latest:AlertRuleAction":
+                return AlertRuleAction(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:operationalinsights/latest:Bookmark":
+                return Bookmark(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:operationalinsights/latest:Cluster":
+                return Cluster(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:operationalinsights/latest:DataConnector":
+                return DataConnector(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:operationalinsights/latest:DataExport":
+                return DataExport(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:operationalinsights/latest:DataSource":
+                return DataSource(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:operationalinsights/latest:Incident":
+                return Incident(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:operationalinsights/latest:LinkedService":
+                return LinkedService(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:operationalinsights/latest:LinkedStorageAccount":
+                return LinkedStorageAccount(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:operationalinsights/latest:SavedSearch":
+                return SavedSearch(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:operationalinsights/latest:StorageInsightConfig":
+                return StorageInsightConfig(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:operationalinsights/latest:Workspace":
+                return Workspace(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "operationalinsights/latest", _module_instance)
+
+_register_module()

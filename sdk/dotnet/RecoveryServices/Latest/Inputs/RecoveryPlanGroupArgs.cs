@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         /// The group type.
         /// </summary>
         [Input("groupType", required: true)]
-        public Input<string> GroupType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.Latest.RecoveryPlanGroupType> GroupType { get; set; } = null!;
 
         [Input("replicationProtectedItems")]
         private InputList<Inputs.RecoveryPlanProtectedItemArgs>? _replicationProtectedItems;

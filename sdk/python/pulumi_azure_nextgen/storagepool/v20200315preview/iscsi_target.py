@@ -53,19 +53,19 @@ class IscsiTarget(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if disk_pool_name is None:
+            if disk_pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'disk_pool_name'")
             __props__['disk_pool_name'] = disk_pool_name
-            if iscsi_target_name is None:
+            if iscsi_target_name is None and not opts.urn:
                 raise TypeError("Missing required property 'iscsi_target_name'")
             __props__['iscsi_target_name'] = iscsi_target_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if target_iqn is None:
+            if target_iqn is None and not opts.urn:
                 raise TypeError("Missing required property 'target_iqn'")
             __props__['target_iqn'] = target_iqn
-            if tpgs is None:
+            if tpgs is None and not opts.urn:
                 raise TypeError("Missing required property 'tpgs'")
             __props__['tpgs'] = tpgs
             __props__['name'] = None

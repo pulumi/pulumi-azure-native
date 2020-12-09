@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -90,25 +91,25 @@ export class ManagedDatabaseSensitivityLabel extends pulumi.CustomResource {
     constructor(name: string, args: ManagedDatabaseSensitivityLabelArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.columnName === undefined) {
+            if ((!args || args.columnName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'columnName'");
             }
-            if (!args || args.databaseName === undefined) {
+            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if (!args || args.managedInstanceName === undefined) {
+            if ((!args || args.managedInstanceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managedInstanceName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.schemaName === undefined) {
+            if ((!args || args.schemaName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'schemaName'");
             }
-            if (!args || args.sensitivityLabelSource === undefined) {
+            if ((!args || args.sensitivityLabelSource === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sensitivityLabelSource'");
             }
-            if (!args || args.tableName === undefined) {
+            if ((!args || args.tableName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'tableName'");
             }
             inputs["columnName"] = args ? args.columnName : undefined;
@@ -186,7 +187,7 @@ export interface ManagedDatabaseSensitivityLabelArgs {
      * The name of the managed instance.
      */
     readonly managedInstanceName: pulumi.Input<string>;
-    readonly rank?: pulumi.Input<string>;
+    readonly rank?: pulumi.Input<enums.sql.v20200801preview.SensitivityLabelRank>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

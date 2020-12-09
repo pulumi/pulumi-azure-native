@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest.Inputs
         /// An action to be performed when the cluster size is decreasing. The default value is requeue.
         /// </summary>
         [Input("nodeDeallocationOption")]
-        public Input<string>? NodeDeallocationOption { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.BatchAI.Latest.DeallocationOption>? NodeDeallocationOption { get; set; }
 
         /// <summary>
         /// The desired number of compute nodes in the Cluster. Default is 0.

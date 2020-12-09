@@ -205,37 +205,37 @@ namespace Pulumi.AzureNextGen.Migrate.V20171111Preview
         /// AHUB discount on windows virtual machines.
         /// </summary>
         [Input("azureHybridUseBenefit", required: true)]
-        public Input<string> AzureHybridUseBenefit { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Migrate.V20171111Preview.AzureHybridUseBenefit> AzureHybridUseBenefit { get; set; } = null!;
 
         /// <summary>
         /// Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
         /// </summary>
         [Input("azureLocation", required: true)]
-        public Input<string> AzureLocation { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Migrate.V20171111Preview.AzureLocation> AzureLocation { get; set; } = null!;
 
         /// <summary>
         /// Offer code according to which cost estimation is done.
         /// </summary>
         [Input("azureOfferCode", required: true)]
-        public Input<string> AzureOfferCode { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Migrate.V20171111Preview.AzureOfferCode> AzureOfferCode { get; set; } = null!;
 
         /// <summary>
         /// Pricing tier for Size evaluation.
         /// </summary>
         [Input("azurePricingTier", required: true)]
-        public Input<string> AzurePricingTier { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Migrate.V20171111Preview.AzurePricingTier> AzurePricingTier { get; set; } = null!;
 
         /// <summary>
         /// Storage Redundancy type offered by Azure.
         /// </summary>
         [Input("azureStorageRedundancy", required: true)]
-        public Input<string> AzureStorageRedundancy { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Migrate.V20171111Preview.AzureStorageRedundancy> AzureStorageRedundancy { get; set; } = null!;
 
         /// <summary>
         /// Currency to report prices in.
         /// </summary>
         [Input("currency", required: true)]
-        public Input<string> Currency { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Migrate.V20171111Preview.Currency> Currency { get; set; } = null!;
 
         /// <summary>
         /// Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
@@ -259,7 +259,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20171111Preview
         /// Percentile of performance data used to recommend Azure size.
         /// </summary>
         [Input("percentile", required: true)]
-        public Input<string> Percentile { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Migrate.V20171111Preview.Percentile> Percentile { get; set; } = null!;
 
         /// <summary>
         /// Name of the Azure Migrate project.
@@ -283,13 +283,13 @@ namespace Pulumi.AzureNextGen.Migrate.V20171111Preview
         /// User configurable setting that describes the status of the assessment.
         /// </summary>
         [Input("stage", required: true)]
-        public Input<string> Stage { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Migrate.V20171111Preview.AssessmentStage> Stage { get; set; } = null!;
 
         /// <summary>
         /// Time range of performance data used to recommend a size.
         /// </summary>
         [Input("timeRange", required: true)]
-        public Input<string> TimeRange { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Migrate.V20171111Preview.TimeRange> TimeRange { get; set; } = null!;
 
         public AssessmentArgs()
         {

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'DnsConfigArgs',
@@ -62,8 +63,8 @@ class EndpointArgs:
     def __init__(__self__, *,
                  custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersArgs']]]] = None,
                  endpoint_location: Optional[pulumi.Input[str]] = None,
-                 endpoint_monitor_status: Optional[pulumi.Input[str]] = None,
-                 endpoint_status: Optional[pulumi.Input[str]] = None,
+                 endpoint_monitor_status: Optional[pulumi.Input[Union[str, 'EndpointMonitorStatus']]] = None,
+                 endpoint_status: Optional[pulumi.Input[Union[str, 'EndpointStatus']]] = None,
                  geo_mapping: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  min_child_endpoints: Optional[pulumi.Input[int]] = None,
@@ -77,8 +78,8 @@ class EndpointArgs:
         Class representing a Traffic Manager endpoint.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersArgs']]] custom_headers: List of custom headers.
         :param pulumi.Input[str] endpoint_location: Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
-        :param pulumi.Input[str] endpoint_monitor_status: The monitoring status of the endpoint.
-        :param pulumi.Input[str] endpoint_status: The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
+        :param pulumi.Input[Union[str, 'EndpointMonitorStatus']] endpoint_monitor_status: The monitoring status of the endpoint.
+        :param pulumi.Input[Union[str, 'EndpointStatus']] endpoint_status: The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mapping: The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
         :param pulumi.Input[str] id: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
         :param pulumi.Input[int] min_child_endpoints: The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
@@ -142,26 +143,26 @@ class EndpointArgs:
 
     @property
     @pulumi.getter(name="endpointMonitorStatus")
-    def endpoint_monitor_status(self) -> Optional[pulumi.Input[str]]:
+    def endpoint_monitor_status(self) -> Optional[pulumi.Input[Union[str, 'EndpointMonitorStatus']]]:
         """
         The monitoring status of the endpoint.
         """
         return pulumi.get(self, "endpoint_monitor_status")
 
     @endpoint_monitor_status.setter
-    def endpoint_monitor_status(self, value: Optional[pulumi.Input[str]]):
+    def endpoint_monitor_status(self, value: Optional[pulumi.Input[Union[str, 'EndpointMonitorStatus']]]):
         pulumi.set(self, "endpoint_monitor_status", value)
 
     @property
     @pulumi.getter(name="endpointStatus")
-    def endpoint_status(self) -> Optional[pulumi.Input[str]]:
+    def endpoint_status(self) -> Optional[pulumi.Input[Union[str, 'EndpointStatus']]]:
         """
         The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
         """
         return pulumi.get(self, "endpoint_status")
 
     @endpoint_status.setter
-    def endpoint_status(self, value: Optional[pulumi.Input[str]]):
+    def endpoint_status(self, value: Optional[pulumi.Input[Union[str, 'EndpointStatus']]]):
         pulumi.set(self, "endpoint_status", value)
 
     @property
@@ -321,8 +322,8 @@ class MonitorConfigArgs:
                  interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
-                 profile_monitor_status: Optional[pulumi.Input[str]] = None,
-                 protocol: Optional[pulumi.Input[str]] = None,
+                 profile_monitor_status: Optional[pulumi.Input[Union[str, 'ProfileMonitorStatus']]] = None,
+                 protocol: Optional[pulumi.Input[Union[str, 'MonitorProtocol']]] = None,
                  timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  tolerated_number_of_failures: Optional[pulumi.Input[int]] = None):
         """
@@ -332,8 +333,8 @@ class MonitorConfigArgs:
         :param pulumi.Input[int] interval_in_seconds: The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
         :param pulumi.Input[str] path: The path relative to the endpoint domain name used to probe for endpoint health.
         :param pulumi.Input[int] port: The TCP port used to probe for endpoint health.
-        :param pulumi.Input[str] profile_monitor_status: The profile-level monitoring status of the Traffic Manager profile.
-        :param pulumi.Input[str] protocol: The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
+        :param pulumi.Input[Union[str, 'ProfileMonitorStatus']] profile_monitor_status: The profile-level monitoring status of the Traffic Manager profile.
+        :param pulumi.Input[Union[str, 'MonitorProtocol']] protocol: The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
         :param pulumi.Input[int] timeout_in_seconds: The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check.
         :param pulumi.Input[int] tolerated_number_of_failures: The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check.
         """
@@ -418,26 +419,26 @@ class MonitorConfigArgs:
 
     @property
     @pulumi.getter(name="profileMonitorStatus")
-    def profile_monitor_status(self) -> Optional[pulumi.Input[str]]:
+    def profile_monitor_status(self) -> Optional[pulumi.Input[Union[str, 'ProfileMonitorStatus']]]:
         """
         The profile-level monitoring status of the Traffic Manager profile.
         """
         return pulumi.get(self, "profile_monitor_status")
 
     @profile_monitor_status.setter
-    def profile_monitor_status(self, value: Optional[pulumi.Input[str]]):
+    def profile_monitor_status(self, value: Optional[pulumi.Input[Union[str, 'ProfileMonitorStatus']]]):
         pulumi.set(self, "profile_monitor_status", value)
 
     @property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[str]]:
+    def protocol(self) -> Optional[pulumi.Input[Union[str, 'MonitorProtocol']]]:
         """
         The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[str]]):
+    def protocol(self, value: Optional[pulumi.Input[Union[str, 'MonitorProtocol']]]):
         pulumi.set(self, "protocol", value)
 
     @property

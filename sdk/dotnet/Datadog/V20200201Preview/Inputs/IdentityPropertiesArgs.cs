@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Datadog.V20200201Preview.Inputs
         /// Identity type
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Datadog.V20200201Preview.ManagedIdentityTypes>? Type { get; set; }
 
         public IdentityPropertiesArgs()
         {

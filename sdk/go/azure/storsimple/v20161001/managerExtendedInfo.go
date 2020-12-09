@@ -38,20 +38,21 @@ type ManagerExtendedInfo struct {
 // NewManagerExtendedInfo registers a new resource with the given unique name, arguments, and options.
 func NewManagerExtendedInfo(ctx *pulumi.Context,
 	name string, args *ManagerExtendedInfoArgs, opts ...pulumi.ResourceOption) (*ManagerExtendedInfo, error) {
-	if args == nil || args.Algorithm == nil {
-		return nil, errors.New("missing required argument 'Algorithm'")
-	}
-	if args == nil || args.IntegrityKey == nil {
-		return nil, errors.New("missing required argument 'IntegrityKey'")
-	}
-	if args == nil || args.ManagerName == nil {
-		return nil, errors.New("missing required argument 'ManagerName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ManagerExtendedInfoArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Algorithm == nil {
+		return nil, errors.New("invalid value for required argument 'Algorithm'")
+	}
+	if args.IntegrityKey == nil {
+		return nil, errors.New("invalid value for required argument 'IntegrityKey'")
+	}
+	if args.ManagerName == nil {
+		return nil, errors.New("invalid value for required argument 'ManagerName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

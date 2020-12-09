@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Automation']
@@ -66,7 +67,7 @@ class Automation(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['actions'] = actions
-            if automation_name is None:
+            if automation_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_name'")
             __props__['automation_name'] = automation_name
             __props__['description'] = description
@@ -74,7 +75,7 @@ class Automation(pulumi.CustomResource):
             __props__['is_enabled'] = is_enabled
             __props__['kind'] = kind
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['scopes'] = scopes

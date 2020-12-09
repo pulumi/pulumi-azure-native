@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.KeyVault.V20200401Preview.Inputs
         /// The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
         /// </summary>
         [Input("createMode")]
-        public Input<string>? CreateMode { get; set; }
+        public Input<Pulumi.AzureNextGen.KeyVault.V20200401Preview.CreateMode>? CreateMode { get; set; }
 
         /// <summary>
         /// Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.

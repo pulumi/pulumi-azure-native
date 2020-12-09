@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20160301.Inputs
         /// Name of the notification hub sku
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.NotificationHubs.V20160301.SkuName> Name { get; set; } = null!;
 
         /// <summary>
         /// The Sku size

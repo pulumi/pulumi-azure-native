@@ -36,29 +36,24 @@ type StorageAccountCredential struct {
 // NewStorageAccountCredential registers a new resource with the given unique name, arguments, and options.
 func NewStorageAccountCredential(ctx *pulumi.Context,
 	name string, args *StorageAccountCredentialArgs, opts ...pulumi.ResourceOption) (*StorageAccountCredential, error) {
-	if args == nil || args.CloudType == nil {
-		return nil, errors.New("missing required argument 'CloudType'")
-	}
-	if args == nil || args.CredentialName == nil {
-		return nil, errors.New("missing required argument 'CredentialName'")
-	}
-	if args == nil || args.EnableSSL == nil {
-		return nil, errors.New("missing required argument 'EnableSSL'")
-	}
-	if args == nil || args.EndPoint == nil {
-		return nil, errors.New("missing required argument 'EndPoint'")
-	}
-	if args == nil || args.Login == nil {
-		return nil, errors.New("missing required argument 'Login'")
-	}
-	if args == nil || args.ManagerName == nil {
-		return nil, errors.New("missing required argument 'ManagerName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &StorageAccountCredentialArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CredentialName == nil {
+		return nil, errors.New("invalid value for required argument 'CredentialName'")
+	}
+	if args.EndPoint == nil {
+		return nil, errors.New("invalid value for required argument 'EndPoint'")
+	}
+	if args.Login == nil {
+		return nil, errors.New("invalid value for required argument 'Login'")
+	}
+	if args.ManagerName == nil {
+		return nil, errors.New("invalid value for required argument 'ManagerName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -158,11 +153,11 @@ type StorageAccountCredentialArgs struct {
 	// The details of the storage account password
 	AccessKey AsymmetricEncryptedSecretPtrInput
 	// The cloud service provider
-	CloudType pulumi.StringInput
+	CloudType CloudType
 	// The credential name.
 	CredentialName pulumi.StringInput
 	// SSL needs to be enabled or not
-	EnableSSL pulumi.StringInput
+	EnableSSL SslStatus
 	// The storage endpoint
 	EndPoint pulumi.StringInput
 	// The storage account's geo location

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -66,19 +66,19 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
     constructor(name: string, args: ExpressRouteConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.connectionName === undefined) {
+            if ((!args || args.connectionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'connectionName'");
             }
-            if (!args || args.expressRouteCircuitPeering === undefined) {
+            if ((!args || args.expressRouteCircuitPeering === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'expressRouteCircuitPeering'");
             }
-            if (!args || args.expressRouteGatewayName === undefined) {
+            if ((!args || args.expressRouteGatewayName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'expressRouteGatewayName'");
             }
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["authorizationKey"] = args ? args.authorizationKey : undefined;

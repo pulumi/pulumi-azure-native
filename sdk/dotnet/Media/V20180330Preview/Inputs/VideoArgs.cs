@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview.Inputs
         /// The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
         /// </summary>
         [Input("stretchMode")]
-        public Input<string>? StretchMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Media.V20180330Preview.StretchMode>? StretchMode { get; set; }
 
         public VideoArgs()
         {

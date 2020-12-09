@@ -36,29 +36,30 @@ type ApiIssue struct {
 // NewApiIssue registers a new resource with the given unique name, arguments, and options.
 func NewApiIssue(ctx *pulumi.Context,
 	name string, args *ApiIssueArgs, opts ...pulumi.ResourceOption) (*ApiIssue, error) {
-	if args == nil || args.ApiId == nil {
-		return nil, errors.New("missing required argument 'ApiId'")
-	}
-	if args == nil || args.Description == nil {
-		return nil, errors.New("missing required argument 'Description'")
-	}
-	if args == nil || args.IssueId == nil {
-		return nil, errors.New("missing required argument 'IssueId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
-	if args == nil || args.Title == nil {
-		return nil, errors.New("missing required argument 'Title'")
-	}
-	if args == nil || args.UserId == nil {
-		return nil, errors.New("missing required argument 'UserId'")
-	}
 	if args == nil {
-		args = &ApiIssueArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApiId == nil {
+		return nil, errors.New("invalid value for required argument 'ApiId'")
+	}
+	if args.Description == nil {
+		return nil, errors.New("invalid value for required argument 'Description'")
+	}
+	if args.IssueId == nil {
+		return nil, errors.New("invalid value for required argument 'IssueId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
+	}
+	if args.Title == nil {
+		return nil, errors.New("invalid value for required argument 'Title'")
+	}
+	if args.UserId == nil {
+		return nil, errors.New("invalid value for required argument 'UserId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

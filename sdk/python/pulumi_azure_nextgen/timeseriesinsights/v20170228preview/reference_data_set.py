@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ReferenceDataSet']
@@ -55,19 +56,19 @@ class ReferenceDataSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if environment_name is None:
+            if environment_name is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_name'")
             __props__['environment_name'] = environment_name
-            if key_properties is None:
+            if key_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'key_properties'")
             __props__['key_properties'] = key_properties
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if reference_data_set_name is None:
+            if reference_data_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'reference_data_set_name'")
             __props__['reference_data_set_name'] = reference_data_set_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

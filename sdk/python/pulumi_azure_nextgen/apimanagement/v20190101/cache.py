@@ -53,18 +53,18 @@ class Cache(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if cache_id is None:
+            if cache_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cache_id'")
             __props__['cache_id'] = cache_id
-            if connection_string is None:
+            if connection_string is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_string'")
             __props__['connection_string'] = connection_string
             __props__['description'] = description
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_id'] = resource_id
-            if service_name is None:
+            if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['name'] = None

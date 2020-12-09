@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest.Inputs
         /// Status of the connection.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.EventGrid.Latest.PersistedConnectionStatus>? Status { get; set; }
 
         public ConnectionStateArgs()
         {

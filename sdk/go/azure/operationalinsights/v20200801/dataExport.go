@@ -38,20 +38,21 @@ type DataExport struct {
 // NewDataExport registers a new resource with the given unique name, arguments, and options.
 func NewDataExport(ctx *pulumi.Context,
 	name string, args *DataExportArgs, opts ...pulumi.ResourceOption) (*DataExport, error) {
-	if args == nil || args.DataExportName == nil {
-		return nil, errors.New("missing required argument 'DataExportName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ResourceId == nil {
-		return nil, errors.New("missing required argument 'ResourceId'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &DataExportArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DataExportName == nil {
+		return nil, errors.New("invalid value for required argument 'DataExportName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ResourceId == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceId'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

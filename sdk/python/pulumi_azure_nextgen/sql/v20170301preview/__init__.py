@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .database import *
 from .database_vulnerability_assessment import *
 from .database_vulnerability_assessment_rule_baseline import *
@@ -29,3 +30,48 @@ from .sensitivity_label import *
 from .server_dns_alias import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:sql/v20170301preview:Database":
+                return Database(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:sql/v20170301preview:DatabaseVulnerabilityAssessment":
+                return DatabaseVulnerabilityAssessment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:sql/v20170301preview:DatabaseVulnerabilityAssessmentRuleBaseline":
+                return DatabaseVulnerabilityAssessmentRuleBaseline(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:sql/v20170301preview:Job":
+                return Job(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:sql/v20170301preview:JobAgent":
+                return JobAgent(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:sql/v20170301preview:JobCredential":
+                return JobCredential(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:sql/v20170301preview:JobStep":
+                return JobStep(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:sql/v20170301preview:JobTargetGroup":
+                return JobTargetGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:sql/v20170301preview:ManagedDatabase":
+                return ManagedDatabase(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:sql/v20170301preview:ManagedInstanceAdministrator":
+                return ManagedInstanceAdministrator(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:sql/v20170301preview:SensitivityLabel":
+                return SensitivityLabel(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:sql/v20170301preview:ServerDnsAlias":
+                return ServerDnsAlias(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "sql/v20170301preview", _module_instance)
+
+_register_module()

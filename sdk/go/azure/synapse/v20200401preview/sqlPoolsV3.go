@@ -42,20 +42,21 @@ type SqlPoolsV3 struct {
 // NewSqlPoolsV3 registers a new resource with the given unique name, arguments, and options.
 func NewSqlPoolsV3(ctx *pulumi.Context,
 	name string, args *SqlPoolsV3Args, opts ...pulumi.ResourceOption) (*SqlPoolsV3, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SqlPoolName == nil {
-		return nil, errors.New("missing required argument 'SqlPoolName'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &SqlPoolsV3Args{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SqlPoolName == nil {
+		return nil, errors.New("invalid value for required argument 'SqlPoolName'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

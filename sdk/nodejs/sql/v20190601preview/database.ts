@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -228,16 +228,16 @@ export class Database extends pulumi.CustomResource {
     constructor(name: string, args: DatabaseArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.databaseName === undefined) {
+            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverName === undefined) {
+            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverName'");
             }
             inputs["autoPauseDelay"] = args ? args.autoPauseDelay : undefined;
@@ -347,7 +347,7 @@ export interface DatabaseArgs {
     /**
      * Collation of the metadata catalog.
      */
-    readonly catalogCollation?: pulumi.Input<string>;
+    readonly catalogCollation?: pulumi.Input<string | enums.sql.v20190601preview.CatalogCollationType>;
     /**
      * The collation of the database.
      */
@@ -371,7 +371,7 @@ export interface DatabaseArgs {
      * 
      * Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
      */
-    readonly createMode?: pulumi.Input<string>;
+    readonly createMode?: pulumi.Input<string | enums.sql.v20190601preview.CreateMode>;
     /**
      * The name of the database.
      */
@@ -383,7 +383,7 @@ export interface DatabaseArgs {
     /**
      * The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
      */
-    readonly licenseType?: pulumi.Input<string>;
+    readonly licenseType?: pulumi.Input<string | enums.sql.v20190601preview.DatabaseLicenseType>;
     /**
      * Resource location.
      */
@@ -407,7 +407,7 @@ export interface DatabaseArgs {
     /**
      * The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
      */
-    readonly readScale?: pulumi.Input<string>;
+    readonly readScale?: pulumi.Input<string | enums.sql.v20190601preview.DatabaseReadScale>;
     /**
      * The resource identifier of the recoverable database associated with create operation of this database.
      */
@@ -431,7 +431,7 @@ export interface DatabaseArgs {
     /**
      * The name of the sample schema to apply when creating this database.
      */
-    readonly sampleName?: pulumi.Input<string>;
+    readonly sampleName?: pulumi.Input<string | enums.sql.v20190601preview.SampleName>;
     /**
      * The name of the server.
      */
@@ -461,7 +461,7 @@ export interface DatabaseArgs {
     /**
      * The storage account type used to store backups for this database.
      */
-    readonly storageAccountType?: pulumi.Input<string>;
+    readonly storageAccountType?: pulumi.Input<string | enums.sql.v20190601preview.StorageAccountType>;
     /**
      * Resource tags.
      */

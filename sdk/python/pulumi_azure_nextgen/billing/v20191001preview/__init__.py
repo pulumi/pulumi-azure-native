@@ -11,3 +11,30 @@ from .get_billing_role_assignment_by_department import *
 from .get_billing_role_assignment_by_enrollment_account import *
 from .list_billing_account_invoice_sections_by_create_subscription_permission import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:billing/v20191001preview:BillingRoleAssignmentByBillingAccount":
+                return BillingRoleAssignmentByBillingAccount(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:billing/v20191001preview:BillingRoleAssignmentByDepartment":
+                return BillingRoleAssignmentByDepartment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:billing/v20191001preview:BillingRoleAssignmentByEnrollmentAccount":
+                return BillingRoleAssignmentByEnrollmentAccount(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "billing/v20191001preview", _module_instance)
+
+_register_module()

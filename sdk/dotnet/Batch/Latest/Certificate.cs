@@ -154,7 +154,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest
         /// The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
         /// </summary>
         [Input("format")]
-        public Input<string>? Format { get; set; }
+        public Input<Pulumi.AzureNextGen.Batch.Latest.CertificateFormat>? Format { get; set; }
 
         /// <summary>
         /// This must not be specified if the certificate format is Cer.

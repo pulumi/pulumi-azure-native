@@ -17,3 +17,32 @@ from .remediation_at_resource_group import *
 from .remediation_at_subscription import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:policyinsights/v20180701preview:RemediationAtManagementGroup":
+                return RemediationAtManagementGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:policyinsights/v20180701preview:RemediationAtResource":
+                return RemediationAtResource(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:policyinsights/v20180701preview:RemediationAtResourceGroup":
+                return RemediationAtResourceGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:policyinsights/v20180701preview:RemediationAtSubscription":
+                return RemediationAtSubscription(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "policyinsights/v20180701preview", _module_instance)
+
+_register_module()

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['RulesEngine']
@@ -51,14 +52,14 @@ class RulesEngine(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if front_door_name is None:
+            if front_door_name is None and not opts.urn:
                 raise TypeError("Missing required property 'front_door_name'")
             __props__['front_door_name'] = front_door_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['rules'] = rules
-            if rules_engine_name is None:
+            if rules_engine_name is None and not opts.urn:
                 raise TypeError("Missing required property 'rules_engine_name'")
             __props__['rules_engine_name'] = rules_engine_name
             __props__['name'] = None

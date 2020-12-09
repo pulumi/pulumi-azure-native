@@ -49,16 +49,16 @@ class TrustedIdProvider(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_name is None:
+            if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if id_provider is None:
+            if id_provider is None and not opts.urn:
                 raise TypeError("Missing required property 'id_provider'")
             __props__['id_provider'] = id_provider
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if trusted_id_provider_name is None:
+            if trusted_id_provider_name is None and not opts.urn:
                 raise TypeError("Missing required property 'trusted_id_provider_name'")
             __props__['trusted_id_provider_name'] = trusted_id_provider_name
             __props__['name'] = None

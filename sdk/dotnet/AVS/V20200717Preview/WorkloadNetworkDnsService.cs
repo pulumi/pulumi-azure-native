@@ -159,7 +159,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// DNS Service log level.
         /// </summary>
         [Input("logLevel")]
-        public Input<string>? LogLevel { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.AVS.V20200717Preview.DnsServiceLogLevelEnum>? LogLevel { get; set; }
 
         /// <summary>
         /// Name of the private cloud

@@ -30,20 +30,21 @@ type Creator struct {
 // NewCreator registers a new resource with the given unique name, arguments, and options.
 func NewCreator(ctx *pulumi.Context,
 	name string, args *CreatorArgs, opts ...pulumi.ResourceOption) (*Creator, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.CreatorName == nil {
-		return nil, errors.New("missing required argument 'CreatorName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &CreatorArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.CreatorName == nil {
+		return nil, errors.New("invalid value for required argument 'CreatorName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource Creator
 	err := ctx.RegisterResource("azure-nextgen:maps/v20200201preview:Creator", name, args, &resource, opts...)

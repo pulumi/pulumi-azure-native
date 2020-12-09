@@ -61,22 +61,22 @@ export class JobCredential extends pulumi.CustomResource {
     constructor(name: string, args: JobCredentialArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.credentialName === undefined) {
+            if ((!args || args.credentialName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'credentialName'");
             }
-            if (!args || args.jobAgentName === undefined) {
+            if ((!args || args.jobAgentName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'jobAgentName'");
             }
-            if (!args || args.password === undefined) {
+            if ((!args || args.password === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'password'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverName === undefined) {
+            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if (!args || args.username === undefined) {
+            if ((!args || args.username === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'username'");
             }
             inputs["credentialName"] = args ? args.credentialName : undefined;

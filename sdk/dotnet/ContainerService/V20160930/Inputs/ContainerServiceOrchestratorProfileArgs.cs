@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20160930.Inputs
         /// The orchestrator to use to manage container service cluster resources. Valid values are Swarm, DCOS, and Custom.
         /// </summary>
         [Input("orchestratorType", required: true)]
-        public Input<string> OrchestratorType { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.ContainerService.V20160930.ContainerServiceOchestratorTypes> OrchestratorType { get; set; } = null!;
 
         public ContainerServiceOrchestratorProfileArgs()
         {

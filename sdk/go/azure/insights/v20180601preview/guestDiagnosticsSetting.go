@@ -33,17 +33,18 @@ type GuestDiagnosticsSetting struct {
 // NewGuestDiagnosticsSetting registers a new resource with the given unique name, arguments, and options.
 func NewGuestDiagnosticsSetting(ctx *pulumi.Context,
 	name string, args *GuestDiagnosticsSettingArgs, opts ...pulumi.ResourceOption) (*GuestDiagnosticsSetting, error) {
-	if args == nil || args.DiagnosticSettingsName == nil {
-		return nil, errors.New("missing required argument 'DiagnosticSettingsName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &GuestDiagnosticsSettingArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DiagnosticSettingsName == nil {
+		return nil, errors.New("invalid value for required argument 'DiagnosticSettingsName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource GuestDiagnosticsSetting
 	err := ctx.RegisterResource("azure-nextgen:insights/v20180601preview:guestDiagnosticsSetting", name, args, &resource, opts...)

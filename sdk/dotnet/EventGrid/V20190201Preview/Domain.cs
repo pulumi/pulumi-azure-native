@@ -126,7 +126,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20190201Preview
         /// This determines the format that Event Grid should expect for incoming events published to the domain.
         /// </summary>
         [Input("inputSchema")]
-        public Input<string>? InputSchema { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.EventGrid.V20190201Preview.InputSchema>? InputSchema { get; set; }
 
         /// <summary>
         /// Information about the InputSchemaMapping which specified the info about mapping event payload.

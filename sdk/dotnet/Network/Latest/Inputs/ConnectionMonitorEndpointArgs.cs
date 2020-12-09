@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// Test coverage for the endpoint.
         /// </summary>
         [Input("coverageLevel")]
-        public Input<string>? CoverageLevel { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.CoverageLevel>? CoverageLevel { get; set; }
 
         /// <summary>
         /// Filter for sub-items within the endpoint.
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// The endpoint type.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.EndpointType>? Type { get; set; }
 
         public ConnectionMonitorEndpointArgs()
         {

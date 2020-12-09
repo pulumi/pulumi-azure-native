@@ -39,17 +39,18 @@ type AFDOriginGroup struct {
 // NewAFDOriginGroup registers a new resource with the given unique name, arguments, and options.
 func NewAFDOriginGroup(ctx *pulumi.Context,
 	name string, args *AFDOriginGroupArgs, opts ...pulumi.ResourceOption) (*AFDOriginGroup, error) {
-	if args == nil || args.OriginGroupName == nil {
-		return nil, errors.New("missing required argument 'OriginGroupName'")
-	}
-	if args == nil || args.ProfileName == nil {
-		return nil, errors.New("missing required argument 'ProfileName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &AFDOriginGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.OriginGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'OriginGroupName'")
+	}
+	if args.ProfileName == nil {
+		return nil, errors.New("invalid value for required argument 'ProfileName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Scheduler.V20160101.Inputs
         /// Gets or sets the http authentication type.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AzureNextGen.Scheduler.V20160101.HttpAuthenticationType>? Type { get; set; }
 
         public HttpAuthenticationArgs()
         {

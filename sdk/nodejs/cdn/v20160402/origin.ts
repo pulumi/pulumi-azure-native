@@ -73,19 +73,19 @@ export class Origin extends pulumi.CustomResource {
     constructor(name: string, args: OriginArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.endpointName === undefined) {
+            if ((!args || args.endpointName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'endpointName'");
             }
-            if (!args || args.hostName === undefined) {
+            if ((!args || args.hostName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hostName'");
             }
-            if (!args || args.originName === undefined) {
+            if ((!args || args.originName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'originName'");
             }
-            if (!args || args.profileName === undefined) {
+            if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["endpointName"] = args ? args.endpointName : undefined;

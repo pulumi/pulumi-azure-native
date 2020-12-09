@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.KeyVault.V20200401Preview.Inputs
         /// SKU Family of the managed HSM Pool
         /// </summary>
         [Input("family", required: true)]
-        public Input<string> Family { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.KeyVault.V20200401Preview.ManagedHsmSkuFamily> Family { get; set; } = null!;
 
         /// <summary>
         /// SKU of the managed HSM Pool
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.KeyVault.V20200401Preview.ManagedHsmSkuName> Name { get; set; } = null!;
 
         public ManagedHsmSkuArgs()
         {

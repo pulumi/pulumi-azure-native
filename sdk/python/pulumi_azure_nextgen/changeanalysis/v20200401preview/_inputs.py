@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AzureMonitorWorkspacePropertiesArgs',
@@ -82,11 +83,11 @@ class ConfigurationProfileResourcePropertiesArgs:
 @pulumi.input_type
 class NotificationSettingsArgs:
     def __init__(__self__, *,
-                 activation_state: Optional[pulumi.Input[str]] = None,
+                 activation_state: Optional[pulumi.Input[Union[str, 'NotificationsState']]] = None,
                  azure_monitor_workspace_properties: Optional[pulumi.Input['AzureMonitorWorkspacePropertiesArgs']] = None):
         """
         Settings of change notification configuration for a subscription.
-        :param pulumi.Input[str] activation_state: The state of notifications feature.
+        :param pulumi.Input[Union[str, 'NotificationsState']] activation_state: The state of notifications feature.
         :param pulumi.Input['AzureMonitorWorkspacePropertiesArgs'] azure_monitor_workspace_properties: Configuration properties of an Azure Monitor workspace that receives change notifications.
         """
         if activation_state is not None:
@@ -96,14 +97,14 @@ class NotificationSettingsArgs:
 
     @property
     @pulumi.getter(name="activationState")
-    def activation_state(self) -> Optional[pulumi.Input[str]]:
+    def activation_state(self) -> Optional[pulumi.Input[Union[str, 'NotificationsState']]]:
         """
         The state of notifications feature.
         """
         return pulumi.get(self, "activation_state")
 
     @activation_state.setter
-    def activation_state(self, value: Optional[pulumi.Input[str]]):
+    def activation_state(self, value: Optional[pulumi.Input[Union[str, 'NotificationsState']]]):
         pulumi.set(self, "activation_state", value)
 
     @property
@@ -122,24 +123,24 @@ class NotificationSettingsArgs:
 @pulumi.input_type
 class ResourceIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input[Union[str, 'ManagedIdentityTypes']]] = None):
         """
         The identity block returned by ARM resource that supports managed identity.
-        :param pulumi.Input[str] type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+        :param pulumi.Input[Union[str, 'ManagedIdentityTypes']] type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ManagedIdentityTypes']]]:
         """
         The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ManagedIdentityTypes']]]):
         pulumi.set(self, "type", value)
 
 

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -78,22 +78,22 @@ export class GalleryImageVersion extends pulumi.CustomResource {
     constructor(name: string, args: GalleryImageVersionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.galleryImageName === undefined) {
+            if ((!args || args.galleryImageName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'galleryImageName'");
             }
-            if (!args || args.galleryImageVersionName === undefined) {
+            if ((!args || args.galleryImageVersionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'galleryImageVersionName'");
             }
-            if (!args || args.galleryName === undefined) {
+            if ((!args || args.galleryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'galleryName'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.storageProfile === undefined) {
+            if ((!args || args.storageProfile === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageProfile'");
             }
             inputs["galleryImageName"] = args ? args.galleryImageName : undefined;

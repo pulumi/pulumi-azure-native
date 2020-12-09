@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -99,19 +99,19 @@ export class AFDOrigin extends pulumi.CustomResource {
     constructor(name: string, args: AFDOriginArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.hostName === undefined) {
+            if ((!args || args.hostName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hostName'");
             }
-            if (!args || args.originGroupName === undefined) {
+            if ((!args || args.originGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'originGroupName'");
             }
-            if (!args || args.originName === undefined) {
+            if ((!args || args.originName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'originName'");
             }
-            if (!args || args.profileName === undefined) {
+            if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["azureOrigin"] = args ? args.azureOrigin : undefined;
@@ -172,7 +172,7 @@ export interface AFDOriginArgs {
     /**
      * Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
      */
-    readonly enabledState?: pulumi.Input<string>;
+    readonly enabledState?: pulumi.Input<string | enums.cdn.v20200901.EnabledState>;
     /**
      * The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
      */

@@ -38,14 +38,15 @@ type ControllerDetails struct {
 // NewControllerDetails registers a new resource with the given unique name, arguments, and options.
 func NewControllerDetails(ctx *pulumi.Context,
 	name string, args *ControllerDetailsArgs, opts ...pulumi.ResourceOption) (*ControllerDetails, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ResourceName == nil {
-		return nil, errors.New("missing required argument 'ResourceName'")
-	}
 	if args == nil {
-		args = &ControllerDetailsArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	var resource ControllerDetails
 	err := ctx.RegisterResource("azure-nextgen:delegatednetwork/v20200808preview:ControllerDetails", name, args, &resource, opts...)

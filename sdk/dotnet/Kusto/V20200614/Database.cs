@@ -111,7 +111,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20200614
         /// Kind of the database
         /// </summary>
         [Input("kind", required: true)]
-        public Input<string> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Kusto.V20200614.Kind> Kind { get; set; } = null!;
 
         /// <summary>
         /// Resource location.

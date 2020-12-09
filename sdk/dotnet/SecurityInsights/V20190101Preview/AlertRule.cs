@@ -93,7 +93,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// The kind of the alert rule
         /// </summary>
         [Input("kind", required: true)]
-        public Input<string> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.SecurityInsights.V20190101Preview.AlertRuleKind> Kind { get; set; } = null!;
 
         /// <summary>
         /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.

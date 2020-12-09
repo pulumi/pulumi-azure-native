@@ -214,7 +214,7 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200501
         /// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
         /// </summary>
         [Input("kind")]
-        public Input<string>? Kind { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.SignalRService.V20200501.ServiceKind>? Kind { get; set; }
 
         /// <summary>
         /// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.

@@ -56,11 +56,12 @@ type CloudConnector struct {
 // NewCloudConnector registers a new resource with the given unique name, arguments, and options.
 func NewCloudConnector(ctx *pulumi.Context,
 	name string, args *CloudConnectorArgs, opts ...pulumi.ResourceOption) (*CloudConnector, error) {
-	if args == nil || args.ConnectorName == nil {
-		return nil, errors.New("missing required argument 'ConnectorName'")
-	}
 	if args == nil {
-		args = &CloudConnectorArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ConnectorName == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectorName'")
 	}
 	var resource CloudConnector
 	err := ctx.RegisterResource("azure-nextgen:costmanagement/v20190301preview:CloudConnector", name, args, &resource, opts...)

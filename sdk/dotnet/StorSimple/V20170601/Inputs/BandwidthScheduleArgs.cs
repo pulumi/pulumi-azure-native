@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601.Inputs
     public sealed class BandwidthScheduleArgs : Pulumi.ResourceArgs
     {
         [Input("days", required: true)]
-        private InputList<string>? _days;
+        private InputList<Pulumi.AzureNextGen.StorSimple.V20170601.DayOfWeek>? _days;
 
         /// <summary>
         /// The days of the week when this schedule is applicable.
         /// </summary>
-        public InputList<string> Days
+        public InputList<Pulumi.AzureNextGen.StorSimple.V20170601.DayOfWeek> Days
         {
-            get => _days ?? (_days = new InputList<string>());
+            get => _days ?? (_days = new InputList<Pulumi.AzureNextGen.StorSimple.V20170601.DayOfWeek>());
             set => _days = value;
         }
 

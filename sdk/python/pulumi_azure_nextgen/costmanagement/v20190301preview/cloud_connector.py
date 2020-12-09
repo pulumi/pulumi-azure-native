@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 
 __all__ = ['CloudConnector']
 
@@ -16,7 +17,7 @@ class CloudConnector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 billing_model: Optional[pulumi.Input[str]] = None,
+                 billing_model: Optional[pulumi.Input[Union[str, 'ConnectorBillingModel']]] = None,
                  connector_name: Optional[pulumi.Input[str]] = None,
                  credentials_key: Optional[pulumi.Input[str]] = None,
                  credentials_secret: Optional[pulumi.Input[str]] = None,
@@ -33,7 +34,7 @@ class CloudConnector(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] billing_model: Connector billing model
+        :param pulumi.Input[Union[str, 'ConnectorBillingModel']] billing_model: Connector billing model
         :param pulumi.Input[str] connector_name: Connector Name.
         :param pulumi.Input[str] credentials_key: Credentials authentication key (eg AWS ARN)
         :param pulumi.Input[str] credentials_secret: Credentials secret (eg AWS ExternalId)
@@ -61,7 +62,7 @@ class CloudConnector(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['billing_model'] = billing_model
-            if connector_name is None:
+            if connector_name is None and not opts.urn:
                 raise TypeError("Missing required property 'connector_name'")
             __props__['connector_name'] = connector_name
             __props__['credentials_key'] = credentials_key

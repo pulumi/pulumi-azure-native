@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -62,13 +62,13 @@ export class PrivateDnsZoneGroup extends pulumi.CustomResource {
     constructor(name: string, args: PrivateDnsZoneGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.privateDnsZoneGroupName === undefined) {
+            if ((!args || args.privateDnsZoneGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'privateDnsZoneGroupName'");
             }
-            if (!args || args.privateEndpointName === undefined) {
+            if ((!args || args.privateEndpointName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'privateEndpointName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["id"] = args ? args.id : undefined;

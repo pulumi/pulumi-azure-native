@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Management.V20190701.Inputs
         /// The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AzureNextGen.Management.V20190701.OnErrorDeploymentType>? Type { get; set; }
 
         public OnErrorDeploymentArgs()
         {

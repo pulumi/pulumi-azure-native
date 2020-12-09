@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Inputs
         /// Specifies the caching requirements. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **None** &lt;br&gt;&lt;br&gt; **ReadOnly** &lt;br&gt;&lt;br&gt; **ReadWrite** &lt;br&gt;&lt;br&gt; Default: **None for Standard storage. ReadOnly for Premium storage**
         /// </summary>
         [Input("caching")]
-        public Input<string>? Caching { get; set; }
+        public Input<Pulumi.AzureNextGen.Compute.Latest.CachingTypes>? Caching { get; set; }
 
         /// <summary>
         /// Specifies the customer managed disk encryption set resource id for the managed image disk.
@@ -49,13 +49,13 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Inputs
         /// The OS State.
         /// </summary>
         [Input("osState", required: true)]
-        public Input<string> OsState { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Compute.Latest.OperatingSystemStateTypes> OsState { get; set; } = null!;
 
         /// <summary>
         /// This property allows you to specify the type of the OS that is included in the disk if creating a VM from a custom image. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Windows** &lt;br&gt;&lt;br&gt; **Linux**
         /// </summary>
         [Input("osType", required: true)]
-        public Input<string> OsType { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Compute.Latest.OperatingSystemTypes> OsType { get; set; } = null!;
 
         /// <summary>
         /// The snapshot.
@@ -67,7 +67,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest.Inputs
         /// Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
         /// </summary>
         [Input("storageAccountType")]
-        public Input<string>? StorageAccountType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.Latest.StorageAccountTypes>? StorageAccountType { get; set; }
 
         public ImageOSDiskArgs()
         {

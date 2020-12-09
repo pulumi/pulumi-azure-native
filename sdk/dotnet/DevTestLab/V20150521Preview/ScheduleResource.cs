@@ -183,7 +183,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// The status of the schedule.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20150521Preview.EnableStatus>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -201,7 +201,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// The task type of the schedule.
         /// </summary>
         [Input("taskType")]
-        public Input<string>? TaskType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20150521Preview.TaskType>? TaskType { get; set; }
 
         /// <summary>
         /// The time zone id.

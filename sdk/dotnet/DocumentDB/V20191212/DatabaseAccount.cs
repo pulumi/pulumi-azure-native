@@ -233,7 +233,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20191212
         /// The cassandra connector offer type for the Cosmos DB database C* account.
         /// </summary>
         [Input("connectorOffer")]
-        public Input<string>? ConnectorOffer { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DocumentDB.V20191212.ConnectorOffer>? ConnectorOffer { get; set; }
 
         /// <summary>
         /// The consistency policy for the Cosmos DB account.
@@ -245,7 +245,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20191212
         /// The offer type for the database
         /// </summary>
         [Input("databaseAccountOfferType", required: true)]
-        public Input<string> DatabaseAccountOfferType { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.DocumentDB.V20191212.DatabaseAccountOfferType> DatabaseAccountOfferType { get; set; } = null!;
 
         /// <summary>
         /// Disable write operations on metadata resources (databases, containers, throughput) via account keys
@@ -293,7 +293,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20191212
         /// Indicates the type of database account. This can only be set at database account creation.
         /// </summary>
         [Input("kind")]
-        public Input<string>? Kind { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DocumentDB.V20191212.DatabaseAccountKind>? Kind { get; set; }
 
         /// <summary>
         /// The location of the resource group to which the resource belongs.

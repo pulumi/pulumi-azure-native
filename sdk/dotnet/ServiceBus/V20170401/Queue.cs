@@ -309,7 +309,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20170401
         /// Enumerates the possible values for the status of a messaging entity.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public Input<Pulumi.AzureNextGen.ServiceBus.V20170401.EntityStatus>? Status { get; set; }
 
         public QueueArgs()
         {

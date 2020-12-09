@@ -43,23 +43,24 @@ type SiteVNETConnectionSlot struct {
 // NewSiteVNETConnectionSlot registers a new resource with the given unique name, arguments, and options.
 func NewSiteVNETConnectionSlot(ctx *pulumi.Context,
 	name string, args *SiteVNETConnectionSlotArgs, opts ...pulumi.ResourceOption) (*SiteVNETConnectionSlot, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Slot == nil {
-		return nil, errors.New("missing required argument 'Slot'")
-	}
-	if args == nil || args.VnetName == nil {
-		return nil, errors.New("missing required argument 'VnetName'")
-	}
 	if args == nil {
-		args = &SiteVNETConnectionSlotArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Slot == nil {
+		return nil, errors.New("invalid value for required argument 'Slot'")
+	}
+	if args.VnetName == nil {
+		return nil, errors.New("invalid value for required argument 'VnetName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

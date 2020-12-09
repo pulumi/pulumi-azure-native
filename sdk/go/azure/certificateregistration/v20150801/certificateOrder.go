@@ -62,17 +62,18 @@ type CertificateOrder struct {
 // NewCertificateOrder registers a new resource with the given unique name, arguments, and options.
 func NewCertificateOrder(ctx *pulumi.Context,
 	name string, args *CertificateOrderArgs, opts ...pulumi.ResourceOption) (*CertificateOrder, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &CertificateOrderArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -285,9 +286,9 @@ type CertificateOrderArgs struct {
 	// Resource Name
 	Name pulumi.StringInput
 	// Certificate product type
-	ProductType pulumi.StringPtrInput
+	ProductType CertificateProductType
 	// Status of certificate order
-	ProvisioningState pulumi.StringPtrInput
+	ProvisioningState ProvisioningState
 	// Azure resource group name
 	ResourceGroupName pulumi.StringInput
 	// Root certificate
@@ -297,7 +298,7 @@ type CertificateOrderArgs struct {
 	// Signed certificate
 	SignedCertificate CertificateDetailsPtrInput
 	// Current order status
-	Status pulumi.StringPtrInput
+	Status CertificateOrderStatus
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type

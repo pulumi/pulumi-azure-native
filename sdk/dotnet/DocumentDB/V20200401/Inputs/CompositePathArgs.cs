@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200401.Inputs
         /// Sort order for composite paths.
         /// </summary>
         [Input("order")]
-        public Input<string>? Order { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DocumentDB.V20200401.CompositePathSortOrder>? Order { get; set; }
 
         /// <summary>
         /// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)

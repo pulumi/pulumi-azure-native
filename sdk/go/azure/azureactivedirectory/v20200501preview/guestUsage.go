@@ -30,14 +30,15 @@ type GuestUsage struct {
 // NewGuestUsage registers a new resource with the given unique name, arguments, and options.
 func NewGuestUsage(ctx *pulumi.Context,
 	name string, args *GuestUsageArgs, opts ...pulumi.ResourceOption) (*GuestUsage, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ResourceName == nil {
-		return nil, errors.New("missing required argument 'ResourceName'")
-	}
 	if args == nil {
-		args = &GuestUsageArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	var resource GuestUsage
 	err := ctx.RegisterResource("azure-nextgen:azureactivedirectory/v20200501preview:GuestUsage", name, args, &resource, opts...)

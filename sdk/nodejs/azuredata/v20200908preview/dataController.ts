@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -78,16 +78,16 @@ export class DataController extends pulumi.CustomResource {
     constructor(name: string, args: DataControllerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.dataControllerName === undefined) {
+            if ((!args || args.dataControllerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataControllerName'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.onPremiseProperty === undefined) {
+            if ((!args || args.onPremiseProperty === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'onPremiseProperty'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["dataControllerName"] = args ? args.dataControllerName : undefined;

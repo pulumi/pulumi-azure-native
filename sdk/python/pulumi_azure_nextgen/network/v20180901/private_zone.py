@@ -53,10 +53,10 @@ class PrivateZone(pulumi.CustomResource):
 
             __props__['etag'] = etag
             __props__['location'] = location
-            if private_zone_name is None:
+            if private_zone_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_zone_name'")
             __props__['private_zone_name'] = private_zone_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

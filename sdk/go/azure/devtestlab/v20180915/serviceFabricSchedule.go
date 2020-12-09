@@ -50,23 +50,24 @@ type ServiceFabricSchedule struct {
 // NewServiceFabricSchedule registers a new resource with the given unique name, arguments, and options.
 func NewServiceFabricSchedule(ctx *pulumi.Context,
 	name string, args *ServiceFabricScheduleArgs, opts ...pulumi.ResourceOption) (*ServiceFabricSchedule, error) {
-	if args == nil || args.LabName == nil {
-		return nil, errors.New("missing required argument 'LabName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceFabricName == nil {
-		return nil, errors.New("missing required argument 'ServiceFabricName'")
-	}
-	if args == nil || args.UserName == nil {
-		return nil, errors.New("missing required argument 'UserName'")
-	}
 	if args == nil {
-		args = &ServiceFabricScheduleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.LabName == nil {
+		return nil, errors.New("invalid value for required argument 'LabName'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceFabricName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceFabricName'")
+	}
+	if args.UserName == nil {
+		return nil, errors.New("invalid value for required argument 'UserName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -34,17 +34,18 @@ type HybridConnection struct {
 // NewHybridConnection registers a new resource with the given unique name, arguments, and options.
 func NewHybridConnection(ctx *pulumi.Context,
 	name string, args *HybridConnectionArgs, opts ...pulumi.ResourceOption) (*HybridConnection, error) {
-	if args == nil || args.HybridConnectionName == nil {
-		return nil, errors.New("missing required argument 'HybridConnectionName'")
-	}
-	if args == nil || args.NamespaceName == nil {
-		return nil, errors.New("missing required argument 'NamespaceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &HybridConnectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.HybridConnectionName == nil {
+		return nil, errors.New("invalid value for required argument 'HybridConnectionName'")
+	}
+	if args.NamespaceName == nil {
+		return nil, errors.New("invalid value for required argument 'NamespaceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

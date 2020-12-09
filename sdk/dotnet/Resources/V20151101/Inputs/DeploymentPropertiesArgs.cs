@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Resources.V20151101.Inputs
         /// Gets or sets the deployment mode.
         /// </summary>
         [Input("mode")]
-        public Input<string>? Mode { get; set; }
+        public Input<Pulumi.AzureNextGen.Resources.V20151101.DeploymentMode>? Mode { get; set; }
 
         /// <summary>
         /// Deployment parameters. Use only one of Parameters or ParametersLink.

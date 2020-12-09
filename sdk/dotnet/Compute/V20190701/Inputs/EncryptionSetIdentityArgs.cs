@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190701.Inputs
         /// The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20190701.DiskEncryptionSetIdentityType>? Type { get; set; }
 
         public EncryptionSetIdentityArgs()
         {

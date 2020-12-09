@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest.Inputs
         /// Refers to the sku name which should be "Standard"
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.StorSimple.Latest.ManagerSkuType> Name { get; set; } = null!;
 
         public ManagerSkuArgs()
         {

@@ -91,20 +91,18 @@ type ManagedHostingEnvironment struct {
 // NewManagedHostingEnvironment registers a new resource with the given unique name, arguments, and options.
 func NewManagedHostingEnvironment(ctx *pulumi.Context,
 	name string, args *ManagedHostingEnvironmentArgs, opts ...pulumi.ResourceOption) (*ManagedHostingEnvironment, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Status == nil {
-		return nil, errors.New("missing required argument 'Status'")
-	}
 	if args == nil {
-		args = &ManagedHostingEnvironmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -388,7 +386,7 @@ type ManagedHostingEnvironmentArgs struct {
 	// Resource Id
 	Id pulumi.StringPtrInput
 	// Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
-	InternalLoadBalancingMode pulumi.StringPtrInput
+	InternalLoadBalancingMode InternalLoadBalancingMode
 	// Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
 	IpsslAddressCount pulumi.IntPtrInput
 	// Kind of resource
@@ -410,13 +408,13 @@ type ManagedHostingEnvironmentArgs struct {
 	// Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
 	NetworkAccessControlList NetworkAccessControlEntryArrayInput
 	// Provisioning state of the hostingEnvironment (App Service Environment)
-	ProvisioningState pulumi.StringPtrInput
+	ProvisioningState ProvisioningState
 	// Resource group of the hostingEnvironment (App Service Environment)
 	ResourceGroup pulumi.StringPtrInput
 	// Name of resource group
 	ResourceGroupName pulumi.StringInput
 	// Current status of the hostingEnvironment (App Service Environment)
-	Status pulumi.StringInput
+	Status HostingEnvironmentStatus
 	// Subscription of the hostingEnvironment (App Service Environment)
 	SubscriptionId pulumi.StringPtrInput
 	// True/false indicating whether the hostingEnvironment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available

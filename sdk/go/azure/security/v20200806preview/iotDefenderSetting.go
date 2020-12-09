@@ -28,14 +28,15 @@ type IotDefenderSetting struct {
 // NewIotDefenderSetting registers a new resource with the given unique name, arguments, and options.
 func NewIotDefenderSetting(ctx *pulumi.Context,
 	name string, args *IotDefenderSettingArgs, opts ...pulumi.ResourceOption) (*IotDefenderSetting, error) {
-	if args == nil || args.DeviceQuota == nil {
-		return nil, errors.New("missing required argument 'DeviceQuota'")
-	}
-	if args == nil || args.SentinelWorkspaceResourceIds == nil {
-		return nil, errors.New("missing required argument 'SentinelWorkspaceResourceIds'")
-	}
 	if args == nil {
-		args = &IotDefenderSettingArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DeviceQuota == nil {
+		return nil, errors.New("invalid value for required argument 'DeviceQuota'")
+	}
+	if args.SentinelWorkspaceResourceIds == nil {
+		return nil, errors.New("invalid value for required argument 'SentinelWorkspaceResourceIds'")
 	}
 	var resource IotDefenderSetting
 	err := ctx.RegisterResource("azure-nextgen:security/v20200806preview:IotDefenderSetting", name, args, &resource, opts...)

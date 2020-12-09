@@ -77,18 +77,18 @@ class VpnSite(pulumi.CustomResource):
             __props__['id'] = id
             __props__['ip_address'] = ip_address
             __props__['is_security_site'] = is_security_site
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['o365_policy'] = o365_policy
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['site_key'] = site_key
             __props__['tags'] = tags
             __props__['virtual_wan'] = virtual_wan
             __props__['vpn_site_links'] = vpn_site_links
-            if vpn_site_name is None:
+            if vpn_site_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vpn_site_name'")
             __props__['vpn_site_name'] = vpn_site_name
             __props__['etag'] = None

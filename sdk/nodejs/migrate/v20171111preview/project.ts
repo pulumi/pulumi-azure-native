@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -97,10 +98,10 @@ export class Project extends pulumi.CustomResource {
     constructor(name: string, args: ProjectArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.projectName === undefined) {
+            if ((!args || args.projectName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'projectName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["customerWorkspaceId"] = args ? args.customerWorkspaceId : undefined;
@@ -169,7 +170,7 @@ export interface ProjectArgs {
     /**
      * Provisioning state of the project.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    readonly provisioningState?: pulumi.Input<string | enums.migrate.v20171111preview.ProvisioningState>;
     /**
      * Name of the Azure Resource Group that project is part of.
      */

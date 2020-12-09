@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20200515.Inputs
         /// The name of this SKU.
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.TimeSeriesInsights.V20200515.SkuName> Name { get; set; } = null!;
 
         public SkuArgs()
         {

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['SynchronizationSetting']
 
@@ -16,7 +17,7 @@ class SynchronizationSetting(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
                  synchronization_setting_name: Optional[pulumi.Input[str]] = None,
@@ -29,7 +30,7 @@ class SynchronizationSetting(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.
-        :param pulumi.Input[str] kind: Kind of synchronization
+        :param pulumi.Input[Union[str, 'Kind']] kind: Kind of synchronization
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_name: The name of the share to add the synchronization setting to.
         :param pulumi.Input[str] synchronization_setting_name: The name of the synchronizationSetting.
@@ -51,19 +52,19 @@ class SynchronizationSetting(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_name is None:
+            if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if kind is None:
+            if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = kind
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if share_name is None:
+            if share_name is None and not opts.urn:
                 raise TypeError("Missing required property 'share_name'")
             __props__['share_name'] = share_name
-            if synchronization_setting_name is None:
+            if synchronization_setting_name is None and not opts.urn:
                 raise TypeError("Missing required property 'synchronization_setting_name'")
             __props__['synchronization_setting_name'] = synchronization_setting_name
             __props__['name'] = None

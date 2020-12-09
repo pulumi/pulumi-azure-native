@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Security.Latest.Inputs
         /// The type of IoT Security recommendation.
         /// </summary>
         [Input("recommendationType", required: true)]
-        public Input<string> RecommendationType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Security.Latest.RecommendationType> RecommendationType { get; set; } = null!;
 
         /// <summary>
         /// Recommendation status. When the recommendation status is disabled recommendations are not generated.
         /// </summary>
         [Input("status", required: true)]
-        public Input<string> Status { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Security.Latest.RecommendationConfigStatus> Status { get; set; } = null!;
 
         public RecommendationConfigurationPropertiesArgs()
         {

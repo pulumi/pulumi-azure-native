@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .application_gateway import *
 from .application_gateway_private_endpoint_connection import *
 from .application_security_group import *
@@ -188,3 +189,196 @@ from .web_application_firewall_policy import *
 from .zone import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:network/latest:ApplicationGateway":
+                return ApplicationGateway(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:ApplicationGatewayPrivateEndpointConnection":
+                return ApplicationGatewayPrivateEndpointConnection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:ApplicationSecurityGroup":
+                return ApplicationSecurityGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:AzureFirewall":
+                return AzureFirewall(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:BastionHost":
+                return BastionHost(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:ConnectionMonitor":
+                return ConnectionMonitor(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:CustomIPPrefix":
+                return CustomIPPrefix(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:DdosCustomPolicy":
+                return DdosCustomPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:DdosProtectionPlan":
+                return DdosProtectionPlan(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:DscpConfiguration":
+                return DscpConfiguration(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:Endpoint":
+                return Endpoint(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:Experiment":
+                return Experiment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:ExpressRouteCircuit":
+                return ExpressRouteCircuit(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:ExpressRouteCircuitAuthorization":
+                return ExpressRouteCircuitAuthorization(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:ExpressRouteCircuitConnection":
+                return ExpressRouteCircuitConnection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:ExpressRouteCircuitPeering":
+                return ExpressRouteCircuitPeering(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:ExpressRouteConnection":
+                return ExpressRouteConnection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:ExpressRouteCrossConnectionPeering":
+                return ExpressRouteCrossConnectionPeering(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:ExpressRouteGateway":
+                return ExpressRouteGateway(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:ExpressRoutePort":
+                return ExpressRoutePort(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:FirewallPolicy":
+                return FirewallPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:FirewallPolicyRuleCollectionGroup":
+                return FirewallPolicyRuleCollectionGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:FirewallPolicyRuleGroup":
+                return FirewallPolicyRuleGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:FlowLog":
+                return FlowLog(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:FrontDoor":
+                return FrontDoor(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:HubRouteTable":
+                return HubRouteTable(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:HubVirtualNetworkConnection":
+                return HubVirtualNetworkConnection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:InboundNatRule":
+                return InboundNatRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:InterfaceEndpoint":
+                return InterfaceEndpoint(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:IpAllocation":
+                return IpAllocation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:IpGroup":
+                return IpGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:LoadBalancer":
+                return LoadBalancer(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:LoadBalancerBackendAddressPool":
+                return LoadBalancerBackendAddressPool(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:LocalNetworkGateway":
+                return LocalNetworkGateway(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:NatGateway":
+                return NatGateway(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:NetworkExperimentProfile":
+                return NetworkExperimentProfile(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:NetworkInterface":
+                return NetworkInterface(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:NetworkInterfaceTapConfiguration":
+                return NetworkInterfaceTapConfiguration(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:NetworkProfile":
+                return NetworkProfile(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:NetworkSecurityGroup":
+                return NetworkSecurityGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:NetworkVirtualAppliance":
+                return NetworkVirtualAppliance(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:NetworkWatcher":
+                return NetworkWatcher(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:P2sVpnGateway":
+                return P2sVpnGateway(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:P2sVpnServerConfiguration":
+                return P2sVpnServerConfiguration(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:PacketCapture":
+                return PacketCapture(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:Policy":
+                return Policy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:PrivateDnsZoneGroup":
+                return PrivateDnsZoneGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:PrivateEndpoint":
+                return PrivateEndpoint(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:PrivateLinkService":
+                return PrivateLinkService(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:PrivateLinkServicePrivateEndpointConnection":
+                return PrivateLinkServicePrivateEndpointConnection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:PrivateZone":
+                return PrivateZone(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:Profile":
+                return Profile(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:PublicIPAddress":
+                return PublicIPAddress(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:PublicIPPrefix":
+                return PublicIPPrefix(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:RecordSet":
+                return RecordSet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:Route":
+                return Route(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:RouteFilter":
+                return RouteFilter(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:RouteFilterRule":
+                return RouteFilterRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:RouteTable":
+                return RouteTable(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:RulesEngine":
+                return RulesEngine(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:SecurityPartnerProvider":
+                return SecurityPartnerProvider(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:SecurityRule":
+                return SecurityRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:ServiceEndpointPolicy":
+                return ServiceEndpointPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:ServiceEndpointPolicyDefinition":
+                return ServiceEndpointPolicyDefinition(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:Subnet":
+                return Subnet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:TrafficManagerUserMetricsKey":
+                return TrafficManagerUserMetricsKey(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:VirtualApplianceSite":
+                return VirtualApplianceSite(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:VirtualHub":
+                return VirtualHub(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:VirtualHubBgpConnection":
+                return VirtualHubBgpConnection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:VirtualHubIpConfiguration":
+                return VirtualHubIpConfiguration(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:VirtualHubRouteTableV2":
+                return VirtualHubRouteTableV2(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:VirtualNetwork":
+                return VirtualNetwork(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:VirtualNetworkGateway":
+                return VirtualNetworkGateway(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:VirtualNetworkGatewayConnection":
+                return VirtualNetworkGatewayConnection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:VirtualNetworkLink":
+                return VirtualNetworkLink(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:VirtualNetworkPeering":
+                return VirtualNetworkPeering(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:VirtualNetworkTap":
+                return VirtualNetworkTap(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:VirtualRouter":
+                return VirtualRouter(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:VirtualRouterPeering":
+                return VirtualRouterPeering(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:VirtualWan":
+                return VirtualWan(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:VpnConnection":
+                return VpnConnection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:VpnGateway":
+                return VpnGateway(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:VpnServerConfiguration":
+                return VpnServerConfiguration(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:VpnSite":
+                return VpnSite(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:WebApplicationFirewallPolicy":
+                return WebApplicationFirewallPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:network/latest:Zone":
+                return Zone(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "network/latest", _module_instance)
+
+_register_module()

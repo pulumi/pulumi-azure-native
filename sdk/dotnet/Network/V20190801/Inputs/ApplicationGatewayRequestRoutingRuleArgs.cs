@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Inputs
         /// Rule type.
         /// </summary>
         [Input("ruleType")]
-        public Input<string>? RuleType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190801.ApplicationGatewayRequestRoutingRuleType>? RuleType { get; set; }
 
         /// <summary>
         /// Type of the resource.

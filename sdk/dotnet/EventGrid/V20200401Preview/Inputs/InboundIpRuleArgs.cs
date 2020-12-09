@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview.Inputs
         /// Action to perform based on the match or no match of the IpMask.
         /// </summary>
         [Input("action")]
-        public Input<string>? Action { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.EventGrid.V20200401Preview.IpActionType>? Action { get; set; }
 
         /// <summary>
         /// IP Address in CIDR notation e.g., 10.0.0.0/8.

@@ -28,14 +28,15 @@ type RegistrationDefinition struct {
 // NewRegistrationDefinition registers a new resource with the given unique name, arguments, and options.
 func NewRegistrationDefinition(ctx *pulumi.Context,
 	name string, args *RegistrationDefinitionArgs, opts ...pulumi.ResourceOption) (*RegistrationDefinition, error) {
-	if args == nil || args.RegistrationDefinitionId == nil {
-		return nil, errors.New("missing required argument 'RegistrationDefinitionId'")
-	}
-	if args == nil || args.Scope == nil {
-		return nil, errors.New("missing required argument 'Scope'")
-	}
 	if args == nil {
-		args = &RegistrationDefinitionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.RegistrationDefinitionId == nil {
+		return nil, errors.New("invalid value for required argument 'RegistrationDefinitionId'")
+	}
+	if args.Scope == nil {
+		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

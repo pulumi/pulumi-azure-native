@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .access_control_record import *
 from .backup_policy import *
 from .backup_schedule import *
@@ -27,3 +28,42 @@ from .volume import *
 from .volume_container import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:storsimple/v20170601:AccessControlRecord":
+                return AccessControlRecord(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storsimple/v20170601:BackupPolicy":
+                return BackupPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storsimple/v20170601:BackupSchedule":
+                return BackupSchedule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storsimple/v20170601:BandwidthSetting":
+                return BandwidthSetting(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storsimple/v20170601:Manager":
+                return Manager(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storsimple/v20170601:ManagerExtendedInfo":
+                return ManagerExtendedInfo(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storsimple/v20170601:StorageAccountCredential":
+                return StorageAccountCredential(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storsimple/v20170601:Volume":
+                return Volume(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storsimple/v20170601:VolumeContainer":
+                return VolumeContainer(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "storsimple/v20170601", _module_instance)
+
+_register_module()

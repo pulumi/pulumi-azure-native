@@ -51,13 +51,13 @@ class Suppression(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if recommendation_id is None:
+            if recommendation_id is None and not opts.urn:
                 raise TypeError("Missing required property 'recommendation_id'")
             __props__['recommendation_id'] = recommendation_id
-            if resource_uri is None:
+            if resource_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_uri'")
             __props__['resource_uri'] = resource_uri
             __props__['suppression_id'] = suppression_id

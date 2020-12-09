@@ -26,17 +26,18 @@ type LinkedWorkspace struct {
 // NewLinkedWorkspace registers a new resource with the given unique name, arguments, and options.
 func NewLinkedWorkspace(ctx *pulumi.Context,
 	name string, args *LinkedWorkspaceArgs, opts ...pulumi.ResourceOption) (*LinkedWorkspace, error) {
-	if args == nil || args.LinkName == nil {
-		return nil, errors.New("missing required argument 'LinkName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &LinkedWorkspaceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.LinkName == nil {
+		return nil, errors.New("invalid value for required argument 'LinkName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

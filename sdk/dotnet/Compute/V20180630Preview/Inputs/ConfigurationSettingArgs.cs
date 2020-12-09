@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180630Preview.Inputs
         /// If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
         /// </summary>
         [Input("allowModuleOverwrite")]
-        public Input<string>? AllowModuleOverwrite { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20180630Preview.AllowModuleOverwrite>? AllowModuleOverwrite { get; set; }
 
         public ConfigurationSettingArgs()
         {

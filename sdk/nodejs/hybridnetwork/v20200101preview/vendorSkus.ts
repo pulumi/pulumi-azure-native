@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -82,10 +82,10 @@ export class VendorSkus extends pulumi.CustomResource {
     constructor(name: string, args: VendorSkusArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.skuName === undefined) {
+            if ((!args || args.skuName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'skuName'");
             }
-            if (!args || args.vendorName === undefined) {
+            if ((!args || args.vendorName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vendorName'");
             }
             inputs["deploymentMode"] = args ? args.deploymentMode : undefined;
@@ -128,7 +128,7 @@ export interface VendorSkusArgs {
     /**
      * The sku deployment mode.
      */
-    readonly deploymentMode?: pulumi.Input<string>;
+    readonly deploymentMode?: pulumi.Input<string | enums.hybridnetwork.v20200101preview.SkuDeploymentMode>;
     /**
      * The parameters for the managed application to be supplied by the vendor.
      */
@@ -152,7 +152,7 @@ export interface VendorSkusArgs {
     /**
      * The sku type.
      */
-    readonly skuType?: pulumi.Input<string>;
+    readonly skuType?: pulumi.Input<string | enums.hybridnetwork.v20200101preview.SkuType>;
     /**
      * The name of the vendor.
      */

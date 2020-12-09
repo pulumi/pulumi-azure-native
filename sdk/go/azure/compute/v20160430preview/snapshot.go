@@ -44,20 +44,21 @@ type Snapshot struct {
 // NewSnapshot registers a new resource with the given unique name, arguments, and options.
 func NewSnapshot(ctx *pulumi.Context,
 	name string, args *SnapshotArgs, opts ...pulumi.ResourceOption) (*Snapshot, error) {
-	if args == nil || args.CreationData == nil {
-		return nil, errors.New("missing required argument 'CreationData'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SnapshotName == nil {
-		return nil, errors.New("missing required argument 'SnapshotName'")
-	}
 	if args == nil {
-		args = &SnapshotArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CreationData == nil {
+		return nil, errors.New("invalid value for required argument 'CreationData'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SnapshotName == nil {
+		return nil, errors.New("invalid value for required argument 'SnapshotName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -195,7 +196,7 @@ type snapshotArgs struct {
 // The set of arguments for constructing a Snapshot resource.
 type SnapshotArgs struct {
 	// the storage account type of the disk.
-	AccountType pulumi.StringPtrInput
+	AccountType StorageAccountTypes
 	// Disk source information. CreationData information cannot be changed after the disk has been created.
 	CreationData CreationDataInput
 	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
@@ -205,7 +206,7 @@ type SnapshotArgs struct {
 	// Resource location
 	Location pulumi.StringInput
 	// The Operating System type.
-	OsType pulumi.StringPtrInput
+	OsType OperatingSystemTypes
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the snapshot within the given subscription and resource group.

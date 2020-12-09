@@ -93,16 +93,16 @@ export class ServerEndpoint extends pulumi.CustomResource {
     constructor(name: string, args: ServerEndpointArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverEndpointName === undefined) {
+            if ((!args || args.serverEndpointName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverEndpointName'");
             }
-            if (!args || args.storageSyncServiceName === undefined) {
+            if ((!args || args.storageSyncServiceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageSyncServiceName'");
             }
-            if (!args || args.syncGroupName === undefined) {
+            if ((!args || args.syncGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'syncGroupName'");
             }
             inputs["cloudTiering"] = args ? args.cloudTiering : undefined;

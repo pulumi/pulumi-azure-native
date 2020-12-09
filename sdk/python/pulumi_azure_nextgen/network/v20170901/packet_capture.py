@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['PacketCapture']
@@ -62,19 +63,19 @@ class PacketCapture(pulumi.CustomResource):
 
             __props__['bytes_to_capture_per_packet'] = bytes_to_capture_per_packet
             __props__['filters'] = filters
-            if network_watcher_name is None:
+            if network_watcher_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_watcher_name'")
             __props__['network_watcher_name'] = network_watcher_name
-            if packet_capture_name is None:
+            if packet_capture_name is None and not opts.urn:
                 raise TypeError("Missing required property 'packet_capture_name'")
             __props__['packet_capture_name'] = packet_capture_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if storage_location is None:
+            if storage_location is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_location'")
             __props__['storage_location'] = storage_location
-            if target is None:
+            if target is None and not opts.urn:
                 raise TypeError("Missing required property 'target'")
             __props__['target'] = target
             __props__['time_limit_in_seconds'] = time_limit_in_seconds

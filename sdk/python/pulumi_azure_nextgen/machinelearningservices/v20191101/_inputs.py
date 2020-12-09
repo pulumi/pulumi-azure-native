@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AKSArgs',
@@ -369,19 +370,19 @@ class AmlComputeArgs:
 @pulumi.input_type
 class AmlComputePropertiesArgs:
     def __init__(__self__, *,
-                 remote_login_port_public_access: Optional[pulumi.Input[str]] = None,
+                 remote_login_port_public_access: Optional[pulumi.Input[Union[str, 'RemoteLoginPortPublicAccess']]] = None,
                  scale_settings: Optional[pulumi.Input['ScaleSettingsArgs']] = None,
                  subnet: Optional[pulumi.Input['ResourceIdArgs']] = None,
                  user_account_credentials: Optional[pulumi.Input['UserAccountCredentialsArgs']] = None,
-                 vm_priority: Optional[pulumi.Input[str]] = None,
+                 vm_priority: Optional[pulumi.Input[Union[str, 'VmPriority']]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None):
         """
         AML Compute properties
-        :param pulumi.Input[str] remote_login_port_public_access: State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
+        :param pulumi.Input[Union[str, 'RemoteLoginPortPublicAccess']] remote_login_port_public_access: State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
         :param pulumi.Input['ScaleSettingsArgs'] scale_settings: Scale settings for AML Compute
         :param pulumi.Input['ResourceIdArgs'] subnet: Virtual network subnet resource ID the compute nodes belong to.
         :param pulumi.Input['UserAccountCredentialsArgs'] user_account_credentials: Credentials for an administrator user account that will be created on each compute node.
-        :param pulumi.Input[str] vm_priority: Virtual Machine priority
+        :param pulumi.Input[Union[str, 'VmPriority']] vm_priority: Virtual Machine priority
         :param pulumi.Input[str] vm_size: Virtual Machine Size
         """
         if remote_login_port_public_access is not None:
@@ -399,14 +400,14 @@ class AmlComputePropertiesArgs:
 
     @property
     @pulumi.getter(name="remoteLoginPortPublicAccess")
-    def remote_login_port_public_access(self) -> Optional[pulumi.Input[str]]:
+    def remote_login_port_public_access(self) -> Optional[pulumi.Input[Union[str, 'RemoteLoginPortPublicAccess']]]:
         """
         State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
         """
         return pulumi.get(self, "remote_login_port_public_access")
 
     @remote_login_port_public_access.setter
-    def remote_login_port_public_access(self, value: Optional[pulumi.Input[str]]):
+    def remote_login_port_public_access(self, value: Optional[pulumi.Input[Union[str, 'RemoteLoginPortPublicAccess']]]):
         pulumi.set(self, "remote_login_port_public_access", value)
 
     @property
@@ -447,14 +448,14 @@ class AmlComputePropertiesArgs:
 
     @property
     @pulumi.getter(name="vmPriority")
-    def vm_priority(self) -> Optional[pulumi.Input[str]]:
+    def vm_priority(self) -> Optional[pulumi.Input[Union[str, 'VmPriority']]]:
         """
         Virtual Machine priority
         """
         return pulumi.get(self, "vm_priority")
 
     @vm_priority.setter
-    def vm_priority(self, value: Optional[pulumi.Input[str]]):
+    def vm_priority(self, value: Optional[pulumi.Input[Union[str, 'VmPriority']]]):
         pulumi.set(self, "vm_priority", value)
 
     @property
@@ -894,24 +895,24 @@ class HDInsightPropertiesArgs:
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
         """
         Identity for the resource.
-        :param pulumi.Input[str] type: The identity type.
+        :param pulumi.Input['ResourceIdentityType'] type: The identity type.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
         """
         The identity type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
 

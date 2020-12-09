@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -94,10 +94,10 @@ export class Service extends pulumi.CustomResource {
     constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.searchServiceName === undefined) {
+            if ((!args || args.searchServiceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'searchServiceName'");
             }
             inputs["hostingMode"] = args ? args.hostingMode : undefined;
@@ -148,7 +148,7 @@ export interface ServiceArgs {
     /**
      * Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
      */
-    readonly hostingMode?: pulumi.Input<string>;
+    readonly hostingMode?: pulumi.Input<enums.search.v20150819.HostingMode>;
     /**
      * The identity of the resource.
      */

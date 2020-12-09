@@ -26,20 +26,21 @@ type Artifact struct {
 // NewArtifact registers a new resource with the given unique name, arguments, and options.
 func NewArtifact(ctx *pulumi.Context,
 	name string, args *ArtifactArgs, opts ...pulumi.ResourceOption) (*Artifact, error) {
-	if args == nil || args.ArtifactName == nil {
-		return nil, errors.New("missing required argument 'ArtifactName'")
-	}
-	if args == nil || args.BlueprintName == nil {
-		return nil, errors.New("missing required argument 'BlueprintName'")
-	}
-	if args == nil || args.Kind == nil {
-		return nil, errors.New("missing required argument 'Kind'")
-	}
-	if args == nil || args.ResourceScope == nil {
-		return nil, errors.New("missing required argument 'ResourceScope'")
-	}
 	if args == nil {
-		args = &ArtifactArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ArtifactName == nil {
+		return nil, errors.New("invalid value for required argument 'ArtifactName'")
+	}
+	if args.BlueprintName == nil {
+		return nil, errors.New("invalid value for required argument 'BlueprintName'")
+	}
+	if args.Kind == nil {
+		return nil, errors.New("invalid value for required argument 'Kind'")
+	}
+	if args.ResourceScope == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceScope'")
 	}
 	var resource Artifact
 	err := ctx.RegisterResource("azure-nextgen:blueprint/v20181101preview:Artifact", name, args, &resource, opts...)

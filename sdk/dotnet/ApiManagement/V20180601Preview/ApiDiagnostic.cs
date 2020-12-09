@@ -121,7 +121,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
         /// Specifies for what type of messages sampling settings should not apply.
         /// </summary>
         [Input("alwaysLog")]
-        public Input<string>? AlwaysLog { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20180601Preview.AlwaysLog>? AlwaysLog { get; set; }
 
         /// <summary>
         /// API identifier. Must be unique in the current API Management service instance.

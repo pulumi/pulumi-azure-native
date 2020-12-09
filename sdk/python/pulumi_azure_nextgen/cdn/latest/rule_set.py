@@ -48,13 +48,13 @@ class RuleSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if profile_name is None:
+            if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")
             __props__['profile_name'] = profile_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if rule_set_name is None:
+            if rule_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_set_name'")
             __props__['rule_set_name'] = rule_set_name
             __props__['deployment_status'] = None

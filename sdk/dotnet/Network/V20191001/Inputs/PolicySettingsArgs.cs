@@ -31,13 +31,13 @@ namespace Pulumi.AzureNextGen.Network.V20191001.Inputs
         /// Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
         /// </summary>
         [Input("enabledState")]
-        public Input<string>? EnabledState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20191001.PolicyEnabledState>? EnabledState { get; set; }
 
         /// <summary>
         /// Describes if it is in detection mode or prevention mode at policy level.
         /// </summary>
         [Input("mode")]
-        public Input<string>? Mode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20191001.PolicyMode>? Mode { get; set; }
 
         /// <summary>
         /// If action type is redirect, this field represents redirect URL for the client.

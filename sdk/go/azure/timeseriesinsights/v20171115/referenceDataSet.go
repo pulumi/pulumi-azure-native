@@ -36,23 +36,24 @@ type ReferenceDataSet struct {
 // NewReferenceDataSet registers a new resource with the given unique name, arguments, and options.
 func NewReferenceDataSet(ctx *pulumi.Context,
 	name string, args *ReferenceDataSetArgs, opts ...pulumi.ResourceOption) (*ReferenceDataSet, error) {
-	if args == nil || args.EnvironmentName == nil {
-		return nil, errors.New("missing required argument 'EnvironmentName'")
-	}
-	if args == nil || args.KeyProperties == nil {
-		return nil, errors.New("missing required argument 'KeyProperties'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ReferenceDataSetName == nil {
-		return nil, errors.New("missing required argument 'ReferenceDataSetName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ReferenceDataSetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.EnvironmentName == nil {
+		return nil, errors.New("invalid value for required argument 'EnvironmentName'")
+	}
+	if args.KeyProperties == nil {
+		return nil, errors.New("invalid value for required argument 'KeyProperties'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ReferenceDataSetName == nil {
+		return nil, errors.New("invalid value for required argument 'ReferenceDataSetName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -152,7 +153,7 @@ type referenceDataSetArgs struct {
 // The set of arguments for constructing a ReferenceDataSet resource.
 type ReferenceDataSetArgs struct {
 	// The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
-	DataStringComparisonBehavior pulumi.StringPtrInput
+	DataStringComparisonBehavior DataStringComparisonBehavior
 	// The name of the Time Series Insights environment associated with the specified resource group.
 	EnvironmentName pulumi.StringInput
 	// The list of key properties for the reference data set.

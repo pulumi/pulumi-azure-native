@@ -42,14 +42,15 @@ type ADCCatalog struct {
 // NewADCCatalog registers a new resource with the given unique name, arguments, and options.
 func NewADCCatalog(ctx *pulumi.Context,
 	name string, args *ADCCatalogArgs, opts ...pulumi.ResourceOption) (*ADCCatalog, error) {
-	if args == nil || args.CatalogName == nil {
-		return nil, errors.New("missing required argument 'CatalogName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ADCCatalogArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CatalogName == nil {
+		return nil, errors.New("invalid value for required argument 'CatalogName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

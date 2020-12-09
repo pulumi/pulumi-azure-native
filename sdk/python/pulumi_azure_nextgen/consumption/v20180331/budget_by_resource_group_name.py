@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['BudgetByResourceGroupName']
@@ -19,12 +20,12 @@ class BudgetByResourceGroupName(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  amount: Optional[pulumi.Input[float]] = None,
                  budget_name: Optional[pulumi.Input[str]] = None,
-                 category: Optional[pulumi.Input[str]] = None,
+                 category: Optional[pulumi.Input[Union[str, 'CategoryType']]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  filters: Optional[pulumi.Input[pulumi.InputType['FiltersArgs']]] = None,
                  notifications: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['NotificationArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 time_grain: Optional[pulumi.Input[str]] = None,
+                 time_grain: Optional[pulumi.Input[Union[str, 'TimeGrainType']]] = None,
                  time_period: Optional[pulumi.Input[pulumi.InputType['BudgetTimePeriodArgs']]] = None,
                  __props__=None,
                  __name__=None,
@@ -36,12 +37,12 @@ class BudgetByResourceGroupName(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] amount: The total amount of cost to track with the budget
         :param pulumi.Input[str] budget_name: Budget Name.
-        :param pulumi.Input[str] category: The category of the budget, whether the budget tracks cost or usage.
+        :param pulumi.Input[Union[str, 'CategoryType']] category: The category of the budget, whether the budget tracks cost or usage.
         :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         :param pulumi.Input[pulumi.InputType['FiltersArgs']] filters: May be used to filter budgets by resource group, resource, or meter.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['NotificationArgs']]]] notifications: Dictionary of notifications associated with the budget. Budget can have up to five notifications.
         :param pulumi.Input[str] resource_group_name: Azure Resource Group Name.
-        :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain.
+        :param pulumi.Input[Union[str, 'TimeGrainType']] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain.
         :param pulumi.Input[pulumi.InputType['BudgetTimePeriodArgs']] time_period: Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
         """
         if __name__ is not None:
@@ -61,25 +62,25 @@ class BudgetByResourceGroupName(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if amount is None:
+            if amount is None and not opts.urn:
                 raise TypeError("Missing required property 'amount'")
             __props__['amount'] = amount
-            if budget_name is None:
+            if budget_name is None and not opts.urn:
                 raise TypeError("Missing required property 'budget_name'")
             __props__['budget_name'] = budget_name
-            if category is None:
+            if category is None and not opts.urn:
                 raise TypeError("Missing required property 'category'")
             __props__['category'] = category
             __props__['e_tag'] = e_tag
             __props__['filters'] = filters
             __props__['notifications'] = notifications
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if time_grain is None:
+            if time_grain is None and not opts.urn:
                 raise TypeError("Missing required property 'time_grain'")
             __props__['time_grain'] = time_grain
-            if time_period is None:
+            if time_period is None and not opts.urn:
                 raise TypeError("Missing required property 'time_period'")
             __props__['time_period'] = time_period
             __props__['current_spend'] = None

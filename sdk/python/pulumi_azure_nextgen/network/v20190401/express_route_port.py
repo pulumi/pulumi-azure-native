@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ExpressRoutePort']
@@ -18,7 +19,7 @@ class ExpressRoutePort(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bandwidth_in_gbps: Optional[pulumi.Input[int]] = None,
-                 encapsulation: Optional[pulumi.Input[str]] = None,
+                 encapsulation: Optional[pulumi.Input[Union[str, 'ExpressRoutePortsEncapsulation']]] = None,
                  express_route_port_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteLinkArgs']]]]] = None,
@@ -36,7 +37,7 @@ class ExpressRoutePort(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] bandwidth_in_gbps: Bandwidth of procured ports in Gbps.
-        :param pulumi.Input[str] encapsulation: Encapsulation method on physical ports.
+        :param pulumi.Input[Union[str, 'ExpressRoutePortsEncapsulation']] encapsulation: Encapsulation method on physical ports.
         :param pulumi.Input[str] express_route_port_name: The name of the ExpressRoutePort resource.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteLinkArgs']]]] links: The set of physical links of the ExpressRoutePort resource.
@@ -65,14 +66,14 @@ class ExpressRoutePort(pulumi.CustomResource):
 
             __props__['bandwidth_in_gbps'] = bandwidth_in_gbps
             __props__['encapsulation'] = encapsulation
-            if express_route_port_name is None:
+            if express_route_port_name is None and not opts.urn:
                 raise TypeError("Missing required property 'express_route_port_name'")
             __props__['express_route_port_name'] = express_route_port_name
             __props__['id'] = id
             __props__['links'] = links
             __props__['location'] = location
             __props__['peering_location'] = peering_location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_guid'] = resource_guid

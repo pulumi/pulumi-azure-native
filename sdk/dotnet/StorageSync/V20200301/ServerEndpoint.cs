@@ -196,7 +196,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200301
         /// Cloud Tiering.
         /// </summary>
         [Input("cloudTiering")]
-        public Input<string>? CloudTiering { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.StorageSync.V20200301.FeatureStatus>? CloudTiering { get; set; }
 
         /// <summary>
         /// Friendly Name
@@ -208,19 +208,19 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200301
         /// Policy for how namespace and files are recalled during FastDr.
         /// </summary>
         [Input("initialDownloadPolicy")]
-        public Input<string>? InitialDownloadPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.StorageSync.V20200301.InitialDownloadPolicy>? InitialDownloadPolicy { get; set; }
 
         /// <summary>
         /// Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
         /// </summary>
         [Input("localCacheMode")]
-        public Input<string>? LocalCacheMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.StorageSync.V20200301.LocalCacheMode>? LocalCacheMode { get; set; }
 
         /// <summary>
         /// Offline data transfer
         /// </summary>
         [Input("offlineDataTransfer")]
-        public Input<string>? OfflineDataTransfer { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.StorageSync.V20200301.FeatureStatus>? OfflineDataTransfer { get; set; }
 
         /// <summary>
         /// Offline data transfer share name

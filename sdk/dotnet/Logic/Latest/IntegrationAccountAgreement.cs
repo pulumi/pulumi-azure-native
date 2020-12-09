@@ -154,7 +154,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         /// The agreement type.
         /// </summary>
         [Input("agreementType", required: true)]
-        public Input<string> AgreementType { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Logic.Latest.AgreementType> AgreementType { get; set; } = null!;
 
         /// <summary>
         /// The agreement content.

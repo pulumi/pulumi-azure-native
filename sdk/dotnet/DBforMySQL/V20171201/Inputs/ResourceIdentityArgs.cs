@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20171201.Inputs
         /// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DBforMySQL.V20171201.IdentityType>? Type { get; set; }
 
         public ResourceIdentityArgs()
         {

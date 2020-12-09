@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -118,22 +118,22 @@ export class NodeType extends pulumi.CustomResource {
     constructor(name: string, args: NodeTypeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.clusterName === undefined) {
+            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if (!args || args.dataDiskSizeGB === undefined) {
+            if ((!args || args.dataDiskSizeGB === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataDiskSizeGB'");
             }
-            if (!args || args.isPrimary === undefined) {
+            if ((!args || args.isPrimary === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'isPrimary'");
             }
-            if (!args || args.nodeTypeName === undefined) {
+            if ((!args || args.nodeTypeName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'nodeTypeName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.vmInstanceCount === undefined) {
+            if ((!args || args.vmInstanceCount === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vmInstanceCount'");
             }
             inputs["applicationPorts"] = args ? args.applicationPorts : undefined;

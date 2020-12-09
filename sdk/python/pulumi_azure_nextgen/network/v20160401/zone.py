@@ -56,16 +56,16 @@ class Zone(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['etag'] = etag
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['max_number_of_record_sets'] = max_number_of_record_sets
             __props__['number_of_record_sets'] = number_of_record_sets
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            if zone_name is None:
+            if zone_name is None and not opts.urn:
                 raise TypeError("Missing required property 'zone_name'")
             __props__['zone_name'] = zone_name
             __props__['max_number_of_records_per_record_set'] = None

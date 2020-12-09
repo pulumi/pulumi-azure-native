@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ManagedNetworkPeeringPolicyPropertiesArgs',
@@ -17,13 +18,13 @@ __all__ = [
 @pulumi.input_type
 class ManagedNetworkPeeringPolicyPropertiesArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str],
+                 type: pulumi.Input[Union[str, 'Type']],
                  hub: Optional[pulumi.Input['ResourceIdArgs']] = None,
                  mesh: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]] = None,
                  spokes: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]]] = None):
         """
         Properties of a Managed Network Peering Policy
-        :param pulumi.Input[str] type: Gets or sets the connectivity type of a network structure policy
+        :param pulumi.Input[Union[str, 'Type']] type: Gets or sets the connectivity type of a network structure policy
         :param pulumi.Input['ResourceIdArgs'] hub: Gets or sets the hub virtual network ID
         :param pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]] mesh: Gets or sets the mesh group IDs
         :param pulumi.Input[Sequence[pulumi.Input['ResourceIdArgs']]] spokes: Gets or sets the spokes group IDs
@@ -38,14 +39,14 @@ class ManagedNetworkPeeringPolicyPropertiesArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'Type']]:
         """
         Gets or sets the connectivity type of a network structure policy
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'Type']]):
         pulumi.set(self, "type", value)
 
     @property

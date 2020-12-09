@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Peering.V20200101Preview.Inputs
         /// The type of direct peering.
         /// </summary>
         [Input("directPeeringType")]
-        public Input<string>? DirectPeeringType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Peering.V20200101Preview.DirectPeeringType>? DirectPeeringType { get; set; }
 
         /// <summary>
         /// The reference of the peer ASN.

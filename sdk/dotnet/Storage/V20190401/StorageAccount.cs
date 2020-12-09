@@ -248,7 +248,7 @@ namespace Pulumi.AzureNextGen.Storage.V20190401
         /// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
         /// </summary>
         [Input("accessTier")]
-        public Input<string>? AccessTier { get; set; }
+        public Input<Pulumi.AzureNextGen.Storage.V20190401.AccessTier>? AccessTier { get; set; }
 
         /// <summary>
         /// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -302,13 +302,13 @@ namespace Pulumi.AzureNextGen.Storage.V20190401
         /// Required. Indicates the type of storage account.
         /// </summary>
         [Input("kind", required: true)]
-        public Input<string> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Storage.V20190401.Kind> Kind { get; set; } = null!;
 
         /// <summary>
         /// Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
         /// </summary>
         [Input("largeFileSharesState")]
-        public Input<string>? LargeFileSharesState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Storage.V20190401.LargeFileSharesState>? LargeFileSharesState { get; set; }
 
         /// <summary>
         /// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
@@ -320,7 +320,7 @@ namespace Pulumi.AzureNextGen.Storage.V20190401
         /// Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
         /// </summary>
         [Input("minimumTlsVersion")]
-        public Input<string>? MinimumTlsVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Storage.V20190401.MinimumTlsVersion>? MinimumTlsVersion { get; set; }
 
         /// <summary>
         /// Network rule set

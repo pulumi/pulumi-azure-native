@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .bandwidth_schedule import *
 from .device import *
 from .get_bandwidth_schedule import *
@@ -22,3 +23,40 @@ from .trigger import *
 from .user import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:databoxedge/v20190301:BandwidthSchedule":
+                return BandwidthSchedule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:databoxedge/v20190301:Device":
+                return Device(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:databoxedge/v20190301:Order":
+                return Order(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:databoxedge/v20190301:Role":
+                return Role(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:databoxedge/v20190301:Share":
+                return Share(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:databoxedge/v20190301:StorageAccountCredential":
+                return StorageAccountCredential(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:databoxedge/v20190301:Trigger":
+                return Trigger(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:databoxedge/v20190301:User":
+                return User(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "databoxedge/v20190301", _module_instance)
+
+_register_module()

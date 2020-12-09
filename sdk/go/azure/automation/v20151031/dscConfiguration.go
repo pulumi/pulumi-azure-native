@@ -50,20 +50,21 @@ type DscConfiguration struct {
 // NewDscConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewDscConfiguration(ctx *pulumi.Context,
 	name string, args *DscConfigurationArgs, opts ...pulumi.ResourceOption) (*DscConfiguration, error) {
-	if args == nil || args.AutomationAccountName == nil {
-		return nil, errors.New("missing required argument 'AutomationAccountName'")
-	}
-	if args == nil || args.ConfigurationName == nil {
-		return nil, errors.New("missing required argument 'ConfigurationName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Source == nil {
-		return nil, errors.New("missing required argument 'Source'")
-	}
 	if args == nil {
-		args = &DscConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AutomationAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AutomationAccountName'")
+	}
+	if args.ConfigurationName == nil {
+		return nil, errors.New("invalid value for required argument 'ConfigurationName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Source == nil {
+		return nil, errors.New("invalid value for required argument 'Source'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

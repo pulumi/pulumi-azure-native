@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Project']
@@ -23,10 +24,10 @@ class Project(pulumi.CustomResource):
                  project_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  source_connection_info: Optional[pulumi.Input[Union[pulumi.InputType['MiSqlConnectionInfoArgs'], pulumi.InputType['MySqlConnectionInfoArgs'], pulumi.InputType['PostgreSqlConnectionInfoArgs'], pulumi.InputType['SqlConnectionInfoArgs']]]] = None,
-                 source_platform: Optional[pulumi.Input[str]] = None,
+                 source_platform: Optional[pulumi.Input[Union[str, 'ProjectSourcePlatform']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_connection_info: Optional[pulumi.Input[Union[pulumi.InputType['MiSqlConnectionInfoArgs'], pulumi.InputType['MySqlConnectionInfoArgs'], pulumi.InputType['PostgreSqlConnectionInfoArgs'], pulumi.InputType['SqlConnectionInfoArgs']]]] = None,
-                 target_platform: Optional[pulumi.Input[str]] = None,
+                 target_platform: Optional[pulumi.Input[Union[str, 'ProjectTargetPlatform']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -41,10 +42,10 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[str] project_name: Name of the project
         :param pulumi.Input[str] service_name: Name of the service
         :param pulumi.Input[Union[pulumi.InputType['MiSqlConnectionInfoArgs'], pulumi.InputType['MySqlConnectionInfoArgs'], pulumi.InputType['PostgreSqlConnectionInfoArgs'], pulumi.InputType['SqlConnectionInfoArgs']]] source_connection_info: Information for connecting to source
-        :param pulumi.Input[str] source_platform: Source platform for the project
+        :param pulumi.Input[Union[str, 'ProjectSourcePlatform']] source_platform: Source platform for the project
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Union[pulumi.InputType['MiSqlConnectionInfoArgs'], pulumi.InputType['MySqlConnectionInfoArgs'], pulumi.InputType['PostgreSqlConnectionInfoArgs'], pulumi.InputType['SqlConnectionInfoArgs']]] target_connection_info: Information for connecting to target
-        :param pulumi.Input[str] target_platform: Target platform for the project
+        :param pulumi.Input[Union[str, 'ProjectTargetPlatform']] target_platform: Target platform for the project
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -64,25 +65,25 @@ class Project(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['databases_info'] = databases_info
-            if group_name is None:
+            if group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'group_name'")
             __props__['group_name'] = group_name
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if project_name is None:
+            if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")
             __props__['project_name'] = project_name
-            if service_name is None:
+            if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['source_connection_info'] = source_connection_info
-            if source_platform is None:
+            if source_platform is None and not opts.urn:
                 raise TypeError("Missing required property 'source_platform'")
             __props__['source_platform'] = source_platform
             __props__['tags'] = tags
             __props__['target_connection_info'] = target_connection_info
-            if target_platform is None:
+            if target_platform is None and not opts.urn:
                 raise TypeError("Missing required property 'target_platform'")
             __props__['target_platform'] = target_platform
             __props__['creation_time'] = None

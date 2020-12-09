@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest.Inputs
         /// Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
         /// </summary>
         [Input("keyType")]
-        public Input<string>? KeyType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Storage.Latest.KeyType>? KeyType { get; set; }
 
         public EncryptionServiceArgs()
         {

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['Route']
 
@@ -20,7 +21,7 @@ class Route(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  next_hop_ip_address: Optional[pulumi.Input[str]] = None,
-                 next_hop_type: Optional[pulumi.Input[str]] = None,
+                 next_hop_type: Optional[pulumi.Input[Union[str, 'RouteNextHopType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  route_name: Optional[pulumi.Input[str]] = None,
                  route_table_name: Optional[pulumi.Input[str]] = None,
@@ -37,7 +38,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[str] next_hop_ip_address: The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
-        :param pulumi.Input[str] next_hop_type: The type of Azure hop the packet should be sent to.
+        :param pulumi.Input[Union[str, 'RouteNextHopType']] next_hop_type: The type of Azure hop the packet should be sent to.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] route_name: The name of the route.
         :param pulumi.Input[str] route_table_name: The name of the route table.
@@ -64,16 +65,16 @@ class Route(pulumi.CustomResource):
             __props__['id'] = id
             __props__['name'] = name
             __props__['next_hop_ip_address'] = next_hop_ip_address
-            if next_hop_type is None:
+            if next_hop_type is None and not opts.urn:
                 raise TypeError("Missing required property 'next_hop_type'")
             __props__['next_hop_type'] = next_hop_type
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if route_name is None:
+            if route_name is None and not opts.urn:
                 raise TypeError("Missing required property 'route_name'")
             __props__['route_name'] = route_name
-            if route_table_name is None:
+            if route_table_name is None and not opts.urn:
                 raise TypeError("Missing required property 'route_table_name'")
             __props__['route_table_name'] = route_table_name
             __props__['provisioning_state'] = None

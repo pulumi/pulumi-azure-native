@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Network.V20200301.Inputs
         /// Gateway SKU name.
         /// </summary>
         [Input("name")]
-        public Input<string>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200301.VirtualNetworkGatewaySkuName>? Name { get; set; }
 
         /// <summary>
         /// Gateway SKU tier.
         /// </summary>
         [Input("tier")]
-        public Input<string>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200301.VirtualNetworkGatewaySkuTier>? Tier { get; set; }
 
         public VirtualNetworkGatewaySkuArgs()
         {

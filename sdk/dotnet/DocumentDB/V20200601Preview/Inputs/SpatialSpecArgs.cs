@@ -19,14 +19,14 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview.Inputs
         public Input<string>? Path { get; set; }
 
         [Input("types")]
-        private InputList<string>? _types;
+        private InputList<Union<string, Pulumi.AzureNextGen.DocumentDB.V20200601Preview.SpatialType>>? _types;
 
         /// <summary>
         /// List of path's spatial type
         /// </summary>
-        public InputList<string> Types
+        public InputList<Union<string, Pulumi.AzureNextGen.DocumentDB.V20200601Preview.SpatialType>> Types
         {
-            get => _types ?? (_types = new InputList<string>());
+            get => _types ?? (_types = new InputList<Union<string, Pulumi.AzureNextGen.DocumentDB.V20200601Preview.SpatialType>>());
             set => _types = value;
         }
 

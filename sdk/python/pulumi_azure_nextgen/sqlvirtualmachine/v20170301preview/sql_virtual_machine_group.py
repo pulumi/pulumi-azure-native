@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['SqlVirtualMachineGroup']
@@ -20,7 +21,7 @@ class SqlVirtualMachineGroup(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sql_image_offer: Optional[pulumi.Input[str]] = None,
-                 sql_image_sku: Optional[pulumi.Input[str]] = None,
+                 sql_image_sku: Optional[pulumi.Input[Union[str, 'SqlVmGroupImageSku']]] = None,
                  sql_virtual_machine_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  wsfc_domain_profile: Optional[pulumi.Input[pulumi.InputType['WsfcDomainProfileArgs']]] = None,
@@ -35,7 +36,7 @@ class SqlVirtualMachineGroup(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] sql_image_offer: SQL image offer. Examples may include SQL2016-WS2016, SQL2017-WS2016.
-        :param pulumi.Input[str] sql_image_sku: SQL image sku.
+        :param pulumi.Input[Union[str, 'SqlVmGroupImageSku']] sql_image_sku: SQL image sku.
         :param pulumi.Input[str] sql_virtual_machine_group_name: Name of the SQL virtual machine group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['WsfcDomainProfileArgs']] wsfc_domain_profile: Cluster Active Directory domain profile.
@@ -57,15 +58,15 @@ class SqlVirtualMachineGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sql_image_offer'] = sql_image_offer
             __props__['sql_image_sku'] = sql_image_sku
-            if sql_virtual_machine_group_name is None:
+            if sql_virtual_machine_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sql_virtual_machine_group_name'")
             __props__['sql_virtual_machine_group_name'] = sql_virtual_machine_group_name
             __props__['tags'] = tags

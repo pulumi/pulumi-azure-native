@@ -61,13 +61,13 @@ export class CustomerSubscription extends pulumi.CustomResource {
     constructor(name: string, args: CustomerSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.customerSubscriptionName === undefined) {
+            if ((!args || args.customerSubscriptionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'customerSubscriptionName'");
             }
-            if (!args || args.registrationName === undefined) {
+            if ((!args || args.registrationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'registrationName'");
             }
-            if (!args || args.resourceGroup === undefined) {
+            if ((!args || args.resourceGroup === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
             inputs["customerSubscriptionName"] = args ? args.customerSubscriptionName : undefined;

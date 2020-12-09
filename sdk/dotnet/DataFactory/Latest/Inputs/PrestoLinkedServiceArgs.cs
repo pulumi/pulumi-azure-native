@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         /// The authentication mechanism used to connect to the Presto server.
         /// </summary>
         [Input("authenticationType", required: true)]
-        public Input<string> AuthenticationType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.Latest.PrestoAuthenticationType> AuthenticationType { get; set; } = null!;
 
         /// <summary>
         /// The catalog context for all request against the server.

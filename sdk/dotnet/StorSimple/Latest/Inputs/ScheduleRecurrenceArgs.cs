@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest.Inputs
         /// The recurrence type.
         /// </summary>
         [Input("recurrenceType", required: true)]
-        public Input<string> RecurrenceType { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.StorSimple.Latest.RecurrenceType> RecurrenceType { get; set; } = null!;
 
         /// <summary>
         /// The recurrence value.
@@ -28,14 +28,14 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest.Inputs
         public Input<int> RecurrenceValue { get; set; } = null!;
 
         [Input("weeklyDaysList")]
-        private InputList<string>? _weeklyDaysList;
+        private InputList<Pulumi.AzureNextGen.StorSimple.Latest.DayOfWeek>? _weeklyDaysList;
 
         /// <summary>
         /// The week days list. Applicable only for schedules of recurrence type 'weekly'.
         /// </summary>
-        public InputList<string> WeeklyDaysList
+        public InputList<Pulumi.AzureNextGen.StorSimple.Latest.DayOfWeek> WeeklyDaysList
         {
-            get => _weeklyDaysList ?? (_weeklyDaysList = new InputList<string>());
+            get => _weeklyDaysList ?? (_weeklyDaysList = new InputList<Pulumi.AzureNextGen.StorSimple.Latest.DayOfWeek>());
             set => _weeklyDaysList = value;
         }
 

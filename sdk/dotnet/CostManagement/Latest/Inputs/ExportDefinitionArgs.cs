@@ -31,13 +31,13 @@ namespace Pulumi.AzureNextGen.CostManagement.Latest.Inputs
         /// The time frame for pulling data for the export. If custom, then a specific time period must be provided.
         /// </summary>
         [Input("timeframe", required: true)]
-        public Input<string> Timeframe { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.Latest.TimeframeType> Timeframe { get; set; } = null!;
 
         /// <summary>
         /// The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.Latest.ExportType> Type { get; set; } = null!;
 
         public ExportDefinitionArgs()
         {

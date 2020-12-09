@@ -140,7 +140,7 @@ namespace Pulumi.AzureNextGen.DataShare.V20181101Preview
         /// Share kind.
         /// </summary>
         [Input("shareKind")]
-        public Input<string>? ShareKind { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataShare.V20181101Preview.ShareKind>? ShareKind { get; set; }
 
         /// <summary>
         /// The name of the share.

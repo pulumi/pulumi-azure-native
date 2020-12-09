@@ -28,23 +28,24 @@ type Assessment struct {
 // NewAssessment registers a new resource with the given unique name, arguments, and options.
 func NewAssessment(ctx *pulumi.Context,
 	name string, args *AssessmentArgs, opts ...pulumi.ResourceOption) (*Assessment, error) {
-	if args == nil || args.AssessmentName == nil {
-		return nil, errors.New("missing required argument 'AssessmentName'")
-	}
-	if args == nil || args.GroupName == nil {
-		return nil, errors.New("missing required argument 'GroupName'")
-	}
-	if args == nil || args.ProjectName == nil {
-		return nil, errors.New("missing required argument 'ProjectName'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &AssessmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AssessmentName == nil {
+		return nil, errors.New("invalid value for required argument 'AssessmentName'")
+	}
+	if args.GroupName == nil {
+		return nil, errors.New("invalid value for required argument 'GroupName'")
+	}
+	if args.ProjectName == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectName'")
+	}
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

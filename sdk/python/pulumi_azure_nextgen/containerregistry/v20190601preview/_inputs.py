@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AgentPropertiesArgs',
@@ -117,14 +118,14 @@ class ArgumentArgs:
 class AuthInfoArgs:
     def __init__(__self__, *,
                  token: pulumi.Input[str],
-                 token_type: pulumi.Input[str],
+                 token_type: pulumi.Input[Union[str, 'TokenType']],
                  expires_in: Optional[pulumi.Input[int]] = None,
                  refresh_token: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None):
         """
         The authorization properties for accessing the source code repository.
         :param pulumi.Input[str] token: The access token used to access the source control provider.
-        :param pulumi.Input[str] token_type: The type of Auth token.
+        :param pulumi.Input[Union[str, 'TokenType']] token_type: The type of Auth token.
         :param pulumi.Input[int] expires_in: Time in seconds that the token remains valid
         :param pulumi.Input[str] refresh_token: The refresh token used to refresh the access token.
         :param pulumi.Input[str] scope: The scope of the access token.
@@ -152,14 +153,14 @@ class AuthInfoArgs:
 
     @property
     @pulumi.getter(name="tokenType")
-    def token_type(self) -> pulumi.Input[str]:
+    def token_type(self) -> pulumi.Input[Union[str, 'TokenType']]:
         """
         The type of Auth token.
         """
         return pulumi.get(self, "token_type")
 
     @token_type.setter
-    def token_type(self, value: pulumi.Input[str]):
+    def token_type(self, value: pulumi.Input[Union[str, 'TokenType']]):
         pulumi.set(self, "token_type", value)
 
     @property
@@ -202,18 +203,18 @@ class AuthInfoArgs:
 @pulumi.input_type
 class BaseImageTriggerArgs:
     def __init__(__self__, *,
-                 base_image_trigger_type: pulumi.Input[str],
+                 base_image_trigger_type: pulumi.Input[Union[str, 'BaseImageTriggerType']],
                  name: pulumi.Input[str],
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'TriggerStatus']]] = None,
                  update_trigger_endpoint: Optional[pulumi.Input[str]] = None,
-                 update_trigger_payload_type: Optional[pulumi.Input[str]] = None):
+                 update_trigger_payload_type: Optional[pulumi.Input[Union[str, 'UpdateTriggerPayloadType']]] = None):
         """
         The trigger based on base image dependency.
-        :param pulumi.Input[str] base_image_trigger_type: The type of the auto trigger for base image dependency updates.
+        :param pulumi.Input[Union[str, 'BaseImageTriggerType']] base_image_trigger_type: The type of the auto trigger for base image dependency updates.
         :param pulumi.Input[str] name: The name of the trigger.
-        :param pulumi.Input[str] status: The current status of trigger.
+        :param pulumi.Input[Union[str, 'TriggerStatus']] status: The current status of trigger.
         :param pulumi.Input[str] update_trigger_endpoint: The endpoint URL for receiving update triggers.
-        :param pulumi.Input[str] update_trigger_payload_type: Type of Payload body for Base image update triggers.
+        :param pulumi.Input[Union[str, 'UpdateTriggerPayloadType']] update_trigger_payload_type: Type of Payload body for Base image update triggers.
         """
         pulumi.set(__self__, "base_image_trigger_type", base_image_trigger_type)
         pulumi.set(__self__, "name", name)
@@ -226,14 +227,14 @@ class BaseImageTriggerArgs:
 
     @property
     @pulumi.getter(name="baseImageTriggerType")
-    def base_image_trigger_type(self) -> pulumi.Input[str]:
+    def base_image_trigger_type(self) -> pulumi.Input[Union[str, 'BaseImageTriggerType']]:
         """
         The type of the auto trigger for base image dependency updates.
         """
         return pulumi.get(self, "base_image_trigger_type")
 
     @base_image_trigger_type.setter
-    def base_image_trigger_type(self, value: pulumi.Input[str]):
+    def base_image_trigger_type(self, value: pulumi.Input[Union[str, 'BaseImageTriggerType']]):
         pulumi.set(self, "base_image_trigger_type", value)
 
     @property
@@ -250,14 +251,14 @@ class BaseImageTriggerArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input[Union[str, 'TriggerStatus']]]:
         """
         The current status of trigger.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input[Union[str, 'TriggerStatus']]]):
         pulumi.set(self, "status", value)
 
     @property
@@ -274,14 +275,14 @@ class BaseImageTriggerArgs:
 
     @property
     @pulumi.getter(name="updateTriggerPayloadType")
-    def update_trigger_payload_type(self) -> Optional[pulumi.Input[str]]:
+    def update_trigger_payload_type(self) -> Optional[pulumi.Input[Union[str, 'UpdateTriggerPayloadType']]]:
         """
         Type of Payload body for Base image update triggers.
         """
         return pulumi.get(self, "update_trigger_payload_type")
 
     @update_trigger_payload_type.setter
-    def update_trigger_payload_type(self, value: Optional[pulumi.Input[str]]):
+    def update_trigger_payload_type(self, value: Optional[pulumi.Input[Union[str, 'UpdateTriggerPayloadType']]]):
         pulumi.set(self, "update_trigger_payload_type", value)
 
 
@@ -1399,13 +1400,13 @@ class IdentityPropertiesArgs:
     def __init__(__self__, *,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None,
                  user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityPropertiesArgs']]]] = None):
         """
         Managed identity for the resource.
         :param pulumi.Input[str] principal_id: The principal ID of resource identity.
         :param pulumi.Input[str] tenant_id: The tenant ID of resource.
-        :param pulumi.Input[str] type: The identity type.
+        :param pulumi.Input['ResourceIdentityType'] type: The identity type.
         :param pulumi.Input[Mapping[str, pulumi.Input['UserIdentityPropertiesArgs']]] user_assigned_identities: The list of user identities associated with the resource. The user identity 
                dictionary key references will be ARM resource ids in the form: 
                '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
@@ -1446,14 +1447,14 @@ class IdentityPropertiesArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
         """
         The identity type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -1580,14 +1581,14 @@ class OverrideTaskStepPropertiesArgs:
 @pulumi.input_type
 class PlatformPropertiesArgs:
     def __init__(__self__, *,
-                 os: pulumi.Input[str],
-                 architecture: Optional[pulumi.Input[str]] = None,
-                 variant: Optional[pulumi.Input[str]] = None):
+                 os: pulumi.Input[Union[str, 'OS']],
+                 architecture: Optional[pulumi.Input[Union[str, 'Architecture']]] = None,
+                 variant: Optional[pulumi.Input[Union[str, 'Variant']]] = None):
         """
         The platform properties against which the run has to happen.
-        :param pulumi.Input[str] os: The operating system type required for the run.
-        :param pulumi.Input[str] architecture: The OS architecture.
-        :param pulumi.Input[str] variant: Variant of the CPU.
+        :param pulumi.Input[Union[str, 'OS']] os: The operating system type required for the run.
+        :param pulumi.Input[Union[str, 'Architecture']] architecture: The OS architecture.
+        :param pulumi.Input[Union[str, 'Variant']] variant: Variant of the CPU.
         """
         pulumi.set(__self__, "os", os)
         if architecture is not None:
@@ -1597,49 +1598,49 @@ class PlatformPropertiesArgs:
 
     @property
     @pulumi.getter
-    def os(self) -> pulumi.Input[str]:
+    def os(self) -> pulumi.Input[Union[str, 'OS']]:
         """
         The operating system type required for the run.
         """
         return pulumi.get(self, "os")
 
     @os.setter
-    def os(self, value: pulumi.Input[str]):
+    def os(self, value: pulumi.Input[Union[str, 'OS']]):
         pulumi.set(self, "os", value)
 
     @property
     @pulumi.getter
-    def architecture(self) -> Optional[pulumi.Input[str]]:
+    def architecture(self) -> Optional[pulumi.Input[Union[str, 'Architecture']]]:
         """
         The OS architecture.
         """
         return pulumi.get(self, "architecture")
 
     @architecture.setter
-    def architecture(self, value: Optional[pulumi.Input[str]]):
+    def architecture(self, value: Optional[pulumi.Input[Union[str, 'Architecture']]]):
         pulumi.set(self, "architecture", value)
 
     @property
     @pulumi.getter
-    def variant(self) -> Optional[pulumi.Input[str]]:
+    def variant(self) -> Optional[pulumi.Input[Union[str, 'Variant']]]:
         """
         Variant of the CPU.
         """
         return pulumi.get(self, "variant")
 
     @variant.setter
-    def variant(self, value: Optional[pulumi.Input[str]]):
+    def variant(self, value: Optional[pulumi.Input[Union[str, 'Variant']]]):
         pulumi.set(self, "variant", value)
 
 
 @pulumi.input_type
 class SecretObjectArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'SecretObjectType']]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
         Describes the properties of a secret object value.
-        :param pulumi.Input[str] type: The type of the secret object which determines how the value of the secret object has to be
+        :param pulumi.Input[Union[str, 'SecretObjectType']] type: The type of the secret object which determines how the value of the secret object has to be
                interpreted.
         :param pulumi.Input[str] value: The value of the secret. The format of this value will be determined
                based on the type of the secret object. If the type is Opaque, the value will be
@@ -1652,7 +1653,7 @@ class SecretObjectArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'SecretObjectType']]]:
         """
         The type of the secret object which determines how the value of the secret object has to be
         interpreted.
@@ -1660,7 +1661,7 @@ class SecretObjectArgs:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'SecretObjectType']]]):
         pulumi.set(self, "type", value)
 
     @property
@@ -1736,13 +1737,13 @@ class SetValueArgs:
 class SourcePropertiesArgs:
     def __init__(__self__, *,
                  repository_url: pulumi.Input[str],
-                 source_control_type: pulumi.Input[str],
+                 source_control_type: pulumi.Input[Union[str, 'SourceControlType']],
                  branch: Optional[pulumi.Input[str]] = None,
                  source_control_auth_properties: Optional[pulumi.Input['AuthInfoArgs']] = None):
         """
         The properties of the source code repository.
         :param pulumi.Input[str] repository_url: The full URL to the source code repository
-        :param pulumi.Input[str] source_control_type: The type of source control service.
+        :param pulumi.Input[Union[str, 'SourceControlType']] source_control_type: The type of source control service.
         :param pulumi.Input[str] branch: The branch name of the source code.
         :param pulumi.Input['AuthInfoArgs'] source_control_auth_properties: The authorization properties for accessing the source code repository and to set up
                webhooks for notifications.
@@ -1768,14 +1769,14 @@ class SourcePropertiesArgs:
 
     @property
     @pulumi.getter(name="sourceControlType")
-    def source_control_type(self) -> pulumi.Input[str]:
+    def source_control_type(self) -> pulumi.Input[Union[str, 'SourceControlType']]:
         """
         The type of source control service.
         """
         return pulumi.get(self, "source_control_type")
 
     @source_control_type.setter
-    def source_control_type(self, value: pulumi.Input[str]):
+    def source_control_type(self, value: pulumi.Input[Union[str, 'SourceControlType']]):
         pulumi.set(self, "source_control_type", value)
 
     @property
@@ -1807,10 +1808,10 @@ class SourcePropertiesArgs:
 @pulumi.input_type
 class SourceRegistryCredentialsArgs:
     def __init__(__self__, *,
-                 login_mode: Optional[pulumi.Input[str]] = None):
+                 login_mode: Optional[pulumi.Input[Union[str, 'SourceRegistryLoginMode']]] = None):
         """
         Describes the credential parameters for accessing the source registry.
-        :param pulumi.Input[str] login_mode: The authentication mode which determines the source registry login scope. The credentials for the source registry
+        :param pulumi.Input[Union[str, 'SourceRegistryLoginMode']] login_mode: The authentication mode which determines the source registry login scope. The credentials for the source registry
                will be generated using the given scope. These credentials will be used to login to
                the source registry during the run.
         """
@@ -1819,7 +1820,7 @@ class SourceRegistryCredentialsArgs:
 
     @property
     @pulumi.getter(name="loginMode")
-    def login_mode(self) -> Optional[pulumi.Input[str]]:
+    def login_mode(self) -> Optional[pulumi.Input[Union[str, 'SourceRegistryLoginMode']]]:
         """
         The authentication mode which determines the source registry login scope. The credentials for the source registry
         will be generated using the given scope. These credentials will be used to login to
@@ -1828,7 +1829,7 @@ class SourceRegistryCredentialsArgs:
         return pulumi.get(self, "login_mode")
 
     @login_mode.setter
-    def login_mode(self, value: Optional[pulumi.Input[str]]):
+    def login_mode(self, value: Optional[pulumi.Input[Union[str, 'SourceRegistryLoginMode']]]):
         pulumi.set(self, "login_mode", value)
 
 
@@ -1837,14 +1838,14 @@ class SourceTriggerArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  source_repository: pulumi.Input['SourcePropertiesArgs'],
-                 source_trigger_events: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 status: Optional[pulumi.Input[str]] = None):
+                 source_trigger_events: pulumi.Input[Sequence[pulumi.Input[Union[str, 'SourceTriggerEvent']]]],
+                 status: Optional[pulumi.Input[Union[str, 'TriggerStatus']]] = None):
         """
         The properties of a source based trigger.
         :param pulumi.Input[str] name: The name of the trigger.
         :param pulumi.Input['SourcePropertiesArgs'] source_repository: The properties that describes the source(code) for the task.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] source_trigger_events: The source event corresponding to the trigger.
-        :param pulumi.Input[str] status: The current status of trigger.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'SourceTriggerEvent']]]] source_trigger_events: The source event corresponding to the trigger.
+        :param pulumi.Input[Union[str, 'TriggerStatus']] status: The current status of trigger.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "source_repository", source_repository)
@@ -1878,26 +1879,26 @@ class SourceTriggerArgs:
 
     @property
     @pulumi.getter(name="sourceTriggerEvents")
-    def source_trigger_events(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def source_trigger_events(self) -> pulumi.Input[Sequence[pulumi.Input[Union[str, 'SourceTriggerEvent']]]]:
         """
         The source event corresponding to the trigger.
         """
         return pulumi.get(self, "source_trigger_events")
 
     @source_trigger_events.setter
-    def source_trigger_events(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def source_trigger_events(self, value: pulumi.Input[Sequence[pulumi.Input[Union[str, 'SourceTriggerEvent']]]]):
         pulumi.set(self, "source_trigger_events", value)
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input[Union[str, 'TriggerStatus']]]:
         """
         The current status of trigger.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input[Union[str, 'TriggerStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -2008,12 +2009,12 @@ class TimerTriggerArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  schedule: pulumi.Input[str],
-                 status: Optional[pulumi.Input[str]] = None):
+                 status: Optional[pulumi.Input[Union[str, 'TriggerStatus']]] = None):
         """
         The properties of a timer trigger.
         :param pulumi.Input[str] name: The name of the trigger.
         :param pulumi.Input[str] schedule: The CRON expression for the task schedule
-        :param pulumi.Input[str] status: The current status of trigger.
+        :param pulumi.Input[Union[str, 'TriggerStatus']] status: The current status of trigger.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "schedule", schedule)
@@ -2046,14 +2047,14 @@ class TimerTriggerArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input[Union[str, 'TriggerStatus']]]:
         """
         The current status of trigger.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input[Union[str, 'TriggerStatus']]]):
         pulumi.set(self, "status", value)
 
 

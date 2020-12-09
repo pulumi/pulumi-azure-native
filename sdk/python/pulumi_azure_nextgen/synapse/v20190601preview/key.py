@@ -52,14 +52,14 @@ class Key(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['is_active_cmk'] = is_active_cmk
-            if key_name is None:
+            if key_name is None and not opts.urn:
                 raise TypeError("Missing required property 'key_name'")
             __props__['key_name'] = key_name
             __props__['key_vault_url'] = key_vault_url
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if workspace_name is None:
+            if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['name'] = None

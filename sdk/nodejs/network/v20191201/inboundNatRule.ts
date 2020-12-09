@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -94,13 +94,13 @@ export class InboundNatRule extends pulumi.CustomResource {
     constructor(name: string, args: InboundNatRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.inboundNatRuleName === undefined) {
+            if ((!args || args.inboundNatRuleName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'inboundNatRuleName'");
             }
-            if (!args || args.loadBalancerName === undefined) {
+            if ((!args || args.loadBalancerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'loadBalancerName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["backendPort"] = args ? args.backendPort : undefined;
@@ -193,7 +193,7 @@ export interface InboundNatRuleArgs {
     /**
      * The reference to the transport protocol used by the load balancing rule.
      */
-    readonly protocol?: pulumi.Input<string>;
+    readonly protocol?: pulumi.Input<string | enums.network.v20191201.TransportProtocol>;
     /**
      * The name of the resource group.
      */

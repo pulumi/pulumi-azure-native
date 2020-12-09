@@ -259,7 +259,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.V20161101
         /// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
         /// </summary>
         [Input("firewallAllowAzureIps")]
-        public Input<string>? FirewallAllowAzureIps { get; set; }
+        public Input<Pulumi.AzureNextGen.DataLakeAnalytics.V20161101.FirewallAllowAzureIpsState>? FirewallAllowAzureIps { get; set; }
 
         [Input("firewallRules")]
         private InputList<Inputs.CreateFirewallRuleWithAccountParametersArgs>? _firewallRules;
@@ -277,7 +277,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.V20161101
         /// The current state of the IP address firewall for this account.
         /// </summary>
         [Input("firewallState")]
-        public Input<string>? FirewallState { get; set; }
+        public Input<Pulumi.AzureNextGen.DataLakeAnalytics.V20161101.FirewallState>? FirewallState { get; set; }
 
         /// <summary>
         /// The resource location.
@@ -313,7 +313,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.V20161101
         /// The commitment tier for the next month.
         /// </summary>
         [Input("newTier")]
-        public Input<string>? NewTier { get; set; }
+        public Input<Pulumi.AzureNextGen.DataLakeAnalytics.V20161101.TierType>? NewTier { get; set; }
 
         /// <summary>
         /// The number of days that job metadata is retained.

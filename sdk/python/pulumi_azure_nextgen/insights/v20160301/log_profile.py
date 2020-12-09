@@ -59,19 +59,19 @@ class LogProfile(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if categories is None:
+            if categories is None and not opts.urn:
                 raise TypeError("Missing required property 'categories'")
             __props__['categories'] = categories
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if locations is None:
+            if locations is None and not opts.urn:
                 raise TypeError("Missing required property 'locations'")
             __props__['locations'] = locations
-            if log_profile_name is None:
+            if log_profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'log_profile_name'")
             __props__['log_profile_name'] = log_profile_name
-            if retention_policy is None:
+            if retention_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'retention_policy'")
             __props__['retention_policy'] = retention_policy
             __props__['service_bus_rule_id'] = service_bus_rule_id

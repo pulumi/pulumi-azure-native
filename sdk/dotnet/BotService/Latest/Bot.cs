@@ -123,7 +123,7 @@ namespace Pulumi.AzureNextGen.BotService.Latest
         /// Required. Gets or sets the Kind of the resource.
         /// </summary>
         [Input("kind")]
-        public Input<string>? Kind { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.BotService.Latest.Kind>? Kind { get; set; }
 
         /// <summary>
         /// Specifies the location of the resource.

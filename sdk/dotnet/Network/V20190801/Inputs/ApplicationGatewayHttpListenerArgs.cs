@@ -67,7 +67,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Inputs
         /// Protocol of the HTTP listener.
         /// </summary>
         [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190801.ApplicationGatewayProtocol>? Protocol { get; set; }
 
         /// <summary>
         /// Applicable only if protocol is https. Enables SNI for multi-hosting.

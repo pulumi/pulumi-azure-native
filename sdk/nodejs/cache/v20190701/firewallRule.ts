@@ -61,19 +61,19 @@ export class FirewallRule extends pulumi.CustomResource {
     constructor(name: string, args: FirewallRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.cacheName === undefined) {
+            if ((!args || args.cacheName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'cacheName'");
             }
-            if (!args || args.endIP === undefined) {
+            if ((!args || args.endIP === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'endIP'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.ruleName === undefined) {
+            if ((!args || args.ruleName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ruleName'");
             }
-            if (!args || args.startIP === undefined) {
+            if ((!args || args.startIP === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'startIP'");
             }
             inputs["cacheName"] = args ? args.cacheName : undefined;

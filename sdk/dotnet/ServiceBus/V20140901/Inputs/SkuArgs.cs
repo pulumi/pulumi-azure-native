@@ -25,13 +25,13 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20140901.Inputs
         /// Name of this SKU.
         /// </summary>
         [Input("name")]
-        public Input<string>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ServiceBus.V20140901.SkuName>? Name { get; set; }
 
         /// <summary>
         /// The billing tier of this particular SKU.
         /// </summary>
         [Input("tier", required: true)]
-        public Input<string> Tier { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.ServiceBus.V20140901.SkuTier> Tier { get; set; } = null!;
 
         public SkuArgs()
         {

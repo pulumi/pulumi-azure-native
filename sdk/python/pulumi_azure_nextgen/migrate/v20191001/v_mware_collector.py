@@ -51,14 +51,14 @@ class VMwareCollector(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['e_tag'] = e_tag
-            if project_name is None:
+            if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")
             __props__['project_name'] = project_name
             __props__['properties'] = properties
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if vm_ware_collector_name is None:
+            if vm_ware_collector_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_ware_collector_name'")
             __props__['vm_ware_collector_name'] = vm_ware_collector_name
             __props__['name'] = None

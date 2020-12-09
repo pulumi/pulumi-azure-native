@@ -140,7 +140,7 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
         /// Conflict resolution policy of the sync group.
         /// </summary>
         [Input("conflictResolutionPolicy")]
-        public Input<string>? ConflictResolutionPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20190601Preview.SyncConflictResolutionPolicy>? ConflictResolutionPolicy { get; set; }
 
         /// <summary>
         /// The name of the database on which the sync group is hosted.

@@ -34,26 +34,27 @@ type ServerAzureADAdministrator struct {
 // NewServerAzureADAdministrator registers a new resource with the given unique name, arguments, and options.
 func NewServerAzureADAdministrator(ctx *pulumi.Context,
 	name string, args *ServerAzureADAdministratorArgs, opts ...pulumi.ResourceOption) (*ServerAzureADAdministrator, error) {
-	if args == nil || args.AdministratorName == nil {
-		return nil, errors.New("missing required argument 'AdministratorName'")
-	}
-	if args == nil || args.AdministratorType == nil {
-		return nil, errors.New("missing required argument 'AdministratorType'")
-	}
-	if args == nil || args.Login == nil {
-		return nil, errors.New("missing required argument 'Login'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServerName == nil {
-		return nil, errors.New("missing required argument 'ServerName'")
-	}
-	if args == nil || args.Sid == nil {
-		return nil, errors.New("missing required argument 'Sid'")
-	}
 	if args == nil {
-		args = &ServerAzureADAdministratorArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AdministratorName == nil {
+		return nil, errors.New("invalid value for required argument 'AdministratorName'")
+	}
+	if args.AdministratorType == nil {
+		return nil, errors.New("invalid value for required argument 'AdministratorType'")
+	}
+	if args.Login == nil {
+		return nil, errors.New("invalid value for required argument 'Login'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServerName == nil {
+		return nil, errors.New("invalid value for required argument 'ServerName'")
+	}
+	if args.Sid == nil {
+		return nil, errors.New("invalid value for required argument 'Sid'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

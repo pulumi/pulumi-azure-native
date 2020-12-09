@@ -28,11 +28,12 @@ type ManagementLock struct {
 // NewManagementLock registers a new resource with the given unique name, arguments, and options.
 func NewManagementLock(ctx *pulumi.Context,
 	name string, args *ManagementLockArgs, opts ...pulumi.ResourceOption) (*ManagementLock, error) {
-	if args == nil || args.LockName == nil {
-		return nil, errors.New("missing required argument 'LockName'")
-	}
 	if args == nil {
-		args = &ManagementLockArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.LockName == nil {
+		return nil, errors.New("invalid value for required argument 'LockName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

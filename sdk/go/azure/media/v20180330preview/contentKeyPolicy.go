@@ -34,20 +34,21 @@ type ContentKeyPolicy struct {
 // NewContentKeyPolicy registers a new resource with the given unique name, arguments, and options.
 func NewContentKeyPolicy(ctx *pulumi.Context,
 	name string, args *ContentKeyPolicyArgs, opts ...pulumi.ResourceOption) (*ContentKeyPolicy, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.ContentKeyPolicyName == nil {
-		return nil, errors.New("missing required argument 'ContentKeyPolicyName'")
-	}
-	if args == nil || args.Options == nil {
-		return nil, errors.New("missing required argument 'Options'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ContentKeyPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.ContentKeyPolicyName == nil {
+		return nil, errors.New("invalid value for required argument 'ContentKeyPolicyName'")
+	}
+	if args.Options == nil {
+		return nil, errors.New("invalid value for required argument 'Options'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

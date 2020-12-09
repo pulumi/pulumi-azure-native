@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .access_control_record import *
 from .backup_schedule_group import *
 from .chap_setting import *
@@ -28,3 +29,46 @@ from .storage_account_credential import *
 from .storage_domain import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:storsimple/v20161001:AccessControlRecord":
+                return AccessControlRecord(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storsimple/v20161001:BackupScheduleGroup":
+                return BackupScheduleGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storsimple/v20161001:ChapSetting":
+                return ChapSetting(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storsimple/v20161001:FileServer":
+                return FileServer(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storsimple/v20161001:FileShare":
+                return FileShare(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storsimple/v20161001:IscsiDisk":
+                return IscsiDisk(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storsimple/v20161001:IscsiServer":
+                return IscsiServer(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storsimple/v20161001:Manager":
+                return Manager(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storsimple/v20161001:ManagerExtendedInfo":
+                return ManagerExtendedInfo(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storsimple/v20161001:StorageAccountCredential":
+                return StorageAccountCredential(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storsimple/v20161001:StorageDomain":
+                return StorageDomain(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "storsimple/v20161001", _module_instance)
+
+_register_module()

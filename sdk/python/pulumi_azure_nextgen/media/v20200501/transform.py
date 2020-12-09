@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Transform']
@@ -53,17 +54,17 @@ class Transform(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_name is None:
+            if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['description'] = description
-            if outputs is None:
+            if outputs is None and not opts.urn:
                 raise TypeError("Missing required property 'outputs'")
             __props__['outputs'] = outputs
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if transform_name is None:
+            if transform_name is None and not opts.urn:
                 raise TypeError("Missing required property 'transform_name'")
             __props__['transform_name'] = transform_name
             __props__['created'] = None

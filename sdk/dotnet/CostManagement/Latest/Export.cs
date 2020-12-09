@@ -149,7 +149,7 @@ namespace Pulumi.AzureNextGen.CostManagement.Latest
         /// The format of the export being delivered. Currently only 'Csv' is supported.
         /// </summary>
         [Input("format")]
-        public Input<string>? Format { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.Latest.FormatType>? Format { get; set; }
 
         /// <summary>
         /// Has schedule information for the export.

@@ -209,7 +209,7 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
         /// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         /// </summary>
         [Input("hyperVGeneration")]
-        public Input<string>? HyperVGeneration { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20191201.HyperVGeneration>? HyperVGeneration { get; set; }
 
         /// <summary>
         /// This is the gallery Image Definition identifier.
@@ -227,13 +227,13 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
         /// This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
         /// </summary>
         [Input("osState", required: true)]
-        public Input<string> OsState { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Compute.V20191201.OperatingSystemStateTypes> OsState { get; set; } = null!;
 
         /// <summary>
         /// This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Windows** &lt;br&gt;&lt;br&gt; **Linux**
         /// </summary>
         [Input("osType", required: true)]
-        public Input<string> OsType { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Compute.V20191201.OperatingSystemTypes> OsType { get; set; } = null!;
 
         /// <summary>
         /// The privacy statement uri.

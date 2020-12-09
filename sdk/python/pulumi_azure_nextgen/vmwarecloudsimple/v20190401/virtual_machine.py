@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['VirtualMachine']
@@ -75,24 +76,24 @@ class VirtualMachine(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if amount_of_ram is None:
+            if amount_of_ram is None and not opts.urn:
                 raise TypeError("Missing required property 'amount_of_ram'")
             __props__['amount_of_ram'] = amount_of_ram
             __props__['customization'] = customization
             __props__['disks'] = disks
             __props__['expose_to_guest_vm'] = expose_to_guest_vm
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['nics'] = nics
-            if number_of_cores is None:
+            if number_of_cores is None and not opts.urn:
                 raise TypeError("Missing required property 'number_of_cores'")
             __props__['number_of_cores'] = number_of_cores
             __props__['password'] = password
-            if private_cloud_id is None:
+            if private_cloud_id is None and not opts.urn:
                 raise TypeError("Missing required property 'private_cloud_id'")
             __props__['private_cloud_id'] = private_cloud_id
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_pool'] = resource_pool
@@ -100,7 +101,7 @@ class VirtualMachine(pulumi.CustomResource):
             __props__['template_id'] = template_id
             __props__['username'] = username
             __props__['v_sphere_networks'] = v_sphere_networks
-            if virtual_machine_name is None:
+            if virtual_machine_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_machine_name'")
             __props__['virtual_machine_name'] = virtual_machine_name
             __props__['controllers'] = None

@@ -79,7 +79,7 @@ namespace Pulumi.AzureNextGen.Network.V20190401.Inputs
         /// The reference to the transport protocol used by the inbound NAT pool.
         /// </summary>
         [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190401.TransportProtocol> Protocol { get; set; } = null!;
 
         /// <summary>
         /// Gets the provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.

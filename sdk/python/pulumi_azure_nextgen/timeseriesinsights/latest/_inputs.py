@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'LocalTimestampArgs',
@@ -18,11 +19,11 @@ __all__ = [
 @pulumi.input_type
 class LocalTimestampArgs:
     def __init__(__self__, *,
-                 format: Optional[pulumi.Input[str]] = None,
+                 format: Optional[pulumi.Input[Union[str, 'LocalTimestampFormat']]] = None,
                  time_zone_offset: Optional[pulumi.Input['LocalTimestampTimeZoneOffsetArgs']] = None):
         """
         An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
-        :param pulumi.Input[str] format: An enum that represents the format of the local timestamp property that needs to be set.
+        :param pulumi.Input[Union[str, 'LocalTimestampFormat']] format: An enum that represents the format of the local timestamp property that needs to be set.
         :param pulumi.Input['LocalTimestampTimeZoneOffsetArgs'] time_zone_offset: An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
         """
         if format is not None:
@@ -32,14 +33,14 @@ class LocalTimestampArgs:
 
     @property
     @pulumi.getter
-    def format(self) -> Optional[pulumi.Input[str]]:
+    def format(self) -> Optional[pulumi.Input[Union[str, 'LocalTimestampFormat']]]:
         """
         An enum that represents the format of the local timestamp property that needs to be set.
         """
         return pulumi.get(self, "format")
 
     @format.setter
-    def format(self, value: Optional[pulumi.Input[str]]):
+    def format(self, value: Optional[pulumi.Input[Union[str, 'LocalTimestampFormat']]]):
         pulumi.set(self, "format", value)
 
     @property
@@ -83,11 +84,11 @@ class LocalTimestampTimeZoneOffsetArgs:
 class ReferenceDataSetKeyPropertyArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input[Union[str, 'ReferenceDataKeyPropertyType']]] = None):
         """
         A key property for the reference data set. A reference data set can have multiple key properties.
         :param pulumi.Input[str] name: The name of the key property.
-        :param pulumi.Input[str] type: The type of the key property.
+        :param pulumi.Input[Union[str, 'ReferenceDataKeyPropertyType']] type: The type of the key property.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -108,14 +109,14 @@ class ReferenceDataSetKeyPropertyArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ReferenceDataKeyPropertyType']]]:
         """
         The type of the key property.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ReferenceDataKeyPropertyType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -123,11 +124,11 @@ class ReferenceDataSetKeyPropertyArgs:
 class SkuArgs:
     def __init__(__self__, *,
                  capacity: pulumi.Input[int],
-                 name: pulumi.Input[str]):
+                 name: pulumi.Input[Union[str, 'SkuName']]):
         """
         The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
         :param pulumi.Input[int] capacity: The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.
-        :param pulumi.Input[str] name: The name of this SKU.
+        :param pulumi.Input[Union[str, 'SkuName']] name: The name of this SKU.
         """
         pulumi.set(__self__, "capacity", capacity)
         pulumi.set(__self__, "name", name)
@@ -146,14 +147,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input[Union[str, 'SkuName']]:
         """
         The name of this SKU.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
         pulumi.set(self, "name", value)
 
 

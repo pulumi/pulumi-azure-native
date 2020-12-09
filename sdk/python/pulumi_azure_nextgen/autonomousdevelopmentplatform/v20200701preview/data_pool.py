@@ -51,16 +51,16 @@ class DataPool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_name is None:
+            if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if data_pool_name is None:
+            if data_pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'data_pool_name'")
             __props__['data_pool_name'] = data_pool_name
-            if locations is None:
+            if locations is None and not opts.urn:
                 raise TypeError("Missing required property 'locations'")
             __props__['locations'] = locations
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['data_pool_id'] = None

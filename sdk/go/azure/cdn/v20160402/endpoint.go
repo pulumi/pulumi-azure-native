@@ -50,23 +50,24 @@ type Endpoint struct {
 // NewEndpoint registers a new resource with the given unique name, arguments, and options.
 func NewEndpoint(ctx *pulumi.Context,
 	name string, args *EndpointArgs, opts ...pulumi.ResourceOption) (*Endpoint, error) {
-	if args == nil || args.EndpointName == nil {
-		return nil, errors.New("missing required argument 'EndpointName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Origins == nil {
-		return nil, errors.New("missing required argument 'Origins'")
-	}
-	if args == nil || args.ProfileName == nil {
-		return nil, errors.New("missing required argument 'ProfileName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &EndpointArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.EndpointName == nil {
+		return nil, errors.New("invalid value for required argument 'EndpointName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.Origins == nil {
+		return nil, errors.New("invalid value for required argument 'Origins'")
+	}
+	if args.ProfileName == nil {
+		return nil, errors.New("invalid value for required argument 'ProfileName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -250,7 +251,7 @@ type EndpointArgs struct {
 	// Name of the CDN profile within the resource group.
 	ProfileName pulumi.StringInput
 	// Defines the query string caching behavior.
-	QueryStringCachingBehavior pulumi.StringPtrInput
+	QueryStringCachingBehavior QueryStringCachingBehavior
 	// Name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Endpoint tags

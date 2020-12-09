@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.V20191101.Inputs
         /// The HTTP method to use.
         /// </summary>
         [Input("method")]
-        public Input<string>? Method { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20191101.HTTPConfigurationMethod>? Method { get; set; }
 
         /// <summary>
         /// The path component of the URI. For instance, "/dir1/dir2".

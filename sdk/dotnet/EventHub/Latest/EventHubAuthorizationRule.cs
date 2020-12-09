@@ -109,14 +109,14 @@ namespace Pulumi.AzureNextGen.EventHub.Latest
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("rights", required: true)]
-        private InputList<string>? _rights;
+        private InputList<Union<string, Pulumi.AzureNextGen.EventHub.Latest.AccessRights>>? _rights;
 
         /// <summary>
         /// The rights associated with the rule.
         /// </summary>
-        public InputList<string> Rights
+        public InputList<Union<string, Pulumi.AzureNextGen.EventHub.Latest.AccessRights>> Rights
         {
-            get => _rights ?? (_rights = new InputList<string>());
+            get => _rights ?? (_rights = new InputList<Union<string, Pulumi.AzureNextGen.EventHub.Latest.AccessRights>>());
             set => _rights = value;
         }
 

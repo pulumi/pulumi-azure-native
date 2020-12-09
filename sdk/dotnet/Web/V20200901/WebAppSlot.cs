@@ -371,7 +371,7 @@ namespace Pulumi.AzureNextGen.Web.V20200901
         /// - ClientCertEnabled: true and ClientCertMode: Optional means ClientCert is optional or accepted.
         /// </summary>
         [Input("clientCertMode")]
-        public Input<string>? ClientCertMode { get; set; }
+        public Input<Pulumi.AzureNextGen.Web.V20200901.ClientCertMode>? ClientCertMode { get; set; }
 
         /// <summary>
         /// If specified during app creation, the app is cloned from a source app.
@@ -475,7 +475,7 @@ namespace Pulumi.AzureNextGen.Web.V20200901
         /// Site redundancy mode
         /// </summary>
         [Input("redundancyMode")]
-        public Input<string>? RedundancyMode { get; set; }
+        public Input<Pulumi.AzureNextGen.Web.V20200901.RedundancyMode>? RedundancyMode { get; set; }
 
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; if reserved; otherwise, &lt;code&gt;false&lt;/code&gt;.

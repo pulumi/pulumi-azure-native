@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -74,22 +74,22 @@ export class MachineLearningDataset extends pulumi.CustomResource {
     constructor(name: string, args: MachineLearningDatasetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.datasetName === undefined) {
+            if ((!args || args.datasetName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'datasetName'");
             }
-            if (!args || args.datasetType === undefined) {
+            if ((!args || args.datasetType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'datasetType'");
             }
-            if (!args || args.parameters === undefined) {
+            if ((!args || args.parameters === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'parameters'");
             }
-            if (!args || args.registration === undefined) {
+            if ((!args || args.registration === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'registration'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.workspaceName === undefined) {
+            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["datasetName"] = args ? args.datasetName : undefined;
@@ -138,7 +138,7 @@ export interface MachineLearningDatasetArgs {
     /**
      * Specifies dataset type.
      */
-    readonly datasetType: pulumi.Input<string>;
+    readonly datasetType: pulumi.Input<string | enums.machinelearningservices.v20200501preview.DatasetType>;
     readonly parameters: pulumi.Input<inputs.machinelearningservices.v20200501preview.DatasetCreateRequestParameters>;
     readonly registration: pulumi.Input<inputs.machinelearningservices.v20200501preview.DatasetCreateRequestRegistration>;
     /**

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['LiveEvent']
@@ -27,7 +28,7 @@ class LiveEvent(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  preview: Optional[pulumi.Input[pulumi.InputType['LiveEventPreviewArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 stream_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 stream_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'StreamOptionsFlag']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vanity_url: Optional[pulumi.Input[bool]] = None,
                  __props__=None,
@@ -48,7 +49,7 @@ class LiveEvent(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region of the resource.
         :param pulumi.Input[pulumi.InputType['LiveEventPreviewArgs']] preview: The Live Event preview.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] stream_options: The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'StreamOptionsFlag']]]] stream_options: The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[bool] vanity_url: Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
         """
@@ -69,22 +70,22 @@ class LiveEvent(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_name is None:
+            if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['auto_start'] = auto_start
             __props__['cross_site_access_policies'] = cross_site_access_policies
             __props__['description'] = description
             __props__['encoding'] = encoding
-            if input is None:
+            if input is None and not opts.urn:
                 raise TypeError("Missing required property 'input'")
             __props__['input'] = input
-            if live_event_name is None:
+            if live_event_name is None and not opts.urn:
                 raise TypeError("Missing required property 'live_event_name'")
             __props__['live_event_name'] = live_event_name
             __props__['location'] = location
             __props__['preview'] = preview
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['stream_options'] = stream_options

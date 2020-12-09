@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20170401.Inputs
     public sealed class SharedAccessAuthorizationRulePropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("rights")]
-        private InputList<string>? _rights;
+        private InputList<Pulumi.AzureNextGen.NotificationHubs.V20170401.AccessRights>? _rights;
 
         /// <summary>
         /// The rights associated with the rule.
         /// </summary>
-        public InputList<string> Rights
+        public InputList<Pulumi.AzureNextGen.NotificationHubs.V20170401.AccessRights> Rights
         {
-            get => _rights ?? (_rights = new InputList<string>());
+            get => _rights ?? (_rights = new InputList<Pulumi.AzureNextGen.NotificationHubs.V20170401.AccessRights>());
             set => _rights = value;
         }
 

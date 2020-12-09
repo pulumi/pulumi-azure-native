@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -166,16 +166,16 @@ export class Database extends pulumi.CustomResource {
     constructor(name: string, args: DatabaseArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.databaseName === undefined) {
+            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverName === undefined) {
+            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverName'");
             }
             inputs["catalogCollation"] = args ? args.catalogCollation : undefined;
@@ -255,7 +255,7 @@ export interface DatabaseArgs {
     /**
      * Collation of the metadata catalog.
      */
-    readonly catalogCollation?: pulumi.Input<string>;
+    readonly catalogCollation?: pulumi.Input<string | enums.sql.v20170301preview.CatalogCollationType>;
     /**
      * The collation of the database.
      */
@@ -279,7 +279,7 @@ export interface DatabaseArgs {
      * 
      * Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
      */
-    readonly createMode?: pulumi.Input<string>;
+    readonly createMode?: pulumi.Input<string | enums.sql.v20170301preview.CreateMode>;
     /**
      * The name of the database.
      */
@@ -323,7 +323,7 @@ export interface DatabaseArgs {
     /**
      * The name of the sample schema to apply when creating this database.
      */
-    readonly sampleName?: pulumi.Input<string>;
+    readonly sampleName?: pulumi.Input<string | enums.sql.v20170301preview.SampleName>;
     /**
      * The name of the server.
      */

@@ -850,17 +850,23 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 				Items: m.itemTypeToProperty(propertySpec.Items),
 			}
 		} else {
-			apiProperty = provider.AzureAPIProperty{
-				Type:      propertySpec.Type,
-				Enum:      m.getEnumValues(resolvedProperty.Schema),
-				OneOf:     m.getOneOfValues(propertySpec),
-				Ref:       propertySpec.Ref,
-				Minimum:   resolvedProperty.Minimum,
-				Maximum:   resolvedProperty.Maximum,
-				MinLength: resolvedProperty.MinLength,
-				MaxLength: resolvedProperty.MaxLength,
-				Pattern:   resolvedProperty.Pattern,
-				Items:     m.itemTypeToProperty(propertySpec.Items),
+			if m.isEnum(&propertySpec.TypeSpec) {
+				apiProperty = provider.AzureAPIProperty{
+					Type: "string",
+					Enum: m.getEnumValues(resolvedProperty.Schema),
+				}
+			} else {
+				apiProperty = provider.AzureAPIProperty{
+					Type:      propertySpec.Type,
+					OneOf:     m.getOneOfValues(propertySpec),
+					Ref:       propertySpec.Ref,
+					Minimum:   resolvedProperty.Minimum,
+					Maximum:   resolvedProperty.Maximum,
+					MinLength: resolvedProperty.MinLength,
+					MaxLength: resolvedProperty.MaxLength,
+					Pattern:   resolvedProperty.Pattern,
+					Items:     m.itemTypeToProperty(propertySpec.Items),
+				}
 			}
 
 			// Mutability extension signals whether a property can be updated in-place. Lack of the extension means
@@ -915,6 +921,9 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 				discriminatorValue = v
 			}
 			propSpec.Const = discriminatorValue
+			propSpec.Type = "string"
+			propSpec.Ref = ""
+			propSpec.OneOf = nil
 			allOfProperties.specs[sdkDiscriminator] = propSpec
 			prop.Const = discriminatorValue
 			allOfProperties.properties[discriminator] = prop
@@ -990,6 +999,10 @@ func (m *moduleGenerator) itemTypeToProperty(typ *schema.TypeSpec) *provider.Azu
 		return nil
 	}
 
+	if m.isEnum(typ) {
+		return &provider.AzureAPIProperty{Type: "string"}
+	}
+
 	var oneOf []string
 	for _, subType := range typ.OneOf {
 		if subType.Ref != "" {
@@ -1007,15 +1020,39 @@ func (m *moduleGenerator) itemTypeToProperty(typ *schema.TypeSpec) *provider.Azu
 	}
 }
 
-func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context *openapi.ReferenceContext, isOutput bool) (*pschema.PropertySpec, error) {
+func (m *moduleGenerator) isEnum(typ *schema.TypeSpec) bool {
+	for _, subType := range typ.OneOf {
+		if m.isEnum(&subType) {
+			return true
+		}
+	}
+
+	if typ.Ref == "" {
+		return false
+	}
+
+	typeName := strings.TrimPrefix(typ.Ref, "#/types/")
+	refTyp := m.pkg.Types[typeName]
+	return len(refTyp.Enum) > 0
+}
+
+func getPropertyDescription(schema *spec.Schema, context *openapi.ReferenceContext) (string, error) {
 	description := schema.Description
 	if description == "" {
 		resolvedSchema, err := context.ResolveSchema(schema)
 		if err != nil {
-			return nil, err
+			return "", err
 		}
 
 		description = resolvedSchema.Description
+	}
+	return description, nil
+}
+
+func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context *openapi.ReferenceContext, isOutput bool) (*pschema.PropertySpec, error) {
+	description, err := getPropertyDescription(schema, context)
+	if err != nil {
+		return nil, err
 	}
 
 	typeSpec, err := m.genTypeSpec(name, schema, context, isOutput)
@@ -1048,6 +1085,16 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 	if len(resolvedSchema.Type) > 0 {
 		primitiveTypeName = resolvedSchema.Type[0]
 	}
+
+	// If this is an enum and it's an input type, generate the enum type definition.
+	enumExtension, isEnum := resolvedSchema.Extensions[extensionEnum].(map[string]interface{})
+	if !isOutput && isEnum && resolvedSchema.Enum != nil &&
+		// There are some boolean- and number- based definitions but they aren't allowed by the Azure specs.
+		// Ignore both to preserve over-the-wire format even if they say it's an enum to be modelled as a string.
+		primitiveTypeName != "boolean" && primitiveTypeName != "number" {
+		return m.genEnumType(schema, context, enumExtension)
+	}
+
 	switch {
 	case len(resolvedSchema.Properties) > 0 || len(resolvedSchema.AllOf) > 0:
 		ptr := schema.Ref.GetPointer()
@@ -1158,6 +1205,75 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 		// Primitive type ('string', 'integer', etc.)
 		return &pschema.TypeSpec{Type: primitiveTypeName}, nil
 	}
+}
+
+// genEnumType generates the enum type.
+func (m *moduleGenerator) genEnumType(schema *spec.Schema, context *openapi.ReferenceContext, enumExtension map[string]interface{}) (*pschema.TypeSpec, error) {
+	resolvedSchema, err := context.ResolveSchema(schema)
+	if err != nil {
+		return nil, err
+	}
+
+	description, err := getPropertyDescription(schema, context)
+	if err != nil {
+		return nil, err
+	}
+
+	var enumName string
+	if name, ok := enumExtension["name"].(string); ok {
+		enumName = ToUpperCamel(name)
+	} else {
+		return nil, fmt.Errorf("name key missing from enum metadata")
+	}
+
+	tok := fmt.Sprintf("%s:%s:%s", m.pkg.Name, m.module, enumName)
+
+	enumSpec := &pschema.ComplexTypeSpec{
+		Enum: []*pschema.EnumValueSpec{},
+		ObjectTypeSpec: pschema.ObjectTypeSpec{
+			Description: description,
+			Type:        "string", // This provider only has string enums
+		},
+	}
+	if values, ok := enumExtension["values"].([]interface{}); ok {
+		for _, val := range values {
+			if val, ok := val.(map[string]interface{}); ok {
+				enumVal := &pschema.EnumValueSpec{
+					Value: fmt.Sprintf("%v", val["value"]),
+				}
+				if name, ok := val["name"].(string); ok {
+					enumVal.Name = name
+				}
+				if description, ok := val["description"].(string); ok {
+					enumVal.Description = description
+				}
+				enumSpec.Enum = append(enumSpec.Enum, enumVal)
+			}
+		}
+	} else {
+		for _, val := range resolvedSchema.Enum {
+			enumVal := &pschema.EnumValueSpec{Value: fmt.Sprintf("%v", val)}
+			enumSpec.Enum = append(enumSpec.Enum, enumVal)
+		}
+	}
+
+	m.pkg.Types[tok] = *enumSpec
+
+	referencedTypeName := fmt.Sprintf("#/types/%s", tok)
+
+	modelAsString, ok := enumExtension["modelAsString"].(bool)
+	if !ok || modelAsString {
+		return &pschema.TypeSpec{
+			OneOf: []pschema.TypeSpec{
+				{Type: "string"},
+				{Ref: referencedTypeName},
+			},
+		}, nil
+	}
+
+	return &pschema.TypeSpec{
+		Ref: referencedTypeName,
+	}, nil
 }
 
 // genDiscriminatedType generates polymorphic types (base type and subtypes) if the schema specifies a discriminator property.

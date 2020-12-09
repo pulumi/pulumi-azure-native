@@ -31,13 +31,13 @@ namespace Pulumi.AzureNextGen.Cdn.Latest.Inputs
         /// Protocol to use for health probe.
         /// </summary>
         [Input("probeProtocol")]
-        public Input<string>? ProbeProtocol { get; set; }
+        public Input<Pulumi.AzureNextGen.Cdn.Latest.ProbeProtocol>? ProbeProtocol { get; set; }
 
         /// <summary>
         /// The type of health probe request that is made.
         /// </summary>
         [Input("probeRequestType")]
-        public Input<string>? ProbeRequestType { get; set; }
+        public Input<Pulumi.AzureNextGen.Cdn.Latest.HealthProbeRequestType>? ProbeRequestType { get; set; }
 
         public HealthProbeParametersArgs()
         {

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['LinkedService']
 
@@ -16,7 +17,7 @@ class LinkedService(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  linked_service_name: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'LinkedServiceEntityStatus']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -31,7 +32,7 @@ class LinkedService(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] linked_service_name: Name of the linkedServices resource
-        :param pulumi.Input[str] provisioning_state: The provisioning state of the linked service.
+        :param pulumi.Input[Union[str, 'LinkedServiceEntityStatus']] provisioning_state: The provisioning state of the linked service.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_id: The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -55,16 +56,16 @@ class LinkedService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if linked_service_name is None:
+            if linked_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'linked_service_name'")
             __props__['linked_service_name'] = linked_service_name
             __props__['provisioning_state'] = provisioning_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_id'] = resource_id
             __props__['tags'] = tags
-            if workspace_name is None:
+            if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['write_access_resource_id'] = write_access_resource_id

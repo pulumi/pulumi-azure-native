@@ -164,7 +164,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
         /// Type of connector.
         /// </summary>
         [Input("connectorType", required: true)]
-        public Input<string> ConnectorType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.CustomerInsights.V20170101.ConnectorTypes> ConnectorType { get; set; } = null!;
 
         /// <summary>
         /// Description of the connector.

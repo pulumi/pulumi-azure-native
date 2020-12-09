@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .big_data_pool import *
 from .get_big_data_pool import *
 from .get_integration_runtime import *
@@ -43,3 +44,58 @@ from .workspace_managed_sql_server_vulnerability_assessment import *
 from .workspace_sql_aad_admin import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:synapse/v20190601preview:BigDataPool":
+                return BigDataPool(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:synapse/v20190601preview:IntegrationRuntime":
+                return IntegrationRuntime(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:synapse/v20190601preview:IpFirewallRule":
+                return IpFirewallRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:synapse/v20190601preview:Key":
+                return Key(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:synapse/v20190601preview:PrivateEndpointConnection":
+                return PrivateEndpointConnection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:synapse/v20190601preview:PrivateLinkHub":
+                return PrivateLinkHub(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:synapse/v20190601preview:SqlPool":
+                return SqlPool(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:synapse/v20190601preview:SqlPoolSensitivityLabel":
+                return SqlPoolSensitivityLabel(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:synapse/v20190601preview:SqlPoolTransparentDataEncryption":
+                return SqlPoolTransparentDataEncryption(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:synapse/v20190601preview:SqlPoolVulnerabilityAssessment":
+                return SqlPoolVulnerabilityAssessment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:synapse/v20190601preview:SqlPoolVulnerabilityAssessmentRuleBaseline":
+                return SqlPoolVulnerabilityAssessmentRuleBaseline(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadClassifier":
+                return SqlPoolWorkloadClassifier(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:synapse/v20190601preview:SqlPoolWorkloadGroup":
+                return SqlPoolWorkloadGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:synapse/v20190601preview:Workspace":
+                return Workspace(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:synapse/v20190601preview:WorkspaceAadAdmin":
+                return WorkspaceAadAdmin(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:synapse/v20190601preview:WorkspaceManagedSqlServerVulnerabilityAssessment":
+                return WorkspaceManagedSqlServerVulnerabilityAssessment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:synapse/v20190601preview:WorkspaceSqlAadAdmin":
+                return WorkspaceSqlAadAdmin(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "synapse/v20190601preview", _module_instance)
+
+_register_module()

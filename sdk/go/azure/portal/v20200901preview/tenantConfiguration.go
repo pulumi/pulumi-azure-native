@@ -26,11 +26,12 @@ type TenantConfiguration struct {
 // NewTenantConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewTenantConfiguration(ctx *pulumi.Context,
 	name string, args *TenantConfigurationArgs, opts ...pulumi.ResourceOption) (*TenantConfiguration, error) {
-	if args == nil || args.ConfigurationName == nil {
-		return nil, errors.New("missing required argument 'ConfigurationName'")
-	}
 	if args == nil {
-		args = &TenantConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ConfigurationName == nil {
+		return nil, errors.New("invalid value for required argument 'ConfigurationName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

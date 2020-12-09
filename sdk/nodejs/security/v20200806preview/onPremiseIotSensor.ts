@@ -53,7 +53,7 @@ export class OnPremiseIotSensor extends pulumi.CustomResource {
     constructor(name: string, args: OnPremiseIotSensorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.onPremiseIotSensorName === undefined) {
+            if ((!args || args.onPremiseIotSensorName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'onPremiseIotSensorName'");
             }
             inputs["onPremiseIotSensorName"] = args ? args.onPremiseIotSensorName : undefined;

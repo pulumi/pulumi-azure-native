@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515.Inputs
         /// If notifications are enabled for this schedule (i.e. Enabled, Disabled).
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20160515.NotificationStatus>? Status { get; set; }
 
         /// <summary>
         /// Time in minutes before event at which notification will be sent.

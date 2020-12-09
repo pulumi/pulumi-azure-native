@@ -1737,7 +1737,7 @@ type VirtualDiskArgs struct {
 	// Disk's Controller id
 	ControllerId pulumi.StringInput `pulumi:"controllerId"`
 	// Disk's independence mode type
-	IndependenceMode pulumi.StringInput `pulumi:"independenceMode"`
+	IndependenceMode DiskIndependenceMode `pulumi:"independenceMode"`
 	// Disk's total size
 	TotalSize pulumi.IntInput `pulumi:"totalSize"`
 	// Disk's id
@@ -2294,7 +2294,7 @@ type VirtualNicArgs struct {
 	// Virtual Network
 	Network VirtualNetworkInput `pulumi:"network"`
 	// NIC type
-	NicType pulumi.StringInput `pulumi:"nicType"`
+	NicType NICType `pulumi:"nicType"`
 	// Is NIC powered on/off on boot
 	PowerOnBoot pulumi.BoolPtrInput `pulumi:"powerOnBoot"`
 	// NIC id

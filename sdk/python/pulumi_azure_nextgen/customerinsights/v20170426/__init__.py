@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .connector import *
 from .connector_mapping import *
 from .get_connector import *
@@ -31,3 +32,46 @@ from .role_assignment import *
 from .view import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:customerinsights/v20170426:Connector":
+                return Connector(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:customerinsights/v20170426:ConnectorMapping":
+                return ConnectorMapping(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:customerinsights/v20170426:Hub":
+                return Hub(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:customerinsights/v20170426:Kpi":
+                return Kpi(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:customerinsights/v20170426:Link":
+                return Link(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:customerinsights/v20170426:Prediction":
+                return Prediction(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:customerinsights/v20170426:Profile":
+                return Profile(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:customerinsights/v20170426:Relationship":
+                return Relationship(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:customerinsights/v20170426:RelationshipLink":
+                return RelationshipLink(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:customerinsights/v20170426:RoleAssignment":
+                return RoleAssignment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:customerinsights/v20170426:View":
+                return View(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "customerinsights/v20170426", _module_instance)
+
+_register_module()

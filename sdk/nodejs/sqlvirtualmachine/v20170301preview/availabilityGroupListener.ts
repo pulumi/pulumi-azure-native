@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -74,13 +74,13 @@ export class AvailabilityGroupListener extends pulumi.CustomResource {
     constructor(name: string, args: AvailabilityGroupListenerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.availabilityGroupListenerName === undefined) {
+            if ((!args || args.availabilityGroupListenerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'availabilityGroupListenerName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sqlVirtualMachineGroupName === undefined) {
+            if ((!args || args.sqlVirtualMachineGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sqlVirtualMachineGroupName'");
             }
             inputs["availabilityGroupListenerName"] = args ? args.availabilityGroupListenerName : undefined;

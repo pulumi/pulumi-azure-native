@@ -3,7 +3,8 @@ import * as random from "@pulumi/random";
 
 import * as insights from "@pulumi/azure-nextgen/insights/latest";
 import * as resources from "@pulumi/azure-nextgen/resources/latest";
-import * as sql from "@pulumi/azure-nextgen/sql/latest";
+import * as sql from "@pulumi/azure-nextgen/sql/v20200801preview";
+import * as sqltde from "@pulumi/azure-nextgen/sql/latest";
 import * as storage from "@pulumi/azure-nextgen/storage/latest";
 import * as web from "@pulumi/azure-nextgen/web/v20200601";
 
@@ -23,9 +24,9 @@ const storageAccount = new storage.StorageAccount("sa", {
     accountName: randomString.result,
     location: "westus2",
     sku: {
-        name: "Standard_LRS",
+        name: storage.SkuName.Standard_LRS,
     },
-    kind: "StorageV2",
+    kind: storage.Kind.StorageV2,
 });
 
 const appServicePlan  = new web.AppServicePlan("asp", {
@@ -43,7 +44,7 @@ const storageContainer = new storage.BlobContainer("c", {
     resourceGroupName: resourceGroup.name,
     accountName: storageAccount.name,
     containerName: "files",
-    publicAccess: "None",
+    publicAccess: storage.PublicAccess.None,
 });
 
 // TODO: blobs are not supported
@@ -63,7 +64,7 @@ const appInsights = new insights.Component("ai", {
     location: "westus2",
     resourceName: randomString.result,
     kind: "web",
-    applicationType: "web",
+    applicationType: insights.ApplicationType.Web,
 });
 
 const username = "pulumi";
@@ -83,15 +84,17 @@ const database = new sql.Database("db", {
     location: "westus2",
     serverName: sqlServer.name,
     databaseName: "db",
-    requestedServiceObjectiveName: "S0",
+    sku: {
+        name: "S0",
+    },
 });
 
-new sql.TransparentDataEncryption("tde", {
+new sqltde.TransparentDataEncryption("tde", {
     resourceGroupName: resourceGroup.name,
     transparentDataEncryptionName: "current",
     serverName: sqlServer.name,
     databaseName: database.name,
-    status: "Enabled",
+    status: sqltde.TransparentDataEncryptionStatus.Enabled,
 });
 
 const app = new web.WebApp("as", {

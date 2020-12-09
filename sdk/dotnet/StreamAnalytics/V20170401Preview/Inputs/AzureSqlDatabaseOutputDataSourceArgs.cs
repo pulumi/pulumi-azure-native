@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.Inputs
         /// Authentication Mode.
         /// </summary>
         [Input("authenticationMode")]
-        public Input<string>? AuthenticationMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.AuthenticationMode>? AuthenticationMode { get; set; }
 
         /// <summary>
         /// The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.

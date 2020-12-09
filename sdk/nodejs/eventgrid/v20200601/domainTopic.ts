@@ -57,13 +57,13 @@ export class DomainTopic extends pulumi.CustomResource {
     constructor(name: string, args: DomainTopicArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.domainName === undefined) {
+            if ((!args || args.domainName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if (!args || args.domainTopicName === undefined) {
+            if ((!args || args.domainTopicName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'domainTopicName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["domainName"] = args ? args.domainName : undefined;

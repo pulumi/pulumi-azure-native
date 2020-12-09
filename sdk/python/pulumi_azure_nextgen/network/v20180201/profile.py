@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Profile']
@@ -22,11 +23,11 @@ class Profile(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  monitor_config: Optional[pulumi.Input[pulumi.InputType['MonitorConfigArgs']]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
-                 profile_status: Optional[pulumi.Input[str]] = None,
+                 profile_status: Optional[pulumi.Input[Union[str, 'ProfileStatus']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 traffic_routing_method: Optional[pulumi.Input[str]] = None,
-                 traffic_view_enrollment_status: Optional[pulumi.Input[str]] = None,
+                 traffic_routing_method: Optional[pulumi.Input[Union[str, 'TrafficRoutingMethod']]] = None,
+                 traffic_view_enrollment_status: Optional[pulumi.Input[Union[str, 'TrafficViewEnrollmentStatus']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -40,11 +41,11 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the resource lives
         :param pulumi.Input[pulumi.InputType['MonitorConfigArgs']] monitor_config: The endpoint monitoring settings of the Traffic Manager profile.
         :param pulumi.Input[str] profile_name: The name of the Traffic Manager profile.
-        :param pulumi.Input[str] profile_status: The status of the Traffic Manager profile.
+        :param pulumi.Input[Union[str, 'ProfileStatus']] profile_status: The status of the Traffic Manager profile.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Traffic Manager profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] traffic_routing_method: The traffic routing method of the Traffic Manager profile.
-        :param pulumi.Input[str] traffic_view_enrollment_status: Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
+        :param pulumi.Input[Union[str, 'TrafficRoutingMethod']] traffic_routing_method: The traffic routing method of the Traffic Manager profile.
+        :param pulumi.Input[Union[str, 'TrafficViewEnrollmentStatus']] traffic_view_enrollment_status: Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -67,11 +68,11 @@ class Profile(pulumi.CustomResource):
             __props__['endpoints'] = endpoints
             __props__['location'] = location
             __props__['monitor_config'] = monitor_config
-            if profile_name is None:
+            if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")
             __props__['profile_name'] = profile_name
             __props__['profile_status'] = profile_status
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

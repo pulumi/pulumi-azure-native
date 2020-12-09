@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         /// A value indicating whether the auto update is enabled.
         /// </summary>
         [Input("agentAutoUpdateStatus")]
-        public Input<string>? AgentAutoUpdateStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.Latest.AgentAutoUpdateStatus>? AgentAutoUpdateStatus { get; set; }
 
         /// <summary>
         /// The automation account arm id.

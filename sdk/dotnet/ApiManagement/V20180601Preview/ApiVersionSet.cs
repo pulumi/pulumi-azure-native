@@ -157,7 +157,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
         /// An value that determines where the API Version identifer will be located in a HTTP request.
         /// </summary>
         [Input("versioningScheme", required: true)]
-        public Input<string> VersioningScheme { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20180601Preview.VersioningScheme> VersioningScheme { get; set; } = null!;
 
         public ApiVersionSetArgs()
         {

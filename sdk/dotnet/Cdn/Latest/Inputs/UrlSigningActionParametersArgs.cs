@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest.Inputs
         /// Algorithm to use for URL signing
         /// </summary>
         [Input("algorithm")]
-        public Input<string>? Algorithm { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Cdn.Latest.Algorithm>? Algorithm { get; set; }
 
         [Input("odataType", required: true)]
         public Input<string> OdataType { get; set; } = null!;

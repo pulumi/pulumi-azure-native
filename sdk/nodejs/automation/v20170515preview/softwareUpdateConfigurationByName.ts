@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -90,19 +90,19 @@ export class SoftwareUpdateConfigurationByName extends pulumi.CustomResource {
     constructor(name: string, args: SoftwareUpdateConfigurationByNameArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.automationAccountName === undefined) {
+            if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.scheduleInfo === undefined) {
+            if ((!args || args.scheduleInfo === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scheduleInfo'");
             }
-            if (!args || args.softwareUpdateConfigurationName === undefined) {
+            if ((!args || args.softwareUpdateConfigurationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'softwareUpdateConfigurationName'");
             }
-            if (!args || args.updateConfiguration === undefined) {
+            if ((!args || args.updateConfiguration === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'updateConfiguration'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -95,13 +95,13 @@ export class Domain extends pulumi.CustomResource {
     constructor(name: string, args: DomainArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.domainName === undefined) {
+            if ((!args || args.domainName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["domainName"] = args ? args.domainName : undefined;
@@ -160,7 +160,7 @@ export interface DomainArgs {
     /**
      * This determines the format that Event Grid should expect for incoming events published to the domain.
      */
-    readonly inputSchema?: pulumi.Input<string>;
+    readonly inputSchema?: pulumi.Input<string | enums.eventgrid.latest.InputSchema>;
     /**
      * Information about the InputSchemaMapping which specified the info about mapping event payload.
      */
@@ -177,7 +177,7 @@ export interface DomainArgs {
      * This determines if traffic is allowed over public network. By default it is enabled. 
      * You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
      */
-    readonly publicNetworkAccess?: pulumi.Input<string>;
+    readonly publicNetworkAccess?: pulumi.Input<string | enums.eventgrid.latest.PublicNetworkAccess>;
     /**
      * The name of the resource group within the user's subscription.
      */

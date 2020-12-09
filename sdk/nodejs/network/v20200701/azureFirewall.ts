@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -122,10 +122,10 @@ export class AzureFirewall extends pulumi.CustomResource {
     constructor(name: string, args: AzureFirewallArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.azureFirewallName === undefined) {
+            if ((!args || args.azureFirewallName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'azureFirewallName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["additionalProperties"] = args ? args.additionalProperties : undefined;
@@ -247,7 +247,7 @@ export interface AzureFirewallArgs {
     /**
      * The operation mode for Threat Intelligence.
      */
-    readonly threatIntelMode?: pulumi.Input<string>;
+    readonly threatIntelMode?: pulumi.Input<string | enums.network.v20200701.AzureFirewallThreatIntelMode>;
     /**
      * The virtualHub to which the firewall belongs.
      */

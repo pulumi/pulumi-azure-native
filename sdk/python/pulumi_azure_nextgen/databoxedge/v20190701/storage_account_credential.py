@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['StorageAccountCredential']
@@ -18,14 +19,14 @@ class StorageAccountCredential(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_key: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
-                 account_type: Optional[pulumi.Input[str]] = None,
+                 account_type: Optional[pulumi.Input[Union[str, 'AccountType']]] = None,
                  alias: Optional[pulumi.Input[str]] = None,
                  blob_domain_name: Optional[pulumi.Input[str]] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 ssl_status: Optional[pulumi.Input[str]] = None,
+                 ssl_status: Optional[pulumi.Input[Union[str, 'SSLStatus']]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -37,14 +38,14 @@ class StorageAccountCredential(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']] account_key: Encrypted storage key.
-        :param pulumi.Input[str] account_type: Type of storage accessed on the storage account.
+        :param pulumi.Input[Union[str, 'AccountType']] account_type: Type of storage accessed on the storage account.
         :param pulumi.Input[str] alias: Alias for the storage account.
         :param pulumi.Input[str] blob_domain_name: Blob end point for private clouds.
         :param pulumi.Input[str] connection_string: Connection string for the storage account. Use this string if username and account key are not specified.
         :param pulumi.Input[str] device_name: The device name.
         :param pulumi.Input[str] name: The storage account credential name.
         :param pulumi.Input[str] resource_group_name: The resource group name.
-        :param pulumi.Input[str] ssl_status: Signifies whether SSL needs to be enabled or not.
+        :param pulumi.Input[Union[str, 'SSLStatus']] ssl_status: Signifies whether SSL needs to be enabled or not.
         :param pulumi.Input[str] storage_account_id: Id of the storage account.
         :param pulumi.Input[str] user_name: Username for the storage account.
         """
@@ -66,24 +67,24 @@ class StorageAccountCredential(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['account_key'] = account_key
-            if account_type is None:
+            if account_type is None and not opts.urn:
                 raise TypeError("Missing required property 'account_type'")
             __props__['account_type'] = account_type
-            if alias is None:
+            if alias is None and not opts.urn:
                 raise TypeError("Missing required property 'alias'")
             __props__['alias'] = alias
             __props__['blob_domain_name'] = blob_domain_name
             __props__['connection_string'] = connection_string
-            if device_name is None:
+            if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if ssl_status is None:
+            if ssl_status is None and not opts.urn:
                 raise TypeError("Missing required property 'ssl_status'")
             __props__['ssl_status'] = ssl_status
             __props__['storage_account_id'] = storage_account_id

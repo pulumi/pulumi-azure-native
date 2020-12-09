@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -94,16 +94,16 @@ export class SyncGroup extends pulumi.CustomResource {
     constructor(name: string, args: SyncGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.databaseName === undefined) {
+            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverName === undefined) {
+            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if (!args || args.syncGroupName === undefined) {
+            if ((!args || args.syncGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'syncGroupName'");
             }
             inputs["conflictResolutionPolicy"] = args ? args.conflictResolutionPolicy : undefined;
@@ -156,7 +156,7 @@ export interface SyncGroupArgs {
     /**
      * Conflict resolution policy of the sync group.
      */
-    readonly conflictResolutionPolicy?: pulumi.Input<string>;
+    readonly conflictResolutionPolicy?: pulumi.Input<string | enums.sql.v20190601preview.SyncConflictResolutionPolicy>;
     /**
      * The name of the database on which the sync group is hosted.
      */

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -78,19 +78,19 @@ export class MachineGroup extends pulumi.CustomResource {
     constructor(name: string, args: MachineGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.displayName === undefined) {
+            if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if (!args || args.kind === undefined) {
+            if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kind'");
             }
-            if (!args || args.machineGroupName === undefined) {
+            if ((!args || args.machineGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'machineGroupName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.workspaceName === undefined) {
+            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["count"] = args ? args.count : undefined;
@@ -144,7 +144,7 @@ export interface MachineGroupArgs {
     /**
      * Type of the machine group
      */
-    readonly groupType?: pulumi.Input<string>;
+    readonly groupType?: pulumi.Input<string | enums.operationalinsights.v20151101preview.MachineGroupType>;
     /**
      * Additional resource type qualifier.
      */

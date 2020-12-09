@@ -55,21 +55,21 @@ class NamedValue(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if display_name is None:
+            if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
-            if named_value_id is None:
+            if named_value_id is None and not opts.urn:
                 raise TypeError("Missing required property 'named_value_id'")
             __props__['named_value_id'] = named_value_id
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['secret'] = secret
-            if service_name is None:
+            if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['tags'] = tags
-            if value is None:
+            if value is None and not opts.urn:
                 raise TypeError("Missing required property 'value'")
             __props__['value'] = value
             __props__['name'] = None

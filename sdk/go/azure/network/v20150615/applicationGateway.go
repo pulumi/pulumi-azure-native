@@ -58,14 +58,15 @@ type ApplicationGateway struct {
 // NewApplicationGateway registers a new resource with the given unique name, arguments, and options.
 func NewApplicationGateway(ctx *pulumi.Context,
 	name string, args *ApplicationGatewayArgs, opts ...pulumi.ResourceOption) (*ApplicationGateway, error) {
-	if args == nil || args.ApplicationGatewayName == nil {
-		return nil, errors.New("missing required argument 'ApplicationGatewayName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ApplicationGatewayArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApplicationGatewayName == nil {
+		return nil, errors.New("invalid value for required argument 'ApplicationGatewayName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

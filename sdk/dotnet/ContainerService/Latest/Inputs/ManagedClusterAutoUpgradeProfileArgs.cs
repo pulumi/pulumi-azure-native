@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
         /// upgrade channel for auto upgrade.
         /// </summary>
         [Input("upgradeChannel")]
-        public Input<string>? UpgradeChannel { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.Latest.UpgradeChannel>? UpgradeChannel { get; set; }
 
         public ManagedClusterAutoUpgradeProfileArgs()
         {

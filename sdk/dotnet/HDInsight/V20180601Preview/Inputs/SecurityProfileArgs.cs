@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Inputs
         /// The directory type.
         /// </summary>
         [Input("directoryType")]
-        public Input<string>? DirectoryType { get; set; }
+        public Input<Pulumi.AzureNextGen.HDInsight.V20180601Preview.DirectoryType>? DirectoryType { get; set; }
 
         /// <summary>
         /// The organization's active directory domain.

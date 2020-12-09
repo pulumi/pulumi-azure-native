@@ -28,20 +28,21 @@ type SqlPoolTransparentDataEncryption struct {
 // NewSqlPoolTransparentDataEncryption registers a new resource with the given unique name, arguments, and options.
 func NewSqlPoolTransparentDataEncryption(ctx *pulumi.Context,
 	name string, args *SqlPoolTransparentDataEncryptionArgs, opts ...pulumi.ResourceOption) (*SqlPoolTransparentDataEncryption, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SqlPoolName == nil {
-		return nil, errors.New("missing required argument 'SqlPoolName'")
-	}
-	if args == nil || args.TransparentDataEncryptionName == nil {
-		return nil, errors.New("missing required argument 'TransparentDataEncryptionName'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &SqlPoolTransparentDataEncryptionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SqlPoolName == nil {
+		return nil, errors.New("invalid value for required argument 'SqlPoolName'")
+	}
+	if args.TransparentDataEncryptionName == nil {
+		return nil, errors.New("invalid value for required argument 'TransparentDataEncryptionName'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	var resource SqlPoolTransparentDataEncryption
 	err := ctx.RegisterResource("azure-nextgen:synapse/v20190601preview:SqlPoolTransparentDataEncryption", name, args, &resource, opts...)

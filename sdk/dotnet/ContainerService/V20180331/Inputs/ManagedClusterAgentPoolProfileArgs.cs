@@ -43,13 +43,13 @@ namespace Pulumi.AzureNextGen.ContainerService.V20180331.Inputs
         /// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         /// </summary>
         [Input("osType")]
-        public Input<string>? OsType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20180331.OSType>? OsType { get; set; }
 
         /// <summary>
         /// Size of agent VMs.
         /// </summary>
         [Input("vmSize", required: true)]
-        public Input<string> VmSize { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20180331.ContainerServiceVMSizeTypes> VmSize { get; set; } = null!;
 
         /// <summary>
         /// VNet SubnetID specifies the VNet's subnet identifier.

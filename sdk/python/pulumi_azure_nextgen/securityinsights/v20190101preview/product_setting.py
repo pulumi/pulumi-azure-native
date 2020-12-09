@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['ProductSetting']
 
@@ -16,7 +17,7 @@ class ProductSetting(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  etag: Optional[pulumi.Input[str]] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'SettingKind']]] = None,
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  settings_name: Optional[pulumi.Input[str]] = None,
@@ -30,7 +31,7 @@ class ProductSetting(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: Etag of the azure resource
-        :param pulumi.Input[str] kind: The kind of the setting
+        :param pulumi.Input[Union[str, 'SettingKind']] kind: The kind of the setting
         :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] settings_name: The setting name. Supports - EyesOn, EntityAnalytics, Ueba
@@ -54,19 +55,19 @@ class ProductSetting(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['etag'] = etag
-            if kind is None:
+            if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = kind
-            if operational_insights_resource_provider is None:
+            if operational_insights_resource_provider is None and not opts.urn:
                 raise TypeError("Missing required property 'operational_insights_resource_provider'")
             __props__['operational_insights_resource_provider'] = operational_insights_resource_provider
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if settings_name is None:
+            if settings_name is None and not opts.urn:
                 raise TypeError("Missing required property 'settings_name'")
             __props__['settings_name'] = settings_name
-            if workspace_name is None:
+            if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['name'] = None

@@ -34,13 +34,13 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         public Input<object>? ColumnDelimiter { get; set; }
 
         [Input("compressionCodec")]
-        public Input<string>? CompressionCodec { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.Latest.CompressionCodec>? CompressionCodec { get; set; }
 
         /// <summary>
         /// The data compression method used for DelimitedText.
         /// </summary>
         [Input("compressionLevel")]
-        public Input<string>? CompressionLevel { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.Latest.DatasetCompressionLevel>? CompressionLevel { get; set; }
 
         /// <summary>
         /// Dataset description.

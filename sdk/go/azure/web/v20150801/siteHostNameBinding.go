@@ -42,20 +42,21 @@ type SiteHostNameBinding struct {
 // NewSiteHostNameBinding registers a new resource with the given unique name, arguments, and options.
 func NewSiteHostNameBinding(ctx *pulumi.Context,
 	name string, args *SiteHostNameBindingArgs, opts ...pulumi.ResourceOption) (*SiteHostNameBinding, error) {
-	if args == nil || args.HostName == nil {
-		return nil, errors.New("missing required argument 'HostName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &SiteHostNameBindingArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.HostName == nil {
+		return nil, errors.New("invalid value for required argument 'HostName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -192,15 +193,15 @@ type SiteHostNameBindingArgs struct {
 	// Azure resource name
 	AzureResourceName pulumi.StringPtrInput
 	// Azure resource type
-	AzureResourceType pulumi.StringPtrInput
+	AzureResourceType AzureResourceType
 	// Custom DNS record type
-	CustomHostNameDnsRecordType pulumi.StringPtrInput
+	CustomHostNameDnsRecordType CustomHostNameDnsRecordType
 	// Fully qualified ARM domain resource URI
 	DomainId pulumi.StringPtrInput
 	// Name of host
 	HostName pulumi.StringInput
 	// Host name type
-	HostNameType pulumi.StringPtrInput
+	HostNameType HostNameType
 	// Resource Id
 	Id pulumi.StringPtrInput
 	// Kind of resource

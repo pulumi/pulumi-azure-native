@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['PolicySetDefinitionAtManagementGroup']
@@ -25,7 +26,7 @@ class PolicySetDefinitionAtManagementGroup(pulumi.CustomResource):
                  policy_definition_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyDefinitionGroupArgs']]]]] = None,
                  policy_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyDefinitionReferenceArgs']]]]] = None,
                  policy_set_definition_name: Optional[pulumi.Input[str]] = None,
-                 policy_type: Optional[pulumi.Input[str]] = None,
+                 policy_type: Optional[pulumi.Input[Union[str, 'PolicyType']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -42,7 +43,7 @@ class PolicySetDefinitionAtManagementGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyDefinitionGroupArgs']]]] policy_definition_groups: The metadata describing groups of policy definition references within the policy set definition.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyDefinitionReferenceArgs']]]] policy_definitions: An array of policy definition references.
         :param pulumi.Input[str] policy_set_definition_name: The name of the policy set definition to create.
-        :param pulumi.Input[str] policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+        :param pulumi.Input[Union[str, 'PolicyType']] policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -63,16 +64,16 @@ class PolicySetDefinitionAtManagementGroup(pulumi.CustomResource):
 
             __props__['description'] = description
             __props__['display_name'] = display_name
-            if management_group_id is None:
+            if management_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'management_group_id'")
             __props__['management_group_id'] = management_group_id
             __props__['metadata'] = metadata
             __props__['parameters'] = parameters
             __props__['policy_definition_groups'] = policy_definition_groups
-            if policy_definitions is None:
+            if policy_definitions is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_definitions'")
             __props__['policy_definitions'] = policy_definitions
-            if policy_set_definition_name is None:
+            if policy_set_definition_name is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_set_definition_name'")
             __props__['policy_set_definition_name'] = policy_set_definition_name
             __props__['policy_type'] = policy_type

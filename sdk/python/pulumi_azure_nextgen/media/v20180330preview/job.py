@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Job']
@@ -22,7 +23,7 @@ class Job(pulumi.CustomResource):
                  input: Optional[pulumi.Input[Union[pulumi.InputType['JobInputClipArgs'], pulumi.InputType['JobInputsArgs']]]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
                  outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobOutputAssetArgs']]]]] = None,
-                 priority: Optional[pulumi.Input[str]] = None,
+                 priority: Optional[pulumi.Input[Union[str, 'Priority']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  transform_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -38,7 +39,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[Union[pulumi.InputType['JobInputClipArgs'], pulumi.InputType['JobInputsArgs']]] input: The inputs for the Job.
         :param pulumi.Input[str] job_name: The Job name.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobOutputAssetArgs']]]] outputs: The outputs for the Job.
-        :param pulumi.Input[str] priority: Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
+        :param pulumi.Input[Union[str, 'Priority']] priority: Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         :param pulumi.Input[str] transform_name: The Transform name.
         """
@@ -59,24 +60,24 @@ class Job(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_name is None:
+            if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['description'] = description
-            if input is None:
+            if input is None and not opts.urn:
                 raise TypeError("Missing required property 'input'")
             __props__['input'] = input
-            if job_name is None:
+            if job_name is None and not opts.urn:
                 raise TypeError("Missing required property 'job_name'")
             __props__['job_name'] = job_name
-            if outputs is None:
+            if outputs is None and not opts.urn:
                 raise TypeError("Missing required property 'outputs'")
             __props__['outputs'] = outputs
             __props__['priority'] = priority
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if transform_name is None:
+            if transform_name is None and not opts.urn:
                 raise TypeError("Missing required property 'transform_name'")
             __props__['transform_name'] = transform_name
             __props__['created'] = None

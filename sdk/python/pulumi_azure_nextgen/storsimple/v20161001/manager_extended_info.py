@@ -59,20 +59,20 @@ class ManagerExtendedInfo(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if algorithm is None:
+            if algorithm is None and not opts.urn:
                 raise TypeError("Missing required property 'algorithm'")
             __props__['algorithm'] = algorithm
             __props__['encryption_key'] = encryption_key
             __props__['encryption_key_thumbprint'] = encryption_key_thumbprint
             __props__['etag'] = etag
-            if integrity_key is None:
+            if integrity_key is None and not opts.urn:
                 raise TypeError("Missing required property 'integrity_key'")
             __props__['integrity_key'] = integrity_key
-            if manager_name is None:
+            if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")
             __props__['manager_name'] = manager_name
             __props__['portal_certificate_thumbprint'] = portal_certificate_thumbprint
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['version'] = version

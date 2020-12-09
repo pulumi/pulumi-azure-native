@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest.Inputs
         /// The identity type. This is the only required field when adding a system assigned identity to a resource.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AzureNextGen.Authorization.Latest.ResourceIdentityType>? Type { get; set; }
 
         public IdentityArgs()
         {

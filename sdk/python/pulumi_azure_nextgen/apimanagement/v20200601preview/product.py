@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['Product']
 
@@ -21,7 +22,7 @@ class Product(pulumi.CustomResource):
                  product_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input['ProductState']] = None,
                  subscription_required: Optional[pulumi.Input[bool]] = None,
                  subscriptions_limit: Optional[pulumi.Input[int]] = None,
                  terms: Optional[pulumi.Input[str]] = None,
@@ -39,7 +40,7 @@ class Product(pulumi.CustomResource):
         :param pulumi.Input[str] product_id: Product identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
-        :param pulumi.Input[str] state: whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.
+        :param pulumi.Input['ProductState'] state: whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.
         :param pulumi.Input[bool] subscription_required: Whether a product subscription is required for accessing APIs included in this product. If true, the product is referred to as "protected" and a valid subscription key is required for a request to an API included in the product to succeed. If false, the product is referred to as "open" and requests to an API included in the product can be made without a subscription key. If property is omitted when creating a new product it's value is assumed to be true.
         :param pulumi.Input[int] subscriptions_limit: Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of false.
         :param pulumi.Input[str] terms: Product terms of use. Developers trying to subscribe to the product will be presented and required to accept these terms before they can complete the subscription process.
@@ -63,16 +64,16 @@ class Product(pulumi.CustomResource):
 
             __props__['approval_required'] = approval_required
             __props__['description'] = description
-            if display_name is None:
+            if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
-            if product_id is None:
+            if product_id is None and not opts.urn:
                 raise TypeError("Missing required property 'product_id'")
             __props__['product_id'] = product_id
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if service_name is None:
+            if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['state'] = state

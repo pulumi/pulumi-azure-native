@@ -70,20 +70,21 @@ type Queue struct {
 // NewQueue registers a new resource with the given unique name, arguments, and options.
 func NewQueue(ctx *pulumi.Context,
 	name string, args *QueueArgs, opts ...pulumi.ResourceOption) (*Queue, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.NamespaceName == nil {
-		return nil, errors.New("missing required argument 'NamespaceName'")
-	}
-	if args == nil || args.QueueName == nil {
-		return nil, errors.New("missing required argument 'QueueName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &QueueArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.NamespaceName == nil {
+		return nil, errors.New("invalid value for required argument 'NamespaceName'")
+	}
+	if args.QueueName == nil {
+		return nil, errors.New("invalid value for required argument 'QueueName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -290,7 +291,7 @@ type QueueArgs struct {
 	// A value that indicates whether the queue is to be partitioned across multiple message brokers.
 	EnablePartitioning pulumi.BoolPtrInput
 	// Entity availability status for the queue.
-	EntityAvailabilityStatus pulumi.StringPtrInput
+	EntityAvailabilityStatus EntityAvailabilityStatus
 	// A value that indicates whether the message is accessible anonymously.
 	IsAnonymousAccessible pulumi.BoolPtrInput
 	// location of the resource.
@@ -314,7 +315,7 @@ type QueueArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Enumerates the possible values for the status of a messaging entity.
-	Status pulumi.StringPtrInput
+	Status EntityStatus
 	// A value that indicates whether the queue supports ordering.
 	SupportOrdering pulumi.BoolPtrInput
 }

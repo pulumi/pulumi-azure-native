@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -74,22 +74,22 @@ export class IncidentComment extends pulumi.CustomResource {
     constructor(name: string, args: IncidentCommentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.incidentCommentId === undefined) {
+            if ((!args || args.incidentCommentId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'incidentCommentId'");
             }
-            if (!args || args.incidentId === undefined) {
+            if ((!args || args.incidentId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'incidentId'");
             }
-            if (!args || args.message === undefined) {
+            if ((!args || args.message === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'message'");
             }
-            if (!args || args.operationalInsightsResourceProvider === undefined) {
+            if ((!args || args.operationalInsightsResourceProvider === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'operationalInsightsResourceProvider'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.workspaceName === undefined) {
+            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["etag"] = args ? args.etag : undefined;

@@ -62,11 +62,11 @@ class WebAppSourceControl(pulumi.CustomResource):
             __props__['is_manual_integration'] = is_manual_integration
             __props__['is_mercurial'] = is_mercurial
             __props__['kind'] = kind
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['repo_url'] = repo_url
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['type'] = None

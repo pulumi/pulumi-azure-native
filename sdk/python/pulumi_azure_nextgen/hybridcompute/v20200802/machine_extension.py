@@ -67,19 +67,19 @@ class MachineExtension(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['auto_upgrade_minor_version'] = auto_upgrade_minor_version
-            if extension_name is None:
+            if extension_name is None and not opts.urn:
                 raise TypeError("Missing required property 'extension_name'")
             __props__['extension_name'] = extension_name
             __props__['force_update_tag'] = force_update_tag
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['protected_settings'] = protected_settings
             __props__['publisher'] = publisher
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['settings'] = settings

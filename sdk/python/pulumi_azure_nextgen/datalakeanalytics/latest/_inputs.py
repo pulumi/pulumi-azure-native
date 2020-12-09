@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AddDataLakeStoreWithAccountParametersArgs',
@@ -113,14 +114,14 @@ class CreateComputePolicyWithAccountParametersArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  object_id: pulumi.Input[str],
-                 object_type: pulumi.Input[str],
+                 object_type: pulumi.Input[Union[str, 'AADObjectType']],
                  max_degree_of_parallelism_per_job: Optional[pulumi.Input[int]] = None,
                  min_priority_per_job: Optional[pulumi.Input[int]] = None):
         """
         The parameters used to create a new compute policy while creating a new Data Lake Analytics account.
         :param pulumi.Input[str] name: The unique name of the compute policy to create.
         :param pulumi.Input[str] object_id: The AAD object identifier for the entity to create a policy for.
-        :param pulumi.Input[str] object_type: The type of AAD object the object identifier refers to.
+        :param pulumi.Input[Union[str, 'AADObjectType']] object_type: The type of AAD object the object identifier refers to.
         :param pulumi.Input[int] max_degree_of_parallelism_per_job: The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
         :param pulumi.Input[int] min_priority_per_job: The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
         """
@@ -158,14 +159,14 @@ class CreateComputePolicyWithAccountParametersArgs:
 
     @property
     @pulumi.getter(name="objectType")
-    def object_type(self) -> pulumi.Input[str]:
+    def object_type(self) -> pulumi.Input[Union[str, 'AADObjectType']]:
         """
         The type of AAD object the object identifier refers to.
         """
         return pulumi.get(self, "object_type")
 
     @object_type.setter
-    def object_type(self, value: pulumi.Input[str]):
+    def object_type(self, value: pulumi.Input[Union[str, 'AADObjectType']]):
         pulumi.set(self, "object_type", value)
 
     @property

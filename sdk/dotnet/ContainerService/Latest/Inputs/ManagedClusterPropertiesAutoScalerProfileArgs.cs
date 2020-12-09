@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest.Inputs
         public Input<string>? BalanceSimilarNodeGroups { get; set; }
 
         [Input("expander")]
-        public Input<string>? Expander { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.Latest.Expander>? Expander { get; set; }
 
         [Input("maxEmptyBulkDelete")]
         public Input<string>? MaxEmptyBulkDelete { get; set; }

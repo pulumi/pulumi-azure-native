@@ -31,13 +31,13 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview.Inputs
         /// Indicates whether this subnet can be used during virtual machine creation.
         /// </summary>
         [Input("useInVmCreationPermission")]
-        public Input<string>? UseInVmCreationPermission { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20150521Preview.UsagePermissionType>? UseInVmCreationPermission { get; set; }
 
         /// <summary>
         /// Indicates whether public IP addresses can be assigned to virtual machines on this subnet.
         /// </summary>
         [Input("usePublicIpAddressPermission")]
-        public Input<string>? UsePublicIpAddressPermission { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20150521Preview.UsagePermissionType>? UsePublicIpAddressPermission { get; set; }
 
         public SubnetOverrideArgs()
         {

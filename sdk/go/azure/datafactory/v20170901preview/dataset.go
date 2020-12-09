@@ -28,20 +28,21 @@ type Dataset struct {
 // NewDataset registers a new resource with the given unique name, arguments, and options.
 func NewDataset(ctx *pulumi.Context,
 	name string, args *DatasetArgs, opts ...pulumi.ResourceOption) (*Dataset, error) {
-	if args == nil || args.DatasetName == nil {
-		return nil, errors.New("missing required argument 'DatasetName'")
-	}
-	if args == nil || args.FactoryName == nil {
-		return nil, errors.New("missing required argument 'FactoryName'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &DatasetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DatasetName == nil {
+		return nil, errors.New("invalid value for required argument 'DatasetName'")
+	}
+	if args.FactoryName == nil {
+		return nil, errors.New("invalid value for required argument 'FactoryName'")
+	}
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

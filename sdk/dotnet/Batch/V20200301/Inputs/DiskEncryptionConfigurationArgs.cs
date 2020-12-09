@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.Batch.V20200301.Inputs
     public sealed class DiskEncryptionConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("targets")]
-        private InputList<string>? _targets;
+        private InputList<Pulumi.AzureNextGen.Batch.V20200301.DiskEncryptionTarget>? _targets;
 
         /// <summary>
         /// On Linux pool, only "TemporaryDisk" is supported; on Windows pool, "OsDisk" and "TemporaryDisk" must be specified.
         /// </summary>
-        public InputList<string> Targets
+        public InputList<Pulumi.AzureNextGen.Batch.V20200301.DiskEncryptionTarget> Targets
         {
-            get => _targets ?? (_targets = new InputList<string>());
+            get => _targets ?? (_targets = new InputList<Pulumi.AzureNextGen.Batch.V20200301.DiskEncryptionTarget>());
             set => _targets = value;
         }
 

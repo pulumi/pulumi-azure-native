@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ApplicationDeltaHealthPolicyArgs',
@@ -588,15 +589,15 @@ class LoadBalancingRuleArgs:
     def __init__(__self__, *,
                  backend_port: pulumi.Input[int],
                  frontend_port: pulumi.Input[int],
-                 probe_protocol: pulumi.Input[str],
-                 protocol: pulumi.Input[str],
+                 probe_protocol: pulumi.Input[Union[str, 'ProbeProtocol']],
+                 protocol: pulumi.Input[Union[str, 'Protocol']],
                  probe_request_path: Optional[pulumi.Input[str]] = None):
         """
         Describes a load balancing rule.
         :param pulumi.Input[int] backend_port: The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
         :param pulumi.Input[int] frontend_port: The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.
-        :param pulumi.Input[str] probe_protocol: the reference to the load balancer probe used by the load balancing rule.
-        :param pulumi.Input[str] protocol: The reference to the transport protocol used by the load balancing rule.
+        :param pulumi.Input[Union[str, 'ProbeProtocol']] probe_protocol: the reference to the load balancer probe used by the load balancing rule.
+        :param pulumi.Input[Union[str, 'Protocol']] protocol: The reference to the transport protocol used by the load balancing rule.
         :param pulumi.Input[str] probe_request_path: The probe request path. Only supported for HTTP/HTTPS probes.
         """
         pulumi.set(__self__, "backend_port", backend_port)
@@ -632,26 +633,26 @@ class LoadBalancingRuleArgs:
 
     @property
     @pulumi.getter(name="probeProtocol")
-    def probe_protocol(self) -> pulumi.Input[str]:
+    def probe_protocol(self) -> pulumi.Input[Union[str, 'ProbeProtocol']]:
         """
         the reference to the load balancer probe used by the load balancing rule.
         """
         return pulumi.get(self, "probe_protocol")
 
     @probe_protocol.setter
-    def probe_protocol(self, value: pulumi.Input[str]):
+    def probe_protocol(self, value: pulumi.Input[Union[str, 'ProbeProtocol']]):
         pulumi.set(self, "probe_protocol", value)
 
     @property
     @pulumi.getter
-    def protocol(self) -> pulumi.Input[str]:
+    def protocol(self) -> pulumi.Input[Union[str, 'Protocol']]:
         """
         The reference to the transport protocol used by the load balancing rule.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: pulumi.Input[str]):
+    def protocol(self, value: pulumi.Input[Union[str, 'Protocol']]):
         pulumi.set(self, "protocol", value)
 
     @property

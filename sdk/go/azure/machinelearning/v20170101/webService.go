@@ -30,20 +30,21 @@ type WebService struct {
 // NewWebService registers a new resource with the given unique name, arguments, and options.
 func NewWebService(ctx *pulumi.Context,
 	name string, args *WebServiceArgs, opts ...pulumi.ResourceOption) (*WebService, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.WebServiceName == nil {
-		return nil, errors.New("missing required argument 'WebServiceName'")
-	}
 	if args == nil {
-		args = &WebServiceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.WebServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'WebServiceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

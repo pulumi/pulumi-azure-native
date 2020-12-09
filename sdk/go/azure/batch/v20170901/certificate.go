@@ -46,20 +46,21 @@ type Certificate struct {
 // NewCertificate registers a new resource with the given unique name, arguments, and options.
 func NewCertificate(ctx *pulumi.Context,
 	name string, args *CertificateArgs, opts ...pulumi.ResourceOption) (*Certificate, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.CertificateName == nil {
-		return nil, errors.New("missing required argument 'CertificateName'")
-	}
-	if args == nil || args.Data == nil {
-		return nil, errors.New("missing required argument 'Data'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &CertificateArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.CertificateName == nil {
+		return nil, errors.New("invalid value for required argument 'CertificateName'")
+	}
+	if args.Data == nil {
+		return nil, errors.New("invalid value for required argument 'Data'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -196,7 +197,7 @@ type CertificateArgs struct {
 	// The maximum size is 10KB.
 	Data pulumi.StringInput
 	// The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
-	Format pulumi.StringPtrInput
+	Format CertificateFormat
 	// This is required if the certificate format is pfx and must be omitted if the certificate format is cer.
 	Password pulumi.StringPtrInput
 	// The name of the resource group that contains the Batch account.

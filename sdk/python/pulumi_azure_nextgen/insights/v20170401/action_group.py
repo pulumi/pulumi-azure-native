@@ -67,23 +67,23 @@ class ActionGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if action_group_name is None:
+            if action_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'action_group_name'")
             __props__['action_group_name'] = action_group_name
             __props__['automation_runbook_receivers'] = automation_runbook_receivers
             __props__['azure_app_push_receivers'] = azure_app_push_receivers
             __props__['email_receivers'] = email_receivers
-            if enabled is None:
+            if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
             __props__['enabled'] = enabled
-            if group_short_name is None:
+            if group_short_name is None and not opts.urn:
                 raise TypeError("Missing required property 'group_short_name'")
             __props__['group_short_name'] = group_short_name
             __props__['itsm_receivers'] = itsm_receivers
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sms_receivers'] = sms_receivers

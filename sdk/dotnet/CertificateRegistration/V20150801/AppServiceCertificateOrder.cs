@@ -269,7 +269,7 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.V20150801
         /// Certificate product type.
         /// </summary>
         [Input("productType", required: true)]
-        public Input<string> ProductType { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.CertificateRegistration.V20150801.CertificateProductType> ProductType { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

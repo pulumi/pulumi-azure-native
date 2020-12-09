@@ -28,23 +28,24 @@ type ReplicationProtectionContainerMapping struct {
 // NewReplicationProtectionContainerMapping registers a new resource with the given unique name, arguments, and options.
 func NewReplicationProtectionContainerMapping(ctx *pulumi.Context,
 	name string, args *ReplicationProtectionContainerMappingArgs, opts ...pulumi.ResourceOption) (*ReplicationProtectionContainerMapping, error) {
-	if args == nil || args.FabricName == nil {
-		return nil, errors.New("missing required argument 'FabricName'")
-	}
-	if args == nil || args.MappingName == nil {
-		return nil, errors.New("missing required argument 'MappingName'")
-	}
-	if args == nil || args.ProtectionContainerName == nil {
-		return nil, errors.New("missing required argument 'ProtectionContainerName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ResourceName == nil {
-		return nil, errors.New("missing required argument 'ResourceName'")
-	}
 	if args == nil {
-		args = &ReplicationProtectionContainerMappingArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.FabricName == nil {
+		return nil, errors.New("invalid value for required argument 'FabricName'")
+	}
+	if args.MappingName == nil {
+		return nil, errors.New("invalid value for required argument 'MappingName'")
+	}
+	if args.ProtectionContainerName == nil {
+		return nil, errors.New("invalid value for required argument 'ProtectionContainerName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

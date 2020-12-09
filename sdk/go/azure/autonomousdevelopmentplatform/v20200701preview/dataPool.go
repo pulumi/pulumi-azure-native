@@ -30,20 +30,21 @@ type DataPool struct {
 // NewDataPool registers a new resource with the given unique name, arguments, and options.
 func NewDataPool(ctx *pulumi.Context,
 	name string, args *DataPoolArgs, opts ...pulumi.ResourceOption) (*DataPool, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.DataPoolName == nil {
-		return nil, errors.New("missing required argument 'DataPoolName'")
-	}
-	if args == nil || args.Locations == nil {
-		return nil, errors.New("missing required argument 'Locations'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &DataPoolArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.DataPoolName == nil {
+		return nil, errors.New("invalid value for required argument 'DataPoolName'")
+	}
+	if args.Locations == nil {
+		return nil, errors.New("invalid value for required argument 'Locations'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource DataPool
 	err := ctx.RegisterResource("azure-nextgen:autonomousdevelopmentplatform/v20200701preview:DataPool", name, args, &resource, opts...)

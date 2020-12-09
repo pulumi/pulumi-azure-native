@@ -1168,7 +1168,7 @@ type DeploymentPropertiesArgs struct {
 	// The debug setting of the deployment.
 	DebugSetting DebugSettingPtrInput `pulumi:"debugSetting"`
 	// The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
-	Mode pulumi.StringInput `pulumi:"mode"`
+	Mode DeploymentMode `pulumi:"mode"`
 	// The deployment on error behavior.
 	OnErrorDeployment OnErrorDeploymentPtrInput `pulumi:"onErrorDeployment"`
 	// Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
@@ -2210,7 +2210,7 @@ type OnErrorDeploymentArgs struct {
 	// The deployment to be used on error case.
 	DeploymentName pulumi.StringPtrInput `pulumi:"deploymentName"`
 	// The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type OnErrorDeploymentType `pulumi:"type"`
 }
 
 func (OnErrorDeploymentArgs) ElementType() reflect.Type {

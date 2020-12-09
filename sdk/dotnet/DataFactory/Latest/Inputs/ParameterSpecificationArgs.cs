@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         /// Parameter type.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.Latest.ParameterType> Type { get; set; } = null!;
 
         public ParameterSpecificationArgs()
         {

@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         /// The key type.
         /// </summary>
         [Input("keyType")]
-        public string? KeyType { get; set; }
+        public Union<string, Pulumi.AzureNextGen.Logic.Latest.KeyType>? KeyType { get; set; }
 
         /// <summary>
         /// The integration account map name.

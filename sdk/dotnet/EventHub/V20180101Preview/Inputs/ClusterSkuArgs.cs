@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview.Inputs
         /// Name of this SKU.
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.EventHub.V20180101Preview.ClusterSkuName> Name { get; set; } = null!;
 
         public ClusterSkuArgs()
         {

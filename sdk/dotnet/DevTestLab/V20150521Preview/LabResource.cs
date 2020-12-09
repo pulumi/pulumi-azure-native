@@ -171,7 +171,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// The type of the lab storage.
         /// </summary>
         [Input("labStorageType")]
-        public Input<string>? LabStorageType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20150521Preview.LabStorageType>? LabStorageType { get; set; }
 
         /// <summary>
         /// The location of the resource.

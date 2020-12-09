@@ -46,20 +46,21 @@ type OrchestratorInstanceServiceDetails struct {
 // NewOrchestratorInstanceServiceDetails registers a new resource with the given unique name, arguments, and options.
 func NewOrchestratorInstanceServiceDetails(ctx *pulumi.Context,
 	name string, args *OrchestratorInstanceServiceDetailsArgs, opts ...pulumi.ResourceOption) (*OrchestratorInstanceServiceDetails, error) {
-	if args == nil || args.ControllerDetails == nil {
-		return nil, errors.New("missing required argument 'ControllerDetails'")
-	}
-	if args == nil || args.Kind == nil {
-		return nil, errors.New("missing required argument 'Kind'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ResourceName == nil {
-		return nil, errors.New("missing required argument 'ResourceName'")
-	}
 	if args == nil {
-		args = &OrchestratorInstanceServiceDetailsArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ControllerDetails == nil {
+		return nil, errors.New("invalid value for required argument 'ControllerDetails'")
+	}
+	if args.Kind == nil {
+		return nil, errors.New("invalid value for required argument 'Kind'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	var resource OrchestratorInstanceServiceDetails
 	err := ctx.RegisterResource("azure-nextgen:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails", name, args, &resource, opts...)

@@ -30,17 +30,18 @@ type IpFirewallRule struct {
 // NewIpFirewallRule registers a new resource with the given unique name, arguments, and options.
 func NewIpFirewallRule(ctx *pulumi.Context,
 	name string, args *IpFirewallRuleArgs, opts ...pulumi.ResourceOption) (*IpFirewallRule, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.RuleName == nil {
-		return nil, errors.New("missing required argument 'RuleName'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &IpFirewallRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.RuleName == nil {
+		return nil, errors.New("invalid value for required argument 'RuleName'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	var resource IpFirewallRule
 	err := ctx.RegisterResource("azure-nextgen:synapse/v20190601preview:IpFirewallRule", name, args, &resource, opts...)

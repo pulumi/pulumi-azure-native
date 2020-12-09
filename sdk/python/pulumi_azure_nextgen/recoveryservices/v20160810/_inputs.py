@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'A2AEnableProtectionInputArgs',
@@ -181,14 +182,14 @@ class A2AEnableProtectionInputArgs:
 @pulumi.input_type
 class A2APolicyCreationInputArgs:
     def __init__(__self__, *,
-                 multi_vm_sync_status: pulumi.Input[str],
+                 multi_vm_sync_status: pulumi.Input['SetMultiVmSyncStatus'],
                  app_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
                  crash_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  recovery_point_history: Optional[pulumi.Input[int]] = None):
         """
         A2A Policy creation input.
-        :param pulumi.Input[str] multi_vm_sync_status: A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
+        :param pulumi.Input['SetMultiVmSyncStatus'] multi_vm_sync_status: A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
         :param pulumi.Input[int] app_consistent_frequency_in_minutes: The app consistent snapshot frequency (in minutes).
         :param pulumi.Input[int] crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency (in minutes).
         :param pulumi.Input[str] instance_type: The class type.
@@ -206,14 +207,14 @@ class A2APolicyCreationInputArgs:
 
     @property
     @pulumi.getter(name="multiVmSyncStatus")
-    def multi_vm_sync_status(self) -> pulumi.Input[str]:
+    def multi_vm_sync_status(self) -> pulumi.Input['SetMultiVmSyncStatus']:
         """
         A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
         """
         return pulumi.get(self, "multi_vm_sync_status")
 
     @multi_vm_sync_status.setter
-    def multi_vm_sync_status(self, value: pulumi.Input[str]):
+    def multi_vm_sync_status(self, value: pulumi.Input['SetMultiVmSyncStatus']):
         pulumi.set(self, "multi_vm_sync_status", value)
 
     @property
@@ -647,13 +648,13 @@ class CreateRecoveryPlanInputPropertiesArgs:
                  groups: pulumi.Input[Sequence[pulumi.Input['RecoveryPlanGroupArgs']]],
                  primary_fabric_id: pulumi.Input[str],
                  recovery_fabric_id: pulumi.Input[str],
-                 failover_deployment_model: Optional[pulumi.Input[str]] = None):
+                 failover_deployment_model: Optional[pulumi.Input['FailoverDeploymentModel']] = None):
         """
         Recovery plan creation properties.
         :param pulumi.Input[Sequence[pulumi.Input['RecoveryPlanGroupArgs']]] groups: The recovery plan groups.
         :param pulumi.Input[str] primary_fabric_id: The primary fabric Id.
         :param pulumi.Input[str] recovery_fabric_id: The recovery fabric Id.
-        :param pulumi.Input[str] failover_deployment_model: The failover deployment model.
+        :param pulumi.Input['FailoverDeploymentModel'] failover_deployment_model: The failover deployment model.
         """
         pulumi.set(__self__, "groups", groups)
         pulumi.set(__self__, "primary_fabric_id", primary_fabric_id)
@@ -699,14 +700,14 @@ class CreateRecoveryPlanInputPropertiesArgs:
 
     @property
     @pulumi.getter(name="failoverDeploymentModel")
-    def failover_deployment_model(self) -> Optional[pulumi.Input[str]]:
+    def failover_deployment_model(self) -> Optional[pulumi.Input['FailoverDeploymentModel']]:
         """
         The failover deployment model.
         """
         return pulumi.get(self, "failover_deployment_model")
 
     @failover_deployment_model.setter
-    def failover_deployment_model(self, value: Optional[pulumi.Input[str]]):
+    def failover_deployment_model(self, value: Optional[pulumi.Input['FailoverDeploymentModel']]):
         pulumi.set(self, "failover_deployment_model", value)
 
 
@@ -1784,7 +1785,7 @@ class InMageAzureV2EnableProtectionInputArgs:
 @pulumi.input_type
 class InMageAzureV2PolicyInputArgs:
     def __init__(__self__, *,
-                 multi_vm_sync_status: pulumi.Input[str],
+                 multi_vm_sync_status: pulumi.Input['SetMultiVmSyncStatus'],
                  app_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
                  crash_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
@@ -1792,7 +1793,7 @@ class InMageAzureV2PolicyInputArgs:
                  recovery_point_threshold_in_minutes: Optional[pulumi.Input[int]] = None):
         """
         VMWare Azure specific protection profile Input.
-        :param pulumi.Input[str] multi_vm_sync_status: A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
+        :param pulumi.Input['SetMultiVmSyncStatus'] multi_vm_sync_status: A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
         :param pulumi.Input[int] app_consistent_frequency_in_minutes: The app consistent snapshot frequency (in minutes).
         :param pulumi.Input[int] crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency (in minutes).
         :param pulumi.Input[str] instance_type: The class type.
@@ -1813,14 +1814,14 @@ class InMageAzureV2PolicyInputArgs:
 
     @property
     @pulumi.getter(name="multiVmSyncStatus")
-    def multi_vm_sync_status(self) -> pulumi.Input[str]:
+    def multi_vm_sync_status(self) -> pulumi.Input['SetMultiVmSyncStatus']:
         """
         A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
         """
         return pulumi.get(self, "multi_vm_sync_status")
 
     @multi_vm_sync_status.setter
-    def multi_vm_sync_status(self, value: pulumi.Input[str]):
+    def multi_vm_sync_status(self, value: pulumi.Input['SetMultiVmSyncStatus']):
         pulumi.set(self, "multi_vm_sync_status", value)
 
     @property
@@ -2130,14 +2131,14 @@ class InMageEnableProtectionInputArgs:
 @pulumi.input_type
 class InMagePolicyInputArgs:
     def __init__(__self__, *,
-                 multi_vm_sync_status: pulumi.Input[str],
+                 multi_vm_sync_status: pulumi.Input['SetMultiVmSyncStatus'],
                  app_consistent_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  recovery_point_history: Optional[pulumi.Input[int]] = None,
                  recovery_point_threshold_in_minutes: Optional[pulumi.Input[int]] = None):
         """
         VMWare Azure specific protection profile Input.
-        :param pulumi.Input[str] multi_vm_sync_status: A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
+        :param pulumi.Input['SetMultiVmSyncStatus'] multi_vm_sync_status: A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
         :param pulumi.Input[int] app_consistent_frequency_in_minutes: The app consistent snapshot frequency (in minutes).
         :param pulumi.Input[str] instance_type: The class type.
         :param pulumi.Input[int] recovery_point_history: The duration in minutes until which the recovery points need to be stored.
@@ -2155,14 +2156,14 @@ class InMagePolicyInputArgs:
 
     @property
     @pulumi.getter(name="multiVmSyncStatus")
-    def multi_vm_sync_status(self) -> pulumi.Input[str]:
+    def multi_vm_sync_status(self) -> pulumi.Input['SetMultiVmSyncStatus']:
         """
         A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
         """
         return pulumi.get(self, "multi_vm_sync_status")
 
     @multi_vm_sync_status.setter
-    def multi_vm_sync_status(self, value: pulumi.Input[str]):
+    def multi_vm_sync_status(self, value: pulumi.Input['SetMultiVmSyncStatus']):
         pulumi.set(self, "multi_vm_sync_status", value)
 
     @property
@@ -2258,13 +2259,13 @@ class InMageVolumeExclusionOptionsArgs:
 class RecoveryPlanActionArgs:
     def __init__(__self__, *,
                  action_name: pulumi.Input[str],
-                 failover_directions: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 failover_types: pulumi.Input[Sequence[pulumi.Input[str]]]):
+                 failover_directions: pulumi.Input[Sequence[pulumi.Input['PossibleOperationsDirections']]],
+                 failover_types: pulumi.Input[Sequence[pulumi.Input['ReplicationProtectedItemOperation']]]):
         """
         Recovery plan action details.
         :param pulumi.Input[str] action_name: The action name.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] failover_directions: The list of failover directions.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] failover_types: The list of failover types.
+        :param pulumi.Input[Sequence[pulumi.Input['PossibleOperationsDirections']]] failover_directions: The list of failover directions.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationProtectedItemOperation']]] failover_types: The list of failover types.
         """
         pulumi.set(__self__, "action_name", action_name)
         pulumi.set(__self__, "failover_directions", failover_directions)
@@ -2284,39 +2285,39 @@ class RecoveryPlanActionArgs:
 
     @property
     @pulumi.getter(name="failoverDirections")
-    def failover_directions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def failover_directions(self) -> pulumi.Input[Sequence[pulumi.Input['PossibleOperationsDirections']]]:
         """
         The list of failover directions.
         """
         return pulumi.get(self, "failover_directions")
 
     @failover_directions.setter
-    def failover_directions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def failover_directions(self, value: pulumi.Input[Sequence[pulumi.Input['PossibleOperationsDirections']]]):
         pulumi.set(self, "failover_directions", value)
 
     @property
     @pulumi.getter(name="failoverTypes")
-    def failover_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def failover_types(self) -> pulumi.Input[Sequence[pulumi.Input['ReplicationProtectedItemOperation']]]:
         """
         The list of failover types.
         """
         return pulumi.get(self, "failover_types")
 
     @failover_types.setter
-    def failover_types(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def failover_types(self, value: pulumi.Input[Sequence[pulumi.Input['ReplicationProtectedItemOperation']]]):
         pulumi.set(self, "failover_types", value)
 
 
 @pulumi.input_type
 class RecoveryPlanGroupArgs:
     def __init__(__self__, *,
-                 group_type: pulumi.Input[str],
+                 group_type: pulumi.Input['RecoveryPlanGroupType'],
                  end_group_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryPlanActionArgs']]]] = None,
                  replication_protected_items: Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryPlanProtectedItemArgs']]]] = None,
                  start_group_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RecoveryPlanActionArgs']]]] = None):
         """
         Recovery plan group details.
-        :param pulumi.Input[str] group_type: The group type.
+        :param pulumi.Input['RecoveryPlanGroupType'] group_type: The group type.
         :param pulumi.Input[Sequence[pulumi.Input['RecoveryPlanActionArgs']]] end_group_actions: The end group actions.
         :param pulumi.Input[Sequence[pulumi.Input['RecoveryPlanProtectedItemArgs']]] replication_protected_items: The list of protected items.
         :param pulumi.Input[Sequence[pulumi.Input['RecoveryPlanActionArgs']]] start_group_actions: The start group actions.
@@ -2331,14 +2332,14 @@ class RecoveryPlanGroupArgs:
 
     @property
     @pulumi.getter(name="groupType")
-    def group_type(self) -> pulumi.Input[str]:
+    def group_type(self) -> pulumi.Input['RecoveryPlanGroupType']:
         """
         The group type.
         """
         return pulumi.get(self, "group_type")
 
     @group_type.setter
-    def group_type(self, value: pulumi.Input[str]):
+    def group_type(self, value: pulumi.Input['RecoveryPlanGroupType']):
         pulumi.set(self, "group_type", value)
 
     @property

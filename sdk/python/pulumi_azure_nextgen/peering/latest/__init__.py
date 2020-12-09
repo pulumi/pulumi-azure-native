@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .get_peer_asn import *
 from .get_peering import *
 from .get_peering_service import *
@@ -17,3 +18,36 @@ from .registered_asn import *
 from .registered_prefix import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:peering/latest:PeerAsn":
+                return PeerAsn(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:peering/latest:Peering":
+                return Peering(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:peering/latest:PeeringService":
+                return PeeringService(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:peering/latest:Prefix":
+                return Prefix(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:peering/latest:RegisteredAsn":
+                return RegisteredAsn(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:peering/latest:RegisteredPrefix":
+                return RegisteredPrefix(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "peering/latest", _module_instance)
+
+_register_module()

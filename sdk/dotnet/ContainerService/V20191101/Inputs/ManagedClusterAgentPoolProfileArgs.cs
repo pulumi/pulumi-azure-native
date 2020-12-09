@@ -109,19 +109,19 @@ namespace Pulumi.AzureNextGen.ContainerService.V20191101.Inputs
         /// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         /// </summary>
         [Input("osType")]
-        public Input<string>? OsType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20191101.OSType>? OsType { get; set; }
 
         /// <summary>
         /// ScaleSetEvictionPolicy to be used to specify eviction policy for low priority virtual machine scale set. Default to Delete.
         /// </summary>
         [Input("scaleSetEvictionPolicy")]
-        public Input<string>? ScaleSetEvictionPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20191101.ScaleSetEvictionPolicy>? ScaleSetEvictionPolicy { get; set; }
 
         /// <summary>
         /// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
         /// </summary>
         [Input("scaleSetPriority")]
-        public Input<string>? ScaleSetPriority { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20191101.ScaleSetPriority>? ScaleSetPriority { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -139,13 +139,13 @@ namespace Pulumi.AzureNextGen.ContainerService.V20191101.Inputs
         /// AgentPoolType represents types of an agent pool
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20191101.AgentPoolType>? Type { get; set; }
 
         /// <summary>
         /// Size of agent VMs.
         /// </summary>
         [Input("vmSize")]
-        public Input<string>? VmSize { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20191101.ContainerServiceVMSizeTypes>? VmSize { get; set; }
 
         /// <summary>
         /// VNet SubnetID specifies the VNet's subnet identifier.

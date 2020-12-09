@@ -61,18 +61,18 @@ class TemplateSpecVersion(pulumi.CustomResource):
 
             __props__['artifacts'] = artifacts
             __props__['description'] = description
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['template'] = template
-            if template_spec_name is None:
+            if template_spec_name is None and not opts.urn:
                 raise TypeError("Missing required property 'template_spec_name'")
             __props__['template_spec_name'] = template_spec_name
-            if template_spec_version is None:
+            if template_spec_version is None and not opts.urn:
                 raise TypeError("Missing required property 'template_spec_version'")
             __props__['template_spec_version'] = template_spec_version
             __props__['name'] = None

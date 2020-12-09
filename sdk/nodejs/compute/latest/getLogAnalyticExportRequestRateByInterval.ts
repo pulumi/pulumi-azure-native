@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 export function getLogAnalyticExportRequestRateByInterval(args: GetLogAnalyticExportRequestRateByIntervalArgs, opts?: pulumi.InvokeOptions): Promise<GetLogAnalyticExportRequestRateByIntervalResult> {
@@ -59,7 +59,7 @@ export interface GetLogAnalyticExportRequestRateByIntervalArgs {
     /**
      * Interval value in minutes used to create LogAnalytics call rate logs.
      */
-    readonly intervalLength: string;
+    readonly intervalLength: enums.compute.latest.IntervalInMins;
     /**
      * The location upon which virtual-machine-sizes is queried.
      */

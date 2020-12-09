@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview.Inputs
         /// how to match header value
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview.HeaderMatchType>? Type { get; set; }
 
         /// <summary>
         /// Value of header to match in request.

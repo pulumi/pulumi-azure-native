@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 
 __all__ = ['Topic']
 
@@ -26,7 +27,7 @@ class Topic(pulumi.CustomResource):
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['EntityStatus']] = None,
                  support_ordering: Optional[pulumi.Input[bool]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -47,7 +48,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[str] namespace_name: The namespace name
         :param pulumi.Input[bool] requires_duplicate_detection: Value indicating if this topic requires duplicate detection.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[str] status: Enumerates the possible values for the status of a messaging entity.
+        :param pulumi.Input['EntityStatus'] status: Enumerates the possible values for the status of a messaging entity.
         :param pulumi.Input[bool] support_ordering: Value that indicates whether the topic supports ordering.
         :param pulumi.Input[str] topic_name: The topic name.
         """
@@ -75,16 +76,16 @@ class Topic(pulumi.CustomResource):
             __props__['enable_express'] = enable_express
             __props__['enable_partitioning'] = enable_partitioning
             __props__['max_size_in_megabytes'] = max_size_in_megabytes
-            if namespace_name is None:
+            if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
             __props__['requires_duplicate_detection'] = requires_duplicate_detection
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['status'] = status
             __props__['support_ordering'] = support_ordering
-            if topic_name is None:
+            if topic_name is None and not opts.urn:
                 raise TypeError("Missing required property 'topic_name'")
             __props__['topic_name'] = topic_name
             __props__['accessed_at'] = None

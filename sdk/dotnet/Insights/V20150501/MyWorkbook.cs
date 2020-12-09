@@ -158,7 +158,7 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
         /// The kind of workbook. Choices are user and shared.
         /// </summary>
         [Input("kind")]
-        public Input<string>? Kind { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20150501.SharedTypeKind>? Kind { get; set; }
 
         /// <summary>
         /// Resource location

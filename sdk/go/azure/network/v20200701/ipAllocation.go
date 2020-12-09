@@ -44,14 +44,15 @@ type IpAllocation struct {
 // NewIpAllocation registers a new resource with the given unique name, arguments, and options.
 func NewIpAllocation(ctx *pulumi.Context,
 	name string, args *IpAllocationArgs, opts ...pulumi.ResourceOption) (*IpAllocation, error) {
-	if args == nil || args.IpAllocationName == nil {
-		return nil, errors.New("missing required argument 'IpAllocationName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &IpAllocationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.IpAllocationName == nil {
+		return nil, errors.New("invalid value for required argument 'IpAllocationName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

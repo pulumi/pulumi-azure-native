@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -126,19 +126,19 @@ export class Endpoint extends pulumi.CustomResource {
     constructor(name: string, args: EndpointArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.endpointName === undefined) {
+            if ((!args || args.endpointName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'endpointName'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.origins === undefined) {
+            if ((!args || args.origins === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'origins'");
             }
-            if (!args || args.profileName === undefined) {
+            if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["contentTypesToCompress"] = args ? args.contentTypesToCompress : undefined;
@@ -238,7 +238,7 @@ export interface EndpointArgs {
     /**
      * Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.
      */
-    readonly optimizationType?: pulumi.Input<string>;
+    readonly optimizationType?: pulumi.Input<string | enums.cdn.v20190615preview.OptimizationType>;
     /**
      * The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
      */
@@ -262,7 +262,7 @@ export interface EndpointArgs {
     /**
      * Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
      */
-    readonly queryStringCachingBehavior?: pulumi.Input<string>;
+    readonly queryStringCachingBehavior?: pulumi.Input<enums.cdn.v20190615preview.QueryStringCachingBehavior>;
     /**
      * Name of the Resource group within the Azure subscription.
      */

@@ -77,22 +77,22 @@ export class SqlPoolWorkloadClassifier extends pulumi.CustomResource {
     constructor(name: string, args: SqlPoolWorkloadClassifierArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.memberName === undefined) {
+            if ((!args || args.memberName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'memberName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sqlPoolName === undefined) {
+            if ((!args || args.sqlPoolName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sqlPoolName'");
             }
-            if (!args || args.workloadClassifierName === undefined) {
+            if ((!args || args.workloadClassifierName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workloadClassifierName'");
             }
-            if (!args || args.workloadGroupName === undefined) {
+            if ((!args || args.workloadGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workloadGroupName'");
             }
-            if (!args || args.workspaceName === undefined) {
+            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["context"] = args ? args.context : undefined;

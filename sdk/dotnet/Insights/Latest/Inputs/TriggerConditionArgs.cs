@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest.Inputs
         /// Evaluation operation for rule - 'GreaterThan' or 'LessThan.
         /// </summary>
         [Input("thresholdOperator", required: true)]
-        public Input<string> ThresholdOperator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.Latest.ConditionalOperator> ThresholdOperator { get; set; } = null!;
 
         public TriggerConditionArgs()
         {

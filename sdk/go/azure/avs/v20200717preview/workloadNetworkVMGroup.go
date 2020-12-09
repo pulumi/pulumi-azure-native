@@ -34,17 +34,18 @@ type WorkloadNetworkVMGroup struct {
 // NewWorkloadNetworkVMGroup registers a new resource with the given unique name, arguments, and options.
 func NewWorkloadNetworkVMGroup(ctx *pulumi.Context,
 	name string, args *WorkloadNetworkVMGroupArgs, opts ...pulumi.ResourceOption) (*WorkloadNetworkVMGroup, error) {
-	if args == nil || args.PrivateCloudName == nil {
-		return nil, errors.New("missing required argument 'PrivateCloudName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VmGroupId == nil {
-		return nil, errors.New("missing required argument 'VmGroupId'")
-	}
 	if args == nil {
-		args = &WorkloadNetworkVMGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PrivateCloudName == nil {
+		return nil, errors.New("invalid value for required argument 'PrivateCloudName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VmGroupId == nil {
+		return nil, errors.New("invalid value for required argument 'VmGroupId'")
 	}
 	var resource WorkloadNetworkVMGroup
 	err := ctx.RegisterResource("azure-nextgen:avs/v20200717preview:WorkloadNetworkVMGroup", name, args, &resource, opts...)

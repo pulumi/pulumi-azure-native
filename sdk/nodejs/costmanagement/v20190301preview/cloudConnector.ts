@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -118,7 +118,7 @@ export class CloudConnector extends pulumi.CustomResource {
     constructor(name: string, args: CloudConnectorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.connectorName === undefined) {
+            if ((!args || args.connectorName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'connectorName'");
             }
             inputs["billingModel"] = args ? args.billingModel : undefined;
@@ -178,7 +178,7 @@ export interface CloudConnectorArgs {
     /**
      * Connector billing model
      */
-    readonly billingModel?: pulumi.Input<string>;
+    readonly billingModel?: pulumi.Input<string | enums.costmanagement.v20190301preview.ConnectorBillingModel>;
     /**
      * Connector Name.
      */

@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901.Inputs
         /// Defines the source of the SSL certificate.
         /// </summary>
         [Input("certificateType", required: true)]
-        public Input<string> CertificateType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20200901.AfdCertificateType> CertificateType { get; set; } = null!;
 
         /// <summary>
         /// TLS protocol version that will be used for Https
         /// </summary>
         [Input("minimumTlsVersion")]
-        public Input<string>? MinimumTlsVersion { get; set; }
+        public Input<Pulumi.AzureNextGen.Cdn.V20200901.AfdMinimumTlsVersion>? MinimumTlsVersion { get; set; }
 
         /// <summary>
         /// Resource reference to the secret. ie. subs/rg/profile/secret

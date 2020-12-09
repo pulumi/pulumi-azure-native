@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
     public sealed class WeeklyRetentionScheduleArgs : Pulumi.ResourceArgs
     {
         [Input("daysOfTheWeek")]
-        private InputList<string>? _daysOfTheWeek;
+        private InputList<Pulumi.AzureNextGen.RecoveryServices.Latest.DayOfWeek>? _daysOfTheWeek;
 
         /// <summary>
         /// List of days of week for weekly retention policy.
         /// </summary>
-        public InputList<string> DaysOfTheWeek
+        public InputList<Pulumi.AzureNextGen.RecoveryServices.Latest.DayOfWeek> DaysOfTheWeek
         {
-            get => _daysOfTheWeek ?? (_daysOfTheWeek = new InputList<string>());
+            get => _daysOfTheWeek ?? (_daysOfTheWeek = new InputList<Pulumi.AzureNextGen.RecoveryServices.Latest.DayOfWeek>());
             set => _daysOfTheWeek = value;
         }
 

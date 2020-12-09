@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview.Inputs
         /// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20191201Preview.ApimIdentityType> Type { get; set; } = null!;
 
         [Input("userAssignedIdentities")]
         private InputMap<Inputs.UserIdentityPropertiesArgs>? _userAssignedIdentities;

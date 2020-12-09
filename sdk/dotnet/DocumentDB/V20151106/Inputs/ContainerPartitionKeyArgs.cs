@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20151106.Inputs
         /// Indicates the kind of algorithm used for partitioning
         /// </summary>
         [Input("kind")]
-        public Input<string>? Kind { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DocumentDB.V20151106.PartitionKind>? Kind { get; set; }
 
         [Input("paths")]
         private InputList<string>? _paths;

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Inputs
         /// The field ordering
         /// </summary>
         [Input("order", required: true)]
-        public Input<string> Order { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataMigration.V20180715Preview.MongoDbShardKeyOrder> Order { get; set; } = null!;
 
         public MongoDbShardKeyFieldArgs()
         {

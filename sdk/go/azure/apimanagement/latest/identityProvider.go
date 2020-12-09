@@ -42,23 +42,24 @@ type IdentityProvider struct {
 // NewIdentityProvider registers a new resource with the given unique name, arguments, and options.
 func NewIdentityProvider(ctx *pulumi.Context,
 	name string, args *IdentityProviderArgs, opts ...pulumi.ResourceOption) (*IdentityProvider, error) {
-	if args == nil || args.ClientId == nil {
-		return nil, errors.New("missing required argument 'ClientId'")
-	}
-	if args == nil || args.ClientSecret == nil {
-		return nil, errors.New("missing required argument 'ClientSecret'")
-	}
-	if args == nil || args.IdentityProviderName == nil {
-		return nil, errors.New("missing required argument 'IdentityProviderName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
 	if args == nil {
-		args = &IdentityProviderArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ClientId == nil {
+		return nil, errors.New("invalid value for required argument 'ClientId'")
+	}
+	if args.ClientSecret == nil {
+		return nil, errors.New("invalid value for required argument 'ClientSecret'")
+	}
+	if args.IdentityProviderName == nil {
+		return nil, errors.New("invalid value for required argument 'IdentityProviderName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

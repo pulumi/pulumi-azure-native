@@ -65,13 +65,13 @@ export class Authorization extends pulumi.CustomResource {
     constructor(name: string, args: AuthorizationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.authorizationName === undefined) {
+            if ((!args || args.authorizationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'authorizationName'");
             }
-            if (!args || args.privateCloudName === undefined) {
+            if ((!args || args.privateCloudName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["authorizationName"] = args ? args.authorizationName : undefined;

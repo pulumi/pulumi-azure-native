@@ -38,17 +38,18 @@ type EventHub struct {
 // NewEventHub registers a new resource with the given unique name, arguments, and options.
 func NewEventHub(ctx *pulumi.Context,
 	name string, args *EventHubArgs, opts ...pulumi.ResourceOption) (*EventHub, error) {
-	if args == nil || args.EventHubName == nil {
-		return nil, errors.New("missing required argument 'EventHubName'")
-	}
-	if args == nil || args.NamespaceName == nil {
-		return nil, errors.New("missing required argument 'NamespaceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &EventHubArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.EventHubName == nil {
+		return nil, errors.New("invalid value for required argument 'EventHubName'")
+	}
+	if args.NamespaceName == nil {
+		return nil, errors.New("invalid value for required argument 'NamespaceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -164,7 +165,7 @@ type EventHubArgs struct {
 	// Name of the resource group within the azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Enumerates the possible values for the status of the Event Hub.
-	Status pulumi.StringPtrInput
+	Status EntityStatus
 }
 
 func (EventHubArgs) ElementType() reflect.Type {

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180301.Inputs
         /// The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
         /// </summary>
         [Input("alertSensitivity", required: true)]
-        public Input<string> AlertSensitivity { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20180301.DynamicThresholdSensitivity> AlertSensitivity { get; set; } = null!;
 
         /// <summary>
         /// Specifies the type of threshold criteria
@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180301.Inputs
         /// The operator used to compare the metric value against the threshold.
         /// </summary>
         [Input("operator", required: true)]
-        public Input<string> Operator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20180301.DynamicThresholdOperator> Operator { get; set; } = null!;
 
         /// <summary>
         /// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
@@ -85,7 +85,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180301.Inputs
         /// the criteria time aggregation types.
         /// </summary>
         [Input("timeAggregation", required: true)]
-        public Input<string> TimeAggregation { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20180301.AggregationType> TimeAggregation { get; set; } = null!;
 
         public DynamicMetricCriteriaArgs()
         {

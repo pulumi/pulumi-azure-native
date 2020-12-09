@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ScheduledQueryRule']
@@ -71,35 +72,35 @@ class ScheduledQueryRule(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['actions'] = actions
-            if criteria is None:
+            if criteria is None and not opts.urn:
                 raise TypeError("Missing required property 'criteria'")
             __props__['criteria'] = criteria
             __props__['description'] = description
-            if enabled is None:
+            if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
             __props__['enabled'] = enabled
-            if evaluation_frequency is None:
+            if evaluation_frequency is None and not opts.urn:
                 raise TypeError("Missing required property 'evaluation_frequency'")
             __props__['evaluation_frequency'] = evaluation_frequency
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['mute_actions_duration'] = mute_actions_duration
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if rule_name is None:
+            if rule_name is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_name'")
             __props__['rule_name'] = rule_name
-            if scopes is None:
+            if scopes is None and not opts.urn:
                 raise TypeError("Missing required property 'scopes'")
             __props__['scopes'] = scopes
-            if severity is None:
+            if severity is None and not opts.urn:
                 raise TypeError("Missing required property 'severity'")
             __props__['severity'] = severity
             __props__['tags'] = tags
             __props__['target_resource_types'] = target_resource_types
-            if window_size is None:
+            if window_size is None and not opts.urn:
                 raise TypeError("Missing required property 'window_size'")
             __props__['window_size'] = window_size
             __props__['name'] = None

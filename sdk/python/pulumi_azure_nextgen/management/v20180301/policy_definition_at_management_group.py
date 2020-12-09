@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['PolicyDefinitionAtManagementGroup']
 
@@ -19,11 +20,11 @@ class PolicyDefinitionAtManagementGroup(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  management_group_id: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[Any] = None,
-                 mode: Optional[pulumi.Input[str]] = None,
+                 mode: Optional[pulumi.Input[Union[str, 'PolicyMode']]] = None,
                  parameters: Optional[Any] = None,
                  policy_definition_name: Optional[pulumi.Input[str]] = None,
                  policy_rule: Optional[Any] = None,
-                 policy_type: Optional[pulumi.Input[str]] = None,
+                 policy_type: Optional[pulumi.Input[Union[str, 'PolicyType']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -36,11 +37,11 @@ class PolicyDefinitionAtManagementGroup(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The display name of the policy definition.
         :param pulumi.Input[str] management_group_id: The ID of the management group.
         :param Any metadata: The policy definition metadata.
-        :param pulumi.Input[str] mode: The policy definition mode. Possible values are NotSpecified, Indexed, and All.
+        :param pulumi.Input[Union[str, 'PolicyMode']] mode: The policy definition mode. Possible values are NotSpecified, Indexed, and All.
         :param Any parameters: Required if a parameter is used in policy rule.
         :param pulumi.Input[str] policy_definition_name: The name of the policy definition to create.
         :param Any policy_rule: The policy rule.
-        :param pulumi.Input[str] policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+        :param pulumi.Input[Union[str, 'PolicyType']] policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -61,13 +62,13 @@ class PolicyDefinitionAtManagementGroup(pulumi.CustomResource):
 
             __props__['description'] = description
             __props__['display_name'] = display_name
-            if management_group_id is None:
+            if management_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'management_group_id'")
             __props__['management_group_id'] = management_group_id
             __props__['metadata'] = metadata
             __props__['mode'] = mode
             __props__['parameters'] = parameters
-            if policy_definition_name is None:
+            if policy_definition_name is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_definition_name'")
             __props__['policy_definition_name'] = policy_definition_name
             __props__['policy_rule'] = policy_rule

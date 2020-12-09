@@ -25,13 +25,13 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// Name of an application gateway SKU.
         /// </summary>
         [Input("name")]
-        public Input<string>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.ApplicationGatewaySkuName>? Name { get; set; }
 
         /// <summary>
         /// Tier of an application gateway.
         /// </summary>
         [Input("tier")]
-        public Input<string>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.ApplicationGatewayTier>? Tier { get; set; }
 
         public ApplicationGatewaySkuArgs()
         {

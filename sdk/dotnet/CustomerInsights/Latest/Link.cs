@@ -206,7 +206,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
         /// Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
         /// </summary>
         [Input("operationType")]
-        public Input<string>? OperationType { get; set; }
+        public Input<Pulumi.AzureNextGen.CustomerInsights.Latest.InstanceOperationType>? OperationType { get; set; }
 
         [Input("participantPropertyReferences", required: true)]
         private InputList<Inputs.ParticipantPropertyReferenceArgs>? _participantPropertyReferences;
@@ -236,7 +236,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
         /// Type of source entity.
         /// </summary>
         [Input("sourceEntityType", required: true)]
-        public Input<string> SourceEntityType { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.CustomerInsights.Latest.EntityType> SourceEntityType { get; set; } = null!;
 
         /// <summary>
         /// Name of the source Entity Type.
@@ -248,7 +248,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
         /// Type of target entity.
         /// </summary>
         [Input("targetEntityType", required: true)]
-        public Input<string> TargetEntityType { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.CustomerInsights.Latest.EntityType> TargetEntityType { get; set; } = null!;
 
         /// <summary>
         /// Name of the target Entity Type.

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ReplicationProtectedItem']
@@ -55,20 +56,20 @@ class ReplicationProtectedItem(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if fabric_name is None:
+            if fabric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'fabric_name'")
             __props__['fabric_name'] = fabric_name
             __props__['properties'] = properties
-            if protection_container_name is None:
+            if protection_container_name is None and not opts.urn:
                 raise TypeError("Missing required property 'protection_container_name'")
             __props__['protection_container_name'] = protection_container_name
-            if replicated_protected_item_name is None:
+            if replicated_protected_item_name is None and not opts.urn:
                 raise TypeError("Missing required property 'replicated_protected_item_name'")
             __props__['replicated_protected_item_name'] = replicated_protected_item_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if resource_name_ is None:
+            if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
             __props__['location'] = None

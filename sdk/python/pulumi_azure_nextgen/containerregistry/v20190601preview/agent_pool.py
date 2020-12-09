@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 
 __all__ = ['AgentPool']
 
@@ -19,7 +20,7 @@ class AgentPool(pulumi.CustomResource):
                  agent_pool_name: Optional[pulumi.Input[str]] = None,
                  count: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 os: Optional[pulumi.Input[str]] = None,
+                 os: Optional[pulumi.Input[Union[str, 'OS']]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -37,7 +38,7 @@ class AgentPool(pulumi.CustomResource):
         :param pulumi.Input[str] agent_pool_name: The name of the agent pool.
         :param pulumi.Input[int] count: The count of agent machine
         :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.
-        :param pulumi.Input[str] os: The OS of agent machine
+        :param pulumi.Input[Union[str, 'OS']] os: The OS of agent machine
         :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
@@ -61,18 +62,18 @@ class AgentPool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if agent_pool_name is None:
+            if agent_pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'agent_pool_name'")
             __props__['agent_pool_name'] = agent_pool_name
             __props__['count'] = count
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['os'] = os
-            if registry_name is None:
+            if registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registry_name'")
             __props__['registry_name'] = registry_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

@@ -36,20 +36,21 @@ type AutoscaleSetting struct {
 // NewAutoscaleSetting registers a new resource with the given unique name, arguments, and options.
 func NewAutoscaleSetting(ctx *pulumi.Context,
 	name string, args *AutoscaleSettingArgs, opts ...pulumi.ResourceOption) (*AutoscaleSetting, error) {
-	if args == nil || args.AutoscaleSettingName == nil {
-		return nil, errors.New("missing required argument 'AutoscaleSettingName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Profiles == nil {
-		return nil, errors.New("missing required argument 'Profiles'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &AutoscaleSettingArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AutoscaleSettingName == nil {
+		return nil, errors.New("invalid value for required argument 'AutoscaleSettingName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.Profiles == nil {
+		return nil, errors.New("invalid value for required argument 'Profiles'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -130,28 +130,28 @@ export class Kpi extends pulumi.CustomResource {
     constructor(name: string, args: KpiArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.calculationWindow === undefined) {
+            if ((!args || args.calculationWindow === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'calculationWindow'");
             }
-            if (!args || args.entityType === undefined) {
+            if ((!args || args.entityType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'entityType'");
             }
-            if (!args || args.entityTypeName === undefined) {
+            if ((!args || args.entityTypeName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'entityTypeName'");
             }
-            if (!args || args.expression === undefined) {
+            if ((!args || args.expression === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'expression'");
             }
-            if (!args || args.function === undefined) {
+            if ((!args || args.function === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'function'");
             }
-            if (!args || args.hubName === undefined) {
+            if ((!args || args.hubName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if (!args || args.kpiName === undefined) {
+            if ((!args || args.kpiName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kpiName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["aliases"] = args ? args.aliases : undefined;
@@ -224,7 +224,7 @@ export interface KpiArgs {
     /**
      * The calculation window.
      */
-    readonly calculationWindow: pulumi.Input<string>;
+    readonly calculationWindow: pulumi.Input<enums.customerinsights.latest.CalculationWindowTypes>;
     /**
      * Name of calculation window field.
      */
@@ -240,7 +240,7 @@ export interface KpiArgs {
     /**
      * The mapping entity type.
      */
-    readonly entityType: pulumi.Input<string>;
+    readonly entityType: pulumi.Input<enums.customerinsights.latest.EntityTypes>;
     /**
      * The mapping entity name.
      */
@@ -260,7 +260,7 @@ export interface KpiArgs {
     /**
      * The computation function for the KPI.
      */
-    readonly function: pulumi.Input<string>;
+    readonly function: pulumi.Input<enums.customerinsights.latest.KpiFunctions>;
     /**
      * the group by properties for the KPI.
      */

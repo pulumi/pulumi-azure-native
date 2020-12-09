@@ -69,13 +69,13 @@ export class DataCollectionRuleAssociation extends pulumi.CustomResource {
     constructor(name: string, args: DataCollectionRuleAssociationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.associationName === undefined) {
+            if ((!args || args.associationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'associationName'");
             }
-            if (!args || args.dataCollectionRuleId === undefined) {
+            if ((!args || args.dataCollectionRuleId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataCollectionRuleId'");
             }
-            if (!args || args.resourceUri === undefined) {
+            if ((!args || args.resourceUri === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceUri'");
             }
             inputs["associationName"] = args ? args.associationName : undefined;

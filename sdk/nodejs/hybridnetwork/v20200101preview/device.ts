@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -82,16 +82,16 @@ export class Device extends pulumi.CustomResource {
     constructor(name: string, args: DeviceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.deviceName === undefined) {
+            if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if (!args || args.deviceType === undefined) {
+            if ((!args || args.deviceType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'deviceType'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["azureStackEdge"] = args ? args.azureStackEdge : undefined;
@@ -142,7 +142,7 @@ export interface DeviceArgs {
     /**
      * The type of the device.
      */
-    readonly deviceType: pulumi.Input<string>;
+    readonly deviceType: pulumi.Input<string | enums.hybridnetwork.v20200101preview.DeviceType>;
     /**
      * The geo-location where the resource lives
      */

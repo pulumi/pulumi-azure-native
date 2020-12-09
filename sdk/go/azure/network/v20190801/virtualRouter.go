@@ -42,14 +42,15 @@ type VirtualRouter struct {
 // NewVirtualRouter registers a new resource with the given unique name, arguments, and options.
 func NewVirtualRouter(ctx *pulumi.Context,
 	name string, args *VirtualRouterArgs, opts ...pulumi.ResourceOption) (*VirtualRouter, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VirtualRouterName == nil {
-		return nil, errors.New("missing required argument 'VirtualRouterName'")
-	}
 	if args == nil {
-		args = &VirtualRouterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VirtualRouterName == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualRouterName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

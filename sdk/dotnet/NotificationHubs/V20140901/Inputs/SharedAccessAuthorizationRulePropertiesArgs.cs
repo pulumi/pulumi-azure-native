@@ -58,14 +58,14 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20140901.Inputs
         public Input<int>? Revision { get; set; }
 
         [Input("rights")]
-        private InputList<string>? _rights;
+        private InputList<Pulumi.AzureNextGen.NotificationHubs.V20140901.AccessRights>? _rights;
 
         /// <summary>
         /// The rights associated with the rule.
         /// </summary>
-        public InputList<string> Rights
+        public InputList<Pulumi.AzureNextGen.NotificationHubs.V20140901.AccessRights> Rights
         {
-            get => _rights ?? (_rights = new InputList<string>());
+            get => _rights ?? (_rights = new InputList<Pulumi.AzureNextGen.NotificationHubs.V20140901.AccessRights>());
             set => _rights = value;
         }
 

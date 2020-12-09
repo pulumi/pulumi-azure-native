@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -82,19 +82,19 @@ export class OriginGroup extends pulumi.CustomResource {
     constructor(name: string, args: OriginGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.endpointName === undefined) {
+            if ((!args || args.endpointName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'endpointName'");
             }
-            if (!args || args.originGroupName === undefined) {
+            if ((!args || args.originGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'originGroupName'");
             }
-            if (!args || args.origins === undefined) {
+            if ((!args || args.origins === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'origins'");
             }
-            if (!args || args.profileName === undefined) {
+            if ((!args || args.profileName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["endpointName"] = args ? args.endpointName : undefined;

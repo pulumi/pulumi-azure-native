@@ -118,7 +118,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20180820Preview
         /// The kind of the service. Valid values are: fhir, fhir-Stu3 and fhir-R4.
         /// </summary>
         [Input("kind", required: true)]
-        public Input<string> Kind { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.HealthcareApis.V20180820Preview.Kind> Kind { get; set; } = null!;
 
         /// <summary>
         /// The resource location.

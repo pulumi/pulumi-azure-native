@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Diagnostic']
@@ -17,7 +18,7 @@ class Diagnostic(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 always_log: Optional[pulumi.Input[str]] = None,
+                 always_log: Optional[pulumi.Input[Union[str, 'AlwaysLog']]] = None,
                  backend: Optional[pulumi.Input[pulumi.InputType['PipelineDiagnosticSettingsArgs']]] = None,
                  diagnostic_id: Optional[pulumi.Input[str]] = None,
                  enable_http_correlation_headers: Optional[pulumi.Input[bool]] = None,
@@ -34,7 +35,7 @@ class Diagnostic(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] always_log: Specifies for what type of messages sampling settings should not apply.
+        :param pulumi.Input[Union[str, 'AlwaysLog']] always_log: Specifies for what type of messages sampling settings should not apply.
         :param pulumi.Input[pulumi.InputType['PipelineDiagnosticSettingsArgs']] backend: Diagnostic settings for incoming/outgoing HTTP messages to the Backend
         :param pulumi.Input[str] diagnostic_id: Diagnostic identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[bool] enable_http_correlation_headers: Whether to process Correlation Headers coming to Api Management Service. Only applicable to Application Insights diagnostics. Default is true.
@@ -63,19 +64,19 @@ class Diagnostic(pulumi.CustomResource):
 
             __props__['always_log'] = always_log
             __props__['backend'] = backend
-            if diagnostic_id is None:
+            if diagnostic_id is None and not opts.urn:
                 raise TypeError("Missing required property 'diagnostic_id'")
             __props__['diagnostic_id'] = diagnostic_id
             __props__['enable_http_correlation_headers'] = enable_http_correlation_headers
             __props__['frontend'] = frontend
-            if logger_id is None:
+            if logger_id is None and not opts.urn:
                 raise TypeError("Missing required property 'logger_id'")
             __props__['logger_id'] = logger_id
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sampling'] = sampling
-            if service_name is None:
+            if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['name'] = None

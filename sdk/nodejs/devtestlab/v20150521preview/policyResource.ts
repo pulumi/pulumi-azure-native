@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -89,16 +90,16 @@ export class PolicyResource extends pulumi.CustomResource {
     constructor(name: string, args: PolicyResourceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.labName === undefined) {
+            if ((!args || args.labName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'labName'");
             }
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.policySetName === undefined) {
+            if ((!args || args.policySetName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policySetName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -153,7 +154,7 @@ export interface PolicyResourceArgs {
     /**
      * The evaluator type of the policy.
      */
-    readonly evaluatorType?: pulumi.Input<string>;
+    readonly evaluatorType?: pulumi.Input<string | enums.devtestlab.v20150521preview.PolicyEvaluatorType>;
     /**
      * The fact data of the policy.
      */
@@ -161,7 +162,7 @@ export interface PolicyResourceArgs {
     /**
      * The fact name of the policy.
      */
-    readonly factName?: pulumi.Input<string>;
+    readonly factName?: pulumi.Input<string | enums.devtestlab.v20150521preview.PolicyFactName>;
     /**
      * The identifier of the resource.
      */
@@ -193,7 +194,7 @@ export interface PolicyResourceArgs {
     /**
      * The status of the policy.
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<string | enums.devtestlab.v20150521preview.PolicyStatus>;
     /**
      * The tags of the resource.
      */

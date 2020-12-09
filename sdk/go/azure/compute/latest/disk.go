@@ -76,20 +76,21 @@ type Disk struct {
 // NewDisk registers a new resource with the given unique name, arguments, and options.
 func NewDisk(ctx *pulumi.Context,
 	name string, args *DiskArgs, opts ...pulumi.ResourceOption) (*Disk, error) {
-	if args == nil || args.CreationData == nil {
-		return nil, errors.New("missing required argument 'CreationData'")
-	}
-	if args == nil || args.DiskName == nil {
-		return nil, errors.New("missing required argument 'DiskName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &DiskArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CreationData == nil {
+		return nil, errors.New("invalid value for required argument 'CreationData'")
+	}
+	if args.DiskName == nil {
+		return nil, errors.New("invalid value for required argument 'DiskName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -341,7 +342,7 @@ type DiskArgs struct {
 	// Policy for accessing the disk via network.
 	NetworkAccessPolicy pulumi.StringPtrInput
 	// The Operating System type.
-	OsType pulumi.StringPtrInput
+	OsType OperatingSystemTypes
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.

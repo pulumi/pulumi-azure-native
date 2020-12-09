@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'FailoverGroupReadOnlyEndpointArgs',
@@ -22,35 +23,35 @@ __all__ = [
 @pulumi.input_type
 class FailoverGroupReadOnlyEndpointArgs:
     def __init__(__self__, *,
-                 failover_policy: Optional[pulumi.Input[str]] = None):
+                 failover_policy: Optional[pulumi.Input[Union[str, 'ReadOnlyEndpointFailoverPolicy']]] = None):
         """
         Read-only endpoint of the failover group instance.
-        :param pulumi.Input[str] failover_policy: Failover policy of the read-only endpoint for the failover group.
+        :param pulumi.Input[Union[str, 'ReadOnlyEndpointFailoverPolicy']] failover_policy: Failover policy of the read-only endpoint for the failover group.
         """
         if failover_policy is not None:
             pulumi.set(__self__, "failover_policy", failover_policy)
 
     @property
     @pulumi.getter(name="failoverPolicy")
-    def failover_policy(self) -> Optional[pulumi.Input[str]]:
+    def failover_policy(self) -> Optional[pulumi.Input[Union[str, 'ReadOnlyEndpointFailoverPolicy']]]:
         """
         Failover policy of the read-only endpoint for the failover group.
         """
         return pulumi.get(self, "failover_policy")
 
     @failover_policy.setter
-    def failover_policy(self, value: Optional[pulumi.Input[str]]):
+    def failover_policy(self, value: Optional[pulumi.Input[Union[str, 'ReadOnlyEndpointFailoverPolicy']]]):
         pulumi.set(self, "failover_policy", value)
 
 
 @pulumi.input_type
 class FailoverGroupReadWriteEndpointArgs:
     def __init__(__self__, *,
-                 failover_policy: pulumi.Input[str],
+                 failover_policy: pulumi.Input[Union[str, 'ReadWriteEndpointFailoverPolicy']],
                  failover_with_data_loss_grace_period_minutes: Optional[pulumi.Input[int]] = None):
         """
         Read-write endpoint of the failover group instance.
-        :param pulumi.Input[str] failover_policy: Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+        :param pulumi.Input[Union[str, 'ReadWriteEndpointFailoverPolicy']] failover_policy: Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
         :param pulumi.Input[int] failover_with_data_loss_grace_period_minutes: Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
         """
         pulumi.set(__self__, "failover_policy", failover_policy)
@@ -59,14 +60,14 @@ class FailoverGroupReadWriteEndpointArgs:
 
     @property
     @pulumi.getter(name="failoverPolicy")
-    def failover_policy(self) -> pulumi.Input[str]:
+    def failover_policy(self) -> pulumi.Input[Union[str, 'ReadWriteEndpointFailoverPolicy']]:
         """
         Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
         """
         return pulumi.get(self, "failover_policy")
 
     @failover_policy.setter
-    def failover_policy(self, value: pulumi.Input[str]):
+    def failover_policy(self, value: pulumi.Input[Union[str, 'ReadWriteEndpointFailoverPolicy']]):
         pulumi.set(self, "failover_policy", value)
 
     @property
@@ -108,24 +109,24 @@ class PartnerInfoArgs:
 @pulumi.input_type
 class ResourceIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input[Union[str, 'IdentityType']]] = None):
         """
         Azure Active Directory identity configuration for a resource.
-        :param pulumi.Input[str] type: The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+        :param pulumi.Input[Union[str, 'IdentityType']] type: The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'IdentityType']]]:
         """
         The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'IdentityType']]]):
         pulumi.set(self, "type", value)
 
 

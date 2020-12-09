@@ -28,17 +28,18 @@ type Key struct {
 // NewKey registers a new resource with the given unique name, arguments, and options.
 func NewKey(ctx *pulumi.Context,
 	name string, args *KeyArgs, opts ...pulumi.ResourceOption) (*Key, error) {
-	if args == nil || args.KeyName == nil {
-		return nil, errors.New("missing required argument 'KeyName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &KeyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.KeyName == nil {
+		return nil, errors.New("invalid value for required argument 'KeyName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	var resource Key
 	err := ctx.RegisterResource("azure-nextgen:synapse/v20190601preview:Key", name, args, &resource, opts...)

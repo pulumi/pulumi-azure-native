@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['Account']
 
@@ -17,7 +18,7 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 operation_type: Optional[pulumi.Input[str]] = None,
+                 operation_type: Optional[pulumi.Input[Union[str, 'AccountResourceRequestOperationType']]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
@@ -32,7 +33,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The account name.
         :param pulumi.Input[str] location: The Azure instance location.
-        :param pulumi.Input[str] operation_type: The type of the operation.
+        :param pulumi.Input[Union[str, 'AccountResourceRequestOperationType']] operation_type: The type of the operation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The custom properties of the resource.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
         :param pulumi.Input[str] resource_name_: Name of the resource.
@@ -59,10 +60,10 @@ class Account(pulumi.CustomResource):
             __props__['location'] = location
             __props__['operation_type'] = operation_type
             __props__['properties'] = properties
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if resource_name_ is None:
+            if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
             __props__['tags'] = tags

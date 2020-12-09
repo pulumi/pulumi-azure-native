@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -126,16 +126,16 @@ export class Runbook extends pulumi.CustomResource {
     constructor(name: string, args: RunbookArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.automationAccountName === undefined) {
+            if ((!args || args.automationAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.runbookName === undefined) {
+            if ((!args || args.runbookName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'runbookName'");
             }
-            if (!args || args.runbookType === undefined) {
+            if ((!args || args.runbookType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'runbookType'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
@@ -247,7 +247,7 @@ export interface RunbookArgs {
     /**
      * Gets or sets the type of the runbook.
      */
-    readonly runbookType: pulumi.Input<string>;
+    readonly runbookType: pulumi.Input<string | enums.automation.v20151031.RunbookTypeEnum>;
     /**
      * Gets or sets the tags attached to the resource.
      */

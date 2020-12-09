@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'MigrateProjectPropertiesArgs',
@@ -18,11 +19,11 @@ __all__ = [
 @pulumi.input_type
 class MigrateProjectPropertiesArgs:
     def __init__(__self__, *,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  registered_tools: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Class for migrate project properties.
-        :param pulumi.Input[str] provisioning_state: Provisioning state of the migrate project.
+        :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: Provisioning state of the migrate project.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] registered_tools: Gets or sets the list of tools registered with the migrate project.
         """
         if provisioning_state is not None:
@@ -32,14 +33,14 @@ class MigrateProjectPropertiesArgs:
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
+    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ProvisioningState']]]:
         """
         Provisioning state of the migrate project.
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
+    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
 
     @property

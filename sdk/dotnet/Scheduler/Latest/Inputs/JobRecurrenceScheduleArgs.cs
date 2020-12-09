@@ -61,14 +61,14 @@ namespace Pulumi.AzureNextGen.Scheduler.Latest.Inputs
         }
 
         [Input("weekDays")]
-        private InputList<string>? _weekDays;
+        private InputList<Pulumi.AzureNextGen.Scheduler.Latest.DayOfWeek>? _weekDays;
 
         /// <summary>
         /// Gets or sets the days of the week that the job should execute on.
         /// </summary>
-        public InputList<string> WeekDays
+        public InputList<Pulumi.AzureNextGen.Scheduler.Latest.DayOfWeek> WeekDays
         {
-            get => _weekDays ?? (_weekDays = new InputList<string>());
+            get => _weekDays ?? (_weekDays = new InputList<Pulumi.AzureNextGen.Scheduler.Latest.DayOfWeek>());
             set => _weekDays = value;
         }
 

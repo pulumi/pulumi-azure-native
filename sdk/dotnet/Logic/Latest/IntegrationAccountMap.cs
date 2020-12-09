@@ -172,7 +172,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         /// The map type.
         /// </summary>
         [Input("mapType", required: true)]
-        public Input<string> MapType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Logic.Latest.MapType> MapType { get; set; } = null!;
 
         /// <summary>
         /// The metadata.

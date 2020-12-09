@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview.Inputs
         /// The IP Filter Action
         /// </summary>
         [Input("action")]
-        public Input<string>? Action { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.EventHub.V20180101Preview.NetworkRuleIPAction>? Action { get; set; }
 
         /// <summary>
         /// IP Mask

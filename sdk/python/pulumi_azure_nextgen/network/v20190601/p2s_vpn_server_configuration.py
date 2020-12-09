@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['P2sVpnServerConfiguration']
@@ -30,7 +31,7 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  virtual_wan_name: Optional[pulumi.Input[str]] = None,
                  vpn_client_ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]]] = None,
-                 vpn_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 vpn_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'VpnGatewayTunnelingProtocol']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -52,7 +53,7 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualWan.
         :param pulumi.Input[str] virtual_wan_name: The name of the VirtualWan.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]] vpn_client_ipsec_policies: VpnClientIpsecPolicies for P2SVpnServerConfiguration.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpn_protocols: VPN protocols for the P2SVpnServerConfiguration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'VpnGatewayTunnelingProtocol']]]] vpn_protocols: VPN protocols for the P2SVpnServerConfiguration.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -78,15 +79,15 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
             __props__['p2_s_vpn_server_config_radius_server_root_certificates'] = p2_s_vpn_server_config_radius_server_root_certificates
             __props__['p2_s_vpn_server_config_vpn_client_revoked_certificates'] = p2_s_vpn_server_config_vpn_client_revoked_certificates
             __props__['p2_s_vpn_server_config_vpn_client_root_certificates'] = p2_s_vpn_server_config_vpn_client_root_certificates
-            if p2_s_vpn_server_configuration_name is None:
+            if p2_s_vpn_server_configuration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'p2_s_vpn_server_configuration_name'")
             __props__['p2_s_vpn_server_configuration_name'] = p2_s_vpn_server_configuration_name
             __props__['radius_server_address'] = radius_server_address
             __props__['radius_server_secret'] = radius_server_secret
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if virtual_wan_name is None:
+            if virtual_wan_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_wan_name'")
             __props__['virtual_wan_name'] = virtual_wan_name
             __props__['vpn_client_ipsec_policies'] = vpn_client_ipsec_policies

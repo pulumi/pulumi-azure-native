@@ -35,20 +35,21 @@ type Logger struct {
 // NewLogger registers a new resource with the given unique name, arguments, and options.
 func NewLogger(ctx *pulumi.Context,
 	name string, args *LoggerArgs, opts ...pulumi.ResourceOption) (*Logger, error) {
-	if args == nil || args.LoggerId == nil {
-		return nil, errors.New("missing required argument 'LoggerId'")
-	}
-	if args == nil || args.LoggerType == nil {
-		return nil, errors.New("missing required argument 'LoggerType'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
 	if args == nil {
-		args = &LoggerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.LoggerId == nil {
+		return nil, errors.New("invalid value for required argument 'LoggerId'")
+	}
+	if args.LoggerType == nil {
+		return nil, errors.New("invalid value for required argument 'LoggerType'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

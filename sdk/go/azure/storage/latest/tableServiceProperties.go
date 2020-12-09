@@ -26,17 +26,18 @@ type TableServiceProperties struct {
 // NewTableServiceProperties registers a new resource with the given unique name, arguments, and options.
 func NewTableServiceProperties(ctx *pulumi.Context,
 	name string, args *TableServicePropertiesArgs, opts ...pulumi.ResourceOption) (*TableServiceProperties, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.TableServiceName == nil {
-		return nil, errors.New("missing required argument 'TableServiceName'")
-	}
 	if args == nil {
-		args = &TableServicePropertiesArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.TableServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'TableServiceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

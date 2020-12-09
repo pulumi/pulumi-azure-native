@@ -137,7 +137,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         /// Logger type.
         /// </summary>
         [Input("loggerType", required: true)]
-        public Input<string> LoggerType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20180101.LoggerType> LoggerType { get; set; } = null!;
 
         /// <summary>
         /// Logger identifier. Must be unique in the API Management service instance.

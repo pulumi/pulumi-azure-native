@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest.Inputs
         /// The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
         /// </summary>
         [Input("allowPublicIp")]
-        public Input<string>? AllowPublicIp { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.Latest.UsagePermissionType>? AllowPublicIp { get; set; }
 
         /// <summary>
         /// The name of the subnet as seen in the lab.

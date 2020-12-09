@@ -81,13 +81,13 @@ export class GraphQuery extends pulumi.CustomResource {
     constructor(name: string, args: GraphQueryArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.query === undefined) {
+            if ((!args || args.query === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'query'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.resourceName === undefined) {
+            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["description"] = args ? args.description : undefined;

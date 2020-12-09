@@ -28,17 +28,18 @@ type DpsCertificate struct {
 // NewDpsCertificate registers a new resource with the given unique name, arguments, and options.
 func NewDpsCertificate(ctx *pulumi.Context,
 	name string, args *DpsCertificateArgs, opts ...pulumi.ResourceOption) (*DpsCertificate, error) {
-	if args == nil || args.CertificateName == nil {
-		return nil, errors.New("missing required argument 'CertificateName'")
-	}
-	if args == nil || args.ProvisioningServiceName == nil {
-		return nil, errors.New("missing required argument 'ProvisioningServiceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &DpsCertificateArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CertificateName == nil {
+		return nil, errors.New("invalid value for required argument 'CertificateName'")
+	}
+	if args.ProvisioningServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ProvisioningServiceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

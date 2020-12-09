@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest.Inputs
         /// The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).
         /// </summary>
         [Input("windowsOsState")]
-        public Input<string>? WindowsOsState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.Latest.WindowsOsState>? WindowsOsState { get; set; }
 
         public WindowsOsInfoArgs()
         {

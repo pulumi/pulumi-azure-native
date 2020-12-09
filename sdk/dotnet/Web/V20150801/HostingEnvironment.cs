@@ -361,7 +361,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
         /// </summary>
         [Input("internalLoadBalancingMode")]
-        public Input<string>? InternalLoadBalancingMode { get; set; }
+        public Input<Pulumi.AzureNextGen.Web.V20150801.InternalLoadBalancingMode>? InternalLoadBalancingMode { get; set; }
 
         /// <summary>
         /// Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
@@ -433,7 +433,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// Provisioning state of the hostingEnvironment (App Service Environment)
         /// </summary>
         [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
+        public Input<Pulumi.AzureNextGen.Web.V20150801.ProvisioningState>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Resource group of the hostingEnvironment (App Service Environment)
@@ -451,7 +451,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// Current status of the hostingEnvironment (App Service Environment)
         /// </summary>
         [Input("status", required: true)]
-        public Input<string> Status { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Web.V20150801.HostingEnvironmentStatus> Status { get; set; } = null!;
 
         /// <summary>
         /// Subscription of the hostingEnvironment (App Service Environment)

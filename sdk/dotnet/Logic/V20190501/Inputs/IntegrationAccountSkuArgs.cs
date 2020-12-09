@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501.Inputs
         /// The sku name.
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Logic.V20190501.IntegrationAccountSkuName> Name { get; set; } = null!;
 
         public IntegrationAccountSkuArgs()
         {

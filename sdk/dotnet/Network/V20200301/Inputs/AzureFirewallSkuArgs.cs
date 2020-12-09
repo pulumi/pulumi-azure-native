@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Network.V20200301.Inputs
         /// Name of an Azure Firewall SKU.
         /// </summary>
         [Input("name")]
-        public Input<string>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200301.AzureFirewallSkuName>? Name { get; set; }
 
         /// <summary>
         /// Tier of an Azure Firewall.
         /// </summary>
         [Input("tier")]
-        public Input<string>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200301.AzureFirewallSkuTier>? Tier { get; set; }
 
         public AzureFirewallSkuArgs()
         {

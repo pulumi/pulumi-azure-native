@@ -22,14 +22,15 @@ type UserSettings struct {
 // NewUserSettings registers a new resource with the given unique name, arguments, and options.
 func NewUserSettings(ctx *pulumi.Context,
 	name string, args *UserSettingsArgs, opts ...pulumi.ResourceOption) (*UserSettings, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
-	if args == nil || args.UserSettingsName == nil {
-		return nil, errors.New("missing required argument 'UserSettingsName'")
-	}
 	if args == nil {
-		args = &UserSettingsArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
+	}
+	if args.UserSettingsName == nil {
+		return nil, errors.New("invalid value for required argument 'UserSettingsName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Web.V20190801.Inputs
         /// Indicates whether the hostname is a standard or repository hostname.
         /// </summary>
         [Input("hostType")]
-        public Input<string>? HostType { get; set; }
+        public Input<Pulumi.AzureNextGen.Web.V20190801.HostType>? HostType { get; set; }
 
         /// <summary>
         /// Hostname.
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Web.V20190801.Inputs
         /// SSL type.
         /// </summary>
         [Input("sslState")]
-        public Input<string>? SslState { get; set; }
+        public Input<Pulumi.AzureNextGen.Web.V20190801.SslState>? SslState { get; set; }
 
         /// <summary>
         /// SSL certificate thumbprint.

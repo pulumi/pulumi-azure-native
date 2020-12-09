@@ -58,38 +58,39 @@ type Prediction struct {
 // NewPrediction registers a new resource with the given unique name, arguments, and options.
 func NewPrediction(ctx *pulumi.Context,
 	name string, args *PredictionArgs, opts ...pulumi.ResourceOption) (*Prediction, error) {
-	if args == nil || args.AutoAnalyze == nil {
-		return nil, errors.New("missing required argument 'AutoAnalyze'")
-	}
-	if args == nil || args.HubName == nil {
-		return nil, errors.New("missing required argument 'HubName'")
-	}
-	if args == nil || args.Mappings == nil {
-		return nil, errors.New("missing required argument 'Mappings'")
-	}
-	if args == nil || args.NegativeOutcomeExpression == nil {
-		return nil, errors.New("missing required argument 'NegativeOutcomeExpression'")
-	}
-	if args == nil || args.PositiveOutcomeExpression == nil {
-		return nil, errors.New("missing required argument 'PositiveOutcomeExpression'")
-	}
-	if args == nil || args.PredictionName == nil {
-		return nil, errors.New("missing required argument 'PredictionName'")
-	}
-	if args == nil || args.PrimaryProfileType == nil {
-		return nil, errors.New("missing required argument 'PrimaryProfileType'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ScopeExpression == nil {
-		return nil, errors.New("missing required argument 'ScopeExpression'")
-	}
-	if args == nil || args.ScoreLabel == nil {
-		return nil, errors.New("missing required argument 'ScoreLabel'")
-	}
 	if args == nil {
-		args = &PredictionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AutoAnalyze == nil {
+		return nil, errors.New("invalid value for required argument 'AutoAnalyze'")
+	}
+	if args.HubName == nil {
+		return nil, errors.New("invalid value for required argument 'HubName'")
+	}
+	if args.Mappings == nil {
+		return nil, errors.New("invalid value for required argument 'Mappings'")
+	}
+	if args.NegativeOutcomeExpression == nil {
+		return nil, errors.New("invalid value for required argument 'NegativeOutcomeExpression'")
+	}
+	if args.PositiveOutcomeExpression == nil {
+		return nil, errors.New("invalid value for required argument 'PositiveOutcomeExpression'")
+	}
+	if args.PredictionName == nil {
+		return nil, errors.New("invalid value for required argument 'PredictionName'")
+	}
+	if args.PrimaryProfileType == nil {
+		return nil, errors.New("invalid value for required argument 'PrimaryProfileType'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ScopeExpression == nil {
+		return nil, errors.New("invalid value for required argument 'ScopeExpression'")
+	}
+	if args.ScoreLabel == nil {
+		return nil, errors.New("invalid value for required argument 'ScoreLabel'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

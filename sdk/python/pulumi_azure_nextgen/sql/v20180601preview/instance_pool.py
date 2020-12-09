@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['InstancePool']
@@ -18,7 +19,7 @@ class InstancePool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_pool_name: Optional[pulumi.Input[str]] = None,
-                 license_type: Optional[pulumi.Input[str]] = None,
+                 license_type: Optional[pulumi.Input[Union[str, 'InstancePoolLicenseType']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
@@ -34,7 +35,7 @@ class InstancePool(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] instance_pool_name: The name of the instance pool to be created or updated.
-        :param pulumi.Input[str] license_type: The license type. Possible values are 'LicenseIncluded' (price for SQL license is included) and 'BasePrice' (without SQL license price).
+        :param pulumi.Input[Union[str, 'InstancePoolLicenseType']] license_type: The license type. Possible values are 'LicenseIncluded' (price for SQL license is included) and 'BasePrice' (without SQL license price).
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The name and tier of the SKU.
@@ -59,24 +60,24 @@ class InstancePool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if instance_pool_name is None:
+            if instance_pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_pool_name'")
             __props__['instance_pool_name'] = instance_pool_name
-            if license_type is None:
+            if license_type is None and not opts.urn:
                 raise TypeError("Missing required property 'license_type'")
             __props__['license_type'] = license_type
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
-            if subnet_id is None:
+            if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__['subnet_id'] = subnet_id
             __props__['tags'] = tags
-            if v_cores is None:
+            if v_cores is None and not opts.urn:
                 raise TypeError("Missing required property 'v_cores'")
             __props__['v_cores'] = v_cores
             __props__['name'] = None

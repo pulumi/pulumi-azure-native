@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.Network.V20190201.Inputs
         /// The reference to the transport protocol used by the load balancing rule.
         /// </summary>
         [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190201.TransportProtocol>? Protocol { get; set; }
 
         /// <summary>
         /// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.

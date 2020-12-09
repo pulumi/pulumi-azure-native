@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Web.Latest.Inputs
         /// Predefined action to be taken.
         /// </summary>
         [Input("actionType")]
-        public Input<string>? ActionType { get; set; }
+        public Input<Pulumi.AzureNextGen.Web.Latest.AutoHealActionType>? ActionType { get; set; }
 
         /// <summary>
         /// Custom action to be taken.

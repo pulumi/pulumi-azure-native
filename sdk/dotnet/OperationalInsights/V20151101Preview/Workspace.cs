@@ -148,7 +148,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20151101Preview
         /// The provisioning state of the workspace.
         /// </summary>
         [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.OperationalInsights.V20151101Preview.EntityStatus>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The resource group name of the workspace.

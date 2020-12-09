@@ -38,20 +38,21 @@ type PrivateEndpointConnection struct {
 // NewPrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
 func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	name string, args *PrivateEndpointConnectionArgs, opts ...pulumi.ResourceOption) (*PrivateEndpointConnection, error) {
-	if args == nil || args.PrivateEndpointConnectionName == nil {
-		return nil, errors.New("missing required argument 'PrivateEndpointConnectionName'")
-	}
-	if args == nil || args.PrivateLinkServiceConnectionState == nil {
-		return nil, errors.New("missing required argument 'PrivateLinkServiceConnectionState'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &PrivateEndpointConnectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PrivateEndpointConnectionName == nil {
+		return nil, errors.New("invalid value for required argument 'PrivateEndpointConnectionName'")
+	}
+	if args.PrivateLinkServiceConnectionState == nil {
+		return nil, errors.New("invalid value for required argument 'PrivateLinkServiceConnectionState'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

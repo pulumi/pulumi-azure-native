@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -98,10 +98,10 @@ export class Factory extends pulumi.CustomResource {
     constructor(name: string, args: FactoryArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.factoryName === undefined) {
+            if ((!args || args.factoryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'factoryName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["encryption"] = args ? args.encryption : undefined;
@@ -174,7 +174,7 @@ export interface FactoryArgs {
     /**
      * Whether or not public network access is allowed for the data factory.
      */
-    readonly publicNetworkAccess?: pulumi.Input<string>;
+    readonly publicNetworkAccess?: pulumi.Input<string | enums.datafactory.v20180601.PublicNetworkAccess>;
     /**
      * Git repo information of the factory.
      */

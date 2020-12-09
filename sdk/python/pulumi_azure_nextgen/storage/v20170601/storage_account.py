@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['StorageAccount']
@@ -17,13 +18,13 @@ class StorageAccount(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_tier: Optional[pulumi.Input[str]] = None,
+                 access_tier: Optional[pulumi.Input['AccessTier']] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  custom_domain: Optional[pulumi.Input[pulumi.InputType['CustomDomainArgs']]] = None,
                  enable_https_traffic_only: Optional[pulumi.Input[bool]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input['Kind']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_rule_set: Optional[pulumi.Input[pulumi.InputType['NetworkRuleSetArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -37,13 +38,13 @@ class StorageAccount(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access_tier: Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+        :param pulumi.Input['AccessTier'] access_tier: Required for storage accounts where kind = BlobStorage. The access tier used for billing.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[pulumi.InputType['CustomDomainArgs']] custom_domain: User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
         :param pulumi.Input[bool] enable_https_traffic_only: Allows https traffic only to storage service if sets to true.
         :param pulumi.Input[pulumi.InputType['EncryptionArgs']] encryption: Provides the encryption settings on the account. If left unspecified the account encryption settings will remain the same. The default setting is unencrypted.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
-        :param pulumi.Input[str] kind: Required. Indicates the type of storage account.
+        :param pulumi.Input['Kind'] kind: Required. Indicates the type of storage account.
         :param pulumi.Input[str] location: Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
         :param pulumi.Input[pulumi.InputType['NetworkRuleSetArgs']] network_rule_set: Network rule set
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
@@ -68,24 +69,24 @@ class StorageAccount(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['access_tier'] = access_tier
-            if account_name is None:
+            if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['custom_domain'] = custom_domain
             __props__['enable_https_traffic_only'] = enable_https_traffic_only
             __props__['encryption'] = encryption
             __props__['identity'] = identity
-            if kind is None:
+            if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = kind
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['network_rule_set'] = network_rule_set
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if sku is None:
+            if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Job']
@@ -18,7 +19,7 @@ class Job(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delivery_info: Optional[pulumi.Input[pulumi.InputType['JobDeliveryInfoArgs']]] = None,
-                 delivery_type: Optional[pulumi.Input[str]] = None,
+                 delivery_type: Optional[pulumi.Input[Union[str, 'JobDeliveryType']]] = None,
                  details: Optional[pulumi.Input[Union[pulumi.InputType['DataBoxDiskJobDetailsArgs'], pulumi.InputType['DataBoxHeavyJobDetailsArgs'], pulumi.InputType['DataBoxJobDetailsArgs']]]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -34,7 +35,7 @@ class Job(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['JobDeliveryInfoArgs']] delivery_info: Delivery Info of Job.
-        :param pulumi.Input[str] delivery_type: Delivery type of Job.
+        :param pulumi.Input[Union[str, 'JobDeliveryType']] delivery_type: Delivery type of Job.
         :param pulumi.Input[Union[pulumi.InputType['DataBoxDiskJobDetailsArgs'], pulumi.InputType['DataBoxHeavyJobDetailsArgs'], pulumi.InputType['DataBoxJobDetailsArgs']]] details: Details of a job run. This field will only be sent for expand details filter.
         :param pulumi.Input[str] job_name: The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
         :param pulumi.Input[str] location: The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
@@ -62,16 +63,16 @@ class Job(pulumi.CustomResource):
             __props__['delivery_info'] = delivery_info
             __props__['delivery_type'] = delivery_type
             __props__['details'] = details
-            if job_name is None:
+            if job_name is None and not opts.urn:
                 raise TypeError("Missing required property 'job_name'")
             __props__['job_name'] = job_name
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if sku is None:
+            if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags

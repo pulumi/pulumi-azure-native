@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -74,19 +74,19 @@ export class StorageAccountCredential extends pulumi.CustomResource {
     constructor(name: string, args: StorageAccountCredentialArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.endPoint === undefined) {
+            if ((!args || args.endPoint === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'endPoint'");
             }
-            if (!args || args.managerName === undefined) {
+            if ((!args || args.managerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sslStatus === undefined) {
+            if ((!args || args.sslStatus === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sslStatus'");
             }
-            if (!args || args.storageAccountCredentialName === undefined) {
+            if ((!args || args.storageAccountCredentialName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageAccountCredentialName'");
             }
             inputs["accessKey"] = args ? args.accessKey : undefined;
@@ -136,7 +136,7 @@ export interface StorageAccountCredentialArgs {
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    readonly kind?: pulumi.Input<string>;
+    readonly kind?: pulumi.Input<enums.storsimple.latest.Kind>;
     /**
      * The manager name
      */
@@ -148,7 +148,7 @@ export interface StorageAccountCredentialArgs {
     /**
      * Signifies whether SSL needs to be enabled or not.
      */
-    readonly sslStatus: pulumi.Input<string>;
+    readonly sslStatus: pulumi.Input<enums.storsimple.latest.SslStatus>;
     /**
      * The storage account credential name.
      */

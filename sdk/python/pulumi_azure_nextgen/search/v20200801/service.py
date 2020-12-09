@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Service']
@@ -17,12 +18,12 @@ class Service(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hosting_mode: Optional[pulumi.Input[str]] = None,
+                 hosting_mode: Optional[pulumi.Input['HostingMode']] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_rule_set: Optional[pulumi.Input[pulumi.InputType['NetworkRuleSetArgs']]] = None,
                  partition_count: Optional[pulumi.Input[int]] = None,
-                 public_network_access: Optional[pulumi.Input[str]] = None,
+                 public_network_access: Optional[pulumi.Input['PublicNetworkAccess']] = None,
                  replica_count: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  search_service_name: Optional[pulumi.Input[str]] = None,
@@ -36,12 +37,12 @@ class Service(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] hosting_mode: Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
+        :param pulumi.Input['HostingMode'] hosting_mode: Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[pulumi.InputType['NetworkRuleSetArgs']] network_rule_set: Network specific rules that determine how the Azure Cognitive Search service may be reached.
         :param pulumi.Input[int] partition_count: The number of partitions in the search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
-        :param pulumi.Input[str] public_network_access: This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
+        :param pulumi.Input['PublicNetworkAccess'] public_network_access: This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
         :param pulumi.Input[int] replica_count: The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] search_service_name: The name of the Azure Cognitive Search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be globally unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
@@ -67,17 +68,17 @@ class Service(pulumi.CustomResource):
 
             __props__['hosting_mode'] = hosting_mode
             __props__['identity'] = identity
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['network_rule_set'] = network_rule_set
             __props__['partition_count'] = partition_count
             __props__['public_network_access'] = public_network_access
             __props__['replica_count'] = replica_count
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if search_service_name is None:
+            if search_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'search_service_name'")
             __props__['search_service_name'] = search_service_name
             __props__['sku'] = sku

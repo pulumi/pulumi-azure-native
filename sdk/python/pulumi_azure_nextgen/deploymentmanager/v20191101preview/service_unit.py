@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ServiceUnit']
@@ -18,7 +19,7 @@ class ServiceUnit(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  artifacts: Optional[pulumi.Input[pulumi.InputType['ServiceUnitArtifactsArgs']]] = None,
-                 deployment_mode: Optional[pulumi.Input[str]] = None,
+                 deployment_mode: Optional[pulumi.Input['DeploymentMode']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
@@ -35,7 +36,7 @@ class ServiceUnit(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ServiceUnitArtifactsArgs']] artifacts: The artifacts for the service unit.
-        :param pulumi.Input[str] deployment_mode: Describes the type of ARM deployment to be performed on the resource.
+        :param pulumi.Input['DeploymentMode'] deployment_mode: Describes the type of ARM deployment to be performed on the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the service resource.
@@ -62,26 +63,26 @@ class ServiceUnit(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['artifacts'] = artifacts
-            if deployment_mode is None:
+            if deployment_mode is None and not opts.urn:
                 raise TypeError("Missing required property 'deployment_mode'")
             __props__['deployment_mode'] = deployment_mode
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if service_name is None:
+            if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
-            if service_topology_name is None:
+            if service_topology_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_topology_name'")
             __props__['service_topology_name'] = service_topology_name
-            if service_unit_name is None:
+            if service_unit_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_unit_name'")
             __props__['service_unit_name'] = service_unit_name
             __props__['tags'] = tags
-            if target_resource_group is None:
+            if target_resource_group is None and not opts.urn:
                 raise TypeError("Missing required property 'target_resource_group'")
             __props__['target_resource_group'] = target_resource_group
             __props__['name'] = None

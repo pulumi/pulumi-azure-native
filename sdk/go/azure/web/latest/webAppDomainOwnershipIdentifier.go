@@ -30,17 +30,18 @@ type WebAppDomainOwnershipIdentifier struct {
 // NewWebAppDomainOwnershipIdentifier registers a new resource with the given unique name, arguments, and options.
 func NewWebAppDomainOwnershipIdentifier(ctx *pulumi.Context,
 	name string, args *WebAppDomainOwnershipIdentifierArgs, opts ...pulumi.ResourceOption) (*WebAppDomainOwnershipIdentifier, error) {
-	if args == nil || args.DomainOwnershipIdentifierName == nil {
-		return nil, errors.New("missing required argument 'DomainOwnershipIdentifierName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &WebAppDomainOwnershipIdentifierArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DomainOwnershipIdentifierName == nil {
+		return nil, errors.New("invalid value for required argument 'DomainOwnershipIdentifierName'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

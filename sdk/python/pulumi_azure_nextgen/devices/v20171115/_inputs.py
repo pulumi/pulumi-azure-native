@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'IotDpsPropertiesDescriptionArgs',
@@ -18,18 +19,18 @@ __all__ = [
 @pulumi.input_type
 class IotDpsPropertiesDescriptionArgs:
     def __init__(__self__, *,
-                 allocation_policy: Optional[pulumi.Input[str]] = None,
+                 allocation_policy: Optional[pulumi.Input[Union[str, 'AllocationPolicy']]] = None,
                  authorization_policies: Optional[pulumi.Input[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs']]]] = None,
                  iot_hubs: Optional[pulumi.Input[Sequence[pulumi.Input['IotHubDefinitionDescriptionArgs']]]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input[str]] = None):
+                 state: Optional[pulumi.Input[Union[str, 'State']]] = None):
         """
         the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
-        :param pulumi.Input[str] allocation_policy: Allocation policy to be used by this provisioning service.
+        :param pulumi.Input[Union[str, 'AllocationPolicy']] allocation_policy: Allocation policy to be used by this provisioning service.
         :param pulumi.Input[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs']]] authorization_policies: List of authorization keys for a provisioning service.
         :param pulumi.Input[Sequence[pulumi.Input['IotHubDefinitionDescriptionArgs']]] iot_hubs: List of IoT hubs associated with this provisioning service.
         :param pulumi.Input[str] provisioning_state: The ARM provisioning state of the provisioning service.
-        :param pulumi.Input[str] state: Current state of the provisioning service.
+        :param pulumi.Input[Union[str, 'State']] state: Current state of the provisioning service.
         """
         if allocation_policy is not None:
             pulumi.set(__self__, "allocation_policy", allocation_policy)
@@ -44,14 +45,14 @@ class IotDpsPropertiesDescriptionArgs:
 
     @property
     @pulumi.getter(name="allocationPolicy")
-    def allocation_policy(self) -> Optional[pulumi.Input[str]]:
+    def allocation_policy(self) -> Optional[pulumi.Input[Union[str, 'AllocationPolicy']]]:
         """
         Allocation policy to be used by this provisioning service.
         """
         return pulumi.get(self, "allocation_policy")
 
     @allocation_policy.setter
-    def allocation_policy(self, value: Optional[pulumi.Input[str]]):
+    def allocation_policy(self, value: Optional[pulumi.Input[Union[str, 'AllocationPolicy']]]):
         pulumi.set(self, "allocation_policy", value)
 
     @property
@@ -92,14 +93,14 @@ class IotDpsPropertiesDescriptionArgs:
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[str]]:
+    def state(self) -> Optional[pulumi.Input[Union[str, 'State']]]:
         """
         Current state of the provisioning service.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[str]]):
+    def state(self, value: Optional[pulumi.Input[Union[str, 'State']]]):
         pulumi.set(self, "state", value)
 
 
@@ -107,11 +108,11 @@ class IotDpsPropertiesDescriptionArgs:
 class IotDpsSkuInfoArgs:
     def __init__(__self__, *,
                  capacity: Optional[pulumi.Input[int]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[Union[str, 'IotDpsSku']]] = None):
         """
         List of possible provisioning service SKUs.
         :param pulumi.Input[int] capacity: The number of units to provision
-        :param pulumi.Input[str] name: Sku name.
+        :param pulumi.Input[Union[str, 'IotDpsSku']] name: Sku name.
         """
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
@@ -132,14 +133,14 @@ class IotDpsSkuInfoArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    def name(self) -> Optional[pulumi.Input[Union[str, 'IotDpsSku']]]:
         """
         Sku name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
+    def name(self, value: Optional[pulumi.Input[Union[str, 'IotDpsSku']]]):
         pulumi.set(self, "name", value)
 
 
@@ -217,13 +218,13 @@ class IotHubDefinitionDescriptionArgs:
 class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs:
     def __init__(__self__, *,
                  key_name: pulumi.Input[str],
-                 rights: pulumi.Input[str],
+                 rights: pulumi.Input[Union[str, 'AccessRightsDescription']],
                  primary_key: Optional[pulumi.Input[str]] = None,
                  secondary_key: Optional[pulumi.Input[str]] = None):
         """
         Description of the shared access key.
         :param pulumi.Input[str] key_name: Name of the key.
-        :param pulumi.Input[str] rights: Rights that this key has.
+        :param pulumi.Input[Union[str, 'AccessRightsDescription']] rights: Rights that this key has.
         :param pulumi.Input[str] primary_key: Primary SAS key value.
         :param pulumi.Input[str] secondary_key: Secondary SAS key value.
         """
@@ -248,14 +249,14 @@ class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs:
 
     @property
     @pulumi.getter
-    def rights(self) -> pulumi.Input[str]:
+    def rights(self) -> pulumi.Input[Union[str, 'AccessRightsDescription']]:
         """
         Rights that this key has.
         """
         return pulumi.get(self, "rights")
 
     @rights.setter
-    def rights(self, value: pulumi.Input[str]):
+    def rights(self, value: pulumi.Input[Union[str, 'AccessRightsDescription']]):
         pulumi.set(self, "rights", value)
 
     @property

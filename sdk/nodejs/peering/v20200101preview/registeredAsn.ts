@@ -65,13 +65,13 @@ export class RegisteredAsn extends pulumi.CustomResource {
     constructor(name: string, args: RegisteredAsnArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.peeringName === undefined) {
+            if ((!args || args.peeringName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'peeringName'");
             }
-            if (!args || args.registeredAsnName === undefined) {
+            if ((!args || args.registeredAsnName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'registeredAsnName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["asn"] = args ? args.asn : undefined;

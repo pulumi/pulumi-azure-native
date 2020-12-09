@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190401.Inputs
         /// The identity type.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AzureNextGen.ContainerRegistry.V20190401.ResourceIdentityType>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
         private InputMap<Inputs.UserIdentityPropertiesArgs>? _userAssignedIdentities;

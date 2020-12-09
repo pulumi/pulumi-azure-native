@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Media.Latest.Inputs
         /// The deinterlacing mode. Defaults to AutoPixelAdaptive.
         /// </summary>
         [Input("mode")]
-        public Input<string>? Mode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Media.Latest.DeinterlaceMode>? Mode { get; set; }
 
         /// <summary>
         /// The field parity for de-interlacing, defaults to Auto.
         /// </summary>
         [Input("parity")]
-        public Input<string>? Parity { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Media.Latest.DeinterlaceParity>? Parity { get; set; }
 
         public DeinterlaceArgs()
         {

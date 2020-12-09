@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.DevSpaces.V20190401.Inputs
         /// The name of the SKU for Azure Dev Spaces Controller.
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DevSpaces.V20190401.SkuName> Name { get; set; } = null!;
 
         /// <summary>
         /// The tier of the SKU for Azure Dev Spaces Controller.
         /// </summary>
         [Input("tier")]
-        public Input<string>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevSpaces.V20190401.SkuTier>? Tier { get; set; }
 
         public SkuArgs()
         {

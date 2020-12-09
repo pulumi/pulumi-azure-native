@@ -44,14 +44,15 @@ type NatGateway struct {
 // NewNatGateway registers a new resource with the given unique name, arguments, and options.
 func NewNatGateway(ctx *pulumi.Context,
 	name string, args *NatGatewayArgs, opts ...pulumi.ResourceOption) (*NatGateway, error) {
-	if args == nil || args.NatGatewayName == nil {
-		return nil, errors.New("missing required argument 'NatGatewayName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &NatGatewayArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.NatGatewayName == nil {
+		return nil, errors.New("invalid value for required argument 'NatGatewayName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

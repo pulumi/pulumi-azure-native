@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['NetworkExperimentProfile']
 
@@ -15,7 +16,7 @@ class NetworkExperimentProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled_state: Optional[pulumi.Input[str]] = None,
+                 enabled_state: Optional[pulumi.Input[Union[str, 'State']]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -30,7 +31,7 @@ class NetworkExperimentProfile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] enabled_state: The state of the Experiment
+        :param pulumi.Input[Union[str, 'State']] enabled_state: The state of the Experiment
         :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the Profile
@@ -59,10 +60,10 @@ class NetworkExperimentProfile(pulumi.CustomResource):
             __props__['etag'] = etag
             __props__['location'] = location
             __props__['name'] = name
-            if profile_name is None:
+            if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")
             __props__['profile_name'] = profile_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

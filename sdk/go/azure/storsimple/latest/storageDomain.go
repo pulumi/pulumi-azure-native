@@ -30,23 +30,21 @@ type StorageDomain struct {
 // NewStorageDomain registers a new resource with the given unique name, arguments, and options.
 func NewStorageDomain(ctx *pulumi.Context,
 	name string, args *StorageDomainArgs, opts ...pulumi.ResourceOption) (*StorageDomain, error) {
-	if args == nil || args.EncryptionStatus == nil {
-		return nil, errors.New("missing required argument 'EncryptionStatus'")
-	}
-	if args == nil || args.ManagerName == nil {
-		return nil, errors.New("missing required argument 'ManagerName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.StorageAccountCredentialIds == nil {
-		return nil, errors.New("missing required argument 'StorageAccountCredentialIds'")
-	}
-	if args == nil || args.StorageDomainName == nil {
-		return nil, errors.New("missing required argument 'StorageDomainName'")
-	}
 	if args == nil {
-		args = &StorageDomainArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ManagerName == nil {
+		return nil, errors.New("invalid value for required argument 'ManagerName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.StorageAccountCredentialIds == nil {
+		return nil, errors.New("invalid value for required argument 'StorageAccountCredentialIds'")
+	}
+	if args.StorageDomainName == nil {
+		return nil, errors.New("invalid value for required argument 'StorageDomainName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -125,7 +123,7 @@ type StorageDomainArgs struct {
 	// The encryption key used to encrypt the data. This is a user secret.
 	EncryptionKey AsymmetricEncryptedSecretPtrInput
 	// The encryption status "Enabled | Disabled".
-	EncryptionStatus pulumi.StringInput
+	EncryptionStatus EncryptionStatus
 	// The manager name
 	ManagerName pulumi.StringInput
 	// The resource group name

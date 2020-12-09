@@ -61,10 +61,10 @@ export class IotDefenderSetting extends pulumi.CustomResource {
     constructor(name: string, args: IotDefenderSettingArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.deviceQuota === undefined) {
+            if ((!args || args.deviceQuota === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'deviceQuota'");
             }
-            if (!args || args.sentinelWorkspaceResourceIds === undefined) {
+            if ((!args || args.sentinelWorkspaceResourceIds === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sentinelWorkspaceResourceIds'");
             }
             inputs["deviceQuota"] = args ? args.deviceQuota : undefined;

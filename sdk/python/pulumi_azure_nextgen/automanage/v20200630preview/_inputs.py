@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AccountIdentityArgs',
@@ -18,44 +19,44 @@ __all__ = [
 @pulumi.input_type
 class AccountIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
         """
         Identity for the Automanage account.
-        :param pulumi.Input[str] type: The type of identity used for the Automanage account. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
+        :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the Automanage account. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
         """
         The type of identity used for the Automanage account. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
 class ConfigurationProfilePreferenceAntiMalwareArgs:
     def __init__(__self__, *,
-                 enable_real_time_protection: Optional[pulumi.Input[str]] = None,
+                 enable_real_time_protection: Optional[pulumi.Input[Union[str, 'EnableRealTimeProtection']]] = None,
                  exclusions: Optional[Any] = None,
-                 run_scheduled_scan: Optional[pulumi.Input[str]] = None,
+                 run_scheduled_scan: Optional[pulumi.Input[Union[str, 'RunScheduledScan']]] = None,
                  scan_day: Optional[pulumi.Input[str]] = None,
                  scan_time_in_minutes: Optional[pulumi.Input[str]] = None,
-                 scan_type: Optional[pulumi.Input[str]] = None):
+                 scan_type: Optional[pulumi.Input[Union[str, 'ScanType']]] = None):
         """
         Automanage configuration profile Antimalware preferences.
-        :param pulumi.Input[str] enable_real_time_protection: Enables or disables Real Time Protection
+        :param pulumi.Input[Union[str, 'EnableRealTimeProtection']] enable_real_time_protection: Enables or disables Real Time Protection
         :param Any exclusions: Extensions, Paths and Processes that must be excluded from scan
-        :param pulumi.Input[str] run_scheduled_scan: Enables or disables a periodic scan for antimalware
+        :param pulumi.Input[Union[str, 'RunScheduledScan']] run_scheduled_scan: Enables or disables a periodic scan for antimalware
         :param pulumi.Input[str] scan_day: Schedule scan settings day
         :param pulumi.Input[str] scan_time_in_minutes: Schedule scan settings time
-        :param pulumi.Input[str] scan_type: Type of scheduled scan
+        :param pulumi.Input[Union[str, 'ScanType']] scan_type: Type of scheduled scan
         """
         if enable_real_time_protection is not None:
             pulumi.set(__self__, "enable_real_time_protection", enable_real_time_protection)
@@ -72,14 +73,14 @@ class ConfigurationProfilePreferenceAntiMalwareArgs:
 
     @property
     @pulumi.getter(name="enableRealTimeProtection")
-    def enable_real_time_protection(self) -> Optional[pulumi.Input[str]]:
+    def enable_real_time_protection(self) -> Optional[pulumi.Input[Union[str, 'EnableRealTimeProtection']]]:
         """
         Enables or disables Real Time Protection
         """
         return pulumi.get(self, "enable_real_time_protection")
 
     @enable_real_time_protection.setter
-    def enable_real_time_protection(self, value: Optional[pulumi.Input[str]]):
+    def enable_real_time_protection(self, value: Optional[pulumi.Input[Union[str, 'EnableRealTimeProtection']]]):
         pulumi.set(self, "enable_real_time_protection", value)
 
     @property
@@ -96,14 +97,14 @@ class ConfigurationProfilePreferenceAntiMalwareArgs:
 
     @property
     @pulumi.getter(name="runScheduledScan")
-    def run_scheduled_scan(self) -> Optional[pulumi.Input[str]]:
+    def run_scheduled_scan(self) -> Optional[pulumi.Input[Union[str, 'RunScheduledScan']]]:
         """
         Enables or disables a periodic scan for antimalware
         """
         return pulumi.get(self, "run_scheduled_scan")
 
     @run_scheduled_scan.setter
-    def run_scheduled_scan(self, value: Optional[pulumi.Input[str]]):
+    def run_scheduled_scan(self, value: Optional[pulumi.Input[Union[str, 'RunScheduledScan']]]):
         pulumi.set(self, "run_scheduled_scan", value)
 
     @property
@@ -132,14 +133,14 @@ class ConfigurationProfilePreferenceAntiMalwareArgs:
 
     @property
     @pulumi.getter(name="scanType")
-    def scan_type(self) -> Optional[pulumi.Input[str]]:
+    def scan_type(self) -> Optional[pulumi.Input[Union[str, 'ScanType']]]:
         """
         Type of scheduled scan
         """
         return pulumi.get(self, "scan_type")
 
     @scan_type.setter
-    def scan_type(self, value: Optional[pulumi.Input[str]]):
+    def scan_type(self, value: Optional[pulumi.Input[Union[str, 'ScanType']]]):
         pulumi.set(self, "scan_type", value)
 
 

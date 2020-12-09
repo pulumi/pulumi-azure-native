@@ -38,20 +38,21 @@ type ServerKey struct {
 // NewServerKey registers a new resource with the given unique name, arguments, and options.
 func NewServerKey(ctx *pulumi.Context,
 	name string, args *ServerKeyArgs, opts ...pulumi.ResourceOption) (*ServerKey, error) {
-	if args == nil || args.KeyName == nil {
-		return nil, errors.New("missing required argument 'KeyName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServerKeyType == nil {
-		return nil, errors.New("missing required argument 'ServerKeyType'")
-	}
-	if args == nil || args.ServerName == nil {
-		return nil, errors.New("missing required argument 'ServerName'")
-	}
 	if args == nil {
-		args = &ServerKeyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.KeyName == nil {
+		return nil, errors.New("invalid value for required argument 'KeyName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServerKeyType == nil {
+		return nil, errors.New("invalid value for required argument 'ServerKeyType'")
+	}
+	if args.ServerName == nil {
+		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

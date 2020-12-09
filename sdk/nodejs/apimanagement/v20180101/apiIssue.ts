@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -77,25 +78,25 @@ export class ApiIssue extends pulumi.CustomResource {
     constructor(name: string, args: ApiIssueArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.apiId === undefined) {
+            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if (!args || args.description === undefined) {
+            if ((!args || args.description === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'description'");
             }
-            if (!args || args.issueId === undefined) {
+            if ((!args || args.issueId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'issueId'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serviceName === undefined) {
+            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if (!args || args.title === undefined) {
+            if ((!args || args.title === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'title'");
             }
-            if (!args || args.userId === undefined) {
+            if ((!args || args.userId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'userId'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;
@@ -163,7 +164,7 @@ export interface ApiIssueArgs {
     /**
      * Status of the issue.
      */
-    readonly state?: pulumi.Input<string>;
+    readonly state?: pulumi.Input<string | enums.apimanagement.v20180101.State>;
     /**
      * The issue title.
      */

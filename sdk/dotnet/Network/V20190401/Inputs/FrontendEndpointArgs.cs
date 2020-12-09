@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Network.V20190401.Inputs
         /// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
         /// </summary>
         [Input("sessionAffinityEnabledState")]
-        public Input<string>? SessionAffinityEnabledState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190401.SessionAffinityEnabledState>? SessionAffinityEnabledState { get; set; }
 
         /// <summary>
         /// UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.

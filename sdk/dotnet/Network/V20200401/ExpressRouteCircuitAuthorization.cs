@@ -148,7 +148,7 @@ namespace Pulumi.AzureNextGen.Network.V20200401
         /// The authorization use status.
         /// </summary>
         [Input("authorizationUseStatus")]
-        public Input<string>? AuthorizationUseStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200401.AuthorizationUseStatus>? AuthorizationUseStatus { get; set; }
 
         /// <summary>
         /// The name of the express route circuit.

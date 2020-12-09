@@ -40,23 +40,21 @@ type GalleryApplication struct {
 // NewGalleryApplication registers a new resource with the given unique name, arguments, and options.
 func NewGalleryApplication(ctx *pulumi.Context,
 	name string, args *GalleryApplicationArgs, opts ...pulumi.ResourceOption) (*GalleryApplication, error) {
-	if args == nil || args.GalleryApplicationName == nil {
-		return nil, errors.New("missing required argument 'GalleryApplicationName'")
-	}
-	if args == nil || args.GalleryName == nil {
-		return nil, errors.New("missing required argument 'GalleryName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SupportedOSType == nil {
-		return nil, errors.New("missing required argument 'SupportedOSType'")
-	}
 	if args == nil {
-		args = &GalleryApplicationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.GalleryApplicationName == nil {
+		return nil, errors.New("invalid value for required argument 'GalleryApplicationName'")
+	}
+	if args.GalleryName == nil {
+		return nil, errors.New("invalid value for required argument 'GalleryName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -190,7 +188,7 @@ type GalleryApplicationArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-	SupportedOSType pulumi.StringInput
+	SupportedOSType OperatingSystemTypes
 	// Resource tags
 	Tags pulumi.StringMapInput
 }

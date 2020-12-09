@@ -52,20 +52,21 @@ type Python2Package struct {
 // NewPython2Package registers a new resource with the given unique name, arguments, and options.
 func NewPython2Package(ctx *pulumi.Context,
 	name string, args *Python2PackageArgs, opts ...pulumi.ResourceOption) (*Python2Package, error) {
-	if args == nil || args.AutomationAccountName == nil {
-		return nil, errors.New("missing required argument 'AutomationAccountName'")
-	}
-	if args == nil || args.ContentLink == nil {
-		return nil, errors.New("missing required argument 'ContentLink'")
-	}
-	if args == nil || args.PackageName == nil {
-		return nil, errors.New("missing required argument 'PackageName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &Python2PackageArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AutomationAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AutomationAccountName'")
+	}
+	if args.ContentLink == nil {
+		return nil, errors.New("invalid value for required argument 'ContentLink'")
+	}
+	if args.PackageName == nil {
+		return nil, errors.New("invalid value for required argument 'PackageName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

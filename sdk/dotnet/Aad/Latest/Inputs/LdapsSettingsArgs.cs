@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Aad.Latest.Inputs
         /// A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
         /// </summary>
         [Input("externalAccess")]
-        public Input<string>? ExternalAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Aad.Latest.ExternalAccess>? ExternalAccess { get; set; }
 
         /// <summary>
         /// A flag to determine whether or not Secure LDAP is enabled or disabled.
         /// </summary>
         [Input("ldaps")]
-        public Input<string>? Ldaps { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Aad.Latest.Ldaps>? Ldaps { get; set; }
 
         /// <summary>
         /// The certificate required to configure Secure LDAP. The parameter passed here should be a base64encoded representation of the certificate pfx file.

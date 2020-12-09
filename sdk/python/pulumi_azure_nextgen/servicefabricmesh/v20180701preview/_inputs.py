@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AzureInternalMonitoringPipelineSinkDescriptionArgs',
@@ -686,11 +687,11 @@ class ImageRegistryCredentialArgs:
 class IngressConfigArgs:
     def __init__(__self__, *,
                  layer4: Optional[pulumi.Input[Sequence[pulumi.Input['Layer4IngressConfigArgs']]]] = None,
-                 qos_level: Optional[pulumi.Input[str]] = None):
+                 qos_level: Optional[pulumi.Input[Union[str, 'IngressQoSLevel']]] = None):
         """
         Describes public connectivity configuration for the network.
         :param pulumi.Input[Sequence[pulumi.Input['Layer4IngressConfigArgs']]] layer4: Configuration for layer4 public connectivity for this network.
-        :param pulumi.Input[str] qos_level: The QoS tier for ingress.
+        :param pulumi.Input[Union[str, 'IngressQoSLevel']] qos_level: The QoS tier for ingress.
         """
         if layer4 is not None:
             pulumi.set(__self__, "layer4", layer4)
@@ -711,14 +712,14 @@ class IngressConfigArgs:
 
     @property
     @pulumi.getter(name="qosLevel")
-    def qos_level(self) -> Optional[pulumi.Input[str]]:
+    def qos_level(self) -> Optional[pulumi.Input[Union[str, 'IngressQoSLevel']]]:
         """
         The QoS tier for ingress.
         """
         return pulumi.get(self, "qos_level")
 
     @qos_level.setter
-    def qos_level(self, value: Optional[pulumi.Input[str]]):
+    def qos_level(self, value: Optional[pulumi.Input[Union[str, 'IngressQoSLevel']]]):
         pulumi.set(self, "qos_level", value)
 
 
@@ -956,20 +957,20 @@ class ResourceRequirementsArgs:
 class ServiceResourceDescriptionArgs:
     def __init__(__self__, *,
                  code_packages: pulumi.Input[Sequence[pulumi.Input['ContainerCodePackagePropertiesArgs']]],
-                 os_type: pulumi.Input[str],
+                 os_type: pulumi.Input[Union[str, 'OperatingSystemTypes']],
                  description: Optional[pulumi.Input[str]] = None,
                  diagnostics: Optional[pulumi.Input['DiagnosticsRefArgs']] = None,
-                 health_state: Optional[pulumi.Input[str]] = None,
+                 health_state: Optional[pulumi.Input[Union[str, 'HealthState']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_refs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkRefArgs']]]] = None,
                  replica_count: Optional[pulumi.Input[int]] = None):
         """
         This type describes a service resource.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerCodePackagePropertiesArgs']]] code_packages: Describes the set of code packages that forms the service. A code package describes the container and the properties for running it. All the code packages are started together on the same host and share the same context (network, process etc.).
-        :param pulumi.Input[str] os_type: The Operating system type required by the code in service.
+        :param pulumi.Input[Union[str, 'OperatingSystemTypes']] os_type: The Operating system type required by the code in service.
         :param pulumi.Input[str] description: User readable description of the service.
         :param pulumi.Input['DiagnosticsRefArgs'] diagnostics: Reference to sinks in DiagnosticsDescription.
-        :param pulumi.Input[str] health_state: The health state of a resource such as Application, Service, or Network.
+        :param pulumi.Input[Union[str, 'HealthState']] health_state: The health state of a resource such as Application, Service, or Network.
         :param pulumi.Input[str] name: The name of the resource
         :param pulumi.Input[Sequence[pulumi.Input['NetworkRefArgs']]] network_refs: The names of the private networks that this service needs to be part of.
         :param pulumi.Input[int] replica_count: The number of replicas of the service to create. Defaults to 1 if not specified.
@@ -1003,14 +1004,14 @@ class ServiceResourceDescriptionArgs:
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> pulumi.Input[str]:
+    def os_type(self) -> pulumi.Input[Union[str, 'OperatingSystemTypes']]:
         """
         The Operating system type required by the code in service.
         """
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: pulumi.Input[str]):
+    def os_type(self, value: pulumi.Input[Union[str, 'OperatingSystemTypes']]):
         pulumi.set(self, "os_type", value)
 
     @property
@@ -1039,14 +1040,14 @@ class ServiceResourceDescriptionArgs:
 
     @property
     @pulumi.getter(name="healthState")
-    def health_state(self) -> Optional[pulumi.Input[str]]:
+    def health_state(self) -> Optional[pulumi.Input[Union[str, 'HealthState']]]:
         """
         The health state of a resource such as Application, Service, or Network.
         """
         return pulumi.get(self, "health_state")
 
     @health_state.setter
-    def health_state(self, value: Optional[pulumi.Input[str]]):
+    def health_state(self, value: Optional[pulumi.Input[Union[str, 'HealthState']]]):
         pulumi.set(self, "health_state", value)
 
     @property

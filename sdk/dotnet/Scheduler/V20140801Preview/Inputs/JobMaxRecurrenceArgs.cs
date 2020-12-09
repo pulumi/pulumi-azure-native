@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Scheduler.V20140801Preview.Inputs
         /// Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
         /// </summary>
         [Input("frequency")]
-        public Input<string>? Frequency { get; set; }
+        public Input<Pulumi.AzureNextGen.Scheduler.V20140801Preview.RecurrenceFrequency>? Frequency { get; set; }
 
         /// <summary>
         /// Gets or sets the interval between retries.

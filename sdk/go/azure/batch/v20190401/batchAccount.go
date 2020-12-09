@@ -48,17 +48,18 @@ type BatchAccount struct {
 // NewBatchAccount registers a new resource with the given unique name, arguments, and options.
 func NewBatchAccount(ctx *pulumi.Context,
 	name string, args *BatchAccountArgs, opts ...pulumi.ResourceOption) (*BatchAccount, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &BatchAccountArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -208,7 +209,7 @@ type BatchAccountArgs struct {
 	// The region in which to create the account.
 	Location pulumi.StringInput
 	// The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
-	PoolAllocationMode pulumi.StringPtrInput
+	PoolAllocationMode PoolAllocationMode
 	// The name of the resource group that contains the Batch account.
 	ResourceGroupName pulumi.StringInput
 	// The user-specified tags associated with the account.

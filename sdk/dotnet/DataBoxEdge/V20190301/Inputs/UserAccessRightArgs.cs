@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190301.Inputs
         /// Type of access to be allowed for the user.
         /// </summary>
         [Input("accessType", required: true)]
-        public Input<string> AccessType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.V20190301.ShareAccessType> AccessType { get; set; } = null!;
 
         /// <summary>
         /// User ID (already existing in the device).

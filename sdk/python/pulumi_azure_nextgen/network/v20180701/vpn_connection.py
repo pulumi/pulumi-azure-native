@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['VpnConnection']
@@ -63,18 +64,18 @@ class VpnConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if connection_name is None:
+            if connection_name is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_name'")
             __props__['connection_name'] = connection_name
             __props__['enable_bgp'] = enable_bgp
-            if gateway_name is None:
+            if gateway_name is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_name'")
             __props__['gateway_name'] = gateway_name
             __props__['id'] = id
             __props__['ipsec_policies'] = ipsec_policies
             __props__['name'] = name
             __props__['remote_vpn_site'] = remote_vpn_site
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['routing_weight'] = routing_weight

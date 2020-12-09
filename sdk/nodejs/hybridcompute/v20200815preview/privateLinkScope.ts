@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -74,13 +74,13 @@ export class PrivateLinkScope extends pulumi.CustomResource {
     constructor(name: string, args: PrivateLinkScopeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.scopeName === undefined) {
+            if ((!args || args.scopeName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scopeName'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -123,7 +123,7 @@ export interface PrivateLinkScopeArgs {
     /**
      * Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
      */
-    readonly publicNetworkAccess?: pulumi.Input<string>;
+    readonly publicNetworkAccess?: pulumi.Input<string | enums.hybridcompute.v20200815preview.PublicNetworkAccessType>;
     /**
      * The name of the resource group.
      */

@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20191231.Inputs
         /// Type of response errors for real user requests for which origin will be deemed unhealthy
         /// </summary>
         [Input("responseBasedDetectedErrorTypes")]
-        public Input<string>? ResponseBasedDetectedErrorTypes { get; set; }
+        public Input<Pulumi.AzureNextGen.Cdn.V20191231.ResponseBasedDetectedErrorTypes>? ResponseBasedDetectedErrorTypes { get; set; }
 
         /// <summary>
         /// The percentage of failed requests in the sample where failover should trigger.

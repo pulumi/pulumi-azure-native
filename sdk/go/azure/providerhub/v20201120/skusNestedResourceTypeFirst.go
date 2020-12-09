@@ -24,20 +24,21 @@ type SkusNestedResourceTypeFirst struct {
 // NewSkusNestedResourceTypeFirst registers a new resource with the given unique name, arguments, and options.
 func NewSkusNestedResourceTypeFirst(ctx *pulumi.Context,
 	name string, args *SkusNestedResourceTypeFirstArgs, opts ...pulumi.ResourceOption) (*SkusNestedResourceTypeFirst, error) {
-	if args == nil || args.NestedResourceTypeFirst == nil {
-		return nil, errors.New("missing required argument 'NestedResourceTypeFirst'")
-	}
-	if args == nil || args.ProviderNamespace == nil {
-		return nil, errors.New("missing required argument 'ProviderNamespace'")
-	}
-	if args == nil || args.ResourceType == nil {
-		return nil, errors.New("missing required argument 'ResourceType'")
-	}
-	if args == nil || args.Sku == nil {
-		return nil, errors.New("missing required argument 'Sku'")
-	}
 	if args == nil {
-		args = &SkusNestedResourceTypeFirstArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.NestedResourceTypeFirst == nil {
+		return nil, errors.New("invalid value for required argument 'NestedResourceTypeFirst'")
+	}
+	if args.ProviderNamespace == nil {
+		return nil, errors.New("invalid value for required argument 'ProviderNamespace'")
+	}
+	if args.ResourceType == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceType'")
+	}
+	if args.Sku == nil {
+		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

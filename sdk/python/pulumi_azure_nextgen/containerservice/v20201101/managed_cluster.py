@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ManagedCluster']
@@ -105,16 +106,16 @@ class ManagedCluster(pulumi.CustomResource):
             __props__['identity_profile'] = identity_profile
             __props__['kubernetes_version'] = kubernetes_version
             __props__['linux_profile'] = linux_profile
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['network_profile'] = network_profile
             __props__['node_resource_group'] = node_resource_group
             __props__['pod_identity_profile'] = pod_identity_profile
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if resource_name_ is None:
+            if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
             __props__['service_principal_profile'] = service_principal_profile

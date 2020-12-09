@@ -57,13 +57,13 @@ export class ServerDnsAlias extends pulumi.CustomResource {
     constructor(name: string, args: ServerDnsAliasArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.dnsAliasName === undefined) {
+            if ((!args || args.dnsAliasName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dnsAliasName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverName === undefined) {
+            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverName'");
             }
             inputs["dnsAliasName"] = args ? args.dnsAliasName : undefined;

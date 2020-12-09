@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AutoPausePropertiesArgs',
@@ -354,11 +355,11 @@ class EncryptionDetailsArgs:
 class EntityReferenceArgs:
     def __init__(__self__, *,
                  reference_name: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeEntityReferenceType']]] = None):
         """
         The entity reference.
         :param pulumi.Input[str] reference_name: The name of this referenced entity.
-        :param pulumi.Input[str] type: The type of this referenced entity.
+        :param pulumi.Input[Union[str, 'IntegrationRuntimeEntityReferenceType']] type: The type of this referenced entity.
         """
         if reference_name is not None:
             pulumi.set(__self__, "reference_name", reference_name)
@@ -379,14 +380,14 @@ class EntityReferenceArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'IntegrationRuntimeEntityReferenceType']]]:
         """
         The type of this referenced entity.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeEntityReferenceType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -590,12 +591,12 @@ class IntegrationRuntimeCustomSetupScriptPropertiesArgs:
 @pulumi.input_type
 class IntegrationRuntimeDataFlowPropertiesArgs:
     def __init__(__self__, *,
-                 compute_type: Optional[pulumi.Input[str]] = None,
+                 compute_type: Optional[pulumi.Input[Union[str, 'DataFlowComputeType']]] = None,
                  core_count: Optional[pulumi.Input[int]] = None,
                  time_to_live: Optional[pulumi.Input[int]] = None):
         """
         Data flow properties for managed integration runtime.
-        :param pulumi.Input[str] compute_type: Compute type of the cluster which will execute data flow job.
+        :param pulumi.Input[Union[str, 'DataFlowComputeType']] compute_type: Compute type of the cluster which will execute data flow job.
         :param pulumi.Input[int] core_count: Core count of the cluster which will execute data flow job. Supported values are: 8, 16, 32, 48, 80, 144 and 272.
         :param pulumi.Input[int] time_to_live: Time to live (in minutes) setting of the cluster which will execute data flow job.
         """
@@ -608,14 +609,14 @@ class IntegrationRuntimeDataFlowPropertiesArgs:
 
     @property
     @pulumi.getter(name="computeType")
-    def compute_type(self) -> Optional[pulumi.Input[str]]:
+    def compute_type(self) -> Optional[pulumi.Input[Union[str, 'DataFlowComputeType']]]:
         """
         Compute type of the cluster which will execute data flow job.
         """
         return pulumi.get(self, "compute_type")
 
     @compute_type.setter
-    def compute_type(self, value: Optional[pulumi.Input[str]]):
+    def compute_type(self, value: Optional[pulumi.Input[Union[str, 'DataFlowComputeType']]]):
         pulumi.set(self, "compute_type", value)
 
     @property
@@ -704,13 +705,13 @@ class IntegrationRuntimeSsisCatalogInfoArgs:
     def __init__(__self__, *,
                  catalog_admin_password: Optional[pulumi.Input['SecureStringArgs']] = None,
                  catalog_admin_user_name: Optional[pulumi.Input[str]] = None,
-                 catalog_pricing_tier: Optional[pulumi.Input[str]] = None,
+                 catalog_pricing_tier: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeSsisCatalogPricingTier']]] = None,
                  catalog_server_endpoint: Optional[pulumi.Input[str]] = None):
         """
         Catalog information for managed dedicated integration runtime.
         :param pulumi.Input['SecureStringArgs'] catalog_admin_password: The password of the administrator user account of the catalog database.
         :param pulumi.Input[str] catalog_admin_user_name: The administrator user name of catalog database.
-        :param pulumi.Input[str] catalog_pricing_tier: The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
+        :param pulumi.Input[Union[str, 'IntegrationRuntimeSsisCatalogPricingTier']] catalog_pricing_tier: The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
         :param pulumi.Input[str] catalog_server_endpoint: The catalog database server URL.
         """
         if catalog_admin_password is not None:
@@ -748,14 +749,14 @@ class IntegrationRuntimeSsisCatalogInfoArgs:
 
     @property
     @pulumi.getter(name="catalogPricingTier")
-    def catalog_pricing_tier(self) -> Optional[pulumi.Input[str]]:
+    def catalog_pricing_tier(self) -> Optional[pulumi.Input[Union[str, 'IntegrationRuntimeSsisCatalogPricingTier']]]:
         """
         The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
         """
         return pulumi.get(self, "catalog_pricing_tier")
 
     @catalog_pricing_tier.setter
-    def catalog_pricing_tier(self, value: Optional[pulumi.Input[str]]):
+    def catalog_pricing_tier(self, value: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeSsisCatalogPricingTier']]]):
         pulumi.set(self, "catalog_pricing_tier", value)
 
     @property
@@ -777,17 +778,17 @@ class IntegrationRuntimeSsisPropertiesArgs:
                  catalog_info: Optional[pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs']] = None,
                  custom_setup_script_properties: Optional[pulumi.Input['IntegrationRuntimeCustomSetupScriptPropertiesArgs']] = None,
                  data_proxy_properties: Optional[pulumi.Input['IntegrationRuntimeDataProxyPropertiesArgs']] = None,
-                 edition: Optional[pulumi.Input[str]] = None,
+                 edition: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeEdition']]] = None,
                  express_custom_setup_properties: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]]] = None,
-                 license_type: Optional[pulumi.Input[str]] = None):
+                 license_type: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeLicenseType']]] = None):
         """
         SSIS properties for managed integration runtime.
         :param pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs'] catalog_info: Catalog information for managed dedicated integration runtime.
         :param pulumi.Input['IntegrationRuntimeCustomSetupScriptPropertiesArgs'] custom_setup_script_properties: Custom setup script properties for a managed dedicated integration runtime.
         :param pulumi.Input['IntegrationRuntimeDataProxyPropertiesArgs'] data_proxy_properties: Data proxy properties for a managed dedicated integration runtime.
-        :param pulumi.Input[str] edition: The edition for the SSIS Integration Runtime
+        :param pulumi.Input[Union[str, 'IntegrationRuntimeEdition']] edition: The edition for the SSIS Integration Runtime
         :param pulumi.Input[Sequence[pulumi.Input[Union['CmdkeySetupArgs', 'ComponentSetupArgs', 'EnvironmentVariableSetupArgs']]]] express_custom_setup_properties: Custom setup without script properties for a SSIS integration runtime.
-        :param pulumi.Input[str] license_type: License type for bringing your own license scenario.
+        :param pulumi.Input[Union[str, 'IntegrationRuntimeLicenseType']] license_type: License type for bringing your own license scenario.
         """
         if catalog_info is not None:
             pulumi.set(__self__, "catalog_info", catalog_info)
@@ -840,14 +841,14 @@ class IntegrationRuntimeSsisPropertiesArgs:
 
     @property
     @pulumi.getter
-    def edition(self) -> Optional[pulumi.Input[str]]:
+    def edition(self) -> Optional[pulumi.Input[Union[str, 'IntegrationRuntimeEdition']]]:
         """
         The edition for the SSIS Integration Runtime
         """
         return pulumi.get(self, "edition")
 
     @edition.setter
-    def edition(self, value: Optional[pulumi.Input[str]]):
+    def edition(self, value: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeEdition']]]):
         pulumi.set(self, "edition", value)
 
     @property
@@ -864,14 +865,14 @@ class IntegrationRuntimeSsisPropertiesArgs:
 
     @property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[pulumi.Input[str]]:
+    def license_type(self) -> Optional[pulumi.Input[Union[str, 'IntegrationRuntimeLicenseType']]]:
         """
         License type for bringing your own license scenario.
         """
         return pulumi.get(self, "license_type")
 
     @license_type.setter
-    def license_type(self, value: Optional[pulumi.Input[str]]):
+    def license_type(self, value: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeLicenseType']]]):
         pulumi.set(self, "license_type", value)
 
 
@@ -1050,24 +1051,24 @@ class LinkedIntegrationRuntimeRbacAuthorizationArgs:
 @pulumi.input_type
 class ManagedIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
         """
         The workspace managed identity
-        :param pulumi.Input[str] type: The type of managed identity for the workspace
+        :param pulumi.Input['ResourceIdentityType'] type: The type of managed identity for the workspace
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
         """
         The type of managed identity for the workspace
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
 

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['ElasticPool']
 
@@ -18,7 +19,7 @@ class ElasticPool(pulumi.CustomResource):
                  database_dtu_max: Optional[pulumi.Input[int]] = None,
                  database_dtu_min: Optional[pulumi.Input[int]] = None,
                  dtu: Optional[pulumi.Input[int]] = None,
-                 edition: Optional[pulumi.Input[str]] = None,
+                 edition: Optional[pulumi.Input[Union[str, 'ElasticPoolEdition']]] = None,
                  elastic_pool_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -37,7 +38,7 @@ class ElasticPool(pulumi.CustomResource):
         :param pulumi.Input[int] database_dtu_max: The maximum DTU any one database can consume.
         :param pulumi.Input[int] database_dtu_min: The minimum DTU all databases are guaranteed.
         :param pulumi.Input[int] dtu: The total shared DTU for the database elastic pool.
-        :param pulumi.Input[str] edition: The edition of the elastic pool.
+        :param pulumi.Input[Union[str, 'ElasticPoolEdition']] edition: The edition of the elastic pool.
         :param pulumi.Input[str] elastic_pool_name: The name of the elastic pool to be operated on (updated or created).
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -67,16 +68,16 @@ class ElasticPool(pulumi.CustomResource):
             __props__['database_dtu_min'] = database_dtu_min
             __props__['dtu'] = dtu
             __props__['edition'] = edition
-            if elastic_pool_name is None:
+            if elastic_pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'elastic_pool_name'")
             __props__['elastic_pool_name'] = elastic_pool_name
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if server_name is None:
+            if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
             __props__['storage_mb'] = storage_mb

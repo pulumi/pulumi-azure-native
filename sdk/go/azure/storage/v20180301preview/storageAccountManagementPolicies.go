@@ -28,17 +28,18 @@ type StorageAccountManagementPolicies struct {
 // NewStorageAccountManagementPolicies registers a new resource with the given unique name, arguments, and options.
 func NewStorageAccountManagementPolicies(ctx *pulumi.Context,
 	name string, args *StorageAccountManagementPoliciesArgs, opts ...pulumi.ResourceOption) (*StorageAccountManagementPolicies, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.ManagementPolicyName == nil {
-		return nil, errors.New("missing required argument 'ManagementPolicyName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &StorageAccountManagementPoliciesArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.ManagementPolicyName == nil {
+		return nil, errors.New("invalid value for required argument 'ManagementPolicyName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

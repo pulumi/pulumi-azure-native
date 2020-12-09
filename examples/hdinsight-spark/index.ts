@@ -28,11 +28,11 @@ const resourceGroup = new resources.ResourceGroup("spark-rg", {
 const storageAccount = new storage.StorageAccount("sparksa", {
     resourceGroupName: resourceGroup.name,
     sku: {
-        name: "Standard_LRS"
+        name: storage.SkuName.Standard_LRS,
     },
     accountName: randomString.result,
     location: location,
-    kind: "StorageV2",
+    kind: storage.Kind.StorageV2,
 });
 
 const storageContainer = new storage.BlobContainer("spark", {
@@ -54,7 +54,7 @@ const sparkCluster = new hdinsight.Cluster("myspark", {
     location: location,
     properties: {
         clusterVersion: "3.6",
-        osType: "Linux",
+        osType: hdinsight.OSType.Linux,
         clusterDefinition: {
             kind: "spark",
             componentVersion: {
@@ -68,7 +68,7 @@ const sparkCluster = new hdinsight.Cluster("myspark", {
                 },
             },
         },
-        tier: "Standard",
+        tier: hdinsight.Tier.Standard,
         storageProfile: {
             storageaccounts: [{
                 isDefault: true,

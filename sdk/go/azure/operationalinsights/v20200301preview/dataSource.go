@@ -32,23 +32,24 @@ type DataSource struct {
 // NewDataSource registers a new resource with the given unique name, arguments, and options.
 func NewDataSource(ctx *pulumi.Context,
 	name string, args *DataSourceArgs, opts ...pulumi.ResourceOption) (*DataSource, error) {
-	if args == nil || args.DataSourceName == nil {
-		return nil, errors.New("missing required argument 'DataSourceName'")
-	}
-	if args == nil || args.Kind == nil {
-		return nil, errors.New("missing required argument 'Kind'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &DataSourceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DataSourceName == nil {
+		return nil, errors.New("invalid value for required argument 'DataSourceName'")
+	}
+	if args.Kind == nil {
+		return nil, errors.New("invalid value for required argument 'Kind'")
+	}
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

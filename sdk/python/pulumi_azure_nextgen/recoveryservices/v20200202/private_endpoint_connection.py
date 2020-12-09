@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['PrivateEndpointConnection']
@@ -59,15 +60,15 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
             __props__['e_tag'] = e_tag
             __props__['location'] = location
-            if private_endpoint_connection_name is None:
+            if private_endpoint_connection_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_endpoint_connection_name'")
             __props__['private_endpoint_connection_name'] = private_endpoint_connection_name
             __props__['properties'] = properties
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            if vault_name is None:
+            if vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vault_name'")
             __props__['vault_name'] = vault_name
             __props__['name'] = None

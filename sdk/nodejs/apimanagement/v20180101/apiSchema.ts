@@ -61,19 +61,19 @@ export class ApiSchema extends pulumi.CustomResource {
     constructor(name: string, args: ApiSchemaArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.apiId === undefined) {
+            if ((!args || args.apiId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if (!args || args.contentType === undefined) {
+            if ((!args || args.contentType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'contentType'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.schemaId === undefined) {
+            if ((!args || args.schemaId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'schemaId'");
             }
-            if (!args || args.serviceName === undefined) {
+            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;

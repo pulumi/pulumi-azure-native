@@ -139,7 +139,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190501Preview
         /// The status of the token example enabled or disabled.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20190501Preview.TokenStatus>? Status { get; set; }
 
         /// <summary>
         /// The name of the token.

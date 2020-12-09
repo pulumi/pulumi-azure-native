@@ -28,6 +28,7 @@ func NewTrafficManagerUserMetricsKey(ctx *pulumi.Context,
 	if args == nil {
 		args = &TrafficManagerUserMetricsKeyArgs{}
 	}
+
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-nextgen:network/v20180401:TrafficManagerUserMetricsKey"),

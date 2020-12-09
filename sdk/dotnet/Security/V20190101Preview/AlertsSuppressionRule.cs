@@ -147,7 +147,7 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
         /// Possible states of the rule
         /// </summary>
         [Input("state", required: true)]
-        public Input<string> State { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Security.V20190101Preview.RuleState> State { get; set; } = null!;
 
         /// <summary>
         /// The suppression conditions

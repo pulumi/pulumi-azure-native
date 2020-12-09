@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest.Inputs
         /// Indicates the directory service used.
         /// </summary>
         [Input("directoryServiceOptions", required: true)]
-        public Input<string> DirectoryServiceOptions { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Storage.Latest.DirectoryServiceOptions> DirectoryServiceOptions { get; set; } = null!;
 
         public AzureFilesIdentityBasedAuthenticationArgs()
         {

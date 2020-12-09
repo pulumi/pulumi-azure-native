@@ -159,7 +159,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201110Preview
         /// HostPool type for scaling plan.
         /// </summary>
         [Input("hostPoolType")]
-        public Input<string>? HostPoolType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DesktopVirtualization.V20201110Preview.HostPoolType>? HostPoolType { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

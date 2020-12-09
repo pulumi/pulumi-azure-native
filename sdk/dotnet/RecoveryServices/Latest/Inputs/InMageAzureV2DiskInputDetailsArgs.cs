@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         /// The DiskType.
         /// </summary>
         [Input("diskType")]
-        public Input<string>? DiskType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.Latest.DiskAccountType>? DiskType { get; set; }
 
         /// <summary>
         /// The LogStorageAccountId.

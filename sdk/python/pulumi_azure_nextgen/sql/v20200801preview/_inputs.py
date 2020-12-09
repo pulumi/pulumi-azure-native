@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'DatabaseVulnerabilityAssessmentRuleBaselineItemArgs',
@@ -102,35 +103,35 @@ class ElasticPoolPerDatabaseSettingsArgs:
 @pulumi.input_type
 class FailoverGroupReadOnlyEndpointArgs:
     def __init__(__self__, *,
-                 failover_policy: Optional[pulumi.Input[str]] = None):
+                 failover_policy: Optional[pulumi.Input[Union[str, 'ReadOnlyEndpointFailoverPolicy']]] = None):
         """
         Read-only endpoint of the failover group instance.
-        :param pulumi.Input[str] failover_policy: Failover policy of the read-only endpoint for the failover group.
+        :param pulumi.Input[Union[str, 'ReadOnlyEndpointFailoverPolicy']] failover_policy: Failover policy of the read-only endpoint for the failover group.
         """
         if failover_policy is not None:
             pulumi.set(__self__, "failover_policy", failover_policy)
 
     @property
     @pulumi.getter(name="failoverPolicy")
-    def failover_policy(self) -> Optional[pulumi.Input[str]]:
+    def failover_policy(self) -> Optional[pulumi.Input[Union[str, 'ReadOnlyEndpointFailoverPolicy']]]:
         """
         Failover policy of the read-only endpoint for the failover group.
         """
         return pulumi.get(self, "failover_policy")
 
     @failover_policy.setter
-    def failover_policy(self, value: Optional[pulumi.Input[str]]):
+    def failover_policy(self, value: Optional[pulumi.Input[Union[str, 'ReadOnlyEndpointFailoverPolicy']]]):
         pulumi.set(self, "failover_policy", value)
 
 
 @pulumi.input_type
 class FailoverGroupReadWriteEndpointArgs:
     def __init__(__self__, *,
-                 failover_policy: pulumi.Input[str],
+                 failover_policy: pulumi.Input[Union[str, 'ReadWriteEndpointFailoverPolicy']],
                  failover_with_data_loss_grace_period_minutes: Optional[pulumi.Input[int]] = None):
         """
         Read-write endpoint of the failover group instance.
-        :param pulumi.Input[str] failover_policy: Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+        :param pulumi.Input[Union[str, 'ReadWriteEndpointFailoverPolicy']] failover_policy: Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
         :param pulumi.Input[int] failover_with_data_loss_grace_period_minutes: Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
         """
         pulumi.set(__self__, "failover_policy", failover_policy)
@@ -139,14 +140,14 @@ class FailoverGroupReadWriteEndpointArgs:
 
     @property
     @pulumi.getter(name="failoverPolicy")
-    def failover_policy(self) -> pulumi.Input[str]:
+    def failover_policy(self) -> pulumi.Input[Union[str, 'ReadWriteEndpointFailoverPolicy']]:
         """
         Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
         """
         return pulumi.get(self, "failover_policy")
 
     @failover_policy.setter
-    def failover_policy(self, value: pulumi.Input[str]):
+    def failover_policy(self, value: pulumi.Input[Union[str, 'ReadWriteEndpointFailoverPolicy']]):
         pulumi.set(self, "failover_policy", value)
 
     @property
@@ -165,35 +166,35 @@ class FailoverGroupReadWriteEndpointArgs:
 @pulumi.input_type
 class InstanceFailoverGroupReadOnlyEndpointArgs:
     def __init__(__self__, *,
-                 failover_policy: Optional[pulumi.Input[str]] = None):
+                 failover_policy: Optional[pulumi.Input[Union[str, 'ReadOnlyEndpointFailoverPolicy']]] = None):
         """
         Read-only endpoint of the failover group instance.
-        :param pulumi.Input[str] failover_policy: Failover policy of the read-only endpoint for the failover group.
+        :param pulumi.Input[Union[str, 'ReadOnlyEndpointFailoverPolicy']] failover_policy: Failover policy of the read-only endpoint for the failover group.
         """
         if failover_policy is not None:
             pulumi.set(__self__, "failover_policy", failover_policy)
 
     @property
     @pulumi.getter(name="failoverPolicy")
-    def failover_policy(self) -> Optional[pulumi.Input[str]]:
+    def failover_policy(self) -> Optional[pulumi.Input[Union[str, 'ReadOnlyEndpointFailoverPolicy']]]:
         """
         Failover policy of the read-only endpoint for the failover group.
         """
         return pulumi.get(self, "failover_policy")
 
     @failover_policy.setter
-    def failover_policy(self, value: Optional[pulumi.Input[str]]):
+    def failover_policy(self, value: Optional[pulumi.Input[Union[str, 'ReadOnlyEndpointFailoverPolicy']]]):
         pulumi.set(self, "failover_policy", value)
 
 
 @pulumi.input_type
 class InstanceFailoverGroupReadWriteEndpointArgs:
     def __init__(__self__, *,
-                 failover_policy: pulumi.Input[str],
+                 failover_policy: pulumi.Input[Union[str, 'ReadWriteEndpointFailoverPolicy']],
                  failover_with_data_loss_grace_period_minutes: Optional[pulumi.Input[int]] = None):
         """
         Read-write endpoint of the failover group instance.
-        :param pulumi.Input[str] failover_policy: Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
+        :param pulumi.Input[Union[str, 'ReadWriteEndpointFailoverPolicy']] failover_policy: Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
         :param pulumi.Input[int] failover_with_data_loss_grace_period_minutes: Grace period before failover with data loss is attempted for the read-write endpoint. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
         """
         pulumi.set(__self__, "failover_policy", failover_policy)
@@ -202,14 +203,14 @@ class InstanceFailoverGroupReadWriteEndpointArgs:
 
     @property
     @pulumi.getter(name="failoverPolicy")
-    def failover_policy(self) -> pulumi.Input[str]:
+    def failover_policy(self) -> pulumi.Input[Union[str, 'ReadWriteEndpointFailoverPolicy']]:
         """
         Failover policy of the read-write endpoint for the failover group. If failoverPolicy is Automatic then failoverWithDataLossGracePeriodMinutes is required.
         """
         return pulumi.get(self, "failover_policy")
 
     @failover_policy.setter
-    def failover_policy(self, value: pulumi.Input[str]):
+    def failover_policy(self, value: pulumi.Input[Union[str, 'ReadWriteEndpointFailoverPolicy']]):
         pulumi.set(self, "failover_policy", value)
 
     @property
@@ -232,14 +233,14 @@ class JobScheduleArgs:
                  end_time: Optional[pulumi.Input[str]] = None,
                  interval: Optional[pulumi.Input[str]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input['JobScheduleType']] = None):
         """
         Scheduling properties of a job.
         :param pulumi.Input[bool] enabled: Whether or not the schedule is enabled.
         :param pulumi.Input[str] end_time: Schedule end time.
         :param pulumi.Input[str] interval: Value of the schedule's recurring interval, if the ScheduleType is recurring. ISO8601 duration format.
         :param pulumi.Input[str] start_time: Schedule start time.
-        :param pulumi.Input[str] type: Schedule interval type
+        :param pulumi.Input['JobScheduleType'] type: Schedule interval type
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -302,14 +303,14 @@ class JobScheduleArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['JobScheduleType']]:
         """
         Schedule interval type
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['JobScheduleType']]):
         pulumi.set(self, "type", value)
 
 
@@ -317,13 +318,13 @@ class JobScheduleArgs:
 class JobStepActionArgs:
     def __init__(__self__, *,
                  value: pulumi.Input[str],
-                 source: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 source: Optional[pulumi.Input[Union[str, 'JobStepActionSource']]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'JobStepActionType']]] = None):
         """
         The action to be executed by a job step.
         :param pulumi.Input[str] value: The action value, for example the text of the T-SQL script to execute.
-        :param pulumi.Input[str] source: The source of the action to execute.
-        :param pulumi.Input[str] type: Type of action being executed by the job step.
+        :param pulumi.Input[Union[str, 'JobStepActionSource']] source: The source of the action to execute.
+        :param pulumi.Input[Union[str, 'JobStepActionType']] type: Type of action being executed by the job step.
         """
         pulumi.set(__self__, "value", value)
         if source is not None:
@@ -345,26 +346,26 @@ class JobStepActionArgs:
 
     @property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input[str]]:
+    def source(self) -> Optional[pulumi.Input[Union[str, 'JobStepActionSource']]]:
         """
         The source of the action to execute.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input[str]]):
+    def source(self, value: Optional[pulumi.Input[Union[str, 'JobStepActionSource']]]):
         pulumi.set(self, "source", value)
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'JobStepActionType']]]:
         """
         Type of action being executed by the job step.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'JobStepActionType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -466,7 +467,7 @@ class JobStepOutputArgs:
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input[Union[str, 'JobStepOutputType']]] = None):
         """
         The output configuration of a job step.
         :param pulumi.Input[str] credential: The resource ID of the credential to use to connect to the output destination.
@@ -476,7 +477,7 @@ class JobStepOutputArgs:
         :param pulumi.Input[str] resource_group_name: The output destination resource group.
         :param pulumi.Input[str] schema_name: The output destination schema.
         :param pulumi.Input[str] subscription_id: The output destination subscription id.
-        :param pulumi.Input[str] type: The output destination type.
+        :param pulumi.Input[Union[str, 'JobStepOutputType']] type: The output destination type.
         """
         pulumi.set(__self__, "credential", credential)
         pulumi.set(__self__, "database_name", database_name)
@@ -577,33 +578,33 @@ class JobStepOutputArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'JobStepOutputType']]]:
         """
         The output destination type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'JobStepOutputType']]]):
         pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
 class JobTargetArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str],
+                 type: pulumi.Input[Union[str, 'JobTargetType']],
                  database_name: Optional[pulumi.Input[str]] = None,
                  elastic_pool_name: Optional[pulumi.Input[str]] = None,
-                 membership_type: Optional[pulumi.Input[str]] = None,
+                 membership_type: Optional[pulumi.Input['JobTargetGroupMembershipType']] = None,
                  refresh_credential: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  shard_map_name: Optional[pulumi.Input[str]] = None):
         """
         A job target, for example a specific database or a container of databases that is evaluated during job execution.
-        :param pulumi.Input[str] type: The target type.
+        :param pulumi.Input[Union[str, 'JobTargetType']] type: The target type.
         :param pulumi.Input[str] database_name: The target database name.
         :param pulumi.Input[str] elastic_pool_name: The target elastic pool name.
-        :param pulumi.Input[str] membership_type: Whether the target is included or excluded from the group.
+        :param pulumi.Input['JobTargetGroupMembershipType'] membership_type: Whether the target is included or excluded from the group.
         :param pulumi.Input[str] refresh_credential: The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
         :param pulumi.Input[str] server_name: The target server name.
         :param pulumi.Input[str] shard_map_name: The target shard map.
@@ -624,14 +625,14 @@ class JobTargetArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'JobTargetType']]:
         """
         The target type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'JobTargetType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -660,14 +661,14 @@ class JobTargetArgs:
 
     @property
     @pulumi.getter(name="membershipType")
-    def membership_type(self) -> Optional[pulumi.Input[str]]:
+    def membership_type(self) -> Optional[pulumi.Input['JobTargetGroupMembershipType']]:
         """
         Whether the target is included or excluded from the group.
         """
         return pulumi.get(self, "membership_type")
 
     @membership_type.setter
-    def membership_type(self, value: Optional[pulumi.Input[str]]):
+    def membership_type(self, value: Optional[pulumi.Input['JobTargetGroupMembershipType']]):
         pulumi.set(self, "membership_type", value)
 
     @property
@@ -881,10 +882,10 @@ class PrivateEndpointPropertyArgs:
 class PrivateLinkServiceConnectionStatePropertyArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[str],
-                 status: pulumi.Input[str]):
+                 status: pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStateStatus']]):
         """
         :param pulumi.Input[str] description: The private link service connection description.
-        :param pulumi.Input[str] status: The private link service connection status.
+        :param pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStateStatus']] status: The private link service connection status.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "status", status)
@@ -903,38 +904,38 @@ class PrivateLinkServiceConnectionStatePropertyArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Input[str]:
+    def status(self) -> pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStateStatus']]:
         """
         The private link service connection status.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: pulumi.Input[str]):
+    def status(self, value: pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStateStatus']]):
         pulumi.set(self, "status", value)
 
 
 @pulumi.input_type
 class ResourceIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input[Union[str, 'IdentityType']]] = None):
         """
         Azure Active Directory identity configuration for a resource.
-        :param pulumi.Input[str] type: The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+        :param pulumi.Input[Union[str, 'IdentityType']] type: The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'IdentityType']]]:
         """
         The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'IdentityType']]]):
         pulumi.set(self, "type", value)
 
 

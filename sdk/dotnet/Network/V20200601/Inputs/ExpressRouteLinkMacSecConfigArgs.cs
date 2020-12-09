@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601.Inputs
         /// Mac security cipher.
         /// </summary>
         [Input("cipher")]
-        public Input<string>? Cipher { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200601.ExpressRouteLinkMacSecCipher>? Cipher { get; set; }
 
         /// <summary>
         /// Keyvault Secret Identifier URL containing Mac security CKN key.
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601.Inputs
         /// Sci mode enabled/disabled.
         /// </summary>
         [Input("sciState")]
-        public Input<string>? SciState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200601.ExpressRouteLinkMacSecSciState>? SciState { get; set; }
 
         public ExpressRouteLinkMacSecConfigArgs()
         {

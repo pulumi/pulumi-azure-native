@@ -36,29 +36,30 @@ type WorkloadGroup struct {
 // NewWorkloadGroup registers a new resource with the given unique name, arguments, and options.
 func NewWorkloadGroup(ctx *pulumi.Context,
 	name string, args *WorkloadGroupArgs, opts ...pulumi.ResourceOption) (*WorkloadGroup, error) {
-	if args == nil || args.DatabaseName == nil {
-		return nil, errors.New("missing required argument 'DatabaseName'")
-	}
-	if args == nil || args.MaxResourcePercent == nil {
-		return nil, errors.New("missing required argument 'MaxResourcePercent'")
-	}
-	if args == nil || args.MinResourcePercent == nil {
-		return nil, errors.New("missing required argument 'MinResourcePercent'")
-	}
-	if args == nil || args.MinResourcePercentPerRequest == nil {
-		return nil, errors.New("missing required argument 'MinResourcePercentPerRequest'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServerName == nil {
-		return nil, errors.New("missing required argument 'ServerName'")
-	}
-	if args == nil || args.WorkloadGroupName == nil {
-		return nil, errors.New("missing required argument 'WorkloadGroupName'")
-	}
 	if args == nil {
-		args = &WorkloadGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DatabaseName == nil {
+		return nil, errors.New("invalid value for required argument 'DatabaseName'")
+	}
+	if args.MaxResourcePercent == nil {
+		return nil, errors.New("invalid value for required argument 'MaxResourcePercent'")
+	}
+	if args.MinResourcePercent == nil {
+		return nil, errors.New("invalid value for required argument 'MinResourcePercent'")
+	}
+	if args.MinResourcePercentPerRequest == nil {
+		return nil, errors.New("invalid value for required argument 'MinResourcePercentPerRequest'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServerName == nil {
+		return nil, errors.New("invalid value for required argument 'ServerName'")
+	}
+	if args.WorkloadGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkloadGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

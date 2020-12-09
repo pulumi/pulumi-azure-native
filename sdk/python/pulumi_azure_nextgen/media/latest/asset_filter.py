@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['AssetFilter']
@@ -57,18 +58,18 @@ class AssetFilter(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_name is None:
+            if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if asset_name is None:
+            if asset_name is None and not opts.urn:
                 raise TypeError("Missing required property 'asset_name'")
             __props__['asset_name'] = asset_name
-            if filter_name is None:
+            if filter_name is None and not opts.urn:
                 raise TypeError("Missing required property 'filter_name'")
             __props__['filter_name'] = filter_name
             __props__['first_quality'] = first_quality
             __props__['presentation_time_range'] = presentation_time_range
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tracks'] = tracks

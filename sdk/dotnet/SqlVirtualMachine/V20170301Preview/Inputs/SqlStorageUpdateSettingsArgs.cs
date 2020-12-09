@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview.Inputs
         /// Disk configuration to apply to SQL Server.
         /// </summary>
         [Input("diskConfigurationType")]
-        public Input<string>? DiskConfigurationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview.DiskConfigurationType>? DiskConfigurationType { get; set; }
 
         /// <summary>
         /// Virtual machine disk count.

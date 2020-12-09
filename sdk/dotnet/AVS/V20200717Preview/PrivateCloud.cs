@@ -195,7 +195,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// Connectivity to internet is enabled or disabled
         /// </summary>
         [Input("internet")]
-        public Input<string>? Internet { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.AVS.V20200717Preview.InternetEnum>? Internet { get; set; }
 
         /// <summary>
         /// Resource location
@@ -219,7 +219,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// Indicate to rotate the NSX-T Manager password for the private cloud
         /// </summary>
         [Input("nsxtPassword")]
-        public Input<string>? NsxtPassword { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.AVS.V20200717Preview.NsxtAdminRotateEnum>? NsxtPassword { get; set; }
 
         /// <summary>
         /// Name of the private cloud
@@ -255,7 +255,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// Indicate to rotate the vCenter admin password for the private cloud
         /// </summary>
         [Input("vcenterPassword")]
-        public Input<string>? VcenterPassword { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.AVS.V20200717Preview.VcsaAdminRotateEnum>? VcenterPassword { get; set; }
 
         public PrivateCloudArgs()
         {

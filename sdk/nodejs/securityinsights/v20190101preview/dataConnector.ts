@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -61,19 +62,19 @@ export class DataConnector extends pulumi.CustomResource {
     constructor(name: string, args: DataConnectorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.dataConnectorId === undefined) {
+            if ((!args || args.dataConnectorId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataConnectorId'");
             }
-            if (!args || args.kind === undefined) {
+            if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kind'");
             }
-            if (!args || args.operationalInsightsResourceProvider === undefined) {
+            if ((!args || args.operationalInsightsResourceProvider === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'operationalInsightsResourceProvider'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.workspaceName === undefined) {
+            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["dataConnectorId"] = args ? args.dataConnectorId : undefined;
@@ -116,7 +117,7 @@ export interface DataConnectorArgs {
     /**
      * The kind of the data connector
      */
-    readonly kind: pulumi.Input<string>;
+    readonly kind: pulumi.Input<string | enums.securityinsights.v20190101preview.DataConnectorKind>;
     /**
      * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
      */

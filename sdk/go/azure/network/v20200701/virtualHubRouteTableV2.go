@@ -30,17 +30,18 @@ type VirtualHubRouteTableV2 struct {
 // NewVirtualHubRouteTableV2 registers a new resource with the given unique name, arguments, and options.
 func NewVirtualHubRouteTableV2(ctx *pulumi.Context,
 	name string, args *VirtualHubRouteTableV2Args, opts ...pulumi.ResourceOption) (*VirtualHubRouteTableV2, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.RouteTableName == nil {
-		return nil, errors.New("missing required argument 'RouteTableName'")
-	}
-	if args == nil || args.VirtualHubName == nil {
-		return nil, errors.New("missing required argument 'VirtualHubName'")
-	}
 	if args == nil {
-		args = &VirtualHubRouteTableV2Args{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.RouteTableName == nil {
+		return nil, errors.New("invalid value for required argument 'RouteTableName'")
+	}
+	if args.VirtualHubName == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualHubName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

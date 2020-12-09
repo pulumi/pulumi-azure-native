@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -130,13 +130,13 @@ export class Domain extends pulumi.CustomResource {
     constructor(name: string, args: DomainArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.domainName === undefined) {
+            if ((!args || args.domainName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["autoRenew"] = args ? args.autoRenew : undefined;
@@ -278,7 +278,7 @@ export interface DomainArgs {
     /**
      * Domain provisioning state
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    readonly provisioningState?: pulumi.Input<enums.domainregistration.v20150801.ProvisioningState>;
     /**
      * If true then Azure can assign this domain to Web Apps. This value will be true if domain registration status is active and it is hosted on name servers Azure has programmatic access to
      */
@@ -286,7 +286,7 @@ export interface DomainArgs {
     /**
      * Domain registration status
      */
-    readonly registrationStatus?: pulumi.Input<string>;
+    readonly registrationStatus?: pulumi.Input<enums.domainregistration.v20150801.DomainStatus>;
     /**
      * &gt;Name of the resource group
      */

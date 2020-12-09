@@ -167,7 +167,7 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20191101Preview
         /// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
         /// </summary>
         [Input("publicNetworkAccess")]
-        public Input<string>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.AppConfiguration.V20191101Preview.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group to which the container registry belongs.

@@ -36,20 +36,21 @@ type StorageInsightConfig struct {
 // NewStorageInsightConfig registers a new resource with the given unique name, arguments, and options.
 func NewStorageInsightConfig(ctx *pulumi.Context,
 	name string, args *StorageInsightConfigArgs, opts ...pulumi.ResourceOption) (*StorageInsightConfig, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.StorageAccount == nil {
-		return nil, errors.New("missing required argument 'StorageAccount'")
-	}
-	if args == nil || args.StorageInsightName == nil {
-		return nil, errors.New("missing required argument 'StorageInsightName'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &StorageInsightConfigArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.StorageAccount == nil {
+		return nil, errors.New("invalid value for required argument 'StorageAccount'")
+	}
+	if args.StorageInsightName == nil {
+		return nil, errors.New("invalid value for required argument 'StorageInsightName'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

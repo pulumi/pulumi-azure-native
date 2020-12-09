@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 
 __all__ = ['Component']
 
@@ -16,17 +17,17 @@ class Component(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_type: Optional[pulumi.Input[str]] = None,
+                 application_type: Optional[pulumi.Input[Union[str, 'ApplicationType']]] = None,
                  disable_ip_masking: Optional[pulumi.Input[bool]] = None,
-                 flow_type: Optional[pulumi.Input[str]] = None,
+                 flow_type: Optional[pulumi.Input[Union[str, 'FlowType']]] = None,
                  hockey_app_id: Optional[pulumi.Input[str]] = None,
                  immediate_purge_data_on30_days: Optional[pulumi.Input[bool]] = None,
-                 ingestion_mode: Optional[pulumi.Input[str]] = None,
+                 ingestion_mode: Optional[pulumi.Input[Union[str, 'IngestionMode']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 public_network_access_for_ingestion: Optional[pulumi.Input[str]] = None,
-                 public_network_access_for_query: Optional[pulumi.Input[str]] = None,
-                 request_source: Optional[pulumi.Input[str]] = None,
+                 public_network_access_for_ingestion: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]] = None,
+                 public_network_access_for_query: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]] = None,
+                 request_source: Optional[pulumi.Input[Union[str, 'RequestSource']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  sampling_percentage: Optional[pulumi.Input[float]] = None,
@@ -40,17 +41,17 @@ class Component(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] application_type: Type of application being monitored.
+        :param pulumi.Input[Union[str, 'ApplicationType']] application_type: Type of application being monitored.
         :param pulumi.Input[bool] disable_ip_masking: Disable IP masking.
-        :param pulumi.Input[str] flow_type: Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
+        :param pulumi.Input[Union[str, 'FlowType']] flow_type: Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
         :param pulumi.Input[str] hockey_app_id: The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
         :param pulumi.Input[bool] immediate_purge_data_on30_days: Purge data immediately after 30 days.
-        :param pulumi.Input[str] ingestion_mode: Indicates the flow of the ingestion.
+        :param pulumi.Input[Union[str, 'IngestionMode']] ingestion_mode: Indicates the flow of the ingestion.
         :param pulumi.Input[str] kind: The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] public_network_access_for_ingestion: The network access type for accessing Application Insights ingestion.
-        :param pulumi.Input[str] public_network_access_for_query: The network access type for accessing Application Insights query.
-        :param pulumi.Input[str] request_source: Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccessType']] public_network_access_for_ingestion: The network access type for accessing Application Insights ingestion.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccessType']] public_network_access_for_query: The network access type for accessing Application Insights query.
+        :param pulumi.Input[Union[str, 'RequestSource']] request_source: Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the Application Insights component resource.
         :param pulumi.Input[float] sampling_percentage: Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
@@ -74,7 +75,7 @@ class Component(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if application_type is None:
+            if application_type is None and not opts.urn:
                 raise TypeError("Missing required property 'application_type'")
             __props__['application_type'] = application_type
             __props__['disable_ip_masking'] = disable_ip_masking
@@ -82,24 +83,24 @@ class Component(pulumi.CustomResource):
             __props__['hockey_app_id'] = hockey_app_id
             __props__['immediate_purge_data_on30_days'] = immediate_purge_data_on30_days
             __props__['ingestion_mode'] = ingestion_mode
-            if kind is None:
+            if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = kind
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['public_network_access_for_ingestion'] = public_network_access_for_ingestion
             __props__['public_network_access_for_query'] = public_network_access_for_query
             __props__['request_source'] = request_source
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if resource_name_ is None:
+            if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
             __props__['sampling_percentage'] = sampling_percentage
             __props__['tags'] = tags
-            if workspace_resource_id is None:
+            if workspace_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_resource_id'")
             __props__['workspace_resource_id'] = workspace_resource_id
             __props__['app_id'] = None

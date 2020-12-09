@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Web.V20180201.Inputs
         /// Type of storage.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AzureNextGen.Web.V20180201.AzureStorageType>? Type { get; set; }
 
         public AzureStorageInfoValueArgs()
         {

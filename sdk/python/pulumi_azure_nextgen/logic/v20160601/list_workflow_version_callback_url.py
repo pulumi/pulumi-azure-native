@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'ListWorkflowVersionCallbackUrlResult',
@@ -103,7 +104,7 @@ class AwaitableListWorkflowVersionCallbackUrlResult(ListWorkflowVersionCallbackU
             value=self.value)
 
 
-def list_workflow_version_callback_url(key_type: Optional[str] = None,
+def list_workflow_version_callback_url(key_type: Optional['KeyType'] = None,
                                        not_after: Optional[str] = None,
                                        resource_group_name: Optional[str] = None,
                                        trigger_name: Optional[str] = None,
@@ -113,7 +114,7 @@ def list_workflow_version_callback_url(key_type: Optional[str] = None,
     """
     Use this data source to access information about an existing resource.
 
-    :param str key_type: The key type.
+    :param 'KeyType' key_type: The key type.
     :param str not_after: The expiry time.
     :param str resource_group_name: The resource group name.
     :param str trigger_name: The workflow trigger name.

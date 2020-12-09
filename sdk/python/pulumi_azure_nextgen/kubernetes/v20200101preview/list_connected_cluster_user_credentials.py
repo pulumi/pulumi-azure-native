@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = [
@@ -56,7 +57,7 @@ class AwaitableListConnectedClusterUserCredentialsResult(ListConnectedClusterUse
             kubeconfigs=self.kubeconfigs)
 
 
-def list_connected_cluster_user_credentials(authentication_method: Optional[str] = None,
+def list_connected_cluster_user_credentials(authentication_method: Optional[Union[str, 'AuthenticationMethod']] = None,
                                             client_proxy: Optional[bool] = None,
                                             cluster_name: Optional[str] = None,
                                             resource_group_name: Optional[str] = None,
@@ -65,7 +66,7 @@ def list_connected_cluster_user_credentials(authentication_method: Optional[str]
     """
     Use this data source to access information about an existing resource.
 
-    :param str authentication_method: The mode of client authentication.
+    :param Union[str, 'AuthenticationMethod'] authentication_method: The mode of client authentication.
     :param bool client_proxy: Parameter to indicate whether the request is for client side proxy or not
     :param str cluster_name: The name of the Kubernetes cluster on which get is called.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

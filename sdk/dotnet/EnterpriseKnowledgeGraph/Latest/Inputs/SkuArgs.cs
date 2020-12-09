@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.EnterpriseKnowledgeGraph.Latest.Inputs
         /// The sku name
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.EnterpriseKnowledgeGraph.Latest.SkuName> Name { get; set; } = null!;
 
         public SkuArgs()
         {

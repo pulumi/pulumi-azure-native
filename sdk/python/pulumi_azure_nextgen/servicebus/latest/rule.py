@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Rule']
@@ -19,7 +20,7 @@ class Rule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input[pulumi.InputType['ActionArgs']]] = None,
                  correlation_filter: Optional[pulumi.Input[pulumi.InputType['CorrelationFilterArgs']]] = None,
-                 filter_type: Optional[pulumi.Input[str]] = None,
+                 filter_type: Optional[pulumi.Input['FilterType']] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
@@ -36,7 +37,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ActionArgs']] action: Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
         :param pulumi.Input[pulumi.InputType['CorrelationFilterArgs']] correlation_filter: Properties of correlationFilter
-        :param pulumi.Input[str] filter_type: Filter type that is evaluated against a BrokeredMessage.
+        :param pulumi.Input['FilterType'] filter_type: Filter type that is evaluated against a BrokeredMessage.
         :param pulumi.Input[str] namespace_name: The namespace name
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[str] rule_name: The rule name.
@@ -64,20 +65,20 @@ class Rule(pulumi.CustomResource):
             __props__['action'] = action
             __props__['correlation_filter'] = correlation_filter
             __props__['filter_type'] = filter_type
-            if namespace_name is None:
+            if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if rule_name is None:
+            if rule_name is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_name'")
             __props__['rule_name'] = rule_name
             __props__['sql_filter'] = sql_filter
-            if subscription_name is None:
+            if subscription_name is None and not opts.urn:
                 raise TypeError("Missing required property 'subscription_name'")
             __props__['subscription_name'] = subscription_name
-            if topic_name is None:
+            if topic_name is None and not opts.urn:
                 raise TypeError("Missing required property 'topic_name'")
             __props__['topic_name'] = topic_name
             __props__['name'] = None

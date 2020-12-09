@@ -57,7 +57,7 @@ export class TenantConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: TenantConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.configurationName === undefined) {
+            if ((!args || args.configurationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'configurationName'");
             }
             inputs["configurationName"] = args ? args.configurationName : undefined;

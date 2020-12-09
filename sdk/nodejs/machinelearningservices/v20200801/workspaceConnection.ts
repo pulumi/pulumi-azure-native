@@ -69,13 +69,13 @@ export class WorkspaceConnection extends pulumi.CustomResource {
     constructor(name: string, args: WorkspaceConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.connectionName === undefined) {
+            if ((!args || args.connectionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'connectionName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.workspaceName === undefined) {
+            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["authType"] = args ? args.authType : undefined;

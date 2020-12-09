@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001.Inputs
         /// Algorithm used to encrypt "Value"
         /// </summary>
         [Input("encryptionAlgorithm", required: true)]
-        public Input<string> EncryptionAlgorithm { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.StorSimple.V20161001.EncryptionAlgorithm> EncryptionAlgorithm { get; set; } = null!;
 
         /// <summary>
         /// Thumbprint certificate that was used to encrypt "Value"

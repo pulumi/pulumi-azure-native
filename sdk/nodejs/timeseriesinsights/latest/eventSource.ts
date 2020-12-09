@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -66,19 +66,19 @@ export class EventSource extends pulumi.CustomResource {
     constructor(name: string, args: EventSourceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.environmentName === undefined) {
+            if ((!args || args.environmentName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'environmentName'");
             }
-            if (!args || args.eventSourceName === undefined) {
+            if ((!args || args.eventSourceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'eventSourceName'");
             }
-            if (!args || args.kind === undefined) {
+            if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kind'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["environmentName"] = args ? args.environmentName : undefined;
@@ -125,7 +125,7 @@ export interface EventSourceArgs {
     /**
      * The kind of the event source.
      */
-    readonly kind: pulumi.Input<string>;
+    readonly kind: pulumi.Input<string | enums.timeseriesinsights.latest.EventSourceKind>;
     /**
      * An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
      */

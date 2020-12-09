@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['CertificateOrder']
@@ -30,13 +31,13 @@ class CertificateOrder(pulumi.CustomResource):
                  last_certificate_issuance_time: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 product_type: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 product_type: Optional[pulumi.Input['CertificateProductType']] = None,
+                 provisioning_state: Optional[pulumi.Input['ProvisioningState']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  root: Optional[pulumi.Input[pulumi.InputType['CertificateDetailsArgs']]] = None,
                  serial_number: Optional[pulumi.Input[str]] = None,
                  signed_certificate: Optional[pulumi.Input[pulumi.InputType['CertificateDetailsArgs']]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['CertificateOrderStatus']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  validity_in_years: Optional[pulumi.Input[int]] = None,
@@ -61,13 +62,13 @@ class CertificateOrder(pulumi.CustomResource):
         :param pulumi.Input[str] last_certificate_issuance_time: Certificate last issuance time
         :param pulumi.Input[str] location: Resource Location
         :param pulumi.Input[str] name: Resource Name
-        :param pulumi.Input[str] product_type: Certificate product type
-        :param pulumi.Input[str] provisioning_state: Status of certificate order
+        :param pulumi.Input['CertificateProductType'] product_type: Certificate product type
+        :param pulumi.Input['ProvisioningState'] provisioning_state: Status of certificate order
         :param pulumi.Input[str] resource_group_name: Azure resource group name
         :param pulumi.Input[pulumi.InputType['CertificateDetailsArgs']] root: Root certificate
         :param pulumi.Input[str] serial_number: Current serial number of the certificate
         :param pulumi.Input[pulumi.InputType['CertificateDetailsArgs']] signed_certificate: Signed certificate
-        :param pulumi.Input[str] status: Current order status
+        :param pulumi.Input['CertificateOrderStatus'] status: Current order status
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] type: Resource type
         :param pulumi.Input[int] validity_in_years: Duration in years (must be between 1 and 3)
@@ -100,15 +101,15 @@ class CertificateOrder(pulumi.CustomResource):
             __props__['key_size'] = key_size
             __props__['kind'] = kind
             __props__['last_certificate_issuance_time'] = last_certificate_issuance_time
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['product_type'] = product_type
             __props__['provisioning_state'] = provisioning_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['root'] = root

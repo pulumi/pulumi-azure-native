@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601.Inputs
         /// The message filter type.
         /// </summary>
         [Input("messageFilterType", required: true)]
-        public Input<string> MessageFilterType { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Logic.V20160601.MessageFilterType> MessageFilterType { get; set; } = null!;
 
         public EdifactMessageFilterArgs()
         {

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['BandwidthSetting']
@@ -18,7 +19,7 @@ class BandwidthSetting(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bandwidth_setting_name: Optional[pulumi.Input[str]] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input['Kind']] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BandwidthScheduleArgs']]]]] = None,
@@ -31,7 +32,7 @@ class BandwidthSetting(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bandwidth_setting_name: The bandwidth setting name.
-        :param pulumi.Input[str] kind: The Kind of the object. Currently only Series8000 is supported
+        :param pulumi.Input['Kind'] kind: The Kind of the object. Currently only Series8000 is supported
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] resource_group_name: The resource group name
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BandwidthScheduleArgs']]]] schedules: The schedules.
@@ -53,17 +54,17 @@ class BandwidthSetting(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if bandwidth_setting_name is None:
+            if bandwidth_setting_name is None and not opts.urn:
                 raise TypeError("Missing required property 'bandwidth_setting_name'")
             __props__['bandwidth_setting_name'] = bandwidth_setting_name
             __props__['kind'] = kind
-            if manager_name is None:
+            if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")
             __props__['manager_name'] = manager_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if schedules is None:
+            if schedules is None and not opts.urn:
                 raise TypeError("Missing required property 'schedules'")
             __props__['schedules'] = schedules
             __props__['name'] = None

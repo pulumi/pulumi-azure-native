@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -86,22 +86,22 @@ export class User extends pulumi.CustomResource {
     constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.email === undefined) {
+            if ((!args || args.email === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'email'");
             }
-            if (!args || args.firstName === undefined) {
+            if ((!args || args.firstName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'firstName'");
             }
-            if (!args || args.lastName === undefined) {
+            if ((!args || args.lastName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'lastName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serviceName === undefined) {
+            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if (!args || args.userId === undefined) {
+            if ((!args || args.userId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'userId'");
             }
             inputs["appType"] = args ? args.appType : undefined;
@@ -153,11 +153,11 @@ export interface UserArgs {
     /**
      * Determines the type of application which send the create user request. Default is legacy portal.
      */
-    readonly appType?: pulumi.Input<string>;
+    readonly appType?: pulumi.Input<string | enums.apimanagement.latest.AppType>;
     /**
      * Determines the type of confirmation e-mail that will be sent to the newly created user.
      */
-    readonly confirmation?: pulumi.Input<string>;
+    readonly confirmation?: pulumi.Input<string | enums.apimanagement.latest.Confirmation>;
     /**
      * Email address. Must not be empty and must be unique within the service instance.
      */
@@ -197,7 +197,7 @@ export interface UserArgs {
     /**
      * Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
      */
-    readonly state?: pulumi.Input<string>;
+    readonly state?: pulumi.Input<string | enums.apimanagement.latest.UserState>;
     /**
      * User identifier. Must be unique in the current API Management service instance.
      */

@@ -37,17 +37,18 @@ type VirtualWAN struct {
 // NewVirtualWAN registers a new resource with the given unique name, arguments, and options.
 func NewVirtualWAN(ctx *pulumi.Context,
 	name string, args *VirtualWANArgs, opts ...pulumi.ResourceOption) (*VirtualWAN, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VirtualWANName == nil {
-		return nil, errors.New("missing required argument 'VirtualWANName'")
-	}
 	if args == nil {
-		args = &VirtualWANArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VirtualWANName == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualWANName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

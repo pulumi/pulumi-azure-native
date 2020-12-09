@@ -207,7 +207,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
         /// Type of API.
         /// </summary>
         [Input("apiType")]
-        public Input<string>? ApiType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20180601Preview.ApiType>? ApiType { get; set; }
 
         /// <summary>
         /// Indicates the Version identifier of the API if the API is versioned
@@ -243,7 +243,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
         /// Format of the Content in which the API is getting imported.
         /// </summary>
         [Input("contentFormat")]
-        public Input<string>? ContentFormat { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20180601Preview.ContentFormat>? ContentFormat { get; set; }
 
         /// <summary>
         /// Content value when Importing an API.
@@ -270,14 +270,14 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
         public Input<string> Path { get; set; } = null!;
 
         [Input("protocols")]
-        private InputList<string>? _protocols;
+        private InputList<Pulumi.AzureNextGen.ApiManagement.V20180601Preview.Protocol>? _protocols;
 
         /// <summary>
         /// Describes on which protocols the operations in this API can be invoked.
         /// </summary>
-        public InputList<string> Protocols
+        public InputList<Pulumi.AzureNextGen.ApiManagement.V20180601Preview.Protocol> Protocols
         {
-            get => _protocols ?? (_protocols = new InputList<string>());
+            get => _protocols ?? (_protocols = new InputList<Pulumi.AzureNextGen.ApiManagement.V20180601Preview.Protocol>());
             set => _protocols = value;
         }
 
@@ -305,7 +305,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
         ///  * `soap` creates a SOAP pass-through API .
         /// </summary>
         [Input("soapApiType")]
-        public Input<string>? SoapApiType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20180601Preview.SoapApiType>? SoapApiType { get; set; }
 
         /// <summary>
         /// Protocols over which API is made available.

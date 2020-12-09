@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['MachineGroup']
@@ -20,7 +21,7 @@ class MachineGroup(pulumi.CustomResource):
                  count: Optional[pulumi.Input[int]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
-                 group_type: Optional[pulumi.Input[str]] = None,
+                 group_type: Optional[pulumi.Input[Union[str, 'MachineGroupType']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  machine_group_name: Optional[pulumi.Input[str]] = None,
                  machines: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MachineReferenceWithHintsArgs']]]]] = None,
@@ -37,7 +38,7 @@ class MachineGroup(pulumi.CustomResource):
         :param pulumi.Input[int] count: Count of machines in this group. The value of count may be bigger than the number of machines in case of the group has been truncated due to exceeding the max number of machines a group can handle.
         :param pulumi.Input[str] display_name: User defined name for the group
         :param pulumi.Input[str] etag: Resource ETAG.
-        :param pulumi.Input[str] group_type: Type of the machine group
+        :param pulumi.Input[Union[str, 'MachineGroupType']] group_type: Type of the machine group
         :param pulumi.Input[str] kind: Additional resource type qualifier.
         :param pulumi.Input[str] machine_group_name: Machine Group resource name.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MachineReferenceWithHintsArgs']]]] machines: References of the machines in this group. The hints within each reference do not represent the current value of the corresponding fields. They are a snapshot created during the last time the machine group was updated.
@@ -62,22 +63,22 @@ class MachineGroup(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['count'] = count
-            if display_name is None:
+            if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
             __props__['etag'] = etag
             __props__['group_type'] = group_type
-            if kind is None:
+            if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = 'machineGroup'
-            if machine_group_name is None:
+            if machine_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'machine_group_name'")
             __props__['machine_group_name'] = machine_group_name
             __props__['machines'] = machines
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if workspace_name is None:
+            if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['name'] = None

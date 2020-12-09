@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -65,13 +66,13 @@ export class NamespaceIpFilterRule extends pulumi.CustomResource {
     constructor(name: string, args: NamespaceIpFilterRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.ipFilterRuleName === undefined) {
+            if ((!args || args.ipFilterRuleName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ipFilterRuleName'");
             }
-            if (!args || args.namespaceName === undefined) {
+            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["action"] = args ? args.action : undefined;
@@ -107,7 +108,7 @@ export interface NamespaceIpFilterRuleArgs {
     /**
      * The IP Filter Action
      */
-    readonly action?: pulumi.Input<string>;
+    readonly action?: pulumi.Input<string | enums.eventhub.v20180101preview.IPAction>;
     /**
      * IP Filter name
      */

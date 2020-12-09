@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ApplicationGetEndpointArgs',
@@ -445,11 +446,11 @@ class AutoscaleRecurrenceArgs:
 @pulumi.input_type
 class AutoscaleScheduleArgs:
     def __init__(__self__, *,
-                 days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 days: Optional[pulumi.Input[Sequence[pulumi.Input['DaysOfWeek']]]] = None,
                  time_and_capacity: Optional[pulumi.Input['AutoscaleTimeAndCapacityArgs']] = None):
         """
         Parameters for a schedule-based autoscale rule, consisting of an array of days + a time and capacity
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] days: Days of the week for a schedule-based autoscale rule
+        :param pulumi.Input[Sequence[pulumi.Input['DaysOfWeek']]] days: Days of the week for a schedule-based autoscale rule
         :param pulumi.Input['AutoscaleTimeAndCapacityArgs'] time_and_capacity: Time and capacity for a schedule-based autoscale rule
         """
         if days is not None:
@@ -459,14 +460,14 @@ class AutoscaleScheduleArgs:
 
     @property
     @pulumi.getter
-    def days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DaysOfWeek']]]]:
         """
         Days of the week for a schedule-based autoscale rule
         """
         return pulumi.get(self, "days")
 
     @days.setter
-    def days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DaysOfWeek']]]]):
         pulumi.set(self, "days", value)
 
     @property
@@ -589,10 +590,10 @@ class ClusterCreatePropertiesArgs:
                  kafka_rest_properties: Optional[pulumi.Input['KafkaRestPropertiesArgs']] = None,
                  min_supported_tls_version: Optional[pulumi.Input[str]] = None,
                  network_properties: Optional[pulumi.Input['NetworkPropertiesArgs']] = None,
-                 os_type: Optional[pulumi.Input[str]] = None,
+                 os_type: Optional[pulumi.Input['OSType']] = None,
                  security_profile: Optional[pulumi.Input['SecurityProfileArgs']] = None,
                  storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
-                 tier: Optional[pulumi.Input[str]] = None):
+                 tier: Optional[pulumi.Input['Tier']] = None):
         """
         The cluster create parameters.
         :param pulumi.Input['ClusterDefinitionArgs'] cluster_definition: The cluster definition.
@@ -603,10 +604,10 @@ class ClusterCreatePropertiesArgs:
         :param pulumi.Input['KafkaRestPropertiesArgs'] kafka_rest_properties: The cluster kafka rest proxy configuration.
         :param pulumi.Input[str] min_supported_tls_version: The minimal supported tls version.
         :param pulumi.Input['NetworkPropertiesArgs'] network_properties: The network properties.
-        :param pulumi.Input[str] os_type: The type of operating system.
+        :param pulumi.Input['OSType'] os_type: The type of operating system.
         :param pulumi.Input['SecurityProfileArgs'] security_profile: The security profile.
         :param pulumi.Input['StorageProfileArgs'] storage_profile: The storage profile.
-        :param pulumi.Input[str] tier: The cluster tier.
+        :param pulumi.Input['Tier'] tier: The cluster tier.
         """
         if cluster_definition is not None:
             pulumi.set(__self__, "cluster_definition", cluster_definition)
@@ -731,14 +732,14 @@ class ClusterCreatePropertiesArgs:
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[str]]:
+    def os_type(self) -> Optional[pulumi.Input['OSType']]:
         """
         The type of operating system.
         """
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[str]]):
+    def os_type(self, value: Optional[pulumi.Input['OSType']]):
         pulumi.set(self, "os_type", value)
 
     @property
@@ -767,14 +768,14 @@ class ClusterCreatePropertiesArgs:
 
     @property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[str]]:
+    def tier(self) -> Optional[pulumi.Input['Tier']]:
         """
         The cluster tier.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[str]]):
+    def tier(self, value: Optional[pulumi.Input['Tier']]):
         pulumi.set(self, "tier", value)
 
 
@@ -853,11 +854,11 @@ class ClusterDefinitionArgs:
 @pulumi.input_type
 class ClusterIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None,
                  user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Identity for the cluster.
-        :param pulumi.Input[str] type: The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
+        :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
         :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         if type is not None:
@@ -867,14 +868,14 @@ class ClusterIdentityArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
         """
         The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -941,7 +942,7 @@ class DataDisksGroupsArgs:
 @pulumi.input_type
 class DiskEncryptionPropertiesArgs:
     def __init__(__self__, *,
-                 encryption_algorithm: Optional[pulumi.Input[str]] = None,
+                 encryption_algorithm: Optional[pulumi.Input[Union[str, 'JsonWebKeyEncryptionAlgorithm']]] = None,
                  encryption_at_host: Optional[pulumi.Input[bool]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_version: Optional[pulumi.Input[str]] = None,
@@ -949,7 +950,7 @@ class DiskEncryptionPropertiesArgs:
                  vault_uri: Optional[pulumi.Input[str]] = None):
         """
         The disk encryption properties
-        :param pulumi.Input[str] encryption_algorithm: Algorithm identifier for encryption, default RSA-OAEP.
+        :param pulumi.Input[Union[str, 'JsonWebKeyEncryptionAlgorithm']] encryption_algorithm: Algorithm identifier for encryption, default RSA-OAEP.
         :param pulumi.Input[bool] encryption_at_host: Indicates whether or not resource disk encryption is enabled.
         :param pulumi.Input[str] key_name: Key name that is used for enabling disk encryption.
         :param pulumi.Input[str] key_version: Specific key version that is used for enabling disk encryption.
@@ -971,14 +972,14 @@ class DiskEncryptionPropertiesArgs:
 
     @property
     @pulumi.getter(name="encryptionAlgorithm")
-    def encryption_algorithm(self) -> Optional[pulumi.Input[str]]:
+    def encryption_algorithm(self) -> Optional[pulumi.Input[Union[str, 'JsonWebKeyEncryptionAlgorithm']]]:
         """
         Algorithm identifier for encryption, default RSA-OAEP.
         """
         return pulumi.get(self, "encryption_algorithm")
 
     @encryption_algorithm.setter
-    def encryption_algorithm(self, value: Optional[pulumi.Input[str]]):
+    def encryption_algorithm(self, value: Optional[pulumi.Input[Union[str, 'JsonWebKeyEncryptionAlgorithm']]]):
         pulumi.set(self, "encryption_algorithm", value)
 
     @property
@@ -1213,12 +1214,12 @@ class LinuxOperatingSystemProfileArgs:
 @pulumi.input_type
 class NetworkPropertiesArgs:
     def __init__(__self__, *,
-                 private_link: Optional[pulumi.Input[str]] = None,
-                 resource_provider_connection: Optional[pulumi.Input[str]] = None):
+                 private_link: Optional[pulumi.Input[Union[str, 'PrivateLink']]] = None,
+                 resource_provider_connection: Optional[pulumi.Input[Union[str, 'ResourceProviderConnection']]] = None):
         """
         The network properties.
-        :param pulumi.Input[str] private_link: Indicates whether or not private link is enabled.
-        :param pulumi.Input[str] resource_provider_connection: The direction for the resource provider connection.
+        :param pulumi.Input[Union[str, 'PrivateLink']] private_link: Indicates whether or not private link is enabled.
+        :param pulumi.Input[Union[str, 'ResourceProviderConnection']] resource_provider_connection: The direction for the resource provider connection.
         """
         if private_link is not None:
             pulumi.set(__self__, "private_link", private_link)
@@ -1227,26 +1228,26 @@ class NetworkPropertiesArgs:
 
     @property
     @pulumi.getter(name="privateLink")
-    def private_link(self) -> Optional[pulumi.Input[str]]:
+    def private_link(self) -> Optional[pulumi.Input[Union[str, 'PrivateLink']]]:
         """
         Indicates whether or not private link is enabled.
         """
         return pulumi.get(self, "private_link")
 
     @private_link.setter
-    def private_link(self, value: Optional[pulumi.Input[str]]):
+    def private_link(self, value: Optional[pulumi.Input[Union[str, 'PrivateLink']]]):
         pulumi.set(self, "private_link", value)
 
     @property
     @pulumi.getter(name="resourceProviderConnection")
-    def resource_provider_connection(self) -> Optional[pulumi.Input[str]]:
+    def resource_provider_connection(self) -> Optional[pulumi.Input[Union[str, 'ResourceProviderConnection']]]:
         """
         The direction for the resource provider connection.
         """
         return pulumi.get(self, "resource_provider_connection")
 
     @resource_provider_connection.setter
-    def resource_provider_connection(self, value: Optional[pulumi.Input[str]]):
+    def resource_provider_connection(self, value: Optional[pulumi.Input[Union[str, 'ResourceProviderConnection']]]):
         pulumi.set(self, "resource_provider_connection", value)
 
 
@@ -1553,7 +1554,7 @@ class SecurityProfileArgs:
     def __init__(__self__, *,
                  aadds_resource_id: Optional[pulumi.Input[str]] = None,
                  cluster_users_group_dns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 directory_type: Optional[pulumi.Input[str]] = None,
+                 directory_type: Optional[pulumi.Input['DirectoryType']] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  domain_user_password: Optional[pulumi.Input[str]] = None,
                  domain_username: Optional[pulumi.Input[str]] = None,
@@ -1564,7 +1565,7 @@ class SecurityProfileArgs:
         The security profile which contains Ssh public key for the HDInsight cluster.
         :param pulumi.Input[str] aadds_resource_id: The resource ID of the user's Azure Active Directory Domain Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cluster_users_group_dns: Optional. The Distinguished Names for cluster user groups
-        :param pulumi.Input[str] directory_type: The directory type.
+        :param pulumi.Input['DirectoryType'] directory_type: The directory type.
         :param pulumi.Input[str] domain: The organization's active directory domain.
         :param pulumi.Input[str] domain_user_password: The domain admin password.
         :param pulumi.Input[str] domain_username: The domain user account that will have admin privileges on the cluster.
@@ -1617,14 +1618,14 @@ class SecurityProfileArgs:
 
     @property
     @pulumi.getter(name="directoryType")
-    def directory_type(self) -> Optional[pulumi.Input[str]]:
+    def directory_type(self) -> Optional[pulumi.Input['DirectoryType']]:
         """
         The directory type.
         """
         return pulumi.get(self, "directory_type")
 
     @directory_type.setter
-    def directory_type(self, value: Optional[pulumi.Input[str]]):
+    def directory_type(self, value: Optional[pulumi.Input['DirectoryType']]):
         pulumi.set(self, "directory_type", value)
 
     @property

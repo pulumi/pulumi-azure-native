@@ -28,17 +28,18 @@ type ManagedNetworkPeeringPolicy struct {
 // NewManagedNetworkPeeringPolicy registers a new resource with the given unique name, arguments, and options.
 func NewManagedNetworkPeeringPolicy(ctx *pulumi.Context,
 	name string, args *ManagedNetworkPeeringPolicyArgs, opts ...pulumi.ResourceOption) (*ManagedNetworkPeeringPolicy, error) {
-	if args == nil || args.ManagedNetworkName == nil {
-		return nil, errors.New("missing required argument 'ManagedNetworkName'")
-	}
-	if args == nil || args.ManagedNetworkPeeringPolicyName == nil {
-		return nil, errors.New("missing required argument 'ManagedNetworkPeeringPolicyName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ManagedNetworkPeeringPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ManagedNetworkName == nil {
+		return nil, errors.New("invalid value for required argument 'ManagedNetworkName'")
+	}
+	if args.ManagedNetworkPeeringPolicyName == nil {
+		return nil, errors.New("invalid value for required argument 'ManagedNetworkPeeringPolicyName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource ManagedNetworkPeeringPolicy
 	err := ctx.RegisterResource("azure-nextgen:managednetwork/v20190601preview:ManagedNetworkPeeringPolicy", name, args, &resource, opts...)

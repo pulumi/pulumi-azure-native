@@ -81,13 +81,13 @@ export class WorkloadNetworkDnsZone extends pulumi.CustomResource {
     constructor(name: string, args: WorkloadNetworkDnsZoneArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.dnsZoneId === undefined) {
+            if ((!args || args.dnsZoneId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dnsZoneId'");
             }
-            if (!args || args.privateCloudName === undefined) {
+            if ((!args || args.privateCloudName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["displayName"] = args ? args.displayName : undefined;

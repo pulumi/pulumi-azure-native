@@ -58,7 +58,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Inputs
         /// The segment terminator suffix.
         /// </summary>
         [Input("segmentTerminatorSuffix")]
-        public Input<string>? SegmentTerminatorSuffix { get; set; }
+        public Input<Pulumi.AzureNextGen.Logic.V20150801Preview.SegmentTerminatorSuffix>? SegmentTerminatorSuffix { get; set; }
 
         /// <summary>
         /// The target namespace on which this delimiter settings has to be applied.

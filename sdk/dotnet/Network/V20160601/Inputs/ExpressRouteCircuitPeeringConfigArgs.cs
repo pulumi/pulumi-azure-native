@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Network.V20160601.Inputs
         /// Gets or sets AdvertisedPublicPrefixState of the Peering resource 
         /// </summary>
         [Input("advertisedPublicPrefixesState")]
-        public Input<string>? AdvertisedPublicPrefixesState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160601.ExpressRouteCircuitPeeringAdvertisedPublicPrefixState>? AdvertisedPublicPrefixesState { get; set; }
 
         /// <summary>
         /// Gets or Sets CustomerAsn of the peering.

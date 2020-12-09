@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.V20161201.Inputs
         /// The access type of the rule. Valid values are: 'Allow', 'Deny'
         /// </summary>
         [Input("access", required: true)]
-        public Input<string> Access { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20161201.Access> Access { get; set; } = null!;
 
         [Input("communities", required: true)]
         private InputList<string>? _communities;
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Network.V20161201.Inputs
         /// The rule type of the rule. Valid value is: 'Community'
         /// </summary>
         [Input("routeFilterRuleType", required: true)]
-        public Input<string> RouteFilterRuleType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20161201.RouteFilterRuleType> RouteFilterRuleType { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -28,14 +28,15 @@ type ManagementConfiguration struct {
 // NewManagementConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewManagementConfiguration(ctx *pulumi.Context,
 	name string, args *ManagementConfigurationArgs, opts ...pulumi.ResourceOption) (*ManagementConfiguration, error) {
-	if args == nil || args.ManagementConfigurationName == nil {
-		return nil, errors.New("missing required argument 'ManagementConfigurationName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ManagementConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ManagementConfigurationName == nil {
+		return nil, errors.New("invalid value for required argument 'ManagementConfigurationName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource ManagementConfiguration
 	err := ctx.RegisterResource("azure-nextgen:operationsmanagement/v20151101preview:ManagementConfiguration", name, args, &resource, opts...)

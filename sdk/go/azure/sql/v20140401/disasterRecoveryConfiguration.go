@@ -40,17 +40,18 @@ type DisasterRecoveryConfiguration struct {
 // NewDisasterRecoveryConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewDisasterRecoveryConfiguration(ctx *pulumi.Context,
 	name string, args *DisasterRecoveryConfigurationArgs, opts ...pulumi.ResourceOption) (*DisasterRecoveryConfiguration, error) {
-	if args == nil || args.DisasterRecoveryConfigurationName == nil {
-		return nil, errors.New("missing required argument 'DisasterRecoveryConfigurationName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServerName == nil {
-		return nil, errors.New("missing required argument 'ServerName'")
-	}
 	if args == nil {
-		args = &DisasterRecoveryConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DisasterRecoveryConfigurationName == nil {
+		return nil, errors.New("invalid value for required argument 'DisasterRecoveryConfigurationName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServerName == nil {
+		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

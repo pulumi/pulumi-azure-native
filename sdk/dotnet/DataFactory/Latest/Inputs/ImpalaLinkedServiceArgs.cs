@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         /// The authentication type to use.
         /// </summary>
         [Input("authenticationType", required: true)]
-        public Input<string> AuthenticationType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.Latest.ImpalaAuthenticationType> AuthenticationType { get; set; } = null!;
 
         /// <summary>
         /// The integration runtime reference.

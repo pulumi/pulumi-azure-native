@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Automation.V20170515Preview.Inputs
         /// The token type. Must be either PersonalAccessToken or Oauth.
         /// </summary>
         [Input("tokenType")]
-        public Input<string>? TokenType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Automation.V20170515Preview.TokenType>? TokenType { get; set; }
 
         public SourceControlSecurityTokenPropertiesArgs()
         {

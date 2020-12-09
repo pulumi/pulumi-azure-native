@@ -50,17 +50,18 @@ type PartnerTopicEventSubscription struct {
 // NewPartnerTopicEventSubscription registers a new resource with the given unique name, arguments, and options.
 func NewPartnerTopicEventSubscription(ctx *pulumi.Context,
 	name string, args *PartnerTopicEventSubscriptionArgs, opts ...pulumi.ResourceOption) (*PartnerTopicEventSubscription, error) {
-	if args == nil || args.EventSubscriptionName == nil {
-		return nil, errors.New("missing required argument 'EventSubscriptionName'")
-	}
-	if args == nil || args.PartnerTopicName == nil {
-		return nil, errors.New("missing required argument 'PartnerTopicName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &PartnerTopicEventSubscriptionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.EventSubscriptionName == nil {
+		return nil, errors.New("invalid value for required argument 'EventSubscriptionName'")
+	}
+	if args.PartnerTopicName == nil {
+		return nil, errors.New("invalid value for required argument 'PartnerTopicName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource PartnerTopicEventSubscription
 	err := ctx.RegisterResource("azure-nextgen:eventgrid/v20200401preview:PartnerTopicEventSubscription", name, args, &resource, opts...)

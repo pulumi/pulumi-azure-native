@@ -65,13 +65,13 @@ export class SshPublicKey extends pulumi.CustomResource {
     constructor(name: string, args: SshPublicKeyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sshPublicKeyName === undefined) {
+            if ((!args || args.sshPublicKeyName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sshPublicKeyName'");
             }
             inputs["location"] = args ? args.location : undefined;

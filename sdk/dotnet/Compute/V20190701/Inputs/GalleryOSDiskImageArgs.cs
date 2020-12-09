@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190701.Inputs
         /// The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
         /// </summary>
         [Input("hostCaching")]
-        public Input<string>? HostCaching { get; set; }
+        public Input<Pulumi.AzureNextGen.Compute.V20190701.HostCaching>? HostCaching { get; set; }
 
         /// <summary>
         /// The gallery artifact version source.

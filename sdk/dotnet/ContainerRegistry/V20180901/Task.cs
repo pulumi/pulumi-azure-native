@@ -184,7 +184,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20180901
         /// The current status of task.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20180901.TaskStatus>? Status { get; set; }
 
         /// <summary>
         /// The properties of a task step.

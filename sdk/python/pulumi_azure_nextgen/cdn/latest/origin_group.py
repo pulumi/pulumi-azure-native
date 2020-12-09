@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['OriginGroup']
@@ -59,20 +60,20 @@ class OriginGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if endpoint_name is None:
+            if endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_name'")
             __props__['endpoint_name'] = endpoint_name
             __props__['health_probe_settings'] = health_probe_settings
-            if origin_group_name is None:
+            if origin_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'origin_group_name'")
             __props__['origin_group_name'] = origin_group_name
-            if origins is None:
+            if origins is None and not opts.urn:
                 raise TypeError("Missing required property 'origins'")
             __props__['origins'] = origins
-            if profile_name is None:
+            if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")
             __props__['profile_name'] = profile_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['response_based_origin_error_detection_settings'] = response_based_origin_error_detection_settings

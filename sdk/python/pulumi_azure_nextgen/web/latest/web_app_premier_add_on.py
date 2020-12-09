@@ -65,19 +65,19 @@ class WebAppPremierAddOn(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['kind'] = kind
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['marketplace_offer'] = marketplace_offer
             __props__['marketplace_publisher'] = marketplace_publisher
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if premier_add_on_name is None:
+            if premier_add_on_name is None and not opts.urn:
                 raise TypeError("Missing required property 'premier_add_on_name'")
             __props__['premier_add_on_name'] = premier_add_on_name
             __props__['product'] = product
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku

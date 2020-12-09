@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'CloudToDevicePropertiesArgs',
@@ -131,14 +132,14 @@ class FallbackRoutePropertiesArgs:
     def __init__(__self__, *,
                  endpoint_names: pulumi.Input[Sequence[pulumi.Input[str]]],
                  is_enabled: pulumi.Input[bool],
-                 source: pulumi.Input[str],
+                 source: pulumi.Input[Union[str, 'RoutingSource']],
                  condition: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The properties of the fallback route. IoT Hub uses these properties when it routes messages to the fallback endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] endpoint_names: The list of endpoints to which the messages that satisfy the condition are routed to. Currently only 1 endpoint is allowed.
         :param pulumi.Input[bool] is_enabled: Used to specify whether the fallback route is enabled.
-        :param pulumi.Input[str] source: The source to which the routing rule is to be applied to. For example, DeviceMessages
+        :param pulumi.Input[Union[str, 'RoutingSource']] source: The source to which the routing rule is to be applied to. For example, DeviceMessages
         :param pulumi.Input[str] condition: The condition which is evaluated in order to apply the fallback route. If the condition is not provided it will evaluate to true by default. For grammar, See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
         :param pulumi.Input[str] name: The name of the route. The name can only include alphanumeric characters, periods, underscores, hyphens, has a maximum length of 64 characters, and must be unique.
         """
@@ -176,14 +177,14 @@ class FallbackRoutePropertiesArgs:
 
     @property
     @pulumi.getter
-    def source(self) -> pulumi.Input[str]:
+    def source(self) -> pulumi.Input[Union[str, 'RoutingSource']]:
         """
         The source to which the routing rule is to be applied to. For example, DeviceMessages
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: pulumi.Input[str]):
+    def source(self, value: pulumi.Input[Union[str, 'RoutingSource']]):
         pulumi.set(self, "source", value)
 
     @property
@@ -271,11 +272,11 @@ class FeedbackPropertiesArgs:
 class IotHubLocationDescriptionArgs:
     def __init__(__self__, *,
                  location: Optional[pulumi.Input[str]] = None,
-                 role: Optional[pulumi.Input[str]] = None):
+                 role: Optional[pulumi.Input[Union[str, 'IotHubReplicaRoleType']]] = None):
         """
         Public representation of one of the locations where a resource is provisioned.
         :param pulumi.Input[str] location: Azure Geo Regions
-        :param pulumi.Input[str] role: Specific Role assigned to this location
+        :param pulumi.Input[Union[str, 'IotHubReplicaRoleType']] role: Specific Role assigned to this location
         """
         if location is not None:
             pulumi.set(__self__, "location", location)
@@ -296,14 +297,14 @@ class IotHubLocationDescriptionArgs:
 
     @property
     @pulumi.getter
-    def role(self) -> Optional[pulumi.Input[str]]:
+    def role(self) -> Optional[pulumi.Input[Union[str, 'IotHubReplicaRoleType']]]:
         """
         Specific Role assigned to this location
         """
         return pulumi.get(self, "role")
 
     @role.setter
-    def role(self, value: Optional[pulumi.Input[str]]):
+    def role(self, value: Optional[pulumi.Input[Union[str, 'IotHubReplicaRoleType']]]):
         pulumi.set(self, "role", value)
 
 
@@ -316,7 +317,7 @@ class IotHubPropertiesArgs:
                  device_streams: Optional[pulumi.Input['IotHubPropertiesDeviceStreamsArgs']] = None,
                  enable_file_upload_notifications: Optional[pulumi.Input[bool]] = None,
                  event_hub_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input['EventHubPropertiesArgs']]]] = None,
-                 features: Optional[pulumi.Input[str]] = None,
+                 features: Optional[pulumi.Input[Union[str, 'Capabilities']]] = None,
                  ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpFilterRuleArgs']]]] = None,
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input['IotHubLocationDescriptionArgs']]]] = None,
                  messaging_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input['MessagingEndpointPropertiesArgs']]]] = None,
@@ -330,7 +331,7 @@ class IotHubPropertiesArgs:
         :param pulumi.Input['IotHubPropertiesDeviceStreamsArgs'] device_streams: The device streams properties of iothub.
         :param pulumi.Input[bool] enable_file_upload_notifications: If True, file upload notifications are enabled.
         :param pulumi.Input[Mapping[str, pulumi.Input['EventHubPropertiesArgs']]] event_hub_endpoints: The Event Hub-compatible endpoint properties. The only possible keys to this dictionary is events. This key has to be present in the dictionary while making create or update calls for the IoT hub.
-        :param pulumi.Input[str] features: The capabilities and features enabled for the IoT hub.
+        :param pulumi.Input[Union[str, 'Capabilities']] features: The capabilities and features enabled for the IoT hub.
         :param pulumi.Input[Sequence[pulumi.Input['IpFilterRuleArgs']]] ip_filter_rules: The IP filter rules.
         :param pulumi.Input[Sequence[pulumi.Input['IotHubLocationDescriptionArgs']]] locations: Primary and secondary location for iot hub
         :param pulumi.Input[Mapping[str, pulumi.Input['MessagingEndpointPropertiesArgs']]] messaging_endpoints: The messaging endpoint properties for the file upload notification queue.
@@ -436,14 +437,14 @@ class IotHubPropertiesArgs:
 
     @property
     @pulumi.getter
-    def features(self) -> Optional[pulumi.Input[str]]:
+    def features(self) -> Optional[pulumi.Input[Union[str, 'Capabilities']]]:
         """
         The capabilities and features enabled for the IoT hub.
         """
         return pulumi.get(self, "features")
 
     @features.setter
-    def features(self, value: Optional[pulumi.Input[str]]):
+    def features(self, value: Optional[pulumi.Input[Union[str, 'Capabilities']]]):
         pulumi.set(self, "features", value)
 
     @property
@@ -534,11 +535,11 @@ class IotHubPropertiesDeviceStreamsArgs:
 @pulumi.input_type
 class IotHubSkuInfoArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
+                 name: pulumi.Input[Union[str, 'IotHubSku']],
                  capacity: Optional[pulumi.Input[int]] = None):
         """
         Information about the SKU of the IoT hub.
-        :param pulumi.Input[str] name: The name of the SKU.
+        :param pulumi.Input[Union[str, 'IotHubSku']] name: The name of the SKU.
         :param pulumi.Input[int] capacity: The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
         """
         pulumi.set(__self__, "name", name)
@@ -547,14 +548,14 @@ class IotHubSkuInfoArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input[Union[str, 'IotHubSku']]:
         """
         The name of the SKU.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input[Union[str, 'IotHubSku']]):
         pulumi.set(self, "name", value)
 
     @property
@@ -573,12 +574,12 @@ class IotHubSkuInfoArgs:
 @pulumi.input_type
 class IpFilterRuleArgs:
     def __init__(__self__, *,
-                 action: pulumi.Input[str],
+                 action: pulumi.Input['IpFilterActionType'],
                  filter_name: pulumi.Input[str],
                  ip_mask: pulumi.Input[str]):
         """
         The IP filter rules for the IoT hub.
-        :param pulumi.Input[str] action: The desired action for requests captured by this rule.
+        :param pulumi.Input['IpFilterActionType'] action: The desired action for requests captured by this rule.
         :param pulumi.Input[str] filter_name: The name of the IP filter rule.
         :param pulumi.Input[str] ip_mask: A string that contains the IP address range in CIDR notation for the rule.
         """
@@ -588,14 +589,14 @@ class IpFilterRuleArgs:
 
     @property
     @pulumi.getter
-    def action(self) -> pulumi.Input[str]:
+    def action(self) -> pulumi.Input['IpFilterActionType']:
         """
         The desired action for requests captured by this rule.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: pulumi.Input[str]):
+    def action(self, value: pulumi.Input['IpFilterActionType']):
         pulumi.set(self, "action", value)
 
     @property
@@ -685,14 +686,14 @@ class RoutePropertiesArgs:
                  endpoint_names: pulumi.Input[Sequence[pulumi.Input[str]]],
                  is_enabled: pulumi.Input[bool],
                  name: pulumi.Input[str],
-                 source: pulumi.Input[str],
+                 source: pulumi.Input[Union[str, 'RoutingSource']],
                  condition: Optional[pulumi.Input[str]] = None):
         """
         The properties of a routing rule that your IoT hub uses to route messages to endpoints.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] endpoint_names: The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
         :param pulumi.Input[bool] is_enabled: Used to specify whether a route is enabled.
         :param pulumi.Input[str] name: The name of the route. The name can only include alphanumeric characters, periods, underscores, hyphens, has a maximum length of 64 characters, and must be unique.
-        :param pulumi.Input[str] source: The source that the routing rule is to be applied to, such as DeviceMessages.
+        :param pulumi.Input[Union[str, 'RoutingSource']] source: The source that the routing rule is to be applied to, such as DeviceMessages.
         :param pulumi.Input[str] condition: The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to true by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language
         """
         pulumi.set(__self__, "endpoint_names", endpoint_names)
@@ -740,14 +741,14 @@ class RoutePropertiesArgs:
 
     @property
     @pulumi.getter
-    def source(self) -> pulumi.Input[str]:
+    def source(self) -> pulumi.Input[Union[str, 'RoutingSource']]:
         """
         The source that the routing rule is to be applied to, such as DeviceMessages.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: pulumi.Input[str]):
+    def source(self, value: pulumi.Input[Union[str, 'RoutingSource']]):
         pulumi.set(self, "source", value)
 
     @property
@@ -1254,13 +1255,13 @@ class RoutingStorageContainerPropertiesArgs:
 class SharedAccessSignatureAuthorizationRuleArgs:
     def __init__(__self__, *,
                  key_name: pulumi.Input[str],
-                 rights: pulumi.Input[str],
+                 rights: pulumi.Input['AccessRights'],
                  primary_key: Optional[pulumi.Input[str]] = None,
                  secondary_key: Optional[pulumi.Input[str]] = None):
         """
         The properties of an IoT hub shared access policy.
         :param pulumi.Input[str] key_name: The name of the shared access policy.
-        :param pulumi.Input[str] rights: The permissions assigned to the shared access policy.
+        :param pulumi.Input['AccessRights'] rights: The permissions assigned to the shared access policy.
         :param pulumi.Input[str] primary_key: The primary key.
         :param pulumi.Input[str] secondary_key: The secondary key.
         """
@@ -1285,14 +1286,14 @@ class SharedAccessSignatureAuthorizationRuleArgs:
 
     @property
     @pulumi.getter
-    def rights(self) -> pulumi.Input[str]:
+    def rights(self) -> pulumi.Input['AccessRights']:
         """
         The permissions assigned to the shared access policy.
         """
         return pulumi.get(self, "rights")
 
     @rights.setter
-    def rights(self, value: pulumi.Input[str]):
+    def rights(self, value: pulumi.Input['AccessRights']):
         pulumi.set(self, "rights", value)
 
     @property

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.CognitiveServices.Latest.Inputs
         /// Type of managed service identity.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AzureNextGen.CognitiveServices.Latest.IdentityType>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
         private InputMap<Inputs.UserAssignedIdentityArgs>? _userAssignedIdentities;
