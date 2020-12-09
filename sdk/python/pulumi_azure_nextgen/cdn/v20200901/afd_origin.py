@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['AFDOrigin']
@@ -18,7 +19,7 @@ class AFDOrigin(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_origin: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
-                 enabled_state: Optional[pulumi.Input[str]] = None,
+                 enabled_state: Optional[pulumi.Input[Union[str, 'EnabledState']]] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
                  http_port: Optional[pulumi.Input[int]] = None,
                  https_port: Optional[pulumi.Input[int]] = None,
@@ -39,7 +40,7 @@ class AFDOrigin(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ResourceReferenceArgs']] azure_origin: Resource reference to the Azure origin resource.
-        :param pulumi.Input[str] enabled_state: Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
+        :param pulumi.Input[Union[str, 'EnabledState']] enabled_state: Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
         :param pulumi.Input[str] host_name: The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
         :param pulumi.Input[int] http_port: The value of the HTTP port. Must be between 1 and 65535.
         :param pulumi.Input[int] https_port: The value of the HTTPS port. Must be between 1 and 65535.
@@ -71,23 +72,23 @@ class AFDOrigin(pulumi.CustomResource):
 
             __props__['azure_origin'] = azure_origin
             __props__['enabled_state'] = enabled_state
-            if host_name is None:
+            if host_name is None and not opts.urn:
                 raise TypeError("Missing required property 'host_name'")
             __props__['host_name'] = host_name
             __props__['http_port'] = http_port
             __props__['https_port'] = https_port
-            if origin_group_name is None:
+            if origin_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'origin_group_name'")
             __props__['origin_group_name'] = origin_group_name
             __props__['origin_host_header'] = origin_host_header
-            if origin_name is None:
+            if origin_name is None and not opts.urn:
                 raise TypeError("Missing required property 'origin_name'")
             __props__['origin_name'] = origin_name
             __props__['priority'] = priority
-            if profile_name is None:
+            if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")
             __props__['profile_name'] = profile_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['shared_private_link_resource'] = shared_private_link_resource

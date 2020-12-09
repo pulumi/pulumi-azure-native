@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'GetGlobalUserPersonalPreferencesResult',
@@ -42,7 +43,7 @@ class AwaitableGetGlobalUserPersonalPreferencesResult(GetGlobalUserPersonalPrefe
             favorite_lab_resource_ids=self.favorite_lab_resource_ids)
 
 
-def get_global_user_personal_preferences(add_remove: Optional[str] = None,
+def get_global_user_personal_preferences(add_remove: Optional[Union[str, 'AddRemove']] = None,
                                          lab_account_resource_id: Optional[str] = None,
                                          lab_resource_id: Optional[str] = None,
                                          user_name: Optional[str] = None,
@@ -50,7 +51,7 @@ def get_global_user_personal_preferences(add_remove: Optional[str] = None,
     """
     Use this data source to access information about an existing resource.
 
-    :param str add_remove: Enum indicating if user is adding or removing a favorite lab
+    :param Union[str, 'AddRemove'] add_remove: Enum indicating if user is adding or removing a favorite lab
     :param str lab_account_resource_id: Resource Id of the lab account
     :param str lab_resource_id: Resource Id of the lab to add/remove from the favorites list
     :param str user_name: The name of the user.

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AbsoluteClipTimeArgs',
@@ -134,10 +135,10 @@ class AbsoluteClipTimeArgs:
 @pulumi.input_type
 class AccountEncryptionArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str],
+                 type: pulumi.Input[Union[str, 'AccountEncryptionKeyType']],
                  key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None):
         """
-        :param pulumi.Input[str] type: The type of key used to encrypt the Account Key.
+        :param pulumi.Input[Union[str, 'AccountEncryptionKeyType']] type: The type of key used to encrypt the Account Key.
         :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: The properties of the key used to encrypt the account.
         """
         pulumi.set(__self__, "type", type)
@@ -146,14 +147,14 @@ class AccountEncryptionArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'AccountEncryptionKeyType']]:
         """
         The type of key used to encrypt the Account Key.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'AccountEncryptionKeyType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -342,13 +343,13 @@ class AudioAnalyzerPresetArgs:
                  odata_type: pulumi.Input[str],
                  audio_language: Optional[pulumi.Input[str]] = None,
                  experimental_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 mode: Optional[pulumi.Input[str]] = None):
+                 mode: Optional[pulumi.Input[Union[str, 'AudioAnalysisMode']]] = None):
         """
         The Audio Analyzer preset applies a pre-defined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing of content with a single audio track.
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
         :param pulumi.Input[str] audio_language: The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US').  If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode::Basic, since automatic language detection is not included in basic mode. If the language isn't specified or set to null, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernable speech. If automatic detection fails to find the language, transcription would fallback to 'en-US'." The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] experimental_options: Dictionary containing key value pairs for parameters not exposed in the preset itself
-        :param pulumi.Input[str] mode: Determines the set of audio analysis operations to be performed. If unspecified, the Standard AudioAnalysisMode would be chosen.
+        :param pulumi.Input[Union[str, 'AudioAnalysisMode']] mode: Determines the set of audio analysis operations to be performed. If unspecified, the Standard AudioAnalysisMode would be chosen.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.AudioAnalyzerPreset')
         if audio_language is not None:
@@ -396,14 +397,14 @@ class AudioAnalyzerPresetArgs:
 
     @property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[str]]:
+    def mode(self) -> Optional[pulumi.Input[Union[str, 'AudioAnalysisMode']]]:
         """
         Determines the set of audio analysis operations to be performed. If unspecified, the Standard AudioAnalysisMode would be chosen.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[str]]):
+    def mode(self, value: Optional[pulumi.Input[Union[str, 'AudioAnalysisMode']]]):
         pulumi.set(self, "mode", value)
 
 
@@ -529,11 +530,11 @@ class AudioOverlayArgs:
 class BuiltInStandardEncoderPresetArgs:
     def __init__(__self__, *,
                  odata_type: pulumi.Input[str],
-                 preset_name: pulumi.Input[str]):
+                 preset_name: pulumi.Input[Union[str, 'EncoderNamedPreset']]):
         """
         Describes a built-in preset for encoding the input video with the Standard Encoder.
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
-        :param pulumi.Input[str] preset_name: The built-in preset to be used for encoding videos.
+        :param pulumi.Input[Union[str, 'EncoderNamedPreset']] preset_name: The built-in preset to be used for encoding videos.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.BuiltInStandardEncoderPreset')
         pulumi.set(__self__, "preset_name", preset_name)
@@ -552,14 +553,14 @@ class BuiltInStandardEncoderPresetArgs:
 
     @property
     @pulumi.getter(name="presetName")
-    def preset_name(self) -> pulumi.Input[str]:
+    def preset_name(self) -> pulumi.Input[Union[str, 'EncoderNamedPreset']]:
         """
         The built-in preset to be used for encoding videos.
         """
         return pulumi.get(self, "preset_name")
 
     @preset_name.setter
-    def preset_name(self, value: pulumi.Input[str]):
+    def preset_name(self, value: pulumi.Input[Union[str, 'EncoderNamedPreset']]):
         pulumi.set(self, "preset_name", value)
 
 
@@ -833,7 +834,7 @@ class ContentKeyPolicyFairPlayConfigurationArgs:
                  fair_play_pfx: pulumi.Input[str],
                  fair_play_pfx_password: pulumi.Input[str],
                  odata_type: pulumi.Input[str],
-                 rental_and_lease_key_type: pulumi.Input[str],
+                 rental_and_lease_key_type: pulumi.Input[Union[str, 'ContentKeyPolicyFairPlayRentalAndLeaseKeyType']],
                  rental_duration: pulumi.Input[int],
                  offline_rental_configuration: Optional[pulumi.Input['ContentKeyPolicyFairPlayOfflineRentalConfigurationArgs']] = None):
         """
@@ -842,7 +843,7 @@ class ContentKeyPolicyFairPlayConfigurationArgs:
         :param pulumi.Input[str] fair_play_pfx: The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).
         :param pulumi.Input[str] fair_play_pfx_password: The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
-        :param pulumi.Input[str] rental_and_lease_key_type: The rental and lease key type.
+        :param pulumi.Input[Union[str, 'ContentKeyPolicyFairPlayRentalAndLeaseKeyType']] rental_and_lease_key_type: The rental and lease key type.
         :param pulumi.Input[int] rental_duration: The rental duration. Must be greater than or equal to 0.
         :param pulumi.Input['ContentKeyPolicyFairPlayOfflineRentalConfigurationArgs'] offline_rental_configuration: Offline rental policy
         """
@@ -905,14 +906,14 @@ class ContentKeyPolicyFairPlayConfigurationArgs:
 
     @property
     @pulumi.getter(name="rentalAndLeaseKeyType")
-    def rental_and_lease_key_type(self) -> pulumi.Input[str]:
+    def rental_and_lease_key_type(self) -> pulumi.Input[Union[str, 'ContentKeyPolicyFairPlayRentalAndLeaseKeyType']]:
         """
         The rental and lease key type.
         """
         return pulumi.get(self, "rental_and_lease_key_type")
 
     @rental_and_lease_key_type.setter
-    def rental_and_lease_key_type(self, value: pulumi.Input[str]):
+    def rental_and_lease_key_type(self, value: pulumi.Input[Union[str, 'ContentKeyPolicyFairPlayRentalAndLeaseKeyType']]):
         pulumi.set(self, "rental_and_lease_key_type", value)
 
     @property
@@ -1212,8 +1213,8 @@ class ContentKeyPolicyPlayReadyLicenseArgs:
     def __init__(__self__, *,
                  allow_test_devices: pulumi.Input[bool],
                  content_key_location: pulumi.Input[Union['ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderArgs', 'ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierArgs']],
-                 content_type: pulumi.Input[str],
-                 license_type: pulumi.Input[str],
+                 content_type: pulumi.Input[Union[str, 'ContentKeyPolicyPlayReadyContentType']],
+                 license_type: pulumi.Input[Union[str, 'ContentKeyPolicyPlayReadyLicenseType']],
                  begin_date: Optional[pulumi.Input[str]] = None,
                  expiration_date: Optional[pulumi.Input[str]] = None,
                  grace_period: Optional[pulumi.Input[str]] = None,
@@ -1224,8 +1225,8 @@ class ContentKeyPolicyPlayReadyLicenseArgs:
         The PlayReady license
         :param pulumi.Input[bool] allow_test_devices: A flag indicating whether test devices can use the license.
         :param pulumi.Input[Union['ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderArgs', 'ContentKeyPolicyPlayReadyContentEncryptionKeyFromKeyIdentifierArgs']] content_key_location: The content key location.
-        :param pulumi.Input[str] content_type: The PlayReady content type.
-        :param pulumi.Input[str] license_type: The license type.
+        :param pulumi.Input[Union[str, 'ContentKeyPolicyPlayReadyContentType']] content_type: The PlayReady content type.
+        :param pulumi.Input[Union[str, 'ContentKeyPolicyPlayReadyLicenseType']] license_type: The license type.
         :param pulumi.Input[str] begin_date: The begin date of license
         :param pulumi.Input[str] expiration_date: The expiration date of license.
         :param pulumi.Input[str] grace_period: The grace period of license.
@@ -1276,26 +1277,26 @@ class ContentKeyPolicyPlayReadyLicenseArgs:
 
     @property
     @pulumi.getter(name="contentType")
-    def content_type(self) -> pulumi.Input[str]:
+    def content_type(self) -> pulumi.Input[Union[str, 'ContentKeyPolicyPlayReadyContentType']]:
         """
         The PlayReady content type.
         """
         return pulumi.get(self, "content_type")
 
     @content_type.setter
-    def content_type(self, value: pulumi.Input[str]):
+    def content_type(self, value: pulumi.Input[Union[str, 'ContentKeyPolicyPlayReadyContentType']]):
         pulumi.set(self, "content_type", value)
 
     @property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> pulumi.Input[str]:
+    def license_type(self) -> pulumi.Input[Union[str, 'ContentKeyPolicyPlayReadyLicenseType']]:
         """
         The license type.
         """
         return pulumi.get(self, "license_type")
 
     @license_type.setter
-    def license_type(self, value: pulumi.Input[str]):
+    def license_type(self, value: pulumi.Input[Union[str, 'ContentKeyPolicyPlayReadyLicenseType']]):
         pulumi.set(self, "license_type", value)
 
     @property
@@ -1374,7 +1375,7 @@ class ContentKeyPolicyPlayReadyLicenseArgs:
 @pulumi.input_type
 class ContentKeyPolicyPlayReadyPlayRightArgs:
     def __init__(__self__, *,
-                 allow_passing_video_content_to_unknown_output: pulumi.Input[str],
+                 allow_passing_video_content_to_unknown_output: pulumi.Input[Union[str, 'ContentKeyPolicyPlayReadyUnknownOutputPassingOption']],
                  digital_video_only_content_restriction: pulumi.Input[bool],
                  image_constraint_for_analog_component_video_restriction: pulumi.Input[bool],
                  image_constraint_for_analog_computer_monitor_restriction: pulumi.Input[bool],
@@ -1389,7 +1390,7 @@ class ContentKeyPolicyPlayReadyPlayRightArgs:
                  uncompressed_digital_video_opl: Optional[pulumi.Input[int]] = None):
         """
         Configures the Play Right in the PlayReady license.
-        :param pulumi.Input[str] allow_passing_video_content_to_unknown_output: Configures Unknown output handling settings of the license.
+        :param pulumi.Input[Union[str, 'ContentKeyPolicyPlayReadyUnknownOutputPassingOption']] allow_passing_video_content_to_unknown_output: Configures Unknown output handling settings of the license.
         :param pulumi.Input[bool] digital_video_only_content_restriction: Enables the Image Constraint For Analog Component Video Restriction in the license.
         :param pulumi.Input[bool] image_constraint_for_analog_component_video_restriction: Enables the Image Constraint For Analog Component Video Restriction in the license.
         :param pulumi.Input[bool] image_constraint_for_analog_computer_monitor_restriction: Enables the Image Constraint For Analog Component Video Restriction in the license.
@@ -1428,14 +1429,14 @@ class ContentKeyPolicyPlayReadyPlayRightArgs:
 
     @property
     @pulumi.getter(name="allowPassingVideoContentToUnknownOutput")
-    def allow_passing_video_content_to_unknown_output(self) -> pulumi.Input[str]:
+    def allow_passing_video_content_to_unknown_output(self) -> pulumi.Input[Union[str, 'ContentKeyPolicyPlayReadyUnknownOutputPassingOption']]:
         """
         Configures Unknown output handling settings of the license.
         """
         return pulumi.get(self, "allow_passing_video_content_to_unknown_output")
 
     @allow_passing_video_content_to_unknown_output.setter
-    def allow_passing_video_content_to_unknown_output(self, value: pulumi.Input[str]):
+    def allow_passing_video_content_to_unknown_output(self, value: pulumi.Input[Union[str, 'ContentKeyPolicyPlayReadyUnknownOutputPassingOption']]):
         pulumi.set(self, "allow_passing_video_content_to_unknown_output", value)
 
     @property
@@ -1721,7 +1722,7 @@ class ContentKeyPolicyTokenRestrictionArgs:
                  issuer: pulumi.Input[str],
                  odata_type: pulumi.Input[str],
                  primary_verification_key: pulumi.Input[Union['ContentKeyPolicyRsaTokenKeyArgs', 'ContentKeyPolicySymmetricTokenKeyArgs', 'ContentKeyPolicyX509CertificateTokenKeyArgs']],
-                 restriction_token_type: pulumi.Input[str],
+                 restriction_token_type: pulumi.Input[Union[str, 'ContentKeyPolicyRestrictionTokenType']],
                  alternate_verification_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContentKeyPolicyRsaTokenKeyArgs', 'ContentKeyPolicySymmetricTokenKeyArgs', 'ContentKeyPolicyX509CertificateTokenKeyArgs']]]]] = None,
                  open_id_connect_discovery_document: Optional[pulumi.Input[str]] = None,
                  required_claims: Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyTokenClaimArgs']]]] = None):
@@ -1731,7 +1732,7 @@ class ContentKeyPolicyTokenRestrictionArgs:
         :param pulumi.Input[str] issuer: The token issuer.
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
         :param pulumi.Input[Union['ContentKeyPolicyRsaTokenKeyArgs', 'ContentKeyPolicySymmetricTokenKeyArgs', 'ContentKeyPolicyX509CertificateTokenKeyArgs']] primary_verification_key: The primary verification key.
-        :param pulumi.Input[str] restriction_token_type: The type of token.
+        :param pulumi.Input[Union[str, 'ContentKeyPolicyRestrictionTokenType']] restriction_token_type: The type of token.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ContentKeyPolicyRsaTokenKeyArgs', 'ContentKeyPolicySymmetricTokenKeyArgs', 'ContentKeyPolicyX509CertificateTokenKeyArgs']]]] alternate_verification_keys: A list of alternative verification keys.
         :param pulumi.Input[str] open_id_connect_discovery_document: The OpenID connect discovery document.
         :param pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyTokenClaimArgs']]] required_claims: A list of required token claims.
@@ -1798,14 +1799,14 @@ class ContentKeyPolicyTokenRestrictionArgs:
 
     @property
     @pulumi.getter(name="restrictionTokenType")
-    def restriction_token_type(self) -> pulumi.Input[str]:
+    def restriction_token_type(self) -> pulumi.Input[Union[str, 'ContentKeyPolicyRestrictionTokenType']]:
         """
         The type of token.
         """
         return pulumi.get(self, "restriction_token_type")
 
     @restriction_token_type.setter
-    def restriction_token_type(self, value: pulumi.Input[str]):
+    def restriction_token_type(self, value: pulumi.Input[Union[str, 'ContentKeyPolicyRestrictionTokenType']]):
         pulumi.set(self, "restriction_token_type", value)
 
     @property
@@ -2128,12 +2129,12 @@ class DefaultKeyArgs:
 @pulumi.input_type
 class DeinterlaceArgs:
     def __init__(__self__, *,
-                 mode: Optional[pulumi.Input[str]] = None,
-                 parity: Optional[pulumi.Input[str]] = None):
+                 mode: Optional[pulumi.Input[Union[str, 'DeinterlaceMode']]] = None,
+                 parity: Optional[pulumi.Input[Union[str, 'DeinterlaceParity']]] = None):
         """
         Describes the de-interlacing settings.
-        :param pulumi.Input[str] mode: The deinterlacing mode. Defaults to AutoPixelAdaptive.
-        :param pulumi.Input[str] parity: The field parity for de-interlacing, defaults to Auto.
+        :param pulumi.Input[Union[str, 'DeinterlaceMode']] mode: The deinterlacing mode. Defaults to AutoPixelAdaptive.
+        :param pulumi.Input[Union[str, 'DeinterlaceParity']] parity: The field parity for de-interlacing, defaults to Auto.
         """
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
@@ -2142,26 +2143,26 @@ class DeinterlaceArgs:
 
     @property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[str]]:
+    def mode(self) -> Optional[pulumi.Input[Union[str, 'DeinterlaceMode']]]:
         """
         The deinterlacing mode. Defaults to AutoPixelAdaptive.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[str]]):
+    def mode(self, value: Optional[pulumi.Input[Union[str, 'DeinterlaceMode']]]):
         pulumi.set(self, "mode", value)
 
     @property
     @pulumi.getter
-    def parity(self) -> Optional[pulumi.Input[str]]:
+    def parity(self) -> Optional[pulumi.Input[Union[str, 'DeinterlaceParity']]]:
         """
         The field parity for de-interlacing, defaults to Auto.
         """
         return pulumi.get(self, "parity")
 
     @parity.setter
-    def parity(self, value: Optional[pulumi.Input[str]]):
+    def parity(self, value: Optional[pulumi.Input[Union[str, 'DeinterlaceParity']]]):
         pulumi.set(self, "parity", value)
 
 
@@ -2310,12 +2311,12 @@ class FaceDetectorPresetArgs:
     def __init__(__self__, *,
                  odata_type: pulumi.Input[str],
                  experimental_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 resolution: Optional[pulumi.Input[str]] = None):
+                 resolution: Optional[pulumi.Input[Union[str, 'AnalysisResolution']]] = None):
         """
         Describes all the settings to be used when analyzing a video in order to detect all the faces present.
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] experimental_options: Dictionary containing key value pairs for parameters not exposed in the preset itself
-        :param pulumi.Input[str] resolution: Specifies the maximum resolution at which your video is analyzed. The default behavior is "SourceResolution," which will keep the input video at its original resolution when analyzed. Using "StandardDefinition" will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to "StandardDefinition" will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics for details). However, faces that end up being too small in the resized video may not be detected.
+        :param pulumi.Input[Union[str, 'AnalysisResolution']] resolution: Specifies the maximum resolution at which your video is analyzed. The default behavior is "SourceResolution," which will keep the input video at its original resolution when analyzed. Using "StandardDefinition" will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to "StandardDefinition" will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics for details). However, faces that end up being too small in the resized video may not be detected.
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.FaceDetectorPreset')
         if experimental_options is not None:
@@ -2349,27 +2350,27 @@ class FaceDetectorPresetArgs:
 
     @property
     @pulumi.getter
-    def resolution(self) -> Optional[pulumi.Input[str]]:
+    def resolution(self) -> Optional[pulumi.Input[Union[str, 'AnalysisResolution']]]:
         """
         Specifies the maximum resolution at which your video is analyzed. The default behavior is "SourceResolution," which will keep the input video at its original resolution when analyzed. Using "StandardDefinition" will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to "StandardDefinition" will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics for details). However, faces that end up being too small in the resized video may not be detected.
         """
         return pulumi.get(self, "resolution")
 
     @resolution.setter
-    def resolution(self, value: Optional[pulumi.Input[str]]):
+    def resolution(self, value: Optional[pulumi.Input[Union[str, 'AnalysisResolution']]]):
         pulumi.set(self, "resolution", value)
 
 
 @pulumi.input_type
 class FilterTrackPropertyConditionArgs:
     def __init__(__self__, *,
-                 operation: pulumi.Input[str],
-                 property: pulumi.Input[str],
+                 operation: pulumi.Input[Union[str, 'FilterTrackPropertyCompareOperation']],
+                 property: pulumi.Input[Union[str, 'FilterTrackPropertyType']],
                  value: pulumi.Input[str]):
         """
         The class to specify one track property condition.
-        :param pulumi.Input[str] operation: The track property condition operation.
-        :param pulumi.Input[str] property: The track property type.
+        :param pulumi.Input[Union[str, 'FilterTrackPropertyCompareOperation']] operation: The track property condition operation.
+        :param pulumi.Input[Union[str, 'FilterTrackPropertyType']] property: The track property type.
         :param pulumi.Input[str] value: The track property value.
         """
         pulumi.set(__self__, "operation", operation)
@@ -2378,14 +2379,14 @@ class FilterTrackPropertyConditionArgs:
 
     @property
     @pulumi.getter
-    def operation(self) -> pulumi.Input[str]:
+    def operation(self) -> pulumi.Input[Union[str, 'FilterTrackPropertyCompareOperation']]:
         """
         The track property condition operation.
         """
         return pulumi.get(self, "operation")
 
     @operation.setter
-    def operation(self, value: pulumi.Input[str]):
+    def operation(self, value: pulumi.Input[Union[str, 'FilterTrackPropertyCompareOperation']]):
         pulumi.set(self, "operation", value)
 
     @property
@@ -2402,14 +2403,14 @@ class FilterTrackPropertyConditionArgs:
 
     @property
     @pulumi.getter
-    def property(self) -> pulumi.Input[str]:
+    def property(self) -> pulumi.Input[Union[str, 'FilterTrackPropertyType']]:
         """
         The track property type.
         """
         return pulumi.get(self, "property")
 
     @property.setter
-    def property(self, value: pulumi.Input[str]):
+    def property(self, value: pulumi.Input[Union[str, 'FilterTrackPropertyType']]):
         pulumi.set(self, "property", value)
 
 
@@ -2442,13 +2443,13 @@ class FiltersArgs:
                  crop: Optional[pulumi.Input['RectangleArgs']] = None,
                  deinterlace: Optional[pulumi.Input['DeinterlaceArgs']] = None,
                  overlays: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AudioOverlayArgs', 'VideoOverlayArgs']]]]] = None,
-                 rotation: Optional[pulumi.Input[str]] = None):
+                 rotation: Optional[pulumi.Input[Union[str, 'Rotation']]] = None):
         """
         Describes all the filtering operations, such as de-interlacing, rotation etc. that are to be applied to the input media before encoding.
         :param pulumi.Input['RectangleArgs'] crop: The parameters for the rectangular window with which to crop the input video.
         :param pulumi.Input['DeinterlaceArgs'] deinterlace: The de-interlacing settings.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AudioOverlayArgs', 'VideoOverlayArgs']]]] overlays: The properties of overlays to be applied to the input video. These could be audio, image or video overlays.
-        :param pulumi.Input[str] rotation: The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
+        :param pulumi.Input[Union[str, 'Rotation']] rotation: The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
         """
         if crop is not None:
             pulumi.set(__self__, "crop", crop)
@@ -2497,14 +2498,14 @@ class FiltersArgs:
 
     @property
     @pulumi.getter
-    def rotation(self) -> Optional[pulumi.Input[str]]:
+    def rotation(self) -> Optional[pulumi.Input[Union[str, 'Rotation']]]:
         """
         The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
         """
         return pulumi.get(self, "rotation")
 
     @rotation.setter
-    def rotation(self, value: Optional[pulumi.Input[str]]):
+    def rotation(self, value: Optional[pulumi.Input[Union[str, 'Rotation']]]):
         pulumi.set(self, "rotation", value)
 
 
@@ -2879,16 +2880,16 @@ class KeyVaultPropertiesArgs:
 @pulumi.input_type
 class LiveEventEncodingArgs:
     def __init__(__self__, *,
-                 encoding_type: Optional[pulumi.Input[str]] = None,
+                 encoding_type: Optional[pulumi.Input[Union[str, 'LiveEventEncodingType']]] = None,
                  key_frame_interval: Optional[pulumi.Input[str]] = None,
                  preset_name: Optional[pulumi.Input[str]] = None,
-                 stretch_mode: Optional[pulumi.Input[str]] = None):
+                 stretch_mode: Optional[pulumi.Input[Union[str, 'StretchMode']]] = None):
         """
         Specifies the live event type and optional encoding settings for encoding live events.
-        :param pulumi.Input[str] encoding_type: Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
+        :param pulumi.Input[Union[str, 'LiveEventEncodingType']] encoding_type: Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
         :param pulumi.Input[str] key_frame_interval: Use an ISO 8601 time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use PT2S to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures).   If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
         :param pulumi.Input[str] preset_name: The optional encoding preset name, used when encodingType is not None. This value is specified at creation time and cannot be updated. If the encodingType is set to Standard, then the default preset name is ‘Default720p’. Else if the encodingType is set to Premium1080p, the default preset is ‘Default1080p’.
-        :param pulumi.Input[str] stretch_mode: Specifies how the input video will be resized to fit the desired output resolution(s). Default is None
+        :param pulumi.Input[Union[str, 'StretchMode']] stretch_mode: Specifies how the input video will be resized to fit the desired output resolution(s). Default is None
         """
         if encoding_type is not None:
             pulumi.set(__self__, "encoding_type", encoding_type)
@@ -2901,14 +2902,14 @@ class LiveEventEncodingArgs:
 
     @property
     @pulumi.getter(name="encodingType")
-    def encoding_type(self) -> Optional[pulumi.Input[str]]:
+    def encoding_type(self) -> Optional[pulumi.Input[Union[str, 'LiveEventEncodingType']]]:
         """
         Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
         """
         return pulumi.get(self, "encoding_type")
 
     @encoding_type.setter
-    def encoding_type(self, value: Optional[pulumi.Input[str]]):
+    def encoding_type(self, value: Optional[pulumi.Input[Union[str, 'LiveEventEncodingType']]]):
         pulumi.set(self, "encoding_type", value)
 
     @property
@@ -2937,14 +2938,14 @@ class LiveEventEncodingArgs:
 
     @property
     @pulumi.getter(name="stretchMode")
-    def stretch_mode(self) -> Optional[pulumi.Input[str]]:
+    def stretch_mode(self) -> Optional[pulumi.Input[Union[str, 'StretchMode']]]:
         """
         Specifies how the input video will be resized to fit the desired output resolution(s). Default is None
         """
         return pulumi.get(self, "stretch_mode")
 
     @stretch_mode.setter
-    def stretch_mode(self, value: Optional[pulumi.Input[str]]):
+    def stretch_mode(self, value: Optional[pulumi.Input[Union[str, 'StretchMode']]]):
         pulumi.set(self, "stretch_mode", value)
 
 
@@ -2991,14 +2992,14 @@ class LiveEventEndpointArgs:
 @pulumi.input_type
 class LiveEventInputArgs:
     def __init__(__self__, *,
-                 streaming_protocol: pulumi.Input[str],
+                 streaming_protocol: pulumi.Input[Union[str, 'LiveEventInputProtocol']],
                  access_control: Optional[pulumi.Input['LiveEventInputAccessControlArgs']] = None,
                  access_token: Optional[pulumi.Input[str]] = None,
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventEndpointArgs']]]] = None,
                  key_frame_interval_duration: Optional[pulumi.Input[str]] = None):
         """
         The live event input.
-        :param pulumi.Input[str] streaming_protocol: The input protocol for the live event. This is specified at creation time and cannot be updated.
+        :param pulumi.Input[Union[str, 'LiveEventInputProtocol']] streaming_protocol: The input protocol for the live event. This is specified at creation time and cannot be updated.
         :param pulumi.Input['LiveEventInputAccessControlArgs'] access_control: Access control for live event input.
         :param pulumi.Input[str] access_token: A UUID in string form to uniquely identify the stream. This can be specified at creation time but cannot be updated. If omitted, the service will generate a unique value.
         :param pulumi.Input[Sequence[pulumi.Input['LiveEventEndpointArgs']]] endpoints: The input endpoints for the live event.
@@ -3016,14 +3017,14 @@ class LiveEventInputArgs:
 
     @property
     @pulumi.getter(name="streamingProtocol")
-    def streaming_protocol(self) -> pulumi.Input[str]:
+    def streaming_protocol(self) -> pulumi.Input[Union[str, 'LiveEventInputProtocol']]:
         """
         The input protocol for the live event. This is specified at creation time and cannot be updated.
         """
         return pulumi.get(self, "streaming_protocol")
 
     @streaming_protocol.setter
-    def streaming_protocol(self, value: pulumi.Input[str]):
+    def streaming_protocol(self, value: pulumi.Input[Union[str, 'LiveEventInputProtocol']]):
         pulumi.set(self, "streaming_protocol", value)
 
     @property
@@ -3349,22 +3350,22 @@ class LiveEventTranscriptionArgs:
 @pulumi.input_type
 class MediaServiceIdentityArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input[Union[str, 'ManagedIdentityType']]):
         """
-        :param pulumi.Input[str] type: The identity type.
+        :param pulumi.Input[Union[str, 'ManagedIdentityType']] type: The identity type.
         """
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'ManagedIdentityType']]:
         """
         The identity type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'ManagedIdentityType']]):
         pulumi.set(self, "type", value)
 
 
@@ -3578,12 +3579,12 @@ class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
                  actions_required: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None):
+                 status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
-        :param pulumi.Input[str] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         if actions_required is not None:
             pulumi.set(__self__, "actions_required", actions_required)
@@ -3618,14 +3619,14 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]:
         """
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -3773,11 +3774,11 @@ class StandardEncoderPresetArgs:
 @pulumi.input_type
 class StorageAccountArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str],
+                 type: pulumi.Input[Union[str, 'StorageAccountType']],
                  id: Optional[pulumi.Input[str]] = None):
         """
         The storage account details.
-        :param pulumi.Input[str] type: The type of the storage account.
+        :param pulumi.Input[Union[str, 'StorageAccountType']] type: The type of the storage account.
         :param pulumi.Input[str] id: The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
         """
         pulumi.set(__self__, "type", type)
@@ -3786,14 +3787,14 @@ class StorageAccountArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'StorageAccountType']]:
         """
         The type of the storage account.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'StorageAccountType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -4106,13 +4107,13 @@ class StreamingPolicyWidevineConfigurationArgs:
 @pulumi.input_type
 class TrackPropertyConditionArgs:
     def __init__(__self__, *,
-                 operation: pulumi.Input[str],
-                 property: pulumi.Input[str],
+                 operation: pulumi.Input[Union[str, 'TrackPropertyCompareOperation']],
+                 property: pulumi.Input[Union[str, 'TrackPropertyType']],
                  value: Optional[pulumi.Input[str]] = None):
         """
         Class to specify one track property condition
-        :param pulumi.Input[str] operation: Track property condition operation
-        :param pulumi.Input[str] property: Track property type
+        :param pulumi.Input[Union[str, 'TrackPropertyCompareOperation']] operation: Track property condition operation
+        :param pulumi.Input[Union[str, 'TrackPropertyType']] property: Track property type
         :param pulumi.Input[str] value: Track property value
         """
         pulumi.set(__self__, "operation", operation)
@@ -4122,14 +4123,14 @@ class TrackPropertyConditionArgs:
 
     @property
     @pulumi.getter
-    def operation(self) -> pulumi.Input[str]:
+    def operation(self) -> pulumi.Input[Union[str, 'TrackPropertyCompareOperation']]:
         """
         Track property condition operation
         """
         return pulumi.get(self, "operation")
 
     @operation.setter
-    def operation(self, value: pulumi.Input[str]):
+    def operation(self, value: pulumi.Input[Union[str, 'TrackPropertyCompareOperation']]):
         pulumi.set(self, "operation", value)
 
     @property
@@ -4146,14 +4147,14 @@ class TrackPropertyConditionArgs:
 
     @property
     @pulumi.getter
-    def property(self) -> pulumi.Input[str]:
+    def property(self) -> pulumi.Input[Union[str, 'TrackPropertyType']]:
         """
         Track property type
         """
         return pulumi.get(self, "property")
 
     @property.setter
-    def property(self, value: pulumi.Input[str]):
+    def property(self, value: pulumi.Input[Union[str, 'TrackPropertyType']]):
         pulumi.set(self, "property", value)
 
 
@@ -4185,13 +4186,13 @@ class TrackSelectionArgs:
 class TransformOutputArgs:
     def __init__(__self__, *,
                  preset: pulumi.Input[Union['AudioAnalyzerPresetArgs', 'BuiltInStandardEncoderPresetArgs', 'FaceDetectorPresetArgs', 'StandardEncoderPresetArgs']],
-                 on_error: Optional[pulumi.Input[str]] = None,
-                 relative_priority: Optional[pulumi.Input[str]] = None):
+                 on_error: Optional[pulumi.Input[Union[str, 'OnErrorType']]] = None,
+                 relative_priority: Optional[pulumi.Input[Union[str, 'Priority']]] = None):
         """
         Describes the properties of a TransformOutput, which are the rules to be applied while generating the desired output.
         :param pulumi.Input[Union['AudioAnalyzerPresetArgs', 'BuiltInStandardEncoderPresetArgs', 'FaceDetectorPresetArgs', 'StandardEncoderPresetArgs']] preset: Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
-        :param pulumi.Input[str] on_error: A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
-        :param pulumi.Input[str] relative_priority: Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
+        :param pulumi.Input[Union[str, 'OnErrorType']] on_error: A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
+        :param pulumi.Input[Union[str, 'Priority']] relative_priority: Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
         """
         pulumi.set(__self__, "preset", preset)
         if on_error is not None:
@@ -4213,26 +4214,26 @@ class TransformOutputArgs:
 
     @property
     @pulumi.getter(name="onError")
-    def on_error(self) -> Optional[pulumi.Input[str]]:
+    def on_error(self) -> Optional[pulumi.Input[Union[str, 'OnErrorType']]]:
         """
         A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
         """
         return pulumi.get(self, "on_error")
 
     @on_error.setter
-    def on_error(self, value: Optional[pulumi.Input[str]]):
+    def on_error(self, value: Optional[pulumi.Input[Union[str, 'OnErrorType']]]):
         pulumi.set(self, "on_error", value)
 
     @property
     @pulumi.getter(name="relativePriority")
-    def relative_priority(self) -> Optional[pulumi.Input[str]]:
+    def relative_priority(self) -> Optional[pulumi.Input[Union[str, 'Priority']]]:
         """
         Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
         """
         return pulumi.get(self, "relative_priority")
 
     @relative_priority.setter
-    def relative_priority(self, value: Optional[pulumi.Input[str]]):
+    def relative_priority(self, value: Optional[pulumi.Input[Union[str, 'Priority']]]):
         pulumi.set(self, "relative_priority", value)
 
 
@@ -4280,15 +4281,15 @@ class VideoArgs:
                  odata_type: pulumi.Input[str],
                  key_frame_interval: Optional[pulumi.Input[str]] = None,
                  label: Optional[pulumi.Input[str]] = None,
-                 stretch_mode: Optional[pulumi.Input[str]] = None,
-                 sync_mode: Optional[pulumi.Input[str]] = None):
+                 stretch_mode: Optional[pulumi.Input[Union[str, 'StretchMode']]] = None,
+                 sync_mode: Optional[pulumi.Input[Union[str, 'VideoSyncMode']]] = None):
         """
         Describes the basic properties for encoding the input video.
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
         :param pulumi.Input[str] key_frame_interval: The distance between two key frames. The value should be non-zero in the range [0.5, 20] seconds, specified in ISO 8601 format. The default is 2 seconds(PT2S). Note that this setting is ignored if VideoSyncMode.Passthrough is set, where the KeyFrameInterval value will follow the input source setting.
         :param pulumi.Input[str] label: An optional label for the codec. The label can be used to control muxing behavior.
-        :param pulumi.Input[str] stretch_mode: The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
-        :param pulumi.Input[str] sync_mode: The Video Sync Mode
+        :param pulumi.Input[Union[str, 'StretchMode']] stretch_mode: The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+        :param pulumi.Input[Union[str, 'VideoSyncMode']] sync_mode: The Video Sync Mode
         """
         pulumi.set(__self__, "odata_type", '#Microsoft.Media.Video')
         if key_frame_interval is not None:
@@ -4338,26 +4339,26 @@ class VideoArgs:
 
     @property
     @pulumi.getter(name="stretchMode")
-    def stretch_mode(self) -> Optional[pulumi.Input[str]]:
+    def stretch_mode(self) -> Optional[pulumi.Input[Union[str, 'StretchMode']]]:
         """
         The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
         """
         return pulumi.get(self, "stretch_mode")
 
     @stretch_mode.setter
-    def stretch_mode(self, value: Optional[pulumi.Input[str]]):
+    def stretch_mode(self, value: Optional[pulumi.Input[Union[str, 'StretchMode']]]):
         pulumi.set(self, "stretch_mode", value)
 
     @property
     @pulumi.getter(name="syncMode")
-    def sync_mode(self) -> Optional[pulumi.Input[str]]:
+    def sync_mode(self) -> Optional[pulumi.Input[Union[str, 'VideoSyncMode']]]:
         """
         The Video Sync Mode
         """
         return pulumi.get(self, "sync_mode")
 
     @sync_mode.setter
-    def sync_mode(self, value: Optional[pulumi.Input[str]]):
+    def sync_mode(self, value: Optional[pulumi.Input[Union[str, 'VideoSyncMode']]]):
         pulumi.set(self, "sync_mode", value)
 
 

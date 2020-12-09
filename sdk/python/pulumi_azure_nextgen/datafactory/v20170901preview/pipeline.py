@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Pipeline']
@@ -63,14 +64,14 @@ class Pipeline(pulumi.CustomResource):
             __props__['annotations'] = annotations
             __props__['concurrency'] = concurrency
             __props__['description'] = description
-            if factory_name is None:
+            if factory_name is None and not opts.urn:
                 raise TypeError("Missing required property 'factory_name'")
             __props__['factory_name'] = factory_name
             __props__['parameters'] = parameters
-            if pipeline_name is None:
+            if pipeline_name is None and not opts.urn:
                 raise TypeError("Missing required property 'pipeline_name'")
             __props__['pipeline_name'] = pipeline_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['etag'] = None

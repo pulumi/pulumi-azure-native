@@ -72,14 +72,14 @@ class MSIXPackage(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['display_name'] = display_name
-            if host_pool_name is None:
+            if host_pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'host_pool_name'")
             __props__['host_pool_name'] = host_pool_name
             __props__['image_path'] = image_path
             __props__['is_active'] = is_active
             __props__['is_regular_registration'] = is_regular_registration
             __props__['last_updated'] = last_updated
-            if msix_package_full_name is None:
+            if msix_package_full_name is None and not opts.urn:
                 raise TypeError("Missing required property 'msix_package_full_name'")
             __props__['msix_package_full_name'] = msix_package_full_name
             __props__['package_applications'] = package_applications
@@ -87,7 +87,7 @@ class MSIXPackage(pulumi.CustomResource):
             __props__['package_family_name'] = package_family_name
             __props__['package_name'] = package_name
             __props__['package_relative_path'] = package_relative_path
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['version'] = version

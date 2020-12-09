@@ -53,19 +53,19 @@ class BackupScheduleGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if device_name is None:
+            if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
-            if manager_name is None:
+            if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")
             __props__['manager_name'] = manager_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if schedule_group_name is None:
+            if schedule_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule_group_name'")
             __props__['schedule_group_name'] = schedule_group_name
-            if start_time is None:
+            if start_time is None and not opts.urn:
                 raise TypeError("Missing required property 'start_time'")
             __props__['start_time'] = start_time
             __props__['name'] = None

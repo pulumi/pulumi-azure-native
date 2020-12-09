@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['OrchestratorInstanceServiceDetails']
@@ -21,7 +22,7 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
                  cluster_root_ca: Optional[pulumi.Input[str]] = None,
                  controller_details: Optional[pulumi.Input[pulumi.InputType['ControllerDetailsArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['OrchestratorIdentityArgs']]] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'OrchestratorKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  orchestrator_app_id: Optional[pulumi.Input[str]] = None,
                  orchestrator_tenant_id: Optional[pulumi.Input[str]] = None,
@@ -40,7 +41,7 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_root_ca: RootCA certificate of kubernetes cluster base64 encoded
         :param pulumi.Input[pulumi.InputType['ControllerDetailsArgs']] controller_details: controller details
         :param pulumi.Input[pulumi.InputType['OrchestratorIdentityArgs']] identity: The identity of the orchestrator
-        :param pulumi.Input[str] kind: The kind of workbook. Choices are user and shared.
+        :param pulumi.Input[Union[str, 'OrchestratorKind']] kind: The kind of workbook. Choices are user and shared.
         :param pulumi.Input[str] location: Location of the resource.
         :param pulumi.Input[str] orchestrator_app_id: AAD ID used with apiserver
         :param pulumi.Input[str] orchestrator_tenant_id: TenantID of server App ID
@@ -67,20 +68,20 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
 
             __props__['api_server_endpoint'] = api_server_endpoint
             __props__['cluster_root_ca'] = cluster_root_ca
-            if controller_details is None:
+            if controller_details is None and not opts.urn:
                 raise TypeError("Missing required property 'controller_details'")
             __props__['controller_details'] = controller_details
             __props__['identity'] = identity
-            if kind is None:
+            if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = kind
             __props__['location'] = location
             __props__['orchestrator_app_id'] = orchestrator_app_id
             __props__['orchestrator_tenant_id'] = orchestrator_tenant_id
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if resource_name_ is None:
+            if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
             __props__['tags'] = tags

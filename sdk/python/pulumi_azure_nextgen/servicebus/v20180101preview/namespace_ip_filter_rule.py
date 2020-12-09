@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['NamespaceIpFilterRule']
 
@@ -15,7 +16,7 @@ class NamespaceIpFilterRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[str]] = None,
+                 action: Optional[pulumi.Input[Union[str, 'IPAction']]] = None,
                  filter_name: Optional[pulumi.Input[str]] = None,
                  ip_filter_rule_name: Optional[pulumi.Input[str]] = None,
                  ip_mask: Optional[pulumi.Input[str]] = None,
@@ -29,7 +30,7 @@ class NamespaceIpFilterRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] action: The IP Filter Action
+        :param pulumi.Input[Union[str, 'IPAction']] action: The IP Filter Action
         :param pulumi.Input[str] filter_name: IP Filter name
         :param pulumi.Input[str] ip_filter_rule_name: The IP Filter Rule name.
         :param pulumi.Input[str] ip_mask: IP Mask
@@ -55,14 +56,14 @@ class NamespaceIpFilterRule(pulumi.CustomResource):
 
             __props__['action'] = action
             __props__['filter_name'] = filter_name
-            if ip_filter_rule_name is None:
+            if ip_filter_rule_name is None and not opts.urn:
                 raise TypeError("Missing required property 'ip_filter_rule_name'")
             __props__['ip_filter_rule_name'] = ip_filter_rule_name
             __props__['ip_mask'] = ip_mask
-            if namespace_name is None:
+            if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['name'] = None

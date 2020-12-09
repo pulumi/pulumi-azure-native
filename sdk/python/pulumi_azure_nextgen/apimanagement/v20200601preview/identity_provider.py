@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['IdentityProvider']
 
@@ -27,7 +28,7 @@ class IdentityProvider(pulumi.CustomResource):
                  signin_policy_name: Optional[pulumi.Input[str]] = None,
                  signin_tenant: Optional[pulumi.Input[str]] = None,
                  signup_policy_name: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'IdentityProviderType']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -48,7 +49,7 @@ class IdentityProvider(pulumi.CustomResource):
         :param pulumi.Input[str] signin_policy_name: Signin Policy Name. Only applies to AAD B2C Identity Provider.
         :param pulumi.Input[str] signin_tenant: The TenantId to use instead of Common when logging into Active Directory
         :param pulumi.Input[str] signup_policy_name: Signup Policy Name. Only applies to AAD B2C Identity Provider.
-        :param pulumi.Input[str] type: Identity Provider Type identifier.
+        :param pulumi.Input[Union[str, 'IdentityProviderType']] type: Identity Provider Type identifier.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -69,21 +70,21 @@ class IdentityProvider(pulumi.CustomResource):
 
             __props__['allowed_tenants'] = allowed_tenants
             __props__['authority'] = authority
-            if client_id is None:
+            if client_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_id'")
             __props__['client_id'] = client_id
-            if client_secret is None:
+            if client_secret is None and not opts.urn:
                 raise TypeError("Missing required property 'client_secret'")
             __props__['client_secret'] = client_secret
-            if identity_provider_name is None:
+            if identity_provider_name is None and not opts.urn:
                 raise TypeError("Missing required property 'identity_provider_name'")
             __props__['identity_provider_name'] = identity_provider_name
             __props__['password_reset_policy_name'] = password_reset_policy_name
             __props__['profile_editing_policy_name'] = profile_editing_policy_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if service_name is None:
+            if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['signin_policy_name'] = signin_policy_name

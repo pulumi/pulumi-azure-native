@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 
 __all__ = ['Queue']
 
@@ -33,7 +34,7 @@ class Queue(pulumi.CustomResource):
                  requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
                  requires_session: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['EntityStatus']] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -59,7 +60,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[bool] requires_duplicate_detection: A value indicating if this queue requires duplicate detection.
         :param pulumi.Input[bool] requires_session: A value that indicates whether the queue supports the concept of sessions.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[str] status: Enumerates the possible values for the status of a messaging entity.
+        :param pulumi.Input['EntityStatus'] status: Enumerates the possible values for the status of a messaging entity.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -90,15 +91,15 @@ class Queue(pulumi.CustomResource):
             __props__['lock_duration'] = lock_duration
             __props__['max_delivery_count'] = max_delivery_count
             __props__['max_size_in_megabytes'] = max_size_in_megabytes
-            if namespace_name is None:
+            if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
-            if queue_name is None:
+            if queue_name is None and not opts.urn:
                 raise TypeError("Missing required property 'queue_name'")
             __props__['queue_name'] = queue_name
             __props__['requires_duplicate_detection'] = requires_duplicate_detection
             __props__['requires_session'] = requires_session
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['status'] = status

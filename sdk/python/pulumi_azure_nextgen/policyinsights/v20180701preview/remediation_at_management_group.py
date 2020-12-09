@@ -59,15 +59,15 @@ class RemediationAtManagementGroup(pulumi.CustomResource):
 
             __props__['deployment_status'] = deployment_status
             __props__['filters'] = filters
-            if management_group_id is None:
+            if management_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'management_group_id'")
             __props__['management_group_id'] = management_group_id
-            if management_groups_namespace is None:
+            if management_groups_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'management_groups_namespace'")
             __props__['management_groups_namespace'] = management_groups_namespace
             __props__['policy_assignment_id'] = policy_assignment_id
             __props__['policy_definition_reference_id'] = policy_definition_reference_id
-            if remediation_name is None:
+            if remediation_name is None and not opts.urn:
                 raise TypeError("Missing required property 'remediation_name'")
             __props__['remediation_name'] = remediation_name
             __props__['created_on'] = None

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'BlobShareArgs',
@@ -60,11 +61,11 @@ class BlobShareArgs:
 class ConnectToSourceSqlServerTaskInputArgs:
     def __init__(__self__, *,
                  source_connection_info: pulumi.Input['SqlConnectionInfoArgs'],
-                 check_permissions_group: Optional[pulumi.Input[str]] = None):
+                 check_permissions_group: Optional[pulumi.Input[Union[str, 'ServerLevelPermissionsGroup']]] = None):
         """
         Input for the task that validates connection to SQL Server and also validates source server requirements
         :param pulumi.Input['SqlConnectionInfoArgs'] source_connection_info: Connection information for Source SQL Server
-        :param pulumi.Input[str] check_permissions_group: Permission group for validations
+        :param pulumi.Input[Union[str, 'ServerLevelPermissionsGroup']] check_permissions_group: Permission group for validations
         """
         pulumi.set(__self__, "source_connection_info", source_connection_info)
         if check_permissions_group is not None:
@@ -84,14 +85,14 @@ class ConnectToSourceSqlServerTaskInputArgs:
 
     @property
     @pulumi.getter(name="checkPermissionsGroup")
-    def check_permissions_group(self) -> Optional[pulumi.Input[str]]:
+    def check_permissions_group(self) -> Optional[pulumi.Input[Union[str, 'ServerLevelPermissionsGroup']]]:
         """
         Permission group for validations
         """
         return pulumi.get(self, "check_permissions_group")
 
     @check_permissions_group.setter
-    def check_permissions_group(self, value: Optional[pulumi.Input[str]]):
+    def check_permissions_group(self, value: Optional[pulumi.Input[Union[str, 'ServerLevelPermissionsGroup']]]):
         pulumi.set(self, "check_permissions_group", value)
 
 
@@ -924,7 +925,7 @@ class SqlConnectionInfoArgs:
                  data_source: pulumi.Input[str],
                  type: pulumi.Input[str],
                  additional_settings: Optional[pulumi.Input[str]] = None,
-                 authentication: Optional[pulumi.Input[str]] = None,
+                 authentication: Optional[pulumi.Input[Union[str, 'AuthenticationType']]] = None,
                  encrypt_connection: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  trust_server_certificate: Optional[pulumi.Input[bool]] = None,
@@ -934,7 +935,7 @@ class SqlConnectionInfoArgs:
         :param pulumi.Input[str] data_source: Data source in the format Protocol:MachineName\SQLServerInstanceName,PortNumber
         :param pulumi.Input[str] type: Type of connection info
         :param pulumi.Input[str] additional_settings: Additional connection settings
-        :param pulumi.Input[str] authentication: Authentication type to use for connection
+        :param pulumi.Input[Union[str, 'AuthenticationType']] authentication: Authentication type to use for connection
         :param pulumi.Input[bool] encrypt_connection: Whether to encrypt the connection
         :param pulumi.Input[str] password: Password credential.
         :param pulumi.Input[bool] trust_server_certificate: Whether to trust the server certificate
@@ -993,14 +994,14 @@ class SqlConnectionInfoArgs:
 
     @property
     @pulumi.getter
-    def authentication(self) -> Optional[pulumi.Input[str]]:
+    def authentication(self) -> Optional[pulumi.Input[Union[str, 'AuthenticationType']]]:
         """
         Authentication type to use for connection
         """
         return pulumi.get(self, "authentication")
 
     @authentication.setter
-    def authentication(self, value: Optional[pulumi.Input[str]]):
+    def authentication(self, value: Optional[pulumi.Input[Union[str, 'AuthenticationType']]]):
         pulumi.set(self, "authentication", value)
 
     @property

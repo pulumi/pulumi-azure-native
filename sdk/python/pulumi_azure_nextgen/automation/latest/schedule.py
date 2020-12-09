@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Schedule']
@@ -21,7 +22,7 @@ class Schedule(pulumi.CustomResource):
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  expiry_time: Optional[pulumi.Input[str]] = None,
-                 frequency: Optional[pulumi.Input[str]] = None,
+                 frequency: Optional[pulumi.Input[Union[str, 'ScheduleFrequency']]] = None,
                  interval: Optional[Any] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -40,7 +41,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
         :param pulumi.Input[str] description: Gets or sets the description of the schedule.
         :param pulumi.Input[str] expiry_time: Gets or sets the end time of the schedule.
-        :param pulumi.Input[str] frequency: Gets or sets the frequency of the schedule.
+        :param pulumi.Input[Union[str, 'ScheduleFrequency']] frequency: Gets or sets the frequency of the schedule.
         :param Any interval: Gets or sets the interval of the schedule.
         :param pulumi.Input[str] name: Gets or sets the name of the Schedule.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
@@ -66,25 +67,25 @@ class Schedule(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['advanced_schedule'] = advanced_schedule
-            if automation_account_name is None:
+            if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
             __props__['description'] = description
             __props__['expiry_time'] = expiry_time
-            if frequency is None:
+            if frequency is None and not opts.urn:
                 raise TypeError("Missing required property 'frequency'")
             __props__['frequency'] = frequency
             __props__['interval'] = interval
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if schedule_name is None:
+            if schedule_name is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule_name'")
             __props__['schedule_name'] = schedule_name
-            if start_time is None:
+            if start_time is None and not opts.urn:
                 raise TypeError("Missing required property 'start_time'")
             __props__['start_time'] = start_time
             __props__['time_zone'] = time_zone

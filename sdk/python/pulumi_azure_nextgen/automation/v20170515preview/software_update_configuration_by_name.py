@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['SoftwareUpdateConfigurationByName']
@@ -57,21 +58,21 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if automation_account_name is None:
+            if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
             __props__['error'] = error
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if schedule_info is None:
+            if schedule_info is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule_info'")
             __props__['schedule_info'] = schedule_info
-            if software_update_configuration_name is None:
+            if software_update_configuration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'software_update_configuration_name'")
             __props__['software_update_configuration_name'] = software_update_configuration_name
             __props__['tasks'] = tasks
-            if update_configuration is None:
+            if update_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'update_configuration'")
             __props__['update_configuration'] = update_configuration
             __props__['created_by'] = None

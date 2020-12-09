@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .get_integration_account import *
 from .get_integration_account_agreement import *
 from .get_integration_account_assembly import *
@@ -43,3 +44,50 @@ from .rosetta_net_process_configuration import *
 from .workflow import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:logic/latest:IntegrationAccount":
+                return IntegrationAccount(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:logic/latest:IntegrationAccountAgreement":
+                return IntegrationAccountAgreement(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:logic/latest:IntegrationAccountAssembly":
+                return IntegrationAccountAssembly(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:logic/latest:IntegrationAccountBatchConfiguration":
+                return IntegrationAccountBatchConfiguration(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:logic/latest:IntegrationAccountCertificate":
+                return IntegrationAccountCertificate(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:logic/latest:IntegrationAccountMap":
+                return IntegrationAccountMap(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:logic/latest:IntegrationAccountPartner":
+                return IntegrationAccountPartner(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:logic/latest:IntegrationAccountSchema":
+                return IntegrationAccountSchema(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:logic/latest:IntegrationAccountSession":
+                return IntegrationAccountSession(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:logic/latest:IntegrationServiceEnvironment":
+                return IntegrationServiceEnvironment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:logic/latest:IntegrationServiceEnvironmentManagedApi":
+                return IntegrationServiceEnvironmentManagedApi(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:logic/latest:RosettaNetProcessConfiguration":
+                return RosettaNetProcessConfiguration(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:logic/latest:Workflow":
+                return Workflow(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "logic/latest", _module_instance)
+
+_register_module()

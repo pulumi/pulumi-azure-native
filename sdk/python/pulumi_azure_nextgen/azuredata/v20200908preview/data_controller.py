@@ -56,18 +56,18 @@ class DataController(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if data_controller_name is None:
+            if data_controller_name is None and not opts.urn:
                 raise TypeError("Missing required property 'data_controller_name'")
             __props__['data_controller_name'] = data_controller_name
             __props__['k8s_raw'] = k8s_raw
             __props__['last_uploaded_date'] = last_uploaded_date
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if on_premise_property is None:
+            if on_premise_property is None and not opts.urn:
                 raise TypeError("Missing required property 'on_premise_property'")
             __props__['on_premise_property'] = on_premise_property
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

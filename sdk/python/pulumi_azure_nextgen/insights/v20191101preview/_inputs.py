@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'DataCollectionRuleDataSourcesArgs',
@@ -137,11 +138,11 @@ class DataCollectionRuleDestinationsArgs:
 class DataFlowArgs:
     def __init__(__self__, *,
                  destinations: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 streams: pulumi.Input[Sequence[pulumi.Input[str]]]):
+                 streams: pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownDataFlowStreams']]]]):
         """
         Definition of which streams are sent to which destinations.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] destinations: List of destinations for this data flow.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: List of streams for this data flow.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownDataFlowStreams']]]] streams: List of streams for this data flow.
         """
         pulumi.set(__self__, "destinations", destinations)
         pulumi.set(__self__, "streams", streams)
@@ -160,14 +161,14 @@ class DataFlowArgs:
 
     @property
     @pulumi.getter
-    def streams(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def streams(self) -> pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownDataFlowStreams']]]]:
         """
         List of streams for this data flow.
         """
         return pulumi.get(self, "streams")
 
     @streams.setter
-    def streams(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def streams(self, value: pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownDataFlowStreams']]]]):
         pulumi.set(self, "streams", value)
 
 
@@ -201,7 +202,7 @@ class ExtensionDataSourceArgs:
     def __init__(__self__, *,
                  extension_name: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 streams: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 streams: pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownExtensionDataSourceStreams']]]],
                  extension_settings: Optional[Any] = None):
         """
         Definition of which data will be collected from a separate VM extension that integrates with the Azure Monitor Agent.
@@ -209,7 +210,7 @@ class ExtensionDataSourceArgs:
         :param pulumi.Input[str] extension_name: The name of the VM extension.
         :param pulumi.Input[str] name: A friendly name for the data source. 
                This name should be unique across all data sources (regardless of type) within the data collection rule.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: List of streams that this data source will be sent to.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownExtensionDataSourceStreams']]]] streams: List of streams that this data source will be sent to.
                A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
         :param Any extension_settings: The extension settings. The format is specific for particular extension.
         """
@@ -246,7 +247,7 @@ class ExtensionDataSourceArgs:
 
     @property
     @pulumi.getter
-    def streams(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def streams(self) -> pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownExtensionDataSourceStreams']]]]:
         """
         List of streams that this data source will be sent to.
         A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
@@ -254,7 +255,7 @@ class ExtensionDataSourceArgs:
         return pulumi.get(self, "streams")
 
     @streams.setter
-    def streams(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def streams(self, value: pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownExtensionDataSourceStreams']]]]):
         pulumi.set(self, "streams", value)
 
     @property
@@ -316,8 +317,8 @@ class PerfCounterDataSourceArgs:
                  counter_specifiers: pulumi.Input[Sequence[pulumi.Input[str]]],
                  name: pulumi.Input[str],
                  sampling_frequency_in_seconds: pulumi.Input[int],
-                 scheduled_transfer_period: pulumi.Input[str],
-                 streams: pulumi.Input[Sequence[pulumi.Input[str]]]):
+                 scheduled_transfer_period: pulumi.Input[Union[str, 'KnownPerfCounterDataSourceScheduledTransferPeriod']],
+                 streams: pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownPerfCounterDataSourceStreams']]]]):
         """
         Definition of which performance counters will be collected and how they will be collected by this data collection rule.
         Collected from both Windows and Linux machines where the counter is present.
@@ -327,8 +328,8 @@ class PerfCounterDataSourceArgs:
         :param pulumi.Input[str] name: A friendly name for the data source. 
                This name should be unique across all data sources (regardless of type) within the data collection rule.
         :param pulumi.Input[int] sampling_frequency_in_seconds: The number of seconds between consecutive counter measurements (samples).
-        :param pulumi.Input[str] scheduled_transfer_period: The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: List of streams that this data source will be sent to.
+        :param pulumi.Input[Union[str, 'KnownPerfCounterDataSourceScheduledTransferPeriod']] scheduled_transfer_period: The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownPerfCounterDataSourceStreams']]]] streams: List of streams that this data source will be sent to.
                A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
         """
         pulumi.set(__self__, "counter_specifiers", counter_specifiers)
@@ -378,19 +379,19 @@ class PerfCounterDataSourceArgs:
 
     @property
     @pulumi.getter(name="scheduledTransferPeriod")
-    def scheduled_transfer_period(self) -> pulumi.Input[str]:
+    def scheduled_transfer_period(self) -> pulumi.Input[Union[str, 'KnownPerfCounterDataSourceScheduledTransferPeriod']]:
         """
         The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
         """
         return pulumi.get(self, "scheduled_transfer_period")
 
     @scheduled_transfer_period.setter
-    def scheduled_transfer_period(self, value: pulumi.Input[str]):
+    def scheduled_transfer_period(self, value: pulumi.Input[Union[str, 'KnownPerfCounterDataSourceScheduledTransferPeriod']]):
         pulumi.set(self, "scheduled_transfer_period", value)
 
     @property
     @pulumi.getter
-    def streams(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def streams(self) -> pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownPerfCounterDataSourceStreams']]]]:
         """
         List of streams that this data source will be sent to.
         A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
@@ -398,26 +399,26 @@ class PerfCounterDataSourceArgs:
         return pulumi.get(self, "streams")
 
     @streams.setter
-    def streams(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def streams(self, value: pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownPerfCounterDataSourceStreams']]]]):
         pulumi.set(self, "streams", value)
 
 
 @pulumi.input_type
 class SyslogDataSourceArgs:
     def __init__(__self__, *,
-                 facility_names: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 facility_names: pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownSyslogDataSourceFacilityNames']]]],
                  name: pulumi.Input[str],
-                 streams: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 log_levels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 streams: pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownSyslogDataSourceStreams']]]],
+                 log_levels: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownSyslogDataSourceLogLevels']]]]] = None):
         """
         Definition of which syslog data will be collected and how it will be collected.
         Only collected from Linux machines.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] facility_names: The list of facility names.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownSyslogDataSourceFacilityNames']]]] facility_names: The list of facility names.
         :param pulumi.Input[str] name: A friendly name for the data source. 
                This name should be unique across all data sources (regardless of type) within the data collection rule.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: List of streams that this data source will be sent to.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownSyslogDataSourceStreams']]]] streams: List of streams that this data source will be sent to.
                A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] log_levels: The log levels to collect.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownSyslogDataSourceLogLevels']]]] log_levels: The log levels to collect.
         """
         pulumi.set(__self__, "facility_names", facility_names)
         pulumi.set(__self__, "name", name)
@@ -427,14 +428,14 @@ class SyslogDataSourceArgs:
 
     @property
     @pulumi.getter(name="facilityNames")
-    def facility_names(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def facility_names(self) -> pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownSyslogDataSourceFacilityNames']]]]:
         """
         The list of facility names.
         """
         return pulumi.get(self, "facility_names")
 
     @facility_names.setter
-    def facility_names(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def facility_names(self, value: pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownSyslogDataSourceFacilityNames']]]]):
         pulumi.set(self, "facility_names", value)
 
     @property
@@ -452,7 +453,7 @@ class SyslogDataSourceArgs:
 
     @property
     @pulumi.getter
-    def streams(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def streams(self) -> pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownSyslogDataSourceStreams']]]]:
         """
         List of streams that this data source will be sent to.
         A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
@@ -460,19 +461,19 @@ class SyslogDataSourceArgs:
         return pulumi.get(self, "streams")
 
     @streams.setter
-    def streams(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def streams(self, value: pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownSyslogDataSourceStreams']]]]):
         pulumi.set(self, "streams", value)
 
     @property
     @pulumi.getter(name="logLevels")
-    def log_levels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def log_levels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownSyslogDataSourceLogLevels']]]]]:
         """
         The log levels to collect.
         """
         return pulumi.get(self, "log_levels")
 
     @log_levels.setter
-    def log_levels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def log_levels(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownSyslogDataSourceLogLevels']]]]]):
         pulumi.set(self, "log_levels", value)
 
 
@@ -480,16 +481,16 @@ class SyslogDataSourceArgs:
 class WindowsEventLogDataSourceArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 scheduled_transfer_period: pulumi.Input[str],
-                 streams: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 scheduled_transfer_period: pulumi.Input[Union[str, 'KnownWindowsEventLogDataSourceScheduledTransferPeriod']],
+                 streams: pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownWindowsEventLogDataSourceStreams']]]],
                  x_path_queries: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
         Definition of which Windows Event Log events will be collected and how they will be collected.
         Only collected from Windows machines.
         :param pulumi.Input[str] name: A friendly name for the data source. 
                This name should be unique across all data sources (regardless of type) within the data collection rule.
-        :param pulumi.Input[str] scheduled_transfer_period: The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: List of streams that this data source will be sent to.
+        :param pulumi.Input[Union[str, 'KnownWindowsEventLogDataSourceScheduledTransferPeriod']] scheduled_transfer_period: The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownWindowsEventLogDataSourceStreams']]]] streams: List of streams that this data source will be sent to.
                A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] x_path_queries: A list of Windows Event Log queries in XPATH format.
         """
@@ -513,19 +514,19 @@ class WindowsEventLogDataSourceArgs:
 
     @property
     @pulumi.getter(name="scheduledTransferPeriod")
-    def scheduled_transfer_period(self) -> pulumi.Input[str]:
+    def scheduled_transfer_period(self) -> pulumi.Input[Union[str, 'KnownWindowsEventLogDataSourceScheduledTransferPeriod']]:
         """
         The interval between data uploads (scheduled transfers), rounded up to the nearest minute.
         """
         return pulumi.get(self, "scheduled_transfer_period")
 
     @scheduled_transfer_period.setter
-    def scheduled_transfer_period(self, value: pulumi.Input[str]):
+    def scheduled_transfer_period(self, value: pulumi.Input[Union[str, 'KnownWindowsEventLogDataSourceScheduledTransferPeriod']]):
         pulumi.set(self, "scheduled_transfer_period", value)
 
     @property
     @pulumi.getter
-    def streams(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def streams(self) -> pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownWindowsEventLogDataSourceStreams']]]]:
         """
         List of streams that this data source will be sent to.
         A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
@@ -533,7 +534,7 @@ class WindowsEventLogDataSourceArgs:
         return pulumi.get(self, "streams")
 
     @streams.setter
-    def streams(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def streams(self, value: pulumi.Input[Sequence[pulumi.Input[Union[str, 'KnownWindowsEventLogDataSourceStreams']]]]):
         pulumi.set(self, "streams", value)
 
     @property

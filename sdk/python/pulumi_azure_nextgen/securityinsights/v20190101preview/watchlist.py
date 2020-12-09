@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Watchlist']
@@ -31,7 +32,7 @@ class Watchlist(pulumi.CustomResource):
                  provider: Optional[pulumi.Input[str]] = None,
                  raw_content: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[Union[str, 'Source']]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  updated: Optional[pulumi.Input[str]] = None,
                  updated_by: Optional[pulumi.Input[pulumi.InputType['UserInfoArgs']]] = None,
@@ -61,7 +62,7 @@ class Watchlist(pulumi.CustomResource):
         :param pulumi.Input[str] provider: The provider of the watchlist
         :param pulumi.Input[str] raw_content: The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-        :param pulumi.Input[str] source: The source of the watchlist
+        :param pulumi.Input[Union[str, 'Source']] source: The source of the watchlist
         :param pulumi.Input[str] tenant_id: The tenantId where the watchlist belongs to
         :param pulumi.Input[str] updated: The last time the watchlist was updated
         :param pulumi.Input[pulumi.InputType['UserInfoArgs']] updated_by: Describes a user that updated the watchlist
@@ -92,35 +93,35 @@ class Watchlist(pulumi.CustomResource):
             __props__['created_by'] = created_by
             __props__['default_duration'] = default_duration
             __props__['description'] = description
-            if display_name is None:
+            if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
             __props__['etag'] = etag
             __props__['is_deleted'] = is_deleted
             __props__['labels'] = labels
             __props__['number_of_lines_to_skip'] = number_of_lines_to_skip
-            if operational_insights_resource_provider is None:
+            if operational_insights_resource_provider is None and not opts.urn:
                 raise TypeError("Missing required property 'operational_insights_resource_provider'")
             __props__['operational_insights_resource_provider'] = operational_insights_resource_provider
-            if provider is None:
+            if provider is None and not opts.urn:
                 raise TypeError("Missing required property 'provider'")
             __props__['provider'] = provider
             __props__['raw_content'] = raw_content
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if source is None:
+            if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__['source'] = source
             __props__['tenant_id'] = tenant_id
             __props__['updated'] = updated
             __props__['updated_by'] = updated_by
-            if watchlist_alias is None:
+            if watchlist_alias is None and not opts.urn:
                 raise TypeError("Missing required property 'watchlist_alias'")
             __props__['watchlist_alias'] = watchlist_alias
             __props__['watchlist_id'] = watchlist_id
             __props__['watchlist_type'] = watchlist_type
-            if workspace_name is None:
+            if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['name'] = None

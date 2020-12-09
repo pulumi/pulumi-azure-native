@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .account_filter import *
 from .asset import *
 from .asset_filter import *
@@ -36,3 +37,48 @@ from .streaming_policy import *
 from .transform import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:media/v20180701:AccountFilter":
+                return AccountFilter(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:media/v20180701:Asset":
+                return Asset(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:media/v20180701:AssetFilter":
+                return AssetFilter(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:media/v20180701:ContentKeyPolicy":
+                return ContentKeyPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:media/v20180701:Job":
+                return Job(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:media/v20180701:LiveEvent":
+                return LiveEvent(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:media/v20180701:LiveOutput":
+                return LiveOutput(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:media/v20180701:MediaService":
+                return MediaService(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:media/v20180701:StreamingEndpoint":
+                return StreamingEndpoint(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:media/v20180701:StreamingLocator":
+                return StreamingLocator(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:media/v20180701:StreamingPolicy":
+                return StreamingPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:media/v20180701:Transform":
+                return Transform(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "media/v20180701", _module_instance)
+
+_register_module()

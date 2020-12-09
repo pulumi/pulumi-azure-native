@@ -3,9 +3,35 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .get_policy_assignment import *
 from .get_policy_set_definition import *
 from .policy_assignment import *
 from .policy_set_definition import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:authorization/v20170601preview:PolicyAssignment":
+                return PolicyAssignment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:authorization/v20170601preview:PolicySetDefinition":
+                return PolicySetDefinition(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "authorization/v20170601preview", _module_instance)
+
+_register_module()

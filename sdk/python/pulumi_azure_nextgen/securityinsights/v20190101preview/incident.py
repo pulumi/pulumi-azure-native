@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Incident']
@@ -17,9 +18,9 @@ class Incident(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 classification: Optional[pulumi.Input[str]] = None,
+                 classification: Optional[pulumi.Input[Union[str, 'IncidentClassification']]] = None,
                  classification_comment: Optional[pulumi.Input[str]] = None,
-                 classification_reason: Optional[pulumi.Input[str]] = None,
+                 classification_reason: Optional[pulumi.Input[Union[str, 'IncidentClassificationReason']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  first_activity_time_utc: Optional[pulumi.Input[str]] = None,
@@ -29,8 +30,8 @@ class Incident(pulumi.CustomResource):
                  operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[pulumi.InputType['IncidentOwnerInfoArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 severity: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 severity: Optional[pulumi.Input[Union[str, 'IncidentSeverity']]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'IncidentStatus']]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -41,9 +42,9 @@ class Incident(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] classification: The reason the incident was closed
+        :param pulumi.Input[Union[str, 'IncidentClassification']] classification: The reason the incident was closed
         :param pulumi.Input[str] classification_comment: Describes the reason the incident was closed
-        :param pulumi.Input[str] classification_reason: The classification reason the incident was closed with
+        :param pulumi.Input[Union[str, 'IncidentClassificationReason']] classification_reason: The classification reason the incident was closed with
         :param pulumi.Input[str] description: The description of the incident
         :param pulumi.Input[str] etag: Etag of the azure resource
         :param pulumi.Input[str] first_activity_time_utc: The time of the first activity in the incident
@@ -53,8 +54,8 @@ class Incident(pulumi.CustomResource):
         :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
         :param pulumi.Input[pulumi.InputType['IncidentOwnerInfoArgs']] owner: Describes a user that the incident is assigned to
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-        :param pulumi.Input[str] severity: The severity of the incident
-        :param pulumi.Input[str] status: The status of the incident
+        :param pulumi.Input[Union[str, 'IncidentSeverity']] severity: The severity of the incident
+        :param pulumi.Input[Union[str, 'IncidentStatus']] status: The status of the incident
         :param pulumi.Input[str] title: The title of the incident
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
@@ -81,28 +82,28 @@ class Incident(pulumi.CustomResource):
             __props__['description'] = description
             __props__['etag'] = etag
             __props__['first_activity_time_utc'] = first_activity_time_utc
-            if incident_id is None:
+            if incident_id is None and not opts.urn:
                 raise TypeError("Missing required property 'incident_id'")
             __props__['incident_id'] = incident_id
             __props__['labels'] = labels
             __props__['last_activity_time_utc'] = last_activity_time_utc
-            if operational_insights_resource_provider is None:
+            if operational_insights_resource_provider is None and not opts.urn:
                 raise TypeError("Missing required property 'operational_insights_resource_provider'")
             __props__['operational_insights_resource_provider'] = operational_insights_resource_provider
             __props__['owner'] = owner
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if severity is None:
+            if severity is None and not opts.urn:
                 raise TypeError("Missing required property 'severity'")
             __props__['severity'] = severity
-            if status is None:
+            if status is None and not opts.urn:
                 raise TypeError("Missing required property 'status'")
             __props__['status'] = status
-            if title is None:
+            if title is None and not opts.urn:
                 raise TypeError("Missing required property 'title'")
             __props__['title'] = title
-            if workspace_name is None:
+            if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['additional_data'] = None

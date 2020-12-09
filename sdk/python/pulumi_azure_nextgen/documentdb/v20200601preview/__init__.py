@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .cassandra_resource_cassandra_keyspace import *
 from .cassandra_resource_cassandra_table import *
 from .database_account import *
@@ -40,3 +41,56 @@ from .sql_resource_sql_user_defined_function import *
 from .table_resource_table import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:documentdb/v20200601preview:CassandraResourceCassandraKeyspace":
+                return CassandraResourceCassandraKeyspace(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:documentdb/v20200601preview:CassandraResourceCassandraTable":
+                return CassandraResourceCassandraTable(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:documentdb/v20200601preview:DatabaseAccount":
+                return DatabaseAccount(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:documentdb/v20200601preview:GremlinResourceGremlinDatabase":
+                return GremlinResourceGremlinDatabase(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:documentdb/v20200601preview:GremlinResourceGremlinGraph":
+                return GremlinResourceGremlinGraph(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:documentdb/v20200601preview:MongoDBResourceMongoDBCollection":
+                return MongoDBResourceMongoDBCollection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:documentdb/v20200601preview:MongoDBResourceMongoDBDatabase":
+                return MongoDBResourceMongoDBDatabase(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:documentdb/v20200601preview:NotebookWorkspace":
+                return NotebookWorkspace(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlContainer":
+                return SqlResourceSqlContainer(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlDatabase":
+                return SqlResourceSqlDatabase(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleAssignment":
+                return SqlResourceSqlRoleAssignment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleDefinition":
+                return SqlResourceSqlRoleDefinition(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlStoredProcedure":
+                return SqlResourceSqlStoredProcedure(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlTrigger":
+                return SqlResourceSqlTrigger(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:documentdb/v20200601preview:SqlResourceSqlUserDefinedFunction":
+                return SqlResourceSqlUserDefinedFunction(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:documentdb/v20200601preview:TableResourceTable":
+                return TableResourceTable(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "documentdb/v20200601preview", _module_instance)
+
+_register_module()

@@ -57,26 +57,26 @@ class ApiIssueComment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if api_id is None:
+            if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
             __props__['api_id'] = api_id
-            if comment_id is None:
+            if comment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'comment_id'")
             __props__['comment_id'] = comment_id
             __props__['created_date'] = created_date
-            if issue_id is None:
+            if issue_id is None and not opts.urn:
                 raise TypeError("Missing required property 'issue_id'")
             __props__['issue_id'] = issue_id
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if service_name is None:
+            if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
-            if text is None:
+            if text is None and not opts.urn:
                 raise TypeError("Missing required property 'text'")
             __props__['text'] = text
-            if user_id is None:
+            if user_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_id'")
             __props__['user_id'] = user_id
             __props__['name'] = None

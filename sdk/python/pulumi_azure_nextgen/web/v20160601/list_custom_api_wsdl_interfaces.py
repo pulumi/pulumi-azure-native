@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = [
@@ -45,7 +46,7 @@ class AwaitableListCustomApiWsdlInterfacesResult(ListCustomApiWsdlInterfacesResu
 
 
 def list_custom_api_wsdl_interfaces(content: Optional[str] = None,
-                                    import_method: Optional[str] = None,
+                                    import_method: Optional[Union[str, 'WsdlImportMethod']] = None,
                                     location: Optional[str] = None,
                                     service: Optional[pulumi.InputType['WsdlServiceArgs']] = None,
                                     url: Optional[str] = None,
@@ -54,7 +55,7 @@ def list_custom_api_wsdl_interfaces(content: Optional[str] = None,
     Use this data source to access information about an existing resource.
 
     :param str content: The WSDL content
-    :param str import_method: The WSDL import method
+    :param Union[str, 'WsdlImportMethod'] import_method: The WSDL import method
     :param str location: The location
     :param pulumi.InputType['WsdlServiceArgs'] service: The service with name and endpoint names
     :param str url: The WSDL URL

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['AzureFirewall']
@@ -60,14 +61,14 @@ class AzureFirewall(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['application_rule_collections'] = application_rule_collections
-            if azure_firewall_name is None:
+            if azure_firewall_name is None and not opts.urn:
                 raise TypeError("Missing required property 'azure_firewall_name'")
             __props__['azure_firewall_name'] = azure_firewall_name
             __props__['id'] = id
             __props__['ip_configurations'] = ip_configurations
             __props__['location'] = location
             __props__['network_rule_collections'] = network_rule_collections
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

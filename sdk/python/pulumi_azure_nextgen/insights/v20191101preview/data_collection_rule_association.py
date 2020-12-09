@@ -49,14 +49,14 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if association_name is None:
+            if association_name is None and not opts.urn:
                 raise TypeError("Missing required property 'association_name'")
             __props__['association_name'] = association_name
-            if data_collection_rule_id is None:
+            if data_collection_rule_id is None and not opts.urn:
                 raise TypeError("Missing required property 'data_collection_rule_id'")
             __props__['data_collection_rule_id'] = data_collection_rule_id
             __props__['description'] = description
-            if resource_uri is None:
+            if resource_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_uri'")
             __props__['resource_uri'] = resource_uri
             __props__['etag'] = None

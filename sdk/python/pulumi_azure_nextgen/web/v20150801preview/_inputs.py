@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ApiEntityArgs',
@@ -981,13 +982,13 @@ class ConnectionParameterArgs:
     def __init__(__self__, *,
                  default_value: Optional[Any] = None,
                  o_auth_settings: Optional[pulumi.Input['ApiOAuthSettingsArgs']] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['ConnectionParameterType']] = None,
                  ui_definition: Optional[Any] = None):
         """
         connection provider parameters
         :param Any default_value: Default parameter value
         :param pulumi.Input['ApiOAuthSettingsArgs'] o_auth_settings: Settings defining OAuth flow for the back end provider
-        :param pulumi.Input[str] type: Type of the parameter
+        :param pulumi.Input['ConnectionParameterType'] type: Type of the parameter
         :param Any ui_definition: UI definitions
         """
         if default_value is not None:
@@ -1025,14 +1026,14 @@ class ConnectionParameterArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['ConnectionParameterType']]:
         """
         Type of the parameter
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['ConnectionParameterType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -1204,14 +1205,14 @@ class ConsentLinkInputParameterArgs:
     def __init__(__self__, *,
                  object_id: Optional[str] = None,
                  parameter_name: Optional[str] = None,
-                 principal_type: Optional[str] = None,
+                 principal_type: Optional['PrincipalType'] = None,
                  redirect_url: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
         :param str object_id: AAD OID (user or group) if the principal type is ActiveDirectory.
                            MSA PUID if the principal type is MicrosoftAccount.
         :param str parameter_name: Name of the parameter in the connection provider's oauthSettings
-        :param str principal_type: Principal type
+        :param 'PrincipalType' principal_type: Principal type
         :param str redirect_url: Name of the parameter in the connection provider's oauthSettings
         :param str tenant_id: Tenant Id
         """
@@ -1253,14 +1254,14 @@ class ConsentLinkInputParameterArgs:
 
     @property
     @pulumi.getter(name="principalType")
-    def principal_type(self) -> Optional[str]:
+    def principal_type(self) -> Optional['PrincipalType']:
         """
         Principal type
         """
         return pulumi.get(self, "principal_type")
 
     @principal_type.setter
-    def principal_type(self, value: Optional[str]):
+    def principal_type(self, value: Optional['PrincipalType']):
         pulumi.set(self, "principal_type", value)
 
     @property

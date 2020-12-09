@@ -62,19 +62,19 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['certificate_id'] = certificate_id
-            if gateway_id is None:
+            if gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_id'")
             __props__['gateway_id'] = gateway_id
-            if hc_id is None:
+            if hc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'hc_id'")
             __props__['hc_id'] = hc_id
             __props__['hostname'] = hostname
             __props__['http2_enabled'] = http2_enabled
             __props__['negotiate_client_certificate'] = negotiate_client_certificate
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if service_name is None:
+            if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['tls10_enabled'] = tls10_enabled

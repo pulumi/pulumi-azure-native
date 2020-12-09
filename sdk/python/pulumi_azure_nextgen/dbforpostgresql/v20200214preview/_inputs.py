@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'IdentityArgs',
@@ -19,24 +20,24 @@ __all__ = [
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
         """
         Identity for the resource.
-        :param pulumi.Input[str] type: The identity type.
+        :param pulumi.Input['ResourceIdentityType'] type: The identity type.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
         """
         The identity type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
 
@@ -139,11 +140,11 @@ class ServerPropertiesDelegatedSubnetArgumentsArgs:
 class SkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 tier: pulumi.Input[str]):
+                 tier: pulumi.Input[Union[str, 'SkuTier']]):
         """
         Sku information related properties of a server.
         :param pulumi.Input[str] name: The name of the sku, typically, tier + family + cores, e.g. Standard_D4s_v3.
-        :param pulumi.Input[str] tier: The tier of the particular SKU, e.g. Burstable.
+        :param pulumi.Input[Union[str, 'SkuTier']] tier: The tier of the particular SKU, e.g. Burstable.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "tier", tier)
@@ -162,14 +163,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def tier(self) -> pulumi.Input[str]:
+    def tier(self) -> pulumi.Input[Union[str, 'SkuTier']]:
         """
         The tier of the particular SKU, e.g. Burstable.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: pulumi.Input[str]):
+    def tier(self, value: pulumi.Input[Union[str, 'SkuTier']]):
         pulumi.set(self, "tier", value)
 
 

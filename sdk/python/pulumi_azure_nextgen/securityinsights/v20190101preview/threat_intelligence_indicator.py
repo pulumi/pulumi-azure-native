@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ThreatIntelligenceIndicator']
@@ -27,7 +28,7 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
                  granular_markings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceGranularMarkingModelArgs']]]]] = None,
                  indicator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kill_chain_phases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceKillChainPhaseArgs']]]]] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'ThreatIntelligenceResourceKind']]] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  last_updated_time_utc: Optional[pulumi.Input[str]] = None,
                  modified: Optional[pulumi.Input[str]] = None,
@@ -62,7 +63,7 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceGranularMarkingModelArgs']]]] granular_markings: Granular Markings
         :param pulumi.Input[Sequence[pulumi.Input[str]]] indicator_types: Indicator types of threat intelligence entities
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThreatIntelligenceKillChainPhaseArgs']]]] kill_chain_phases: Kill chain phases
-        :param pulumi.Input[str] kind: The kind of the entity.
+        :param pulumi.Input[Union[str, 'ThreatIntelligenceResourceKind']] kind: The kind of the entity.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: Labels  of threat intelligence entity
         :param pulumi.Input[str] last_updated_time_utc: Last updated time in UTC
         :param pulumi.Input[str] modified: Modified by
@@ -107,21 +108,21 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
             __props__['granular_markings'] = granular_markings
             __props__['indicator_types'] = indicator_types
             __props__['kill_chain_phases'] = kill_chain_phases
-            if kind is None:
+            if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = kind
             __props__['labels'] = labels
             __props__['last_updated_time_utc'] = last_updated_time_utc
             __props__['modified'] = modified
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if operational_insights_resource_provider is None:
+            if operational_insights_resource_provider is None and not opts.urn:
                 raise TypeError("Missing required property 'operational_insights_resource_provider'")
             __props__['operational_insights_resource_provider'] = operational_insights_resource_provider
             __props__['pattern'] = pattern
             __props__['pattern_type'] = pattern_type
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['revoked'] = revoked
@@ -130,7 +131,7 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
             __props__['threat_types'] = threat_types
             __props__['valid_from'] = valid_from
             __props__['valid_until'] = valid_until
-            if workspace_name is None:
+            if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['type'] = None

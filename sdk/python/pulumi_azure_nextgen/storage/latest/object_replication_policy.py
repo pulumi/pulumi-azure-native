@@ -55,20 +55,20 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_name is None:
+            if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if destination_account is None:
+            if destination_account is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_account'")
             __props__['destination_account'] = destination_account
-            if object_replication_policy_id is None:
+            if object_replication_policy_id is None and not opts.urn:
                 raise TypeError("Missing required property 'object_replication_policy_id'")
             __props__['object_replication_policy_id'] = object_replication_policy_id
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['rules'] = rules
-            if source_account is None:
+            if source_account is None and not opts.urn:
                 raise TypeError("Missing required property 'source_account'")
             __props__['source_account'] = source_account
             __props__['enabled_time'] = None

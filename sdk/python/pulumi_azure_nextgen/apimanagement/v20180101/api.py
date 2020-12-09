@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Api']
@@ -20,22 +21,22 @@ class Api(pulumi.CustomResource):
                  api_id: Optional[pulumi.Input[str]] = None,
                  api_revision: Optional[pulumi.Input[str]] = None,
                  api_revision_description: Optional[pulumi.Input[str]] = None,
-                 api_type: Optional[pulumi.Input[str]] = None,
+                 api_type: Optional[pulumi.Input[Union[str, 'ApiType']]] = None,
                  api_version: Optional[pulumi.Input[str]] = None,
                  api_version_description: Optional[pulumi.Input[str]] = None,
                  api_version_set: Optional[pulumi.Input[pulumi.InputType['ApiVersionSetContractDetailsArgs']]] = None,
                  api_version_set_id: Optional[pulumi.Input[str]] = None,
                  authentication_settings: Optional[pulumi.Input[pulumi.InputType['AuthenticationSettingsContractArgs']]] = None,
-                 content_format: Optional[pulumi.Input[str]] = None,
+                 content_format: Optional[pulumi.Input[Union[str, 'ContentFormat']]] = None,
                  content_value: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
-                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input['Protocol']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_url: Optional[pulumi.Input[str]] = None,
-                 soap_api_type: Optional[pulumi.Input[str]] = None,
+                 soap_api_type: Optional[pulumi.Input[Union[str, 'SoapApiType']]] = None,
                  subscription_key_parameter_names: Optional[pulumi.Input[pulumi.InputType['SubscriptionKeyParameterNamesContractArgs']]] = None,
                  wsdl_selector: Optional[pulumi.Input[pulumi.InputType['ApiCreateOrUpdatePropertiesWsdlSelectorArgs']]] = None,
                  __props__=None,
@@ -49,22 +50,22 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
         :param pulumi.Input[str] api_revision: Describes the Revision of the Api. If no value is provided, default revision 1 is created
         :param pulumi.Input[str] api_revision_description: Description of the Api Revision.
-        :param pulumi.Input[str] api_type: Type of API.
+        :param pulumi.Input[Union[str, 'ApiType']] api_type: Type of API.
         :param pulumi.Input[str] api_version: Indicates the Version identifier of the API if the API is versioned
         :param pulumi.Input[str] api_version_description: Description of the Api Version.
         :param pulumi.Input[pulumi.InputType['ApiVersionSetContractDetailsArgs']] api_version_set: An API Version Set contains the common configuration for a set of API Versions relating 
         :param pulumi.Input[str] api_version_set_id: A resource identifier for the related ApiVersionSet.
         :param pulumi.Input[pulumi.InputType['AuthenticationSettingsContractArgs']] authentication_settings: Collection of authentication settings included into this API.
-        :param pulumi.Input[str] content_format: Format of the Content in which the API is getting imported.
+        :param pulumi.Input[Union[str, 'ContentFormat']] content_format: Format of the Content in which the API is getting imported.
         :param pulumi.Input[str] content_value: Content value when Importing an API.
         :param pulumi.Input[str] description: Description of the API. May include HTML formatting tags.
         :param pulumi.Input[str] display_name: API name.
         :param pulumi.Input[str] path: Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Describes on which protocols the operations in this API can be invoked.
+        :param pulumi.Input[Sequence[pulumi.Input['Protocol']]] protocols: Describes on which protocols the operations in this API can be invoked.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] service_url: Absolute URL of the backend service implementing this API.
-        :param pulumi.Input[str] soap_api_type: Type of Api to create. 
+        :param pulumi.Input[Union[str, 'SoapApiType']] soap_api_type: Type of Api to create. 
                 * `http` creates a SOAP to REST API 
                 * `soap` creates a SOAP pass-through API .
         :param pulumi.Input[pulumi.InputType['SubscriptionKeyParameterNamesContractArgs']] subscription_key_parameter_names: Protocols over which API is made available.
@@ -87,7 +88,7 @@ class Api(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if api_id is None:
+            if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
             __props__['api_id'] = api_id
             __props__['api_revision'] = api_revision
@@ -102,14 +103,14 @@ class Api(pulumi.CustomResource):
             __props__['content_value'] = content_value
             __props__['description'] = description
             __props__['display_name'] = display_name
-            if path is None:
+            if path is None and not opts.urn:
                 raise TypeError("Missing required property 'path'")
             __props__['path'] = path
             __props__['protocols'] = protocols
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if service_name is None:
+            if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['service_url'] = service_url

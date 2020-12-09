@@ -58,16 +58,16 @@ class ExpressRouteGateway(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['auto_scale_configuration'] = auto_scale_configuration
-            if express_route_gateway_name is None:
+            if express_route_gateway_name is None and not opts.urn:
                 raise TypeError("Missing required property 'express_route_gateway_name'")
             __props__['express_route_gateway_name'] = express_route_gateway_name
             __props__['id'] = id
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            if virtual_hub is None:
+            if virtual_hub is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_hub'")
             __props__['virtual_hub'] = virtual_hub
             __props__['etag'] = None

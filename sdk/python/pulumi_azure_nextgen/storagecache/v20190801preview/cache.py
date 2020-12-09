@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Cache']
@@ -20,7 +21,7 @@ class Cache(pulumi.CustomResource):
                  cache_name: Optional[pulumi.Input[str]] = None,
                  cache_size_gb: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningStateType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['CacheSkuArgs']]] = None,
                  subnet: Optional[pulumi.Input[str]] = None,
@@ -36,7 +37,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] cache_name: Name of cache.
         :param pulumi.Input[int] cache_size_gb: The size of this cache's cache, in GB.
         :param pulumi.Input[str] location: Region name string.
-        :param pulumi.Input[str] provisioning_state: ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+        :param pulumi.Input[Union[str, 'ProvisioningStateType']] provisioning_state: ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         :param pulumi.Input[str] resource_group_name: Target resource group.
         :param pulumi.Input[pulumi.InputType['CacheSkuArgs']] sku: Sku for the cache.
         :param pulumi.Input[str] subnet: Subnet used for the cache.
@@ -59,13 +60,13 @@ class Cache(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if cache_name is None:
+            if cache_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cache_name'")
             __props__['cache_name'] = cache_name
             __props__['cache_size_gb'] = cache_size_gb
             __props__['location'] = location
             __props__['provisioning_state'] = provisioning_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku

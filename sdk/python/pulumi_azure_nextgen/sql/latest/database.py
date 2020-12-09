@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 
 __all__ = ['Database']
 
@@ -17,19 +18,19 @@ class Database(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  collation: Optional[pulumi.Input[str]] = None,
-                 create_mode: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
-                 edition: Optional[pulumi.Input[str]] = None,
+                 edition: Optional[pulumi.Input[Union[str, 'DatabaseEdition']]] = None,
                  elastic_pool_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_size_bytes: Optional[pulumi.Input[str]] = None,
-                 read_scale: Optional[pulumi.Input[str]] = None,
+                 read_scale: Optional[pulumi.Input[Union[str, 'ReadScale']]] = None,
                  recovery_services_recovery_point_resource_id: Optional[pulumi.Input[str]] = None,
                  requested_service_objective_id: Optional[pulumi.Input[str]] = None,
-                 requested_service_objective_name: Optional[pulumi.Input[str]] = None,
+                 requested_service_objective_name: Optional[pulumi.Input[Union[str, 'ServiceObjectiveName']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
-                 sample_name: Optional[pulumi.Input[str]] = None,
+                 sample_name: Optional[pulumi.Input[Union[str, 'SampleName']]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  source_database_deletion_date: Optional[pulumi.Input[str]] = None,
                  source_database_id: Optional[pulumi.Input[str]] = None,
@@ -44,7 +45,7 @@ class Database(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] collation: The collation of the database. If createMode is not Default, this value is ignored.
-        :param pulumi.Input[str] create_mode: Specifies the mode of database creation.
+        :param pulumi.Input[Union[str, 'CreateMode']] create_mode: Specifies the mode of database creation.
                
                Default: regular database creation.
                
@@ -62,7 +63,7 @@ class Database(pulumi.CustomResource):
                
                Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
         :param pulumi.Input[str] database_name: The name of the database to be operated on (updated or created).
-        :param pulumi.Input[str] edition: The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
+        :param pulumi.Input[Union[str, 'DatabaseEdition']] edition: The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
                
                The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
                
@@ -76,12 +77,12 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] elastic_pool_name: The name of the elastic pool the database is in. If elasticPoolName and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveName is ignored. Not supported for DataWarehouse edition.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] max_size_bytes: The max size of the database expressed in bytes. If createMode is not Default, this value is ignored. To see possible values, query the capabilities API (/subscriptions/{subscriptionId}/providers/Microsoft.Sql/locations/{locationID}/capabilities) referred to by operationId: "Capabilities_ListByLocation."
-        :param pulumi.Input[str] read_scale: Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
+        :param pulumi.Input[Union[str, 'ReadScale']] read_scale: Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
         :param pulumi.Input[str] recovery_services_recovery_point_resource_id: Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
         :param pulumi.Input[str] requested_service_objective_id: The configured service level objective ID of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of currentServiceObjectiveId property. If requestedServiceObjectiveId and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveId overrides the value of requestedServiceObjectiveName.
                
                The list of SKUs may vary by region and support offer. To determine the service objective ids that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API.
-        :param pulumi.Input[str] requested_service_objective_name: The name of the configured service level objective of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of serviceLevelObjective property. 
+        :param pulumi.Input[Union[str, 'ServiceObjectiveName']] requested_service_objective_name: The name of the configured service level objective of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of serviceLevelObjective property. 
                
                The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
                
@@ -94,7 +95,7 @@ class Database(pulumi.CustomResource):
                ````
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] restore_point_in_time: Conditional. If createMode is PointInTimeRestore, this value is required. If createMode is Restore, this value is optional. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. Must be greater than or equal to the source database's earliestRestoreDate value.
-        :param pulumi.Input[str] sample_name: Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
+        :param pulumi.Input[Union[str, 'SampleName']] sample_name: Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[str] source_database_deletion_date: Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted.
         :param pulumi.Input[str] source_database_id: Conditional. If createMode is Copy, NonReadableSecondary, OnlineSecondary, PointInTimeRestore, Recovery, or Restore, then this value is required. Specifies the resource ID of the source database. If createMode is NonReadableSecondary or OnlineSecondary, the name of the source database must be the same as the new database being created.
@@ -120,12 +121,12 @@ class Database(pulumi.CustomResource):
 
             __props__['collation'] = collation
             __props__['create_mode'] = create_mode
-            if database_name is None:
+            if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
             __props__['edition'] = edition
             __props__['elastic_pool_name'] = elastic_pool_name
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['max_size_bytes'] = max_size_bytes
@@ -133,12 +134,12 @@ class Database(pulumi.CustomResource):
             __props__['recovery_services_recovery_point_resource_id'] = recovery_services_recovery_point_resource_id
             __props__['requested_service_objective_id'] = requested_service_objective_id
             __props__['requested_service_objective_name'] = requested_service_objective_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['restore_point_in_time'] = restore_point_in_time
             __props__['sample_name'] = sample_name
-            if server_name is None:
+            if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
             __props__['source_database_deletion_date'] = source_database_deletion_date

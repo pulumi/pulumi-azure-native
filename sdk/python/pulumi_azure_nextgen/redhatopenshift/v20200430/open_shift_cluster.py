@@ -73,16 +73,16 @@ class OpenShiftCluster(pulumi.CustomResource):
             __props__['cluster_profile'] = cluster_profile
             __props__['console_profile'] = console_profile
             __props__['ingress_profiles'] = ingress_profiles
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['master_profile'] = master_profile
             __props__['network_profile'] = network_profile
             __props__['provisioning_state'] = provisioning_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if resource_name_ is None:
+            if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
             __props__['service_principal_profile'] = service_principal_profile

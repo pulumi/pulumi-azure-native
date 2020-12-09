@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['WebTest']
@@ -24,7 +25,7 @@ class WebTest(pulumi.CustomResource):
                  expected_http_status_code: Optional[pulumi.Input[int]] = None,
                  frequency: Optional[pulumi.Input[int]] = None,
                  ignore_https_status_code: Optional[pulumi.Input[bool]] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input['WebTestKind']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebTestGeolocationArgs']]]]] = None,
                  request: Optional[pulumi.Input[pulumi.InputType['WebTestPropertiesRequestArgs']]] = None,
@@ -35,7 +36,7 @@ class WebTest(pulumi.CustomResource):
                  synthetic_monitor_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
-                 web_test_kind: Optional[pulumi.Input[str]] = None,
+                 web_test_kind: Optional[pulumi.Input['WebTestKindEnum']] = None,
                  web_test_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -52,7 +53,7 @@ class WebTest(pulumi.CustomResource):
         :param pulumi.Input[int] expected_http_status_code: Validate that the WebTest returns the http status code provided.
         :param pulumi.Input[int] frequency: Interval in seconds between test runs for this WebTest. Default value is 300.
         :param pulumi.Input[bool] ignore_https_status_code: When set, validation will ignore the status code.
-        :param pulumi.Input[str] kind: The kind of WebTest that this web test watches. Choices are ping and multistep.
+        :param pulumi.Input['WebTestKind'] kind: The kind of WebTest that this web test watches. Choices are ping and multistep.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebTestGeolocationArgs']]]] locations: A list of where to physically run the tests from to give global coverage for accessibility of your application.
         :param pulumi.Input[pulumi.InputType['WebTestPropertiesRequestArgs']] request: The collection of request properties
@@ -63,7 +64,7 @@ class WebTest(pulumi.CustomResource):
         :param pulumi.Input[str] synthetic_monitor_id: Unique ID of this WebTest. This is typically the same value as the Name field.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[int] timeout: Seconds until this WebTest will timeout and fail. Default value is 30.
-        :param pulumi.Input[str] web_test_kind: The kind of web test this is, valid choices are ping, multistep, basic, and standard.
+        :param pulumi.Input['WebTestKindEnum'] web_test_kind: The kind of web test this is, valid choices are ping, multistep, basic, and standard.
         :param pulumi.Input[str] web_test_name: User defined name if this WebTest.
         """
         if __name__ is not None:
@@ -91,28 +92,28 @@ class WebTest(pulumi.CustomResource):
             __props__['frequency'] = frequency
             __props__['ignore_https_status_code'] = ignore_https_status_code
             __props__['kind'] = kind
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if locations is None:
+            if locations is None and not opts.urn:
                 raise TypeError("Missing required property 'locations'")
             __props__['locations'] = locations
             __props__['request'] = request
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['retry_enabled'] = retry_enabled
             __props__['s_sl_cert_remaining_lifetime_check'] = s_sl_cert_remaining_lifetime_check
             __props__['s_sl_check'] = s_sl_check
-            if synthetic_monitor_id is None:
+            if synthetic_monitor_id is None and not opts.urn:
                 raise TypeError("Missing required property 'synthetic_monitor_id'")
             __props__['synthetic_monitor_id'] = synthetic_monitor_id
             __props__['tags'] = tags
             __props__['timeout'] = timeout
-            if web_test_kind is None:
+            if web_test_kind is None and not opts.urn:
                 raise TypeError("Missing required property 'web_test_kind'")
             __props__['web_test_kind'] = web_test_kind
-            if web_test_name is None:
+            if web_test_name is None and not opts.urn:
                 raise TypeError("Missing required property 'web_test_name'")
             __props__['web_test_name'] = web_test_name
             __props__['name'] = None

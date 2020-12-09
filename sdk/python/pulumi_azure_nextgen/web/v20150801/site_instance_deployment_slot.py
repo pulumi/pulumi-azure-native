@@ -83,24 +83,24 @@ class SiteInstanceDeploymentSlot(pulumi.CustomResource):
             __props__['deployer'] = deployer
             __props__['details'] = details
             __props__['end_time'] = end_time
-            if id is None:
+            if id is None and not opts.urn:
                 raise TypeError("Missing required property 'id'")
             __props__['id'] = id
-            if instance_id is None:
+            if instance_id is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_id'")
             __props__['instance_id'] = instance_id
             __props__['kind'] = kind
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['message'] = message
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if slot is None:
+            if slot is None and not opts.urn:
                 raise TypeError("Missing required property 'slot'")
             __props__['slot'] = slot
             __props__['start_time'] = start_time

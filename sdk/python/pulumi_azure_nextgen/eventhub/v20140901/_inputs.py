@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'SkuArgs',
@@ -15,14 +16,14 @@ __all__ = [
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 tier: pulumi.Input[str],
+                 tier: pulumi.Input[Union[str, 'SkuTier']],
                  capacity: Optional[pulumi.Input[int]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[Union[str, 'SkuName']]] = None):
         """
         SKU parameters supplied to the create Namespace operation
-        :param pulumi.Input[str] tier: The billing tier of this particular SKU.
+        :param pulumi.Input[Union[str, 'SkuTier']] tier: The billing tier of this particular SKU.
         :param pulumi.Input[int] capacity: The Event Hubs throughput units.
-        :param pulumi.Input[str] name: Name of this SKU.
+        :param pulumi.Input[Union[str, 'SkuName']] name: Name of this SKU.
         """
         pulumi.set(__self__, "tier", tier)
         if capacity is not None:
@@ -32,14 +33,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def tier(self) -> pulumi.Input[str]:
+    def tier(self) -> pulumi.Input[Union[str, 'SkuTier']]:
         """
         The billing tier of this particular SKU.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: pulumi.Input[str]):
+    def tier(self, value: pulumi.Input[Union[str, 'SkuTier']]):
         pulumi.set(self, "tier", value)
 
     @property
@@ -56,14 +57,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    def name(self) -> Optional[pulumi.Input[Union[str, 'SkuName']]]:
         """
         Name of this SKU.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
+    def name(self, value: Optional[pulumi.Input[Union[str, 'SkuName']]]):
         pulumi.set(self, "name", value)
 
 

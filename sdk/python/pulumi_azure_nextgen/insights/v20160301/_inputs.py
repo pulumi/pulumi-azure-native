@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'LocationThresholdRuleConditionArgs',
@@ -94,12 +95,12 @@ class LocationThresholdRuleConditionArgs:
 @pulumi.input_type
 class ManagementEventAggregationConditionArgs:
     def __init__(__self__, *,
-                 operator: Optional[pulumi.Input[str]] = None,
+                 operator: Optional[pulumi.Input['ConditionOperator']] = None,
                  threshold: Optional[pulumi.Input[float]] = None,
                  window_size: Optional[pulumi.Input[str]] = None):
         """
         How the data that is collected should be combined over time.
-        :param pulumi.Input[str] operator: the condition operator.
+        :param pulumi.Input['ConditionOperator'] operator: the condition operator.
         :param pulumi.Input[float] threshold: The threshold value that activates the alert.
         :param pulumi.Input[str] window_size: the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
         """
@@ -112,14 +113,14 @@ class ManagementEventAggregationConditionArgs:
 
     @property
     @pulumi.getter
-    def operator(self) -> Optional[pulumi.Input[str]]:
+    def operator(self) -> Optional[pulumi.Input['ConditionOperator']]:
         """
         the condition operator.
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: Optional[pulumi.Input[str]]):
+    def operator(self, value: Optional[pulumi.Input['ConditionOperator']]):
         pulumi.set(self, "operator", value)
 
     @property
@@ -616,18 +617,18 @@ class RuleWebhookActionArgs:
 class ThresholdRuleConditionArgs:
     def __init__(__self__, *,
                  odata_type: pulumi.Input[str],
-                 operator: pulumi.Input[str],
+                 operator: pulumi.Input['ConditionOperator'],
                  threshold: pulumi.Input[float],
                  data_source: Optional[pulumi.Input[Union['RuleManagementEventDataSourceArgs', 'RuleMetricDataSourceArgs']]] = None,
-                 time_aggregation: Optional[pulumi.Input[str]] = None,
+                 time_aggregation: Optional[pulumi.Input['TimeAggregationOperator']] = None,
                  window_size: Optional[pulumi.Input[str]] = None):
         """
         A rule condition based on a metric crossing a threshold.
         :param pulumi.Input[str] odata_type: specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
-        :param pulumi.Input[str] operator: the operator used to compare the data and the threshold.
+        :param pulumi.Input['ConditionOperator'] operator: the operator used to compare the data and the threshold.
         :param pulumi.Input[float] threshold: the threshold value that activates the alert.
         :param pulumi.Input[Union['RuleManagementEventDataSourceArgs', 'RuleMetricDataSourceArgs']] data_source: the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
-        :param pulumi.Input[str] time_aggregation: the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
+        :param pulumi.Input['TimeAggregationOperator'] time_aggregation: the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
         :param pulumi.Input[str] window_size: the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
         """
         pulumi.set(__self__, "odata_type", 'Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition')
@@ -654,14 +655,14 @@ class ThresholdRuleConditionArgs:
 
     @property
     @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
+    def operator(self) -> pulumi.Input['ConditionOperator']:
         """
         the operator used to compare the data and the threshold.
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: pulumi.Input[str]):
+    def operator(self, value: pulumi.Input['ConditionOperator']):
         pulumi.set(self, "operator", value)
 
     @property
@@ -690,14 +691,14 @@ class ThresholdRuleConditionArgs:
 
     @property
     @pulumi.getter(name="timeAggregation")
-    def time_aggregation(self) -> Optional[pulumi.Input[str]]:
+    def time_aggregation(self) -> Optional[pulumi.Input['TimeAggregationOperator']]:
         """
         the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
         """
         return pulumi.get(self, "time_aggregation")
 
     @time_aggregation.setter
-    def time_aggregation(self, value: Optional[pulumi.Input[str]]):
+    def time_aggregation(self, value: Optional[pulumi.Input['TimeAggregationOperator']]):
         pulumi.set(self, "time_aggregation", value)
 
     @property

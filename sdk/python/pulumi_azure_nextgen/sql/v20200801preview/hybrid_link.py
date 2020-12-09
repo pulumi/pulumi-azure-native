@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['HybridLink']
 
@@ -18,7 +19,7 @@ class HybridLink(pulumi.CustomResource):
                  distributed_availability_group_name: Optional[pulumi.Input[str]] = None,
                  managed_instance_name: Optional[pulumi.Input[str]] = None,
                  primary_availability_group_name: Optional[pulumi.Input[str]] = None,
-                 replication_mode: Optional[pulumi.Input[str]] = None,
+                 replication_mode: Optional[pulumi.Input[Union[str, 'ReplicationMode']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secondary_availability_group_name: Optional[pulumi.Input[str]] = None,
                  source_endpoint: Optional[pulumi.Input[str]] = None,
@@ -34,7 +35,7 @@ class HybridLink(pulumi.CustomResource):
         :param pulumi.Input[str] distributed_availability_group_name: The distributed availability group name.
         :param pulumi.Input[str] managed_instance_name: The name of the managed instance.
         :param pulumi.Input[str] primary_availability_group_name: The primary availability group name
-        :param pulumi.Input[str] replication_mode: The replication mode of hybrid link. Parameter will be ignored during link creation.
+        :param pulumi.Input[Union[str, 'ReplicationMode']] replication_mode: The replication mode of hybrid link. Parameter will be ignored during link creation.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] secondary_availability_group_name: The secondary availability group name
         :param pulumi.Input[str] source_endpoint: The source endpoint
@@ -57,15 +58,15 @@ class HybridLink(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if distributed_availability_group_name is None:
+            if distributed_availability_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'distributed_availability_group_name'")
             __props__['distributed_availability_group_name'] = distributed_availability_group_name
-            if managed_instance_name is None:
+            if managed_instance_name is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_instance_name'")
             __props__['managed_instance_name'] = managed_instance_name
             __props__['primary_availability_group_name'] = primary_availability_group_name
             __props__['replication_mode'] = replication_mode
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['secondary_availability_group_name'] = secondary_availability_group_name

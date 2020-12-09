@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .consumer_group import *
 from .event_hub import *
 from .event_hub_authorization_rule import *
@@ -15,3 +16,34 @@ from .namespace import *
 from .namespace_authorization_rule import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:eventhub/v20140901:ConsumerGroup":
+                return ConsumerGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:eventhub/v20140901:EventHub":
+                return EventHub(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:eventhub/v20140901:EventHubAuthorizationRule":
+                return EventHubAuthorizationRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:eventhub/v20140901:Namespace":
+                return Namespace(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:eventhub/v20140901:NamespaceAuthorizationRule":
+                return NamespaceAuthorizationRule(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "eventhub/v20140901", _module_instance)
+
+_register_module()

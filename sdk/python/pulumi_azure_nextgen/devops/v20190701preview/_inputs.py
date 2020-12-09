@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AuthorizationArgs',
@@ -20,11 +21,11 @@ __all__ = [
 @pulumi.input_type
 class AuthorizationArgs:
     def __init__(__self__, *,
-                 authorization_type: pulumi.Input[str],
+                 authorization_type: pulumi.Input[Union[str, 'AuthorizationType']],
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Authorization info used to access a resource (like code repository).
-        :param pulumi.Input[str] authorization_type: Type of authorization.
+        :param pulumi.Input[Union[str, 'AuthorizationType']] authorization_type: Type of authorization.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Authorization parameters corresponding to the authorization type.
         """
         pulumi.set(__self__, "authorization_type", authorization_type)
@@ -33,14 +34,14 @@ class AuthorizationArgs:
 
     @property
     @pulumi.getter(name="authorizationType")
-    def authorization_type(self) -> pulumi.Input[str]:
+    def authorization_type(self) -> pulumi.Input[Union[str, 'AuthorizationType']]:
         """
         Type of authorization.
         """
         return pulumi.get(self, "authorization_type")
 
     @authorization_type.setter
-    def authorization_type(self, value: pulumi.Input[str]):
+    def authorization_type(self, value: pulumi.Input[Union[str, 'AuthorizationType']]):
         pulumi.set(self, "authorization_type", value)
 
     @property
@@ -100,14 +101,14 @@ class CodeRepositoryArgs:
     def __init__(__self__, *,
                  default_branch: pulumi.Input[str],
                  id: pulumi.Input[str],
-                 repository_type: pulumi.Input[str],
+                 repository_type: pulumi.Input[Union[str, 'CodeRepositoryType']],
                  authorization: Optional[pulumi.Input['AuthorizationArgs']] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Repository containing the source code for a pipeline.
         :param pulumi.Input[str] default_branch: Default branch used to configure Continuous Integration (CI) in the pipeline.
         :param pulumi.Input[str] id: Unique immutable identifier of the code repository.
-        :param pulumi.Input[str] repository_type: Type of code repository.
+        :param pulumi.Input[Union[str, 'CodeRepositoryType']] repository_type: Type of code repository.
         :param pulumi.Input['AuthorizationArgs'] authorization: Authorization info to access the code repository.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: Repository-specific properties.
         """
@@ -145,14 +146,14 @@ class CodeRepositoryArgs:
 
     @property
     @pulumi.getter(name="repositoryType")
-    def repository_type(self) -> pulumi.Input[str]:
+    def repository_type(self) -> pulumi.Input[Union[str, 'CodeRepositoryType']]:
         """
         Type of code repository.
         """
         return pulumi.get(self, "repository_type")
 
     @repository_type.setter
-    def repository_type(self, value: pulumi.Input[str]):
+    def repository_type(self, value: pulumi.Input[Union[str, 'CodeRepositoryType']]):
         pulumi.set(self, "repository_type", value)
 
     @property

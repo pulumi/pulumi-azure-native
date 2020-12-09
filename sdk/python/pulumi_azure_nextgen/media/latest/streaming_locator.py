@@ -67,26 +67,26 @@ class StreamingLocator(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_name is None:
+            if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['alternative_media_id'] = alternative_media_id
-            if asset_name is None:
+            if asset_name is None and not opts.urn:
                 raise TypeError("Missing required property 'asset_name'")
             __props__['asset_name'] = asset_name
             __props__['content_keys'] = content_keys
             __props__['default_content_key_policy_name'] = default_content_key_policy_name
             __props__['end_time'] = end_time
             __props__['filters'] = filters
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['start_time'] = start_time
             __props__['streaming_locator_id'] = streaming_locator_id
-            if streaming_locator_name is None:
+            if streaming_locator_name is None and not opts.urn:
                 raise TypeError("Missing required property 'streaming_locator_name'")
             __props__['streaming_locator_name'] = streaming_locator_name
-            if streaming_policy_name is None:
+            if streaming_policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'streaming_policy_name'")
             __props__['streaming_policy_name'] = streaming_policy_name
             __props__['created'] = None

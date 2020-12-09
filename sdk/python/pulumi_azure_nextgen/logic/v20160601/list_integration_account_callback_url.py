@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ListIntegrationAccountCallbackUrlResult',
@@ -43,7 +44,7 @@ class AwaitableListIntegrationAccountCallbackUrlResult(ListIntegrationAccountCal
 
 
 def list_integration_account_callback_url(integration_account_name: Optional[str] = None,
-                                          key_type: Optional[str] = None,
+                                          key_type: Optional['KeyType'] = None,
                                           not_after: Optional[str] = None,
                                           resource_group_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIntegrationAccountCallbackUrlResult:
@@ -51,7 +52,7 @@ def list_integration_account_callback_url(integration_account_name: Optional[str
     Use this data source to access information about an existing resource.
 
     :param str integration_account_name: The integration account name.
-    :param str key_type: The key type.
+    :param 'KeyType' key_type: The key type.
     :param str not_after: The expiry time.
     :param str resource_group_name: The resource group name.
     """

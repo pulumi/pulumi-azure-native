@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Diagnostic']
@@ -17,17 +18,17 @@ class Diagnostic(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 always_log: Optional[pulumi.Input[str]] = None,
+                 always_log: Optional[pulumi.Input[Union[str, 'AlwaysLog']]] = None,
                  backend: Optional[pulumi.Input[pulumi.InputType['PipelineDiagnosticSettingsArgs']]] = None,
                  diagnostic_id: Optional[pulumi.Input[str]] = None,
                  frontend: Optional[pulumi.Input[pulumi.InputType['PipelineDiagnosticSettingsArgs']]] = None,
-                 http_correlation_protocol: Optional[pulumi.Input[str]] = None,
+                 http_correlation_protocol: Optional[pulumi.Input[Union[str, 'HttpCorrelationProtocol']]] = None,
                  log_client_ip: Optional[pulumi.Input[bool]] = None,
                  logger_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sampling: Optional[pulumi.Input[pulumi.InputType['SamplingSettingsArgs']]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 verbosity: Optional[pulumi.Input[str]] = None,
+                 verbosity: Optional[pulumi.Input[Union[str, 'Verbosity']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -36,17 +37,17 @@ class Diagnostic(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] always_log: Specifies for what type of messages sampling settings should not apply.
+        :param pulumi.Input[Union[str, 'AlwaysLog']] always_log: Specifies for what type of messages sampling settings should not apply.
         :param pulumi.Input[pulumi.InputType['PipelineDiagnosticSettingsArgs']] backend: Diagnostic settings for incoming/outgoing HTTP messages to the Backend
         :param pulumi.Input[str] diagnostic_id: Diagnostic identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[pulumi.InputType['PipelineDiagnosticSettingsArgs']] frontend: Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
-        :param pulumi.Input[str] http_correlation_protocol: Sets correlation protocol to use for Application Insights diagnostics.
+        :param pulumi.Input[Union[str, 'HttpCorrelationProtocol']] http_correlation_protocol: Sets correlation protocol to use for Application Insights diagnostics.
         :param pulumi.Input[bool] log_client_ip: Log the ClientIP. Default is false.
         :param pulumi.Input[str] logger_id: Resource Id of a target logger.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['SamplingSettingsArgs']] sampling: Sampling settings for Diagnostic.
         :param pulumi.Input[str] service_name: The name of the API Management service.
-        :param pulumi.Input[str] verbosity: The verbosity level applied to traces emitted by trace policies.
+        :param pulumi.Input[Union[str, 'Verbosity']] verbosity: The verbosity level applied to traces emitted by trace policies.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -67,20 +68,20 @@ class Diagnostic(pulumi.CustomResource):
 
             __props__['always_log'] = always_log
             __props__['backend'] = backend
-            if diagnostic_id is None:
+            if diagnostic_id is None and not opts.urn:
                 raise TypeError("Missing required property 'diagnostic_id'")
             __props__['diagnostic_id'] = diagnostic_id
             __props__['frontend'] = frontend
             __props__['http_correlation_protocol'] = http_correlation_protocol
             __props__['log_client_ip'] = log_client_ip
-            if logger_id is None:
+            if logger_id is None and not opts.urn:
                 raise TypeError("Missing required property 'logger_id'")
             __props__['logger_id'] = logger_id
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sampling'] = sampling
-            if service_name is None:
+            if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['verbosity'] = verbosity

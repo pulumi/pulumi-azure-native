@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Blueprint']
@@ -24,7 +25,7 @@ class Blueprint(pulumi.CustomResource):
                  management_group_name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterDefinitionArgs']]]]] = None,
                  resource_groups: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ResourceGroupDefinitionArgs']]]]] = None,
-                 target_scope: Optional[pulumi.Input[str]] = None,
+                 target_scope: Optional[pulumi.Input[Union[str, 'BlueprintTargetScope']]] = None,
                  versions: Optional[Any] = None,
                  __props__=None,
                  __name__=None,
@@ -41,7 +42,7 @@ class Blueprint(pulumi.CustomResource):
         :param pulumi.Input[str] management_group_name: ManagementGroup where blueprint stores.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterDefinitionArgs']]]] parameters: Parameters required by this Blueprint definition.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ResourceGroupDefinitionArgs']]]] resource_groups: Resource group placeholders defined by this Blueprint definition.
-        :param pulumi.Input[str] target_scope: The scope where this Blueprint can be applied.
+        :param pulumi.Input[Union[str, 'BlueprintTargetScope']] target_scope: The scope where this Blueprint can be applied.
         :param Any versions: Published versions of this blueprint.
         """
         if __name__ is not None:
@@ -61,18 +62,18 @@ class Blueprint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if blueprint_name is None:
+            if blueprint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'blueprint_name'")
             __props__['blueprint_name'] = blueprint_name
             __props__['description'] = description
             __props__['display_name'] = display_name
             __props__['layout'] = layout
-            if management_group_name is None:
+            if management_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'management_group_name'")
             __props__['management_group_name'] = management_group_name
             __props__['parameters'] = parameters
             __props__['resource_groups'] = resource_groups
-            if target_scope is None:
+            if target_scope is None and not opts.urn:
                 raise TypeError("Missing required property 'target_scope'")
             __props__['target_scope'] = target_scope
             __props__['versions'] = versions

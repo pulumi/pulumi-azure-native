@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['FlowLog']
@@ -69,24 +70,24 @@ class FlowLog(pulumi.CustomResource):
 
             __props__['enabled'] = enabled
             __props__['flow_analytics_configuration'] = flow_analytics_configuration
-            if flow_log_name is None:
+            if flow_log_name is None and not opts.urn:
                 raise TypeError("Missing required property 'flow_log_name'")
             __props__['flow_log_name'] = flow_log_name
             __props__['format'] = format
             __props__['id'] = id
             __props__['location'] = location
-            if network_watcher_name is None:
+            if network_watcher_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_watcher_name'")
             __props__['network_watcher_name'] = network_watcher_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['retention_policy'] = retention_policy
-            if storage_id is None:
+            if storage_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_id'")
             __props__['storage_id'] = storage_id
             __props__['tags'] = tags
-            if target_resource_id is None:
+            if target_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_resource_id'")
             __props__['target_resource_id'] = target_resource_id
             __props__['etag'] = None

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'CacheExpirationActionParametersArgs',
@@ -367,12 +368,12 @@ class EndpointPropertiesUpdateParametersDeliveryPolicyArgs:
 @pulumi.input_type
 class GeoFilterArgs:
     def __init__(__self__, *,
-                 action: pulumi.Input[str],
+                 action: pulumi.Input['GeoFilterActions'],
                  country_codes: pulumi.Input[Sequence[pulumi.Input[str]]],
                  relative_path: pulumi.Input[str]):
         """
         Rules defining user's geo access within a CDN endpoint.
-        :param pulumi.Input[str] action: Action of the geo filter, i.e. allow or block access.
+        :param pulumi.Input['GeoFilterActions'] action: Action of the geo filter, i.e. allow or block access.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] country_codes: Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
         :param pulumi.Input[str] relative_path: Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
         """
@@ -382,14 +383,14 @@ class GeoFilterArgs:
 
     @property
     @pulumi.getter
-    def action(self) -> pulumi.Input[str]:
+    def action(self) -> pulumi.Input['GeoFilterActions']:
         """
         Action of the geo filter, i.e. allow or block access.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: pulumi.Input[str]):
+    def action(self, value: pulumi.Input['GeoFilterActions']):
         pulumi.set(self, "action", value)
 
     @property
@@ -420,24 +421,24 @@ class GeoFilterArgs:
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[Union[str, 'SkuName']]] = None):
         """
         The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
-        :param pulumi.Input[str] name: Name of the pricing tier.
+        :param pulumi.Input[Union[str, 'SkuName']] name: Name of the pricing tier.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    def name(self) -> Optional[pulumi.Input[Union[str, 'SkuName']]]:
         """
         Name of the pricing tier.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
+    def name(self, value: Optional[pulumi.Input[Union[str, 'SkuName']]]):
         pulumi.set(self, "name", value)
 
 

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['StorageAccount']
 
@@ -15,13 +16,13 @@ class StorageAccount(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_policy: Optional[pulumi.Input[str]] = None,
+                 data_policy: Optional[pulumi.Input[Union[str, 'DataPolicy']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account_credential_id: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
-                 storage_account_status: Optional[pulumi.Input[str]] = None,
+                 storage_account_status: Optional[pulumi.Input[Union[str, 'StorageAccountStatus']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -30,13 +31,13 @@ class StorageAccount(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] data_policy: Data policy of the storage Account.
+        :param pulumi.Input[Union[str, 'DataPolicy']] data_policy: Data policy of the storage Account.
         :param pulumi.Input[str] description: Description for the storage Account.
         :param pulumi.Input[str] device_name: The device name.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] storage_account_credential_id: Storage Account Credential Id
         :param pulumi.Input[str] storage_account_name: The StorageAccount name.
-        :param pulumi.Input[str] storage_account_status: Current status of the storage account
+        :param pulumi.Input[Union[str, 'StorageAccountStatus']] storage_account_status: Current status of the storage account
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -57,14 +58,14 @@ class StorageAccount(pulumi.CustomResource):
 
             __props__['data_policy'] = data_policy
             __props__['description'] = description
-            if device_name is None:
+            if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['storage_account_credential_id'] = storage_account_credential_id
-            if storage_account_name is None:
+            if storage_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_name'")
             __props__['storage_account_name'] = storage_account_name
             __props__['storage_account_status'] = storage_account_status

@@ -55,19 +55,19 @@ class ApiTagDescription(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if api_id is None:
+            if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
             __props__['api_id'] = api_id
             __props__['description'] = description
             __props__['external_docs_description'] = external_docs_description
             __props__['external_docs_url'] = external_docs_url
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if service_name is None:
+            if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
-            if tag_description_id is None:
+            if tag_description_id is None and not opts.urn:
                 raise TypeError("Missing required property 'tag_description_id'")
             __props__['tag_description_id'] = tag_description_id
             __props__['display_name'] = None

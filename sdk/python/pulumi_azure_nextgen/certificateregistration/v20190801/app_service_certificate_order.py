@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['AppServiceCertificateOrder']
@@ -25,7 +26,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
                  key_size: Optional[pulumi.Input[int]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 product_type: Optional[pulumi.Input[str]] = None,
+                 product_type: Optional[pulumi.Input['CertificateProductType']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  validity_in_years: Optional[pulumi.Input[int]] = None,
@@ -45,7 +46,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
         :param pulumi.Input[int] key_size: Certificate key size.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] location: Resource Location.
-        :param pulumi.Input[str] product_type: Certificate product type.
+        :param pulumi.Input['CertificateProductType'] product_type: Certificate product type.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[int] validity_in_years: Duration in years (must be between 1 and 3).
@@ -68,7 +69,7 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['auto_renew'] = auto_renew
-            if certificate_order_name is None:
+            if certificate_order_name is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_order_name'")
             __props__['certificate_order_name'] = certificate_order_name
             __props__['certificates'] = certificates
@@ -76,13 +77,13 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
             __props__['distinguished_name'] = distinguished_name
             __props__['key_size'] = key_size
             __props__['kind'] = kind
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if product_type is None:
+            if product_type is None and not opts.urn:
                 raise TypeError("Missing required property 'product_type'")
             __props__['product_type'] = product_type
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

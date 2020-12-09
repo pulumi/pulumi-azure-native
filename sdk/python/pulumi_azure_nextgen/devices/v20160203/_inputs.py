@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'CloudToDevicePropertiesArgs',
@@ -181,7 +182,7 @@ class IotHubPropertiesArgs:
                  comments: Optional[pulumi.Input[str]] = None,
                  enable_file_upload_notifications: Optional[pulumi.Input[bool]] = None,
                  event_hub_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input['EventHubPropertiesArgs']]]] = None,
-                 features: Optional[pulumi.Input[str]] = None,
+                 features: Optional[pulumi.Input[Union[str, 'Capabilities']]] = None,
                  ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpFilterRuleArgs']]]] = None,
                  messaging_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input['MessagingEndpointPropertiesArgs']]]] = None,
                  operations_monitoring_properties: Optional[pulumi.Input['OperationsMonitoringPropertiesArgs']] = None,
@@ -193,7 +194,7 @@ class IotHubPropertiesArgs:
         :param pulumi.Input[str] comments: Comments.
         :param pulumi.Input[bool] enable_file_upload_notifications: If True, file upload notifications are enabled.
         :param pulumi.Input[Mapping[str, pulumi.Input['EventHubPropertiesArgs']]] event_hub_endpoints: The Event Hub-compatible endpoint properties. The possible keys to this dictionary are events and operationsMonitoringEvents. Both of these keys have to be present in the dictionary while making create or update calls for the IoT hub.
-        :param pulumi.Input[str] features: The capabilities and features enabled for the IoT hub.
+        :param pulumi.Input[Union[str, 'Capabilities']] features: The capabilities and features enabled for the IoT hub.
         :param pulumi.Input[Sequence[pulumi.Input['IpFilterRuleArgs']]] ip_filter_rules: The IP filter rules.
         :param pulumi.Input[Mapping[str, pulumi.Input['MessagingEndpointPropertiesArgs']]] messaging_endpoints: The messaging endpoint properties for the file upload notification queue.
         :param pulumi.Input['OperationsMonitoringPropertiesArgs'] operations_monitoring_properties: The operations monitoring properties for the IoT hub. The possible keys to the dictionary are Connections, DeviceTelemetry, C2DCommands, DeviceIdentityOperations, FileUploadOperations.
@@ -282,14 +283,14 @@ class IotHubPropertiesArgs:
 
     @property
     @pulumi.getter
-    def features(self) -> Optional[pulumi.Input[str]]:
+    def features(self) -> Optional[pulumi.Input[Union[str, 'Capabilities']]]:
         """
         The capabilities and features enabled for the IoT hub.
         """
         return pulumi.get(self, "features")
 
     @features.setter
-    def features(self, value: Optional[pulumi.Input[str]]):
+    def features(self, value: Optional[pulumi.Input[Union[str, 'Capabilities']]]):
         pulumi.set(self, "features", value)
 
     @property
@@ -345,11 +346,11 @@ class IotHubPropertiesArgs:
 class IotHubSkuInfoArgs:
     def __init__(__self__, *,
                  capacity: pulumi.Input[int],
-                 name: pulumi.Input[str]):
+                 name: pulumi.Input[Union[str, 'IotHubSku']]):
         """
         Information about the SKU of the IoT hub.
         :param pulumi.Input[int] capacity: The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
-        :param pulumi.Input[str] name: The name of the SKU.
+        :param pulumi.Input[Union[str, 'IotHubSku']] name: The name of the SKU.
         """
         pulumi.set(__self__, "capacity", capacity)
         pulumi.set(__self__, "name", name)
@@ -368,26 +369,26 @@ class IotHubSkuInfoArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input[Union[str, 'IotHubSku']]:
         """
         The name of the SKU.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input[Union[str, 'IotHubSku']]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class IpFilterRuleArgs:
     def __init__(__self__, *,
-                 action: pulumi.Input[str],
+                 action: pulumi.Input['IpFilterActionType'],
                  filter_name: pulumi.Input[str],
                  ip_mask: pulumi.Input[str]):
         """
         The IP filter rules for the IoT hub.
-        :param pulumi.Input[str] action: The desired action for requests captured by this rule.
+        :param pulumi.Input['IpFilterActionType'] action: The desired action for requests captured by this rule.
         :param pulumi.Input[str] filter_name: The name of the IP filter rule.
         :param pulumi.Input[str] ip_mask: A string that contains the IP address range in CIDR notation for the rule.
         """
@@ -397,14 +398,14 @@ class IpFilterRuleArgs:
 
     @property
     @pulumi.getter
-    def action(self) -> pulumi.Input[str]:
+    def action(self) -> pulumi.Input['IpFilterActionType']:
         """
         The desired action for requests captured by this rule.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: pulumi.Input[str]):
+    def action(self, value: pulumi.Input['IpFilterActionType']):
         pulumi.set(self, "action", value)
 
     @property
@@ -491,7 +492,7 @@ class MessagingEndpointPropertiesArgs:
 @pulumi.input_type
 class OperationsMonitoringPropertiesArgs:
     def __init__(__self__, *,
-                 events: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 events: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[str, 'OperationMonitoringLevel']]]]] = None):
         """
         The operations monitoring properties for the IoT hub. The possible keys to the dictionary are Connections, DeviceTelemetry, C2DCommands, DeviceIdentityOperations, FileUploadOperations.
         """
@@ -500,11 +501,11 @@ class OperationsMonitoringPropertiesArgs:
 
     @property
     @pulumi.getter
-    def events(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    def events(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[str, 'OperationMonitoringLevel']]]]]:
         return pulumi.get(self, "events")
 
     @events.setter
-    def events(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def events(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union[str, 'OperationMonitoringLevel']]]]]):
         pulumi.set(self, "events", value)
 
 
@@ -512,13 +513,13 @@ class OperationsMonitoringPropertiesArgs:
 class SharedAccessSignatureAuthorizationRuleArgs:
     def __init__(__self__, *,
                  key_name: pulumi.Input[str],
-                 rights: pulumi.Input[str],
+                 rights: pulumi.Input['AccessRights'],
                  primary_key: Optional[pulumi.Input[str]] = None,
                  secondary_key: Optional[pulumi.Input[str]] = None):
         """
         The properties of an IoT hub shared access policy.
         :param pulumi.Input[str] key_name: The name of the shared access policy.
-        :param pulumi.Input[str] rights: The permissions assigned to the shared access policy.
+        :param pulumi.Input['AccessRights'] rights: The permissions assigned to the shared access policy.
         :param pulumi.Input[str] primary_key: The primary key.
         :param pulumi.Input[str] secondary_key: The secondary key.
         """
@@ -543,14 +544,14 @@ class SharedAccessSignatureAuthorizationRuleArgs:
 
     @property
     @pulumi.getter
-    def rights(self) -> pulumi.Input[str]:
+    def rights(self) -> pulumi.Input['AccessRights']:
         """
         The permissions assigned to the shared access policy.
         """
         return pulumi.get(self, "rights")
 
     @rights.setter
-    def rights(self, value: pulumi.Input[str]):
+    def rights(self, value: pulumi.Input['AccessRights']):
         pulumi.set(self, "rights", value)
 
     @property

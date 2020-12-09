@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['ServerAdministrator']
 
@@ -15,7 +16,7 @@ class ServerAdministrator(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administrator_type: Optional[pulumi.Input[str]] = None,
+                 administrator_type: Optional[pulumi.Input[Union[str, 'AdministratorType']]] = None,
                  login: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
@@ -29,7 +30,7 @@ class ServerAdministrator(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] administrator_type: The type of administrator.
+        :param pulumi.Input[Union[str, 'AdministratorType']] administrator_type: The type of administrator.
         :param pulumi.Input[str] login: The server administrator login account name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] server_name: The name of the server.
@@ -53,22 +54,22 @@ class ServerAdministrator(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if administrator_type is None:
+            if administrator_type is None and not opts.urn:
                 raise TypeError("Missing required property 'administrator_type'")
             __props__['administrator_type'] = administrator_type
-            if login is None:
+            if login is None and not opts.urn:
                 raise TypeError("Missing required property 'login'")
             __props__['login'] = login
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if server_name is None:
+            if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
-            if sid is None:
+            if sid is None and not opts.urn:
                 raise TypeError("Missing required property 'sid'")
             __props__['sid'] = sid
-            if tenant_id is None:
+            if tenant_id is None and not opts.urn:
                 raise TypeError("Missing required property 'tenant_id'")
             __props__['tenant_id'] = tenant_id
             __props__['name'] = None

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Namespace']
@@ -24,7 +25,7 @@ class Namespace(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
-                 namespace_type: Optional[pulumi.Input[str]] = None,
+                 namespace_type: Optional[pulumi.Input['NamespaceType']] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -50,7 +51,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the namespace.
         :param pulumi.Input[str] namespace_name: The namespace name.
-        :param pulumi.Input[str] namespace_type: The namespace type.
+        :param pulumi.Input['NamespaceType'] namespace_type: The namespace type.
         :param pulumi.Input[str] provisioning_state: Provisioning state of the Namespace.
         :param pulumi.Input[str] region: Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -83,17 +84,17 @@ class Namespace(pulumi.CustomResource):
             __props__['critical'] = critical
             __props__['data_center'] = data_center
             __props__['enabled'] = enabled
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['name'] = name
-            if namespace_name is None:
+            if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
             __props__['namespace_type'] = namespace_type
             __props__['provisioning_state'] = provisioning_state
             __props__['region'] = region
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['scale_unit'] = scale_unit

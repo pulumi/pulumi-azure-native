@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['VolumeContainer']
@@ -21,7 +22,7 @@ class VolumeContainer(pulumi.CustomResource):
                  bandwidth_setting_id: Optional[pulumi.Input[str]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  encryption_key: Optional[pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']]] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input['Kind']] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account_credential_id: Optional[pulumi.Input[str]] = None,
@@ -38,7 +39,7 @@ class VolumeContainer(pulumi.CustomResource):
         :param pulumi.Input[str] bandwidth_setting_id: The ID of the bandwidth setting associated with the volume container.
         :param pulumi.Input[str] device_name: The device name
         :param pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']] encryption_key: The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
-        :param pulumi.Input[str] kind: The Kind of the object. Currently only Series8000 is supported
+        :param pulumi.Input['Kind'] kind: The Kind of the object. Currently only Series8000 is supported
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] resource_group_name: The resource group name
         :param pulumi.Input[str] storage_account_credential_id: The path ID of storage account associated with the volume container.
@@ -63,21 +64,21 @@ class VolumeContainer(pulumi.CustomResource):
 
             __props__['band_width_rate_in_mbps'] = band_width_rate_in_mbps
             __props__['bandwidth_setting_id'] = bandwidth_setting_id
-            if device_name is None:
+            if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
             __props__['encryption_key'] = encryption_key
             __props__['kind'] = kind
-            if manager_name is None:
+            if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")
             __props__['manager_name'] = manager_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if storage_account_credential_id is None:
+            if storage_account_credential_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_credential_id'")
             __props__['storage_account_credential_id'] = storage_account_credential_id
-            if volume_container_name is None:
+            if volume_container_name is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_container_name'")
             __props__['volume_container_name'] = volume_container_name
             __props__['encryption_status'] = None

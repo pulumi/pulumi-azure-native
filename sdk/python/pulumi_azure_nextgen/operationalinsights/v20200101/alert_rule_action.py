@@ -55,21 +55,21 @@ class AlertRuleAction(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if action_id is None:
+            if action_id is None and not opts.urn:
                 raise TypeError("Missing required property 'action_id'")
             __props__['action_id'] = action_id
             __props__['etag'] = etag
-            if logic_app_resource_id is None:
+            if logic_app_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'logic_app_resource_id'")
             __props__['logic_app_resource_id'] = logic_app_resource_id
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if rule_id is None:
+            if rule_id is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_id'")
             __props__['rule_id'] = rule_id
             __props__['trigger_uri'] = trigger_uri
-            if workspace_name is None:
+            if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['name'] = None

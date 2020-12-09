@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'BudgetTimePeriodArgs',
@@ -114,7 +115,7 @@ class NotificationArgs:
     def __init__(__self__, *,
                  contact_emails: pulumi.Input[Sequence[pulumi.Input[str]]],
                  enabled: pulumi.Input[bool],
-                 operator: pulumi.Input[str],
+                 operator: pulumi.Input[Union[str, 'OperatorType']],
                  threshold: pulumi.Input[float],
                  contact_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  contact_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -122,7 +123,7 @@ class NotificationArgs:
         The notification associated with a budget.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_emails: Email addresses to send the budget notification to when the threshold is exceeded.
         :param pulumi.Input[bool] enabled: The notification is enabled or not.
-        :param pulumi.Input[str] operator: The comparison operator.
+        :param pulumi.Input[Union[str, 'OperatorType']] operator: The comparison operator.
         :param pulumi.Input[float] threshold: Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_groups: Action groups to send the budget notification to when the threshold is exceeded.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_roles: Contact roles to send the budget notification to when the threshold is exceeded.
@@ -162,14 +163,14 @@ class NotificationArgs:
 
     @property
     @pulumi.getter
-    def operator(self) -> pulumi.Input[str]:
+    def operator(self) -> pulumi.Input[Union[str, 'OperatorType']]:
         """
         The comparison operator.
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: pulumi.Input[str]):
+    def operator(self, value: pulumi.Input[Union[str, 'OperatorType']]):
         pulumi.set(self, "operator", value)
 
     @property

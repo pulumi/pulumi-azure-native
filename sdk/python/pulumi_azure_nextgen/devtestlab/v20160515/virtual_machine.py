@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['VirtualMachine']
@@ -51,7 +52,7 @@ class VirtualMachine(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  unique_identifier: Optional[pulumi.Input[str]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
-                 virtual_machine_creation_source: Optional[pulumi.Input[str]] = None,
+                 virtual_machine_creation_source: Optional[pulumi.Input[Union[str, 'VirtualMachineCreationSource']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -94,7 +95,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] unique_identifier: The unique immutable identifier of a resource (Guid).
         :param pulumi.Input[str] user_name: The user name of the virtual machine.
-        :param pulumi.Input[str] virtual_machine_creation_source: Tells source of creation of lab virtual machine. Output property only.
+        :param pulumi.Input[Union[str, 'VirtualMachineCreationSource']] virtual_machine_creation_source: Tells source of creation of lab virtual machine. Output property only.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -128,13 +129,13 @@ class VirtualMachine(pulumi.CustomResource):
             __props__['fqdn'] = fqdn
             __props__['gallery_image_reference'] = gallery_image_reference
             __props__['is_authentication_with_ssh_key'] = is_authentication_with_ssh_key
-            if lab_name is None:
+            if lab_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_name'")
             __props__['lab_name'] = lab_name
             __props__['lab_subnet_name'] = lab_subnet_name
             __props__['lab_virtual_network_id'] = lab_virtual_network_id
             __props__['location'] = location
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['network_interface'] = network_interface
@@ -144,7 +145,7 @@ class VirtualMachine(pulumi.CustomResource):
             __props__['owner_user_principal_name'] = owner_user_principal_name
             __props__['password'] = password
             __props__['provisioning_state'] = provisioning_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['size'] = size

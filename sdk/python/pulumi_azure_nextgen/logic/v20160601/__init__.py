@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .agreement import *
 from .certificate import *
 from .get_agreement import *
@@ -39,3 +40,46 @@ from .session import *
 from .workflow import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:logic/v20160601:Agreement":
+                return Agreement(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:logic/v20160601:Certificate":
+                return Certificate(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:logic/v20160601:IntegrationAccount":
+                return IntegrationAccount(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:logic/v20160601:IntegrationAccountAssembly":
+                return IntegrationAccountAssembly(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:logic/v20160601:IntegrationAccountBatchConfiguration":
+                return IntegrationAccountBatchConfiguration(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:logic/v20160601:Map":
+                return Map(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:logic/v20160601:Partner":
+                return Partner(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:logic/v20160601:RosettaNetProcessConfiguration":
+                return RosettaNetProcessConfiguration(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:logic/v20160601:Schema":
+                return Schema(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:logic/v20160601:Session":
+                return Session(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:logic/v20160601:Workflow":
+                return Workflow(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "logic/v20160601", _module_instance)
+
+_register_module()

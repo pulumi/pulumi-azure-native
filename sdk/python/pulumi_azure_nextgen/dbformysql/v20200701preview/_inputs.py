@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'DelegatedSubnetArgumentsArgs',
@@ -43,24 +44,24 @@ class DelegatedSubnetArgumentsArgs:
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
         """
         Identity for the resource.
-        :param pulumi.Input[str] type: The identity type.
+        :param pulumi.Input['ResourceIdentityType'] type: The identity type.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
         """
         The identity type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
 
@@ -140,11 +141,11 @@ class MaintenanceWindowArgs:
 class SkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 tier: pulumi.Input[str]):
+                 tier: pulumi.Input[Union[str, 'SkuTier']]):
         """
         Billing information related properties of a server.
         :param pulumi.Input[str] name: The name of the sku, e.g. Standard_D32s_v3.
-        :param pulumi.Input[str] tier: The tier of the particular SKU, e.g. GeneralPurpose.
+        :param pulumi.Input[Union[str, 'SkuTier']] tier: The tier of the particular SKU, e.g. GeneralPurpose.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "tier", tier)
@@ -163,14 +164,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def tier(self) -> pulumi.Input[str]:
+    def tier(self) -> pulumi.Input[Union[str, 'SkuTier']]:
         """
         The tier of the particular SKU, e.g. GeneralPurpose.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: pulumi.Input[str]):
+    def tier(self, value: pulumi.Input[Union[str, 'SkuTier']]):
         pulumi.set(self, "tier", value)
 
 
@@ -178,13 +179,13 @@ class SkuArgs:
 class StorageProfileArgs:
     def __init__(__self__, *,
                  backup_retention_days: Optional[pulumi.Input[int]] = None,
-                 storage_autogrow: Optional[pulumi.Input[str]] = None,
+                 storage_autogrow: Optional[pulumi.Input[Union[str, 'StorageAutogrow']]] = None,
                  storage_iops: Optional[pulumi.Input[int]] = None,
                  storage_mb: Optional[pulumi.Input[int]] = None):
         """
         Storage Profile properties of a server
         :param pulumi.Input[int] backup_retention_days: Backup retention days for the server.
-        :param pulumi.Input[str] storage_autogrow: Enable Storage Auto Grow.
+        :param pulumi.Input[Union[str, 'StorageAutogrow']] storage_autogrow: Enable Storage Auto Grow.
         :param pulumi.Input[int] storage_iops: Storage IOPS for a server.
         :param pulumi.Input[int] storage_mb: Max storage allowed for a server.
         """
@@ -211,14 +212,14 @@ class StorageProfileArgs:
 
     @property
     @pulumi.getter(name="storageAutogrow")
-    def storage_autogrow(self) -> Optional[pulumi.Input[str]]:
+    def storage_autogrow(self) -> Optional[pulumi.Input[Union[str, 'StorageAutogrow']]]:
         """
         Enable Storage Auto Grow.
         """
         return pulumi.get(self, "storage_autogrow")
 
     @storage_autogrow.setter
-    def storage_autogrow(self, value: Optional[pulumi.Input[str]]):
+    def storage_autogrow(self, value: Optional[pulumi.Input[Union[str, 'StorageAutogrow']]]):
         pulumi.set(self, "storage_autogrow", value)
 
     @property

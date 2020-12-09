@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['SecurityContact']
 
@@ -15,8 +16,8 @@ class SecurityContact(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alert_notifications: Optional[pulumi.Input[str]] = None,
-                 alerts_to_admins: Optional[pulumi.Input[str]] = None,
+                 alert_notifications: Optional[pulumi.Input[Union[str, 'AlertNotifications']]] = None,
+                 alerts_to_admins: Optional[pulumi.Input[Union[str, 'AlertsToAdmins']]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  phone: Optional[pulumi.Input[str]] = None,
                  security_contact_name: Optional[pulumi.Input[str]] = None,
@@ -28,8 +29,8 @@ class SecurityContact(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] alert_notifications: Whether to send security alerts notifications to the security contact
-        :param pulumi.Input[str] alerts_to_admins: Whether to send security alerts notifications to subscription admins
+        :param pulumi.Input[Union[str, 'AlertNotifications']] alert_notifications: Whether to send security alerts notifications to the security contact
+        :param pulumi.Input[Union[str, 'AlertsToAdmins']] alerts_to_admins: Whether to send security alerts notifications to subscription admins
         :param pulumi.Input[str] email: The email of this security contact
         :param pulumi.Input[str] phone: The phone number of this security contact
         :param pulumi.Input[str] security_contact_name: Name of the security contact object
@@ -51,17 +52,17 @@ class SecurityContact(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if alert_notifications is None:
+            if alert_notifications is None and not opts.urn:
                 raise TypeError("Missing required property 'alert_notifications'")
             __props__['alert_notifications'] = alert_notifications
-            if alerts_to_admins is None:
+            if alerts_to_admins is None and not opts.urn:
                 raise TypeError("Missing required property 'alerts_to_admins'")
             __props__['alerts_to_admins'] = alerts_to_admins
-            if email is None:
+            if email is None and not opts.urn:
                 raise TypeError("Missing required property 'email'")
             __props__['email'] = email
             __props__['phone'] = phone
-            if security_contact_name is None:
+            if security_contact_name is None and not opts.urn:
                 raise TypeError("Missing required property 'security_contact_name'")
             __props__['security_contact_name'] = security_contact_name
             __props__['name'] = None

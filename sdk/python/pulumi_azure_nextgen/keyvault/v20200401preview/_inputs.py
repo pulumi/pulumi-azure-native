@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AccessPolicyEntryArgs',
@@ -118,7 +119,7 @@ class IPRuleArgs:
 @pulumi.input_type
 class ManagedHsmPropertiesArgs:
     def __init__(__self__, *,
-                 create_mode: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input['CreateMode']] = None,
                  enable_purge_protection: Optional[pulumi.Input[bool]] = None,
                  enable_soft_delete: Optional[pulumi.Input[bool]] = None,
                  hsm_uri: Optional[pulumi.Input[str]] = None,
@@ -127,7 +128,7 @@ class ManagedHsmPropertiesArgs:
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
         Properties of the managed HSM Pool
-        :param pulumi.Input[str] create_mode: The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
+        :param pulumi.Input['CreateMode'] create_mode: The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
         :param pulumi.Input[bool] enable_purge_protection: Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible.
         :param pulumi.Input[bool] enable_soft_delete: Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. If it's not set to any value(true or false) when creating new managed HSM pool, it will be set to true by default. Once set to true, it cannot be reverted to false.
         :param pulumi.Input[str] hsm_uri: The URI of the managed hsm pool for performing operations on keys.
@@ -152,14 +153,14 @@ class ManagedHsmPropertiesArgs:
 
     @property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[pulumi.Input[str]]:
+    def create_mode(self) -> Optional[pulumi.Input['CreateMode']]:
         """
         The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.
         """
         return pulumi.get(self, "create_mode")
 
     @create_mode.setter
-    def create_mode(self, value: Optional[pulumi.Input[str]]):
+    def create_mode(self, value: Optional[pulumi.Input['CreateMode']]):
         pulumi.set(self, "create_mode", value)
 
     @property
@@ -238,52 +239,52 @@ class ManagedHsmPropertiesArgs:
 @pulumi.input_type
 class ManagedHsmSkuArgs:
     def __init__(__self__, *,
-                 family: pulumi.Input[str],
-                 name: pulumi.Input[str]):
+                 family: pulumi.Input[Union[str, 'ManagedHsmSkuFamily']],
+                 name: pulumi.Input['ManagedHsmSkuName']):
         """
         SKU details
-        :param pulumi.Input[str] family: SKU Family of the managed HSM Pool
-        :param pulumi.Input[str] name: SKU of the managed HSM Pool
+        :param pulumi.Input[Union[str, 'ManagedHsmSkuFamily']] family: SKU Family of the managed HSM Pool
+        :param pulumi.Input['ManagedHsmSkuName'] name: SKU of the managed HSM Pool
         """
         pulumi.set(__self__, "family", family)
         pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def family(self) -> pulumi.Input[str]:
+    def family(self) -> pulumi.Input[Union[str, 'ManagedHsmSkuFamily']]:
         """
         SKU Family of the managed HSM Pool
         """
         return pulumi.get(self, "family")
 
     @family.setter
-    def family(self, value: pulumi.Input[str]):
+    def family(self, value: pulumi.Input[Union[str, 'ManagedHsmSkuFamily']]):
         pulumi.set(self, "family", value)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input['ManagedHsmSkuName']:
         """
         SKU of the managed HSM Pool
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input['ManagedHsmSkuName']):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class NetworkRuleSetArgs:
     def __init__(__self__, *,
-                 bypass: Optional[pulumi.Input[str]] = None,
-                 default_action: Optional[pulumi.Input[str]] = None,
+                 bypass: Optional[pulumi.Input[Union[str, 'NetworkRuleBypassOptions']]] = None,
+                 default_action: Optional[pulumi.Input[Union[str, 'NetworkRuleAction']]] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]] = None,
                  virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
         """
         A set of rules governing the network accessibility of a vault.
-        :param pulumi.Input[str] bypass: Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
-        :param pulumi.Input[str] default_action: The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
+        :param pulumi.Input[Union[str, 'NetworkRuleBypassOptions']] bypass: Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
+        :param pulumi.Input[Union[str, 'NetworkRuleAction']] default_action: The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
         :param pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]] ip_rules: The list of IP address rules.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: The list of virtual network rules.
         """
@@ -298,26 +299,26 @@ class NetworkRuleSetArgs:
 
     @property
     @pulumi.getter
-    def bypass(self) -> Optional[pulumi.Input[str]]:
+    def bypass(self) -> Optional[pulumi.Input[Union[str, 'NetworkRuleBypassOptions']]]:
         """
         Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
         """
         return pulumi.get(self, "bypass")
 
     @bypass.setter
-    def bypass(self, value: Optional[pulumi.Input[str]]):
+    def bypass(self, value: Optional[pulumi.Input[Union[str, 'NetworkRuleBypassOptions']]]):
         pulumi.set(self, "bypass", value)
 
     @property
     @pulumi.getter(name="defaultAction")
-    def default_action(self) -> Optional[pulumi.Input[str]]:
+    def default_action(self) -> Optional[pulumi.Input[Union[str, 'NetworkRuleAction']]]:
         """
         The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
         """
         return pulumi.get(self, "default_action")
 
     @default_action.setter
-    def default_action(self, value: Optional[pulumi.Input[str]]):
+    def default_action(self, value: Optional[pulumi.Input[Union[str, 'NetworkRuleAction']]]):
         pulumi.set(self, "default_action", value)
 
     @property
@@ -348,16 +349,16 @@ class NetworkRuleSetArgs:
 @pulumi.input_type
 class PermissionsArgs:
     def __init__(__self__, *,
-                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 storage: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'CertificatePermissions']]]]] = None,
+                 keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'KeyPermissions']]]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SecretPermissions']]]]] = None,
+                 storage: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'StoragePermissions']]]]] = None):
         """
         Permissions the identity has for keys, secrets, certificates and storage.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] certificates: Permissions to certificates
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] keys: Permissions to keys
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] secrets: Permissions to secrets
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] storage: Permissions to storage accounts
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'CertificatePermissions']]]] certificates: Permissions to certificates
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'KeyPermissions']]]] keys: Permissions to keys
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'SecretPermissions']]]] secrets: Permissions to secrets
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'StoragePermissions']]]] storage: Permissions to storage accounts
         """
         if certificates is not None:
             pulumi.set(__self__, "certificates", certificates)
@@ -370,50 +371,50 @@ class PermissionsArgs:
 
     @property
     @pulumi.getter
-    def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'CertificatePermissions']]]]]:
         """
         Permissions to certificates
         """
         return pulumi.get(self, "certificates")
 
     @certificates.setter
-    def certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'CertificatePermissions']]]]]):
         pulumi.set(self, "certificates", value)
 
     @property
     @pulumi.getter
-    def keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'KeyPermissions']]]]]:
         """
         Permissions to keys
         """
         return pulumi.get(self, "keys")
 
     @keys.setter
-    def keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'KeyPermissions']]]]]):
         pulumi.set(self, "keys", value)
 
     @property
     @pulumi.getter
-    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SecretPermissions']]]]]:
         """
         Permissions to secrets
         """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
-    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SecretPermissions']]]]]):
         pulumi.set(self, "secrets", value)
 
     @property
     @pulumi.getter
-    def storage(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def storage(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'StoragePermissions']]]]]:
         """
         Permissions to storage accounts
         """
         return pulumi.get(self, "storage")
 
     @storage.setter
-    def storage(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def storage(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'StoragePermissions']]]]]):
         pulumi.set(self, "storage", value)
 
 
@@ -422,12 +423,12 @@ class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
                  action_required: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None):
+                 status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         An object that represents the approval state of the private link connection.
         :param pulumi.Input[str] action_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param pulumi.Input[str] description: The reason for approval or rejection.
-        :param pulumi.Input[str] status: Indicates whether the connection has been approved, rejected or removed by the key vault owner.
+        :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been approved, rejected or removed by the key vault owner.
         """
         if action_required is not None:
             pulumi.set(__self__, "action_required", action_required)
@@ -462,14 +463,14 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]:
         """
         Indicates whether the connection has been approved, rejected or removed by the key vault owner.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -588,38 +589,38 @@ class SecretPropertiesArgs:
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 family: pulumi.Input[str],
-                 name: pulumi.Input[str]):
+                 family: pulumi.Input[Union[str, 'SkuFamily']],
+                 name: pulumi.Input['SkuName']):
         """
         SKU details
-        :param pulumi.Input[str] family: SKU family name
-        :param pulumi.Input[str] name: SKU name to specify whether the key vault is a standard vault or a premium vault.
+        :param pulumi.Input[Union[str, 'SkuFamily']] family: SKU family name
+        :param pulumi.Input['SkuName'] name: SKU name to specify whether the key vault is a standard vault or a premium vault.
         """
         pulumi.set(__self__, "family", family)
         pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def family(self) -> pulumi.Input[str]:
+    def family(self) -> pulumi.Input[Union[str, 'SkuFamily']]:
         """
         SKU family name
         """
         return pulumi.get(self, "family")
 
     @family.setter
-    def family(self, value: pulumi.Input[str]):
+    def family(self, value: pulumi.Input[Union[str, 'SkuFamily']]):
         pulumi.set(self, "family", value)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input['SkuName']:
         """
         SKU name to specify whether the key vault is a standard vault or a premium vault.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input['SkuName']):
         pulumi.set(self, "name", value)
 
 
@@ -629,7 +630,7 @@ class VaultPropertiesArgs:
                  sku: pulumi.Input['SkuArgs'],
                  tenant_id: pulumi.Input[str],
                  access_policies: Optional[pulumi.Input[Sequence[pulumi.Input['AccessPolicyEntryArgs']]]] = None,
-                 create_mode: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input['CreateMode']] = None,
                  enable_purge_protection: Optional[pulumi.Input[bool]] = None,
                  enable_rbac_authorization: Optional[pulumi.Input[bool]] = None,
                  enable_soft_delete: Optional[pulumi.Input[bool]] = None,
@@ -644,7 +645,7 @@ class VaultPropertiesArgs:
         :param pulumi.Input['SkuArgs'] sku: SKU details
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         :param pulumi.Input[Sequence[pulumi.Input['AccessPolicyEntryArgs']]] access_policies: An array of 0 to 1024 identities that have access to the key vault. All identities in the array must use the same tenant ID as the key vault's tenant ID. When `createMode` is set to `recover`, access policies are not required. Otherwise, access policies are required.
-        :param pulumi.Input[str] create_mode: The vault's create mode to indicate whether the vault need to be recovered or not.
+        :param pulumi.Input['CreateMode'] create_mode: The vault's create mode to indicate whether the vault need to be recovered or not.
         :param pulumi.Input[bool] enable_purge_protection: Property specifying whether protection against purge is enabled for this vault. Setting this property to true activates protection against purge for this vault and its content - only the Key Vault service may initiate a hard, irrecoverable deletion. The setting is effective only if soft delete is also enabled. Enabling this functionality is irreversible - that is, the property does not accept false as its value.
         :param pulumi.Input[bool] enable_rbac_authorization: Property that controls how data actions are authorized. When true, the key vault will use Role Based Access Control (RBAC) for authorization of data actions, and the access policies specified in vault properties will be  ignored (warning: this is a preview feature). When false, the key vault will use the access policies specified in vault properties, and any policy stored on Azure Resource Manager will be ignored. If null or not specified, the vault is created with the default value of false. Note that management actions are always authorized with RBAC.
         :param pulumi.Input[bool] enable_soft_delete: Property to specify whether the 'soft delete' functionality is enabled for this key vault. If it's not set to any value(true or false) when creating new key vault, it will be set to true by default. Once set to true, it cannot be reverted to false.
@@ -718,14 +719,14 @@ class VaultPropertiesArgs:
 
     @property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[pulumi.Input[str]]:
+    def create_mode(self) -> Optional[pulumi.Input['CreateMode']]:
         """
         The vault's create mode to indicate whether the vault need to be recovered or not.
         """
         return pulumi.get(self, "create_mode")
 
     @create_mode.setter
-    def create_mode(self, value: Optional[pulumi.Input[str]]):
+    def create_mode(self, value: Optional[pulumi.Input['CreateMode']]):
         pulumi.set(self, "create_mode", value)
 
     @property

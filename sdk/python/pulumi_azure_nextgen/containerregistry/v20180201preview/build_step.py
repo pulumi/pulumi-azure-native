@@ -50,16 +50,16 @@ class BuildStep(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if build_task_name is None:
+            if build_task_name is None and not opts.urn:
                 raise TypeError("Missing required property 'build_task_name'")
             __props__['build_task_name'] = build_task_name
-            if registry_name is None:
+            if registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registry_name'")
             __props__['registry_name'] = registry_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if step_name is None:
+            if step_name is None and not opts.urn:
                 raise TypeError("Missing required property 'step_name'")
             __props__['step_name'] = step_name
             __props__['name'] = None

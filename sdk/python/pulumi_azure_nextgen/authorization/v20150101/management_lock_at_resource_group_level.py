@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['ManagementLockAtResourceGroupLevel']
 
@@ -15,7 +16,7 @@ class ManagementLockAtResourceGroupLevel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 level: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[Union[str, 'LockLevel']]] = None,
                  lock_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
@@ -28,7 +29,7 @@ class ManagementLockAtResourceGroupLevel(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] level: The lock level of the management lock.
+        :param pulumi.Input[Union[str, 'LockLevel']] level: The lock level of the management lock.
         :param pulumi.Input[str] lock_name: The lock name.
         :param pulumi.Input[str] name: The name of the lock.
         :param pulumi.Input[str] notes: The notes of the management lock.
@@ -52,12 +53,12 @@ class ManagementLockAtResourceGroupLevel(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['level'] = level
-            if lock_name is None:
+            if lock_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lock_name'")
             __props__['lock_name'] = lock_name
             __props__['name'] = name
             __props__['notes'] = notes
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['type'] = None

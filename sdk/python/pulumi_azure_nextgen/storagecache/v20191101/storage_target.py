@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['StorageTarget']
@@ -21,10 +22,10 @@ class StorageTarget(pulumi.CustomResource):
                  clfs: Optional[pulumi.Input[pulumi.InputType['ClfsTargetArgs']]] = None,
                  junctions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceJunctionArgs']]]]] = None,
                  nfs3: Optional[pulumi.Input[pulumi.InputType['Nfs3TargetArgs']]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningStateType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_target_name: Optional[pulumi.Input[str]] = None,
-                 target_type: Optional[pulumi.Input[str]] = None,
+                 target_type: Optional[pulumi.Input[Union[str, 'StorageTargetType']]] = None,
                  unknown: Optional[pulumi.Input[pulumi.InputType['UnknownTargetArgs']]] = None,
                  __props__=None,
                  __name__=None,
@@ -38,10 +39,10 @@ class StorageTarget(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ClfsTargetArgs']] clfs: Properties when targetType is clfs.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceJunctionArgs']]]] junctions: List of Cache namespace junctions to target for namespace associations.
         :param pulumi.Input[pulumi.InputType['Nfs3TargetArgs']] nfs3: Properties when targetType is nfs3.
-        :param pulumi.Input[str] provisioning_state: ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+        :param pulumi.Input[Union[str, 'ProvisioningStateType']] provisioning_state: ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         :param pulumi.Input[str] resource_group_name: Target resource group.
         :param pulumi.Input[str] storage_target_name: Name of the Storage Target.
-        :param pulumi.Input[str] target_type: Type of the Storage Target.
+        :param pulumi.Input[Union[str, 'StorageTargetType']] target_type: Type of the Storage Target.
         :param pulumi.Input[pulumi.InputType['UnknownTargetArgs']] unknown: Properties when targetType is unknown.
         """
         if __name__ is not None:
@@ -61,17 +62,17 @@ class StorageTarget(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if cache_name is None:
+            if cache_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cache_name'")
             __props__['cache_name'] = cache_name
             __props__['clfs'] = clfs
             __props__['junctions'] = junctions
             __props__['nfs3'] = nfs3
             __props__['provisioning_state'] = provisioning_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if storage_target_name is None:
+            if storage_target_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_target_name'")
             __props__['storage_target_name'] = storage_target_name
             __props__['target_type'] = target_type

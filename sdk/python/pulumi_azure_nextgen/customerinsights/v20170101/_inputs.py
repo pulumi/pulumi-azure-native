@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AssignmentPrincipalArgs',
@@ -89,11 +90,11 @@ class AssignmentPrincipalArgs:
 class ConnectorMappingAvailabilityArgs:
     def __init__(__self__, *,
                  interval: pulumi.Input[int],
-                 frequency: Optional[pulumi.Input[str]] = None):
+                 frequency: Optional[pulumi.Input['FrequencyTypes']] = None):
         """
         Connector mapping property availability.
         :param pulumi.Input[int] interval: The interval of the given frequency to use.
-        :param pulumi.Input[str] frequency: The frequency to update.
+        :param pulumi.Input['FrequencyTypes'] frequency: The frequency to update.
         """
         pulumi.set(__self__, "interval", interval)
         if frequency is not None:
@@ -113,25 +114,25 @@ class ConnectorMappingAvailabilityArgs:
 
     @property
     @pulumi.getter
-    def frequency(self) -> Optional[pulumi.Input[str]]:
+    def frequency(self) -> Optional[pulumi.Input['FrequencyTypes']]:
         """
         The frequency to update.
         """
         return pulumi.get(self, "frequency")
 
     @frequency.setter
-    def frequency(self, value: Optional[pulumi.Input[str]]):
+    def frequency(self, value: Optional[pulumi.Input['FrequencyTypes']]):
         pulumi.set(self, "frequency", value)
 
 
 @pulumi.input_type
 class ConnectorMappingCompleteOperationArgs:
     def __init__(__self__, *,
-                 completion_operation_type: Optional[pulumi.Input[str]] = None,
+                 completion_operation_type: Optional[pulumi.Input['CompletionOperationTypes']] = None,
                  destination_folder: Optional[pulumi.Input[str]] = None):
         """
         The complete operation.
-        :param pulumi.Input[str] completion_operation_type: The type of completion operation.
+        :param pulumi.Input['CompletionOperationTypes'] completion_operation_type: The type of completion operation.
         :param pulumi.Input[str] destination_folder: The destination folder where files will be moved to once the import is done.
         """
         if completion_operation_type is not None:
@@ -141,14 +142,14 @@ class ConnectorMappingCompleteOperationArgs:
 
     @property
     @pulumi.getter(name="completionOperationType")
-    def completion_operation_type(self) -> Optional[pulumi.Input[str]]:
+    def completion_operation_type(self) -> Optional[pulumi.Input['CompletionOperationTypes']]:
         """
         The type of completion operation.
         """
         return pulumi.get(self, "completion_operation_type")
 
     @completion_operation_type.setter
-    def completion_operation_type(self, value: Optional[pulumi.Input[str]]):
+    def completion_operation_type(self, value: Optional[pulumi.Input['CompletionOperationTypes']]):
         pulumi.set(self, "completion_operation_type", value)
 
     @property
@@ -167,11 +168,11 @@ class ConnectorMappingCompleteOperationArgs:
 @pulumi.input_type
 class ConnectorMappingErrorManagementArgs:
     def __init__(__self__, *,
-                 error_management_type: pulumi.Input[str],
+                 error_management_type: pulumi.Input['ErrorManagementTypes'],
                  error_limit: Optional[pulumi.Input[int]] = None):
         """
         The error management.
-        :param pulumi.Input[str] error_management_type: The type of error management to use for the mapping.
+        :param pulumi.Input['ErrorManagementTypes'] error_management_type: The type of error management to use for the mapping.
         :param pulumi.Input[int] error_limit: The error limit allowed while importing data.
         """
         pulumi.set(__self__, "error_management_type", error_management_type)
@@ -180,14 +181,14 @@ class ConnectorMappingErrorManagementArgs:
 
     @property
     @pulumi.getter(name="errorManagementType")
-    def error_management_type(self) -> pulumi.Input[str]:
+    def error_management_type(self) -> pulumi.Input['ErrorManagementTypes']:
         """
         The type of error management to use for the mapping.
         """
         return pulumi.get(self, "error_management_type")
 
     @error_management_type.setter
-    def error_management_type(self, value: pulumi.Input[str]):
+    def error_management_type(self, value: pulumi.Input['ErrorManagementTypes']):
         pulumi.set(self, "error_management_type", value)
 
     @property
@@ -206,7 +207,7 @@ class ConnectorMappingErrorManagementArgs:
 @pulumi.input_type
 class ConnectorMappingFormatArgs:
     def __init__(__self__, *,
-                 format_type: pulumi.Input[str],
+                 format_type: pulumi.Input['FormatTypes'],
                  accept_language: Optional[pulumi.Input[str]] = None,
                  array_separator: Optional[pulumi.Input[str]] = None,
                  column_delimiter: Optional[pulumi.Input[str]] = None,
@@ -214,7 +215,7 @@ class ConnectorMappingFormatArgs:
                  quote_escape_character: Optional[pulumi.Input[str]] = None):
         """
         Connector mapping property format.
-        :param pulumi.Input[str] format_type: The type mapping format.
+        :param pulumi.Input['FormatTypes'] format_type: The type mapping format.
         :param pulumi.Input[str] accept_language: The oData language.
         :param pulumi.Input[str] array_separator: Character separating array elements.
         :param pulumi.Input[str] column_delimiter: The character that signifies a break between columns.
@@ -235,14 +236,14 @@ class ConnectorMappingFormatArgs:
 
     @property
     @pulumi.getter(name="formatType")
-    def format_type(self) -> pulumi.Input[str]:
+    def format_type(self) -> pulumi.Input['FormatTypes']:
         """
         The type mapping format.
         """
         return pulumi.get(self, "format_type")
 
     @format_type.setter
-    def format_type(self, value: pulumi.Input[str]):
+    def format_type(self, value: pulumi.Input['FormatTypes']):
         pulumi.set(self, "format_type", value)
 
     @property
@@ -1021,12 +1022,12 @@ class RelationshipLinkFieldMappingArgs:
     def __init__(__self__, *,
                  interaction_field_name: pulumi.Input[str],
                  relationship_field_name: pulumi.Input[str],
-                 link_type: Optional[pulumi.Input[str]] = None):
+                 link_type: Optional[pulumi.Input['LinkTypes']] = None):
         """
         The fields mapping for Relationships.
         :param pulumi.Input[str] interaction_field_name: The field name on the Interaction Type.
         :param pulumi.Input[str] relationship_field_name: The field name on the Relationship metadata.
-        :param pulumi.Input[str] link_type: Link type.
+        :param pulumi.Input['LinkTypes'] link_type: Link type.
         """
         pulumi.set(__self__, "interaction_field_name", interaction_field_name)
         pulumi.set(__self__, "relationship_field_name", relationship_field_name)
@@ -1059,14 +1060,14 @@ class RelationshipLinkFieldMappingArgs:
 
     @property
     @pulumi.getter(name="linkType")
-    def link_type(self) -> Optional[pulumi.Input[str]]:
+    def link_type(self) -> Optional[pulumi.Input['LinkTypes']]:
         """
         Link type.
         """
         return pulumi.get(self, "link_type")
 
     @link_type.setter
-    def link_type(self, value: Optional[pulumi.Input[str]]):
+    def link_type(self, value: Optional[pulumi.Input['LinkTypes']]):
         pulumi.set(self, "link_type", value)
 
 
@@ -1247,13 +1248,13 @@ class TypePropertiesMappingArgs:
                  interaction_type_property_name: pulumi.Input[str],
                  profile_type_property_name: pulumi.Input[str],
                  is_profile_type_id: Optional[pulumi.Input[bool]] = None,
-                 link_type: Optional[pulumi.Input[str]] = None):
+                 link_type: Optional[pulumi.Input['LinkTypes']] = None):
         """
         Metadata for a Link's property mapping.
         :param pulumi.Input[str] interaction_type_property_name:  Property name on the source Interaction Type.
         :param pulumi.Input[str] profile_type_property_name: Property name on the target Profile Type.
         :param pulumi.Input[bool] is_profile_type_id: Flag to indicate whether the Profile Type property is an id on the Profile Type.
-        :param pulumi.Input[str] link_type: Link type.
+        :param pulumi.Input['LinkTypes'] link_type: Link type.
         """
         pulumi.set(__self__, "interaction_type_property_name", interaction_type_property_name)
         pulumi.set(__self__, "profile_type_property_name", profile_type_property_name)
@@ -1300,14 +1301,14 @@ class TypePropertiesMappingArgs:
 
     @property
     @pulumi.getter(name="linkType")
-    def link_type(self) -> Optional[pulumi.Input[str]]:
+    def link_type(self) -> Optional[pulumi.Input['LinkTypes']]:
         """
         Link type.
         """
         return pulumi.get(self, "link_type")
 
     @link_type.setter
-    def link_type(self, value: Optional[pulumi.Input[str]]):
+    def link_type(self, value: Optional[pulumi.Input['LinkTypes']]):
         pulumi.set(self, "link_type", value)
 
 

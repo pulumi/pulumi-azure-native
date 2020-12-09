@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['SqlResourceSqlRoleDefinition']
@@ -23,7 +24,7 @@ class SqlResourceSqlRoleDefinition(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  role_definition_id: Optional[pulumi.Input[str]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['RoleDefinitionType']] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -38,7 +39,7 @@ class SqlResourceSqlRoleDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] role_definition_id: The GUID for the Role Definition.
         :param pulumi.Input[str] role_name: A user-friendly name for the Role Definition. Must be unique for the database account.
-        :param pulumi.Input[str] type: Indicates whether the Role Definition was built-in or user created.
+        :param pulumi.Input['RoleDefinitionType'] type: Indicates whether the Role Definition was built-in or user created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -57,15 +58,15 @@ class SqlResourceSqlRoleDefinition(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_name is None:
+            if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['assignable_scopes'] = assignable_scopes
             __props__['permissions'] = permissions
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if role_definition_id is None:
+            if role_definition_id is None and not opts.urn:
                 raise TypeError("Missing required property 'role_definition_id'")
             __props__['role_definition_id'] = role_definition_id
             __props__['role_name'] = role_name

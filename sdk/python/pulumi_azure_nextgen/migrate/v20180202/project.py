@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['Project']
 
@@ -20,7 +21,7 @@ class Project(pulumi.CustomResource):
                  e_tag: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  __props__=None,
@@ -36,7 +37,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[str] e_tag: For optimistic concurrency control.
         :param pulumi.Input[str] location: Azure location in which project is created.
         :param pulumi.Input[str] project_name: Name of the Azure Migrate project.
-        :param pulumi.Input[str] provisioning_state: Provisioning state of the project.
+        :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: Provisioning state of the project.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
         :param Any tags: Tags provided by Azure Tagging service.
         """
@@ -61,11 +62,11 @@ class Project(pulumi.CustomResource):
             __props__['customer_workspace_location'] = customer_workspace_location
             __props__['e_tag'] = e_tag
             __props__['location'] = location
-            if project_name is None:
+            if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")
             __props__['project_name'] = project_name
             __props__['provisioning_state'] = provisioning_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

@@ -73,16 +73,16 @@ class Origin(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['enabled'] = enabled
-            if endpoint_name is None:
+            if endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_name'")
             __props__['endpoint_name'] = endpoint_name
-            if host_name is None:
+            if host_name is None and not opts.urn:
                 raise TypeError("Missing required property 'host_name'")
             __props__['host_name'] = host_name
             __props__['http_port'] = http_port
             __props__['https_port'] = https_port
             __props__['origin_host_header'] = origin_host_header
-            if origin_name is None:
+            if origin_name is None and not opts.urn:
                 raise TypeError("Missing required property 'origin_name'")
             __props__['origin_name'] = origin_name
             __props__['priority'] = priority
@@ -90,10 +90,10 @@ class Origin(pulumi.CustomResource):
             __props__['private_link_approval_message'] = private_link_approval_message
             __props__['private_link_location'] = private_link_location
             __props__['private_link_resource_id'] = private_link_resource_id
-            if profile_name is None:
+            if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")
             __props__['profile_name'] = profile_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['weight'] = weight

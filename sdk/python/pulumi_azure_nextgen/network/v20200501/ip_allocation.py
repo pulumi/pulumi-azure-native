@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 
 __all__ = ['IpAllocation']
 
@@ -23,10 +24,10 @@ class IpAllocation(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None,
                  prefix_length: Optional[pulumi.Input[int]] = None,
-                 prefix_type: Optional[pulumi.Input[str]] = None,
+                 prefix_type: Optional[pulumi.Input[Union[str, 'IPVersion']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'IpAllocationType']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -42,10 +43,10 @@ class IpAllocation(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] prefix: The address prefix for the IpAllocation.
         :param pulumi.Input[int] prefix_length: The address prefix length for the IpAllocation.
-        :param pulumi.Input[str] prefix_type: The address prefix Type for the IpAllocation.
+        :param pulumi.Input[Union[str, 'IPVersion']] prefix_type: The address prefix Type for the IpAllocation.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] type: The type for the IpAllocation.
+        :param pulumi.Input[Union[str, 'IpAllocationType']] type: The type for the IpAllocation.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -66,7 +67,7 @@ class IpAllocation(pulumi.CustomResource):
 
             __props__['allocation_tags'] = allocation_tags
             __props__['id'] = id
-            if ip_allocation_name is None:
+            if ip_allocation_name is None and not opts.urn:
                 raise TypeError("Missing required property 'ip_allocation_name'")
             __props__['ip_allocation_name'] = ip_allocation_name
             __props__['ipam_allocation_id'] = ipam_allocation_id
@@ -74,7 +75,7 @@ class IpAllocation(pulumi.CustomResource):
             __props__['prefix'] = prefix
             __props__['prefix_length'] = prefix_length
             __props__['prefix_type'] = prefix_type
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

@@ -58,20 +58,20 @@ class ManagementAssociation(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['location'] = location
-            if management_association_name is None:
+            if management_association_name is None and not opts.urn:
                 raise TypeError("Missing required property 'management_association_name'")
             __props__['management_association_name'] = management_association_name
             __props__['properties'] = properties
-            if provider_name is None:
+            if provider_name is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_name'")
             __props__['provider_name'] = provider_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if resource_name_ is None:
+            if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
-            if resource_type is None:
+            if resource_type is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_type'")
             __props__['resource_type'] = resource_type
             __props__['name'] = None

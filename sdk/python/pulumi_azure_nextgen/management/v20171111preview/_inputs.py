@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ParameterDefinitionArgs',
@@ -16,7 +17,7 @@ __all__ = [
 @pulumi.input_type
 class ParameterDefinitionArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str],
+                 type: pulumi.Input[Union[str, 'TemplateParameterType']],
                  allowed_values: Optional[pulumi.Input[Sequence[Any]]] = None,
                  default_value: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -24,7 +25,7 @@ class ParameterDefinitionArgs:
                  strong_type: Optional[pulumi.Input[str]] = None):
         """
         Represent a parameter with constrains and metadata.
-        :param pulumi.Input[str] type: Allowed data types for Azure Resource Manager template parameters.
+        :param pulumi.Input[Union[str, 'TemplateParameterType']] type: Allowed data types for Azure Resource Manager template parameters.
         :param pulumi.Input[Sequence[Any]] allowed_values: Array of allowed values for this parameter.
         :param Any default_value: Default Value for this parameter.
         :param pulumi.Input[str] description: Description of this parameter/resourceGroup.
@@ -45,14 +46,14 @@ class ParameterDefinitionArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'TemplateParameterType']]:
         """
         Allowed data types for Azure Resource Manager template parameters.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'TemplateParameterType']]):
         pulumi.set(self, "type", value)
 
     @property

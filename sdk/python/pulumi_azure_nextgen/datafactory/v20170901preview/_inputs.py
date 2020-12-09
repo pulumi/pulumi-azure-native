@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ActivityDependencyArgs',
@@ -177,11 +178,11 @@ __all__ = [
 class ActivityDependencyArgs:
     def __init__(__self__, *,
                  activity: pulumi.Input[str],
-                 dependency_conditions: pulumi.Input[Sequence[pulumi.Input[str]]]):
+                 dependency_conditions: pulumi.Input[Sequence[pulumi.Input[Union[str, 'DependencyCondition']]]]):
         """
         Activity dependency information.
         :param pulumi.Input[str] activity: Activity name.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] dependency_conditions: Match-Condition for the dependency.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'DependencyCondition']]]] dependency_conditions: Match-Condition for the dependency.
         """
         pulumi.set(__self__, "activity", activity)
         pulumi.set(__self__, "dependency_conditions", dependency_conditions)
@@ -200,14 +201,14 @@ class ActivityDependencyArgs:
 
     @property
     @pulumi.getter(name="dependencyConditions")
-    def dependency_conditions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def dependency_conditions(self) -> pulumi.Input[Sequence[pulumi.Input[Union[str, 'DependencyCondition']]]]:
         """
         Match-Condition for the dependency.
         """
         return pulumi.get(self, "dependency_conditions")
 
     @dependency_conditions.setter
-    def dependency_conditions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def dependency_conditions(self, value: pulumi.Input[Sequence[pulumi.Input[Union[str, 'DependencyCondition']]]]):
         pulumi.set(self, "dependency_conditions", value)
 
 
@@ -5496,11 +5497,11 @@ class DatasetBZip2CompressionArgs:
 class DatasetDeflateCompressionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 level: Optional[pulumi.Input[str]] = None):
+                 level: Optional[pulumi.Input[Union[str, 'DatasetCompressionLevel']]] = None):
         """
         The Deflate compression method used on a dataset.
         :param pulumi.Input[str] type: Type of dataset compression.
-        :param pulumi.Input[str] level: The Deflate compression level.
+        :param pulumi.Input[Union[str, 'DatasetCompressionLevel']] level: The Deflate compression level.
         """
         pulumi.set(__self__, "type", 'Deflate')
         if level is not None:
@@ -5520,14 +5521,14 @@ class DatasetDeflateCompressionArgs:
 
     @property
     @pulumi.getter
-    def level(self) -> Optional[pulumi.Input[str]]:
+    def level(self) -> Optional[pulumi.Input[Union[str, 'DatasetCompressionLevel']]]:
         """
         The Deflate compression level.
         """
         return pulumi.get(self, "level")
 
     @level.setter
-    def level(self, value: Optional[pulumi.Input[str]]):
+    def level(self, value: Optional[pulumi.Input[Union[str, 'DatasetCompressionLevel']]]):
         pulumi.set(self, "level", value)
 
 
@@ -5535,11 +5536,11 @@ class DatasetDeflateCompressionArgs:
 class DatasetGZipCompressionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 level: Optional[pulumi.Input[str]] = None):
+                 level: Optional[pulumi.Input[Union[str, 'DatasetCompressionLevel']]] = None):
         """
         The GZip compression method used on a dataset.
         :param pulumi.Input[str] type: Type of dataset compression.
-        :param pulumi.Input[str] level: The GZip compression level.
+        :param pulumi.Input[Union[str, 'DatasetCompressionLevel']] level: The GZip compression level.
         """
         pulumi.set(__self__, "type", 'GZip')
         if level is not None:
@@ -5559,14 +5560,14 @@ class DatasetGZipCompressionArgs:
 
     @property
     @pulumi.getter
-    def level(self) -> Optional[pulumi.Input[str]]:
+    def level(self) -> Optional[pulumi.Input[Union[str, 'DatasetCompressionLevel']]]:
         """
         The GZip compression level.
         """
         return pulumi.get(self, "level")
 
     @level.setter
-    def level(self, value: Optional[pulumi.Input[str]]):
+    def level(self, value: Optional[pulumi.Input[Union[str, 'DatasetCompressionLevel']]]):
         pulumi.set(self, "level", value)
 
 
@@ -5574,11 +5575,11 @@ class DatasetGZipCompressionArgs:
 class DatasetZipDeflateCompressionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 level: Optional[pulumi.Input[str]] = None):
+                 level: Optional[pulumi.Input[Union[str, 'DatasetCompressionLevel']]] = None):
         """
         The ZipDeflate compression method used on a dataset.
         :param pulumi.Input[str] type: Type of dataset compression.
-        :param pulumi.Input[str] level: The ZipDeflate compression level.
+        :param pulumi.Input[Union[str, 'DatasetCompressionLevel']] level: The ZipDeflate compression level.
         """
         pulumi.set(__self__, "type", 'ZipDeflate')
         if level is not None:
@@ -5598,14 +5599,14 @@ class DatasetZipDeflateCompressionArgs:
 
     @property
     @pulumi.getter
-    def level(self) -> Optional[pulumi.Input[str]]:
+    def level(self) -> Optional[pulumi.Input[Union[str, 'DatasetCompressionLevel']]]:
         """
         The ZipDeflate compression level.
         """
         return pulumi.get(self, "level")
 
     @level.setter
-    def level(self, value: Optional[pulumi.Input[str]]):
+    def level(self, value: Optional[pulumi.Input[Union[str, 'DatasetCompressionLevel']]]):
         pulumi.set(self, "level", value)
 
 
@@ -5616,7 +5617,7 @@ class Db2LinkedServiceArgs:
                  server: Any,
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 authentication_type: Optional[pulumi.Input[str]] = None,
+                 authentication_type: Optional[pulumi.Input[Union[str, 'Db2AuthenticationType']]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[Any] = None,
@@ -5629,7 +5630,7 @@ class Db2LinkedServiceArgs:
         :param Any server: Server name for connection. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
-        :param pulumi.Input[str] authentication_type: AuthenticationType to be used for connection.
+        :param pulumi.Input[Union[str, 'Db2AuthenticationType']] authentication_type: AuthenticationType to be used for connection.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -5707,14 +5708,14 @@ class Db2LinkedServiceArgs:
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input[str]]:
+    def authentication_type(self) -> Optional[pulumi.Input[Union[str, 'Db2AuthenticationType']]]:
         """
         AuthenticationType to be used for connection.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input[str]]):
+    def authentication_type(self, value: Optional[pulumi.Input[Union[str, 'Db2AuthenticationType']]]):
         pulumi.set(self, "authentication_type", value)
 
     @property
@@ -6249,8 +6250,8 @@ class DynamicsEntityDatasetArgs:
 @pulumi.input_type
 class DynamicsLinkedServiceArgs:
     def __init__(__self__, *,
-                 authentication_type: pulumi.Input[str],
-                 deployment_type: pulumi.Input[str],
+                 authentication_type: pulumi.Input[Union[str, 'DynamicsAuthenticationType']],
+                 deployment_type: pulumi.Input[Union[str, 'DynamicsDeploymentType']],
                  type: pulumi.Input[str],
                  username: Any,
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
@@ -6265,8 +6266,8 @@ class DynamicsLinkedServiceArgs:
                  service_uri: Optional[Any] = None):
         """
         Dynamics linked service.
-        :param pulumi.Input[str] authentication_type: The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. Type: string (or Expression with resultType string).
-        :param pulumi.Input[str] deployment_type: The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Union[str, 'DynamicsAuthenticationType']] authentication_type: The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Union[str, 'DynamicsDeploymentType']] deployment_type: The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
         :param Any username: User name to access the Dynamics instance. Type: string (or Expression with resultType string).
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
@@ -6307,26 +6308,26 @@ class DynamicsLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> pulumi.Input[str]:
+    def authentication_type(self) -> pulumi.Input[Union[str, 'DynamicsAuthenticationType']]:
         """
         The authentication type to connect to Dynamics server. 'Office365' for online scenario, 'Ifd' for on-premises with Ifd scenario. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: pulumi.Input[str]):
+    def authentication_type(self, value: pulumi.Input[Union[str, 'DynamicsAuthenticationType']]):
         pulumi.set(self, "authentication_type", value)
 
     @property
     @pulumi.getter(name="deploymentType")
-    def deployment_type(self) -> pulumi.Input[str]:
+    def deployment_type(self) -> pulumi.Input[Union[str, 'DynamicsDeploymentType']]:
         """
         The deployment type of the Dynamics instance. 'Online' for Dynamics Online and 'OnPremisesWithIfd' for Dynamics on-premises with Ifd. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "deployment_type")
 
     @deployment_type.setter
-    def deployment_type(self, value: pulumi.Input[str]):
+    def deployment_type(self, value: pulumi.Input[Union[str, 'DynamicsDeploymentType']]):
         pulumi.set(self, "deployment_type", value)
 
     @property
@@ -6777,11 +6778,11 @@ class EloquaObjectDatasetArgs:
 class EntityReferenceArgs:
     def __init__(__self__, *,
                  reference_name: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeEntityReferenceType']]] = None):
         """
         The entity reference.
         :param pulumi.Input[str] reference_name: The name of this referenced entity.
-        :param pulumi.Input[str] type: The type of this referenced entity.
+        :param pulumi.Input[Union[str, 'IntegrationRuntimeEntityReferenceType']] type: The type of this referenced entity.
         """
         if reference_name is not None:
             pulumi.set(__self__, "reference_name", reference_name)
@@ -6802,14 +6803,14 @@ class EntityReferenceArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'IntegrationRuntimeEntityReferenceType']]]:
         """
         The type of this referenced entity.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeEntityReferenceType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -6918,23 +6919,23 @@ class ExecutionActivityArgs:
 @pulumi.input_type
 class FactoryIdentityArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input['FactoryIdentityType']):
         """
         Identity properties of the factory resource.
-        :param pulumi.Input[str] type: The identity type. Currently the only supported type is 'SystemAssigned'.
+        :param pulumi.Input['FactoryIdentityType'] type: The identity type. Currently the only supported type is 'SystemAssigned'.
         """
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['FactoryIdentityType']:
         """
         The identity type. Currently the only supported type is 'SystemAssigned'.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['FactoryIdentityType']):
         pulumi.set(self, "type", value)
 
 
@@ -7396,7 +7397,7 @@ class FtpServerLinkedServiceArgs:
                  host: Any,
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 authentication_type: Optional[pulumi.Input[str]] = None,
+                 authentication_type: Optional[pulumi.Input[Union[str, 'FtpAuthenticationType']]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_server_certificate_validation: Optional[Any] = None,
@@ -7411,7 +7412,7 @@ class FtpServerLinkedServiceArgs:
         :param Any host: Host name of the FTP server. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
-        :param pulumi.Input[str] authentication_type: The authentication type to be used to connect to the FTP server.
+        :param pulumi.Input[Union[str, 'FtpAuthenticationType']] authentication_type: The authentication type to be used to connect to the FTP server.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param Any enable_server_certificate_validation: If true, validate the FTP server SSL certificate when connect over SSL/TLS channel. Default value is true. Type: boolean (or Expression with resultType boolean).
@@ -7485,14 +7486,14 @@ class FtpServerLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input[str]]:
+    def authentication_type(self) -> Optional[pulumi.Input[Union[str, 'FtpAuthenticationType']]]:
         """
         The authentication type to be used to connect to the FTP server.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input[str]]):
+    def authentication_type(self, value: Optional[pulumi.Input[Union[str, 'FtpAuthenticationType']]]):
         pulumi.set(self, "authentication_type", value)
 
     @property
@@ -7607,7 +7608,7 @@ class FtpServerLinkedServiceArgs:
 @pulumi.input_type
 class GoogleBigQueryLinkedServiceArgs:
     def __init__(__self__, *,
-                 authentication_type: pulumi.Input[str],
+                 authentication_type: pulumi.Input[Union[str, 'GoogleBigQueryAuthenticationType']],
                  project: Any,
                  type: pulumi.Input[str],
                  additional_projects: Optional[Any] = None,
@@ -7626,7 +7627,7 @@ class GoogleBigQueryLinkedServiceArgs:
                  use_system_trust_store: Optional[Any] = None):
         """
         Google BigQuery service linked service.
-        :param pulumi.Input[str] authentication_type: The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.
+        :param pulumi.Input[Union[str, 'GoogleBigQueryAuthenticationType']] authentication_type: The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.
         :param Any project: The default BigQuery project to query against.
         :param pulumi.Input[str] type: Type of linked service.
         :param Any additional_projects: A comma-separated list of public BigQuery projects to access.
@@ -7678,14 +7679,14 @@ class GoogleBigQueryLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> pulumi.Input[str]:
+    def authentication_type(self) -> pulumi.Input[Union[str, 'GoogleBigQueryAuthenticationType']]:
         """
         The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: pulumi.Input[str]):
+    def authentication_type(self, value: pulumi.Input[Union[str, 'GoogleBigQueryAuthenticationType']]):
         pulumi.set(self, "authentication_type", value)
 
     @property
@@ -8207,7 +8208,7 @@ class GreenplumTableDatasetArgs:
 @pulumi.input_type
 class HBaseLinkedServiceArgs:
     def __init__(__self__, *,
-                 authentication_type: pulumi.Input[str],
+                 authentication_type: pulumi.Input[Union[str, 'HBaseAuthenticationType']],
                  host: Any,
                  type: pulumi.Input[str],
                  allow_host_name_cn_mismatch: Optional[Any] = None,
@@ -8225,7 +8226,7 @@ class HBaseLinkedServiceArgs:
                  username: Optional[Any] = None):
         """
         HBase server linked service.
-        :param pulumi.Input[str] authentication_type: The authentication mechanism to use to connect to the HBase server.
+        :param pulumi.Input[Union[str, 'HBaseAuthenticationType']] authentication_type: The authentication mechanism to use to connect to the HBase server.
         :param Any host: The IP address or host name of the HBase server. (i.e. 192.168.222.160)
         :param pulumi.Input[str] type: Type of linked service.
         :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
@@ -8274,14 +8275,14 @@ class HBaseLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> pulumi.Input[str]:
+    def authentication_type(self) -> pulumi.Input[Union[str, 'HBaseAuthenticationType']]:
         """
         The authentication mechanism to use to connect to the HBase server.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: pulumi.Input[str]):
+    def authentication_type(self, value: pulumi.Input[Union[str, 'HBaseAuthenticationType']]):
         pulumi.set(self, "authentication_type", value)
 
     @property
@@ -9478,7 +9479,7 @@ class HdfsLinkedServiceArgs:
 @pulumi.input_type
 class HiveLinkedServiceArgs:
     def __init__(__self__, *,
-                 authentication_type: pulumi.Input[str],
+                 authentication_type: pulumi.Input[Union[str, 'HiveAuthenticationType']],
                  host: Any,
                  type: pulumi.Input[str],
                  allow_host_name_cn_mismatch: Optional[Any] = None,
@@ -9492,9 +9493,9 @@ class HiveLinkedServiceArgs:
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  port: Optional[Any] = None,
-                 server_type: Optional[pulumi.Input[str]] = None,
+                 server_type: Optional[pulumi.Input[Union[str, 'HiveServerType']]] = None,
                  service_discovery_mode: Optional[Any] = None,
-                 thrift_transport_protocol: Optional[pulumi.Input[str]] = None,
+                 thrift_transport_protocol: Optional[pulumi.Input[Union[str, 'HiveThriftTransportProtocol']]] = None,
                  trusted_cert_path: Optional[Any] = None,
                  use_native_query: Optional[Any] = None,
                  use_system_trust_store: Optional[Any] = None,
@@ -9502,7 +9503,7 @@ class HiveLinkedServiceArgs:
                  zoo_keeper_name_space: Optional[Any] = None):
         """
         Hive Server linked service.
-        :param pulumi.Input[str] authentication_type: The authentication method used to access the Hive server.
+        :param pulumi.Input[Union[str, 'HiveAuthenticationType']] authentication_type: The authentication method used to access the Hive server.
         :param Any host: IP address or host name of the Hive server, separated by ';' for multiple hosts (only when serviceDiscoveryMode is enable).
         :param pulumi.Input[str] type: Type of linked service.
         :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
@@ -9516,9 +9517,9 @@ class HiveLinkedServiceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: The password corresponding to the user name that you provided in the Username field
         :param Any port: The TCP port that the Hive server uses to listen for client connections.
-        :param pulumi.Input[str] server_type: The type of Hive server.
+        :param pulumi.Input[Union[str, 'HiveServerType']] server_type: The type of Hive server.
         :param Any service_discovery_mode: true to indicate using the ZooKeeper service, false not.
-        :param pulumi.Input[str] thrift_transport_protocol: The transport protocol to use in the Thrift layer.
+        :param pulumi.Input[Union[str, 'HiveThriftTransportProtocol']] thrift_transport_protocol: The transport protocol to use in the Thrift layer.
         :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         :param Any use_native_query: Specifies whether the driver uses native HiveQL queries,or converts them into an equivalent form in HiveQL.
         :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
@@ -9569,14 +9570,14 @@ class HiveLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> pulumi.Input[str]:
+    def authentication_type(self) -> pulumi.Input[Union[str, 'HiveAuthenticationType']]:
         """
         The authentication method used to access the Hive server.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: pulumi.Input[str]):
+    def authentication_type(self, value: pulumi.Input[Union[str, 'HiveAuthenticationType']]):
         pulumi.set(self, "authentication_type", value)
 
     @property
@@ -9737,14 +9738,14 @@ class HiveLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="serverType")
-    def server_type(self) -> Optional[pulumi.Input[str]]:
+    def server_type(self) -> Optional[pulumi.Input[Union[str, 'HiveServerType']]]:
         """
         The type of Hive server.
         """
         return pulumi.get(self, "server_type")
 
     @server_type.setter
-    def server_type(self, value: Optional[pulumi.Input[str]]):
+    def server_type(self, value: Optional[pulumi.Input[Union[str, 'HiveServerType']]]):
         pulumi.set(self, "server_type", value)
 
     @property
@@ -9761,14 +9762,14 @@ class HiveLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="thriftTransportProtocol")
-    def thrift_transport_protocol(self) -> Optional[pulumi.Input[str]]:
+    def thrift_transport_protocol(self) -> Optional[pulumi.Input[Union[str, 'HiveThriftTransportProtocol']]]:
         """
         The transport protocol to use in the Thrift layer.
         """
         return pulumi.get(self, "thrift_transport_protocol")
 
     @thrift_transport_protocol.setter
-    def thrift_transport_protocol(self, value: Optional[pulumi.Input[str]]):
+    def thrift_transport_protocol(self, value: Optional[pulumi.Input[Union[str, 'HiveThriftTransportProtocol']]]):
         pulumi.set(self, "thrift_transport_protocol", value)
 
     @property
@@ -10142,7 +10143,7 @@ class HttpLinkedServiceArgs:
                  type: pulumi.Input[str],
                  url: Any,
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 authentication_type: Optional[pulumi.Input[str]] = None,
+                 authentication_type: Optional[pulumi.Input[Union[str, 'HttpAuthenticationType']]] = None,
                  cert_thumbprint: Optional[Any] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -10157,7 +10158,7 @@ class HttpLinkedServiceArgs:
         :param pulumi.Input[str] type: Type of linked service.
         :param Any url: The base URL of the HTTP endpoint, e.g. http://www.microsoft.com. Type: string (or Expression with resultType string).
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
-        :param pulumi.Input[str] authentication_type: The authentication type to be used to connect to the HTTP server.
+        :param pulumi.Input[Union[str, 'HttpAuthenticationType']] authentication_type: The authentication type to be used to connect to the HTTP server.
         :param Any cert_thumbprint: Thumbprint of certificate for ClientCertificate authentication. Only valid for on-premises copy. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
@@ -10231,14 +10232,14 @@ class HttpLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input[str]]:
+    def authentication_type(self) -> Optional[pulumi.Input[Union[str, 'HttpAuthenticationType']]]:
         """
         The authentication type to be used to connect to the HTTP server.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input[str]]):
+    def authentication_type(self, value: Optional[pulumi.Input[Union[str, 'HttpAuthenticationType']]]):
         pulumi.set(self, "authentication_type", value)
 
     @property
@@ -10669,7 +10670,7 @@ class HubspotObjectDatasetArgs:
 @pulumi.input_type
 class ImpalaLinkedServiceArgs:
     def __init__(__self__, *,
-                 authentication_type: pulumi.Input[str],
+                 authentication_type: pulumi.Input[Union[str, 'ImpalaAuthenticationType']],
                  host: Any,
                  type: pulumi.Input[str],
                  allow_host_name_cn_mismatch: Optional[Any] = None,
@@ -10687,7 +10688,7 @@ class ImpalaLinkedServiceArgs:
                  username: Optional[Any] = None):
         """
         Impala server linked service.
-        :param pulumi.Input[str] authentication_type: The authentication type to use.
+        :param pulumi.Input[Union[str, 'ImpalaAuthenticationType']] authentication_type: The authentication type to use.
         :param Any host: The IP address or host name of the Impala server. (i.e. 192.168.222.160)
         :param pulumi.Input[str] type: Type of linked service.
         :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
@@ -10736,14 +10737,14 @@ class ImpalaLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> pulumi.Input[str]:
+    def authentication_type(self) -> pulumi.Input[Union[str, 'ImpalaAuthenticationType']]:
         """
         The authentication type to use.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: pulumi.Input[str]):
+    def authentication_type(self, value: pulumi.Input[Union[str, 'ImpalaAuthenticationType']]):
         pulumi.set(self, "authentication_type", value)
 
     @property
@@ -11345,15 +11346,15 @@ class IntegrationRuntimeSsisPropertiesArgs:
                  catalog_info: Optional[pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs']] = None,
                  custom_setup_script_properties: Optional[pulumi.Input['IntegrationRuntimeCustomSetupScriptPropertiesArgs']] = None,
                  data_proxy_properties: Optional[pulumi.Input['IntegrationRuntimeDataProxyPropertiesArgs']] = None,
-                 edition: Optional[pulumi.Input[str]] = None,
-                 license_type: Optional[pulumi.Input[str]] = None):
+                 edition: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeEdition']]] = None,
+                 license_type: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeLicenseType']]] = None):
         """
         SSIS properties for managed integration runtime.
         :param pulumi.Input['IntegrationRuntimeSsisCatalogInfoArgs'] catalog_info: Catalog information for managed dedicated integration runtime.
         :param pulumi.Input['IntegrationRuntimeCustomSetupScriptPropertiesArgs'] custom_setup_script_properties: Custom setup script properties for a managed dedicated integration runtime.
         :param pulumi.Input['IntegrationRuntimeDataProxyPropertiesArgs'] data_proxy_properties: Data proxy properties for a managed dedicated integration runtime.
-        :param pulumi.Input[str] edition: The edition for the SSIS Integration Runtime
-        :param pulumi.Input[str] license_type: License type for bringing your own license scenario.
+        :param pulumi.Input[Union[str, 'IntegrationRuntimeEdition']] edition: The edition for the SSIS Integration Runtime
+        :param pulumi.Input[Union[str, 'IntegrationRuntimeLicenseType']] license_type: License type for bringing your own license scenario.
         """
         if catalog_info is not None:
             pulumi.set(__self__, "catalog_info", catalog_info)
@@ -11404,26 +11405,26 @@ class IntegrationRuntimeSsisPropertiesArgs:
 
     @property
     @pulumi.getter
-    def edition(self) -> Optional[pulumi.Input[str]]:
+    def edition(self) -> Optional[pulumi.Input[Union[str, 'IntegrationRuntimeEdition']]]:
         """
         The edition for the SSIS Integration Runtime
         """
         return pulumi.get(self, "edition")
 
     @edition.setter
-    def edition(self, value: Optional[pulumi.Input[str]]):
+    def edition(self, value: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeEdition']]]):
         pulumi.set(self, "edition", value)
 
     @property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> Optional[pulumi.Input[str]]:
+    def license_type(self) -> Optional[pulumi.Input[Union[str, 'IntegrationRuntimeLicenseType']]]:
         """
         License type for bringing your own license scenario.
         """
         return pulumi.get(self, "license_type")
 
     @license_type.setter
-    def license_type(self, value: Optional[pulumi.Input[str]]):
+    def license_type(self, value: Optional[pulumi.Input[Union[str, 'IntegrationRuntimeLicenseType']]]):
         pulumi.set(self, "license_type", value)
 
 
@@ -11788,7 +11789,7 @@ class JsonFormatArgs:
                  type: pulumi.Input[str],
                  deserializer: Optional[Any] = None,
                  encoding_name: Optional[Any] = None,
-                 file_pattern: Optional[pulumi.Input[str]] = None,
+                 file_pattern: Optional[pulumi.Input[Union[str, 'JsonFormatFilePattern']]] = None,
                  json_node_reference: Optional[Any] = None,
                  json_path_definition: Optional[Any] = None,
                  nesting_separator: Optional[Any] = None,
@@ -11798,7 +11799,7 @@ class JsonFormatArgs:
         :param pulumi.Input[str] type: Type of dataset storage format.
         :param Any deserializer: Deserializer. Type: string (or Expression with resultType string).
         :param Any encoding_name: The code page name of the preferred encoding. If not provided, the default value is 'utf-8', unless the byte order mark (BOM) denotes another Unicode encoding. The full list of supported values can be found in the 'Name' column of the table of encodings in the following reference: https://go.microsoft.com/fwlink/?linkid=861078. Type: string (or Expression with resultType string).
-        :param pulumi.Input[str] file_pattern: File pattern of JSON. To be more specific, the way of separating a collection of JSON objects. The default value is 'setOfObjects'. It is case-sensitive.
+        :param pulumi.Input[Union[str, 'JsonFormatFilePattern']] file_pattern: File pattern of JSON. To be more specific, the way of separating a collection of JSON objects. The default value is 'setOfObjects'. It is case-sensitive.
         :param Any json_node_reference: The JSONPath of the JSON array element to be flattened. Example: "$.ArrayPath". Type: string (or Expression with resultType string).
         :param Any json_path_definition: The JSONPath definition for each column mapping with a customized column name to extract data from JSON file. For fields under root object, start with "$"; for fields inside the array chosen by jsonNodeReference property, start from the array element. Example: {"Column1": "$.Column1Path", "Column2": "Column2PathInArray"}. Type: object (or Expression with resultType object).
         :param Any nesting_separator: The character used to separate nesting levels. Default value is '.' (dot). Type: string (or Expression with resultType string).
@@ -11858,14 +11859,14 @@ class JsonFormatArgs:
 
     @property
     @pulumi.getter(name="filePattern")
-    def file_pattern(self) -> Optional[pulumi.Input[str]]:
+    def file_pattern(self) -> Optional[pulumi.Input[Union[str, 'JsonFormatFilePattern']]]:
         """
         File pattern of JSON. To be more specific, the way of separating a collection of JSON objects. The default value is 'setOfObjects'. It is case-sensitive.
         """
         return pulumi.get(self, "file_pattern")
 
     @file_pattern.setter
-    def file_pattern(self, value: Optional[pulumi.Input[str]]):
+    def file_pattern(self, value: Optional[pulumi.Input[Union[str, 'JsonFormatFilePattern']]]):
         pulumi.set(self, "file_pattern", value)
 
     @property
@@ -13048,7 +13049,7 @@ class MongoDbLinkedServiceArgs:
                  allow_self_signed_server_cert: Optional[Any] = None,
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  auth_source: Optional[Any] = None,
-                 authentication_type: Optional[pulumi.Input[str]] = None,
+                 authentication_type: Optional[pulumi.Input[Union[str, 'MongoDbAuthenticationType']]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_ssl: Optional[Any] = None,
@@ -13065,7 +13066,7 @@ class MongoDbLinkedServiceArgs:
         :param Any allow_self_signed_server_cert: Specifies whether to allow self-signed certificates from the server. The default value is false. Type: boolean (or Expression with resultType boolean).
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
         :param Any auth_source: Database to verify the username and password. Type: string (or Expression with resultType string).
-        :param pulumi.Input[str] authentication_type: The authentication type to be used to connect to the MongoDB database.
+        :param pulumi.Input[Union[str, 'MongoDbAuthenticationType']] authentication_type: The authentication type to be used to connect to the MongoDB database.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param Any enable_ssl: Specifies whether the connections to the server are encrypted using SSL. The default value is false. Type: boolean (or Expression with resultType boolean).
@@ -13177,14 +13178,14 @@ class MongoDbLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input[str]]:
+    def authentication_type(self) -> Optional[pulumi.Input[Union[str, 'MongoDbAuthenticationType']]]:
         """
         The authentication type to be used to connect to the MongoDB database.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input[str]]):
+    def authentication_type(self, value: Optional[pulumi.Input[Union[str, 'MongoDbAuthenticationType']]]):
         pulumi.set(self, "authentication_type", value)
 
     @property
@@ -13684,7 +13685,7 @@ class ODataLinkedServiceArgs:
                  type: pulumi.Input[str],
                  url: Any,
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 authentication_type: Optional[pulumi.Input[str]] = None,
+                 authentication_type: Optional[pulumi.Input[Union[str, 'ODataAuthenticationType']]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[Any] = None,
@@ -13696,7 +13697,7 @@ class ODataLinkedServiceArgs:
         :param pulumi.Input[str] type: Type of linked service.
         :param Any url: The URL of the OData service endpoint. Type: string (or Expression with resultType string).
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
-        :param pulumi.Input[str] authentication_type: Type of authentication used to connect to the OData service.
+        :param pulumi.Input[Union[str, 'ODataAuthenticationType']] authentication_type: Type of authentication used to connect to the OData service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -13761,14 +13762,14 @@ class ODataLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input[str]]:
+    def authentication_type(self) -> Optional[pulumi.Input[Union[str, 'ODataAuthenticationType']]]:
         """
         Type of authentication used to connect to the OData service.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input[str]]):
+    def authentication_type(self, value: Optional[pulumi.Input[Union[str, 'ODataAuthenticationType']]]):
         pulumi.set(self, "authentication_type", value)
 
     @property
@@ -14437,11 +14438,11 @@ class OrcFormatArgs:
 @pulumi.input_type
 class ParameterSpecificationArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str],
+                 type: pulumi.Input[Union[str, 'ParameterType']],
                  default_value: Optional[Any] = None):
         """
         Definition of a single parameter for an entity.
-        :param pulumi.Input[str] type: Parameter type.
+        :param pulumi.Input[Union[str, 'ParameterType']] type: Parameter type.
         :param Any default_value: Default value of parameter.
         """
         pulumi.set(__self__, "type", type)
@@ -14450,14 +14451,14 @@ class ParameterSpecificationArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'ParameterType']]:
         """
         Parameter type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'ParameterType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -14830,7 +14831,7 @@ class PaypalObjectDatasetArgs:
 @pulumi.input_type
 class PhoenixLinkedServiceArgs:
     def __init__(__self__, *,
-                 authentication_type: pulumi.Input[str],
+                 authentication_type: pulumi.Input[Union[str, 'PhoenixAuthenticationType']],
                  host: Any,
                  type: pulumi.Input[str],
                  allow_host_name_cn_mismatch: Optional[Any] = None,
@@ -14849,7 +14850,7 @@ class PhoenixLinkedServiceArgs:
                  username: Optional[Any] = None):
         """
         Phoenix server linked service.
-        :param pulumi.Input[str] authentication_type: The authentication mechanism used to connect to the Phoenix server.
+        :param pulumi.Input[Union[str, 'PhoenixAuthenticationType']] authentication_type: The authentication mechanism used to connect to the Phoenix server.
         :param Any host: The IP address or host name of the Phoenix server. (i.e. 192.168.222.160)
         :param pulumi.Input[str] type: Type of linked service.
         :param Any allow_host_name_cn_mismatch: Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.
@@ -14901,14 +14902,14 @@ class PhoenixLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> pulumi.Input[str]:
+    def authentication_type(self) -> pulumi.Input[Union[str, 'PhoenixAuthenticationType']]:
         """
         The authentication mechanism used to connect to the Phoenix server.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: pulumi.Input[str]):
+    def authentication_type(self, value: pulumi.Input[Union[str, 'PhoenixAuthenticationType']]):
         pulumi.set(self, "authentication_type", value)
 
     @property
@@ -15381,7 +15382,7 @@ class PostgreSqlLinkedServiceArgs:
 @pulumi.input_type
 class PrestoLinkedServiceArgs:
     def __init__(__self__, *,
-                 authentication_type: pulumi.Input[str],
+                 authentication_type: pulumi.Input[Union[str, 'PrestoAuthenticationType']],
                  catalog: Any,
                  host: Any,
                  server_version: Any,
@@ -15402,7 +15403,7 @@ class PrestoLinkedServiceArgs:
                  username: Optional[Any] = None):
         """
         Presto server linked service.
-        :param pulumi.Input[str] authentication_type: The authentication mechanism used to connect to the Presto server.
+        :param pulumi.Input[Union[str, 'PrestoAuthenticationType']] authentication_type: The authentication mechanism used to connect to the Presto server.
         :param Any catalog: The catalog context for all request against the server.
         :param Any host: The IP address or host name of the Presto server. (i.e. 192.168.222.160)
         :param Any server_version: The version of the Presto server. (i.e. 0.148-t)
@@ -15458,14 +15459,14 @@ class PrestoLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> pulumi.Input[str]:
+    def authentication_type(self) -> pulumi.Input[Union[str, 'PrestoAuthenticationType']]:
         """
         The authentication mechanism used to connect to the Presto server.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: pulumi.Input[str]):
+    def authentication_type(self, value: pulumi.Input[Union[str, 'PrestoAuthenticationType']]):
         pulumi.set(self, "authentication_type", value)
 
     @property
@@ -17844,7 +17845,7 @@ class SapHanaLinkedServiceArgs:
                  server: Any,
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 authentication_type: Optional[pulumi.Input[str]] = None,
+                 authentication_type: Optional[pulumi.Input[Union[str, 'SapHanaAuthenticationType']]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[Any] = None,
@@ -17856,7 +17857,7 @@ class SapHanaLinkedServiceArgs:
         :param Any server: Host name of the SAP HANA server. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
-        :param pulumi.Input[str] authentication_type: The authentication type to be used to connect to the SAP HANA server.
+        :param pulumi.Input[Union[str, 'SapHanaAuthenticationType']] authentication_type: The authentication type to be used to connect to the SAP HANA server.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -17921,14 +17922,14 @@ class SapHanaLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input[str]]:
+    def authentication_type(self) -> Optional[pulumi.Input[Union[str, 'SapHanaAuthenticationType']]]:
         """
         The authentication type to be used to connect to the SAP HANA server.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input[str]]):
+    def authentication_type(self, value: Optional[pulumi.Input[Union[str, 'SapHanaAuthenticationType']]]):
         pulumi.set(self, "authentication_type", value)
 
     @property
@@ -18100,7 +18101,7 @@ class SelfHostedIntegrationRuntimeArgs:
 @pulumi.input_type
 class ServiceNowLinkedServiceArgs:
     def __init__(__self__, *,
-                 authentication_type: pulumi.Input[str],
+                 authentication_type: pulumi.Input[Union[str, 'ServiceNowAuthenticationType']],
                  endpoint: Any,
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
@@ -18117,7 +18118,7 @@ class ServiceNowLinkedServiceArgs:
                  username: Optional[Any] = None):
         """
         ServiceNow server linked service.
-        :param pulumi.Input[str] authentication_type: The authentication type to use.
+        :param pulumi.Input[Union[str, 'ServiceNowAuthenticationType']] authentication_type: The authentication type to use.
         :param Any endpoint: The endpoint of the ServiceNow server. (i.e. <instance>.service-now.com)
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
@@ -18163,14 +18164,14 @@ class ServiceNowLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> pulumi.Input[str]:
+    def authentication_type(self) -> pulumi.Input[Union[str, 'ServiceNowAuthenticationType']]:
         """
         The authentication type to use.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: pulumi.Input[str]):
+    def authentication_type(self, value: pulumi.Input[Union[str, 'ServiceNowAuthenticationType']]):
         pulumi.set(self, "authentication_type", value)
 
     @property
@@ -18450,7 +18451,7 @@ class SftpServerLinkedServiceArgs:
                  host: Any,
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 authentication_type: Optional[pulumi.Input[str]] = None,
+                 authentication_type: Optional[pulumi.Input[Union[str, 'SftpAuthenticationType']]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[Any] = None,
@@ -18468,7 +18469,7 @@ class SftpServerLinkedServiceArgs:
         :param Any host: The SFTP server host name. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
-        :param pulumi.Input[str] authentication_type: The authentication type to be used to connect to the FTP server.
+        :param pulumi.Input[Union[str, 'SftpAuthenticationType']] authentication_type: The authentication type to be used to connect to the FTP server.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -18551,14 +18552,14 @@ class SftpServerLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input[str]]:
+    def authentication_type(self) -> Optional[pulumi.Input[Union[str, 'SftpAuthenticationType']]]:
         """
         The authentication type to be used to connect to the FTP server.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input[str]]):
+    def authentication_type(self, value: Optional[pulumi.Input[Union[str, 'SftpAuthenticationType']]]):
         pulumi.set(self, "authentication_type", value)
 
     @property
@@ -18993,7 +18994,7 @@ class ShopifyObjectDatasetArgs:
 @pulumi.input_type
 class SparkLinkedServiceArgs:
     def __init__(__self__, *,
-                 authentication_type: pulumi.Input[str],
+                 authentication_type: pulumi.Input[Union[str, 'SparkAuthenticationType']],
                  host: Any,
                  port: Any,
                  type: pulumi.Input[str],
@@ -19007,14 +19008,14 @@ class SparkLinkedServiceArgs:
                  http_path: Optional[Any] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
-                 server_type: Optional[pulumi.Input[str]] = None,
-                 thrift_transport_protocol: Optional[pulumi.Input[str]] = None,
+                 server_type: Optional[pulumi.Input[Union[str, 'SparkServerType']]] = None,
+                 thrift_transport_protocol: Optional[pulumi.Input[Union[str, 'SparkThriftTransportProtocol']]] = None,
                  trusted_cert_path: Optional[Any] = None,
                  use_system_trust_store: Optional[Any] = None,
                  username: Optional[Any] = None):
         """
         Spark Server linked service.
-        :param pulumi.Input[str] authentication_type: The authentication method used to access the Spark server.
+        :param pulumi.Input[Union[str, 'SparkAuthenticationType']] authentication_type: The authentication method used to access the Spark server.
         :param Any host: IP address or host name of the Spark server
         :param Any port: The TCP port that the Spark server uses to listen for client connections.
         :param pulumi.Input[str] type: Type of linked service.
@@ -19028,8 +19029,8 @@ class SparkLinkedServiceArgs:
         :param Any http_path: The partial URL corresponding to the Spark server.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: The password corresponding to the user name that you provided in the Username field
-        :param pulumi.Input[str] server_type: The type of Spark server.
-        :param pulumi.Input[str] thrift_transport_protocol: The transport protocol to use in the Thrift layer.
+        :param pulumi.Input[Union[str, 'SparkServerType']] server_type: The type of Spark server.
+        :param pulumi.Input[Union[str, 'SparkThriftTransportProtocol']] thrift_transport_protocol: The transport protocol to use in the Thrift layer.
         :param Any trusted_cert_path: The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.
         :param Any use_system_trust_store: Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.
         :param Any username: The user name that you use to access Spark Server.
@@ -19071,14 +19072,14 @@ class SparkLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> pulumi.Input[str]:
+    def authentication_type(self) -> pulumi.Input[Union[str, 'SparkAuthenticationType']]:
         """
         The authentication method used to access the Spark server.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: pulumi.Input[str]):
+    def authentication_type(self, value: pulumi.Input[Union[str, 'SparkAuthenticationType']]):
         pulumi.set(self, "authentication_type", value)
 
     @property
@@ -19239,26 +19240,26 @@ class SparkLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="serverType")
-    def server_type(self) -> Optional[pulumi.Input[str]]:
+    def server_type(self) -> Optional[pulumi.Input[Union[str, 'SparkServerType']]]:
         """
         The type of Spark server.
         """
         return pulumi.get(self, "server_type")
 
     @server_type.setter
-    def server_type(self, value: Optional[pulumi.Input[str]]):
+    def server_type(self, value: Optional[pulumi.Input[Union[str, 'SparkServerType']]]):
         pulumi.set(self, "server_type", value)
 
     @property
     @pulumi.getter(name="thriftTransportProtocol")
-    def thrift_transport_protocol(self) -> Optional[pulumi.Input[str]]:
+    def thrift_transport_protocol(self) -> Optional[pulumi.Input[Union[str, 'SparkThriftTransportProtocol']]]:
         """
         The transport protocol to use in the Thrift layer.
         """
         return pulumi.get(self, "thrift_transport_protocol")
 
     @thrift_transport_protocol.setter
-    def thrift_transport_protocol(self, value: Optional[pulumi.Input[str]]):
+    def thrift_transport_protocol(self, value: Optional[pulumi.Input[Union[str, 'SparkThriftTransportProtocol']]]):
         pulumi.set(self, "thrift_transport_protocol", value)
 
     @property
@@ -19988,7 +19989,7 @@ class SybaseLinkedServiceArgs:
                  server: Any,
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 authentication_type: Optional[pulumi.Input[str]] = None,
+                 authentication_type: Optional[pulumi.Input[Union[str, 'SybaseAuthenticationType']]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[Any] = None,
@@ -20002,7 +20003,7 @@ class SybaseLinkedServiceArgs:
         :param Any server: Server name for connection. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
-        :param pulumi.Input[str] authentication_type: AuthenticationType to be used for connection.
+        :param pulumi.Input[Union[str, 'SybaseAuthenticationType']] authentication_type: AuthenticationType to be used for connection.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -20083,14 +20084,14 @@ class SybaseLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input[str]]:
+    def authentication_type(self) -> Optional[pulumi.Input[Union[str, 'SybaseAuthenticationType']]]:
         """
         AuthenticationType to be used for connection.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input[str]]):
+    def authentication_type(self, value: Optional[pulumi.Input[Union[str, 'SybaseAuthenticationType']]]):
         pulumi.set(self, "authentication_type", value)
 
     @property
@@ -20184,7 +20185,7 @@ class TeradataLinkedServiceArgs:
                  server: Any,
                  type: pulumi.Input[str],
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 authentication_type: Optional[pulumi.Input[str]] = None,
+                 authentication_type: Optional[pulumi.Input[Union[str, 'TeradataAuthenticationType']]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted_credential: Optional[Any] = None,
@@ -20196,7 +20197,7 @@ class TeradataLinkedServiceArgs:
         :param Any server: Server name for connection. Type: string (or Expression with resultType string).
         :param pulumi.Input[str] type: Type of linked service.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
-        :param pulumi.Input[str] authentication_type: AuthenticationType to be used for connection.
+        :param pulumi.Input[Union[str, 'TeradataAuthenticationType']] authentication_type: AuthenticationType to be used for connection.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param pulumi.Input[str] description: Linked service description.
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
@@ -20261,14 +20262,14 @@ class TeradataLinkedServiceArgs:
 
     @property
     @pulumi.getter(name="authenticationType")
-    def authentication_type(self) -> Optional[pulumi.Input[str]]:
+    def authentication_type(self) -> Optional[pulumi.Input[Union[str, 'TeradataAuthenticationType']]]:
         """
         AuthenticationType to be used for connection.
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
-    def authentication_type(self, value: Optional[pulumi.Input[str]]):
+    def authentication_type(self, value: Optional[pulumi.Input[Union[str, 'TeradataAuthenticationType']]]):
         pulumi.set(self, "authentication_type", value)
 
     @property
@@ -20586,7 +20587,7 @@ class TriggerPipelineReferenceArgs:
 @pulumi.input_type
 class TumblingWindowTriggerArgs:
     def __init__(__self__, *,
-                 frequency: pulumi.Input[str],
+                 frequency: pulumi.Input[Union[str, 'TumblingWindowFrequency']],
                  interval: pulumi.Input[int],
                  max_concurrency: pulumi.Input[int],
                  pipeline: pulumi.Input['TriggerPipelineReferenceArgs'],
@@ -20598,7 +20599,7 @@ class TumblingWindowTriggerArgs:
                  retry_policy: Optional[pulumi.Input['RetryPolicyArgs']] = None):
         """
         Trigger that schedules pipeline runs for all fixed time interval windows from a start time without gaps and also supports backfill scenarios (when start time is in the past).
-        :param pulumi.Input[str] frequency: The frequency of the time windows.
+        :param pulumi.Input[Union[str, 'TumblingWindowFrequency']] frequency: The frequency of the time windows.
         :param pulumi.Input[int] interval: The interval of the time windows. The minimum interval allowed is 15 Minutes.
         :param pulumi.Input[int] max_concurrency: The max number of parallel time windows (ready for execution) for which a new run is triggered.
         :param pulumi.Input['TriggerPipelineReferenceArgs'] pipeline: Pipeline for which runs are created when an event is fired for trigger window that is ready.
@@ -20626,14 +20627,14 @@ class TumblingWindowTriggerArgs:
 
     @property
     @pulumi.getter
-    def frequency(self) -> pulumi.Input[str]:
+    def frequency(self) -> pulumi.Input[Union[str, 'TumblingWindowFrequency']]:
         """
         The frequency of the time windows.
         """
         return pulumi.get(self, "frequency")
 
     @frequency.setter
-    def frequency(self, value: pulumi.Input[str]):
+    def frequency(self, value: pulumi.Input[Union[str, 'TumblingWindowFrequency']]):
         pulumi.set(self, "frequency", value)
 
     @property

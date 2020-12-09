@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ApiManagementService']
@@ -29,7 +30,7 @@ class ApiManagementService(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ApiManagementServiceSkuPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vpn_type: Optional[pulumi.Input[str]] = None,
+                 vpn_type: Optional[pulumi.Input['VirtualNetworkType']] = None,
                  vpnconfiguration: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkConfigurationArgs']]] = None,
                  __props__=None,
                  __name__=None,
@@ -51,7 +52,7 @@ class ApiManagementService(pulumi.CustomResource):
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[pulumi.InputType['ApiManagementServiceSkuPropertiesArgs']] sku: SKU properties of the API Management service.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] vpn_type: The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
+        :param pulumi.Input['VirtualNetworkType'] vpn_type: The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
         :param pulumi.Input[pulumi.InputType['VirtualNetworkConfigurationArgs']] vpnconfiguration: Virtual network configuration of the API Management service.
         """
         if __name__ is not None:
@@ -75,23 +76,23 @@ class ApiManagementService(pulumi.CustomResource):
             __props__['addresser_email'] = addresser_email
             __props__['custom_properties'] = custom_properties
             __props__['hostname_configurations'] = hostname_configurations
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['name'] = name
-            if publisher_email is None:
+            if publisher_email is None and not opts.urn:
                 raise TypeError("Missing required property 'publisher_email'")
             __props__['publisher_email'] = publisher_email
-            if publisher_name is None:
+            if publisher_name is None and not opts.urn:
                 raise TypeError("Missing required property 'publisher_name'")
             __props__['publisher_name'] = publisher_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if service_name is None:
+            if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
-            if sku is None:
+            if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags

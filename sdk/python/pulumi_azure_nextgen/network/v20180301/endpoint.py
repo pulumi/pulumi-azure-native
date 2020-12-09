@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Endpoint']
@@ -19,9 +20,9 @@ class Endpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointPropertiesCustomHeadersArgs']]]]] = None,
                  endpoint_location: Optional[pulumi.Input[str]] = None,
-                 endpoint_monitor_status: Optional[pulumi.Input[str]] = None,
+                 endpoint_monitor_status: Optional[pulumi.Input[Union[str, 'EndpointMonitorStatus']]] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
-                 endpoint_status: Optional[pulumi.Input[str]] = None,
+                 endpoint_status: Optional[pulumi.Input[Union[str, 'EndpointStatus']]] = None,
                  endpoint_type: Optional[pulumi.Input[str]] = None,
                  geo_mapping: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -44,9 +45,9 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointPropertiesCustomHeadersArgs']]]] custom_headers: List of custom headers.
         :param pulumi.Input[str] endpoint_location: Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
-        :param pulumi.Input[str] endpoint_monitor_status: The monitoring status of the endpoint.
+        :param pulumi.Input[Union[str, 'EndpointMonitorStatus']] endpoint_monitor_status: The monitoring status of the endpoint.
         :param pulumi.Input[str] endpoint_name: The name of the Traffic Manager endpoint to be created or updated.
-        :param pulumi.Input[str] endpoint_status: The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
+        :param pulumi.Input[Union[str, 'EndpointStatus']] endpoint_status: The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
         :param pulumi.Input[str] endpoint_type: The type of the Traffic Manager endpoint to be created or updated.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mapping: The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
         :param pulumi.Input[str] id: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
@@ -80,11 +81,11 @@ class Endpoint(pulumi.CustomResource):
             __props__['custom_headers'] = custom_headers
             __props__['endpoint_location'] = endpoint_location
             __props__['endpoint_monitor_status'] = endpoint_monitor_status
-            if endpoint_name is None:
+            if endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_name'")
             __props__['endpoint_name'] = endpoint_name
             __props__['endpoint_status'] = endpoint_status
-            if endpoint_type is None:
+            if endpoint_type is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_type'")
             __props__['endpoint_type'] = endpoint_type
             __props__['geo_mapping'] = geo_mapping
@@ -92,10 +93,10 @@ class Endpoint(pulumi.CustomResource):
             __props__['min_child_endpoints'] = min_child_endpoints
             __props__['name'] = name
             __props__['priority'] = priority
-            if profile_name is None:
+            if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")
             __props__['profile_name'] = profile_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['target'] = target

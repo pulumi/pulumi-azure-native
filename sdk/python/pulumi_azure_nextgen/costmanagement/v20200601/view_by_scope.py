@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ViewByScope']
@@ -17,18 +18,18 @@ class ViewByScope(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accumulated: Optional[pulumi.Input[str]] = None,
-                 chart: Optional[pulumi.Input[str]] = None,
+                 accumulated: Optional[pulumi.Input[Union[str, 'AccumulatedType']]] = None,
+                 chart: Optional[pulumi.Input[Union[str, 'ChartType']]] = None,
                  dataset: Optional[pulumi.Input[pulumi.InputType['ReportConfigDatasetArgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  kpis: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KpiPropertiesArgs']]]]] = None,
-                 metric: Optional[pulumi.Input[str]] = None,
+                 metric: Optional[pulumi.Input[Union[str, 'MetricType']]] = None,
                  pivots: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PivotPropertiesArgs']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  time_period: Optional[pulumi.Input[pulumi.InputType['ReportConfigTimePeriodArgs']]] = None,
-                 timeframe: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 timeframe: Optional[pulumi.Input[Union[str, 'ReportTimeframeType']]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'ReportType']]] = None,
                  view_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -38,18 +39,18 @@ class ViewByScope(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] accumulated: Show costs accumulated over time.
-        :param pulumi.Input[str] chart: Chart type of the main view in Cost Analysis. Required.
+        :param pulumi.Input[Union[str, 'AccumulatedType']] accumulated: Show costs accumulated over time.
+        :param pulumi.Input[Union[str, 'ChartType']] chart: Chart type of the main view in Cost Analysis. Required.
         :param pulumi.Input[pulumi.InputType['ReportConfigDatasetArgs']] dataset: Has definition for data in this report config.
         :param pulumi.Input[str] display_name: User input name of the view. Required.
         :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KpiPropertiesArgs']]]] kpis: List of KPIs to show in Cost Analysis UI.
-        :param pulumi.Input[str] metric: Metric to use when displaying costs.
+        :param pulumi.Input[Union[str, 'MetricType']] metric: Metric to use when displaying costs.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PivotPropertiesArgs']]]] pivots: Configuration of 3 sub-views in the Cost Analysis UI.
         :param pulumi.Input[str] scope: Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
         :param pulumi.Input[pulumi.InputType['ReportConfigTimePeriodArgs']] time_period: Has time period for pulling data for the report.
-        :param pulumi.Input[str] timeframe: The time frame for pulling data for the report. If custom, then a specific time period must be provided.
-        :param pulumi.Input[str] type: The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
+        :param pulumi.Input[Union[str, 'ReportTimeframeType']] timeframe: The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+        :param pulumi.Input[Union[str, 'ReportType']] type: The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
         :param pulumi.Input[str] view_name: View name
         """
         if __name__ is not None:
@@ -77,17 +78,17 @@ class ViewByScope(pulumi.CustomResource):
             __props__['kpis'] = kpis
             __props__['metric'] = metric
             __props__['pivots'] = pivots
-            if scope is None:
+            if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
             __props__['time_period'] = time_period
-            if timeframe is None:
+            if timeframe is None and not opts.urn:
                 raise TypeError("Missing required property 'timeframe'")
             __props__['timeframe'] = timeframe
-            if type is None:
+            if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
-            if view_name is None:
+            if view_name is None and not opts.urn:
                 raise TypeError("Missing required property 'view_name'")
             __props__['view_name'] = view_name
             __props__['created_on'] = None

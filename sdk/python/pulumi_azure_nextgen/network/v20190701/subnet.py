@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Subnet']
@@ -89,7 +90,7 @@ class Subnet(pulumi.CustomResource):
             __props__['network_security_group'] = network_security_group
             __props__['private_endpoint_network_policies'] = private_endpoint_network_policies
             __props__['private_link_service_network_policies'] = private_link_service_network_policies
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_navigation_links'] = resource_navigation_links
@@ -97,10 +98,10 @@ class Subnet(pulumi.CustomResource):
             __props__['service_association_links'] = service_association_links
             __props__['service_endpoint_policies'] = service_endpoint_policies
             __props__['service_endpoints'] = service_endpoints
-            if subnet_name is None:
+            if subnet_name is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_name'")
             __props__['subnet_name'] = subnet_name
-            if virtual_network_name is None:
+            if virtual_network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_name'")
             __props__['virtual_network_name'] = virtual_network_name
             __props__['ip_configuration_profiles'] = None

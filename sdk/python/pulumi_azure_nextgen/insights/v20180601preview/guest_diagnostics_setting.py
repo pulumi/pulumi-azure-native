@@ -57,15 +57,15 @@ class GuestDiagnosticsSetting(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['data_sources'] = data_sources
-            if diagnostic_settings_name is None:
+            if diagnostic_settings_name is None and not opts.urn:
                 raise TypeError("Missing required property 'diagnostic_settings_name'")
             __props__['diagnostic_settings_name'] = diagnostic_settings_name
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['os_type'] = os_type
             __props__['proxy_setting'] = proxy_setting
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

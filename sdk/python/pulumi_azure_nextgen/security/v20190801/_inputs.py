@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AllowlistCustomAlertRuleArgs',
@@ -126,38 +127,38 @@ class DenylistCustomAlertRuleArgs:
 @pulumi.input_type
 class RecommendationConfigurationPropertiesArgs:
     def __init__(__self__, *,
-                 recommendation_type: pulumi.Input[str],
-                 status: pulumi.Input[str]):
+                 recommendation_type: pulumi.Input[Union[str, 'RecommendationType']],
+                 status: pulumi.Input[Union[str, 'RecommendationConfigStatus']]):
         """
         The type of IoT Security recommendation.
-        :param pulumi.Input[str] recommendation_type: The type of IoT Security recommendation.
-        :param pulumi.Input[str] status: Recommendation status. When the recommendation status is disabled recommendations are not generated.
+        :param pulumi.Input[Union[str, 'RecommendationType']] recommendation_type: The type of IoT Security recommendation.
+        :param pulumi.Input[Union[str, 'RecommendationConfigStatus']] status: Recommendation status. When the recommendation status is disabled recommendations are not generated.
         """
         pulumi.set(__self__, "recommendation_type", recommendation_type)
         pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter(name="recommendationType")
-    def recommendation_type(self) -> pulumi.Input[str]:
+    def recommendation_type(self) -> pulumi.Input[Union[str, 'RecommendationType']]:
         """
         The type of IoT Security recommendation.
         """
         return pulumi.get(self, "recommendation_type")
 
     @recommendation_type.setter
-    def recommendation_type(self, value: pulumi.Input[str]):
+    def recommendation_type(self, value: pulumi.Input[Union[str, 'RecommendationType']]):
         pulumi.set(self, "recommendation_type", value)
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Input[str]:
+    def status(self) -> pulumi.Input[Union[str, 'RecommendationConfigStatus']]:
         """
         Recommendation status. When the recommendation status is disabled recommendations are not generated.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: pulumi.Input[str]):
+    def status(self, value: pulumi.Input[Union[str, 'RecommendationConfigStatus']]):
         pulumi.set(self, "status", value)
 
 

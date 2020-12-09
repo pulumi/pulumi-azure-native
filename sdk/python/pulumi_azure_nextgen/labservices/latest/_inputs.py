@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ReferenceVmArgs',
@@ -98,12 +99,12 @@ class ResourceSettingsArgs:
     def __init__(__self__, *,
                  reference_vm: pulumi.Input['ReferenceVmArgs'],
                  gallery_image_resource_id: Optional[pulumi.Input[str]] = None,
-                 size: Optional[pulumi.Input[str]] = None):
+                 size: Optional[pulumi.Input[Union[str, 'ManagedLabVmSize']]] = None):
         """
         Represents resource specific settings
         :param pulumi.Input['ReferenceVmArgs'] reference_vm: Details specific to Reference Vm
         :param pulumi.Input[str] gallery_image_resource_id: The resource id of the gallery image used for creating the virtual machine
-        :param pulumi.Input[str] size: The size of the virtual machine
+        :param pulumi.Input[Union[str, 'ManagedLabVmSize']] size: The size of the virtual machine
         """
         pulumi.set(__self__, "reference_vm", reference_vm)
         if gallery_image_resource_id is not None:
@@ -137,14 +138,14 @@ class ResourceSettingsArgs:
 
     @property
     @pulumi.getter
-    def size(self) -> Optional[pulumi.Input[str]]:
+    def size(self) -> Optional[pulumi.Input[Union[str, 'ManagedLabVmSize']]]:
         """
         The size of the virtual machine
         """
         return pulumi.get(self, "size")
 
     @size.setter
-    def size(self, value: Optional[pulumi.Input[str]]):
+    def size(self, value: Optional[pulumi.Input[Union[str, 'ManagedLabVmSize']]]):
         pulumi.set(self, "size", value)
 
 

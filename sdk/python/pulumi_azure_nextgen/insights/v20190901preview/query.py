@@ -61,22 +61,22 @@ class Query(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if body is None:
+            if body is None and not opts.urn:
                 raise TypeError("Missing required property 'body'")
             __props__['body'] = body
             __props__['description'] = description
-            if display_name is None:
+            if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
-            if id is None:
+            if id is None and not opts.urn:
                 raise TypeError("Missing required property 'id'")
             __props__['id'] = id
             __props__['properties'] = properties
-            if query_pack_name is None:
+            if query_pack_name is None and not opts.urn:
                 raise TypeError("Missing required property 'query_pack_name'")
             __props__['query_pack_name'] = query_pack_name
             __props__['related'] = related
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['AccessPolicy']
 
@@ -20,7 +21,7 @@ class AccessPolicy(pulumi.CustomResource):
                  environment_name: Optional[pulumi.Input[str]] = None,
                  principal_object_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 roles: Optional[pulumi.Input[Sequence[pulumi.Input['AccessPolicyRole']]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -34,7 +35,7 @@ class AccessPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] environment_name: The name of the Time Series Insights environment associated with the specified resource group.
         :param pulumi.Input[str] principal_object_id: The objectId of the principal in Azure Active Directory.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: The list of roles the principal is assigned on the environment.
+        :param pulumi.Input[Sequence[pulumi.Input['AccessPolicyRole']]] roles: The list of roles the principal is assigned on the environment.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -53,15 +54,15 @@ class AccessPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if access_policy_name is None:
+            if access_policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'access_policy_name'")
             __props__['access_policy_name'] = access_policy_name
             __props__['description'] = description
-            if environment_name is None:
+            if environment_name is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_name'")
             __props__['environment_name'] = environment_name
             __props__['principal_object_id'] = principal_object_id
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['roles'] = roles

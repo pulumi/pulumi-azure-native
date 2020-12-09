@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AzureIaaSVMProtectionPolicyArgs',
@@ -255,23 +256,23 @@ class DayArgs:
 @pulumi.input_type
 class IdentityDataArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input[Union[str, 'ResourceIdentityType']]):
         """
         Identity for the resource.
-        :param pulumi.Input[str] type: The identity type.
+        :param pulumi.Input[Union[str, 'ResourceIdentityType']] type: The identity type.
         """
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'ResourceIdentityType']]:
         """
         The identity type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
 
@@ -464,14 +465,14 @@ class MonthlyRetentionScheduleArgs:
     def __init__(__self__, *,
                  retention_duration: Optional[pulumi.Input['RetentionDurationArgs']] = None,
                  retention_schedule_daily: Optional[pulumi.Input['DailyRetentionFormatArgs']] = None,
-                 retention_schedule_format_type: Optional[pulumi.Input[str]] = None,
+                 retention_schedule_format_type: Optional[pulumi.Input['RetentionScheduleFormat']] = None,
                  retention_schedule_weekly: Optional[pulumi.Input['WeeklyRetentionFormatArgs']] = None,
                  retention_times: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The monthly retention schedule.
         :param pulumi.Input['RetentionDurationArgs'] retention_duration: Retention duration of the retention policy.
         :param pulumi.Input['DailyRetentionFormatArgs'] retention_schedule_daily: Daily retention format for the monthly retention policy.
-        :param pulumi.Input[str] retention_schedule_format_type: Retention schedule format type for monthly retention policy.
+        :param pulumi.Input['RetentionScheduleFormat'] retention_schedule_format_type: Retention schedule format type for monthly retention policy.
         :param pulumi.Input['WeeklyRetentionFormatArgs'] retention_schedule_weekly: Weekly retention format for the monthly retention policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] retention_times: Retention times of the retention policy.
         """
@@ -512,14 +513,14 @@ class MonthlyRetentionScheduleArgs:
 
     @property
     @pulumi.getter(name="retentionScheduleFormatType")
-    def retention_schedule_format_type(self) -> Optional[pulumi.Input[str]]:
+    def retention_schedule_format_type(self) -> Optional[pulumi.Input['RetentionScheduleFormat']]:
         """
         Retention schedule format type for monthly retention policy.
         """
         return pulumi.get(self, "retention_schedule_format_type")
 
     @retention_schedule_format_type.setter
-    def retention_schedule_format_type(self, value: Optional[pulumi.Input[str]]):
+    def retention_schedule_format_type(self, value: Optional[pulumi.Input['RetentionScheduleFormat']]):
         pulumi.set(self, "retention_schedule_format_type", value)
 
     @property
@@ -551,12 +552,12 @@ class MonthlyRetentionScheduleArgs:
 class RetentionDurationArgs:
     def __init__(__self__, *,
                  count: Optional[pulumi.Input[int]] = None,
-                 duration_type: Optional[pulumi.Input[str]] = None):
+                 duration_type: Optional[pulumi.Input['RetentionDurationType']] = None):
         """
         Retention duration.
         :param pulumi.Input[int] count: Count of the duration types. Retention duration is determined by the combining the Count times and durationType. 
                   For example, if Count = 3 and durationType = Weeks, then the retention duration is three weeks.
-        :param pulumi.Input[str] duration_type: The retention duration type of the retention policy.
+        :param pulumi.Input['RetentionDurationType'] duration_type: The retention duration type of the retention policy.
         """
         if count is not None:
             pulumi.set(__self__, "count", count)
@@ -578,14 +579,14 @@ class RetentionDurationArgs:
 
     @property
     @pulumi.getter(name="durationType")
-    def duration_type(self) -> Optional[pulumi.Input[str]]:
+    def duration_type(self) -> Optional[pulumi.Input['RetentionDurationType']]:
         """
         The retention duration type of the retention policy.
         """
         return pulumi.get(self, "duration_type")
 
     @duration_type.setter
-    def duration_type(self, value: Optional[pulumi.Input[str]]):
+    def duration_type(self, value: Optional[pulumi.Input['RetentionDurationType']]):
         pulumi.set(self, "duration_type", value)
 
 
@@ -633,15 +634,15 @@ class SimpleRetentionPolicyArgs:
 class SimpleSchedulePolicyArgs:
     def __init__(__self__, *,
                  schedule_policy_type: Optional[pulumi.Input[str]] = None,
-                 schedule_run_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 schedule_run_frequency: Optional[pulumi.Input[str]] = None,
+                 schedule_run_days: Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]] = None,
+                 schedule_run_frequency: Optional[pulumi.Input['ScheduleRunType']] = None,
                  schedule_run_times: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  schedule_weekly_frequency: Optional[pulumi.Input[int]] = None):
         """
         Simple policy schedule.
         :param pulumi.Input[str] schedule_policy_type: This property is used as the discriminator for deciding the specific types in the polymorphic chain of types.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] schedule_run_days: This list is the days of the week when the schedule runs.
-        :param pulumi.Input[str] schedule_run_frequency: Defines the frequency interval (daily or weekly) for the schedule policy.
+        :param pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]] schedule_run_days: This list is the days of the week when the schedule runs.
+        :param pulumi.Input['ScheduleRunType'] schedule_run_frequency: Defines the frequency interval (daily or weekly) for the schedule policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] schedule_run_times: List of times, during a day, when the schedule runs.
         :param pulumi.Input[int] schedule_weekly_frequency: The number of times per week the schedule runs.
         """
@@ -670,26 +671,26 @@ class SimpleSchedulePolicyArgs:
 
     @property
     @pulumi.getter(name="scheduleRunDays")
-    def schedule_run_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def schedule_run_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]:
         """
         This list is the days of the week when the schedule runs.
         """
         return pulumi.get(self, "schedule_run_days")
 
     @schedule_run_days.setter
-    def schedule_run_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def schedule_run_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]):
         pulumi.set(self, "schedule_run_days", value)
 
     @property
     @pulumi.getter(name="scheduleRunFrequency")
-    def schedule_run_frequency(self) -> Optional[pulumi.Input[str]]:
+    def schedule_run_frequency(self) -> Optional[pulumi.Input['ScheduleRunType']]:
         """
         Defines the frequency interval (daily or weekly) for the schedule policy.
         """
         return pulumi.get(self, "schedule_run_frequency")
 
     @schedule_run_frequency.setter
-    def schedule_run_frequency(self, value: Optional[pulumi.Input[str]]):
+    def schedule_run_frequency(self, value: Optional[pulumi.Input['ScheduleRunType']]):
         pulumi.set(self, "schedule_run_frequency", value)
 
     @property
@@ -720,35 +721,35 @@ class SimpleSchedulePolicyArgs:
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str]):
+                 name: pulumi.Input[Union[str, 'SkuName']]):
         """
         Identifies the unique system identifier for each Azure resource.
-        :param pulumi.Input[str] name: The Sku name.
+        :param pulumi.Input[Union[str, 'SkuName']] name: The Sku name.
         """
         pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input[Union[str, 'SkuName']]:
         """
         The Sku name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class WeeklyRetentionFormatArgs:
     def __init__(__self__, *,
-                 days_of_the_week: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 weeks_of_the_month: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 days_of_the_week: Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]] = None,
+                 weeks_of_the_month: Optional[pulumi.Input[Sequence[pulumi.Input['WeekOfMonth']]]] = None):
         """
         Weekly retention format.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] days_of_the_week: List of days of the week.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] weeks_of_the_month: List of weeks of the month.
+        :param pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]] days_of_the_week: List of days of the week.
+        :param pulumi.Input[Sequence[pulumi.Input['WeekOfMonth']]] weeks_of_the_month: List of weeks of the month.
         """
         if days_of_the_week is not None:
             pulumi.set(__self__, "days_of_the_week", days_of_the_week)
@@ -757,38 +758,38 @@ class WeeklyRetentionFormatArgs:
 
     @property
     @pulumi.getter(name="daysOfTheWeek")
-    def days_of_the_week(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def days_of_the_week(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]:
         """
         List of days of the week.
         """
         return pulumi.get(self, "days_of_the_week")
 
     @days_of_the_week.setter
-    def days_of_the_week(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def days_of_the_week(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]):
         pulumi.set(self, "days_of_the_week", value)
 
     @property
     @pulumi.getter(name="weeksOfTheMonth")
-    def weeks_of_the_month(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def weeks_of_the_month(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WeekOfMonth']]]]:
         """
         List of weeks of the month.
         """
         return pulumi.get(self, "weeks_of_the_month")
 
     @weeks_of_the_month.setter
-    def weeks_of_the_month(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def weeks_of_the_month(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WeekOfMonth']]]]):
         pulumi.set(self, "weeks_of_the_month", value)
 
 
 @pulumi.input_type
 class WeeklyRetentionScheduleArgs:
     def __init__(__self__, *,
-                 days_of_the_week: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 days_of_the_week: Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]] = None,
                  retention_duration: Optional[pulumi.Input['RetentionDurationArgs']] = None,
                  retention_times: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Weekly retention schedule.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] days_of_the_week: List of the days of the week for the weekly retention policy.
+        :param pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]] days_of_the_week: List of the days of the week for the weekly retention policy.
         :param pulumi.Input['RetentionDurationArgs'] retention_duration: Retention duration of retention policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] retention_times: Retention times of the retention policy.
         """
@@ -801,14 +802,14 @@ class WeeklyRetentionScheduleArgs:
 
     @property
     @pulumi.getter(name="daysOfTheWeek")
-    def days_of_the_week(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def days_of_the_week(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]:
         """
         List of the days of the week for the weekly retention policy.
         """
         return pulumi.get(self, "days_of_the_week")
 
     @days_of_the_week.setter
-    def days_of_the_week(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def days_of_the_week(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]):
         pulumi.set(self, "days_of_the_week", value)
 
     @property
@@ -839,18 +840,18 @@ class WeeklyRetentionScheduleArgs:
 @pulumi.input_type
 class YearlyRetentionScheduleArgs:
     def __init__(__self__, *,
-                 months_of_year: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 months_of_year: Optional[pulumi.Input[Sequence[pulumi.Input['MonthOfYear']]]] = None,
                  retention_duration: Optional[pulumi.Input['RetentionDurationArgs']] = None,
                  retention_schedule_daily: Optional[pulumi.Input['DailyRetentionFormatArgs']] = None,
-                 retention_schedule_format_type: Optional[pulumi.Input[str]] = None,
+                 retention_schedule_format_type: Optional[pulumi.Input['RetentionScheduleFormat']] = None,
                  retention_schedule_weekly: Optional[pulumi.Input['WeeklyRetentionFormatArgs']] = None,
                  retention_times: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Yearly retention schedule.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] months_of_year: List of the months of year for the yearly retention policy.
+        :param pulumi.Input[Sequence[pulumi.Input['MonthOfYear']]] months_of_year: List of the months of year for the yearly retention policy.
         :param pulumi.Input['RetentionDurationArgs'] retention_duration: Retention duration for the retention policy.
         :param pulumi.Input['DailyRetentionFormatArgs'] retention_schedule_daily: Daily retention format for the yearly retention policy.
-        :param pulumi.Input[str] retention_schedule_format_type: Retention schedule format for the yearly retention policy.
+        :param pulumi.Input['RetentionScheduleFormat'] retention_schedule_format_type: Retention schedule format for the yearly retention policy.
         :param pulumi.Input['WeeklyRetentionFormatArgs'] retention_schedule_weekly: Weekly retention format for the yearly retention policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] retention_times: Retention times for the retention policy.
         """
@@ -869,14 +870,14 @@ class YearlyRetentionScheduleArgs:
 
     @property
     @pulumi.getter(name="monthsOfYear")
-    def months_of_year(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def months_of_year(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonthOfYear']]]]:
         """
         List of the months of year for the yearly retention policy.
         """
         return pulumi.get(self, "months_of_year")
 
     @months_of_year.setter
-    def months_of_year(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def months_of_year(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonthOfYear']]]]):
         pulumi.set(self, "months_of_year", value)
 
     @property
@@ -905,14 +906,14 @@ class YearlyRetentionScheduleArgs:
 
     @property
     @pulumi.getter(name="retentionScheduleFormatType")
-    def retention_schedule_format_type(self) -> Optional[pulumi.Input[str]]:
+    def retention_schedule_format_type(self) -> Optional[pulumi.Input['RetentionScheduleFormat']]:
         """
         Retention schedule format for the yearly retention policy.
         """
         return pulumi.get(self, "retention_schedule_format_type")
 
     @retention_schedule_format_type.setter
-    def retention_schedule_format_type(self, value: Optional[pulumi.Input[str]]):
+    def retention_schedule_format_type(self, value: Optional[pulumi.Input['RetentionScheduleFormat']]):
         pulumi.set(self, "retention_schedule_format_type", value)
 
     @property

@@ -81,21 +81,21 @@ class NodeType(pulumi.CustomResource):
 
             __props__['application_ports'] = application_ports
             __props__['capacities'] = capacities
-            if cluster_name is None:
+            if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
-            if data_disk_size_gb is None:
+            if data_disk_size_gb is None and not opts.urn:
                 raise TypeError("Missing required property 'data_disk_size_gb'")
             __props__['data_disk_size_gb'] = data_disk_size_gb
             __props__['ephemeral_ports'] = ephemeral_ports
-            if is_primary is None:
+            if is_primary is None and not opts.urn:
                 raise TypeError("Missing required property 'is_primary'")
             __props__['is_primary'] = is_primary
-            if node_type_name is None:
+            if node_type_name is None and not opts.urn:
                 raise TypeError("Missing required property 'node_type_name'")
             __props__['node_type_name'] = node_type_name
             __props__['placement_properties'] = placement_properties
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
@@ -104,7 +104,7 @@ class NodeType(pulumi.CustomResource):
             __props__['vm_image_publisher'] = vm_image_publisher
             __props__['vm_image_sku'] = vm_image_sku
             __props__['vm_image_version'] = vm_image_version
-            if vm_instance_count is None:
+            if vm_instance_count is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_instance_count'")
             __props__['vm_instance_count'] = vm_instance_count
             __props__['vm_secrets'] = vm_secrets

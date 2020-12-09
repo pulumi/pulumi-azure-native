@@ -62,21 +62,21 @@ class ConnectionMonitor(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['auto_start'] = auto_start
-            if connection_monitor_name is None:
+            if connection_monitor_name is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_monitor_name'")
             __props__['connection_monitor_name'] = connection_monitor_name
-            if destination is None:
+            if destination is None and not opts.urn:
                 raise TypeError("Missing required property 'destination'")
             __props__['destination'] = destination
             __props__['location'] = location
             __props__['monitoring_interval_in_seconds'] = monitoring_interval_in_seconds
-            if network_watcher_name is None:
+            if network_watcher_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_watcher_name'")
             __props__['network_watcher_name'] = network_watcher_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if source is None:
+            if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__['source'] = source
             __props__['tags'] = tags

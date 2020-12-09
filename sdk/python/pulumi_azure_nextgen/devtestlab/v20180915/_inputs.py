@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ArmTemplateParameterPropertiesArgs',
@@ -307,12 +308,12 @@ class AttachNewDataDiskOptionsArgs:
     def __init__(__self__, *,
                  disk_name: Optional[pulumi.Input[str]] = None,
                  disk_size_gi_b: Optional[pulumi.Input[int]] = None,
-                 disk_type: Optional[pulumi.Input[str]] = None):
+                 disk_type: Optional[pulumi.Input[Union[str, 'StorageType']]] = None):
         """
         Properties to attach new disk to the Virtual Machine.
         :param pulumi.Input[str] disk_name: The name of the disk to be attached.
         :param pulumi.Input[int] disk_size_gi_b: Size of the disk to be attached in GibiBytes.
-        :param pulumi.Input[str] disk_type: The storage type for the disk (i.e. Standard, Premium).
+        :param pulumi.Input[Union[str, 'StorageType']] disk_type: The storage type for the disk (i.e. Standard, Premium).
         """
         if disk_name is not None:
             pulumi.set(__self__, "disk_name", disk_name)
@@ -347,14 +348,14 @@ class AttachNewDataDiskOptionsArgs:
 
     @property
     @pulumi.getter(name="diskType")
-    def disk_type(self) -> Optional[pulumi.Input[str]]:
+    def disk_type(self) -> Optional[pulumi.Input[Union[str, 'StorageType']]]:
         """
         The storage type for the disk (i.e. Standard, Premium).
         """
         return pulumi.get(self, "disk_type")
 
     @disk_type.setter
-    def disk_type(self, value: Optional[pulumi.Input[str]]):
+    def disk_type(self, value: Optional[pulumi.Input[Union[str, 'StorageType']]]):
         pulumi.set(self, "disk_type", value)
 
 
@@ -385,12 +386,12 @@ class BulkCreationParametersArgs:
 @pulumi.input_type
 class CustomImagePropertiesCustomArgs:
     def __init__(__self__, *,
-                 os_type: pulumi.Input[str],
+                 os_type: pulumi.Input[Union[str, 'CustomImageOsType']],
                  image_name: Optional[pulumi.Input[str]] = None,
                  sys_prep: Optional[pulumi.Input[bool]] = None):
         """
         Properties for creating a custom image from a VHD.
-        :param pulumi.Input[str] os_type: The OS type of the custom image (i.e. Windows, Linux)
+        :param pulumi.Input[Union[str, 'CustomImageOsType']] os_type: The OS type of the custom image (i.e. Windows, Linux)
         :param pulumi.Input[str] image_name: The image name.
         :param pulumi.Input[bool] sys_prep: Indicates whether sysprep has been run on the VHD.
         """
@@ -402,14 +403,14 @@ class CustomImagePropertiesCustomArgs:
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> pulumi.Input[str]:
+    def os_type(self) -> pulumi.Input[Union[str, 'CustomImageOsType']]:
         """
         The OS type of the custom image (i.e. Windows, Linux)
         """
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: pulumi.Input[str]):
+    def os_type(self, value: pulumi.Input[Union[str, 'CustomImageOsType']]):
         pulumi.set(self, "os_type", value)
 
     @property
@@ -554,12 +555,12 @@ class DataDiskPropertiesArgs:
     def __init__(__self__, *,
                  attach_new_data_disk_options: Optional[pulumi.Input['AttachNewDataDiskOptionsArgs']] = None,
                  existing_lab_disk_id: Optional[pulumi.Input[str]] = None,
-                 host_caching: Optional[pulumi.Input[str]] = None):
+                 host_caching: Optional[pulumi.Input[Union[str, 'HostCachingOptions']]] = None):
         """
         Request body for adding a new or existing data disk to a virtual machine.
         :param pulumi.Input['AttachNewDataDiskOptionsArgs'] attach_new_data_disk_options: Specifies options to attach a new disk to the virtual machine.
         :param pulumi.Input[str] existing_lab_disk_id: Specifies the existing lab disk id to attach to virtual machine.
-        :param pulumi.Input[str] host_caching: Caching option for a data disk (i.e. None, ReadOnly, ReadWrite).
+        :param pulumi.Input[Union[str, 'HostCachingOptions']] host_caching: Caching option for a data disk (i.e. None, ReadOnly, ReadWrite).
         """
         if attach_new_data_disk_options is not None:
             pulumi.set(__self__, "attach_new_data_disk_options", attach_new_data_disk_options)
@@ -594,14 +595,14 @@ class DataDiskPropertiesArgs:
 
     @property
     @pulumi.getter(name="hostCaching")
-    def host_caching(self) -> Optional[pulumi.Input[str]]:
+    def host_caching(self) -> Optional[pulumi.Input[Union[str, 'HostCachingOptions']]]:
         """
         Caching option for a data disk (i.e. None, ReadOnly, ReadWrite).
         """
         return pulumi.get(self, "host_caching")
 
     @host_caching.setter
-    def host_caching(self, value: Optional[pulumi.Input[str]]):
+    def host_caching(self, value: Optional[pulumi.Input[Union[str, 'HostCachingOptions']]]):
         pulumi.set(self, "host_caching", value)
 
 
@@ -609,11 +610,11 @@ class DataDiskPropertiesArgs:
 class DataDiskStorageTypeInfoArgs:
     def __init__(__self__, *,
                  lun: Optional[pulumi.Input[str]] = None,
-                 storage_type: Optional[pulumi.Input[str]] = None):
+                 storage_type: Optional[pulumi.Input[Union[str, 'StorageType']]] = None):
         """
         Storage information about the data disks present in the custom image
         :param pulumi.Input[str] lun: Disk Lun
-        :param pulumi.Input[str] storage_type: Disk Storage Type
+        :param pulumi.Input[Union[str, 'StorageType']] storage_type: Disk Storage Type
         """
         if lun is not None:
             pulumi.set(__self__, "lun", lun)
@@ -634,14 +635,14 @@ class DataDiskStorageTypeInfoArgs:
 
     @property
     @pulumi.getter(name="storageType")
-    def storage_type(self) -> Optional[pulumi.Input[str]]:
+    def storage_type(self) -> Optional[pulumi.Input[Union[str, 'StorageType']]]:
         """
         Disk Storage Type
         """
         return pulumi.get(self, "storage_type")
 
     @storage_type.setter
-    def storage_type(self, value: Optional[pulumi.Input[str]]):
+    def storage_type(self, value: Optional[pulumi.Input[Union[str, 'StorageType']]]):
         pulumi.set(self, "storage_type", value)
 
 
@@ -712,24 +713,24 @@ class EnvironmentDeploymentPropertiesArgs:
 @pulumi.input_type
 class EventArgs:
     def __init__(__self__, *,
-                 event_name: Optional[pulumi.Input[str]] = None):
+                 event_name: Optional[pulumi.Input[Union[str, 'NotificationChannelEventType']]] = None):
         """
         An event to be notified for.
-        :param pulumi.Input[str] event_name: The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
+        :param pulumi.Input[Union[str, 'NotificationChannelEventType']] event_name: The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
         """
         if event_name is not None:
             pulumi.set(__self__, "event_name", event_name)
 
     @property
     @pulumi.getter(name="eventName")
-    def event_name(self) -> Optional[pulumi.Input[str]]:
+    def event_name(self) -> Optional[pulumi.Input[Union[str, 'NotificationChannelEventType']]]:
         """
         The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
         """
         return pulumi.get(self, "event_name")
 
     @event_name.setter
-    def event_name(self, value: Optional[pulumi.Input[str]]):
+    def event_name(self, value: Optional[pulumi.Input[Union[str, 'NotificationChannelEventType']]]):
         pulumi.set(self, "event_name", value)
 
 
@@ -946,12 +947,12 @@ class InboundNatRuleArgs:
     def __init__(__self__, *,
                  backend_port: Optional[pulumi.Input[int]] = None,
                  frontend_port: Optional[pulumi.Input[int]] = None,
-                 transport_protocol: Optional[pulumi.Input[str]] = None):
+                 transport_protocol: Optional[pulumi.Input[Union[str, 'TransportProtocol']]] = None):
         """
         A rule for NAT - exposing a VM's port (backendPort) on the public IP address using a load balancer.
         :param pulumi.Input[int] backend_port: The port to which the external traffic will be redirected.
         :param pulumi.Input[int] frontend_port: The external endpoint port of the inbound connection. Possible values range between 1 and 65535, inclusive. If unspecified, a value will be allocated automatically.
-        :param pulumi.Input[str] transport_protocol: The transport protocol for the endpoint.
+        :param pulumi.Input[Union[str, 'TransportProtocol']] transport_protocol: The transport protocol for the endpoint.
         """
         if backend_port is not None:
             pulumi.set(__self__, "backend_port", backend_port)
@@ -986,28 +987,28 @@ class InboundNatRuleArgs:
 
     @property
     @pulumi.getter(name="transportProtocol")
-    def transport_protocol(self) -> Optional[pulumi.Input[str]]:
+    def transport_protocol(self) -> Optional[pulumi.Input[Union[str, 'TransportProtocol']]]:
         """
         The transport protocol for the endpoint.
         """
         return pulumi.get(self, "transport_protocol")
 
     @transport_protocol.setter
-    def transport_protocol(self, value: Optional[pulumi.Input[str]]):
+    def transport_protocol(self, value: Optional[pulumi.Input[Union[str, 'TransportProtocol']]]):
         pulumi.set(self, "transport_protocol", value)
 
 
 @pulumi.input_type
 class LabAnnouncementPropertiesArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[Union[str, 'EnableStatus']]] = None,
                  expiration_date: Optional[pulumi.Input[str]] = None,
                  expired: Optional[pulumi.Input[bool]] = None,
                  markdown: Optional[pulumi.Input[str]] = None,
                  title: Optional[pulumi.Input[str]] = None):
         """
         Properties of a lab's announcement banner
-        :param pulumi.Input[str] enabled: Is the lab announcement active/enabled at this time?
+        :param pulumi.Input[Union[str, 'EnableStatus']] enabled: Is the lab announcement active/enabled at this time?
         :param pulumi.Input[str] expiration_date: The time at which the announcement expires (null for never)
         :param pulumi.Input[bool] expired: Has this announcement expired?
         :param pulumi.Input[str] markdown: The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
@@ -1026,14 +1027,14 @@ class LabAnnouncementPropertiesArgs:
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[str]]:
+    def enabled(self) -> Optional[pulumi.Input[Union[str, 'EnableStatus']]]:
         """
         Is the lab announcement active/enabled at this time?
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[str]]):
+    def enabled(self, value: Optional[pulumi.Input[Union[str, 'EnableStatus']]]):
         pulumi.set(self, "enabled", value)
 
     @property
@@ -1088,11 +1089,11 @@ class LabAnnouncementPropertiesArgs:
 @pulumi.input_type
 class LabSupportPropertiesArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[str]] = None,
+                 enabled: Optional[pulumi.Input[Union[str, 'EnableStatus']]] = None,
                  markdown: Optional[pulumi.Input[str]] = None):
         """
         Properties of a lab's support banner
-        :param pulumi.Input[str] enabled: Is the lab support banner active/enabled at this time?
+        :param pulumi.Input[Union[str, 'EnableStatus']] enabled: Is the lab support banner active/enabled at this time?
         :param pulumi.Input[str] markdown: The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
         """
         if enabled is not None:
@@ -1102,14 +1103,14 @@ class LabSupportPropertiesArgs:
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[str]]:
+    def enabled(self) -> Optional[pulumi.Input[Union[str, 'EnableStatus']]]:
         """
         Is the lab support banner active/enabled at this time?
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[str]]):
+    def enabled(self, value: Optional[pulumi.Input[Union[str, 'EnableStatus']]]):
         pulumi.set(self, "enabled", value)
 
     @property
@@ -1162,7 +1163,7 @@ class LabVirtualMachineCreationParameterArgs:
                  storage_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
-                 virtual_machine_creation_source: Optional[pulumi.Input[str]] = None):
+                 virtual_machine_creation_source: Optional[pulumi.Input[Union[str, 'VirtualMachineCreationSource']]] = None):
         """
         Properties for creating a virtual machine.
         :param pulumi.Input[bool] allow_claim: Indicates whether another user can take ownership of the virtual machine
@@ -1199,7 +1200,7 @@ class LabVirtualMachineCreationParameterArgs:
         :param pulumi.Input[str] storage_type: Storage type to use for virtual machine (i.e. Standard, Premium).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] user_name: The user name of the virtual machine.
-        :param pulumi.Input[str] virtual_machine_creation_source: Tells source of creation of lab virtual machine. Output property only.
+        :param pulumi.Input[Union[str, 'VirtualMachineCreationSource']] virtual_machine_creation_source: Tells source of creation of lab virtual machine. Output property only.
         """
         if allow_claim is not None:
             pulumi.set(__self__, "allow_claim", allow_claim)
@@ -1682,38 +1683,38 @@ class LabVirtualMachineCreationParameterArgs:
 
     @property
     @pulumi.getter(name="virtualMachineCreationSource")
-    def virtual_machine_creation_source(self) -> Optional[pulumi.Input[str]]:
+    def virtual_machine_creation_source(self) -> Optional[pulumi.Input[Union[str, 'VirtualMachineCreationSource']]]:
         """
         Tells source of creation of lab virtual machine. Output property only.
         """
         return pulumi.get(self, "virtual_machine_creation_source")
 
     @virtual_machine_creation_source.setter
-    def virtual_machine_creation_source(self, value: Optional[pulumi.Input[str]]):
+    def virtual_machine_creation_source(self, value: Optional[pulumi.Input[Union[str, 'VirtualMachineCreationSource']]]):
         pulumi.set(self, "virtual_machine_creation_source", value)
 
 
 @pulumi.input_type
 class LinuxOsInfoArgs:
     def __init__(__self__, *,
-                 linux_os_state: Optional[pulumi.Input[str]] = None):
+                 linux_os_state: Optional[pulumi.Input[Union[str, 'LinuxOsState']]] = None):
         """
         Information about a Linux OS.
-        :param pulumi.Input[str] linux_os_state: The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
+        :param pulumi.Input[Union[str, 'LinuxOsState']] linux_os_state: The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
         """
         if linux_os_state is not None:
             pulumi.set(__self__, "linux_os_state", linux_os_state)
 
     @property
     @pulumi.getter(name="linuxOsState")
-    def linux_os_state(self) -> Optional[pulumi.Input[str]]:
+    def linux_os_state(self) -> Optional[pulumi.Input[Union[str, 'LinuxOsState']]]:
         """
         The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
         """
         return pulumi.get(self, "linux_os_state")
 
     @linux_os_state.setter
-    def linux_os_state(self, value: Optional[pulumi.Input[str]]):
+    def linux_os_state(self, value: Optional[pulumi.Input[Union[str, 'LinuxOsState']]]):
         pulumi.set(self, "linux_os_state", value)
 
 
@@ -1874,14 +1875,14 @@ class NotificationSettingsArgs:
     def __init__(__self__, *,
                  email_recipient: Optional[pulumi.Input[str]] = None,
                  notification_locale: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'EnableStatus']]] = None,
                  time_in_minutes: Optional[pulumi.Input[int]] = None,
                  webhook_url: Optional[pulumi.Input[str]] = None):
         """
         Notification settings for a schedule.
         :param pulumi.Input[str] email_recipient: The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
         :param pulumi.Input[str] notification_locale: The locale to use when sending a notification (fallback for unsupported languages is EN).
-        :param pulumi.Input[str] status: If notifications are enabled for this schedule (i.e. Enabled, Disabled).
+        :param pulumi.Input[Union[str, 'EnableStatus']] status: If notifications are enabled for this schedule (i.e. Enabled, Disabled).
         :param pulumi.Input[int] time_in_minutes: Time in minutes before event at which notification will be sent.
         :param pulumi.Input[str] webhook_url: The webhook URL to which the notification will be sent.
         """
@@ -1922,14 +1923,14 @@ class NotificationSettingsArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input[Union[str, 'EnableStatus']]]:
         """
         If notifications are enabled for this schedule (i.e. Enabled, Disabled).
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input[Union[str, 'EnableStatus']]]):
         pulumi.set(self, "status", value)
 
     @property
@@ -1961,11 +1962,11 @@ class NotificationSettingsArgs:
 class PortArgs:
     def __init__(__self__, *,
                  backend_port: Optional[pulumi.Input[int]] = None,
-                 transport_protocol: Optional[pulumi.Input[str]] = None):
+                 transport_protocol: Optional[pulumi.Input[Union[str, 'TransportProtocol']]] = None):
         """
         Properties of a network port.
         :param pulumi.Input[int] backend_port: Backend port of the target virtual machine.
-        :param pulumi.Input[str] transport_protocol: Protocol type of the port.
+        :param pulumi.Input[Union[str, 'TransportProtocol']] transport_protocol: Protocol type of the port.
         """
         if backend_port is not None:
             pulumi.set(__self__, "backend_port", backend_port)
@@ -1986,14 +1987,14 @@ class PortArgs:
 
     @property
     @pulumi.getter(name="transportProtocol")
-    def transport_protocol(self) -> Optional[pulumi.Input[str]]:
+    def transport_protocol(self) -> Optional[pulumi.Input[Union[str, 'TransportProtocol']]]:
         """
         Protocol type of the port.
         """
         return pulumi.get(self, "transport_protocol")
 
     @transport_protocol.setter
-    def transport_protocol(self, value: Optional[pulumi.Input[str]]):
+    def transport_protocol(self, value: Optional[pulumi.Input[Union[str, 'TransportProtocol']]]):
         pulumi.set(self, "transport_protocol", value)
 
 
@@ -2005,7 +2006,7 @@ class ScheduleCreationParameterArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification_settings: Optional[pulumi.Input['NotificationSettingsArgs']] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'EnableStatus']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  task_type: Optional[pulumi.Input[str]] = None,
@@ -2018,7 +2019,7 @@ class ScheduleCreationParameterArgs:
         :param pulumi.Input[str] location: The location of the new virtual machine or environment
         :param pulumi.Input[str] name: The name of the virtual machine or environment
         :param pulumi.Input['NotificationSettingsArgs'] notification_settings: Notification settings.
-        :param pulumi.Input[str] status: The status of the schedule (i.e. Enabled, Disabled)
+        :param pulumi.Input[Union[str, 'EnableStatus']] status: The status of the schedule (i.e. Enabled, Disabled)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
         :param pulumi.Input[str] target_resource_id: The resource ID to which the schedule belongs
         :param pulumi.Input[str] task_type: The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
@@ -2110,14 +2111,14 @@ class ScheduleCreationParameterArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input[Union[str, 'EnableStatus']]]:
         """
         The status of the schedule (i.e. Enabled, Disabled)
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input[Union[str, 'EnableStatus']]]):
         pulumi.set(self, "status", value)
 
     @property
@@ -2208,12 +2209,12 @@ class SharedPublicIpAddressConfigurationArgs:
 @pulumi.input_type
 class SubnetArgs:
     def __init__(__self__, *,
-                 allow_public_ip: Optional[pulumi.Input[str]] = None,
+                 allow_public_ip: Optional[pulumi.Input[Union[str, 'UsagePermissionType']]] = None,
                  lab_subnet_name: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None):
         """
         Subnet information.
-        :param pulumi.Input[str] allow_public_ip: The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
+        :param pulumi.Input[Union[str, 'UsagePermissionType']] allow_public_ip: The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
         :param pulumi.Input[str] lab_subnet_name: The name of the subnet as seen in the lab.
         :param pulumi.Input[str] resource_id: The resource ID of the subnet.
         """
@@ -2226,14 +2227,14 @@ class SubnetArgs:
 
     @property
     @pulumi.getter(name="allowPublicIp")
-    def allow_public_ip(self) -> Optional[pulumi.Input[str]]:
+    def allow_public_ip(self) -> Optional[pulumi.Input[Union[str, 'UsagePermissionType']]]:
         """
         The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
         """
         return pulumi.get(self, "allow_public_ip")
 
     @allow_public_ip.setter
-    def allow_public_ip(self, value: Optional[pulumi.Input[str]]):
+    def allow_public_ip(self, value: Optional[pulumi.Input[Union[str, 'UsagePermissionType']]]):
         pulumi.set(self, "allow_public_ip", value)
 
     @property
@@ -2267,16 +2268,16 @@ class SubnetOverrideArgs:
                  lab_subnet_name: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  shared_public_ip_address_configuration: Optional[pulumi.Input['SubnetSharedPublicIpAddressConfigurationArgs']] = None,
-                 use_in_vm_creation_permission: Optional[pulumi.Input[str]] = None,
-                 use_public_ip_address_permission: Optional[pulumi.Input[str]] = None,
+                 use_in_vm_creation_permission: Optional[pulumi.Input[Union[str, 'UsagePermissionType']]] = None,
+                 use_public_ip_address_permission: Optional[pulumi.Input[Union[str, 'UsagePermissionType']]] = None,
                  virtual_network_pool_name: Optional[pulumi.Input[str]] = None):
         """
         Property overrides on a subnet of a virtual network.
         :param pulumi.Input[str] lab_subnet_name: The name given to the subnet within the lab.
         :param pulumi.Input[str] resource_id: The resource ID of the subnet.
         :param pulumi.Input['SubnetSharedPublicIpAddressConfigurationArgs'] shared_public_ip_address_configuration: Properties that virtual machines on this subnet will share.
-        :param pulumi.Input[str] use_in_vm_creation_permission: Indicates whether this subnet can be used during virtual machine creation (i.e. Allow, Deny).
-        :param pulumi.Input[str] use_public_ip_address_permission: Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny).
+        :param pulumi.Input[Union[str, 'UsagePermissionType']] use_in_vm_creation_permission: Indicates whether this subnet can be used during virtual machine creation (i.e. Allow, Deny).
+        :param pulumi.Input[Union[str, 'UsagePermissionType']] use_public_ip_address_permission: Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny).
         :param pulumi.Input[str] virtual_network_pool_name: The virtual network pool associated with this subnet.
         """
         if lab_subnet_name is not None:
@@ -2330,26 +2331,26 @@ class SubnetOverrideArgs:
 
     @property
     @pulumi.getter(name="useInVmCreationPermission")
-    def use_in_vm_creation_permission(self) -> Optional[pulumi.Input[str]]:
+    def use_in_vm_creation_permission(self) -> Optional[pulumi.Input[Union[str, 'UsagePermissionType']]]:
         """
         Indicates whether this subnet can be used during virtual machine creation (i.e. Allow, Deny).
         """
         return pulumi.get(self, "use_in_vm_creation_permission")
 
     @use_in_vm_creation_permission.setter
-    def use_in_vm_creation_permission(self, value: Optional[pulumi.Input[str]]):
+    def use_in_vm_creation_permission(self, value: Optional[pulumi.Input[Union[str, 'UsagePermissionType']]]):
         pulumi.set(self, "use_in_vm_creation_permission", value)
 
     @property
     @pulumi.getter(name="usePublicIpAddressPermission")
-    def use_public_ip_address_permission(self) -> Optional[pulumi.Input[str]]:
+    def use_public_ip_address_permission(self) -> Optional[pulumi.Input[Union[str, 'UsagePermissionType']]]:
         """
         Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny).
         """
         return pulumi.get(self, "use_public_ip_address_permission")
 
     @use_public_ip_address_permission.setter
-    def use_public_ip_address_permission(self, value: Optional[pulumi.Input[str]]):
+    def use_public_ip_address_permission(self, value: Optional[pulumi.Input[Union[str, 'UsagePermissionType']]]):
         pulumi.set(self, "use_public_ip_address_permission", value)
 
     @property
@@ -2560,24 +2561,24 @@ class WeekDetailsArgs:
 @pulumi.input_type
 class WindowsOsInfoArgs:
     def __init__(__self__, *,
-                 windows_os_state: Optional[pulumi.Input[str]] = None):
+                 windows_os_state: Optional[pulumi.Input[Union[str, 'WindowsOsState']]] = None):
         """
         Information about a Windows OS.
-        :param pulumi.Input[str] windows_os_state: The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).
+        :param pulumi.Input[Union[str, 'WindowsOsState']] windows_os_state: The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).
         """
         if windows_os_state is not None:
             pulumi.set(__self__, "windows_os_state", windows_os_state)
 
     @property
     @pulumi.getter(name="windowsOsState")
-    def windows_os_state(self) -> Optional[pulumi.Input[str]]:
+    def windows_os_state(self) -> Optional[pulumi.Input[Union[str, 'WindowsOsState']]]:
         """
         The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).
         """
         return pulumi.get(self, "windows_os_state")
 
     @windows_os_state.setter
-    def windows_os_state(self, value: Optional[pulumi.Input[str]]):
+    def windows_os_state(self, value: Optional[pulumi.Input[Union[str, 'WindowsOsState']]]):
         pulumi.set(self, "windows_os_state", value)
 
 

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AdvancedScheduleArgs',
@@ -84,11 +85,11 @@ class AdvancedScheduleArgs:
 @pulumi.input_type
 class AdvancedScheduleMonthlyOccurrenceArgs:
     def __init__(__self__, *,
-                 day: Optional[pulumi.Input[str]] = None,
+                 day: Optional[pulumi.Input[Union[str, 'ScheduleDay']]] = None,
                  occurrence: Optional[pulumi.Input[int]] = None):
         """
         The properties of the create advanced schedule monthly occurrence.
-        :param pulumi.Input[str] day: Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
+        :param pulumi.Input[Union[str, 'ScheduleDay']] day: Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
         :param pulumi.Input[int] occurrence: Occurrence of the week within the month. Must be between 1 and 5
         """
         if day is not None:
@@ -98,14 +99,14 @@ class AdvancedScheduleMonthlyOccurrenceArgs:
 
     @property
     @pulumi.getter
-    def day(self) -> Optional[pulumi.Input[str]]:
+    def day(self) -> Optional[pulumi.Input[Union[str, 'ScheduleDay']]]:
         """
         Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
         """
         return pulumi.get(self, "day")
 
     @day.setter
-    def day(self, value: Optional[pulumi.Input[str]]):
+    def day(self, value: Optional[pulumi.Input[Union[str, 'ScheduleDay']]]):
         pulumi.set(self, "day", value)
 
     @property
@@ -243,13 +244,13 @@ class ContentLinkArgs:
 class ContentSourceArgs:
     def __init__(__self__, *,
                  hash: Optional[pulumi.Input['ContentHashArgs']] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'ContentSourceType']]] = None,
                  value: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         Definition of the content source.
         :param pulumi.Input['ContentHashArgs'] hash: Gets or sets the hash.
-        :param pulumi.Input[str] type: Gets or sets the content source type.
+        :param pulumi.Input[Union[str, 'ContentSourceType']] type: Gets or sets the content source type.
         :param pulumi.Input[str] value: Gets or sets the value of the content. This is based on the content source type.
         :param pulumi.Input[str] version: Gets or sets the version of the content.
         """
@@ -276,14 +277,14 @@ class ContentSourceArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ContentSourceType']]]:
         """
         Gets or sets the content source type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ContentSourceType']]]):
         pulumi.set(self, "type", value)
 
     @property
@@ -688,12 +689,12 @@ class ScheduleAssociationPropertyArgs:
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
+                 name: pulumi.Input[Union[str, 'SkuNameEnum']],
                  capacity: Optional[pulumi.Input[int]] = None,
                  family: Optional[pulumi.Input[str]] = None):
         """
         The account SKU.
-        :param pulumi.Input[str] name: Gets or sets the SKU name of the account.
+        :param pulumi.Input[Union[str, 'SkuNameEnum']] name: Gets or sets the SKU name of the account.
         :param pulumi.Input[int] capacity: Gets or sets the SKU capacity.
         :param pulumi.Input[str] family: Gets or sets the SKU family.
         """
@@ -705,14 +706,14 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input[Union[str, 'SkuNameEnum']]:
         """
         Gets or sets the SKU name of the account.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input[Union[str, 'SkuNameEnum']]):
         pulumi.set(self, "name", value)
 
     @property

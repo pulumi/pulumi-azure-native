@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AdditionalRegionArgs',
@@ -20,13 +21,13 @@ __all__ = [
 class AdditionalRegionArgs:
     def __init__(__self__, *,
                  location: pulumi.Input[str],
-                 sku_type: pulumi.Input[str],
+                 sku_type: pulumi.Input['SkuType'],
                  sku_unit_count: Optional[pulumi.Input[int]] = None,
                  vpnconfiguration: Optional[pulumi.Input['VirtualNetworkConfigurationArgs']] = None):
         """
         Description of an additional API Management resource location.
         :param pulumi.Input[str] location: The location name of the additional region among Azure Data center regions.
-        :param pulumi.Input[str] sku_type: The SKU type in the location.
+        :param pulumi.Input['SkuType'] sku_type: The SKU type in the location.
         :param pulumi.Input[int] sku_unit_count: The SKU Unit count at the location. The maximum SKU Unit count depends on the SkuType. Maximum allowed for Developer SKU is 1, for Standard SKU is 4, and for Premium SKU is 10, at a location.
         :param pulumi.Input['VirtualNetworkConfigurationArgs'] vpnconfiguration: Virtual network configuration for the location.
         """
@@ -51,14 +52,14 @@ class AdditionalRegionArgs:
 
     @property
     @pulumi.getter(name="skuType")
-    def sku_type(self) -> pulumi.Input[str]:
+    def sku_type(self) -> pulumi.Input['SkuType']:
         """
         The SKU type in the location.
         """
         return pulumi.get(self, "sku_type")
 
     @sku_type.setter
-    def sku_type(self, value: pulumi.Input[str]):
+    def sku_type(self, value: pulumi.Input['SkuType']):
         pulumi.set(self, "sku_type", value)
 
     @property
@@ -89,11 +90,11 @@ class AdditionalRegionArgs:
 @pulumi.input_type
 class ApiManagementServiceSkuPropertiesArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
+                 name: pulumi.Input['SkuType'],
                  capacity: Optional[pulumi.Input[int]] = None):
         """
         API Management service resource SKU properties.
-        :param pulumi.Input[str] name: Name of the Sku.
+        :param pulumi.Input['SkuType'] name: Name of the Sku.
         :param pulumi.Input[int] capacity: Capacity of the SKU (number of deployed units of the SKU). The default value is 1.
         """
         pulumi.set(__self__, "name", name)
@@ -102,14 +103,14 @@ class ApiManagementServiceSkuPropertiesArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input['SkuType']:
         """
         Name of the Sku.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input['SkuType']):
         pulumi.set(self, "name", value)
 
     @property
@@ -183,12 +184,12 @@ class HostnameConfigurationArgs:
     def __init__(__self__, *,
                  certificate: pulumi.Input['CertificateInformationArgs'],
                  hostname: pulumi.Input[str],
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input['HostnameType']):
         """
         Custom hostname configuration.
         :param pulumi.Input['CertificateInformationArgs'] certificate: Certificate information.
         :param pulumi.Input[str] hostname: Hostname.
-        :param pulumi.Input[str] type: Hostname type.
+        :param pulumi.Input['HostnameType'] type: Hostname type.
         """
         pulumi.set(__self__, "certificate", certificate)
         pulumi.set(__self__, "hostname", hostname)
@@ -220,14 +221,14 @@ class HostnameConfigurationArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['HostnameType']:
         """
         Hostname type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['HostnameType']):
         pulumi.set(self, "type", value)
 
 

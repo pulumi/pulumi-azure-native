@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 
 __all__ = ['Topic']
 
@@ -22,7 +23,7 @@ class Topic(pulumi.CustomResource):
                  enable_batched_operations: Optional[pulumi.Input[bool]] = None,
                  enable_express: Optional[pulumi.Input[bool]] = None,
                  enable_partitioning: Optional[pulumi.Input[bool]] = None,
-                 entity_availability_status: Optional[pulumi.Input[str]] = None,
+                 entity_availability_status: Optional[pulumi.Input['EntityAvailabilityStatus']] = None,
                  filtering_messages_before_publishing: Optional[pulumi.Input[bool]] = None,
                  is_anonymous_accessible: Optional[pulumi.Input[bool]] = None,
                  is_express: Optional[pulumi.Input[bool]] = None,
@@ -32,7 +33,7 @@ class Topic(pulumi.CustomResource):
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['EntityStatus']] = None,
                  support_ordering: Optional[pulumi.Input[bool]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -49,7 +50,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_batched_operations: Value that indicates whether server-side batched operations are enabled.
         :param pulumi.Input[bool] enable_express: Value that indicates whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
         :param pulumi.Input[bool] enable_partitioning: Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
-        :param pulumi.Input[str] entity_availability_status: Entity availability status for the topic.
+        :param pulumi.Input['EntityAvailabilityStatus'] entity_availability_status: Entity availability status for the topic.
         :param pulumi.Input[bool] filtering_messages_before_publishing: Whether messages should be filtered before publishing.
         :param pulumi.Input[bool] is_anonymous_accessible: Value that indicates whether the message is accessible anonymously.
         :param pulumi.Input[str] location: Location of the resource.
@@ -58,7 +59,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[str] namespace_name: The namespace name
         :param pulumi.Input[bool] requires_duplicate_detection: Value indicating if this topic requires duplicate detection.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[str] status: Enumerates the possible values for the status of a messaging entity.
+        :param pulumi.Input['EntityStatus'] status: Enumerates the possible values for the status of a messaging entity.
         :param pulumi.Input[bool] support_ordering: Value that indicates whether the topic supports ordering.
         :param pulumi.Input[str] topic_name: The topic name.
         """
@@ -89,21 +90,21 @@ class Topic(pulumi.CustomResource):
             __props__['filtering_messages_before_publishing'] = filtering_messages_before_publishing
             __props__['is_anonymous_accessible'] = is_anonymous_accessible
             __props__['is_express'] = is_express
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['max_size_in_megabytes'] = max_size_in_megabytes
             __props__['name'] = name
-            if namespace_name is None:
+            if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
             __props__['requires_duplicate_detection'] = requires_duplicate_detection
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['status'] = status
             __props__['support_ordering'] = support_ordering
-            if topic_name is None:
+            if topic_name is None and not opts.urn:
                 raise TypeError("Missing required property 'topic_name'")
             __props__['topic_name'] = topic_name
             __props__['accessed_at'] = None

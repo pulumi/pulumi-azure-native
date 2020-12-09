@@ -55,23 +55,23 @@ class Backup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_name is None:
+            if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if backup_name is None:
+            if backup_name is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_name'")
             __props__['backup_name'] = backup_name
             __props__['label'] = label
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if pool_name is None:
+            if pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'pool_name'")
             __props__['pool_name'] = pool_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if volume_name is None:
+            if volume_name is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_name'")
             __props__['volume_name'] = volume_name
             __props__['backup_type'] = None

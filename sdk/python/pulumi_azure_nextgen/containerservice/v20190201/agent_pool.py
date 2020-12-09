@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['AgentPool']
 
@@ -25,10 +26,10 @@ class AgentPool(pulumi.CustomResource):
                  min_count: Optional[pulumi.Input[int]] = None,
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
                  os_disk_size_gb: Optional[pulumi.Input[int]] = None,
-                 os_type: Optional[pulumi.Input[str]] = None,
+                 os_type: Optional[pulumi.Input[Union[str, 'OSType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
-                 vm_size: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'AgentPoolType']]] = None,
+                 vm_size: Optional[pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -48,10 +49,10 @@ class AgentPool(pulumi.CustomResource):
         :param pulumi.Input[int] min_count: Minimum number of nodes for auto-scaling
         :param pulumi.Input[str] orchestrator_version: Version of orchestrator specified when creating the managed cluster.
         :param pulumi.Input[int] os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-        :param pulumi.Input[str] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+        :param pulumi.Input[Union[str, 'OSType']] os_type: OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] type: AgentPoolType represents types of an agent pool
-        :param pulumi.Input[str] vm_size: Size of agent VMs.
+        :param pulumi.Input[Union[str, 'AgentPoolType']] type: AgentPoolType represents types of an agent pool
+        :param pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']] vm_size: Size of agent VMs.
         :param pulumi.Input[str] vnet_subnet_id: VNet SubnetID specifies the VNet's subnet identifier.
         """
         if __name__ is not None:
@@ -71,15 +72,15 @@ class AgentPool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if agent_pool_name is None:
+            if agent_pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'agent_pool_name'")
             __props__['agent_pool_name'] = agent_pool_name
             __props__['availability_zones'] = availability_zones
-            if count is None:
+            if count is None and not opts.urn:
                 raise TypeError("Missing required property 'count'")
             __props__['count'] = count
             __props__['enable_auto_scaling'] = enable_auto_scaling
-            if managed_cluster_name is None:
+            if managed_cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_cluster_name'")
             __props__['managed_cluster_name'] = managed_cluster_name
             __props__['max_count'] = max_count
@@ -88,11 +89,11 @@ class AgentPool(pulumi.CustomResource):
             __props__['orchestrator_version'] = orchestrator_version
             __props__['os_disk_size_gb'] = os_disk_size_gb
             __props__['os_type'] = os_type
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['type'] = type
-            if vm_size is None:
+            if vm_size is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_size'")
             __props__['vm_size'] = vm_size
             __props__['vnet_subnet_id'] = vnet_subnet_id

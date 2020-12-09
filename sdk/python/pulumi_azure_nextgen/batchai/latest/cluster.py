@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Cluster']
@@ -24,7 +25,7 @@ class Cluster(pulumi.CustomResource):
                  subnet: Optional[pulumi.Input[pulumi.InputType['ResourceIdArgs']]] = None,
                  user_account_settings: Optional[pulumi.Input[pulumi.InputType['UserAccountSettingsArgs']]] = None,
                  virtual_machine_configuration: Optional[pulumi.Input[pulumi.InputType['VirtualMachineConfigurationArgs']]] = None,
-                 vm_priority: Optional[pulumi.Input[str]] = None,
+                 vm_priority: Optional[pulumi.Input['VmPriority']] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -42,7 +43,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ResourceIdArgs']] subnet: Existing virtual network subnet to put the cluster nodes in. Note, if a File Server mount configured in node setup, the File Server's subnet will be used automatically.
         :param pulumi.Input[pulumi.InputType['UserAccountSettingsArgs']] user_account_settings: Settings for an administrator user account that will be created on each compute node in the cluster.
         :param pulumi.Input[pulumi.InputType['VirtualMachineConfigurationArgs']] virtual_machine_configuration: OS image configuration for cluster nodes. All nodes in a cluster have the same OS image.
-        :param pulumi.Input[str] vm_priority: VM priority. Allowed values are: dedicated (default) and lowpriority.
+        :param pulumi.Input['VmPriority'] vm_priority: VM priority. Allowed values are: dedicated (default) and lowpriority.
         :param pulumi.Input[str] vm_size: The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace see Sizes for Virtual Machines (Linux). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
         :param pulumi.Input[str] workspace_name: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
         """
@@ -63,24 +64,24 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if cluster_name is None:
+            if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
             __props__['node_setup'] = node_setup
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['scale_settings'] = scale_settings
             __props__['subnet'] = subnet
-            if user_account_settings is None:
+            if user_account_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'user_account_settings'")
             __props__['user_account_settings'] = user_account_settings
             __props__['virtual_machine_configuration'] = virtual_machine_configuration
             __props__['vm_priority'] = vm_priority
-            if vm_size is None:
+            if vm_size is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_size'")
             __props__['vm_size'] = vm_size
-            if workspace_name is None:
+            if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['allocation_state'] = None

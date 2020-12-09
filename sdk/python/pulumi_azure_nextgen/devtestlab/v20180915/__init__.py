@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .artifact_source import *
 from .custom_image import *
 from .disk import *
@@ -46,3 +47,60 @@ from .virtual_machine_schedule import *
 from .virtual_network import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:devtestlab/v20180915:ArtifactSource":
+                return ArtifactSource(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:devtestlab/v20180915:CustomImage":
+                return CustomImage(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:devtestlab/v20180915:Disk":
+                return Disk(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:devtestlab/v20180915:Environment":
+                return Environment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:devtestlab/v20180915:Formula":
+                return Formula(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:devtestlab/v20180915:GlobalSchedule":
+                return GlobalSchedule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:devtestlab/v20180915:Lab":
+                return Lab(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:devtestlab/v20180915:NotificationChannel":
+                return NotificationChannel(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:devtestlab/v20180915:Policy":
+                return Policy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:devtestlab/v20180915:Schedule":
+                return Schedule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:devtestlab/v20180915:Secret":
+                return Secret(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:devtestlab/v20180915:ServiceFabric":
+                return ServiceFabric(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:devtestlab/v20180915:ServiceFabricSchedule":
+                return ServiceFabricSchedule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:devtestlab/v20180915:ServiceRunner":
+                return ServiceRunner(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:devtestlab/v20180915:User":
+                return User(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:devtestlab/v20180915:VirtualMachine":
+                return VirtualMachine(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:devtestlab/v20180915:VirtualMachineSchedule":
+                return VirtualMachineSchedule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:devtestlab/v20180915:VirtualNetwork":
+                return VirtualNetwork(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "devtestlab/v20180915", _module_instance)
+
+_register_module()

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ActiveDirectoryArgs',
@@ -429,15 +430,15 @@ class MountTargetPropertiesArgs:
 class ReplicationObjectArgs:
     def __init__(__self__, *,
                  remote_volume_resource_id: pulumi.Input[str],
-                 replication_schedule: pulumi.Input[str],
-                 endpoint_type: Optional[pulumi.Input[str]] = None,
+                 replication_schedule: pulumi.Input[Union[str, 'ReplicationSchedule']],
+                 endpoint_type: Optional[pulumi.Input[Union[str, 'EndpointType']]] = None,
                  remote_volume_region: Optional[pulumi.Input[str]] = None,
                  replication_id: Optional[pulumi.Input[str]] = None):
         """
         Replication properties
         :param pulumi.Input[str] remote_volume_resource_id: The resource ID of the remote volume.
-        :param pulumi.Input[str] replication_schedule: Schedule
-        :param pulumi.Input[str] endpoint_type: Indicates whether the local volume is the source or destination for the Volume Replication
+        :param pulumi.Input[Union[str, 'ReplicationSchedule']] replication_schedule: Schedule
+        :param pulumi.Input[Union[str, 'EndpointType']] endpoint_type: Indicates whether the local volume is the source or destination for the Volume Replication
         :param pulumi.Input[str] remote_volume_region: The remote region for the other end of the Volume Replication.
         :param pulumi.Input[str] replication_id: Id
         """
@@ -464,26 +465,26 @@ class ReplicationObjectArgs:
 
     @property
     @pulumi.getter(name="replicationSchedule")
-    def replication_schedule(self) -> pulumi.Input[str]:
+    def replication_schedule(self) -> pulumi.Input[Union[str, 'ReplicationSchedule']]:
         """
         Schedule
         """
         return pulumi.get(self, "replication_schedule")
 
     @replication_schedule.setter
-    def replication_schedule(self, value: pulumi.Input[str]):
+    def replication_schedule(self, value: pulumi.Input[Union[str, 'ReplicationSchedule']]):
         pulumi.set(self, "replication_schedule", value)
 
     @property
     @pulumi.getter(name="endpointType")
-    def endpoint_type(self) -> Optional[pulumi.Input[str]]:
+    def endpoint_type(self) -> Optional[pulumi.Input[Union[str, 'EndpointType']]]:
         """
         Indicates whether the local volume is the source or destination for the Volume Replication
         """
         return pulumi.get(self, "endpoint_type")
 
     @endpoint_type.setter
-    def endpoint_type(self, value: Optional[pulumi.Input[str]]):
+    def endpoint_type(self, value: Optional[pulumi.Input[Union[str, 'EndpointType']]]):
         pulumi.set(self, "endpoint_type", value)
 
     @property

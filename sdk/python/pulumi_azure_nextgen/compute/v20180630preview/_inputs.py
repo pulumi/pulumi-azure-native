@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ConfigurationSettingArgs',
@@ -17,24 +18,24 @@ __all__ = [
 @pulumi.input_type
 class ConfigurationSettingArgs:
     def __init__(__self__, *,
-                 allow_module_overwrite: Optional[pulumi.Input[str]] = None):
+                 allow_module_overwrite: Optional[pulumi.Input[Union[str, 'AllowModuleOverwrite']]] = None):
         """
         Configuration setting of LCM (Local Configuration Manager).
-        :param pulumi.Input[str] allow_module_overwrite: If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
+        :param pulumi.Input[Union[str, 'AllowModuleOverwrite']] allow_module_overwrite: If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
         """
         if allow_module_overwrite is not None:
             pulumi.set(__self__, "allow_module_overwrite", allow_module_overwrite)
 
     @property
     @pulumi.getter(name="allowModuleOverwrite")
-    def allow_module_overwrite(self) -> Optional[pulumi.Input[str]]:
+    def allow_module_overwrite(self) -> Optional[pulumi.Input[Union[str, 'AllowModuleOverwrite']]]:
         """
         If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
         """
         return pulumi.get(self, "allow_module_overwrite")
 
     @allow_module_overwrite.setter
-    def allow_module_overwrite(self, value: Optional[pulumi.Input[str]]):
+    def allow_module_overwrite(self, value: Optional[pulumi.Input[Union[str, 'AllowModuleOverwrite']]]):
         pulumi.set(self, "allow_module_overwrite", value)
 
 
@@ -82,13 +83,13 @@ class GuestConfigurationAssignmentPropertiesArgs:
 class GuestConfigurationNavigationArgs:
     def __init__(__self__, *,
                  configuration_setting: Optional[pulumi.Input['ConfigurationSettingArgs']] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
         :param pulumi.Input['ConfigurationSettingArgs'] configuration_setting: The configuration setting for the guest configuration.
-        :param pulumi.Input[str] kind: Kind of the guest configuration. For example:DSC
+        :param pulumi.Input[Union[str, 'Kind']] kind: Kind of the guest configuration. For example:DSC
         :param pulumi.Input[str] name: Name of the guest configuration.
         :param pulumi.Input[str] version: Version of the guest configuration.
         """
@@ -115,14 +116,14 @@ class GuestConfigurationNavigationArgs:
 
     @property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[str]]:
+    def kind(self) -> Optional[pulumi.Input[Union[str, 'Kind']]]:
         """
         Kind of the guest configuration. For example:DSC
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[str]]):
+    def kind(self, value: Optional[pulumi.Input[Union[str, 'Kind']]]):
         pulumi.set(self, "kind", value)
 
     @property

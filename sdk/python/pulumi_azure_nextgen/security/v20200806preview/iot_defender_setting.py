@@ -45,10 +45,10 @@ class IotDefenderSetting(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if device_quota is None:
+            if device_quota is None and not opts.urn:
                 raise TypeError("Missing required property 'device_quota'")
             __props__['device_quota'] = device_quota
-            if sentinel_workspace_resource_ids is None:
+            if sentinel_workspace_resource_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'sentinel_workspace_resource_ids'")
             __props__['sentinel_workspace_resource_ids'] = sentinel_workspace_resource_ids
             __props__['name'] = None

@@ -50,13 +50,13 @@ class ComponentLinkedStorageAccount(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['linked_storage_account'] = linked_storage_account
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if resource_name_ is None:
+            if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
-            if storage_type is None:
+            if storage_type is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_type'")
             __props__['storage_type'] = storage_type
             __props__['name'] = None

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['VpnConnection']
@@ -32,7 +33,7 @@ class VpnConnection(pulumi.CustomResource):
                  shared_key: Optional[pulumi.Input[str]] = None,
                  use_local_azure_ip_address: Optional[pulumi.Input[bool]] = None,
                  use_policy_based_traffic_selectors: Optional[pulumi.Input[bool]] = None,
-                 vpn_connection_protocol_type: Optional[pulumi.Input[str]] = None,
+                 vpn_connection_protocol_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionProtocol']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -56,7 +57,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[str] shared_key: SharedKey for the vpn connection.
         :param pulumi.Input[bool] use_local_azure_ip_address: Use local azure ip to initiate connection.
         :param pulumi.Input[bool] use_policy_based_traffic_selectors: Enable policy-based traffic selectors.
-        :param pulumi.Input[str] vpn_connection_protocol_type: Connection protocol used for this connection.
+        :param pulumi.Input[Union[str, 'VirtualNetworkGatewayConnectionProtocol']] vpn_connection_protocol_type: Connection protocol used for this connection.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -76,20 +77,20 @@ class VpnConnection(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['connection_bandwidth'] = connection_bandwidth
-            if connection_name is None:
+            if connection_name is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_name'")
             __props__['connection_name'] = connection_name
             __props__['enable_bgp'] = enable_bgp
             __props__['enable_internet_security'] = enable_internet_security
             __props__['enable_rate_limiting'] = enable_rate_limiting
-            if gateway_name is None:
+            if gateway_name is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_name'")
             __props__['gateway_name'] = gateway_name
             __props__['id'] = id
             __props__['ipsec_policies'] = ipsec_policies
             __props__['name'] = name
             __props__['remote_vpn_site'] = remote_vpn_site
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['routing_weight'] = routing_weight

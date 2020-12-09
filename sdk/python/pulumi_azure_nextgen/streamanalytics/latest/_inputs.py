@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AvroSerializationArgs',
@@ -1030,12 +1031,12 @@ class BlobStreamInputDataSourceArgs:
 @pulumi.input_type
 class CsvSerializationArgs:
     def __init__(__self__, *,
-                 encoding: Optional[pulumi.Input[str]] = None,
+                 encoding: Optional[pulumi.Input[Union[str, 'Encoding']]] = None,
                  field_delimiter: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         Describes how data from an input is serialized or how data is serialized when written to an output in CSV format.
-        :param pulumi.Input[str] encoding: Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[Union[str, 'Encoding']] encoding: Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] field_delimiter: Specifies the delimiter that will be used to separate comma-separated value (CSV) records. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a list of supported values. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] type: Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
         """
@@ -1048,14 +1049,14 @@ class CsvSerializationArgs:
 
     @property
     @pulumi.getter
-    def encoding(self) -> Optional[pulumi.Input[str]]:
+    def encoding(self) -> Optional[pulumi.Input[Union[str, 'Encoding']]]:
         """
         Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
         """
         return pulumi.get(self, "encoding")
 
     @encoding.setter
-    def encoding(self, value: Optional[pulumi.Input[str]]):
+    def encoding(self, value: Optional[pulumi.Input[Union[str, 'Encoding']]]):
         pulumi.set(self, "encoding", value)
 
     @property
@@ -1702,13 +1703,13 @@ class JavaScriptFunctionBindingArgs:
 @pulumi.input_type
 class JsonSerializationArgs:
     def __init__(__self__, *,
-                 encoding: Optional[pulumi.Input[str]] = None,
-                 format: Optional[pulumi.Input[str]] = None,
+                 encoding: Optional[pulumi.Input[Union[str, 'Encoding']]] = None,
+                 format: Optional[pulumi.Input[Union[str, 'JsonOutputSerializationFormat']]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         Describes how data from an input is serialized or how data is serialized when written to an output in JSON format.
-        :param pulumi.Input[str] encoding: Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
-        :param pulumi.Input[str] format: This property only applies to JSON serialization of outputs only. It is not applicable to inputs. This property specifies the format of the JSON the output will be written in. The currently supported values are 'lineSeparated' indicating the output will be formatted by having each JSON object separated by a new line and 'array' indicating the output will be formatted as an array of JSON objects. Default value is 'lineSeparated' if left null.
+        :param pulumi.Input[Union[str, 'Encoding']] encoding: Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[Union[str, 'JsonOutputSerializationFormat']] format: This property only applies to JSON serialization of outputs only. It is not applicable to inputs. This property specifies the format of the JSON the output will be written in. The currently supported values are 'lineSeparated' indicating the output will be formatted by having each JSON object separated by a new line and 'array' indicating the output will be formatted as an array of JSON objects. Default value is 'lineSeparated' if left null.
         :param pulumi.Input[str] type: Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
         """
         if encoding is not None:
@@ -1720,26 +1721,26 @@ class JsonSerializationArgs:
 
     @property
     @pulumi.getter
-    def encoding(self) -> Optional[pulumi.Input[str]]:
+    def encoding(self) -> Optional[pulumi.Input[Union[str, 'Encoding']]]:
         """
         Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
         """
         return pulumi.get(self, "encoding")
 
     @encoding.setter
-    def encoding(self, value: Optional[pulumi.Input[str]]):
+    def encoding(self, value: Optional[pulumi.Input[Union[str, 'Encoding']]]):
         pulumi.set(self, "encoding", value)
 
     @property
     @pulumi.getter
-    def format(self) -> Optional[pulumi.Input[str]]:
+    def format(self) -> Optional[pulumi.Input[Union[str, 'JsonOutputSerializationFormat']]]:
         """
         This property only applies to JSON serialization of outputs only. It is not applicable to inputs. This property specifies the format of the JSON the output will be written in. The currently supported values are 'lineSeparated' indicating the output will be formatted by having each JSON object separated by a new line and 'array' indicating the output will be formatted as an array of JSON objects. Default value is 'lineSeparated' if left null.
         """
         return pulumi.get(self, "format")
 
     @format.setter
-    def format(self, value: Optional[pulumi.Input[str]]):
+    def format(self, value: Optional[pulumi.Input[Union[str, 'JsonOutputSerializationFormat']]]):
         pulumi.set(self, "format", value)
 
     @property
@@ -2286,24 +2287,24 @@ class ServiceBusTopicOutputDataSourceArgs:
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[Union[str, 'SkuName']]] = None):
         """
         The properties that are associated with a SKU.
-        :param pulumi.Input[str] name: The name of the SKU. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[Union[str, 'SkuName']] name: The name of the SKU. Required on PUT (CreateOrReplace) requests.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    def name(self) -> Optional[pulumi.Input[Union[str, 'SkuName']]]:
         """
         The name of the SKU. Required on PUT (CreateOrReplace) requests.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
+    def name(self, value: Optional[pulumi.Input[Union[str, 'SkuName']]]):
         pulumi.set(self, "name", value)
 
 

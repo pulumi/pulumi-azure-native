@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Volume']
@@ -20,7 +21,7 @@ class Volume(pulumi.CustomResource):
                  azure_file_parameters: Optional[pulumi.Input[pulumi.InputType['VolumeProviderParametersAzureFileArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 provider: Optional[pulumi.Input[str]] = None,
+                 provider: Optional[pulumi.Input[Union[str, 'VolumeProvider']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  volume_resource_name: Optional[pulumi.Input[str]] = None,
@@ -35,7 +36,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['VolumeProviderParametersAzureFileArgs']] azure_file_parameters: This type describes a volume provided by an Azure Files file share.
         :param pulumi.Input[str] description: User readable description of the volume.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] provider: Provider of the volume.
+        :param pulumi.Input[Union[str, 'VolumeProvider']] provider: Provider of the volume.
         :param pulumi.Input[str] resource_group_name: Azure resource group name
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] volume_resource_name: The identity of the volume.
@@ -59,17 +60,17 @@ class Volume(pulumi.CustomResource):
 
             __props__['azure_file_parameters'] = azure_file_parameters
             __props__['description'] = description
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if provider is None:
+            if provider is None and not opts.urn:
                 raise TypeError("Missing required property 'provider'")
             __props__['provider'] = provider
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            if volume_resource_name is None:
+            if volume_resource_name is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_resource_name'")
             __props__['volume_resource_name'] = volume_resource_name
             __props__['name'] = None

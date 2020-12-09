@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .cloud_endpoint import *
 from .get_cloud_endpoint import *
 from .get_private_endpoint_connection import *
@@ -17,3 +18,36 @@ from .storage_sync_service import *
 from .sync_group import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:storagesync/v20200301:CloudEndpoint":
+                return CloudEndpoint(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storagesync/v20200301:PrivateEndpointConnection":
+                return PrivateEndpointConnection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storagesync/v20200301:RegisteredServer":
+                return RegisteredServer(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storagesync/v20200301:ServerEndpoint":
+                return ServerEndpoint(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storagesync/v20200301:StorageSyncService":
+                return StorageSyncService(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storagesync/v20200301:SyncGroup":
+                return SyncGroup(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "storagesync/v20200301", _module_instance)
+
+_register_module()

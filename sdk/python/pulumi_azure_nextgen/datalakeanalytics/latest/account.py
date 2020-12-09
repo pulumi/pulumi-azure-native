@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Account']
@@ -21,15 +22,15 @@ class Account(pulumi.CustomResource):
                  compute_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CreateComputePolicyWithAccountParametersArgs']]]]] = None,
                  data_lake_store_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddDataLakeStoreWithAccountParametersArgs']]]]] = None,
                  default_data_lake_store_account: Optional[pulumi.Input[str]] = None,
-                 firewall_allow_azure_ips: Optional[pulumi.Input[str]] = None,
+                 firewall_allow_azure_ips: Optional[pulumi.Input['FirewallAllowAzureIpsState']] = None,
                  firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CreateFirewallRuleWithAccountParametersArgs']]]]] = None,
-                 firewall_state: Optional[pulumi.Input[str]] = None,
+                 firewall_state: Optional[pulumi.Input['FirewallState']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_degree_of_parallelism: Optional[pulumi.Input[int]] = None,
                  max_degree_of_parallelism_per_job: Optional[pulumi.Input[int]] = None,
                  max_job_count: Optional[pulumi.Input[int]] = None,
                  min_priority_per_job: Optional[pulumi.Input[int]] = None,
-                 new_tier: Optional[pulumi.Input[str]] = None,
+                 new_tier: Optional[pulumi.Input['TierType']] = None,
                  query_store_retention: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddStorageAccountWithAccountParametersArgs']]]]] = None,
@@ -46,15 +47,15 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CreateComputePolicyWithAccountParametersArgs']]]] compute_policies: The list of compute policies associated with this account.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddDataLakeStoreWithAccountParametersArgs']]]] data_lake_store_accounts: The list of Data Lake Store accounts associated with this account.
         :param pulumi.Input[str] default_data_lake_store_account: The default Data Lake Store account associated with this account.
-        :param pulumi.Input[str] firewall_allow_azure_ips: The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
+        :param pulumi.Input['FirewallAllowAzureIpsState'] firewall_allow_azure_ips: The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CreateFirewallRuleWithAccountParametersArgs']]]] firewall_rules: The list of firewall rules associated with this account.
-        :param pulumi.Input[str] firewall_state: The current state of the IP address firewall for this account.
+        :param pulumi.Input['FirewallState'] firewall_state: The current state of the IP address firewall for this account.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[int] max_degree_of_parallelism: The maximum supported degree of parallelism for this account.
         :param pulumi.Input[int] max_degree_of_parallelism_per_job: The maximum supported degree of parallelism per job for this account.
         :param pulumi.Input[int] max_job_count: The maximum supported jobs running under the account at the same time.
         :param pulumi.Input[int] min_priority_per_job: The minimum supported priority per job for this account.
-        :param pulumi.Input[str] new_tier: The commitment tier for the next month.
+        :param pulumi.Input['TierType'] new_tier: The commitment tier for the next month.
         :param pulumi.Input[int] query_store_retention: The number of days that job metadata is retained.
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AddStorageAccountWithAccountParametersArgs']]]] storage_accounts: The list of Azure Blob Storage accounts associated with this account.
@@ -77,20 +78,20 @@ class Account(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_name is None:
+            if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['compute_policies'] = compute_policies
-            if data_lake_store_accounts is None:
+            if data_lake_store_accounts is None and not opts.urn:
                 raise TypeError("Missing required property 'data_lake_store_accounts'")
             __props__['data_lake_store_accounts'] = data_lake_store_accounts
-            if default_data_lake_store_account is None:
+            if default_data_lake_store_account is None and not opts.urn:
                 raise TypeError("Missing required property 'default_data_lake_store_account'")
             __props__['default_data_lake_store_account'] = default_data_lake_store_account
             __props__['firewall_allow_azure_ips'] = firewall_allow_azure_ips
             __props__['firewall_rules'] = firewall_rules
             __props__['firewall_state'] = firewall_state
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['max_degree_of_parallelism'] = max_degree_of_parallelism
@@ -99,7 +100,7 @@ class Account(pulumi.CustomResource):
             __props__['min_priority_per_job'] = min_priority_per_job
             __props__['new_tier'] = new_tier
             __props__['query_store_retention'] = query_store_retention
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['storage_accounts'] = storage_accounts

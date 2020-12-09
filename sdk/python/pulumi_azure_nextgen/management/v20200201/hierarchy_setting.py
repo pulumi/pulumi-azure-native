@@ -48,7 +48,7 @@ class HierarchySetting(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['default_management_group'] = default_management_group
-            if group_id is None:
+            if group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'group_id'")
             __props__['group_id'] = group_id
             __props__['require_authorization_for_group_creation'] = require_authorization_for_group_creation

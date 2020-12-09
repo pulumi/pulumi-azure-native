@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DataCollectionRule']
@@ -60,21 +61,21 @@ class DataCollectionRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if data_collection_rule_name is None:
+            if data_collection_rule_name is None and not opts.urn:
                 raise TypeError("Missing required property 'data_collection_rule_name'")
             __props__['data_collection_rule_name'] = data_collection_rule_name
-            if data_flows is None:
+            if data_flows is None and not opts.urn:
                 raise TypeError("Missing required property 'data_flows'")
             __props__['data_flows'] = data_flows
             __props__['data_sources'] = data_sources
             __props__['description'] = description
-            if destinations is None:
+            if destinations is None and not opts.urn:
                 raise TypeError("Missing required property 'destinations'")
             __props__['destinations'] = destinations
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Experiment']
@@ -18,7 +19,7 @@ class Experiment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 enabled_state: Optional[pulumi.Input[str]] = None,
+                 enabled_state: Optional[pulumi.Input[Union[str, 'State']]] = None,
                  endpoint_a: Optional[pulumi.Input[pulumi.InputType['EndpointArgs']]] = None,
                  endpoint_b: Optional[pulumi.Input[pulumi.InputType['EndpointArgs']]] = None,
                  experiment_name: Optional[pulumi.Input[str]] = None,
@@ -35,7 +36,7 @@ class Experiment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the details or intents of the Experiment
-        :param pulumi.Input[str] enabled_state: The state of the Experiment
+        :param pulumi.Input[Union[str, 'State']] enabled_state: The state of the Experiment
         :param pulumi.Input[pulumi.InputType['EndpointArgs']] endpoint_a: The endpoint A of an experiment
         :param pulumi.Input[pulumi.InputType['EndpointArgs']] endpoint_b: The endpoint B of an experiment
         :param pulumi.Input[str] experiment_name: The Experiment identifier associated with the Experiment
@@ -65,14 +66,14 @@ class Experiment(pulumi.CustomResource):
             __props__['enabled_state'] = enabled_state
             __props__['endpoint_a'] = endpoint_a
             __props__['endpoint_b'] = endpoint_b
-            if experiment_name is None:
+            if experiment_name is None and not opts.urn:
                 raise TypeError("Missing required property 'experiment_name'")
             __props__['experiment_name'] = experiment_name
             __props__['location'] = location
-            if profile_name is None:
+            if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")
             __props__['profile_name'] = profile_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

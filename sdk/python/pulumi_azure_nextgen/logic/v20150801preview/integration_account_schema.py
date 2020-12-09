@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 
 __all__ = ['IntegrationAccountSchema']
 
@@ -25,7 +26,7 @@ class IntegrationAccountSchema(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
-                 schema_type: Optional[pulumi.Input[str]] = None,
+                 schema_type: Optional[pulumi.Input['SchemaType']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_namespace: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -45,7 +46,7 @@ class IntegrationAccountSchema(pulumi.CustomResource):
         :param pulumi.Input[str] name: The resource name.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] schema_name: The integration account schema name.
-        :param pulumi.Input[str] schema_type: The schema type.
+        :param pulumi.Input['SchemaType'] schema_type: The schema type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         :param pulumi.Input[str] target_namespace: The target namespace.
         :param pulumi.Input[str] type: The resource type.
@@ -70,16 +71,16 @@ class IntegrationAccountSchema(pulumi.CustomResource):
             __props__['content'] = content
             __props__['content_type'] = content_type
             __props__['id'] = id
-            if integration_account_name is None:
+            if integration_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'integration_account_name'")
             __props__['integration_account_name'] = integration_account_name
             __props__['location'] = location
             __props__['metadata'] = metadata
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if schema_name is None:
+            if schema_name is None and not opts.urn:
                 raise TypeError("Missing required property 'schema_name'")
             __props__['schema_name'] = schema_name
             __props__['schema_type'] = schema_type

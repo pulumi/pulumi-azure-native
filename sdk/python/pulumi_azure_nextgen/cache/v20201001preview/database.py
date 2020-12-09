@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Database']
@@ -17,11 +18,11 @@ class Database(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_protocol: Optional[pulumi.Input[str]] = None,
+                 client_protocol: Optional[pulumi.Input[Union[str, 'Protocol']]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 clustering_policy: Optional[pulumi.Input[str]] = None,
+                 clustering_policy: Optional[pulumi.Input[Union[str, 'ClusteringPolicy']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
-                 eviction_policy: Optional[pulumi.Input[str]] = None,
+                 eviction_policy: Optional[pulumi.Input[Union[str, 'EvictionPolicy']]] = None,
                  modules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModuleArgs']]]]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -33,11 +34,11 @@ class Database(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] client_protocol: Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
+        :param pulumi.Input[Union[str, 'Protocol']] client_protocol: Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
         :param pulumi.Input[str] cluster_name: The name of the RedisEnterprise cluster.
-        :param pulumi.Input[str] clustering_policy: Clustering policy - default is OSSCluster. Specified at create time.
+        :param pulumi.Input[Union[str, 'ClusteringPolicy']] clustering_policy: Clustering policy - default is OSSCluster. Specified at create time.
         :param pulumi.Input[str] database_name: The name of the database.
-        :param pulumi.Input[str] eviction_policy: Redis eviction policy - default is VolatileLRU
+        :param pulumi.Input[Union[str, 'EvictionPolicy']] eviction_policy: Redis eviction policy - default is VolatileLRU
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ModuleArgs']]]] modules: Optional set of redis modules to enable in this database - modules can only be added at creation time.
         :param pulumi.Input[int] port: TCP port of the database endpoint. Specified at create time. Defaults to an available port.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -60,17 +61,17 @@ class Database(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['client_protocol'] = client_protocol
-            if cluster_name is None:
+            if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
             __props__['clustering_policy'] = clustering_policy
-            if database_name is None:
+            if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
             __props__['eviction_policy'] = eviction_policy
             __props__['modules'] = modules
             __props__['port'] = port
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['name'] = None

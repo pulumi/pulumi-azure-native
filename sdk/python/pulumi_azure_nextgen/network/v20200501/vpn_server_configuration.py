@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['VpnServerConfiguration']
@@ -28,11 +29,11 @@ class VpnServerConfiguration(pulumi.CustomResource):
                  radius_servers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RadiusServerArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vpn_authentication_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 vpn_authentication_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'VpnAuthenticationType']]]]] = None,
                  vpn_client_ipsec_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]]] = None,
                  vpn_client_revoked_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnServerConfigVpnClientRevokedCertificateArgs']]]]] = None,
                  vpn_client_root_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnServerConfigVpnClientRootCertificateArgs']]]]] = None,
-                 vpn_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 vpn_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'VpnGatewayTunnelingProtocol']]]]] = None,
                  vpn_server_configuration_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -53,11 +54,11 @@ class VpnServerConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RadiusServerArgs']]]] radius_servers: Multiple Radius Server configuration for VpnServerConfiguration.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VpnServerConfiguration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpn_authentication_types: VPN authentication types for the VpnServerConfiguration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'VpnAuthenticationType']]]] vpn_authentication_types: VPN authentication types for the VpnServerConfiguration.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IpsecPolicyArgs']]]] vpn_client_ipsec_policies: VpnClientIpsecPolicies for VpnServerConfiguration.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnServerConfigVpnClientRevokedCertificateArgs']]]] vpn_client_revoked_certificates: VPN client revoked certificate of VpnServerConfiguration.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnServerConfigVpnClientRootCertificateArgs']]]] vpn_client_root_certificates: VPN client root certificate of VpnServerConfiguration.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vpn_protocols: VPN protocols for the VpnServerConfiguration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'VpnGatewayTunnelingProtocol']]]] vpn_protocols: VPN protocols for the VpnServerConfiguration.
         :param pulumi.Input[str] vpn_server_configuration_name: The name of the VpnServerConfiguration being created or updated.
         """
         if __name__ is not None:
@@ -86,7 +87,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
             __props__['radius_server_root_certificates'] = radius_server_root_certificates
             __props__['radius_server_secret'] = radius_server_secret
             __props__['radius_servers'] = radius_servers
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
@@ -95,7 +96,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
             __props__['vpn_client_revoked_certificates'] = vpn_client_revoked_certificates
             __props__['vpn_client_root_certificates'] = vpn_client_root_certificates
             __props__['vpn_protocols'] = vpn_protocols
-            if vpn_server_configuration_name is None:
+            if vpn_server_configuration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vpn_server_configuration_name'")
             __props__['vpn_server_configuration_name'] = vpn_server_configuration_name
             __props__['etag'] = None

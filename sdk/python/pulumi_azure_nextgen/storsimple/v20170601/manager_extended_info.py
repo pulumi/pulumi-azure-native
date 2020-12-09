@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['ManagerExtendedInfo']
 
@@ -20,7 +21,7 @@ class ManagerExtendedInfo(pulumi.CustomResource):
                  encryption_key_thumbprint: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  integrity_key: Optional[pulumi.Input[str]] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input['Kind']] = None,
                  manager_name: Optional[pulumi.Input[str]] = None,
                  portal_certificate_thumbprint: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -38,7 +39,7 @@ class ManagerExtendedInfo(pulumi.CustomResource):
         :param pulumi.Input[str] encryption_key_thumbprint: Represents the Cert thumbprint that was used to encrypt the CEK.
         :param pulumi.Input[str] etag: The etag of the resource.
         :param pulumi.Input[str] integrity_key: Represents the CIK of the resource.
-        :param pulumi.Input[str] kind: The Kind of the object. Currently only Series8000 is supported
+        :param pulumi.Input['Kind'] kind: The Kind of the object. Currently only Series8000 is supported
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] portal_certificate_thumbprint: Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
         :param pulumi.Input[str] resource_group_name: The resource group name
@@ -61,21 +62,21 @@ class ManagerExtendedInfo(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if algorithm is None:
+            if algorithm is None and not opts.urn:
                 raise TypeError("Missing required property 'algorithm'")
             __props__['algorithm'] = algorithm
             __props__['encryption_key'] = encryption_key
             __props__['encryption_key_thumbprint'] = encryption_key_thumbprint
             __props__['etag'] = etag
-            if integrity_key is None:
+            if integrity_key is None and not opts.urn:
                 raise TypeError("Missing required property 'integrity_key'")
             __props__['integrity_key'] = integrity_key
             __props__['kind'] = kind
-            if manager_name is None:
+            if manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'manager_name'")
             __props__['manager_name'] = manager_name
             __props__['portal_certificate_thumbprint'] = portal_certificate_thumbprint
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['version'] = version

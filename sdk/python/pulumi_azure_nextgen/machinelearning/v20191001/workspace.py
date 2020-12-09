@@ -60,21 +60,21 @@ class Workspace(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['key_vault_identifier_id'] = key_vault_identifier_id
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if owner_email is None:
+            if owner_email is None and not opts.urn:
                 raise TypeError("Missing required property 'owner_email'")
             __props__['owner_email'] = owner_email
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
-            if user_storage_account_id is None:
+            if user_storage_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_storage_account_id'")
             __props__['user_storage_account_id'] = user_storage_account_id
-            if workspace_name is None:
+            if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['creation_time'] = None

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['MaintenanceConfiguration']
 
@@ -19,7 +20,7 @@ class MaintenanceConfiguration(pulumi.CustomResource):
                  expiration_date_time: Optional[pulumi.Input[str]] = None,
                  extension_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 maintenance_scope: Optional[pulumi.Input[str]] = None,
+                 maintenance_scope: Optional[pulumi.Input[Union[str, 'MaintenanceScope']]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  recur_every: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -27,7 +28,7 @@ class MaintenanceConfiguration(pulumi.CustomResource):
                  start_date_time: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
-                 visibility: Optional[pulumi.Input[str]] = None,
+                 visibility: Optional[pulumi.Input[Union[str, 'Visibility']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -40,7 +41,7 @@ class MaintenanceConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] expiration_date_time: Effective expiration date of the maintenance window in YYYY-MM-DD hh:mm format. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone. Expiration date must be set to a future date. If not provided, it will be set to the maximum datetime 9999-12-31 23:59:59.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extension_properties: Gets or sets extensionProperties of the maintenanceConfiguration
         :param pulumi.Input[str] location: Gets or sets location of the resource
-        :param pulumi.Input[str] maintenance_scope: Gets or sets maintenanceScope of the configuration
+        :param pulumi.Input[Union[str, 'MaintenanceScope']] maintenance_scope: Gets or sets maintenanceScope of the configuration
         :param pulumi.Input[str] namespace: Gets or sets namespace of the resource
         :param pulumi.Input[str] recur_every: Rate at which a Maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules. Daily schedule are formatted as recurEvery: [Frequency as integer]['Day(s)']. If no frequency is provided, the default frequency is 1. Daily schedule examples are recurEvery: Day, recurEvery: 3Days.  Weekly schedule are formatted as recurEvery: [Frequency as integer]['Week(s)'] [Optional comma separated list of weekdays Monday-Sunday]. Weekly schedule examples are recurEvery: 3Weeks, recurEvery: Week Saturday,Sunday. Monthly schedules are formatted as [Frequency as integer]['Month(s)'] [Comma separated list of month days] or [Frequency as integer]['Month(s)'] [Week of Month (First, Second, Third, Fourth, Last)] [Weekday Monday-Sunday]. Monthly schedule examples are recurEvery: Month, recurEvery: 2Months, recurEvery: Month day23,day24, recurEvery: Month Last Sunday, recurEvery: Month Fourth Monday.
         :param pulumi.Input[str] resource_group_name: Resource Group Name
@@ -48,7 +49,7 @@ class MaintenanceConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] start_date_time: Effective start date of the maintenance window in YYYY-MM-DD hh:mm format. The start date can be set to either the current date or future date. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets tags of the resource
         :param pulumi.Input[str] time_zone: Name of the timezone. List of timezones can be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell. Example: Pacific Standard Time, UTC, W. Europe Standard Time, Korea Standard Time, Cen. Australia Standard Time.
-        :param pulumi.Input[str] visibility: Gets or sets the visibility of the configuration
+        :param pulumi.Input[Union[str, 'Visibility']] visibility: Gets or sets the visibility of the configuration
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -74,10 +75,10 @@ class MaintenanceConfiguration(pulumi.CustomResource):
             __props__['maintenance_scope'] = maintenance_scope
             __props__['namespace'] = namespace
             __props__['recur_every'] = recur_every
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if resource_name_ is None:
+            if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
             __props__['start_date_time'] = start_date_time

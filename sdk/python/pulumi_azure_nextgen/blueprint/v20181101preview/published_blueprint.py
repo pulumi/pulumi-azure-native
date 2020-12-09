@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['PublishedBlueprint']
@@ -24,7 +25,7 @@ class PublishedBlueprint(pulumi.CustomResource):
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterDefinitionArgs']]]]] = None,
                  resource_groups: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ResourceGroupDefinitionArgs']]]]] = None,
                  resource_scope: Optional[pulumi.Input[str]] = None,
-                 target_scope: Optional[pulumi.Input[str]] = None,
+                 target_scope: Optional[pulumi.Input[Union[str, 'BlueprintTargetScope']]] = None,
                  version_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -41,7 +42,7 @@ class PublishedBlueprint(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ParameterDefinitionArgs']]]] parameters: Parameters required by this blueprint definition.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ResourceGroupDefinitionArgs']]]] resource_groups: Resource group placeholders defined by this blueprint definition.
         :param pulumi.Input[str] resource_scope: The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
-        :param pulumi.Input[str] target_scope: The scope where this blueprint definition can be assigned.
+        :param pulumi.Input[Union[str, 'BlueprintTargetScope']] target_scope: The scope where this blueprint definition can be assigned.
         :param pulumi.Input[str] version_id: Version of the published blueprint definition.
         """
         if __name__ is not None:
@@ -61,7 +62,7 @@ class PublishedBlueprint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if blueprint_name is None:
+            if blueprint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'blueprint_name'")
             __props__['blueprint_name'] = blueprint_name
             __props__['change_notes'] = change_notes
@@ -69,11 +70,11 @@ class PublishedBlueprint(pulumi.CustomResource):
             __props__['display_name'] = display_name
             __props__['parameters'] = parameters
             __props__['resource_groups'] = resource_groups
-            if resource_scope is None:
+            if resource_scope is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_scope'")
             __props__['resource_scope'] = resource_scope
             __props__['target_scope'] = target_scope
-            if version_id is None:
+            if version_id is None and not opts.urn:
                 raise TypeError("Missing required property 'version_id'")
             __props__['version_id'] = version_id
             __props__['name'] = None

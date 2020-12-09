@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'DeepCreatedOriginArgs',
@@ -86,24 +87,24 @@ class DeepCreatedOriginArgs:
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input['SkuName']] = None):
         """
         The SKU (pricing tier) of the CDN profile.
-        :param pulumi.Input[str] name: Name of the pricing tier
+        :param pulumi.Input['SkuName'] name: Name of the pricing tier
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    def name(self) -> Optional[pulumi.Input['SkuName']]:
         """
         Name of the pricing tier
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
+    def name(self, value: Optional[pulumi.Input['SkuName']]):
         pulumi.set(self, "name", value)
 
 

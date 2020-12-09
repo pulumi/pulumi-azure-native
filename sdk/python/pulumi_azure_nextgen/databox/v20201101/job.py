@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Job']
@@ -18,7 +19,7 @@ class Job(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delivery_info: Optional[pulumi.Input[pulumi.InputType['JobDeliveryInfoArgs']]] = None,
-                 delivery_type: Optional[pulumi.Input[str]] = None,
+                 delivery_type: Optional[pulumi.Input[Union[str, 'JobDeliveryType']]] = None,
                  details: Optional[pulumi.Input[Union[pulumi.InputType['DataBoxDiskJobDetailsArgs'], pulumi.InputType['DataBoxHeavyJobDetailsArgs'], pulumi.InputType['DataBoxJobDetailsArgs']]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
@@ -26,7 +27,7 @@ class Job(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 transfer_type: Optional[pulumi.Input[str]] = None,
+                 transfer_type: Optional[pulumi.Input[Union[str, 'TransferType']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -36,7 +37,7 @@ class Job(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['JobDeliveryInfoArgs']] delivery_info: Delivery Info of Job.
-        :param pulumi.Input[str] delivery_type: Delivery type of Job.
+        :param pulumi.Input[Union[str, 'JobDeliveryType']] delivery_type: Delivery type of Job.
         :param pulumi.Input[Union[pulumi.InputType['DataBoxDiskJobDetailsArgs'], pulumi.InputType['DataBoxHeavyJobDetailsArgs'], pulumi.InputType['DataBoxJobDetailsArgs']]] details: Details of a job run. This field will only be sent for expand details filter.
         :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: Msi identity of the resource
         :param pulumi.Input[str] job_name: The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
@@ -44,7 +45,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The Resource Group Name
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
-        :param pulumi.Input[str] transfer_type: Type of the data transfer.
+        :param pulumi.Input[Union[str, 'TransferType']] transfer_type: Type of the data transfer.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -67,20 +68,20 @@ class Job(pulumi.CustomResource):
             __props__['delivery_type'] = delivery_type
             __props__['details'] = details
             __props__['identity'] = identity
-            if job_name is None:
+            if job_name is None and not opts.urn:
                 raise TypeError("Missing required property 'job_name'")
             __props__['job_name'] = job_name
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if sku is None:
+            if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
-            if transfer_type is None:
+            if transfer_type is None and not opts.urn:
                 raise TypeError("Missing required property 'transfer_type'")
             __props__['transfer_type'] = transfer_type
             __props__['cancellation_reason'] = None

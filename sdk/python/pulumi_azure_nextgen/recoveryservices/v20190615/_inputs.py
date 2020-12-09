@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AzureFileshareProtectedItemArgs',
@@ -31,10 +32,10 @@ __all__ = [
 class AzureFileshareProtectedItemArgs:
     def __init__(__self__, *,
                  protected_item_type: pulumi.Input[str],
-                 backup_management_type: Optional[pulumi.Input[str]] = None,
+                 backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
                  backup_set_name: Optional[pulumi.Input[str]] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
-                 create_mode: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
                  deferred_delete_time_in_utc: Optional[pulumi.Input[str]] = None,
                  deferred_delete_time_remaining: Optional[pulumi.Input[str]] = None,
                  extended_info: Optional[pulumi.Input['AzureFileshareProtectedItemExtendedInfoArgs']] = None,
@@ -47,17 +48,17 @@ class AzureFileshareProtectedItemArgs:
                  last_backup_time: Optional[pulumi.Input[str]] = None,
                  last_recovery_point: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
-                 protection_state: Optional[pulumi.Input[str]] = None,
+                 protection_state: Optional[pulumi.Input[Union[str, 'ProtectionState']]] = None,
                  protection_status: Optional[pulumi.Input[str]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
-                 workload_type: Optional[pulumi.Input[str]] = None):
+                 workload_type: Optional[pulumi.Input[Union[str, 'DataSourceType']]] = None):
         """
         Azure File Share workload-specific backup item.
         :param pulumi.Input[str] protected_item_type: backup item type.
-        :param pulumi.Input[str] backup_management_type: Type of backup management for the backed up item.
+        :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
         :param pulumi.Input[str] backup_set_name: Name of the backup set the backup item belongs to
         :param pulumi.Input[str] container_name: Unique name of container
-        :param pulumi.Input[str] create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+        :param pulumi.Input[Union[str, 'CreateMode']] create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param pulumi.Input[str] deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param pulumi.Input[str] deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param pulumi.Input['AzureFileshareProtectedItemExtendedInfoArgs'] extended_info: Additional information with this backup item.
@@ -70,10 +71,10 @@ class AzureFileshareProtectedItemArgs:
         :param pulumi.Input[str] last_backup_time: Timestamp of the last backup operation on this backup item.
         :param pulumi.Input[str] last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
-        :param pulumi.Input[str] protection_state: Backup state of this backup item.
+        :param pulumi.Input[Union[str, 'ProtectionState']] protection_state: Backup state of this backup item.
         :param pulumi.Input[str] protection_status: Backup status of this backup item.
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
-        :param pulumi.Input[str] workload_type: Type of workload this item represents.
+        :param pulumi.Input[Union[str, 'DataSourceType']] workload_type: Type of workload this item represents.
         """
         pulumi.set(__self__, "protected_item_type", 'AzureFileShareProtectedItem')
         if backup_management_type is not None:
@@ -131,14 +132,14 @@ class AzureFileshareProtectedItemArgs:
 
     @property
     @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[pulumi.Input[str]]:
+    def backup_management_type(self) -> Optional[pulumi.Input[Union[str, 'BackupManagementType']]]:
         """
         Type of backup management for the backed up item.
         """
         return pulumi.get(self, "backup_management_type")
 
     @backup_management_type.setter
-    def backup_management_type(self, value: Optional[pulumi.Input[str]]):
+    def backup_management_type(self, value: Optional[pulumi.Input[Union[str, 'BackupManagementType']]]):
         pulumi.set(self, "backup_management_type", value)
 
     @property
@@ -167,14 +168,14 @@ class AzureFileshareProtectedItemArgs:
 
     @property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[pulumi.Input[str]]:
+    def create_mode(self) -> Optional[pulumi.Input[Union[str, 'CreateMode']]]:
         """
         Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         """
         return pulumi.get(self, "create_mode")
 
     @create_mode.setter
-    def create_mode(self, value: Optional[pulumi.Input[str]]):
+    def create_mode(self, value: Optional[pulumi.Input[Union[str, 'CreateMode']]]):
         pulumi.set(self, "create_mode", value)
 
     @property
@@ -323,14 +324,14 @@ class AzureFileshareProtectedItemArgs:
 
     @property
     @pulumi.getter(name="protectionState")
-    def protection_state(self) -> Optional[pulumi.Input[str]]:
+    def protection_state(self) -> Optional[pulumi.Input[Union[str, 'ProtectionState']]]:
         """
         Backup state of this backup item.
         """
         return pulumi.get(self, "protection_state")
 
     @protection_state.setter
-    def protection_state(self, value: Optional[pulumi.Input[str]]):
+    def protection_state(self, value: Optional[pulumi.Input[Union[str, 'ProtectionState']]]):
         pulumi.set(self, "protection_state", value)
 
     @property
@@ -359,14 +360,14 @@ class AzureFileshareProtectedItemArgs:
 
     @property
     @pulumi.getter(name="workloadType")
-    def workload_type(self) -> Optional[pulumi.Input[str]]:
+    def workload_type(self) -> Optional[pulumi.Input[Union[str, 'DataSourceType']]]:
         """
         Type of workload this item represents.
         """
         return pulumi.get(self, "workload_type")
 
     @workload_type.setter
-    def workload_type(self, value: Optional[pulumi.Input[str]]):
+    def workload_type(self, value: Optional[pulumi.Input[Union[str, 'DataSourceType']]]):
         pulumi.set(self, "workload_type", value)
 
 
@@ -430,16 +431,16 @@ class AzureFileshareProtectedItemExtendedInfoArgs:
 class AzureIaaSVMProtectedItemArgs:
     def __init__(__self__, *,
                  protected_item_type: pulumi.Input[str],
-                 backup_management_type: Optional[pulumi.Input[str]] = None,
+                 backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
                  backup_set_name: Optional[pulumi.Input[str]] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
-                 create_mode: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
                  deferred_delete_time_in_utc: Optional[pulumi.Input[str]] = None,
                  deferred_delete_time_remaining: Optional[pulumi.Input[str]] = None,
                  extended_info: Optional[pulumi.Input['AzureIaaSVMProtectedItemExtendedInfoArgs']] = None,
                  extended_properties: Optional[pulumi.Input['ExtendedPropertiesArgs']] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
-                 health_status: Optional[pulumi.Input[str]] = None,
+                 health_status: Optional[pulumi.Input[Union[str, 'HealthStatus']]] = None,
                  is_deferred_delete_schedule_upcoming: Optional[pulumi.Input[bool]] = None,
                  is_rehydrate: Optional[pulumi.Input[bool]] = None,
                  is_scheduled_for_deferred_delete: Optional[pulumi.Input[bool]] = None,
@@ -449,24 +450,24 @@ class AzureIaaSVMProtectedItemArgs:
                  last_recovery_point: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  protected_item_data_id: Optional[pulumi.Input[str]] = None,
-                 protection_state: Optional[pulumi.Input[str]] = None,
+                 protection_state: Optional[pulumi.Input[Union[str, 'ProtectionState']]] = None,
                  protection_status: Optional[pulumi.Input[str]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
                  virtual_machine_id: Optional[pulumi.Input[str]] = None,
-                 workload_type: Optional[pulumi.Input[str]] = None):
+                 workload_type: Optional[pulumi.Input[Union[str, 'DataSourceType']]] = None):
         """
         IaaS VM workload-specific backup item.
         :param pulumi.Input[str] protected_item_type: backup item type.
-        :param pulumi.Input[str] backup_management_type: Type of backup management for the backed up item.
+        :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
         :param pulumi.Input[str] backup_set_name: Name of the backup set the backup item belongs to
         :param pulumi.Input[str] container_name: Unique name of container
-        :param pulumi.Input[str] create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+        :param pulumi.Input[Union[str, 'CreateMode']] create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param pulumi.Input[str] deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param pulumi.Input[str] deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param pulumi.Input['AzureIaaSVMProtectedItemExtendedInfoArgs'] extended_info: Additional information for this backup item.
         :param pulumi.Input['ExtendedPropertiesArgs'] extended_properties: Extended Properties for Azure IaasVM Backup.
         :param pulumi.Input[str] friendly_name: Friendly name of the VM represented by this backup item.
-        :param pulumi.Input[str] health_status: Health status of protected item.
+        :param pulumi.Input[Union[str, 'HealthStatus']] health_status: Health status of protected item.
         :param pulumi.Input[bool] is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param pulumi.Input[bool] is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param pulumi.Input[bool] is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
@@ -476,11 +477,11 @@ class AzureIaaSVMProtectedItemArgs:
         :param pulumi.Input[str] last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
         :param pulumi.Input[str] protected_item_data_id: Data ID of the protected item.
-        :param pulumi.Input[str] protection_state: Backup state of this backup item.
+        :param pulumi.Input[Union[str, 'ProtectionState']] protection_state: Backup state of this backup item.
         :param pulumi.Input[str] protection_status: Backup status of this backup item.
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
         :param pulumi.Input[str] virtual_machine_id: Fully qualified ARM ID of the virtual machine represented by this item.
-        :param pulumi.Input[str] workload_type: Type of workload this item represents.
+        :param pulumi.Input[Union[str, 'DataSourceType']] workload_type: Type of workload this item represents.
         """
         pulumi.set(__self__, "protected_item_type", 'AzureIaaSVMProtectedItem')
         if backup_management_type is not None:
@@ -546,14 +547,14 @@ class AzureIaaSVMProtectedItemArgs:
 
     @property
     @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[pulumi.Input[str]]:
+    def backup_management_type(self) -> Optional[pulumi.Input[Union[str, 'BackupManagementType']]]:
         """
         Type of backup management for the backed up item.
         """
         return pulumi.get(self, "backup_management_type")
 
     @backup_management_type.setter
-    def backup_management_type(self, value: Optional[pulumi.Input[str]]):
+    def backup_management_type(self, value: Optional[pulumi.Input[Union[str, 'BackupManagementType']]]):
         pulumi.set(self, "backup_management_type", value)
 
     @property
@@ -582,14 +583,14 @@ class AzureIaaSVMProtectedItemArgs:
 
     @property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[pulumi.Input[str]]:
+    def create_mode(self) -> Optional[pulumi.Input[Union[str, 'CreateMode']]]:
         """
         Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         """
         return pulumi.get(self, "create_mode")
 
     @create_mode.setter
-    def create_mode(self, value: Optional[pulumi.Input[str]]):
+    def create_mode(self, value: Optional[pulumi.Input[Union[str, 'CreateMode']]]):
         pulumi.set(self, "create_mode", value)
 
     @property
@@ -654,14 +655,14 @@ class AzureIaaSVMProtectedItemArgs:
 
     @property
     @pulumi.getter(name="healthStatus")
-    def health_status(self) -> Optional[pulumi.Input[str]]:
+    def health_status(self) -> Optional[pulumi.Input[Union[str, 'HealthStatus']]]:
         """
         Health status of protected item.
         """
         return pulumi.get(self, "health_status")
 
     @health_status.setter
-    def health_status(self, value: Optional[pulumi.Input[str]]):
+    def health_status(self, value: Optional[pulumi.Input[Union[str, 'HealthStatus']]]):
         pulumi.set(self, "health_status", value)
 
     @property
@@ -774,14 +775,14 @@ class AzureIaaSVMProtectedItemArgs:
 
     @property
     @pulumi.getter(name="protectionState")
-    def protection_state(self) -> Optional[pulumi.Input[str]]:
+    def protection_state(self) -> Optional[pulumi.Input[Union[str, 'ProtectionState']]]:
         """
         Backup state of this backup item.
         """
         return pulumi.get(self, "protection_state")
 
     @protection_state.setter
-    def protection_state(self, value: Optional[pulumi.Input[str]]):
+    def protection_state(self, value: Optional[pulumi.Input[Union[str, 'ProtectionState']]]):
         pulumi.set(self, "protection_state", value)
 
     @property
@@ -822,14 +823,14 @@ class AzureIaaSVMProtectedItemArgs:
 
     @property
     @pulumi.getter(name="workloadType")
-    def workload_type(self) -> Optional[pulumi.Input[str]]:
+    def workload_type(self) -> Optional[pulumi.Input[Union[str, 'DataSourceType']]]:
         """
         Type of workload this item represents.
         """
         return pulumi.get(self, "workload_type")
 
     @workload_type.setter
-    def workload_type(self, value: Optional[pulumi.Input[str]]):
+    def workload_type(self, value: Optional[pulumi.Input[Union[str, 'DataSourceType']]]):
         pulumi.set(self, "workload_type", value)
 
 
@@ -893,10 +894,10 @@ class AzureIaaSVMProtectedItemExtendedInfoArgs:
 class AzureSqlProtectedItemArgs:
     def __init__(__self__, *,
                  protected_item_type: pulumi.Input[str],
-                 backup_management_type: Optional[pulumi.Input[str]] = None,
+                 backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
                  backup_set_name: Optional[pulumi.Input[str]] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
-                 create_mode: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
                  deferred_delete_time_in_utc: Optional[pulumi.Input[str]] = None,
                  deferred_delete_time_remaining: Optional[pulumi.Input[str]] = None,
                  extended_info: Optional[pulumi.Input['AzureSqlProtectedItemExtendedInfoArgs']] = None,
@@ -906,16 +907,16 @@ class AzureSqlProtectedItemArgs:
                  last_recovery_point: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  protected_item_data_id: Optional[pulumi.Input[str]] = None,
-                 protection_state: Optional[pulumi.Input[str]] = None,
+                 protection_state: Optional[pulumi.Input[Union[str, 'ProtectedItemState']]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
-                 workload_type: Optional[pulumi.Input[str]] = None):
+                 workload_type: Optional[pulumi.Input[Union[str, 'DataSourceType']]] = None):
         """
         Azure SQL workload-specific backup item.
         :param pulumi.Input[str] protected_item_type: backup item type.
-        :param pulumi.Input[str] backup_management_type: Type of backup management for the backed up item.
+        :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
         :param pulumi.Input[str] backup_set_name: Name of the backup set the backup item belongs to
         :param pulumi.Input[str] container_name: Unique name of container
-        :param pulumi.Input[str] create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+        :param pulumi.Input[Union[str, 'CreateMode']] create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param pulumi.Input[str] deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param pulumi.Input[str] deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param pulumi.Input['AzureSqlProtectedItemExtendedInfoArgs'] extended_info: Additional information for this backup item.
@@ -925,9 +926,9 @@ class AzureSqlProtectedItemArgs:
         :param pulumi.Input[str] last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
         :param pulumi.Input[str] protected_item_data_id: Internal ID of a backup item. Used by Azure SQL Backup engine to contact Recovery Services.
-        :param pulumi.Input[str] protection_state: Backup state of the backed up item.
+        :param pulumi.Input[Union[str, 'ProtectedItemState']] protection_state: Backup state of the backed up item.
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
-        :param pulumi.Input[str] workload_type: Type of workload this item represents.
+        :param pulumi.Input[Union[str, 'DataSourceType']] workload_type: Type of workload this item represents.
         """
         pulumi.set(__self__, "protected_item_type", 'Microsoft.Sql/servers/databases')
         if backup_management_type is not None:
@@ -977,14 +978,14 @@ class AzureSqlProtectedItemArgs:
 
     @property
     @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[pulumi.Input[str]]:
+    def backup_management_type(self) -> Optional[pulumi.Input[Union[str, 'BackupManagementType']]]:
         """
         Type of backup management for the backed up item.
         """
         return pulumi.get(self, "backup_management_type")
 
     @backup_management_type.setter
-    def backup_management_type(self, value: Optional[pulumi.Input[str]]):
+    def backup_management_type(self, value: Optional[pulumi.Input[Union[str, 'BackupManagementType']]]):
         pulumi.set(self, "backup_management_type", value)
 
     @property
@@ -1013,14 +1014,14 @@ class AzureSqlProtectedItemArgs:
 
     @property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[pulumi.Input[str]]:
+    def create_mode(self) -> Optional[pulumi.Input[Union[str, 'CreateMode']]]:
         """
         Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         """
         return pulumi.get(self, "create_mode")
 
     @create_mode.setter
-    def create_mode(self, value: Optional[pulumi.Input[str]]):
+    def create_mode(self, value: Optional[pulumi.Input[Union[str, 'CreateMode']]]):
         pulumi.set(self, "create_mode", value)
 
     @property
@@ -1133,14 +1134,14 @@ class AzureSqlProtectedItemArgs:
 
     @property
     @pulumi.getter(name="protectionState")
-    def protection_state(self) -> Optional[pulumi.Input[str]]:
+    def protection_state(self) -> Optional[pulumi.Input[Union[str, 'ProtectedItemState']]]:
         """
         Backup state of the backed up item.
         """
         return pulumi.get(self, "protection_state")
 
     @protection_state.setter
-    def protection_state(self, value: Optional[pulumi.Input[str]]):
+    def protection_state(self, value: Optional[pulumi.Input[Union[str, 'ProtectedItemState']]]):
         pulumi.set(self, "protection_state", value)
 
     @property
@@ -1157,14 +1158,14 @@ class AzureSqlProtectedItemArgs:
 
     @property
     @pulumi.getter(name="workloadType")
-    def workload_type(self) -> Optional[pulumi.Input[str]]:
+    def workload_type(self) -> Optional[pulumi.Input[Union[str, 'DataSourceType']]]:
         """
         Type of workload this item represents.
         """
         return pulumi.get(self, "workload_type")
 
     @workload_type.setter
-    def workload_type(self, value: Optional[pulumi.Input[str]]):
+    def workload_type(self, value: Optional[pulumi.Input[Union[str, 'DataSourceType']]]):
         pulumi.set(self, "workload_type", value)
 
 
@@ -1228,10 +1229,10 @@ class AzureSqlProtectedItemExtendedInfoArgs:
 class AzureVmWorkloadProtectedItemArgs:
     def __init__(__self__, *,
                  protected_item_type: pulumi.Input[str],
-                 backup_management_type: Optional[pulumi.Input[str]] = None,
+                 backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
                  backup_set_name: Optional[pulumi.Input[str]] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
-                 create_mode: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
                  deferred_delete_time_in_utc: Optional[pulumi.Input[str]] = None,
                  deferred_delete_time_remaining: Optional[pulumi.Input[str]] = None,
                  extended_info: Optional[pulumi.Input['AzureVmWorkloadProtectedItemExtendedInfoArgs']] = None,
@@ -1240,26 +1241,26 @@ class AzureVmWorkloadProtectedItemArgs:
                  is_rehydrate: Optional[pulumi.Input[bool]] = None,
                  is_scheduled_for_deferred_delete: Optional[pulumi.Input[bool]] = None,
                  kpis_healths: Optional[pulumi.Input[Mapping[str, pulumi.Input['KPIResourceHealthDetailsArgs']]]] = None,
-                 last_backup_status: Optional[pulumi.Input[str]] = None,
+                 last_backup_status: Optional[pulumi.Input[Union[str, 'LastBackupStatus']]] = None,
                  last_backup_time: Optional[pulumi.Input[str]] = None,
                  last_recovery_point: Optional[pulumi.Input[str]] = None,
                  parent_name: Optional[pulumi.Input[str]] = None,
                  parent_type: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  protected_item_data_source_id: Optional[pulumi.Input[str]] = None,
-                 protected_item_health_status: Optional[pulumi.Input[str]] = None,
-                 protection_state: Optional[pulumi.Input[str]] = None,
+                 protected_item_health_status: Optional[pulumi.Input[Union[str, 'ProtectedItemHealthStatus']]] = None,
+                 protection_state: Optional[pulumi.Input[Union[str, 'ProtectionState']]] = None,
                  protection_status: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
-                 workload_type: Optional[pulumi.Input[str]] = None):
+                 workload_type: Optional[pulumi.Input[Union[str, 'DataSourceType']]] = None):
         """
         Azure VM workload-specific protected item.
         :param pulumi.Input[str] protected_item_type: backup item type.
-        :param pulumi.Input[str] backup_management_type: Type of backup management for the backed up item.
+        :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
         :param pulumi.Input[str] backup_set_name: Name of the backup set the backup item belongs to
         :param pulumi.Input[str] container_name: Unique name of container
-        :param pulumi.Input[str] create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+        :param pulumi.Input[Union[str, 'CreateMode']] create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param pulumi.Input[str] deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param pulumi.Input[str] deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param pulumi.Input['AzureVmWorkloadProtectedItemExtendedInfoArgs'] extended_info: Additional information for this backup item.
@@ -1268,19 +1269,19 @@ class AzureVmWorkloadProtectedItemArgs:
         :param pulumi.Input[bool] is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param pulumi.Input[bool] is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
         :param pulumi.Input[Mapping[str, pulumi.Input['KPIResourceHealthDetailsArgs']]] kpis_healths: Health details of different KPIs
-        :param pulumi.Input[str] last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
+        :param pulumi.Input[Union[str, 'LastBackupStatus']] last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
         :param pulumi.Input[str] last_backup_time: Timestamp of the last backup operation on this backup item.
         :param pulumi.Input[str] last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param pulumi.Input[str] parent_name: Parent name of the DB such as Instance or Availability Group.
         :param pulumi.Input[str] parent_type: Parent type of protected item, example: for a DB, standalone server or distributed
         :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
         :param pulumi.Input[str] protected_item_data_source_id: Data ID of the protected item.
-        :param pulumi.Input[str] protected_item_health_status: Health status of the backup item, evaluated based on last heartbeat received
-        :param pulumi.Input[str] protection_state: Backup state of this backup item.
+        :param pulumi.Input[Union[str, 'ProtectedItemHealthStatus']] protected_item_health_status: Health status of the backup item, evaluated based on last heartbeat received
+        :param pulumi.Input[Union[str, 'ProtectionState']] protection_state: Backup state of this backup item.
         :param pulumi.Input[str] protection_status: Backup status of this backup item.
         :param pulumi.Input[str] server_name: Host/Cluster Name for instance or AG
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
-        :param pulumi.Input[str] workload_type: Type of workload this item represents.
+        :param pulumi.Input[Union[str, 'DataSourceType']] workload_type: Type of workload this item represents.
         """
         pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadProtectedItem')
         if backup_management_type is not None:
@@ -1348,14 +1349,14 @@ class AzureVmWorkloadProtectedItemArgs:
 
     @property
     @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[pulumi.Input[str]]:
+    def backup_management_type(self) -> Optional[pulumi.Input[Union[str, 'BackupManagementType']]]:
         """
         Type of backup management for the backed up item.
         """
         return pulumi.get(self, "backup_management_type")
 
     @backup_management_type.setter
-    def backup_management_type(self, value: Optional[pulumi.Input[str]]):
+    def backup_management_type(self, value: Optional[pulumi.Input[Union[str, 'BackupManagementType']]]):
         pulumi.set(self, "backup_management_type", value)
 
     @property
@@ -1384,14 +1385,14 @@ class AzureVmWorkloadProtectedItemArgs:
 
     @property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[pulumi.Input[str]]:
+    def create_mode(self) -> Optional[pulumi.Input[Union[str, 'CreateMode']]]:
         """
         Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         """
         return pulumi.get(self, "create_mode")
 
     @create_mode.setter
-    def create_mode(self, value: Optional[pulumi.Input[str]]):
+    def create_mode(self, value: Optional[pulumi.Input[Union[str, 'CreateMode']]]):
         pulumi.set(self, "create_mode", value)
 
     @property
@@ -1492,14 +1493,14 @@ class AzureVmWorkloadProtectedItemArgs:
 
     @property
     @pulumi.getter(name="lastBackupStatus")
-    def last_backup_status(self) -> Optional[pulumi.Input[str]]:
+    def last_backup_status(self) -> Optional[pulumi.Input[Union[str, 'LastBackupStatus']]]:
         """
         Last backup operation status. Possible values: Healthy, Unhealthy.
         """
         return pulumi.get(self, "last_backup_status")
 
     @last_backup_status.setter
-    def last_backup_status(self, value: Optional[pulumi.Input[str]]):
+    def last_backup_status(self, value: Optional[pulumi.Input[Union[str, 'LastBackupStatus']]]):
         pulumi.set(self, "last_backup_status", value)
 
     @property
@@ -1576,26 +1577,26 @@ class AzureVmWorkloadProtectedItemArgs:
 
     @property
     @pulumi.getter(name="protectedItemHealthStatus")
-    def protected_item_health_status(self) -> Optional[pulumi.Input[str]]:
+    def protected_item_health_status(self) -> Optional[pulumi.Input[Union[str, 'ProtectedItemHealthStatus']]]:
         """
         Health status of the backup item, evaluated based on last heartbeat received
         """
         return pulumi.get(self, "protected_item_health_status")
 
     @protected_item_health_status.setter
-    def protected_item_health_status(self, value: Optional[pulumi.Input[str]]):
+    def protected_item_health_status(self, value: Optional[pulumi.Input[Union[str, 'ProtectedItemHealthStatus']]]):
         pulumi.set(self, "protected_item_health_status", value)
 
     @property
     @pulumi.getter(name="protectionState")
-    def protection_state(self) -> Optional[pulumi.Input[str]]:
+    def protection_state(self) -> Optional[pulumi.Input[Union[str, 'ProtectionState']]]:
         """
         Backup state of this backup item.
         """
         return pulumi.get(self, "protection_state")
 
     @protection_state.setter
-    def protection_state(self, value: Optional[pulumi.Input[str]]):
+    def protection_state(self, value: Optional[pulumi.Input[Union[str, 'ProtectionState']]]):
         pulumi.set(self, "protection_state", value)
 
     @property
@@ -1636,14 +1637,14 @@ class AzureVmWorkloadProtectedItemArgs:
 
     @property
     @pulumi.getter(name="workloadType")
-    def workload_type(self) -> Optional[pulumi.Input[str]]:
+    def workload_type(self) -> Optional[pulumi.Input[Union[str, 'DataSourceType']]]:
         """
         Type of workload this item represents.
         """
         return pulumi.get(self, "workload_type")
 
     @workload_type.setter
-    def workload_type(self, value: Optional[pulumi.Input[str]]):
+    def workload_type(self, value: Optional[pulumi.Input[Union[str, 'DataSourceType']]]):
         pulumi.set(self, "workload_type", value)
 
 
@@ -1708,10 +1709,10 @@ class DPMProtectedItemArgs:
     def __init__(__self__, *,
                  protected_item_type: pulumi.Input[str],
                  backup_engine_name: Optional[pulumi.Input[str]] = None,
-                 backup_management_type: Optional[pulumi.Input[str]] = None,
+                 backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
                  backup_set_name: Optional[pulumi.Input[str]] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
-                 create_mode: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
                  deferred_delete_time_in_utc: Optional[pulumi.Input[str]] = None,
                  deferred_delete_time_remaining: Optional[pulumi.Input[str]] = None,
                  extended_info: Optional[pulumi.Input['DPMProtectedItemExtendedInfoArgs']] = None,
@@ -1721,17 +1722,17 @@ class DPMProtectedItemArgs:
                  is_scheduled_for_deferred_delete: Optional[pulumi.Input[bool]] = None,
                  last_recovery_point: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
-                 protection_state: Optional[pulumi.Input[str]] = None,
+                 protection_state: Optional[pulumi.Input[Union[str, 'ProtectedItemState']]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
-                 workload_type: Optional[pulumi.Input[str]] = None):
+                 workload_type: Optional[pulumi.Input[Union[str, 'DataSourceType']]] = None):
         """
         Additional information on Backup engine specific backup item.
         :param pulumi.Input[str] protected_item_type: backup item type.
         :param pulumi.Input[str] backup_engine_name: Backup Management server protecting this backup item
-        :param pulumi.Input[str] backup_management_type: Type of backup management for the backed up item.
+        :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
         :param pulumi.Input[str] backup_set_name: Name of the backup set the backup item belongs to
         :param pulumi.Input[str] container_name: Unique name of container
-        :param pulumi.Input[str] create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+        :param pulumi.Input[Union[str, 'CreateMode']] create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param pulumi.Input[str] deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param pulumi.Input[str] deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param pulumi.Input['DPMProtectedItemExtendedInfoArgs'] extended_info: Extended info of the backup item.
@@ -1741,9 +1742,9 @@ class DPMProtectedItemArgs:
         :param pulumi.Input[bool] is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
         :param pulumi.Input[str] last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
-        :param pulumi.Input[str] protection_state: Protection state of the backup engine
+        :param pulumi.Input[Union[str, 'ProtectedItemState']] protection_state: Protection state of the backup engine
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
-        :param pulumi.Input[str] workload_type: Type of workload this item represents.
+        :param pulumi.Input[Union[str, 'DataSourceType']] workload_type: Type of workload this item represents.
         """
         pulumi.set(__self__, "protected_item_type", 'DPMProtectedItem')
         if backup_engine_name is not None:
@@ -1807,14 +1808,14 @@ class DPMProtectedItemArgs:
 
     @property
     @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[pulumi.Input[str]]:
+    def backup_management_type(self) -> Optional[pulumi.Input[Union[str, 'BackupManagementType']]]:
         """
         Type of backup management for the backed up item.
         """
         return pulumi.get(self, "backup_management_type")
 
     @backup_management_type.setter
-    def backup_management_type(self, value: Optional[pulumi.Input[str]]):
+    def backup_management_type(self, value: Optional[pulumi.Input[Union[str, 'BackupManagementType']]]):
         pulumi.set(self, "backup_management_type", value)
 
     @property
@@ -1843,14 +1844,14 @@ class DPMProtectedItemArgs:
 
     @property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[pulumi.Input[str]]:
+    def create_mode(self) -> Optional[pulumi.Input[Union[str, 'CreateMode']]]:
         """
         Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         """
         return pulumi.get(self, "create_mode")
 
     @create_mode.setter
-    def create_mode(self, value: Optional[pulumi.Input[str]]):
+    def create_mode(self, value: Optional[pulumi.Input[Union[str, 'CreateMode']]]):
         pulumi.set(self, "create_mode", value)
 
     @property
@@ -1963,14 +1964,14 @@ class DPMProtectedItemArgs:
 
     @property
     @pulumi.getter(name="protectionState")
-    def protection_state(self) -> Optional[pulumi.Input[str]]:
+    def protection_state(self) -> Optional[pulumi.Input[Union[str, 'ProtectedItemState']]]:
         """
         Protection state of the backup engine
         """
         return pulumi.get(self, "protection_state")
 
     @protection_state.setter
-    def protection_state(self, value: Optional[pulumi.Input[str]]):
+    def protection_state(self, value: Optional[pulumi.Input[Union[str, 'ProtectedItemState']]]):
         pulumi.set(self, "protection_state", value)
 
     @property
@@ -1987,14 +1988,14 @@ class DPMProtectedItemArgs:
 
     @property
     @pulumi.getter(name="workloadType")
-    def workload_type(self) -> Optional[pulumi.Input[str]]:
+    def workload_type(self) -> Optional[pulumi.Input[Union[str, 'DataSourceType']]]:
         """
         Type of workload this item represents.
         """
         return pulumi.get(self, "workload_type")
 
     @workload_type.setter
-    def workload_type(self, value: Optional[pulumi.Input[str]]):
+    def workload_type(self, value: Optional[pulumi.Input[Union[str, 'DataSourceType']]]):
         pulumi.set(self, "workload_type", value)
 
 
@@ -2297,10 +2298,10 @@ class ExtendedPropertiesArgs:
 class GenericProtectedItemArgs:
     def __init__(__self__, *,
                  protected_item_type: pulumi.Input[str],
-                 backup_management_type: Optional[pulumi.Input[str]] = None,
+                 backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
                  backup_set_name: Optional[pulumi.Input[str]] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
-                 create_mode: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
                  deferred_delete_time_in_utc: Optional[pulumi.Input[str]] = None,
                  deferred_delete_time_remaining: Optional[pulumi.Input[str]] = None,
                  fabric_name: Optional[pulumi.Input[str]] = None,
@@ -2312,17 +2313,17 @@ class GenericProtectedItemArgs:
                  policy_id: Optional[pulumi.Input[str]] = None,
                  policy_state: Optional[pulumi.Input[str]] = None,
                  protected_item_id: Optional[pulumi.Input[int]] = None,
-                 protection_state: Optional[pulumi.Input[str]] = None,
+                 protection_state: Optional[pulumi.Input[Union[str, 'ProtectionState']]] = None,
                  source_associations: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
-                 workload_type: Optional[pulumi.Input[str]] = None):
+                 workload_type: Optional[pulumi.Input[Union[str, 'DataSourceType']]] = None):
         """
         Base class for backup items.
         :param pulumi.Input[str] protected_item_type: backup item type.
-        :param pulumi.Input[str] backup_management_type: Type of backup management for the backed up item.
+        :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
         :param pulumi.Input[str] backup_set_name: Name of the backup set the backup item belongs to
         :param pulumi.Input[str] container_name: Unique name of container
-        :param pulumi.Input[str] create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+        :param pulumi.Input[Union[str, 'CreateMode']] create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param pulumi.Input[str] deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param pulumi.Input[str] deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param pulumi.Input[str] fabric_name: Name of this backup item's fabric.
@@ -2334,10 +2335,10 @@ class GenericProtectedItemArgs:
         :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
         :param pulumi.Input[str] policy_state: Indicates consistency of policy object and policy applied to this backup item.
         :param pulumi.Input[int] protected_item_id: Data Plane Service ID of the protected item.
-        :param pulumi.Input[str] protection_state: Backup state of this backup item.
+        :param pulumi.Input[Union[str, 'ProtectionState']] protection_state: Backup state of this backup item.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] source_associations: Loosely coupled (type, value) associations (example - parent of a protected item)
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
-        :param pulumi.Input[str] workload_type: Type of workload this item represents.
+        :param pulumi.Input[Union[str, 'DataSourceType']] workload_type: Type of workload this item represents.
         """
         pulumi.set(__self__, "protected_item_type", 'GenericProtectedItem')
         if backup_management_type is not None:
@@ -2393,14 +2394,14 @@ class GenericProtectedItemArgs:
 
     @property
     @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[pulumi.Input[str]]:
+    def backup_management_type(self) -> Optional[pulumi.Input[Union[str, 'BackupManagementType']]]:
         """
         Type of backup management for the backed up item.
         """
         return pulumi.get(self, "backup_management_type")
 
     @backup_management_type.setter
-    def backup_management_type(self, value: Optional[pulumi.Input[str]]):
+    def backup_management_type(self, value: Optional[pulumi.Input[Union[str, 'BackupManagementType']]]):
         pulumi.set(self, "backup_management_type", value)
 
     @property
@@ -2429,14 +2430,14 @@ class GenericProtectedItemArgs:
 
     @property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[pulumi.Input[str]]:
+    def create_mode(self) -> Optional[pulumi.Input[Union[str, 'CreateMode']]]:
         """
         Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         """
         return pulumi.get(self, "create_mode")
 
     @create_mode.setter
-    def create_mode(self, value: Optional[pulumi.Input[str]]):
+    def create_mode(self, value: Optional[pulumi.Input[Union[str, 'CreateMode']]]):
         pulumi.set(self, "create_mode", value)
 
     @property
@@ -2573,14 +2574,14 @@ class GenericProtectedItemArgs:
 
     @property
     @pulumi.getter(name="protectionState")
-    def protection_state(self) -> Optional[pulumi.Input[str]]:
+    def protection_state(self) -> Optional[pulumi.Input[Union[str, 'ProtectionState']]]:
         """
         Backup state of this backup item.
         """
         return pulumi.get(self, "protection_state")
 
     @protection_state.setter
-    def protection_state(self, value: Optional[pulumi.Input[str]]):
+    def protection_state(self, value: Optional[pulumi.Input[Union[str, 'ProtectionState']]]):
         pulumi.set(self, "protection_state", value)
 
     @property
@@ -2609,38 +2610,38 @@ class GenericProtectedItemArgs:
 
     @property
     @pulumi.getter(name="workloadType")
-    def workload_type(self) -> Optional[pulumi.Input[str]]:
+    def workload_type(self) -> Optional[pulumi.Input[Union[str, 'DataSourceType']]]:
         """
         Type of workload this item represents.
         """
         return pulumi.get(self, "workload_type")
 
     @workload_type.setter
-    def workload_type(self, value: Optional[pulumi.Input[str]]):
+    def workload_type(self, value: Optional[pulumi.Input[Union[str, 'DataSourceType']]]):
         pulumi.set(self, "workload_type", value)
 
 
 @pulumi.input_type
 class KPIResourceHealthDetailsArgs:
     def __init__(__self__, *,
-                 resource_health_status: Optional[pulumi.Input[str]] = None):
+                 resource_health_status: Optional[pulumi.Input[Union[str, 'ResourceHealthStatus']]] = None):
         """
         KPI Resource Health Details
-        :param pulumi.Input[str] resource_health_status: Resource Health Status
+        :param pulumi.Input[Union[str, 'ResourceHealthStatus']] resource_health_status: Resource Health Status
         """
         if resource_health_status is not None:
             pulumi.set(__self__, "resource_health_status", resource_health_status)
 
     @property
     @pulumi.getter(name="resourceHealthStatus")
-    def resource_health_status(self) -> Optional[pulumi.Input[str]]:
+    def resource_health_status(self) -> Optional[pulumi.Input[Union[str, 'ResourceHealthStatus']]]:
         """
         Resource Health Status
         """
         return pulumi.get(self, "resource_health_status")
 
     @resource_health_status.setter
-    def resource_health_status(self, value: Optional[pulumi.Input[str]]):
+    def resource_health_status(self, value: Optional[pulumi.Input[Union[str, 'ResourceHealthStatus']]]):
         pulumi.set(self, "resource_health_status", value)
 
 
@@ -2648,11 +2649,11 @@ class KPIResourceHealthDetailsArgs:
 class MabFileFolderProtectedItemArgs:
     def __init__(__self__, *,
                  protected_item_type: pulumi.Input[str],
-                 backup_management_type: Optional[pulumi.Input[str]] = None,
+                 backup_management_type: Optional[pulumi.Input[Union[str, 'BackupManagementType']]] = None,
                  backup_set_name: Optional[pulumi.Input[str]] = None,
                  computer_name: Optional[pulumi.Input[str]] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
-                 create_mode: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
                  deferred_delete_sync_time_in_utc: Optional[pulumi.Input[int]] = None,
                  deferred_delete_time_in_utc: Optional[pulumi.Input[str]] = None,
                  deferred_delete_time_remaining: Optional[pulumi.Input[str]] = None,
@@ -2667,15 +2668,15 @@ class MabFileFolderProtectedItemArgs:
                  policy_id: Optional[pulumi.Input[str]] = None,
                  protection_state: Optional[pulumi.Input[str]] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
-                 workload_type: Optional[pulumi.Input[str]] = None):
+                 workload_type: Optional[pulumi.Input[Union[str, 'DataSourceType']]] = None):
         """
         MAB workload-specific backup item.
         :param pulumi.Input[str] protected_item_type: backup item type.
-        :param pulumi.Input[str] backup_management_type: Type of backup management for the backed up item.
+        :param pulumi.Input[Union[str, 'BackupManagementType']] backup_management_type: Type of backup management for the backed up item.
         :param pulumi.Input[str] backup_set_name: Name of the backup set the backup item belongs to
         :param pulumi.Input[str] computer_name: Name of the computer associated with this backup item.
         :param pulumi.Input[str] container_name: Unique name of container
-        :param pulumi.Input[str] create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+        :param pulumi.Input[Union[str, 'CreateMode']] create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param pulumi.Input[int] deferred_delete_sync_time_in_utc: Sync time for deferred deletion in UTC
         :param pulumi.Input[str] deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param pulumi.Input[str] deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
@@ -2690,7 +2691,7 @@ class MabFileFolderProtectedItemArgs:
         :param pulumi.Input[str] policy_id: ID of the backup policy with which this item is backed up.
         :param pulumi.Input[str] protection_state: Protected, ProtectionStopped, IRPending or ProtectionError
         :param pulumi.Input[str] source_resource_id: ARM ID of the resource to be backed up.
-        :param pulumi.Input[str] workload_type: Type of workload this item represents.
+        :param pulumi.Input[Union[str, 'DataSourceType']] workload_type: Type of workload this item represents.
         """
         pulumi.set(__self__, "protected_item_type", 'MabFileFolderProtectedItem')
         if backup_management_type is not None:
@@ -2748,14 +2749,14 @@ class MabFileFolderProtectedItemArgs:
 
     @property
     @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[pulumi.Input[str]]:
+    def backup_management_type(self) -> Optional[pulumi.Input[Union[str, 'BackupManagementType']]]:
         """
         Type of backup management for the backed up item.
         """
         return pulumi.get(self, "backup_management_type")
 
     @backup_management_type.setter
-    def backup_management_type(self, value: Optional[pulumi.Input[str]]):
+    def backup_management_type(self, value: Optional[pulumi.Input[Union[str, 'BackupManagementType']]]):
         pulumi.set(self, "backup_management_type", value)
 
     @property
@@ -2796,14 +2797,14 @@ class MabFileFolderProtectedItemArgs:
 
     @property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[pulumi.Input[str]]:
+    def create_mode(self) -> Optional[pulumi.Input[Union[str, 'CreateMode']]]:
         """
         Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         """
         return pulumi.get(self, "create_mode")
 
     @create_mode.setter
-    def create_mode(self, value: Optional[pulumi.Input[str]]):
+    def create_mode(self, value: Optional[pulumi.Input[Union[str, 'CreateMode']]]):
         pulumi.set(self, "create_mode", value)
 
     @property
@@ -2976,14 +2977,14 @@ class MabFileFolderProtectedItemArgs:
 
     @property
     @pulumi.getter(name="workloadType")
-    def workload_type(self) -> Optional[pulumi.Input[str]]:
+    def workload_type(self) -> Optional[pulumi.Input[Union[str, 'DataSourceType']]]:
         """
         Type of workload this item represents.
         """
         return pulumi.get(self, "workload_type")
 
     @workload_type.setter
-    def workload_type(self, value: Optional[pulumi.Input[str]]):
+    def workload_type(self, value: Optional[pulumi.Input[Union[str, 'DataSourceType']]]):
         pulumi.set(self, "workload_type", value)
 
 

@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .data_flow import *
 from .dataset import *
 from .factory import *
@@ -30,3 +31,40 @@ from .pipeline import *
 from .trigger import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:datafactory/latest:DataFlow":
+                return DataFlow(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:datafactory/latest:Dataset":
+                return Dataset(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:datafactory/latest:Factory":
+                return Factory(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:datafactory/latest:IntegrationRuntime":
+                return IntegrationRuntime(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:datafactory/latest:LinkedService":
+                return LinkedService(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:datafactory/latest:ManagedPrivateEndpoint":
+                return ManagedPrivateEndpoint(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:datafactory/latest:Pipeline":
+                return Pipeline(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:datafactory/latest:Trigger":
+                return Trigger(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "datafactory/latest", _module_instance)
+
+_register_module()

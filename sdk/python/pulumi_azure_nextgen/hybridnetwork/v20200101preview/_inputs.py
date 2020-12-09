@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'CustomProfileArgs',
@@ -55,12 +56,12 @@ class CustomProfileArgs:
 @pulumi.input_type
 class DataDiskArgs:
     def __init__(__self__, *,
-                 create_option: Optional[pulumi.Input[str]] = None,
+                 create_option: Optional[pulumi.Input[Union[str, 'DiskCreateOptionTypes']]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-        :param pulumi.Input[str] create_option: Specifies how the virtual machine should be created.
+        :param pulumi.Input[Union[str, 'DiskCreateOptionTypes']] create_option: Specifies how the virtual machine should be created.
         :param pulumi.Input[int] disk_size_gb: Specifies the size of an empty disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image.
         :param pulumi.Input[str] name: The name of data disk.
         """
@@ -73,14 +74,14 @@ class DataDiskArgs:
 
     @property
     @pulumi.getter(name="createOption")
-    def create_option(self) -> Optional[pulumi.Input[str]]:
+    def create_option(self) -> Optional[pulumi.Input[Union[str, 'DiskCreateOptionTypes']]]:
         """
         Specifies how the virtual machine should be created.
         """
         return pulumi.get(self, "create_option")
 
     @create_option.setter
-    def create_option(self, value: Optional[pulumi.Input[str]]):
+    def create_option(self, value: Optional[pulumi.Input[Union[str, 'DiskCreateOptionTypes']]]):
         pulumi.set(self, "create_option", value)
 
     @property
@@ -227,22 +228,22 @@ class NetworkFunctionRoleConfigurationArgs:
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]]] = None,
                  os_profile: Optional[pulumi.Input['OsProfileArgs']] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
-                 role_type: Optional[pulumi.Input[str]] = None,
+                 role_type: Optional[pulumi.Input[Union[str, 'NetworkFunctionRoleConfigurationType']]] = None,
                  storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
                  user_data_parameters: Optional[Any] = None,
                  user_data_template: Optional[Any] = None,
-                 virtual_machine_size: Optional[pulumi.Input[str]] = None):
+                 virtual_machine_size: Optional[pulumi.Input[Union[str, 'VirtualMachineSizeTypes']]] = None):
         """
         Network function role configuration.
         :param pulumi.Input['CustomProfileArgs'] custom_profile: Specifies the custom settings for the virtual machine.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceArgs']]] network_interfaces: The network interface configurations.
         :param pulumi.Input['OsProfileArgs'] os_profile: Specifies the operating system settings for the role instance. This value can be updated during the deployment of network function.
         :param pulumi.Input[str] role_name: The name of the network function role.
-        :param pulumi.Input[str] role_type: Role type.
+        :param pulumi.Input[Union[str, 'NetworkFunctionRoleConfigurationType']] role_type: Role type.
         :param pulumi.Input['StorageProfileArgs'] storage_profile: Specifies the storage settings for the virtual machine disks.
         :param Any user_data_parameters: The user parameters for customers. The format of user data parameters has to be matched with the provided user data template.
         :param Any user_data_template: The user data template for customers. This is a json schema template describing the format and data type of user data parameters.
-        :param pulumi.Input[str] virtual_machine_size: The size of the virtual machine.
+        :param pulumi.Input[Union[str, 'VirtualMachineSizeTypes']] virtual_machine_size: The size of the virtual machine.
         """
         if custom_profile is not None:
             pulumi.set(__self__, "custom_profile", custom_profile)
@@ -313,14 +314,14 @@ class NetworkFunctionRoleConfigurationArgs:
 
     @property
     @pulumi.getter(name="roleType")
-    def role_type(self) -> Optional[pulumi.Input[str]]:
+    def role_type(self) -> Optional[pulumi.Input[Union[str, 'NetworkFunctionRoleConfigurationType']]]:
         """
         Role type.
         """
         return pulumi.get(self, "role_type")
 
     @role_type.setter
-    def role_type(self, value: Optional[pulumi.Input[str]]):
+    def role_type(self, value: Optional[pulumi.Input[Union[str, 'NetworkFunctionRoleConfigurationType']]]):
         pulumi.set(self, "role_type", value)
 
     @property
@@ -361,14 +362,14 @@ class NetworkFunctionRoleConfigurationArgs:
 
     @property
     @pulumi.getter(name="virtualMachineSize")
-    def virtual_machine_size(self) -> Optional[pulumi.Input[str]]:
+    def virtual_machine_size(self) -> Optional[pulumi.Input[Union[str, 'VirtualMachineSizeTypes']]]:
         """
         The size of the virtual machine.
         """
         return pulumi.get(self, "virtual_machine_size")
 
     @virtual_machine_size.setter
-    def virtual_machine_size(self, value: Optional[pulumi.Input[str]]):
+    def virtual_machine_size(self, value: Optional[pulumi.Input[Union[str, 'VirtualMachineSizeTypes']]]):
         pulumi.set(self, "virtual_machine_size", value)
 
 
@@ -498,13 +499,13 @@ class NetworkInterfaceArgs:
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]]] = None,
                  mac_address: Optional[pulumi.Input[str]] = None,
                  network_interface_name: Optional[pulumi.Input[str]] = None,
-                 vm_switch_type: Optional[pulumi.Input[str]] = None):
+                 vm_switch_type: Optional[pulumi.Input[Union[str, 'VMSwitchType']]] = None):
         """
         Network interface properties.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIPConfigurationArgs']]] ip_configurations: A list of IP configurations of the network interface.
         :param pulumi.Input[str] mac_address: The MAC address of the network interface.
         :param pulumi.Input[str] network_interface_name: The name of the network interface.
-        :param pulumi.Input[str] vm_switch_type: The type of the VM switch.
+        :param pulumi.Input[Union[str, 'VMSwitchType']] vm_switch_type: The type of the VM switch.
         """
         if ip_configurations is not None:
             pulumi.set(__self__, "ip_configurations", ip_configurations)
@@ -553,14 +554,14 @@ class NetworkInterfaceArgs:
 
     @property
     @pulumi.getter(name="vmSwitchType")
-    def vm_switch_type(self) -> Optional[pulumi.Input[str]]:
+    def vm_switch_type(self) -> Optional[pulumi.Input[Union[str, 'VMSwitchType']]]:
         """
         The type of the VM switch.
         """
         return pulumi.get(self, "vm_switch_type")
 
     @vm_switch_type.setter
-    def vm_switch_type(self, value: Optional[pulumi.Input[str]]):
+    def vm_switch_type(self, value: Optional[pulumi.Input[Union[str, 'VMSwitchType']]]):
         pulumi.set(self, "vm_switch_type", value)
 
 
@@ -570,16 +571,16 @@ class NetworkInterfaceIPConfigurationArgs:
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  gateway: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
-                 ip_allocation_method: Optional[pulumi.Input[str]] = None,
-                 ip_version: Optional[pulumi.Input[str]] = None,
+                 ip_allocation_method: Optional[pulumi.Input[Union[str, 'IPAllocationMethod']]] = None,
+                 ip_version: Optional[pulumi.Input[Union[str, 'IPVersion']]] = None,
                  subnet: Optional[pulumi.Input[str]] = None):
         """
         Network interface IP configuration properties.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: The list of DNS servers IP addresses.
         :param pulumi.Input[str] gateway: The value of the gateway.
         :param pulumi.Input[str] ip_address: The value of the IP address.
-        :param pulumi.Input[str] ip_allocation_method: IP address allocation method.
-        :param pulumi.Input[str] ip_version: IP address version.
+        :param pulumi.Input[Union[str, 'IPAllocationMethod']] ip_allocation_method: IP address allocation method.
+        :param pulumi.Input[Union[str, 'IPVersion']] ip_version: IP address version.
         :param pulumi.Input[str] subnet: The value of the subnet.
         """
         if dns_servers is not None:
@@ -633,26 +634,26 @@ class NetworkInterfaceIPConfigurationArgs:
 
     @property
     @pulumi.getter(name="ipAllocationMethod")
-    def ip_allocation_method(self) -> Optional[pulumi.Input[str]]:
+    def ip_allocation_method(self) -> Optional[pulumi.Input[Union[str, 'IPAllocationMethod']]]:
         """
         IP address allocation method.
         """
         return pulumi.get(self, "ip_allocation_method")
 
     @ip_allocation_method.setter
-    def ip_allocation_method(self, value: Optional[pulumi.Input[str]]):
+    def ip_allocation_method(self, value: Optional[pulumi.Input[Union[str, 'IPAllocationMethod']]]):
         pulumi.set(self, "ip_allocation_method", value)
 
     @property
     @pulumi.getter(name="ipVersion")
-    def ip_version(self) -> Optional[pulumi.Input[str]]:
+    def ip_version(self) -> Optional[pulumi.Input[Union[str, 'IPVersion']]]:
         """
         IP address version.
         """
         return pulumi.get(self, "ip_version")
 
     @ip_version.setter
-    def ip_version(self, value: Optional[pulumi.Input[str]]):
+    def ip_version(self, value: Optional[pulumi.Input[Union[str, 'IPVersion']]]):
         pulumi.set(self, "ip_version", value)
 
     @property
@@ -673,13 +674,13 @@ class OsDiskArgs:
     def __init__(__self__, *,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 os_type: Optional[pulumi.Input[str]] = None,
+                 os_type: Optional[pulumi.Input[Union[str, 'OperatingSystemTypes']]] = None,
                  vhd: Optional[pulumi.Input['VirtualHardDiskArgs']] = None):
         """
         Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
         :param pulumi.Input[int] disk_size_gb: Specifies the size of os disk in gigabytes. This is the fully expanded disk size needed of the VHD image on the ASE. This disk size should be greater than the size of the VHD provided in vhdUri.
         :param pulumi.Input[str] name: The VHD name.
-        :param pulumi.Input[str] os_type: The OS type.
+        :param pulumi.Input[Union[str, 'OperatingSystemTypes']] os_type: The OS type.
         :param pulumi.Input['VirtualHardDiskArgs'] vhd: The virtual hard disk.
         """
         if disk_size_gb is not None:
@@ -717,14 +718,14 @@ class OsDiskArgs:
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[str]]:
+    def os_type(self) -> Optional[pulumi.Input[Union[str, 'OperatingSystemTypes']]]:
         """
         The OS type.
         """
         return pulumi.get(self, "os_type")
 
     @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[str]]):
+    def os_type(self, value: Optional[pulumi.Input[Union[str, 'OperatingSystemTypes']]]):
         pulumi.set(self, "os_type", value)
 
     @property

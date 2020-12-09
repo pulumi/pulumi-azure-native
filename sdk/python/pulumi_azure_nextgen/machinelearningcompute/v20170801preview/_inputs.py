@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AcsClusterPropertiesArgs',
@@ -25,17 +26,17 @@ __all__ = [
 @pulumi.input_type
 class AcsClusterPropertiesArgs:
     def __init__(__self__, *,
-                 orchestrator_type: pulumi.Input[str],
+                 orchestrator_type: pulumi.Input[Union[str, 'OrchestratorType']],
                  agent_count: Optional[pulumi.Input[int]] = None,
-                 agent_vm_size: Optional[pulumi.Input[str]] = None,
+                 agent_vm_size: Optional[pulumi.Input[Union[str, 'AgentVMSizeTypes']]] = None,
                  master_count: Optional[pulumi.Input[int]] = None,
                  orchestrator_properties: Optional[pulumi.Input['KubernetesClusterPropertiesArgs']] = None,
                  system_services: Optional[pulumi.Input[Sequence[pulumi.Input['SystemServiceArgs']]]] = None):
         """
         Information about the container service backing the cluster
-        :param pulumi.Input[str] orchestrator_type: Type of orchestrator. It cannot be changed once the cluster is created.
+        :param pulumi.Input[Union[str, 'OrchestratorType']] orchestrator_type: Type of orchestrator. It cannot be changed once the cluster is created.
         :param pulumi.Input[int] agent_count: The number of agent nodes in the Container Service. This can be changed to scale the cluster.
-        :param pulumi.Input[str] agent_vm_size: The Azure VM size of the agent VM nodes. This cannot be changed once the cluster is created. This list is non exhaustive; refer to https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes for the possible VM sizes.
+        :param pulumi.Input[Union[str, 'AgentVMSizeTypes']] agent_vm_size: The Azure VM size of the agent VM nodes. This cannot be changed once the cluster is created. This list is non exhaustive; refer to https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes for the possible VM sizes.
         :param pulumi.Input[int] master_count: The number of master nodes in the container service.
         :param pulumi.Input['KubernetesClusterPropertiesArgs'] orchestrator_properties: Orchestrator specific properties
         :param pulumi.Input[Sequence[pulumi.Input['SystemServiceArgs']]] system_services: The system services deployed to the cluster
@@ -54,14 +55,14 @@ class AcsClusterPropertiesArgs:
 
     @property
     @pulumi.getter(name="orchestratorType")
-    def orchestrator_type(self) -> pulumi.Input[str]:
+    def orchestrator_type(self) -> pulumi.Input[Union[str, 'OrchestratorType']]:
         """
         Type of orchestrator. It cannot be changed once the cluster is created.
         """
         return pulumi.get(self, "orchestrator_type")
 
     @orchestrator_type.setter
-    def orchestrator_type(self, value: pulumi.Input[str]):
+    def orchestrator_type(self, value: pulumi.Input[Union[str, 'OrchestratorType']]):
         pulumi.set(self, "orchestrator_type", value)
 
     @property
@@ -78,14 +79,14 @@ class AcsClusterPropertiesArgs:
 
     @property
     @pulumi.getter(name="agentVmSize")
-    def agent_vm_size(self) -> Optional[pulumi.Input[str]]:
+    def agent_vm_size(self) -> Optional[pulumi.Input[Union[str, 'AgentVMSizeTypes']]]:
         """
         The Azure VM size of the agent VM nodes. This cannot be changed once the cluster is created. This list is non exhaustive; refer to https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes for the possible VM sizes.
         """
         return pulumi.get(self, "agent_vm_size")
 
     @agent_vm_size.setter
-    def agent_vm_size(self, value: Optional[pulumi.Input[str]]):
+    def agent_vm_size(self, value: Optional[pulumi.Input[Union[str, 'AgentVMSizeTypes']]]):
         pulumi.set(self, "agent_vm_size", value)
 
     @property
@@ -155,14 +156,14 @@ class AutoScaleConfigurationArgs:
                  max_replicas: Optional[pulumi.Input[int]] = None,
                  min_replicas: Optional[pulumi.Input[int]] = None,
                  refresh_period_in_seconds: Optional[pulumi.Input[int]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'Status']]] = None,
                  target_utilization: Optional[pulumi.Input[float]] = None):
         """
         AutoScale configuration properties.
         :param pulumi.Input[int] max_replicas: The maximum number of replicas for each service.
         :param pulumi.Input[int] min_replicas: The minimum number of replicas for each service.
         :param pulumi.Input[int] refresh_period_in_seconds: Refresh period in seconds.
-        :param pulumi.Input[str] status: If auto-scale is enabled for all services. Each service can turn it off individually.
+        :param pulumi.Input[Union[str, 'Status']] status: If auto-scale is enabled for all services. Each service can turn it off individually.
         :param pulumi.Input[float] target_utilization: The target utilization.
         """
         if max_replicas is not None:
@@ -214,14 +215,14 @@ class AutoScaleConfigurationArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input[Union[str, 'Status']]]:
         """
         If auto-scale is enabled for all services. Each service can turn it off individually.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input[Union[str, 'Status']]]):
         pulumi.set(self, "status", value)
 
     @property
@@ -439,13 +440,13 @@ class SslConfigurationArgs:
                  cert: Optional[pulumi.Input[str]] = None,
                  cname: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None):
+                 status: Optional[pulumi.Input[Union[str, 'Status']]] = None):
         """
         SSL configuration. If configured data-plane calls to user services will be exposed over SSL only.
         :param pulumi.Input[str] cert: The SSL cert data in PEM format.
         :param pulumi.Input[str] cname: The CName of the certificate.
         :param pulumi.Input[str] key: The SSL key data in PEM format. This is not returned in response of GET/PUT on the resource. To see this please call listKeys API.
-        :param pulumi.Input[str] status: SSL status. Allowed values are Enabled and Disabled.
+        :param pulumi.Input[Union[str, 'Status']] status: SSL status. Allowed values are Enabled and Disabled.
         """
         if cert is not None:
             pulumi.set(__self__, "cert", cert)
@@ -494,14 +495,14 @@ class SslConfigurationArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input[Union[str, 'Status']]]:
         """
         SSL status. Allowed values are Enabled and Disabled.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input[Union[str, 'Status']]]):
         pulumi.set(self, "status", value)
 
 
@@ -532,23 +533,23 @@ class StorageAccountPropertiesArgs:
 @pulumi.input_type
 class SystemServiceArgs:
     def __init__(__self__, *,
-                 system_service_type: pulumi.Input[str]):
+                 system_service_type: pulumi.Input[Union[str, 'SystemServiceType']]):
         """
         Information about a system service deployed in the cluster
-        :param pulumi.Input[str] system_service_type: The system service type
+        :param pulumi.Input[Union[str, 'SystemServiceType']] system_service_type: The system service type
         """
         pulumi.set(__self__, "system_service_type", system_service_type)
 
     @property
     @pulumi.getter(name="systemServiceType")
-    def system_service_type(self) -> pulumi.Input[str]:
+    def system_service_type(self) -> pulumi.Input[Union[str, 'SystemServiceType']]:
         """
         The system service type
         """
         return pulumi.get(self, "system_service_type")
 
     @system_service_type.setter
-    def system_service_type(self, value: pulumi.Input[str]):
+    def system_service_type(self, value: pulumi.Input[Union[str, 'SystemServiceType']]):
         pulumi.set(self, "system_service_type", value)
 
 

@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .availability_set import *
 from .dedicated_host import *
 from .dedicated_host_group import *
@@ -35,3 +36,52 @@ from .virtual_machine_scale_set_vm_extension import *
 from .virtual_machine_scale_set_vm_run_command import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:compute/v20200601:AvailabilitySet":
+                return AvailabilitySet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:compute/v20200601:DedicatedHost":
+                return DedicatedHost(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:compute/v20200601:DedicatedHostGroup":
+                return DedicatedHostGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:compute/v20200601:Image":
+                return Image(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:compute/v20200601:ProximityPlacementGroup":
+                return ProximityPlacementGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:compute/v20200601:SshPublicKey":
+                return SshPublicKey(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:compute/v20200601:VirtualMachine":
+                return VirtualMachine(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:compute/v20200601:VirtualMachineExtension":
+                return VirtualMachineExtension(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:compute/v20200601:VirtualMachineRunCommandByVirtualMachine":
+                return VirtualMachineRunCommandByVirtualMachine(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:compute/v20200601:VirtualMachineScaleSet":
+                return VirtualMachineScaleSet(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:compute/v20200601:VirtualMachineScaleSetExtension":
+                return VirtualMachineScaleSetExtension(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:compute/v20200601:VirtualMachineScaleSetVM":
+                return VirtualMachineScaleSetVM(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:compute/v20200601:VirtualMachineScaleSetVMExtension":
+                return VirtualMachineScaleSetVMExtension(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:compute/v20200601:VirtualMachineScaleSetVMRunCommand":
+                return VirtualMachineScaleSetVMRunCommand(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "compute/v20200601", _module_instance)
+
+_register_module()

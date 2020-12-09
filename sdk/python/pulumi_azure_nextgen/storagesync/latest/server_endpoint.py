@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 
 __all__ = ['ServerEndpoint']
 
@@ -16,11 +17,11 @@ class ServerEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud_tiering: Optional[pulumi.Input[str]] = None,
+                 cloud_tiering: Optional[pulumi.Input[Union[str, 'FeatureStatus']]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
-                 initial_download_policy: Optional[pulumi.Input[str]] = None,
-                 local_cache_mode: Optional[pulumi.Input[str]] = None,
-                 offline_data_transfer: Optional[pulumi.Input[str]] = None,
+                 initial_download_policy: Optional[pulumi.Input[Union[str, 'InitialDownloadPolicy']]] = None,
+                 local_cache_mode: Optional[pulumi.Input[Union[str, 'LocalCacheMode']]] = None,
+                 offline_data_transfer: Optional[pulumi.Input[Union[str, 'FeatureStatus']]] = None,
                  offline_data_transfer_share_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_endpoint_name: Optional[pulumi.Input[str]] = None,
@@ -38,11 +39,11 @@ class ServerEndpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] cloud_tiering: Cloud Tiering.
+        :param pulumi.Input[Union[str, 'FeatureStatus']] cloud_tiering: Cloud Tiering.
         :param pulumi.Input[str] friendly_name: Friendly Name
-        :param pulumi.Input[str] initial_download_policy: Policy for how namespace and files are recalled during FastDr.
-        :param pulumi.Input[str] local_cache_mode: Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
-        :param pulumi.Input[str] offline_data_transfer: Offline data transfer
+        :param pulumi.Input[Union[str, 'InitialDownloadPolicy']] initial_download_policy: Policy for how namespace and files are recalled during FastDr.
+        :param pulumi.Input[Union[str, 'LocalCacheMode']] local_cache_mode: Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
+        :param pulumi.Input[Union[str, 'FeatureStatus']] offline_data_transfer: Offline data transfer
         :param pulumi.Input[str] offline_data_transfer_share_name: Offline data transfer share name
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] server_endpoint_name: Name of Server Endpoint object.
@@ -76,18 +77,18 @@ class ServerEndpoint(pulumi.CustomResource):
             __props__['local_cache_mode'] = local_cache_mode
             __props__['offline_data_transfer'] = offline_data_transfer
             __props__['offline_data_transfer_share_name'] = offline_data_transfer_share_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if server_endpoint_name is None:
+            if server_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_endpoint_name'")
             __props__['server_endpoint_name'] = server_endpoint_name
             __props__['server_local_path'] = server_local_path
             __props__['server_resource_id'] = server_resource_id
-            if storage_sync_service_name is None:
+            if storage_sync_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_sync_service_name'")
             __props__['storage_sync_service_name'] = storage_sync_service_name
-            if sync_group_name is None:
+            if sync_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sync_group_name'")
             __props__['sync_group_name'] = sync_group_name
             __props__['tier_files_older_than_days'] = tier_files_older_than_days

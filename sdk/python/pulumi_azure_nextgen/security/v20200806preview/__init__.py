@@ -11,3 +11,32 @@ from .iot_defender_setting import *
 from .iot_sensor import *
 from .iot_site import *
 from .on_premise_iot_sensor import *
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:security/v20200806preview:IotDefenderSetting":
+                return IotDefenderSetting(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:security/v20200806preview:IotSensor":
+                return IotSensor(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:security/v20200806preview:IotSite":
+                return IotSite(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:security/v20200806preview:OnPremiseIotSensor":
+                return OnPremiseIotSensor(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "security/v20200806preview", _module_instance)
+
+_register_module()

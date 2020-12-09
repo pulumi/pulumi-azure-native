@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ApplicationAuthorizationArgs',
@@ -67,13 +68,13 @@ class ApplicationAuthorizationArgs:
 @pulumi.input_type
 class ApplicationDefinitionArtifactArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 type: pulumi.Input[str],
+                 name: pulumi.Input[Union[str, 'ApplicationDefinitionArtifactName']],
+                 type: pulumi.Input['ApplicationArtifactType'],
                  uri: pulumi.Input[str]):
         """
         Application definition artifact.
-        :param pulumi.Input[str] name: The managed application definition artifact name.
-        :param pulumi.Input[str] type: The managed application definition artifact type.
+        :param pulumi.Input[Union[str, 'ApplicationDefinitionArtifactName']] name: The managed application definition artifact name.
+        :param pulumi.Input['ApplicationArtifactType'] type: The managed application definition artifact type.
         :param pulumi.Input[str] uri: The managed application definition artifact blob uri.
         """
         pulumi.set(__self__, "name", name)
@@ -82,26 +83,26 @@ class ApplicationDefinitionArtifactArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input[Union[str, 'ApplicationDefinitionArtifactName']]:
         """
         The managed application definition artifact name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input[Union[str, 'ApplicationDefinitionArtifactName']]):
         pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['ApplicationArtifactType']:
         """
         The managed application definition artifact type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['ApplicationArtifactType']):
         pulumi.set(self, "type", value)
 
     @property
@@ -120,23 +121,23 @@ class ApplicationDefinitionArtifactArgs:
 @pulumi.input_type
 class ApplicationDeploymentPolicyArgs:
     def __init__(__self__, *,
-                 deployment_mode: pulumi.Input[str]):
+                 deployment_mode: pulumi.Input[Union[str, 'DeploymentMode']]):
         """
         Managed application deployment policy.
-        :param pulumi.Input[str] deployment_mode: The managed application deployment mode.
+        :param pulumi.Input[Union[str, 'DeploymentMode']] deployment_mode: The managed application deployment mode.
         """
         pulumi.set(__self__, "deployment_mode", deployment_mode)
 
     @property
     @pulumi.getter(name="deploymentMode")
-    def deployment_mode(self) -> pulumi.Input[str]:
+    def deployment_mode(self) -> pulumi.Input[Union[str, 'DeploymentMode']]:
         """
         The managed application deployment mode.
         """
         return pulumi.get(self, "deployment_mode")
 
     @deployment_mode.setter
-    def deployment_mode(self, value: pulumi.Input[str]):
+    def deployment_mode(self, value: pulumi.Input[Union[str, 'DeploymentMode']]):
         pulumi.set(self, "deployment_mode", value)
 
 
@@ -144,13 +145,13 @@ class ApplicationDeploymentPolicyArgs:
 class ApplicationJitAccessPolicyArgs:
     def __init__(__self__, *,
                  jit_access_enabled: pulumi.Input[bool],
-                 jit_approval_mode: Optional[pulumi.Input[str]] = None,
+                 jit_approval_mode: Optional[pulumi.Input[Union[str, 'JitApprovalMode']]] = None,
                  jit_approvers: Optional[pulumi.Input[Sequence[pulumi.Input['JitApproverDefinitionArgs']]]] = None,
                  maximum_jit_access_duration: Optional[pulumi.Input[str]] = None):
         """
         Managed application Jit access policy.
         :param pulumi.Input[bool] jit_access_enabled: Whether the JIT access is enabled.
-        :param pulumi.Input[str] jit_approval_mode: JIT approval mode.
+        :param pulumi.Input[Union[str, 'JitApprovalMode']] jit_approval_mode: JIT approval mode.
         :param pulumi.Input[Sequence[pulumi.Input['JitApproverDefinitionArgs']]] jit_approvers: The JIT approvers
         :param pulumi.Input[str] maximum_jit_access_duration: The maximum duration JIT access is granted. This is an ISO8601 time period value.
         """
@@ -176,14 +177,14 @@ class ApplicationJitAccessPolicyArgs:
 
     @property
     @pulumi.getter(name="jitApprovalMode")
-    def jit_approval_mode(self) -> Optional[pulumi.Input[str]]:
+    def jit_approval_mode(self) -> Optional[pulumi.Input[Union[str, 'JitApprovalMode']]]:
         """
         JIT approval mode.
         """
         return pulumi.get(self, "jit_approval_mode")
 
     @jit_approval_mode.setter
-    def jit_approval_mode(self, value: Optional[pulumi.Input[str]]):
+    def jit_approval_mode(self, value: Optional[pulumi.Input[Union[str, 'JitApprovalMode']]]):
         pulumi.set(self, "jit_approval_mode", value)
 
     @property
@@ -214,24 +215,24 @@ class ApplicationJitAccessPolicyArgs:
 @pulumi.input_type
 class ApplicationManagementPolicyArgs:
     def __init__(__self__, *,
-                 mode: Optional[pulumi.Input[str]] = None):
+                 mode: Optional[pulumi.Input[Union[str, 'ApplicationManagementMode']]] = None):
         """
         Managed application management policy.
-        :param pulumi.Input[str] mode: The managed application management mode.
+        :param pulumi.Input[Union[str, 'ApplicationManagementMode']] mode: The managed application management mode.
         """
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
 
     @property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[str]]:
+    def mode(self) -> Optional[pulumi.Input[Union[str, 'ApplicationManagementMode']]]:
         """
         The managed application management mode.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[str]]):
+    def mode(self, value: Optional[pulumi.Input[Union[str, 'ApplicationManagementMode']]]):
         pulumi.set(self, "mode", value)
 
 
@@ -364,11 +365,11 @@ class ApplicationPolicyArgs:
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None,
                  user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Identity for the resource.
-        :param pulumi.Input[str] type: The identity type.
+        :param pulumi.Input['ResourceIdentityType'] type: The identity type.
         :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         if type is not None:
@@ -378,14 +379,14 @@ class IdentityArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
         """
         The identity type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -406,12 +407,12 @@ class JitApproverDefinitionArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  display_name: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input[Union[str, 'JitApproverType']]] = None):
         """
         JIT approver definition.
         :param pulumi.Input[str] id: The approver service principal Id.
         :param pulumi.Input[str] display_name: The approver display name.
-        :param pulumi.Input[str] type: The approver type.
+        :param pulumi.Input[Union[str, 'JitApproverType']] type: The approver type.
         """
         pulumi.set(__self__, "id", id)
         if display_name is not None:
@@ -445,14 +446,14 @@ class JitApproverDefinitionArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'JitApproverType']]]:
         """
         The approver type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'JitApproverType']]]):
         pulumi.set(self, "type", value)
 
 

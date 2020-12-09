@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .get_private_endpoint_connection import *
 from .get_protected_item import *
 from .get_protection_container import *
@@ -37,3 +38,56 @@ from .replicationv_center import *
 from .vault import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:recoveryservices/latest:PrivateEndpointConnection":
+                return PrivateEndpointConnection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:recoveryservices/latest:ProtectedItem":
+                return ProtectedItem(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:recoveryservices/latest:ProtectionContainer":
+                return ProtectionContainer(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:recoveryservices/latest:ProtectionIntent":
+                return ProtectionIntent(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:recoveryservices/latest:ProtectionPolicy":
+                return ProtectionPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:recoveryservices/latest:ReplicationFabric":
+                return ReplicationFabric(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:recoveryservices/latest:ReplicationMigrationItem":
+                return ReplicationMigrationItem(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:recoveryservices/latest:ReplicationNetworkMapping":
+                return ReplicationNetworkMapping(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:recoveryservices/latest:ReplicationPolicy":
+                return ReplicationPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:recoveryservices/latest:ReplicationProtectedItem":
+                return ReplicationProtectedItem(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:recoveryservices/latest:ReplicationProtectionContainerMapping":
+                return ReplicationProtectionContainerMapping(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:recoveryservices/latest:ReplicationRecoveryPlan":
+                return ReplicationRecoveryPlan(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:recoveryservices/latest:ReplicationRecoveryServicesProvider":
+                return ReplicationRecoveryServicesProvider(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:recoveryservices/latest:ReplicationStorageClassificationMapping":
+                return ReplicationStorageClassificationMapping(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:recoveryservices/latest:ReplicationvCenter":
+                return ReplicationvCenter(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:recoveryservices/latest:Vault":
+                return Vault(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "recoveryservices/latest", _module_instance)
+
+_register_module()

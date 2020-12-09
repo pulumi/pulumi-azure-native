@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DscNodeConfiguration']
@@ -57,23 +58,23 @@ class DscNodeConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if automation_account_name is None:
+            if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
-            if configuration is None:
+            if configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration'")
             __props__['configuration'] = configuration
             __props__['increment_node_configuration_build'] = increment_node_configuration_build
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if node_configuration_name is None:
+            if node_configuration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'node_configuration_name'")
             __props__['node_configuration_name'] = node_configuration_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if source is None:
+            if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__['source'] = source
             __props__['creation_time'] = None

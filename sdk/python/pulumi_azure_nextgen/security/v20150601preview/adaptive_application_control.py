@@ -52,11 +52,11 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if asc_location is None:
+            if asc_location is None and not opts.urn:
                 raise TypeError("Missing required property 'asc_location'")
             __props__['asc_location'] = asc_location
             __props__['enforcement_mode'] = enforcement_mode
-            if group_name is None:
+            if group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'group_name'")
             __props__['group_name'] = group_name
             __props__['path_recommendations'] = path_recommendations

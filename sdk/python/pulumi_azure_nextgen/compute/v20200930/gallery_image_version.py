@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['GalleryImageVersion']
@@ -59,23 +60,23 @@ class GalleryImageVersion(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if gallery_image_name is None:
+            if gallery_image_name is None and not opts.urn:
                 raise TypeError("Missing required property 'gallery_image_name'")
             __props__['gallery_image_name'] = gallery_image_name
-            if gallery_image_version_name is None:
+            if gallery_image_version_name is None and not opts.urn:
                 raise TypeError("Missing required property 'gallery_image_version_name'")
             __props__['gallery_image_version_name'] = gallery_image_version_name
-            if gallery_name is None:
+            if gallery_name is None and not opts.urn:
                 raise TypeError("Missing required property 'gallery_name'")
             __props__['gallery_name'] = gallery_name
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['publishing_profile'] = publishing_profile
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if storage_profile is None:
+            if storage_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_profile'")
             __props__['storage_profile'] = storage_profile
             __props__['tags'] = tags

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['Artifact']
 
@@ -17,7 +18,7 @@ class Artifact(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  artifact_name: Optional[pulumi.Input[str]] = None,
                  blueprint_name: Optional[pulumi.Input[str]] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'ArtifactKind']]] = None,
                  management_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -29,7 +30,7 @@ class Artifact(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] artifact_name: name of the artifact.
         :param pulumi.Input[str] blueprint_name: name of the blueprint.
-        :param pulumi.Input[str] kind: Specifies the kind of Blueprint artifact.
+        :param pulumi.Input[Union[str, 'ArtifactKind']] kind: Specifies the kind of Blueprint artifact.
         :param pulumi.Input[str] management_group_name: ManagementGroup where blueprint stores.
         """
         if __name__ is not None:
@@ -49,16 +50,16 @@ class Artifact(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if artifact_name is None:
+            if artifact_name is None and not opts.urn:
                 raise TypeError("Missing required property 'artifact_name'")
             __props__['artifact_name'] = artifact_name
-            if blueprint_name is None:
+            if blueprint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'blueprint_name'")
             __props__['blueprint_name'] = blueprint_name
-            if kind is None:
+            if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = kind
-            if management_group_name is None:
+            if management_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'management_group_name'")
             __props__['management_group_name'] = management_group_name
             __props__['name'] = None

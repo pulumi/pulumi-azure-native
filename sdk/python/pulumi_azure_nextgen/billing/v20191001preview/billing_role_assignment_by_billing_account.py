@@ -55,10 +55,10 @@ class BillingRoleAssignmentByBillingAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if billing_account_name is None:
+            if billing_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'billing_account_name'")
             __props__['billing_account_name'] = billing_account_name
-            if billing_role_assignment_name is None:
+            if billing_role_assignment_name is None and not opts.urn:
                 raise TypeError("Missing required property 'billing_role_assignment_name'")
             __props__['billing_role_assignment_name'] = billing_role_assignment_name
             __props__['principal_id'] = principal_id

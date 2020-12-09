@@ -53,18 +53,18 @@ class Channel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_name is None:
+            if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['channel_functions'] = channel_functions
-            if channel_name is None:
+            if channel_name is None and not opts.urn:
                 raise TypeError("Missing required property 'channel_name'")
             __props__['channel_name'] = channel_name
-            if channel_type is None:
+            if channel_type is None and not opts.urn:
                 raise TypeError("Missing required property 'channel_type'")
             __props__['channel_type'] = channel_type
             __props__['credentials'] = credentials
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['name'] = None

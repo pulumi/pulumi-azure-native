@@ -79,17 +79,17 @@ class RecordSet(pulumi.CustomResource):
             __props__['etag'] = etag
             __props__['metadata'] = metadata
             __props__['mx_records'] = mx_records
-            if private_zone_name is None:
+            if private_zone_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_zone_name'")
             __props__['private_zone_name'] = private_zone_name
             __props__['ptr_records'] = ptr_records
-            if record_type is None:
+            if record_type is None and not opts.urn:
                 raise TypeError("Missing required property 'record_type'")
             __props__['record_type'] = record_type
-            if relative_record_set_name is None:
+            if relative_record_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'relative_record_set_name'")
             __props__['relative_record_set_name'] = relative_record_set_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['soa_record'] = soa_record

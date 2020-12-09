@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AssessmentStatusArgs',
@@ -30,12 +31,12 @@ __all__ = [
 @pulumi.input_type
 class AssessmentStatusArgs:
     def __init__(__self__, *,
-                 code: pulumi.Input[str],
+                 code: pulumi.Input[Union[str, 'AssessmentStatusCode']],
                  cause: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None):
         """
         The result of the assessment
-        :param pulumi.Input[str] code: Programmatic code for the status of the assessment
+        :param pulumi.Input[Union[str, 'AssessmentStatusCode']] code: Programmatic code for the status of the assessment
         :param pulumi.Input[str] cause: Programmatic code for the cause of the assessment status
         :param pulumi.Input[str] description: Human readable description of the assessment status
         """
@@ -47,14 +48,14 @@ class AssessmentStatusArgs:
 
     @property
     @pulumi.getter
-    def code(self) -> pulumi.Input[str]:
+    def code(self) -> pulumi.Input[Union[str, 'AssessmentStatusCode']]:
         """
         Programmatic code for the status of the assessment
         """
         return pulumi.get(self, "code")
 
     @code.setter
-    def code(self, value: pulumi.Input[str]):
+    def code(self, value: pulumi.Input[Union[str, 'AssessmentStatusCode']]):
         pulumi.set(self, "code", value)
 
     @property
@@ -163,7 +164,7 @@ class JitNetworkAccessPortRuleArgs:
     def __init__(__self__, *,
                  max_request_access_duration: pulumi.Input[str],
                  number: pulumi.Input[int],
-                 protocol: pulumi.Input[str],
+                 protocol: pulumi.Input[Union[str, 'Protocol']],
                  allowed_source_address_prefix: Optional[pulumi.Input[str]] = None,
                  allowed_source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -202,11 +203,11 @@ class JitNetworkAccessPortRuleArgs:
 
     @property
     @pulumi.getter
-    def protocol(self) -> pulumi.Input[str]:
+    def protocol(self) -> pulumi.Input[Union[str, 'Protocol']]:
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: pulumi.Input[str]):
+    def protocol(self, value: pulumi.Input[Union[str, 'Protocol']]):
         pulumi.set(self, "protocol", value)
 
     @property
@@ -303,15 +304,15 @@ class JitNetworkAccessRequestPortArgs:
     def __init__(__self__, *,
                  end_time_utc: pulumi.Input[str],
                  number: pulumi.Input[int],
-                 status: pulumi.Input[str],
-                 status_reason: pulumi.Input[str],
+                 status: pulumi.Input[Union[str, 'Status']],
+                 status_reason: pulumi.Input[Union[str, 'StatusReason']],
                  allowed_source_address_prefix: Optional[pulumi.Input[str]] = None,
                  allowed_source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  mapped_port: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] end_time_utc: The date & time at which the request ends in UTC
-        :param pulumi.Input[str] status: The status of the port
-        :param pulumi.Input[str] status_reason: A description of why the `status` has its value
+        :param pulumi.Input[Union[str, 'Status']] status: The status of the port
+        :param pulumi.Input[Union[str, 'StatusReason']] status_reason: A description of why the `status` has its value
         :param pulumi.Input[str] allowed_source_address_prefix: Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_source_address_prefixes: Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
         :param pulumi.Input[int] mapped_port: The port which is mapped to this port's `number` in the Azure Firewall, if applicable
@@ -350,26 +351,26 @@ class JitNetworkAccessRequestPortArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Input[str]:
+    def status(self) -> pulumi.Input[Union[str, 'Status']]:
         """
         The status of the port
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: pulumi.Input[str]):
+    def status(self, value: pulumi.Input[Union[str, 'Status']]):
         pulumi.set(self, "status", value)
 
     @property
     @pulumi.getter(name="statusReason")
-    def status_reason(self) -> pulumi.Input[str]:
+    def status_reason(self) -> pulumi.Input[Union[str, 'StatusReason']]:
         """
         A description of why the `status` has its value
         """
         return pulumi.get(self, "status_reason")
 
     @status_reason.setter
-    def status_reason(self, value: pulumi.Input[str]):
+    def status_reason(self, value: pulumi.Input[Union[str, 'StatusReason']]):
         pulumi.set(self, "status_reason", value)
 
     @property
@@ -874,28 +875,28 @@ class SecurityAssessmentMetadataPartnerDataArgs:
 @pulumi.input_type
 class SecurityAssessmentMetadataPropertiesArgs:
     def __init__(__self__, *,
-                 assessment_type: pulumi.Input[str],
+                 assessment_type: pulumi.Input[Union[str, 'AssessmentType']],
                  display_name: pulumi.Input[str],
-                 severity: pulumi.Input[str],
-                 category: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 severity: pulumi.Input[Union[str, 'Severity']],
+                 category: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Category']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 implementation_effort: Optional[pulumi.Input[str]] = None,
+                 implementation_effort: Optional[pulumi.Input[Union[str, 'ImplementationEffort']]] = None,
                  partner_data: Optional[pulumi.Input['SecurityAssessmentMetadataPartnerDataArgs']] = None,
                  preview: Optional[pulumi.Input[bool]] = None,
                  remediation_description: Optional[pulumi.Input[str]] = None,
-                 threats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 user_impact: Optional[pulumi.Input[str]] = None):
+                 threats: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Threats']]]]] = None,
+                 user_impact: Optional[pulumi.Input[Union[str, 'UserImpact']]] = None):
         """
         Describes properties of an assessment metadata.
-        :param pulumi.Input[str] assessment_type: BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
+        :param pulumi.Input[Union[str, 'AssessmentType']] assessment_type: BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
         :param pulumi.Input[str] display_name: User friendly display name of the assessment
-        :param pulumi.Input[str] severity: The severity level of the assessment
+        :param pulumi.Input[Union[str, 'Severity']] severity: The severity level of the assessment
         :param pulumi.Input[str] description: Human readable description of the assessment
-        :param pulumi.Input[str] implementation_effort: The implementation effort required to remediate this assessment
+        :param pulumi.Input[Union[str, 'ImplementationEffort']] implementation_effort: The implementation effort required to remediate this assessment
         :param pulumi.Input['SecurityAssessmentMetadataPartnerDataArgs'] partner_data: Describes the partner that created the assessment
         :param pulumi.Input[bool] preview: True if this assessment is in preview release status
         :param pulumi.Input[str] remediation_description: Human readable description of what you should do to mitigate this security issue
-        :param pulumi.Input[str] user_impact: The user impact of the assessment
+        :param pulumi.Input[Union[str, 'UserImpact']] user_impact: The user impact of the assessment
         """
         pulumi.set(__self__, "assessment_type", assessment_type)
         pulumi.set(__self__, "display_name", display_name)
@@ -919,14 +920,14 @@ class SecurityAssessmentMetadataPropertiesArgs:
 
     @property
     @pulumi.getter(name="assessmentType")
-    def assessment_type(self) -> pulumi.Input[str]:
+    def assessment_type(self) -> pulumi.Input[Union[str, 'AssessmentType']]:
         """
         BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
         """
         return pulumi.get(self, "assessment_type")
 
     @assessment_type.setter
-    def assessment_type(self, value: pulumi.Input[str]):
+    def assessment_type(self, value: pulumi.Input[Union[str, 'AssessmentType']]):
         pulumi.set(self, "assessment_type", value)
 
     @property
@@ -943,23 +944,23 @@ class SecurityAssessmentMetadataPropertiesArgs:
 
     @property
     @pulumi.getter
-    def severity(self) -> pulumi.Input[str]:
+    def severity(self) -> pulumi.Input[Union[str, 'Severity']]:
         """
         The severity level of the assessment
         """
         return pulumi.get(self, "severity")
 
     @severity.setter
-    def severity(self, value: pulumi.Input[str]):
+    def severity(self, value: pulumi.Input[Union[str, 'Severity']]):
         pulumi.set(self, "severity", value)
 
     @property
     @pulumi.getter
-    def category(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def category(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Category']]]]]:
         return pulumi.get(self, "category")
 
     @category.setter
-    def category(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def category(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Category']]]]]):
         pulumi.set(self, "category", value)
 
     @property
@@ -976,14 +977,14 @@ class SecurityAssessmentMetadataPropertiesArgs:
 
     @property
     @pulumi.getter(name="implementationEffort")
-    def implementation_effort(self) -> Optional[pulumi.Input[str]]:
+    def implementation_effort(self) -> Optional[pulumi.Input[Union[str, 'ImplementationEffort']]]:
         """
         The implementation effort required to remediate this assessment
         """
         return pulumi.get(self, "implementation_effort")
 
     @implementation_effort.setter
-    def implementation_effort(self, value: Optional[pulumi.Input[str]]):
+    def implementation_effort(self, value: Optional[pulumi.Input[Union[str, 'ImplementationEffort']]]):
         pulumi.set(self, "implementation_effort", value)
 
     @property
@@ -1024,23 +1025,23 @@ class SecurityAssessmentMetadataPropertiesArgs:
 
     @property
     @pulumi.getter
-    def threats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def threats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Threats']]]]]:
         return pulumi.get(self, "threats")
 
     @threats.setter
-    def threats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def threats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Threats']]]]]):
         pulumi.set(self, "threats", value)
 
     @property
     @pulumi.getter(name="userImpact")
-    def user_impact(self) -> Optional[pulumi.Input[str]]:
+    def user_impact(self) -> Optional[pulumi.Input[Union[str, 'UserImpact']]]:
         """
         The user impact of the assessment
         """
         return pulumi.get(self, "user_impact")
 
     @user_impact.setter
-    def user_impact(self, value: Optional[pulumi.Input[str]]):
+    def user_impact(self, value: Optional[pulumi.Input[Union[str, 'UserImpact']]]):
         pulumi.set(self, "user_impact", value)
 
 

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'CreationDataArgs',
@@ -23,14 +24,14 @@ __all__ = [
 @pulumi.input_type
 class CreationDataArgs:
     def __init__(__self__, *,
-                 create_option: pulumi.Input[str],
+                 create_option: pulumi.Input[Union[str, 'DiskCreateOption']],
                  image_reference: Optional[pulumi.Input['ImageDiskReferenceArgs']] = None,
                  source_resource_id: Optional[pulumi.Input[str]] = None,
                  source_uri: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None):
         """
         Data used when creating a disk.
-        :param pulumi.Input[str] create_option: This enumerates the possible sources of a disk's creation.
+        :param pulumi.Input[Union[str, 'DiskCreateOption']] create_option: This enumerates the possible sources of a disk's creation.
         :param pulumi.Input['ImageDiskReferenceArgs'] image_reference: Disk source information.
         :param pulumi.Input[str] source_resource_id: If createOption is Copy, this is the ARM id of the source snapshot or disk.
         :param pulumi.Input[str] source_uri: If createOption is Import, this is the URI of a blob to be imported into a managed disk.
@@ -48,14 +49,14 @@ class CreationDataArgs:
 
     @property
     @pulumi.getter(name="createOption")
-    def create_option(self) -> pulumi.Input[str]:
+    def create_option(self) -> pulumi.Input[Union[str, 'DiskCreateOption']]:
         """
         This enumerates the possible sources of a disk's creation.
         """
         return pulumi.get(self, "create_option")
 
     @create_option.setter
-    def create_option(self, value: pulumi.Input[str]):
+    def create_option(self, value: pulumi.Input[Union[str, 'DiskCreateOption']]):
         pulumi.set(self, "create_option", value)
 
     @property
@@ -110,24 +111,24 @@ class CreationDataArgs:
 @pulumi.input_type
 class DiskSkuArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[Union[str, 'DiskStorageAccountTypes']]] = None):
         """
         The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, or UltraSSD_LRS.
-        :param pulumi.Input[str] name: The sku name.
+        :param pulumi.Input[Union[str, 'DiskStorageAccountTypes']] name: The sku name.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    def name(self) -> Optional[pulumi.Input[Union[str, 'DiskStorageAccountTypes']]]:
         """
         The sku name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
+    def name(self, value: Optional[pulumi.Input[Union[str, 'DiskStorageAccountTypes']]]):
         pulumi.set(self, "name", value)
 
 
@@ -328,24 +329,24 @@ class KeyVaultAndSecretReferenceArgs:
 @pulumi.input_type
 class SnapshotSkuArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[Union[str, 'SnapshotStorageAccountTypes']]] = None):
         """
         The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
-        :param pulumi.Input[str] name: The sku name.
+        :param pulumi.Input[Union[str, 'SnapshotStorageAccountTypes']] name: The sku name.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    def name(self) -> Optional[pulumi.Input[Union[str, 'SnapshotStorageAccountTypes']]]:
         """
         The sku name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
+    def name(self, value: Optional[pulumi.Input[Union[str, 'SnapshotStorageAccountTypes']]]):
         pulumi.set(self, "name", value)
 
 

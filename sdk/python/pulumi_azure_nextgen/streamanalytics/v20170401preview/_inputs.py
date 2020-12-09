@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AggregateFunctionPropertiesArgs',
@@ -156,7 +157,7 @@ class AzureDataLakeStoreOutputDataSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  account_name: Optional[pulumi.Input[str]] = None,
-                 authentication_mode: Optional[pulumi.Input[str]] = None,
+                 authentication_mode: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]] = None,
                  date_format: Optional[pulumi.Input[str]] = None,
                  file_path_prefix: Optional[pulumi.Input[str]] = None,
                  refresh_token: Optional[pulumi.Input[str]] = None,
@@ -168,7 +169,7 @@ class AzureDataLakeStoreOutputDataSourceArgs:
         Describes an Azure Data Lake Store output data source.
         :param pulumi.Input[str] type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] account_name: The name of the Azure Data Lake Store account. Required on PUT (CreateOrReplace) requests.
-        :param pulumi.Input[str] authentication_mode: Authentication Mode.
+        :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
         :param pulumi.Input[str] date_format: The date format. Wherever {date} appears in filePathPrefix, the value of this property is used as the date format instead.
         :param pulumi.Input[str] file_path_prefix: The location of the file to which the output should be written to. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] refresh_token: A refresh token that can be used to obtain a valid access token that can then be used to authenticate with the data source. A valid refresh token is currently only obtainable via the Azure Portal. It is recommended to put a dummy string value here when creating the data source and then going to the Azure Portal to authenticate the data source which will update this property with a valid refresh token. Required on PUT (CreateOrReplace) requests.
@@ -223,14 +224,14 @@ class AzureDataLakeStoreOutputDataSourceArgs:
 
     @property
     @pulumi.getter(name="authenticationMode")
-    def authentication_mode(self) -> Optional[pulumi.Input[str]]:
+    def authentication_mode(self) -> Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]:
         """
         Authentication Mode.
         """
         return pulumi.get(self, "authentication_mode")
 
     @authentication_mode.setter
-    def authentication_mode(self, value: Optional[pulumi.Input[str]]):
+    def authentication_mode(self, value: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]):
         pulumi.set(self, "authentication_mode", value)
 
     @property
@@ -895,7 +896,7 @@ class AzureMachineLearningStudioOutputColumnArgs:
 class AzureSqlDatabaseOutputDataSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 authentication_mode: Optional[pulumi.Input[str]] = None,
+                 authentication_mode: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  max_batch_count: Optional[pulumi.Input[float]] = None,
                  max_writer_count: Optional[pulumi.Input[float]] = None,
@@ -906,7 +907,7 @@ class AzureSqlDatabaseOutputDataSourceArgs:
         """
         Describes an Azure SQL database output data source.
         :param pulumi.Input[str] type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
-        :param pulumi.Input[str] authentication_mode: Authentication Mode.
+        :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
         :param pulumi.Input[str] database: The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[float] max_batch_count: Max Batch count for write to Sql database, the default value is 10,000. Optional on PUT requests.
         :param pulumi.Input[float] max_writer_count: Max Write r count, currently only 1(single writer) and 0(based on query partition) are available. Optional on PUT requests.
@@ -947,14 +948,14 @@ class AzureSqlDatabaseOutputDataSourceArgs:
 
     @property
     @pulumi.getter(name="authenticationMode")
-    def authentication_mode(self) -> Optional[pulumi.Input[str]]:
+    def authentication_mode(self) -> Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]:
         """
         Authentication Mode.
         """
         return pulumi.get(self, "authentication_mode")
 
     @authentication_mode.setter
-    def authentication_mode(self, value: Optional[pulumi.Input[str]]):
+    def authentication_mode(self, value: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]):
         pulumi.set(self, "authentication_mode", value)
 
     @property
@@ -1470,7 +1471,7 @@ class AzureTableOutputDataSourceArgs:
 class BlobOutputDataSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 authentication_mode: Optional[pulumi.Input[str]] = None,
+                 authentication_mode: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]] = None,
                  container: Optional[pulumi.Input[str]] = None,
                  date_format: Optional[pulumi.Input[str]] = None,
                  path_pattern: Optional[pulumi.Input[str]] = None,
@@ -1479,7 +1480,7 @@ class BlobOutputDataSourceArgs:
         """
         Describes a blob output data source.
         :param pulumi.Input[str] type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
-        :param pulumi.Input[str] authentication_mode: Authentication Mode.
+        :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
         :param pulumi.Input[str] container: The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] date_format: The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
         :param pulumi.Input[str] path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a more detailed explanation and example.
@@ -1514,14 +1515,14 @@ class BlobOutputDataSourceArgs:
 
     @property
     @pulumi.getter(name="authenticationMode")
-    def authentication_mode(self) -> Optional[pulumi.Input[str]]:
+    def authentication_mode(self) -> Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]:
         """
         Authentication Mode.
         """
         return pulumi.get(self, "authentication_mode")
 
     @authentication_mode.setter
-    def authentication_mode(self, value: Optional[pulumi.Input[str]]):
+    def authentication_mode(self, value: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]):
         pulumi.set(self, "authentication_mode", value)
 
     @property
@@ -1941,12 +1942,12 @@ class CompressionArgs:
 class CsvSerializationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 encoding: Optional[pulumi.Input[str]] = None,
+                 encoding: Optional[pulumi.Input[Union[str, 'Encoding']]] = None,
                  field_delimiter: Optional[pulumi.Input[str]] = None):
         """
         Describes how data from an input is serialized or how data is serialized when written to an output in CSV format.
         :param pulumi.Input[str] type: Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
-        :param pulumi.Input[str] encoding: Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[Union[str, 'Encoding']] encoding: Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] field_delimiter: Specifies the delimiter that will be used to separate comma-separated value (CSV) records. See https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input or https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for a list of supported values. Required on PUT (CreateOrReplace) requests.
         """
         pulumi.set(__self__, "type", 'Csv')
@@ -1969,14 +1970,14 @@ class CsvSerializationArgs:
 
     @property
     @pulumi.getter
-    def encoding(self) -> Optional[pulumi.Input[str]]:
+    def encoding(self) -> Optional[pulumi.Input[Union[str, 'Encoding']]]:
         """
         Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
         """
         return pulumi.get(self, "encoding")
 
     @encoding.setter
-    def encoding(self, value: Optional[pulumi.Input[str]]):
+    def encoding(self, value: Optional[pulumi.Input[Union[str, 'Encoding']]]):
         pulumi.set(self, "encoding", value)
 
     @property
@@ -2170,7 +2171,7 @@ class DocumentDbOutputDataSourceArgs:
 class EventHubOutputDataSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 authentication_mode: Optional[pulumi.Input[str]] = None,
+                 authentication_mode: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]] = None,
                  event_hub_name: Optional[pulumi.Input[str]] = None,
                  partition_key: Optional[pulumi.Input[str]] = None,
                  property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2180,7 +2181,7 @@ class EventHubOutputDataSourceArgs:
         """
         Describes an Event Hub output data source.
         :param pulumi.Input[str] type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
-        :param pulumi.Input[str] authentication_mode: Authentication Mode.
+        :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
         :param pulumi.Input[str] event_hub_name: The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] partition_key: The key/column that is used to determine to which partition to send event data.
         :param pulumi.Input[str] service_bus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
@@ -2217,14 +2218,14 @@ class EventHubOutputDataSourceArgs:
 
     @property
     @pulumi.getter(name="authenticationMode")
-    def authentication_mode(self) -> Optional[pulumi.Input[str]]:
+    def authentication_mode(self) -> Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]:
         """
         Authentication Mode.
         """
         return pulumi.get(self, "authentication_mode")
 
     @authentication_mode.setter
-    def authentication_mode(self, value: Optional[pulumi.Input[str]]):
+    def authentication_mode(self, value: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]):
         pulumi.set(self, "authentication_mode", value)
 
     @property
@@ -2301,7 +2302,7 @@ class EventHubOutputDataSourceArgs:
 class EventHubStreamInputDataSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 authentication_mode: Optional[pulumi.Input[str]] = None,
+                 authentication_mode: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]] = None,
                  consumer_group_name: Optional[pulumi.Input[str]] = None,
                  event_hub_name: Optional[pulumi.Input[str]] = None,
                  service_bus_namespace: Optional[pulumi.Input[str]] = None,
@@ -2310,7 +2311,7 @@ class EventHubStreamInputDataSourceArgs:
         """
         Describes an Event Hub input data source that contains stream data.
         :param pulumi.Input[str] type: Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
-        :param pulumi.Input[str] authentication_mode: Authentication Mode.
+        :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
         :param pulumi.Input[str] consumer_group_name: The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not specified, the input uses the Event Hub’s default consumer group.
         :param pulumi.Input[str] event_hub_name: The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] service_bus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
@@ -2345,14 +2346,14 @@ class EventHubStreamInputDataSourceArgs:
 
     @property
     @pulumi.getter(name="authenticationMode")
-    def authentication_mode(self) -> Optional[pulumi.Input[str]]:
+    def authentication_mode(self) -> Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]:
         """
         Authentication Mode.
         """
         return pulumi.get(self, "authentication_mode")
 
     @authentication_mode.setter
-    def authentication_mode(self, value: Optional[pulumi.Input[str]]):
+    def authentication_mode(self, value: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]):
         pulumi.set(self, "authentication_mode", value)
 
     @property
@@ -2420,7 +2421,7 @@ class EventHubStreamInputDataSourceArgs:
 class EventHubV2OutputDataSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 authentication_mode: Optional[pulumi.Input[str]] = None,
+                 authentication_mode: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]] = None,
                  event_hub_name: Optional[pulumi.Input[str]] = None,
                  partition_key: Optional[pulumi.Input[str]] = None,
                  property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2430,7 +2431,7 @@ class EventHubV2OutputDataSourceArgs:
         """
         Describes an Event Hub output data source.
         :param pulumi.Input[str] type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
-        :param pulumi.Input[str] authentication_mode: Authentication Mode.
+        :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
         :param pulumi.Input[str] event_hub_name: The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] partition_key: The key/column that is used to determine to which partition to send event data.
         :param pulumi.Input[str] service_bus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
@@ -2467,14 +2468,14 @@ class EventHubV2OutputDataSourceArgs:
 
     @property
     @pulumi.getter(name="authenticationMode")
-    def authentication_mode(self) -> Optional[pulumi.Input[str]]:
+    def authentication_mode(self) -> Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]:
         """
         Authentication Mode.
         """
         return pulumi.get(self, "authentication_mode")
 
     @authentication_mode.setter
-    def authentication_mode(self, value: Optional[pulumi.Input[str]]):
+    def authentication_mode(self, value: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]):
         pulumi.set(self, "authentication_mode", value)
 
     @property
@@ -2551,7 +2552,7 @@ class EventHubV2OutputDataSourceArgs:
 class EventHubV2StreamInputDataSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 authentication_mode: Optional[pulumi.Input[str]] = None,
+                 authentication_mode: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]] = None,
                  consumer_group_name: Optional[pulumi.Input[str]] = None,
                  event_hub_name: Optional[pulumi.Input[str]] = None,
                  service_bus_namespace: Optional[pulumi.Input[str]] = None,
@@ -2560,7 +2561,7 @@ class EventHubV2StreamInputDataSourceArgs:
         """
         Describes an Event Hub input data source that contains stream data.
         :param pulumi.Input[str] type: Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
-        :param pulumi.Input[str] authentication_mode: Authentication Mode.
+        :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
         :param pulumi.Input[str] consumer_group_name: The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not specified, the input uses the Event Hub’s default consumer group.
         :param pulumi.Input[str] event_hub_name: The name of the Event Hub. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] service_bus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
@@ -2595,14 +2596,14 @@ class EventHubV2StreamInputDataSourceArgs:
 
     @property
     @pulumi.getter(name="authenticationMode")
-    def authentication_mode(self) -> Optional[pulumi.Input[str]]:
+    def authentication_mode(self) -> Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]:
         """
         Authentication Mode.
         """
         return pulumi.get(self, "authentication_mode")
 
     @authentication_mode.setter
-    def authentication_mode(self, value: Optional[pulumi.Input[str]]):
+    def authentication_mode(self, value: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]):
         pulumi.set(self, "authentication_mode", value)
 
     @property
@@ -3049,12 +3050,12 @@ class JobStorageAccountArgs:
     def __init__(__self__, *,
                  account_key: Optional[pulumi.Input[str]] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 authentication_mode: Optional[pulumi.Input[str]] = None):
+                 authentication_mode: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]] = None):
         """
         The properties that are associated with an Azure Storage account with MSI
         :param pulumi.Input[str] account_key: The account key for the Azure Storage account. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] account_name: The name of the Azure Storage account. Required on PUT (CreateOrReplace) requests.
-        :param pulumi.Input[str] authentication_mode: Authentication Mode.
+        :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
         """
         if account_key is not None:
             pulumi.set(__self__, "account_key", account_key)
@@ -3089,14 +3090,14 @@ class JobStorageAccountArgs:
 
     @property
     @pulumi.getter(name="authenticationMode")
-    def authentication_mode(self) -> Optional[pulumi.Input[str]]:
+    def authentication_mode(self) -> Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]:
         """
         Authentication Mode.
         """
         return pulumi.get(self, "authentication_mode")
 
     @authentication_mode.setter
-    def authentication_mode(self, value: Optional[pulumi.Input[str]]):
+    def authentication_mode(self, value: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]):
         pulumi.set(self, "authentication_mode", value)
 
 
@@ -3104,13 +3105,13 @@ class JobStorageAccountArgs:
 class JsonSerializationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 encoding: Optional[pulumi.Input[str]] = None,
-                 format: Optional[pulumi.Input[str]] = None):
+                 encoding: Optional[pulumi.Input[Union[str, 'Encoding']]] = None,
+                 format: Optional[pulumi.Input[Union[str, 'JsonOutputSerializationFormat']]] = None):
         """
         Describes how data from an input is serialized or how data is serialized when written to an output in JSON format.
         :param pulumi.Input[str] type: Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
-        :param pulumi.Input[str] encoding: Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
-        :param pulumi.Input[str] format: This property only applies to JSON serialization of outputs only. It is not applicable to inputs. This property specifies the format of the JSON the output will be written in. The currently supported values are 'lineSeparated' indicating the output will be formatted by having each JSON object separated by a new line and 'array' indicating the output will be formatted as an array of JSON objects. Default value is 'lineSeparated' if left null.
+        :param pulumi.Input[Union[str, 'Encoding']] encoding: Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[Union[str, 'JsonOutputSerializationFormat']] format: This property only applies to JSON serialization of outputs only. It is not applicable to inputs. This property specifies the format of the JSON the output will be written in. The currently supported values are 'lineSeparated' indicating the output will be formatted by having each JSON object separated by a new line and 'array' indicating the output will be formatted as an array of JSON objects. Default value is 'lineSeparated' if left null.
         """
         pulumi.set(__self__, "type", 'Json')
         if encoding is not None:
@@ -3132,26 +3133,26 @@ class JsonSerializationArgs:
 
     @property
     @pulumi.getter
-    def encoding(self) -> Optional[pulumi.Input[str]]:
+    def encoding(self) -> Optional[pulumi.Input[Union[str, 'Encoding']]]:
         """
         Specifies the encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. Required on PUT (CreateOrReplace) requests.
         """
         return pulumi.get(self, "encoding")
 
     @encoding.setter
-    def encoding(self, value: Optional[pulumi.Input[str]]):
+    def encoding(self, value: Optional[pulumi.Input[Union[str, 'Encoding']]]):
         pulumi.set(self, "encoding", value)
 
     @property
     @pulumi.getter
-    def format(self) -> Optional[pulumi.Input[str]]:
+    def format(self) -> Optional[pulumi.Input[Union[str, 'JsonOutputSerializationFormat']]]:
         """
         This property only applies to JSON serialization of outputs only. It is not applicable to inputs. This property specifies the format of the JSON the output will be written in. The currently supported values are 'lineSeparated' indicating the output will be formatted by having each JSON object separated by a new line and 'array' indicating the output will be formatted as an array of JSON objects. Default value is 'lineSeparated' if left null.
         """
         return pulumi.get(self, "format")
 
     @format.setter
-    def format(self, value: Optional[pulumi.Input[str]]):
+    def format(self, value: Optional[pulumi.Input[Union[str, 'JsonOutputSerializationFormat']]]):
         pulumi.set(self, "format", value)
 
 
@@ -3262,7 +3263,7 @@ class ParquetSerializationArgs:
 class PowerBIOutputDataSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 authentication_mode: Optional[pulumi.Input[str]] = None,
+                 authentication_mode: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]] = None,
                  dataset: Optional[pulumi.Input[str]] = None,
                  group_id: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
@@ -3273,7 +3274,7 @@ class PowerBIOutputDataSourceArgs:
         """
         Describes a Power BI output data source.
         :param pulumi.Input[str] type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
-        :param pulumi.Input[str] authentication_mode: Authentication Mode.
+        :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
         :param pulumi.Input[str] dataset: The name of the Power BI dataset. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] group_id: The ID of the Power BI group.
         :param pulumi.Input[str] group_name: The name of the Power BI group. Use this property to help remember which specific Power BI group id was used.
@@ -3314,14 +3315,14 @@ class PowerBIOutputDataSourceArgs:
 
     @property
     @pulumi.getter(name="authenticationMode")
-    def authentication_mode(self) -> Optional[pulumi.Input[str]]:
+    def authentication_mode(self) -> Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]:
         """
         Authentication Mode.
         """
         return pulumi.get(self, "authentication_mode")
 
     @authentication_mode.setter
-    def authentication_mode(self, value: Optional[pulumi.Input[str]]):
+    def authentication_mode(self, value: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]):
         pulumi.set(self, "authentication_mode", value)
 
     @property
@@ -3567,7 +3568,7 @@ class ScalarFunctionPropertiesArgs:
 class ServiceBusQueueOutputDataSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 authentication_mode: Optional[pulumi.Input[str]] = None,
+                 authentication_mode: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]] = None,
                  property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  queue_name: Optional[pulumi.Input[str]] = None,
                  service_bus_namespace: Optional[pulumi.Input[str]] = None,
@@ -3577,7 +3578,7 @@ class ServiceBusQueueOutputDataSourceArgs:
         """
         Describes a Service Bus Queue output data source.
         :param pulumi.Input[str] type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
-        :param pulumi.Input[str] authentication_mode: Authentication Mode.
+        :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_columns: A string array of the names of output columns to be attached to Service Bus messages as custom properties.
         :param pulumi.Input[str] queue_name: The name of the Service Bus Queue. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] service_bus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
@@ -3614,14 +3615,14 @@ class ServiceBusQueueOutputDataSourceArgs:
 
     @property
     @pulumi.getter(name="authenticationMode")
-    def authentication_mode(self) -> Optional[pulumi.Input[str]]:
+    def authentication_mode(self) -> Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]:
         """
         Authentication Mode.
         """
         return pulumi.get(self, "authentication_mode")
 
     @authentication_mode.setter
-    def authentication_mode(self, value: Optional[pulumi.Input[str]]):
+    def authentication_mode(self, value: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]):
         pulumi.set(self, "authentication_mode", value)
 
     @property
@@ -3698,7 +3699,7 @@ class ServiceBusQueueOutputDataSourceArgs:
 class ServiceBusTopicOutputDataSourceArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 authentication_mode: Optional[pulumi.Input[str]] = None,
+                 authentication_mode: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]] = None,
                  property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_bus_namespace: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_key: Optional[pulumi.Input[str]] = None,
@@ -3708,7 +3709,7 @@ class ServiceBusTopicOutputDataSourceArgs:
         """
         Describes a Service Bus Topic output data source.
         :param pulumi.Input[str] type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
-        :param pulumi.Input[str] authentication_mode: Authentication Mode.
+        :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_columns: A string array of the names of output columns to be attached to Service Bus messages as custom properties.
         :param pulumi.Input[str] service_bus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy. Required on PUT (CreateOrReplace) requests.
@@ -3745,14 +3746,14 @@ class ServiceBusTopicOutputDataSourceArgs:
 
     @property
     @pulumi.getter(name="authenticationMode")
-    def authentication_mode(self) -> Optional[pulumi.Input[str]]:
+    def authentication_mode(self) -> Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]:
         """
         Authentication Mode.
         """
         return pulumi.get(self, "authentication_mode")
 
     @authentication_mode.setter
-    def authentication_mode(self, value: Optional[pulumi.Input[str]]):
+    def authentication_mode(self, value: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]):
         pulumi.set(self, "authentication_mode", value)
 
     @property
@@ -3955,24 +3956,24 @@ class StreamInputPropertiesArgs:
 @pulumi.input_type
 class StreamingJobSkuArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[Union[str, 'StreamingJobSkuName']]] = None):
         """
         The properties that are associated with a SKU.
-        :param pulumi.Input[str] name: The name of the SKU. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[Union[str, 'StreamingJobSkuName']] name: The name of the SKU. Required on PUT (CreateOrReplace) requests.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    def name(self) -> Optional[pulumi.Input[Union[str, 'StreamingJobSkuName']]]:
         """
         The name of the SKU. Required on PUT (CreateOrReplace) requests.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
+    def name(self, value: Optional[pulumi.Input[Union[str, 'StreamingJobSkuName']]]):
         pulumi.set(self, "name", value)
 
 

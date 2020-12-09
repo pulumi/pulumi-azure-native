@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AzureSkuArgs',
@@ -18,13 +19,13 @@ __all__ = [
 @pulumi.input_type
 class AzureSkuArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 tier: pulumi.Input[str],
+                 name: pulumi.Input[Union[str, 'AzureSkuName']],
+                 tier: pulumi.Input[Union[str, 'AzureSkuTier']],
                  capacity: Optional[pulumi.Input[int]] = None):
         """
         Azure SKU definition.
-        :param pulumi.Input[str] name: SKU name.
-        :param pulumi.Input[str] tier: SKU tier.
+        :param pulumi.Input[Union[str, 'AzureSkuName']] name: SKU name.
+        :param pulumi.Input[Union[str, 'AzureSkuTier']] tier: SKU tier.
         :param pulumi.Input[int] capacity: The number of instances of the cluster.
         """
         pulumi.set(__self__, "name", name)
@@ -34,26 +35,26 @@ class AzureSkuArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input[Union[str, 'AzureSkuName']]:
         """
         SKU name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input[Union[str, 'AzureSkuName']]):
         pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
-    def tier(self) -> pulumi.Input[str]:
+    def tier(self) -> pulumi.Input[Union[str, 'AzureSkuTier']]:
         """
         SKU tier.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: pulumi.Input[str]):
+    def tier(self, value: pulumi.Input[Union[str, 'AzureSkuTier']]):
         pulumi.set(self, "tier", value)
 
     @property

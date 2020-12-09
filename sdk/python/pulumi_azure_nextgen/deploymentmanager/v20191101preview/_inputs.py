@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ApiKeyAuthenticationArgs',
@@ -29,13 +30,13 @@ __all__ = [
 @pulumi.input_type
 class ApiKeyAuthenticationArgs:
     def __init__(__self__, *,
-                 in_: pulumi.Input[str],
+                 in_: pulumi.Input['RestAuthLocation'],
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
         ApiKey authentication gives a name and a value that can be included in either the request header or query parameters.
-        :param pulumi.Input[str] in_: The location of the authentication key/value pair in the request.
+        :param pulumi.Input['RestAuthLocation'] in_: The location of the authentication key/value pair in the request.
         :param pulumi.Input[str] name: The key name of the authentication key/value pair.
         :param pulumi.Input[str] type: The authentication type.
         :param pulumi.Input[str] value: The value of the authentication key/value pair.
@@ -47,14 +48,14 @@ class ApiKeyAuthenticationArgs:
 
     @property
     @pulumi.getter(name="in")
-    def in_(self) -> pulumi.Input[str]:
+    def in_(self) -> pulumi.Input['RestAuthLocation']:
         """
         The location of the authentication key/value pair in the request.
         """
         return pulumi.get(self, "in_")
 
     @in_.setter
-    def in_(self, value: pulumi.Input[str]):
+    def in_(self, value: pulumi.Input['RestAuthLocation']):
         pulumi.set(self, "in_", value)
 
     @property
@@ -336,12 +337,12 @@ class RestHealthCheckStepAttributesArgs:
 class RestRequestArgs:
     def __init__(__self__, *,
                  authentication: pulumi.Input[Union['ApiKeyAuthenticationArgs', 'RolloutIdentityAuthenticationArgs']],
-                 method: pulumi.Input[str],
+                 method: pulumi.Input['RestRequestMethod'],
                  uri: pulumi.Input[str]):
         """
         The properties that make up a REST request
         :param pulumi.Input[Union['ApiKeyAuthenticationArgs', 'RolloutIdentityAuthenticationArgs']] authentication: The authentication information required in the request to the health provider.
-        :param pulumi.Input[str] method: The HTTP method to use for the request.
+        :param pulumi.Input['RestRequestMethod'] method: The HTTP method to use for the request.
         :param pulumi.Input[str] uri: The HTTP URI to use for the request.
         """
         pulumi.set(__self__, "authentication", authentication)
@@ -362,14 +363,14 @@ class RestRequestArgs:
 
     @property
     @pulumi.getter
-    def method(self) -> pulumi.Input[str]:
+    def method(self) -> pulumi.Input['RestRequestMethod']:
         """
         The HTTP method to use for the request.
         """
         return pulumi.get(self, "method")
 
     @method.setter
-    def method(self, value: pulumi.Input[str]):
+    def method(self, value: pulumi.Input['RestRequestMethod']):
         pulumi.set(self, "method", value)
 
     @property
@@ -428,11 +429,11 @@ class RestResponseArgs:
 @pulumi.input_type
 class RestResponseRegexArgs:
     def __init__(__self__, *,
-                 match_quantifier: Optional[pulumi.Input[str]] = None,
+                 match_quantifier: Optional[pulumi.Input['RestMatchQuantifier']] = None,
                  matches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The regular expressions to match the response content with.
-        :param pulumi.Input[str] match_quantifier: Indicates whether any or all of the expressions should match with the response content.
+        :param pulumi.Input['RestMatchQuantifier'] match_quantifier: Indicates whether any or all of the expressions should match with the response content.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] matches: The list of regular expressions.
         """
         if match_quantifier is not None:
@@ -442,14 +443,14 @@ class RestResponseRegexArgs:
 
     @property
     @pulumi.getter(name="matchQuantifier")
-    def match_quantifier(self) -> Optional[pulumi.Input[str]]:
+    def match_quantifier(self) -> Optional[pulumi.Input['RestMatchQuantifier']]:
         """
         Indicates whether any or all of the expressions should match with the response content.
         """
         return pulumi.get(self, "match_quantifier")
 
     @match_quantifier.setter
-    def match_quantifier(self, value: Optional[pulumi.Input[str]]):
+    def match_quantifier(self, value: Optional[pulumi.Input['RestMatchQuantifier']]):
         pulumi.set(self, "match_quantifier", value)
 
     @property

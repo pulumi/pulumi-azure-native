@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['Assessment']
 
@@ -16,21 +17,21 @@ class Assessment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assessment_name: Optional[pulumi.Input[str]] = None,
-                 azure_hybrid_use_benefit: Optional[pulumi.Input[str]] = None,
-                 azure_location: Optional[pulumi.Input[str]] = None,
-                 azure_offer_code: Optional[pulumi.Input[str]] = None,
-                 azure_pricing_tier: Optional[pulumi.Input[str]] = None,
-                 azure_storage_redundancy: Optional[pulumi.Input[str]] = None,
-                 currency: Optional[pulumi.Input[str]] = None,
+                 azure_hybrid_use_benefit: Optional[pulumi.Input[Union[str, 'AzureHybridUseBenefit']]] = None,
+                 azure_location: Optional[pulumi.Input[Union[str, 'AzureLocation']]] = None,
+                 azure_offer_code: Optional[pulumi.Input[Union[str, 'AzureOfferCode']]] = None,
+                 azure_pricing_tier: Optional[pulumi.Input[Union[str, 'AzurePricingTier']]] = None,
+                 azure_storage_redundancy: Optional[pulumi.Input[Union[str, 'AzureStorageRedundancy']]] = None,
+                 currency: Optional[pulumi.Input[Union[str, 'Currency']]] = None,
                  discount_percentage: Optional[pulumi.Input[float]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
-                 percentile: Optional[pulumi.Input[str]] = None,
+                 percentile: Optional[pulumi.Input[Union[str, 'Percentile']]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scaling_factor: Optional[pulumi.Input[float]] = None,
-                 stage: Optional[pulumi.Input[str]] = None,
-                 time_range: Optional[pulumi.Input[str]] = None,
+                 stage: Optional[pulumi.Input[Union[str, 'AssessmentStage']]] = None,
+                 time_range: Optional[pulumi.Input[Union[str, 'TimeRange']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -40,21 +41,21 @@ class Assessment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] assessment_name: Unique name of an assessment within a project.
-        :param pulumi.Input[str] azure_hybrid_use_benefit: AHUB discount on windows virtual machines.
-        :param pulumi.Input[str] azure_location: Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
-        :param pulumi.Input[str] azure_offer_code: Offer code according to which cost estimation is done.
-        :param pulumi.Input[str] azure_pricing_tier: Pricing tier for Size evaluation.
-        :param pulumi.Input[str] azure_storage_redundancy: Storage Redundancy type offered by Azure.
-        :param pulumi.Input[str] currency: Currency to report prices in.
+        :param pulumi.Input[Union[str, 'AzureHybridUseBenefit']] azure_hybrid_use_benefit: AHUB discount on windows virtual machines.
+        :param pulumi.Input[Union[str, 'AzureLocation']] azure_location: Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
+        :param pulumi.Input[Union[str, 'AzureOfferCode']] azure_offer_code: Offer code according to which cost estimation is done.
+        :param pulumi.Input[Union[str, 'AzurePricingTier']] azure_pricing_tier: Pricing tier for Size evaluation.
+        :param pulumi.Input[Union[str, 'AzureStorageRedundancy']] azure_storage_redundancy: Storage Redundancy type offered by Azure.
+        :param pulumi.Input[Union[str, 'Currency']] currency: Currency to report prices in.
         :param pulumi.Input[float] discount_percentage: Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
         :param pulumi.Input[str] e_tag: For optimistic concurrency control.
         :param pulumi.Input[str] group_name: Unique name of a group within a project.
-        :param pulumi.Input[str] percentile: Percentile of performance data used to recommend Azure size.
+        :param pulumi.Input[Union[str, 'Percentile']] percentile: Percentile of performance data used to recommend Azure size.
         :param pulumi.Input[str] project_name: Name of the Azure Migrate project.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
         :param pulumi.Input[float] scaling_factor: Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
-        :param pulumi.Input[str] stage: User configurable setting that describes the status of the assessment.
-        :param pulumi.Input[str] time_range: Time range of performance data used to recommend a size.
+        :param pulumi.Input[Union[str, 'AssessmentStage']] stage: User configurable setting that describes the status of the assessment.
+        :param pulumi.Input[Union[str, 'TimeRange']] time_range: Time range of performance data used to recommend a size.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -73,50 +74,50 @@ class Assessment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if assessment_name is None:
+            if assessment_name is None and not opts.urn:
                 raise TypeError("Missing required property 'assessment_name'")
             __props__['assessment_name'] = assessment_name
-            if azure_hybrid_use_benefit is None:
+            if azure_hybrid_use_benefit is None and not opts.urn:
                 raise TypeError("Missing required property 'azure_hybrid_use_benefit'")
             __props__['azure_hybrid_use_benefit'] = azure_hybrid_use_benefit
-            if azure_location is None:
+            if azure_location is None and not opts.urn:
                 raise TypeError("Missing required property 'azure_location'")
             __props__['azure_location'] = azure_location
-            if azure_offer_code is None:
+            if azure_offer_code is None and not opts.urn:
                 raise TypeError("Missing required property 'azure_offer_code'")
             __props__['azure_offer_code'] = azure_offer_code
-            if azure_pricing_tier is None:
+            if azure_pricing_tier is None and not opts.urn:
                 raise TypeError("Missing required property 'azure_pricing_tier'")
             __props__['azure_pricing_tier'] = azure_pricing_tier
-            if azure_storage_redundancy is None:
+            if azure_storage_redundancy is None and not opts.urn:
                 raise TypeError("Missing required property 'azure_storage_redundancy'")
             __props__['azure_storage_redundancy'] = azure_storage_redundancy
-            if currency is None:
+            if currency is None and not opts.urn:
                 raise TypeError("Missing required property 'currency'")
             __props__['currency'] = currency
-            if discount_percentage is None:
+            if discount_percentage is None and not opts.urn:
                 raise TypeError("Missing required property 'discount_percentage'")
             __props__['discount_percentage'] = discount_percentage
             __props__['e_tag'] = e_tag
-            if group_name is None:
+            if group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'group_name'")
             __props__['group_name'] = group_name
-            if percentile is None:
+            if percentile is None and not opts.urn:
                 raise TypeError("Missing required property 'percentile'")
             __props__['percentile'] = percentile
-            if project_name is None:
+            if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")
             __props__['project_name'] = project_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if scaling_factor is None:
+            if scaling_factor is None and not opts.urn:
                 raise TypeError("Missing required property 'scaling_factor'")
             __props__['scaling_factor'] = scaling_factor
-            if stage is None:
+            if stage is None and not opts.urn:
                 raise TypeError("Missing required property 'stage'")
             __props__['stage'] = stage
-            if time_range is None:
+            if time_range is None and not opts.urn:
                 raise TypeError("Missing required property 'time_range'")
             __props__['time_range'] = time_range
             __props__['created_timestamp'] = None

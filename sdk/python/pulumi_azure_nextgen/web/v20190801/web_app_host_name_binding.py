@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['WebAppHostNameBinding']
 
@@ -16,16 +17,16 @@ class WebAppHostNameBinding(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_resource_name: Optional[pulumi.Input[str]] = None,
-                 azure_resource_type: Optional[pulumi.Input[str]] = None,
-                 custom_host_name_dns_record_type: Optional[pulumi.Input[str]] = None,
+                 azure_resource_type: Optional[pulumi.Input['AzureResourceType']] = None,
+                 custom_host_name_dns_record_type: Optional[pulumi.Input['CustomHostNameDnsRecordType']] = None,
                  domain_id: Optional[pulumi.Input[str]] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
-                 host_name_type: Optional[pulumi.Input[str]] = None,
+                 host_name_type: Optional[pulumi.Input['HostNameType']] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  site_name: Optional[pulumi.Input[str]] = None,
-                 ssl_state: Optional[pulumi.Input[str]] = None,
+                 ssl_state: Optional[pulumi.Input['SslState']] = None,
                  thumbprint: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -36,16 +37,16 @@ class WebAppHostNameBinding(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] azure_resource_name: Azure resource name.
-        :param pulumi.Input[str] azure_resource_type: Azure resource type.
-        :param pulumi.Input[str] custom_host_name_dns_record_type: Custom DNS record type.
+        :param pulumi.Input['AzureResourceType'] azure_resource_type: Azure resource type.
+        :param pulumi.Input['CustomHostNameDnsRecordType'] custom_host_name_dns_record_type: Custom DNS record type.
         :param pulumi.Input[str] domain_id: Fully qualified ARM domain resource URI.
         :param pulumi.Input[str] host_name: Hostname in the hostname binding.
-        :param pulumi.Input[str] host_name_type: Hostname type.
+        :param pulumi.Input['HostNameType'] host_name_type: Hostname type.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] site_name: App Service app name.
-        :param pulumi.Input[str] ssl_state: SSL type
+        :param pulumi.Input['SslState'] ssl_state: SSL type
         :param pulumi.Input[str] thumbprint: SSL certificate thumbprint
         """
         if __name__ is not None:
@@ -69,15 +70,15 @@ class WebAppHostNameBinding(pulumi.CustomResource):
             __props__['azure_resource_type'] = azure_resource_type
             __props__['custom_host_name_dns_record_type'] = custom_host_name_dns_record_type
             __props__['domain_id'] = domain_id
-            if host_name is None:
+            if host_name is None and not opts.urn:
                 raise TypeError("Missing required property 'host_name'")
             __props__['host_name'] = host_name
             __props__['host_name_type'] = host_name_type
             __props__['kind'] = kind
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['site_name'] = site_name

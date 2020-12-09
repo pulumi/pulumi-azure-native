@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AdditionalLocationArgs',
@@ -135,34 +136,34 @@ class ApiCreateOrUpdatePropertiesWsdlSelectorArgs:
 @pulumi.input_type
 class ApiManagementServiceIdentityArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str]):
+                 type: pulumi.Input[Union[str, 'ApimIdentityType']]):
         """
         Identity properties of the Api Management service resource.
-        :param pulumi.Input[str] type: The identity type. Currently the only supported type is 'SystemAssigned'.
+        :param pulumi.Input[Union[str, 'ApimIdentityType']] type: The identity type. Currently the only supported type is 'SystemAssigned'.
         """
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'ApimIdentityType']]:
         """
         The identity type. Currently the only supported type is 'SystemAssigned'.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'ApimIdentityType']]):
         pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
 class ApiManagementServiceSkuPropertiesArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
+                 name: pulumi.Input[Union[str, 'SkuType']],
                  capacity: Optional[pulumi.Input[int]] = None):
         """
         API Management service resource SKU properties.
-        :param pulumi.Input[str] name: Name of the Sku.
+        :param pulumi.Input[Union[str, 'SkuType']] name: Name of the Sku.
         :param pulumi.Input[int] capacity: Capacity of the SKU (number of deployed units of the SKU). The default value is 1.
         """
         pulumi.set(__self__, "name", name)
@@ -171,14 +172,14 @@ class ApiManagementServiceSkuPropertiesArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input[Union[str, 'SkuType']]:
         """
         Name of the Sku.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input[Union[str, 'SkuType']]):
         pulumi.set(self, "name", value)
 
     @property
@@ -837,7 +838,7 @@ class EmailTemplateParametersContractPropertiesArgs:
 class HostnameConfigurationArgs:
     def __init__(__self__, *,
                  host_name: pulumi.Input[str],
-                 type: pulumi.Input[str],
+                 type: pulumi.Input['HostnameType'],
                  certificate: Optional[pulumi.Input['CertificateInformationArgs']] = None,
                  certificate_password: Optional[pulumi.Input[str]] = None,
                  default_ssl_binding: Optional[pulumi.Input[bool]] = None,
@@ -847,7 +848,7 @@ class HostnameConfigurationArgs:
         """
         Custom hostname configuration.
         :param pulumi.Input[str] host_name: Hostname to configure on the Api Management service.
-        :param pulumi.Input[str] type: Hostname type.
+        :param pulumi.Input['HostnameType'] type: Hostname type.
         :param pulumi.Input['CertificateInformationArgs'] certificate: Certificate information.
         :param pulumi.Input[str] certificate_password: Certificate Password.
         :param pulumi.Input[bool] default_ssl_binding: Specify true to setup the certificate associated with this Hostname as the Default SSL Certificate. If a client does not send the SNI header, then this will be the certificate that will be challenged. The property is useful if a service has multiple custom hostname enabled and it needs to decide on the default ssl certificate. The setting only applied to Proxy Hostname Type.
@@ -884,14 +885,14 @@ class HostnameConfigurationArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['HostnameType']:
         """
         Hostname type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['HostnameType']):
         pulumi.set(self, "type", value)
 
     @property
@@ -1010,11 +1011,11 @@ class OAuth2AuthenticationSettingsContractArgs:
 @pulumi.input_type
 class OpenIdAuthenticationSettingsContractArgs:
     def __init__(__self__, *,
-                 bearer_token_sending_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 bearer_token_sending_methods: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'BearerTokenSendingMethods']]]]] = None,
                  openid_provider_id: Optional[pulumi.Input[str]] = None):
         """
         API OAuth2 Authentication settings details.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] bearer_token_sending_methods: How to send token to the server.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'BearerTokenSendingMethods']]]] bearer_token_sending_methods: How to send token to the server.
         :param pulumi.Input[str] openid_provider_id: OAuth authorization server identifier.
         """
         if bearer_token_sending_methods is not None:
@@ -1024,14 +1025,14 @@ class OpenIdAuthenticationSettingsContractArgs:
 
     @property
     @pulumi.getter(name="bearerTokenSendingMethods")
-    def bearer_token_sending_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def bearer_token_sending_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'BearerTokenSendingMethods']]]]]:
         """
         How to send token to the server.
         """
         return pulumi.get(self, "bearer_token_sending_methods")
 
     @bearer_token_sending_methods.setter
-    def bearer_token_sending_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def bearer_token_sending_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'BearerTokenSendingMethods']]]]]):
         pulumi.set(self, "bearer_token_sending_methods", value)
 
     @property

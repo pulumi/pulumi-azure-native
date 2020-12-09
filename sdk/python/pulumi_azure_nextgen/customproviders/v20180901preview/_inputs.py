@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'CustomRPActionRouteDefinitionArgs',
@@ -19,12 +20,12 @@ class CustomRPActionRouteDefinitionArgs:
     def __init__(__self__, *,
                  endpoint: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 routing_type: Optional[pulumi.Input[str]] = None):
+                 routing_type: Optional[pulumi.Input[Union[str, 'ActionRouting']]] = None):
         """
         The route definition for an action implemented by the custom resource provider.
         :param pulumi.Input[str] endpoint: The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
         :param pulumi.Input[str] name: The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
-        :param pulumi.Input[str] routing_type: The routing types that are supported for action requests.
+        :param pulumi.Input[Union[str, 'ActionRouting']] routing_type: The routing types that are supported for action requests.
         """
         pulumi.set(__self__, "endpoint", endpoint)
         pulumi.set(__self__, "name", name)
@@ -57,14 +58,14 @@ class CustomRPActionRouteDefinitionArgs:
 
     @property
     @pulumi.getter(name="routingType")
-    def routing_type(self) -> Optional[pulumi.Input[str]]:
+    def routing_type(self) -> Optional[pulumi.Input[Union[str, 'ActionRouting']]]:
         """
         The routing types that are supported for action requests.
         """
         return pulumi.get(self, "routing_type")
 
     @routing_type.setter
-    def routing_type(self, value: Optional[pulumi.Input[str]]):
+    def routing_type(self, value: Optional[pulumi.Input[Union[str, 'ActionRouting']]]):
         pulumi.set(self, "routing_type", value)
 
 
@@ -73,12 +74,12 @@ class CustomRPResourceTypeRouteDefinitionArgs:
     def __init__(__self__, *,
                  endpoint: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 routing_type: Optional[pulumi.Input[str]] = None):
+                 routing_type: Optional[pulumi.Input[Union[str, 'ResourceTypeRouting']]] = None):
         """
         The route definition for a resource implemented by the custom resource provider.
         :param pulumi.Input[str] endpoint: The route definition endpoint URI that the custom resource provider will proxy requests to. This can be in the form of a flat URI (e.g. 'https://testendpoint/') or can specify to route via a path (e.g. 'https://testendpoint/{requestPath}')
         :param pulumi.Input[str] name: The name of the route definition. This becomes the name for the ARM extension (e.g. '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{name}')
-        :param pulumi.Input[str] routing_type: The routing types that are supported for resource requests.
+        :param pulumi.Input[Union[str, 'ResourceTypeRouting']] routing_type: The routing types that are supported for resource requests.
         """
         pulumi.set(__self__, "endpoint", endpoint)
         pulumi.set(__self__, "name", name)
@@ -111,14 +112,14 @@ class CustomRPResourceTypeRouteDefinitionArgs:
 
     @property
     @pulumi.getter(name="routingType")
-    def routing_type(self) -> Optional[pulumi.Input[str]]:
+    def routing_type(self) -> Optional[pulumi.Input[Union[str, 'ResourceTypeRouting']]]:
         """
         The routing types that are supported for resource requests.
         """
         return pulumi.get(self, "routing_type")
 
     @routing_type.setter
-    def routing_type(self, value: Optional[pulumi.Input[str]]):
+    def routing_type(self, value: Optional[pulumi.Input[Union[str, 'ResourceTypeRouting']]]):
         pulumi.set(self, "routing_type", value)
 
 
@@ -126,11 +127,11 @@ class CustomRPResourceTypeRouteDefinitionArgs:
 class CustomRPValidationsArgs:
     def __init__(__self__, *,
                  specification: pulumi.Input[str],
-                 validation_type: Optional[pulumi.Input[str]] = None):
+                 validation_type: Optional[pulumi.Input[Union[str, 'ValidationType']]] = None):
         """
         A validation to apply on custom resource provider requests.
         :param pulumi.Input[str] specification: A link to the validation specification. The specification must be hosted on raw.githubusercontent.com.
-        :param pulumi.Input[str] validation_type: The type of validation to run against a matching request.
+        :param pulumi.Input[Union[str, 'ValidationType']] validation_type: The type of validation to run against a matching request.
         """
         pulumi.set(__self__, "specification", specification)
         if validation_type is not None:
@@ -150,14 +151,14 @@ class CustomRPValidationsArgs:
 
     @property
     @pulumi.getter(name="validationType")
-    def validation_type(self) -> Optional[pulumi.Input[str]]:
+    def validation_type(self) -> Optional[pulumi.Input[Union[str, 'ValidationType']]]:
         """
         The type of validation to run against a matching request.
         """
         return pulumi.get(self, "validation_type")
 
     @validation_type.setter
-    def validation_type(self, value: Optional[pulumi.Input[str]]):
+    def validation_type(self, value: Optional[pulumi.Input[Union[str, 'ValidationType']]]):
         pulumi.set(self, "validation_type", value)
 
 

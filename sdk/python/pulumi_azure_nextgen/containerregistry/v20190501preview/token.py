@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Token']
@@ -21,7 +22,7 @@ class Token(pulumi.CustomResource):
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope_map_id: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'TokenStatus']]] = None,
                  token_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -35,7 +36,7 @@ class Token(pulumi.CustomResource):
         :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
         :param pulumi.Input[str] scope_map_id: The resource ID of the scope map to which the token will be associated with.
-        :param pulumi.Input[str] status: The status of the token example enabled or disabled.
+        :param pulumi.Input[Union[str, 'TokenStatus']] status: The status of the token example enabled or disabled.
         :param pulumi.Input[str] token_name: The name of the token.
         """
         if __name__ is not None:
@@ -56,15 +57,15 @@ class Token(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['credentials'] = credentials
-            if registry_name is None:
+            if registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registry_name'")
             __props__['registry_name'] = registry_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['scope_map_id'] = scope_map_id
             __props__['status'] = status
-            if token_name is None:
+            if token_name is None and not opts.urn:
                 raise TypeError("Missing required property 'token_name'")
             __props__['token_name'] = token_name
             __props__['creation_date'] = None

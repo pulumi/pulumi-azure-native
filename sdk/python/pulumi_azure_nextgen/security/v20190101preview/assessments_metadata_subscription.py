@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['AssessmentsMetadataSubscription']
 
@@ -16,16 +17,16 @@ class AssessmentsMetadataSubscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assessment_metadata_name: Optional[pulumi.Input[str]] = None,
-                 assessment_type: Optional[pulumi.Input[str]] = None,
-                 category: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 assessment_type: Optional[pulumi.Input[Union[str, 'AssessmentType']]] = None,
+                 category: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Category']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 implementation_effort: Optional[pulumi.Input[str]] = None,
+                 implementation_effort: Optional[pulumi.Input[Union[str, 'ImplementationEffort']]] = None,
                  preview: Optional[pulumi.Input[bool]] = None,
                  remediation_description: Optional[pulumi.Input[str]] = None,
-                 severity: Optional[pulumi.Input[str]] = None,
-                 threats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 user_impact: Optional[pulumi.Input[str]] = None,
+                 severity: Optional[pulumi.Input[Union[str, 'Severity']]] = None,
+                 threats: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'Threats']]]]] = None,
+                 user_impact: Optional[pulumi.Input[Union[str, 'UserImpact']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -35,14 +36,14 @@ class AssessmentsMetadataSubscription(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] assessment_metadata_name: The Assessment Key - Unique key for the assessment type
-        :param pulumi.Input[str] assessment_type: BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
+        :param pulumi.Input[Union[str, 'AssessmentType']] assessment_type: BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
         :param pulumi.Input[str] description: Human readable description of the assessment
         :param pulumi.Input[str] display_name: User friendly display name of the assessment
-        :param pulumi.Input[str] implementation_effort: The implementation effort required to remediate this assessment
+        :param pulumi.Input[Union[str, 'ImplementationEffort']] implementation_effort: The implementation effort required to remediate this assessment
         :param pulumi.Input[bool] preview: True if this assessment is in preview release status
         :param pulumi.Input[str] remediation_description: Human readable description of what you should do to mitigate this security issue
-        :param pulumi.Input[str] severity: The severity level of the assessment
-        :param pulumi.Input[str] user_impact: The user impact of the assessment
+        :param pulumi.Input[Union[str, 'Severity']] severity: The severity level of the assessment
+        :param pulumi.Input[Union[str, 'UserImpact']] user_impact: The user impact of the assessment
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -61,21 +62,21 @@ class AssessmentsMetadataSubscription(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if assessment_metadata_name is None:
+            if assessment_metadata_name is None and not opts.urn:
                 raise TypeError("Missing required property 'assessment_metadata_name'")
             __props__['assessment_metadata_name'] = assessment_metadata_name
-            if assessment_type is None:
+            if assessment_type is None and not opts.urn:
                 raise TypeError("Missing required property 'assessment_type'")
             __props__['assessment_type'] = assessment_type
             __props__['category'] = category
             __props__['description'] = description
-            if display_name is None:
+            if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__['display_name'] = display_name
             __props__['implementation_effort'] = implementation_effort
             __props__['preview'] = preview
             __props__['remediation_description'] = remediation_description
-            if severity is None:
+            if severity is None and not opts.urn:
                 raise TypeError("Missing required property 'severity'")
             __props__['severity'] = severity
             __props__['threats'] = threats

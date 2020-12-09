@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['NotificationHubAuthorizationRule']
@@ -53,19 +54,19 @@ class NotificationHubAuthorizationRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if authorization_rule_name is None:
+            if authorization_rule_name is None and not opts.urn:
                 raise TypeError("Missing required property 'authorization_rule_name'")
             __props__['authorization_rule_name'] = authorization_rule_name
-            if namespace_name is None:
+            if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
-            if notification_hub_name is None:
+            if notification_hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'notification_hub_name'")
             __props__['notification_hub_name'] = notification_hub_name
-            if properties is None:
+            if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__['properties'] = properties
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['claim_type'] = None

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['GalleryApplication']
 
@@ -24,7 +25,7 @@ class GalleryApplication(pulumi.CustomResource):
                  privacy_statement_uri: Optional[pulumi.Input[str]] = None,
                  release_note_uri: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 supported_os_type: Optional[pulumi.Input[str]] = None,
+                 supported_os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
@@ -43,7 +44,7 @@ class GalleryApplication(pulumi.CustomResource):
         :param pulumi.Input[str] privacy_statement_uri: The privacy statement uri.
         :param pulumi.Input[str] release_note_uri: The release note uri.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] supported_os_type: This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+        :param pulumi.Input['OperatingSystemTypes'] supported_os_type: This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         if __name__ is not None:
@@ -66,21 +67,21 @@ class GalleryApplication(pulumi.CustomResource):
             __props__['description'] = description
             __props__['end_of_life_date'] = end_of_life_date
             __props__['eula'] = eula
-            if gallery_application_name is None:
+            if gallery_application_name is None and not opts.urn:
                 raise TypeError("Missing required property 'gallery_application_name'")
             __props__['gallery_application_name'] = gallery_application_name
-            if gallery_name is None:
+            if gallery_name is None and not opts.urn:
                 raise TypeError("Missing required property 'gallery_name'")
             __props__['gallery_name'] = gallery_name
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['privacy_statement_uri'] = privacy_statement_uri
             __props__['release_note_uri'] = release_note_uri
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if supported_os_type is None:
+            if supported_os_type is None and not opts.urn:
                 raise TypeError("Missing required property 'supported_os_type'")
             __props__['supported_os_type'] = supported_os_type
             __props__['tags'] = tags

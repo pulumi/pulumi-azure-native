@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AzureSkuArgs',
@@ -22,13 +23,13 @@ __all__ = [
 @pulumi.input_type
 class AzureSkuArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 tier: pulumi.Input[str],
+                 name: pulumi.Input[Union[str, 'AzureSkuName']],
+                 tier: pulumi.Input[Union[str, 'AzureSkuTier']],
                  capacity: Optional[pulumi.Input[int]] = None):
         """
         Azure SKU definition.
-        :param pulumi.Input[str] name: SKU name.
-        :param pulumi.Input[str] tier: SKU tier.
+        :param pulumi.Input[Union[str, 'AzureSkuName']] name: SKU name.
+        :param pulumi.Input[Union[str, 'AzureSkuTier']] tier: SKU tier.
         :param pulumi.Input[int] capacity: The number of instances of the cluster.
         """
         pulumi.set(__self__, "name", name)
@@ -38,26 +39,26 @@ class AzureSkuArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input[Union[str, 'AzureSkuName']]:
         """
         SKU name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input[Union[str, 'AzureSkuName']]):
         pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
-    def tier(self) -> pulumi.Input[str]:
+    def tier(self) -> pulumi.Input[Union[str, 'AzureSkuTier']]:
         """
         SKU tier.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: pulumi.Input[str]):
+    def tier(self, value: pulumi.Input[Union[str, 'AzureSkuTier']]):
         pulumi.set(self, "tier", value)
 
     @property
@@ -76,11 +77,11 @@ class AzureSkuArgs:
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str],
+                 type: pulumi.Input['IdentityType'],
                  user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Identity for the resource.
-        :param pulumi.Input[str] type: The identity type.
+        :param pulumi.Input['IdentityType'] type: The identity type.
         :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "type", type)
@@ -89,14 +90,14 @@ class IdentityArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input['IdentityType']:
         """
         The identity type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input['IdentityType']):
         pulumi.set(self, "type", value)
 
     @property
@@ -168,24 +169,24 @@ class KeyVaultPropertiesArgs:
 @pulumi.input_type
 class LanguageExtensionArgs:
     def __init__(__self__, *,
-                 language_extension_name: Optional[pulumi.Input[str]] = None):
+                 language_extension_name: Optional[pulumi.Input[Union[str, 'LanguageExtensionName']]] = None):
         """
         The language extension object.
-        :param pulumi.Input[str] language_extension_name: The language extension name.
+        :param pulumi.Input[Union[str, 'LanguageExtensionName']] language_extension_name: The language extension name.
         """
         if language_extension_name is not None:
             pulumi.set(__self__, "language_extension_name", language_extension_name)
 
     @property
     @pulumi.getter(name="languageExtensionName")
-    def language_extension_name(self) -> Optional[pulumi.Input[str]]:
+    def language_extension_name(self) -> Optional[pulumi.Input[Union[str, 'LanguageExtensionName']]]:
         """
         The language extension name.
         """
         return pulumi.get(self, "language_extension_name")
 
     @language_extension_name.setter
-    def language_extension_name(self, value: Optional[pulumi.Input[str]]):
+    def language_extension_name(self, value: Optional[pulumi.Input[Union[str, 'LanguageExtensionName']]]):
         pulumi.set(self, "language_extension_name", value)
 
 

@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .failover_group import *
 from .firewall_rule import *
 from .get_failover_group import *
@@ -23,3 +24,42 @@ from .sync_member import *
 from .virtual_network_rule import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:sql/v20150501preview:FailoverGroup":
+                return FailoverGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:sql/v20150501preview:FirewallRule":
+                return FirewallRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:sql/v20150501preview:ManagedInstance":
+                return ManagedInstance(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:sql/v20150501preview:Server":
+                return Server(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:sql/v20150501preview:ServerKey":
+                return ServerKey(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:sql/v20150501preview:SyncAgent":
+                return SyncAgent(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:sql/v20150501preview:SyncGroup":
+                return SyncGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:sql/v20150501preview:SyncMember":
+                return SyncMember(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:sql/v20150501preview:VirtualNetworkRule":
+                return VirtualNetworkRule(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "sql/v20150501preview", _module_instance)
+
+_register_module()

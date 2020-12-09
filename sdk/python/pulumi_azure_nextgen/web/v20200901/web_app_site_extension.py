@@ -48,13 +48,13 @@ class WebAppSiteExtension(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if site_extension_id is None:
+            if site_extension_id is None and not opts.urn:
                 raise TypeError("Missing required property 'site_extension_id'")
             __props__['site_extension_id'] = site_extension_id
             __props__['authors'] = None

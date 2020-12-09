@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'LogSettingsArgs',
@@ -17,12 +18,12 @@ __all__ = [
 class LogSettingsArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 category: Optional[pulumi.Input[str]] = None,
+                 category: Optional[pulumi.Input[Union[str, 'Category']]] = None,
                  retention_policy: Optional[pulumi.Input['RetentionPolicyArgs']] = None):
         """
         Part of MultiTenantDiagnosticSettings. Specifies the settings for a particular log.
         :param pulumi.Input[bool] enabled: A value indicating whether this log is enabled.
-        :param pulumi.Input[str] category: Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+        :param pulumi.Input[Union[str, 'Category']] category: Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
         :param pulumi.Input['RetentionPolicyArgs'] retention_policy: The retention policy for this log.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -45,14 +46,14 @@ class LogSettingsArgs:
 
     @property
     @pulumi.getter
-    def category(self) -> Optional[pulumi.Input[str]]:
+    def category(self) -> Optional[pulumi.Input[Union[str, 'Category']]]:
         """
         Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
         """
         return pulumi.get(self, "category")
 
     @category.setter
-    def category(self, value: Optional[pulumi.Input[str]]):
+    def category(self, value: Optional[pulumi.Input[Union[str, 'Category']]]):
         pulumi.set(self, "category", value)
 
     @property

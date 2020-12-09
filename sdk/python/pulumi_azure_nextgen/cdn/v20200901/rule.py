@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Rule']
@@ -19,7 +20,7 @@ class Rule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['DeliveryRuleCacheExpirationActionArgs'], pulumi.InputType['DeliveryRuleCacheKeyQueryStringActionArgs'], pulumi.InputType['DeliveryRuleRequestHeaderActionArgs'], pulumi.InputType['DeliveryRuleResponseHeaderActionArgs'], pulumi.InputType['OriginGroupOverrideActionArgs'], pulumi.InputType['UrlRedirectActionArgs'], pulumi.InputType['UrlRewriteActionArgs'], pulumi.InputType['UrlSigningActionArgs']]]]]] = None,
                  conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['DeliveryRuleCookiesConditionArgs'], pulumi.InputType['DeliveryRuleHttpVersionConditionArgs'], pulumi.InputType['DeliveryRuleIsDeviceConditionArgs'], pulumi.InputType['DeliveryRulePostArgsConditionArgs'], pulumi.InputType['DeliveryRuleQueryStringConditionArgs'], pulumi.InputType['DeliveryRuleRemoteAddressConditionArgs'], pulumi.InputType['DeliveryRuleRequestBodyConditionArgs'], pulumi.InputType['DeliveryRuleRequestHeaderConditionArgs'], pulumi.InputType['DeliveryRuleRequestMethodConditionArgs'], pulumi.InputType['DeliveryRuleRequestSchemeConditionArgs'], pulumi.InputType['DeliveryRuleRequestUriConditionArgs'], pulumi.InputType['DeliveryRuleUrlFileExtensionConditionArgs'], pulumi.InputType['DeliveryRuleUrlFileNameConditionArgs'], pulumi.InputType['DeliveryRuleUrlPathConditionArgs']]]]]] = None,
-                 match_processing_behavior: Optional[pulumi.Input[str]] = None,
+                 match_processing_behavior: Optional[pulumi.Input[Union[str, 'MatchProcessingBehavior']]] = None,
                  order: Optional[pulumi.Input[int]] = None,
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -35,7 +36,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['DeliveryRuleCacheExpirationActionArgs'], pulumi.InputType['DeliveryRuleCacheKeyQueryStringActionArgs'], pulumi.InputType['DeliveryRuleRequestHeaderActionArgs'], pulumi.InputType['DeliveryRuleResponseHeaderActionArgs'], pulumi.InputType['OriginGroupOverrideActionArgs'], pulumi.InputType['UrlRedirectActionArgs'], pulumi.InputType['UrlRewriteActionArgs'], pulumi.InputType['UrlSigningActionArgs']]]]] actions: A list of actions that are executed when all the conditions of a rule are satisfied.
         :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['DeliveryRuleCookiesConditionArgs'], pulumi.InputType['DeliveryRuleHttpVersionConditionArgs'], pulumi.InputType['DeliveryRuleIsDeviceConditionArgs'], pulumi.InputType['DeliveryRulePostArgsConditionArgs'], pulumi.InputType['DeliveryRuleQueryStringConditionArgs'], pulumi.InputType['DeliveryRuleRemoteAddressConditionArgs'], pulumi.InputType['DeliveryRuleRequestBodyConditionArgs'], pulumi.InputType['DeliveryRuleRequestHeaderConditionArgs'], pulumi.InputType['DeliveryRuleRequestMethodConditionArgs'], pulumi.InputType['DeliveryRuleRequestSchemeConditionArgs'], pulumi.InputType['DeliveryRuleRequestUriConditionArgs'], pulumi.InputType['DeliveryRuleUrlFileExtensionConditionArgs'], pulumi.InputType['DeliveryRuleUrlFileNameConditionArgs'], pulumi.InputType['DeliveryRuleUrlPathConditionArgs']]]]] conditions: A list of conditions that must be matched for the actions to be executed
-        :param pulumi.Input[str] match_processing_behavior: If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
+        :param pulumi.Input[Union[str, 'MatchProcessingBehavior']] match_processing_behavior: If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
         :param pulumi.Input[int] order: The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
         :param pulumi.Input[str] profile_name: Name of the CDN profile which is unique within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
@@ -59,24 +60,24 @@ class Rule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if actions is None:
+            if actions is None and not opts.urn:
                 raise TypeError("Missing required property 'actions'")
             __props__['actions'] = actions
             __props__['conditions'] = conditions
             __props__['match_processing_behavior'] = match_processing_behavior
-            if order is None:
+            if order is None and not opts.urn:
                 raise TypeError("Missing required property 'order'")
             __props__['order'] = order
-            if profile_name is None:
+            if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")
             __props__['profile_name'] = profile_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if rule_name is None:
+            if rule_name is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_name'")
             __props__['rule_name'] = rule_name
-            if rule_set_name is None:
+            if rule_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_set_name'")
             __props__['rule_set_name'] = rule_set_name
             __props__['deployment_status'] = None

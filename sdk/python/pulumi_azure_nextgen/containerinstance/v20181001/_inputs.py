@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AzureFileVolumeArgs',
@@ -303,11 +304,11 @@ class ContainerGroupDiagnosticsArgs:
 @pulumi.input_type
 class ContainerGroupIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None,
                  user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Identity for the container group.
-        :param pulumi.Input[str] type: The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
+        :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
         :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         if type is not None:
@@ -317,14 +318,14 @@ class ContainerGroupIdentityArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
         """
         The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -422,11 +423,11 @@ class ContainerHttpGetArgs:
 class ContainerPortArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
-                 protocol: Optional[pulumi.Input[str]] = None):
+                 protocol: Optional[pulumi.Input[Union[str, 'ContainerNetworkProtocol']]] = None):
         """
         The port exposed on the container instance.
         :param pulumi.Input[int] port: The port number exposed within the container group.
-        :param pulumi.Input[str] protocol: The protocol associated with the port.
+        :param pulumi.Input[Union[str, 'ContainerNetworkProtocol']] protocol: The protocol associated with the port.
         """
         pulumi.set(__self__, "port", port)
         if protocol is not None:
@@ -446,14 +447,14 @@ class ContainerPortArgs:
 
     @property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[str]]:
+    def protocol(self) -> Optional[pulumi.Input[Union[str, 'ContainerNetworkProtocol']]]:
         """
         The protocol associated with the port.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[str]]):
+    def protocol(self, value: Optional[pulumi.Input[Union[str, 'ContainerNetworkProtocol']]]):
         pulumi.set(self, "protocol", value)
 
 
@@ -746,11 +747,11 @@ class GitRepoVolumeArgs:
 class GpuResourceArgs:
     def __init__(__self__, *,
                  count: pulumi.Input[int],
-                 sku: pulumi.Input[str]):
+                 sku: pulumi.Input[Union[str, 'GpuSku']]):
         """
         The GPU resource.
         :param pulumi.Input[int] count: The count of the GPU resource.
-        :param pulumi.Input[str] sku: The SKU of the GPU resource.
+        :param pulumi.Input[Union[str, 'GpuSku']] sku: The SKU of the GPU resource.
         """
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "sku", sku)
@@ -769,14 +770,14 @@ class GpuResourceArgs:
 
     @property
     @pulumi.getter
-    def sku(self) -> pulumi.Input[str]:
+    def sku(self) -> pulumi.Input[Union[str, 'GpuSku']]:
         """
         The SKU of the GPU resource.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: pulumi.Input[str]):
+    def sku(self, value: pulumi.Input[Union[str, 'GpuSku']]):
         pulumi.set(self, "sku", value)
 
 
@@ -838,13 +839,13 @@ class ImageRegistryCredentialArgs:
 class IpAddressArgs:
     def __init__(__self__, *,
                  ports: pulumi.Input[Sequence[pulumi.Input['PortArgs']]],
-                 type: pulumi.Input[str],
+                 type: pulumi.Input[Union[str, 'ContainerGroupIpAddressType']],
                  dns_name_label: Optional[pulumi.Input[str]] = None,
                  ip: Optional[pulumi.Input[str]] = None):
         """
         IP address for the container group.
         :param pulumi.Input[Sequence[pulumi.Input['PortArgs']]] ports: The list of ports exposed on the container group.
-        :param pulumi.Input[str] type: Specifies if the IP is exposed to the public internet or private VNET.
+        :param pulumi.Input[Union[str, 'ContainerGroupIpAddressType']] type: Specifies if the IP is exposed to the public internet or private VNET.
         :param pulumi.Input[str] dns_name_label: The Dns name label for the IP.
         :param pulumi.Input[str] ip: The IP exposed to the public internet.
         """
@@ -869,14 +870,14 @@ class IpAddressArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'ContainerGroupIpAddressType']]:
         """
         Specifies if the IP is exposed to the public internet or private VNET.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'ContainerGroupIpAddressType']]):
         pulumi.set(self, "type", value)
 
     @property
@@ -909,13 +910,13 @@ class LogAnalyticsArgs:
     def __init__(__self__, *,
                  workspace_id: pulumi.Input[str],
                  workspace_key: pulumi.Input[str],
-                 log_type: Optional[pulumi.Input[str]] = None,
+                 log_type: Optional[pulumi.Input[Union[str, 'LogAnalyticsLogType']]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Container group log analytics information.
         :param pulumi.Input[str] workspace_id: The workspace id for log analytics
         :param pulumi.Input[str] workspace_key: The workspace key for log analytics
-        :param pulumi.Input[str] log_type: The log type to be used.
+        :param pulumi.Input[Union[str, 'LogAnalyticsLogType']] log_type: The log type to be used.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: Metadata for log analytics.
         """
         pulumi.set(__self__, "workspace_id", workspace_id)
@@ -951,14 +952,14 @@ class LogAnalyticsArgs:
 
     @property
     @pulumi.getter(name="logType")
-    def log_type(self) -> Optional[pulumi.Input[str]]:
+    def log_type(self) -> Optional[pulumi.Input[Union[str, 'LogAnalyticsLogType']]]:
         """
         The log type to be used.
         """
         return pulumi.get(self, "log_type")
 
     @log_type.setter
-    def log_type(self, value: Optional[pulumi.Input[str]]):
+    def log_type(self, value: Optional[pulumi.Input[Union[str, 'LogAnalyticsLogType']]]):
         pulumi.set(self, "log_type", value)
 
     @property
@@ -978,11 +979,11 @@ class LogAnalyticsArgs:
 class PortArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
-                 protocol: Optional[pulumi.Input[str]] = None):
+                 protocol: Optional[pulumi.Input[Union[str, 'ContainerGroupNetworkProtocol']]] = None):
         """
         The port exposed on the container group.
         :param pulumi.Input[int] port: The port number.
-        :param pulumi.Input[str] protocol: The protocol associated with the port.
+        :param pulumi.Input[Union[str, 'ContainerGroupNetworkProtocol']] protocol: The protocol associated with the port.
         """
         pulumi.set(__self__, "port", port)
         if protocol is not None:
@@ -1002,14 +1003,14 @@ class PortArgs:
 
     @property
     @pulumi.getter
-    def protocol(self) -> Optional[pulumi.Input[str]]:
+    def protocol(self) -> Optional[pulumi.Input[Union[str, 'ContainerGroupNetworkProtocol']]]:
         """
         The protocol associated with the port.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: Optional[pulumi.Input[str]]):
+    def protocol(self, value: Optional[pulumi.Input[Union[str, 'ContainerGroupNetworkProtocol']]]):
         pulumi.set(self, "protocol", value)
 
 

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['NetworkVirtualAppliance']
@@ -73,11 +74,11 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
             __props__['id'] = id
             __props__['identity'] = identity
             __props__['location'] = location
-            if network_virtual_appliance_name is None:
+            if network_virtual_appliance_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_virtual_appliance_name'")
             __props__['network_virtual_appliance_name'] = network_virtual_appliance_name
             __props__['nva_sku'] = nva_sku
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

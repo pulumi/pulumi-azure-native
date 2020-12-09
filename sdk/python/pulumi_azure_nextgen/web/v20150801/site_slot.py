@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['SiteSlot']
@@ -109,15 +110,15 @@ class SiteSlot(pulumi.CustomResource):
             __props__['hosting_environment_profile'] = hosting_environment_profile
             __props__['id'] = id
             __props__['kind'] = kind
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['max_number_of_workers'] = max_number_of_workers
             __props__['micro_service'] = micro_service
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['scm_site_also_stopped'] = scm_site_also_stopped
@@ -125,7 +126,7 @@ class SiteSlot(pulumi.CustomResource):
             __props__['site_config'] = site_config
             __props__['skip_custom_domain_verification'] = skip_custom_domain_verification
             __props__['skip_dns_registration'] = skip_dns_registration
-            if slot is None:
+            if slot is None and not opts.urn:
                 raise TypeError("Missing required property 'slot'")
             __props__['slot'] = slot
             __props__['tags'] = tags

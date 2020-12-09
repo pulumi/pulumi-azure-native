@@ -57,18 +57,18 @@ class SqlDatabase(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['collation'] = collation
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['max_size_bytes'] = max_size_bytes
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if sql_database_name is None:
+            if sql_database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sql_database_name'")
             __props__['sql_database_name'] = sql_database_name
             __props__['tags'] = tags
-            if workspace_name is None:
+            if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['database_guid'] = None

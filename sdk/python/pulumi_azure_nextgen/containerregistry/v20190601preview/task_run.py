@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['TaskRun']
@@ -61,14 +62,14 @@ class TaskRun(pulumi.CustomResource):
             __props__['force_update_tag'] = force_update_tag
             __props__['identity'] = identity
             __props__['location'] = location
-            if registry_name is None:
+            if registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registry_name'")
             __props__['registry_name'] = registry_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['run_request'] = run_request
-            if task_run_name is None:
+            if task_run_name is None and not opts.urn:
                 raise TypeError("Missing required property 'task_run_name'")
             __props__['task_run_name'] = task_run_name
             __props__['name'] = None

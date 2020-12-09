@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['JobStep']
@@ -65,31 +66,31 @@ class JobStep(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if action is None:
+            if action is None and not opts.urn:
                 raise TypeError("Missing required property 'action'")
             __props__['action'] = action
-            if credential is None:
+            if credential is None and not opts.urn:
                 raise TypeError("Missing required property 'credential'")
             __props__['credential'] = credential
             __props__['execution_options'] = execution_options
-            if job_agent_name is None:
+            if job_agent_name is None and not opts.urn:
                 raise TypeError("Missing required property 'job_agent_name'")
             __props__['job_agent_name'] = job_agent_name
-            if job_name is None:
+            if job_name is None and not opts.urn:
                 raise TypeError("Missing required property 'job_name'")
             __props__['job_name'] = job_name
             __props__['output'] = output
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if server_name is None:
+            if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
             __props__['step_id'] = step_id
-            if step_name is None:
+            if step_name is None and not opts.urn:
                 raise TypeError("Missing required property 'step_name'")
             __props__['step_name'] = step_name
-            if target_group is None:
+            if target_group is None and not opts.urn:
                 raise TypeError("Missing required property 'target_group'")
             __props__['target_group'] = target_group
             __props__['name'] = None

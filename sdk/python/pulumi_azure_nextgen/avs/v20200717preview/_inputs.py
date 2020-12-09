@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'IdentitySourceArgs',
@@ -26,7 +27,7 @@ class IdentitySourceArgs:
                  password: Optional[pulumi.Input[str]] = None,
                  primary_server: Optional[pulumi.Input[str]] = None,
                  secondary_server: Optional[pulumi.Input[str]] = None,
-                 ssl: Optional[pulumi.Input[str]] = None,
+                 ssl: Optional[pulumi.Input[Union[str, 'SslEnum']]] = None,
                  username: Optional[pulumi.Input[str]] = None):
         """
         vCenter Single Sign On Identity Source
@@ -38,7 +39,7 @@ class IdentitySourceArgs:
         :param pulumi.Input[str] password: The password of the Active Directory user with a minimum of read-only access to Base DN for users and groups.
         :param pulumi.Input[str] primary_server: Primary server URL
         :param pulumi.Input[str] secondary_server: Secondary server URL
-        :param pulumi.Input[str] ssl: Protect LDAP communication using SSL certificate (LDAPS)
+        :param pulumi.Input[Union[str, 'SslEnum']] ssl: Protect LDAP communication using SSL certificate (LDAPS)
         :param pulumi.Input[str] username: The ID of an Active Directory user with a minimum of read-only access to Base DN for users and group
         """
         if alias is not None:
@@ -160,14 +161,14 @@ class IdentitySourceArgs:
 
     @property
     @pulumi.getter
-    def ssl(self) -> Optional[pulumi.Input[str]]:
+    def ssl(self) -> Optional[pulumi.Input[Union[str, 'SslEnum']]]:
         """
         Protect LDAP communication using SSL certificate (LDAPS)
         """
         return pulumi.get(self, "ssl")
 
     @ssl.setter
-    def ssl(self, value: Optional[pulumi.Input[str]]):
+    def ssl(self, value: Optional[pulumi.Input[Union[str, 'SslEnum']]]):
         pulumi.set(self, "ssl", value)
 
     @property

@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .blob_container import *
 from .blob_container_immutability_policy import *
 from .blob_inventory_policy import *
@@ -34,3 +35,52 @@ from .table import *
 from .table_service_properties import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:storage/v20200801preview:BlobContainer":
+                return BlobContainer(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storage/v20200801preview:BlobContainerImmutabilityPolicy":
+                return BlobContainerImmutabilityPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storage/v20200801preview:BlobInventoryPolicy":
+                return BlobInventoryPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storage/v20200801preview:BlobServiceProperties":
+                return BlobServiceProperties(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storage/v20200801preview:FileServiceProperties":
+                return FileServiceProperties(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storage/v20200801preview:FileShare":
+                return FileShare(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storage/v20200801preview:ManagementPolicy":
+                return ManagementPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storage/v20200801preview:ObjectReplicationPolicy":
+                return ObjectReplicationPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storage/v20200801preview:PrivateEndpointConnection":
+                return PrivateEndpointConnection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storage/v20200801preview:Queue":
+                return Queue(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storage/v20200801preview:QueueServiceProperties":
+                return QueueServiceProperties(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storage/v20200801preview:StorageAccount":
+                return StorageAccount(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storage/v20200801preview:Table":
+                return Table(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:storage/v20200801preview:TableServiceProperties":
+                return TableServiceProperties(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "storage/v20200801preview", _module_instance)
+
+_register_module()

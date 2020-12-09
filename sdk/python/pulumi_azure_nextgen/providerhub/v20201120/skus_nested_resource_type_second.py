@@ -51,19 +51,19 @@ class SkusNestedResourceTypeSecond(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if nested_resource_type_first is None:
+            if nested_resource_type_first is None and not opts.urn:
                 raise TypeError("Missing required property 'nested_resource_type_first'")
             __props__['nested_resource_type_first'] = nested_resource_type_first
-            if nested_resource_type_second is None:
+            if nested_resource_type_second is None and not opts.urn:
                 raise TypeError("Missing required property 'nested_resource_type_second'")
             __props__['nested_resource_type_second'] = nested_resource_type_second
-            if provider_namespace is None:
+            if provider_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_namespace'")
             __props__['provider_namespace'] = provider_namespace
-            if resource_type is None:
+            if resource_type is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_type'")
             __props__['resource_type'] = resource_type
-            if sku is None:
+            if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['name'] = None

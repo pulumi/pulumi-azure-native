@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .get_instance_pool import *
 from .get_managed_database import *
 from .get_managed_database_sensitivity_label import *
@@ -21,3 +22,40 @@ from .server_azure_ad_administrator import *
 from .server_vulnerability_assessment import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:sql/v20180601preview:InstancePool":
+                return InstancePool(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:sql/v20180601preview:ManagedDatabase":
+                return ManagedDatabase(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:sql/v20180601preview:ManagedDatabaseSensitivityLabel":
+                return ManagedDatabaseSensitivityLabel(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:sql/v20180601preview:ManagedInstance":
+                return ManagedInstance(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:sql/v20180601preview:ManagedInstanceVulnerabilityAssessment":
+                return ManagedInstanceVulnerabilityAssessment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:sql/v20180601preview:PrivateEndpointConnection":
+                return PrivateEndpointConnection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:sql/v20180601preview:ServerAzureADAdministrator":
+                return ServerAzureADAdministrator(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:sql/v20180601preview:ServerVulnerabilityAssessment":
+                return ServerVulnerabilityAssessment(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "sql/v20180601preview", _module_instance)
+
+_register_module()

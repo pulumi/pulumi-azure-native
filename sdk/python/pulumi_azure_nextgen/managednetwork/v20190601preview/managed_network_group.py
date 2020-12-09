@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ManagedNetworkGroup']
@@ -17,7 +18,7 @@ class ManagedNetworkGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kind: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_network_group_name: Optional[pulumi.Input[str]] = None,
                  managed_network_name: Optional[pulumi.Input[str]] = None,
@@ -34,7 +35,7 @@ class ManagedNetworkGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] kind: Responsibility role under which this Managed Network Group will be created
+        :param pulumi.Input[Union[str, 'Kind']] kind: Responsibility role under which this Managed Network Group will be created
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_network_group_name: The name of the Managed Network Group.
         :param pulumi.Input[str] managed_network_name: The name of the Managed Network.
@@ -63,14 +64,14 @@ class ManagedNetworkGroup(pulumi.CustomResource):
 
             __props__['kind'] = kind
             __props__['location'] = location
-            if managed_network_group_name is None:
+            if managed_network_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_network_group_name'")
             __props__['managed_network_group_name'] = managed_network_group_name
-            if managed_network_name is None:
+            if managed_network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_network_name'")
             __props__['managed_network_name'] = managed_network_name
             __props__['management_groups'] = management_groups
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['subnets'] = subnets

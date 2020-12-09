@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['VirtualMachine']
@@ -71,18 +72,18 @@ class VirtualMachine(pulumi.CustomResource):
             __props__['diagnostics_profile'] = diagnostics_profile
             __props__['hardware_profile'] = hardware_profile
             __props__['license_type'] = license_type
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['network_profile'] = network_profile
             __props__['os_profile'] = os_profile
             __props__['plan'] = plan
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['storage_profile'] = storage_profile
             __props__['tags'] = tags
-            if vm_name is None:
+            if vm_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_name'")
             __props__['vm_name'] = vm_name
             __props__['instance_view'] = None

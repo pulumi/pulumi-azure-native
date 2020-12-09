@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Zone']
@@ -24,7 +25,7 @@ class Zone(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_name: Optional[pulumi.Input[str]] = None,
-                 zone_type: Optional[pulumi.Input[str]] = None,
+                 zone_type: Optional[pulumi.Input['ZoneType']] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -40,7 +41,7 @@ class Zone(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] zone_name: The name of the DNS zone (without a terminating dot).
-        :param pulumi.Input[str] zone_type: The type of this DNS zone (Public or Private).
+        :param pulumi.Input['ZoneType'] zone_type: The type of this DNS zone (Public or Private).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -60,16 +61,16 @@ class Zone(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['etag'] = etag
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['registration_virtual_networks'] = registration_virtual_networks
             __props__['resolution_virtual_networks'] = resolution_virtual_networks
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            if zone_name is None:
+            if zone_name is None and not opts.urn:
                 raise TypeError("Missing required property 'zone_name'")
             __props__['zone_name'] = zone_name
             __props__['zone_type'] = zone_type

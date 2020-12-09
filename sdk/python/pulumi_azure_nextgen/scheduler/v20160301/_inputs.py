@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'BasicAuthenticationArgs',
@@ -283,7 +284,7 @@ class JobActionArgs:
                  retry_policy: Optional[pulumi.Input['RetryPolicyArgs']] = None,
                  service_bus_queue_message: Optional[pulumi.Input['ServiceBusQueueMessageArgs']] = None,
                  service_bus_topic_message: Optional[pulumi.Input['ServiceBusTopicMessageArgs']] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input['JobActionType']] = None):
         """
         :param pulumi.Input['JobErrorActionArgs'] error_action: Gets or sets the error action.
         :param pulumi.Input['StorageQueueMessageArgs'] queue_message: Gets or sets the storage queue message.
@@ -291,7 +292,7 @@ class JobActionArgs:
         :param pulumi.Input['RetryPolicyArgs'] retry_policy: Gets or sets the retry policy.
         :param pulumi.Input['ServiceBusQueueMessageArgs'] service_bus_queue_message: Gets or sets the service bus queue message.
         :param pulumi.Input['ServiceBusTopicMessageArgs'] service_bus_topic_message: Gets or sets the service bus topic message.
-        :param pulumi.Input[str] type: Gets or sets the job action type.
+        :param pulumi.Input['JobActionType'] type: Gets or sets the job action type.
         """
         if error_action is not None:
             pulumi.set(__self__, "error_action", error_action)
@@ -382,14 +383,14 @@ class JobActionArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['JobActionType']]:
         """
         Gets or sets the job action type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['JobActionType']]):
         pulumi.set(self, "type", value)
 
 
@@ -398,11 +399,11 @@ class JobCollectionPropertiesArgs:
     def __init__(__self__, *,
                  quota: Optional[pulumi.Input['JobCollectionQuotaArgs']] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
-                 state: Optional[pulumi.Input[str]] = None):
+                 state: Optional[pulumi.Input['JobCollectionState']] = None):
         """
         :param pulumi.Input['JobCollectionQuotaArgs'] quota: Gets or sets the job collection quota.
         :param pulumi.Input['SkuArgs'] sku: Gets or sets the SKU.
-        :param pulumi.Input[str] state: Gets or sets the state.
+        :param pulumi.Input['JobCollectionState'] state: Gets or sets the state.
         """
         if quota is not None:
             pulumi.set(__self__, "quota", quota)
@@ -437,14 +438,14 @@ class JobCollectionPropertiesArgs:
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[str]]:
+    def state(self) -> Optional[pulumi.Input['JobCollectionState']]:
         """
         Gets or sets the state.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[str]]):
+    def state(self, value: Optional[pulumi.Input['JobCollectionState']]):
         pulumi.set(self, "state", value)
 
 
@@ -511,14 +512,14 @@ class JobErrorActionArgs:
                  retry_policy: Optional[pulumi.Input['RetryPolicyArgs']] = None,
                  service_bus_queue_message: Optional[pulumi.Input['ServiceBusQueueMessageArgs']] = None,
                  service_bus_topic_message: Optional[pulumi.Input['ServiceBusTopicMessageArgs']] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input['JobActionType']] = None):
         """
         :param pulumi.Input['StorageQueueMessageArgs'] queue_message: Gets or sets the storage queue message.
         :param pulumi.Input['HttpRequestArgs'] request: Gets or sets the http requests.
         :param pulumi.Input['RetryPolicyArgs'] retry_policy: Gets or sets the retry policy.
         :param pulumi.Input['ServiceBusQueueMessageArgs'] service_bus_queue_message: Gets or sets the service bus queue message.
         :param pulumi.Input['ServiceBusTopicMessageArgs'] service_bus_topic_message: Gets or sets the service bus topic message.
-        :param pulumi.Input[str] type: Gets or sets the job error action type.
+        :param pulumi.Input['JobActionType'] type: Gets or sets the job error action type.
         """
         if queue_message is not None:
             pulumi.set(__self__, "queue_message", queue_message)
@@ -595,24 +596,24 @@ class JobErrorActionArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['JobActionType']]:
         """
         Gets or sets the job error action type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['JobActionType']]):
         pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
 class JobMaxRecurrenceArgs:
     def __init__(__self__, *,
-                 frequency: Optional[pulumi.Input[str]] = None,
+                 frequency: Optional[pulumi.Input['RecurrenceFrequency']] = None,
                  interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] frequency: Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
+        :param pulumi.Input['RecurrenceFrequency'] frequency: Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
         :param pulumi.Input[int] interval: Gets or sets the interval between retries.
         """
         if frequency is not None:
@@ -622,14 +623,14 @@ class JobMaxRecurrenceArgs:
 
     @property
     @pulumi.getter
-    def frequency(self) -> Optional[pulumi.Input[str]]:
+    def frequency(self) -> Optional[pulumi.Input['RecurrenceFrequency']]:
         """
         Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
         """
         return pulumi.get(self, "frequency")
 
     @frequency.setter
-    def frequency(self, value: Optional[pulumi.Input[str]]):
+    def frequency(self, value: Optional[pulumi.Input['RecurrenceFrequency']]):
         pulumi.set(self, "frequency", value)
 
     @property
@@ -651,12 +652,12 @@ class JobPropertiesArgs:
                  action: Optional[pulumi.Input['JobActionArgs']] = None,
                  recurrence: Optional[pulumi.Input['JobRecurrenceArgs']] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input[str]] = None):
+                 state: Optional[pulumi.Input['JobState']] = None):
         """
         :param pulumi.Input['JobActionArgs'] action: Gets or sets the job action.
         :param pulumi.Input['JobRecurrenceArgs'] recurrence: Gets or sets the job recurrence.
         :param pulumi.Input[str] start_time: Gets or sets the job start time.
-        :param pulumi.Input[str] state: Gets or set the job state.
+        :param pulumi.Input['JobState'] state: Gets or set the job state.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -705,14 +706,14 @@ class JobPropertiesArgs:
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[str]]:
+    def state(self) -> Optional[pulumi.Input['JobState']]:
         """
         Gets or set the job state.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[str]]):
+    def state(self, value: Optional[pulumi.Input['JobState']]):
         pulumi.set(self, "state", value)
 
 
@@ -721,13 +722,13 @@ class JobRecurrenceArgs:
     def __init__(__self__, *,
                  count: Optional[pulumi.Input[int]] = None,
                  end_time: Optional[pulumi.Input[str]] = None,
-                 frequency: Optional[pulumi.Input[str]] = None,
+                 frequency: Optional[pulumi.Input['RecurrenceFrequency']] = None,
                  interval: Optional[pulumi.Input[int]] = None,
                  schedule: Optional[pulumi.Input['JobRecurrenceScheduleArgs']] = None):
         """
         :param pulumi.Input[int] count: Gets or sets the maximum number of times that the job should run.
         :param pulumi.Input[str] end_time: Gets or sets the time at which the job will complete.
-        :param pulumi.Input[str] frequency: Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
+        :param pulumi.Input['RecurrenceFrequency'] frequency: Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
         :param pulumi.Input[int] interval: Gets or sets the interval between retries.
         """
         if count is not None:
@@ -767,14 +768,14 @@ class JobRecurrenceArgs:
 
     @property
     @pulumi.getter
-    def frequency(self) -> Optional[pulumi.Input[str]]:
+    def frequency(self) -> Optional[pulumi.Input['RecurrenceFrequency']]:
         """
         Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
         """
         return pulumi.get(self, "frequency")
 
     @frequency.setter
-    def frequency(self, value: Optional[pulumi.Input[str]]):
+    def frequency(self, value: Optional[pulumi.Input['RecurrenceFrequency']]):
         pulumi.set(self, "frequency", value)
 
     @property
@@ -806,13 +807,13 @@ class JobRecurrenceScheduleArgs:
                  minutes: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  month_days: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  monthly_occurrences: Optional[pulumi.Input[Sequence[pulumi.Input['JobRecurrenceScheduleMonthlyOccurrenceArgs']]]] = None,
-                 week_days: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 week_days: Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[int]]] hours: Gets or sets the hours of the day that the job should execute at.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] minutes: Gets or sets the minutes of the hour that the job should execute at.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] month_days: Gets or sets the days of the month that the job should execute on. Must be between 1 and 31.
         :param pulumi.Input[Sequence[pulumi.Input['JobRecurrenceScheduleMonthlyOccurrenceArgs']]] monthly_occurrences: Gets or sets the occurrences of days within a month.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] week_days: Gets or sets the days of the week that the job should execute on.
+        :param pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]] week_days: Gets or sets the days of the week that the job should execute on.
         """
         if hours is not None:
             pulumi.set(__self__, "hours", hours)
@@ -875,24 +876,24 @@ class JobRecurrenceScheduleArgs:
 
     @property
     @pulumi.getter(name="weekDays")
-    def week_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def week_days(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]:
         """
         Gets or sets the days of the week that the job should execute on.
         """
         return pulumi.get(self, "week_days")
 
     @week_days.setter
-    def week_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def week_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DayOfWeek']]]]):
         pulumi.set(self, "week_days", value)
 
 
 @pulumi.input_type
 class JobRecurrenceScheduleMonthlyOccurrenceArgs:
     def __init__(__self__, *,
-                 day: Optional[pulumi.Input[str]] = None,
+                 day: Optional[pulumi.Input['JobScheduleDay']] = None,
                  occurrence: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] day: Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
+        :param pulumi.Input['JobScheduleDay'] day: Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
         :param pulumi.Input[int] occurrence: Gets or sets the occurrence. Must be between -5 and 5.
         """
         if day is not None:
@@ -902,14 +903,14 @@ class JobRecurrenceScheduleMonthlyOccurrenceArgs:
 
     @property
     @pulumi.getter
-    def day(self) -> Optional[pulumi.Input[str]]:
+    def day(self) -> Optional[pulumi.Input['JobScheduleDay']]:
         """
         Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
         """
         return pulumi.get(self, "day")
 
     @day.setter
-    def day(self, value: Optional[pulumi.Input[str]]):
+    def day(self, value: Optional[pulumi.Input['JobScheduleDay']]):
         pulumi.set(self, "day", value)
 
     @property
@@ -1016,11 +1017,11 @@ class RetryPolicyArgs:
     def __init__(__self__, *,
                  retry_count: Optional[pulumi.Input[int]] = None,
                  retry_interval: Optional[pulumi.Input[str]] = None,
-                 retry_type: Optional[pulumi.Input[str]] = None):
+                 retry_type: Optional[pulumi.Input['RetryType']] = None):
         """
         :param pulumi.Input[int] retry_count: Gets or sets the number of times a retry should be attempted.
         :param pulumi.Input[str] retry_interval: Gets or sets the retry interval between retries, specify duration in ISO 8601 format.
-        :param pulumi.Input[str] retry_type: Gets or sets the retry strategy to be used.
+        :param pulumi.Input['RetryType'] retry_type: Gets or sets the retry strategy to be used.
         """
         if retry_count is not None:
             pulumi.set(__self__, "retry_count", retry_count)
@@ -1055,14 +1056,14 @@ class RetryPolicyArgs:
 
     @property
     @pulumi.getter(name="retryType")
-    def retry_type(self) -> Optional[pulumi.Input[str]]:
+    def retry_type(self) -> Optional[pulumi.Input['RetryType']]:
         """
         Gets or sets the retry strategy to be used.
         """
         return pulumi.get(self, "retry_type")
 
     @retry_type.setter
-    def retry_type(self, value: Optional[pulumi.Input[str]]):
+    def retry_type(self, value: Optional[pulumi.Input['RetryType']]):
         pulumi.set(self, "retry_type", value)
 
 
@@ -1071,11 +1072,11 @@ class ServiceBusAuthenticationArgs:
     def __init__(__self__, *,
                  sas_key: Optional[pulumi.Input[str]] = None,
                  sas_key_name: Optional[pulumi.Input[str]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input['ServiceBusAuthenticationType']] = None):
         """
         :param pulumi.Input[str] sas_key: Gets or sets the SAS key.
         :param pulumi.Input[str] sas_key_name: Gets or sets the SAS key name.
-        :param pulumi.Input[str] type: Gets or sets the authentication type.
+        :param pulumi.Input['ServiceBusAuthenticationType'] type: Gets or sets the authentication type.
         """
         if sas_key is not None:
             pulumi.set(__self__, "sas_key", sas_key)
@@ -1110,14 +1111,14 @@ class ServiceBusAuthenticationArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input['ServiceBusAuthenticationType']]:
         """
         Gets or sets the authentication type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input['ServiceBusAuthenticationType']]):
         pulumi.set(self, "type", value)
 
 
@@ -1345,7 +1346,7 @@ class ServiceBusQueueMessageArgs:
                  message: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  queue_name: Optional[pulumi.Input[str]] = None,
-                 transport_type: Optional[pulumi.Input[str]] = None):
+                 transport_type: Optional[pulumi.Input['ServiceBusTransportType']] = None):
         """
         :param pulumi.Input['ServiceBusAuthenticationArgs'] authentication: Gets or sets the Service Bus authentication.
         :param pulumi.Input['ServiceBusBrokeredMessagePropertiesArgs'] brokered_message_properties: Gets or sets the brokered message properties.
@@ -1353,7 +1354,7 @@ class ServiceBusQueueMessageArgs:
         :param pulumi.Input[str] message: Gets or sets the message.
         :param pulumi.Input[str] namespace: Gets or sets the namespace.
         :param pulumi.Input[str] queue_name: Gets or sets the queue name.
-        :param pulumi.Input[str] transport_type: Gets or sets the transport type.
+        :param pulumi.Input['ServiceBusTransportType'] transport_type: Gets or sets the transport type.
         """
         if authentication is not None:
             pulumi.set(__self__, "authentication", authentication)
@@ -1444,14 +1445,14 @@ class ServiceBusQueueMessageArgs:
 
     @property
     @pulumi.getter(name="transportType")
-    def transport_type(self) -> Optional[pulumi.Input[str]]:
+    def transport_type(self) -> Optional[pulumi.Input['ServiceBusTransportType']]:
         """
         Gets or sets the transport type.
         """
         return pulumi.get(self, "transport_type")
 
     @transport_type.setter
-    def transport_type(self, value: Optional[pulumi.Input[str]]):
+    def transport_type(self, value: Optional[pulumi.Input['ServiceBusTransportType']]):
         pulumi.set(self, "transport_type", value)
 
 
@@ -1464,7 +1465,7 @@ class ServiceBusTopicMessageArgs:
                  message: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  topic_path: Optional[pulumi.Input[str]] = None,
-                 transport_type: Optional[pulumi.Input[str]] = None):
+                 transport_type: Optional[pulumi.Input['ServiceBusTransportType']] = None):
         """
         :param pulumi.Input['ServiceBusAuthenticationArgs'] authentication: Gets or sets the Service Bus authentication.
         :param pulumi.Input['ServiceBusBrokeredMessagePropertiesArgs'] brokered_message_properties: Gets or sets the brokered message properties.
@@ -1472,7 +1473,7 @@ class ServiceBusTopicMessageArgs:
         :param pulumi.Input[str] message: Gets or sets the message.
         :param pulumi.Input[str] namespace: Gets or sets the namespace.
         :param pulumi.Input[str] topic_path: Gets or sets the topic path.
-        :param pulumi.Input[str] transport_type: Gets or sets the transport type.
+        :param pulumi.Input['ServiceBusTransportType'] transport_type: Gets or sets the transport type.
         """
         if authentication is not None:
             pulumi.set(__self__, "authentication", authentication)
@@ -1563,37 +1564,37 @@ class ServiceBusTopicMessageArgs:
 
     @property
     @pulumi.getter(name="transportType")
-    def transport_type(self) -> Optional[pulumi.Input[str]]:
+    def transport_type(self) -> Optional[pulumi.Input['ServiceBusTransportType']]:
         """
         Gets or sets the transport type.
         """
         return pulumi.get(self, "transport_type")
 
     @transport_type.setter
-    def transport_type(self, value: Optional[pulumi.Input[str]]):
+    def transport_type(self, value: Optional[pulumi.Input['ServiceBusTransportType']]):
         pulumi.set(self, "transport_type", value)
 
 
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input['SkuDefinition']] = None):
         """
-        :param pulumi.Input[str] name: Gets or set the SKU.
+        :param pulumi.Input['SkuDefinition'] name: Gets or set the SKU.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    def name(self) -> Optional[pulumi.Input['SkuDefinition']]:
         """
         Gets or set the SKU.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
+    def name(self, value: Optional[pulumi.Input['SkuDefinition']]):
         pulumi.set(self, "name", value)
 
 

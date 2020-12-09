@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['ManagedDatabase']
 
@@ -16,9 +17,9 @@ class ManagedDatabase(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_complete_restore: Optional[pulumi.Input[bool]] = None,
-                 catalog_collation: Optional[pulumi.Input[str]] = None,
+                 catalog_collation: Optional[pulumi.Input[Union[str, 'CatalogCollationType']]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
-                 create_mode: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'ManagedDatabaseCreateMode']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  last_backup_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -41,9 +42,9 @@ class ManagedDatabase(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_complete_restore: Whether to auto complete restore of this managed database.
-        :param pulumi.Input[str] catalog_collation: Collation of the metadata catalog.
+        :param pulumi.Input[Union[str, 'CatalogCollationType']] catalog_collation: Collation of the metadata catalog.
         :param pulumi.Input[str] collation: Collation of the managed database.
-        :param pulumi.Input[str] create_mode: Managed database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. SourceDatabaseName, SourceManagedInstanceName and PointInTime must be specified. RestoreExternalBackup: Create a database by restoring from external backup files. Collation, StorageContainerUri and StorageContainerSasToken must be specified. Recovery: Creates a database by restoring a geo-replicated backup. RecoverableDatabaseId must be specified as the recoverable database resource ID to restore. RestoreLongTermRetentionBackup: Create a database by restoring from a long term retention backup (longTermRetentionBackupResourceId required).
+        :param pulumi.Input[Union[str, 'ManagedDatabaseCreateMode']] create_mode: Managed database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. SourceDatabaseName, SourceManagedInstanceName and PointInTime must be specified. RestoreExternalBackup: Create a database by restoring from external backup files. Collation, StorageContainerUri and StorageContainerSasToken must be specified. Recovery: Creates a database by restoring a geo-replicated backup. RecoverableDatabaseId must be specified as the recoverable database resource ID to restore. RestoreLongTermRetentionBackup: Create a database by restoring from a long term retention backup (longTermRetentionBackupResourceId required).
         :param pulumi.Input[str] database_name: The name of the database.
         :param pulumi.Input[str] last_backup_name: Last backup file name for restore of this managed database.
         :param pulumi.Input[str] location: Resource location.
@@ -79,19 +80,19 @@ class ManagedDatabase(pulumi.CustomResource):
             __props__['catalog_collation'] = catalog_collation
             __props__['collation'] = collation
             __props__['create_mode'] = create_mode
-            if database_name is None:
+            if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__['database_name'] = database_name
             __props__['last_backup_name'] = last_backup_name
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['long_term_retention_backup_resource_id'] = long_term_retention_backup_resource_id
-            if managed_instance_name is None:
+            if managed_instance_name is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_instance_name'")
             __props__['managed_instance_name'] = managed_instance_name
             __props__['recoverable_database_id'] = recoverable_database_id
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['restorable_dropped_database_id'] = restorable_dropped_database_id

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['VirtualNetworkGateway']
@@ -25,7 +26,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                  enable_private_ip_address: Optional[pulumi.Input[bool]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  gateway_default_site: Optional[pulumi.Input[pulumi.InputType['SubResourceArgs']]] = None,
-                 gateway_type: Optional[pulumi.Input[str]] = None,
+                 gateway_type: Optional[pulumi.Input[Union[str, 'VirtualNetworkGatewayType']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayIPConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -35,8 +36,8 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                  virtual_network_extended_location_resource_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_gateway_name: Optional[pulumi.Input[str]] = None,
                  vpn_client_configuration: Optional[pulumi.Input[pulumi.InputType['VpnClientConfigurationArgs']]] = None,
-                 vpn_gateway_generation: Optional[pulumi.Input[str]] = None,
-                 vpn_type: Optional[pulumi.Input[str]] = None,
+                 vpn_gateway_generation: Optional[pulumi.Input[Union[str, 'VpnGatewayGeneration']]] = None,
+                 vpn_type: Optional[pulumi.Input[Union[str, 'VpnType']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -53,7 +54,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_private_ip_address: Whether private IP needs to be enabled on this gateway for connections or not.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of type local virtual network gateway.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] gateway_default_site: The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
-        :param pulumi.Input[str] gateway_type: The type of this virtual network gateway.
+        :param pulumi.Input[Union[str, 'VirtualNetworkGatewayType']] gateway_type: The type of this virtual network gateway.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkGatewayIPConfigurationArgs']]]] ip_configurations: IP configurations for virtual network gateway.
         :param pulumi.Input[str] location: Resource location.
@@ -63,8 +64,8 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[str] virtual_network_extended_location_resource_id: MAS FIJI customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
         :param pulumi.Input[str] virtual_network_gateway_name: The name of the virtual network gateway.
         :param pulumi.Input[pulumi.InputType['VpnClientConfigurationArgs']] vpn_client_configuration: The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
-        :param pulumi.Input[str] vpn_gateway_generation: The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
-        :param pulumi.Input[str] vpn_type: The type of this virtual network gateway.
+        :param pulumi.Input[Union[str, 'VpnGatewayGeneration']] vpn_gateway_generation: The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
+        :param pulumi.Input[Union[str, 'VpnType']] vpn_type: The type of this virtual network gateway.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -95,13 +96,13 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             __props__['id'] = id
             __props__['ip_configurations'] = ip_configurations
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['virtual_network_extended_location_resource_id'] = virtual_network_extended_location_resource_id
-            if virtual_network_gateway_name is None:
+            if virtual_network_gateway_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_gateway_name'")
             __props__['virtual_network_gateway_name'] = virtual_network_gateway_name
             __props__['vpn_client_configuration'] = vpn_client_configuration

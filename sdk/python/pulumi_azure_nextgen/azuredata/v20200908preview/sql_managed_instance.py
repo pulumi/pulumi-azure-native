@@ -72,13 +72,13 @@ class SqlManagedInstance(pulumi.CustomResource):
             __props__['instance_endpoint'] = instance_endpoint
             __props__['k8s_raw'] = k8s_raw
             __props__['last_uploaded_date'] = last_uploaded_date
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if sql_managed_instance_name is None:
+            if sql_managed_instance_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sql_managed_instance_name'")
             __props__['sql_managed_instance_name'] = sql_managed_instance_name
             __props__['start_time'] = start_time

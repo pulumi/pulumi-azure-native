@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .get_hybrid_connection import *
 from .get_hybrid_connection_authorization_rule import *
 from .get_namespace import *
@@ -20,3 +21,36 @@ from .wcf_relay import *
 from .wcf_relay_authorization_rule import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:relay/latest:HybridConnection":
+                return HybridConnection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:relay/latest:HybridConnectionAuthorizationRule":
+                return HybridConnectionAuthorizationRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:relay/latest:Namespace":
+                return Namespace(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:relay/latest:NamespaceAuthorizationRule":
+                return NamespaceAuthorizationRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:relay/latest:WCFRelay":
+                return WCFRelay(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:relay/latest:WCFRelayAuthorizationRule":
+                return WCFRelayAuthorizationRule(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "relay/latest", _module_instance)
+
+_register_module()

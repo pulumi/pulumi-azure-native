@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Workflow']
@@ -23,7 +24,7 @@ class Workflow(pulumi.CustomResource):
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['WorkflowParameterArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
-                 state: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[Union[str, 'WorkflowState']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workflow_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -40,7 +41,7 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['WorkflowParameterArgs']]]] parameters: The parameters.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku.
-        :param pulumi.Input[str] state: The state.
+        :param pulumi.Input[Union[str, 'WorkflowState']] state: The state.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         :param pulumi.Input[str] workflow_name: The workflow name.
         """
@@ -65,13 +66,13 @@ class Workflow(pulumi.CustomResource):
             __props__['integration_account'] = integration_account
             __props__['location'] = location
             __props__['parameters'] = parameters
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['state'] = state
             __props__['tags'] = tags
-            if workflow_name is None:
+            if workflow_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workflow_name'")
             __props__['workflow_name'] = workflow_name
             __props__['access_endpoint'] = None

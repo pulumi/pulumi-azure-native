@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['WorkloadNetworkDnsService']
 
@@ -20,7 +21,7 @@ class WorkloadNetworkDnsService(pulumi.CustomResource):
                  dns_service_id: Optional[pulumi.Input[str]] = None,
                  dns_service_ip: Optional[pulumi.Input[str]] = None,
                  fqdn_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 log_level: Optional[pulumi.Input[str]] = None,
+                 log_level: Optional[pulumi.Input[Union[str, 'DnsServiceLogLevelEnum']]] = None,
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  revision: Optional[pulumi.Input[int]] = None,
@@ -37,7 +38,7 @@ class WorkloadNetworkDnsService(pulumi.CustomResource):
         :param pulumi.Input[str] dns_service_id: NSX DNS Service identifier. Generally the same as the DNS Service's display name
         :param pulumi.Input[str] dns_service_ip: DNS service IP of the DNS Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdn_zones: FQDN zones of the DNS Service.
-        :param pulumi.Input[str] log_level: DNS Service log level.
+        :param pulumi.Input[Union[str, 'DnsServiceLogLevelEnum']] log_level: DNS Service log level.
         :param pulumi.Input[str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[int] revision: NSX revision number.
@@ -61,16 +62,16 @@ class WorkloadNetworkDnsService(pulumi.CustomResource):
 
             __props__['default_dns_zone'] = default_dns_zone
             __props__['display_name'] = display_name
-            if dns_service_id is None:
+            if dns_service_id is None and not opts.urn:
                 raise TypeError("Missing required property 'dns_service_id'")
             __props__['dns_service_id'] = dns_service_id
             __props__['dns_service_ip'] = dns_service_ip
             __props__['fqdn_zones'] = fqdn_zones
             __props__['log_level'] = log_level
-            if private_cloud_name is None:
+            if private_cloud_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_cloud_name'")
             __props__['private_cloud_name'] = private_cloud_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['revision'] = revision

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AS2AcknowledgementConnectionSettingsArgs',
@@ -298,7 +299,7 @@ class AS2MdnSettingsArgs:
     def __init__(__self__, *,
                  disposition_notification_to: Optional[pulumi.Input[str]] = None,
                  mdn_text: Optional[pulumi.Input[str]] = None,
-                 mic_hashing_algorithm: Optional[pulumi.Input[str]] = None,
+                 mic_hashing_algorithm: Optional[pulumi.Input['HashingAlgorithm']] = None,
                  need_mdn: Optional[pulumi.Input[bool]] = None,
                  receipt_delivery_url: Optional[pulumi.Input[str]] = None,
                  send_inbound_mdn_to_message_box: Optional[pulumi.Input[bool]] = None,
@@ -308,7 +309,7 @@ class AS2MdnSettingsArgs:
         """
         :param pulumi.Input[str] disposition_notification_to: The disposition notification to header value.
         :param pulumi.Input[str] mdn_text: The MDN text.
-        :param pulumi.Input[str] mic_hashing_algorithm: The signing or hashing algorithm.
+        :param pulumi.Input['HashingAlgorithm'] mic_hashing_algorithm: The signing or hashing algorithm.
         :param pulumi.Input[bool] need_mdn: The value indicating whether to send or request a MDN.
         :param pulumi.Input[str] receipt_delivery_url: The receipt delivery URL.
         :param pulumi.Input[bool] send_inbound_mdn_to_message_box: The value indicating whether to send inbound MDN to message box.
@@ -361,14 +362,14 @@ class AS2MdnSettingsArgs:
 
     @property
     @pulumi.getter(name="micHashingAlgorithm")
-    def mic_hashing_algorithm(self) -> Optional[pulumi.Input[str]]:
+    def mic_hashing_algorithm(self) -> Optional[pulumi.Input['HashingAlgorithm']]:
         """
         The signing or hashing algorithm.
         """
         return pulumi.get(self, "mic_hashing_algorithm")
 
     @mic_hashing_algorithm.setter
-    def mic_hashing_algorithm(self, value: Optional[pulumi.Input[str]]):
+    def mic_hashing_algorithm(self, value: Optional[pulumi.Input['HashingAlgorithm']]):
         pulumi.set(self, "mic_hashing_algorithm", value)
 
     @property
@@ -848,7 +849,7 @@ class AS2ValidationSettingsArgs:
                  check_duplicate_message: Optional[pulumi.Input[bool]] = None,
                  compress_message: Optional[pulumi.Input[bool]] = None,
                  encrypt_message: Optional[pulumi.Input[bool]] = None,
-                 encryption_algorithm: Optional[pulumi.Input[str]] = None,
+                 encryption_algorithm: Optional[pulumi.Input['EncryptionAlgorithm']] = None,
                  interchange_duplicates_validity_days: Optional[pulumi.Input[int]] = None,
                  override_message_properties: Optional[pulumi.Input[bool]] = None,
                  sign_message: Optional[pulumi.Input[bool]] = None):
@@ -858,7 +859,7 @@ class AS2ValidationSettingsArgs:
         :param pulumi.Input[bool] check_duplicate_message: The value indicating whether to check for duplicate message.
         :param pulumi.Input[bool] compress_message: The value indicating whether the message has to be compressed.
         :param pulumi.Input[bool] encrypt_message: The value indicating whether the message has to be encrypted.
-        :param pulumi.Input[str] encryption_algorithm: The encryption algorithm.
+        :param pulumi.Input['EncryptionAlgorithm'] encryption_algorithm: The encryption algorithm.
         :param pulumi.Input[int] interchange_duplicates_validity_days: The number of days to look back for duplicate interchange.
         :param pulumi.Input[bool] override_message_properties: The value indicating whether to override incoming message properties with those in agreement.
         :param pulumi.Input[bool] sign_message: The value indicating whether the message has to be signed.
@@ -944,14 +945,14 @@ class AS2ValidationSettingsArgs:
 
     @property
     @pulumi.getter(name="encryptionAlgorithm")
-    def encryption_algorithm(self) -> Optional[pulumi.Input[str]]:
+    def encryption_algorithm(self) -> Optional[pulumi.Input['EncryptionAlgorithm']]:
         """
         The encryption algorithm.
         """
         return pulumi.get(self, "encryption_algorithm")
 
     @encryption_algorithm.setter
-    def encryption_algorithm(self, value: Optional[pulumi.Input[str]]):
+    def encryption_algorithm(self, value: Optional[pulumi.Input['EncryptionAlgorithm']]):
         pulumi.set(self, "encryption_algorithm", value)
 
     @property
@@ -1335,7 +1336,7 @@ class EdifactDelimiterOverrideArgs:
     def __init__(__self__, *,
                  component_separator: Optional[pulumi.Input[int]] = None,
                  data_element_separator: Optional[pulumi.Input[int]] = None,
-                 decimal_point_indicator: Optional[pulumi.Input[str]] = None,
+                 decimal_point_indicator: Optional[pulumi.Input['EdifactDecimalIndicator']] = None,
                  message_association_assigned_code: Optional[pulumi.Input[str]] = None,
                  message_id: Optional[pulumi.Input[str]] = None,
                  message_release: Optional[pulumi.Input[str]] = None,
@@ -1343,12 +1344,12 @@ class EdifactDelimiterOverrideArgs:
                  release_indicator: Optional[pulumi.Input[int]] = None,
                  repetition_separator: Optional[pulumi.Input[int]] = None,
                  segment_terminator: Optional[pulumi.Input[int]] = None,
-                 segment_terminator_suffix: Optional[pulumi.Input[str]] = None,
+                 segment_terminator_suffix: Optional[pulumi.Input['SegmentTerminatorSuffix']] = None,
                  target_namespace: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] component_separator: The component separator.
         :param pulumi.Input[int] data_element_separator: The data element separator.
-        :param pulumi.Input[str] decimal_point_indicator: The decimal point indicator.
+        :param pulumi.Input['EdifactDecimalIndicator'] decimal_point_indicator: The decimal point indicator.
         :param pulumi.Input[str] message_association_assigned_code: The message association assigned code.
         :param pulumi.Input[str] message_id: The message id.
         :param pulumi.Input[str] message_release: The message release version.
@@ -1356,7 +1357,7 @@ class EdifactDelimiterOverrideArgs:
         :param pulumi.Input[int] release_indicator: The release indicator.
         :param pulumi.Input[int] repetition_separator: The repetition separator.
         :param pulumi.Input[int] segment_terminator: The segment terminator.
-        :param pulumi.Input[str] segment_terminator_suffix: The segment terminator suffix.
+        :param pulumi.Input['SegmentTerminatorSuffix'] segment_terminator_suffix: The segment terminator suffix.
         :param pulumi.Input[str] target_namespace: The target namespace on which this delimiter settings has to be applied.
         """
         if component_separator is not None:
@@ -1410,14 +1411,14 @@ class EdifactDelimiterOverrideArgs:
 
     @property
     @pulumi.getter(name="decimalPointIndicator")
-    def decimal_point_indicator(self) -> Optional[pulumi.Input[str]]:
+    def decimal_point_indicator(self) -> Optional[pulumi.Input['EdifactDecimalIndicator']]:
         """
         The decimal point indicator.
         """
         return pulumi.get(self, "decimal_point_indicator")
 
     @decimal_point_indicator.setter
-    def decimal_point_indicator(self, value: Optional[pulumi.Input[str]]):
+    def decimal_point_indicator(self, value: Optional[pulumi.Input['EdifactDecimalIndicator']]):
         pulumi.set(self, "decimal_point_indicator", value)
 
     @property
@@ -1506,14 +1507,14 @@ class EdifactDelimiterOverrideArgs:
 
     @property
     @pulumi.getter(name="segmentTerminatorSuffix")
-    def segment_terminator_suffix(self) -> Optional[pulumi.Input[str]]:
+    def segment_terminator_suffix(self) -> Optional[pulumi.Input['SegmentTerminatorSuffix']]:
         """
         The segment terminator suffix.
         """
         return pulumi.get(self, "segment_terminator_suffix")
 
     @segment_terminator_suffix.setter
-    def segment_terminator_suffix(self, value: Optional[pulumi.Input[str]]):
+    def segment_terminator_suffix(self, value: Optional[pulumi.Input['SegmentTerminatorSuffix']]):
         pulumi.set(self, "segment_terminator_suffix", value)
 
     @property
@@ -2443,27 +2444,27 @@ class EdifactEnvelopeSettingsArgs:
 class EdifactFramingSettingsArgs:
     def __init__(__self__, *,
                  character_encoding: Optional[pulumi.Input[str]] = None,
-                 character_set: Optional[pulumi.Input[str]] = None,
+                 character_set: Optional[pulumi.Input['EdifactCharacterSet']] = None,
                  component_separator: Optional[pulumi.Input[int]] = None,
                  data_element_separator: Optional[pulumi.Input[int]] = None,
-                 decimal_point_indicator: Optional[pulumi.Input[str]] = None,
+                 decimal_point_indicator: Optional[pulumi.Input['EdifactDecimalIndicator']] = None,
                  protocol_version: Optional[pulumi.Input[int]] = None,
                  release_indicator: Optional[pulumi.Input[int]] = None,
                  repetition_separator: Optional[pulumi.Input[int]] = None,
                  segment_terminator: Optional[pulumi.Input[int]] = None,
-                 segment_terminator_suffix: Optional[pulumi.Input[str]] = None,
+                 segment_terminator_suffix: Optional[pulumi.Input['SegmentTerminatorSuffix']] = None,
                  service_code_list_directory_version: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] character_encoding: The character encoding.
-        :param pulumi.Input[str] character_set: The EDIFACT frame setting characterSet.
+        :param pulumi.Input['EdifactCharacterSet'] character_set: The EDIFACT frame setting characterSet.
         :param pulumi.Input[int] component_separator: The component separator.
         :param pulumi.Input[int] data_element_separator: The data element separator.
-        :param pulumi.Input[str] decimal_point_indicator: The EDIFACT frame setting decimal indicator.
+        :param pulumi.Input['EdifactDecimalIndicator'] decimal_point_indicator: The EDIFACT frame setting decimal indicator.
         :param pulumi.Input[int] protocol_version: The protocol version.
         :param pulumi.Input[int] release_indicator: The release indicator.
         :param pulumi.Input[int] repetition_separator: The repetition separator.
         :param pulumi.Input[int] segment_terminator: The segment terminator.
-        :param pulumi.Input[str] segment_terminator_suffix: The EDIFACT frame setting segment terminator suffix.
+        :param pulumi.Input['SegmentTerminatorSuffix'] segment_terminator_suffix: The EDIFACT frame setting segment terminator suffix.
         :param pulumi.Input[str] service_code_list_directory_version: The service code list directory version.
         """
         if character_encoding is not None:
@@ -2503,14 +2504,14 @@ class EdifactFramingSettingsArgs:
 
     @property
     @pulumi.getter(name="characterSet")
-    def character_set(self) -> Optional[pulumi.Input[str]]:
+    def character_set(self) -> Optional[pulumi.Input['EdifactCharacterSet']]:
         """
         The EDIFACT frame setting characterSet.
         """
         return pulumi.get(self, "character_set")
 
     @character_set.setter
-    def character_set(self, value: Optional[pulumi.Input[str]]):
+    def character_set(self, value: Optional[pulumi.Input['EdifactCharacterSet']]):
         pulumi.set(self, "character_set", value)
 
     @property
@@ -2539,14 +2540,14 @@ class EdifactFramingSettingsArgs:
 
     @property
     @pulumi.getter(name="decimalPointIndicator")
-    def decimal_point_indicator(self) -> Optional[pulumi.Input[str]]:
+    def decimal_point_indicator(self) -> Optional[pulumi.Input['EdifactDecimalIndicator']]:
         """
         The EDIFACT frame setting decimal indicator.
         """
         return pulumi.get(self, "decimal_point_indicator")
 
     @decimal_point_indicator.setter
-    def decimal_point_indicator(self, value: Optional[pulumi.Input[str]]):
+    def decimal_point_indicator(self, value: Optional[pulumi.Input['EdifactDecimalIndicator']]):
         pulumi.set(self, "decimal_point_indicator", value)
 
     @property
@@ -2599,14 +2600,14 @@ class EdifactFramingSettingsArgs:
 
     @property
     @pulumi.getter(name="segmentTerminatorSuffix")
-    def segment_terminator_suffix(self) -> Optional[pulumi.Input[str]]:
+    def segment_terminator_suffix(self) -> Optional[pulumi.Input['SegmentTerminatorSuffix']]:
         """
         The EDIFACT frame setting segment terminator suffix.
         """
         return pulumi.get(self, "segment_terminator_suffix")
 
     @segment_terminator_suffix.setter
-    def segment_terminator_suffix(self, value: Optional[pulumi.Input[str]]):
+    def segment_terminator_suffix(self, value: Optional[pulumi.Input['SegmentTerminatorSuffix']]):
         pulumi.set(self, "segment_terminator_suffix", value)
 
     @property
@@ -2625,23 +2626,23 @@ class EdifactFramingSettingsArgs:
 @pulumi.input_type
 class EdifactMessageFilterArgs:
     def __init__(__self__, *,
-                 message_filter_type: Optional[pulumi.Input[str]] = None):
+                 message_filter_type: Optional[pulumi.Input['MessageFilterType']] = None):
         """
-        :param pulumi.Input[str] message_filter_type: The message filter type.
+        :param pulumi.Input['MessageFilterType'] message_filter_type: The message filter type.
         """
         if message_filter_type is not None:
             pulumi.set(__self__, "message_filter_type", message_filter_type)
 
     @property
     @pulumi.getter(name="messageFilterType")
-    def message_filter_type(self) -> Optional[pulumi.Input[str]]:
+    def message_filter_type(self) -> Optional[pulumi.Input['MessageFilterType']]:
         """
         The message filter type.
         """
         return pulumi.get(self, "message_filter_type")
 
     @message_filter_type.setter
-    def message_filter_type(self, value: Optional[pulumi.Input[str]]):
+    def message_filter_type(self, value: Optional[pulumi.Input['MessageFilterType']]):
         pulumi.set(self, "message_filter_type", value)
 
 
@@ -3118,7 +3119,7 @@ class EdifactValidationOverrideArgs:
                  allow_leading_and_trailing_spaces_and_zeroes: Optional[pulumi.Input[bool]] = None,
                  enforce_character_set: Optional[pulumi.Input[bool]] = None,
                  message_id: Optional[pulumi.Input[str]] = None,
-                 trailing_separator_policy: Optional[pulumi.Input[str]] = None,
+                 trailing_separator_policy: Optional[pulumi.Input['TrailingSeparatorPolicy']] = None,
                  trim_leading_and_trailing_spaces_and_zeroes: Optional[pulumi.Input[bool]] = None,
                  validate_edi_types: Optional[pulumi.Input[bool]] = None,
                  validate_xsd_types: Optional[pulumi.Input[bool]] = None):
@@ -3126,7 +3127,7 @@ class EdifactValidationOverrideArgs:
         :param pulumi.Input[bool] allow_leading_and_trailing_spaces_and_zeroes: The value indicating whether to allow leading and trailing spaces and zeroes.
         :param pulumi.Input[bool] enforce_character_set: The value indicating whether to validate character Set.
         :param pulumi.Input[str] message_id: The message id on which the validation settings has to be applied.
-        :param pulumi.Input[str] trailing_separator_policy: The trailing separator policy.
+        :param pulumi.Input['TrailingSeparatorPolicy'] trailing_separator_policy: The trailing separator policy.
         :param pulumi.Input[bool] trim_leading_and_trailing_spaces_and_zeroes: The value indicating whether to trim leading and trailing spaces and zeroes.
         :param pulumi.Input[bool] validate_edi_types: The value indicating whether to validate EDI types.
         :param pulumi.Input[bool] validate_xsd_types: The value indicating whether to validate XSD types.
@@ -3184,14 +3185,14 @@ class EdifactValidationOverrideArgs:
 
     @property
     @pulumi.getter(name="trailingSeparatorPolicy")
-    def trailing_separator_policy(self) -> Optional[pulumi.Input[str]]:
+    def trailing_separator_policy(self) -> Optional[pulumi.Input['TrailingSeparatorPolicy']]:
         """
         The trailing separator policy.
         """
         return pulumi.get(self, "trailing_separator_policy")
 
     @trailing_separator_policy.setter
-    def trailing_separator_policy(self, value: Optional[pulumi.Input[str]]):
+    def trailing_separator_policy(self, value: Optional[pulumi.Input['TrailingSeparatorPolicy']]):
         pulumi.set(self, "trailing_separator_policy", value)
 
     @property
@@ -3239,7 +3240,7 @@ class EdifactValidationSettingsArgs:
                  check_duplicate_interchange_control_number: Optional[pulumi.Input[bool]] = None,
                  check_duplicate_transaction_set_control_number: Optional[pulumi.Input[bool]] = None,
                  interchange_control_number_validity_days: Optional[pulumi.Input[int]] = None,
-                 trailing_separator_policy: Optional[pulumi.Input[str]] = None,
+                 trailing_separator_policy: Optional[pulumi.Input['TrailingSeparatorPolicy']] = None,
                  trim_leading_and_trailing_spaces_and_zeroes: Optional[pulumi.Input[bool]] = None,
                  validate_character_set: Optional[pulumi.Input[bool]] = None,
                  validate_edi_types: Optional[pulumi.Input[bool]] = None,
@@ -3250,7 +3251,7 @@ class EdifactValidationSettingsArgs:
         :param pulumi.Input[bool] check_duplicate_interchange_control_number: The value indicating whether to check for duplicate interchange control number.
         :param pulumi.Input[bool] check_duplicate_transaction_set_control_number: The value indicating whether to check for duplicate transaction set control number.
         :param pulumi.Input[int] interchange_control_number_validity_days: The validity period of interchange control number.
-        :param pulumi.Input[str] trailing_separator_policy: The trailing separator policy.
+        :param pulumi.Input['TrailingSeparatorPolicy'] trailing_separator_policy: The trailing separator policy.
         :param pulumi.Input[bool] trim_leading_and_trailing_spaces_and_zeroes: The value indicating whether to trim leading and trailing spaces and zeroes.
         :param pulumi.Input[bool] validate_character_set: The value indicating whether to validate character set in the message.
         :param pulumi.Input[bool] validate_edi_types: The value indicating whether to Whether to validate EDI types.
@@ -3339,14 +3340,14 @@ class EdifactValidationSettingsArgs:
 
     @property
     @pulumi.getter(name="trailingSeparatorPolicy")
-    def trailing_separator_policy(self) -> Optional[pulumi.Input[str]]:
+    def trailing_separator_policy(self) -> Optional[pulumi.Input['TrailingSeparatorPolicy']]:
         """
         The trailing separator policy.
         """
         return pulumi.get(self, "trailing_separator_policy")
 
     @trailing_separator_policy.setter
-    def trailing_separator_policy(self, value: Optional[pulumi.Input[str]]):
+    def trailing_separator_policy(self, value: Optional[pulumi.Input['TrailingSeparatorPolicy']]):
         pulumi.set(self, "trailing_separator_policy", value)
 
     @property
@@ -3401,23 +3402,23 @@ class EdifactValidationSettingsArgs:
 @pulumi.input_type
 class IntegrationAccountSkuArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input['SkuName']] = None):
         """
-        :param pulumi.Input[str] name: The sku name.
+        :param pulumi.Input['SkuName'] name: The sku name.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    def name(self) -> Optional[pulumi.Input['SkuName']]:
         """
         The sku name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
+    def name(self, value: Optional[pulumi.Input['SkuName']]):
         pulumi.set(self, "name", value)
 
 
@@ -3819,7 +3820,7 @@ class X12DelimiterOverridesArgs:
                  replace_character: Optional[pulumi.Input[int]] = None,
                  replace_separators_in_payload: Optional[pulumi.Input[bool]] = None,
                  segment_terminator: Optional[pulumi.Input[int]] = None,
-                 segment_terminator_suffix: Optional[pulumi.Input[str]] = None,
+                 segment_terminator_suffix: Optional[pulumi.Input['SegmentTerminatorSuffix']] = None,
                  target_namespace: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] component_separator: The component separator.
@@ -3829,7 +3830,7 @@ class X12DelimiterOverridesArgs:
         :param pulumi.Input[int] replace_character: The replacement character.
         :param pulumi.Input[bool] replace_separators_in_payload: The value indicating whether to replace separators in payload.
         :param pulumi.Input[int] segment_terminator: The segment terminator.
-        :param pulumi.Input[str] segment_terminator_suffix: The segment terminator suffix.
+        :param pulumi.Input['SegmentTerminatorSuffix'] segment_terminator_suffix: The segment terminator suffix.
         :param pulumi.Input[str] target_namespace: The target namespace on which this delimiter settings has to be applied.
         """
         if component_separator is not None:
@@ -3937,14 +3938,14 @@ class X12DelimiterOverridesArgs:
 
     @property
     @pulumi.getter(name="segmentTerminatorSuffix")
-    def segment_terminator_suffix(self) -> Optional[pulumi.Input[str]]:
+    def segment_terminator_suffix(self) -> Optional[pulumi.Input['SegmentTerminatorSuffix']]:
         """
         The segment terminator suffix.
         """
         return pulumi.get(self, "segment_terminator_suffix")
 
     @segment_terminator_suffix.setter
-    def segment_terminator_suffix(self, value: Optional[pulumi.Input[str]]):
+    def segment_terminator_suffix(self, value: Optional[pulumi.Input['SegmentTerminatorSuffix']]):
         pulumi.set(self, "segment_terminator_suffix", value)
 
     @property
@@ -3963,7 +3964,7 @@ class X12DelimiterOverridesArgs:
 @pulumi.input_type
 class X12EnvelopeOverrideArgs:
     def __init__(__self__, *,
-                 date_format: Optional[pulumi.Input[str]] = None,
+                 date_format: Optional[pulumi.Input['X12DateFormat']] = None,
                  functional_identifier_code: Optional[pulumi.Input[str]] = None,
                  header_version: Optional[pulumi.Input[str]] = None,
                  message_id: Optional[pulumi.Input[str]] = None,
@@ -3972,9 +3973,9 @@ class X12EnvelopeOverrideArgs:
                  responsible_agency_code: Optional[pulumi.Input[int]] = None,
                  sender_application_id: Optional[pulumi.Input[str]] = None,
                  target_namespace: Optional[pulumi.Input[str]] = None,
-                 time_format: Optional[pulumi.Input[str]] = None):
+                 time_format: Optional[pulumi.Input['X12TimeFormat']] = None):
         """
-        :param pulumi.Input[str] date_format: The date format.
+        :param pulumi.Input['X12DateFormat'] date_format: The date format.
         :param pulumi.Input[str] functional_identifier_code: The functional identifier code.
         :param pulumi.Input[str] header_version: The header version.
         :param pulumi.Input[str] message_id: The message id on which this envelope settings has to be applied.
@@ -3983,7 +3984,7 @@ class X12EnvelopeOverrideArgs:
         :param pulumi.Input[int] responsible_agency_code: The responsible agency code.
         :param pulumi.Input[str] sender_application_id: The sender application id.
         :param pulumi.Input[str] target_namespace: The target namespace on which this envelope settings has to be applied.
-        :param pulumi.Input[str] time_format: The time format.
+        :param pulumi.Input['X12TimeFormat'] time_format: The time format.
         """
         if date_format is not None:
             pulumi.set(__self__, "date_format", date_format)
@@ -4008,14 +4009,14 @@ class X12EnvelopeOverrideArgs:
 
     @property
     @pulumi.getter(name="dateFormat")
-    def date_format(self) -> Optional[pulumi.Input[str]]:
+    def date_format(self) -> Optional[pulumi.Input['X12DateFormat']]:
         """
         The date format.
         """
         return pulumi.get(self, "date_format")
 
     @date_format.setter
-    def date_format(self, value: Optional[pulumi.Input[str]]):
+    def date_format(self, value: Optional[pulumi.Input['X12DateFormat']]):
         pulumi.set(self, "date_format", value)
 
     @property
@@ -4116,14 +4117,14 @@ class X12EnvelopeOverrideArgs:
 
     @property
     @pulumi.getter(name="timeFormat")
-    def time_format(self) -> Optional[pulumi.Input[str]]:
+    def time_format(self) -> Optional[pulumi.Input['X12TimeFormat']]:
         """
         The time format.
         """
         return pulumi.get(self, "time_format")
 
     @time_format.setter
-    def time_format(self, value: Optional[pulumi.Input[str]]):
+    def time_format(self, value: Optional[pulumi.Input['X12TimeFormat']]):
         pulumi.set(self, "time_format", value)
 
 
@@ -4137,8 +4138,8 @@ class X12EnvelopeSettingsArgs:
                  group_control_number_lower_bound: Optional[pulumi.Input[int]] = None,
                  group_control_number_upper_bound: Optional[pulumi.Input[int]] = None,
                  group_header_agency_code: Optional[pulumi.Input[str]] = None,
-                 group_header_date_format: Optional[pulumi.Input[str]] = None,
-                 group_header_time_format: Optional[pulumi.Input[str]] = None,
+                 group_header_date_format: Optional[pulumi.Input['X12DateFormat']] = None,
+                 group_header_time_format: Optional[pulumi.Input['X12TimeFormat']] = None,
                  group_header_version: Optional[pulumi.Input[str]] = None,
                  interchange_control_number_lower_bound: Optional[pulumi.Input[int]] = None,
                  interchange_control_number_upper_bound: Optional[pulumi.Input[int]] = None,
@@ -4152,7 +4153,7 @@ class X12EnvelopeSettingsArgs:
                  transaction_set_control_number_prefix: Optional[pulumi.Input[str]] = None,
                  transaction_set_control_number_suffix: Optional[pulumi.Input[str]] = None,
                  transaction_set_control_number_upper_bound: Optional[pulumi.Input[int]] = None,
-                 usage_indicator: Optional[pulumi.Input[str]] = None,
+                 usage_indicator: Optional[pulumi.Input['UsageIndicator']] = None,
                  use_control_standards_id_as_repetition_character: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[int] control_standards_id: The controls standards id.
@@ -4162,8 +4163,8 @@ class X12EnvelopeSettingsArgs:
         :param pulumi.Input[int] group_control_number_lower_bound: The group control number lower bound.
         :param pulumi.Input[int] group_control_number_upper_bound: The group control number upper bound.
         :param pulumi.Input[str] group_header_agency_code: The group header agency code.
-        :param pulumi.Input[str] group_header_date_format: The group header date format.
-        :param pulumi.Input[str] group_header_time_format: The group header time format.
+        :param pulumi.Input['X12DateFormat'] group_header_date_format: The group header date format.
+        :param pulumi.Input['X12TimeFormat'] group_header_time_format: The group header time format.
         :param pulumi.Input[str] group_header_version: The group header version.
         :param pulumi.Input[int] interchange_control_number_lower_bound: The interchange  control number lower bound.
         :param pulumi.Input[int] interchange_control_number_upper_bound: The interchange  control number upper bound.
@@ -4177,7 +4178,7 @@ class X12EnvelopeSettingsArgs:
         :param pulumi.Input[str] transaction_set_control_number_prefix: The transaction set control number prefix.
         :param pulumi.Input[str] transaction_set_control_number_suffix: The transaction set control number suffix.
         :param pulumi.Input[int] transaction_set_control_number_upper_bound: The transaction set control number upper bound.
-        :param pulumi.Input[str] usage_indicator: The usage indicator.
+        :param pulumi.Input['UsageIndicator'] usage_indicator: The usage indicator.
         :param pulumi.Input[bool] use_control_standards_id_as_repetition_character: The value indicating whether to use control standards id as repetition character.
         """
         if control_standards_id is not None:
@@ -4315,26 +4316,26 @@ class X12EnvelopeSettingsArgs:
 
     @property
     @pulumi.getter(name="groupHeaderDateFormat")
-    def group_header_date_format(self) -> Optional[pulumi.Input[str]]:
+    def group_header_date_format(self) -> Optional[pulumi.Input['X12DateFormat']]:
         """
         The group header date format.
         """
         return pulumi.get(self, "group_header_date_format")
 
     @group_header_date_format.setter
-    def group_header_date_format(self, value: Optional[pulumi.Input[str]]):
+    def group_header_date_format(self, value: Optional[pulumi.Input['X12DateFormat']]):
         pulumi.set(self, "group_header_date_format", value)
 
     @property
     @pulumi.getter(name="groupHeaderTimeFormat")
-    def group_header_time_format(self) -> Optional[pulumi.Input[str]]:
+    def group_header_time_format(self) -> Optional[pulumi.Input['X12TimeFormat']]:
         """
         The group header time format.
         """
         return pulumi.get(self, "group_header_time_format")
 
     @group_header_time_format.setter
-    def group_header_time_format(self, value: Optional[pulumi.Input[str]]):
+    def group_header_time_format(self, value: Optional[pulumi.Input['X12TimeFormat']]):
         pulumi.set(self, "group_header_time_format", value)
 
     @property
@@ -4495,14 +4496,14 @@ class X12EnvelopeSettingsArgs:
 
     @property
     @pulumi.getter(name="usageIndicator")
-    def usage_indicator(self) -> Optional[pulumi.Input[str]]:
+    def usage_indicator(self) -> Optional[pulumi.Input['UsageIndicator']]:
         """
         The usage indicator.
         """
         return pulumi.get(self, "usage_indicator")
 
     @usage_indicator.setter
-    def usage_indicator(self, value: Optional[pulumi.Input[str]]):
+    def usage_indicator(self, value: Optional[pulumi.Input['UsageIndicator']]):
         pulumi.set(self, "usage_indicator", value)
 
     @property
@@ -4521,21 +4522,21 @@ class X12EnvelopeSettingsArgs:
 @pulumi.input_type
 class X12FramingSettingsArgs:
     def __init__(__self__, *,
-                 character_set: Optional[pulumi.Input[str]] = None,
+                 character_set: Optional[pulumi.Input['X12CharacterSet']] = None,
                  component_separator: Optional[pulumi.Input[int]] = None,
                  data_element_separator: Optional[pulumi.Input[int]] = None,
                  replace_character: Optional[pulumi.Input[int]] = None,
                  replace_separators_in_payload: Optional[pulumi.Input[bool]] = None,
                  segment_terminator: Optional[pulumi.Input[int]] = None,
-                 segment_terminator_suffix: Optional[pulumi.Input[str]] = None):
+                 segment_terminator_suffix: Optional[pulumi.Input['SegmentTerminatorSuffix']] = None):
         """
-        :param pulumi.Input[str] character_set: The X12 character set.
+        :param pulumi.Input['X12CharacterSet'] character_set: The X12 character set.
         :param pulumi.Input[int] component_separator: The component separator.
         :param pulumi.Input[int] data_element_separator: The data element separator.
         :param pulumi.Input[int] replace_character: The replacement character.
         :param pulumi.Input[bool] replace_separators_in_payload: The value indicating whether to replace separators in payload.
         :param pulumi.Input[int] segment_terminator: The segment terminator.
-        :param pulumi.Input[str] segment_terminator_suffix: The segment terminator suffix.
+        :param pulumi.Input['SegmentTerminatorSuffix'] segment_terminator_suffix: The segment terminator suffix.
         """
         if character_set is not None:
             pulumi.set(__self__, "character_set", character_set)
@@ -4554,14 +4555,14 @@ class X12FramingSettingsArgs:
 
     @property
     @pulumi.getter(name="characterSet")
-    def character_set(self) -> Optional[pulumi.Input[str]]:
+    def character_set(self) -> Optional[pulumi.Input['X12CharacterSet']]:
         """
         The X12 character set.
         """
         return pulumi.get(self, "character_set")
 
     @character_set.setter
-    def character_set(self, value: Optional[pulumi.Input[str]]):
+    def character_set(self, value: Optional[pulumi.Input['X12CharacterSet']]):
         pulumi.set(self, "character_set", value)
 
     @property
@@ -4626,37 +4627,37 @@ class X12FramingSettingsArgs:
 
     @property
     @pulumi.getter(name="segmentTerminatorSuffix")
-    def segment_terminator_suffix(self) -> Optional[pulumi.Input[str]]:
+    def segment_terminator_suffix(self) -> Optional[pulumi.Input['SegmentTerminatorSuffix']]:
         """
         The segment terminator suffix.
         """
         return pulumi.get(self, "segment_terminator_suffix")
 
     @segment_terminator_suffix.setter
-    def segment_terminator_suffix(self, value: Optional[pulumi.Input[str]]):
+    def segment_terminator_suffix(self, value: Optional[pulumi.Input['SegmentTerminatorSuffix']]):
         pulumi.set(self, "segment_terminator_suffix", value)
 
 
 @pulumi.input_type
 class X12MessageFilterArgs:
     def __init__(__self__, *,
-                 message_filter_type: Optional[pulumi.Input[str]] = None):
+                 message_filter_type: Optional[pulumi.Input['MessageFilterType']] = None):
         """
-        :param pulumi.Input[str] message_filter_type: The message filter type.
+        :param pulumi.Input['MessageFilterType'] message_filter_type: The message filter type.
         """
         if message_filter_type is not None:
             pulumi.set(__self__, "message_filter_type", message_filter_type)
 
     @property
     @pulumi.getter(name="messageFilterType")
-    def message_filter_type(self) -> Optional[pulumi.Input[str]]:
+    def message_filter_type(self) -> Optional[pulumi.Input['MessageFilterType']]:
         """
         The message filter type.
         """
         return pulumi.get(self, "message_filter_type")
 
     @message_filter_type.setter
-    def message_filter_type(self, value: Optional[pulumi.Input[str]]):
+    def message_filter_type(self, value: Optional[pulumi.Input['MessageFilterType']]):
         pulumi.set(self, "message_filter_type", value)
 
 
@@ -5187,7 +5188,7 @@ class X12ValidationOverrideArgs:
     def __init__(__self__, *,
                  allow_leading_and_trailing_spaces_and_zeroes: Optional[pulumi.Input[bool]] = None,
                  message_id: Optional[pulumi.Input[str]] = None,
-                 trailing_separator_policy: Optional[pulumi.Input[str]] = None,
+                 trailing_separator_policy: Optional[pulumi.Input['TrailingSeparatorPolicy']] = None,
                  trim_leading_and_trailing_spaces_and_zeroes: Optional[pulumi.Input[bool]] = None,
                  validate_character_set: Optional[pulumi.Input[bool]] = None,
                  validate_edi_types: Optional[pulumi.Input[bool]] = None,
@@ -5195,7 +5196,7 @@ class X12ValidationOverrideArgs:
         """
         :param pulumi.Input[bool] allow_leading_and_trailing_spaces_and_zeroes: The value indicating whether to allow leading and trailing spaces and zeroes.
         :param pulumi.Input[str] message_id: The message id on which the validation settings has to be applied.
-        :param pulumi.Input[str] trailing_separator_policy: The trailing separator policy.
+        :param pulumi.Input['TrailingSeparatorPolicy'] trailing_separator_policy: The trailing separator policy.
         :param pulumi.Input[bool] trim_leading_and_trailing_spaces_and_zeroes: The value indicating whether to trim leading and trailing spaces and zeroes.
         :param pulumi.Input[bool] validate_character_set: The value indicating whether to validate character Set.
         :param pulumi.Input[bool] validate_edi_types: The value indicating whether to validate EDI types.
@@ -5242,14 +5243,14 @@ class X12ValidationOverrideArgs:
 
     @property
     @pulumi.getter(name="trailingSeparatorPolicy")
-    def trailing_separator_policy(self) -> Optional[pulumi.Input[str]]:
+    def trailing_separator_policy(self) -> Optional[pulumi.Input['TrailingSeparatorPolicy']]:
         """
         The trailing separator policy.
         """
         return pulumi.get(self, "trailing_separator_policy")
 
     @trailing_separator_policy.setter
-    def trailing_separator_policy(self, value: Optional[pulumi.Input[str]]):
+    def trailing_separator_policy(self, value: Optional[pulumi.Input['TrailingSeparatorPolicy']]):
         pulumi.set(self, "trailing_separator_policy", value)
 
     @property
@@ -5309,7 +5310,7 @@ class X12ValidationSettingsArgs:
                  check_duplicate_interchange_control_number: Optional[pulumi.Input[bool]] = None,
                  check_duplicate_transaction_set_control_number: Optional[pulumi.Input[bool]] = None,
                  interchange_control_number_validity_days: Optional[pulumi.Input[int]] = None,
-                 trailing_separator_policy: Optional[pulumi.Input[str]] = None,
+                 trailing_separator_policy: Optional[pulumi.Input['TrailingSeparatorPolicy']] = None,
                  trim_leading_and_trailing_spaces_and_zeroes: Optional[pulumi.Input[bool]] = None,
                  validate_character_set: Optional[pulumi.Input[bool]] = None,
                  validate_edi_types: Optional[pulumi.Input[bool]] = None,
@@ -5320,7 +5321,7 @@ class X12ValidationSettingsArgs:
         :param pulumi.Input[bool] check_duplicate_interchange_control_number: The value indicating whether to check for duplicate interchange control number.
         :param pulumi.Input[bool] check_duplicate_transaction_set_control_number: The value indicating whether to check for duplicate transaction set control number.
         :param pulumi.Input[int] interchange_control_number_validity_days: The validity period of interchange control number.
-        :param pulumi.Input[str] trailing_separator_policy: The trailing separator policy.
+        :param pulumi.Input['TrailingSeparatorPolicy'] trailing_separator_policy: The trailing separator policy.
         :param pulumi.Input[bool] trim_leading_and_trailing_spaces_and_zeroes: The value indicating whether to trim leading and trailing spaces and zeroes.
         :param pulumi.Input[bool] validate_character_set: The value indicating whether to validate character set in the message.
         :param pulumi.Input[bool] validate_edi_types: The value indicating whether to Whether to validate EDI types.
@@ -5409,14 +5410,14 @@ class X12ValidationSettingsArgs:
 
     @property
     @pulumi.getter(name="trailingSeparatorPolicy")
-    def trailing_separator_policy(self) -> Optional[pulumi.Input[str]]:
+    def trailing_separator_policy(self) -> Optional[pulumi.Input['TrailingSeparatorPolicy']]:
         """
         The trailing separator policy.
         """
         return pulumi.get(self, "trailing_separator_policy")
 
     @trailing_separator_policy.setter
-    def trailing_separator_policy(self, value: Optional[pulumi.Input[str]]):
+    def trailing_separator_policy(self, value: Optional[pulumi.Input['TrailingSeparatorPolicy']]):
         pulumi.set(self, "trailing_separator_policy", value)
 
     @property

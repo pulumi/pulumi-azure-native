@@ -13,3 +13,32 @@ from .private_link_scoped_resource import *
 from .workbook_template import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:insights/v20191017preview:PrivateEndpointConnection":
+                return PrivateEndpointConnection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:insights/v20191017preview:PrivateLinkScope":
+                return PrivateLinkScope(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:insights/v20191017preview:PrivateLinkScopedResource":
+                return PrivateLinkScopedResource(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:insights/v20191017preview:WorkbookTemplate":
+                return WorkbookTemplate(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "insights/v20191017preview", _module_instance)
+
+_register_module()

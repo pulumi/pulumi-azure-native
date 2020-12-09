@@ -71,16 +71,16 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
             __props__['protected_settings'] = protected_settings
             __props__['provision_after_extensions'] = provision_after_extensions
             __props__['publisher'] = publisher
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['settings'] = settings
             __props__['type'] = type
             __props__['type_handler_version'] = type_handler_version
-            if vm_scale_set_name is None:
+            if vm_scale_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_scale_set_name'")
             __props__['vm_scale_set_name'] = vm_scale_set_name
-            if vmss_extension_name is None:
+            if vmss_extension_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vmss_extension_name'")
             __props__['vmss_extension_name'] = vmss_extension_name
             __props__['provisioning_state'] = None

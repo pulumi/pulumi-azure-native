@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['Connector']
 
@@ -17,7 +18,7 @@ class Connector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connector_name: Optional[pulumi.Input[str]] = None,
                  connector_properties: Optional[pulumi.Input[Mapping[str, Any]]] = None,
-                 connector_type: Optional[pulumi.Input[str]] = None,
+                 connector_type: Optional[pulumi.Input[Union[str, 'ConnectorTypes']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  hub_name: Optional[pulumi.Input[str]] = None,
@@ -33,7 +34,7 @@ class Connector(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connector_name: Name of the connector.
         :param pulumi.Input[Mapping[str, Any]] connector_properties: The connector properties.
-        :param pulumi.Input[str] connector_type: Type of connector.
+        :param pulumi.Input[Union[str, 'ConnectorTypes']] connector_type: Type of connector.
         :param pulumi.Input[str] description: Description of the connector.
         :param pulumi.Input[str] display_name: Display name of the connector.
         :param pulumi.Input[str] hub_name: The name of the hub.
@@ -57,22 +58,22 @@ class Connector(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if connector_name is None:
+            if connector_name is None and not opts.urn:
                 raise TypeError("Missing required property 'connector_name'")
             __props__['connector_name'] = connector_name
-            if connector_properties is None:
+            if connector_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'connector_properties'")
             __props__['connector_properties'] = connector_properties
-            if connector_type is None:
+            if connector_type is None and not opts.urn:
                 raise TypeError("Missing required property 'connector_type'")
             __props__['connector_type'] = connector_type
             __props__['description'] = description
             __props__['display_name'] = display_name
-            if hub_name is None:
+            if hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'hub_name'")
             __props__['hub_name'] = hub_name
             __props__['is_internal'] = is_internal
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['connector_id'] = None

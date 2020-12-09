@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['AppServiceEnvironment']
@@ -23,7 +24,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
                  dynamic_cache_enabled: Optional[pulumi.Input[bool]] = None,
                  front_end_scale_factor: Optional[pulumi.Input[int]] = None,
                  has_linux_workers: Optional[pulumi.Input[bool]] = None,
-                 internal_load_balancing_mode: Optional[pulumi.Input[str]] = None,
+                 internal_load_balancing_mode: Optional[pulumi.Input['InternalLoadBalancingMode']] = None,
                  ipssl_address_count: Optional[pulumi.Input[int]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -57,7 +58,7 @@ class AppServiceEnvironment(pulumi.CustomResource):
                (most likely because NSG blocked the incoming traffic).
         :param pulumi.Input[int] front_end_scale_factor: Scale factor for front-ends.
         :param pulumi.Input[bool] has_linux_workers: Flag that displays whether an ASE has linux workers or not
-        :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
+        :param pulumi.Input['InternalLoadBalancingMode'] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
         :param pulumi.Input[int] ipssl_address_count: Number of IP SSL addresses reserved for the App Service Environment.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] location: Resource Location.
@@ -104,16 +105,16 @@ class AppServiceEnvironment(pulumi.CustomResource):
             __props__['internal_load_balancing_mode'] = internal_load_balancing_mode
             __props__['ipssl_address_count'] = ipssl_address_count
             __props__['kind'] = kind
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['multi_role_count'] = multi_role_count
             __props__['multi_size'] = multi_size
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['network_access_control_list'] = network_access_control_list
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['ssl_cert_key_vault_id'] = ssl_cert_key_vault_id
@@ -121,13 +122,13 @@ class AppServiceEnvironment(pulumi.CustomResource):
             __props__['suspended'] = suspended
             __props__['tags'] = tags
             __props__['user_whitelisted_ip_ranges'] = user_whitelisted_ip_ranges
-            if virtual_network is None:
+            if virtual_network is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network'")
             __props__['virtual_network'] = virtual_network
             __props__['vnet_name'] = vnet_name
             __props__['vnet_resource_group_name'] = vnet_resource_group_name
             __props__['vnet_subnet_name'] = vnet_subnet_name
-            if worker_pools is None:
+            if worker_pools is None and not opts.urn:
                 raise TypeError("Missing required property 'worker_pools'")
             __props__['worker_pools'] = worker_pools
             __props__['allowed_multi_sizes'] = None

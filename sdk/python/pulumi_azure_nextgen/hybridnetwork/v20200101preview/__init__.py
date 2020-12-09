@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .device import *
 from .get_device import *
 from .get_network_function import *
@@ -16,3 +17,34 @@ from .vendor_sku_preview import *
 from .vendor_skus import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:hybridnetwork/v20200101preview:Device":
+                return Device(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:hybridnetwork/v20200101preview:NetworkFunction":
+                return NetworkFunction(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:hybridnetwork/v20200101preview:Vendor":
+                return Vendor(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:hybridnetwork/v20200101preview:VendorSkuPreview":
+                return VendorSkuPreview(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:hybridnetwork/v20200101preview:VendorSkus":
+                return VendorSkus(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "hybridnetwork/v20200101preview", _module_instance)
+
+_register_module()

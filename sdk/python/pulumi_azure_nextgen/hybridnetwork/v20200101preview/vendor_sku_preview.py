@@ -47,13 +47,13 @@ class VendorSkuPreview(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if preview_subscription is None:
+            if preview_subscription is None and not opts.urn:
                 raise TypeError("Missing required property 'preview_subscription'")
             __props__['preview_subscription'] = preview_subscription
-            if sku_name is None:
+            if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")
             __props__['sku_name'] = sku_name
-            if vendor_name is None:
+            if vendor_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vendor_name'")
             __props__['vendor_name'] = vendor_name
             __props__['name'] = None

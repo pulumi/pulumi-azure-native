@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .bot import *
 from .bot_connection import *
 from .channel import *
@@ -14,3 +15,30 @@ from .list_bot_connection_with_secrets import *
 from .list_channel_with_keys import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:botservice/v20200602:Bot":
+                return Bot(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:botservice/v20200602:BotConnection":
+                return BotConnection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:botservice/v20200602:Channel":
+                return Channel(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "botservice/v20200602", _module_instance)
+
+_register_module()

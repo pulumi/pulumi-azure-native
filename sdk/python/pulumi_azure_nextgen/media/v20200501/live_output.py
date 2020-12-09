@@ -63,26 +63,26 @@ class LiveOutput(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_name is None:
+            if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            if archive_window_length is None:
+            if archive_window_length is None and not opts.urn:
                 raise TypeError("Missing required property 'archive_window_length'")
             __props__['archive_window_length'] = archive_window_length
-            if asset_name is None:
+            if asset_name is None and not opts.urn:
                 raise TypeError("Missing required property 'asset_name'")
             __props__['asset_name'] = asset_name
             __props__['description'] = description
             __props__['hls'] = hls
-            if live_event_name is None:
+            if live_event_name is None and not opts.urn:
                 raise TypeError("Missing required property 'live_event_name'")
             __props__['live_event_name'] = live_event_name
-            if live_output_name is None:
+            if live_output_name is None and not opts.urn:
                 raise TypeError("Missing required property 'live_output_name'")
             __props__['live_output_name'] = live_output_name
             __props__['manifest_name'] = manifest_name
             __props__['output_snap_time'] = output_snap_time
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['created'] = None

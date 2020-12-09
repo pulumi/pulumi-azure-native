@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['NotificationHub']
@@ -81,14 +82,14 @@ class NotificationHub(pulumi.CustomResource):
             __props__['location'] = location
             __props__['mpns_credential'] = mpns_credential
             __props__['name'] = name
-            if namespace_name is None:
+            if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
-            if notification_hub_name is None:
+            if notification_hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'notification_hub_name'")
             __props__['notification_hub_name'] = notification_hub_name
             __props__['registration_ttl'] = registration_ttl
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku

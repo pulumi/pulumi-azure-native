@@ -57,12 +57,12 @@ class LabAccount(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['enabled_region_selection'] = enabled_region_selection
-            if lab_account_name is None:
+            if lab_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_account_name'")
             __props__['lab_account_name'] = lab_account_name
             __props__['location'] = location
             __props__['provisioning_state'] = provisioning_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

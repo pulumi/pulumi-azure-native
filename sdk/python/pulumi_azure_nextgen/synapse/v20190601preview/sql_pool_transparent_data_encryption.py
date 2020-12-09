@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['SqlPoolTransparentDataEncryption']
 
@@ -17,7 +18,7 @@ class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sql_pool_name: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'TransparentDataEncryptionStatus']]] = None,
                  transparent_data_encryption_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -30,7 +31,7 @@ class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] sql_pool_name: SQL pool name
-        :param pulumi.Input[str] status: The status of the database transparent data encryption.
+        :param pulumi.Input[Union[str, 'TransparentDataEncryptionStatus']] status: The status of the database transparent data encryption.
         :param pulumi.Input[str] transparent_data_encryption_name: The name of the transparent data encryption configuration.
         :param pulumi.Input[str] workspace_name: The name of the workspace
         """
@@ -51,17 +52,17 @@ class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if sql_pool_name is None:
+            if sql_pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sql_pool_name'")
             __props__['sql_pool_name'] = sql_pool_name
             __props__['status'] = status
-            if transparent_data_encryption_name is None:
+            if transparent_data_encryption_name is None and not opts.urn:
                 raise TypeError("Missing required property 'transparent_data_encryption_name'")
             __props__['transparent_data_encryption_name'] = transparent_data_encryption_name
-            if workspace_name is None:
+            if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
             __props__['location'] = None

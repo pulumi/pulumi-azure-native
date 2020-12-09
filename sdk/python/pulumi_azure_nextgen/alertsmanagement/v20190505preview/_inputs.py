@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ActionGroupArgs',
@@ -27,7 +28,7 @@ class ActionGroupArgs:
                  conditions: Optional[pulumi.Input['ConditionsArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input['ScopeArgs']] = None,
-                 status: Optional[pulumi.Input[str]] = None):
+                 status: Optional[pulumi.Input[Union[str, 'ActionRuleStatus']]] = None):
         """
         Action rule with action group configuration
         :param pulumi.Input[str] action_group_id: Action group to trigger if action rule matches
@@ -35,7 +36,7 @@ class ActionGroupArgs:
         :param pulumi.Input['ConditionsArgs'] conditions: conditions on which alerts will be filtered
         :param pulumi.Input[str] description: Description of action rule
         :param pulumi.Input['ScopeArgs'] scope: scope on which action rule will apply
-        :param pulumi.Input[str] status: Indicates if the given action rule is enabled or disabled
+        :param pulumi.Input[Union[str, 'ActionRuleStatus']] status: Indicates if the given action rule is enabled or disabled
         """
         pulumi.set(__self__, "action_group_id", action_group_id)
         pulumi.set(__self__, "type", 'ActionGroup')
@@ -110,25 +111,25 @@ class ActionGroupArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input[Union[str, 'ActionRuleStatus']]]:
         """
         Indicates if the given action rule is enabled or disabled
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input[Union[str, 'ActionRuleStatus']]]):
         pulumi.set(self, "status", value)
 
 
 @pulumi.input_type
 class ConditionArgs:
     def __init__(__self__, *,
-                 operator: Optional[pulumi.Input[str]] = None,
+                 operator: Optional[pulumi.Input[Union[str, 'Operator']]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         condition to trigger an action rule
-        :param pulumi.Input[str] operator: operator for a given condition
+        :param pulumi.Input[Union[str, 'Operator']] operator: operator for a given condition
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: list of values to match for a given condition.
         """
         if operator is not None:
@@ -138,14 +139,14 @@ class ConditionArgs:
 
     @property
     @pulumi.getter
-    def operator(self) -> Optional[pulumi.Input[str]]:
+    def operator(self) -> Optional[pulumi.Input[Union[str, 'Operator']]]:
         """
         operator for a given condition
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: Optional[pulumi.Input[str]]):
+    def operator(self, value: Optional[pulumi.Input[Union[str, 'Operator']]]):
         pulumi.set(self, "operator", value)
 
     @property
@@ -288,14 +289,14 @@ class DiagnosticsArgs:
                  conditions: Optional[pulumi.Input['ConditionsArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input['ScopeArgs']] = None,
-                 status: Optional[pulumi.Input[str]] = None):
+                 status: Optional[pulumi.Input[Union[str, 'ActionRuleStatus']]] = None):
         """
         Action rule with diagnostics configuration
         :param pulumi.Input[str] type: Indicates type of action rule
         :param pulumi.Input['ConditionsArgs'] conditions: conditions on which alerts will be filtered
         :param pulumi.Input[str] description: Description of action rule
         :param pulumi.Input['ScopeArgs'] scope: scope on which action rule will apply
-        :param pulumi.Input[str] status: Indicates if the given action rule is enabled or disabled
+        :param pulumi.Input[Union[str, 'ActionRuleStatus']] status: Indicates if the given action rule is enabled or disabled
         """
         pulumi.set(__self__, "type", 'Diagnostics')
         if conditions is not None:
@@ -357,25 +358,25 @@ class DiagnosticsArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input[Union[str, 'ActionRuleStatus']]]:
         """
         Indicates if the given action rule is enabled or disabled
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input[Union[str, 'ActionRuleStatus']]]):
         pulumi.set(self, "status", value)
 
 
 @pulumi.input_type
 class ScopeArgs:
     def __init__(__self__, *,
-                 scope_type: Optional[pulumi.Input[str]] = None,
+                 scope_type: Optional[pulumi.Input[Union[str, 'ScopeType']]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Target scope for a given action rule. By default scope will be the subscription. User can also provide list of resource groups or list of resources from the scope subscription as well.
-        :param pulumi.Input[str] scope_type: type of target scope
+        :param pulumi.Input[Union[str, 'ScopeType']] scope_type: type of target scope
         :param pulumi.Input[Sequence[pulumi.Input[str]]] values: list of ARM IDs of the given scope type which will be the target of the given action rule.
         """
         if scope_type is not None:
@@ -385,14 +386,14 @@ class ScopeArgs:
 
     @property
     @pulumi.getter(name="scopeType")
-    def scope_type(self) -> Optional[pulumi.Input[str]]:
+    def scope_type(self) -> Optional[pulumi.Input[Union[str, 'ScopeType']]]:
         """
         type of target scope
         """
         return pulumi.get(self, "scope_type")
 
     @scope_type.setter
-    def scope_type(self, value: Optional[pulumi.Input[str]]):
+    def scope_type(self, value: Optional[pulumi.Input[Union[str, 'ScopeType']]]):
         pulumi.set(self, "scope_type", value)
 
     @property
@@ -416,7 +417,7 @@ class SuppressionArgs:
                  conditions: Optional[pulumi.Input['ConditionsArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input['ScopeArgs']] = None,
-                 status: Optional[pulumi.Input[str]] = None):
+                 status: Optional[pulumi.Input[Union[str, 'ActionRuleStatus']]] = None):
         """
         Action rule with suppression configuration
         :param pulumi.Input['SuppressionConfigArgs'] suppression_config: suppression configuration for the action rule
@@ -424,7 +425,7 @@ class SuppressionArgs:
         :param pulumi.Input['ConditionsArgs'] conditions: conditions on which alerts will be filtered
         :param pulumi.Input[str] description: Description of action rule
         :param pulumi.Input['ScopeArgs'] scope: scope on which action rule will apply
-        :param pulumi.Input[str] status: Indicates if the given action rule is enabled or disabled
+        :param pulumi.Input[Union[str, 'ActionRuleStatus']] status: Indicates if the given action rule is enabled or disabled
         """
         pulumi.set(__self__, "suppression_config", suppression_config)
         pulumi.set(__self__, "type", 'Suppression')
@@ -499,25 +500,25 @@ class SuppressionArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input[Union[str, 'ActionRuleStatus']]]:
         """
         Indicates if the given action rule is enabled or disabled
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input[Union[str, 'ActionRuleStatus']]]):
         pulumi.set(self, "status", value)
 
 
 @pulumi.input_type
 class SuppressionConfigArgs:
     def __init__(__self__, *,
-                 recurrence_type: pulumi.Input[str],
+                 recurrence_type: pulumi.Input[Union[str, 'SuppressionType']],
                  schedule: Optional[pulumi.Input['SuppressionScheduleArgs']] = None):
         """
         Suppression logic for a given action rule
-        :param pulumi.Input[str] recurrence_type: Specifies when the suppression should be applied
+        :param pulumi.Input[Union[str, 'SuppressionType']] recurrence_type: Specifies when the suppression should be applied
         :param pulumi.Input['SuppressionScheduleArgs'] schedule: suppression schedule configuration
         """
         pulumi.set(__self__, "recurrence_type", recurrence_type)
@@ -526,14 +527,14 @@ class SuppressionConfigArgs:
 
     @property
     @pulumi.getter(name="recurrenceType")
-    def recurrence_type(self) -> pulumi.Input[str]:
+    def recurrence_type(self) -> pulumi.Input[Union[str, 'SuppressionType']]:
         """
         Specifies when the suppression should be applied
         """
         return pulumi.get(self, "recurrence_type")
 
     @recurrence_type.setter
-    def recurrence_type(self, value: pulumi.Input[str]):
+    def recurrence_type(self, value: pulumi.Input[Union[str, 'SuppressionType']]):
         pulumi.set(self, "recurrence_type", value)
 
     @property

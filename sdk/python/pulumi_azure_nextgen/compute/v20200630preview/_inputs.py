@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ConfigurationProfileAssignmentPropertiesArgs',
@@ -16,13 +17,13 @@ __all__ = [
 class ConfigurationProfileAssignmentPropertiesArgs:
     def __init__(__self__, *,
                  account_id: Optional[pulumi.Input[str]] = None,
-                 configuration_profile: Optional[pulumi.Input[str]] = None,
+                 configuration_profile: Optional[pulumi.Input[Union[str, 'ConfigurationProfile']]] = None,
                  configuration_profile_preference_id: Optional[pulumi.Input[str]] = None,
                  target_id: Optional[pulumi.Input[str]] = None):
         """
         Automanage configuration profile assignment properties.
         :param pulumi.Input[str] account_id: The Automanage account ARM Resource URI
-        :param pulumi.Input[str] configuration_profile: A value indicating configuration profile.
+        :param pulumi.Input[Union[str, 'ConfigurationProfile']] configuration_profile: A value indicating configuration profile.
         :param pulumi.Input[str] configuration_profile_preference_id: The configuration profile custom preferences ARM resource URI
         :param pulumi.Input[str] target_id: The target VM resource URI
         """
@@ -49,14 +50,14 @@ class ConfigurationProfileAssignmentPropertiesArgs:
 
     @property
     @pulumi.getter(name="configurationProfile")
-    def configuration_profile(self) -> Optional[pulumi.Input[str]]:
+    def configuration_profile(self) -> Optional[pulumi.Input[Union[str, 'ConfigurationProfile']]]:
         """
         A value indicating configuration profile.
         """
         return pulumi.get(self, "configuration_profile")
 
     @configuration_profile.setter
-    def configuration_profile(self, value: Optional[pulumi.Input[str]]):
+    def configuration_profile(self, value: Optional[pulumi.Input[Union[str, 'ConfigurationProfile']]]):
         pulumi.set(self, "configuration_profile", value)
 
     @property

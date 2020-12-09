@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['AlertsSuppressionRule']
@@ -22,7 +23,7 @@ class AlertsSuppressionRule(pulumi.CustomResource):
                  comment: Optional[pulumi.Input[str]] = None,
                  expiration_date_utc: Optional[pulumi.Input[str]] = None,
                  reason: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[Union[str, 'RuleState']]] = None,
                  suppression_alerts_scope: Optional[pulumi.Input[pulumi.InputType['SuppressionAlertsScopeArgs']]] = None,
                  __props__=None,
                  __name__=None,
@@ -37,7 +38,7 @@ class AlertsSuppressionRule(pulumi.CustomResource):
         :param pulumi.Input[str] comment: Any comment regarding the rule
         :param pulumi.Input[str] expiration_date_utc: Expiration date of the rule, if value is not provided or provided as null this field will default to the maximum allowed expiration date.
         :param pulumi.Input[str] reason: The reason for dismissing the alert
-        :param pulumi.Input[str] state: Possible states of the rule
+        :param pulumi.Input[Union[str, 'RuleState']] state: Possible states of the rule
         :param pulumi.Input[pulumi.InputType['SuppressionAlertsScopeArgs']] suppression_alerts_scope: The suppression conditions
         """
         if __name__ is not None:
@@ -57,18 +58,18 @@ class AlertsSuppressionRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if alert_type is None:
+            if alert_type is None and not opts.urn:
                 raise TypeError("Missing required property 'alert_type'")
             __props__['alert_type'] = alert_type
-            if alerts_suppression_rule_name is None:
+            if alerts_suppression_rule_name is None and not opts.urn:
                 raise TypeError("Missing required property 'alerts_suppression_rule_name'")
             __props__['alerts_suppression_rule_name'] = alerts_suppression_rule_name
             __props__['comment'] = comment
             __props__['expiration_date_utc'] = expiration_date_utc
-            if reason is None:
+            if reason is None and not opts.urn:
                 raise TypeError("Missing required property 'reason'")
             __props__['reason'] = reason
-            if state is None:
+            if state is None and not opts.urn:
                 raise TypeError("Missing required property 'state'")
             __props__['state'] = state
             __props__['suppression_alerts_scope'] = suppression_alerts_scope

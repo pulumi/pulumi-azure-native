@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['VirtualMachineScaleSet']
@@ -88,14 +89,14 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
             __props__['do_not_run_extensions_on_overprovisioned_vms'] = do_not_run_extensions_on_overprovisioned_vms
             __props__['host_group'] = host_group
             __props__['identity'] = identity
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['overprovision'] = overprovision
             __props__['plan'] = plan
             __props__['platform_fault_domain_count'] = platform_fault_domain_count
             __props__['proximity_placement_group'] = proximity_placement_group
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['scale_in_policy'] = scale_in_policy
@@ -104,7 +105,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['upgrade_policy'] = upgrade_policy
             __props__['virtual_machine_profile'] = virtual_machine_profile
-            if vm_scale_set_name is None:
+            if vm_scale_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_scale_set_name'")
             __props__['vm_scale_set_name'] = vm_scale_set_name
             __props__['zone_balance'] = zone_balance

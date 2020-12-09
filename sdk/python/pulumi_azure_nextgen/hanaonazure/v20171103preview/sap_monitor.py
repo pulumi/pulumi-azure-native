@@ -87,10 +87,10 @@ class SapMonitor(pulumi.CustomResource):
             __props__['log_analytics_workspace_arm_id'] = log_analytics_workspace_arm_id
             __props__['log_analytics_workspace_id'] = log_analytics_workspace_id
             __props__['log_analytics_workspace_shared_key'] = log_analytics_workspace_shared_key
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if sap_monitor_name is None:
+            if sap_monitor_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sap_monitor_name'")
             __props__['sap_monitor_name'] = sap_monitor_name
             __props__['managed_resource_group_name'] = None

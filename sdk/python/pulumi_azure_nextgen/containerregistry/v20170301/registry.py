@@ -58,19 +58,19 @@ class Registry(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['admin_user_enabled'] = admin_user_enabled
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if registry_name is None:
+            if registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registry_name'")
             __props__['registry_name'] = registry_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if sku is None:
+            if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
-            if storage_account is None:
+            if storage_account is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account'")
             __props__['storage_account'] = storage_account
             __props__['tags'] = tags

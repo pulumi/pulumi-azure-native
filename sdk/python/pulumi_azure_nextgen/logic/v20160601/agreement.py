@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Agreement']
@@ -18,7 +19,7 @@ class Agreement(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agreement_name: Optional[pulumi.Input[str]] = None,
-                 agreement_type: Optional[pulumi.Input[str]] = None,
+                 agreement_type: Optional[pulumi.Input['AgreementType']] = None,
                  content: Optional[pulumi.Input[pulumi.InputType['AgreementContentArgs']]] = None,
                  guest_identity: Optional[pulumi.Input[pulumi.InputType['BusinessIdentityArgs']]] = None,
                  guest_partner: Optional[pulumi.Input[str]] = None,
@@ -38,7 +39,7 @@ class Agreement(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agreement_name: The integration account agreement name.
-        :param pulumi.Input[str] agreement_type: The agreement type.
+        :param pulumi.Input['AgreementType'] agreement_type: The agreement type.
         :param pulumi.Input[pulumi.InputType['AgreementContentArgs']] content: The agreement content.
         :param pulumi.Input[pulumi.InputType['BusinessIdentityArgs']] guest_identity: The business identity of the guest partner.
         :param pulumi.Input[str] guest_partner: The integration account partner that is set as guest partner for this agreement.
@@ -67,33 +68,33 @@ class Agreement(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if agreement_name is None:
+            if agreement_name is None and not opts.urn:
                 raise TypeError("Missing required property 'agreement_name'")
             __props__['agreement_name'] = agreement_name
-            if agreement_type is None:
+            if agreement_type is None and not opts.urn:
                 raise TypeError("Missing required property 'agreement_type'")
             __props__['agreement_type'] = agreement_type
-            if content is None:
+            if content is None and not opts.urn:
                 raise TypeError("Missing required property 'content'")
             __props__['content'] = content
-            if guest_identity is None:
+            if guest_identity is None and not opts.urn:
                 raise TypeError("Missing required property 'guest_identity'")
             __props__['guest_identity'] = guest_identity
-            if guest_partner is None:
+            if guest_partner is None and not opts.urn:
                 raise TypeError("Missing required property 'guest_partner'")
             __props__['guest_partner'] = guest_partner
-            if host_identity is None:
+            if host_identity is None and not opts.urn:
                 raise TypeError("Missing required property 'host_identity'")
             __props__['host_identity'] = host_identity
-            if host_partner is None:
+            if host_partner is None and not opts.urn:
                 raise TypeError("Missing required property 'host_partner'")
             __props__['host_partner'] = host_partner
-            if integration_account_name is None:
+            if integration_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'integration_account_name'")
             __props__['integration_account_name'] = integration_account_name
             __props__['location'] = location
             __props__['metadata'] = metadata
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

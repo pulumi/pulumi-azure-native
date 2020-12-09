@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AdditionalFeaturesServerConfigurationsArgs',
@@ -53,11 +54,11 @@ class AdditionalFeaturesServerConfigurationsArgs:
 @pulumi.input_type
 class AutoBackupSettingsArgs:
     def __init__(__self__, *,
-                 backup_schedule_type: Optional[pulumi.Input[str]] = None,
+                 backup_schedule_type: Optional[pulumi.Input[Union[str, 'BackupScheduleType']]] = None,
                  backup_system_dbs: Optional[pulumi.Input[bool]] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
                  enable_encryption: Optional[pulumi.Input[bool]] = None,
-                 full_backup_frequency: Optional[pulumi.Input[str]] = None,
+                 full_backup_frequency: Optional[pulumi.Input[Union[str, 'FullBackupFrequencyType']]] = None,
                  full_backup_start_time: Optional[pulumi.Input[int]] = None,
                  full_backup_window_hours: Optional[pulumi.Input[int]] = None,
                  log_backup_frequency: Optional[pulumi.Input[int]] = None,
@@ -67,11 +68,11 @@ class AutoBackupSettingsArgs:
                  storage_account_url: Optional[pulumi.Input[str]] = None):
         """
         Configure backups for databases in your SQL virtual machine.
-        :param pulumi.Input[str] backup_schedule_type: Backup schedule type.
+        :param pulumi.Input[Union[str, 'BackupScheduleType']] backup_schedule_type: Backup schedule type.
         :param pulumi.Input[bool] backup_system_dbs: Include or exclude system databases from auto backup.
         :param pulumi.Input[bool] enable: Enable or disable autobackup on SQL virtual machine.
         :param pulumi.Input[bool] enable_encryption: Enable or disable encryption for backup on SQL virtual machine.
-        :param pulumi.Input[str] full_backup_frequency: Frequency of full backups. In both cases, full backups begin during the next scheduled time window.
+        :param pulumi.Input[Union[str, 'FullBackupFrequencyType']] full_backup_frequency: Frequency of full backups. In both cases, full backups begin during the next scheduled time window.
         :param pulumi.Input[int] full_backup_start_time: Start time of a given day during which full backups can take place. 0-23 hours.
         :param pulumi.Input[int] full_backup_window_hours: Duration of the time window of a given day during which full backups can take place. 1-23 hours.
         :param pulumi.Input[int] log_backup_frequency: Frequency of log backups. 5-60 minutes.
@@ -107,14 +108,14 @@ class AutoBackupSettingsArgs:
 
     @property
     @pulumi.getter(name="backupScheduleType")
-    def backup_schedule_type(self) -> Optional[pulumi.Input[str]]:
+    def backup_schedule_type(self) -> Optional[pulumi.Input[Union[str, 'BackupScheduleType']]]:
         """
         Backup schedule type.
         """
         return pulumi.get(self, "backup_schedule_type")
 
     @backup_schedule_type.setter
-    def backup_schedule_type(self, value: Optional[pulumi.Input[str]]):
+    def backup_schedule_type(self, value: Optional[pulumi.Input[Union[str, 'BackupScheduleType']]]):
         pulumi.set(self, "backup_schedule_type", value)
 
     @property
@@ -155,14 +156,14 @@ class AutoBackupSettingsArgs:
 
     @property
     @pulumi.getter(name="fullBackupFrequency")
-    def full_backup_frequency(self) -> Optional[pulumi.Input[str]]:
+    def full_backup_frequency(self) -> Optional[pulumi.Input[Union[str, 'FullBackupFrequencyType']]]:
         """
         Frequency of full backups. In both cases, full backups begin during the next scheduled time window.
         """
         return pulumi.get(self, "full_backup_frequency")
 
     @full_backup_frequency.setter
-    def full_backup_frequency(self, value: Optional[pulumi.Input[str]]):
+    def full_backup_frequency(self, value: Optional[pulumi.Input[Union[str, 'FullBackupFrequencyType']]]):
         pulumi.set(self, "full_backup_frequency", value)
 
     @property
@@ -253,13 +254,13 @@ class AutoBackupSettingsArgs:
 @pulumi.input_type
 class AutoPatchingSettingsArgs:
     def __init__(__self__, *,
-                 day_of_week: Optional[pulumi.Input[str]] = None,
+                 day_of_week: Optional[pulumi.Input['DayOfWeek']] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
                  maintenance_window_duration: Optional[pulumi.Input[int]] = None,
                  maintenance_window_starting_hour: Optional[pulumi.Input[int]] = None):
         """
         Set a patching window during which Windows and SQL patches will be applied.
-        :param pulumi.Input[str] day_of_week: Day of week to apply the patch on.
+        :param pulumi.Input['DayOfWeek'] day_of_week: Day of week to apply the patch on.
         :param pulumi.Input[bool] enable: Enable or disable autopatching on SQL virtual machine.
         :param pulumi.Input[int] maintenance_window_duration: Duration of patching.
         :param pulumi.Input[int] maintenance_window_starting_hour: Hour of the day when patching is initiated. Local VM time.
@@ -275,14 +276,14 @@ class AutoPatchingSettingsArgs:
 
     @property
     @pulumi.getter(name="dayOfWeek")
-    def day_of_week(self) -> Optional[pulumi.Input[str]]:
+    def day_of_week(self) -> Optional[pulumi.Input['DayOfWeek']]:
         """
         Day of week to apply the patch on.
         """
         return pulumi.get(self, "day_of_week")
 
     @day_of_week.setter
-    def day_of_week(self, value: Optional[pulumi.Input[str]]):
+    def day_of_week(self, value: Optional[pulumi.Input['DayOfWeek']]):
         pulumi.set(self, "day_of_week", value)
 
     @property
@@ -541,24 +542,24 @@ class PrivateIPAddressArgs:
 @pulumi.input_type
 class ResourceIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input[Union[str, 'IdentityType']]] = None):
         """
         Azure Active Directory identity configuration for a resource.
-        :param pulumi.Input[str] type: The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+        :param pulumi.Input[Union[str, 'IdentityType']] type: The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'IdentityType']]]:
         """
         The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'IdentityType']]]):
         pulumi.set(self, "type", value)
 
 
@@ -677,13 +678,13 @@ class ServerConfigurationsManagementSettingsArgs:
 @pulumi.input_type
 class SqlConnectivityUpdateSettingsArgs:
     def __init__(__self__, *,
-                 connectivity_type: Optional[pulumi.Input[str]] = None,
+                 connectivity_type: Optional[pulumi.Input[Union[str, 'ConnectivityType']]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  sql_auth_update_password: Optional[pulumi.Input[str]] = None,
                  sql_auth_update_user_name: Optional[pulumi.Input[str]] = None):
         """
         Set the access level and network port settings for SQL Server.
-        :param pulumi.Input[str] connectivity_type: SQL Server connectivity option.
+        :param pulumi.Input[Union[str, 'ConnectivityType']] connectivity_type: SQL Server connectivity option.
         :param pulumi.Input[int] port: SQL Server port.
         :param pulumi.Input[str] sql_auth_update_password: SQL Server sysadmin login password.
         :param pulumi.Input[str] sql_auth_update_user_name: SQL Server sysadmin login to create.
@@ -699,14 +700,14 @@ class SqlConnectivityUpdateSettingsArgs:
 
     @property
     @pulumi.getter(name="connectivityType")
-    def connectivity_type(self) -> Optional[pulumi.Input[str]]:
+    def connectivity_type(self) -> Optional[pulumi.Input[Union[str, 'ConnectivityType']]]:
         """
         SQL Server connectivity option.
         """
         return pulumi.get(self, "connectivity_type")
 
     @connectivity_type.setter
-    def connectivity_type(self, value: Optional[pulumi.Input[str]]):
+    def connectivity_type(self, value: Optional[pulumi.Input[Union[str, 'ConnectivityType']]]):
         pulumi.set(self, "connectivity_type", value)
 
     @property
@@ -749,12 +750,12 @@ class SqlConnectivityUpdateSettingsArgs:
 @pulumi.input_type
 class SqlStorageUpdateSettingsArgs:
     def __init__(__self__, *,
-                 disk_configuration_type: Optional[pulumi.Input[str]] = None,
+                 disk_configuration_type: Optional[pulumi.Input[Union[str, 'DiskConfigurationType']]] = None,
                  disk_count: Optional[pulumi.Input[int]] = None,
                  starting_device_id: Optional[pulumi.Input[int]] = None):
         """
         Set disk storage settings for SQL Server.
-        :param pulumi.Input[str] disk_configuration_type: Disk configuration to apply to SQL Server.
+        :param pulumi.Input[Union[str, 'DiskConfigurationType']] disk_configuration_type: Disk configuration to apply to SQL Server.
         :param pulumi.Input[int] disk_count: Virtual machine disk count.
         :param pulumi.Input[int] starting_device_id: Device id of the first disk to be updated.
         """
@@ -767,14 +768,14 @@ class SqlStorageUpdateSettingsArgs:
 
     @property
     @pulumi.getter(name="diskConfigurationType")
-    def disk_configuration_type(self) -> Optional[pulumi.Input[str]]:
+    def disk_configuration_type(self) -> Optional[pulumi.Input[Union[str, 'DiskConfigurationType']]]:
         """
         Disk configuration to apply to SQL Server.
         """
         return pulumi.get(self, "disk_configuration_type")
 
     @disk_configuration_type.setter
-    def disk_configuration_type(self, value: Optional[pulumi.Input[str]]):
+    def disk_configuration_type(self, value: Optional[pulumi.Input[Union[str, 'DiskConfigurationType']]]):
         pulumi.set(self, "disk_configuration_type", value)
 
     @property
@@ -805,42 +806,42 @@ class SqlStorageUpdateSettingsArgs:
 @pulumi.input_type
 class SqlWorkloadTypeUpdateSettingsArgs:
     def __init__(__self__, *,
-                 sql_workload_type: Optional[pulumi.Input[str]] = None):
+                 sql_workload_type: Optional[pulumi.Input[Union[str, 'SqlWorkloadType']]] = None):
         """
         Set workload type to optimize storage for SQL Server.
-        :param pulumi.Input[str] sql_workload_type: SQL Server workload type.
+        :param pulumi.Input[Union[str, 'SqlWorkloadType']] sql_workload_type: SQL Server workload type.
         """
         if sql_workload_type is not None:
             pulumi.set(__self__, "sql_workload_type", sql_workload_type)
 
     @property
     @pulumi.getter(name="sqlWorkloadType")
-    def sql_workload_type(self) -> Optional[pulumi.Input[str]]:
+    def sql_workload_type(self) -> Optional[pulumi.Input[Union[str, 'SqlWorkloadType']]]:
         """
         SQL Server workload type.
         """
         return pulumi.get(self, "sql_workload_type")
 
     @sql_workload_type.setter
-    def sql_workload_type(self, value: Optional[pulumi.Input[str]]):
+    def sql_workload_type(self, value: Optional[pulumi.Input[Union[str, 'SqlWorkloadType']]]):
         pulumi.set(self, "sql_workload_type", value)
 
 
 @pulumi.input_type
 class StorageConfigurationSettingsArgs:
     def __init__(__self__, *,
-                 disk_configuration_type: Optional[pulumi.Input[str]] = None,
+                 disk_configuration_type: Optional[pulumi.Input[Union[str, 'DiskConfigurationType']]] = None,
                  sql_data_settings: Optional[pulumi.Input['SQLStorageSettingsArgs']] = None,
                  sql_log_settings: Optional[pulumi.Input['SQLStorageSettingsArgs']] = None,
                  sql_temp_db_settings: Optional[pulumi.Input['SQLStorageSettingsArgs']] = None,
-                 storage_workload_type: Optional[pulumi.Input[str]] = None):
+                 storage_workload_type: Optional[pulumi.Input[Union[str, 'StorageWorkloadType']]] = None):
         """
         Storage Configurations for SQL Data, Log and TempDb.
-        :param pulumi.Input[str] disk_configuration_type: Disk configuration to apply to SQL Server.
+        :param pulumi.Input[Union[str, 'DiskConfigurationType']] disk_configuration_type: Disk configuration to apply to SQL Server.
         :param pulumi.Input['SQLStorageSettingsArgs'] sql_data_settings: SQL Server Data Storage Settings.
         :param pulumi.Input['SQLStorageSettingsArgs'] sql_log_settings: SQL Server Log Storage Settings.
         :param pulumi.Input['SQLStorageSettingsArgs'] sql_temp_db_settings: SQL Server TempDb Storage Settings.
-        :param pulumi.Input[str] storage_workload_type: Storage workload type.
+        :param pulumi.Input[Union[str, 'StorageWorkloadType']] storage_workload_type: Storage workload type.
         """
         if disk_configuration_type is not None:
             pulumi.set(__self__, "disk_configuration_type", disk_configuration_type)
@@ -855,14 +856,14 @@ class StorageConfigurationSettingsArgs:
 
     @property
     @pulumi.getter(name="diskConfigurationType")
-    def disk_configuration_type(self) -> Optional[pulumi.Input[str]]:
+    def disk_configuration_type(self) -> Optional[pulumi.Input[Union[str, 'DiskConfigurationType']]]:
         """
         Disk configuration to apply to SQL Server.
         """
         return pulumi.get(self, "disk_configuration_type")
 
     @disk_configuration_type.setter
-    def disk_configuration_type(self, value: Optional[pulumi.Input[str]]):
+    def disk_configuration_type(self, value: Optional[pulumi.Input[Union[str, 'DiskConfigurationType']]]):
         pulumi.set(self, "disk_configuration_type", value)
 
     @property
@@ -903,14 +904,14 @@ class StorageConfigurationSettingsArgs:
 
     @property
     @pulumi.getter(name="storageWorkloadType")
-    def storage_workload_type(self) -> Optional[pulumi.Input[str]]:
+    def storage_workload_type(self) -> Optional[pulumi.Input[Union[str, 'StorageWorkloadType']]]:
         """
         Storage workload type.
         """
         return pulumi.get(self, "storage_workload_type")
 
     @storage_workload_type.setter
-    def storage_workload_type(self, value: Optional[pulumi.Input[str]]):
+    def storage_workload_type(self, value: Optional[pulumi.Input[Union[str, 'StorageWorkloadType']]]):
         pulumi.set(self, "storage_workload_type", value)
 
 

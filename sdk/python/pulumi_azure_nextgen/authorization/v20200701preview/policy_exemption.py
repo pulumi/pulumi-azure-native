@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 
 __all__ = ['PolicyExemption']
 
@@ -18,7 +19,7 @@ class PolicyExemption(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 exemption_category: Optional[pulumi.Input[str]] = None,
+                 exemption_category: Optional[pulumi.Input[Union[str, 'ExemptionCategory']]] = None,
                  expires_on: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[Any] = None,
                  policy_assignment_id: Optional[pulumi.Input[str]] = None,
@@ -35,7 +36,7 @@ class PolicyExemption(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the policy exemption.
         :param pulumi.Input[str] display_name: The display name of the policy exemption.
-        :param pulumi.Input[str] exemption_category: The policy exemption category. Possible values are Waiver and Mitigated.
+        :param pulumi.Input[Union[str, 'ExemptionCategory']] exemption_category: The policy exemption category. Possible values are Waiver and Mitigated.
         :param pulumi.Input[str] expires_on: The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
         :param Any metadata: The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
         :param pulumi.Input[str] policy_assignment_id: The ID of the policy assignment that is being exempted.
@@ -62,19 +63,19 @@ class PolicyExemption(pulumi.CustomResource):
 
             __props__['description'] = description
             __props__['display_name'] = display_name
-            if exemption_category is None:
+            if exemption_category is None and not opts.urn:
                 raise TypeError("Missing required property 'exemption_category'")
             __props__['exemption_category'] = exemption_category
             __props__['expires_on'] = expires_on
             __props__['metadata'] = metadata
-            if policy_assignment_id is None:
+            if policy_assignment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_assignment_id'")
             __props__['policy_assignment_id'] = policy_assignment_id
             __props__['policy_definition_reference_ids'] = policy_definition_reference_ids
-            if policy_exemption_name is None:
+            if policy_exemption_name is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_exemption_name'")
             __props__['policy_exemption_name'] = policy_exemption_name
-            if scope is None:
+            if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
             __props__['name'] = None

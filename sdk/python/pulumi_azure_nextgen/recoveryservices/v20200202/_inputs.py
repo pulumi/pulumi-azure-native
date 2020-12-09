@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'PrivateEndpointArgs',
@@ -43,12 +44,12 @@ class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
                  private_endpoint: Optional[pulumi.Input['PrivateEndpointArgs']] = None,
                  private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None):
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None):
         """
         Private Endpoint Connection Response Properties
         :param pulumi.Input['PrivateEndpointArgs'] private_endpoint: Gets or sets private endpoint associated with the private endpoint connection
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: Gets or sets private link service connection state
-        :param pulumi.Input[str] provisioning_state: Gets or sets provisioning state of the private endpoint connection
+        :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: Gets or sets provisioning state of the private endpoint connection
         """
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
@@ -83,14 +84,14 @@ class PrivateEndpointConnectionArgs:
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
+    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ProvisioningState']]]:
         """
         Gets or sets provisioning state of the private endpoint connection
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
+    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
 
 
@@ -99,12 +100,12 @@ class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
                  action_required: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None):
+                 status: Optional[pulumi.Input[Union[str, 'PrivateEndpointConnectionStatus']]] = None):
         """
         Private Link Service Connection State
         :param pulumi.Input[str] action_required: Gets or sets actions required
         :param pulumi.Input[str] description: Gets or sets description
-        :param pulumi.Input[str] status: Gets or sets the status
+        :param pulumi.Input[Union[str, 'PrivateEndpointConnectionStatus']] status: Gets or sets the status
         """
         if action_required is not None:
             pulumi.set(__self__, "action_required", action_required)
@@ -139,14 +140,14 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input[Union[str, 'PrivateEndpointConnectionStatus']]]:
         """
         Gets or sets the status
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 

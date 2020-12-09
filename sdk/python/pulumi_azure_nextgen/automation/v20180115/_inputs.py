@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'ContentHashArgs',
@@ -56,13 +57,13 @@ class ContentHashArgs:
 class ContentSourceArgs:
     def __init__(__self__, *,
                  hash: Optional[pulumi.Input['ContentHashArgs']] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'ContentSourceType']]] = None,
                  value: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         Definition of the content source.
         :param pulumi.Input['ContentHashArgs'] hash: Gets or sets the hash.
-        :param pulumi.Input[str] type: Gets or sets the content source type.
+        :param pulumi.Input[Union[str, 'ContentSourceType']] type: Gets or sets the content source type.
         :param pulumi.Input[str] value: Gets or sets the value of the content. This is based on the content source type.
         :param pulumi.Input[str] version: Gets or sets the version of the content.
         """
@@ -89,14 +90,14 @@ class ContentSourceArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ContentSourceType']]]:
         """
         Gets or sets the content source type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ContentSourceType']]]):
         pulumi.set(self, "type", value)
 
     @property

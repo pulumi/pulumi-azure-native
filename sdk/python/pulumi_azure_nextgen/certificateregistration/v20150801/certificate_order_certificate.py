@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['CertificateOrderCertificate']
 
@@ -22,7 +23,7 @@ class CertificateOrderCertificate(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input['KeyVaultSecretStatus']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -41,7 +42,7 @@ class CertificateOrderCertificate(pulumi.CustomResource):
         :param pulumi.Input[str] kind: Kind of resource
         :param pulumi.Input[str] location: Resource Location
         :param pulumi.Input[str] name: Resource Name
-        :param pulumi.Input[str] provisioning_state: Status of the Key Vault secret
+        :param pulumi.Input['KeyVaultSecretStatus'] provisioning_state: Status of the Key Vault secret
         :param pulumi.Input[str] resource_group_name: Azure resource group name
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] type: Resource type
@@ -63,21 +64,21 @@ class CertificateOrderCertificate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if certificate_order_name is None:
+            if certificate_order_name is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_order_name'")
             __props__['certificate_order_name'] = certificate_order_name
             __props__['id'] = id
             __props__['key_vault_id'] = key_vault_id
             __props__['key_vault_secret_name'] = key_vault_secret_name
             __props__['kind'] = kind
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['provisioning_state'] = provisioning_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

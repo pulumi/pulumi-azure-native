@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = [
@@ -234,7 +235,7 @@ def list_web_app_backup_status_secrets_slot(backup_id: Optional[str] = None,
                                             resource_group_name: Optional[str] = None,
                                             slot: Optional[str] = None,
                                             storage_account_url: Optional[str] = None,
-                                            type: Optional[str] = None,
+                                            type: Optional['BackupRestoreOperationType'] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppBackupStatusSecretsSlotResult:
     """
     Use this data source to access information about an existing resource.
@@ -249,7 +250,7 @@ def list_web_app_backup_status_secrets_slot(backup_id: Optional[str] = None,
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     :param str slot: Name of web app slot. If not specified then will default to production slot.
     :param str storage_account_url: SAS URL to the container.
-    :param str type: Type of the backup.
+    :param 'BackupRestoreOperationType' type: Type of the backup.
     """
     __args__ = dict()
     __args__['backupId'] = backup_id

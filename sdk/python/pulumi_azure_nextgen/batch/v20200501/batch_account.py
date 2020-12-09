@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['BatchAccount']
@@ -23,8 +24,8 @@ class BatchAccount(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['BatchAccountIdentityArgs']]] = None,
                  key_vault_reference: Optional[pulumi.Input[pulumi.InputType['KeyVaultReferenceArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 pool_allocation_mode: Optional[pulumi.Input[str]] = None,
-                 public_network_access: Optional[pulumi.Input[str]] = None,
+                 pool_allocation_mode: Optional[pulumi.Input['PoolAllocationMode']] = None,
+                 public_network_access: Optional[pulumi.Input['PublicNetworkAccessType']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -41,8 +42,8 @@ class BatchAccount(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['BatchAccountIdentityArgs']] identity: The identity of the Batch account.
         :param pulumi.Input[pulumi.InputType['KeyVaultReferenceArgs']] key_vault_reference: A reference to the Azure key vault associated with the Batch account.
         :param pulumi.Input[str] location: The region in which to create the account.
-        :param pulumi.Input[str] pool_allocation_mode: The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
-        :param pulumi.Input[str] public_network_access: If not specified, the default value is 'enabled'.
+        :param pulumi.Input['PoolAllocationMode'] pool_allocation_mode: The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
+        :param pulumi.Input['PublicNetworkAccessType'] public_network_access: If not specified, the default value is 'enabled'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Batch account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The user-specified tags associated with the account.
         """
@@ -63,19 +64,19 @@ class BatchAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if account_name is None:
+            if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['auto_storage'] = auto_storage
             __props__['encryption'] = encryption
             __props__['identity'] = identity
             __props__['key_vault_reference'] = key_vault_reference
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['pool_allocation_mode'] = pool_allocation_mode
             __props__['public_network_access'] = public_network_access
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

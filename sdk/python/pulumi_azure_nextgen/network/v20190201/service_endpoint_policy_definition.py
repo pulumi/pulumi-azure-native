@@ -63,14 +63,14 @@ class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
             __props__['etag'] = etag
             __props__['id'] = id
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['service'] = service
-            if service_endpoint_policy_definition_name is None:
+            if service_endpoint_policy_definition_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_policy_definition_name'")
             __props__['service_endpoint_policy_definition_name'] = service_endpoint_policy_definition_name
-            if service_endpoint_policy_name is None:
+            if service_endpoint_policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_policy_name'")
             __props__['service_endpoint_policy_name'] = service_endpoint_policy_name
             __props__['service_resources'] = service_resources

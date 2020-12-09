@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AkamaiAccessControlArgs',
@@ -254,11 +255,11 @@ class IPRangeArgs:
 @pulumi.input_type
 class LiveEventEncodingArgs:
     def __init__(__self__, *,
-                 encoding_type: Optional[pulumi.Input[str]] = None,
+                 encoding_type: Optional[pulumi.Input[Union[str, 'LiveEventEncodingType']]] = None,
                  preset_name: Optional[pulumi.Input[str]] = None):
         """
         The Live Event encoding.
-        :param pulumi.Input[str] encoding_type: The encoding type for Live Event.  This value is specified at creation time and cannot be updated.
+        :param pulumi.Input[Union[str, 'LiveEventEncodingType']] encoding_type: The encoding type for Live Event.  This value is specified at creation time and cannot be updated.
         :param pulumi.Input[str] preset_name: The encoding preset name.  This value is specified at creation time and cannot be updated.
         """
         if encoding_type is not None:
@@ -268,14 +269,14 @@ class LiveEventEncodingArgs:
 
     @property
     @pulumi.getter(name="encodingType")
-    def encoding_type(self) -> Optional[pulumi.Input[str]]:
+    def encoding_type(self) -> Optional[pulumi.Input[Union[str, 'LiveEventEncodingType']]]:
         """
         The encoding type for Live Event.  This value is specified at creation time and cannot be updated.
         """
         return pulumi.get(self, "encoding_type")
 
     @encoding_type.setter
-    def encoding_type(self, value: Optional[pulumi.Input[str]]):
+    def encoding_type(self, value: Optional[pulumi.Input[Union[str, 'LiveEventEncodingType']]]):
         pulumi.set(self, "encoding_type", value)
 
     @property
@@ -334,14 +335,14 @@ class LiveEventEndpointArgs:
 @pulumi.input_type
 class LiveEventInputArgs:
     def __init__(__self__, *,
-                 streaming_protocol: pulumi.Input[str],
+                 streaming_protocol: pulumi.Input[Union[str, 'LiveEventInputProtocol']],
                  access_control: Optional[pulumi.Input['LiveEventInputAccessControlArgs']] = None,
                  access_token: Optional[pulumi.Input[str]] = None,
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['LiveEventEndpointArgs']]]] = None,
                  key_frame_interval_duration: Optional[pulumi.Input[str]] = None):
         """
         The Live Event input.
-        :param pulumi.Input[str] streaming_protocol: The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
+        :param pulumi.Input[Union[str, 'LiveEventInputProtocol']] streaming_protocol: The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
         :param pulumi.Input['LiveEventInputAccessControlArgs'] access_control: The access control for LiveEvent Input.
         :param pulumi.Input[str] access_token: A unique identifier for a stream.  This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
         :param pulumi.Input[Sequence[pulumi.Input['LiveEventEndpointArgs']]] endpoints: The input endpoints for the Live Event.
@@ -359,14 +360,14 @@ class LiveEventInputArgs:
 
     @property
     @pulumi.getter(name="streamingProtocol")
-    def streaming_protocol(self) -> pulumi.Input[str]:
+    def streaming_protocol(self) -> pulumi.Input[Union[str, 'LiveEventInputProtocol']]:
         """
         The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
         """
         return pulumi.get(self, "streaming_protocol")
 
     @streaming_protocol.setter
-    def streaming_protocol(self, value: pulumi.Input[str]):
+    def streaming_protocol(self, value: pulumi.Input[Union[str, 'LiveEventInputProtocol']]):
         pulumi.set(self, "streaming_protocol", value)
 
     @property

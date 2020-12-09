@@ -79,18 +79,18 @@ class VirtualHub(pulumi.CustomResource):
             __props__['azure_firewall'] = azure_firewall
             __props__['express_route_gateway'] = express_route_gateway
             __props__['id'] = id
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['p2_s_vpn_gateway'] = p2_s_vpn_gateway
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['route_table'] = route_table
             __props__['security_provider_name'] = security_provider_name
             __props__['sku'] = sku
             __props__['tags'] = tags
-            if virtual_hub_name is None:
+            if virtual_hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_hub_name'")
             __props__['virtual_hub_name'] = virtual_hub_name
             __props__['virtual_hub_route_table_v2s'] = virtual_hub_route_table_v2s

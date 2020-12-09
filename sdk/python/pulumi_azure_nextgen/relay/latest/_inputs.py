@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'SkuArgs',
@@ -15,12 +16,12 @@ __all__ = [
 @pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
-                 tier: Optional[pulumi.Input[str]] = None):
+                 name: pulumi.Input['SkuName'],
+                 tier: Optional[pulumi.Input['SkuTier']] = None):
         """
         SKU of the namespace.
-        :param pulumi.Input[str] name: Name of this SKU.
-        :param pulumi.Input[str] tier: The tier of this SKU.
+        :param pulumi.Input['SkuName'] name: Name of this SKU.
+        :param pulumi.Input['SkuTier'] tier: The tier of this SKU.
         """
         pulumi.set(__self__, "name", name)
         if tier is not None:
@@ -28,26 +29,26 @@ class SkuArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> pulumi.Input['SkuName']:
         """
         Name of this SKU.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: pulumi.Input['SkuName']):
         pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[str]]:
+    def tier(self) -> Optional[pulumi.Input['SkuTier']]:
         """
         The tier of this SKU.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[str]]):
+    def tier(self, value: Optional[pulumi.Input['SkuTier']]):
         pulumi.set(self, "tier", value)
 
 

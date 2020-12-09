@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AzureFunctionEventSubscriptionDestinationArgs',
@@ -171,12 +172,12 @@ class ConnectionStateArgs:
     def __init__(__self__, *,
                  actions_required: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None):
+                 status: Optional[pulumi.Input[Union[str, 'PersistedConnectionStatus']]] = None):
         """
         ConnectionState information.
         :param pulumi.Input[str] actions_required: Actions required (if any).
         :param pulumi.Input[str] description: Description of the connection state.
-        :param pulumi.Input[str] status: Status of the connection.
+        :param pulumi.Input[Union[str, 'PersistedConnectionStatus']] status: Status of the connection.
         """
         if actions_required is not None:
             pulumi.set(__self__, "actions_required", actions_required)
@@ -211,14 +212,14 @@ class ConnectionStateArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
+    def status(self) -> Optional[pulumi.Input[Union[str, 'PersistedConnectionStatus']]]:
         """
         Status of the connection.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
+    def status(self, value: Optional[pulumi.Input[Union[str, 'PersistedConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -399,10 +400,10 @@ class HybridConnectionEventSubscriptionDestinationArgs:
 @pulumi.input_type
 class InboundIpRuleArgs:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input[str]] = None,
+                 action: Optional[pulumi.Input[Union[str, 'IpActionType']]] = None,
                  ip_mask: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] action: Action to perform based on the match or no match of the IpMask.
+        :param pulumi.Input[Union[str, 'IpActionType']] action: Action to perform based on the match or no match of the IpMask.
         :param pulumi.Input[str] ip_mask: IP Address in CIDR notation e.g., 10.0.0.0/8.
         """
         if action is not None:
@@ -412,14 +413,14 @@ class InboundIpRuleArgs:
 
     @property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[str]]:
+    def action(self) -> Optional[pulumi.Input[Union[str, 'IpActionType']]]:
         """
         Action to perform based on the match or no match of the IpMask.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input[str]]):
+    def action(self, value: Optional[pulumi.Input[Union[str, 'IpActionType']]]):
         pulumi.set(self, "action", value)
 
     @property
@@ -981,12 +982,12 @@ class PrivateEndpointConnectionArgs:
                  group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  private_endpoint: Optional[pulumi.Input['PrivateEndpointArgs']] = None,
                  private_link_service_connection_state: Optional[pulumi.Input['ConnectionStateArgs']] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None):
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'ResourceProvisioningState']]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: GroupIds from the private link service resource.
         :param pulumi.Input['PrivateEndpointArgs'] private_endpoint: The Private Endpoint resource for this Connection.
         :param pulumi.Input['ConnectionStateArgs'] private_link_service_connection_state: Details about the state of the connection.
-        :param pulumi.Input[str] provisioning_state: Provisioning state of the Private Endpoint Connection.
+        :param pulumi.Input[Union[str, 'ResourceProvisioningState']] provisioning_state: Provisioning state of the Private Endpoint Connection.
         """
         if group_ids is not None:
             pulumi.set(__self__, "group_ids", group_ids)
@@ -1035,14 +1036,14 @@ class PrivateEndpointConnectionArgs:
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
+    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ResourceProvisioningState']]]:
         """
         Provisioning state of the Private Endpoint Connection.
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
+    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ResourceProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
 
 

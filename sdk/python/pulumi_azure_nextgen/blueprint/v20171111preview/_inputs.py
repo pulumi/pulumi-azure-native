@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'AssignmentLockSettingsArgs',
@@ -18,36 +19,36 @@ __all__ = [
 @pulumi.input_type
 class AssignmentLockSettingsArgs:
     def __init__(__self__, *,
-                 mode: Optional[pulumi.Input[str]] = None):
+                 mode: Optional[pulumi.Input[Union[str, 'AssignmentLockMode']]] = None):
         """
         Defines how Blueprint-managed resources will be locked.
-        :param pulumi.Input[str] mode: Lock mode.
+        :param pulumi.Input[Union[str, 'AssignmentLockMode']] mode: Lock mode.
         """
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
 
     @property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[str]]:
+    def mode(self) -> Optional[pulumi.Input[Union[str, 'AssignmentLockMode']]]:
         """
         Lock mode.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[str]]):
+    def mode(self, value: Optional[pulumi.Input[Union[str, 'AssignmentLockMode']]]):
         pulumi.set(self, "mode", value)
 
 
 @pulumi.input_type
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[str],
+                 type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
         Managed Service Identity
-        :param pulumi.Input[str] type: Type of the Managed Service Identity.
+        :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of the Managed Service Identity.
         :param pulumi.Input[str] principal_id: Azure Active Directory principal ID associated with this Identity.
         :param pulumi.Input[str] tenant_id: ID of the Azure Active Directory.
         """
@@ -59,14 +60,14 @@ class ManagedServiceIdentityArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'ManagedServiceIdentityType']]:
         """
         Type of the Managed Service Identity.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]):
         pulumi.set(self, "type", value)
 
     @property

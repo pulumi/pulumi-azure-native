@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'EncryptionPropertiesDescriptionArgs',
@@ -64,26 +65,26 @@ class EncryptionPropertiesDescriptionArgs:
 @pulumi.input_type
 class IotDpsPropertiesDescriptionArgs:
     def __init__(__self__, *,
-                 allocation_policy: Optional[pulumi.Input[str]] = None,
+                 allocation_policy: Optional[pulumi.Input[Union[str, 'AllocationPolicy']]] = None,
                  authorization_policies: Optional[pulumi.Input[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs']]]] = None,
                  encryption: Optional[pulumi.Input['EncryptionPropertiesDescriptionArgs']] = None,
                  iot_hubs: Optional[pulumi.Input[Sequence[pulumi.Input['IotHubDefinitionDescriptionArgs']]]] = None,
                  ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpFilterRuleArgs']]]] = None,
                  private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
                  provisioning_state: Optional[pulumi.Input[str]] = None,
-                 public_network_access: Optional[pulumi.Input[str]] = None,
-                 state: Optional[pulumi.Input[str]] = None):
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+                 state: Optional[pulumi.Input[Union[str, 'State']]] = None):
         """
         the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
-        :param pulumi.Input[str] allocation_policy: Allocation policy to be used by this provisioning service.
+        :param pulumi.Input[Union[str, 'AllocationPolicy']] allocation_policy: Allocation policy to be used by this provisioning service.
         :param pulumi.Input[Sequence[pulumi.Input['SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs']]] authorization_policies: List of authorization keys for a provisioning service.
         :param pulumi.Input['EncryptionPropertiesDescriptionArgs'] encryption: The encryption properties for the IoT DPS instance.
         :param pulumi.Input[Sequence[pulumi.Input['IotHubDefinitionDescriptionArgs']]] iot_hubs: List of IoT hubs associated with this provisioning service.
         :param pulumi.Input[Sequence[pulumi.Input['IpFilterRuleArgs']]] ip_filter_rules: The IP filter rules.
         :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]] private_endpoint_connections: Private endpoint connections created on this IotHub
         :param pulumi.Input[str] provisioning_state: The ARM provisioning state of the provisioning service.
-        :param pulumi.Input[str] public_network_access: Whether requests from Public Network are allowed
-        :param pulumi.Input[str] state: Current state of the provisioning service.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether requests from Public Network are allowed
+        :param pulumi.Input[Union[str, 'State']] state: Current state of the provisioning service.
         """
         if allocation_policy is not None:
             pulumi.set(__self__, "allocation_policy", allocation_policy)
@@ -106,14 +107,14 @@ class IotDpsPropertiesDescriptionArgs:
 
     @property
     @pulumi.getter(name="allocationPolicy")
-    def allocation_policy(self) -> Optional[pulumi.Input[str]]:
+    def allocation_policy(self) -> Optional[pulumi.Input[Union[str, 'AllocationPolicy']]]:
         """
         Allocation policy to be used by this provisioning service.
         """
         return pulumi.get(self, "allocation_policy")
 
     @allocation_policy.setter
-    def allocation_policy(self, value: Optional[pulumi.Input[str]]):
+    def allocation_policy(self, value: Optional[pulumi.Input[Union[str, 'AllocationPolicy']]]):
         pulumi.set(self, "allocation_policy", value)
 
     @property
@@ -190,26 +191,26 @@ class IotDpsPropertiesDescriptionArgs:
 
     @property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[str]]:
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
         """
         Whether requests from Public Network are allowed
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[str]]):
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
         pulumi.set(self, "public_network_access", value)
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[str]]:
+    def state(self) -> Optional[pulumi.Input[Union[str, 'State']]]:
         """
         Current state of the provisioning service.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[str]]):
+    def state(self, value: Optional[pulumi.Input[Union[str, 'State']]]):
         pulumi.set(self, "state", value)
 
 
@@ -217,11 +218,11 @@ class IotDpsPropertiesDescriptionArgs:
 class IotDpsSkuInfoArgs:
     def __init__(__self__, *,
                  capacity: Optional[pulumi.Input[int]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[Union[str, 'IotDpsSku']]] = None):
         """
         List of possible provisioning service SKUs.
         :param pulumi.Input[int] capacity: The number of units to provision
-        :param pulumi.Input[str] name: Sku name.
+        :param pulumi.Input[Union[str, 'IotDpsSku']] name: Sku name.
         """
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
@@ -242,14 +243,14 @@ class IotDpsSkuInfoArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    def name(self) -> Optional[pulumi.Input[Union[str, 'IotDpsSku']]]:
         """
         Sku name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
+    def name(self, value: Optional[pulumi.Input[Union[str, 'IotDpsSku']]]):
         pulumi.set(self, "name", value)
 
 
@@ -326,16 +327,16 @@ class IotHubDefinitionDescriptionArgs:
 @pulumi.input_type
 class IpFilterRuleArgs:
     def __init__(__self__, *,
-                 action: pulumi.Input[str],
+                 action: pulumi.Input['IpFilterActionType'],
                  filter_name: pulumi.Input[str],
                  ip_mask: pulumi.Input[str],
-                 target: Optional[pulumi.Input[str]] = None):
+                 target: Optional[pulumi.Input['IpFilterTargetType']] = None):
         """
         The IP filter rules for a provisioning Service.
-        :param pulumi.Input[str] action: The desired action for requests captured by this rule.
+        :param pulumi.Input['IpFilterActionType'] action: The desired action for requests captured by this rule.
         :param pulumi.Input[str] filter_name: The name of the IP filter rule.
         :param pulumi.Input[str] ip_mask: A string that contains the IP address range in CIDR notation for the rule.
-        :param pulumi.Input[str] target: Target for requests captured by this rule.
+        :param pulumi.Input['IpFilterTargetType'] target: Target for requests captured by this rule.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "filter_name", filter_name)
@@ -345,14 +346,14 @@ class IpFilterRuleArgs:
 
     @property
     @pulumi.getter
-    def action(self) -> pulumi.Input[str]:
+    def action(self) -> pulumi.Input['IpFilterActionType']:
         """
         The desired action for requests captured by this rule.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: pulumi.Input[str]):
+    def action(self, value: pulumi.Input['IpFilterActionType']):
         pulumi.set(self, "action", value)
 
     @property
@@ -381,14 +382,14 @@ class IpFilterRuleArgs:
 
     @property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input[str]]:
+    def target(self) -> Optional[pulumi.Input['IpFilterTargetType']]:
         """
         Target for requests captured by this rule.
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input[str]]):
+    def target(self, value: Optional[pulumi.Input['IpFilterTargetType']]):
         pulumi.set(self, "target", value)
 
 
@@ -466,12 +467,12 @@ class PrivateEndpointConnectionPropertiesArgs:
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[str],
-                 status: pulumi.Input[str],
+                 status: pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']],
                  actions_required: Optional[pulumi.Input[str]] = None):
         """
         The current state of a private endpoint connection
         :param pulumi.Input[str] description: The description for the current state of a private endpoint connection
-        :param pulumi.Input[str] status: The status of a private endpoint connection
+        :param pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']] status: The status of a private endpoint connection
         :param pulumi.Input[str] actions_required: Actions required for a private endpoint connection
         """
         pulumi.set(__self__, "description", description)
@@ -493,14 +494,14 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Input[str]:
+    def status(self) -> pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']]:
         """
         The status of a private endpoint connection
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: pulumi.Input[str]):
+    def status(self, value: pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']]):
         pulumi.set(self, "status", value)
 
     @property
@@ -520,13 +521,13 @@ class PrivateLinkServiceConnectionStateArgs:
 class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs:
     def __init__(__self__, *,
                  key_name: pulumi.Input[str],
-                 rights: pulumi.Input[str],
+                 rights: pulumi.Input[Union[str, 'AccessRightsDescription']],
                  primary_key: Optional[pulumi.Input[str]] = None,
                  secondary_key: Optional[pulumi.Input[str]] = None):
         """
         Description of the shared access key.
         :param pulumi.Input[str] key_name: Name of the key.
-        :param pulumi.Input[str] rights: Rights that this key has.
+        :param pulumi.Input[Union[str, 'AccessRightsDescription']] rights: Rights that this key has.
         :param pulumi.Input[str] primary_key: Primary SAS key value.
         :param pulumi.Input[str] secondary_key: Secondary SAS key value.
         """
@@ -551,14 +552,14 @@ class SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionArgs:
 
     @property
     @pulumi.getter
-    def rights(self) -> pulumi.Input[str]:
+    def rights(self) -> pulumi.Input[Union[str, 'AccessRightsDescription']]:
         """
         Rights that this key has.
         """
         return pulumi.get(self, "rights")
 
     @rights.setter
-    def rights(self, value: pulumi.Input[str]):
+    def rights(self, value: pulumi.Input[Union[str, 'AccessRightsDescription']]):
         pulumi.set(self, "rights", value)
 
     @property

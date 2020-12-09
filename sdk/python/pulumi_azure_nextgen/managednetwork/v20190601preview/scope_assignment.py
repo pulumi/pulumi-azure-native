@@ -51,10 +51,10 @@ class ScopeAssignment(pulumi.CustomResource):
 
             __props__['assigned_managed_network'] = assigned_managed_network
             __props__['location'] = location
-            if scope is None:
+            if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
-            if scope_assignment_name is None:
+            if scope_assignment_name is None and not opts.urn:
                 raise TypeError("Missing required property 'scope_assignment_name'")
             __props__['scope_assignment_name'] = scope_assignment_name
             __props__['etag'] = None

@@ -55,16 +55,16 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if backend_address_pool_name is None:
+            if backend_address_pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'backend_address_pool_name'")
             __props__['backend_address_pool_name'] = backend_address_pool_name
             __props__['id'] = id
             __props__['load_balancer_backend_addresses'] = load_balancer_backend_addresses
-            if load_balancer_name is None:
+            if load_balancer_name is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer_name'")
             __props__['load_balancer_name'] = load_balancer_name
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['backend_ip_configurations'] = None

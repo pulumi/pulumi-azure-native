@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ReportByResourceGroupName']
@@ -19,7 +20,7 @@ class ReportByResourceGroupName(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  definition: Optional[pulumi.Input[pulumi.InputType['ReportDefinitionArgs']]] = None,
                  delivery_info: Optional[pulumi.Input[pulumi.InputType['ReportDeliveryInfoArgs']]] = None,
-                 format: Optional[pulumi.Input[str]] = None,
+                 format: Optional[pulumi.Input[Union[str, 'FormatType']]] = None,
                  report_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['ReportScheduleArgs']]] = None,
@@ -33,7 +34,7 @@ class ReportByResourceGroupName(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ReportDefinitionArgs']] definition: Has definition for the report.
         :param pulumi.Input[pulumi.InputType['ReportDeliveryInfoArgs']] delivery_info: Has delivery information for the report.
-        :param pulumi.Input[str] format: The format of the report being delivered.
+        :param pulumi.Input[Union[str, 'FormatType']] format: The format of the report being delivered.
         :param pulumi.Input[str] report_name: Report Name.
         :param pulumi.Input[str] resource_group_name: Azure Resource Group Name.
         :param pulumi.Input[pulumi.InputType['ReportScheduleArgs']] schedule: Has schedule information for the report.
@@ -55,17 +56,17 @@ class ReportByResourceGroupName(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if definition is None:
+            if definition is None and not opts.urn:
                 raise TypeError("Missing required property 'definition'")
             __props__['definition'] = definition
-            if delivery_info is None:
+            if delivery_info is None and not opts.urn:
                 raise TypeError("Missing required property 'delivery_info'")
             __props__['delivery_info'] = delivery_info
             __props__['format'] = format
-            if report_name is None:
+            if report_name is None and not opts.urn:
                 raise TypeError("Missing required property 'report_name'")
             __props__['report_name'] = report_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['schedule'] = schedule

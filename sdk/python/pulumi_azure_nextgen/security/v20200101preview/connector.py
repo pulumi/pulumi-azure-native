@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Connector']
@@ -50,7 +51,7 @@ class Connector(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['authentication_details'] = authentication_details
-            if connector_name is None:
+            if connector_name is None and not opts.urn:
                 raise TypeError("Missing required property 'connector_name'")
             __props__['connector_name'] = connector_name
             __props__['hybrid_compute_settings'] = hybrid_compute_settings

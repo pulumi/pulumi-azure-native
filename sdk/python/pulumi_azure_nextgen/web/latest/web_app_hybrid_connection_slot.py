@@ -71,25 +71,25 @@ class WebAppHybridConnectionSlot(pulumi.CustomResource):
 
             __props__['hostname'] = hostname
             __props__['kind'] = kind
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if namespace_name is None:
+            if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
             __props__['port'] = port
             __props__['relay_arm_uri'] = relay_arm_uri
-            if relay_name is None:
+            if relay_name is None and not opts.urn:
                 raise TypeError("Missing required property 'relay_name'")
             __props__['relay_name'] = relay_name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['send_key_name'] = send_key_name
             __props__['send_key_value'] = send_key_value
             __props__['service_bus_namespace'] = service_bus_namespace
             __props__['service_bus_suffix'] = service_bus_suffix
-            if slot is None:
+            if slot is None and not opts.urn:
                 raise TypeError("Missing required property 'slot'")
             __props__['slot'] = slot
             __props__['system_data'] = None

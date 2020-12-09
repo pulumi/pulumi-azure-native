@@ -74,23 +74,23 @@ class ServerFarmRouteForVnet(pulumi.CustomResource):
             __props__['end_address'] = end_address
             __props__['id'] = id
             __props__['kind'] = kind
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if route_name is None:
+            if route_name is None and not opts.urn:
                 raise TypeError("Missing required property 'route_name'")
             __props__['route_name'] = route_name
             __props__['route_type'] = route_type
             __props__['start_address'] = start_address
             __props__['tags'] = tags
             __props__['type'] = type
-            if vnet_name is None:
+            if vnet_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vnet_name'")
             __props__['vnet_name'] = vnet_name
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:web/latest:ServerFarmRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20160901:ServerFarmRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20180201:ServerFarmRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20190801:ServerFarmRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20200601:ServerFarmRouteForVnet"), pulumi.Alias(type_="azure-nextgen:web/v20200901:ServerFarmRouteForVnet")])

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['OperationalizationCluster']
@@ -19,7 +20,7 @@ class OperationalizationCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_insights: Optional[pulumi.Input[pulumi.InputType['AppInsightsCredentialsArgs']]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 cluster_type: Optional[pulumi.Input[str]] = None,
+                 cluster_type: Optional[pulumi.Input[Union[str, 'ClusterType']]] = None,
                  container_registry: Optional[pulumi.Input[pulumi.InputType['ContainerRegistryPropertiesArgs']]] = None,
                  container_service: Optional[pulumi.Input[pulumi.InputType['AcsClusterPropertiesArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -38,7 +39,7 @@ class OperationalizationCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AppInsightsCredentialsArgs']] app_insights: AppInsights configuration
         :param pulumi.Input[str] cluster_name: The name of the cluster.
-        :param pulumi.Input[str] cluster_type: The cluster type.
+        :param pulumi.Input[Union[str, 'ClusterType']] cluster_type: The cluster type.
         :param pulumi.Input[pulumi.InputType['ContainerRegistryPropertiesArgs']] container_registry: Container Registry properties.
         :param pulumi.Input[pulumi.InputType['AcsClusterPropertiesArgs']] container_service: Parameters for the Azure Container Service cluster.
         :param pulumi.Input[str] description: The description of the cluster.
@@ -66,22 +67,22 @@ class OperationalizationCluster(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['app_insights'] = app_insights
-            if cluster_name is None:
+            if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
-            if cluster_type is None:
+            if cluster_type is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_type'")
             __props__['cluster_type'] = cluster_type
             __props__['container_registry'] = container_registry
-            if container_service is None:
+            if container_service is None and not opts.urn:
                 raise TypeError("Missing required property 'container_service'")
             __props__['container_service'] = container_service
             __props__['description'] = description
             __props__['global_service_configuration'] = global_service_configuration
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['storage_account'] = storage_account

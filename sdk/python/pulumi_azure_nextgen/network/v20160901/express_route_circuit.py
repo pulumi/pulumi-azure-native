@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ExpressRouteCircuit']
@@ -31,7 +32,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
                  service_key: Optional[pulumi.Input[str]] = None,
                  service_provider_notes: Optional[pulumi.Input[str]] = None,
                  service_provider_properties: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitServiceProviderPropertiesArgs']]] = None,
-                 service_provider_provisioning_state: Optional[pulumi.Input[str]] = None,
+                 service_provider_provisioning_state: Optional[pulumi.Input[Union[str, 'ServiceProviderProvisioningState']]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None,
@@ -56,7 +57,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param pulumi.Input[str] service_key: The ServiceKey.
         :param pulumi.Input[str] service_provider_notes: The ServiceProviderNotes.
         :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitServiceProviderPropertiesArgs']] service_provider_properties: The ServiceProviderProperties.
-        :param pulumi.Input[str] service_provider_provisioning_state: The ServiceProviderProvisioningState state of the resource. Possible values are 'NotProvisioned', 'Provisioning', 'Provisioned', and 'Deprovisioning'.
+        :param pulumi.Input[Union[str, 'ServiceProviderProvisioningState']] service_provider_provisioning_state: The ServiceProviderProvisioningState state of the resource. Possible values are 'NotProvisioned', 'Provisioning', 'Provisioned', and 'Deprovisioning'.
         :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitSkuArgs']] sku: The SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -79,7 +80,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
             __props__['allow_classic_operations'] = allow_classic_operations
             __props__['authorizations'] = authorizations
-            if circuit_name is None:
+            if circuit_name is None and not opts.urn:
                 raise TypeError("Missing required property 'circuit_name'")
             __props__['circuit_name'] = circuit_name
             __props__['circuit_provisioning_state'] = circuit_provisioning_state
@@ -89,7 +90,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             __props__['location'] = location
             __props__['peerings'] = peerings
             __props__['provisioning_state'] = provisioning_state
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['service_key'] = service_key

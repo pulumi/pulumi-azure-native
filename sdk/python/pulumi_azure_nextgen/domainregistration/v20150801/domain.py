@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Domain']
@@ -35,9 +36,9 @@ class Domain(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  privacy: Optional[pulumi.Input[bool]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
+                 provisioning_state: Optional[pulumi.Input['ProvisioningState']] = None,
                  ready_for_dns_record_management: Optional[pulumi.Input[bool]] = None,
-                 registration_status: Optional[pulumi.Input[str]] = None,
+                 registration_status: Optional[pulumi.Input['DomainStatus']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -67,9 +68,9 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] name: Resource Name
         :param pulumi.Input[Sequence[pulumi.Input[str]]] name_servers: Name servers
         :param pulumi.Input[bool] privacy: If true then domain privacy is enabled for this domain
-        :param pulumi.Input[str] provisioning_state: Domain provisioning state
+        :param pulumi.Input['ProvisioningState'] provisioning_state: Domain provisioning state
         :param pulumi.Input[bool] ready_for_dns_record_management: If true then Azure can assign this domain to Web Apps. This value will be true if domain registration status is active and it is hosted on name servers Azure has programmatic access to
-        :param pulumi.Input[str] registration_status: Domain registration status
+        :param pulumi.Input['DomainStatus'] registration_status: Domain registration status
         :param pulumi.Input[str] resource_group_name: &gt;Name of the resource group
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] type: Resource type
@@ -98,7 +99,7 @@ class Domain(pulumi.CustomResource):
             __props__['contact_registrant'] = contact_registrant
             __props__['contact_tech'] = contact_tech
             __props__['created_time'] = created_time
-            if domain_name is None:
+            if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__['domain_name'] = domain_name
             __props__['domain_not_renewable_reasons'] = domain_not_renewable_reasons
@@ -106,7 +107,7 @@ class Domain(pulumi.CustomResource):
             __props__['id'] = id
             __props__['kind'] = kind
             __props__['last_renewed_time'] = last_renewed_time
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['managed_host_names'] = managed_host_names
@@ -116,7 +117,7 @@ class Domain(pulumi.CustomResource):
             __props__['provisioning_state'] = provisioning_state
             __props__['ready_for_dns_record_management'] = ready_for_dns_record_management
             __props__['registration_status'] = registration_status
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags

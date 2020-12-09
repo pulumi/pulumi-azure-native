@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from ._enums import *
 from .export_pipeline import *
 from .get_export_pipeline import *
 from .get_import_pipeline import *
@@ -22,3 +23,38 @@ from .replication import *
 from .webhook import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from ... import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azure-nextgen:containerregistry/v20191201preview:ExportPipeline":
+                return ExportPipeline(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:containerregistry/v20191201preview:ImportPipeline":
+                return ImportPipeline(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:containerregistry/v20191201preview:PipelineRun":
+                return PipelineRun(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:containerregistry/v20191201preview:PrivateEndpointConnection":
+                return PrivateEndpointConnection(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:containerregistry/v20191201preview:Registry":
+                return Registry(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:containerregistry/v20191201preview:Replication":
+                return Replication(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:containerregistry/v20191201preview:Webhook":
+                return Webhook(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azure-nextgen", "containerregistry/v20191201preview", _module_instance)
+
+_register_module()

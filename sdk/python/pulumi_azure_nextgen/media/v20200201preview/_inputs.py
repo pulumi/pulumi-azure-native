@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = [
     'MediaGraphAssetSinkArgs',
@@ -184,13 +185,13 @@ class MediaGraphRtspSourceArgs:
                  endpoint: pulumi.Input[Union['MediaGraphClearEndpointArgs', 'MediaGraphTlsEndpointArgs']],
                  name: pulumi.Input[str],
                  odata_type: pulumi.Input[str],
-                 transport: pulumi.Input[str]):
+                 transport: pulumi.Input[Union[str, 'MediaGraphRtspTransport']]):
         """
         RTSP source.
         :param pulumi.Input[Union['MediaGraphClearEndpointArgs', 'MediaGraphTlsEndpointArgs']] endpoint: RTSP endpoint of the stream being connected to.
         :param pulumi.Input[str] name: Source name.
         :param pulumi.Input[str] odata_type: The discriminator for derived types.
-        :param pulumi.Input[str] transport: Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
+        :param pulumi.Input[Union[str, 'MediaGraphRtspTransport']] transport: Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
         """
         pulumi.set(__self__, "endpoint", endpoint)
         pulumi.set(__self__, "name", name)
@@ -235,14 +236,14 @@ class MediaGraphRtspSourceArgs:
 
     @property
     @pulumi.getter
-    def transport(self) -> pulumi.Input[str]:
+    def transport(self) -> pulumi.Input[Union[str, 'MediaGraphRtspTransport']]:
         """
         Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
         """
         return pulumi.get(self, "transport")
 
     @transport.setter
-    def transport(self, value: pulumi.Input[str]):
+    def transport(self, value: pulumi.Input[Union[str, 'MediaGraphRtspTransport']]):
         pulumi.set(self, "transport", value)
 
 

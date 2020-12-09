@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['Server']
@@ -20,10 +21,10 @@ class Server(pulumi.CustomResource):
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
-                 create_mode: Optional[pulumi.Input[str]] = None,
+                 create_mode: Optional[pulumi.Input[Union[str, 'CreateMode']]] = None,
                  delegated_subnet_arguments: Optional[pulumi.Input[pulumi.InputType['ServerPropertiesDelegatedSubnetArgumentsArgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 ha_enabled: Optional[pulumi.Input[str]] = None,
+                 ha_enabled: Optional[pulumi.Input['HAEnabledEnum']] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_window: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']]] = None,
@@ -34,7 +35,7 @@ class Server(pulumi.CustomResource):
                  source_server_name: Optional[pulumi.Input[str]] = None,
                  storage_profile: Optional[pulumi.Input[pulumi.InputType['StorageProfileArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 version: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -46,9 +47,9 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] administrator_login: The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
         :param pulumi.Input[str] administrator_login_password: The administrator login password (required for server creation).
         :param pulumi.Input[str] availability_zone: availability Zone information of the server.
-        :param pulumi.Input[str] create_mode: The mode to create a new PostgreSQL server.
+        :param pulumi.Input[Union[str, 'CreateMode']] create_mode: The mode to create a new PostgreSQL server.
         :param pulumi.Input[str] display_name: The display name of a server.
-        :param pulumi.Input[str] ha_enabled: stand by count value can be either enabled or disabled
+        :param pulumi.Input['HAEnabledEnum'] ha_enabled: stand by count value can be either enabled or disabled
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The Azure Active Directory identity of the server.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[pulumi.InputType['MaintenanceWindowArgs']] maintenance_window: Maintenance window of a server.
@@ -59,7 +60,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] source_server_name: The source PostgreSQL server name to restore from.
         :param pulumi.Input[pulumi.InputType['StorageProfileArgs']] storage_profile: Storage profile of a server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] version: PostgreSQL Server version.
+        :param pulumi.Input[Union[str, 'ServerVersion']] version: PostgreSQL Server version.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -86,15 +87,15 @@ class Server(pulumi.CustomResource):
             __props__['display_name'] = display_name
             __props__['ha_enabled'] = ha_enabled
             __props__['identity'] = identity
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             __props__['maintenance_window'] = maintenance_window
             __props__['point_in_time_utc'] = point_in_time_utc
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            if server_name is None:
+            if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
             __props__['sku'] = sku

@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ConnectionMonitor']
@@ -74,7 +75,7 @@ class ConnectionMonitor(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['auto_start'] = auto_start
-            if connection_monitor_name is None:
+            if connection_monitor_name is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_monitor_name'")
             __props__['connection_monitor_name'] = connection_monitor_name
             __props__['destination'] = destination
@@ -82,12 +83,12 @@ class ConnectionMonitor(pulumi.CustomResource):
             __props__['location'] = location
             __props__['migrate'] = migrate
             __props__['monitoring_interval_in_seconds'] = monitoring_interval_in_seconds
-            if network_watcher_name is None:
+            if network_watcher_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_watcher_name'")
             __props__['network_watcher_name'] = network_watcher_name
             __props__['notes'] = notes
             __props__['outputs'] = outputs
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['source'] = source

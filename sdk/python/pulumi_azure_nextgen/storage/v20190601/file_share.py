@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union
 from ... import _utilities, _tables
+from ._enums import *
 
 __all__ = ['FileShare']
 
@@ -15,12 +16,12 @@ class FileShare(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_tier: Optional[pulumi.Input[str]] = None,
+                 access_tier: Optional[pulumi.Input[Union[str, 'ShareAccessTier']]] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 enabled_protocols: Optional[pulumi.Input[str]] = None,
+                 enabled_protocols: Optional[pulumi.Input[Union[str, 'EnabledProtocols']]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 root_squash: Optional[pulumi.Input[str]] = None,
+                 root_squash: Optional[pulumi.Input[Union[str, 'RootSquashType']]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
                  share_quota: Optional[pulumi.Input[int]] = None,
                  __props__=None,
@@ -31,12 +32,12 @@ class FileShare(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access_tier: Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
+        :param pulumi.Input[Union[str, 'ShareAccessTier']] access_tier: Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-        :param pulumi.Input[str] enabled_protocols: The authentication protocol that is used for the file share. Can only be specified when creating a share.
+        :param pulumi.Input[Union[str, 'EnabledProtocols']] enabled_protocols: The authentication protocol that is used for the file share. Can only be specified when creating a share.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A name-value pair to associate with the share as metadata.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-        :param pulumi.Input[str] root_squash: The property is for NFS share only. The default is NoRootSquash.
+        :param pulumi.Input[Union[str, 'RootSquashType']] root_squash: The property is for NFS share only. The default is NoRootSquash.
         :param pulumi.Input[str] share_name: The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         :param pulumi.Input[int] share_quota: The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
         """
@@ -58,16 +59,16 @@ class FileShare(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['access_tier'] = access_tier
-            if account_name is None:
+            if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['enabled_protocols'] = enabled_protocols
             __props__['metadata'] = metadata
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['root_squash'] = root_squash
-            if share_name is None:
+            if share_name is None and not opts.urn:
                 raise TypeError("Missing required property 'share_name'")
             __props__['share_name'] = share_name
             __props__['share_quota'] = share_quota

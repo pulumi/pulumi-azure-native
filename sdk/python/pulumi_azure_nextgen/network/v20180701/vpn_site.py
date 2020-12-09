@@ -70,16 +70,16 @@ class VpnSite(pulumi.CustomResource):
             __props__['device_properties'] = device_properties
             __props__['id'] = id
             __props__['ip_address'] = ip_address
-            if location is None:
+            if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
-            if resource_group_name is None:
+            if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['site_key'] = site_key
             __props__['tags'] = tags
             __props__['virtual_wan'] = virtual_wan
-            if vpn_site_name is None:
+            if vpn_site_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vpn_site_name'")
             __props__['vpn_site_name'] = vpn_site_name
             __props__['etag'] = None
