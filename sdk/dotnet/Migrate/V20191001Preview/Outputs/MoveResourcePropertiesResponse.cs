@@ -30,6 +30,10 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Outputs
         /// </summary>
         public readonly string? ExistingTargetId;
         /// <summary>
+        /// Gets a value indicating whether the resolve action is required over the move collection.
+        /// </summary>
+        public readonly bool IsResolveRequired;
+        /// <summary>
         /// Defines the move resource status.
         /// </summary>
         public readonly Outputs.MoveResourcePropertiesResponseMoveStatus MoveStatus;
@@ -64,6 +68,8 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Outputs
 
             string? existingTargetId,
 
+            bool isResolveRequired,
+
             Outputs.MoveResourcePropertiesResponseMoveStatus moveStatus,
 
             string provisioningState,
@@ -80,6 +86,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Outputs
             DependsOnOverrides = dependsOnOverrides;
             Errors = errors;
             ExistingTargetId = existingTargetId;
+            IsResolveRequired = isResolveRequired;
             MoveStatus = moveStatus;
             ProvisioningState = provisioningState;
             ResourceSettings = resourceSettings;

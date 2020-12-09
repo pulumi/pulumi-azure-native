@@ -15,6 +15,8 @@ import (
 type MoveCollection struct {
 	pulumi.CustomResourceState
 
+	// The etag of the resource.
+	Etag pulumi.StringOutput `pulumi:"etag"`
 	// Defines the MSI properties of the Move Collection.
 	Identity IdentityResponsePtrOutput `pulumi:"identity"`
 	// The geo-location where the resource lives.
@@ -63,6 +65,8 @@ func GetMoveCollection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MoveCollection resources.
 type moveCollectionState struct {
+	// The etag of the resource.
+	Etag *string `pulumi:"etag"`
 	// Defines the MSI properties of the Move Collection.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// The geo-location where the resource lives.
@@ -78,6 +82,8 @@ type moveCollectionState struct {
 }
 
 type MoveCollectionState struct {
+	// The etag of the resource.
+	Etag pulumi.StringPtrInput
 	// Defines the MSI properties of the Move Collection.
 	Identity IdentityResponsePtrInput
 	// The geo-location where the resource lives.

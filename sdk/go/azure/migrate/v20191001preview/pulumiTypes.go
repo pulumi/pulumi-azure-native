@@ -2008,6 +2008,8 @@ func (o MoveCollectionPropertiesPtrOutput) TargetRegion() pulumi.StringPtrOutput
 
 // Defines the move collection properties.
 type MoveCollectionPropertiesResponse struct {
+	// Defines the move collection errors.
+	Errors MoveCollectionPropertiesResponseErrors `pulumi:"errors"`
 	// Defines the provisioning states.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Gets or sets the source region.
@@ -2029,6 +2031,8 @@ type MoveCollectionPropertiesResponseInput interface {
 
 // Defines the move collection properties.
 type MoveCollectionPropertiesResponseArgs struct {
+	// Defines the move collection errors.
+	Errors MoveCollectionPropertiesResponseErrorsInput `pulumi:"errors"`
 	// Defines the provisioning states.
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 	// Gets or sets the source region.
@@ -2115,6 +2119,11 @@ func (o MoveCollectionPropertiesResponseOutput) ToMoveCollectionPropertiesRespon
 	}).(MoveCollectionPropertiesResponsePtrOutput)
 }
 
+// Defines the move collection errors.
+func (o MoveCollectionPropertiesResponseOutput) Errors() MoveCollectionPropertiesResponseErrorsOutput {
+	return o.ApplyT(func(v MoveCollectionPropertiesResponse) MoveCollectionPropertiesResponseErrors { return v.Errors }).(MoveCollectionPropertiesResponseErrorsOutput)
+}
+
 // Defines the provisioning states.
 func (o MoveCollectionPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v MoveCollectionPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
@@ -2148,6 +2157,16 @@ func (o MoveCollectionPropertiesResponsePtrOutput) Elem() MoveCollectionProperti
 	return o.ApplyT(func(v *MoveCollectionPropertiesResponse) MoveCollectionPropertiesResponse { return *v }).(MoveCollectionPropertiesResponseOutput)
 }
 
+// Defines the move collection errors.
+func (o MoveCollectionPropertiesResponsePtrOutput) Errors() MoveCollectionPropertiesResponseErrorsPtrOutput {
+	return o.ApplyT(func(v *MoveCollectionPropertiesResponse) *MoveCollectionPropertiesResponseErrors {
+		if v == nil {
+			return nil
+		}
+		return &v.Errors
+	}).(MoveCollectionPropertiesResponseErrorsPtrOutput)
+}
+
 // Defines the provisioning states.
 func (o MoveCollectionPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MoveCollectionPropertiesResponse) *string {
@@ -2176,6 +2195,140 @@ func (o MoveCollectionPropertiesResponsePtrOutput) TargetRegion() pulumi.StringP
 		}
 		return &v.TargetRegion
 	}).(pulumi.StringPtrOutput)
+}
+
+// Defines the move collection errors.
+type MoveCollectionPropertiesResponseErrors struct {
+	// The move resource error body.
+	Properties *MoveResourceErrorBodyResponse `pulumi:"properties"`
+}
+
+// MoveCollectionPropertiesResponseErrorsInput is an input type that accepts MoveCollectionPropertiesResponseErrorsArgs and MoveCollectionPropertiesResponseErrorsOutput values.
+// You can construct a concrete instance of `MoveCollectionPropertiesResponseErrorsInput` via:
+//
+//          MoveCollectionPropertiesResponseErrorsArgs{...}
+type MoveCollectionPropertiesResponseErrorsInput interface {
+	pulumi.Input
+
+	ToMoveCollectionPropertiesResponseErrorsOutput() MoveCollectionPropertiesResponseErrorsOutput
+	ToMoveCollectionPropertiesResponseErrorsOutputWithContext(context.Context) MoveCollectionPropertiesResponseErrorsOutput
+}
+
+// Defines the move collection errors.
+type MoveCollectionPropertiesResponseErrorsArgs struct {
+	// The move resource error body.
+	Properties MoveResourceErrorBodyResponsePtrInput `pulumi:"properties"`
+}
+
+func (MoveCollectionPropertiesResponseErrorsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MoveCollectionPropertiesResponseErrors)(nil)).Elem()
+}
+
+func (i MoveCollectionPropertiesResponseErrorsArgs) ToMoveCollectionPropertiesResponseErrorsOutput() MoveCollectionPropertiesResponseErrorsOutput {
+	return i.ToMoveCollectionPropertiesResponseErrorsOutputWithContext(context.Background())
+}
+
+func (i MoveCollectionPropertiesResponseErrorsArgs) ToMoveCollectionPropertiesResponseErrorsOutputWithContext(ctx context.Context) MoveCollectionPropertiesResponseErrorsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MoveCollectionPropertiesResponseErrorsOutput)
+}
+
+func (i MoveCollectionPropertiesResponseErrorsArgs) ToMoveCollectionPropertiesResponseErrorsPtrOutput() MoveCollectionPropertiesResponseErrorsPtrOutput {
+	return i.ToMoveCollectionPropertiesResponseErrorsPtrOutputWithContext(context.Background())
+}
+
+func (i MoveCollectionPropertiesResponseErrorsArgs) ToMoveCollectionPropertiesResponseErrorsPtrOutputWithContext(ctx context.Context) MoveCollectionPropertiesResponseErrorsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MoveCollectionPropertiesResponseErrorsOutput).ToMoveCollectionPropertiesResponseErrorsPtrOutputWithContext(ctx)
+}
+
+// MoveCollectionPropertiesResponseErrorsPtrInput is an input type that accepts MoveCollectionPropertiesResponseErrorsArgs, MoveCollectionPropertiesResponseErrorsPtr and MoveCollectionPropertiesResponseErrorsPtrOutput values.
+// You can construct a concrete instance of `MoveCollectionPropertiesResponseErrorsPtrInput` via:
+//
+//          MoveCollectionPropertiesResponseErrorsArgs{...}
+//
+//  or:
+//
+//          nil
+type MoveCollectionPropertiesResponseErrorsPtrInput interface {
+	pulumi.Input
+
+	ToMoveCollectionPropertiesResponseErrorsPtrOutput() MoveCollectionPropertiesResponseErrorsPtrOutput
+	ToMoveCollectionPropertiesResponseErrorsPtrOutputWithContext(context.Context) MoveCollectionPropertiesResponseErrorsPtrOutput
+}
+
+type moveCollectionPropertiesResponseErrorsPtrType MoveCollectionPropertiesResponseErrorsArgs
+
+func MoveCollectionPropertiesResponseErrorsPtr(v *MoveCollectionPropertiesResponseErrorsArgs) MoveCollectionPropertiesResponseErrorsPtrInput {
+	return (*moveCollectionPropertiesResponseErrorsPtrType)(v)
+}
+
+func (*moveCollectionPropertiesResponseErrorsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MoveCollectionPropertiesResponseErrors)(nil)).Elem()
+}
+
+func (i *moveCollectionPropertiesResponseErrorsPtrType) ToMoveCollectionPropertiesResponseErrorsPtrOutput() MoveCollectionPropertiesResponseErrorsPtrOutput {
+	return i.ToMoveCollectionPropertiesResponseErrorsPtrOutputWithContext(context.Background())
+}
+
+func (i *moveCollectionPropertiesResponseErrorsPtrType) ToMoveCollectionPropertiesResponseErrorsPtrOutputWithContext(ctx context.Context) MoveCollectionPropertiesResponseErrorsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MoveCollectionPropertiesResponseErrorsPtrOutput)
+}
+
+// Defines the move collection errors.
+type MoveCollectionPropertiesResponseErrorsOutput struct{ *pulumi.OutputState }
+
+func (MoveCollectionPropertiesResponseErrorsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MoveCollectionPropertiesResponseErrors)(nil)).Elem()
+}
+
+func (o MoveCollectionPropertiesResponseErrorsOutput) ToMoveCollectionPropertiesResponseErrorsOutput() MoveCollectionPropertiesResponseErrorsOutput {
+	return o
+}
+
+func (o MoveCollectionPropertiesResponseErrorsOutput) ToMoveCollectionPropertiesResponseErrorsOutputWithContext(ctx context.Context) MoveCollectionPropertiesResponseErrorsOutput {
+	return o
+}
+
+func (o MoveCollectionPropertiesResponseErrorsOutput) ToMoveCollectionPropertiesResponseErrorsPtrOutput() MoveCollectionPropertiesResponseErrorsPtrOutput {
+	return o.ToMoveCollectionPropertiesResponseErrorsPtrOutputWithContext(context.Background())
+}
+
+func (o MoveCollectionPropertiesResponseErrorsOutput) ToMoveCollectionPropertiesResponseErrorsPtrOutputWithContext(ctx context.Context) MoveCollectionPropertiesResponseErrorsPtrOutput {
+	return o.ApplyT(func(v MoveCollectionPropertiesResponseErrors) *MoveCollectionPropertiesResponseErrors {
+		return &v
+	}).(MoveCollectionPropertiesResponseErrorsPtrOutput)
+}
+
+// The move resource error body.
+func (o MoveCollectionPropertiesResponseErrorsOutput) Properties() MoveResourceErrorBodyResponsePtrOutput {
+	return o.ApplyT(func(v MoveCollectionPropertiesResponseErrors) *MoveResourceErrorBodyResponse { return v.Properties }).(MoveResourceErrorBodyResponsePtrOutput)
+}
+
+type MoveCollectionPropertiesResponseErrorsPtrOutput struct{ *pulumi.OutputState }
+
+func (MoveCollectionPropertiesResponseErrorsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MoveCollectionPropertiesResponseErrors)(nil)).Elem()
+}
+
+func (o MoveCollectionPropertiesResponseErrorsPtrOutput) ToMoveCollectionPropertiesResponseErrorsPtrOutput() MoveCollectionPropertiesResponseErrorsPtrOutput {
+	return o
+}
+
+func (o MoveCollectionPropertiesResponseErrorsPtrOutput) ToMoveCollectionPropertiesResponseErrorsPtrOutputWithContext(ctx context.Context) MoveCollectionPropertiesResponseErrorsPtrOutput {
+	return o
+}
+
+func (o MoveCollectionPropertiesResponseErrorsPtrOutput) Elem() MoveCollectionPropertiesResponseErrorsOutput {
+	return o.ApplyT(func(v *MoveCollectionPropertiesResponseErrors) MoveCollectionPropertiesResponseErrors { return *v }).(MoveCollectionPropertiesResponseErrorsOutput)
+}
+
+// The move resource error body.
+func (o MoveCollectionPropertiesResponseErrorsPtrOutput) Properties() MoveResourceErrorBodyResponsePtrOutput {
+	return o.ApplyT(func(v *MoveCollectionPropertiesResponseErrors) *MoveResourceErrorBodyResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Properties
+	}).(MoveResourceErrorBodyResponsePtrOutput)
 }
 
 // Defines the dependency override of the move resource.
@@ -3129,6 +3282,8 @@ type MoveResourcePropertiesResponse struct {
 	Errors MoveResourcePropertiesResponseErrors `pulumi:"errors"`
 	// Gets or sets the existing target ARM Id of the resource.
 	ExistingTargetId *string `pulumi:"existingTargetId"`
+	// Gets a value indicating whether the resolve action is required over the move collection.
+	IsResolveRequired bool `pulumi:"isResolveRequired"`
 	// Defines the move resource status.
 	MoveStatus MoveResourcePropertiesResponseMoveStatus `pulumi:"moveStatus"`
 	// Defines the provisioning states.
@@ -3164,6 +3319,8 @@ type MoveResourcePropertiesResponseArgs struct {
 	Errors MoveResourcePropertiesResponseErrorsInput `pulumi:"errors"`
 	// Gets or sets the existing target ARM Id of the resource.
 	ExistingTargetId pulumi.StringPtrInput `pulumi:"existingTargetId"`
+	// Gets a value indicating whether the resolve action is required over the move collection.
+	IsResolveRequired pulumi.BoolInput `pulumi:"isResolveRequired"`
 	// Defines the move resource status.
 	MoveStatus MoveResourcePropertiesResponseMoveStatusInput `pulumi:"moveStatus"`
 	// Defines the provisioning states.
@@ -3278,6 +3435,11 @@ func (o MoveResourcePropertiesResponseOutput) ExistingTargetId() pulumi.StringPt
 	return o.ApplyT(func(v MoveResourcePropertiesResponse) *string { return v.ExistingTargetId }).(pulumi.StringPtrOutput)
 }
 
+// Gets a value indicating whether the resolve action is required over the move collection.
+func (o MoveResourcePropertiesResponseOutput) IsResolveRequired() pulumi.BoolOutput {
+	return o.ApplyT(func(v MoveResourcePropertiesResponse) bool { return v.IsResolveRequired }).(pulumi.BoolOutput)
+}
+
 // Defines the move resource status.
 func (o MoveResourcePropertiesResponseOutput) MoveStatus() MoveResourcePropertiesResponseMoveStatusOutput {
 	return o.ApplyT(func(v MoveResourcePropertiesResponse) MoveResourcePropertiesResponseMoveStatus { return v.MoveStatus }).(MoveResourcePropertiesResponseMoveStatusOutput)
@@ -3364,6 +3526,16 @@ func (o MoveResourcePropertiesResponsePtrOutput) ExistingTargetId() pulumi.Strin
 		}
 		return v.ExistingTargetId
 	}).(pulumi.StringPtrOutput)
+}
+
+// Gets a value indicating whether the resolve action is required over the move collection.
+func (o MoveResourcePropertiesResponsePtrOutput) IsResolveRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MoveResourcePropertiesResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsResolveRequired
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Defines the move resource status.
@@ -6502,6 +6674,8 @@ func init() {
 	pulumi.RegisterOutputType(MoveCollectionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MoveCollectionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(MoveCollectionPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(MoveCollectionPropertiesResponseErrorsOutput{})
+	pulumi.RegisterOutputType(MoveCollectionPropertiesResponseErrorsPtrOutput{})
 	pulumi.RegisterOutputType(MoveResourceDependencyOverrideOutput{})
 	pulumi.RegisterOutputType(MoveResourceDependencyOverrideArrayOutput{})
 	pulumi.RegisterOutputType(MoveResourceDependencyOverrideResponseOutput{})

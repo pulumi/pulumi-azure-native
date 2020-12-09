@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Media.V20190501Preview.Inputs
         }
 
         /// <summary>
-        /// Specifies the language (locale) used for speech-to-text transcription � it should match the spoken language in the audio track. The value should be in BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are 'en-US' and 'en-GB'.
+        /// Specifies the language (locale) used for speech-to-text transcription - it should match the spoken language in the audio track. The value should be in BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are 'en-US' and 'en-GB'.
         /// </summary>
         [Input("language")]
         public Input<string>? Language { get; set; }

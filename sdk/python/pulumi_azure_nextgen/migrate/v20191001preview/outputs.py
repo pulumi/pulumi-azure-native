@@ -20,6 +20,7 @@ __all__ = [
     'LoadBalancerResourceSettingsResponse',
     'ManualResolutionPropertiesResponse',
     'MoveCollectionPropertiesResponse',
+    'MoveCollectionPropertiesResponseErrors',
     'MoveResourceDependencyOverrideResponse',
     'MoveResourceDependencyResponse',
     'MoveResourceErrorBodyResponse',
@@ -473,18 +474,29 @@ class MoveCollectionPropertiesResponse(dict):
     Defines the move collection properties.
     """
     def __init__(__self__, *,
+                 errors: 'outputs.MoveCollectionPropertiesResponseErrors',
                  provisioning_state: str,
                  source_region: str,
                  target_region: str):
         """
         Defines the move collection properties.
+        :param 'MoveCollectionPropertiesResponseErrorsArgs' errors: Defines the move collection errors.
         :param str provisioning_state: Defines the provisioning states.
         :param str source_region: Gets or sets the source region.
         :param str target_region: Gets or sets the target region.
         """
+        pulumi.set(__self__, "errors", errors)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "source_region", source_region)
         pulumi.set(__self__, "target_region", target_region)
+
+    @property
+    @pulumi.getter
+    def errors(self) -> 'outputs.MoveCollectionPropertiesResponseErrors':
+        """
+        Defines the move collection errors.
+        """
+        return pulumi.get(self, "errors")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -509,6 +521,32 @@ class MoveCollectionPropertiesResponse(dict):
         Gets or sets the target region.
         """
         return pulumi.get(self, "target_region")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class MoveCollectionPropertiesResponseErrors(dict):
+    """
+    Defines the move collection errors.
+    """
+    def __init__(__self__, *,
+                 properties: Optional['outputs.MoveResourceErrorBodyResponse'] = None):
+        """
+        Defines the move collection errors.
+        :param 'MoveResourceErrorBodyResponseArgs' properties: The move resource error body.
+        """
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.MoveResourceErrorBodyResponse']:
+        """
+        The move resource error body.
+        """
+        return pulumi.get(self, "properties")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -744,6 +782,7 @@ class MoveResourcePropertiesResponse(dict):
     def __init__(__self__, *,
                  depends_on: Sequence['outputs.MoveResourceDependencyResponse'],
                  errors: 'outputs.MoveResourcePropertiesResponseErrors',
+                 is_resolve_required: bool,
                  move_status: 'outputs.MoveResourcePropertiesResponseMoveStatus',
                  provisioning_state: str,
                  source_id: str,
@@ -756,6 +795,7 @@ class MoveResourcePropertiesResponse(dict):
         Defines the move resource properties.
         :param Sequence['MoveResourceDependencyResponseArgs'] depends_on: Gets or sets the move resource dependencies.
         :param 'MoveResourcePropertiesResponseErrorsArgs' errors: Defines the move resource errors.
+        :param bool is_resolve_required: Gets a value indicating whether the resolve action is required over the move collection.
         :param 'MoveResourcePropertiesResponseMoveStatusArgs' move_status: Defines the move resource status.
         :param str provisioning_state: Defines the provisioning states.
         :param str source_id: Gets or sets the Source ARM Id of the resource.
@@ -767,6 +807,7 @@ class MoveResourcePropertiesResponse(dict):
         """
         pulumi.set(__self__, "depends_on", depends_on)
         pulumi.set(__self__, "errors", errors)
+        pulumi.set(__self__, "is_resolve_required", is_resolve_required)
         pulumi.set(__self__, "move_status", move_status)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "source_id", source_id)
@@ -794,6 +835,14 @@ class MoveResourcePropertiesResponse(dict):
         Defines the move resource errors.
         """
         return pulumi.get(self, "errors")
+
+    @property
+    @pulumi.getter(name="isResolveRequired")
+    def is_resolve_required(self) -> bool:
+        """
+        Gets a value indicating whether the resolve action is required over the move collection.
+        """
+        return pulumi.get(self, "is_resolve_required")
 
     @property
     @pulumi.getter(name="moveStatus")

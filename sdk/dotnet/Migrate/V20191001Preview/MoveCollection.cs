@@ -15,6 +15,12 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview
     public partial class MoveCollection : Pulumi.CustomResource
     {
         /// <summary>
+        /// The etag of the resource.
+        /// </summary>
+        [Output("etag")]
+        public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
         /// Defines the MSI properties of the Move Collection.
         /// </summary>
         [Output("identity")]

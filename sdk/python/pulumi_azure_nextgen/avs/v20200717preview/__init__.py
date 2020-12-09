@@ -11,6 +11,8 @@ from .get_global_reach_connection import *
 from .get_hcx_enterprise_site import *
 from .get_private_cloud import *
 from .get_workload_network_dhcp import *
+from .get_workload_network_dns_service import *
+from .get_workload_network_dns_zone import *
 from .get_workload_network_port_mirroring import *
 from .get_workload_network_segment import *
 from .get_workload_network_vm_group import *
@@ -19,6 +21,8 @@ from .hcx_enterprise_site import *
 from .list_private_cloud_admin_credentials import *
 from .private_cloud import *
 from .workload_network_dhcp import *
+from .workload_network_dns_service import *
+from .workload_network_dns_zone import *
 from .workload_network_port_mirroring import *
 from .workload_network_segment import *
 from .workload_network_vm_group import *

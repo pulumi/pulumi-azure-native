@@ -3,13 +3,26 @@
 
 // Export members:
 export * from "./cluster";
+export * from "./consumerGroup";
+export * from "./disasterRecoveryConfig";
+export * from "./eventHub";
+export * from "./eventHubAuthorizationRule";
 export * from "./getCluster";
+export * from "./getConsumerGroup";
+export * from "./getDisasterRecoveryConfig";
+export * from "./getEventHub";
+export * from "./getEventHubAuthorizationRule";
 export * from "./getNamespace";
+export * from "./getNamespaceAuthorizationRule";
 export * from "./getNamespaceIpFilterRule";
 export * from "./getNamespaceNetworkRuleSet";
 export * from "./getNamespaceVirtualNetworkRule";
 export * from "./getPrivateEndpointConnection";
+export * from "./listDisasterRecoveryConfigKeys";
+export * from "./listEventHubKeys";
+export * from "./listNamespaceKeys";
 export * from "./namespace";
+export * from "./namespaceAuthorizationRule";
 export * from "./namespaceIpFilterRule";
 export * from "./namespaceNetworkRuleSet";
 export * from "./namespaceVirtualNetworkRule";

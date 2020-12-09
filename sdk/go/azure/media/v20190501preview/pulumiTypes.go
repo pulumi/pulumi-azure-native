@@ -4006,7 +4006,7 @@ func (o LiveEventPreviewResponsePtrOutput) StreamingPolicyName() pulumi.StringPt
 type LiveEventTranscription struct {
 	// Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied.
 	InputTrackSelection []LiveEventInputTrackSelection `pulumi:"inputTrackSelection"`
-	// Specifies the language (locale) used for speech-to-text transcription � it should match the spoken language in the audio track. The value should be in BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are 'en-US' and 'en-GB'.
+	// Specifies the language (locale) used for speech-to-text transcription - it should match the spoken language in the audio track. The value should be in BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are 'en-US' and 'en-GB'.
 	Language *string `pulumi:"language"`
 	// Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
 	OutputTranscriptionTrack *LiveEventOutputTranscriptionTrack `pulumi:"outputTranscriptionTrack"`
@@ -4027,7 +4027,7 @@ type LiveEventTranscriptionInput interface {
 type LiveEventTranscriptionArgs struct {
 	// Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied.
 	InputTrackSelection LiveEventInputTrackSelectionArrayInput `pulumi:"inputTrackSelection"`
-	// Specifies the language (locale) used for speech-to-text transcription � it should match the spoken language in the audio track. The value should be in BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are 'en-US' and 'en-GB'.
+	// Specifies the language (locale) used for speech-to-text transcription - it should match the spoken language in the audio track. The value should be in BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are 'en-US' and 'en-GB'.
 	Language pulumi.StringPtrInput `pulumi:"language"`
 	// Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
 	OutputTranscriptionTrack LiveEventOutputTranscriptionTrackPtrInput `pulumi:"outputTranscriptionTrack"`
@@ -4090,7 +4090,7 @@ func (o LiveEventTranscriptionOutput) InputTrackSelection() LiveEventInputTrackS
 	return o.ApplyT(func(v LiveEventTranscription) []LiveEventInputTrackSelection { return v.InputTrackSelection }).(LiveEventInputTrackSelectionArrayOutput)
 }
 
-// Specifies the language (locale) used for speech-to-text transcription � it should match the spoken language in the audio track. The value should be in BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are 'en-US' and 'en-GB'.
+// Specifies the language (locale) used for speech-to-text transcription - it should match the spoken language in the audio track. The value should be in BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are 'en-US' and 'en-GB'.
 func (o LiveEventTranscriptionOutput) Language() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventTranscription) *string { return v.Language }).(pulumi.StringPtrOutput)
 }
@@ -4124,7 +4124,7 @@ func (o LiveEventTranscriptionArrayOutput) Index(i pulumi.IntInput) LiveEventTra
 type LiveEventTranscriptionResponse struct {
 	// Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied.
 	InputTrackSelection []LiveEventInputTrackSelectionResponse `pulumi:"inputTrackSelection"`
-	// Specifies the language (locale) used for speech-to-text transcription � it should match the spoken language in the audio track. The value should be in BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are 'en-US' and 'en-GB'.
+	// Specifies the language (locale) used for speech-to-text transcription - it should match the spoken language in the audio track. The value should be in BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are 'en-US' and 'en-GB'.
 	Language *string `pulumi:"language"`
 	// Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
 	OutputTranscriptionTrack *LiveEventOutputTranscriptionTrackResponse `pulumi:"outputTranscriptionTrack"`
@@ -4145,7 +4145,7 @@ type LiveEventTranscriptionResponseInput interface {
 type LiveEventTranscriptionResponseArgs struct {
 	// Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied.
 	InputTrackSelection LiveEventInputTrackSelectionResponseArrayInput `pulumi:"inputTrackSelection"`
-	// Specifies the language (locale) used for speech-to-text transcription � it should match the spoken language in the audio track. The value should be in BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are 'en-US' and 'en-GB'.
+	// Specifies the language (locale) used for speech-to-text transcription - it should match the spoken language in the audio track. The value should be in BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are 'en-US' and 'en-GB'.
 	Language pulumi.StringPtrInput `pulumi:"language"`
 	// Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
 	OutputTranscriptionTrack LiveEventOutputTranscriptionTrackResponsePtrInput `pulumi:"outputTranscriptionTrack"`
@@ -4210,7 +4210,7 @@ func (o LiveEventTranscriptionResponseOutput) InputTrackSelection() LiveEventInp
 	}).(LiveEventInputTrackSelectionResponseArrayOutput)
 }
 
-// Specifies the language (locale) used for speech-to-text transcription � it should match the spoken language in the audio track. The value should be in BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are 'en-US' and 'en-GB'.
+// Specifies the language (locale) used for speech-to-text transcription - it should match the spoken language in the audio track. The value should be in BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are 'en-US' and 'en-GB'.
 func (o LiveEventTranscriptionResponseOutput) Language() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LiveEventTranscriptionResponse) *string { return v.Language }).(pulumi.StringPtrOutput)
 }

@@ -108,7 +108,7 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub/latest:DisasterRecoveryConfig" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:eventhub/latest:DisasterRecoveryConfig" }, { type: "azure-nextgen:eventhub/v20180101preview:DisasterRecoveryConfig" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(DisasterRecoveryConfig.__pulumiType, name, inputs, opts);
     }

@@ -65,6 +65,7 @@ class MoveCollection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['etag'] = None
             __props__['name'] = None
             __props__['type'] = None
         super(MoveCollection, __self__).__init__(
@@ -90,6 +91,14 @@ class MoveCollection(pulumi.CustomResource):
         __props__ = dict()
 
         return MoveCollection(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> pulumi.Output[str]:
+        """
+        The etag of the resource.
+        """
+        return pulumi.get(self, "etag")
 
     @property
     @pulumi.getter
