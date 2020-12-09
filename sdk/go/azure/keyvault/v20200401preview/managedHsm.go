@@ -32,14 +32,15 @@ type ManagedHsm struct {
 // NewManagedHsm registers a new resource with the given unique name, arguments, and options.
 func NewManagedHsm(ctx *pulumi.Context,
 	name string, args *ManagedHsmArgs, opts ...pulumi.ResourceOption) (*ManagedHsm, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ManagedHsmArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource ManagedHsm
 	err := ctx.RegisterResource("azure-nextgen:keyvault/v20200401preview:ManagedHsm", name, args, &resource, opts...)

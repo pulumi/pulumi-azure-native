@@ -36,20 +36,21 @@ type GatewayHostnameConfiguration struct {
 // NewGatewayHostnameConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewGatewayHostnameConfiguration(ctx *pulumi.Context,
 	name string, args *GatewayHostnameConfigurationArgs, opts ...pulumi.ResourceOption) (*GatewayHostnameConfiguration, error) {
-	if args == nil || args.GatewayId == nil {
-		return nil, errors.New("missing required argument 'GatewayId'")
-	}
-	if args == nil || args.HcId == nil {
-		return nil, errors.New("missing required argument 'HcId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
 	if args == nil {
-		args = &GatewayHostnameConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.GatewayId == nil {
+		return nil, errors.New("invalid value for required argument 'GatewayId'")
+	}
+	if args.HcId == nil {
+		return nil, errors.New("invalid value for required argument 'HcId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

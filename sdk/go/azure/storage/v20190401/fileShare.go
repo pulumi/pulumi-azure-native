@@ -32,17 +32,18 @@ type FileShare struct {
 // NewFileShare registers a new resource with the given unique name, arguments, and options.
 func NewFileShare(ctx *pulumi.Context,
 	name string, args *FileShareArgs, opts ...pulumi.ResourceOption) (*FileShare, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ShareName == nil {
-		return nil, errors.New("missing required argument 'ShareName'")
-	}
 	if args == nil {
-		args = &FileShareArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ShareName == nil {
+		return nil, errors.New("invalid value for required argument 'ShareName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

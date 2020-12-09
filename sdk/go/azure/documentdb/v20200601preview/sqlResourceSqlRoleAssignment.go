@@ -30,17 +30,18 @@ type SqlResourceSqlRoleAssignment struct {
 // NewSqlResourceSqlRoleAssignment registers a new resource with the given unique name, arguments, and options.
 func NewSqlResourceSqlRoleAssignment(ctx *pulumi.Context,
 	name string, args *SqlResourceSqlRoleAssignmentArgs, opts ...pulumi.ResourceOption) (*SqlResourceSqlRoleAssignment, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.RoleAssignmentId == nil {
-		return nil, errors.New("missing required argument 'RoleAssignmentId'")
-	}
 	if args == nil {
-		args = &SqlResourceSqlRoleAssignmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.RoleAssignmentId == nil {
+		return nil, errors.New("invalid value for required argument 'RoleAssignmentId'")
 	}
 	var resource SqlResourceSqlRoleAssignment
 	err := ctx.RegisterResource("azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleAssignment", name, args, &resource, opts...)

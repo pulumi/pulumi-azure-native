@@ -38,26 +38,27 @@ type AlertRule struct {
 // NewAlertRule registers a new resource with the given unique name, arguments, and options.
 func NewAlertRule(ctx *pulumi.Context,
 	name string, args *AlertRuleArgs, opts ...pulumi.ResourceOption) (*AlertRule, error) {
-	if args == nil || args.Condition == nil {
-		return nil, errors.New("missing required argument 'Condition'")
-	}
-	if args == nil || args.IsEnabled == nil {
-		return nil, errors.New("missing required argument 'IsEnabled'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.RuleName == nil {
-		return nil, errors.New("missing required argument 'RuleName'")
-	}
 	if args == nil {
-		args = &AlertRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Condition == nil {
+		return nil, errors.New("invalid value for required argument 'Condition'")
+	}
+	if args.IsEnabled == nil {
+		return nil, errors.New("invalid value for required argument 'IsEnabled'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.RuleName == nil {
+		return nil, errors.New("invalid value for required argument 'RuleName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

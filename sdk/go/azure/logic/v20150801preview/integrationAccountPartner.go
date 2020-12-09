@@ -37,17 +37,18 @@ type IntegrationAccountPartner struct {
 // NewIntegrationAccountPartner registers a new resource with the given unique name, arguments, and options.
 func NewIntegrationAccountPartner(ctx *pulumi.Context,
 	name string, args *IntegrationAccountPartnerArgs, opts ...pulumi.ResourceOption) (*IntegrationAccountPartner, error) {
-	if args == nil || args.IntegrationAccountName == nil {
-		return nil, errors.New("missing required argument 'IntegrationAccountName'")
-	}
-	if args == nil || args.PartnerName == nil {
-		return nil, errors.New("missing required argument 'PartnerName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &IntegrationAccountPartnerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.IntegrationAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'IntegrationAccountName'")
+	}
+	if args.PartnerName == nil {
+		return nil, errors.New("invalid value for required argument 'PartnerName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -173,7 +174,7 @@ type IntegrationAccountPartnerArgs struct {
 	// The integration account partner name.
 	PartnerName pulumi.StringInput
 	// The partner type.
-	PartnerType pulumi.StringPtrInput
+	PartnerType PartnerType
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The resource tags.

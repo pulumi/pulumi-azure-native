@@ -26,20 +26,21 @@ type IotDpsResourcePrivateEndpointConnection struct {
 // NewIotDpsResourcePrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
 func NewIotDpsResourcePrivateEndpointConnection(ctx *pulumi.Context,
 	name string, args *IotDpsResourcePrivateEndpointConnectionArgs, opts ...pulumi.ResourceOption) (*IotDpsResourcePrivateEndpointConnection, error) {
-	if args == nil || args.PrivateEndpointConnectionName == nil {
-		return nil, errors.New("missing required argument 'PrivateEndpointConnectionName'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ResourceName == nil {
-		return nil, errors.New("missing required argument 'ResourceName'")
-	}
 	if args == nil {
-		args = &IotDpsResourcePrivateEndpointConnectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PrivateEndpointConnectionName == nil {
+		return nil, errors.New("invalid value for required argument 'PrivateEndpointConnectionName'")
+	}
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

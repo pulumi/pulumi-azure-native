@@ -84,26 +84,27 @@ type ApiManagementService struct {
 // NewApiManagementService registers a new resource with the given unique name, arguments, and options.
 func NewApiManagementService(ctx *pulumi.Context,
 	name string, args *ApiManagementServiceArgs, opts ...pulumi.ResourceOption) (*ApiManagementService, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.PublisherEmail == nil {
-		return nil, errors.New("missing required argument 'PublisherEmail'")
-	}
-	if args == nil || args.PublisherName == nil {
-		return nil, errors.New("missing required argument 'PublisherName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
-	if args == nil || args.Sku == nil {
-		return nil, errors.New("missing required argument 'Sku'")
-	}
 	if args == nil {
-		args = &ApiManagementServiceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.PublisherEmail == nil {
+		return nil, errors.New("invalid value for required argument 'PublisherEmail'")
+	}
+	if args.PublisherName == nil {
+		return nil, errors.New("invalid value for required argument 'PublisherName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
+	}
+	if args.Sku == nil {
+		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

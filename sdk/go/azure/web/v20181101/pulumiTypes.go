@@ -303,7 +303,7 @@ type AutoHealActionsInput interface {
 // Actions which to take by the auto-heal module when a rule is triggered.
 type AutoHealActionsArgs struct {
 	// Predefined action to be taken.
-	ActionType pulumi.StringPtrInput `pulumi:"actionType"`
+	ActionType AutoHealActionType `pulumi:"actionType"`
 	// Custom action to be taken.
 	CustomAction AutoHealCustomActionPtrInput `pulumi:"customAction"`
 	// Minimum time the process must execute
@@ -1666,7 +1666,7 @@ type AzureStorageInfoValueArgs struct {
 	// Name of the file share (container name, for Blob storage).
 	ShareName pulumi.StringPtrInput `pulumi:"shareName"`
 	// Type of storage.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type AzureStorageType `pulumi:"type"`
 }
 
 func (AzureStorageInfoValueArgs) ElementType() reflect.Type {
@@ -1941,7 +1941,7 @@ type BackupScheduleArgs struct {
 	// How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
 	FrequencyInterval pulumi.IntInput `pulumi:"frequencyInterval"`
 	// The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
-	FrequencyUnit pulumi.StringInput `pulumi:"frequencyUnit"`
+	FrequencyUnit FrequencyUnit `pulumi:"frequencyUnit"`
 	// True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
 	KeepAtLeastOneBackup pulumi.BoolInput `pulumi:"keepAtLeastOneBackup"`
 	// After how many days backups should be deleted.
@@ -2818,7 +2818,7 @@ type ConnStringInfoArgs struct {
 	// Name of connection string.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Type of database.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type ConnectionStringType `pulumi:"type"`
 }
 
 func (ConnStringInfoArgs) ElementType() reflect.Type {
@@ -4477,11 +4477,11 @@ type HostNameSslStateInput interface {
 // SSL-enabled hostname.
 type HostNameSslStateArgs struct {
 	// Indicates whether the hostname is a standard or repository hostname.
-	HostType pulumi.StringPtrInput `pulumi:"hostType"`
+	HostType HostType `pulumi:"hostType"`
 	// Hostname.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// SSL type.
-	SslState pulumi.StringPtrInput `pulumi:"sslState"`
+	SslState SslState `pulumi:"sslState"`
 	// SSL certificate thumbprint.
 	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
 	// Set to <code>true</code> to update existing hostname.
@@ -5101,7 +5101,7 @@ type IpSecurityRestrictionArgs struct {
 	// (internal) Subnet traffic tag
 	SubnetTrafficTag pulumi.IntPtrInput `pulumi:"subnetTrafficTag"`
 	// Defines what this IP filter will be used for. This is to support IP filtering on proxies.
-	Tag pulumi.StringPtrInput `pulumi:"tag"`
+	Tag IpFilterTag `pulumi:"tag"`
 	// Virtual network resource id
 	VnetSubnetResourceId pulumi.StringPtrInput `pulumi:"vnetSubnetResourceId"`
 	// (internal) Vnet traffic tag
@@ -7415,13 +7415,13 @@ type SiteConfigArgs struct {
 	// Linux App Framework and version
 	LinuxFxVersion pulumi.StringPtrInput `pulumi:"linuxFxVersion"`
 	// Site load balancing.
-	LoadBalancing pulumi.StringPtrInput `pulumi:"loadBalancing"`
+	LoadBalancing SiteLoadBalancing `pulumi:"loadBalancing"`
 	// <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
 	LocalMySqlEnabled pulumi.BoolPtrInput `pulumi:"localMySqlEnabled"`
 	// HTTP logs directory size limit.
 	LogsDirectorySizeLimit pulumi.IntPtrInput `pulumi:"logsDirectorySizeLimit"`
 	// Managed pipeline mode.
-	ManagedPipelineMode pulumi.StringPtrInput `pulumi:"managedPipelineMode"`
+	ManagedPipelineMode ManagedPipelineMode `pulumi:"managedPipelineMode"`
 	// Managed Service Identity Id
 	ManagedServiceIdentityId pulumi.IntPtrInput `pulumi:"managedServiceIdentityId"`
 	// MinTlsVersion: configures the minimum version of TLS required for SSL requests

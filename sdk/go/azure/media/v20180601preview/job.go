@@ -40,26 +40,27 @@ type Job struct {
 // NewJob registers a new resource with the given unique name, arguments, and options.
 func NewJob(ctx *pulumi.Context,
 	name string, args *JobArgs, opts ...pulumi.ResourceOption) (*Job, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.Input == nil {
-		return nil, errors.New("missing required argument 'Input'")
-	}
-	if args == nil || args.JobName == nil {
-		return nil, errors.New("missing required argument 'JobName'")
-	}
-	if args == nil || args.Outputs == nil {
-		return nil, errors.New("missing required argument 'Outputs'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.TransformName == nil {
-		return nil, errors.New("missing required argument 'TransformName'")
-	}
 	if args == nil {
-		args = &JobArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.Input == nil {
+		return nil, errors.New("invalid value for required argument 'Input'")
+	}
+	if args.JobName == nil {
+		return nil, errors.New("invalid value for required argument 'JobName'")
+	}
+	if args.Outputs == nil {
+		return nil, errors.New("invalid value for required argument 'Outputs'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.TransformName == nil {
+		return nil, errors.New("invalid value for required argument 'TransformName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

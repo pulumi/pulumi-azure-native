@@ -46,23 +46,24 @@ type Gateway struct {
 // NewGateway registers a new resource with the given unique name, arguments, and options.
 func NewGateway(ctx *pulumi.Context,
 	name string, args *GatewayArgs, opts ...pulumi.ResourceOption) (*Gateway, error) {
-	if args == nil || args.DestinationNetwork == nil {
-		return nil, errors.New("missing required argument 'DestinationNetwork'")
-	}
-	if args == nil || args.GatewayResourceName == nil {
-		return nil, errors.New("missing required argument 'GatewayResourceName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SourceNetwork == nil {
-		return nil, errors.New("missing required argument 'SourceNetwork'")
-	}
 	if args == nil {
-		args = &GatewayArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DestinationNetwork == nil {
+		return nil, errors.New("invalid value for required argument 'DestinationNetwork'")
+	}
+	if args.GatewayResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'GatewayResourceName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SourceNetwork == nil {
+		return nil, errors.New("invalid value for required argument 'SourceNetwork'")
 	}
 	var resource Gateway
 	err := ctx.RegisterResource("azure-nextgen:servicefabricmesh/v20180901preview:Gateway", name, args, &resource, opts...)

@@ -110,20 +110,21 @@ type WebAppSlot struct {
 // NewWebAppSlot registers a new resource with the given unique name, arguments, and options.
 func NewWebAppSlot(ctx *pulumi.Context,
 	name string, args *WebAppSlotArgs, opts ...pulumi.ResourceOption) (*WebAppSlot, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Slot == nil {
-		return nil, errors.New("missing required argument 'Slot'")
-	}
 	if args == nil {
-		args = &WebAppSlotArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Slot == nil {
+		return nil, errors.New("invalid value for required argument 'Slot'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -458,7 +459,7 @@ type WebAppSlotArgs struct {
 	// Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
 	Name pulumi.StringInput
 	// Site redundancy mode
-	RedundancyMode pulumi.StringPtrInput
+	RedundancyMode RedundancyMode
 	// <code>true</code> if reserved; otherwise, <code>false</code>.
 	Reserved pulumi.BoolPtrInput
 	// Name of the resource group to which the resource belongs.

@@ -30,17 +30,18 @@ type SqlResourceSqlRoleDefinition struct {
 // NewSqlResourceSqlRoleDefinition registers a new resource with the given unique name, arguments, and options.
 func NewSqlResourceSqlRoleDefinition(ctx *pulumi.Context,
 	name string, args *SqlResourceSqlRoleDefinitionArgs, opts ...pulumi.ResourceOption) (*SqlResourceSqlRoleDefinition, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.RoleDefinitionId == nil {
-		return nil, errors.New("missing required argument 'RoleDefinitionId'")
-	}
 	if args == nil {
-		args = &SqlResourceSqlRoleDefinitionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.RoleDefinitionId == nil {
+		return nil, errors.New("invalid value for required argument 'RoleDefinitionId'")
 	}
 	var resource SqlResourceSqlRoleDefinition
 	err := ctx.RegisterResource("azure-nextgen:documentdb/v20200601preview:SqlResourceSqlRoleDefinition", name, args, &resource, opts...)
@@ -125,7 +126,7 @@ type SqlResourceSqlRoleDefinitionArgs struct {
 	// A user-friendly name for the Role Definition. Must be unique for the database account.
 	RoleName pulumi.StringPtrInput
 	// Indicates whether the Role Definition was built-in or user created.
-	Type pulumi.StringPtrInput
+	Type RoleDefinitionType
 }
 
 func (SqlResourceSqlRoleDefinitionArgs) ElementType() reflect.Type {

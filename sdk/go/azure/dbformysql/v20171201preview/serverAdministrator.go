@@ -32,26 +32,27 @@ type ServerAdministrator struct {
 // NewServerAdministrator registers a new resource with the given unique name, arguments, and options.
 func NewServerAdministrator(ctx *pulumi.Context,
 	name string, args *ServerAdministratorArgs, opts ...pulumi.ResourceOption) (*ServerAdministrator, error) {
-	if args == nil || args.AdministratorType == nil {
-		return nil, errors.New("missing required argument 'AdministratorType'")
-	}
-	if args == nil || args.Login == nil {
-		return nil, errors.New("missing required argument 'Login'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServerName == nil {
-		return nil, errors.New("missing required argument 'ServerName'")
-	}
-	if args == nil || args.Sid == nil {
-		return nil, errors.New("missing required argument 'Sid'")
-	}
-	if args == nil || args.TenantId == nil {
-		return nil, errors.New("missing required argument 'TenantId'")
-	}
 	if args == nil {
-		args = &ServerAdministratorArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AdministratorType == nil {
+		return nil, errors.New("invalid value for required argument 'AdministratorType'")
+	}
+	if args.Login == nil {
+		return nil, errors.New("invalid value for required argument 'Login'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServerName == nil {
+		return nil, errors.New("invalid value for required argument 'ServerName'")
+	}
+	if args.Sid == nil {
+		return nil, errors.New("invalid value for required argument 'Sid'")
+	}
+	if args.TenantId == nil {
+		return nil, errors.New("invalid value for required argument 'TenantId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

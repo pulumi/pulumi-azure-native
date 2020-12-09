@@ -36,7 +36,7 @@ type ApplianceArtifactArgs struct {
 	// The appliance artifact name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The appliance artifact type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type ApplianceArtifactType `pulumi:"type"`
 	// The appliance artifact blob uri.
 	Uri pulumi.StringPtrInput `pulumi:"uri"`
 }
@@ -484,7 +484,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type ResourceIdentityType `pulumi:"type"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {

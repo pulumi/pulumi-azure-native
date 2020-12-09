@@ -70,32 +70,33 @@ type Domain struct {
 // NewDomain registers a new resource with the given unique name, arguments, and options.
 func NewDomain(ctx *pulumi.Context,
 	name string, args *DomainArgs, opts ...pulumi.ResourceOption) (*Domain, error) {
-	if args == nil || args.Consent == nil {
-		return nil, errors.New("missing required argument 'Consent'")
-	}
-	if args == nil || args.ContactAdmin == nil {
-		return nil, errors.New("missing required argument 'ContactAdmin'")
-	}
-	if args == nil || args.ContactBilling == nil {
-		return nil, errors.New("missing required argument 'ContactBilling'")
-	}
-	if args == nil || args.ContactRegistrant == nil {
-		return nil, errors.New("missing required argument 'ContactRegistrant'")
-	}
-	if args == nil || args.ContactTech == nil {
-		return nil, errors.New("missing required argument 'ContactTech'")
-	}
-	if args == nil || args.DomainName == nil {
-		return nil, errors.New("missing required argument 'DomainName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &DomainArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Consent == nil {
+		return nil, errors.New("invalid value for required argument 'Consent'")
+	}
+	if args.ContactAdmin == nil {
+		return nil, errors.New("invalid value for required argument 'ContactAdmin'")
+	}
+	if args.ContactBilling == nil {
+		return nil, errors.New("invalid value for required argument 'ContactBilling'")
+	}
+	if args.ContactRegistrant == nil {
+		return nil, errors.New("invalid value for required argument 'ContactRegistrant'")
+	}
+	if args.ContactTech == nil {
+		return nil, errors.New("invalid value for required argument 'ContactTech'")
+	}
+	if args.DomainName == nil {
+		return nil, errors.New("invalid value for required argument 'DomainName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -299,7 +300,7 @@ type DomainArgs struct {
 	// Technical contact.
 	ContactTech ContactInput
 	// Current DNS type
-	DnsType pulumi.StringPtrInput
+	DnsType DnsType
 	// Azure DNS Zone to use
 	DnsZoneId pulumi.StringPtrInput
 	// Name of the domain.
@@ -315,7 +316,7 @@ type DomainArgs struct {
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Target DNS type (would be used for migration)
-	TargetDnsType pulumi.StringPtrInput
+	TargetDnsType DnsType
 }
 
 func (DomainArgs) ElementType() reflect.Type {

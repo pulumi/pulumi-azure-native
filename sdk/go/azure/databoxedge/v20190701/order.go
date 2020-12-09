@@ -38,20 +38,21 @@ type Order struct {
 // NewOrder registers a new resource with the given unique name, arguments, and options.
 func NewOrder(ctx *pulumi.Context,
 	name string, args *OrderArgs, opts ...pulumi.ResourceOption) (*Order, error) {
-	if args == nil || args.ContactInformation == nil {
-		return nil, errors.New("missing required argument 'ContactInformation'")
-	}
-	if args == nil || args.DeviceName == nil {
-		return nil, errors.New("missing required argument 'DeviceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ShippingAddress == nil {
-		return nil, errors.New("missing required argument 'ShippingAddress'")
-	}
 	if args == nil {
-		args = &OrderArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ContactInformation == nil {
+		return nil, errors.New("invalid value for required argument 'ContactInformation'")
+	}
+	if args.DeviceName == nil {
+		return nil, errors.New("invalid value for required argument 'DeviceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ShippingAddress == nil {
+		return nil, errors.New("invalid value for required argument 'ShippingAddress'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

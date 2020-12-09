@@ -1466,7 +1466,7 @@ type AS2MdnSettingsArgs struct {
 	// The MDN text.
 	MdnText pulumi.StringPtrInput `pulumi:"mdnText"`
 	// The signing or hashing algorithm.
-	MicHashingAlgorithm pulumi.StringInput `pulumi:"micHashingAlgorithm"`
+	MicHashingAlgorithm HashingAlgorithm `pulumi:"micHashingAlgorithm"`
 	// The value indicating whether to send or request a MDN.
 	NeedMdn pulumi.BoolInput `pulumi:"needMdn"`
 	// The receipt delivery URL.
@@ -3884,7 +3884,7 @@ type AS2ValidationSettingsArgs struct {
 	// The value indicating whether the message has to be encrypted.
 	EncryptMessage pulumi.BoolInput `pulumi:"encryptMessage"`
 	// The encryption algorithm.
-	EncryptionAlgorithm pulumi.StringInput `pulumi:"encryptionAlgorithm"`
+	EncryptionAlgorithm EncryptionAlgorithm `pulumi:"encryptionAlgorithm"`
 	// The number of days to look back for duplicate interchange.
 	InterchangeDuplicatesValidityDays pulumi.IntInput `pulumi:"interchangeDuplicatesValidityDays"`
 	// The value indicating whether to override incoming message properties with those in agreement.
@@ -8747,7 +8747,7 @@ type EdifactDelimiterOverrideArgs struct {
 	// The data element separator.
 	DataElementSeparator pulumi.IntInput `pulumi:"dataElementSeparator"`
 	// The decimal point indicator.
-	DecimalPointIndicator pulumi.StringInput `pulumi:"decimalPointIndicator"`
+	DecimalPointIndicator EdifactDecimalIndicator `pulumi:"decimalPointIndicator"`
 	// The message association assigned code.
 	MessageAssociationAssignedCode pulumi.StringPtrInput `pulumi:"messageAssociationAssignedCode"`
 	// The message id.
@@ -8763,7 +8763,7 @@ type EdifactDelimiterOverrideArgs struct {
 	// The segment terminator.
 	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
 	// The segment terminator suffix.
-	SegmentTerminatorSuffix pulumi.StringInput `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
 	// The target namespace on which this delimiter settings has to be applied.
 	TargetNamespace pulumi.StringPtrInput `pulumi:"targetNamespace"`
 }
@@ -11381,13 +11381,13 @@ type EdifactFramingSettingsArgs struct {
 	// The character encoding.
 	CharacterEncoding pulumi.StringPtrInput `pulumi:"characterEncoding"`
 	// The EDIFACT frame setting characterSet.
-	CharacterSet pulumi.StringInput `pulumi:"characterSet"`
+	CharacterSet EdifactCharacterSet `pulumi:"characterSet"`
 	// The component separator.
 	ComponentSeparator pulumi.IntInput `pulumi:"componentSeparator"`
 	// The data element separator.
 	DataElementSeparator pulumi.IntInput `pulumi:"dataElementSeparator"`
 	// The EDIFACT frame setting decimal indicator.
-	DecimalPointIndicator pulumi.StringInput `pulumi:"decimalPointIndicator"`
+	DecimalPointIndicator EdifactDecimalIndicator `pulumi:"decimalPointIndicator"`
 	// The protocol version.
 	ProtocolVersion pulumi.IntInput `pulumi:"protocolVersion"`
 	// The release indicator.
@@ -11397,7 +11397,7 @@ type EdifactFramingSettingsArgs struct {
 	// The segment terminator.
 	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
 	// The EDIFACT frame setting segment terminator suffix.
-	SegmentTerminatorSuffix pulumi.StringInput `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
 	// The service code list directory version.
 	ServiceCodeListDirectoryVersion pulumi.StringPtrInput `pulumi:"serviceCodeListDirectoryVersion"`
 }
@@ -12007,7 +12007,7 @@ type EdifactMessageFilterInput interface {
 // The Edifact message filter for odata query.
 type EdifactMessageFilterArgs struct {
 	// The message filter type.
-	MessageFilterType pulumi.StringInput `pulumi:"messageFilterType"`
+	MessageFilterType MessageFilterType `pulumi:"messageFilterType"`
 }
 
 func (EdifactMessageFilterArgs) ElementType() reflect.Type {
@@ -14219,7 +14219,7 @@ type EdifactValidationOverrideArgs struct {
 	// The message id on which the validation settings has to be applied.
 	MessageId pulumi.StringInput `pulumi:"messageId"`
 	// The trailing separator policy.
-	TrailingSeparatorPolicy pulumi.StringInput `pulumi:"trailingSeparatorPolicy"`
+	TrailingSeparatorPolicy TrailingSeparatorPolicy `pulumi:"trailingSeparatorPolicy"`
 	// The value indicating whether to trim leading and trailing spaces and zeroes.
 	TrimLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
 	// The value indicating whether to validate EDI types.
@@ -14537,7 +14537,7 @@ type EdifactValidationSettingsArgs struct {
 	// The validity period of interchange control number.
 	InterchangeControlNumberValidityDays pulumi.IntInput `pulumi:"interchangeControlNumberValidityDays"`
 	// The trailing separator policy.
-	TrailingSeparatorPolicy pulumi.StringInput `pulumi:"trailingSeparatorPolicy"`
+	TrailingSeparatorPolicy TrailingSeparatorPolicy `pulumi:"trailingSeparatorPolicy"`
 	// The value indicating whether to trim leading and trailing spaces and zeroes.
 	TrimLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
 	// The value indicating whether to validate character set in the message.
@@ -15630,7 +15630,7 @@ type IntegrationAccountSkuInput interface {
 // The integration account sku.
 type IntegrationAccountSkuArgs struct {
 	// The sku name.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name IntegrationAccountSkuName `pulumi:"name"`
 }
 
 func (IntegrationAccountSkuArgs) ElementType() reflect.Type {
@@ -17168,7 +17168,7 @@ type RecurrenceScheduleArgs struct {
 	// The monthly occurrences.
 	MonthlyOccurrences RecurrenceScheduleOccurrenceArrayInput `pulumi:"monthlyOccurrences"`
 	// The days of the week.
-	WeekDays pulumi.StringArrayInput `pulumi:"weekDays"`
+	WeekDays DaysOfWeekArrayInput `pulumi:"weekDays"`
 }
 
 func (RecurrenceScheduleArgs) ElementType() reflect.Type {
@@ -17364,7 +17364,7 @@ type RecurrenceScheduleOccurrenceInput interface {
 // The recurrence schedule occurrence.
 type RecurrenceScheduleOccurrenceArgs struct {
 	// The day of the week.
-	Day pulumi.StringPtrInput `pulumi:"day"`
+	Day DayOfWeek `pulumi:"day"`
 	// The occurrence.
 	Occurrence pulumi.IntPtrInput `pulumi:"occurrence"`
 }
@@ -18286,7 +18286,7 @@ type RosettaNetPipActivityBehaviorInput interface {
 // The integration account RosettaNet ProcessConfiguration activity behavior.
 type RosettaNetPipActivityBehaviorArgs struct {
 	// The value indicating whether the RosettaNet PIP is used for a single action.
-	ActionType pulumi.StringInput `pulumi:"actionType"`
+	ActionType RosettaNetActionType `pulumi:"actionType"`
 	// The value indicating whether authorization is required.
 	IsAuthorizationRequired pulumi.BoolInput `pulumi:"isAuthorizationRequired"`
 	// The value indicating whether secured transport is required.
@@ -18294,9 +18294,9 @@ type RosettaNetPipActivityBehaviorArgs struct {
 	// The value indicating whether non-repudiation is for origin and content.
 	NonRepudiationOfOriginAndContent pulumi.BoolInput `pulumi:"nonRepudiationOfOriginAndContent"`
 	// The persistent confidentiality encryption scope.
-	PersistentConfidentialityScope pulumi.StringInput `pulumi:"persistentConfidentialityScope"`
+	PersistentConfidentialityScope RosettaNetPipConfidentialityScope `pulumi:"persistentConfidentialityScope"`
 	// The value indicating whether the RosettaNet PIP communication is synchronous.
-	ResponseType pulumi.StringInput `pulumi:"responseType"`
+	ResponseType RosettaNetResponseType `pulumi:"responseType"`
 	// The value indicating retry count.
 	RetryCount pulumi.IntInput `pulumi:"retryCount"`
 	// The time to perform in seconds.
@@ -18814,7 +18814,7 @@ type RosettaNetPipActivitySettingsArgs struct {
 	// The RosettaNet ProcessConfiguration activity behavior.
 	ActivityBehavior RosettaNetPipActivityBehaviorInput `pulumi:"activityBehavior"`
 	// The RosettaNet ProcessConfiguration activity type.
-	ActivityType pulumi.StringInput `pulumi:"activityType"`
+	ActivityType RosettaNetPipActivityType `pulumi:"activityType"`
 }
 
 func (RosettaNetPipActivitySettingsArgs) ElementType() reflect.Type {
@@ -19520,7 +19520,7 @@ type RosettaNetPipRoleSettingsArgs struct {
 	// The role name.
 	Role pulumi.StringInput `pulumi:"role"`
 	// The RosettaNet ProcessConfiguration role type.
-	RoleType pulumi.StringInput `pulumi:"roleType"`
+	RoleType RosettaNetPipRoleType `pulumi:"roleType"`
 	// The service name.
 	Service pulumi.StringInput `pulumi:"service"`
 	// The service classification name.
@@ -19998,7 +19998,7 @@ type SkuInput interface {
 // The sku type.
 type SkuArgs struct {
 	// The name.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name SkuName `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {
@@ -20295,7 +20295,7 @@ type WorkflowParameterArgs struct {
 	// The metadata.
 	Metadata pulumi.Input `pulumi:"metadata"`
 	// The type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type ParameterType `pulumi:"type"`
 	// The value.
 	Value pulumi.Input `pulumi:"value"`
 }
@@ -20642,7 +20642,7 @@ type WorkflowTriggerRecurrenceArgs struct {
 	// The end time.
 	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
 	// The frequency.
-	Frequency pulumi.StringPtrInput `pulumi:"frequency"`
+	Frequency RecurrenceFrequency `pulumi:"frequency"`
 	// The interval.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
 	// The recurrence schedule.
@@ -22224,7 +22224,7 @@ type X12DelimiterOverridesArgs struct {
 	// The segment terminator.
 	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
 	// The segment terminator suffix.
-	SegmentTerminatorSuffix pulumi.StringInput `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
 	// The target namespace on which this delimiter settings has to be applied.
 	TargetNamespace pulumi.StringPtrInput `pulumi:"targetNamespace"`
 }
@@ -22556,7 +22556,7 @@ type X12EnvelopeOverrideInput interface {
 // The X12 envelope override settings.
 type X12EnvelopeOverrideArgs struct {
 	// The date format.
-	DateFormat pulumi.StringInput `pulumi:"dateFormat"`
+	DateFormat X12DateFormat `pulumi:"dateFormat"`
 	// The functional identifier code.
 	FunctionalIdentifierCode pulumi.StringPtrInput `pulumi:"functionalIdentifierCode"`
 	// The header version.
@@ -22574,7 +22574,7 @@ type X12EnvelopeOverrideArgs struct {
 	// The target namespace on which this envelope settings has to be applied.
 	TargetNamespace pulumi.StringInput `pulumi:"targetNamespace"`
 	// The time format.
-	TimeFormat pulumi.StringInput `pulumi:"timeFormat"`
+	TimeFormat X12TimeFormat `pulumi:"timeFormat"`
 }
 
 func (X12EnvelopeOverrideArgs) ElementType() reflect.Type {
@@ -22960,9 +22960,9 @@ type X12EnvelopeSettingsArgs struct {
 	// The group header agency code.
 	GroupHeaderAgencyCode pulumi.StringInput `pulumi:"groupHeaderAgencyCode"`
 	// The group header date format.
-	GroupHeaderDateFormat pulumi.StringInput `pulumi:"groupHeaderDateFormat"`
+	GroupHeaderDateFormat X12DateFormat `pulumi:"groupHeaderDateFormat"`
 	// The group header time format.
-	GroupHeaderTimeFormat pulumi.StringInput `pulumi:"groupHeaderTimeFormat"`
+	GroupHeaderTimeFormat X12TimeFormat `pulumi:"groupHeaderTimeFormat"`
 	// The group header version.
 	GroupHeaderVersion pulumi.StringInput `pulumi:"groupHeaderVersion"`
 	// The interchange  control number lower bound.
@@ -22990,7 +22990,7 @@ type X12EnvelopeSettingsArgs struct {
 	// The transaction set control number upper bound.
 	TransactionSetControlNumberUpperBound pulumi.IntInput `pulumi:"transactionSetControlNumberUpperBound"`
 	// The usage indicator.
-	UsageIndicator pulumi.StringInput `pulumi:"usageIndicator"`
+	UsageIndicator UsageIndicator `pulumi:"usageIndicator"`
 	// The value indicating whether to use control standards id as repetition character.
 	UseControlStandardsIdAsRepetitionCharacter pulumi.BoolInput `pulumi:"useControlStandardsIdAsRepetitionCharacter"`
 }
@@ -24054,7 +24054,7 @@ type X12FramingSettingsInput interface {
 // The X12 agreement framing settings.
 type X12FramingSettingsArgs struct {
 	// The X12 character set.
-	CharacterSet pulumi.StringInput `pulumi:"characterSet"`
+	CharacterSet X12CharacterSet `pulumi:"characterSet"`
 	// The component separator.
 	ComponentSeparator pulumi.IntInput `pulumi:"componentSeparator"`
 	// The data element separator.
@@ -24066,7 +24066,7 @@ type X12FramingSettingsArgs struct {
 	// The segment terminator.
 	SegmentTerminator pulumi.IntInput `pulumi:"segmentTerminator"`
 	// The segment terminator suffix.
-	SegmentTerminatorSuffix pulumi.StringInput `pulumi:"segmentTerminatorSuffix"`
+	SegmentTerminatorSuffix SegmentTerminatorSuffix `pulumi:"segmentTerminatorSuffix"`
 }
 
 func (X12FramingSettingsArgs) ElementType() reflect.Type {
@@ -24538,7 +24538,7 @@ type X12MessageFilterInput interface {
 // The X12 message filter for odata query.
 type X12MessageFilterArgs struct {
 	// The message filter type.
-	MessageFilterType pulumi.StringInput `pulumi:"messageFilterType"`
+	MessageFilterType MessageFilterType `pulumi:"messageFilterType"`
 }
 
 func (X12MessageFilterArgs) ElementType() reflect.Type {
@@ -27148,7 +27148,7 @@ type X12ValidationOverrideArgs struct {
 	// The message id on which the validation settings has to be applied.
 	MessageId pulumi.StringInput `pulumi:"messageId"`
 	// The trailing separator policy.
-	TrailingSeparatorPolicy pulumi.StringInput `pulumi:"trailingSeparatorPolicy"`
+	TrailingSeparatorPolicy TrailingSeparatorPolicy `pulumi:"trailingSeparatorPolicy"`
 	// The value indicating whether to trim leading and trailing spaces and zeroes.
 	TrimLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
 	// The value indicating whether to validate character Set.
@@ -27468,7 +27468,7 @@ type X12ValidationSettingsArgs struct {
 	// The validity period of interchange control number.
 	InterchangeControlNumberValidityDays pulumi.IntInput `pulumi:"interchangeControlNumberValidityDays"`
 	// The trailing separator policy.
-	TrailingSeparatorPolicy pulumi.StringInput `pulumi:"trailingSeparatorPolicy"`
+	TrailingSeparatorPolicy TrailingSeparatorPolicy `pulumi:"trailingSeparatorPolicy"`
 	// The value indicating whether to trim leading and trailing spaces and zeroes.
 	TrimLeadingAndTrailingSpacesAndZeroes pulumi.BoolInput `pulumi:"trimLeadingAndTrailingSpacesAndZeroes"`
 	// The value indicating whether to validate character set in the message.

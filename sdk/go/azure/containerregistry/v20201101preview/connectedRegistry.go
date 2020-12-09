@@ -48,23 +48,24 @@ type ConnectedRegistry struct {
 // NewConnectedRegistry registers a new resource with the given unique name, arguments, and options.
 func NewConnectedRegistry(ctx *pulumi.Context,
 	name string, args *ConnectedRegistryArgs, opts ...pulumi.ResourceOption) (*ConnectedRegistry, error) {
-	if args == nil || args.ConnectedRegistryName == nil {
-		return nil, errors.New("missing required argument 'ConnectedRegistryName'")
-	}
-	if args == nil || args.Mode == nil {
-		return nil, errors.New("missing required argument 'Mode'")
-	}
-	if args == nil || args.Parent == nil {
-		return nil, errors.New("missing required argument 'Parent'")
-	}
-	if args == nil || args.RegistryName == nil {
-		return nil, errors.New("missing required argument 'RegistryName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ConnectedRegistryArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ConnectedRegistryName == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectedRegistryName'")
+	}
+	if args.Mode == nil {
+		return nil, errors.New("invalid value for required argument 'Mode'")
+	}
+	if args.Parent == nil {
+		return nil, errors.New("invalid value for required argument 'Parent'")
+	}
+	if args.RegistryName == nil {
+		return nil, errors.New("invalid value for required argument 'RegistryName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource ConnectedRegistry
 	err := ctx.RegisterResource("azure-nextgen:containerregistry/v20201101preview:ConnectedRegistry", name, args, &resource, opts...)

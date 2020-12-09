@@ -30,20 +30,21 @@ type Network struct {
 // NewNetwork registers a new resource with the given unique name, arguments, and options.
 func NewNetwork(ctx *pulumi.Context,
 	name string, args *NetworkArgs, opts ...pulumi.ResourceOption) (*Network, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.NetworkResourceName == nil {
-		return nil, errors.New("missing required argument 'NetworkResourceName'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &NetworkArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.NetworkResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkResourceName'")
+	}
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

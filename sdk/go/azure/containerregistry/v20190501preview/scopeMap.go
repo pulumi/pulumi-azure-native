@@ -36,20 +36,21 @@ type ScopeMap struct {
 // NewScopeMap registers a new resource with the given unique name, arguments, and options.
 func NewScopeMap(ctx *pulumi.Context,
 	name string, args *ScopeMapArgs, opts ...pulumi.ResourceOption) (*ScopeMap, error) {
-	if args == nil || args.Actions == nil {
-		return nil, errors.New("missing required argument 'Actions'")
-	}
-	if args == nil || args.RegistryName == nil {
-		return nil, errors.New("missing required argument 'RegistryName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ScopeMapName == nil {
-		return nil, errors.New("missing required argument 'ScopeMapName'")
-	}
 	if args == nil {
-		args = &ScopeMapArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Actions == nil {
+		return nil, errors.New("invalid value for required argument 'Actions'")
+	}
+	if args.RegistryName == nil {
+		return nil, errors.New("invalid value for required argument 'RegistryName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ScopeMapName == nil {
+		return nil, errors.New("invalid value for required argument 'ScopeMapName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

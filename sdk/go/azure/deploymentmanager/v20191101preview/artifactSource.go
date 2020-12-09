@@ -34,23 +34,24 @@ type ArtifactSource struct {
 // NewArtifactSource registers a new resource with the given unique name, arguments, and options.
 func NewArtifactSource(ctx *pulumi.Context,
 	name string, args *ArtifactSourceArgs, opts ...pulumi.ResourceOption) (*ArtifactSource, error) {
-	if args == nil || args.ArtifactSourceName == nil {
-		return nil, errors.New("missing required argument 'ArtifactSourceName'")
-	}
-	if args == nil || args.Authentication == nil {
-		return nil, errors.New("missing required argument 'Authentication'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SourceType == nil {
-		return nil, errors.New("missing required argument 'SourceType'")
-	}
 	if args == nil {
-		args = &ArtifactSourceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ArtifactSourceName == nil {
+		return nil, errors.New("invalid value for required argument 'ArtifactSourceName'")
+	}
+	if args.Authentication == nil {
+		return nil, errors.New("invalid value for required argument 'Authentication'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SourceType == nil {
+		return nil, errors.New("invalid value for required argument 'SourceType'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

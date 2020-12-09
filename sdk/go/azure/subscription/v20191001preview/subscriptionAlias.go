@@ -26,11 +26,12 @@ type SubscriptionAlias struct {
 // NewSubscriptionAlias registers a new resource with the given unique name, arguments, and options.
 func NewSubscriptionAlias(ctx *pulumi.Context,
 	name string, args *SubscriptionAliasArgs, opts ...pulumi.ResourceOption) (*SubscriptionAlias, error) {
-	if args == nil || args.AliasName == nil {
-		return nil, errors.New("missing required argument 'AliasName'")
-	}
 	if args == nil {
-		args = &SubscriptionAliasArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AliasName == nil {
+		return nil, errors.New("invalid value for required argument 'AliasName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -34,26 +34,27 @@ type MachineLearningDataset struct {
 // NewMachineLearningDataset registers a new resource with the given unique name, arguments, and options.
 func NewMachineLearningDataset(ctx *pulumi.Context,
 	name string, args *MachineLearningDatasetArgs, opts ...pulumi.ResourceOption) (*MachineLearningDataset, error) {
-	if args == nil || args.DatasetName == nil {
-		return nil, errors.New("missing required argument 'DatasetName'")
-	}
-	if args == nil || args.DatasetType == nil {
-		return nil, errors.New("missing required argument 'DatasetType'")
-	}
-	if args == nil || args.Parameters == nil {
-		return nil, errors.New("missing required argument 'Parameters'")
-	}
-	if args == nil || args.Registration == nil {
-		return nil, errors.New("missing required argument 'Registration'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &MachineLearningDatasetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DatasetName == nil {
+		return nil, errors.New("invalid value for required argument 'DatasetName'")
+	}
+	if args.DatasetType == nil {
+		return nil, errors.New("invalid value for required argument 'DatasetType'")
+	}
+	if args.Parameters == nil {
+		return nil, errors.New("invalid value for required argument 'Parameters'")
+	}
+	if args.Registration == nil {
+		return nil, errors.New("invalid value for required argument 'Registration'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	var resource MachineLearningDataset
 	err := ctx.RegisterResource("azure-nextgen:machinelearningservices/v20200501preview:MachineLearningDataset", name, args, &resource, opts...)

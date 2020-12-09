@@ -1636,9 +1636,9 @@ type SBSkuArgs struct {
 	// The specified messaging units for the tier. For Premium tier, capacity are 1,2 and 4.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
 	// Name of this SKU.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name SkuName `pulumi:"name"`
 	// The billing tier of this particular SKU.
-	Tier pulumi.StringPtrInput `pulumi:"tier"`
+	Tier SkuTier `pulumi:"tier"`
 }
 
 func (SBSkuArgs) ElementType() reflect.Type {

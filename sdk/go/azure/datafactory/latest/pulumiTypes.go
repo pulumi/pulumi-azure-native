@@ -27503,7 +27503,7 @@ type FactoryIdentityInput interface {
 // Identity properties of the factory resource.
 type FactoryIdentityArgs struct {
 	// The identity type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type FactoryIdentityType `pulumi:"type"`
 	// List of user assigned identities for the factory.
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }

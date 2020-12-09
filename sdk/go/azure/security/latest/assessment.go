@@ -38,20 +38,21 @@ type Assessment struct {
 // NewAssessment registers a new resource with the given unique name, arguments, and options.
 func NewAssessment(ctx *pulumi.Context,
 	name string, args *AssessmentArgs, opts ...pulumi.ResourceOption) (*Assessment, error) {
-	if args == nil || args.AssessmentName == nil {
-		return nil, errors.New("missing required argument 'AssessmentName'")
-	}
-	if args == nil || args.ResourceDetails == nil {
-		return nil, errors.New("missing required argument 'ResourceDetails'")
-	}
-	if args == nil || args.ResourceId == nil {
-		return nil, errors.New("missing required argument 'ResourceId'")
-	}
-	if args == nil || args.Status == nil {
-		return nil, errors.New("missing required argument 'Status'")
-	}
 	if args == nil {
-		args = &AssessmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AssessmentName == nil {
+		return nil, errors.New("invalid value for required argument 'AssessmentName'")
+	}
+	if args.ResourceDetails == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceDetails'")
+	}
+	if args.ResourceId == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceId'")
+	}
+	if args.Status == nil {
+		return nil, errors.New("invalid value for required argument 'Status'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -42,23 +42,24 @@ type ScheduledQueryRule struct {
 // NewScheduledQueryRule registers a new resource with the given unique name, arguments, and options.
 func NewScheduledQueryRule(ctx *pulumi.Context,
 	name string, args *ScheduledQueryRuleArgs, opts ...pulumi.ResourceOption) (*ScheduledQueryRule, error) {
-	if args == nil || args.Action == nil {
-		return nil, errors.New("missing required argument 'Action'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.RuleName == nil {
-		return nil, errors.New("missing required argument 'RuleName'")
-	}
-	if args == nil || args.Source == nil {
-		return nil, errors.New("missing required argument 'Source'")
-	}
 	if args == nil {
-		args = &ScheduledQueryRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Action == nil {
+		return nil, errors.New("invalid value for required argument 'Action'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.RuleName == nil {
+		return nil, errors.New("invalid value for required argument 'RuleName'")
+	}
+	if args.Source == nil {
+		return nil, errors.New("invalid value for required argument 'Source'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

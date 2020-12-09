@@ -28,20 +28,21 @@ type ReplicationRecoveryPlan struct {
 // NewReplicationRecoveryPlan registers a new resource with the given unique name, arguments, and options.
 func NewReplicationRecoveryPlan(ctx *pulumi.Context,
 	name string, args *ReplicationRecoveryPlanArgs, opts ...pulumi.ResourceOption) (*ReplicationRecoveryPlan, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
-	if args == nil || args.RecoveryPlanName == nil {
-		return nil, errors.New("missing required argument 'RecoveryPlanName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ResourceName == nil {
-		return nil, errors.New("missing required argument 'ResourceName'")
-	}
 	if args == nil {
-		args = &ReplicationRecoveryPlanArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
+	}
+	if args.RecoveryPlanName == nil {
+		return nil, errors.New("invalid value for required argument 'RecoveryPlanName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

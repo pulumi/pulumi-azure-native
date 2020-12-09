@@ -50,17 +50,18 @@ type SystemTopicEventSubscription struct {
 // NewSystemTopicEventSubscription registers a new resource with the given unique name, arguments, and options.
 func NewSystemTopicEventSubscription(ctx *pulumi.Context,
 	name string, args *SystemTopicEventSubscriptionArgs, opts ...pulumi.ResourceOption) (*SystemTopicEventSubscription, error) {
-	if args == nil || args.EventSubscriptionName == nil {
-		return nil, errors.New("missing required argument 'EventSubscriptionName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SystemTopicName == nil {
-		return nil, errors.New("missing required argument 'SystemTopicName'")
-	}
 	if args == nil {
-		args = &SystemTopicEventSubscriptionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.EventSubscriptionName == nil {
+		return nil, errors.New("invalid value for required argument 'EventSubscriptionName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SystemTopicName == nil {
+		return nil, errors.New("invalid value for required argument 'SystemTopicName'")
 	}
 	var resource SystemTopicEventSubscription
 	err := ctx.RegisterResource("azure-nextgen:eventgrid/v20200401preview:SystemTopicEventSubscription", name, args, &resource, opts...)

@@ -28,6 +28,7 @@ func NewTrafficManagerUserMetricsKey(ctx *pulumi.Context,
 	if args == nil {
 		args = &TrafficManagerUserMetricsKeyArgs{}
 	}
+
 	var resource TrafficManagerUserMetricsKey
 	err := ctx.RegisterResource("azure-nextgen:network/v20170901preview:TrafficManagerUserMetricsKey", name, args, &resource, opts...)
 	if err != nil {

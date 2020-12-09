@@ -42,17 +42,18 @@ type WebApplicationFirewallPolicy struct {
 // NewWebApplicationFirewallPolicy registers a new resource with the given unique name, arguments, and options.
 func NewWebApplicationFirewallPolicy(ctx *pulumi.Context,
 	name string, args *WebApplicationFirewallPolicyArgs, opts ...pulumi.ResourceOption) (*WebApplicationFirewallPolicy, error) {
-	if args == nil || args.ManagedRules == nil {
-		return nil, errors.New("missing required argument 'ManagedRules'")
-	}
-	if args == nil || args.PolicyName == nil {
-		return nil, errors.New("missing required argument 'PolicyName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &WebApplicationFirewallPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ManagedRules == nil {
+		return nil, errors.New("invalid value for required argument 'ManagedRules'")
+	}
+	if args.PolicyName == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

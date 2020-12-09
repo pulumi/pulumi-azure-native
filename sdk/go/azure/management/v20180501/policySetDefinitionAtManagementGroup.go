@@ -36,17 +36,18 @@ type PolicySetDefinitionAtManagementGroup struct {
 // NewPolicySetDefinitionAtManagementGroup registers a new resource with the given unique name, arguments, and options.
 func NewPolicySetDefinitionAtManagementGroup(ctx *pulumi.Context,
 	name string, args *PolicySetDefinitionAtManagementGroupArgs, opts ...pulumi.ResourceOption) (*PolicySetDefinitionAtManagementGroup, error) {
-	if args == nil || args.ManagementGroupId == nil {
-		return nil, errors.New("missing required argument 'ManagementGroupId'")
-	}
-	if args == nil || args.PolicyDefinitions == nil {
-		return nil, errors.New("missing required argument 'PolicyDefinitions'")
-	}
-	if args == nil || args.PolicySetDefinitionName == nil {
-		return nil, errors.New("missing required argument 'PolicySetDefinitionName'")
-	}
 	if args == nil {
-		args = &PolicySetDefinitionAtManagementGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ManagementGroupId == nil {
+		return nil, errors.New("invalid value for required argument 'ManagementGroupId'")
+	}
+	if args.PolicyDefinitions == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyDefinitions'")
+	}
+	if args.PolicySetDefinitionName == nil {
+		return nil, errors.New("invalid value for required argument 'PolicySetDefinitionName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

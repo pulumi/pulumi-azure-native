@@ -50,23 +50,24 @@ type ActionGroup struct {
 // NewActionGroup registers a new resource with the given unique name, arguments, and options.
 func NewActionGroup(ctx *pulumi.Context,
 	name string, args *ActionGroupArgs, opts ...pulumi.ResourceOption) (*ActionGroup, error) {
-	if args == nil || args.ActionGroupName == nil {
-		return nil, errors.New("missing required argument 'ActionGroupName'")
-	}
-	if args == nil || args.Enabled == nil {
-		return nil, errors.New("missing required argument 'Enabled'")
-	}
-	if args == nil || args.GroupShortName == nil {
-		return nil, errors.New("missing required argument 'GroupShortName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ActionGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ActionGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ActionGroupName'")
+	}
+	if args.Enabled == nil {
+		return nil, errors.New("invalid value for required argument 'Enabled'")
+	}
+	if args.GroupShortName == nil {
+		return nil, errors.New("invalid value for required argument 'GroupShortName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

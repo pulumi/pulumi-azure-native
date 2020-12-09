@@ -30,17 +30,18 @@ type RegisteredAsn struct {
 // NewRegisteredAsn registers a new resource with the given unique name, arguments, and options.
 func NewRegisteredAsn(ctx *pulumi.Context,
 	name string, args *RegisteredAsnArgs, opts ...pulumi.ResourceOption) (*RegisteredAsn, error) {
-	if args == nil || args.PeeringName == nil {
-		return nil, errors.New("missing required argument 'PeeringName'")
-	}
-	if args == nil || args.RegisteredAsnName == nil {
-		return nil, errors.New("missing required argument 'RegisteredAsnName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &RegisteredAsnArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PeeringName == nil {
+		return nil, errors.New("invalid value for required argument 'PeeringName'")
+	}
+	if args.RegisteredAsnName == nil {
+		return nil, errors.New("invalid value for required argument 'RegisteredAsnName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

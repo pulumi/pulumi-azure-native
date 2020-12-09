@@ -66,14 +66,15 @@ type StreamingJob struct {
 // NewStreamingJob registers a new resource with the given unique name, arguments, and options.
 func NewStreamingJob(ctx *pulumi.Context,
 	name string, args *StreamingJobArgs, opts ...pulumi.ResourceOption) (*StreamingJob, error) {
-	if args == nil || args.JobName == nil {
-		return nil, errors.New("missing required argument 'JobName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &StreamingJobArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.JobName == nil {
+		return nil, errors.New("invalid value for required argument 'JobName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

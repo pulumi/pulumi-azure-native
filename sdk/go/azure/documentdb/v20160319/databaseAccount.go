@@ -60,20 +60,18 @@ type DatabaseAccount struct {
 // NewDatabaseAccount registers a new resource with the given unique name, arguments, and options.
 func NewDatabaseAccount(ctx *pulumi.Context,
 	name string, args *DatabaseAccountArgs, opts ...pulumi.ResourceOption) (*DatabaseAccount, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.DatabaseAccountOfferType == nil {
-		return nil, errors.New("missing required argument 'DatabaseAccountOfferType'")
-	}
-	if args == nil || args.Locations == nil {
-		return nil, errors.New("missing required argument 'Locations'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &DatabaseAccountArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.Locations == nil {
+		return nil, errors.New("invalid value for required argument 'Locations'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -268,7 +266,7 @@ type DatabaseAccountArgs struct {
 	// The consistency policy for the Cosmos DB account.
 	ConsistencyPolicy ConsistencyPolicyPtrInput
 	// The offer type for the database
-	DatabaseAccountOfferType pulumi.StringInput
+	DatabaseAccountOfferType DatabaseAccountOfferType
 	// Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
 	EnableAutomaticFailover pulumi.BoolPtrInput
 	// Enables the cassandra connector on the Cosmos DB C* account

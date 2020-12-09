@@ -50,32 +50,27 @@ type Link struct {
 // NewLink registers a new resource with the given unique name, arguments, and options.
 func NewLink(ctx *pulumi.Context,
 	name string, args *LinkArgs, opts ...pulumi.ResourceOption) (*Link, error) {
-	if args == nil || args.HubName == nil {
-		return nil, errors.New("missing required argument 'HubName'")
-	}
-	if args == nil || args.LinkName == nil {
-		return nil, errors.New("missing required argument 'LinkName'")
-	}
-	if args == nil || args.ParticipantPropertyReferences == nil {
-		return nil, errors.New("missing required argument 'ParticipantPropertyReferences'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SourceEntityType == nil {
-		return nil, errors.New("missing required argument 'SourceEntityType'")
-	}
-	if args == nil || args.SourceEntityTypeName == nil {
-		return nil, errors.New("missing required argument 'SourceEntityTypeName'")
-	}
-	if args == nil || args.TargetEntityType == nil {
-		return nil, errors.New("missing required argument 'TargetEntityType'")
-	}
-	if args == nil || args.TargetEntityTypeName == nil {
-		return nil, errors.New("missing required argument 'TargetEntityTypeName'")
-	}
 	if args == nil {
-		args = &LinkArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.HubName == nil {
+		return nil, errors.New("invalid value for required argument 'HubName'")
+	}
+	if args.LinkName == nil {
+		return nil, errors.New("invalid value for required argument 'LinkName'")
+	}
+	if args.ParticipantPropertyReferences == nil {
+		return nil, errors.New("invalid value for required argument 'ParticipantPropertyReferences'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SourceEntityTypeName == nil {
+		return nil, errors.New("invalid value for required argument 'SourceEntityTypeName'")
+	}
+	if args.TargetEntityTypeName == nil {
+		return nil, errors.New("invalid value for required argument 'TargetEntityTypeName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -219,7 +214,7 @@ type LinkArgs struct {
 	// The set of properties mappings between the source and target Types.
 	Mappings TypePropertiesMappingArrayInput
 	// Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
-	OperationType pulumi.StringPtrInput
+	OperationType InstanceOperationType
 	// The properties that represent the participating profile.
 	ParticipantPropertyReferences ParticipantPropertyReferenceArrayInput
 	// Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
@@ -227,11 +222,11 @@ type LinkArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Type of source entity.
-	SourceEntityType pulumi.StringInput
+	SourceEntityType EntityType
 	// Name of the source Entity Type.
 	SourceEntityTypeName pulumi.StringInput
 	// Type of target entity.
-	TargetEntityType pulumi.StringInput
+	TargetEntityType EntityType
 	// Name of the target Entity Type.
 	TargetEntityTypeName pulumi.StringInput
 }

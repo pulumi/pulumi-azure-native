@@ -1706,7 +1706,7 @@ type JobScheduleArgs struct {
 	// Schedule start time.
 	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
 	// Schedule interval type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type JobScheduleType `pulumi:"type"`
 }
 
 func (JobScheduleArgs) ElementType() reflect.Type {
@@ -3424,7 +3424,7 @@ type JobTargetArgs struct {
 	// The target elastic pool name.
 	ElasticPoolName pulumi.StringPtrInput `pulumi:"elasticPoolName"`
 	// Whether the target is included or excluded from the group.
-	MembershipType pulumi.StringPtrInput `pulumi:"membershipType"`
+	MembershipType JobTargetGroupMembershipType `pulumi:"membershipType"`
 	// The resource ID of the credential that is used during job execution to connect to the target and determine the list of databases inside the target.
 	RefreshCredential pulumi.StringPtrInput `pulumi:"refreshCredential"`
 	// The target server name.

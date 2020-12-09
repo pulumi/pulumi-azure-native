@@ -38,26 +38,27 @@ type Webhook struct {
 // NewWebhook registers a new resource with the given unique name, arguments, and options.
 func NewWebhook(ctx *pulumi.Context,
 	name string, args *WebhookArgs, opts ...pulumi.ResourceOption) (*Webhook, error) {
-	if args == nil || args.Actions == nil {
-		return nil, errors.New("missing required argument 'Actions'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.RegistryName == nil {
-		return nil, errors.New("missing required argument 'RegistryName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceUri == nil {
-		return nil, errors.New("missing required argument 'ServiceUri'")
-	}
-	if args == nil || args.WebhookName == nil {
-		return nil, errors.New("missing required argument 'WebhookName'")
-	}
 	if args == nil {
-		args = &WebhookArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Actions == nil {
+		return nil, errors.New("invalid value for required argument 'Actions'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.RegistryName == nil {
+		return nil, errors.New("invalid value for required argument 'RegistryName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceUri == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceUri'")
+	}
+	if args.WebhookName == nil {
+		return nil, errors.New("invalid value for required argument 'WebhookName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

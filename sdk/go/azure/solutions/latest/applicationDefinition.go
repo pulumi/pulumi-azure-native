@@ -60,17 +60,15 @@ type ApplicationDefinition struct {
 // NewApplicationDefinition registers a new resource with the given unique name, arguments, and options.
 func NewApplicationDefinition(ctx *pulumi.Context,
 	name string, args *ApplicationDefinitionArgs, opts ...pulumi.ResourceOption) (*ApplicationDefinition, error) {
-	if args == nil || args.ApplicationDefinitionName == nil {
-		return nil, errors.New("missing required argument 'ApplicationDefinitionName'")
-	}
-	if args == nil || args.LockLevel == nil {
-		return nil, errors.New("missing required argument 'LockLevel'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ApplicationDefinitionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApplicationDefinitionName == nil {
+		return nil, errors.New("invalid value for required argument 'ApplicationDefinitionName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -262,7 +260,7 @@ type ApplicationDefinitionArgs struct {
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The managed application lock level.
-	LockLevel pulumi.StringInput
+	LockLevel ApplicationLockLevel
 	// The managed application locking policy.
 	LockingPolicy ApplicationPackageLockingPolicyDefinitionPtrInput
 	// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.

@@ -36,23 +36,24 @@ type MediaGraph struct {
 // NewMediaGraph registers a new resource with the given unique name, arguments, and options.
 func NewMediaGraph(ctx *pulumi.Context,
 	name string, args *MediaGraphArgs, opts ...pulumi.ResourceOption) (*MediaGraph, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.MediaGraphName == nil {
-		return nil, errors.New("missing required argument 'MediaGraphName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Sinks == nil {
-		return nil, errors.New("missing required argument 'Sinks'")
-	}
-	if args == nil || args.Sources == nil {
-		return nil, errors.New("missing required argument 'Sources'")
-	}
 	if args == nil {
-		args = &MediaGraphArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.MediaGraphName == nil {
+		return nil, errors.New("invalid value for required argument 'MediaGraphName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Sinks == nil {
+		return nil, errors.New("invalid value for required argument 'Sinks'")
+	}
+	if args.Sources == nil {
+		return nil, errors.New("invalid value for required argument 'Sources'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

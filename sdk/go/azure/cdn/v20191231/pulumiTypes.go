@@ -4034,7 +4034,7 @@ type GeoFilterInput interface {
 // Rules defining user's geo access within a CDN endpoint.
 type GeoFilterArgs struct {
 	// Action of the geo filter, i.e. allow or block access.
-	Action pulumi.StringInput `pulumi:"action"`
+	Action GeoFilterActions `pulumi:"action"`
 	// Two letter country codes defining user country access in a geo filter, e.g. AU, MX, US.
 	CountryCodes pulumi.StringArrayInput `pulumi:"countryCodes"`
 	// Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)
@@ -4434,9 +4434,9 @@ type HealthProbeParametersArgs struct {
 	// The path relative to the origin that is used to determine the health of the origin.
 	ProbePath pulumi.StringPtrInput `pulumi:"probePath"`
 	// Protocol to use for health probe.
-	ProbeProtocol pulumi.StringPtrInput `pulumi:"probeProtocol"`
+	ProbeProtocol ProbeProtocol `pulumi:"probeProtocol"`
 	// The type of health probe request that is made.
-	ProbeRequestType pulumi.StringPtrInput `pulumi:"probeRequestType"`
+	ProbeRequestType HealthProbeRequestType `pulumi:"probeRequestType"`
 }
 
 func (HealthProbeParametersArgs) ElementType() reflect.Type {
@@ -7382,7 +7382,7 @@ type ResponseBasedOriginErrorDetectionParametersArgs struct {
 	// The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.
 	HttpErrorRanges HttpErrorRangeParametersArrayInput `pulumi:"httpErrorRanges"`
 	// Type of response errors for real user requests for which origin will be deemed unhealthy
-	ResponseBasedDetectedErrorTypes pulumi.StringPtrInput `pulumi:"responseBasedDetectedErrorTypes"`
+	ResponseBasedDetectedErrorTypes ResponseBasedDetectedErrorTypes `pulumi:"responseBasedDetectedErrorTypes"`
 	// The percentage of failed requests in the sample where failover should trigger.
 	ResponseBasedFailoverThresholdPercentage pulumi.IntPtrInput `pulumi:"responseBasedFailoverThresholdPercentage"`
 }

@@ -38,14 +38,15 @@ type PrivateLinkForAzureAd struct {
 // NewPrivateLinkForAzureAd registers a new resource with the given unique name, arguments, and options.
 func NewPrivateLinkForAzureAd(ctx *pulumi.Context,
 	name string, args *PrivateLinkForAzureAdArgs, opts ...pulumi.ResourceOption) (*PrivateLinkForAzureAd, error) {
-	if args == nil || args.PolicyName == nil {
-		return nil, errors.New("missing required argument 'PolicyName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &PrivateLinkForAzureAdArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PolicyName == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource PrivateLinkForAzureAd
 	err := ctx.RegisterResource("azure-nextgen:aadiam/v20200301preview:privateLinkForAzureAd", name, args, &resource, opts...)

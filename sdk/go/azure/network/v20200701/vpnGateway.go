@@ -44,17 +44,18 @@ type VpnGateway struct {
 // NewVpnGateway registers a new resource with the given unique name, arguments, and options.
 func NewVpnGateway(ctx *pulumi.Context,
 	name string, args *VpnGatewayArgs, opts ...pulumi.ResourceOption) (*VpnGateway, error) {
-	if args == nil || args.GatewayName == nil {
-		return nil, errors.New("missing required argument 'GatewayName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &VpnGatewayArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.GatewayName == nil {
+		return nil, errors.New("invalid value for required argument 'GatewayName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

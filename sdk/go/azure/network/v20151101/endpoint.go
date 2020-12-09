@@ -40,20 +40,21 @@ type Endpoint struct {
 // NewEndpoint registers a new resource with the given unique name, arguments, and options.
 func NewEndpoint(ctx *pulumi.Context,
 	name string, args *EndpointArgs, opts ...pulumi.ResourceOption) (*Endpoint, error) {
-	if args == nil || args.EndpointName == nil {
-		return nil, errors.New("missing required argument 'EndpointName'")
-	}
-	if args == nil || args.EndpointType == nil {
-		return nil, errors.New("missing required argument 'EndpointType'")
-	}
-	if args == nil || args.ProfileName == nil {
-		return nil, errors.New("missing required argument 'ProfileName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &EndpointArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.EndpointName == nil {
+		return nil, errors.New("invalid value for required argument 'EndpointName'")
+	}
+	if args.EndpointType == nil {
+		return nil, errors.New("invalid value for required argument 'EndpointType'")
+	}
+	if args.ProfileName == nil {
+		return nil, errors.New("invalid value for required argument 'ProfileName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

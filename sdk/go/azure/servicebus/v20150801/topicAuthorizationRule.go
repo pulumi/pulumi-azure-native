@@ -28,23 +28,24 @@ type TopicAuthorizationRule struct {
 // NewTopicAuthorizationRule registers a new resource with the given unique name, arguments, and options.
 func NewTopicAuthorizationRule(ctx *pulumi.Context,
 	name string, args *TopicAuthorizationRuleArgs, opts ...pulumi.ResourceOption) (*TopicAuthorizationRule, error) {
-	if args == nil || args.AuthorizationRuleName == nil {
-		return nil, errors.New("missing required argument 'AuthorizationRuleName'")
-	}
-	if args == nil || args.NamespaceName == nil {
-		return nil, errors.New("missing required argument 'NamespaceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Rights == nil {
-		return nil, errors.New("missing required argument 'Rights'")
-	}
-	if args == nil || args.TopicName == nil {
-		return nil, errors.New("missing required argument 'TopicName'")
-	}
 	if args == nil {
-		args = &TopicAuthorizationRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AuthorizationRuleName == nil {
+		return nil, errors.New("invalid value for required argument 'AuthorizationRuleName'")
+	}
+	if args.NamespaceName == nil {
+		return nil, errors.New("invalid value for required argument 'NamespaceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Rights == nil {
+		return nil, errors.New("invalid value for required argument 'Rights'")
+	}
+	if args.TopicName == nil {
+		return nil, errors.New("invalid value for required argument 'TopicName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -135,7 +136,7 @@ type TopicAuthorizationRuleArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// The rights associated with the rule.
-	Rights pulumi.StringArrayInput
+	Rights AccessRightsArrayInput
 	// The topic name.
 	TopicName pulumi.StringInput
 }

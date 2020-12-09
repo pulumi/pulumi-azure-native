@@ -429,7 +429,7 @@ type ConnectedClusterIdentityInput interface {
 // Identity for the connected cluster.
 type ConnectedClusterIdentityArgs struct {
 	// The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type ResourceIdentityType `pulumi:"type"`
 }
 
 func (ConnectedClusterIdentityArgs) ElementType() reflect.Type {

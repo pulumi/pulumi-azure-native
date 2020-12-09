@@ -50,17 +50,18 @@ type Appliance struct {
 // NewAppliance registers a new resource with the given unique name, arguments, and options.
 func NewAppliance(ctx *pulumi.Context,
 	name string, args *ApplianceArgs, opts ...pulumi.ResourceOption) (*Appliance, error) {
-	if args == nil || args.ApplianceName == nil {
-		return nil, errors.New("missing required argument 'ApplianceName'")
-	}
-	if args == nil || args.ManagedResourceGroupId == nil {
-		return nil, errors.New("missing required argument 'ManagedResourceGroupId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ApplianceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApplianceName == nil {
+		return nil, errors.New("invalid value for required argument 'ApplianceName'")
+	}
+	if args.ManagedResourceGroupId == nil {
+		return nil, errors.New("invalid value for required argument 'ManagedResourceGroupId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource Appliance
 	err := ctx.RegisterResource("azure-nextgen:solutions/v20160901preview:Appliance", name, args, &resource, opts...)

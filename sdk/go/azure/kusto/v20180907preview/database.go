@@ -38,23 +38,24 @@ type Database struct {
 // NewDatabase registers a new resource with the given unique name, arguments, and options.
 func NewDatabase(ctx *pulumi.Context,
 	name string, args *DatabaseArgs, opts ...pulumi.ResourceOption) (*Database, error) {
-	if args == nil || args.ClusterName == nil {
-		return nil, errors.New("missing required argument 'ClusterName'")
-	}
-	if args == nil || args.DatabaseName == nil {
-		return nil, errors.New("missing required argument 'DatabaseName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SoftDeletePeriodInDays == nil {
-		return nil, errors.New("missing required argument 'SoftDeletePeriodInDays'")
-	}
 	if args == nil {
-		args = &DatabaseArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ClusterName == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterName'")
+	}
+	if args.DatabaseName == nil {
+		return nil, errors.New("invalid value for required argument 'DatabaseName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SoftDeletePeriodInDays == nil {
+		return nil, errors.New("invalid value for required argument 'SoftDeletePeriodInDays'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

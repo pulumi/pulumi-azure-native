@@ -45,23 +45,24 @@ type WebAppHybridConnectionSlot struct {
 // NewWebAppHybridConnectionSlot registers a new resource with the given unique name, arguments, and options.
 func NewWebAppHybridConnectionSlot(ctx *pulumi.Context,
 	name string, args *WebAppHybridConnectionSlotArgs, opts ...pulumi.ResourceOption) (*WebAppHybridConnectionSlot, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.NamespaceName == nil {
-		return nil, errors.New("missing required argument 'NamespaceName'")
-	}
-	if args == nil || args.RelayName == nil {
-		return nil, errors.New("missing required argument 'RelayName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Slot == nil {
-		return nil, errors.New("missing required argument 'Slot'")
-	}
 	if args == nil {
-		args = &WebAppHybridConnectionSlotArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.NamespaceName == nil {
+		return nil, errors.New("invalid value for required argument 'NamespaceName'")
+	}
+	if args.RelayName == nil {
+		return nil, errors.New("invalid value for required argument 'RelayName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Slot == nil {
+		return nil, errors.New("invalid value for required argument 'Slot'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

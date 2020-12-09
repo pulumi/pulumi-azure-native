@@ -44,23 +44,24 @@ type Query struct {
 // NewQuery registers a new resource with the given unique name, arguments, and options.
 func NewQuery(ctx *pulumi.Context,
 	name string, args *QueryArgs, opts ...pulumi.ResourceOption) (*Query, error) {
-	if args == nil || args.Body == nil {
-		return nil, errors.New("missing required argument 'Body'")
-	}
-	if args == nil || args.DisplayName == nil {
-		return nil, errors.New("missing required argument 'DisplayName'")
-	}
-	if args == nil || args.Id == nil {
-		return nil, errors.New("missing required argument 'Id'")
-	}
-	if args == nil || args.QueryPackName == nil {
-		return nil, errors.New("missing required argument 'QueryPackName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &QueryArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Body == nil {
+		return nil, errors.New("invalid value for required argument 'Body'")
+	}
+	if args.DisplayName == nil {
+		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
+	if args.Id == nil {
+		return nil, errors.New("invalid value for required argument 'Id'")
+	}
+	if args.QueryPackName == nil {
+		return nil, errors.New("invalid value for required argument 'QueryPackName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource Query
 	err := ctx.RegisterResource("azure-nextgen:insights/v20190901preview:Query", name, args, &resource, opts...)

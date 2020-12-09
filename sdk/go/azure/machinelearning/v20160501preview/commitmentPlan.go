@@ -34,17 +34,18 @@ type CommitmentPlan struct {
 // NewCommitmentPlan registers a new resource with the given unique name, arguments, and options.
 func NewCommitmentPlan(ctx *pulumi.Context,
 	name string, args *CommitmentPlanArgs, opts ...pulumi.ResourceOption) (*CommitmentPlan, error) {
-	if args == nil || args.CommitmentPlanName == nil {
-		return nil, errors.New("missing required argument 'CommitmentPlanName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &CommitmentPlanArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CommitmentPlanName == nil {
+		return nil, errors.New("invalid value for required argument 'CommitmentPlanName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource CommitmentPlan
 	err := ctx.RegisterResource("azure-nextgen:machinelearning/v20160501preview:CommitmentPlan", name, args, &resource, opts...)

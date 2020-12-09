@@ -26,23 +26,24 @@ type DataSet struct {
 // NewDataSet registers a new resource with the given unique name, arguments, and options.
 func NewDataSet(ctx *pulumi.Context,
 	name string, args *DataSetArgs, opts ...pulumi.ResourceOption) (*DataSet, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.DataSetName == nil {
-		return nil, errors.New("missing required argument 'DataSetName'")
-	}
-	if args == nil || args.Kind == nil {
-		return nil, errors.New("missing required argument 'Kind'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ShareName == nil {
-		return nil, errors.New("missing required argument 'ShareName'")
-	}
 	if args == nil {
-		args = &DataSetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.DataSetName == nil {
+		return nil, errors.New("invalid value for required argument 'DataSetName'")
+	}
+	if args.Kind == nil {
+		return nil, errors.New("invalid value for required argument 'Kind'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ShareName == nil {
+		return nil, errors.New("invalid value for required argument 'ShareName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

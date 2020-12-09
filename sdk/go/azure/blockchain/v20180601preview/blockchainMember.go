@@ -58,14 +58,15 @@ type BlockchainMember struct {
 // NewBlockchainMember registers a new resource with the given unique name, arguments, and options.
 func NewBlockchainMember(ctx *pulumi.Context,
 	name string, args *BlockchainMemberArgs, opts ...pulumi.ResourceOption) (*BlockchainMember, error) {
-	if args == nil || args.BlockchainMemberName == nil {
-		return nil, errors.New("missing required argument 'BlockchainMemberName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &BlockchainMemberArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BlockchainMemberName == nil {
+		return nil, errors.New("invalid value for required argument 'BlockchainMemberName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource BlockchainMember
 	err := ctx.RegisterResource("azure-nextgen:blockchain/v20180601preview:BlockchainMember", name, args, &resource, opts...)

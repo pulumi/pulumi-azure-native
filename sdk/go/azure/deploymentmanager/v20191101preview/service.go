@@ -32,26 +32,27 @@ type Service struct {
 // NewService registers a new resource with the given unique name, arguments, and options.
 func NewService(ctx *pulumi.Context,
 	name string, args *ServiceArgs, opts ...pulumi.ResourceOption) (*Service, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
-	if args == nil || args.ServiceTopologyName == nil {
-		return nil, errors.New("missing required argument 'ServiceTopologyName'")
-	}
-	if args == nil || args.TargetLocation == nil {
-		return nil, errors.New("missing required argument 'TargetLocation'")
-	}
-	if args == nil || args.TargetSubscriptionId == nil {
-		return nil, errors.New("missing required argument 'TargetSubscriptionId'")
-	}
 	if args == nil {
-		args = &ServiceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
+	}
+	if args.ServiceTopologyName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceTopologyName'")
+	}
+	if args.TargetLocation == nil {
+		return nil, errors.New("invalid value for required argument 'TargetLocation'")
+	}
+	if args.TargetSubscriptionId == nil {
+		return nil, errors.New("invalid value for required argument 'TargetSubscriptionId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

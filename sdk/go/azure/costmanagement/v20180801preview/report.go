@@ -34,17 +34,18 @@ type Report struct {
 // NewReport registers a new resource with the given unique name, arguments, and options.
 func NewReport(ctx *pulumi.Context,
 	name string, args *ReportArgs, opts ...pulumi.ResourceOption) (*Report, error) {
-	if args == nil || args.Definition == nil {
-		return nil, errors.New("missing required argument 'Definition'")
-	}
-	if args == nil || args.DeliveryInfo == nil {
-		return nil, errors.New("missing required argument 'DeliveryInfo'")
-	}
-	if args == nil || args.ReportName == nil {
-		return nil, errors.New("missing required argument 'ReportName'")
-	}
 	if args == nil {
-		args = &ReportArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Definition == nil {
+		return nil, errors.New("invalid value for required argument 'Definition'")
+	}
+	if args.DeliveryInfo == nil {
+		return nil, errors.New("invalid value for required argument 'DeliveryInfo'")
+	}
+	if args.ReportName == nil {
+		return nil, errors.New("invalid value for required argument 'ReportName'")
 	}
 	var resource Report
 	err := ctx.RegisterResource("azure-nextgen:costmanagement/v20180801preview:Report", name, args, &resource, opts...)

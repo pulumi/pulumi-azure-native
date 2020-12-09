@@ -34,17 +34,18 @@ type ReportConfig struct {
 // NewReportConfig registers a new resource with the given unique name, arguments, and options.
 func NewReportConfig(ctx *pulumi.Context,
 	name string, args *ReportConfigArgs, opts ...pulumi.ResourceOption) (*ReportConfig, error) {
-	if args == nil || args.Definition == nil {
-		return nil, errors.New("missing required argument 'Definition'")
-	}
-	if args == nil || args.DeliveryInfo == nil {
-		return nil, errors.New("missing required argument 'DeliveryInfo'")
-	}
-	if args == nil || args.ReportConfigName == nil {
-		return nil, errors.New("missing required argument 'ReportConfigName'")
-	}
 	if args == nil {
-		args = &ReportConfigArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Definition == nil {
+		return nil, errors.New("invalid value for required argument 'Definition'")
+	}
+	if args.DeliveryInfo == nil {
+		return nil, errors.New("invalid value for required argument 'DeliveryInfo'")
+	}
+	if args.ReportConfigName == nil {
+		return nil, errors.New("invalid value for required argument 'ReportConfigName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

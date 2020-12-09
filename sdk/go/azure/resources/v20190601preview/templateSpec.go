@@ -36,17 +36,18 @@ type TemplateSpec struct {
 // NewTemplateSpec registers a new resource with the given unique name, arguments, and options.
 func NewTemplateSpec(ctx *pulumi.Context,
 	name string, args *TemplateSpecArgs, opts ...pulumi.ResourceOption) (*TemplateSpec, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.TemplateSpecName == nil {
-		return nil, errors.New("missing required argument 'TemplateSpecName'")
-	}
 	if args == nil {
-		args = &TemplateSpecArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.TemplateSpecName == nil {
+		return nil, errors.New("invalid value for required argument 'TemplateSpecName'")
 	}
 	var resource TemplateSpec
 	err := ctx.RegisterResource("azure-nextgen:resources/v20190601preview:TemplateSpec", name, args, &resource, opts...)

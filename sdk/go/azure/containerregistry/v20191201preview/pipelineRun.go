@@ -34,17 +34,18 @@ type PipelineRun struct {
 // NewPipelineRun registers a new resource with the given unique name, arguments, and options.
 func NewPipelineRun(ctx *pulumi.Context,
 	name string, args *PipelineRunArgs, opts ...pulumi.ResourceOption) (*PipelineRun, error) {
-	if args == nil || args.PipelineRunName == nil {
-		return nil, errors.New("missing required argument 'PipelineRunName'")
-	}
-	if args == nil || args.RegistryName == nil {
-		return nil, errors.New("missing required argument 'RegistryName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &PipelineRunArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PipelineRunName == nil {
+		return nil, errors.New("invalid value for required argument 'PipelineRunName'")
+	}
+	if args.RegistryName == nil {
+		return nil, errors.New("invalid value for required argument 'RegistryName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

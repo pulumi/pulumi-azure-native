@@ -26,17 +26,18 @@ type Input struct {
 // NewInput registers a new resource with the given unique name, arguments, and options.
 func NewInput(ctx *pulumi.Context,
 	name string, args *InputArgs, opts ...pulumi.ResourceOption) (*Input, error) {
-	if args == nil || args.InputName == nil {
-		return nil, errors.New("missing required argument 'InputName'")
-	}
-	if args == nil || args.JobName == nil {
-		return nil, errors.New("missing required argument 'JobName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &InputArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.InputName == nil {
+		return nil, errors.New("invalid value for required argument 'InputName'")
+	}
+	if args.JobName == nil {
+		return nil, errors.New("invalid value for required argument 'JobName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

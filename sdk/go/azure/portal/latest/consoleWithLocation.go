@@ -22,14 +22,15 @@ type ConsoleWithLocation struct {
 // NewConsoleWithLocation registers a new resource with the given unique name, arguments, and options.
 func NewConsoleWithLocation(ctx *pulumi.Context,
 	name string, args *ConsoleWithLocationArgs, opts ...pulumi.ResourceOption) (*ConsoleWithLocation, error) {
-	if args == nil || args.ConsoleName == nil {
-		return nil, errors.New("missing required argument 'ConsoleName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
 	if args == nil {
-		args = &ConsoleWithLocationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ConsoleName == nil {
+		return nil, errors.New("invalid value for required argument 'ConsoleName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

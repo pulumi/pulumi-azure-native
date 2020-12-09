@@ -32,17 +32,18 @@ type Extension struct {
 // NewExtension registers a new resource with the given unique name, arguments, and options.
 func NewExtension(ctx *pulumi.Context,
 	name string, args *ExtensionArgs, opts ...pulumi.ResourceOption) (*Extension, error) {
-	if args == nil || args.AccountResourceName == nil {
-		return nil, errors.New("missing required argument 'AccountResourceName'")
-	}
-	if args == nil || args.ExtensionResourceName == nil {
-		return nil, errors.New("missing required argument 'ExtensionResourceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ExtensionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountResourceName'")
+	}
+	if args.ExtensionResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'ExtensionResourceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

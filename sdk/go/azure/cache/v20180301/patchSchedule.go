@@ -26,20 +26,21 @@ type PatchSchedule struct {
 // NewPatchSchedule registers a new resource with the given unique name, arguments, and options.
 func NewPatchSchedule(ctx *pulumi.Context,
 	name string, args *PatchScheduleArgs, opts ...pulumi.ResourceOption) (*PatchSchedule, error) {
-	if args == nil || args.Default == nil {
-		return nil, errors.New("missing required argument 'Default'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ScheduleEntries == nil {
-		return nil, errors.New("missing required argument 'ScheduleEntries'")
-	}
 	if args == nil {
-		args = &PatchScheduleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Default == nil {
+		return nil, errors.New("invalid value for required argument 'Default'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ScheduleEntries == nil {
+		return nil, errors.New("invalid value for required argument 'ScheduleEntries'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

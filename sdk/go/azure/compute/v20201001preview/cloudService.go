@@ -30,17 +30,18 @@ type CloudService struct {
 // NewCloudService registers a new resource with the given unique name, arguments, and options.
 func NewCloudService(ctx *pulumi.Context,
 	name string, args *CloudServiceArgs, opts ...pulumi.ResourceOption) (*CloudService, error) {
-	if args == nil || args.CloudServiceName == nil {
-		return nil, errors.New("missing required argument 'CloudServiceName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &CloudServiceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CloudServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'CloudServiceName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource CloudService
 	err := ctx.RegisterResource("azure-nextgen:compute/v20201001preview:CloudService", name, args, &resource, opts...)

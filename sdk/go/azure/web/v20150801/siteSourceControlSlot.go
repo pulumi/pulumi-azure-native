@@ -40,20 +40,21 @@ type SiteSourceControlSlot struct {
 // NewSiteSourceControlSlot registers a new resource with the given unique name, arguments, and options.
 func NewSiteSourceControlSlot(ctx *pulumi.Context,
 	name string, args *SiteSourceControlSlotArgs, opts ...pulumi.ResourceOption) (*SiteSourceControlSlot, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Slot == nil {
-		return nil, errors.New("missing required argument 'Slot'")
-	}
 	if args == nil {
-		args = &SiteSourceControlSlotArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Slot == nil {
+		return nil, errors.New("invalid value for required argument 'Slot'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

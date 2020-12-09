@@ -12662,7 +12662,7 @@ type FactoryIdentityInput interface {
 // Identity properties of the factory resource.
 type FactoryIdentityArgs struct {
 	// The identity type. Currently the only supported type is 'SystemAssigned'.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type FactoryIdentityType `pulumi:"type"`
 }
 
 func (FactoryIdentityArgs) ElementType() reflect.Type {

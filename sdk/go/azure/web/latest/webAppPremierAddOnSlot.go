@@ -42,23 +42,24 @@ type WebAppPremierAddOnSlot struct {
 // NewWebAppPremierAddOnSlot registers a new resource with the given unique name, arguments, and options.
 func NewWebAppPremierAddOnSlot(ctx *pulumi.Context,
 	name string, args *WebAppPremierAddOnSlotArgs, opts ...pulumi.ResourceOption) (*WebAppPremierAddOnSlot, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.PremierAddOnName == nil {
-		return nil, errors.New("missing required argument 'PremierAddOnName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Slot == nil {
-		return nil, errors.New("missing required argument 'Slot'")
-	}
 	if args == nil {
-		args = &WebAppPremierAddOnSlotArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.PremierAddOnName == nil {
+		return nil, errors.New("invalid value for required argument 'PremierAddOnName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Slot == nil {
+		return nil, errors.New("invalid value for required argument 'Slot'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

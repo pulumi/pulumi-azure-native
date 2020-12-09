@@ -52,14 +52,15 @@ type AzureFirewall struct {
 // NewAzureFirewall registers a new resource with the given unique name, arguments, and options.
 func NewAzureFirewall(ctx *pulumi.Context,
 	name string, args *AzureFirewallArgs, opts ...pulumi.ResourceOption) (*AzureFirewall, error) {
-	if args == nil || args.AzureFirewallName == nil {
-		return nil, errors.New("missing required argument 'AzureFirewallName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &AzureFirewallArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AzureFirewallName == nil {
+		return nil, errors.New("invalid value for required argument 'AzureFirewallName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -34,26 +34,27 @@ type IncidentRelation struct {
 // NewIncidentRelation registers a new resource with the given unique name, arguments, and options.
 func NewIncidentRelation(ctx *pulumi.Context,
 	name string, args *IncidentRelationArgs, opts ...pulumi.ResourceOption) (*IncidentRelation, error) {
-	if args == nil || args.IncidentId == nil {
-		return nil, errors.New("missing required argument 'IncidentId'")
-	}
-	if args == nil || args.OperationalInsightsResourceProvider == nil {
-		return nil, errors.New("missing required argument 'OperationalInsightsResourceProvider'")
-	}
-	if args == nil || args.RelatedResourceId == nil {
-		return nil, errors.New("missing required argument 'RelatedResourceId'")
-	}
-	if args == nil || args.RelationName == nil {
-		return nil, errors.New("missing required argument 'RelationName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &IncidentRelationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.IncidentId == nil {
+		return nil, errors.New("invalid value for required argument 'IncidentId'")
+	}
+	if args.OperationalInsightsResourceProvider == nil {
+		return nil, errors.New("invalid value for required argument 'OperationalInsightsResourceProvider'")
+	}
+	if args.RelatedResourceId == nil {
+		return nil, errors.New("invalid value for required argument 'RelatedResourceId'")
+	}
+	if args.RelationName == nil {
+		return nil, errors.New("invalid value for required argument 'RelationName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	var resource IncidentRelation
 	err := ctx.RegisterResource("azure-nextgen:securityinsights/v20190101preview:IncidentRelation", name, args, &resource, opts...)

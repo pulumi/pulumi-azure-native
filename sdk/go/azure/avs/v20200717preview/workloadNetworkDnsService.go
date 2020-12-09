@@ -40,17 +40,18 @@ type WorkloadNetworkDnsService struct {
 // NewWorkloadNetworkDnsService registers a new resource with the given unique name, arguments, and options.
 func NewWorkloadNetworkDnsService(ctx *pulumi.Context,
 	name string, args *WorkloadNetworkDnsServiceArgs, opts ...pulumi.ResourceOption) (*WorkloadNetworkDnsService, error) {
-	if args == nil || args.DnsServiceId == nil {
-		return nil, errors.New("missing required argument 'DnsServiceId'")
-	}
-	if args == nil || args.PrivateCloudName == nil {
-		return nil, errors.New("missing required argument 'PrivateCloudName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &WorkloadNetworkDnsServiceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DnsServiceId == nil {
+		return nil, errors.New("invalid value for required argument 'DnsServiceId'")
+	}
+	if args.PrivateCloudName == nil {
+		return nil, errors.New("invalid value for required argument 'PrivateCloudName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource WorkloadNetworkDnsService
 	err := ctx.RegisterResource("azure-nextgen:avs/v20200717preview:WorkloadNetworkDnsService", name, args, &resource, opts...)

@@ -30,17 +30,18 @@ type Suppression struct {
 // NewSuppression registers a new resource with the given unique name, arguments, and options.
 func NewSuppression(ctx *pulumi.Context,
 	name string, args *SuppressionArgs, opts ...pulumi.ResourceOption) (*Suppression, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.RecommendationId == nil {
-		return nil, errors.New("missing required argument 'RecommendationId'")
-	}
-	if args == nil || args.ResourceUri == nil {
-		return nil, errors.New("missing required argument 'ResourceUri'")
-	}
 	if args == nil {
-		args = &SuppressionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.RecommendationId == nil {
+		return nil, errors.New("invalid value for required argument 'RecommendationId'")
+	}
+	if args.ResourceUri == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceUri'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

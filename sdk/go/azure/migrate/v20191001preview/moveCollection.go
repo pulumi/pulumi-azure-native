@@ -34,14 +34,15 @@ type MoveCollection struct {
 // NewMoveCollection registers a new resource with the given unique name, arguments, and options.
 func NewMoveCollection(ctx *pulumi.Context,
 	name string, args *MoveCollectionArgs, opts ...pulumi.ResourceOption) (*MoveCollection, error) {
-	if args == nil || args.MoveCollectionName == nil {
-		return nil, errors.New("missing required argument 'MoveCollectionName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &MoveCollectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.MoveCollectionName == nil {
+		return nil, errors.New("invalid value for required argument 'MoveCollectionName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource MoveCollection
 	err := ctx.RegisterResource("azure-nextgen:migrate/v20191001preview:MoveCollection", name, args, &resource, opts...)

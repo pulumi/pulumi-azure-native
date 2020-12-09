@@ -30,20 +30,21 @@ type IntegrationAccountBatchConfiguration struct {
 // NewIntegrationAccountBatchConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewIntegrationAccountBatchConfiguration(ctx *pulumi.Context,
 	name string, args *IntegrationAccountBatchConfigurationArgs, opts ...pulumi.ResourceOption) (*IntegrationAccountBatchConfiguration, error) {
-	if args == nil || args.BatchConfigurationName == nil {
-		return nil, errors.New("missing required argument 'BatchConfigurationName'")
-	}
-	if args == nil || args.IntegrationAccountName == nil {
-		return nil, errors.New("missing required argument 'IntegrationAccountName'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &IntegrationAccountBatchConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BatchConfigurationName == nil {
+		return nil, errors.New("invalid value for required argument 'BatchConfigurationName'")
+	}
+	if args.IntegrationAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'IntegrationAccountName'")
+	}
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

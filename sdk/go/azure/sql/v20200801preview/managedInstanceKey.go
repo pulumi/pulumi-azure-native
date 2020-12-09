@@ -34,20 +34,21 @@ type ManagedInstanceKey struct {
 // NewManagedInstanceKey registers a new resource with the given unique name, arguments, and options.
 func NewManagedInstanceKey(ctx *pulumi.Context,
 	name string, args *ManagedInstanceKeyArgs, opts ...pulumi.ResourceOption) (*ManagedInstanceKey, error) {
-	if args == nil || args.KeyName == nil {
-		return nil, errors.New("missing required argument 'KeyName'")
-	}
-	if args == nil || args.ManagedInstanceName == nil {
-		return nil, errors.New("missing required argument 'ManagedInstanceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServerKeyType == nil {
-		return nil, errors.New("missing required argument 'ServerKeyType'")
-	}
 	if args == nil {
-		args = &ManagedInstanceKeyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.KeyName == nil {
+		return nil, errors.New("invalid value for required argument 'KeyName'")
+	}
+	if args.ManagedInstanceName == nil {
+		return nil, errors.New("invalid value for required argument 'ManagedInstanceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServerKeyType == nil {
+		return nil, errors.New("invalid value for required argument 'ServerKeyType'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

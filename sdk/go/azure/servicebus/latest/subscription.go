@@ -58,20 +58,21 @@ type Subscription struct {
 // NewSubscription registers a new resource with the given unique name, arguments, and options.
 func NewSubscription(ctx *pulumi.Context,
 	name string, args *SubscriptionArgs, opts ...pulumi.ResourceOption) (*Subscription, error) {
-	if args == nil || args.NamespaceName == nil {
-		return nil, errors.New("missing required argument 'NamespaceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SubscriptionName == nil {
-		return nil, errors.New("missing required argument 'SubscriptionName'")
-	}
-	if args == nil || args.TopicName == nil {
-		return nil, errors.New("missing required argument 'TopicName'")
-	}
 	if args == nil {
-		args = &SubscriptionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.NamespaceName == nil {
+		return nil, errors.New("invalid value for required argument 'NamespaceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SubscriptionName == nil {
+		return nil, errors.New("invalid value for required argument 'SubscriptionName'")
+	}
+	if args.TopicName == nil {
+		return nil, errors.New("invalid value for required argument 'TopicName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -256,7 +257,7 @@ type SubscriptionArgs struct {
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Enumerates the possible values for the status of a messaging entity.
-	Status pulumi.StringPtrInput
+	Status EntityStatus
 	// The subscription name.
 	SubscriptionName pulumi.StringInput
 	// The topic name.

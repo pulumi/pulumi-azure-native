@@ -268,7 +268,7 @@ type ConnectorMappingAvailabilityInput interface {
 // Connector mapping property availability.
 type ConnectorMappingAvailabilityArgs struct {
 	// The frequency to update.
-	Frequency pulumi.StringPtrInput `pulumi:"frequency"`
+	Frequency FrequencyTypes `pulumi:"frequency"`
 	// The interval of the given frequency to use.
 	Interval pulumi.IntInput `pulumi:"interval"`
 }
@@ -574,7 +574,7 @@ type ConnectorMappingCompleteOperationInput interface {
 // The complete operation.
 type ConnectorMappingCompleteOperationArgs struct {
 	// The type of completion operation.
-	CompletionOperationType pulumi.StringPtrInput `pulumi:"completionOperationType"`
+	CompletionOperationType CompletionOperationTypes `pulumi:"completionOperationType"`
 	// The destination folder where files will be moved to once the import is done.
 	DestinationFolder pulumi.StringPtrInput `pulumi:"destinationFolder"`
 }
@@ -884,7 +884,7 @@ type ConnectorMappingErrorManagementArgs struct {
 	// The error limit allowed while importing data.
 	ErrorLimit pulumi.IntPtrInput `pulumi:"errorLimit"`
 	// The type of error management to use for the mapping.
-	ErrorManagementType pulumi.StringInput `pulumi:"errorManagementType"`
+	ErrorManagementType ErrorManagementTypes `pulumi:"errorManagementType"`
 }
 
 func (ConnectorMappingErrorManagementArgs) ElementType() reflect.Type {
@@ -1202,7 +1202,7 @@ type ConnectorMappingFormatArgs struct {
 	// The character that signifies a break between columns.
 	ColumnDelimiter pulumi.StringPtrInput `pulumi:"columnDelimiter"`
 	// The type mapping format.
-	FormatType pulumi.StringInput `pulumi:"formatType"`
+	FormatType FormatTypes `pulumi:"formatType"`
 	// Quote character, used to indicate enquoted fields.
 	QuoteCharacter pulumi.StringPtrInput `pulumi:"quoteCharacter"`
 	// Escape character for quotes, can be the same as the quoteCharacter.
@@ -4826,7 +4826,7 @@ type RelationshipLinkFieldMappingArgs struct {
 	// The field name on the Interaction Type.
 	InteractionFieldName pulumi.StringInput `pulumi:"interactionFieldName"`
 	// Link type.
-	LinkType pulumi.StringPtrInput `pulumi:"linkType"`
+	LinkType LinkTypes `pulumi:"linkType"`
 	// The field name on the Relationship metadata.
 	RelationshipFieldName pulumi.StringInput `pulumi:"relationshipFieldName"`
 }
@@ -6044,7 +6044,7 @@ type TypePropertiesMappingArgs struct {
 	// Flag to indicate whether the Profile Type property is an id on the Profile Type.
 	IsProfileTypeId pulumi.BoolPtrInput `pulumi:"isProfileTypeId"`
 	// Link type.
-	LinkType pulumi.StringPtrInput `pulumi:"linkType"`
+	LinkType LinkTypes `pulumi:"linkType"`
 	// Property name on the target Profile Type.
 	ProfileTypePropertyName pulumi.StringInput `pulumi:"profileTypePropertyName"`
 }

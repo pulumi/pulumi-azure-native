@@ -48,26 +48,27 @@ type Account struct {
 // NewAccount registers a new resource with the given unique name, arguments, and options.
 func NewAccount(ctx *pulumi.Context,
 	name string, args *AccountArgs, opts ...pulumi.ResourceOption) (*Account, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.KeyVaultId == nil {
-		return nil, errors.New("missing required argument 'KeyVaultId'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.StorageAccount == nil {
-		return nil, errors.New("missing required argument 'StorageAccount'")
-	}
-	if args == nil || args.VsoAccountId == nil {
-		return nil, errors.New("missing required argument 'VsoAccountId'")
-	}
 	if args == nil {
-		args = &AccountArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.KeyVaultId == nil {
+		return nil, errors.New("invalid value for required argument 'KeyVaultId'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.StorageAccount == nil {
+		return nil, errors.New("invalid value for required argument 'StorageAccount'")
+	}
+	if args.VsoAccountId == nil {
+		return nil, errors.New("invalid value for required argument 'VsoAccountId'")
 	}
 	var resource Account
 	err := ctx.RegisterResource("azure-nextgen:machinelearningexperimentation/v20170501preview:Account", name, args, &resource, opts...)

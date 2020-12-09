@@ -58,17 +58,18 @@ type ExportConfiguration struct {
 // NewExportConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewExportConfiguration(ctx *pulumi.Context,
 	name string, args *ExportConfigurationArgs, opts ...pulumi.ResourceOption) (*ExportConfiguration, error) {
-	if args == nil || args.ExportId == nil {
-		return nil, errors.New("missing required argument 'ExportId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ResourceName == nil {
-		return nil, errors.New("missing required argument 'ResourceName'")
-	}
 	if args == nil {
-		args = &ExportConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ExportId == nil {
+		return nil, errors.New("invalid value for required argument 'ExportId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

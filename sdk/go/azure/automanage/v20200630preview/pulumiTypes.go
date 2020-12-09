@@ -30,7 +30,7 @@ type AccountIdentityInput interface {
 // Identity for the Automanage account.
 type AccountIdentityArgs struct {
 	// The type of identity used for the Automanage account. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type ResourceIdentityType `pulumi:"type"`
 }
 
 func (AccountIdentityArgs) ElementType() reflect.Type {

@@ -50,14 +50,15 @@ type PublicIPPrefix struct {
 // NewPublicIPPrefix registers a new resource with the given unique name, arguments, and options.
 func NewPublicIPPrefix(ctx *pulumi.Context,
 	name string, args *PublicIPPrefixArgs, opts ...pulumi.ResourceOption) (*PublicIPPrefix, error) {
-	if args == nil || args.PublicIpPrefixName == nil {
-		return nil, errors.New("missing required argument 'PublicIpPrefixName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &PublicIPPrefixArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PublicIpPrefixName == nil {
+		return nil, errors.New("invalid value for required argument 'PublicIpPrefixName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

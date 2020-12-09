@@ -34,23 +34,24 @@ type ApiVersionSet struct {
 // NewApiVersionSet registers a new resource with the given unique name, arguments, and options.
 func NewApiVersionSet(ctx *pulumi.Context,
 	name string, args *ApiVersionSetArgs, opts ...pulumi.ResourceOption) (*ApiVersionSet, error) {
-	if args == nil || args.DisplayName == nil {
-		return nil, errors.New("missing required argument 'DisplayName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
-	if args == nil || args.VersionSetId == nil {
-		return nil, errors.New("missing required argument 'VersionSetId'")
-	}
-	if args == nil || args.VersioningScheme == nil {
-		return nil, errors.New("missing required argument 'VersioningScheme'")
-	}
 	if args == nil {
-		args = &ApiVersionSetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DisplayName == nil {
+		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
+	}
+	if args.VersionSetId == nil {
+		return nil, errors.New("invalid value for required argument 'VersionSetId'")
+	}
+	if args.VersioningScheme == nil {
+		return nil, errors.New("invalid value for required argument 'VersioningScheme'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

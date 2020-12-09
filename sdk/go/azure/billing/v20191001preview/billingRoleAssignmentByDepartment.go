@@ -44,17 +44,18 @@ type BillingRoleAssignmentByDepartment struct {
 // NewBillingRoleAssignmentByDepartment registers a new resource with the given unique name, arguments, and options.
 func NewBillingRoleAssignmentByDepartment(ctx *pulumi.Context,
 	name string, args *BillingRoleAssignmentByDepartmentArgs, opts ...pulumi.ResourceOption) (*BillingRoleAssignmentByDepartment, error) {
-	if args == nil || args.BillingAccountName == nil {
-		return nil, errors.New("missing required argument 'BillingAccountName'")
-	}
-	if args == nil || args.BillingRoleAssignmentName == nil {
-		return nil, errors.New("missing required argument 'BillingRoleAssignmentName'")
-	}
-	if args == nil || args.DepartmentName == nil {
-		return nil, errors.New("missing required argument 'DepartmentName'")
-	}
 	if args == nil {
-		args = &BillingRoleAssignmentByDepartmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BillingAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'BillingAccountName'")
+	}
+	if args.BillingRoleAssignmentName == nil {
+		return nil, errors.New("invalid value for required argument 'BillingRoleAssignmentName'")
+	}
+	if args.DepartmentName == nil {
+		return nil, errors.New("invalid value for required argument 'DepartmentName'")
 	}
 	var resource BillingRoleAssignmentByDepartment
 	err := ctx.RegisterResource("azure-nextgen:billing/v20191001preview:BillingRoleAssignmentByDepartment", name, args, &resource, opts...)

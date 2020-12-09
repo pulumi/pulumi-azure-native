@@ -30,17 +30,18 @@ type ContentType struct {
 // NewContentType registers a new resource with the given unique name, arguments, and options.
 func NewContentType(ctx *pulumi.Context,
 	name string, args *ContentTypeArgs, opts ...pulumi.ResourceOption) (*ContentType, error) {
-	if args == nil || args.ContentTypeId == nil {
-		return nil, errors.New("missing required argument 'ContentTypeId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
 	if args == nil {
-		args = &ContentTypeArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ContentTypeId == nil {
+		return nil, errors.New("invalid value for required argument 'ContentTypeId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

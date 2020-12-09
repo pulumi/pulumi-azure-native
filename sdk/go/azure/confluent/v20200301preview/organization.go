@@ -40,14 +40,15 @@ type Organization struct {
 // NewOrganization registers a new resource with the given unique name, arguments, and options.
 func NewOrganization(ctx *pulumi.Context,
 	name string, args *OrganizationArgs, opts ...pulumi.ResourceOption) (*Organization, error) {
-	if args == nil || args.OrganizationName == nil {
-		return nil, errors.New("missing required argument 'OrganizationName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &OrganizationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.OrganizationName == nil {
+		return nil, errors.New("invalid value for required argument 'OrganizationName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource Organization
 	err := ctx.RegisterResource("azure-nextgen:confluent/v20200301preview:Organization", name, args, &resource, opts...)

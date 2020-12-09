@@ -68,17 +68,18 @@ type Application struct {
 // NewApplication registers a new resource with the given unique name, arguments, and options.
 func NewApplication(ctx *pulumi.Context,
 	name string, args *ApplicationArgs, opts ...pulumi.ResourceOption) (*Application, error) {
-	if args == nil || args.ApplicationName == nil {
-		return nil, errors.New("missing required argument 'ApplicationName'")
-	}
-	if args == nil || args.Kind == nil {
-		return nil, errors.New("missing required argument 'Kind'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ApplicationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApplicationName == nil {
+		return nil, errors.New("invalid value for required argument 'ApplicationName'")
+	}
+	if args.Kind == nil {
+		return nil, errors.New("invalid value for required argument 'Kind'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

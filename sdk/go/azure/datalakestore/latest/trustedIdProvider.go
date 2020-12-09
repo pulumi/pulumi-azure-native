@@ -26,20 +26,21 @@ type TrustedIdProvider struct {
 // NewTrustedIdProvider registers a new resource with the given unique name, arguments, and options.
 func NewTrustedIdProvider(ctx *pulumi.Context,
 	name string, args *TrustedIdProviderArgs, opts ...pulumi.ResourceOption) (*TrustedIdProvider, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.IdProvider == nil {
-		return nil, errors.New("missing required argument 'IdProvider'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.TrustedIdProviderName == nil {
-		return nil, errors.New("missing required argument 'TrustedIdProviderName'")
-	}
 	if args == nil {
-		args = &TrustedIdProviderArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.IdProvider == nil {
+		return nil, errors.New("invalid value for required argument 'IdProvider'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.TrustedIdProviderName == nil {
+		return nil, errors.New("invalid value for required argument 'TrustedIdProviderName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

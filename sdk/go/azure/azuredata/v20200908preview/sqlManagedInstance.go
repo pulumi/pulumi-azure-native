@@ -46,17 +46,18 @@ type SqlManagedInstance struct {
 // NewSqlManagedInstance registers a new resource with the given unique name, arguments, and options.
 func NewSqlManagedInstance(ctx *pulumi.Context,
 	name string, args *SqlManagedInstanceArgs, opts ...pulumi.ResourceOption) (*SqlManagedInstance, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SqlManagedInstanceName == nil {
-		return nil, errors.New("missing required argument 'SqlManagedInstanceName'")
-	}
 	if args == nil {
-		args = &SqlManagedInstanceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SqlManagedInstanceName == nil {
+		return nil, errors.New("invalid value for required argument 'SqlManagedInstanceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -62,17 +62,18 @@ type AgentPool struct {
 // NewAgentPool registers a new resource with the given unique name, arguments, and options.
 func NewAgentPool(ctx *pulumi.Context,
 	name string, args *AgentPoolArgs, opts ...pulumi.ResourceOption) (*AgentPool, error) {
-	if args == nil || args.AgentPoolName == nil {
-		return nil, errors.New("missing required argument 'AgentPoolName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ResourceName == nil {
-		return nil, errors.New("missing required argument 'ResourceName'")
-	}
 	if args == nil {
-		args = &AgentPoolArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AgentPoolName == nil {
+		return nil, errors.New("invalid value for required argument 'AgentPoolName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

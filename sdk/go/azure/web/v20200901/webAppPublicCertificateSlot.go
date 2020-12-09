@@ -34,20 +34,21 @@ type WebAppPublicCertificateSlot struct {
 // NewWebAppPublicCertificateSlot registers a new resource with the given unique name, arguments, and options.
 func NewWebAppPublicCertificateSlot(ctx *pulumi.Context,
 	name string, args *WebAppPublicCertificateSlotArgs, opts ...pulumi.ResourceOption) (*WebAppPublicCertificateSlot, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.PublicCertificateName == nil {
-		return nil, errors.New("missing required argument 'PublicCertificateName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Slot == nil {
-		return nil, errors.New("missing required argument 'Slot'")
-	}
 	if args == nil {
-		args = &WebAppPublicCertificateSlotArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.PublicCertificateName == nil {
+		return nil, errors.New("invalid value for required argument 'PublicCertificateName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Slot == nil {
+		return nil, errors.New("invalid value for required argument 'Slot'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -155,7 +156,7 @@ type WebAppPublicCertificateSlotArgs struct {
 	// Name of the app.
 	Name pulumi.StringInput
 	// Public Certificate Location
-	PublicCertificateLocation pulumi.StringPtrInput
+	PublicCertificateLocation PublicCertificateLocation
 	// Public certificate name.
 	PublicCertificateName pulumi.StringInput
 	// Name of the resource group to which the resource belongs.

@@ -54,20 +54,21 @@ type ViewByScope struct {
 // NewViewByScope registers a new resource with the given unique name, arguments, and options.
 func NewViewByScope(ctx *pulumi.Context,
 	name string, args *ViewByScopeArgs, opts ...pulumi.ResourceOption) (*ViewByScope, error) {
-	if args == nil || args.Scope == nil {
-		return nil, errors.New("missing required argument 'Scope'")
-	}
-	if args == nil || args.Timeframe == nil {
-		return nil, errors.New("missing required argument 'Timeframe'")
-	}
-	if args == nil || args.Type == nil {
-		return nil, errors.New("missing required argument 'Type'")
-	}
-	if args == nil || args.ViewName == nil {
-		return nil, errors.New("missing required argument 'ViewName'")
-	}
 	if args == nil {
-		args = &ViewByScopeArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Scope == nil {
+		return nil, errors.New("invalid value for required argument 'Scope'")
+	}
+	if args.Timeframe == nil {
+		return nil, errors.New("invalid value for required argument 'Timeframe'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
+	}
+	if args.ViewName == nil {
+		return nil, errors.New("invalid value for required argument 'ViewName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

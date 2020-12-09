@@ -26,17 +26,18 @@ type Function struct {
 // NewFunction registers a new resource with the given unique name, arguments, and options.
 func NewFunction(ctx *pulumi.Context,
 	name string, args *FunctionArgs, opts ...pulumi.ResourceOption) (*Function, error) {
-	if args == nil || args.FunctionName == nil {
-		return nil, errors.New("missing required argument 'FunctionName'")
-	}
-	if args == nil || args.JobName == nil {
-		return nil, errors.New("missing required argument 'JobName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &FunctionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.FunctionName == nil {
+		return nil, errors.New("invalid value for required argument 'FunctionName'")
+	}
+	if args.JobName == nil {
+		return nil, errors.New("invalid value for required argument 'JobName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

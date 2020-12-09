@@ -36,26 +36,27 @@ type SavedSearch struct {
 // NewSavedSearch registers a new resource with the given unique name, arguments, and options.
 func NewSavedSearch(ctx *pulumi.Context,
 	name string, args *SavedSearchArgs, opts ...pulumi.ResourceOption) (*SavedSearch, error) {
-	if args == nil || args.Category == nil {
-		return nil, errors.New("missing required argument 'Category'")
-	}
-	if args == nil || args.DisplayName == nil {
-		return nil, errors.New("missing required argument 'DisplayName'")
-	}
-	if args == nil || args.Query == nil {
-		return nil, errors.New("missing required argument 'Query'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SavedSearchId == nil {
-		return nil, errors.New("missing required argument 'SavedSearchId'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &SavedSearchArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Category == nil {
+		return nil, errors.New("invalid value for required argument 'Category'")
+	}
+	if args.DisplayName == nil {
+		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
+	if args.Query == nil {
+		return nil, errors.New("invalid value for required argument 'Query'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SavedSearchId == nil {
+		return nil, errors.New("invalid value for required argument 'SavedSearchId'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -42,17 +42,18 @@ type StorageSyncService struct {
 // NewStorageSyncService registers a new resource with the given unique name, arguments, and options.
 func NewStorageSyncService(ctx *pulumi.Context,
 	name string, args *StorageSyncServiceArgs, opts ...pulumi.ResourceOption) (*StorageSyncService, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.StorageSyncServiceName == nil {
-		return nil, errors.New("missing required argument 'StorageSyncServiceName'")
-	}
 	if args == nil {
-		args = &StorageSyncServiceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.StorageSyncServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'StorageSyncServiceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

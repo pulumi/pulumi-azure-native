@@ -52,17 +52,18 @@ type Service struct {
 // NewService registers a new resource with the given unique name, arguments, and options.
 func NewService(ctx *pulumi.Context,
 	name string, args *ServiceArgs, opts ...pulumi.ResourceOption) (*Service, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SearchServiceName == nil {
-		return nil, errors.New("missing required argument 'SearchServiceName'")
-	}
 	if args == nil {
-		args = &ServiceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SearchServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'SearchServiceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -205,7 +206,7 @@ type serviceArgs struct {
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
 	// Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
-	HostingMode pulumi.StringPtrInput
+	HostingMode HostingMode
 	// The identity of the resource.
 	Identity IdentityPtrInput
 	// The geo-location where the resource lives
@@ -215,7 +216,7 @@ type ServiceArgs struct {
 	// The number of partitions in the search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
 	PartitionCount pulumi.IntPtrInput
 	// This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
-	PublicNetworkAccess pulumi.StringPtrInput
+	PublicNetworkAccess PublicNetworkAccess
 	// The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
 	ReplicaCount pulumi.IntPtrInput
 	// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.

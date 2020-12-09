@@ -40,23 +40,24 @@ type Budget struct {
 // NewBudget registers a new resource with the given unique name, arguments, and options.
 func NewBudget(ctx *pulumi.Context,
 	name string, args *BudgetArgs, opts ...pulumi.ResourceOption) (*Budget, error) {
-	if args == nil || args.Amount == nil {
-		return nil, errors.New("missing required argument 'Amount'")
-	}
-	if args == nil || args.BudgetName == nil {
-		return nil, errors.New("missing required argument 'BudgetName'")
-	}
-	if args == nil || args.Category == nil {
-		return nil, errors.New("missing required argument 'Category'")
-	}
-	if args == nil || args.TimeGrain == nil {
-		return nil, errors.New("missing required argument 'TimeGrain'")
-	}
-	if args == nil || args.TimePeriod == nil {
-		return nil, errors.New("missing required argument 'TimePeriod'")
-	}
 	if args == nil {
-		args = &BudgetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Amount == nil {
+		return nil, errors.New("invalid value for required argument 'Amount'")
+	}
+	if args.BudgetName == nil {
+		return nil, errors.New("invalid value for required argument 'BudgetName'")
+	}
+	if args.Category == nil {
+		return nil, errors.New("invalid value for required argument 'Category'")
+	}
+	if args.TimeGrain == nil {
+		return nil, errors.New("invalid value for required argument 'TimeGrain'")
+	}
+	if args.TimePeriod == nil {
+		return nil, errors.New("invalid value for required argument 'TimePeriod'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

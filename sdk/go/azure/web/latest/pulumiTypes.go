@@ -3314,7 +3314,7 @@ type AutoHealActionsInput interface {
 // Actions which to take by the auto-heal module when a rule is triggered.
 type AutoHealActionsArgs struct {
 	// Predefined action to be taken.
-	ActionType pulumi.StringPtrInput `pulumi:"actionType"`
+	ActionType AutoHealActionType `pulumi:"actionType"`
 	// Custom action to be taken.
 	CustomAction AutoHealCustomActionPtrInput `pulumi:"customAction"`
 	// Minimum time the process must execute
@@ -5069,7 +5069,7 @@ type BackupScheduleArgs struct {
 	// How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
 	FrequencyInterval pulumi.IntInput `pulumi:"frequencyInterval"`
 	// The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
-	FrequencyUnit pulumi.StringInput `pulumi:"frequencyUnit"`
+	FrequencyUnit FrequencyUnit `pulumi:"frequencyUnit"`
 	// True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
 	KeepAtLeastOneBackup pulumi.BoolInput `pulumi:"keepAtLeastOneBackup"`
 	// After how many days backups should be deleted.
@@ -6182,7 +6182,7 @@ type ConnStringInfoArgs struct {
 	// Name of connection string.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Type of database.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type ConnectionStringType `pulumi:"type"`
 }
 
 func (ConnStringInfoArgs) ElementType() reflect.Type {
@@ -7878,7 +7878,7 @@ type ConnectionParameterArgs struct {
 	// OAuth settings for the connection provider
 	OAuthSettings ApiOAuthSettingsPtrInput `pulumi:"oAuthSettings"`
 	// Type of the parameter
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type ConnectionParameterType `pulumi:"type"`
 }
 
 func (ConnectionParameterArgs) ElementType() reflect.Type {
@@ -10376,11 +10376,11 @@ type HostNameSslStateInput interface {
 // SSL-enabled hostname.
 type HostNameSslStateArgs struct {
 	// Indicates whether the hostname is a standard or repository hostname.
-	HostType pulumi.StringPtrInput `pulumi:"hostType"`
+	HostType HostType `pulumi:"hostType"`
 	// Hostname.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// SSL type.
-	SslState pulumi.StringPtrInput `pulumi:"sslState"`
+	SslState SslState `pulumi:"sslState"`
 	// SSL certificate thumbprint.
 	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
 	// Set to <code>true</code> to update existing hostname.
@@ -11597,7 +11597,7 @@ type ManagedServiceIdentityInput interface {
 // Managed service identity.
 type ManagedServiceIdentityArgs struct {
 	// Type of managed service identity.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type ManagedServiceIdentityType `pulumi:"type"`
 	// The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
@@ -12264,10 +12264,10 @@ type NetworkAccessControlEntryInput interface {
 }
 
 type NetworkAccessControlEntryArgs struct {
-	Action       pulumi.StringPtrInput `pulumi:"action"`
-	Description  pulumi.StringPtrInput `pulumi:"description"`
-	Order        pulumi.IntPtrInput    `pulumi:"order"`
-	RemoteSubnet pulumi.StringPtrInput `pulumi:"remoteSubnet"`
+	Action       AccessControlEntryAction `pulumi:"action"`
+	Description  pulumi.StringPtrInput    `pulumi:"description"`
+	Order        pulumi.IntPtrInput       `pulumi:"order"`
+	RemoteSubnet pulumi.StringPtrInput    `pulumi:"remoteSubnet"`
 }
 
 func (NetworkAccessControlEntryArgs) ElementType() reflect.Type {
@@ -14166,13 +14166,13 @@ type SiteConfigArgs struct {
 	// Linux App Framework and version
 	LinuxFxVersion pulumi.StringPtrInput `pulumi:"linuxFxVersion"`
 	// Site load balancing.
-	LoadBalancing pulumi.StringPtrInput `pulumi:"loadBalancing"`
+	LoadBalancing SiteLoadBalancing `pulumi:"loadBalancing"`
 	// <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
 	LocalMySqlEnabled pulumi.BoolPtrInput `pulumi:"localMySqlEnabled"`
 	// HTTP logs directory size limit.
 	LogsDirectorySizeLimit pulumi.IntPtrInput `pulumi:"logsDirectorySizeLimit"`
 	// Managed pipeline mode.
-	ManagedPipelineMode pulumi.StringPtrInput `pulumi:"managedPipelineMode"`
+	ManagedPipelineMode ManagedPipelineMode `pulumi:"managedPipelineMode"`
 	// Managed Service Identity Id
 	ManagedServiceIdentityId pulumi.IntPtrInput `pulumi:"managedServiceIdentityId"`
 	// MinTlsVersion: configures the minimum version of TLS required for SSL requests
@@ -18417,7 +18417,7 @@ type StampCapacityArgs struct {
 	// Available capacity (# of machines, bytes of storage etc...)
 	AvailableCapacity pulumi.IntPtrInput `pulumi:"availableCapacity"`
 	// Shared/Dedicated workers
-	ComputeMode pulumi.StringPtrInput `pulumi:"computeMode"`
+	ComputeMode ComputeModeOptions `pulumi:"computeMode"`
 	// If true it includes basic sites
 	//             Basic sites are not used for capacity allocation.
 	ExcludeFromCapacityAllocation pulumi.BoolPtrInput `pulumi:"excludeFromCapacityAllocation"`
@@ -18432,7 +18432,7 @@ type StampCapacityArgs struct {
 	// Name of the unit
 	Unit pulumi.StringPtrInput `pulumi:"unit"`
 	// Size of the machines
-	WorkerSize pulumi.StringPtrInput `pulumi:"workerSize"`
+	WorkerSize WorkerSizeOptions `pulumi:"workerSize"`
 	// Size Id of machines:
 	//             0 - Small
 	//             1 - Medium
@@ -21104,7 +21104,7 @@ type WorkerPoolInput interface {
 // Worker pool of a hostingEnvironment (App Service Environment)
 type WorkerPoolArgs struct {
 	// Shared or dedicated web app hosting
-	ComputeMode pulumi.StringPtrInput `pulumi:"computeMode"`
+	ComputeMode ComputeModeOptions `pulumi:"computeMode"`
 	// Resource Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Names of all instances in the worker pool (read only)

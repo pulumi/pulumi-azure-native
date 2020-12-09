@@ -44,20 +44,21 @@ type User struct {
 // NewUser registers a new resource with the given unique name, arguments, and options.
 func NewUser(ctx *pulumi.Context,
 	name string, args *UserArgs, opts ...pulumi.ResourceOption) (*User, error) {
-	if args == nil || args.LabAccountName == nil {
-		return nil, errors.New("missing required argument 'LabAccountName'")
-	}
-	if args == nil || args.LabName == nil {
-		return nil, errors.New("missing required argument 'LabName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.UserName == nil {
-		return nil, errors.New("missing required argument 'UserName'")
-	}
 	if args == nil {
-		args = &UserArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.LabAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'LabAccountName'")
+	}
+	if args.LabName == nil {
+		return nil, errors.New("invalid value for required argument 'LabName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.UserName == nil {
+		return nil, errors.New("invalid value for required argument 'UserName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

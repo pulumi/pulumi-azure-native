@@ -30,17 +30,18 @@ type SshPublicKey struct {
 // NewSshPublicKey registers a new resource with the given unique name, arguments, and options.
 func NewSshPublicKey(ctx *pulumi.Context,
 	name string, args *SshPublicKeyArgs, opts ...pulumi.ResourceOption) (*SshPublicKey, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SshPublicKeyName == nil {
-		return nil, errors.New("missing required argument 'SshPublicKeyName'")
-	}
 	if args == nil {
-		args = &SshPublicKeyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SshPublicKeyName == nil {
+		return nil, errors.New("invalid value for required argument 'SshPublicKeyName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

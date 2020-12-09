@@ -33,17 +33,18 @@ type WebAppPrivateEndpointConnection struct {
 // NewWebAppPrivateEndpointConnection registers a new resource with the given unique name, arguments, and options.
 func NewWebAppPrivateEndpointConnection(ctx *pulumi.Context,
 	name string, args *WebAppPrivateEndpointConnectionArgs, opts ...pulumi.ResourceOption) (*WebAppPrivateEndpointConnection, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.PrivateEndpointConnectionName == nil {
-		return nil, errors.New("missing required argument 'PrivateEndpointConnectionName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &WebAppPrivateEndpointConnectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.PrivateEndpointConnectionName == nil {
+		return nil, errors.New("invalid value for required argument 'PrivateEndpointConnectionName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

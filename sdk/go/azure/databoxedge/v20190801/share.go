@@ -44,26 +44,27 @@ type Share struct {
 // NewShare registers a new resource with the given unique name, arguments, and options.
 func NewShare(ctx *pulumi.Context,
 	name string, args *ShareArgs, opts ...pulumi.ResourceOption) (*Share, error) {
-	if args == nil || args.AccessProtocol == nil {
-		return nil, errors.New("missing required argument 'AccessProtocol'")
-	}
-	if args == nil || args.DeviceName == nil {
-		return nil, errors.New("missing required argument 'DeviceName'")
-	}
-	if args == nil || args.MonitoringStatus == nil {
-		return nil, errors.New("missing required argument 'MonitoringStatus'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ShareStatus == nil {
-		return nil, errors.New("missing required argument 'ShareStatus'")
-	}
 	if args == nil {
-		args = &ShareArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccessProtocol == nil {
+		return nil, errors.New("invalid value for required argument 'AccessProtocol'")
+	}
+	if args.DeviceName == nil {
+		return nil, errors.New("invalid value for required argument 'DeviceName'")
+	}
+	if args.MonitoringStatus == nil {
+		return nil, errors.New("invalid value for required argument 'MonitoringStatus'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ShareStatus == nil {
+		return nil, errors.New("invalid value for required argument 'ShareStatus'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

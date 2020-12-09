@@ -62,23 +62,21 @@ type StorageAccount struct {
 // NewStorageAccount registers a new resource with the given unique name, arguments, and options.
 func NewStorageAccount(ctx *pulumi.Context,
 	name string, args *StorageAccountArgs, opts ...pulumi.ResourceOption) (*StorageAccount, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.Kind == nil {
-		return nil, errors.New("missing required argument 'Kind'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Sku == nil {
-		return nil, errors.New("missing required argument 'Sku'")
-	}
 	if args == nil {
-		args = &StorageAccountArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Sku == nil {
+		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -270,7 +268,7 @@ type storageAccountArgs struct {
 // The set of arguments for constructing a StorageAccount resource.
 type StorageAccountArgs struct {
 	// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
-	AccessTier pulumi.StringPtrInput
+	AccessTier AccessTier
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName pulumi.StringInput
 	// User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
@@ -282,7 +280,7 @@ type StorageAccountArgs struct {
 	// The identity of the resource.
 	Identity IdentityPtrInput
 	// Required. Indicates the type of storage account.
-	Kind pulumi.StringInput
+	Kind Kind
 	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
 	Location pulumi.StringInput
 	// Network rule set

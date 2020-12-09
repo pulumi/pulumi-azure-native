@@ -34,20 +34,21 @@ type Variable struct {
 // NewVariable registers a new resource with the given unique name, arguments, and options.
 func NewVariable(ctx *pulumi.Context,
 	name string, args *VariableArgs, opts ...pulumi.ResourceOption) (*Variable, error) {
-	if args == nil || args.AutomationAccountName == nil {
-		return nil, errors.New("missing required argument 'AutomationAccountName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VariableName == nil {
-		return nil, errors.New("missing required argument 'VariableName'")
-	}
 	if args == nil {
-		args = &VariableArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AutomationAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AutomationAccountName'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VariableName == nil {
+		return nil, errors.New("invalid value for required argument 'VariableName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

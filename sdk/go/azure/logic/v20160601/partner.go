@@ -38,23 +38,21 @@ type Partner struct {
 // NewPartner registers a new resource with the given unique name, arguments, and options.
 func NewPartner(ctx *pulumi.Context,
 	name string, args *PartnerArgs, opts ...pulumi.ResourceOption) (*Partner, error) {
-	if args == nil || args.Content == nil {
-		return nil, errors.New("missing required argument 'Content'")
-	}
-	if args == nil || args.IntegrationAccountName == nil {
-		return nil, errors.New("missing required argument 'IntegrationAccountName'")
-	}
-	if args == nil || args.PartnerName == nil {
-		return nil, errors.New("missing required argument 'PartnerName'")
-	}
-	if args == nil || args.PartnerType == nil {
-		return nil, errors.New("missing required argument 'PartnerType'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &PartnerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Content == nil {
+		return nil, errors.New("invalid value for required argument 'Content'")
+	}
+	if args.IntegrationAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'IntegrationAccountName'")
+	}
+	if args.PartnerName == nil {
+		return nil, errors.New("invalid value for required argument 'PartnerName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -170,7 +168,7 @@ type PartnerArgs struct {
 	// The integration account partner name.
 	PartnerName pulumi.StringInput
 	// The partner type.
-	PartnerType pulumi.StringInput
+	PartnerType PartnerType
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The resource tags.

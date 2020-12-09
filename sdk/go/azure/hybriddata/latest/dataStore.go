@@ -34,23 +34,21 @@ type DataStore struct {
 // NewDataStore registers a new resource with the given unique name, arguments, and options.
 func NewDataStore(ctx *pulumi.Context,
 	name string, args *DataStoreArgs, opts ...pulumi.ResourceOption) (*DataStore, error) {
-	if args == nil || args.DataManagerName == nil {
-		return nil, errors.New("missing required argument 'DataManagerName'")
-	}
-	if args == nil || args.DataStoreName == nil {
-		return nil, errors.New("missing required argument 'DataStoreName'")
-	}
-	if args == nil || args.DataStoreTypeId == nil {
-		return nil, errors.New("missing required argument 'DataStoreTypeId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.State == nil {
-		return nil, errors.New("missing required argument 'State'")
-	}
 	if args == nil {
-		args = &DataStoreArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DataManagerName == nil {
+		return nil, errors.New("invalid value for required argument 'DataManagerName'")
+	}
+	if args.DataStoreName == nil {
+		return nil, errors.New("invalid value for required argument 'DataStoreName'")
+	}
+	if args.DataStoreTypeId == nil {
+		return nil, errors.New("invalid value for required argument 'DataStoreTypeId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -156,7 +154,7 @@ type DataStoreArgs struct {
 	// The Resource Group Name
 	ResourceGroupName pulumi.StringInput
 	// State of the data source.
-	State pulumi.StringInput
+	State State
 }
 
 func (DataStoreArgs) ElementType() reflect.Type {

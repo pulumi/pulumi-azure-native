@@ -36,17 +36,18 @@ type PeeringService struct {
 // NewPeeringService registers a new resource with the given unique name, arguments, and options.
 func NewPeeringService(ctx *pulumi.Context,
 	name string, args *PeeringServiceArgs, opts ...pulumi.ResourceOption) (*PeeringService, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.PeeringServiceName == nil {
-		return nil, errors.New("missing required argument 'PeeringServiceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &PeeringServiceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.PeeringServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'PeeringServiceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

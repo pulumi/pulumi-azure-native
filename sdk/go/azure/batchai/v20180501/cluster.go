@@ -54,23 +54,24 @@ type Cluster struct {
 // NewCluster registers a new resource with the given unique name, arguments, and options.
 func NewCluster(ctx *pulumi.Context,
 	name string, args *ClusterArgs, opts ...pulumi.ResourceOption) (*Cluster, error) {
-	if args == nil || args.ClusterName == nil {
-		return nil, errors.New("missing required argument 'ClusterName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.UserAccountSettings == nil {
-		return nil, errors.New("missing required argument 'UserAccountSettings'")
-	}
-	if args == nil || args.VmSize == nil {
-		return nil, errors.New("missing required argument 'VmSize'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &ClusterArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ClusterName == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.UserAccountSettings == nil {
+		return nil, errors.New("invalid value for required argument 'UserAccountSettings'")
+	}
+	if args.VmSize == nil {
+		return nil, errors.New("invalid value for required argument 'VmSize'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -217,7 +218,7 @@ type ClusterArgs struct {
 	// OS image configuration for cluster nodes. All nodes in a cluster have the same OS image.
 	VirtualMachineConfiguration VirtualMachineConfigurationPtrInput
 	// VM priority. Allowed values are: dedicated (default) and lowpriority.
-	VmPriority pulumi.StringPtrInput
+	VmPriority VmPriority
 	// The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace see Sizes for Virtual Machines (Linux). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
 	VmSize pulumi.StringInput
 	// The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.

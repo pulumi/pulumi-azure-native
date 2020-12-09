@@ -26,14 +26,15 @@ type RegistrationAssignment struct {
 // NewRegistrationAssignment registers a new resource with the given unique name, arguments, and options.
 func NewRegistrationAssignment(ctx *pulumi.Context,
 	name string, args *RegistrationAssignmentArgs, opts ...pulumi.ResourceOption) (*RegistrationAssignment, error) {
-	if args == nil || args.RegistrationAssignmentId == nil {
-		return nil, errors.New("missing required argument 'RegistrationAssignmentId'")
-	}
-	if args == nil || args.Scope == nil {
-		return nil, errors.New("missing required argument 'Scope'")
-	}
 	if args == nil {
-		args = &RegistrationAssignmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.RegistrationAssignmentId == nil {
+		return nil, errors.New("invalid value for required argument 'RegistrationAssignmentId'")
+	}
+	if args.Scope == nil {
+		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

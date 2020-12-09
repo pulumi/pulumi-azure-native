@@ -52,20 +52,21 @@ type Module struct {
 // NewModule registers a new resource with the given unique name, arguments, and options.
 func NewModule(ctx *pulumi.Context,
 	name string, args *ModuleArgs, opts ...pulumi.ResourceOption) (*Module, error) {
-	if args == nil || args.AutomationAccountName == nil {
-		return nil, errors.New("missing required argument 'AutomationAccountName'")
-	}
-	if args == nil || args.ContentLink == nil {
-		return nil, errors.New("missing required argument 'ContentLink'")
-	}
-	if args == nil || args.ModuleName == nil {
-		return nil, errors.New("missing required argument 'ModuleName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ModuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AutomationAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AutomationAccountName'")
+	}
+	if args.ContentLink == nil {
+		return nil, errors.New("invalid value for required argument 'ContentLink'")
+	}
+	if args.ModuleName == nil {
+		return nil, errors.New("invalid value for required argument 'ModuleName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

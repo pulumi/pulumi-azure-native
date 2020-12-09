@@ -38,20 +38,21 @@ type SqlDatabase struct {
 // NewSqlDatabase registers a new resource with the given unique name, arguments, and options.
 func NewSqlDatabase(ctx *pulumi.Context,
 	name string, args *SqlDatabaseArgs, opts ...pulumi.ResourceOption) (*SqlDatabase, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SqlDatabaseName == nil {
-		return nil, errors.New("missing required argument 'SqlDatabaseName'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &SqlDatabaseArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SqlDatabaseName == nil {
+		return nil, errors.New("invalid value for required argument 'SqlDatabaseName'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	var resource SqlDatabase
 	err := ctx.RegisterResource("azure-nextgen:synapse/v20200401preview:SqlDatabase", name, args, &resource, opts...)

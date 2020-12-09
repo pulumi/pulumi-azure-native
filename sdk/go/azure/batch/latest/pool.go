@@ -68,17 +68,18 @@ type Pool struct {
 // NewPool registers a new resource with the given unique name, arguments, and options.
 func NewPool(ctx *pulumi.Context,
 	name string, args *PoolArgs, opts ...pulumi.ResourceOption) (*Pool, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.PoolName == nil {
-		return nil, errors.New("missing required argument 'PoolName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &PoolArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.PoolName == nil {
+		return nil, errors.New("invalid value for required argument 'PoolName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -284,7 +285,7 @@ type PoolArgs struct {
 	// The display name need not be unique and can contain any Unicode characters up to a maximum length of 1024.
 	DisplayName pulumi.StringPtrInput
 	// This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
-	InterNodeCommunication pulumi.StringPtrInput
+	InterNodeCommunication InterNodeCommunicationState
 	// The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
 	Metadata MetadataItemArrayInput
 	// This supports Azure Files, NFS, CIFS/SMB, and Blobfuse.

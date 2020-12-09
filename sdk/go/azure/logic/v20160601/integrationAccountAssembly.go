@@ -30,20 +30,21 @@ type IntegrationAccountAssembly struct {
 // NewIntegrationAccountAssembly registers a new resource with the given unique name, arguments, and options.
 func NewIntegrationAccountAssembly(ctx *pulumi.Context,
 	name string, args *IntegrationAccountAssemblyArgs, opts ...pulumi.ResourceOption) (*IntegrationAccountAssembly, error) {
-	if args == nil || args.AssemblyArtifactName == nil {
-		return nil, errors.New("missing required argument 'AssemblyArtifactName'")
-	}
-	if args == nil || args.IntegrationAccountName == nil {
-		return nil, errors.New("missing required argument 'IntegrationAccountName'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &IntegrationAccountAssemblyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AssemblyArtifactName == nil {
+		return nil, errors.New("invalid value for required argument 'AssemblyArtifactName'")
+	}
+	if args.IntegrationAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'IntegrationAccountName'")
+	}
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

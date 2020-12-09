@@ -3118,7 +3118,7 @@ type NamespacePropertiesArgs struct {
 	// The name of the namespace.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Gets or sets the namespace type.
-	NamespaceType pulumi.StringPtrInput `pulumi:"namespaceType"`
+	NamespaceType NamespaceType `pulumi:"namespaceType"`
 	// Gets or sets provisioning state of the Namespace.
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 	// Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
@@ -4344,7 +4344,7 @@ type SharedAccessAuthorizationRulePropertiesArgs struct {
 	// The revision number for the rule.
 	Revision pulumi.IntPtrInput `pulumi:"revision"`
 	// The rights associated with the rule.
-	Rights pulumi.StringArrayInput `pulumi:"rights"`
+	Rights AccessRightsArrayInput `pulumi:"rights"`
 	// The secondary key that was used.
 	SecondaryKey pulumi.StringPtrInput `pulumi:"secondaryKey"`
 }

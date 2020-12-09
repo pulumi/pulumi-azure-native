@@ -31,17 +31,18 @@ type NetworkWatcher struct {
 // NewNetworkWatcher registers a new resource with the given unique name, arguments, and options.
 func NewNetworkWatcher(ctx *pulumi.Context,
 	name string, args *NetworkWatcherArgs, opts ...pulumi.ResourceOption) (*NetworkWatcher, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.NetworkWatcherName == nil {
-		return nil, errors.New("missing required argument 'NetworkWatcherName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &NetworkWatcherArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.NetworkWatcherName == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkWatcherName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

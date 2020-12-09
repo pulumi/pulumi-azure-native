@@ -34,17 +34,18 @@ type GlobalReachConnection struct {
 // NewGlobalReachConnection registers a new resource with the given unique name, arguments, and options.
 func NewGlobalReachConnection(ctx *pulumi.Context,
 	name string, args *GlobalReachConnectionArgs, opts ...pulumi.ResourceOption) (*GlobalReachConnection, error) {
-	if args == nil || args.GlobalReachConnectionName == nil {
-		return nil, errors.New("missing required argument 'GlobalReachConnectionName'")
-	}
-	if args == nil || args.PrivateCloudName == nil {
-		return nil, errors.New("missing required argument 'PrivateCloudName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &GlobalReachConnectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.GlobalReachConnectionName == nil {
+		return nil, errors.New("invalid value for required argument 'GlobalReachConnectionName'")
+	}
+	if args.PrivateCloudName == nil {
+		return nil, errors.New("invalid value for required argument 'PrivateCloudName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource GlobalReachConnection
 	err := ctx.RegisterResource("azure-nextgen:avs/v20200717preview:GlobalReachConnection", name, args, &resource, opts...)

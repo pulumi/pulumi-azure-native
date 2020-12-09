@@ -56,32 +56,33 @@ type AuthorizationServer struct {
 // NewAuthorizationServer registers a new resource with the given unique name, arguments, and options.
 func NewAuthorizationServer(ctx *pulumi.Context,
 	name string, args *AuthorizationServerArgs, opts ...pulumi.ResourceOption) (*AuthorizationServer, error) {
-	if args == nil || args.AuthorizationEndpoint == nil {
-		return nil, errors.New("missing required argument 'AuthorizationEndpoint'")
-	}
-	if args == nil || args.Authsid == nil {
-		return nil, errors.New("missing required argument 'Authsid'")
-	}
-	if args == nil || args.ClientId == nil {
-		return nil, errors.New("missing required argument 'ClientId'")
-	}
-	if args == nil || args.ClientRegistrationEndpoint == nil {
-		return nil, errors.New("missing required argument 'ClientRegistrationEndpoint'")
-	}
-	if args == nil || args.DisplayName == nil {
-		return nil, errors.New("missing required argument 'DisplayName'")
-	}
-	if args == nil || args.GrantTypes == nil {
-		return nil, errors.New("missing required argument 'GrantTypes'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
 	if args == nil {
-		args = &AuthorizationServerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AuthorizationEndpoint == nil {
+		return nil, errors.New("invalid value for required argument 'AuthorizationEndpoint'")
+	}
+	if args.Authsid == nil {
+		return nil, errors.New("invalid value for required argument 'Authsid'")
+	}
+	if args.ClientId == nil {
+		return nil, errors.New("invalid value for required argument 'ClientId'")
+	}
+	if args.ClientRegistrationEndpoint == nil {
+		return nil, errors.New("invalid value for required argument 'ClientRegistrationEndpoint'")
+	}
+	if args.DisplayName == nil {
+		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
+	if args.GrantTypes == nil {
+		return nil, errors.New("invalid value for required argument 'GrantTypes'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -262,7 +263,7 @@ type AuthorizationServerArgs struct {
 	// OAuth authorization endpoint. See http://tools.ietf.org/html/rfc6749#section-3.2.
 	AuthorizationEndpoint pulumi.StringInput
 	// HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
-	AuthorizationMethods pulumi.StringArrayInput
+	AuthorizationMethods AuthorizationMethodArrayInput
 	// Identifier of the authorization server.
 	Authsid pulumi.StringInput
 	// Specifies the mechanism by which access token is passed to the API.

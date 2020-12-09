@@ -38,14 +38,15 @@ type Hub struct {
 // NewHub registers a new resource with the given unique name, arguments, and options.
 func NewHub(ctx *pulumi.Context,
 	name string, args *HubArgs, opts ...pulumi.ResourceOption) (*Hub, error) {
-	if args == nil || args.HubName == nil {
-		return nil, errors.New("missing required argument 'HubName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &HubArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.HubName == nil {
+		return nil, errors.New("invalid value for required argument 'HubName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

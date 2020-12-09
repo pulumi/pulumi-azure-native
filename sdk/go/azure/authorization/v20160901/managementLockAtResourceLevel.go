@@ -30,29 +30,30 @@ type ManagementLockAtResourceLevel struct {
 // NewManagementLockAtResourceLevel registers a new resource with the given unique name, arguments, and options.
 func NewManagementLockAtResourceLevel(ctx *pulumi.Context,
 	name string, args *ManagementLockAtResourceLevelArgs, opts ...pulumi.ResourceOption) (*ManagementLockAtResourceLevel, error) {
-	if args == nil || args.Level == nil {
-		return nil, errors.New("missing required argument 'Level'")
-	}
-	if args == nil || args.LockName == nil {
-		return nil, errors.New("missing required argument 'LockName'")
-	}
-	if args == nil || args.ParentResourcePath == nil {
-		return nil, errors.New("missing required argument 'ParentResourcePath'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ResourceName == nil {
-		return nil, errors.New("missing required argument 'ResourceName'")
-	}
-	if args == nil || args.ResourceProviderNamespace == nil {
-		return nil, errors.New("missing required argument 'ResourceProviderNamespace'")
-	}
-	if args == nil || args.ResourceType == nil {
-		return nil, errors.New("missing required argument 'ResourceType'")
-	}
 	if args == nil {
-		args = &ManagementLockAtResourceLevelArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Level == nil {
+		return nil, errors.New("invalid value for required argument 'Level'")
+	}
+	if args.LockName == nil {
+		return nil, errors.New("invalid value for required argument 'LockName'")
+	}
+	if args.ParentResourcePath == nil {
+		return nil, errors.New("invalid value for required argument 'ParentResourcePath'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceName'")
+	}
+	if args.ResourceProviderNamespace == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceProviderNamespace'")
+	}
+	if args.ResourceType == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceType'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

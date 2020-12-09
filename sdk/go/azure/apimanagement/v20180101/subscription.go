@@ -48,26 +48,27 @@ type Subscription struct {
 // NewSubscription registers a new resource with the given unique name, arguments, and options.
 func NewSubscription(ctx *pulumi.Context,
 	name string, args *SubscriptionArgs, opts ...pulumi.ResourceOption) (*Subscription, error) {
-	if args == nil || args.DisplayName == nil {
-		return nil, errors.New("missing required argument 'DisplayName'")
-	}
-	if args == nil || args.ProductId == nil {
-		return nil, errors.New("missing required argument 'ProductId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
-	if args == nil || args.Sid == nil {
-		return nil, errors.New("missing required argument 'Sid'")
-	}
-	if args == nil || args.UserId == nil {
-		return nil, errors.New("missing required argument 'UserId'")
-	}
 	if args == nil {
-		args = &SubscriptionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DisplayName == nil {
+		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
+	if args.ProductId == nil {
+		return nil, errors.New("invalid value for required argument 'ProductId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
+	}
+	if args.Sid == nil {
+		return nil, errors.New("invalid value for required argument 'Sid'")
+	}
+	if args.UserId == nil {
+		return nil, errors.New("invalid value for required argument 'UserId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -232,7 +233,7 @@ type SubscriptionArgs struct {
 	// Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
 	Sid pulumi.StringInput
 	// Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
-	State pulumi.StringPtrInput
+	State SubscriptionState
 	// User (user id path) for whom subscription is being created in form /users/{uid}
 	UserId pulumi.StringInput
 }

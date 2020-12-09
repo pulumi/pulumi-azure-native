@@ -26,20 +26,21 @@ type ManagedInstanceAzureADOnlyAuthentication struct {
 // NewManagedInstanceAzureADOnlyAuthentication registers a new resource with the given unique name, arguments, and options.
 func NewManagedInstanceAzureADOnlyAuthentication(ctx *pulumi.Context,
 	name string, args *ManagedInstanceAzureADOnlyAuthenticationArgs, opts ...pulumi.ResourceOption) (*ManagedInstanceAzureADOnlyAuthentication, error) {
-	if args == nil || args.AuthenticationName == nil {
-		return nil, errors.New("missing required argument 'AuthenticationName'")
-	}
-	if args == nil || args.AzureADOnlyAuthentication == nil {
-		return nil, errors.New("missing required argument 'AzureADOnlyAuthentication'")
-	}
-	if args == nil || args.ManagedInstanceName == nil {
-		return nil, errors.New("missing required argument 'ManagedInstanceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ManagedInstanceAzureADOnlyAuthenticationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AuthenticationName == nil {
+		return nil, errors.New("invalid value for required argument 'AuthenticationName'")
+	}
+	if args.AzureADOnlyAuthentication == nil {
+		return nil, errors.New("invalid value for required argument 'AzureADOnlyAuthentication'")
+	}
+	if args.ManagedInstanceName == nil {
+		return nil, errors.New("invalid value for required argument 'ManagedInstanceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

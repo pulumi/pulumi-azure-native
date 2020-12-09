@@ -42,14 +42,15 @@ type LocalNetworkGateway struct {
 // NewLocalNetworkGateway registers a new resource with the given unique name, arguments, and options.
 func NewLocalNetworkGateway(ctx *pulumi.Context,
 	name string, args *LocalNetworkGatewayArgs, opts ...pulumi.ResourceOption) (*LocalNetworkGateway, error) {
-	if args == nil || args.LocalNetworkGatewayName == nil {
-		return nil, errors.New("missing required argument 'LocalNetworkGatewayName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &LocalNetworkGatewayArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.LocalNetworkGatewayName == nil {
+		return nil, errors.New("invalid value for required argument 'LocalNetworkGatewayName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

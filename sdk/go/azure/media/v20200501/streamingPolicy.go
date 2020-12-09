@@ -36,17 +36,18 @@ type StreamingPolicy struct {
 // NewStreamingPolicy registers a new resource with the given unique name, arguments, and options.
 func NewStreamingPolicy(ctx *pulumi.Context,
 	name string, args *StreamingPolicyArgs, opts ...pulumi.ResourceOption) (*StreamingPolicy, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.StreamingPolicyName == nil {
-		return nil, errors.New("missing required argument 'StreamingPolicyName'")
-	}
 	if args == nil {
-		args = &StreamingPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.StreamingPolicyName == nil {
+		return nil, errors.New("invalid value for required argument 'StreamingPolicyName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

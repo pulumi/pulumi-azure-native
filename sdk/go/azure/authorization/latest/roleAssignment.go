@@ -26,17 +26,18 @@ type RoleAssignment struct {
 // NewRoleAssignment registers a new resource with the given unique name, arguments, and options.
 func NewRoleAssignment(ctx *pulumi.Context,
 	name string, args *RoleAssignmentArgs, opts ...pulumi.ResourceOption) (*RoleAssignment, error) {
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
-	if args == nil || args.RoleAssignmentName == nil {
-		return nil, errors.New("missing required argument 'RoleAssignmentName'")
-	}
-	if args == nil || args.Scope == nil {
-		return nil, errors.New("missing required argument 'Scope'")
-	}
 	if args == nil {
-		args = &RoleAssignmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
+	}
+	if args.RoleAssignmentName == nil {
+		return nil, errors.New("invalid value for required argument 'RoleAssignmentName'")
+	}
+	if args.Scope == nil {
+		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

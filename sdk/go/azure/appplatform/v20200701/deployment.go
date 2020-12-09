@@ -28,20 +28,21 @@ type Deployment struct {
 // NewDeployment registers a new resource with the given unique name, arguments, and options.
 func NewDeployment(ctx *pulumi.Context,
 	name string, args *DeploymentArgs, opts ...pulumi.ResourceOption) (*Deployment, error) {
-	if args == nil || args.AppName == nil {
-		return nil, errors.New("missing required argument 'AppName'")
-	}
-	if args == nil || args.DeploymentName == nil {
-		return nil, errors.New("missing required argument 'DeploymentName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
 	if args == nil {
-		args = &DeploymentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AppName == nil {
+		return nil, errors.New("invalid value for required argument 'AppName'")
+	}
+	if args.DeploymentName == nil {
+		return nil, errors.New("invalid value for required argument 'DeploymentName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

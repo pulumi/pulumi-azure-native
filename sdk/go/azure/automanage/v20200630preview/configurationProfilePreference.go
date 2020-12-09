@@ -30,17 +30,18 @@ type ConfigurationProfilePreference struct {
 // NewConfigurationProfilePreference registers a new resource with the given unique name, arguments, and options.
 func NewConfigurationProfilePreference(ctx *pulumi.Context,
 	name string, args *ConfigurationProfilePreferenceArgs, opts ...pulumi.ResourceOption) (*ConfigurationProfilePreference, error) {
-	if args == nil || args.ConfigurationProfilePreferenceName == nil {
-		return nil, errors.New("missing required argument 'ConfigurationProfilePreferenceName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ConfigurationProfilePreferenceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ConfigurationProfilePreferenceName == nil {
+		return nil, errors.New("invalid value for required argument 'ConfigurationProfilePreferenceName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource ConfigurationProfilePreference
 	err := ctx.RegisterResource("azure-nextgen:automanage/v20200630preview:ConfigurationProfilePreference", name, args, &resource, opts...)

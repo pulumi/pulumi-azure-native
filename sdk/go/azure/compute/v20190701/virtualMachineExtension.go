@@ -44,20 +44,21 @@ type VirtualMachineExtension struct {
 // NewVirtualMachineExtension registers a new resource with the given unique name, arguments, and options.
 func NewVirtualMachineExtension(ctx *pulumi.Context,
 	name string, args *VirtualMachineExtensionArgs, opts ...pulumi.ResourceOption) (*VirtualMachineExtension, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VmExtensionName == nil {
-		return nil, errors.New("missing required argument 'VmExtensionName'")
-	}
-	if args == nil || args.VmName == nil {
-		return nil, errors.New("missing required argument 'VmName'")
-	}
 	if args == nil {
-		args = &VirtualMachineExtensionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VmExtensionName == nil {
+		return nil, errors.New("invalid value for required argument 'VmExtensionName'")
+	}
+	if args.VmName == nil {
+		return nil, errors.New("invalid value for required argument 'VmName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

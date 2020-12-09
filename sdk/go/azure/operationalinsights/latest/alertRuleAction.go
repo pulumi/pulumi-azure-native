@@ -30,23 +30,24 @@ type AlertRuleAction struct {
 // NewAlertRuleAction registers a new resource with the given unique name, arguments, and options.
 func NewAlertRuleAction(ctx *pulumi.Context,
 	name string, args *AlertRuleActionArgs, opts ...pulumi.ResourceOption) (*AlertRuleAction, error) {
-	if args == nil || args.ActionId == nil {
-		return nil, errors.New("missing required argument 'ActionId'")
-	}
-	if args == nil || args.LogicAppResourceId == nil {
-		return nil, errors.New("missing required argument 'LogicAppResourceId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.RuleId == nil {
-		return nil, errors.New("missing required argument 'RuleId'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &AlertRuleActionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ActionId == nil {
+		return nil, errors.New("invalid value for required argument 'ActionId'")
+	}
+	if args.LogicAppResourceId == nil {
+		return nil, errors.New("invalid value for required argument 'LogicAppResourceId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.RuleId == nil {
+		return nil, errors.New("invalid value for required argument 'RuleId'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

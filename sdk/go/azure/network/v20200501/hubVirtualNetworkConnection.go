@@ -36,17 +36,18 @@ type HubVirtualNetworkConnection struct {
 // NewHubVirtualNetworkConnection registers a new resource with the given unique name, arguments, and options.
 func NewHubVirtualNetworkConnection(ctx *pulumi.Context,
 	name string, args *HubVirtualNetworkConnectionArgs, opts ...pulumi.ResourceOption) (*HubVirtualNetworkConnection, error) {
-	if args == nil || args.ConnectionName == nil {
-		return nil, errors.New("missing required argument 'ConnectionName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VirtualHubName == nil {
-		return nil, errors.New("missing required argument 'VirtualHubName'")
-	}
 	if args == nil {
-		args = &HubVirtualNetworkConnectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ConnectionName == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectionName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VirtualHubName == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualHubName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

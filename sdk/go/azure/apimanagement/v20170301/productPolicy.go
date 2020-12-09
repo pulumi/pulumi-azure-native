@@ -26,23 +26,24 @@ type ProductPolicy struct {
 // NewProductPolicy registers a new resource with the given unique name, arguments, and options.
 func NewProductPolicy(ctx *pulumi.Context,
 	name string, args *ProductPolicyArgs, opts ...pulumi.ResourceOption) (*ProductPolicy, error) {
-	if args == nil || args.PolicyContent == nil {
-		return nil, errors.New("missing required argument 'PolicyContent'")
-	}
-	if args == nil || args.PolicyId == nil {
-		return nil, errors.New("missing required argument 'PolicyId'")
-	}
-	if args == nil || args.ProductId == nil {
-		return nil, errors.New("missing required argument 'ProductId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
 	if args == nil {
-		args = &ProductPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PolicyContent == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyContent'")
+	}
+	if args.PolicyId == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyId'")
+	}
+	if args.ProductId == nil {
+		return nil, errors.New("invalid value for required argument 'ProductId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

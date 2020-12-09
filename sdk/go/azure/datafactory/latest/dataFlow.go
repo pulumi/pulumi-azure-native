@@ -28,20 +28,21 @@ type DataFlow struct {
 // NewDataFlow registers a new resource with the given unique name, arguments, and options.
 func NewDataFlow(ctx *pulumi.Context,
 	name string, args *DataFlowArgs, opts ...pulumi.ResourceOption) (*DataFlow, error) {
-	if args == nil || args.DataFlowName == nil {
-		return nil, errors.New("missing required argument 'DataFlowName'")
-	}
-	if args == nil || args.FactoryName == nil {
-		return nil, errors.New("missing required argument 'FactoryName'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &DataFlowArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DataFlowName == nil {
+		return nil, errors.New("invalid value for required argument 'DataFlowName'")
+	}
+	if args.FactoryName == nil {
+		return nil, errors.New("invalid value for required argument 'FactoryName'")
+	}
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -4020,7 +4020,7 @@ type DataDisksInput interface {
 // Data disks settings.
 type DataDisksArgs struct {
 	// Caching type for the disks. Available values are none (default), readonly, readwrite. Caching type can be set only for VM sizes supporting premium storage.
-	CachingType pulumi.StringPtrInput `pulumi:"cachingType"`
+	CachingType CachingType `pulumi:"cachingType"`
 	// Number of data disks attached to the File Server. If multiple disks attached, they will be configured in RAID level 0.
 	DiskCount pulumi.IntInput `pulumi:"diskCount"`
 	// Disk size in GB for the blank data disks.

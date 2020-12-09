@@ -34,11 +34,12 @@ type PeerAsn struct {
 // NewPeerAsn registers a new resource with the given unique name, arguments, and options.
 func NewPeerAsn(ctx *pulumi.Context,
 	name string, args *PeerAsnArgs, opts ...pulumi.ResourceOption) (*PeerAsn, error) {
-	if args == nil || args.PeerAsnName == nil {
-		return nil, errors.New("missing required argument 'PeerAsnName'")
-	}
 	if args == nil {
-		args = &PeerAsnArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PeerAsnName == nil {
+		return nil, errors.New("invalid value for required argument 'PeerAsnName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

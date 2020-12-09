@@ -36,26 +36,27 @@ type Backup struct {
 // NewBackup registers a new resource with the given unique name, arguments, and options.
 func NewBackup(ctx *pulumi.Context,
 	name string, args *BackupArgs, opts ...pulumi.ResourceOption) (*Backup, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.BackupName == nil {
-		return nil, errors.New("missing required argument 'BackupName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.PoolName == nil {
-		return nil, errors.New("missing required argument 'PoolName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VolumeName == nil {
-		return nil, errors.New("missing required argument 'VolumeName'")
-	}
 	if args == nil {
-		args = &BackupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.BackupName == nil {
+		return nil, errors.New("invalid value for required argument 'BackupName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.PoolName == nil {
+		return nil, errors.New("invalid value for required argument 'PoolName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VolumeName == nil {
+		return nil, errors.New("invalid value for required argument 'VolumeName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

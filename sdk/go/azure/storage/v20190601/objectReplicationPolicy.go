@@ -34,23 +34,24 @@ type ObjectReplicationPolicy struct {
 // NewObjectReplicationPolicy registers a new resource with the given unique name, arguments, and options.
 func NewObjectReplicationPolicy(ctx *pulumi.Context,
 	name string, args *ObjectReplicationPolicyArgs, opts ...pulumi.ResourceOption) (*ObjectReplicationPolicy, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.DestinationAccount == nil {
-		return nil, errors.New("missing required argument 'DestinationAccount'")
-	}
-	if args == nil || args.ObjectReplicationPolicyId == nil {
-		return nil, errors.New("missing required argument 'ObjectReplicationPolicyId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SourceAccount == nil {
-		return nil, errors.New("missing required argument 'SourceAccount'")
-	}
 	if args == nil {
-		args = &ObjectReplicationPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.DestinationAccount == nil {
+		return nil, errors.New("invalid value for required argument 'DestinationAccount'")
+	}
+	if args.ObjectReplicationPolicyId == nil {
+		return nil, errors.New("invalid value for required argument 'ObjectReplicationPolicyId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SourceAccount == nil {
+		return nil, errors.New("invalid value for required argument 'SourceAccount'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

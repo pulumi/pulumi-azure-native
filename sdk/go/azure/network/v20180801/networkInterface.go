@@ -56,14 +56,15 @@ type NetworkInterface struct {
 // NewNetworkInterface registers a new resource with the given unique name, arguments, and options.
 func NewNetworkInterface(ctx *pulumi.Context,
 	name string, args *NetworkInterfaceArgs, opts ...pulumi.ResourceOption) (*NetworkInterface, error) {
-	if args == nil || args.NetworkInterfaceName == nil {
-		return nil, errors.New("missing required argument 'NetworkInterfaceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &NetworkInterfaceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.NetworkInterfaceName == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkInterfaceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -30,20 +30,21 @@ type Vault struct {
 // NewVault registers a new resource with the given unique name, arguments, and options.
 func NewVault(ctx *pulumi.Context,
 	name string, args *VaultArgs, opts ...pulumi.ResourceOption) (*Vault, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VaultName == nil {
-		return nil, errors.New("missing required argument 'VaultName'")
-	}
 	if args == nil {
-		args = &VaultArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VaultName == nil {
+		return nil, errors.New("invalid value for required argument 'VaultName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

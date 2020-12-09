@@ -30,20 +30,21 @@ type PrivateAtlase struct {
 // NewPrivateAtlase registers a new resource with the given unique name, arguments, and options.
 func NewPrivateAtlase(ctx *pulumi.Context,
 	name string, args *PrivateAtlaseArgs, opts ...pulumi.ResourceOption) (*PrivateAtlase, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.PrivateAtlasName == nil {
-		return nil, errors.New("missing required argument 'PrivateAtlasName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &PrivateAtlaseArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.PrivateAtlasName == nil {
+		return nil, errors.New("invalid value for required argument 'PrivateAtlasName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource PrivateAtlase
 	err := ctx.RegisterResource("azure-nextgen:maps/v20200201preview:PrivateAtlase", name, args, &resource, opts...)

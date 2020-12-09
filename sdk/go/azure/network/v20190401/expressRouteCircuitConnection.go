@@ -38,20 +38,21 @@ type ExpressRouteCircuitConnection struct {
 // NewExpressRouteCircuitConnection registers a new resource with the given unique name, arguments, and options.
 func NewExpressRouteCircuitConnection(ctx *pulumi.Context,
 	name string, args *ExpressRouteCircuitConnectionArgs, opts ...pulumi.ResourceOption) (*ExpressRouteCircuitConnection, error) {
-	if args == nil || args.CircuitName == nil {
-		return nil, errors.New("missing required argument 'CircuitName'")
-	}
-	if args == nil || args.ConnectionName == nil {
-		return nil, errors.New("missing required argument 'ConnectionName'")
-	}
-	if args == nil || args.PeeringName == nil {
-		return nil, errors.New("missing required argument 'PeeringName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ExpressRouteCircuitConnectionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CircuitName == nil {
+		return nil, errors.New("invalid value for required argument 'CircuitName'")
+	}
+	if args.ConnectionName == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectionName'")
+	}
+	if args.PeeringName == nil {
+		return nil, errors.New("invalid value for required argument 'PeeringName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

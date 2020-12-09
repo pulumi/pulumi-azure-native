@@ -52,20 +52,21 @@ type Workspace struct {
 // NewWorkspace registers a new resource with the given unique name, arguments, and options.
 func NewWorkspace(ctx *pulumi.Context,
 	name string, args *WorkspaceArgs, opts ...pulumi.ResourceOption) (*Workspace, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ManagedResourceGroupId == nil {
-		return nil, errors.New("missing required argument 'ManagedResourceGroupId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.WorkspaceName == nil {
-		return nil, errors.New("missing required argument 'WorkspaceName'")
-	}
 	if args == nil {
-		args = &WorkspaceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ManagedResourceGroupId == nil {
+		return nil, errors.New("invalid value for required argument 'ManagedResourceGroupId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.WorkspaceName == nil {
+		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

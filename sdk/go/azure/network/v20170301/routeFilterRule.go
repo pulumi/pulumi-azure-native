@@ -36,26 +36,27 @@ type RouteFilterRule struct {
 // NewRouteFilterRule registers a new resource with the given unique name, arguments, and options.
 func NewRouteFilterRule(ctx *pulumi.Context,
 	name string, args *RouteFilterRuleArgs, opts ...pulumi.ResourceOption) (*RouteFilterRule, error) {
-	if args == nil || args.Access == nil {
-		return nil, errors.New("missing required argument 'Access'")
-	}
-	if args == nil || args.Communities == nil {
-		return nil, errors.New("missing required argument 'Communities'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.RouteFilterName == nil {
-		return nil, errors.New("missing required argument 'RouteFilterName'")
-	}
-	if args == nil || args.RouteFilterRuleType == nil {
-		return nil, errors.New("missing required argument 'RouteFilterRuleType'")
-	}
-	if args == nil || args.RuleName == nil {
-		return nil, errors.New("missing required argument 'RuleName'")
-	}
 	if args == nil {
-		args = &RouteFilterRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Access == nil {
+		return nil, errors.New("invalid value for required argument 'Access'")
+	}
+	if args.Communities == nil {
+		return nil, errors.New("invalid value for required argument 'Communities'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.RouteFilterName == nil {
+		return nil, errors.New("invalid value for required argument 'RouteFilterName'")
+	}
+	if args.RouteFilterRuleType == nil {
+		return nil, errors.New("invalid value for required argument 'RouteFilterRuleType'")
+	}
+	if args.RuleName == nil {
+		return nil, errors.New("invalid value for required argument 'RuleName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

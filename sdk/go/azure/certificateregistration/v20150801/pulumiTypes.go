@@ -1085,7 +1085,7 @@ type CertificateOrderCertificateTypeArgs struct {
 	// Resource Name
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Status of the Key Vault secret
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	ProvisioningState KeyVaultSecretStatus `pulumi:"provisioningState"`
 	// Resource tags
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Resource type

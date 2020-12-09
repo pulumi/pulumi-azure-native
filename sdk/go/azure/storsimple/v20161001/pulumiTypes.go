@@ -34,7 +34,7 @@ type AsymmetricEncryptedSecretInput interface {
 // This class can be used as the Type for any secret entity represented as Password, CertThumbprint, Algorithm. This class is intended to be used when the secret is encrypted with an asymmetric key pair. The encryptionAlgorithm field is mainly for future usage to potentially allow different entities encrypted using different algorithms.
 type AsymmetricEncryptedSecretArgs struct {
 	// Algorithm used to encrypt "Value"
-	EncryptionAlgorithm pulumi.StringInput `pulumi:"encryptionAlgorithm"`
+	EncryptionAlgorithm EncryptionAlgorithm `pulumi:"encryptionAlgorithm"`
 	// Thumbprint certificate that was used to encrypt "Value"
 	EncryptionCertificateThumbprint pulumi.StringPtrInput `pulumi:"encryptionCertificateThumbprint"`
 	// The value of the secret itself. If the secret is in plaintext then EncryptionAlgorithm will be none and EncryptionCertThumbprint will be null.
@@ -374,7 +374,7 @@ type ManagerIntrinsicSettingsInput interface {
 // Intrinsic settings which refers to the type of the StorSimple manager
 type ManagerIntrinsicSettingsArgs struct {
 	// Refers to the type of the StorSimple Manager
-	Type pulumi.StringInput `pulumi:"type"`
+	Type ManagerType `pulumi:"type"`
 }
 
 func (ManagerIntrinsicSettingsArgs) ElementType() reflect.Type {
@@ -642,7 +642,7 @@ type ManagerSkuInput interface {
 // The Sku.
 type ManagerSkuArgs struct {
 	// Refers to the sku name which should be "Standard"
-	Name pulumi.StringInput `pulumi:"name"`
+	Name ManagerSkuType `pulumi:"name"`
 }
 
 func (ManagerSkuArgs) ElementType() reflect.Type {

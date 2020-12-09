@@ -28,23 +28,24 @@ type DatabaseAccountTable struct {
 // NewDatabaseAccountTable registers a new resource with the given unique name, arguments, and options.
 func NewDatabaseAccountTable(ctx *pulumi.Context,
 	name string, args *DatabaseAccountTableArgs, opts ...pulumi.ResourceOption) (*DatabaseAccountTable, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.Options == nil {
-		return nil, errors.New("missing required argument 'Options'")
-	}
-	if args == nil || args.Resource == nil {
-		return nil, errors.New("missing required argument 'Resource'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.TableName == nil {
-		return nil, errors.New("missing required argument 'TableName'")
-	}
 	if args == nil {
-		args = &DatabaseAccountTableArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.Options == nil {
+		return nil, errors.New("invalid value for required argument 'Options'")
+	}
+	if args.Resource == nil {
+		return nil, errors.New("invalid value for required argument 'Resource'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.TableName == nil {
+		return nil, errors.New("invalid value for required argument 'TableName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

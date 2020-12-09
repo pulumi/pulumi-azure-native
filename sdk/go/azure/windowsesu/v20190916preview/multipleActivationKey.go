@@ -43,17 +43,18 @@ type MultipleActivationKey struct {
 // NewMultipleActivationKey registers a new resource with the given unique name, arguments, and options.
 func NewMultipleActivationKey(ctx *pulumi.Context,
 	name string, args *MultipleActivationKeyArgs, opts ...pulumi.ResourceOption) (*MultipleActivationKey, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.MultipleActivationKeyName == nil {
-		return nil, errors.New("missing required argument 'MultipleActivationKeyName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &MultipleActivationKeyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.MultipleActivationKeyName == nil {
+		return nil, errors.New("invalid value for required argument 'MultipleActivationKeyName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource MultipleActivationKey
 	err := ctx.RegisterResource("azure-nextgen:windowsesu/v20190916preview:MultipleActivationKey", name, args, &resource, opts...)

@@ -48,29 +48,30 @@ type Workbook struct {
 // NewWorkbook registers a new resource with the given unique name, arguments, and options.
 func NewWorkbook(ctx *pulumi.Context,
 	name string, args *WorkbookArgs, opts ...pulumi.ResourceOption) (*Workbook, error) {
-	if args == nil || args.Category == nil {
-		return nil, errors.New("missing required argument 'Category'")
-	}
-	if args == nil || args.DisplayName == nil {
-		return nil, errors.New("missing required argument 'DisplayName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ResourceName == nil {
-		return nil, errors.New("missing required argument 'ResourceName'")
-	}
-	if args == nil || args.SerializedData == nil {
-		return nil, errors.New("missing required argument 'SerializedData'")
-	}
-	if args == nil || args.SourceId == nil {
-		return nil, errors.New("missing required argument 'SourceId'")
-	}
 	if args == nil {
-		args = &WorkbookArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Category == nil {
+		return nil, errors.New("invalid value for required argument 'Category'")
+	}
+	if args.DisplayName == nil {
+		return nil, errors.New("invalid value for required argument 'DisplayName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceName'")
+	}
+	if args.SerializedData == nil {
+		return nil, errors.New("invalid value for required argument 'SerializedData'")
+	}
+	if args.SourceId == nil {
+		return nil, errors.New("invalid value for required argument 'SourceId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

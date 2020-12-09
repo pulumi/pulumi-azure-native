@@ -58,17 +58,18 @@ type Namespace struct {
 // NewNamespace registers a new resource with the given unique name, arguments, and options.
 func NewNamespace(ctx *pulumi.Context,
 	name string, args *NamespaceArgs, opts ...pulumi.ResourceOption) (*Namespace, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.NamespaceName == nil {
-		return nil, errors.New("missing required argument 'NamespaceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &NamespaceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.NamespaceName == nil {
+		return nil, errors.New("invalid value for required argument 'NamespaceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -234,7 +235,7 @@ type NamespaceArgs struct {
 	// Value that indicates whether Kafka is enabled for eventhub namespace.
 	KafkaEnabled pulumi.BoolPtrInput
 	// Enumerates the possible value of keySource for Encryption
-	KeySource pulumi.StringPtrInput
+	KeySource KeySource
 	// Properties of KeyVault
 	KeyVaultProperties KeyVaultPropertiesArrayInput
 	// Resource location.
@@ -254,7 +255,7 @@ type NamespaceArgs struct {
 	// TenantId from the KeyVault
 	TenantId pulumi.StringPtrInput
 	// Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
-	Type pulumi.StringPtrInput
+	Type IdentityType
 	// Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
 	ZoneRedundant pulumi.BoolPtrInput
 }

@@ -38,17 +38,18 @@ type Zone struct {
 // NewZone registers a new resource with the given unique name, arguments, and options.
 func NewZone(ctx *pulumi.Context,
 	name string, args *ZoneArgs, opts ...pulumi.ResourceOption) (*Zone, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ZoneName == nil {
-		return nil, errors.New("missing required argument 'ZoneName'")
-	}
 	if args == nil {
-		args = &ZoneArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ZoneName == nil {
+		return nil, errors.New("invalid value for required argument 'ZoneName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

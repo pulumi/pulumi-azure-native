@@ -284,7 +284,7 @@ type SkuInput interface {
 // The SKU (pricing tier) of the CDN profile.
 type SkuArgs struct {
 	// Name of the pricing tier
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name SkuName `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {

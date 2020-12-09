@@ -42,23 +42,24 @@ type DiskPool struct {
 // NewDiskPool registers a new resource with the given unique name, arguments, and options.
 func NewDiskPool(ctx *pulumi.Context,
 	name string, args *DiskPoolArgs, opts ...pulumi.ResourceOption) (*DiskPool, error) {
-	if args == nil || args.AvailabilityZones == nil {
-		return nil, errors.New("missing required argument 'AvailabilityZones'")
-	}
-	if args == nil || args.DiskPoolName == nil {
-		return nil, errors.New("missing required argument 'DiskPoolName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SubnetId == nil {
-		return nil, errors.New("missing required argument 'SubnetId'")
-	}
 	if args == nil {
-		args = &DiskPoolArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AvailabilityZones == nil {
+		return nil, errors.New("invalid value for required argument 'AvailabilityZones'")
+	}
+	if args.DiskPoolName == nil {
+		return nil, errors.New("invalid value for required argument 'DiskPoolName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SubnetId == nil {
+		return nil, errors.New("invalid value for required argument 'SubnetId'")
 	}
 	var resource DiskPool
 	err := ctx.RegisterResource("azure-nextgen:storagepool/v20200315preview:DiskPool", name, args, &resource, opts...)

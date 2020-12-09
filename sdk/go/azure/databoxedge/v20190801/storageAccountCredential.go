@@ -40,26 +40,27 @@ type StorageAccountCredential struct {
 // NewStorageAccountCredential registers a new resource with the given unique name, arguments, and options.
 func NewStorageAccountCredential(ctx *pulumi.Context,
 	name string, args *StorageAccountCredentialArgs, opts ...pulumi.ResourceOption) (*StorageAccountCredential, error) {
-	if args == nil || args.AccountType == nil {
-		return nil, errors.New("missing required argument 'AccountType'")
-	}
-	if args == nil || args.Alias == nil {
-		return nil, errors.New("missing required argument 'Alias'")
-	}
-	if args == nil || args.DeviceName == nil {
-		return nil, errors.New("missing required argument 'DeviceName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SslStatus == nil {
-		return nil, errors.New("missing required argument 'SslStatus'")
-	}
 	if args == nil {
-		args = &StorageAccountCredentialArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountType == nil {
+		return nil, errors.New("invalid value for required argument 'AccountType'")
+	}
+	if args.Alias == nil {
+		return nil, errors.New("invalid value for required argument 'Alias'")
+	}
+	if args.DeviceName == nil {
+		return nil, errors.New("invalid value for required argument 'DeviceName'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SslStatus == nil {
+		return nil, errors.New("invalid value for required argument 'SslStatus'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

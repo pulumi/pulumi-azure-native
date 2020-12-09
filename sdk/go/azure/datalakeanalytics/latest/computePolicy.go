@@ -32,23 +32,24 @@ type ComputePolicy struct {
 // NewComputePolicy registers a new resource with the given unique name, arguments, and options.
 func NewComputePolicy(ctx *pulumi.Context,
 	name string, args *ComputePolicyArgs, opts ...pulumi.ResourceOption) (*ComputePolicy, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.ComputePolicyName == nil {
-		return nil, errors.New("missing required argument 'ComputePolicyName'")
-	}
-	if args == nil || args.ObjectId == nil {
-		return nil, errors.New("missing required argument 'ObjectId'")
-	}
-	if args == nil || args.ObjectType == nil {
-		return nil, errors.New("missing required argument 'ObjectType'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ComputePolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.ComputePolicyName == nil {
+		return nil, errors.New("invalid value for required argument 'ComputePolicyName'")
+	}
+	if args.ObjectId == nil {
+		return nil, errors.New("invalid value for required argument 'ObjectId'")
+	}
+	if args.ObjectType == nil {
+		return nil, errors.New("invalid value for required argument 'ObjectType'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

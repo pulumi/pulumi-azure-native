@@ -38,17 +38,18 @@ type IntegrationAccountCertificate struct {
 // NewIntegrationAccountCertificate registers a new resource with the given unique name, arguments, and options.
 func NewIntegrationAccountCertificate(ctx *pulumi.Context,
 	name string, args *IntegrationAccountCertificateArgs, opts ...pulumi.ResourceOption) (*IntegrationAccountCertificate, error) {
-	if args == nil || args.CertificateName == nil {
-		return nil, errors.New("missing required argument 'CertificateName'")
-	}
-	if args == nil || args.IntegrationAccountName == nil {
-		return nil, errors.New("missing required argument 'IntegrationAccountName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &IntegrationAccountCertificateArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CertificateName == nil {
+		return nil, errors.New("invalid value for required argument 'CertificateName'")
+	}
+	if args.IntegrationAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'IntegrationAccountName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

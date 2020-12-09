@@ -30,23 +30,21 @@ type EventSource struct {
 // NewEventSource registers a new resource with the given unique name, arguments, and options.
 func NewEventSource(ctx *pulumi.Context,
 	name string, args *EventSourceArgs, opts ...pulumi.ResourceOption) (*EventSource, error) {
-	if args == nil || args.EnvironmentName == nil {
-		return nil, errors.New("missing required argument 'EnvironmentName'")
-	}
-	if args == nil || args.EventSourceName == nil {
-		return nil, errors.New("missing required argument 'EventSourceName'")
-	}
-	if args == nil || args.Kind == nil {
-		return nil, errors.New("missing required argument 'Kind'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &EventSourceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.EnvironmentName == nil {
+		return nil, errors.New("invalid value for required argument 'EnvironmentName'")
+	}
+	if args.EventSourceName == nil {
+		return nil, errors.New("invalid value for required argument 'EventSourceName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -136,7 +134,7 @@ type EventSourceArgs struct {
 	// Name of the event source.
 	EventSourceName pulumi.StringInput
 	// The kind of the event source.
-	Kind pulumi.StringInput
+	Kind Kind
 	// The location of the resource.
 	Location pulumi.StringInput
 	// Name of an Azure Resource group.

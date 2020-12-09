@@ -43,17 +43,18 @@ type P2sVpnServerConfiguration struct {
 // NewP2sVpnServerConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewP2sVpnServerConfiguration(ctx *pulumi.Context,
 	name string, args *P2sVpnServerConfigurationArgs, opts ...pulumi.ResourceOption) (*P2sVpnServerConfiguration, error) {
-	if args == nil || args.P2SVpnServerConfigurationName == nil {
-		return nil, errors.New("missing required argument 'P2SVpnServerConfigurationName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VirtualWanName == nil {
-		return nil, errors.New("missing required argument 'VirtualWanName'")
-	}
 	if args == nil {
-		args = &P2sVpnServerConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.P2SVpnServerConfigurationName == nil {
+		return nil, errors.New("invalid value for required argument 'P2SVpnServerConfigurationName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VirtualWanName == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualWanName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

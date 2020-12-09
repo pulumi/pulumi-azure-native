@@ -26,23 +26,24 @@ type TagByOperation struct {
 // NewTagByOperation registers a new resource with the given unique name, arguments, and options.
 func NewTagByOperation(ctx *pulumi.Context,
 	name string, args *TagByOperationArgs, opts ...pulumi.ResourceOption) (*TagByOperation, error) {
-	if args == nil || args.ApiId == nil {
-		return nil, errors.New("missing required argument 'ApiId'")
-	}
-	if args == nil || args.OperationId == nil {
-		return nil, errors.New("missing required argument 'OperationId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
-	if args == nil || args.TagId == nil {
-		return nil, errors.New("missing required argument 'TagId'")
-	}
 	if args == nil {
-		args = &TagByOperationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApiId == nil {
+		return nil, errors.New("invalid value for required argument 'ApiId'")
+	}
+	if args.OperationId == nil {
+		return nil, errors.New("invalid value for required argument 'OperationId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
+	}
+	if args.TagId == nil {
+		return nil, errors.New("invalid value for required argument 'TagId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

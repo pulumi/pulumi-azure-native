@@ -32,17 +32,18 @@ type ProtectionPolicy struct {
 // NewProtectionPolicy registers a new resource with the given unique name, arguments, and options.
 func NewProtectionPolicy(ctx *pulumi.Context,
 	name string, args *ProtectionPolicyArgs, opts ...pulumi.ResourceOption) (*ProtectionPolicy, error) {
-	if args == nil || args.PolicyName == nil {
-		return nil, errors.New("missing required argument 'PolicyName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VaultName == nil {
-		return nil, errors.New("missing required argument 'VaultName'")
-	}
 	if args == nil {
-		args = &ProtectionPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PolicyName == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VaultName == nil {
+		return nil, errors.New("invalid value for required argument 'VaultName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

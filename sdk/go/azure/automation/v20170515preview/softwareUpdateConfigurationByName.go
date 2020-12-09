@@ -42,23 +42,24 @@ type SoftwareUpdateConfigurationByName struct {
 // NewSoftwareUpdateConfigurationByName registers a new resource with the given unique name, arguments, and options.
 func NewSoftwareUpdateConfigurationByName(ctx *pulumi.Context,
 	name string, args *SoftwareUpdateConfigurationByNameArgs, opts ...pulumi.ResourceOption) (*SoftwareUpdateConfigurationByName, error) {
-	if args == nil || args.AutomationAccountName == nil {
-		return nil, errors.New("missing required argument 'AutomationAccountName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ScheduleInfo == nil {
-		return nil, errors.New("missing required argument 'ScheduleInfo'")
-	}
-	if args == nil || args.SoftwareUpdateConfigurationName == nil {
-		return nil, errors.New("missing required argument 'SoftwareUpdateConfigurationName'")
-	}
-	if args == nil || args.UpdateConfiguration == nil {
-		return nil, errors.New("missing required argument 'UpdateConfiguration'")
-	}
 	if args == nil {
-		args = &SoftwareUpdateConfigurationByNameArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AutomationAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AutomationAccountName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ScheduleInfo == nil {
+		return nil, errors.New("invalid value for required argument 'ScheduleInfo'")
+	}
+	if args.SoftwareUpdateConfigurationName == nil {
+		return nil, errors.New("invalid value for required argument 'SoftwareUpdateConfigurationName'")
+	}
+	if args.UpdateConfiguration == nil {
+		return nil, errors.New("invalid value for required argument 'UpdateConfiguration'")
 	}
 	var resource SoftwareUpdateConfigurationByName
 	err := ctx.RegisterResource("azure-nextgen:automation/v20170515preview:SoftwareUpdateConfigurationByName", name, args, &resource, opts...)

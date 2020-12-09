@@ -28,17 +28,18 @@ type ServiceTask struct {
 // NewServiceTask registers a new resource with the given unique name, arguments, and options.
 func NewServiceTask(ctx *pulumi.Context,
 	name string, args *ServiceTaskArgs, opts ...pulumi.ResourceOption) (*ServiceTask, error) {
-	if args == nil || args.GroupName == nil {
-		return nil, errors.New("missing required argument 'GroupName'")
-	}
-	if args == nil || args.ServiceName == nil {
-		return nil, errors.New("missing required argument 'ServiceName'")
-	}
-	if args == nil || args.TaskName == nil {
-		return nil, errors.New("missing required argument 'TaskName'")
-	}
 	if args == nil {
-		args = &ServiceTaskArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.GroupName == nil {
+		return nil, errors.New("invalid value for required argument 'GroupName'")
+	}
+	if args.ServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceName'")
+	}
+	if args.TaskName == nil {
+		return nil, errors.New("invalid value for required argument 'TaskName'")
 	}
 	var resource ServiceTask
 	err := ctx.RegisterResource("azure-nextgen:datamigration/v20180715preview:ServiceTask", name, args, &resource, opts...)

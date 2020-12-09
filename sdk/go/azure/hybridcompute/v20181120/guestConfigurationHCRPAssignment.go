@@ -28,17 +28,18 @@ type GuestConfigurationHCRPAssignment struct {
 // NewGuestConfigurationHCRPAssignment registers a new resource with the given unique name, arguments, and options.
 func NewGuestConfigurationHCRPAssignment(ctx *pulumi.Context,
 	name string, args *GuestConfigurationHCRPAssignmentArgs, opts ...pulumi.ResourceOption) (*GuestConfigurationHCRPAssignment, error) {
-	if args == nil || args.GuestConfigurationAssignmentName == nil {
-		return nil, errors.New("missing required argument 'GuestConfigurationAssignmentName'")
-	}
-	if args == nil || args.MachineName == nil {
-		return nil, errors.New("missing required argument 'MachineName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &GuestConfigurationHCRPAssignmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.GuestConfigurationAssignmentName == nil {
+		return nil, errors.New("invalid value for required argument 'GuestConfigurationAssignmentName'")
+	}
+	if args.MachineName == nil {
+		return nil, errors.New("invalid value for required argument 'MachineName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

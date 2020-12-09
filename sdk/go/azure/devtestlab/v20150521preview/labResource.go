@@ -44,14 +44,15 @@ type LabResource struct {
 // NewLabResource registers a new resource with the given unique name, arguments, and options.
 func NewLabResource(ctx *pulumi.Context,
 	name string, args *LabResourceArgs, opts ...pulumi.ResourceOption) (*LabResource, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &LabResourceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

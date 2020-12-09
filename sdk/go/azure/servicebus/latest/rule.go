@@ -32,23 +32,24 @@ type Rule struct {
 // NewRule registers a new resource with the given unique name, arguments, and options.
 func NewRule(ctx *pulumi.Context,
 	name string, args *RuleArgs, opts ...pulumi.ResourceOption) (*Rule, error) {
-	if args == nil || args.NamespaceName == nil {
-		return nil, errors.New("missing required argument 'NamespaceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.RuleName == nil {
-		return nil, errors.New("missing required argument 'RuleName'")
-	}
-	if args == nil || args.SubscriptionName == nil {
-		return nil, errors.New("missing required argument 'SubscriptionName'")
-	}
-	if args == nil || args.TopicName == nil {
-		return nil, errors.New("missing required argument 'TopicName'")
-	}
 	if args == nil {
-		args = &RuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.NamespaceName == nil {
+		return nil, errors.New("invalid value for required argument 'NamespaceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.RuleName == nil {
+		return nil, errors.New("invalid value for required argument 'RuleName'")
+	}
+	if args.SubscriptionName == nil {
+		return nil, errors.New("invalid value for required argument 'SubscriptionName'")
+	}
+	if args.TopicName == nil {
+		return nil, errors.New("invalid value for required argument 'TopicName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -139,7 +140,7 @@ type RuleArgs struct {
 	// Properties of correlationFilter
 	CorrelationFilter CorrelationFilterPtrInput
 	// Filter type that is evaluated against a BrokeredMessage.
-	FilterType pulumi.StringPtrInput
+	FilterType FilterType
 	// The namespace name
 	NamespaceName pulumi.StringInput
 	// Name of the Resource group within the Azure subscription.

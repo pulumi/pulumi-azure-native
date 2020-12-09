@@ -22,14 +22,15 @@ type Console struct {
 // NewConsole registers a new resource with the given unique name, arguments, and options.
 func NewConsole(ctx *pulumi.Context,
 	name string, args *ConsoleArgs, opts ...pulumi.ResourceOption) (*Console, error) {
-	if args == nil || args.ConsoleName == nil {
-		return nil, errors.New("missing required argument 'ConsoleName'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil {
-		args = &ConsoleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ConsoleName == nil {
+		return nil, errors.New("invalid value for required argument 'ConsoleName'")
+	}
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

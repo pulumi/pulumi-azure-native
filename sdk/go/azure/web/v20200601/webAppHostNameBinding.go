@@ -44,17 +44,18 @@ type WebAppHostNameBinding struct {
 // NewWebAppHostNameBinding registers a new resource with the given unique name, arguments, and options.
 func NewWebAppHostNameBinding(ctx *pulumi.Context,
 	name string, args *WebAppHostNameBindingArgs, opts ...pulumi.ResourceOption) (*WebAppHostNameBinding, error) {
-	if args == nil || args.HostName == nil {
-		return nil, errors.New("missing required argument 'HostName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &WebAppHostNameBindingArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.HostName == nil {
+		return nil, errors.New("invalid value for required argument 'HostName'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -191,15 +192,15 @@ type WebAppHostNameBindingArgs struct {
 	// Azure resource name.
 	AzureResourceName pulumi.StringPtrInput
 	// Azure resource type.
-	AzureResourceType pulumi.StringPtrInput
+	AzureResourceType AzureResourceType
 	// Custom DNS record type.
-	CustomHostNameDnsRecordType pulumi.StringPtrInput
+	CustomHostNameDnsRecordType CustomHostNameDnsRecordType
 	// Fully qualified ARM domain resource URI.
 	DomainId pulumi.StringPtrInput
 	// Hostname in the hostname binding.
 	HostName pulumi.StringInput
 	// Hostname type.
-	HostNameType pulumi.StringPtrInput
+	HostNameType HostNameType
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Name of the app.
@@ -209,7 +210,7 @@ type WebAppHostNameBindingArgs struct {
 	// App Service app name.
 	SiteName pulumi.StringPtrInput
 	// SSL type
-	SslState pulumi.StringPtrInput
+	SslState SslState
 	// SSL certificate thumbprint
 	Thumbprint pulumi.StringPtrInput
 }

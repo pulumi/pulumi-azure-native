@@ -24,14 +24,15 @@ type ResourceTypeRegistration struct {
 // NewResourceTypeRegistration registers a new resource with the given unique name, arguments, and options.
 func NewResourceTypeRegistration(ctx *pulumi.Context,
 	name string, args *ResourceTypeRegistrationArgs, opts ...pulumi.ResourceOption) (*ResourceTypeRegistration, error) {
-	if args == nil || args.ProviderNamespace == nil {
-		return nil, errors.New("missing required argument 'ProviderNamespace'")
-	}
-	if args == nil || args.ResourceType == nil {
-		return nil, errors.New("missing required argument 'ResourceType'")
-	}
 	if args == nil {
-		args = &ResourceTypeRegistrationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ProviderNamespace == nil {
+		return nil, errors.New("invalid value for required argument 'ProviderNamespace'")
+	}
+	if args.ResourceType == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceType'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

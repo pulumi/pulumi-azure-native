@@ -38,17 +38,18 @@ type VirtualNetworkLink struct {
 // NewVirtualNetworkLink registers a new resource with the given unique name, arguments, and options.
 func NewVirtualNetworkLink(ctx *pulumi.Context,
 	name string, args *VirtualNetworkLinkArgs, opts ...pulumi.ResourceOption) (*VirtualNetworkLink, error) {
-	if args == nil || args.PrivateZoneName == nil {
-		return nil, errors.New("missing required argument 'PrivateZoneName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VirtualNetworkLinkName == nil {
-		return nil, errors.New("missing required argument 'VirtualNetworkLinkName'")
-	}
 	if args == nil {
-		args = &VirtualNetworkLinkArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PrivateZoneName == nil {
+		return nil, errors.New("invalid value for required argument 'PrivateZoneName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VirtualNetworkLinkName == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualNetworkLinkName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

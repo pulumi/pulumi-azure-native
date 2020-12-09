@@ -36,17 +36,18 @@ type Gallery struct {
 // NewGallery registers a new resource with the given unique name, arguments, and options.
 func NewGallery(ctx *pulumi.Context,
 	name string, args *GalleryArgs, opts ...pulumi.ResourceOption) (*Gallery, error) {
-	if args == nil || args.GalleryName == nil {
-		return nil, errors.New("missing required argument 'GalleryName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &GalleryArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.GalleryName == nil {
+		return nil, errors.New("invalid value for required argument 'GalleryName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

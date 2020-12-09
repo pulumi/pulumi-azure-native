@@ -46,23 +46,24 @@ type DedicatedHost struct {
 // NewDedicatedHost registers a new resource with the given unique name, arguments, and options.
 func NewDedicatedHost(ctx *pulumi.Context,
 	name string, args *DedicatedHostArgs, opts ...pulumi.ResourceOption) (*DedicatedHost, error) {
-	if args == nil || args.HostGroupName == nil {
-		return nil, errors.New("missing required argument 'HostGroupName'")
-	}
-	if args == nil || args.HostName == nil {
-		return nil, errors.New("missing required argument 'HostName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Sku == nil {
-		return nil, errors.New("missing required argument 'Sku'")
-	}
 	if args == nil {
-		args = &DedicatedHostArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.HostGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'HostGroupName'")
+	}
+	if args.HostName == nil {
+		return nil, errors.New("invalid value for required argument 'HostName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Sku == nil {
+		return nil, errors.New("invalid value for required argument 'Sku'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -192,7 +193,7 @@ type DedicatedHostArgs struct {
 	// The name of the dedicated host .
 	HostName pulumi.StringInput
 	// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
-	LicenseType pulumi.StringPtrInput
+	LicenseType DedicatedHostLicenseTypes
 	// Resource location
 	Location pulumi.StringInput
 	// Fault domain of the dedicated host within a dedicated host group.

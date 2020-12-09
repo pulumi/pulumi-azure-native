@@ -30,17 +30,18 @@ type NetworkInterfaceTapConfiguration struct {
 // NewNetworkInterfaceTapConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewNetworkInterfaceTapConfiguration(ctx *pulumi.Context,
 	name string, args *NetworkInterfaceTapConfigurationArgs, opts ...pulumi.ResourceOption) (*NetworkInterfaceTapConfiguration, error) {
-	if args == nil || args.NetworkInterfaceName == nil {
-		return nil, errors.New("missing required argument 'NetworkInterfaceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.TapConfigurationName == nil {
-		return nil, errors.New("missing required argument 'TapConfigurationName'")
-	}
 	if args == nil {
-		args = &NetworkInterfaceTapConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.NetworkInterfaceName == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkInterfaceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.TapConfigurationName == nil {
+		return nil, errors.New("invalid value for required argument 'TapConfigurationName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -52,23 +52,24 @@ type ShareSubscription struct {
 // NewShareSubscription registers a new resource with the given unique name, arguments, and options.
 func NewShareSubscription(ctx *pulumi.Context,
 	name string, args *ShareSubscriptionArgs, opts ...pulumi.ResourceOption) (*ShareSubscription, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
-	if args == nil || args.InvitationId == nil {
-		return nil, errors.New("missing required argument 'InvitationId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ShareSubscriptionName == nil {
-		return nil, errors.New("missing required argument 'ShareSubscriptionName'")
-	}
-	if args == nil || args.SourceShareLocation == nil {
-		return nil, errors.New("missing required argument 'SourceShareLocation'")
-	}
 	if args == nil {
-		args = &ShareSubscriptionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccountName == nil {
+		return nil, errors.New("invalid value for required argument 'AccountName'")
+	}
+	if args.InvitationId == nil {
+		return nil, errors.New("invalid value for required argument 'InvitationId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ShareSubscriptionName == nil {
+		return nil, errors.New("invalid value for required argument 'ShareSubscriptionName'")
+	}
+	if args.SourceShareLocation == nil {
+		return nil, errors.New("invalid value for required argument 'SourceShareLocation'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -70,20 +70,18 @@ type AppServiceCertificateOrder struct {
 // NewAppServiceCertificateOrder registers a new resource with the given unique name, arguments, and options.
 func NewAppServiceCertificateOrder(ctx *pulumi.Context,
 	name string, args *AppServiceCertificateOrderArgs, opts ...pulumi.ResourceOption) (*AppServiceCertificateOrder, error) {
-	if args == nil || args.CertificateOrderName == nil {
-		return nil, errors.New("missing required argument 'CertificateOrderName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ProductType == nil {
-		return nil, errors.New("missing required argument 'ProductType'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &AppServiceCertificateOrderArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CertificateOrderName == nil {
+		return nil, errors.New("invalid value for required argument 'CertificateOrderName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -280,7 +278,7 @@ type AppServiceCertificateOrderArgs struct {
 	// Resource Location.
 	Location pulumi.StringInput
 	// Certificate product type.
-	ProductType pulumi.StringInput
+	ProductType CertificateProductType
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

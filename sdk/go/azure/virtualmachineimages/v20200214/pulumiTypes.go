@@ -214,7 +214,7 @@ type ImageTemplateIdentityInput interface {
 // Identity for the image template.
 type ImageTemplateIdentityArgs struct {
 	// The type of identity used for the image template. The type 'None' will remove any identities from the image template.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type ResourceIdentityType `pulumi:"type"`
 	// The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }

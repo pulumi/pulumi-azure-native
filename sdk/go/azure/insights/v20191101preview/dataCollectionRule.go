@@ -41,23 +41,24 @@ type DataCollectionRule struct {
 // NewDataCollectionRule registers a new resource with the given unique name, arguments, and options.
 func NewDataCollectionRule(ctx *pulumi.Context,
 	name string, args *DataCollectionRuleArgs, opts ...pulumi.ResourceOption) (*DataCollectionRule, error) {
-	if args == nil || args.DataCollectionRuleName == nil {
-		return nil, errors.New("missing required argument 'DataCollectionRuleName'")
-	}
-	if args == nil || args.DataFlows == nil {
-		return nil, errors.New("missing required argument 'DataFlows'")
-	}
-	if args == nil || args.Destinations == nil {
-		return nil, errors.New("missing required argument 'Destinations'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &DataCollectionRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DataCollectionRuleName == nil {
+		return nil, errors.New("invalid value for required argument 'DataCollectionRuleName'")
+	}
+	if args.DataFlows == nil {
+		return nil, errors.New("invalid value for required argument 'DataFlows'")
+	}
+	if args.Destinations == nil {
+		return nil, errors.New("invalid value for required argument 'Destinations'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource DataCollectionRule
 	err := ctx.RegisterResource("azure-nextgen:insights/v20191101preview:DataCollectionRule", name, args, &resource, opts...)

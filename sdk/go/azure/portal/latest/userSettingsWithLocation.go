@@ -22,17 +22,18 @@ type UserSettingsWithLocation struct {
 // NewUserSettingsWithLocation registers a new resource with the given unique name, arguments, and options.
 func NewUserSettingsWithLocation(ctx *pulumi.Context,
 	name string, args *UserSettingsWithLocationArgs, opts ...pulumi.ResourceOption) (*UserSettingsWithLocation, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
-	if args == nil || args.UserSettingsName == nil {
-		return nil, errors.New("missing required argument 'UserSettingsName'")
-	}
 	if args == nil {
-		args = &UserSettingsWithLocationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
+	}
+	if args.UserSettingsName == nil {
+		return nil, errors.New("invalid value for required argument 'UserSettingsName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

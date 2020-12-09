@@ -48,14 +48,15 @@ type LoadBalancer struct {
 // NewLoadBalancer registers a new resource with the given unique name, arguments, and options.
 func NewLoadBalancer(ctx *pulumi.Context,
 	name string, args *LoadBalancerArgs, opts ...pulumi.ResourceOption) (*LoadBalancer, error) {
-	if args == nil || args.LoadBalancerName == nil {
-		return nil, errors.New("missing required argument 'LoadBalancerName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &LoadBalancerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.LoadBalancerName == nil {
+		return nil, errors.New("invalid value for required argument 'LoadBalancerName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

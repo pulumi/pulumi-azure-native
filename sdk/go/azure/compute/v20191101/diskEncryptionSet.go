@@ -36,17 +36,18 @@ type DiskEncryptionSet struct {
 // NewDiskEncryptionSet registers a new resource with the given unique name, arguments, and options.
 func NewDiskEncryptionSet(ctx *pulumi.Context,
 	name string, args *DiskEncryptionSetArgs, opts ...pulumi.ResourceOption) (*DiskEncryptionSet, error) {
-	if args == nil || args.DiskEncryptionSetName == nil {
-		return nil, errors.New("missing required argument 'DiskEncryptionSetName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &DiskEncryptionSetArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DiskEncryptionSetName == nil {
+		return nil, errors.New("invalid value for required argument 'DiskEncryptionSetName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

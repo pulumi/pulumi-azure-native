@@ -60,17 +60,18 @@ type ExpressRouteCircuitPeering struct {
 // NewExpressRouteCircuitPeering registers a new resource with the given unique name, arguments, and options.
 func NewExpressRouteCircuitPeering(ctx *pulumi.Context,
 	name string, args *ExpressRouteCircuitPeeringArgs, opts ...pulumi.ResourceOption) (*ExpressRouteCircuitPeering, error) {
-	if args == nil || args.CircuitName == nil {
-		return nil, errors.New("missing required argument 'CircuitName'")
-	}
-	if args == nil || args.PeeringName == nil {
-		return nil, errors.New("missing required argument 'PeeringName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ExpressRouteCircuitPeeringArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CircuitName == nil {
+		return nil, errors.New("invalid value for required argument 'CircuitName'")
+	}
+	if args.PeeringName == nil {
+		return nil, errors.New("invalid value for required argument 'PeeringName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

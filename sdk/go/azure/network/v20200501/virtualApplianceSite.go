@@ -32,17 +32,18 @@ type VirtualApplianceSite struct {
 // NewVirtualApplianceSite registers a new resource with the given unique name, arguments, and options.
 func NewVirtualApplianceSite(ctx *pulumi.Context,
 	name string, args *VirtualApplianceSiteArgs, opts ...pulumi.ResourceOption) (*VirtualApplianceSite, error) {
-	if args == nil || args.NetworkVirtualApplianceName == nil {
-		return nil, errors.New("missing required argument 'NetworkVirtualApplianceName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SiteName == nil {
-		return nil, errors.New("missing required argument 'SiteName'")
-	}
 	if args == nil {
-		args = &VirtualApplianceSiteArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.NetworkVirtualApplianceName == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkVirtualApplianceName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SiteName == nil {
+		return nil, errors.New("invalid value for required argument 'SiteName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -54,29 +54,27 @@ type ConnectorMapping struct {
 // NewConnectorMapping registers a new resource with the given unique name, arguments, and options.
 func NewConnectorMapping(ctx *pulumi.Context,
 	name string, args *ConnectorMappingArgs, opts ...pulumi.ResourceOption) (*ConnectorMapping, error) {
-	if args == nil || args.ConnectorName == nil {
-		return nil, errors.New("missing required argument 'ConnectorName'")
-	}
-	if args == nil || args.EntityType == nil {
-		return nil, errors.New("missing required argument 'EntityType'")
-	}
-	if args == nil || args.EntityTypeName == nil {
-		return nil, errors.New("missing required argument 'EntityTypeName'")
-	}
-	if args == nil || args.HubName == nil {
-		return nil, errors.New("missing required argument 'HubName'")
-	}
-	if args == nil || args.MappingName == nil {
-		return nil, errors.New("missing required argument 'MappingName'")
-	}
-	if args == nil || args.MappingProperties == nil {
-		return nil, errors.New("missing required argument 'MappingProperties'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ConnectorMappingArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ConnectorName == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectorName'")
+	}
+	if args.EntityTypeName == nil {
+		return nil, errors.New("invalid value for required argument 'EntityTypeName'")
+	}
+	if args.HubName == nil {
+		return nil, errors.New("invalid value for required argument 'HubName'")
+	}
+	if args.MappingName == nil {
+		return nil, errors.New("invalid value for required argument 'MappingName'")
+	}
+	if args.MappingProperties == nil {
+		return nil, errors.New("invalid value for required argument 'MappingProperties'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -220,7 +218,7 @@ type ConnectorMappingArgs struct {
 	// Display name for the connector mapping.
 	DisplayName pulumi.StringPtrInput
 	// Defines which entity type the file should map to.
-	EntityType pulumi.StringInput
+	EntityType EntityTypes
 	// The mapping entity name.
 	EntityTypeName pulumi.StringInput
 	// The name of the hub.

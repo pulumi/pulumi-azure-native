@@ -46,23 +46,21 @@ type ApplianceDefinition struct {
 // NewApplianceDefinition registers a new resource with the given unique name, arguments, and options.
 func NewApplianceDefinition(ctx *pulumi.Context,
 	name string, args *ApplianceDefinitionArgs, opts ...pulumi.ResourceOption) (*ApplianceDefinition, error) {
-	if args == nil || args.ApplianceDefinitionName == nil {
-		return nil, errors.New("missing required argument 'ApplianceDefinitionName'")
-	}
-	if args == nil || args.Authorizations == nil {
-		return nil, errors.New("missing required argument 'Authorizations'")
-	}
-	if args == nil || args.LockLevel == nil {
-		return nil, errors.New("missing required argument 'LockLevel'")
-	}
-	if args == nil || args.PackageFileUri == nil {
-		return nil, errors.New("missing required argument 'PackageFileUri'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ApplianceDefinitionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApplianceDefinitionName == nil {
+		return nil, errors.New("invalid value for required argument 'ApplianceDefinitionName'")
+	}
+	if args.Authorizations == nil {
+		return nil, errors.New("invalid value for required argument 'Authorizations'")
+	}
+	if args.PackageFileUri == nil {
+		return nil, errors.New("invalid value for required argument 'PackageFileUri'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource ApplianceDefinition
 	err := ctx.RegisterResource("azure-nextgen:solutions/v20160901preview:ApplianceDefinition", name, args, &resource, opts...)
@@ -193,7 +191,7 @@ type ApplianceDefinitionArgs struct {
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The appliance lock level.
-	LockLevel pulumi.StringInput
+	LockLevel ApplianceLockLevel
 	// ID of the resource that manages this resource.
 	ManagedBy pulumi.StringPtrInput
 	// The appliance definition package file Uri.

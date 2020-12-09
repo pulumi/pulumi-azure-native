@@ -46,17 +46,18 @@ type OuContainer struct {
 // NewOuContainer registers a new resource with the given unique name, arguments, and options.
 func NewOuContainer(ctx *pulumi.Context,
 	name string, args *OuContainerArgs, opts ...pulumi.ResourceOption) (*OuContainer, error) {
-	if args == nil || args.DomainServiceName == nil {
-		return nil, errors.New("missing required argument 'DomainServiceName'")
-	}
-	if args == nil || args.OuContainerName == nil {
-		return nil, errors.New("missing required argument 'OuContainerName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &OuContainerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DomainServiceName == nil {
+		return nil, errors.New("invalid value for required argument 'DomainServiceName'")
+	}
+	if args.OuContainerName == nil {
+		return nil, errors.New("invalid value for required argument 'OuContainerName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

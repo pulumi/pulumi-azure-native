@@ -32,14 +32,15 @@ type ScopeAssignment struct {
 // NewScopeAssignment registers a new resource with the given unique name, arguments, and options.
 func NewScopeAssignment(ctx *pulumi.Context,
 	name string, args *ScopeAssignmentArgs, opts ...pulumi.ResourceOption) (*ScopeAssignment, error) {
-	if args == nil || args.Scope == nil {
-		return nil, errors.New("missing required argument 'Scope'")
-	}
-	if args == nil || args.ScopeAssignmentName == nil {
-		return nil, errors.New("missing required argument 'ScopeAssignmentName'")
-	}
 	if args == nil {
-		args = &ScopeAssignmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Scope == nil {
+		return nil, errors.New("invalid value for required argument 'Scope'")
+	}
+	if args.ScopeAssignmentName == nil {
+		return nil, errors.New("invalid value for required argument 'ScopeAssignmentName'")
 	}
 	var resource ScopeAssignment
 	err := ctx.RegisterResource("azure-nextgen:managednetwork/v20190601preview:ScopeAssignment", name, args, &resource, opts...)

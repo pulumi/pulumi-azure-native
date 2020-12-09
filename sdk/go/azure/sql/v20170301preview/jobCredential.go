@@ -28,26 +28,27 @@ type JobCredential struct {
 // NewJobCredential registers a new resource with the given unique name, arguments, and options.
 func NewJobCredential(ctx *pulumi.Context,
 	name string, args *JobCredentialArgs, opts ...pulumi.ResourceOption) (*JobCredential, error) {
-	if args == nil || args.CredentialName == nil {
-		return nil, errors.New("missing required argument 'CredentialName'")
-	}
-	if args == nil || args.JobAgentName == nil {
-		return nil, errors.New("missing required argument 'JobAgentName'")
-	}
-	if args == nil || args.Password == nil {
-		return nil, errors.New("missing required argument 'Password'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServerName == nil {
-		return nil, errors.New("missing required argument 'ServerName'")
-	}
-	if args == nil || args.Username == nil {
-		return nil, errors.New("missing required argument 'Username'")
-	}
 	if args == nil {
-		args = &JobCredentialArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.CredentialName == nil {
+		return nil, errors.New("invalid value for required argument 'CredentialName'")
+	}
+	if args.JobAgentName == nil {
+		return nil, errors.New("invalid value for required argument 'JobAgentName'")
+	}
+	if args.Password == nil {
+		return nil, errors.New("invalid value for required argument 'Password'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServerName == nil {
+		return nil, errors.New("invalid value for required argument 'ServerName'")
+	}
+	if args.Username == nil {
+		return nil, errors.New("invalid value for required argument 'Username'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

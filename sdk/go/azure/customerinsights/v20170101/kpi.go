@@ -62,32 +62,24 @@ type Kpi struct {
 // NewKpi registers a new resource with the given unique name, arguments, and options.
 func NewKpi(ctx *pulumi.Context,
 	name string, args *KpiArgs, opts ...pulumi.ResourceOption) (*Kpi, error) {
-	if args == nil || args.CalculationWindow == nil {
-		return nil, errors.New("missing required argument 'CalculationWindow'")
-	}
-	if args == nil || args.EntityType == nil {
-		return nil, errors.New("missing required argument 'EntityType'")
-	}
-	if args == nil || args.EntityTypeName == nil {
-		return nil, errors.New("missing required argument 'EntityTypeName'")
-	}
-	if args == nil || args.Expression == nil {
-		return nil, errors.New("missing required argument 'Expression'")
-	}
-	if args == nil || args.Function == nil {
-		return nil, errors.New("missing required argument 'Function'")
-	}
-	if args == nil || args.HubName == nil {
-		return nil, errors.New("missing required argument 'HubName'")
-	}
-	if args == nil || args.KpiName == nil {
-		return nil, errors.New("missing required argument 'KpiName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &KpiArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.EntityTypeName == nil {
+		return nil, errors.New("invalid value for required argument 'EntityTypeName'")
+	}
+	if args.Expression == nil {
+		return nil, errors.New("invalid value for required argument 'Expression'")
+	}
+	if args.HubName == nil {
+		return nil, errors.New("invalid value for required argument 'HubName'")
+	}
+	if args.KpiName == nil {
+		return nil, errors.New("invalid value for required argument 'KpiName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -255,7 +247,7 @@ type KpiArgs struct {
 	// The aliases.
 	Aliases KpiAliasArrayInput
 	// The calculation window.
-	CalculationWindow pulumi.StringInput
+	CalculationWindow CalculationWindowTypes
 	// Name of calculation window field.
 	CalculationWindowFieldName pulumi.StringPtrInput
 	// Localized description for the KPI.
@@ -263,7 +255,7 @@ type KpiArgs struct {
 	// Localized display name for the KPI.
 	DisplayName pulumi.StringMapInput
 	// The mapping entity type.
-	EntityType pulumi.StringInput
+	EntityType EntityTypes
 	// The mapping entity name.
 	EntityTypeName pulumi.StringInput
 	// The computation expression for the KPI.
@@ -273,7 +265,7 @@ type KpiArgs struct {
 	// The filter expression for the KPI.
 	Filter pulumi.StringPtrInput
 	// The computation function for the KPI.
-	Function pulumi.StringInput
+	Function KpiFunctions
 	// the group by properties for the KPI.
 	GroupBy pulumi.StringArrayInput
 	// The name of the hub.

@@ -38,26 +38,27 @@ type IotHubResource struct {
 // NewIotHubResource registers a new resource with the given unique name, arguments, and options.
 func NewIotHubResource(ctx *pulumi.Context,
 	name string, args *IotHubResourceArgs, opts ...pulumi.ResourceOption) (*IotHubResource, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ResourceName == nil {
-		return nil, errors.New("missing required argument 'ResourceName'")
-	}
-	if args == nil || args.Resourcegroup == nil {
-		return nil, errors.New("missing required argument 'Resourcegroup'")
-	}
-	if args == nil || args.Sku == nil {
-		return nil, errors.New("missing required argument 'Sku'")
-	}
-	if args == nil || args.Subscriptionid == nil {
-		return nil, errors.New("missing required argument 'Subscriptionid'")
-	}
 	if args == nil {
-		args = &IotHubResourceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceName'")
+	}
+	if args.Resourcegroup == nil {
+		return nil, errors.New("invalid value for required argument 'Resourcegroup'")
+	}
+	if args.Sku == nil {
+		return nil, errors.New("invalid value for required argument 'Sku'")
+	}
+	if args.Subscriptionid == nil {
+		return nil, errors.New("invalid value for required argument 'Subscriptionid'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

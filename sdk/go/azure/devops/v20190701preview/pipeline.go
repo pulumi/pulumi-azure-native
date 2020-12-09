@@ -36,23 +36,24 @@ type Pipeline struct {
 // NewPipeline registers a new resource with the given unique name, arguments, and options.
 func NewPipeline(ctx *pulumi.Context,
 	name string, args *PipelineArgs, opts ...pulumi.ResourceOption) (*Pipeline, error) {
-	if args == nil || args.BootstrapConfiguration == nil {
-		return nil, errors.New("missing required argument 'BootstrapConfiguration'")
-	}
-	if args == nil || args.Organization == nil {
-		return nil, errors.New("missing required argument 'Organization'")
-	}
-	if args == nil || args.PipelineName == nil {
-		return nil, errors.New("missing required argument 'PipelineName'")
-	}
-	if args == nil || args.Project == nil {
-		return nil, errors.New("missing required argument 'Project'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &PipelineArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BootstrapConfiguration == nil {
+		return nil, errors.New("invalid value for required argument 'BootstrapConfiguration'")
+	}
+	if args.Organization == nil {
+		return nil, errors.New("invalid value for required argument 'Organization'")
+	}
+	if args.PipelineName == nil {
+		return nil, errors.New("invalid value for required argument 'PipelineName'")
+	}
+	if args.Project == nil {
+		return nil, errors.New("invalid value for required argument 'Project'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource Pipeline
 	err := ctx.RegisterResource("azure-nextgen:devops/v20190701preview:Pipeline", name, args, &resource, opts...)

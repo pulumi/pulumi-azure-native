@@ -34,20 +34,21 @@ type ReportByBillingAccount struct {
 // NewReportByBillingAccount registers a new resource with the given unique name, arguments, and options.
 func NewReportByBillingAccount(ctx *pulumi.Context,
 	name string, args *ReportByBillingAccountArgs, opts ...pulumi.ResourceOption) (*ReportByBillingAccount, error) {
-	if args == nil || args.BillingAccountId == nil {
-		return nil, errors.New("missing required argument 'BillingAccountId'")
-	}
-	if args == nil || args.Definition == nil {
-		return nil, errors.New("missing required argument 'Definition'")
-	}
-	if args == nil || args.DeliveryInfo == nil {
-		return nil, errors.New("missing required argument 'DeliveryInfo'")
-	}
-	if args == nil || args.ReportName == nil {
-		return nil, errors.New("missing required argument 'ReportName'")
-	}
 	if args == nil {
-		args = &ReportByBillingAccountArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BillingAccountId == nil {
+		return nil, errors.New("invalid value for required argument 'BillingAccountId'")
+	}
+	if args.Definition == nil {
+		return nil, errors.New("invalid value for required argument 'Definition'")
+	}
+	if args.DeliveryInfo == nil {
+		return nil, errors.New("invalid value for required argument 'DeliveryInfo'")
+	}
+	if args.ReportName == nil {
+		return nil, errors.New("invalid value for required argument 'ReportName'")
 	}
 	var resource ReportByBillingAccount
 	err := ctx.RegisterResource("azure-nextgen:billing/v20180801preview:ReportByBillingAccount", name, args, &resource, opts...)

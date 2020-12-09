@@ -47,35 +47,36 @@ type ScheduledQueryRule struct {
 // NewScheduledQueryRule registers a new resource with the given unique name, arguments, and options.
 func NewScheduledQueryRule(ctx *pulumi.Context,
 	name string, args *ScheduledQueryRuleArgs, opts ...pulumi.ResourceOption) (*ScheduledQueryRule, error) {
-	if args == nil || args.Criteria == nil {
-		return nil, errors.New("missing required argument 'Criteria'")
-	}
-	if args == nil || args.Enabled == nil {
-		return nil, errors.New("missing required argument 'Enabled'")
-	}
-	if args == nil || args.EvaluationFrequency == nil {
-		return nil, errors.New("missing required argument 'EvaluationFrequency'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.RuleName == nil {
-		return nil, errors.New("missing required argument 'RuleName'")
-	}
-	if args == nil || args.Scopes == nil {
-		return nil, errors.New("missing required argument 'Scopes'")
-	}
-	if args == nil || args.Severity == nil {
-		return nil, errors.New("missing required argument 'Severity'")
-	}
-	if args == nil || args.WindowSize == nil {
-		return nil, errors.New("missing required argument 'WindowSize'")
-	}
 	if args == nil {
-		args = &ScheduledQueryRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Criteria == nil {
+		return nil, errors.New("invalid value for required argument 'Criteria'")
+	}
+	if args.Enabled == nil {
+		return nil, errors.New("invalid value for required argument 'Enabled'")
+	}
+	if args.EvaluationFrequency == nil {
+		return nil, errors.New("invalid value for required argument 'EvaluationFrequency'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.RuleName == nil {
+		return nil, errors.New("invalid value for required argument 'RuleName'")
+	}
+	if args.Scopes == nil {
+		return nil, errors.New("invalid value for required argument 'Scopes'")
+	}
+	if args.Severity == nil {
+		return nil, errors.New("invalid value for required argument 'Severity'")
+	}
+	if args.WindowSize == nil {
+		return nil, errors.New("invalid value for required argument 'WindowSize'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -24,20 +24,21 @@ type IotHubResourceEventHubConsumerGroup struct {
 // NewIotHubResourceEventHubConsumerGroup registers a new resource with the given unique name, arguments, and options.
 func NewIotHubResourceEventHubConsumerGroup(ctx *pulumi.Context,
 	name string, args *IotHubResourceEventHubConsumerGroupArgs, opts ...pulumi.ResourceOption) (*IotHubResourceEventHubConsumerGroup, error) {
-	if args == nil || args.EventHubEndpointName == nil {
-		return nil, errors.New("missing required argument 'EventHubEndpointName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ResourceName == nil {
-		return nil, errors.New("missing required argument 'ResourceName'")
-	}
 	if args == nil {
-		args = &IotHubResourceEventHubConsumerGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.EventHubEndpointName == nil {
+		return nil, errors.New("invalid value for required argument 'EventHubEndpointName'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

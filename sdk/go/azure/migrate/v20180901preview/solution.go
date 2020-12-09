@@ -28,17 +28,18 @@ type Solution struct {
 // NewSolution registers a new resource with the given unique name, arguments, and options.
 func NewSolution(ctx *pulumi.Context,
 	name string, args *SolutionArgs, opts ...pulumi.ResourceOption) (*Solution, error) {
-	if args == nil || args.MigrateProjectName == nil {
-		return nil, errors.New("missing required argument 'MigrateProjectName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SolutionName == nil {
-		return nil, errors.New("missing required argument 'SolutionName'")
-	}
 	if args == nil {
-		args = &SolutionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.MigrateProjectName == nil {
+		return nil, errors.New("invalid value for required argument 'MigrateProjectName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.SolutionName == nil {
+		return nil, errors.New("invalid value for required argument 'SolutionName'")
 	}
 	var resource Solution
 	err := ctx.RegisterResource("azure-nextgen:migrate/v20180901preview:Solution", name, args, &resource, opts...)

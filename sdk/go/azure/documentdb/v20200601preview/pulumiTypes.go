@@ -3364,7 +3364,7 @@ type ConsistencyPolicyInput interface {
 // The consistency policy for the Cosmos DB database account.
 type ConsistencyPolicyArgs struct {
 	// The default consistency level and configuration settings of the Cosmos DB account.
-	DefaultConsistencyLevel pulumi.StringInput `pulumi:"defaultConsistencyLevel"`
+	DefaultConsistencyLevel DefaultConsistencyLevel `pulumi:"defaultConsistencyLevel"`
 	// When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
 	MaxIntervalInSeconds pulumi.IntPtrInput `pulumi:"maxIntervalInSeconds"`
 	// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
@@ -4960,7 +4960,7 @@ type DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs struct {
 	// Enum to indicate the mode of account creation.
 	CreateMode pulumi.StringInput `pulumi:"createMode"`
 	// The offer type for the database
-	DatabaseAccountOfferType pulumi.StringInput `pulumi:"databaseAccountOfferType"`
+	DatabaseAccountOfferType DatabaseAccountOfferType `pulumi:"databaseAccountOfferType"`
 	// Disable write operations on metadata resources (databases, containers, throughput) via account keys
 	DisableKeyBasedMetadataWriteAccess pulumi.BoolPtrInput `pulumi:"disableKeyBasedMetadataWriteAccess"`
 	// Flag to indicate whether to enable storage analytics.
@@ -7974,7 +7974,7 @@ type ManagedServiceIdentityInput interface {
 // Identity for the resource.
 type ManagedServiceIdentityArgs struct {
 	// The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type ResourceIdentityType `pulumi:"type"`
 	// The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
@@ -11801,7 +11801,7 @@ type RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs struct {
 	// Enum to indicate the mode of account creation.
 	CreateMode pulumi.StringInput `pulumi:"createMode"`
 	// The offer type for the database
-	DatabaseAccountOfferType pulumi.StringInput `pulumi:"databaseAccountOfferType"`
+	DatabaseAccountOfferType DatabaseAccountOfferType `pulumi:"databaseAccountOfferType"`
 	// Disable write operations on metadata resources (databases, containers, throughput) via account keys
 	DisableKeyBasedMetadataWriteAccess pulumi.BoolPtrInput `pulumi:"disableKeyBasedMetadataWriteAccess"`
 	// Flag to indicate whether to enable storage analytics.

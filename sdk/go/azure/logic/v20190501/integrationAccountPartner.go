@@ -38,23 +38,24 @@ type IntegrationAccountPartner struct {
 // NewIntegrationAccountPartner registers a new resource with the given unique name, arguments, and options.
 func NewIntegrationAccountPartner(ctx *pulumi.Context,
 	name string, args *IntegrationAccountPartnerArgs, opts ...pulumi.ResourceOption) (*IntegrationAccountPartner, error) {
-	if args == nil || args.Content == nil {
-		return nil, errors.New("missing required argument 'Content'")
-	}
-	if args == nil || args.IntegrationAccountName == nil {
-		return nil, errors.New("missing required argument 'IntegrationAccountName'")
-	}
-	if args == nil || args.PartnerName == nil {
-		return nil, errors.New("missing required argument 'PartnerName'")
-	}
-	if args == nil || args.PartnerType == nil {
-		return nil, errors.New("missing required argument 'PartnerType'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &IntegrationAccountPartnerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Content == nil {
+		return nil, errors.New("invalid value for required argument 'Content'")
+	}
+	if args.IntegrationAccountName == nil {
+		return nil, errors.New("invalid value for required argument 'IntegrationAccountName'")
+	}
+	if args.PartnerName == nil {
+		return nil, errors.New("invalid value for required argument 'PartnerName'")
+	}
+	if args.PartnerType == nil {
+		return nil, errors.New("invalid value for required argument 'PartnerType'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

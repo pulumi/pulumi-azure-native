@@ -48,17 +48,18 @@ type IoMAMPolicyByName struct {
 // NewIoMAMPolicyByName registers a new resource with the given unique name, arguments, and options.
 func NewIoMAMPolicyByName(ctx *pulumi.Context,
 	name string, args *IoMAMPolicyByNameArgs, opts ...pulumi.ResourceOption) (*IoMAMPolicyByName, error) {
-	if args == nil || args.FriendlyName == nil {
-		return nil, errors.New("missing required argument 'FriendlyName'")
-	}
-	if args == nil || args.HostName == nil {
-		return nil, errors.New("missing required argument 'HostName'")
-	}
-	if args == nil || args.PolicyName == nil {
-		return nil, errors.New("missing required argument 'PolicyName'")
-	}
 	if args == nil {
-		args = &IoMAMPolicyByNameArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.FriendlyName == nil {
+		return nil, errors.New("invalid value for required argument 'FriendlyName'")
+	}
+	if args.HostName == nil {
+		return nil, errors.New("invalid value for required argument 'HostName'")
+	}
+	if args.PolicyName == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

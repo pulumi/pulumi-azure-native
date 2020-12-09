@@ -296,7 +296,7 @@ type OrchestratorIdentityInput interface {
 
 type OrchestratorIdentityArgs struct {
 	// The type of identity used for orchestrator cluster. Type 'SystemAssigned' will use an implicitly created identity orchestrator clusters
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type ResourceIdentityType `pulumi:"type"`
 }
 
 func (OrchestratorIdentityArgs) ElementType() reflect.Type {

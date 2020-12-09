@@ -4568,7 +4568,7 @@ type HostnameConfigurationArgs struct {
 	// Specify true to always negotiate client certificate on the hostname. Default Value is false.
 	NegotiateClientCertificate pulumi.BoolPtrInput `pulumi:"negotiateClientCertificate"`
 	// Hostname type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Type HostnameType `pulumi:"type"`
 }
 
 func (HostnameConfigurationArgs) ElementType() reflect.Type {

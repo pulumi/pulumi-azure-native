@@ -34,7 +34,7 @@ type ReferenceDataSetKeyPropertyArgs struct {
 	// The name of the key property.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The type of the key property.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type ReferenceDataKeyPropertyType `pulumi:"type"`
 }
 
 func (ReferenceDataSetKeyPropertyArgs) ElementType() reflect.Type {
@@ -252,7 +252,7 @@ type SkuArgs struct {
 	// The capacity of the sku. This value can be changed to support scale out of environments after they have been created.
 	Capacity pulumi.IntInput `pulumi:"capacity"`
 	// The name of this SKU.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name SkuName `pulumi:"name"`
 }
 
 func (SkuArgs) ElementType() reflect.Type {

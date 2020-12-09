@@ -1172,7 +1172,7 @@ type DeploymentPropertiesArgs struct {
 	// Specifies whether template expressions are evaluated within the scope of the parent template or nested template. Only applicable to nested templates. If not specified, default value is outer.
 	ExpressionEvaluationOptions ExpressionEvaluationOptionsPtrInput `pulumi:"expressionEvaluationOptions"`
 	// The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
-	Mode pulumi.StringInput `pulumi:"mode"`
+	Mode DeploymentMode `pulumi:"mode"`
 	// The deployment on error behavior.
 	OnErrorDeployment OnErrorDeploymentPtrInput `pulumi:"onErrorDeployment"`
 	// Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
@@ -2361,7 +2361,7 @@ type IdentityInput interface {
 // Identity for the resource.
 type IdentityArgs struct {
 	// The identity type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type ResourceIdentityType `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
 }
@@ -2815,7 +2815,7 @@ type OnErrorDeploymentArgs struct {
 	// The deployment to be used on error case.
 	DeploymentName pulumi.StringPtrInput `pulumi:"deploymentName"`
 	// The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment.
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type OnErrorDeploymentType `pulumi:"type"`
 }
 
 func (OnErrorDeploymentArgs) ElementType() reflect.Type {

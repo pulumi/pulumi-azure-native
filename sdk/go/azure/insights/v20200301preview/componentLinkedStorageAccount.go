@@ -26,17 +26,18 @@ type ComponentLinkedStorageAccount struct {
 // NewComponentLinkedStorageAccount registers a new resource with the given unique name, arguments, and options.
 func NewComponentLinkedStorageAccount(ctx *pulumi.Context,
 	name string, args *ComponentLinkedStorageAccountArgs, opts ...pulumi.ResourceOption) (*ComponentLinkedStorageAccount, error) {
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ResourceName == nil {
-		return nil, errors.New("missing required argument 'ResourceName'")
-	}
-	if args == nil || args.StorageType == nil {
-		return nil, errors.New("missing required argument 'StorageType'")
-	}
 	if args == nil {
-		args = &ComponentLinkedStorageAccountArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceName'")
+	}
+	if args.StorageType == nil {
+		return nil, errors.New("invalid value for required argument 'StorageType'")
 	}
 	var resource ComponentLinkedStorageAccount
 	err := ctx.RegisterResource("azure-nextgen:insights/v20200301preview:ComponentLinkedStorageAccount", name, args, &resource, opts...)

@@ -16719,7 +16719,7 @@ type SimpleSchedulePolicyArgs struct {
 	// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
 	SchedulePolicyType pulumi.StringInput `pulumi:"schedulePolicyType"`
 	// List of days of week this schedule has to be run.
-	ScheduleRunDays pulumi.StringArrayInput `pulumi:"scheduleRunDays"`
+	ScheduleRunDays DayOfWeekArrayInput `pulumi:"scheduleRunDays"`
 	// Frequency of the schedule operation of this policy.
 	ScheduleRunFrequency pulumi.StringPtrInput `pulumi:"scheduleRunFrequency"`
 	// List of times of day this schedule has to be run.
@@ -17129,9 +17129,9 @@ type WeeklyRetentionFormatInput interface {
 // Weekly retention format.
 type WeeklyRetentionFormatArgs struct {
 	// List of days of the week.
-	DaysOfTheWeek pulumi.StringArrayInput `pulumi:"daysOfTheWeek"`
+	DaysOfTheWeek DayOfWeekArrayInput `pulumi:"daysOfTheWeek"`
 	// List of weeks of month.
-	WeeksOfTheMonth pulumi.StringArrayInput `pulumi:"weeksOfTheMonth"`
+	WeeksOfTheMonth WeekOfMonthArrayInput `pulumi:"weeksOfTheMonth"`
 }
 
 func (WeeklyRetentionFormatArgs) ElementType() reflect.Type {
@@ -17437,7 +17437,7 @@ type WeeklyRetentionScheduleInput interface {
 // Weekly retention schedule.
 type WeeklyRetentionScheduleArgs struct {
 	// List of days of week for weekly retention policy.
-	DaysOfTheWeek pulumi.StringArrayInput `pulumi:"daysOfTheWeek"`
+	DaysOfTheWeek DayOfWeekArrayInput `pulumi:"daysOfTheWeek"`
 	// Retention duration of retention Policy.
 	RetentionDuration RetentionDurationPtrInput `pulumi:"retentionDuration"`
 	// Retention times of retention policy.
@@ -18023,7 +18023,7 @@ type YearlyRetentionScheduleInput interface {
 // Yearly retention schedule.
 type YearlyRetentionScheduleArgs struct {
 	// List of months of year of yearly retention policy.
-	MonthsOfYear pulumi.StringArrayInput `pulumi:"monthsOfYear"`
+	MonthsOfYear MonthOfYearArrayInput `pulumi:"monthsOfYear"`
 	// Retention duration of retention Policy.
 	RetentionDuration RetentionDurationPtrInput `pulumi:"retentionDuration"`
 	// Daily retention format for yearly retention policy.

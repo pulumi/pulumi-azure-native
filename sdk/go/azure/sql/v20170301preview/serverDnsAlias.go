@@ -26,17 +26,18 @@ type ServerDnsAlias struct {
 // NewServerDnsAlias registers a new resource with the given unique name, arguments, and options.
 func NewServerDnsAlias(ctx *pulumi.Context,
 	name string, args *ServerDnsAliasArgs, opts ...pulumi.ResourceOption) (*ServerDnsAlias, error) {
-	if args == nil || args.DnsAliasName == nil {
-		return nil, errors.New("missing required argument 'DnsAliasName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServerName == nil {
-		return nil, errors.New("missing required argument 'ServerName'")
-	}
 	if args == nil {
-		args = &ServerDnsAliasArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DnsAliasName == nil {
+		return nil, errors.New("invalid value for required argument 'DnsAliasName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ServerName == nil {
+		return nil, errors.New("invalid value for required argument 'ServerName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

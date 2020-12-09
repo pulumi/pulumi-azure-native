@@ -34,26 +34,27 @@ type IscsiServer struct {
 // NewIscsiServer registers a new resource with the given unique name, arguments, and options.
 func NewIscsiServer(ctx *pulumi.Context,
 	name string, args *IscsiServerArgs, opts ...pulumi.ResourceOption) (*IscsiServer, error) {
-	if args == nil || args.BackupScheduleGroupId == nil {
-		return nil, errors.New("missing required argument 'BackupScheduleGroupId'")
-	}
-	if args == nil || args.DeviceName == nil {
-		return nil, errors.New("missing required argument 'DeviceName'")
-	}
-	if args == nil || args.IscsiServerName == nil {
-		return nil, errors.New("missing required argument 'IscsiServerName'")
-	}
-	if args == nil || args.ManagerName == nil {
-		return nil, errors.New("missing required argument 'ManagerName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.StorageDomainId == nil {
-		return nil, errors.New("missing required argument 'StorageDomainId'")
-	}
 	if args == nil {
-		args = &IscsiServerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.BackupScheduleGroupId == nil {
+		return nil, errors.New("invalid value for required argument 'BackupScheduleGroupId'")
+	}
+	if args.DeviceName == nil {
+		return nil, errors.New("invalid value for required argument 'DeviceName'")
+	}
+	if args.IscsiServerName == nil {
+		return nil, errors.New("invalid value for required argument 'IscsiServerName'")
+	}
+	if args.ManagerName == nil {
+		return nil, errors.New("invalid value for required argument 'ManagerName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.StorageDomainId == nil {
+		return nil, errors.New("invalid value for required argument 'StorageDomainId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

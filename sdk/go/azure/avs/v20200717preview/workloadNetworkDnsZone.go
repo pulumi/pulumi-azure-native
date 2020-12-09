@@ -38,17 +38,18 @@ type WorkloadNetworkDnsZone struct {
 // NewWorkloadNetworkDnsZone registers a new resource with the given unique name, arguments, and options.
 func NewWorkloadNetworkDnsZone(ctx *pulumi.Context,
 	name string, args *WorkloadNetworkDnsZoneArgs, opts ...pulumi.ResourceOption) (*WorkloadNetworkDnsZone, error) {
-	if args == nil || args.DnsZoneId == nil {
-		return nil, errors.New("missing required argument 'DnsZoneId'")
-	}
-	if args == nil || args.PrivateCloudName == nil {
-		return nil, errors.New("missing required argument 'PrivateCloudName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &WorkloadNetworkDnsZoneArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DnsZoneId == nil {
+		return nil, errors.New("invalid value for required argument 'DnsZoneId'")
+	}
+	if args.PrivateCloudName == nil {
+		return nil, errors.New("invalid value for required argument 'PrivateCloudName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource WorkloadNetworkDnsZone
 	err := ctx.RegisterResource("azure-nextgen:avs/v20200717preview:WorkloadNetworkDnsZone", name, args, &resource, opts...)

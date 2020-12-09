@@ -29,17 +29,18 @@ type Monitor struct {
 // NewMonitor registers a new resource with the given unique name, arguments, and options.
 func NewMonitor(ctx *pulumi.Context,
 	name string, args *MonitorArgs, opts ...pulumi.ResourceOption) (*Monitor, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.MonitorName == nil {
-		return nil, errors.New("missing required argument 'MonitorName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &MonitorArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.MonitorName == nil {
+		return nil, errors.New("invalid value for required argument 'MonitorName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource Monitor
 	err := ctx.RegisterResource("azure-nextgen:datadog/v20200201preview:Monitor", name, args, &resource, opts...)

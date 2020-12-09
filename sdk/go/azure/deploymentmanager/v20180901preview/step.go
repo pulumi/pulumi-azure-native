@@ -30,20 +30,21 @@ type Step struct {
 // NewStep registers a new resource with the given unique name, arguments, and options.
 func NewStep(ctx *pulumi.Context,
 	name string, args *StepArgs, opts ...pulumi.ResourceOption) (*Step, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.StepName == nil {
-		return nil, errors.New("missing required argument 'StepName'")
-	}
 	if args == nil {
-		args = &StepArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.Properties == nil {
+		return nil, errors.New("invalid value for required argument 'Properties'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.StepName == nil {
+		return nil, errors.New("invalid value for required argument 'StepName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

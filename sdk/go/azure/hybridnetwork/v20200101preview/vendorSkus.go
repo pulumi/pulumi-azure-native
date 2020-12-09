@@ -38,14 +38,15 @@ type VendorSkus struct {
 // NewVendorSkus registers a new resource with the given unique name, arguments, and options.
 func NewVendorSkus(ctx *pulumi.Context,
 	name string, args *VendorSkusArgs, opts ...pulumi.ResourceOption) (*VendorSkus, error) {
-	if args == nil || args.SkuName == nil {
-		return nil, errors.New("missing required argument 'SkuName'")
-	}
-	if args == nil || args.VendorName == nil {
-		return nil, errors.New("missing required argument 'VendorName'")
-	}
 	if args == nil {
-		args = &VendorSkusArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.SkuName == nil {
+		return nil, errors.New("invalid value for required argument 'SkuName'")
+	}
+	if args.VendorName == nil {
+		return nil, errors.New("invalid value for required argument 'VendorName'")
 	}
 	var resource VendorSkus
 	err := ctx.RegisterResource("azure-nextgen:hybridnetwork/v20200101preview:VendorSkus", name, args, &resource, opts...)

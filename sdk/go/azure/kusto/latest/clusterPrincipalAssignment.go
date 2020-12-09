@@ -38,26 +38,27 @@ type ClusterPrincipalAssignment struct {
 // NewClusterPrincipalAssignment registers a new resource with the given unique name, arguments, and options.
 func NewClusterPrincipalAssignment(ctx *pulumi.Context,
 	name string, args *ClusterPrincipalAssignmentArgs, opts ...pulumi.ResourceOption) (*ClusterPrincipalAssignment, error) {
-	if args == nil || args.ClusterName == nil {
-		return nil, errors.New("missing required argument 'ClusterName'")
-	}
-	if args == nil || args.PrincipalAssignmentName == nil {
-		return nil, errors.New("missing required argument 'PrincipalAssignmentName'")
-	}
-	if args == nil || args.PrincipalId == nil {
-		return nil, errors.New("missing required argument 'PrincipalId'")
-	}
-	if args == nil || args.PrincipalType == nil {
-		return nil, errors.New("missing required argument 'PrincipalType'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Role == nil {
-		return nil, errors.New("missing required argument 'Role'")
-	}
 	if args == nil {
-		args = &ClusterPrincipalAssignmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ClusterName == nil {
+		return nil, errors.New("invalid value for required argument 'ClusterName'")
+	}
+	if args.PrincipalAssignmentName == nil {
+		return nil, errors.New("invalid value for required argument 'PrincipalAssignmentName'")
+	}
+	if args.PrincipalId == nil {
+		return nil, errors.New("invalid value for required argument 'PrincipalId'")
+	}
+	if args.PrincipalType == nil {
+		return nil, errors.New("invalid value for required argument 'PrincipalType'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Role == nil {
+		return nil, errors.New("invalid value for required argument 'Role'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

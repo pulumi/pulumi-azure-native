@@ -34,20 +34,21 @@ type WorkloadNetworkDhcp struct {
 // NewWorkloadNetworkDhcp registers a new resource with the given unique name, arguments, and options.
 func NewWorkloadNetworkDhcp(ctx *pulumi.Context,
 	name string, args *WorkloadNetworkDhcpArgs, opts ...pulumi.ResourceOption) (*WorkloadNetworkDhcp, error) {
-	if args == nil || args.DhcpId == nil {
-		return nil, errors.New("missing required argument 'DhcpId'")
-	}
-	if args == nil || args.DhcpType == nil {
-		return nil, errors.New("missing required argument 'DhcpType'")
-	}
-	if args == nil || args.PrivateCloudName == nil {
-		return nil, errors.New("missing required argument 'PrivateCloudName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &WorkloadNetworkDhcpArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DhcpId == nil {
+		return nil, errors.New("invalid value for required argument 'DhcpId'")
+	}
+	if args.DhcpType == nil {
+		return nil, errors.New("invalid value for required argument 'DhcpType'")
+	}
+	if args.PrivateCloudName == nil {
+		return nil, errors.New("invalid value for required argument 'PrivateCloudName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	var resource WorkloadNetworkDhcp
 	err := ctx.RegisterResource("azure-nextgen:avs/v20200717preview:WorkloadNetworkDhcp", name, args, &resource, opts...)

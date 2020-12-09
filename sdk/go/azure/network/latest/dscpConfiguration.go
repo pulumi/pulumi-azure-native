@@ -50,14 +50,15 @@ type DscpConfiguration struct {
 // NewDscpConfiguration registers a new resource with the given unique name, arguments, and options.
 func NewDscpConfiguration(ctx *pulumi.Context,
 	name string, args *DscpConfigurationArgs, opts ...pulumi.ResourceOption) (*DscpConfiguration, error) {
-	if args == nil || args.DscpConfigurationName == nil {
-		return nil, errors.New("missing required argument 'DscpConfigurationName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &DscpConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DscpConfigurationName == nil {
+		return nil, errors.New("invalid value for required argument 'DscpConfigurationName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

@@ -32,26 +32,24 @@ type LinkedServer struct {
 // NewLinkedServer registers a new resource with the given unique name, arguments, and options.
 func NewLinkedServer(ctx *pulumi.Context,
 	name string, args *LinkedServerArgs, opts ...pulumi.ResourceOption) (*LinkedServer, error) {
-	if args == nil || args.LinkedRedisCacheId == nil {
-		return nil, errors.New("missing required argument 'LinkedRedisCacheId'")
-	}
-	if args == nil || args.LinkedRedisCacheLocation == nil {
-		return nil, errors.New("missing required argument 'LinkedRedisCacheLocation'")
-	}
-	if args == nil || args.LinkedServerName == nil {
-		return nil, errors.New("missing required argument 'LinkedServerName'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ServerRole == nil {
-		return nil, errors.New("missing required argument 'ServerRole'")
-	}
 	if args == nil {
-		args = &LinkedServerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.LinkedRedisCacheId == nil {
+		return nil, errors.New("invalid value for required argument 'LinkedRedisCacheId'")
+	}
+	if args.LinkedRedisCacheLocation == nil {
+		return nil, errors.New("invalid value for required argument 'LinkedRedisCacheLocation'")
+	}
+	if args.LinkedServerName == nil {
+		return nil, errors.New("invalid value for required argument 'LinkedServerName'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -154,7 +152,7 @@ type LinkedServerArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Role of the linked server.
-	ServerRole pulumi.StringInput
+	ServerRole ReplicationRole
 }
 
 func (LinkedServerArgs) ElementType() reflect.Type {

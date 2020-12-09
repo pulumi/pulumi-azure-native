@@ -38,26 +38,27 @@ type ActivityLogAlert struct {
 // NewActivityLogAlert registers a new resource with the given unique name, arguments, and options.
 func NewActivityLogAlert(ctx *pulumi.Context,
 	name string, args *ActivityLogAlertArgs, opts ...pulumi.ResourceOption) (*ActivityLogAlert, error) {
-	if args == nil || args.Actions == nil {
-		return nil, errors.New("missing required argument 'Actions'")
-	}
-	if args == nil || args.ActivityLogAlertName == nil {
-		return nil, errors.New("missing required argument 'ActivityLogAlertName'")
-	}
-	if args == nil || args.Condition == nil {
-		return nil, errors.New("missing required argument 'Condition'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Scopes == nil {
-		return nil, errors.New("missing required argument 'Scopes'")
-	}
 	if args == nil {
-		args = &ActivityLogAlertArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Actions == nil {
+		return nil, errors.New("invalid value for required argument 'Actions'")
+	}
+	if args.ActivityLogAlertName == nil {
+		return nil, errors.New("invalid value for required argument 'ActivityLogAlertName'")
+	}
+	if args.Condition == nil {
+		return nil, errors.New("invalid value for required argument 'Condition'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Scopes == nil {
+		return nil, errors.New("invalid value for required argument 'Scopes'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

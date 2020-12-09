@@ -26,23 +26,24 @@ type ChapSetting struct {
 // NewChapSetting registers a new resource with the given unique name, arguments, and options.
 func NewChapSetting(ctx *pulumi.Context,
 	name string, args *ChapSettingArgs, opts ...pulumi.ResourceOption) (*ChapSetting, error) {
-	if args == nil || args.ChapUserName == nil {
-		return nil, errors.New("missing required argument 'ChapUserName'")
-	}
-	if args == nil || args.DeviceName == nil {
-		return nil, errors.New("missing required argument 'DeviceName'")
-	}
-	if args == nil || args.ManagerName == nil {
-		return nil, errors.New("missing required argument 'ManagerName'")
-	}
-	if args == nil || args.Password == nil {
-		return nil, errors.New("missing required argument 'Password'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &ChapSettingArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ChapUserName == nil {
+		return nil, errors.New("invalid value for required argument 'ChapUserName'")
+	}
+	if args.DeviceName == nil {
+		return nil, errors.New("invalid value for required argument 'DeviceName'")
+	}
+	if args.ManagerName == nil {
+		return nil, errors.New("invalid value for required argument 'ManagerName'")
+	}
+	if args.Password == nil {
+		return nil, errors.New("invalid value for required argument 'Password'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

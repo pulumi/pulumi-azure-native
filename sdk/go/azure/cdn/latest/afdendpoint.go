@@ -39,20 +39,21 @@ type AFDEndpoint struct {
 // NewAFDEndpoint registers a new resource with the given unique name, arguments, and options.
 func NewAFDEndpoint(ctx *pulumi.Context,
 	name string, args *AFDEndpointArgs, opts ...pulumi.ResourceOption) (*AFDEndpoint, error) {
-	if args == nil || args.EndpointName == nil {
-		return nil, errors.New("missing required argument 'EndpointName'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.ProfileName == nil {
-		return nil, errors.New("missing required argument 'ProfileName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &AFDEndpointArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.EndpointName == nil {
+		return nil, errors.New("invalid value for required argument 'EndpointName'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.ProfileName == nil {
+		return nil, errors.New("invalid value for required argument 'ProfileName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

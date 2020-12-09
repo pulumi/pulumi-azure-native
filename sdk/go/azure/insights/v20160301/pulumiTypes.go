@@ -198,7 +198,7 @@ type ManagementEventAggregationConditionInput interface {
 // How the data that is collected should be combined over time.
 type ManagementEventAggregationConditionArgs struct {
 	// the condition operator.
-	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	Operator ConditionOperator `pulumi:"operator"`
 	// The threshold value that activates the alert.
 	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
 	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
@@ -2008,11 +2008,11 @@ type ThresholdRuleConditionArgs struct {
 	// specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).
 	OdataType pulumi.StringInput `pulumi:"odataType"`
 	// the operator used to compare the data and the threshold.
-	Operator pulumi.StringInput `pulumi:"operator"`
+	Operator ConditionOperator `pulumi:"operator"`
 	// the threshold value that activates the alert.
 	Threshold pulumi.Float64Input `pulumi:"threshold"`
 	// the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
-	TimeAggregation pulumi.StringPtrInput `pulumi:"timeAggregation"`
+	TimeAggregation TimeAggregationOperator `pulumi:"timeAggregation"`
 	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold. If specified then it must be between 5 minutes and 1 day.
 	WindowSize pulumi.StringPtrInput `pulumi:"windowSize"`
 }

@@ -46,32 +46,33 @@ type Workbook struct {
 // NewWorkbook registers a new resource with the given unique name, arguments, and options.
 func NewWorkbook(ctx *pulumi.Context,
 	name string, args *WorkbookArgs, opts ...pulumi.ResourceOption) (*Workbook, error) {
-	if args == nil || args.Category == nil {
-		return nil, errors.New("missing required argument 'Category'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.ResourceName == nil {
-		return nil, errors.New("missing required argument 'ResourceName'")
-	}
-	if args == nil || args.SerializedData == nil {
-		return nil, errors.New("missing required argument 'SerializedData'")
-	}
-	if args == nil || args.SharedTypeKind == nil {
-		return nil, errors.New("missing required argument 'SharedTypeKind'")
-	}
-	if args == nil || args.UserId == nil {
-		return nil, errors.New("missing required argument 'UserId'")
-	}
-	if args == nil || args.WorkbookId == nil {
-		return nil, errors.New("missing required argument 'WorkbookId'")
-	}
 	if args == nil {
-		args = &WorkbookArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Category == nil {
+		return nil, errors.New("invalid value for required argument 'Category'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.ResourceName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceName'")
+	}
+	if args.SerializedData == nil {
+		return nil, errors.New("invalid value for required argument 'SerializedData'")
+	}
+	if args.SharedTypeKind == nil {
+		return nil, errors.New("invalid value for required argument 'SharedTypeKind'")
+	}
+	if args.UserId == nil {
+		return nil, errors.New("invalid value for required argument 'UserId'")
+	}
+	if args.WorkbookId == nil {
+		return nil, errors.New("invalid value for required argument 'WorkbookId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

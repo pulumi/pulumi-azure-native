@@ -38,14 +38,15 @@ type DdosCustomPolicy struct {
 // NewDdosCustomPolicy registers a new resource with the given unique name, arguments, and options.
 func NewDdosCustomPolicy(ctx *pulumi.Context,
 	name string, args *DdosCustomPolicyArgs, opts ...pulumi.ResourceOption) (*DdosCustomPolicy, error) {
-	if args == nil || args.DdosCustomPolicyName == nil {
-		return nil, errors.New("missing required argument 'DdosCustomPolicyName'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil {
-		args = &DdosCustomPolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DdosCustomPolicyName == nil {
+		return nil, errors.New("invalid value for required argument 'DdosCustomPolicyName'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

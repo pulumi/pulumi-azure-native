@@ -72,26 +72,27 @@ type VirtualMachine struct {
 // NewVirtualMachine registers a new resource with the given unique name, arguments, and options.
 func NewVirtualMachine(ctx *pulumi.Context,
 	name string, args *VirtualMachineArgs, opts ...pulumi.ResourceOption) (*VirtualMachine, error) {
-	if args == nil || args.AmountOfRam == nil {
-		return nil, errors.New("missing required argument 'AmountOfRam'")
-	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
-	if args == nil || args.NumberOfCores == nil {
-		return nil, errors.New("missing required argument 'NumberOfCores'")
-	}
-	if args == nil || args.PrivateCloudId == nil {
-		return nil, errors.New("missing required argument 'PrivateCloudId'")
-	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.VirtualMachineName == nil {
-		return nil, errors.New("missing required argument 'VirtualMachineName'")
-	}
 	if args == nil {
-		args = &VirtualMachineArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AmountOfRam == nil {
+		return nil, errors.New("invalid value for required argument 'AmountOfRam'")
+	}
+	if args.Location == nil {
+		return nil, errors.New("invalid value for required argument 'Location'")
+	}
+	if args.NumberOfCores == nil {
+		return nil, errors.New("invalid value for required argument 'NumberOfCores'")
+	}
+	if args.PrivateCloudId == nil {
+		return nil, errors.New("invalid value for required argument 'PrivateCloudId'")
+	}
+	if args.ResourceGroupName == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.VirtualMachineName == nil {
+		return nil, errors.New("invalid value for required argument 'VirtualMachineName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

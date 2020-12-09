@@ -26,14 +26,15 @@ type SupportPlanType struct {
 // NewSupportPlanType registers a new resource with the given unique name, arguments, and options.
 func NewSupportPlanType(ctx *pulumi.Context,
 	name string, args *SupportPlanTypeArgs, opts ...pulumi.ResourceOption) (*SupportPlanType, error) {
-	if args == nil || args.PlanTypeName == nil {
-		return nil, errors.New("missing required argument 'PlanTypeName'")
-	}
-	if args == nil || args.ProviderName == nil {
-		return nil, errors.New("missing required argument 'ProviderName'")
-	}
 	if args == nil {
-		args = &SupportPlanTypeArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.PlanTypeName == nil {
+		return nil, errors.New("invalid value for required argument 'PlanTypeName'")
+	}
+	if args.ProviderName == nil {
+		return nil, errors.New("invalid value for required argument 'ProviderName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{

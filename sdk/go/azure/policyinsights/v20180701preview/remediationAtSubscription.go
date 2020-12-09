@@ -38,11 +38,12 @@ type RemediationAtSubscription struct {
 // NewRemediationAtSubscription registers a new resource with the given unique name, arguments, and options.
 func NewRemediationAtSubscription(ctx *pulumi.Context,
 	name string, args *RemediationAtSubscriptionArgs, opts ...pulumi.ResourceOption) (*RemediationAtSubscription, error) {
-	if args == nil || args.RemediationName == nil {
-		return nil, errors.New("missing required argument 'RemediationName'")
-	}
 	if args == nil {
-		args = &RemediationAtSubscriptionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.RemediationName == nil {
+		return nil, errors.New("invalid value for required argument 'RemediationName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
