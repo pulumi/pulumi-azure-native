@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview.Inputs
         /// The value that indicates whether the policy is enabled or not.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview.PolicyStatus>? Status { get; set; }
 
         public QuarantinePolicyArgs()
         {

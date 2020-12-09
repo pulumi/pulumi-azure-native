@@ -132,7 +132,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201102Preview
         /// Resource Type of ApplicationGroup.
         /// </summary>
         [Input("applicationGroupType", required: true)]
-        public Input<string> ApplicationGroupType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DesktopVirtualization.V20201102Preview.ApplicationGroupType> ApplicationGroupType { get; set; } = null!;
 
         /// <summary>
         /// Description of ApplicationGroup.

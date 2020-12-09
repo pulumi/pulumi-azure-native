@@ -204,7 +204,7 @@ namespace Pulumi.AzureNextGen.Network.V20180501
         /// The type of this DNS zone (Public or Private).
         /// </summary>
         [Input("zoneType")]
-        public Input<string>? ZoneType { get; set; }
+        public Input<Pulumi.AzureNextGen.Network.V20180501.ZoneType>? ZoneType { get; set; }
 
         public ZoneArgs()
         {

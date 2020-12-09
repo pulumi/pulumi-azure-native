@@ -140,7 +140,7 @@ namespace Pulumi.AzureNextGen.Relay.Latest
         /// WCF relay type.
         /// </summary>
         [Input("relayType")]
-        public Input<string>? RelayType { get; set; }
+        public Input<Pulumi.AzureNextGen.Relay.Latest.Relaytype>? RelayType { get; set; }
 
         /// <summary>
         /// Returns true if client authorization is needed for this relay; otherwise, false.

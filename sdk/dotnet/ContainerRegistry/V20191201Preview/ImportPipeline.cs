@@ -136,14 +136,14 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
         public Input<string>? Location { get; set; }
 
         [Input("options")]
-        private InputList<string>? _options;
+        private InputList<Union<string, Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview.PipelineOptions>>? _options;
 
         /// <summary>
         /// The list of all options configured for the pipeline.
         /// </summary>
-        public InputList<string> Options
+        public InputList<Union<string, Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview.PipelineOptions>> Options
         {
-            get => _options ?? (_options = new InputList<string>());
+            get => _options ?? (_options = new InputList<Union<string, Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview.PipelineOptions>>());
             set => _options = value;
         }
 

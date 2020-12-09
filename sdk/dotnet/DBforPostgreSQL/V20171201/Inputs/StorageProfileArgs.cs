@@ -25,13 +25,13 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20171201.Inputs
         /// Enable Geo-redundant or not for server backup.
         /// </summary>
         [Input("geoRedundantBackup")]
-        public Input<string>? GeoRedundantBackup { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DBforPostgreSQL.V20171201.GeoRedundantBackup>? GeoRedundantBackup { get; set; }
 
         /// <summary>
         /// Enable Storage Auto Grow.
         /// </summary>
         [Input("storageAutogrow")]
-        public Input<string>? StorageAutogrow { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DBforPostgreSQL.V20171201.StorageAutogrow>? StorageAutogrow { get; set; }
 
         /// <summary>
         /// Max storage allowed for a server.

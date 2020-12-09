@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Network.V20190501.Inputs
         /// Whether to enable use of this backend. Permitted values are 'Enabled' or 'Disabled'
         /// </summary>
         [Input("enabledState")]
-        public Input<string>? EnabledState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190501.BackendEnabledState>? EnabledState { get; set; }
 
         /// <summary>
         /// The HTTP TCP port number. Must be between 1 and 65535.

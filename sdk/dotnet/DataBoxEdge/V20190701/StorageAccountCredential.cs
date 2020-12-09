@@ -136,7 +136,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190701
         /// Type of storage accessed on the storage account.
         /// </summary>
         [Input("accountType", required: true)]
-        public Input<string> AccountType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.V20190701.AccountType> AccountType { get; set; } = null!;
 
         /// <summary>
         /// Alias for the storage account.
@@ -178,7 +178,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190701
         /// Signifies whether SSL needs to be enabled or not.
         /// </summary>
         [Input("sslStatus", required: true)]
-        public Input<string> SslStatus { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.V20190701.SSLStatus> SslStatus { get; set; } = null!;
 
         /// <summary>
         /// Id of the storage account.

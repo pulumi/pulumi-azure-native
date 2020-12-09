@@ -109,7 +109,7 @@ namespace Pulumi.AzureNextGen.VisualStudio.V20140401Preview
         /// The type of the operation.
         /// </summary>
         [Input("operationType")]
-        public Input<string>? OperationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.VisualStudio.V20140401Preview.AccountResourceRequestOperationType>? OperationType { get; set; }
 
         [Input("properties")]
         private InputMap<string>? _properties;

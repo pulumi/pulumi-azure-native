@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         /// The authentication method used to access the Hive server.
         /// </summary>
         [Input("authenticationType", required: true)]
-        public Input<string> AuthenticationType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.V20170901Preview.HiveAuthenticationType> AuthenticationType { get; set; } = null!;
 
         /// <summary>
         /// The integration runtime reference.
@@ -109,7 +109,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         /// The type of Hive server.
         /// </summary>
         [Input("serverType")]
-        public Input<string>? ServerType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.V20170901Preview.HiveServerType>? ServerType { get; set; }
 
         /// <summary>
         /// true to indicate using the ZooKeeper service, false not.
@@ -121,7 +121,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         /// The transport protocol to use in the Thrift layer.
         /// </summary>
         [Input("thriftTransportProtocol")]
-        public Input<string>? ThriftTransportProtocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.V20170901Preview.HiveThriftTransportProtocol>? ThriftTransportProtocol { get; set; }
 
         /// <summary>
         /// The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.

@@ -273,19 +273,19 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// The connection mode for this connection.
         /// </summary>
         [Input("connectionMode")]
-        public Input<string>? ConnectionMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.VirtualNetworkGatewayConnectionMode>? ConnectionMode { get; set; }
 
         /// <summary>
         /// Connection protocol used for this connection.
         /// </summary>
         [Input("connectionProtocol")]
-        public Input<string>? ConnectionProtocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.VirtualNetworkGatewayConnectionProtocol>? ConnectionProtocol { get; set; }
 
         /// <summary>
         /// Gateway connection type.
         /// </summary>
         [Input("connectionType", required: true)]
-        public Input<string> ConnectionType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.VirtualNetworkGatewayConnectionType> ConnectionType { get; set; } = null!;
 
         /// <summary>
         /// The dead peer detection timeout of this connection in seconds.

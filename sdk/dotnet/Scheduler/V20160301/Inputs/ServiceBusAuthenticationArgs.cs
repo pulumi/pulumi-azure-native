@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Scheduler.V20160301.Inputs
         /// Gets or sets the authentication type.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AzureNextGen.Scheduler.V20160301.ServiceBusAuthenticationType>? Type { get; set; }
 
         public ServiceBusAuthenticationArgs()
         {

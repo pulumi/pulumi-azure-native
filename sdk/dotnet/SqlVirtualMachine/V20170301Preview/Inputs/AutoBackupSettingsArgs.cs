@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview.Inputs
         /// Backup schedule type.
         /// </summary>
         [Input("backupScheduleType")]
-        public Input<string>? BackupScheduleType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview.BackupScheduleType>? BackupScheduleType { get; set; }
 
         /// <summary>
         /// Include or exclude system databases from auto backup.
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview.Inputs
         /// Frequency of full backups. In both cases, full backups begin during the next scheduled time window.
         /// </summary>
         [Input("fullBackupFrequency")]
-        public Input<string>? FullBackupFrequency { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview.FullBackupFrequencyType>? FullBackupFrequency { get; set; }
 
         /// <summary>
         /// Start time of a given day during which full backups can take place. 0-23 hours.

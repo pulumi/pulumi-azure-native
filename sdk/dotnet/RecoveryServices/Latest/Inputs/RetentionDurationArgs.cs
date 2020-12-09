@@ -26,7 +26,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         /// Retention duration type of retention policy.
         /// </summary>
         [Input("durationType")]
-        public Input<string>? DurationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.Latest.RetentionDurationType>? DurationType { get; set; }
 
         public RetentionDurationArgs()
         {

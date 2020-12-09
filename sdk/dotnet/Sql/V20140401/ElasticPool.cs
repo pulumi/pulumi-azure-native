@@ -165,7 +165,7 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
         /// The edition of the elastic pool.
         /// </summary>
         [Input("edition")]
-        public Input<string>? Edition { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20140401.ElasticPoolEdition>? Edition { get; set; }
 
         /// <summary>
         /// The name of the elastic pool to be operated on (updated or created).

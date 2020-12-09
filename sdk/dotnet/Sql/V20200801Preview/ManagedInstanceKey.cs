@@ -127,7 +127,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// The key type like 'ServiceManaged', 'AzureKeyVault'.
         /// </summary>
         [Input("serverKeyType", required: true)]
-        public Input<string> ServerKeyType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20200801Preview.ServerKeyType> ServerKeyType { get; set; } = null!;
 
         /// <summary>
         /// The URI of the key. If the ServerKeyType is AzureKeyVault, then the URI is required.

@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         /// Type of workload for the backup management
         /// </summary>
         [Input("workLoadType")]
-        public Input<string>? WorkLoadType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.Latest.WorkloadType>? WorkLoadType { get; set; }
 
         public AzureVmWorkloadProtectionPolicyArgs()
         {

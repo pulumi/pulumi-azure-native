@@ -121,7 +121,7 @@ namespace Pulumi.AzureNextGen.CostManagement.Latest
         /// The format of the report being delivered.
         /// </summary>
         [Input("format")]
-        public Input<string>? Format { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.Latest.FormatType>? Format { get; set; }
 
         /// <summary>
         /// Report Config Name.

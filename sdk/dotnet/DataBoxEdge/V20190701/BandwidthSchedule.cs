@@ -103,14 +103,14 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190701
     public sealed class BandwidthScheduleArgs : Pulumi.ResourceArgs
     {
         [Input("days", required: true)]
-        private InputList<string>? _days;
+        private InputList<Union<string, Pulumi.AzureNextGen.DataBoxEdge.V20190701.DayOfWeek>>? _days;
 
         /// <summary>
         /// The days of the week when this schedule is applicable.
         /// </summary>
-        public InputList<string> Days
+        public InputList<Union<string, Pulumi.AzureNextGen.DataBoxEdge.V20190701.DayOfWeek>> Days
         {
-            get => _days ?? (_days = new InputList<string>());
+            get => _days ?? (_days = new InputList<Union<string, Pulumi.AzureNextGen.DataBoxEdge.V20190701.DayOfWeek>>());
             set => _days = value;
         }
 

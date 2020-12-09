@@ -142,7 +142,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
         /// The OS of agent machine
         /// </summary>
         [Input("os")]
-        public Input<string>? Os { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview.OS>? Os { get; set; }
 
         /// <summary>
         /// The name of the container registry.

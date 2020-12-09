@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest.Inputs
         public Input<Inputs.ContainerRegistryArgs>? Registry { get; set; }
 
         [Input("workingDirectory")]
-        public Input<string>? WorkingDirectory { get; set; }
+        public Input<Pulumi.AzureNextGen.Batch.Latest.ContainerWorkingDirectory>? WorkingDirectory { get; set; }
 
         public TaskContainerSettingsArgs()
         {

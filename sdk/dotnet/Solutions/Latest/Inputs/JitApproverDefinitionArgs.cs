@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Solutions.Latest.Inputs
         /// The approver type.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Solutions.Latest.JitApproverType>? Type { get; set; }
 
         public JitApproverDefinitionArgs()
         {

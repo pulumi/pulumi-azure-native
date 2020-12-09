@@ -40,7 +40,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200601.Inputs
         /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.V20200601.PrivateEndpointServiceConnectionStatus>? Status { get; set; }
 
         public SharedPrivateLinkResourceArgs()
         {

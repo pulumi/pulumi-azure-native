@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview.Inputs
         /// The valid value is Inventory
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Storage.V20200801Preview.InventoryRuleType> Type { get; set; } = null!;
 
         public BlobInventoryPolicySchemaArgs()
         {

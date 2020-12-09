@@ -283,7 +283,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
         /// Visibility state of the partner registration.
         /// </summary>
         [Input("visibilityState")]
-        public Input<string>? VisibilityState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.EventGrid.V20200401Preview.PartnerRegistrationVisibilityState>? VisibilityState { get; set; }
 
         public PartnerRegistrationArgs()
         {

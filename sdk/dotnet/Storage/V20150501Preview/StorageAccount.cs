@@ -176,7 +176,7 @@ namespace Pulumi.AzureNextGen.Storage.V20150501Preview
         /// Gets or sets the account type.
         /// </summary>
         [Input("accountType")]
-        public Input<string>? AccountType { get; set; }
+        public Input<Pulumi.AzureNextGen.Storage.V20150501Preview.AccountType>? AccountType { get; set; }
 
         /// <summary>
         /// Resource location

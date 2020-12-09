@@ -122,14 +122,14 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
     public sealed class WebhookArgs : Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
-        private InputList<string>? _actions;
+        private InputList<Union<string, Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview.WebhookAction>>? _actions;
 
         /// <summary>
         /// The list of actions that trigger the webhook to post notifications.
         /// </summary>
-        public InputList<string> Actions
+        public InputList<Union<string, Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview.WebhookAction>> Actions
         {
-            get => _actions ?? (_actions = new InputList<string>());
+            get => _actions ?? (_actions = new InputList<Union<string, Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview.WebhookAction>>());
             set => _actions = value;
         }
 
@@ -179,7 +179,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
         /// The status of the webhook at the time the operation was called.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview.WebhookStatus>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

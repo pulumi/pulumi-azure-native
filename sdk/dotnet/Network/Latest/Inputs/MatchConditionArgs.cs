@@ -49,17 +49,17 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// The operator to be matched.
         /// </summary>
         [Input("operator", required: true)]
-        public Input<string> Operator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.WebApplicationFirewallOperator> Operator { get; set; } = null!;
 
         [Input("transforms")]
-        private InputList<string>? _transforms;
+        private InputList<Union<string, Pulumi.AzureNextGen.Network.Latest.WebApplicationFirewallTransform>>? _transforms;
 
         /// <summary>
         /// List of transforms.
         /// </summary>
-        public InputList<string> Transforms
+        public InputList<Union<string, Pulumi.AzureNextGen.Network.Latest.WebApplicationFirewallTransform>> Transforms
         {
-            get => _transforms ?? (_transforms = new InputList<string>());
+            get => _transforms ?? (_transforms = new InputList<Union<string, Pulumi.AzureNextGen.Network.Latest.WebApplicationFirewallTransform>>());
             set => _transforms = value;
         }
 

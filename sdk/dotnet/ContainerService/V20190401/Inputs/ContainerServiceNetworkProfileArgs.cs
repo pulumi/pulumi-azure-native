@@ -31,19 +31,19 @@ namespace Pulumi.AzureNextGen.ContainerService.V20190401.Inputs
         /// The load balancer sku for the managed cluster.
         /// </summary>
         [Input("loadBalancerSku")]
-        public Input<string>? LoadBalancerSku { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20190401.LoadBalancerSku>? LoadBalancerSku { get; set; }
 
         /// <summary>
         /// Network plugin used for building Kubernetes network.
         /// </summary>
         [Input("networkPlugin")]
-        public Input<string>? NetworkPlugin { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20190401.NetworkPlugin>? NetworkPlugin { get; set; }
 
         /// <summary>
         /// Network policy used for building Kubernetes network.
         /// </summary>
         [Input("networkPolicy")]
-        public Input<string>? NetworkPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20190401.NetworkPolicy>? NetworkPolicy { get; set; }
 
         /// <summary>
         /// A CIDR notation IP range from which to assign pod IPs when kubenet is used.

@@ -123,7 +123,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// Direction of port mirroring profile.
         /// </summary>
         [Input("direction")]
-        public Input<string>? Direction { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.AVS.V20200717Preview.PortMirroringDirectionEnum>? Direction { get; set; }
 
         /// <summary>
         /// Display name of the port mirroring profile.

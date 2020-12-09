@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.V20200401.Inputs
         /// Which type of manipulation to apply to the header.
         /// </summary>
         [Input("headerActionType", required: true)]
-        public Input<string> HeaderActionType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200401.HeaderActionType> HeaderActionType { get; set; } = null!;
 
         /// <summary>
         /// The name of the header this action will apply to.

@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20201101.Inputs
         /// Type of the account of data.
         /// </summary>
         [Input("dataAccountType", required: true)]
-        public Input<string> DataAccountType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataBox.V20201101.DataAccountType> DataAccountType { get; set; } = null!;
 
         [Input("filterFileDetails")]
         private InputList<Inputs.FilterFileDetailsArgs>? _filterFileDetails;

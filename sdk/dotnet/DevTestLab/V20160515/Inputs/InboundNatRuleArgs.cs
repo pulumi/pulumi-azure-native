@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515.Inputs
         /// The transport protocol for the endpoint.
         /// </summary>
         [Input("transportProtocol")]
-        public Input<string>? TransportProtocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20160515.TransportProtocol>? TransportProtocol { get; set; }
 
         public InboundNatRuleArgs()
         {

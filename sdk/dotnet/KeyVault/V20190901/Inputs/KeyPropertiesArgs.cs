@@ -25,13 +25,13 @@ namespace Pulumi.AzureNextGen.KeyVault.V20190901.Inputs
         /// The elliptic curve name. For valid values, see JsonWebKeyCurveName.
         /// </summary>
         [Input("curveName")]
-        public Input<string>? CurveName { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.KeyVault.V20190901.JsonWebKeyCurveName>? CurveName { get; set; }
 
         [Input("keyOps")]
-        private InputList<string>? _keyOps;
-        public InputList<string> KeyOps
+        private InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20190901.JsonWebKeyOperation>>? _keyOps;
+        public InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20190901.JsonWebKeyOperation>> KeyOps
         {
-            get => _keyOps ?? (_keyOps = new InputList<string>());
+            get => _keyOps ?? (_keyOps = new InputList<Union<string, Pulumi.AzureNextGen.KeyVault.V20190901.JsonWebKeyOperation>>());
             set => _keyOps = value;
         }
 
@@ -45,7 +45,7 @@ namespace Pulumi.AzureNextGen.KeyVault.V20190901.Inputs
         /// The type of the key. For valid values, see JsonWebKeyType.
         /// </summary>
         [Input("kty")]
-        public Input<string>? Kty { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.KeyVault.V20190901.JsonWebKeyType>? Kty { get; set; }
 
         public KeyPropertiesArgs()
         {

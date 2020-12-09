@@ -21,7 +21,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Latest.Inputs
         /// the source registry during the run.
         /// </summary>
         [Input("loginMode")]
-        public Input<string>? LoginMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.Latest.SourceRegistryLoginMode>? LoginMode { get; set; }
 
         public SourceRegistryCredentialsArgs()
         {

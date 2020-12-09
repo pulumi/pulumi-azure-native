@@ -170,7 +170,7 @@ namespace Pulumi.AzureNextGen.Management.V20170601Preview
         /// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
         /// </summary>
         [Input("policyType")]
-        public Input<string>? PolicyType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Management.V20170601Preview.PolicyType>? PolicyType { get; set; }
 
         public PolicySetDefinitionAtManagementGroupArgs()
         {

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview.Inputs
         /// A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The default is stop.
         /// </summary>
         [Input("onError")]
-        public Input<string>? OnError { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Media.V20180601Preview.OnErrorType>? OnError { get; set; }
 
         /// <summary>
         /// Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview.Inputs
         /// Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
         /// </summary>
         [Input("relativePriority")]
-        public Input<string>? RelativePriority { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Media.V20180601Preview.Priority>? RelativePriority { get; set; }
 
         public TransformOutputArgs()
         {

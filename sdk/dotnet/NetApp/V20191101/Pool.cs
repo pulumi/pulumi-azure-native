@@ -151,7 +151,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20191101
         /// The service level of the file system
         /// </summary>
         [Input("serviceLevel", required: true)]
-        public Input<string> ServiceLevel { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.NetApp.V20191101.ServiceLevel> ServiceLevel { get; set; } = null!;
 
         /// <summary>
         /// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).

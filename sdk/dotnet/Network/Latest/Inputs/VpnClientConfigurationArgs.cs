@@ -76,14 +76,14 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         }
 
         [Input("vpnClientProtocols")]
-        private InputList<string>? _vpnClientProtocols;
+        private InputList<Union<string, Pulumi.AzureNextGen.Network.Latest.VpnClientProtocol>>? _vpnClientProtocols;
 
         /// <summary>
         /// VpnClientProtocols for Virtual network gateway.
         /// </summary>
-        public InputList<string> VpnClientProtocols
+        public InputList<Union<string, Pulumi.AzureNextGen.Network.Latest.VpnClientProtocol>> VpnClientProtocols
         {
-            get => _vpnClientProtocols ?? (_vpnClientProtocols = new InputList<string>());
+            get => _vpnClientProtocols ?? (_vpnClientProtocols = new InputList<Union<string, Pulumi.AzureNextGen.Network.Latest.VpnClientProtocol>>());
             set => _vpnClientProtocols = value;
         }
 

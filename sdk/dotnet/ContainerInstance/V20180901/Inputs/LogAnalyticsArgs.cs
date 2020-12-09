@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20180901.Inputs
         /// The log type to be used.
         /// </summary>
         [Input("logType")]
-        public Input<string>? LogType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerInstance.V20180901.LogAnalyticsLogType>? LogType { get; set; }
 
         [Input("metadata")]
         private InputMap<string>? _metadata;

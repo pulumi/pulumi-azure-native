@@ -439,7 +439,7 @@ namespace Pulumi.AzureNextGen.Web.V20190801
         /// Site redundancy mode
         /// </summary>
         [Input("redundancyMode")]
-        public Input<string>? RedundancyMode { get; set; }
+        public Input<Pulumi.AzureNextGen.Web.V20190801.RedundancyMode>? RedundancyMode { get; set; }
 
         /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; if reserved; otherwise, &lt;code&gt;false&lt;/code&gt;.

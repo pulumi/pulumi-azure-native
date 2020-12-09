@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.HybridData.Latest.Inputs
         /// The encryption algorithm used to encrypt data.
         /// </summary>
         [Input("algorithm", required: true)]
-        public Input<string> Algorithm { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.HybridData.Latest.SupportedAlgorithm> Algorithm { get; set; } = null!;
 
         /// <summary>
         /// The identifier to the data service input object which this secret corresponds to.

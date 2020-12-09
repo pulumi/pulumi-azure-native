@@ -93,7 +93,7 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
         /// Specifies the kind of blueprint artifact.
         /// </summary>
         [Input("kind", required: true)]
-        public Input<string> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Blueprint.V20181101Preview.ArtifactKind> Kind { get; set; } = null!;
 
         /// <summary>
         /// The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').

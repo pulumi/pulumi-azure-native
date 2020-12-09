@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Web.Latest.Inputs
         /// The API type
         /// </summary>
         [Input("apiType")]
-        public Input<string>? ApiType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Web.Latest.ApiType>? ApiType { get; set; }
 
         /// <summary>
         /// The API backend service

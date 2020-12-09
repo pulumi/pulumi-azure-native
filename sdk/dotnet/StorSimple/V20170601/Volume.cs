@@ -157,7 +157,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         [Input("kind")]
-        public Input<string>? Kind { get; set; }
+        public Input<Pulumi.AzureNextGen.StorSimple.V20170601.Kind>? Kind { get; set; }
 
         /// <summary>
         /// The manager name
@@ -169,7 +169,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
         /// The monitoring status of the volume.
         /// </summary>
         [Input("monitoringStatus", required: true)]
-        public Input<string> MonitoringStatus { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.StorSimple.V20170601.MonitoringStatus> MonitoringStatus { get; set; } = null!;
 
         /// <summary>
         /// The resource group name
@@ -199,13 +199,13 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
         /// The volume status.
         /// </summary>
         [Input("volumeStatus", required: true)]
-        public Input<string> VolumeStatus { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.StorSimple.V20170601.VolumeStatus> VolumeStatus { get; set; } = null!;
 
         /// <summary>
         /// The type of the volume.
         /// </summary>
         [Input("volumeType", required: true)]
-        public Input<string> VolumeType { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.StorSimple.V20170601.VolumeType> VolumeType { get; set; } = null!;
 
         public VolumeArgs()
         {

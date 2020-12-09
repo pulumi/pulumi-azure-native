@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170601Preview.Inputs
         /// SSL status. Allowed values are Enabled and Disabled.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningCompute.V20170601Preview.Status>? Status { get; set; }
 
         public SslConfigurationArgs()
         {

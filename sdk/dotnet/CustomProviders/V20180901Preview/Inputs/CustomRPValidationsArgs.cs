@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.CustomProviders.V20180901Preview.Inputs
         /// The type of validation to run against a matching request.
         /// </summary>
         [Input("validationType")]
-        public Input<string>? ValidationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.CustomProviders.V20180901Preview.ValidationType>? ValidationType { get; set; }
 
         public CustomRPValidationsArgs()
         {

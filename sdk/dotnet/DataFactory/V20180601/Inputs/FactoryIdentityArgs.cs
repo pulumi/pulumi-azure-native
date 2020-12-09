@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         /// The identity type.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.DataFactory.V20180601.FactoryIdentityType> Type { get; set; } = null!;
 
         [Input("userAssignedIdentities")]
         private InputMap<object>? _userAssignedIdentities;

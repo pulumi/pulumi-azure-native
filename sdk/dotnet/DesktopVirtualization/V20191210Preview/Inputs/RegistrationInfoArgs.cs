@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20191210Preview.Inputs
         /// The type of resetting the token.
         /// </summary>
         [Input("registrationTokenOperation")]
-        public Input<string>? RegistrationTokenOperation { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DesktopVirtualization.V20191210Preview.RegistrationTokenOperation>? RegistrationTokenOperation { get; set; }
 
         /// <summary>
         /// The registration token base64 encoded string.

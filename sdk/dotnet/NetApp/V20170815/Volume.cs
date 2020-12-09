@@ -181,7 +181,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20170815
         /// The service level of the file system
         /// </summary>
         [Input("serviceLevel", required: true)]
-        public Input<string> ServiceLevel { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.NetApp.V20170815.ServiceLevel> ServiceLevel { get; set; } = null!;
 
         /// <summary>
         /// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes

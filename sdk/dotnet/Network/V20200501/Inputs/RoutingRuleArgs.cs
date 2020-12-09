@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.Network.V20200501.Inputs
     public sealed class RoutingRuleArgs : Pulumi.ResourceArgs
     {
         [Input("acceptedProtocols")]
-        private InputList<string>? _acceptedProtocols;
+        private InputList<Union<string, Pulumi.AzureNextGen.Network.V20200501.FrontDoorProtocol>>? _acceptedProtocols;
 
         /// <summary>
         /// Protocol schemes to match for this rule
         /// </summary>
-        public InputList<string> AcceptedProtocols
+        public InputList<Union<string, Pulumi.AzureNextGen.Network.V20200501.FrontDoorProtocol>> AcceptedProtocols
         {
-            get => _acceptedProtocols ?? (_acceptedProtocols = new InputList<string>());
+            get => _acceptedProtocols ?? (_acceptedProtocols = new InputList<Union<string, Pulumi.AzureNextGen.Network.V20200501.FrontDoorProtocol>>());
             set => _acceptedProtocols = value;
         }
 
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501.Inputs
         /// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
         /// </summary>
         [Input("enabledState")]
-        public Input<string>? EnabledState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200501.RoutingRuleEnabledState>? EnabledState { get; set; }
 
         [Input("frontendEndpoints")]
         private InputList<Inputs.SubResourceArgs>? _frontendEndpoints;

@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview.Inputs
         /// The OS type.
         /// </summary>
         [Input("osType")]
-        public Input<string>? OsType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.HybridNetwork.V20200101Preview.OperatingSystemTypes>? OsType { get; set; }
 
         /// <summary>
         /// The virtual hard disk.

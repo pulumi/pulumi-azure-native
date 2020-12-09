@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Inputs
         /// Determines the set of audio analysis operations to be performed. If unspecified, the Standard AudioAnalysisMode would be chosen.
         /// </summary>
         [Input("mode")]
-        public Input<string>? Mode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Media.V20200501.AudioAnalysisMode>? Mode { get; set; }
 
         /// <summary>
         /// The discriminator for derived types.

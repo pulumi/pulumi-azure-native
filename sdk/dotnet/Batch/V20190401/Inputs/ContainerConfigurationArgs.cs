@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Batch.V20190401.Inputs
         }
 
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Batch.V20190401.ContainerType> Type { get; set; } = null!;
 
         public ContainerConfigurationArgs()
         {

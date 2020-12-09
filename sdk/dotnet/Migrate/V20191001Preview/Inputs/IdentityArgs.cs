@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Inputs
         /// The type of identity used for the resource mover service.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Migrate.V20191001Preview.ResourceIdentityType>? Type { get; set; }
 
         public IdentityArgs()
         {

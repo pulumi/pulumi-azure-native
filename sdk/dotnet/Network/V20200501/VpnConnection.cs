@@ -314,7 +314,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
         /// Connection protocol used for this connection.
         /// </summary>
         [Input("vpnConnectionProtocolType")]
-        public Input<string>? VpnConnectionProtocolType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200501.VirtualNetworkGatewayConnectionProtocol>? VpnConnectionProtocolType { get; set; }
 
         [Input("vpnLinkConnections")]
         private InputList<Inputs.VpnSiteLinkConnectionArgs>? _vpnLinkConnections;

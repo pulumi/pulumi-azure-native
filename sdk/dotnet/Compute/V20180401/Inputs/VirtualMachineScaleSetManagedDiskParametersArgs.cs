@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180401.Inputs
         /// Specifies the storage account type for the managed disk. Possible values are: Standard_LRS, Premium_LRS, and StandardSSD_LRS.
         /// </summary>
         [Input("storageAccountType")]
-        public Input<string>? StorageAccountType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20180401.StorageAccountTypes>? StorageAccountType { get; set; }
 
         public VirtualMachineScaleSetManagedDiskParametersArgs()
         {

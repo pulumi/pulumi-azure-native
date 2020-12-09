@@ -190,7 +190,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         /// </summary>
         [Input("publicNetworkAccess")]
-        public Input<string>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20200801Preview.ServerPublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

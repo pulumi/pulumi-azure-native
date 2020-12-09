@@ -192,7 +192,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
         /// </summary>
         [Input("enabledState")]
-        public Input<string>? EnabledState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.FrontDoorEnabledState>? EnabledState { get; set; }
 
         /// <summary>
         /// A friendly name for the frontDoor

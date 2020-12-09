@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001.Inputs
         /// Assessment project status.
         /// </summary>
         [Input("projectStatus")]
-        public Input<string>? ProjectStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Migrate.V20191001.ProjectStatus>? ProjectStatus { get; set; }
 
         public ProjectPropertiesArgs()
         {

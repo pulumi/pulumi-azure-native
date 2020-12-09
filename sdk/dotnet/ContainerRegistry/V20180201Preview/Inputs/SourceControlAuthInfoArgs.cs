@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20180201Preview.Inputs
         /// The type of Auth token.
         /// </summary>
         [Input("tokenType")]
-        public Input<string>? TokenType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20180201Preview.TokenType>? TokenType { get; set; }
 
         public SourceControlAuthInfoArgs()
         {

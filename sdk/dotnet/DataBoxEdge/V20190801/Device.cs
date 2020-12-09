@@ -190,7 +190,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801
         /// The status of the Data Box Edge/Gateway device.
         /// </summary>
         [Input("dataBoxEdgeDeviceStatus")]
-        public Input<string>? DataBoxEdgeDeviceStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.V20190801.DataBoxEdgeDeviceStatus>? DataBoxEdgeDeviceStatus { get; set; }
 
         /// <summary>
         /// The Description of the Data Box Edge/Gateway device.

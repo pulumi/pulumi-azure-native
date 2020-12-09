@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Media.V20180701.Inputs
         /// The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
         /// </summary>
         [Input("streamingProtocol", required: true)]
-        public Input<string> StreamingProtocol { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Media.V20180701.LiveEventInputProtocol> StreamingProtocol { get; set; } = null!;
 
         public LiveEventInputArgs()
         {

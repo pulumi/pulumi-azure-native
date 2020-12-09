@@ -172,7 +172,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180601
         /// The Operating System type.
         /// </summary>
         [Input("osType")]
-        public Input<string>? OsType { get; set; }
+        public Input<Pulumi.AzureNextGen.Compute.V20180601.OperatingSystemTypes>? OsType { get; set; }
 
         /// <summary>
         /// The name of the resource group.

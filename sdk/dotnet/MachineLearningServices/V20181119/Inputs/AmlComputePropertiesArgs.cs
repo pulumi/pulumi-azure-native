@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20181119.Inputs
         /// Virtual Machine priority
         /// </summary>
         [Input("vmPriority")]
-        public Input<string>? VmPriority { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.V20181119.VmPriority>? VmPriority { get; set; }
 
         /// <summary>
         /// Virtual Machine Size

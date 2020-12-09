@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest.Inputs
         /// Link type.
         /// </summary>
         [Input("linkType")]
-        public Input<string>? LinkType { get; set; }
+        public Input<Pulumi.AzureNextGen.CustomerInsights.Latest.LinkTypes>? LinkType { get; set; }
 
         /// <summary>
         /// The field name on the Relationship metadata.

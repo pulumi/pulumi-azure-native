@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         /// AuthenticationType to be used for connection.
         /// </summary>
         [Input("authenticationType")]
-        public Input<string>? AuthenticationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.Latest.TeradataAuthenticationType>? AuthenticationType { get; set; }
 
         /// <summary>
         /// The integration runtime reference.

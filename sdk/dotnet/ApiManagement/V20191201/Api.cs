@@ -213,7 +213,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
         /// Type of API.
         /// </summary>
         [Input("apiType")]
-        public Input<string>? ApiType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20191201.ApiType>? ApiType { get; set; }
 
         /// <summary>
         /// Indicates the Version identifier of the API if the API is versioned
@@ -261,7 +261,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
         /// Format of the Content in which the API is getting imported.
         /// </summary>
         [Input("format")]
-        public Input<string>? Format { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20191201.ContentFormat>? Format { get; set; }
 
         /// <summary>
         /// Indicates if API revision is current api revision.
@@ -276,14 +276,14 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
         public Input<string> Path { get; set; } = null!;
 
         [Input("protocols")]
-        private InputList<string>? _protocols;
+        private InputList<Pulumi.AzureNextGen.ApiManagement.V20191201.Protocol>? _protocols;
 
         /// <summary>
         /// Describes on which protocols the operations in this API can be invoked.
         /// </summary>
-        public InputList<string> Protocols
+        public InputList<Pulumi.AzureNextGen.ApiManagement.V20191201.Protocol> Protocols
         {
-            get => _protocols ?? (_protocols = new InputList<string>());
+            get => _protocols ?? (_protocols = new InputList<Pulumi.AzureNextGen.ApiManagement.V20191201.Protocol>());
             set => _protocols = value;
         }
 
@@ -311,7 +311,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
         ///  * `soap` creates a SOAP pass-through API .
         /// </summary>
         [Input("soapApiType")]
-        public Input<string>? SoapApiType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20191201.SoapApiType>? SoapApiType { get; set; }
 
         /// <summary>
         /// API identifier of the source API.

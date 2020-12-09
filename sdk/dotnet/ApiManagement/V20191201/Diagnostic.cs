@@ -133,7 +133,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
         /// Specifies for what type of messages sampling settings should not apply.
         /// </summary>
         [Input("alwaysLog")]
-        public Input<string>? AlwaysLog { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20191201.AlwaysLog>? AlwaysLog { get; set; }
 
         /// <summary>
         /// Diagnostic settings for incoming/outgoing HTTP messages to the Backend
@@ -157,7 +157,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
         /// Sets correlation protocol to use for Application Insights diagnostics.
         /// </summary>
         [Input("httpCorrelationProtocol")]
-        public Input<string>? HttpCorrelationProtocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20191201.HttpCorrelationProtocol>? HttpCorrelationProtocol { get; set; }
 
         /// <summary>
         /// Log the ClientIP. Default is false.
@@ -193,7 +193,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
         /// The verbosity level applied to traces emitted by trace policies.
         /// </summary>
         [Input("verbosity")]
-        public Input<string>? Verbosity { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20191201.Verbosity>? Verbosity { get; set; }
 
         public DiagnosticArgs()
         {

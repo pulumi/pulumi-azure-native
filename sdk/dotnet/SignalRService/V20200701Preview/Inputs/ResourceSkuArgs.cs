@@ -51,7 +51,7 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview.Inputs
         /// `Basic` is deprecated, use `Standard` instead.
         /// </summary>
         [Input("tier")]
-        public Input<string>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.SignalRService.V20200701Preview.SignalRSkuTier>? Tier { get; set; }
 
         public ResourceSkuArgs()
         {

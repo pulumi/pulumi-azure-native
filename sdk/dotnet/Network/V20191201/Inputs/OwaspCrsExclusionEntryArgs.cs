@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201.Inputs
         /// The variable to be excluded.
         /// </summary>
         [Input("matchVariable", required: true)]
-        public Input<string> MatchVariable { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20191201.OwaspCrsExclusionEntryMatchVariable> MatchVariable { get; set; } = null!;
 
         /// <summary>
         /// When matchVariable is a collection, operator used to specify which elements in the collection this exclusion applies to.
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201.Inputs
         /// When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to.
         /// </summary>
         [Input("selectorMatchOperator", required: true)]
-        public Input<string> SelectorMatchOperator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20191201.OwaspCrsExclusionEntrySelectorMatchOperator> SelectorMatchOperator { get; set; } = null!;
 
         public OwaspCrsExclusionEntryArgs()
         {

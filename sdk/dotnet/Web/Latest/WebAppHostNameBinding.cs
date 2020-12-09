@@ -157,13 +157,13 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// Azure resource type.
         /// </summary>
         [Input("azureResourceType")]
-        public Input<string>? AzureResourceType { get; set; }
+        public Input<Pulumi.AzureNextGen.Web.Latest.AzureResourceType>? AzureResourceType { get; set; }
 
         /// <summary>
         /// Custom DNS record type.
         /// </summary>
         [Input("customHostNameDnsRecordType")]
-        public Input<string>? CustomHostNameDnsRecordType { get; set; }
+        public Input<Pulumi.AzureNextGen.Web.Latest.CustomHostNameDnsRecordType>? CustomHostNameDnsRecordType { get; set; }
 
         /// <summary>
         /// Fully qualified ARM domain resource URI.
@@ -181,7 +181,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// Hostname type.
         /// </summary>
         [Input("hostNameType")]
-        public Input<string>? HostNameType { get; set; }
+        public Input<Pulumi.AzureNextGen.Web.Latest.HostNameType>? HostNameType { get; set; }
 
         /// <summary>
         /// Kind of resource.
@@ -211,7 +211,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// SSL type
         /// </summary>
         [Input("sslState")]
-        public Input<string>? SslState { get; set; }
+        public Input<Pulumi.AzureNextGen.Web.Latest.SslState>? SslState { get; set; }
 
         /// <summary>
         /// SSL certificate thumbprint

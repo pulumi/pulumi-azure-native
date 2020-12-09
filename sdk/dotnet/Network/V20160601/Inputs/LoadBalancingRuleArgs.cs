@@ -67,7 +67,7 @@ namespace Pulumi.AzureNextGen.Network.V20160601.Inputs
         /// Gets or sets the load distribution policy for this rule
         /// </summary>
         [Input("loadDistribution")]
-        public Input<string>? LoadDistribution { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160601.LoadDistribution>? LoadDistribution { get; set; }
 
         /// <summary>
         /// Gets name of the resource that is unique within a resource group. This name can be used to access the resource
@@ -85,7 +85,7 @@ namespace Pulumi.AzureNextGen.Network.V20160601.Inputs
         /// Gets or sets the transport protocol for the external endpoint. Possible values are Udp or Tcp
         /// </summary>
         [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160601.TransportProtocol> Protocol { get; set; } = null!;
 
         /// <summary>
         /// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed

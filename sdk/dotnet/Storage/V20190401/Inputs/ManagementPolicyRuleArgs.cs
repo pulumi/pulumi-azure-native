@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Storage.V20190401.Inputs
         /// The valid value is Lifecycle
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Storage.V20190401.RuleType> Type { get; set; } = null!;
 
         public ManagementPolicyRuleArgs()
         {

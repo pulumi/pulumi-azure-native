@@ -172,7 +172,7 @@ namespace Pulumi.AzureNextGen.Network.V20160901
         /// The network traffic is allowed or denied. Possible values are: 'Allow' and 'Deny'.
         /// </summary>
         [Input("access", required: true)]
-        public Input<string> Access { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160901.SecurityRuleAccess> Access { get; set; } = null!;
 
         /// <summary>
         /// A description for this rule. Restricted to 140 chars.
@@ -196,7 +196,7 @@ namespace Pulumi.AzureNextGen.Network.V20160901
         /// The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are: 'Inbound' and 'Outbound'.
         /// </summary>
         [Input("direction", required: true)]
-        public Input<string> Direction { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160901.SecurityRuleDirection> Direction { get; set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -232,7 +232,7 @@ namespace Pulumi.AzureNextGen.Network.V20160901
         /// Network protocol this rule applies to. Possible values are 'Tcp', 'Udp', and '*'.
         /// </summary>
         [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160901.SecurityRuleProtocol> Protocol { get; set; } = null!;
 
         /// <summary>
         /// The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.

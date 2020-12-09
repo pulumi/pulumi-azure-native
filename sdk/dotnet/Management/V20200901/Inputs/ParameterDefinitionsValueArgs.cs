@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Management.V20200901.Inputs
         /// The data type of the parameter.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Management.V20200901.ParameterType>? Type { get; set; }
 
         public ParameterDefinitionsValueArgs()
         {

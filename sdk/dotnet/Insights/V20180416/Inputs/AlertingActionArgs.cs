@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180416.Inputs
         /// Severity of the alert
         /// </summary>
         [Input("severity", required: true)]
-        public Input<string> Severity { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20180416.AlertSeverity> Severity { get; set; } = null!;
 
         /// <summary>
         /// time (in minutes) for which Alerts should be throttled or suppressed.

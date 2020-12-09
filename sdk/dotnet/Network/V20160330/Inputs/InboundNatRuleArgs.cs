@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.Network.V20160330.Inputs
         /// Gets or sets the transport protocol for the external endpoint. Possible values are Udp or Tcp
         /// </summary>
         [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160330.TransportProtocol>? Protocol { get; set; }
 
         /// <summary>
         /// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed

@@ -115,7 +115,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701Preview
         /// The key type like 'AzureKeyVault'.
         /// </summary>
         [Input("serverKeyType", required: true)]
-        public Input<string> ServerKeyType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DBforMySQL.V20200701Preview.ServerKeyType> ServerKeyType { get; set; } = null!;
 
         /// <summary>
         /// The name of the server.

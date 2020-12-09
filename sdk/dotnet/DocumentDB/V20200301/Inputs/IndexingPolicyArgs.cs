@@ -61,7 +61,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200301.Inputs
         /// Indicates the indexing mode.
         /// </summary>
         [Input("indexingMode")]
-        public Input<string>? IndexingMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DocumentDB.V20200301.IndexingMode>? IndexingMode { get; set; }
 
         [Input("spatialIndexes")]
         private InputList<Inputs.SpatialSpecArgs>? _spatialIndexes;

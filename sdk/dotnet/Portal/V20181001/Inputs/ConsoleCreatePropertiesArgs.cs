@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Portal.V20181001.Inputs
         /// The operating system type of the cloud shell.
         /// </summary>
         [Input("osType", required: true)]
-        public Input<string> OsType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Portal.V20181001.OsType> OsType { get; set; } = null!;
 
         /// <summary>
         /// Provisioning state of the console.
         /// </summary>
         [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Portal.V20181001.ProvisioningState>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Uri of the console.

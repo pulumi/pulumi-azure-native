@@ -117,7 +117,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         /// Provisioning state of the Private Endpoint Connection.
         /// </summary>
         [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.EventHub.V20180101Preview.EndPointProvisioningState>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Name of the resource group within the azure subscription.

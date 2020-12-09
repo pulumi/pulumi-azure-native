@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview.Inputs
         /// Day of week to apply the patch on.
         /// </summary>
         [Input("dayOfWeek")]
-        public Input<string>? DayOfWeek { get; set; }
+        public Input<Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview.DayOfWeek>? DayOfWeek { get; set; }
 
         /// <summary>
         /// Enable or disable autopatching on SQL virtual machine.

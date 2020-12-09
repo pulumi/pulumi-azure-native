@@ -16,26 +16,26 @@ namespace Pulumi.AzureNextGen.Network.V20170801.Inputs
     public sealed class ApplicationGatewaySslPolicyArgs : Pulumi.ResourceArgs
     {
         [Input("cipherSuites")]
-        private InputList<string>? _cipherSuites;
+        private InputList<Union<string, Pulumi.AzureNextGen.Network.V20170801.ApplicationGatewaySslCipherSuite>>? _cipherSuites;
 
         /// <summary>
         /// Ssl cipher suites to be enabled in the specified order to application gateway.
         /// </summary>
-        public InputList<string> CipherSuites
+        public InputList<Union<string, Pulumi.AzureNextGen.Network.V20170801.ApplicationGatewaySslCipherSuite>> CipherSuites
         {
-            get => _cipherSuites ?? (_cipherSuites = new InputList<string>());
+            get => _cipherSuites ?? (_cipherSuites = new InputList<Union<string, Pulumi.AzureNextGen.Network.V20170801.ApplicationGatewaySslCipherSuite>>());
             set => _cipherSuites = value;
         }
 
         [Input("disabledSslProtocols")]
-        private InputList<string>? _disabledSslProtocols;
+        private InputList<Union<string, Pulumi.AzureNextGen.Network.V20170801.ApplicationGatewaySslProtocol>>? _disabledSslProtocols;
 
         /// <summary>
         /// Ssl protocols to be disabled on application gateway.
         /// </summary>
-        public InputList<string> DisabledSslProtocols
+        public InputList<Union<string, Pulumi.AzureNextGen.Network.V20170801.ApplicationGatewaySslProtocol>> DisabledSslProtocols
         {
-            get => _disabledSslProtocols ?? (_disabledSslProtocols = new InputList<string>());
+            get => _disabledSslProtocols ?? (_disabledSslProtocols = new InputList<Union<string, Pulumi.AzureNextGen.Network.V20170801.ApplicationGatewaySslProtocol>>());
             set => _disabledSslProtocols = value;
         }
 
@@ -43,19 +43,19 @@ namespace Pulumi.AzureNextGen.Network.V20170801.Inputs
         /// Minimum version of Ssl protocol to be supported on application gateway.
         /// </summary>
         [Input("minProtocolVersion")]
-        public Input<string>? MinProtocolVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20170801.ApplicationGatewaySslProtocol>? MinProtocolVersion { get; set; }
 
         /// <summary>
         /// Name of Ssl predefined policy
         /// </summary>
         [Input("policyName")]
-        public Input<string>? PolicyName { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20170801.ApplicationGatewaySslPolicyName>? PolicyName { get; set; }
 
         /// <summary>
         /// Type of Ssl Policy
         /// </summary>
         [Input("policyType")]
-        public Input<string>? PolicyType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20170801.ApplicationGatewaySslPolicyType>? PolicyType { get; set; }
 
         public ApplicationGatewaySslPolicyArgs()
         {

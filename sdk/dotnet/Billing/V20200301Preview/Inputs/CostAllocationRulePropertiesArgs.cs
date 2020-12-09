@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Billing.V20200301Preview.Inputs
         /// Status of the rule
         /// </summary>
         [Input("status", required: true)]
-        public Input<string> Status { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Billing.V20200301Preview.RuleStatus> Status { get; set; } = null!;
 
         public CostAllocationRulePropertiesArgs()
         {

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Cache.V20160401.Inputs
         /// Day of the week when a cache can be patched.
         /// </summary>
         [Input("dayOfWeek", required: true)]
-        public Input<string> DayOfWeek { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Cache.V20160401.DayOfWeek> DayOfWeek { get; set; } = null!;
 
         /// <summary>
         /// ISO8601 timespan specifying how much time cache patching can take. 

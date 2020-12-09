@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Batch.V20181201.Inputs
         }
 
         [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Batch.V20181201.InboundEndpointProtocol> Protocol { get; set; } = null!;
 
         public InboundNatPoolArgs()
         {

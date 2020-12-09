@@ -304,7 +304,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200630
         /// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         /// </summary>
         [Input("hyperVGeneration")]
-        public Input<string>? HyperVGeneration { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20200630.HyperVGeneration>? HyperVGeneration { get; set; }
 
         /// <summary>
         /// Resource location
@@ -322,13 +322,13 @@ namespace Pulumi.AzureNextGen.Compute.V20200630
         /// Policy for accessing the disk via network.
         /// </summary>
         [Input("networkAccessPolicy")]
-        public Input<string>? NetworkAccessPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20200630.NetworkAccessPolicy>? NetworkAccessPolicy { get; set; }
 
         /// <summary>
         /// The Operating System type.
         /// </summary>
         [Input("osType")]
-        public Input<string>? OsType { get; set; }
+        public Input<Pulumi.AzureNextGen.Compute.V20200630.OperatingSystemTypes>? OsType { get; set; }
 
         /// <summary>
         /// The name of the resource group.

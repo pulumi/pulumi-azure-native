@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest.Inputs
         /// the dimension operator. Only 'Equals' and 'NotEquals' are supported. 'Equals' being equal to any of the values. 'NotEquals' being not equal to all of the values
         /// </summary>
         [Input("operator", required: true)]
-        public Input<string> Operator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.Latest.ScaleRuleMetricDimensionOperationType> Operator { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<string>? _values;

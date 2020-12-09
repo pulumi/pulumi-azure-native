@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest.Inputs
         /// The type of error management to use for the mapping.
         /// </summary>
         [Input("errorManagementType", required: true)]
-        public Input<string> ErrorManagementType { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.CustomerInsights.Latest.ErrorManagementTypes> ErrorManagementType { get; set; } = null!;
 
         public ConnectorMappingErrorManagementArgs()
         {

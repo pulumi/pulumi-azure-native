@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Compute.V20191201.Inputs
         /// Specifies the caching requirements. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **None** &lt;br&gt;&lt;br&gt; **ReadOnly** &lt;br&gt;&lt;br&gt; **ReadWrite** &lt;br&gt;&lt;br&gt; Default: **None for Standard storage. ReadOnly for Premium storage**
         /// </summary>
         [Input("caching")]
-        public Input<string>? Caching { get; set; }
+        public Input<Pulumi.AzureNextGen.Compute.V20191201.CachingTypes>? Caching { get; set; }
 
         /// <summary>
         /// Specifies how the virtual machines in the scale set should be created.&lt;br&gt;&lt;br&gt; The only allowed value is: **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
         /// </summary>
         [Input("createOption", required: true)]
-        public Input<string> CreateOption { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20191201.DiskCreateOptionTypes> CreateOption { get; set; } = null!;
 
         /// <summary>
         /// Specifies the ephemeral disk Settings for the operating system disk used by the virtual machine scale set.
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNextGen.Compute.V20191201.Inputs
         /// This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Windows** &lt;br&gt;&lt;br&gt; **Linux**
         /// </summary>
         [Input("osType")]
-        public Input<string>? OsType { get; set; }
+        public Input<Pulumi.AzureNextGen.Compute.V20191201.OperatingSystemTypes>? OsType { get; set; }
 
         [Input("vhdContainers")]
         private InputList<string>? _vhdContainers;

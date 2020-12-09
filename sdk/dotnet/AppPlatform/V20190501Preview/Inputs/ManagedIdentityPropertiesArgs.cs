@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20190501Preview.Inputs
         public Input<string>? TenantId { get; set; }
 
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.AppPlatform.V20190501Preview.ManagedIdentityType>? Type { get; set; }
 
         public ManagedIdentityPropertiesArgs()
         {

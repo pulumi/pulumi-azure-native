@@ -16,13 +16,13 @@ namespace Pulumi.AzureNextGen.ContainerService.V20200401.Inputs
         /// Name of a managed cluster SKU.
         /// </summary>
         [Input("name")]
-        public Input<string>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20200401.ManagedClusterSKUName>? Name { get; set; }
 
         /// <summary>
         /// Tier of a managed cluster SKU.
         /// </summary>
         [Input("tier")]
-        public Input<string>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20200401.ManagedClusterSKUTier>? Tier { get; set; }
 
         public ManagedClusterSKUArgs()
         {

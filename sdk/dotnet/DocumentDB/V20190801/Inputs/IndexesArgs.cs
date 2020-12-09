@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20190801.Inputs
         /// The datatype for which the indexing behavior is applied to.
         /// </summary>
         [Input("dataType")]
-        public Input<string>? DataType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DocumentDB.V20190801.DataType>? DataType { get; set; }
 
         /// <summary>
         /// Indicates the type of index.
         /// </summary>
         [Input("kind")]
-        public Input<string>? Kind { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DocumentDB.V20190801.IndexKind>? Kind { get; set; }
 
         /// <summary>
         /// The precision of the index. -1 is maximum precision.

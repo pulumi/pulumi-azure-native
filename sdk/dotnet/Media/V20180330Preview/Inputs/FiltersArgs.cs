@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview.Inputs
         /// The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
         /// </summary>
         [Input("rotation")]
-        public Input<string>? Rotation { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Media.V20180330Preview.Rotation>? Rotation { get; set; }
 
         public FiltersArgs()
         {

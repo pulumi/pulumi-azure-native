@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601.Inputs
         /// The tier of the particular SKU, e.g. Basic.
         /// </summary>
         [Input("tier")]
-        public Input<string>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DBforMariaDB.V20180601.SkuTier>? Tier { get; set; }
 
         public SkuArgs()
         {

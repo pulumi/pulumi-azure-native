@@ -143,7 +143,7 @@ namespace Pulumi.AzureNextGen.Peering.Latest
         /// The validation state of the ASN associated with the peer.
         /// </summary>
         [Input("validationState")]
-        public Input<string>? ValidationState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Peering.Latest.ValidationState>? ValidationState { get; set; }
 
         public PeerAsnArgs()
         {

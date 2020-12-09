@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515.Inputs
         /// The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
         /// </summary>
         [Input("eventName")]
-        public Input<string>? EventName { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20160515.NotificationChannelEventType>? EventName { get; set; }
 
         public EventArgs()
         {

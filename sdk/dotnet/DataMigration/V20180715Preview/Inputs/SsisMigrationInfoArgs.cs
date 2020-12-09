@@ -19,19 +19,19 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Inputs
         /// The overwrite option for the SSIS environment migration
         /// </summary>
         [Input("environmentOverwriteOption")]
-        public Input<string>? EnvironmentOverwriteOption { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataMigration.V20180715Preview.SsisMigrationOverwriteOption>? EnvironmentOverwriteOption { get; set; }
 
         /// <summary>
         /// The overwrite option for the SSIS project migration
         /// </summary>
         [Input("projectOverwriteOption")]
-        public Input<string>? ProjectOverwriteOption { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataMigration.V20180715Preview.SsisMigrationOverwriteOption>? ProjectOverwriteOption { get; set; }
 
         /// <summary>
         /// The SSIS store type of source, only SSIS catalog is supported now in DMS
         /// </summary>
         [Input("ssisStoreType")]
-        public Input<string>? SsisStoreType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataMigration.V20180715Preview.SsisStoreType>? SsisStoreType { get; set; }
 
         public SsisMigrationInfoArgs()
         {

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801.Inputs
         /// The authorization use status.
         /// </summary>
         [Input("authorizationUseStatus")]
-        public Input<string>? AuthorizationUseStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190801.AuthorizationUseStatus>? AuthorizationUseStatus { get; set; }
 
         /// <summary>
         /// Resource ID.

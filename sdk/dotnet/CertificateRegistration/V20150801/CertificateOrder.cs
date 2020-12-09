@@ -281,13 +281,13 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.V20150801
         /// Certificate product type
         /// </summary>
         [Input("productType")]
-        public Input<string>? ProductType { get; set; }
+        public Input<Pulumi.AzureNextGen.CertificateRegistration.V20150801.CertificateProductType>? ProductType { get; set; }
 
         /// <summary>
         /// Status of certificate order
         /// </summary>
         [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
+        public Input<Pulumi.AzureNextGen.CertificateRegistration.V20150801.ProvisioningState>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Azure resource group name
@@ -317,7 +317,7 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.V20150801
         /// Current order status
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public Input<Pulumi.AzureNextGen.CertificateRegistration.V20150801.CertificateOrderStatus>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

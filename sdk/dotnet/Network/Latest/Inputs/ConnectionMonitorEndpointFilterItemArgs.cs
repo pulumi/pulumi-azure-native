@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// The type of item included in the filter. Currently only 'AgentAddress' is supported.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.ConnectionMonitorEndpointFilterItemType>? Type { get; set; }
 
         public ConnectionMonitorEndpointFilterItemArgs()
         {

@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest.Inputs
         /// The authentication type to be used to connect to the HTTP server.
         /// </summary>
         [Input("authenticationType")]
-        public Input<string>? AuthenticationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.Latest.HttpAuthenticationType>? AuthenticationType { get; set; }
 
         /// <summary>
         /// Thumbprint of certificate for ClientCertificate authentication. Only valid for on-premises copy. For on-premises copy with ClientCertificate authentication, either CertThumbprint or EmbeddedCertData/Password should be specified. Type: string (or Expression with resultType string).

@@ -270,14 +270,14 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         }
 
         [Input("vpnAuthenticationTypes")]
-        private InputList<string>? _vpnAuthenticationTypes;
+        private InputList<Union<string, Pulumi.AzureNextGen.Network.V20200601.VpnAuthenticationType>>? _vpnAuthenticationTypes;
 
         /// <summary>
         /// VPN authentication types for the VpnServerConfiguration.
         /// </summary>
-        public InputList<string> VpnAuthenticationTypes
+        public InputList<Union<string, Pulumi.AzureNextGen.Network.V20200601.VpnAuthenticationType>> VpnAuthenticationTypes
         {
-            get => _vpnAuthenticationTypes ?? (_vpnAuthenticationTypes = new InputList<string>());
+            get => _vpnAuthenticationTypes ?? (_vpnAuthenticationTypes = new InputList<Union<string, Pulumi.AzureNextGen.Network.V20200601.VpnAuthenticationType>>());
             set => _vpnAuthenticationTypes = value;
         }
 
@@ -318,14 +318,14 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         }
 
         [Input("vpnProtocols")]
-        private InputList<string>? _vpnProtocols;
+        private InputList<Union<string, Pulumi.AzureNextGen.Network.V20200601.VpnGatewayTunnelingProtocol>>? _vpnProtocols;
 
         /// <summary>
         /// VPN protocols for the VpnServerConfiguration.
         /// </summary>
-        public InputList<string> VpnProtocols
+        public InputList<Union<string, Pulumi.AzureNextGen.Network.V20200601.VpnGatewayTunnelingProtocol>> VpnProtocols
         {
-            get => _vpnProtocols ?? (_vpnProtocols = new InputList<string>());
+            get => _vpnProtocols ?? (_vpnProtocols = new InputList<Union<string, Pulumi.AzureNextGen.Network.V20200601.VpnGatewayTunnelingProtocol>>());
             set => _vpnProtocols = value;
         }
 

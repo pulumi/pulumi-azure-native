@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DigitalTwins.V20200301Preview.Inputs
         /// The name of the SKU.
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DigitalTwins.V20200301Preview.DigitalTwinsSku> Name { get; set; } = null!;
 
         public DigitalTwinsSkuInfoArgs()
         {

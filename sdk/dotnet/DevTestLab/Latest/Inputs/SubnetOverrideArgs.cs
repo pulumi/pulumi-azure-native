@@ -37,13 +37,13 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest.Inputs
         /// Indicates whether this subnet can be used during virtual machine creation (i.e. Allow, Deny).
         /// </summary>
         [Input("useInVmCreationPermission")]
-        public Input<string>? UseInVmCreationPermission { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.Latest.UsagePermissionType>? UseInVmCreationPermission { get; set; }
 
         /// <summary>
         /// Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny).
         /// </summary>
         [Input("usePublicIpAddressPermission")]
-        public Input<string>? UsePublicIpAddressPermission { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.Latest.UsagePermissionType>? UsePublicIpAddressPermission { get; set; }
 
         /// <summary>
         /// The virtual network pool associated with this subnet.

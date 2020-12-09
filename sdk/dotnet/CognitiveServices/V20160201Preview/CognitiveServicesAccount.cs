@@ -128,7 +128,7 @@ namespace Pulumi.AzureNextGen.CognitiveServices.V20160201Preview
         /// Required. Indicates the type of cognitive service account.
         /// </summary>
         [Input("kind", required: true)]
-        public Input<string> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.CognitiveServices.V20160201Preview.Kind> Kind { get; set; } = null!;
 
         /// <summary>
         /// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update the request will succeed.

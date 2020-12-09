@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataMigration.Latest.Inputs
         /// Permission group for validations
         /// </summary>
         [Input("checkPermissionsGroup")]
-        public Input<string>? CheckPermissionsGroup { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataMigration.Latest.ServerLevelPermissionsGroup>? CheckPermissionsGroup { get; set; }
 
         /// <summary>
         /// Flag for whether to collect agent jobs from source server.

@@ -67,7 +67,7 @@ namespace Pulumi.AzureNextGen.Network.V20181201.Inputs
         /// Protocol of the HTTP listener. Possible values are 'Http' and 'Https'.
         /// </summary>
         [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20181201.ApplicationGatewayProtocol>? Protocol { get; set; }
 
         /// <summary>
         /// Provisioning state of the HTTP listener resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.

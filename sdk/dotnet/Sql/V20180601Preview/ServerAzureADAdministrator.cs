@@ -109,7 +109,7 @@ namespace Pulumi.AzureNextGen.Sql.V20180601Preview
         /// Type of the sever administrator.
         /// </summary>
         [Input("administratorType", required: true)]
-        public Input<string> AdministratorType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20180601Preview.AdministratorType> AdministratorType { get; set; } = null!;
 
         /// <summary>
         /// Login name of the server administrator.

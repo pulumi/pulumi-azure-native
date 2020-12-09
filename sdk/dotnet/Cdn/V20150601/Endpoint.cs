@@ -240,7 +240,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20150601
         /// Defines the query string caching behavior.
         /// </summary>
         [Input("queryStringCachingBehavior")]
-        public Input<string>? QueryStringCachingBehavior { get; set; }
+        public Input<Pulumi.AzureNextGen.Cdn.V20150601.QueryStringCachingBehavior>? QueryStringCachingBehavior { get; set; }
 
         /// <summary>
         /// Name of the resource group within the Azure subscription.

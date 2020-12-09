@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview.Inputs
         /// Represent the identity type: systemAssigned, userAssigned, None
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.SignalRService.V20200701Preview.ManagedIdentityType>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
         private InputMap<object>? _userAssignedIdentities;

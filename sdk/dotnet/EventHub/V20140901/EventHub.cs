@@ -166,7 +166,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20140901
         /// Enumerates the possible values for the status of the Event Hub.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public Input<Pulumi.AzureNextGen.EventHub.V20140901.EntityStatus>? Status { get; set; }
 
         /// <summary>
         /// ARM type of the Namespace.

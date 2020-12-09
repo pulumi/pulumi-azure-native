@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501.Inputs
         /// Protocol type.
         /// </summary>
         [Input("protocolType")]
-        public Input<string>? ProtocolType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200501.FirewallPolicyRuleApplicationProtocolType>? ProtocolType { get; set; }
 
         public FirewallPolicyRuleApplicationProtocolArgs()
         {

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701.Inputs
         /// Tier of Firewall Policy.
         /// </summary>
         [Input("tier")]
-        public Input<string>? Tier { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200701.FirewallPolicySkuTier>? Tier { get; set; }
 
         public FirewallPolicySkuArgs()
         {

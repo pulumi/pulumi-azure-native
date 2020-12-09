@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Databricks.V20180401.Inputs
         /// The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
         /// </summary>
         [Input("keySource")]
-        public Input<string>? KeySource { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Databricks.V20180401.KeySource>? KeySource { get; set; }
 
         /// <summary>
         /// The Uri of KeyVault.

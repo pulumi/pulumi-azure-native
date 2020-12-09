@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Web.V20200601.Inputs
         /// Action object.
         /// </summary>
         [Input("action")]
-        public Input<string>? Action { get; set; }
+        public Input<Pulumi.AzureNextGen.Web.V20200601.AccessControlEntryAction>? Action { get; set; }
 
         /// <summary>
         /// Description of network access control entry.

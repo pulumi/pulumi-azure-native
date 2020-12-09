@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20190701.Inputs
         /// JIT approval mode.
         /// </summary>
         [Input("jitApprovalMode")]
-        public Input<string>? JitApprovalMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Solutions.V20190701.JitApprovalMode>? JitApprovalMode { get; set; }
 
         [Input("jitApprovers")]
         private InputList<Inputs.JitApproverDefinitionArgs>? _jitApprovers;

@@ -129,7 +129,7 @@ namespace Pulumi.AzureNextGen.Maintenance.Latest
         /// Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
         /// </summary>
         [Input("maintenanceScope")]
-        public Input<string>? MaintenanceScope { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Maintenance.Latest.MaintenanceScope>? MaintenanceScope { get; set; }
 
         /// <summary>
         /// Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql

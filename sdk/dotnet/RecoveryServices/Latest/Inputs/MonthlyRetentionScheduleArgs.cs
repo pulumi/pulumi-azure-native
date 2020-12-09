@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         /// Retention schedule format type for monthly retention policy.
         /// </summary>
         [Input("retentionScheduleFormatType")]
-        public Input<string>? RetentionScheduleFormatType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.Latest.RetentionScheduleFormat>? RetentionScheduleFormatType { get; set; }
 
         /// <summary>
         /// Weekly retention format for monthly retention policy.

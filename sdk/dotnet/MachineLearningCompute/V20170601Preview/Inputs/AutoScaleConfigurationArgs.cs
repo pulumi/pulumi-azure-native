@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170601Preview.Inputs
         /// If auto-scale is enabled for all services. Each service can turn it off individually.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningCompute.V20170601Preview.Status>? Status { get; set; }
 
         /// <summary>
         /// The target utilization.

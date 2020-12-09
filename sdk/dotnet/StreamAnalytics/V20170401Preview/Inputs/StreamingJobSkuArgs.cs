@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.Inputs
         /// The name of the SKU. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Input("name")]
-        public Input<string>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview.StreamingJobSkuName>? Name { get; set; }
 
         public StreamingJobSkuArgs()
         {

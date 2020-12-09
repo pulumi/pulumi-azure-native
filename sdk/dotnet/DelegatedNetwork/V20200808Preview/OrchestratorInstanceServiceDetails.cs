@@ -165,7 +165,7 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview
         /// The kind of workbook. Choices are user and shared.
         /// </summary>
         [Input("kind", required: true)]
-        public Input<string> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview.OrchestratorKind> Kind { get; set; } = null!;
 
         /// <summary>
         /// Location of the resource.

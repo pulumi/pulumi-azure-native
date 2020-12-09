@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601.Inputs
         /// Name of a public IP prefix SKU.
         /// </summary>
         [Input("name")]
-        public Input<string>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200601.PublicIPPrefixSkuName>? Name { get; set; }
 
         public PublicIPPrefixSkuArgs()
         {

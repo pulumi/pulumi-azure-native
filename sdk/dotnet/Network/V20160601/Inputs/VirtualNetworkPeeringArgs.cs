@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Network.V20160601.Inputs
         /// Gets the status of the virtual network peering
         /// </summary>
         [Input("peeringState")]
-        public Input<string>? PeeringState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160601.VirtualNetworkPeeringState>? PeeringState { get; set; }
 
         /// <summary>
         /// Gets provisioning state of the resource

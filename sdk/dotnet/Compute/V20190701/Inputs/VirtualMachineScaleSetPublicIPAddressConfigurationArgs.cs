@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190701.Inputs
         /// Available from Api-Version 2019-07-01 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4. Possible values are: 'IPv4' and 'IPv6'.
         /// </summary>
         [Input("publicIPAddressVersion")]
-        public Input<string>? PublicIPAddressVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20190701.IPVersion>? PublicIPAddressVersion { get; set; }
 
         /// <summary>
         /// The PublicIPPrefix from which to allocate publicIP addresses.

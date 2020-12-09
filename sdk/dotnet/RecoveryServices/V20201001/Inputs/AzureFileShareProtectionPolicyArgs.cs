@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201001.Inputs
         /// Type of workload for the backup management
         /// </summary>
         [Input("workLoadType")]
-        public Input<string>? WorkLoadType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20201001.WorkloadType>? WorkLoadType { get; set; }
 
         public AzureFileShareProtectionPolicyArgs()
         {

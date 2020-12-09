@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview.Inputs
         /// The built-in preset to be used for encoding videos.
         /// </summary>
         [Input("presetName", required: true)]
-        public Input<string> PresetName { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Media.V20180330Preview.EncoderNamedPreset> PresetName { get; set; } = null!;
 
         public BuiltInStandardEncoderPresetArgs()
         {

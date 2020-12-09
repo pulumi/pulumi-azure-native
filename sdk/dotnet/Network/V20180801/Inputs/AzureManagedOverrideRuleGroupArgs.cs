@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Network.V20180801.Inputs
         /// Type of Actions
         /// </summary>
         [Input("action", required: true)]
-        public Input<string> Action { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180801.Action> Action { get; set; } = null!;
 
         /// <summary>
         /// Describes override rule group
         /// </summary>
         [Input("ruleGroupOverride", required: true)]
-        public Input<string> RuleGroupOverride { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180801.RuleGroupOverride> RuleGroupOverride { get; set; } = null!;
 
         public AzureManagedOverrideRuleGroupArgs()
         {

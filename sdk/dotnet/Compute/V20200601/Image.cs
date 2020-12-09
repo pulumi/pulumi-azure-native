@@ -124,7 +124,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
         /// Gets the HyperVGenerationType of the VirtualMachine created from the image
         /// </summary>
         [Input("hyperVGeneration")]
-        public Input<string>? HyperVGeneration { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20200601.HyperVGenerationTypes>? HyperVGeneration { get; set; }
 
         /// <summary>
         /// The name of the image.

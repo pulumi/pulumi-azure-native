@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Network.V20161201.Inputs
         /// PrivateIP allocation method. Possible values are: 'Static' and 'Dynamic'.
         /// </summary>
         [Input("privateIPAllocationMethod")]
-        public Input<string>? PrivateIPAllocationMethod { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20161201.IPAllocationMethod>? PrivateIPAllocationMethod { get; set; }
 
         /// <summary>
         /// Provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.

@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180110.Inputs
         /// License type.
         /// </summary>
         [Input("licenseType")]
-        public Input<string>? LicenseType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20180110.LicenseType>? LicenseType { get; set; }
 
         /// <summary>
         /// A value indicating whether auto resync is to be done.

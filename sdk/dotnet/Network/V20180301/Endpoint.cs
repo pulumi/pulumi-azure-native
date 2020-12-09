@@ -162,7 +162,7 @@ namespace Pulumi.AzureNextGen.Network.V20180301
         /// The monitoring status of the endpoint.
         /// </summary>
         [Input("endpointMonitorStatus")]
-        public Input<string>? EndpointMonitorStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180301.EndpointMonitorStatus>? EndpointMonitorStatus { get; set; }
 
         /// <summary>
         /// The name of the Traffic Manager endpoint to be created or updated.
@@ -174,7 +174,7 @@ namespace Pulumi.AzureNextGen.Network.V20180301
         /// The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
         /// </summary>
         [Input("endpointStatus")]
-        public Input<string>? EndpointStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180301.EndpointStatus>? EndpointStatus { get; set; }
 
         /// <summary>
         /// The type of the Traffic Manager endpoint to be created or updated.

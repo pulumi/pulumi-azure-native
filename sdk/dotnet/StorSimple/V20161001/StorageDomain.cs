@@ -103,7 +103,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// The encryption status "Enabled | Disabled".
         /// </summary>
         [Input("encryptionStatus", required: true)]
-        public Input<string> EncryptionStatus { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.StorSimple.V20161001.EncryptionStatus> EncryptionStatus { get; set; } = null!;
 
         /// <summary>
         /// The manager name

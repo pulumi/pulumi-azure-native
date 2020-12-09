@@ -136,7 +136,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200630
         /// The type of key used to encrypt the data of the disk.
         /// </summary>
         [Input("encryptionType")]
-        public Input<string>? EncryptionType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20200630.DiskEncryptionSetType>? EncryptionType { get; set; }
 
         /// <summary>
         /// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.

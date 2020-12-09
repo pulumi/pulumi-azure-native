@@ -177,7 +177,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// The kind of the entity.
         /// </summary>
         [Input("kind", required: true)]
-        public Input<string> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.SecurityInsights.V20190101Preview.ThreatIntelligenceResourceKind> Kind { get; set; } = null!;
 
         [Input("labels")]
         private InputList<string>? _labels;

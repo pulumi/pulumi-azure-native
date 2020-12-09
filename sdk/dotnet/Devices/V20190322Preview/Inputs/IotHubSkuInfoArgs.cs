@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Devices.V20190322Preview.Inputs
         /// The name of the SKU.
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Devices.V20190322Preview.IotHubSku> Name { get; set; } = null!;
 
         public IotHubSkuInfoArgs()
         {

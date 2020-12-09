@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Search.Latest.Inputs
         /// The identity type.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Search.Latest.IdentityType> Type { get; set; } = null!;
 
         public IdentityArgs()
         {

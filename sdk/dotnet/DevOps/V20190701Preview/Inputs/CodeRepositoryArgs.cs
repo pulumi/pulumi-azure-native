@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.DevOps.V20190701Preview.Inputs
         /// Type of code repository.
         /// </summary>
         [Input("repositoryType", required: true)]
-        public Input<string> RepositoryType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DevOps.V20190701Preview.CodeRepositoryType> RepositoryType { get; set; } = null!;
 
         public CodeRepositoryArgs()
         {

@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview.Inputs
         /// Gets or sets the protocol
         /// </summary>
         [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20150501Preview.ApplicationGatewayProtocol>? Protocol { get; set; }
 
         /// <summary>
         /// Gets or sets Provisioning state of the http listener resource Updating/Deleting/Failed

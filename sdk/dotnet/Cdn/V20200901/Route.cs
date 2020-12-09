@@ -196,7 +196,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
         /// </summary>
         [Input("enabledState")]
-        public Input<string>? EnabledState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20200901.EnabledState>? EnabledState { get; set; }
 
         /// <summary>
         /// Name of the endpoint under the profile which is unique globally.
@@ -208,25 +208,25 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// Protocol this rule will use when forwarding traffic to backends.
         /// </summary>
         [Input("forwardingProtocol")]
-        public Input<string>? ForwardingProtocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20200901.ForwardingProtocol>? ForwardingProtocol { get; set; }
 
         /// <summary>
         /// Whether to automatically redirect HTTP traffic to HTTPS traffic. Note that this is a easy way to set up this rule and it will be the first rule that gets executed.
         /// </summary>
         [Input("httpsRedirect")]
-        public Input<string>? HttpsRedirect { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20200901.HttpsRedirect>? HttpsRedirect { get; set; }
 
         /// <summary>
         /// whether this route will be linked to the default endpoint domain.
         /// </summary>
         [Input("linkToDefaultDomain")]
-        public Input<string>? LinkToDefaultDomain { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20200901.LinkToDefaultDomain>? LinkToDefaultDomain { get; set; }
 
         /// <summary>
         /// Specifies what scenario the customer wants this AzureFrontDoor endpoint to optimize for, e.g. Download, Media services. With this information, AzureFrontDoor can apply scenario driven optimization.
         /// </summary>
         [Input("optimizationType")]
-        public Input<string>? OptimizationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20200901.OptimizationType>? OptimizationType { get; set; }
 
         /// <summary>
         /// A reference to the origin group.
@@ -262,7 +262,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// Defines how AzureFrontDoor caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
         /// </summary>
         [Input("queryStringCachingBehavior")]
-        public Input<string>? QueryStringCachingBehavior { get; set; }
+        public Input<Pulumi.AzureNextGen.Cdn.V20200901.QueryStringCachingBehavior>? QueryStringCachingBehavior { get; set; }
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.
@@ -289,14 +289,14 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         }
 
         [Input("supportedProtocols")]
-        private InputList<string>? _supportedProtocols;
+        private InputList<Union<string, Pulumi.AzureNextGen.Cdn.V20200901.AFDEndpointProtocols>>? _supportedProtocols;
 
         /// <summary>
         /// List of supported protocols for this route.
         /// </summary>
-        public InputList<string> SupportedProtocols
+        public InputList<Union<string, Pulumi.AzureNextGen.Cdn.V20200901.AFDEndpointProtocols>> SupportedProtocols
         {
-            get => _supportedProtocols ?? (_supportedProtocols = new InputList<string>());
+            get => _supportedProtocols ?? (_supportedProtocols = new InputList<Union<string, Pulumi.AzureNextGen.Cdn.V20200901.AFDEndpointProtocols>>());
             set => _supportedProtocols = value;
         }
 

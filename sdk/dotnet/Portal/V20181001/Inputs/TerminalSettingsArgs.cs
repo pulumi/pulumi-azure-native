@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Portal.V20181001.Inputs
         /// Size of terminal font.
         /// </summary>
         [Input("fontSize")]
-        public Input<string>? FontSize { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Portal.V20181001.FontSize>? FontSize { get; set; }
 
         /// <summary>
         /// Style of terminal font.
         /// </summary>
         [Input("fontStyle")]
-        public Input<string>? FontStyle { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Portal.V20181001.FontStyle>? FontStyle { get; set; }
 
         public TerminalSettingsArgs()
         {

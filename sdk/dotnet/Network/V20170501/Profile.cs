@@ -162,7 +162,7 @@ namespace Pulumi.AzureNextGen.Network.V20170501
         /// The status of the Traffic Manager profile.
         /// </summary>
         [Input("profileStatus")]
-        public Input<string>? ProfileStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20170501.ProfileStatus>? ProfileStatus { get; set; }
 
         /// <summary>
         /// The name of the resource group containing the Traffic Manager profile.
@@ -186,7 +186,7 @@ namespace Pulumi.AzureNextGen.Network.V20170501
         /// The traffic routing method of the Traffic Manager profile.
         /// </summary>
         [Input("trafficRoutingMethod")]
-        public Input<string>? TrafficRoutingMethod { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20170501.TrafficRoutingMethod>? TrafficRoutingMethod { get; set; }
 
         public ProfileArgs()
         {

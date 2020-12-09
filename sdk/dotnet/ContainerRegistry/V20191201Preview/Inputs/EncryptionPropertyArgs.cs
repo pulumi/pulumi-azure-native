@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview.Inputs
         /// Indicates whether or not the encryption is enabled for container registry.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview.EncryptionStatus>? Status { get; set; }
 
         public EncryptionPropertyArgs()
         {

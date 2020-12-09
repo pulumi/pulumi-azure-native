@@ -17,26 +17,26 @@ namespace Pulumi.AzureNextGen.Insights.V20191101Preview.Inputs
     public sealed class SyslogDataSourceArgs : Pulumi.ResourceArgs
     {
         [Input("facilityNames", required: true)]
-        private InputList<string>? _facilityNames;
+        private InputList<Union<string, Pulumi.AzureNextGen.Insights.V20191101Preview.KnownSyslogDataSourceFacilityNames>>? _facilityNames;
 
         /// <summary>
         /// The list of facility names.
         /// </summary>
-        public InputList<string> FacilityNames
+        public InputList<Union<string, Pulumi.AzureNextGen.Insights.V20191101Preview.KnownSyslogDataSourceFacilityNames>> FacilityNames
         {
-            get => _facilityNames ?? (_facilityNames = new InputList<string>());
+            get => _facilityNames ?? (_facilityNames = new InputList<Union<string, Pulumi.AzureNextGen.Insights.V20191101Preview.KnownSyslogDataSourceFacilityNames>>());
             set => _facilityNames = value;
         }
 
         [Input("logLevels")]
-        private InputList<string>? _logLevels;
+        private InputList<Union<string, Pulumi.AzureNextGen.Insights.V20191101Preview.KnownSyslogDataSourceLogLevels>>? _logLevels;
 
         /// <summary>
         /// The log levels to collect.
         /// </summary>
-        public InputList<string> LogLevels
+        public InputList<Union<string, Pulumi.AzureNextGen.Insights.V20191101Preview.KnownSyslogDataSourceLogLevels>> LogLevels
         {
-            get => _logLevels ?? (_logLevels = new InputList<string>());
+            get => _logLevels ?? (_logLevels = new InputList<Union<string, Pulumi.AzureNextGen.Insights.V20191101Preview.KnownSyslogDataSourceLogLevels>>());
             set => _logLevels = value;
         }
 
@@ -48,15 +48,15 @@ namespace Pulumi.AzureNextGen.Insights.V20191101Preview.Inputs
         public Input<string> Name { get; set; } = null!;
 
         [Input("streams", required: true)]
-        private InputList<string>? _streams;
+        private InputList<Union<string, Pulumi.AzureNextGen.Insights.V20191101Preview.KnownSyslogDataSourceStreams>>? _streams;
 
         /// <summary>
         /// List of streams that this data source will be sent to.
         /// A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
         /// </summary>
-        public InputList<string> Streams
+        public InputList<Union<string, Pulumi.AzureNextGen.Insights.V20191101Preview.KnownSyslogDataSourceStreams>> Streams
         {
-            get => _streams ?? (_streams = new InputList<string>());
+            get => _streams ?? (_streams = new InputList<Union<string, Pulumi.AzureNextGen.Insights.V20191101Preview.KnownSyslogDataSourceStreams>>());
             set => _streams = value;
         }
 

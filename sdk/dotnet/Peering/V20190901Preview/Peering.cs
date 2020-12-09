@@ -143,7 +143,7 @@ namespace Pulumi.AzureNextGen.Peering.V20190901Preview
         /// The kind of the peering.
         /// </summary>
         [Input("kind", required: true)]
-        public Input<string> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Peering.V20190901Preview.Kind> Kind { get; set; } = null!;
 
         /// <summary>
         /// The location of the resource.

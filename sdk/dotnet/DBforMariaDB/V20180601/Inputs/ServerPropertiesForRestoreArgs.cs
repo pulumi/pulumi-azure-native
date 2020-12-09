@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601.Inputs
         /// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         /// </summary>
         [Input("publicNetworkAccess")]
-        public Input<string>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DBforMariaDB.V20180601.PublicNetworkAccessEnum>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// Restore point creation time (ISO8601 format), specifying the time to restore from.
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601.Inputs
         /// Enable ssl enforcement or not when connect to server.
         /// </summary>
         [Input("sslEnforcement")]
-        public Input<string>? SslEnforcement { get; set; }
+        public Input<Pulumi.AzureNextGen.DBforMariaDB.V20180601.SslEnforcementEnum>? SslEnforcement { get; set; }
 
         /// <summary>
         /// Storage profile of a server.
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601.Inputs
         /// Server version.
         /// </summary>
         [Input("version")]
-        public Input<string>? Version { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DBforMariaDB.V20180601.ServerVersion>? Version { get; set; }
 
         public ServerPropertiesForRestoreArgs()
         {

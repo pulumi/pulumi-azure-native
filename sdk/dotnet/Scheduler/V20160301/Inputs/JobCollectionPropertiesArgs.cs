@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Scheduler.V20160301.Inputs
         /// Gets or sets the state.
         /// </summary>
         [Input("state")]
-        public Input<string>? State { get; set; }
+        public Input<Pulumi.AzureNextGen.Scheduler.V20160301.JobCollectionState>? State { get; set; }
 
         public JobCollectionPropertiesArgs()
         {

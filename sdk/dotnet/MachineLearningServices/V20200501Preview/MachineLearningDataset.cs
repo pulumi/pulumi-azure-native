@@ -111,7 +111,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview
         /// Specifies dataset type.
         /// </summary>
         [Input("datasetType", required: true)]
-        public Input<string> DatasetType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview.DatasetType> DatasetType { get; set; } = null!;
 
         [Input("parameters", required: true)]
         public Input<Inputs.DatasetCreateRequestParametersArgs> Parameters { get; set; } = null!;

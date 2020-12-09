@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Batch.V20200501.Inputs
         /// The type of identity used for the Batch account.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Batch.V20200501.ResourceIdentityType> Type { get; set; } = null!;
 
         public BatchAccountIdentityArgs()
         {

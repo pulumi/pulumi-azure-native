@@ -43,13 +43,13 @@ namespace Pulumi.AzureNextGen.Logic.V20190501.Inputs
         /// The provisioning state.
         /// </summary>
         [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Logic.V20190501.WorkflowProvisioningState>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The integration service environment state.
         /// </summary>
         [Input("state")]
-        public Input<string>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Logic.V20190501.WorkflowState>? State { get; set; }
 
         public IntegrationServiceEnvironmentPropertiesArgs()
         {

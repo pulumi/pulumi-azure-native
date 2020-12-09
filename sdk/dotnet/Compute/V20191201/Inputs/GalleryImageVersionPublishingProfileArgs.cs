@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Compute.V20191201.Inputs
         /// Specifies the storage account type to be used to store the image. This property is not updatable.
         /// </summary>
         [Input("storageAccountType")]
-        public Input<string>? StorageAccountType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20191201.StorageAccountType>? StorageAccountType { get; set; }
 
         [Input("targetRegions")]
         private InputList<Inputs.TargetRegionArgs>? _targetRegions;

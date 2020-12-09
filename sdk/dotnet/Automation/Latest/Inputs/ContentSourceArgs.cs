@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest.Inputs
         /// Gets or sets the content source type.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Automation.Latest.ContentSourceType>? Type { get; set; }
 
         /// <summary>
         /// Gets or sets the value of the content. This is based on the content source type.

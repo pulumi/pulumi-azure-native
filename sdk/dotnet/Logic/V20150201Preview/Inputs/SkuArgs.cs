@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150201Preview.Inputs
         /// Gets or sets the name.
         /// </summary>
         [Input("name")]
-        public Input<string>? Name { get; set; }
+        public Input<Pulumi.AzureNextGen.Logic.V20150201Preview.SkuName>? Name { get; set; }
 
         /// <summary>
         /// Gets or sets the reference to plan.

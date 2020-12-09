@@ -112,7 +112,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20200515
         /// The kind of the environment.
         /// </summary>
         [Input("kind", required: true)]
-        public Input<string> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.TimeSeriesInsights.V20200515.EnvironmentKind> Kind { get; set; } = null!;
 
         /// <summary>
         /// The location of the resource.

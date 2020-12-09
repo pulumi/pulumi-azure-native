@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.CognitiveServices.Latest.Inputs
         /// The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
         /// </summary>
         [Input("defaultAction")]
-        public Input<string>? DefaultAction { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.CognitiveServices.Latest.NetworkRuleAction>? DefaultAction { get; set; }
 
         [Input("ipRules")]
         private InputList<Inputs.IpRuleArgs>? _ipRules;

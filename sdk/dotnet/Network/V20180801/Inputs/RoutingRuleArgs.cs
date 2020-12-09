@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.Network.V20180801.Inputs
     public sealed class RoutingRuleArgs : Pulumi.ResourceArgs
     {
         [Input("acceptedProtocols")]
-        private InputList<string>? _acceptedProtocols;
+        private InputList<Union<string, Pulumi.AzureNextGen.Network.V20180801.FrontDoorProtocol>>? _acceptedProtocols;
 
         /// <summary>
         /// Protocol schemes to match for this rule
         /// </summary>
-        public InputList<string> AcceptedProtocols
+        public InputList<Union<string, Pulumi.AzureNextGen.Network.V20180801.FrontDoorProtocol>> AcceptedProtocols
         {
-            get => _acceptedProtocols ?? (_acceptedProtocols = new InputList<string>());
+            get => _acceptedProtocols ?? (_acceptedProtocols = new InputList<Union<string, Pulumi.AzureNextGen.Network.V20180801.FrontDoorProtocol>>());
             set => _acceptedProtocols = value;
         }
 
@@ -49,13 +49,13 @@ namespace Pulumi.AzureNextGen.Network.V20180801.Inputs
         /// Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
         /// </summary>
         [Input("enabledState")]
-        public Input<string>? EnabledState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180801.FrontDoorEnabledState>? EnabledState { get; set; }
 
         /// <summary>
         /// Protocol this rule will use when forwarding traffic to backends.
         /// </summary>
         [Input("forwardingProtocol")]
-        public Input<string>? ForwardingProtocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180801.FrontDoorForwardingProtocol>? ForwardingProtocol { get; set; }
 
         [Input("frontendEndpoints")]
         private InputList<Inputs.SubResourceArgs>? _frontendEndpoints;

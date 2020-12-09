@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest.Inputs
         /// Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
         /// </summary>
         [Input("day")]
-        public Input<string>? Day { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Automation.Latest.ScheduleDay>? Day { get; set; }
 
         /// <summary>
         /// Occurrence of the week within the month. Must be between 1 and 5

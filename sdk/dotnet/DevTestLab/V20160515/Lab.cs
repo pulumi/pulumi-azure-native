@@ -155,7 +155,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         /// Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
         /// </summary>
         [Input("labStorageType")]
-        public Input<string>? LabStorageType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20160515.StorageType>? LabStorageType { get; set; }
 
         /// <summary>
         /// The location of the resource.
@@ -175,7 +175,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         /// When its value is 'Disabled', only creation of standard data disks is allowed.
         /// </summary>
         [Input("premiumDataDisks")]
-        public Input<string>? PremiumDataDisks { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20160515.PremiumDataDisk>? PremiumDataDisks { get; set; }
 
         /// <summary>
         /// The provisioning status of the resource.

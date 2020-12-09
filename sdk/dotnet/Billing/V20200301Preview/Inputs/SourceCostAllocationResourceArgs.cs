@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Billing.V20200301Preview.Inputs
         /// Type of resources contained in this cost allocation rule
         /// </summary>
         [Input("resourceType", required: true)]
-        public Input<string> ResourceType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Billing.V20200301Preview.CostAllocationResourceType> ResourceType { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<string>? _values;

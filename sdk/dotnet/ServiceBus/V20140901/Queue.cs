@@ -261,7 +261,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20140901
         /// Entity availability status for the queue.
         /// </summary>
         [Input("entityAvailabilityStatus")]
-        public Input<string>? EntityAvailabilityStatus { get; set; }
+        public Input<Pulumi.AzureNextGen.ServiceBus.V20140901.EntityAvailabilityStatus>? EntityAvailabilityStatus { get; set; }
 
         /// <summary>
         /// A value that indicates whether the message is accessible anonymously.
@@ -333,7 +333,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20140901
         /// Enumerates the possible values for the status of a messaging entity.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public Input<Pulumi.AzureNextGen.ServiceBus.V20140901.EntityStatus>? Status { get; set; }
 
         /// <summary>
         /// A value that indicates whether the queue supports ordering.

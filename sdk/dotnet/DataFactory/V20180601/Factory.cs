@@ -182,7 +182,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
         /// Whether or not public network access is allowed for the data factory.
         /// </summary>
         [Input("publicNetworkAccess")]
-        public Input<string>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.V20180601.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// Git repo information of the factory.

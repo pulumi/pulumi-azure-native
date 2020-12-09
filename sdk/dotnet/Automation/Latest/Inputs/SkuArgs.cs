@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest.Inputs
         /// Gets or sets the SKU name of the account.
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Automation.Latest.SkuNameEnum> Name { get; set; } = null!;
 
         public SkuArgs()
         {

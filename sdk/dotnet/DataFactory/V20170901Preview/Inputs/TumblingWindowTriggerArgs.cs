@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         /// The frequency of the time windows.
         /// </summary>
         [Input("frequency", required: true)]
-        public Input<string> Frequency { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.V20170901Preview.TumblingWindowFrequency> Frequency { get; set; } = null!;
 
         /// <summary>
         /// The interval of the time windows. The minimum interval allowed is 15 Minutes.

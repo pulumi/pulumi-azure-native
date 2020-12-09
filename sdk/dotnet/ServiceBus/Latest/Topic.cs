@@ -237,7 +237,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
         /// Enumerates the possible values for the status of a messaging entity.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public Input<Pulumi.AzureNextGen.ServiceBus.Latest.EntityStatus>? Status { get; set; }
 
         /// <summary>
         /// Value that indicates whether the topic supports ordering.

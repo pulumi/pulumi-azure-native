@@ -299,7 +299,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
         /// Indicates the type of database account. This can only be set at database account creation.
         /// </summary>
         [Input("kind")]
-        public Input<string>? Kind { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DocumentDB.V20200601Preview.DatabaseAccountKind>? Kind { get; set; }
 
         /// <summary>
         /// The location of the resource group to which the resource belongs.

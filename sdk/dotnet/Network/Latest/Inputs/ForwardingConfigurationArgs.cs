@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// Protocol this rule will use when forwarding traffic to backends.
         /// </summary>
         [Input("forwardingProtocol")]
-        public Input<string>? ForwardingProtocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.FrontDoorForwardingProtocol>? ForwardingProtocol { get; set; }
 
         [Input("odataType", required: true)]
         public Input<string> OdataType { get; set; } = null!;

@@ -154,7 +154,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         /// The partner type.
         /// </summary>
         [Input("partnerType", required: true)]
-        public Input<string> PartnerType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Logic.Latest.PartnerType> PartnerType { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

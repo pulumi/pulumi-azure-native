@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20190601.Inputs
         /// State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
         /// </summary>
         [Input("remoteLoginPortPublicAccess")]
-        public Input<string>? RemoteLoginPortPublicAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.V20190601.RemoteLoginPortPublicAccess>? RemoteLoginPortPublicAccess { get; set; }
 
         /// <summary>
         /// Scale settings for AML Compute
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20190601.Inputs
         /// Virtual Machine priority
         /// </summary>
         [Input("vmPriority")]
-        public Input<string>? VmPriority { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.V20190601.VmPriority>? VmPriority { get; set; }
 
         /// <summary>
         /// Virtual Machine Size

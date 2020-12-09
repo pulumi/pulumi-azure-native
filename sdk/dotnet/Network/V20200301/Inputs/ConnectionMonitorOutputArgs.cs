@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301.Inputs
         /// Connection monitor output destination type. Currently, only "Workspace" is supported.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200301.OutputType>? Type { get; set; }
 
         /// <summary>
         /// Describes the settings for producing output into a log analytics workspace.

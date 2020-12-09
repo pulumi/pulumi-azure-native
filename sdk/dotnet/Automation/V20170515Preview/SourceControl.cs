@@ -189,7 +189,7 @@ namespace Pulumi.AzureNextGen.Automation.V20170515Preview
         /// The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
         /// </summary>
         [Input("sourceType")]
-        public Input<string>? SourceType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Automation.V20170515Preview.SourceType>? SourceType { get; set; }
 
         public SourceControlArgs()
         {

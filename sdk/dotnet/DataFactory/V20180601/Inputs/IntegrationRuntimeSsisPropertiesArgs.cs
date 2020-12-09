@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         /// The edition for the SSIS Integration Runtime
         /// </summary>
         [Input("edition")]
-        public Input<string>? Edition { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.V20180601.IntegrationRuntimeEdition>? Edition { get; set; }
 
         [Input("expressCustomSetupProperties")]
         private InputList<Union<Inputs.AzPowerShellSetupArgs, Union<Inputs.CmdkeySetupArgs, Union<Inputs.ComponentSetupArgs, Inputs.EnvironmentVariableSetupArgs>>>>? _expressCustomSetupProperties;
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         /// License type for bringing your own license scenario.
         /// </summary>
         [Input("licenseType")]
-        public Input<string>? LicenseType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.V20180601.IntegrationRuntimeLicenseType>? LicenseType { get; set; }
 
         [Input("packageStores")]
         private InputList<Inputs.PackageStoreArgs>? _packageStores;

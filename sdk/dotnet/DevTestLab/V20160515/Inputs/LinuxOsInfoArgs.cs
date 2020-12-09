@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515.Inputs
         /// The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
         /// </summary>
         [Input("linuxOsState")]
-        public Input<string>? LinuxOsState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20160515.LinuxOsState>? LinuxOsState { get; set; }
 
         public LinuxOsInfoArgs()
         {

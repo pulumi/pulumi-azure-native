@@ -280,7 +280,7 @@ namespace Pulumi.AzureNextGen.Compute.V20191101
         /// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         /// </summary>
         [Input("hyperVGeneration")]
-        public Input<string>? HyperVGeneration { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20191101.HyperVGeneration>? HyperVGeneration { get; set; }
 
         /// <summary>
         /// Resource location
@@ -298,7 +298,7 @@ namespace Pulumi.AzureNextGen.Compute.V20191101
         /// The Operating System type.
         /// </summary>
         [Input("osType")]
-        public Input<string>? OsType { get; set; }
+        public Input<Pulumi.AzureNextGen.Compute.V20191101.OperatingSystemTypes>? OsType { get; set; }
 
         /// <summary>
         /// The name of the resource group.

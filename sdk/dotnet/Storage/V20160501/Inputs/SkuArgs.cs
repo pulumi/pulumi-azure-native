@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Storage.V20160501.Inputs
         /// Gets or sets the sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Storage.V20160501.SkuName> Name { get; set; } = null!;
 
         public SkuArgs()
         {

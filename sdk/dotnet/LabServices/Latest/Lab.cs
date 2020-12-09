@@ -217,7 +217,7 @@ namespace Pulumi.AzureNextGen.LabServices.Latest
         /// Lab user access mode (open to all vs. restricted to those listed on the lab).
         /// </summary>
         [Input("userAccessMode")]
-        public Input<string>? UserAccessMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.LabServices.Latest.LabUserAccessMode>? UserAccessMode { get; set; }
 
         public LabArgs()
         {

@@ -184,7 +184,7 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
         /// This property allows you to specify the supported type of the OS that application is built for. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Windows** &lt;br&gt;&lt;br&gt; **Linux**
         /// </summary>
         [Input("supportedOSType", required: true)]
-        public Input<string> SupportedOSType { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Compute.V20191201.OperatingSystemTypes> SupportedOSType { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

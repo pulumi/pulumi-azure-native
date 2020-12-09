@@ -256,7 +256,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20190701
         /// The managed application lock level.
         /// </summary>
         [Input("lockLevel", required: true)]
-        public Input<string> LockLevel { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Solutions.V20190701.ApplicationLockLevel> LockLevel { get; set; } = null!;
 
         /// <summary>
         /// The managed application locking policy.

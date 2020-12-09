@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20170701Preview.Inputs
         /// The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
         /// </summary>
         [Input("scheme", required: true)]
-        public Input<string> Scheme { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabric.V20170701Preview.ServiceCorrelationScheme> Scheme { get; set; } = null!;
 
         /// <summary>
         /// The name of the service that the correlation relationship is established with.

@@ -79,7 +79,7 @@ namespace Pulumi.AzureNextGen.Network.V20180601.Inputs
         /// The peering type.
         /// </summary>
         [Input("peeringType")]
-        public Input<string>? PeeringType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180601.ExpressRoutePeeringType>? PeeringType { get; set; }
 
         /// <summary>
         /// The primary port.
@@ -127,7 +127,7 @@ namespace Pulumi.AzureNextGen.Network.V20180601.Inputs
         /// The peering state.
         /// </summary>
         [Input("state")]
-        public Input<string>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180601.ExpressRoutePeeringState>? State { get; set; }
 
         /// <summary>
         /// Gets peering stats.

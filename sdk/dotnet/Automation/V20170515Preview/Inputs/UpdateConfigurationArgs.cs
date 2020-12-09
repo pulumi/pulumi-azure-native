@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Automation.V20170515Preview.Inputs
         /// operating system of target machines
         /// </summary>
         [Input("operatingSystem", required: true)]
-        public Input<string> OperatingSystem { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Automation.V20170515Preview.OperatingSystemType> OperatingSystem { get; set; } = null!;
 
         /// <summary>
         /// Group targets for the software update configuration.

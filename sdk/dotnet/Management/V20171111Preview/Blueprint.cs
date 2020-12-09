@@ -177,7 +177,7 @@ namespace Pulumi.AzureNextGen.Management.V20171111Preview
         /// The scope where this Blueprint can be applied.
         /// </summary>
         [Input("targetScope", required: true)]
-        public Input<string> TargetScope { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Management.V20171111Preview.BlueprintTargetScope> TargetScope { get; set; } = null!;
 
         /// <summary>
         /// Published versions of this blueprint.

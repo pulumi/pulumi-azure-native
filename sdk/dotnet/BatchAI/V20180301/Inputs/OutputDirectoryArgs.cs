@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180301.Inputs
         /// Default value is Custom. The possible values are Model, Logs, Summary, and Custom. Users can use multiple enums for a single directory. Eg. outPutType='Model,Logs, Summary'
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.BatchAI.V20180301.OutputType>? Type { get; set; }
 
         public OutputDirectoryArgs()
         {

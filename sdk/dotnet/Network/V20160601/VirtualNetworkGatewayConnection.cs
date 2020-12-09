@@ -219,13 +219,13 @@ namespace Pulumi.AzureNextGen.Network.V20160601
         /// Virtual network Gateway connection status
         /// </summary>
         [Input("connectionStatus")]
-        public Input<string>? ConnectionStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160601.VirtualNetworkGatewayConnectionStatus>? ConnectionStatus { get; set; }
 
         /// <summary>
         /// Gateway connection type IPsec/Dedicated/VpnClient/Vnet2Vnet
         /// </summary>
         [Input("connectionType")]
-        public Input<string>? ConnectionType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20160601.VirtualNetworkGatewayConnectionType>? ConnectionType { get; set; }
 
         /// <summary>
         /// The Egress Bytes Transferred in this connection

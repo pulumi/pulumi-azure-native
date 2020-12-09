@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20200202.Inputs
         /// Gets or sets the status
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.V20200202.PrivateEndpointConnectionStatus>? Status { get; set; }
 
         public PrivateLinkServiceConnectionStateArgs()
         {

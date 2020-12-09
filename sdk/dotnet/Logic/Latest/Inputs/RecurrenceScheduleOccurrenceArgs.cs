@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest.Inputs
         /// The day of the week.
         /// </summary>
         [Input("day")]
-        public Input<string>? Day { get; set; }
+        public Input<Pulumi.AzureNextGen.Logic.Latest.DayOfWeek>? Day { get; set; }
 
         /// <summary>
         /// The occurrence.

@@ -231,7 +231,7 @@ namespace Pulumi.AzureNextGen.Blockchain.V20180601Preview
         /// Gets or sets the blockchain protocol.
         /// </summary>
         [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Blockchain.V20180601Preview.BlockchainProtocol>? Protocol { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180630Preview.Inputs
         /// Kind of the guest configuration. For example:DSC
         /// </summary>
         [Input("kind")]
-        public Input<string>? Kind { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20180630Preview.Kind>? Kind { get; set; }
 
         /// <summary>
         /// Name of the guest configuration.

@@ -85,7 +85,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701.Inputs
         /// Connection protocol used for this connection.
         /// </summary>
         [Input("vpnConnectionProtocolType")]
-        public Input<string>? VpnConnectionProtocolType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200701.VirtualNetworkGatewayConnectionProtocol>? VpnConnectionProtocolType { get; set; }
 
         /// <summary>
         /// Id of the connected vpn site link.

@@ -165,7 +165,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
         /// Backend communication protocol.
         /// </summary>
         [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20191201Preview.BackendProtocol> Protocol { get; set; } = null!;
 
         /// <summary>
         /// Backend Proxy Contract Properties

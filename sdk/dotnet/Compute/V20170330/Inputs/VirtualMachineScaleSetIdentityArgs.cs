@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Compute.V20170330.Inputs
         /// The type of identity used for the virtual machine scale set. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AzureNextGen.Compute.V20170330.ResourceIdentityType>? Type { get; set; }
 
         public VirtualMachineScaleSetIdentityArgs()
         {

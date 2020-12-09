@@ -202,7 +202,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         /// Enumerates the possible value of keySource for Encryption
         /// </summary>
         [Input("keySource")]
-        public Input<string>? KeySource { get; set; }
+        public Input<Pulumi.AzureNextGen.EventHub.V20180101Preview.KeySource>? KeySource { get; set; }
 
         [Input("keyVaultProperties")]
         private InputList<Inputs.KeyVaultPropertiesArgs>? _keyVaultProperties;
@@ -274,7 +274,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         /// Enumerates the possible value Identity type, which currently supports only 'SystemAssigned'
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AzureNextGen.EventHub.V20180101Preview.IdentityType>? Type { get; set; }
 
         /// <summary>
         /// Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.

@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview.Inputs
         /// Volume size
         /// </summary>
         [Input("sizeDisk", required: true)]
-        public Input<string> SizeDisk { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview.SizeTypes> SizeDisk { get; set; } = null!;
 
         public ApplicationScopedVolumeCreationParametersServiceFabricVolumeDiskArgs()
         {

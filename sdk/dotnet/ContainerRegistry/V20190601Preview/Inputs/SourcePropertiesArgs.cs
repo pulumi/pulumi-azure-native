@@ -38,7 +38,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview.Inputs
         /// The type of source control service.
         /// </summary>
         [Input("sourceControlType", required: true)]
-        public Input<string> SourceControlType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview.SourceControlType> SourceControlType { get; set; } = null!;
 
         public SourcePropertiesArgs()
         {

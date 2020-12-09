@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest.Inputs
         /// Identity Type
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataShare.Latest.Type>? Type { get; set; }
 
         public IdentityArgs()
         {

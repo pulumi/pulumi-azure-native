@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Compute.V20160430Preview.Inputs
         /// The type of identity used for the virtual machine. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AzureNextGen.Compute.V20160430Preview.ResourceIdentityType>? Type { get; set; }
 
         public VirtualMachineIdentityArgs()
         {

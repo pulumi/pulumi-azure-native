@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest.Inputs
     public sealed class OpenIdAuthenticationSettingsContractArgs : Pulumi.ResourceArgs
     {
         [Input("bearerTokenSendingMethods")]
-        private InputList<string>? _bearerTokenSendingMethods;
+        private InputList<Union<string, Pulumi.AzureNextGen.ApiManagement.Latest.BearerTokenSendingMethods>>? _bearerTokenSendingMethods;
 
         /// <summary>
         /// How to send token to the server.
         /// </summary>
-        public InputList<string> BearerTokenSendingMethods
+        public InputList<Union<string, Pulumi.AzureNextGen.ApiManagement.Latest.BearerTokenSendingMethods>> BearerTokenSendingMethods
         {
-            get => _bearerTokenSendingMethods ?? (_bearerTokenSendingMethods = new InputList<string>());
+            get => _bearerTokenSendingMethods ?? (_bearerTokenSendingMethods = new InputList<Union<string, Pulumi.AzureNextGen.ApiManagement.Latest.BearerTokenSendingMethods>>());
             set => _bearerTokenSendingMethods = value;
         }
 

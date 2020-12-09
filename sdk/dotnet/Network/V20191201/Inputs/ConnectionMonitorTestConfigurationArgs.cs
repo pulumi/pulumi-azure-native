@@ -37,13 +37,13 @@ namespace Pulumi.AzureNextGen.Network.V20191201.Inputs
         /// The preferred IP version to use in test evaluation. The connection monitor may choose to use a different version depending on other parameters.
         /// </summary>
         [Input("preferredIPVersion")]
-        public Input<string>? PreferredIPVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20191201.PreferredIPVersion>? PreferredIPVersion { get; set; }
 
         /// <summary>
         /// The protocol to use in test evaluation.
         /// </summary>
         [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20191201.ConnectionMonitorTestConfigurationProtocol> Protocol { get; set; } = null!;
 
         /// <summary>
         /// The threshold for declaring a test successful.

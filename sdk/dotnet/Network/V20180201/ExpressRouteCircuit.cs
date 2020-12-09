@@ -286,7 +286,7 @@ namespace Pulumi.AzureNextGen.Network.V20180201
         /// The ServiceProviderProvisioningState state of the resource. Possible values are 'NotProvisioned', 'Provisioning', 'Provisioned', and 'Deprovisioning'.
         /// </summary>
         [Input("serviceProviderProvisioningState")]
-        public Input<string>? ServiceProviderProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180201.ServiceProviderProvisioningState>? ServiceProviderProvisioningState { get; set; }
 
         /// <summary>
         /// The SKU.

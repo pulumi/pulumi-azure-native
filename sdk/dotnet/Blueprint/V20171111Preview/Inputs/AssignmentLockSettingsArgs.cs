@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Blueprint.V20171111Preview.Inputs
         /// Lock mode.
         /// </summary>
         [Input("mode")]
-        public Input<string>? Mode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Blueprint.V20171111Preview.AssignmentLockMode>? Mode { get; set; }
 
         public AssignmentLockSettingsArgs()
         {

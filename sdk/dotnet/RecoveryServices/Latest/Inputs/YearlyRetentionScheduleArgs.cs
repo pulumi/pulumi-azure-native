@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
     public sealed class YearlyRetentionScheduleArgs : Pulumi.ResourceArgs
     {
         [Input("monthsOfYear")]
-        private InputList<string>? _monthsOfYear;
+        private InputList<Pulumi.AzureNextGen.RecoveryServices.Latest.MonthOfYear>? _monthsOfYear;
 
         /// <summary>
         /// List of months of year of yearly retention policy.
         /// </summary>
-        public InputList<string> MonthsOfYear
+        public InputList<Pulumi.AzureNextGen.RecoveryServices.Latest.MonthOfYear> MonthsOfYear
         {
-            get => _monthsOfYear ?? (_monthsOfYear = new InputList<string>());
+            get => _monthsOfYear ?? (_monthsOfYear = new InputList<Pulumi.AzureNextGen.RecoveryServices.Latest.MonthOfYear>());
             set => _monthsOfYear = value;
         }
 
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         /// Retention schedule format for yearly retention policy.
         /// </summary>
         [Input("retentionScheduleFormatType")]
-        public Input<string>? RetentionScheduleFormatType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.Latest.RetentionScheduleFormat>? RetentionScheduleFormatType { get; set; }
 
         /// <summary>
         /// Weekly retention format for yearly retention policy.

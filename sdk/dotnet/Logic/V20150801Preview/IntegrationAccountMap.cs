@@ -169,7 +169,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview
         /// The map type.
         /// </summary>
         [Input("mapType")]
-        public Input<string>? MapType { get; set; }
+        public Input<Pulumi.AzureNextGen.Logic.V20150801Preview.MapType>? MapType { get; set; }
 
         /// <summary>
         /// The metadata.

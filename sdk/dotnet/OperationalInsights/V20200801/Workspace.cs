@@ -160,19 +160,19 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200801
         /// The provisioning state of the workspace.
         /// </summary>
         [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.OperationalInsights.V20200801.WorkspaceEntityStatus>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The network access type for accessing Log Analytics ingestion.
         /// </summary>
         [Input("publicNetworkAccessForIngestion")]
-        public Input<string>? PublicNetworkAccessForIngestion { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.OperationalInsights.V20200801.PublicNetworkAccessType>? PublicNetworkAccessForIngestion { get; set; }
 
         /// <summary>
         /// The network access type for accessing Log Analytics query.
         /// </summary>
         [Input("publicNetworkAccessForQuery")]
-        public Input<string>? PublicNetworkAccessForQuery { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.OperationalInsights.V20200801.PublicNetworkAccessType>? PublicNetworkAccessForQuery { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601.Inputs
         /// The type.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AzureNextGen.Logic.V20160601.ParameterType>? Type { get; set; }
 
         /// <summary>
         /// The value.

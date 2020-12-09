@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest.Inputs
         /// The EDIFACT frame setting characterSet.
         /// </summary>
         [Input("characterSet", required: true)]
-        public Input<string> CharacterSet { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Logic.Latest.EdifactCharacterSet> CharacterSet { get; set; } = null!;
 
         /// <summary>
         /// The component separator.
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest.Inputs
         /// The EDIFACT frame setting decimal indicator.
         /// </summary>
         [Input("decimalPointIndicator", required: true)]
-        public Input<string> DecimalPointIndicator { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Logic.Latest.EdifactDecimalIndicator> DecimalPointIndicator { get; set; } = null!;
 
         /// <summary>
         /// The protocol version.
@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest.Inputs
         /// The EDIFACT frame setting segment terminator suffix.
         /// </summary>
         [Input("segmentTerminatorSuffix", required: true)]
-        public Input<string> SegmentTerminatorSuffix { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Logic.Latest.SegmentTerminatorSuffix> SegmentTerminatorSuffix { get; set; } = null!;
 
         /// <summary>
         /// The service code list directory version.

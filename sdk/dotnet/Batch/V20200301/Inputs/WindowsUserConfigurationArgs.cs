@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Batch.V20200301.Inputs
         /// Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode.
         /// </summary>
         [Input("loginMode")]
-        public Input<string>? LoginMode { get; set; }
+        public Input<Pulumi.AzureNextGen.Batch.V20200301.LoginMode>? LoginMode { get; set; }
 
         public WindowsUserConfigurationArgs()
         {

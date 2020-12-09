@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180601.Inputs
         /// Specifies the ephemeral disk settings for operating system disk.
         /// </summary>
         [Input("option")]
-        public Input<string>? Option { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20180601.DiffDiskOptions>? Option { get; set; }
 
         public DiffDiskSettingsArgs()
         {

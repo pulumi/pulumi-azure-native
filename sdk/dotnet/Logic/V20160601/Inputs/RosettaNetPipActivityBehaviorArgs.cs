@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601.Inputs
         /// The value indicating whether the RosettaNet PIP is used for a single action.
         /// </summary>
         [Input("actionType", required: true)]
-        public Input<string> ActionType { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Logic.V20160601.RosettaNetActionType> ActionType { get; set; } = null!;
 
         /// <summary>
         /// The value indicating whether authorization is required.
@@ -43,13 +43,13 @@ namespace Pulumi.AzureNextGen.Logic.V20160601.Inputs
         /// The persistent confidentiality encryption scope.
         /// </summary>
         [Input("persistentConfidentialityScope", required: true)]
-        public Input<string> PersistentConfidentialityScope { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Logic.V20160601.RosettaNetPipConfidentialityScope> PersistentConfidentialityScope { get; set; } = null!;
 
         /// <summary>
         /// The value indicating whether the RosettaNet PIP communication is synchronous.
         /// </summary>
         [Input("responseType", required: true)]
-        public Input<string> ResponseType { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Logic.V20160601.RosettaNetResponseType> ResponseType { get; set; } = null!;
 
         /// <summary>
         /// The value indicating retry count.

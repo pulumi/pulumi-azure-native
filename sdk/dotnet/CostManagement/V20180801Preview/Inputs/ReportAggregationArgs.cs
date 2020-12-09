@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20180801Preview.Inputs
         /// The name of the aggregation function to use.
         /// </summary>
         [Input("function", required: true)]
-        public Input<string> Function { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20180801Preview.FunctionType> Function { get; set; } = null!;
 
         /// <summary>
         /// The name of the column to aggregate.

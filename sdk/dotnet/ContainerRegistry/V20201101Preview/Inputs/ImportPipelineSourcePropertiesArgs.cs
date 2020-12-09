@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.Inputs
         /// The type of source for the import pipeline.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.PipelineSourceType>? Type { get; set; }
 
         /// <summary>
         /// The source uri of the import pipeline.

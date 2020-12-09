@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601.Inputs
         /// Global Parameter type.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataFactory.V20180601.GlobalParameterType> Type { get; set; } = null!;
 
         /// <summary>
         /// Value of parameter.

@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.CognitiveServices.V20170418.Inputs
         /// Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         /// </summary>
         [Input("publicNetworkAccess")]
-        public Input<string>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.CognitiveServices.V20170418.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         [Input("userOwnedStorage")]
         private InputList<Inputs.UserOwnedStorageArgs>? _userOwnedStorage;

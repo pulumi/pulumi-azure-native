@@ -270,7 +270,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. &lt;br&gt;&lt;br&gt;For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. &lt;br&gt;&lt;br&gt;For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
         /// </summary>
         [Input("evictionPolicy")]
-        public Input<string>? EvictionPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.Latest.VirtualMachineEvictionPolicyTypes>? EvictionPolicy { get; set; }
 
         /// <summary>
         /// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M). &lt;br&gt;&lt;br&gt; Minimum api-version: 2020-06-01
@@ -336,7 +336,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// Specifies the priority for the virtual machine. &lt;br&gt;&lt;br&gt;Minimum api-version: 2019-03-01
         /// </summary>
         [Input("priority")]
-        public Input<string>? Priority { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.Latest.VirtualMachinePriorityTypes>? Priority { get; set; }
 
         /// <summary>
         /// Specifies information about the proximity placement group that the virtual machine should be assigned to. &lt;br&gt;&lt;br&gt;Minimum api-version: 2018-04-01.

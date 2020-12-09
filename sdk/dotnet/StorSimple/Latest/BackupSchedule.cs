@@ -133,7 +133,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// The type of backup which needs to be taken.
         /// </summary>
         [Input("backupType", required: true)]
-        public Input<string> BackupType { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.StorSimple.Latest.BackupType> BackupType { get; set; } = null!;
 
         /// <summary>
         /// The device name
@@ -145,7 +145,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         [Input("kind")]
-        public Input<string>? Kind { get; set; }
+        public Input<Pulumi.AzureNextGen.StorSimple.Latest.Kind>? Kind { get; set; }
 
         /// <summary>
         /// The manager name
@@ -175,7 +175,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// The schedule status.
         /// </summary>
         [Input("scheduleStatus", required: true)]
-        public Input<string> ScheduleStatus { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.StorSimple.Latest.ScheduleStatus> ScheduleStatus { get; set; } = null!;
 
         /// <summary>
         /// The start time of the schedule.

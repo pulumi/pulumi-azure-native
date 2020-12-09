@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Inputs
         /// The decimal point indicator.
         /// </summary>
         [Input("decimalPointIndicator")]
-        public Input<string>? DecimalPointIndicator { get; set; }
+        public Input<Pulumi.AzureNextGen.Logic.V20150801Preview.EdifactDecimalIndicator>? DecimalPointIndicator { get; set; }
 
         /// <summary>
         /// The message association assigned code.
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Inputs
         /// The segment terminator suffix.
         /// </summary>
         [Input("segmentTerminatorSuffix")]
-        public Input<string>? SegmentTerminatorSuffix { get; set; }
+        public Input<Pulumi.AzureNextGen.Logic.V20150801Preview.SegmentTerminatorSuffix>? SegmentTerminatorSuffix { get; set; }
 
         /// <summary>
         /// The target namespace on which this delimiter settings has to be applied.

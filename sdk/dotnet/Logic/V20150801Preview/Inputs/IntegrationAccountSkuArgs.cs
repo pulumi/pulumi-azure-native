@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview.Inputs
         /// The sku name.
         /// </summary>
         [Input("name")]
-        public Input<string>? Name { get; set; }
+        public Input<Pulumi.AzureNextGen.Logic.V20150801Preview.SkuName>? Name { get; set; }
 
         public IntegrationAccountSkuArgs()
         {

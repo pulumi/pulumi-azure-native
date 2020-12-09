@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest.Inputs
         /// Type of access to be allowed on the share for this user.
         /// </summary>
         [Input("accessType", required: true)]
-        public Input<string> AccessType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.Latest.ShareAccessType> AccessType { get; set; } = null!;
 
         /// <summary>
         /// The share ID.

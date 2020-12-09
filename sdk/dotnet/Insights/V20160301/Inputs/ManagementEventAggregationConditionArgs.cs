@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Insights.V20160301.Inputs
         /// the condition operator.
         /// </summary>
         [Input("operator")]
-        public Input<string>? Operator { get; set; }
+        public Input<Pulumi.AzureNextGen.Insights.V20160301.ConditionOperator>? Operator { get; set; }
 
         /// <summary>
         /// The threshold value that activates the alert.

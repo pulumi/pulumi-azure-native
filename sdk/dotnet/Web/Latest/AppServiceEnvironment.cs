@@ -375,7 +375,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
         /// </summary>
         [Input("internalLoadBalancingMode")]
-        public Input<string>? InternalLoadBalancingMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Web.Latest.LoadBalancingMode>? InternalLoadBalancingMode { get; set; }
 
         /// <summary>
         /// Number of IP SSL addresses reserved for the App Service Environment.

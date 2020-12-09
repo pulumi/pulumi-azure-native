@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview.Inputs
         /// Schedule interval type
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AzureNextGen.Sql.V20200801Preview.JobScheduleType>? Type { get; set; }
 
         public JobScheduleArgs()
         {

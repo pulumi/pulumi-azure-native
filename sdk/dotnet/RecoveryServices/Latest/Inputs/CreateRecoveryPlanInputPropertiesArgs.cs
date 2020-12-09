@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest.Inputs
         /// The failover deployment model.
         /// </summary>
         [Input("failoverDeploymentModel")]
-        public Input<string>? FailoverDeploymentModel { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.RecoveryServices.Latest.FailoverDeploymentModel>? FailoverDeploymentModel { get; set; }
 
         [Input("groups", required: true)]
         private InputList<Inputs.RecoveryPlanGroupArgs>? _groups;

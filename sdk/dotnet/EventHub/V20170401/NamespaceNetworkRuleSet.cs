@@ -98,7 +98,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20170401
         /// Default Action for Network Rule Set
         /// </summary>
         [Input("defaultAction")]
-        public Input<string>? DefaultAction { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.EventHub.V20170401.DefaultAction>? DefaultAction { get; set; }
 
         [Input("ipRules")]
         private InputList<Inputs.NWRuleSetIpRulesArgs>? _ipRules;

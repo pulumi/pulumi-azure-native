@@ -49,13 +49,13 @@ namespace Pulumi.AzureNextGen.Security.Latest.Inputs
         /// The status of the port
         /// </summary>
         [Input("status", required: true)]
-        public Input<string> Status { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Security.Latest.Status> Status { get; set; } = null!;
 
         /// <summary>
         /// A description of why the `status` has its value
         /// </summary>
         [Input("statusReason", required: true)]
-        public Input<string> StatusReason { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Security.Latest.StatusReason> StatusReason { get; set; } = null!;
 
         public JitNetworkAccessRequestPortArgs()
         {

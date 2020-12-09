@@ -167,7 +167,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// Whether or not zone redundancy is enabled for this container registry replication
         /// </summary>
         [Input("zoneRedundancy")]
-        public Input<string>? ZoneRedundancy { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.ZoneRedundancy>? ZoneRedundancy { get; set; }
 
         public ReplicationArgs()
         {

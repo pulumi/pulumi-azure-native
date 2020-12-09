@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20160707.Inputs
         /// Name of the Sku.
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.ApiManagement.V20160707.SkuType> Name { get; set; } = null!;
 
         public ApiManagementServiceSkuPropertiesArgs()
         {

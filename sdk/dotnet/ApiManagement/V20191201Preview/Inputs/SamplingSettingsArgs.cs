@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview.Inputs
         /// Sampling type.
         /// </summary>
         [Input("samplingType")]
-        public Input<string>? SamplingType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20191201Preview.SamplingType>? SamplingType { get; set; }
 
         public SamplingSettingsArgs()
         {

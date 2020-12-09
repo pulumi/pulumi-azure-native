@@ -205,7 +205,7 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20180601
         /// The operating system type required by the containers in the container group.
         /// </summary>
         [Input("osType", required: true)]
-        public Input<string> OsType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerInstance.V20180601.OperatingSystemTypes> OsType { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -220,7 +220,7 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20180601
         /// - `Never` Never restart
         /// </summary>
         [Input("restartPolicy")]
-        public Input<string>? RestartPolicy { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerInstance.V20180601.ContainerGroupRestartPolicy>? RestartPolicy { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

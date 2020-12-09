@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview.Inputs
         public Input<int> DiskSizeInGB { get; set; } = null!;
 
         [Input("storageAccountType", required: true)]
-        public Input<string> StorageAccountType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.BatchAI.V20170901Preview.StorageAccountType> StorageAccountType { get; set; } = null!;
 
         public DataDisksArgs()
         {

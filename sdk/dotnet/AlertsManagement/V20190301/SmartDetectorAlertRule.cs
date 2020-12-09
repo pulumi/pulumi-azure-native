@@ -176,13 +176,13 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20190301
         /// The alert rule severity.
         /// </summary>
         [Input("severity", required: true)]
-        public Input<string> Severity { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.AlertsManagement.V20190301.Severity> Severity { get; set; } = null!;
 
         /// <summary>
         /// The alert rule state.
         /// </summary>
         [Input("state", required: true)]
-        public Input<string> State { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.AlertsManagement.V20190301.AlertRuleState> State { get; set; } = null!;
 
         /// <summary>
         /// The alert rule throttling information.

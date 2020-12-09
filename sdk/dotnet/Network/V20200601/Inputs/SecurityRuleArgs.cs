@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601.Inputs
         /// The network traffic is allowed or denied.
         /// </summary>
         [Input("access", required: true)]
-        public Input<string> Access { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200601.SecurityRuleAccess> Access { get; set; } = null!;
 
         /// <summary>
         /// A description for this rule. Restricted to 140 chars.
@@ -79,7 +79,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601.Inputs
         /// The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
         /// </summary>
         [Input("direction", required: true)]
-        public Input<string> Direction { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200601.SecurityRuleDirection> Direction { get; set; } = null!;
 
         /// <summary>
         /// Resource ID.
@@ -103,7 +103,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601.Inputs
         /// Network protocol this rule applies to.
         /// </summary>
         [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200601.SecurityRuleProtocol> Protocol { get; set; } = null!;
 
         /// <summary>
         /// The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.

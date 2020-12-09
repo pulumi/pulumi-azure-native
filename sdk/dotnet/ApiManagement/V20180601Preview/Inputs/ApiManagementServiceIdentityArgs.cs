@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview.Inputs
         /// The identity type. Currently the only supported type is 'SystemAssigned'.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.ApiManagement.V20180601Preview.ApimIdentityType> Type { get; set; } = null!;
 
         public ApiManagementServiceIdentityArgs()
         {

@@ -208,7 +208,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         /// The schema type.
         /// </summary>
         [Input("schemaType", required: true)]
-        public Input<string> SchemaType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Logic.Latest.SchemaType> SchemaType { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

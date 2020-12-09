@@ -148,7 +148,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20200918
         /// Principal type.
         /// </summary>
         [Input("principalType", required: true)]
-        public Input<string> PrincipalType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Kusto.V20200918.PrincipalType> PrincipalType { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group containing the Kusto cluster.
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20200918
         /// Database principal role.
         /// </summary>
         [Input("role", required: true)]
-        public Input<string> Role { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Kusto.V20200918.DatabasePrincipalRole> Role { get; set; } = null!;
 
         /// <summary>
         /// The tenant id of the principal

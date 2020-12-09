@@ -298,13 +298,13 @@ namespace Pulumi.AzureNextGen.NetApp.V20200601
         /// The security style of volume
         /// </summary>
         [Input("securityStyle")]
-        public Input<string>? SecurityStyle { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.NetApp.V20200601.SecurityStyle>? SecurityStyle { get; set; }
 
         /// <summary>
         /// The service level of the file system
         /// </summary>
         [Input("serviceLevel")]
-        public Input<string>? ServiceLevel { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.NetApp.V20200601.ServiceLevel>? ServiceLevel { get; set; }
 
         /// <summary>
         /// If enabled (true) the volume will contain a read-only .snapshot directory which provides access to each of the volume's snapshots (default to true).

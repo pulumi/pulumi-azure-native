@@ -181,7 +181,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801.Inputs
         /// Site load balancing
         /// </summary>
         [Input("loadBalancing")]
-        public Input<string>? LoadBalancing { get; set; }
+        public Input<Pulumi.AzureNextGen.Web.V20150801.SiteLoadBalancing>? LoadBalancing { get; set; }
 
         /// <summary>
         /// Local mysql enabled
@@ -205,7 +205,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801.Inputs
         /// Managed pipeline mode
         /// </summary>
         [Input("managedPipelineMode")]
-        public Input<string>? ManagedPipelineMode { get; set; }
+        public Input<Pulumi.AzureNextGen.Web.V20150801.ManagedPipelineMode>? ManagedPipelineMode { get; set; }
 
         [Input("metadata")]
         private InputList<Inputs.NameValuePairArgs>? _metadata;

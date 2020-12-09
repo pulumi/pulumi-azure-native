@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20190401Preview.Inputs
         /// Data type to show in view.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20190401Preview.PivotTypeType>? Type { get; set; }
 
         public PivotPropertiesArgs()
         {

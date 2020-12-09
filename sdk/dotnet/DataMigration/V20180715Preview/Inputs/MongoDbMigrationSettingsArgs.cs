@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview.Inputs
         /// Describes how changes will be replicated from the source to the target. The default is OneTime.
         /// </summary>
         [Input("replication")]
-        public Input<string>? Replication { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DataMigration.V20180715Preview.MongoDbReplication>? Replication { get; set; }
 
         /// <summary>
         /// Settings used to connect to the source cluster

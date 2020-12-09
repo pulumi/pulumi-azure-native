@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest.Inputs
         /// Link type.
         /// </summary>
         [Input("linkType")]
-        public Input<string>? LinkType { get; set; }
+        public Input<Pulumi.AzureNextGen.CustomerInsights.Latest.LinkTypes>? LinkType { get; set; }
 
         /// <summary>
         ///  Property name on the source Entity Type.

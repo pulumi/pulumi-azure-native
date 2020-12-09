@@ -31,13 +31,13 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest.Inputs
         /// The operation the trigger is associated with
         /// </summary>
         [Input("triggerOperation")]
-        public Input<string>? TriggerOperation { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DocumentDB.Latest.TriggerOperation>? TriggerOperation { get; set; }
 
         /// <summary>
         /// Type of the Trigger
         /// </summary>
         [Input("triggerType")]
-        public Input<string>? TriggerType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DocumentDB.Latest.TriggerType>? TriggerType { get; set; }
 
         public SqlTriggerResourceArgs()
         {

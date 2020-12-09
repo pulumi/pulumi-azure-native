@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501.Inputs
         /// The rental and lease key type.
         /// </summary>
         [Input("rentalAndLeaseKeyType", required: true)]
-        public Input<string> RentalAndLeaseKeyType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Media.V20200501.ContentKeyPolicyFairPlayRentalAndLeaseKeyType> RentalAndLeaseKeyType { get; set; } = null!;
 
         /// <summary>
         /// The rental duration. Must be greater than or equal to 0.

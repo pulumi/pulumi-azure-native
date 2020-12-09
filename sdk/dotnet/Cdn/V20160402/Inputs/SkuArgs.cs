@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20160402.Inputs
         /// Name of the pricing tier
         /// </summary>
         [Input("name")]
-        public Input<string>? Name { get; set; }
+        public Input<Pulumi.AzureNextGen.Cdn.V20160402.SkuName>? Name { get; set; }
 
         public SkuArgs()
         {

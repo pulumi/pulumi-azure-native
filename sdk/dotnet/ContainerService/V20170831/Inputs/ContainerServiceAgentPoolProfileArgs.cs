@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20170831.Inputs
         /// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
         /// </summary>
         [Input("osType")]
-        public Input<string>? OsType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20170831.OSType>? OsType { get; set; }
 
         [Input("ports")]
         private InputList<int>? _ports;
@@ -61,13 +61,13 @@ namespace Pulumi.AzureNextGen.ContainerService.V20170831.Inputs
         /// Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
         /// </summary>
         [Input("storageProfile")]
-        public Input<string>? StorageProfile { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20170831.ContainerServiceStorageProfileTypes>? StorageProfile { get; set; }
 
         /// <summary>
         /// Size of agent VMs.
         /// </summary>
         [Input("vmSize", required: true)]
-        public Input<string> VmSize { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerService.V20170831.ContainerServiceVMSizeTypes> VmSize { get; set; } = null!;
 
         /// <summary>
         /// VNet SubnetID specifies the VNet's subnet identifier.

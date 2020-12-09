@@ -140,7 +140,7 @@ namespace Pulumi.AzureNextGen.Sql.V20150501Preview
         /// Database type of the sync member.
         /// </summary>
         [Input("databaseType")]
-        public Input<string>? DatabaseType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20150501Preview.SyncMemberDbType>? DatabaseType { get; set; }
 
         /// <summary>
         /// Password of the member database in the sync member.
@@ -176,7 +176,7 @@ namespace Pulumi.AzureNextGen.Sql.V20150501Preview
         /// Sync direction of the sync member.
         /// </summary>
         [Input("syncDirection")]
-        public Input<string>? SyncDirection { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20150501Preview.SyncDirection>? SyncDirection { get; set; }
 
         /// <summary>
         /// The name of the sync group on which the sync member is hosted.

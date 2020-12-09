@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20191231.Inputs
         /// Action to perform
         /// </summary>
         [Input("headerAction", required: true)]
-        public Input<string> HeaderAction { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20191231.HeaderAction> HeaderAction { get; set; } = null!;
 
         /// <summary>
         /// Name of the header to modify

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ChangeAnalysis.V20200401Preview.Inputs
         /// The state of notifications feature.
         /// </summary>
         [Input("activationState")]
-        public Input<string>? ActivationState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ChangeAnalysis.V20200401Preview.NotificationsState>? ActivationState { get; set; }
 
         /// <summary>
         /// Configuration properties of an Azure Monitor workspace that receives change notifications.

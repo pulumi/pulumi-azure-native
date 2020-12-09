@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801.Inputs
         /// Shared or dedicated web app hosting
         /// </summary>
         [Input("computeMode")]
-        public Input<string>? ComputeMode { get; set; }
+        public Input<Pulumi.AzureNextGen.Web.V20150801.ComputeModeOptions>? ComputeMode { get; set; }
 
         /// <summary>
         /// Resource Id

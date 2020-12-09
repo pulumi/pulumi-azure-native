@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20200601.Inputs
         /// The schedule recurrence.
         /// </summary>
         [Input("recurrence")]
-        public Input<string>? Recurrence { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20200601.RecurrenceType>? Recurrence { get; set; }
 
         /// <summary>
         /// Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20200601.Inputs
         /// The status of the export's schedule. If 'Inactive', the export's schedule is paused.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.V20200601.StatusType>? Status { get; set; }
 
         public ExportScheduleArgs()
         {

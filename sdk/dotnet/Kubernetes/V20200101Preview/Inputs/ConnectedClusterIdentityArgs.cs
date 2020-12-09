@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview.Inputs
         /// The type of identity used for the connected cluster. The type 'SystemAssigned, includes a system created identity. The type 'None' means no identity is assigned to the connected cluster.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Kubernetes.V20200101Preview.ResourceIdentityType> Type { get; set; } = null!;
 
         public ConnectedClusterIdentityArgs()
         {

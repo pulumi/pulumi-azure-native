@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview.Inputs
         /// The encryption algorithm.
         /// </summary>
         [Input("encryptionAlgorithm", required: true)]
-        public Input<string> EncryptionAlgorithm { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Logic.V20180701Preview.EncryptionAlgorithm> EncryptionAlgorithm { get; set; } = null!;
 
         /// <summary>
         /// The number of days to look back for duplicate interchange.
@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview.Inputs
         /// The signing algorithm.
         /// </summary>
         [Input("signingAlgorithm")]
-        public Input<string>? SigningAlgorithm { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Logic.V20180701Preview.SigningAlgorithm>? SigningAlgorithm { get; set; }
 
         public AS2ValidationSettingsArgs()
         {

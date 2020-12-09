@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.CustomProviders.V20180901Preview.Inputs
         /// The routing types that are supported for resource requests.
         /// </summary>
         [Input("routingType")]
-        public Input<string>? RoutingType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.CustomProviders.V20180901Preview.ResourceTypeRouting>? RoutingType { get; set; }
 
         public CustomRPResourceTypeRouteDefinitionArgs()
         {

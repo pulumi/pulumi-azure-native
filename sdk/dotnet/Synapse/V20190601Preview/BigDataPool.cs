@@ -243,13 +243,13 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// The level of compute power that each node in the Big Data pool has.
         /// </summary>
         [Input("nodeSize")]
-        public Input<string>? NodeSize { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Synapse.V20190601Preview.NodeSize>? NodeSize { get; set; }
 
         /// <summary>
         /// The kind of nodes that the Big Data pool provides.
         /// </summary>
         [Input("nodeSizeFamily")]
-        public Input<string>? NodeSizeFamily { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Synapse.V20190601Preview.NodeSizeFamily>? NodeSizeFamily { get; set; }
 
         /// <summary>
         /// The state of the Big Data pool.

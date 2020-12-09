@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.MixedReality.V20190228Preview.Inputs
         /// The identity type.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AzureNextGen.MixedReality.V20190228Preview.ResourceIdentityType>? Type { get; set; }
 
         public IdentityArgs()
         {

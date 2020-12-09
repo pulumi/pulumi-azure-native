@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.Inputs
         /// Indicates whether audit logs are enabled on the connected registry.
         /// </summary>
         [Input("auditLogStatus")]
-        public Input<string>? AuditLogStatus { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.AuditLogStatus>? AuditLogStatus { get; set; }
 
         /// <summary>
         /// The verbosity of logs persisted on the connected registry.
         /// </summary>
         [Input("logLevel")]
-        public Input<string>? LogLevel { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.LogLevel>? LogLevel { get; set; }
 
         public LoggingPropertiesArgs()
         {

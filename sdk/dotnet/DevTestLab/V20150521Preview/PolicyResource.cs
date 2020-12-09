@@ -141,7 +141,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// The evaluator type of the policy.
         /// </summary>
         [Input("evaluatorType")]
-        public Input<string>? EvaluatorType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20150521Preview.PolicyEvaluatorType>? EvaluatorType { get; set; }
 
         /// <summary>
         /// The fact data of the policy.
@@ -153,7 +153,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// The fact name of the policy.
         /// </summary>
         [Input("factName")]
-        public Input<string>? FactName { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20150521Preview.PolicyFactName>? FactName { get; set; }
 
         /// <summary>
         /// The identifier of the resource.
@@ -201,7 +201,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// The status of the policy.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DevTestLab.V20150521Preview.PolicyStatus>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

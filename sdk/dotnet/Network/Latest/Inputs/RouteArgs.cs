@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// The type of Azure hop the packet should be sent to.
         /// </summary>
         [Input("nextHopType", required: true)]
-        public Input<string> NextHopType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.RouteNextHopType> NextHopType { get; set; } = null!;
 
         public RouteArgs()
         {

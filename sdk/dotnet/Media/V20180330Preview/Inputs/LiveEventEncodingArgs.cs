@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview.Inputs
         /// The encoding type for Live Event.
         /// </summary>
         [Input("encodingType")]
-        public Input<string>? EncodingType { get; set; }
+        public Input<Pulumi.AzureNextGen.Media.V20180330Preview.LiveEventEncodingType>? EncodingType { get; set; }
 
         /// <summary>
         /// The encoding preset name.

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.CostManagement.Latest.Inputs
         /// The granularity of rows in the export. Currently only 'Daily' is supported.
         /// </summary>
         [Input("granularity")]
-        public Input<string>? Granularity { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.CostManagement.Latest.GranularityType>? Granularity { get; set; }
 
         public ExportDatasetArgs()
         {

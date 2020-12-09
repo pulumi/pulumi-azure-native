@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20201101.Inputs
         /// The sku name.
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataBox.V20201101.SkuName> Name { get; set; } = null!;
 
         public SkuArgs()
         {

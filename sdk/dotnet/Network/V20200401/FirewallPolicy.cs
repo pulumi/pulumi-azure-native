@@ -191,7 +191,7 @@ namespace Pulumi.AzureNextGen.Network.V20200401
         /// The operation mode for Threat Intelligence.
         /// </summary>
         [Input("threatIntelMode")]
-        public Input<string>? ThreatIntelMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200401.AzureFirewallThreatIntelMode>? ThreatIntelMode { get; set; }
 
         /// <summary>
         /// ThreatIntel Whitelist for Firewall Policy.

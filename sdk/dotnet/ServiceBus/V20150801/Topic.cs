@@ -240,7 +240,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20150801
         /// Entity availability status for the topic.
         /// </summary>
         [Input("entityAvailabilityStatus")]
-        public Input<string>? EntityAvailabilityStatus { get; set; }
+        public Input<Pulumi.AzureNextGen.ServiceBus.V20150801.EntityAvailabilityStatus>? EntityAvailabilityStatus { get; set; }
 
         /// <summary>
         /// Whether messages should be filtered before publishing.
@@ -297,7 +297,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20150801
         /// Enumerates the possible values for the status of a messaging entity.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public Input<Pulumi.AzureNextGen.ServiceBus.V20150801.EntityStatus>? Status { get; set; }
 
         /// <summary>
         /// Value that indicates whether the topic supports ordering.

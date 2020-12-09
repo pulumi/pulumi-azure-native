@@ -19,19 +19,19 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Latest.Inputs
         /// The OS architecture.
         /// </summary>
         [Input("architecture")]
-        public Input<string>? Architecture { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.Latest.Architecture>? Architecture { get; set; }
 
         /// <summary>
         /// The operating system type required for the run.
         /// </summary>
         [Input("os", required: true)]
-        public Input<string> Os { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.Latest.OS> Os { get; set; } = null!;
 
         /// <summary>
         /// Variant of the CPU.
         /// </summary>
         [Input("variant")]
-        public Input<string>? Variant { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.Latest.Variant>? Variant { get; set; }
 
         public PlatformPropertiesArgs()
         {

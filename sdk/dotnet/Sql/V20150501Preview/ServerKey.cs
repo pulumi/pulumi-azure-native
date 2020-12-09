@@ -145,7 +145,7 @@ namespace Pulumi.AzureNextGen.Sql.V20150501Preview
         /// The server key type like 'ServiceManaged', 'AzureKeyVault'.
         /// </summary>
         [Input("serverKeyType", required: true)]
-        public Input<string> ServerKeyType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20150501Preview.ServerKeyType> ServerKeyType { get; set; } = null!;
 
         /// <summary>
         /// The name of the server.

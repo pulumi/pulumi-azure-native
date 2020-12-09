@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview.Inputs
         /// The type of the source.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview.PipelineRunSourceType>? Type { get; set; }
 
         public PipelineRunSourcePropertiesArgs()
         {

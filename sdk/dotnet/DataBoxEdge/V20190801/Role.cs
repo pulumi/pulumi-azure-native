@@ -94,7 +94,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801
         /// Role type.
         /// </summary>
         [Input("kind", required: true)]
-        public Input<string> Kind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataBoxEdge.V20190801.RoleTypes> Kind { get; set; } = null!;
 
         /// <summary>
         /// The role name.

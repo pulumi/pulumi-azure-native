@@ -64,7 +64,7 @@ namespace Pulumi.AzureNextGen.Web.V20181101.Inputs
         /// Defines what this IP filter will be used for. This is to support IP filtering on proxies.
         /// </summary>
         [Input("tag")]
-        public Input<string>? Tag { get; set; }
+        public Input<Pulumi.AzureNextGen.Web.V20181101.IpFilterTag>? Tag { get; set; }
 
         /// <summary>
         /// Virtual network resource id

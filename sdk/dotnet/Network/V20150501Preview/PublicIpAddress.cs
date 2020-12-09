@@ -214,7 +214,7 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
         /// Gets or sets PublicIP allocation method (Static/Dynamic)
         /// </summary>
         [Input("publicIPAllocationMethod", required: true)]
-        public Input<string> PublicIPAllocationMethod { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20150501Preview.IpAllocationMethod> PublicIPAllocationMethod { get; set; } = null!;
 
         /// <summary>
         /// The name of the publicIpAddress.

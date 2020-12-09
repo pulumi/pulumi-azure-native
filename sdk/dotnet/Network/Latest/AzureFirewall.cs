@@ -320,7 +320,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// The operation mode for Threat Intelligence.
         /// </summary>
         [Input("threatIntelMode")]
-        public Input<string>? ThreatIntelMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.AzureFirewallThreatIntelMode>? ThreatIntelMode { get; set; }
 
         /// <summary>
         /// The virtualHub to which the firewall belongs.

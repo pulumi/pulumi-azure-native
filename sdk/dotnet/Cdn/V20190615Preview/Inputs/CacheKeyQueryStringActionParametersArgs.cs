@@ -28,7 +28,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20190615Preview.Inputs
         /// Caching behavior for the requests
         /// </summary>
         [Input("queryStringBehavior", required: true)]
-        public Input<string> QueryStringBehavior { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Cdn.V20190615Preview.QueryStringBehavior> QueryStringBehavior { get; set; } = null!;
 
         public CacheKeyQueryStringActionParametersArgs()
         {

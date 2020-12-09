@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// Web application firewall mode.
         /// </summary>
         [Input("firewallMode", required: true)]
-        public Input<string> FirewallMode { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.ApplicationGatewayFirewallMode> FirewallMode { get; set; } = null!;
 
         /// <summary>
         /// Maximum request body size for WAF.

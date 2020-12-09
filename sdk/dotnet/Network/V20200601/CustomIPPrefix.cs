@@ -140,7 +140,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         /// The commissioned state of the Custom IP Prefix.
         /// </summary>
         [Input("commissionedState")]
-        public Input<string>? CommissionedState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200601.CommissionedState>? CommissionedState { get; set; }
 
         /// <summary>
         /// The name of the custom IP prefix.

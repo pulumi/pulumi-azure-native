@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview.Inputs
         /// Header type.
         /// </summary>
         [Input("header")]
-        public Input<string>? Header { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview.Header>? Header { get; set; }
 
         /// <summary>
         /// Boolean to keep path information as column in the dataset. Defaults to False. This is useful when reading multiple files, and want to know which file a particular record originated from, or to keep useful information in file path.
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview.Inputs
         /// Data source type.
         /// </summary>
         [Input("sourceType")]
-        public Input<string>? SourceType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.V20200501Preview.SourceType>? SourceType { get; set; }
 
         public DatasetCreateRequestParametersArgs()
         {

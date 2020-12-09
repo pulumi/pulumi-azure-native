@@ -149,7 +149,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20180301
         /// The policy definition mode. Possible values are NotSpecified, Indexed, and All.
         /// </summary>
         [Input("mode")]
-        public Input<string>? Mode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Authorization.V20180301.PolicyMode>? Mode { get; set; }
 
         /// <summary>
         /// Required if a parameter is used in policy rule.
@@ -173,7 +173,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20180301
         /// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
         /// </summary>
         [Input("policyType")]
-        public Input<string>? PolicyType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Authorization.V20180301.PolicyType>? PolicyType { get; set; }
 
         public PolicyDefinitionArgs()
         {

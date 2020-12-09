@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// The signature state.
         /// </summary>
         [Input("mode")]
-        public Input<string>? Mode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.FirewallPolicyIntrusionDetectionStateType>? Mode { get; set; }
 
         public FirewallPolicyIntrusionDetectionSignatureSpecificationArgs()
         {

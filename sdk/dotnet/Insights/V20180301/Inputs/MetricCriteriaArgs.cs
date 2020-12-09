@@ -55,7 +55,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180301.Inputs
         /// the criteria operator.
         /// </summary>
         [Input("operator", required: true)]
-        public Input<string> Operator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20180301.Operator> Operator { get; set; } = null!;
 
         /// <summary>
         /// Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.
@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180301.Inputs
         /// the criteria time aggregation types.
         /// </summary>
         [Input("timeAggregation", required: true)]
-        public Input<string> TimeAggregation { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Insights.V20180301.AggregationType> TimeAggregation { get; set; } = null!;
 
         public MetricCriteriaArgs()
         {

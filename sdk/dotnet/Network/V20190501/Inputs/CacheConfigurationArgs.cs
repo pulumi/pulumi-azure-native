@@ -19,13 +19,13 @@ namespace Pulumi.AzureNextGen.Network.V20190501.Inputs
         /// Whether to use dynamic compression for cached content
         /// </summary>
         [Input("dynamicCompression")]
-        public Input<string>? DynamicCompression { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190501.DynamicCompressionEnabled>? DynamicCompression { get; set; }
 
         /// <summary>
         /// Treatment of URL query terms when forming the cache key.
         /// </summary>
         [Input("queryParameterStripDirective")]
-        public Input<string>? QueryParameterStripDirective { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190501.FrontDoorQuery>? QueryParameterStripDirective { get; set; }
 
         public CacheConfigurationArgs()
         {

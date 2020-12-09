@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.Network.V20190901.Inputs
         /// The status of the virtual network peering.
         /// </summary>
         [Input("peeringState")]
-        public Input<string>? PeeringState { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190901.VirtualNetworkPeeringState>? PeeringState { get; set; }
 
         /// <summary>
         /// The reference of the remote virtual network address space.

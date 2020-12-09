@@ -169,7 +169,7 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview
         /// The cluster type.
         /// </summary>
         [Input("clusterType", required: true)]
-        public Input<string> ClusterType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview.ClusterType> ClusterType { get; set; } = null!;
 
         /// <summary>
         /// Container Registry properties.

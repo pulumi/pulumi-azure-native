@@ -16,13 +16,13 @@ namespace Pulumi.AzureNextGen.Batch.V20170901.Inputs
         /// nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
         /// </summary>
         [Input("elevationLevel")]
-        public Input<string>? ElevationLevel { get; set; }
+        public Input<Pulumi.AzureNextGen.Batch.V20170901.ElevationLevel>? ElevationLevel { get; set; }
 
         /// <summary>
         /// pool - specifies that the task runs as the common auto user account which is created on every node in a pool. task - specifies that the service should create a new user for the task. The default value is task.
         /// </summary>
         [Input("scope")]
-        public Input<string>? Scope { get; set; }
+        public Input<Pulumi.AzureNextGen.Batch.V20170901.AutoUserScope>? Scope { get; set; }
 
         public AutoUserSpecificationArgs()
         {

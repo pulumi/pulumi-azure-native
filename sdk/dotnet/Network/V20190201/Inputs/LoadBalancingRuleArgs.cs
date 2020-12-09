@@ -79,7 +79,7 @@ namespace Pulumi.AzureNextGen.Network.V20190201.Inputs
         /// The load distribution policy for this rule. Possible values are 'Default', 'SourceIP', and 'SourceIPProtocol'.
         /// </summary>
         [Input("loadDistribution")]
-        public Input<string>? LoadDistribution { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190201.LoadDistribution>? LoadDistribution { get; set; }
 
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -97,7 +97,7 @@ namespace Pulumi.AzureNextGen.Network.V20190201.Inputs
         /// The reference to the transport protocol used by the load balancing rule.
         /// </summary>
         [Input("protocol", required: true)]
-        public Input<string> Protocol { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20190201.TransportProtocol> Protocol { get; set; } = null!;
 
         /// <summary>
         /// Gets the provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.

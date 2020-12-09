@@ -212,7 +212,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// RNM supported protocol types.
         /// </summary>
         [Input("protocol")]
-        public Input<string>? Protocol { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.ProtocolType>? Protocol { get; set; }
 
         /// <summary>
         /// The name of the resource group.

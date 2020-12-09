@@ -242,7 +242,7 @@ namespace Pulumi.AzureNextGen.Insights.V20201005Preview
         /// The kind of WebTest that this web test watches. Choices are ping and multistep.
         /// </summary>
         [Input("kind")]
-        public Input<string>? Kind { get; set; }
+        public Input<Pulumi.AzureNextGen.Insights.V20201005Preview.WebTestKind>? Kind { get; set; }
 
         /// <summary>
         /// Resource location
@@ -320,7 +320,7 @@ namespace Pulumi.AzureNextGen.Insights.V20201005Preview
         /// The kind of web test this is, valid choices are ping, multistep, basic, and standard.
         /// </summary>
         [Input("webTestKind", required: true)]
-        public Input<string> WebTestKind { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Insights.V20201005Preview.WebTestKindEnum> WebTestKind { get; set; } = null!;
 
         /// <summary>
         /// User defined name if this WebTest.

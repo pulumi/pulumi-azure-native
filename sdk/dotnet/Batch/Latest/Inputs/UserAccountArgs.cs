@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.Batch.Latest.Inputs
         /// nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
         /// </summary>
         [Input("elevationLevel")]
-        public Input<string>? ElevationLevel { get; set; }
+        public Input<Pulumi.AzureNextGen.Batch.Latest.ElevationLevel>? ElevationLevel { get; set; }
 
         /// <summary>
         /// This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.

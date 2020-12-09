@@ -175,7 +175,7 @@ namespace Pulumi.AzureNextGen.Storage.V20181101
         /// Specifies whether data in the container may be accessed publicly and the level of access.
         /// </summary>
         [Input("publicAccess")]
-        public Input<string>? PublicAccess { get; set; }
+        public Input<Pulumi.AzureNextGen.Storage.V20181101.PublicAccess>? PublicAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

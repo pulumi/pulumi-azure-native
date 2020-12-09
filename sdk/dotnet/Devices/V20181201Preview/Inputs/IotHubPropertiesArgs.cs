@@ -67,7 +67,7 @@ namespace Pulumi.AzureNextGen.Devices.V20181201Preview.Inputs
         /// The capabilities and features enabled for the IoT hub.
         /// </summary>
         [Input("features")]
-        public Input<string>? Features { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Devices.V20181201Preview.Capabilities>? Features { get; set; }
 
         [Input("ipFilterRules")]
         private InputList<Inputs.IpFilterRuleArgs>? _ipFilterRules;

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20200401.Inputs
         /// Type of the filter file.
         /// </summary>
         [Input("filterFileType", required: true)]
-        public Input<string> FilterFileType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.DataBox.V20200401.FilterFileType> FilterFileType { get; set; } = null!;
 
         public FilterFileDetailsArgs()
         {

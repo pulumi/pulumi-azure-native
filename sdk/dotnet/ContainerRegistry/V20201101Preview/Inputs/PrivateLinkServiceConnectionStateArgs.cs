@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.Inputs
         /// A message indicating if changes on the service provider require any updates on the consumer.
         /// </summary>
         [Input("actionsRequired")]
-        public Input<string>? ActionsRequired { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.ActionsRequired>? ActionsRequired { get; set; }
 
         /// <summary>
         /// The description for connection status. For example if connection is rejected it can indicate reason for rejection.
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.Inputs
         /// The private link service connection status.
         /// </summary>
         [Input("status")]
-        public Input<string>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.ConnectionStatus>? Status { get; set; }
 
         public PrivateLinkServiceConnectionStateArgs()
         {

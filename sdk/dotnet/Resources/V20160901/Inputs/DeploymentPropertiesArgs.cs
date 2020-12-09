@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Resources.V20160901.Inputs
         /// The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
         /// </summary>
         [Input("mode", required: true)]
-        public Input<string> Mode { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Resources.V20160901.DeploymentMode> Mode { get; set; } = null!;
 
         /// <summary>
         /// Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.

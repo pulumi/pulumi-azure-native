@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Devices.V20200615.Inputs
         /// Method used to authenticate against the storage endpoint
         /// </summary>
         [Input("authenticationType")]
-        public Input<string>? AuthenticationType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Devices.V20200615.AuthenticationType>? AuthenticationType { get; set; }
 
         /// <summary>
         /// Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds.

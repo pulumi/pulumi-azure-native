@@ -178,7 +178,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20170801Beta
         /// How the read-write server's participation in the query pool is controlled.&lt;br/&gt;It can have the following values: &lt;ul&gt;&lt;li&gt;readOnly - indicates that the read-write server is intended not to participate in query operations&lt;/li&gt;&lt;li&gt;all - indicates that the read-write server can participate in query operations&lt;/li&gt;&lt;/ul&gt;Specifying readOnly when capacity is 1 results in error.
         /// </summary>
         [Input("querypoolConnectionMode")]
-        public Input<string>? QuerypoolConnectionMode { get; set; }
+        public Input<Pulumi.AzureNextGen.AnalysisServices.V20170801Beta.ConnectionMode>? QuerypoolConnectionMode { get; set; }
 
         /// <summary>
         /// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview.Inputs
         /// The name.
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Logic.V20180701Preview.SkuName> Name { get; set; } = null!;
 
         /// <summary>
         /// The reference to plan.

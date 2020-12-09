@@ -37,7 +37,7 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview.Inputs
         /// Name of the policy. The valid value is AccessTimeTracking. This field is currently read only
         /// </summary>
         [Input("name")]
-        public Input<string>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Storage.V20200801Preview.Name>? Name { get; set; }
 
         /// <summary>
         /// The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1

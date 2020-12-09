@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest.Inputs
         /// The RosettaNet ProcessConfiguration activity type.
         /// </summary>
         [Input("activityType", required: true)]
-        public Input<string> ActivityType { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Logic.Latest.RosettaNetPipActivityType> ActivityType { get; set; } = null!;
 
         public RosettaNetPipActivitySettingsArgs()
         {

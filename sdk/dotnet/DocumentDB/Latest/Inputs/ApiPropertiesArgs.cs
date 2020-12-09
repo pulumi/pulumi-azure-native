@@ -16,7 +16,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest.Inputs
         /// Describes the ServerVersion of an a MongoDB account.
         /// </summary>
         [Input("serverVersion")]
-        public Input<string>? ServerVersion { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DocumentDB.Latest.ServerVersion>? ServerVersion { get; set; }
 
         public ApiPropertiesArgs()
         {

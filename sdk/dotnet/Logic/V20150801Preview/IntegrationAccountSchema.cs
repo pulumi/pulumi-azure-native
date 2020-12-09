@@ -193,7 +193,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150801Preview
         /// The schema type.
         /// </summary>
         [Input("schemaType")]
-        public Input<string>? SchemaType { get; set; }
+        public Input<Pulumi.AzureNextGen.Logic.V20150801Preview.SchemaType>? SchemaType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

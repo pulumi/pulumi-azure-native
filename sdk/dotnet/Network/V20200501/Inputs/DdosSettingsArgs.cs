@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501.Inputs
         /// The DDoS protection policy customizability of the public IP. Only standard coverage will have the ability to be customized.
         /// </summary>
         [Input("protectionCoverage")]
-        public Input<string>? ProtectionCoverage { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20200501.DdosSettingsProtectionCoverage>? ProtectionCoverage { get; set; }
 
         public DdosSettingsArgs()
         {

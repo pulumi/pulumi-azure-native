@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Inputs
         /// Gets or sets the target availability zone.
         /// </summary>
         [Input("targetAvailabilityZone")]
-        public Input<string>? TargetAvailabilityZone { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Migrate.V20191001Preview.TargetAvailabilityZone>? TargetAvailabilityZone { get; set; }
 
         /// <summary>
         /// Gets or sets the target Resource name.

@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Devices.V20181201Preview.Inputs
         /// Specific Role assigned to this location
         /// </summary>
         [Input("role")]
-        public Input<string>? Role { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Devices.V20181201Preview.IotHubReplicaRoleType>? Role { get; set; }
 
         public IotHubLocationDescriptionArgs()
         {

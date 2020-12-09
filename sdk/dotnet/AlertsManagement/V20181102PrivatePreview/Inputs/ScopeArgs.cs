@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20181102PrivatePreview.Inputs
         /// type of target scope
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.AlertsManagement.V20181102PrivatePreview.ScopeType>? Type { get; set; }
 
         [Input("values")]
         private InputList<string>? _values;

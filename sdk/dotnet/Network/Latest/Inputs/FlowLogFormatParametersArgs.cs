@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.Latest.Inputs
         /// The file type of flow log.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.Latest.FlowLogFormatType>? Type { get; set; }
 
         /// <summary>
         /// The version (revision) of the flow log.

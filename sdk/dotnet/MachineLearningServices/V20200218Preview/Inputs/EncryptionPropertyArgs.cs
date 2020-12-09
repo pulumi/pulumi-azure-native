@@ -22,7 +22,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200218Preview.Inputs
         /// Indicates whether or not the encryption is enabled for the workspace.
         /// </summary>
         [Input("status", required: true)]
-        public Input<string> Status { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.MachineLearningServices.V20200218Preview.EncryptionStatus> Status { get; set; } = null!;
 
         public EncryptionPropertyArgs()
         {

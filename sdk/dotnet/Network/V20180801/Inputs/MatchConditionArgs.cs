@@ -31,7 +31,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801.Inputs
         /// Match Variable
         /// </summary>
         [Input("matchVariable", required: true)]
-        public Input<string> MatchVariable { get; set; } = null!;
+        public InputUnion<string, Inputs.MatchConditionArgs> MatchVariable { get; set; } = null!;
 
         /// <summary>
         /// Describes if this is negate condition or not
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801.Inputs
         /// Describes operator to be matched
         /// </summary>
         [Input("operator", required: true)]
-        public Input<string> Operator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180801.Operator> Operator { get; set; } = null!;
 
         /// <summary>
         /// Name of selector in RequestHeader or RequestBody to be matched

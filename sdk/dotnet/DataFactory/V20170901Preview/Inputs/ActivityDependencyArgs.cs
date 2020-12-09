@@ -22,14 +22,14 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview.Inputs
         public Input<string> Activity { get; set; } = null!;
 
         [Input("dependencyConditions", required: true)]
-        private InputList<string>? _dependencyConditions;
+        private InputList<Union<string, Pulumi.AzureNextGen.DataFactory.V20170901Preview.DependencyCondition>>? _dependencyConditions;
 
         /// <summary>
         /// Match-Condition for the dependency.
         /// </summary>
-        public InputList<string> DependencyConditions
+        public InputList<Union<string, Pulumi.AzureNextGen.DataFactory.V20170901Preview.DependencyCondition>> DependencyConditions
         {
-            get => _dependencyConditions ?? (_dependencyConditions = new InputList<string>());
+            get => _dependencyConditions ?? (_dependencyConditions = new InputList<Union<string, Pulumi.AzureNextGen.DataFactory.V20170901Preview.DependencyCondition>>());
             set => _dependencyConditions = value;
         }
 

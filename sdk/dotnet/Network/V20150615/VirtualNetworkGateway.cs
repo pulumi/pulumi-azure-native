@@ -213,7 +213,7 @@ namespace Pulumi.AzureNextGen.Network.V20150615
         /// The type of this virtual network gateway. Possible values are: 'Vpn' and 'ExpressRoute'.
         /// </summary>
         [Input("gatewayType")]
-        public Input<string>? GatewayType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20150615.VirtualNetworkGatewayType>? GatewayType { get; set; }
 
         /// <summary>
         /// Resource Identifier.
@@ -291,7 +291,7 @@ namespace Pulumi.AzureNextGen.Network.V20150615
         /// The type of this virtual network gateway. Possible values are: 'PolicyBased' and 'RouteBased'.
         /// </summary>
         [Input("vpnType")]
-        public Input<string>? VpnType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20150615.VpnType>? VpnType { get; set; }
 
         public VirtualNetworkGatewayArgs()
         {

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20170101.Inputs
         /// Port data type.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.MachineLearning.V20170101.OutputPortType>? Type { get; set; }
 
         public OutputPortArgs()
         {

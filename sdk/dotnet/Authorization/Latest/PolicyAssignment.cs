@@ -168,7 +168,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
         /// The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
         /// </summary>
         [Input("enforcementMode")]
-        public Input<string>? EnforcementMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Authorization.Latest.EnforcementMode>? EnforcementMode { get; set; }
 
         /// <summary>
         /// The managed identity associated with the policy assignment.

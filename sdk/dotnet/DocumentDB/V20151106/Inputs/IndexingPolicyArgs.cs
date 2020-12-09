@@ -49,7 +49,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20151106.Inputs
         /// Indicates the indexing mode.
         /// </summary>
         [Input("indexingMode")]
-        public Input<string>? IndexingMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.DocumentDB.V20151106.IndexingMode>? IndexingMode { get; set; }
 
         public IndexingPolicyArgs()
         {

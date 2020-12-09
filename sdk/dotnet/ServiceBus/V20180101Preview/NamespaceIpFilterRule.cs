@@ -93,7 +93,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// The IP Filter Action
         /// </summary>
         [Input("action")]
-        public Input<string>? Action { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.ServiceBus.V20180101Preview.IPAction>? Action { get; set; }
 
         /// <summary>
         /// IP Filter name

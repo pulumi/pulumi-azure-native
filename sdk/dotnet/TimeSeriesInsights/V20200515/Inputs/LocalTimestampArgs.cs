@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20200515.Inputs
         /// An enum that represents the format of the local timestamp property that needs to be set.
         /// </summary>
         [Input("format")]
-        public Input<string>? Format { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.TimeSeriesInsights.V20200515.LocalTimestampFormat>? Format { get; set; }
 
         /// <summary>
         /// An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.

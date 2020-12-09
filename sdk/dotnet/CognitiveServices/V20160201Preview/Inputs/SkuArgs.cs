@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.CognitiveServices.V20160201Preview.Inputs
         /// Gets or sets the sku name. Required for account creation, optional for update.
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.CognitiveServices.V20160201Preview.SkuName> Name { get; set; } = null!;
 
         public SkuArgs()
         {

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Insights.V20150401.Inputs
         /// the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.
         /// </summary>
         [Input("frequency", required: true)]
-        public Input<string> Frequency { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Insights.V20150401.RecurrenceFrequency> Frequency { get; set; } = null!;
 
         /// <summary>
         /// the scheduling constraints for when the profile begins.

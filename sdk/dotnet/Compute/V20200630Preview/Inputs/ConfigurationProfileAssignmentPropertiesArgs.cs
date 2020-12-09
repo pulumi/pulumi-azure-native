@@ -25,7 +25,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200630Preview.Inputs
         /// A value indicating configuration profile.
         /// </summary>
         [Input("configurationProfile")]
-        public Input<string>? ConfigurationProfile { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Compute.V20200630Preview.ConfigurationProfile>? ConfigurationProfile { get; set; }
 
         /// <summary>
         /// The configuration profile custom preferences ARM resource URI

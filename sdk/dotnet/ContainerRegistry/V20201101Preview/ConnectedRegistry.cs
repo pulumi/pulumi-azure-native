@@ -171,7 +171,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// The mode of the connected registry resource that indicates the permissions of the registry.
         /// </summary>
         [Input("mode", required: true)]
-        public Input<string> Mode { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview.ConnectedRegistryMode> Mode { get; set; } = null!;
 
         /// <summary>
         /// The parent of the connected registry.

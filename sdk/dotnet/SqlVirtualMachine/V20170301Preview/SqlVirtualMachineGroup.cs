@@ -147,7 +147,7 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview
         /// SQL image sku.
         /// </summary>
         [Input("sqlImageSku")]
-        public Input<string>? SqlImageSku { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview.SqlVmGroupImageSku>? SqlImageSku { get; set; }
 
         /// <summary>
         /// Name of the SQL virtual machine group.

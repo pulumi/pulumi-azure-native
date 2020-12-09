@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20170615Preview.Inputs
         /// Type of the endpoint for the event subscription destination
         /// </summary>
         [Input("endpointType")]
-        public Input<string>? EndpointType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.EventGrid.V20170615Preview.EndpointType>? EndpointType { get; set; }
 
         /// <summary>
         /// The URL that represents the endpoint of the destination of an event subscription.

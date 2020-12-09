@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601.Inputs
         /// The date format.
         /// </summary>
         [Input("dateFormat", required: true)]
-        public Input<string> DateFormat { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Logic.V20160601.X12DateFormat> DateFormat { get; set; } = null!;
 
         /// <summary>
         /// The functional identifier code.
@@ -73,7 +73,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601.Inputs
         /// The time format.
         /// </summary>
         [Input("timeFormat", required: true)]
-        public Input<string> TimeFormat { get; set; } = null!;
+        public Input<Pulumi.AzureNextGen.Logic.V20160601.X12TimeFormat> TimeFormat { get; set; } = null!;
 
         public X12EnvelopeOverrideArgs()
         {

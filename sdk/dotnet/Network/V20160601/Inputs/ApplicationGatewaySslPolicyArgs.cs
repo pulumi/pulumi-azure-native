@@ -16,14 +16,14 @@ namespace Pulumi.AzureNextGen.Network.V20160601.Inputs
     public sealed class ApplicationGatewaySslPolicyArgs : Pulumi.ResourceArgs
     {
         [Input("disabledSslProtocols")]
-        private InputList<string>? _disabledSslProtocols;
+        private InputList<Union<string, Pulumi.AzureNextGen.Network.V20160601.ApplicationGatewaySslProtocol>>? _disabledSslProtocols;
 
         /// <summary>
         /// SSL protocols to be disabled on Application Gateway
         /// </summary>
-        public InputList<string> DisabledSslProtocols
+        public InputList<Union<string, Pulumi.AzureNextGen.Network.V20160601.ApplicationGatewaySslProtocol>> DisabledSslProtocols
         {
-            get => _disabledSslProtocols ?? (_disabledSslProtocols = new InputList<string>());
+            get => _disabledSslProtocols ?? (_disabledSslProtocols = new InputList<Union<string, Pulumi.AzureNextGen.Network.V20160601.ApplicationGatewaySslProtocol>>());
             set => _disabledSslProtocols = value;
         }
 

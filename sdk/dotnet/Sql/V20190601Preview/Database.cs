@@ -337,7 +337,7 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
         /// Collation of the metadata catalog.
         /// </summary>
         [Input("catalogCollation")]
-        public Input<string>? CatalogCollation { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20190601Preview.CatalogCollationType>? CatalogCollation { get; set; }
 
         /// <summary>
         /// The collation of the database.
@@ -365,7 +365,7 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
         /// Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
         /// </summary>
         [Input("createMode")]
-        public Input<string>? CreateMode { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20190601Preview.CreateMode>? CreateMode { get; set; }
 
         /// <summary>
         /// The name of the database.
@@ -383,7 +383,7 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
         /// The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
         /// </summary>
         [Input("licenseType")]
-        public Input<string>? LicenseType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20190601Preview.DatabaseLicenseType>? LicenseType { get; set; }
 
         /// <summary>
         /// Resource location.
@@ -419,7 +419,7 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
         /// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
         /// </summary>
         [Input("readScale")]
-        public Input<string>? ReadScale { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20190601Preview.DatabaseReadScale>? ReadScale { get; set; }
 
         /// <summary>
         /// The resource identifier of the recoverable database associated with create operation of this database.
@@ -455,7 +455,7 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
         /// The name of the sample schema to apply when creating this database.
         /// </summary>
         [Input("sampleName")]
-        public Input<string>? SampleName { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20190601Preview.SampleName>? SampleName { get; set; }
 
         /// <summary>
         /// The name of the server.
@@ -495,7 +495,7 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
         /// The storage account type used to store backups for this database.
         /// </summary>
         [Input("storageAccountType")]
-        public Input<string>? StorageAccountType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Sql.V20190601Preview.StorageAccountType>? StorageAccountType { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -43,7 +43,7 @@ namespace Pulumi.AzureNextGen.Network.V20170801.Inputs
         /// The state of peering. Possible values are: 'Disabled' and 'Enabled'
         /// </summary>
         [Input("state")]
-        public Input<string>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20170801.ExpressRouteCircuitPeeringState>? State { get; set; }
 
         public Ipv6ExpressRouteCircuitPeeringConfigArgs()
         {

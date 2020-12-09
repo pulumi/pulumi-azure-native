@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20170901.Inputs
         /// The identity type.
         /// </summary>
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public Input<Pulumi.AzureNextGen.Solutions.V20170901.ResourceIdentityType>? Type { get; set; }
 
         public IdentityArgs()
         {

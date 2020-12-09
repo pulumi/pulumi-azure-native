@@ -118,7 +118,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest
         /// The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
         /// </summary>
         [Input("dataStringComparisonBehavior")]
-        public Input<string>? DataStringComparisonBehavior { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.TimeSeriesInsights.Latest.DataStringComparisonBehavior>? DataStringComparisonBehavior { get; set; }
 
         /// <summary>
         /// The name of the Time Series Insights environment associated with the specified resource group.

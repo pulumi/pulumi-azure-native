@@ -22,26 +22,26 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20160810.Inputs
         public Input<string> ActionName { get; set; } = null!;
 
         [Input("failoverDirections", required: true)]
-        private InputList<string>? _failoverDirections;
+        private InputList<Pulumi.AzureNextGen.RecoveryServices.V20160810.PossibleOperationsDirections>? _failoverDirections;
 
         /// <summary>
         /// The list of failover directions.
         /// </summary>
-        public InputList<string> FailoverDirections
+        public InputList<Pulumi.AzureNextGen.RecoveryServices.V20160810.PossibleOperationsDirections> FailoverDirections
         {
-            get => _failoverDirections ?? (_failoverDirections = new InputList<string>());
+            get => _failoverDirections ?? (_failoverDirections = new InputList<Pulumi.AzureNextGen.RecoveryServices.V20160810.PossibleOperationsDirections>());
             set => _failoverDirections = value;
         }
 
         [Input("failoverTypes", required: true)]
-        private InputList<string>? _failoverTypes;
+        private InputList<Pulumi.AzureNextGen.RecoveryServices.V20160810.ReplicationProtectedItemOperation>? _failoverTypes;
 
         /// <summary>
         /// The list of failover types.
         /// </summary>
-        public InputList<string> FailoverTypes
+        public InputList<Pulumi.AzureNextGen.RecoveryServices.V20160810.ReplicationProtectedItemOperation> FailoverTypes
         {
-            get => _failoverTypes ?? (_failoverTypes = new InputList<string>());
+            get => _failoverTypes ?? (_failoverTypes = new InputList<Pulumi.AzureNextGen.RecoveryServices.V20160810.ReplicationProtectedItemOperation>());
             set => _failoverTypes = value;
         }
 

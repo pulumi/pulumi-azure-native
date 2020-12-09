@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.Network.V20180601.Inputs
         /// Name of a load balancer SKU.
         /// </summary>
         [Input("name")]
-        public Input<string>? Name { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Network.V20180601.LoadBalancerSkuName>? Name { get; set; }
 
         public LoadBalancerSkuArgs()
         {

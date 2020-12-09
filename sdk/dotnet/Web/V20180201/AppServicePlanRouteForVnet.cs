@@ -148,7 +148,7 @@ namespace Pulumi.AzureNextGen.Web.V20180201
         /// These values will be used for syncing an app's routes with those from a Virtual Network.
         /// </summary>
         [Input("routeType")]
-        public Input<string>? RouteType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Web.V20180201.RouteType>? RouteType { get; set; }
 
         /// <summary>
         /// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.

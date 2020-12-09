@@ -143,7 +143,7 @@ namespace Pulumi.AzureNextGen.Kusto.Latest
         /// The default principals modification kind
         /// </summary>
         [Input("defaultPrincipalsModificationKind", required: true)]
-        public Input<string> DefaultPrincipalsModificationKind { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.Kusto.Latest.DefaultPrincipalsModificationKind> DefaultPrincipalsModificationKind { get; set; } = null!;
 
         /// <summary>
         /// Resource location.

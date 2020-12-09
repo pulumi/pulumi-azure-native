@@ -237,7 +237,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20200918
         /// The engine type
         /// </summary>
         [Input("engineType")]
-        public Input<string>? EngineType { get; set; }
+        public InputUnion<string, Pulumi.AzureNextGen.Kusto.V20200918.EngineType>? EngineType { get; set; }
 
         /// <summary>
         /// The identity of the cluster, if configured.
