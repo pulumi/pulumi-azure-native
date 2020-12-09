@@ -108,6 +108,6 @@ func TestTopologicalSort(t *testing.T) {
 		}
 
 		_, err := els.topologicalOrder()
-		require.EqualError(t, err, "detected cycle at element B")
+		require.EqualError(t, err, "detected cycle at B")
 	})
 }

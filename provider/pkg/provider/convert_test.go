@@ -387,19 +387,19 @@ func TestSDKOutputsToSDKInputs(t *testing.T) {
 		"name":      "MyResource",
 		"threshold": 123,
 		"structure": map[string]interface{}{
-			"v1": "value1",
-			"v2": 2,
-			"v3": "odd-value",
-			"v4": true,
+			"v1":         "value1",
+			"v2":         2,
+			"v3":         "odd-value",
+			"v4":         true,
 			"v5ReadOnly": "calculated",
 		},
 		"p1": "prop1",
 		"p2": "prop2",
 		"p3": "prop3",
 		"more": map[string]interface{}{
-				"items": []interface{}{
-					map[string]interface{}{"Aaa": "111", "bbb": "333"},
-					map[string]interface{}{"Aaa": "222"},
+			"items": []interface{}{
+				map[string]interface{}{"Aaa": "111", "bbb": "333"},
+				map[string]interface{}{"Aaa": "222"},
 			},
 		},
 		"union": map[string]interface{}{

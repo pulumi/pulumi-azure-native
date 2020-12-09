@@ -37,7 +37,7 @@ func TestConvert(t *testing.T) {
 				Path:       "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/mongodbDatabases/{databaseName}/collections/{collectionName}",
 				APIVersion: "2020-06-01-preview",
 			},
-			"azure-nextgen:documentdb/latest:MongoDBResourceMongoDBCollection": {
+			"azure-nextgen:documentdb/v20200401:MongoDBResourceMongoDBCollection": {
 				Path:       "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/mongodbDatabases/{databaseName}/collections/{collectionName}",
 				APIVersion: "2020-04-01",
 			},
@@ -108,7 +108,7 @@ func TestConvert(t *testing.T) {
 		{
 			name:         "PreviewAndStableMixed",
 			resourceType: "Microsoft.DocumentDb/databaseAccounts/mongodbDatabases/collections",
-			expected:     "azure-nextgen:documentdb/latest:MongoDBResourceMongoDBCollection",
+			expected:     "azure-nextgen:documentdb/v20200401:MongoDBResourceMongoDBCollection",
 			apiVersion:   "2020-03-01",
 		},
 		{
@@ -125,7 +125,7 @@ func TestConvert(t *testing.T) {
 		},
 	} {
 		t.Run(test.name, func(t *testing.T) {
-			assert.Equal(t, test.expected, resoureTokenConverter.convert(test.resourceType, test.apiVersion))
+			assert.Equal(t, test.expected, resoureTokenConverter.convert(test.resourceType, test.apiVersion), test.name)
 		})
 	}
 }

@@ -70,7 +70,7 @@ type AzureAPIResource struct {
 	// https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#asynchronous-operations
 	// Possible values: nil (not async), "azure-async-operation", "location", "original-uri", see
 	// https://github.com/Azure/autorest/blob/master/docs/extensions/readme.md#x-ms-long-running-operation
-	PutAsyncStyle string `json:"putAsyncStyle,omitempty"`
+	PutAsyncStyle    string `json:"putAsyncStyle,omitempty"`
 	DeleteAsyncStyle string `json:"deleteAsyncStyle,omitempty"`
 }
 
