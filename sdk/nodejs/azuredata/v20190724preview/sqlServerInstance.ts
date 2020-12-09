@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -94,28 +94,28 @@ export class SqlServerInstance extends pulumi.CustomResource {
     constructor(name: string, args: SqlServerInstanceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.containerResourceId === undefined) {
+            if ((!args || args.containerResourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'containerResourceId'");
             }
-            if (!args || args.edition === undefined) {
+            if ((!args || args.edition === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'edition'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sqlServerInstanceName === undefined) {
+            if ((!args || args.sqlServerInstanceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sqlServerInstanceName'");
             }
-            if (!args || args.status === undefined) {
+            if ((!args || args.status === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'status'");
             }
-            if (!args || args.vCore === undefined) {
+            if ((!args || args.vCore === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vCore'");
             }
-            if (!args || args.version === undefined) {
+            if ((!args || args.version === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'version'");
             }
             inputs["containerResourceId"] = args ? args.containerResourceId : undefined;

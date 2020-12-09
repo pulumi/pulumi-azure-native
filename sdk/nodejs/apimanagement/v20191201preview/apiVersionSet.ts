@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -73,19 +74,19 @@ export class ApiVersionSet extends pulumi.CustomResource {
     constructor(name: string, args: ApiVersionSetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.displayName === undefined) {
+            if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serviceName === undefined) {
+            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if (!args || args.versionSetId === undefined) {
+            if ((!args || args.versionSetId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'versionSetId'");
             }
-            if (!args || args.versioningScheme === undefined) {
+            if ((!args || args.versioningScheme === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'versioningScheme'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -155,5 +156,5 @@ export interface ApiVersionSetArgs {
     /**
      * An value that determines where the API Version identifer will be located in a HTTP request.
      */
-    readonly versioningScheme: pulumi.Input<string>;
+    readonly versioningScheme: pulumi.Input<string | enums.apimanagement.v20191201preview.VersioningScheme>;
 }

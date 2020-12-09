@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -74,16 +74,16 @@ export class Assessment extends pulumi.CustomResource {
     constructor(name: string, args: AssessmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.assessmentName === undefined) {
+            if ((!args || args.assessmentName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'assessmentName'");
             }
-            if (!args || args.resourceDetails === undefined) {
+            if ((!args || args.resourceDetails === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceDetails'");
             }
-            if (!args || args.resourceId === undefined) {
+            if ((!args || args.resourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if (!args || args.status === undefined) {
+            if ((!args || args.status === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'status'");
             }
             inputs["additionalData"] = args ? args.additionalData : undefined;

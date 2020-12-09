@@ -73,19 +73,19 @@ export class MigrationConfig extends pulumi.CustomResource {
     constructor(name: string, args: MigrationConfigArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.configName === undefined) {
+            if ((!args || args.configName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'configName'");
             }
-            if (!args || args.namespaceName === undefined) {
+            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if (!args || args.postMigrationName === undefined) {
+            if ((!args || args.postMigrationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'postMigrationName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.targetNamespace === undefined) {
+            if ((!args || args.targetNamespace === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetNamespace'");
             }
             inputs["configName"] = args ? args.configName : undefined;

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -134,22 +134,22 @@ export class HostPool extends pulumi.CustomResource {
     constructor(name: string, args: HostPoolArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.hostPoolName === undefined) {
+            if ((!args || args.hostPoolName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hostPoolName'");
             }
-            if (!args || args.hostPoolType === undefined) {
+            if ((!args || args.hostPoolType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hostPoolType'");
             }
-            if (!args || args.loadBalancerType === undefined) {
+            if ((!args || args.loadBalancerType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'loadBalancerType'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.preferredAppGroupType === undefined) {
+            if ((!args || args.preferredAppGroupType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'preferredAppGroupType'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["customRdpProperty"] = args ? args.customRdpProperty : undefined;
@@ -236,11 +236,11 @@ export interface HostPoolArgs {
     /**
      * HostPool type for desktop.
      */
-    readonly hostPoolType: pulumi.Input<string>;
+    readonly hostPoolType: pulumi.Input<string | enums.desktopvirtualization.v20201019preview.HostPoolType>;
     /**
      * The type of the load balancer.
      */
-    readonly loadBalancerType: pulumi.Input<string>;
+    readonly loadBalancerType: pulumi.Input<string | enums.desktopvirtualization.v20201019preview.LoadBalancerType>;
     /**
      * The geo-location where the resource lives
      */
@@ -252,11 +252,11 @@ export interface HostPoolArgs {
     /**
      * PersonalDesktopAssignment type for HostPool.
      */
-    readonly personalDesktopAssignmentType?: pulumi.Input<string>;
+    readonly personalDesktopAssignmentType?: pulumi.Input<string | enums.desktopvirtualization.v20201019preview.PersonalDesktopAssignmentType>;
     /**
      * The type of preferred application group type, default to Desktop Application Group
      */
-    readonly preferredAppGroupType: pulumi.Input<string>;
+    readonly preferredAppGroupType: pulumi.Input<string | enums.desktopvirtualization.v20201019preview.PreferredAppGroupType>;
     /**
      * The registration info of HostPool.
      */
@@ -284,7 +284,7 @@ export interface HostPoolArgs {
     /**
      * The type of single sign on Secret Type.
      */
-    readonly ssoSecretType?: pulumi.Input<string>;
+    readonly ssoSecretType?: pulumi.Input<string | enums.desktopvirtualization.v20201019preview.SSOSecretType>;
     /**
      * URL to customer ADFS server for signing WVD SSO certificates.
      */

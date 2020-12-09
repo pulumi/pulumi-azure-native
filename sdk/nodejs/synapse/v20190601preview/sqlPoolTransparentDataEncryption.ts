@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -61,16 +62,16 @@ export class SqlPoolTransparentDataEncryption extends pulumi.CustomResource {
     constructor(name: string, args: SqlPoolTransparentDataEncryptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sqlPoolName === undefined) {
+            if ((!args || args.sqlPoolName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sqlPoolName'");
             }
-            if (!args || args.transparentDataEncryptionName === undefined) {
+            if ((!args || args.transparentDataEncryptionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'transparentDataEncryptionName'");
             }
-            if (!args || args.workspaceName === undefined) {
+            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -113,7 +114,7 @@ export interface SqlPoolTransparentDataEncryptionArgs {
     /**
      * The status of the database transparent data encryption.
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<string | enums.synapse.v20190601preview.TransparentDataEncryptionStatus>;
     /**
      * The name of the transparent data encryption configuration.
      */

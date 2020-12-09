@@ -77,13 +77,13 @@ export class SystemTopic extends pulumi.CustomResource {
     constructor(name: string, args: SystemTopicArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.systemTopicName === undefined) {
+            if ((!args || args.systemTopicName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'systemTopicName'");
             }
             inputs["location"] = args ? args.location : undefined;

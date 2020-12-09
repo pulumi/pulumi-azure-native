@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -119,16 +119,16 @@ export class Task extends pulumi.CustomResource {
     constructor(name: string, args: TaskArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.registryName === undefined) {
+            if ((!args || args.registryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'registryName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.taskName === undefined) {
+            if ((!args || args.taskName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'taskName'");
             }
             inputs["agentConfiguration"] = args ? args.agentConfiguration : undefined;
@@ -232,7 +232,7 @@ export interface TaskArgs {
     /**
      * The current status of task.
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<string | enums.containerregistry.v20190601preview.TaskStatus>;
     /**
      * The properties of a task step.
      */

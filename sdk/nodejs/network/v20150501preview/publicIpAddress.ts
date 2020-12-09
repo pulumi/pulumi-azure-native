@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -94,16 +94,16 @@ export class PublicIpAddress extends pulumi.CustomResource {
     constructor(name: string, args: PublicIpAddressArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.publicIPAllocationMethod === undefined) {
+            if ((!args || args.publicIPAllocationMethod === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'publicIPAllocationMethod'");
             }
-            if (!args || args.publicIpAddressName === undefined) {
+            if ((!args || args.publicIpAddressName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'publicIpAddressName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["dnsSettings"] = args ? args.dnsSettings : undefined;
@@ -182,7 +182,7 @@ export interface PublicIpAddressArgs {
     /**
      * Gets or sets PublicIP allocation method (Static/Dynamic)
      */
-    readonly publicIPAllocationMethod: pulumi.Input<string>;
+    readonly publicIPAllocationMethod: pulumi.Input<string | enums.network.v20150501preview.IpAllocationMethod>;
     /**
      * The name of the publicIpAddress.
      */

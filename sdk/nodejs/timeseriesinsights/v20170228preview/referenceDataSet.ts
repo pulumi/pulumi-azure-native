@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -74,19 +74,19 @@ export class ReferenceDataSet extends pulumi.CustomResource {
     constructor(name: string, args: ReferenceDataSetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.environmentName === undefined) {
+            if ((!args || args.environmentName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'environmentName'");
             }
-            if (!args || args.keyProperties === undefined) {
+            if ((!args || args.keyProperties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'keyProperties'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.referenceDataSetName === undefined) {
+            if ((!args || args.referenceDataSetName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'referenceDataSetName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["environmentName"] = args ? args.environmentName : undefined;

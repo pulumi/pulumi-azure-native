@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -90,19 +90,19 @@ export class Environment extends pulumi.CustomResource {
     constructor(name: string, args: EnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.dataRetentionTime === undefined) {
+            if ((!args || args.dataRetentionTime === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataRetentionTime'");
             }
-            if (!args || args.environmentName === undefined) {
+            if ((!args || args.environmentName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'environmentName'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sku === undefined) {
+            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["dataRetentionTime"] = args ? args.dataRetentionTime : undefined;
@@ -171,7 +171,7 @@ export interface EnvironmentArgs {
     /**
      * The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
      */
-    readonly storageLimitExceededBehavior?: pulumi.Input<string>;
+    readonly storageLimitExceededBehavior?: pulumi.Input<enums.timeseriesinsights.v20170228preview.StorageLimitExceededBehavior>;
     /**
      * Key-value pairs of additional properties for the resource.
      */

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -82,13 +82,13 @@ export class EventHub extends pulumi.CustomResource {
     constructor(name: string, args: EventHubArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.eventHubName === undefined) {
+            if ((!args || args.eventHubName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'eventHubName'");
             }
-            if (!args || args.namespaceName === undefined) {
+            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["captureDescription"] = args ? args.captureDescription : undefined;
@@ -158,5 +158,5 @@ export interface EventHubArgs {
     /**
      * Enumerates the possible values for the status of the Event Hub.
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<enums.eventhub.v20180101preview.EntityStatus>;
 }

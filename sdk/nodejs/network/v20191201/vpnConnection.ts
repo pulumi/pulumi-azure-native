@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -118,13 +118,13 @@ export class VpnConnection extends pulumi.CustomResource {
     constructor(name: string, args: VpnConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.connectionName === undefined) {
+            if ((!args || args.connectionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'connectionName'");
             }
-            if (!args || args.gatewayName === undefined) {
+            if ((!args || args.gatewayName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'gatewayName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["connectionBandwidth"] = args ? args.connectionBandwidth : undefined;
@@ -249,7 +249,7 @@ export interface VpnConnectionArgs {
     /**
      * Connection protocol used for this connection.
      */
-    readonly vpnConnectionProtocolType?: pulumi.Input<string>;
+    readonly vpnConnectionProtocolType?: pulumi.Input<string | enums.network.v20191201.VirtualNetworkGatewayConnectionProtocol>;
     /**
      * List of all vpn site link connections to the gateway.
      */

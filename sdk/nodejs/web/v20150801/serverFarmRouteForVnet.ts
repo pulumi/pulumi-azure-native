@@ -83,19 +83,19 @@ export class ServerFarmRouteForVnet extends pulumi.CustomResource {
     constructor(name: string, args: ServerFarmRouteForVnetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.routeName === undefined) {
+            if ((!args || args.routeName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'routeName'");
             }
-            if (!args || args.vnetName === undefined) {
+            if ((!args || args.vnetName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vnetName'");
             }
             inputs["endAddress"] = args ? args.endAddress : undefined;

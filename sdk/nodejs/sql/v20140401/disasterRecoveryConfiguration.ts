@@ -85,13 +85,13 @@ export class DisasterRecoveryConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: DisasterRecoveryConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.disasterRecoveryConfigurationName === undefined) {
+            if ((!args || args.disasterRecoveryConfigurationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'disasterRecoveryConfigurationName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverName === undefined) {
+            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverName'");
             }
             inputs["disasterRecoveryConfigurationName"] = args ? args.disasterRecoveryConfigurationName : undefined;

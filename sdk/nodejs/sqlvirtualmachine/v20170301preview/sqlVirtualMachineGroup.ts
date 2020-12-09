@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -90,13 +90,13 @@ export class SqlVirtualMachineGroup extends pulumi.CustomResource {
     constructor(name: string, args: SqlVirtualMachineGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sqlVirtualMachineGroupName === undefined) {
+            if ((!args || args.sqlVirtualMachineGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sqlVirtualMachineGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -155,7 +155,7 @@ export interface SqlVirtualMachineGroupArgs {
     /**
      * SQL image sku.
      */
-    readonly sqlImageSku?: pulumi.Input<string>;
+    readonly sqlImageSku?: pulumi.Input<string | enums.sqlvirtualmachine.v20170301preview.SqlVmGroupImageSku>;
     /**
      * Name of the SQL virtual machine group.
      */

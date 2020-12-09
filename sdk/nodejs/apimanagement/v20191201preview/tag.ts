@@ -57,16 +57,16 @@ export class Tag extends pulumi.CustomResource {
     constructor(name: string, args: TagArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.displayName === undefined) {
+            if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serviceName === undefined) {
+            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if (!args || args.tagId === undefined) {
+            if ((!args || args.tagId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'tagId'");
             }
             inputs["displayName"] = args ? args.displayName : undefined;

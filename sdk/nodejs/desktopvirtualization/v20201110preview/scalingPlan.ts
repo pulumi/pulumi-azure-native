@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -90,13 +90,13 @@ export class ScalingPlan extends pulumi.CustomResource {
     constructor(name: string, args: ScalingPlanArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.scalingPlanName === undefined) {
+            if ((!args || args.scalingPlanName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scalingPlanName'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -159,7 +159,7 @@ export interface ScalingPlanArgs {
     /**
      * HostPool type for scaling plan.
      */
-    readonly hostPoolType?: pulumi.Input<string>;
+    readonly hostPoolType?: pulumi.Input<string | enums.desktopvirtualization.v20201110preview.HostPoolType>;
     /**
      * The geo-location where the resource lives
      */

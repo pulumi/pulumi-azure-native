@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -90,22 +90,22 @@ export class Project extends pulumi.CustomResource {
     constructor(name: string, args: ProjectArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.groupName === undefined) {
+            if ((!args || args.groupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.projectName === undefined) {
+            if ((!args || args.projectName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'projectName'");
             }
-            if (!args || args.serviceName === undefined) {
+            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if (!args || args.sourcePlatform === undefined) {
+            if ((!args || args.sourcePlatform === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sourcePlatform'");
             }
-            if (!args || args.targetPlatform === undefined) {
+            if ((!args || args.targetPlatform === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetPlatform'");
             }
             inputs["databasesInfo"] = args ? args.databasesInfo : undefined;
@@ -179,7 +179,7 @@ export interface ProjectArgs {
     /**
      * Source platform for the project
      */
-    readonly sourcePlatform: pulumi.Input<string>;
+    readonly sourcePlatform: pulumi.Input<string | enums.datamigration.latest.ProjectSourcePlatform>;
     /**
      * Resource tags.
      */
@@ -191,5 +191,5 @@ export interface ProjectArgs {
     /**
      * Target platform for the project
      */
-    readonly targetPlatform: pulumi.Input<string>;
+    readonly targetPlatform: pulumi.Input<string | enums.datamigration.latest.ProjectTargetPlatform>;
 }

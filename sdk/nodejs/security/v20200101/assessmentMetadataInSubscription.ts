@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -96,16 +96,16 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
     constructor(name: string, args: AssessmentMetadataInSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.assessmentMetadataName === undefined) {
+            if ((!args || args.assessmentMetadataName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'assessmentMetadataName'");
             }
-            if (!args || args.assessmentType === undefined) {
+            if ((!args || args.assessmentType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'assessmentType'");
             }
-            if (!args || args.displayName === undefined) {
+            if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if (!args || args.severity === undefined) {
+            if ((!args || args.severity === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'severity'");
             }
             inputs["assessmentMetadataName"] = args ? args.assessmentMetadataName : undefined;
@@ -163,8 +163,8 @@ export interface AssessmentMetadataInSubscriptionArgs {
     /**
      * BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
      */
-    readonly assessmentType: pulumi.Input<string>;
-    readonly category?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly assessmentType: pulumi.Input<string | enums.security.v20200101.AssessmentType>;
+    readonly category?: pulumi.Input<pulumi.Input<string | enums.security.v20200101.Category>[]>;
     /**
      * Human readable description of the assessment
      */
@@ -176,7 +176,7 @@ export interface AssessmentMetadataInSubscriptionArgs {
     /**
      * The implementation effort required to remediate this assessment
      */
-    readonly implementationEffort?: pulumi.Input<string>;
+    readonly implementationEffort?: pulumi.Input<string | enums.security.v20200101.ImplementationEffort>;
     /**
      * Describes the partner that created the assessment
      */
@@ -192,10 +192,10 @@ export interface AssessmentMetadataInSubscriptionArgs {
     /**
      * The severity level of the assessment
      */
-    readonly severity: pulumi.Input<string>;
-    readonly threats?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly severity: pulumi.Input<string | enums.security.v20200101.Severity>;
+    readonly threats?: pulumi.Input<pulumi.Input<string | enums.security.v20200101.Threats>[]>;
     /**
      * The user impact of the assessment
      */
-    readonly userImpact?: pulumi.Input<string>;
+    readonly userImpact?: pulumi.Input<string | enums.security.v20200101.UserImpact>;
 }

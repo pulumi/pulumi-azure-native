@@ -73,13 +73,13 @@ export class SqlServer extends pulumi.CustomResource {
     constructor(name: string, args: SqlServerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sqlServerName === undefined) {
+            if ((!args || args.sqlServerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sqlServerName'");
             }
-            if (!args || args.sqlServerRegistrationName === undefined) {
+            if ((!args || args.sqlServerRegistrationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sqlServerRegistrationName'");
             }
             inputs["cores"] = args ? args.cores : undefined;

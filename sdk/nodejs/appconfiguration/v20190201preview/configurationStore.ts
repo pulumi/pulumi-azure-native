@@ -73,13 +73,13 @@ export class ConfigurationStore extends pulumi.CustomResource {
     constructor(name: string, args: ConfigurationStoreArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.configStoreName === undefined) {
+            if ((!args || args.configStoreName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'configStoreName'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["configStoreName"] = args ? args.configStoreName : undefined;

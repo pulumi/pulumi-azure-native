@@ -89,16 +89,16 @@ export class CloudEndpoint extends pulumi.CustomResource {
     constructor(name: string, args: CloudEndpointArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.cloudEndpointName === undefined) {
+            if ((!args || args.cloudEndpointName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'cloudEndpointName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.storageSyncServiceName === undefined) {
+            if ((!args || args.storageSyncServiceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageSyncServiceName'");
             }
-            if (!args || args.syncGroupName === undefined) {
+            if ((!args || args.syncGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'syncGroupName'");
             }
             inputs["azureFileShareName"] = args ? args.azureFileShareName : undefined;

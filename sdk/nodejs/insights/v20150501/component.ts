@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -138,19 +138,19 @@ export class Component extends pulumi.CustomResource {
     constructor(name: string, args: ComponentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.applicationType === undefined) {
+            if ((!args || args.applicationType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'applicationType'");
             }
-            if (!args || args.kind === undefined) {
+            if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kind'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.resourceName === undefined) {
+            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["applicationType"] = args ? args.applicationType : undefined;
@@ -223,7 +223,7 @@ export interface ComponentArgs {
     /**
      * Type of application being monitored.
      */
-    readonly applicationType: pulumi.Input<string>;
+    readonly applicationType: pulumi.Input<string | enums.insights.v20150501.ApplicationType>;
     /**
      * Disable IP masking.
      */
@@ -231,7 +231,7 @@ export interface ComponentArgs {
     /**
      * Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
      */
-    readonly flowType?: pulumi.Input<string>;
+    readonly flowType?: pulumi.Input<string | enums.insights.v20150501.FlowType>;
     /**
      * The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
      */
@@ -243,7 +243,7 @@ export interface ComponentArgs {
     /**
      * Indicates the flow of the ingestion.
      */
-    readonly ingestionMode?: pulumi.Input<string>;
+    readonly ingestionMode?: pulumi.Input<string | enums.insights.v20150501.IngestionMode>;
     /**
      * The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
      */
@@ -255,7 +255,7 @@ export interface ComponentArgs {
     /**
      * Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
      */
-    readonly requestSource?: pulumi.Input<string>;
+    readonly requestSource?: pulumi.Input<string | enums.insights.v20150501.RequestSource>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

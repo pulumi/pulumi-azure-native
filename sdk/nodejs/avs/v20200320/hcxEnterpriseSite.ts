@@ -61,13 +61,13 @@ export class HcxEnterpriseSite extends pulumi.CustomResource {
     constructor(name: string, args: HcxEnterpriseSiteArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.hcxEnterpriseSiteName === undefined) {
+            if ((!args || args.hcxEnterpriseSiteName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hcxEnterpriseSiteName'");
             }
-            if (!args || args.privateCloudName === undefined) {
+            if ((!args || args.privateCloudName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["hcxEnterpriseSiteName"] = args ? args.hcxEnterpriseSiteName : undefined;

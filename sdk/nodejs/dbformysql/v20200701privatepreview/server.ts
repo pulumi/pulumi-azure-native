@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -158,13 +158,13 @@ export class Server extends pulumi.CustomResource {
     constructor(name: string, args: ServerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverName === undefined) {
+            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverName'");
             }
             inputs["administratorLogin"] = args ? args.administratorLogin : undefined;
@@ -259,7 +259,7 @@ export interface ServerArgs {
     /**
      * The mode to create a new MySQL server.
      */
-    readonly createMode?: pulumi.Input<string>;
+    readonly createMode?: pulumi.Input<string | enums.dbformysql.v20200701privatepreview.CreateMode>;
     /**
      * Delegated subnet arguments.
      */
@@ -267,7 +267,7 @@ export interface ServerArgs {
     /**
      * Enable HA or not for a server.
      */
-    readonly haEnabled?: pulumi.Input<string>;
+    readonly haEnabled?: pulumi.Input<string | enums.dbformysql.v20200701privatepreview.HaEnabledEnum>;
     /**
      * The Azure Active Directory identity of the server.
      */
@@ -275,7 +275,7 @@ export interface ServerArgs {
     /**
      * Status showing whether the server enabled infrastructure encryption.
      */
-    readonly infrastructureEncryption?: pulumi.Input<string>;
+    readonly infrastructureEncryption?: pulumi.Input<string | enums.dbformysql.v20200701privatepreview.InfrastructureEncryptionEnum>;
     /**
      * The geo-location where the resource lives
      */
@@ -311,7 +311,7 @@ export interface ServerArgs {
     /**
      * Enable ssl enforcement or not when connect to server.
      */
-    readonly sslEnforcement?: pulumi.Input<string>;
+    readonly sslEnforcement?: pulumi.Input<string | enums.dbformysql.v20200701privatepreview.SslEnforcementEnum>;
     /**
      * Storage profile of a server.
      */
@@ -323,5 +323,5 @@ export interface ServerArgs {
     /**
      * Server version.
      */
-    readonly version?: pulumi.Input<string>;
+    readonly version?: pulumi.Input<string | enums.dbformysql.v20200701privatepreview.ServerVersion>;
 }

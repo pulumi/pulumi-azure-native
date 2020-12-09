@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -57,19 +58,19 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
     constructor(name: string, args: TopicAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.authorizationRuleName === undefined) {
+            if ((!args || args.authorizationRuleName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'authorizationRuleName'");
             }
-            if (!args || args.namespaceName === undefined) {
+            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.rights === undefined) {
+            if ((!args || args.rights === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'rights'");
             }
-            if (!args || args.topicName === undefined) {
+            if ((!args || args.topicName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'topicName'");
             }
             inputs["authorizationRuleName"] = args ? args.authorizationRuleName : undefined;
@@ -116,7 +117,7 @@ export interface TopicAuthorizationRuleArgs {
     /**
      * The rights associated with the rule.
      */
-    readonly rights: pulumi.Input<pulumi.Input<string>[]>;
+    readonly rights: pulumi.Input<pulumi.Input<enums.servicebus.v20170401.AccessRights>[]>;
     /**
      * The topic name.
      */

@@ -57,16 +57,16 @@ export class Diagnostic extends pulumi.CustomResource {
     constructor(name: string, args: DiagnosticArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.diagnosticId === undefined) {
+            if ((!args || args.diagnosticId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'diagnosticId'");
             }
-            if (!args || args.enabled === undefined) {
+            if ((!args || args.enabled === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serviceName === undefined) {
+            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["diagnosticId"] = args ? args.diagnosticId : undefined;

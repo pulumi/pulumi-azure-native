@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -62,19 +62,19 @@ export class ThreatIntelligenceIndicator extends pulumi.CustomResource {
     constructor(name: string, args: ThreatIntelligenceIndicatorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.kind === undefined) {
+            if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kind'");
             }
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.operationalInsightsResourceProvider === undefined) {
+            if ((!args || args.operationalInsightsResourceProvider === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'operationalInsightsResourceProvider'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.workspaceName === undefined) {
+            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["confidence"] = args ? args.confidence : undefined;
@@ -173,7 +173,7 @@ export interface ThreatIntelligenceIndicatorArgs {
     /**
      * The kind of the entity.
      */
-    readonly kind: pulumi.Input<string>;
+    readonly kind: pulumi.Input<string | enums.securityinsights.v20190101preview.ThreatIntelligenceResourceKind>;
     /**
      * Labels  of threat intelligence entity
      */

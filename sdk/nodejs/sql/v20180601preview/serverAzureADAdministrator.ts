@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -69,22 +70,22 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
     constructor(name: string, args: ServerAzureADAdministratorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.administratorName === undefined) {
+            if ((!args || args.administratorName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'administratorName'");
             }
-            if (!args || args.administratorType === undefined) {
+            if ((!args || args.administratorType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'administratorType'");
             }
-            if (!args || args.login === undefined) {
+            if ((!args || args.login === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'login'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverName === undefined) {
+            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if (!args || args.sid === undefined) {
+            if ((!args || args.sid === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sid'");
             }
             inputs["administratorName"] = args ? args.administratorName : undefined;
@@ -125,7 +126,7 @@ export interface ServerAzureADAdministratorArgs {
     /**
      * Type of the sever administrator.
      */
-    readonly administratorType: pulumi.Input<string>;
+    readonly administratorType: pulumi.Input<string | enums.sql.v20180601preview.AdministratorType>;
     /**
      * Login name of the server administrator.
      */

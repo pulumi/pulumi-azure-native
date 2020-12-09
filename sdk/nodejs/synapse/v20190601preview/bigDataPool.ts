@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -122,16 +122,16 @@ export class BigDataPool extends pulumi.CustomResource {
     constructor(name: string, args: BigDataPoolArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.bigDataPoolName === undefined) {
+            if ((!args || args.bigDataPoolName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'bigDataPoolName'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.workspaceName === undefined) {
+            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["autoPause"] = args ? args.autoPause : undefined;
@@ -240,11 +240,11 @@ export interface BigDataPoolArgs {
     /**
      * The level of compute power that each node in the Big Data pool has.
      */
-    readonly nodeSize?: pulumi.Input<string>;
+    readonly nodeSize?: pulumi.Input<string | enums.synapse.v20190601preview.NodeSize>;
     /**
      * The kind of nodes that the Big Data pool provides.
      */
-    readonly nodeSizeFamily?: pulumi.Input<string>;
+    readonly nodeSizeFamily?: pulumi.Input<string | enums.synapse.v20190601preview.NodeSizeFamily>;
     /**
      * The state of the Big Data pool.
      */

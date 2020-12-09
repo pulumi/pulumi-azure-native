@@ -65,16 +65,16 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
     constructor(name: string, args: VirtualNetworkRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverName === undefined) {
+            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if (!args || args.virtualNetworkRuleName === undefined) {
+            if ((!args || args.virtualNetworkRuleName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualNetworkRuleName'");
             }
-            if (!args || args.virtualNetworkSubnetId === undefined) {
+            if ((!args || args.virtualNetworkSubnetId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualNetworkSubnetId'");
             }
             inputs["ignoreMissingVnetServiceEndpoint"] = args ? args.ignoreMissingVnetServiceEndpoint : undefined;

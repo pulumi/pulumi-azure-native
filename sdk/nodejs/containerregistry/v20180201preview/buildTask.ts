@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -90,25 +90,25 @@ export class BuildTask extends pulumi.CustomResource {
     constructor(name: string, args: BuildTaskArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.alias === undefined) {
+            if ((!args || args.alias === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'alias'");
             }
-            if (!args || args.buildTaskName === undefined) {
+            if ((!args || args.buildTaskName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'buildTaskName'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.platform === undefined) {
+            if ((!args || args.platform === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'platform'");
             }
-            if (!args || args.registryName === undefined) {
+            if ((!args || args.registryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'registryName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sourceRepository === undefined) {
+            if ((!args || args.sourceRepository === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sourceRepository'");
             }
             inputs["alias"] = args ? args.alias : undefined;
@@ -184,7 +184,7 @@ export interface BuildTaskArgs {
     /**
      * The current status of build task.
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<string | enums.containerregistry.v20180201preview.BuildTaskStatus>;
     /**
      * The tags of the resource.
      */

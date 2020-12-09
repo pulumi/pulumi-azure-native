@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -106,10 +106,10 @@ export class FrontDoor extends pulumi.CustomResource {
     constructor(name: string, args: FrontDoorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.frontDoorName === undefined) {
+            if ((!args || args.frontDoorName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'frontDoorName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["backendPools"] = args ? args.backendPools : undefined;
@@ -174,7 +174,7 @@ export interface FrontDoorArgs {
     /**
      * Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
      */
-    readonly enabledState?: pulumi.Input<string>;
+    readonly enabledState?: pulumi.Input<string | enums.network.v20190501.FrontDoorEnabledState>;
     /**
      * A friendly name for the frontDoor
      */

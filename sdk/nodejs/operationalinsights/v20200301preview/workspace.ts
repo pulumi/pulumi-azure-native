@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -98,13 +98,13 @@ export class Workspace extends pulumi.CustomResource {
     constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.workspaceName === undefined) {
+            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["eTag"] = args ? args.eTag : undefined;
@@ -165,15 +165,15 @@ export interface WorkspaceArgs {
     /**
      * The provisioning state of the workspace.
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    readonly provisioningState?: pulumi.Input<string | enums.operationalinsights.v20200301preview.WorkspaceEntityStatus>;
     /**
      * The network access type for accessing Log Analytics ingestion.
      */
-    readonly publicNetworkAccessForIngestion?: pulumi.Input<string>;
+    readonly publicNetworkAccessForIngestion?: pulumi.Input<string | enums.operationalinsights.v20200301preview.PublicNetworkAccessType>;
     /**
      * The network access type for accessing Log Analytics query.
      */
-    readonly publicNetworkAccessForQuery?: pulumi.Input<string>;
+    readonly publicNetworkAccessForQuery?: pulumi.Input<string | enums.operationalinsights.v20200301preview.PublicNetworkAccessType>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

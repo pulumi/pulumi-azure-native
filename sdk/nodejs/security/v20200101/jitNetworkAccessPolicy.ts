@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 export class JitNetworkAccessPolicy extends pulumi.CustomResource {
@@ -68,16 +68,16 @@ export class JitNetworkAccessPolicy extends pulumi.CustomResource {
     constructor(name: string, args: JitNetworkAccessPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.ascLocation === undefined) {
+            if ((!args || args.ascLocation === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ascLocation'");
             }
-            if (!args || args.jitNetworkAccessPolicyName === undefined) {
+            if ((!args || args.jitNetworkAccessPolicyName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'jitNetworkAccessPolicyName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.virtualMachines === undefined) {
+            if ((!args || args.virtualMachines === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualMachines'");
             }
             inputs["ascLocation"] = args ? args.ascLocation : undefined;

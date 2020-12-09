@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -102,16 +102,16 @@ export class IotSecuritySolution extends pulumi.CustomResource {
     constructor(name: string, args: IotSecuritySolutionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.displayName === undefined) {
+            if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if (!args || args.iotHubs === undefined) {
+            if ((!args || args.iotHubs === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'iotHubs'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.solutionName === undefined) {
+            if ((!args || args.solutionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'solutionName'");
             }
             inputs["disabledDataSources"] = args ? args.disabledDataSources : undefined;
@@ -166,7 +166,7 @@ export interface IotSecuritySolutionArgs {
     /**
      * Disabled data sources. Disabling these data sources compromises the system.
      */
-    readonly disabledDataSources?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly disabledDataSources?: pulumi.Input<pulumi.Input<string | enums.security.latest.DataSource>[]>;
     /**
      * Resource display name.
      */
@@ -174,7 +174,7 @@ export interface IotSecuritySolutionArgs {
     /**
      * List of additional options for exporting to workspace data.
      */
-    readonly export?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly export?: pulumi.Input<pulumi.Input<string | enums.security.latest.ExportData>[]>;
     /**
      * IoT Hub resource IDs
      */
@@ -198,7 +198,7 @@ export interface IotSecuritySolutionArgs {
     /**
      * Status of the IoT Security solution.
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<string | enums.security.latest.SecuritySolutionStatus>;
     /**
      * Resource tags
      */
@@ -206,7 +206,7 @@ export interface IotSecuritySolutionArgs {
     /**
      * Unmasked IP address logging status
      */
-    readonly unmaskedIpLoggingStatus?: pulumi.Input<string>;
+    readonly unmaskedIpLoggingStatus?: pulumi.Input<string | enums.security.latest.UnmaskedIpLoggingStatus>;
     /**
      * Properties of the IoT Security solution's user defined resources.
      */

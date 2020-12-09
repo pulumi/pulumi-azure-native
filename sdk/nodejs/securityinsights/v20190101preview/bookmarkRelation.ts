@@ -73,22 +73,22 @@ export class BookmarkRelation extends pulumi.CustomResource {
     constructor(name: string, args: BookmarkRelationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.bookmarkId === undefined) {
+            if ((!args || args.bookmarkId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'bookmarkId'");
             }
-            if (!args || args.operationalInsightsResourceProvider === undefined) {
+            if ((!args || args.operationalInsightsResourceProvider === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'operationalInsightsResourceProvider'");
             }
-            if (!args || args.relatedResourceId === undefined) {
+            if ((!args || args.relatedResourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'relatedResourceId'");
             }
-            if (!args || args.relationName === undefined) {
+            if ((!args || args.relationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'relationName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.workspaceName === undefined) {
+            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["bookmarkId"] = args ? args.bookmarkId : undefined;

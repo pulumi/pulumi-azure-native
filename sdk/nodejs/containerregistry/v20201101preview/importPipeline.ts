@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -82,16 +82,16 @@ export class ImportPipeline extends pulumi.CustomResource {
     constructor(name: string, args: ImportPipelineArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.importPipelineName === undefined) {
+            if ((!args || args.importPipelineName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'importPipelineName'");
             }
-            if (!args || args.registryName === undefined) {
+            if ((!args || args.registryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'registryName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.source === undefined) {
+            if ((!args || args.source === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'source'");
             }
             inputs["identity"] = args ? args.identity : undefined;
@@ -149,7 +149,7 @@ export interface ImportPipelineArgs {
     /**
      * The list of all options configured for the pipeline.
      */
-    readonly options?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly options?: pulumi.Input<pulumi.Input<string | enums.containerregistry.v20201101preview.PipelineOptions>[]>;
     /**
      * The name of the container registry.
      */

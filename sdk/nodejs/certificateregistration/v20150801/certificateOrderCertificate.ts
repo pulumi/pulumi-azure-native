@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -77,16 +78,16 @@ export class CertificateOrderCertificate extends pulumi.CustomResource {
     constructor(name: string, args: CertificateOrderCertificateArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.certificateOrderName === undefined) {
+            if ((!args || args.certificateOrderName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'certificateOrderName'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["certificateOrderName"] = args ? args.certificateOrderName : undefined;
@@ -158,7 +159,7 @@ export interface CertificateOrderCertificateArgs {
     /**
      * Status of the Key Vault secret
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    readonly provisioningState?: pulumi.Input<enums.certificateregistration.v20150801.KeyVaultSecretStatus>;
     /**
      * Azure resource group name
      */

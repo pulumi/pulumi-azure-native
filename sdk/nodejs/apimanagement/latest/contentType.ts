@@ -65,13 +65,13 @@ export class ContentType extends pulumi.CustomResource {
     constructor(name: string, args: ContentTypeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.contentTypeId === undefined) {
+            if ((!args || args.contentTypeId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'contentTypeId'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serviceName === undefined) {
+            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["contentTypeId"] = args ? args.contentTypeId : undefined;

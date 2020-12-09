@@ -73,19 +73,19 @@ export class ConsumerGroup extends pulumi.CustomResource {
     constructor(name: string, args: ConsumerGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.consumerGroupName === undefined) {
+            if ((!args || args.consumerGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'consumerGroupName'");
             }
-            if (!args || args.eventHubName === undefined) {
+            if ((!args || args.eventHubName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'eventHubName'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.namespaceName === undefined) {
+            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["consumerGroupName"] = args ? args.consumerGroupName : undefined;

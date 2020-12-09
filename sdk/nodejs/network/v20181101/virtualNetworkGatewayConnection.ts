@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -142,16 +142,16 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
     constructor(name: string, args: VirtualNetworkGatewayConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.connectionType === undefined) {
+            if ((!args || args.connectionType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'connectionType'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.virtualNetworkGateway1 === undefined) {
+            if ((!args || args.virtualNetworkGateway1 === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualNetworkGateway1'");
             }
-            if (!args || args.virtualNetworkGatewayConnectionName === undefined) {
+            if ((!args || args.virtualNetworkGatewayConnectionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualNetworkGatewayConnectionName'");
             }
             inputs["authorizationKey"] = args ? args.authorizationKey : undefined;
@@ -231,11 +231,11 @@ export interface VirtualNetworkGatewayConnectionArgs {
     /**
      * Connection protocol used for this connection
      */
-    readonly connectionProtocol?: pulumi.Input<string>;
+    readonly connectionProtocol?: pulumi.Input<string | enums.network.v20181101.VirtualNetworkGatewayConnectionProtocol>;
     /**
      * Gateway connection type. Possible values are: 'Ipsec','Vnet2Vnet','ExpressRoute', and 'VPNClient.
      */
-    readonly connectionType: pulumi.Input<string>;
+    readonly connectionType: pulumi.Input<string | enums.network.v20181101.VirtualNetworkGatewayConnectionType>;
     /**
      * EnableBgp flag
      */

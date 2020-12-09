@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -94,19 +94,19 @@ export class JitRequest extends pulumi.CustomResource {
     constructor(name: string, args: JitRequestArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.applicationResourceId === undefined) {
+            if ((!args || args.applicationResourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'applicationResourceId'");
             }
-            if (!args || args.jitAuthorizationPolicies === undefined) {
+            if ((!args || args.jitAuthorizationPolicies === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'jitAuthorizationPolicies'");
             }
-            if (!args || args.jitRequestName === undefined) {
+            if ((!args || args.jitRequestName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'jitRequestName'");
             }
-            if (!args || args.jitSchedulingPolicy === undefined) {
+            if ((!args || args.jitSchedulingPolicy === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'jitSchedulingPolicy'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["applicationResourceId"] = args ? args.applicationResourceId : undefined;

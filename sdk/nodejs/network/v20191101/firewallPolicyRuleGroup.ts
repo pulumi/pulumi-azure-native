@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -70,13 +70,13 @@ export class FirewallPolicyRuleGroup extends pulumi.CustomResource {
     constructor(name: string, args: FirewallPolicyRuleGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.firewallPolicyName === undefined) {
+            if ((!args || args.firewallPolicyName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'firewallPolicyName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.ruleGroupName === undefined) {
+            if ((!args || args.ruleGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ruleGroupName'");
             }
             inputs["firewallPolicyName"] = args ? args.firewallPolicyName : undefined;

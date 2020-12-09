@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -105,16 +106,16 @@ export class Application extends pulumi.CustomResource {
     constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.applicationGroupName === undefined) {
+            if ((!args || args.applicationGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'applicationGroupName'");
             }
-            if (!args || args.applicationName === undefined) {
+            if ((!args || args.applicationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'applicationName'");
             }
-            if (!args || args.commandLineSetting === undefined) {
+            if ((!args || args.commandLineSetting === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'commandLineSetting'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["applicationGroupName"] = args ? args.applicationGroupName : undefined;
@@ -180,7 +181,7 @@ export interface ApplicationArgs {
     /**
      * Resource Type of Application.
      */
-    readonly applicationType?: pulumi.Input<string>;
+    readonly applicationType?: pulumi.Input<string | enums.desktopvirtualization.v20201019preview.RemoteApplicationType>;
     /**
      * Command Line Arguments for Application.
      */
@@ -188,7 +189,7 @@ export interface ApplicationArgs {
     /**
      * Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
      */
-    readonly commandLineSetting: pulumi.Input<string>;
+    readonly commandLineSetting: pulumi.Input<string | enums.desktopvirtualization.v20201019preview.CommandLineSetting>;
     /**
      * Description of Application.
      */

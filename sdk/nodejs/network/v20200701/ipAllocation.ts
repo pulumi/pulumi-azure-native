@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -94,10 +94,10 @@ export class IpAllocation extends pulumi.CustomResource {
     constructor(name: string, args: IpAllocationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.ipAllocationName === undefined) {
+            if ((!args || args.ipAllocationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ipAllocationName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["allocationTags"] = args ? args.allocationTags : undefined;
@@ -177,7 +177,7 @@ export interface IpAllocationArgs {
     /**
      * The address prefix Type for the IpAllocation.
      */
-    readonly prefixType?: pulumi.Input<string>;
+    readonly prefixType?: pulumi.Input<string | enums.network.v20200701.IPVersion>;
     /**
      * The name of the resource group.
      */
@@ -189,5 +189,5 @@ export interface IpAllocationArgs {
     /**
      * The type for the IpAllocation.
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type?: pulumi.Input<string | enums.network.v20200701.IpAllocationType>;
 }

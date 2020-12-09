@@ -85,7 +85,7 @@ export class Partner extends pulumi.CustomResource {
     constructor(name: string, args: PartnerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.partnerId === undefined) {
+            if ((!args || args.partnerId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'partnerId'");
             }
             inputs["partnerId"] = args ? args.partnerId : undefined;

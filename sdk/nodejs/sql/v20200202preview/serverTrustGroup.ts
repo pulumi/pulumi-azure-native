@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -62,19 +62,19 @@ export class ServerTrustGroup extends pulumi.CustomResource {
     constructor(name: string, args: ServerTrustGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.groupMembers === undefined) {
+            if ((!args || args.groupMembers === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'groupMembers'");
             }
-            if (!args || args.locationName === undefined) {
+            if ((!args || args.locationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'locationName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverTrustGroupName === undefined) {
+            if ((!args || args.serverTrustGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverTrustGroupName'");
             }
-            if (!args || args.trustScopes === undefined) {
+            if ((!args || args.trustScopes === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'trustScopes'");
             }
             inputs["groupMembers"] = args ? args.groupMembers : undefined;

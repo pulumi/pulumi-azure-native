@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -110,25 +110,25 @@ export class GalleryImage extends pulumi.CustomResource {
     constructor(name: string, args: GalleryImageArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.galleryImageName === undefined) {
+            if ((!args || args.galleryImageName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'galleryImageName'");
             }
-            if (!args || args.galleryName === undefined) {
+            if ((!args || args.galleryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'galleryName'");
             }
-            if (!args || args.identifier === undefined) {
+            if ((!args || args.identifier === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'identifier'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.osState === undefined) {
+            if ((!args || args.osState === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'osState'");
             }
-            if (!args || args.osType === undefined) {
+            if ((!args || args.osType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'osType'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -220,11 +220,11 @@ export interface GalleryImageArgs {
     /**
      * This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
      */
-    readonly osState: pulumi.Input<string>;
+    readonly osState: pulumi.Input<enums.compute.v20190301.OperatingSystemStateTypes>;
     /**
      * This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
      */
-    readonly osType: pulumi.Input<string>;
+    readonly osType: pulumi.Input<enums.compute.v20190301.OperatingSystemTypes>;
     /**
      * The privacy statement uri.
      */

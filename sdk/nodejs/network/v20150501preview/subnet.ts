@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -74,16 +74,16 @@ export class Subnet extends pulumi.CustomResource {
     constructor(name: string, args: SubnetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.addressPrefix === undefined) {
+            if ((!args || args.addressPrefix === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'addressPrefix'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.subnetName === undefined) {
+            if ((!args || args.subnetName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'subnetName'");
             }
-            if (!args || args.virtualNetworkName === undefined) {
+            if ((!args || args.virtualNetworkName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualNetworkName'");
             }
             inputs["addressPrefix"] = args ? args.addressPrefix : undefined;

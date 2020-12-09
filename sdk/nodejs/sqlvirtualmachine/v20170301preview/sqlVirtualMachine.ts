@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -118,13 +118,13 @@ export class SqlVirtualMachine extends pulumi.CustomResource {
     constructor(name: string, args: SqlVirtualMachineArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sqlVirtualMachineName === undefined) {
+            if ((!args || args.sqlVirtualMachineName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sqlVirtualMachineName'");
             }
             inputs["autoBackupSettings"] = args ? args.autoBackupSettings : undefined;
@@ -217,15 +217,15 @@ export interface SqlVirtualMachineArgs {
     /**
      * SQL Server edition type.
      */
-    readonly sqlImageSku?: pulumi.Input<string>;
+    readonly sqlImageSku?: pulumi.Input<string | enums.sqlvirtualmachine.v20170301preview.SqlImageSku>;
     /**
      * SQL Server Management type.
      */
-    readonly sqlManagement?: pulumi.Input<string>;
+    readonly sqlManagement?: pulumi.Input<string | enums.sqlvirtualmachine.v20170301preview.SqlManagementMode>;
     /**
      * SQL Server license type.
      */
-    readonly sqlServerLicenseType?: pulumi.Input<string>;
+    readonly sqlServerLicenseType?: pulumi.Input<string | enums.sqlvirtualmachine.v20170301preview.SqlServerLicenseType>;
     /**
      * ARM resource id of the SQL virtual machine group this SQL virtual machine is or will be part of.
      */

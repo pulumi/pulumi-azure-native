@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -114,19 +114,19 @@ export class Cluster extends pulumi.CustomResource {
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.clusterName === undefined) {
+            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.userAccountSettings === undefined) {
+            if ((!args || args.userAccountSettings === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'userAccountSettings'");
             }
-            if (!args || args.vmSize === undefined) {
+            if ((!args || args.vmSize === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vmSize'");
             }
-            if (!args || args.workspaceName === undefined) {
+            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["clusterName"] = args ? args.clusterName : undefined;
@@ -216,7 +216,7 @@ export interface ClusterArgs {
     /**
      * VM priority. Allowed values are: dedicated (default) and lowpriority.
      */
-    readonly vmPriority?: pulumi.Input<string>;
+    readonly vmPriority?: pulumi.Input<enums.batchai.v20180501.VmPriority>;
     /**
      * The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace see Sizes for Virtual Machines (Linux). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
      */

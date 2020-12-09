@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -138,10 +138,10 @@ export class StreamingJob extends pulumi.CustomResource {
     constructor(name: string, args: StreamingJobArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.jobName === undefined) {
+            if ((!args || args.jobName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'jobName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["compatibilityLevel"] = args ? args.compatibilityLevel : undefined;
@@ -214,7 +214,7 @@ export interface StreamingJobArgs {
     /**
      * Controls certain runtime behaviors of the streaming job.
      */
-    readonly compatibilityLevel?: pulumi.Input<string>;
+    readonly compatibilityLevel?: pulumi.Input<string | enums.streamanalytics.latest.CompatibilityLevel>;
     /**
      * The data locale of the stream analytics job. Value should be the name of a supported .NET Culture from the set https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx. Defaults to 'en-US' if none specified.
      */
@@ -230,7 +230,7 @@ export interface StreamingJobArgs {
     /**
      * Indicates the policy to apply to events that arrive out of order in the input event stream.
      */
-    readonly eventsOutOfOrderPolicy?: pulumi.Input<string>;
+    readonly eventsOutOfOrderPolicy?: pulumi.Input<string | enums.streamanalytics.latest.EventsOutOfOrderPolicy>;
     /**
      * A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
      */
@@ -250,11 +250,11 @@ export interface StreamingJobArgs {
     /**
      * Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
      */
-    readonly outputErrorPolicy?: pulumi.Input<string>;
+    readonly outputErrorPolicy?: pulumi.Input<string | enums.streamanalytics.latest.OutputErrorPolicy>;
     /**
      * This property should only be utilized when it is desired that the job be started immediately upon creation. Value may be JobStartTime, CustomTime, or LastOutputEventTime to indicate whether the starting point of the output event stream should start whenever the job is started, start at a custom user time stamp specified via the outputStartTime property, or start from the last event output time.
      */
-    readonly outputStartMode?: pulumi.Input<string>;
+    readonly outputStartMode?: pulumi.Input<string | enums.streamanalytics.latest.OutputStartMode>;
     /**
      * Value is either an ISO-8601 formatted time stamp that indicates the starting point of the output event stream, or null to indicate that the output event stream will start whenever the streaming job is started. This property must have a value if outputStartMode is set to CustomTime.
      */

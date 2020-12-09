@@ -65,19 +65,19 @@ export class AlertRuleAction extends pulumi.CustomResource {
     constructor(name: string, args: AlertRuleActionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.actionId === undefined) {
+            if ((!args || args.actionId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'actionId'");
             }
-            if (!args || args.operationalInsightsResourceProvider === undefined) {
+            if ((!args || args.operationalInsightsResourceProvider === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'operationalInsightsResourceProvider'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.ruleId === undefined) {
+            if ((!args || args.ruleId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ruleId'");
             }
-            if (!args || args.workspaceName === undefined) {
+            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["actionId"] = args ? args.actionId : undefined;

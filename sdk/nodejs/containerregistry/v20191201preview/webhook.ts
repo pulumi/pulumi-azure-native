@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -82,22 +82,22 @@ export class Webhook extends pulumi.CustomResource {
     constructor(name: string, args: WebhookArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.actions === undefined) {
+            if ((!args || args.actions === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'actions'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.registryName === undefined) {
+            if ((!args || args.registryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'registryName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serviceUri === undefined) {
+            if ((!args || args.serviceUri === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceUri'");
             }
-            if (!args || args.webhookName === undefined) {
+            if ((!args || args.webhookName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'webhookName'");
             }
             inputs["actions"] = args ? args.actions : undefined;
@@ -145,7 +145,7 @@ export interface WebhookArgs {
     /**
      * The list of actions that trigger the webhook to post notifications.
      */
-    readonly actions: pulumi.Input<pulumi.Input<string>[]>;
+    readonly actions: pulumi.Input<pulumi.Input<string | enums.containerregistry.v20191201preview.WebhookAction>[]>;
     /**
      * Custom headers that will be added to the webhook notifications.
      */
@@ -173,7 +173,7 @@ export interface WebhookArgs {
     /**
      * The status of the webhook at the time the operation was called.
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<string | enums.containerregistry.v20191201preview.WebhookStatus>;
     /**
      * The tags for the webhook.
      */

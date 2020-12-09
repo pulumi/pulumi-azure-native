@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -77,16 +78,16 @@ export class Registration extends pulumi.CustomResource {
     constructor(name: string, args: RegistrationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.registrationName === undefined) {
+            if ((!args || args.registrationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'registrationName'");
             }
-            if (!args || args.registrationToken === undefined) {
+            if ((!args || args.registrationToken === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'registrationToken'");
             }
-            if (!args || args.resourceGroup === undefined) {
+            if ((!args || args.resourceGroup === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
             inputs["location"] = args ? args.location : undefined;
@@ -130,7 +131,7 @@ export interface RegistrationArgs {
     /**
      * Location of the resource.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location: pulumi.Input<string | enums.azurestack.latest.Location>;
     /**
      * Name of the Azure Stack registration.
      */

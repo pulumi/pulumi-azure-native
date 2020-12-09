@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -82,13 +82,13 @@ export class TransactionNode extends pulumi.CustomResource {
     constructor(name: string, args: TransactionNodeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.blockchainMemberName === undefined) {
+            if ((!args || args.blockchainMemberName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'blockchainMemberName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.transactionNodeName === undefined) {
+            if ((!args || args.transactionNodeName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'transactionNodeName'");
             }
             inputs["blockchainMemberName"] = args ? args.blockchainMemberName : undefined;

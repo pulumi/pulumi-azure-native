@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -73,16 +74,16 @@ export class ManagedInstanceKey extends pulumi.CustomResource {
     constructor(name: string, args: ManagedInstanceKeyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.keyName === undefined) {
+            if ((!args || args.keyName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'keyName'");
             }
-            if (!args || args.managedInstanceName === undefined) {
+            if ((!args || args.managedInstanceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managedInstanceName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverKeyType === undefined) {
+            if ((!args || args.serverKeyType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverKeyType'");
             }
             inputs["keyName"] = args ? args.keyName : undefined;
@@ -136,7 +137,7 @@ export interface ManagedInstanceKeyArgs {
     /**
      * The key type like 'ServiceManaged', 'AzureKeyVault'.
      */
-    readonly serverKeyType: pulumi.Input<string>;
+    readonly serverKeyType: pulumi.Input<string | enums.sql.v20171001preview.ServerKeyType>;
     /**
      * The URI of the key. If the ServerKeyType is AzureKeyVault, then the URI is required.
      */

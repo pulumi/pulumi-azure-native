@@ -93,10 +93,10 @@ export class PrivateZone extends pulumi.CustomResource {
     constructor(name: string, args: PrivateZoneArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.privateZoneName === undefined) {
+            if ((!args || args.privateZoneName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'privateZoneName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["etag"] = args ? args.etag : undefined;

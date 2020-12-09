@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -69,13 +70,13 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
     constructor(name: string, args: ExpressRouteCircuitAuthorizationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.authorizationName === undefined) {
+            if ((!args || args.authorizationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'authorizationName'");
             }
-            if (!args || args.circuitName === undefined) {
+            if ((!args || args.circuitName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'circuitName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["authorizationKey"] = args ? args.authorizationKey : undefined;
@@ -124,7 +125,7 @@ export interface ExpressRouteCircuitAuthorizationArgs {
     /**
      * The authorization use status.
      */
-    readonly authorizationUseStatus?: pulumi.Input<string>;
+    readonly authorizationUseStatus?: pulumi.Input<string | enums.network.v20190401.AuthorizationUseStatus>;
     /**
      * The name of the express route circuit.
      */

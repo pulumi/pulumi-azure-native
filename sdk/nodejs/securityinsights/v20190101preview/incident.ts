@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -126,25 +126,25 @@ export class Incident extends pulumi.CustomResource {
     constructor(name: string, args: IncidentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.incidentId === undefined) {
+            if ((!args || args.incidentId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'incidentId'");
             }
-            if (!args || args.operationalInsightsResourceProvider === undefined) {
+            if ((!args || args.operationalInsightsResourceProvider === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'operationalInsightsResourceProvider'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.severity === undefined) {
+            if ((!args || args.severity === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'severity'");
             }
-            if (!args || args.status === undefined) {
+            if ((!args || args.status === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'status'");
             }
-            if (!args || args.title === undefined) {
+            if ((!args || args.title === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'title'");
             }
-            if (!args || args.workspaceName === undefined) {
+            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["classification"] = args ? args.classification : undefined;
@@ -211,7 +211,7 @@ export interface IncidentArgs {
     /**
      * The reason the incident was closed
      */
-    readonly classification?: pulumi.Input<string>;
+    readonly classification?: pulumi.Input<string | enums.securityinsights.v20190101preview.IncidentClassification>;
     /**
      * Describes the reason the incident was closed
      */
@@ -219,7 +219,7 @@ export interface IncidentArgs {
     /**
      * The classification reason the incident was closed with
      */
-    readonly classificationReason?: pulumi.Input<string>;
+    readonly classificationReason?: pulumi.Input<string | enums.securityinsights.v20190101preview.IncidentClassificationReason>;
     /**
      * The description of the incident
      */
@@ -259,11 +259,11 @@ export interface IncidentArgs {
     /**
      * The severity of the incident
      */
-    readonly severity: pulumi.Input<string>;
+    readonly severity: pulumi.Input<string | enums.securityinsights.v20190101preview.IncidentSeverity>;
     /**
      * The status of the incident
      */
-    readonly status: pulumi.Input<string>;
+    readonly status: pulumi.Input<string | enums.securityinsights.v20190101preview.IncidentStatus>;
     /**
      * The title of the incident
      */

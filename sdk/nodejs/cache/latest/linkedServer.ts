@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -69,22 +70,22 @@ export class LinkedServer extends pulumi.CustomResource {
     constructor(name: string, args: LinkedServerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.linkedRedisCacheId === undefined) {
+            if ((!args || args.linkedRedisCacheId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'linkedRedisCacheId'");
             }
-            if (!args || args.linkedRedisCacheLocation === undefined) {
+            if ((!args || args.linkedRedisCacheLocation === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'linkedRedisCacheLocation'");
             }
-            if (!args || args.linkedServerName === undefined) {
+            if ((!args || args.linkedServerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'linkedServerName'");
             }
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverRole === undefined) {
+            if ((!args || args.serverRole === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverRole'");
             }
             inputs["linkedRedisCacheId"] = args ? args.linkedRedisCacheId : undefined;
@@ -143,5 +144,5 @@ export interface LinkedServerArgs {
     /**
      * Role of the linked server.
      */
-    readonly serverRole: pulumi.Input<string>;
+    readonly serverRole: pulumi.Input<enums.cache.latest.ReplicationRole>;
 }

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -86,22 +86,22 @@ export class BudgetByResourceGroupName extends pulumi.CustomResource {
     constructor(name: string, args: BudgetByResourceGroupNameArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.amount === undefined) {
+            if ((!args || args.amount === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'amount'");
             }
-            if (!args || args.budgetName === undefined) {
+            if ((!args || args.budgetName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'budgetName'");
             }
-            if (!args || args.category === undefined) {
+            if ((!args || args.category === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'category'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.timeGrain === undefined) {
+            if ((!args || args.timeGrain === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'timeGrain'");
             }
-            if (!args || args.timePeriod === undefined) {
+            if ((!args || args.timePeriod === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'timePeriod'");
             }
             inputs["amount"] = args ? args.amount : undefined;
@@ -156,7 +156,7 @@ export interface BudgetByResourceGroupNameArgs {
     /**
      * The category of the budget, whether the budget tracks cost or usage.
      */
-    readonly category: pulumi.Input<string>;
+    readonly category: pulumi.Input<string | enums.consumption.v20180630.CategoryType>;
     /**
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
@@ -176,7 +176,7 @@ export interface BudgetByResourceGroupNameArgs {
     /**
      * The time covered by a budget. Tracking of the amount will be reset based on the time grain.
      */
-    readonly timeGrain: pulumi.Input<string>;
+    readonly timeGrain: pulumi.Input<string | enums.consumption.v20180630.TimeGrainType>;
     /**
      * Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
      */

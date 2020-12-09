@@ -105,16 +105,16 @@ export class ShareSubscription extends pulumi.CustomResource {
     constructor(name: string, args: ShareSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.accountName === undefined) {
+            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.invitationId === undefined) {
+            if ((!args || args.invitationId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'invitationId'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.shareSubscriptionName === undefined) {
+            if ((!args || args.shareSubscriptionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'shareSubscriptionName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;

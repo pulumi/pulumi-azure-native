@@ -69,16 +69,16 @@ export class SecretValue extends pulumi.CustomResource {
     constructor(name: string, args: SecretValueArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.secretResourceName === undefined) {
+            if ((!args || args.secretResourceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'secretResourceName'");
             }
-            if (!args || args.secretValueResourceName === undefined) {
+            if ((!args || args.secretValueResourceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'secretValueResourceName'");
             }
             inputs["location"] = args ? args.location : undefined;

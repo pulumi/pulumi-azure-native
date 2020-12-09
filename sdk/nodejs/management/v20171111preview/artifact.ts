@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -57,16 +58,16 @@ export class Artifact extends pulumi.CustomResource {
     constructor(name: string, args: ArtifactArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.artifactName === undefined) {
+            if ((!args || args.artifactName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'artifactName'");
             }
-            if (!args || args.blueprintName === undefined) {
+            if ((!args || args.blueprintName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'blueprintName'");
             }
-            if (!args || args.kind === undefined) {
+            if ((!args || args.kind === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'kind'");
             }
-            if (!args || args.managementGroupName === undefined) {
+            if ((!args || args.managementGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managementGroupName'");
             }
             inputs["artifactName"] = args ? args.artifactName : undefined;
@@ -106,7 +107,7 @@ export interface ArtifactArgs {
     /**
      * Specifies the kind of Blueprint artifact.
      */
-    readonly kind: pulumi.Input<string>;
+    readonly kind: pulumi.Input<string | enums.management.v20171111preview.ArtifactKind>;
     /**
      * ManagementGroup where blueprint stores.
      */

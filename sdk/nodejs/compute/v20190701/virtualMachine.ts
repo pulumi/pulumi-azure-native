@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -146,13 +146,13 @@ export class VirtualMachine extends pulumi.CustomResource {
     constructor(name: string, args: VirtualMachineArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.vmName === undefined) {
+            if ((!args || args.vmName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vmName'");
             }
             inputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;
@@ -245,7 +245,7 @@ export interface VirtualMachineArgs {
     /**
      * Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, the only supported value is 'Deallocate' and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
      */
-    readonly evictionPolicy?: pulumi.Input<string>;
+    readonly evictionPolicy?: pulumi.Input<string | enums.compute.v20190701.VirtualMachineEvictionPolicyTypes>;
     /**
      * Specifies the hardware settings for the virtual machine.
      */
@@ -281,7 +281,7 @@ export interface VirtualMachineArgs {
     /**
      * Specifies the priority for the virtual machine. <br><br>Minimum api-version: 2019-03-01
      */
-    readonly priority?: pulumi.Input<string>;
+    readonly priority?: pulumi.Input<string | enums.compute.v20190701.VirtualMachinePriorityTypes>;
     /**
      * Specifies information about the proximity placement group that the virtual machine should be assigned to. <br><br>Minimum api-version: 2018-04-01.
      */

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -90,22 +90,22 @@ export class ContainerService extends pulumi.CustomResource {
     constructor(name: string, args: ContainerServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.agentPoolProfiles === undefined) {
+            if ((!args || args.agentPoolProfiles === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'agentPoolProfiles'");
             }
-            if (!args || args.containerServiceName === undefined) {
+            if ((!args || args.containerServiceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'containerServiceName'");
             }
-            if (!args || args.linuxProfile === undefined) {
+            if ((!args || args.linuxProfile === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'linuxProfile'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.masterProfile === undefined) {
+            if ((!args || args.masterProfile === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'masterProfile'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["agentPoolProfiles"] = args ? args.agentPoolProfiles : undefined;

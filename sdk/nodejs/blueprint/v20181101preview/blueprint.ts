@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -86,13 +86,13 @@ export class Blueprint extends pulumi.CustomResource {
     constructor(name: string, args: BlueprintArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.blueprintName === undefined) {
+            if ((!args || args.blueprintName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'blueprintName'");
             }
-            if (!args || args.resourceScope === undefined) {
+            if ((!args || args.resourceScope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceScope'");
             }
-            if (!args || args.targetScope === undefined) {
+            if ((!args || args.targetScope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetScope'");
             }
             inputs["blueprintName"] = args ? args.blueprintName : undefined;
@@ -165,7 +165,7 @@ export interface BlueprintArgs {
     /**
      * The scope where this blueprint definition can be assigned.
      */
-    readonly targetScope: pulumi.Input<string>;
+    readonly targetScope: pulumi.Input<string | enums.blueprint.v20181101preview.BlueprintTargetScope>;
     /**
      * Published versions of this blueprint definition.
      */

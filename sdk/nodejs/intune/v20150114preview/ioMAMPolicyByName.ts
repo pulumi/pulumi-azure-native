@@ -81,13 +81,13 @@ export class IoMAMPolicyByName extends pulumi.CustomResource {
     constructor(name: string, args: IoMAMPolicyByNameArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.friendlyName === undefined) {
+            if ((!args || args.friendlyName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'friendlyName'");
             }
-            if (!args || args.hostName === undefined) {
+            if ((!args || args.hostName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hostName'");
             }
-            if (!args || args.policyName === undefined) {
+            if ((!args || args.policyName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policyName'");
             }
             inputs["accessRecheckOfflineTimeout"] = args ? args.accessRecheckOfflineTimeout : undefined;

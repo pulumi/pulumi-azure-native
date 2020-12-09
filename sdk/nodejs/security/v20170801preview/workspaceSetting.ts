@@ -61,13 +61,13 @@ export class WorkspaceSetting extends pulumi.CustomResource {
     constructor(name: string, args: WorkspaceSettingArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.scope === undefined) {
+            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
-            if (!args || args.workspaceId === undefined) {
+            if ((!args || args.workspaceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            if (!args || args.workspaceSettingName === undefined) {
+            if ((!args || args.workspaceSettingName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceSettingName'");
             }
             inputs["scope"] = args ? args.scope : undefined;

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -58,19 +58,19 @@ export class JobTargetGroup extends pulumi.CustomResource {
     constructor(name: string, args: JobTargetGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.jobAgentName === undefined) {
+            if ((!args || args.jobAgentName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'jobAgentName'");
             }
-            if (!args || args.members === undefined) {
+            if ((!args || args.members === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'members'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverName === undefined) {
+            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if (!args || args.targetGroupName === undefined) {
+            if ((!args || args.targetGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetGroupName'");
             }
             inputs["jobAgentName"] = args ? args.jobAgentName : undefined;

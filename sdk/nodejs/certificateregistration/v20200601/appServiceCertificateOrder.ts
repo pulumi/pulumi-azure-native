@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -142,16 +142,16 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
     constructor(name: string, args: AppServiceCertificateOrderArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.certificateOrderName === undefined) {
+            if ((!args || args.certificateOrderName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'certificateOrderName'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.productType === undefined) {
+            if ((!args || args.productType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'productType'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["autoRenew"] = args ? args.autoRenew : undefined;
@@ -258,7 +258,7 @@ export interface AppServiceCertificateOrderArgs {
     /**
      * Certificate product type.
      */
-    readonly productType: pulumi.Input<string>;
+    readonly productType: pulumi.Input<enums.certificateregistration.v20200601.CertificateProductType>;
     /**
      * Name of the resource group to which the resource belongs.
      */

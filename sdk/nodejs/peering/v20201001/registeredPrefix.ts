@@ -73,13 +73,13 @@ export class RegisteredPrefix extends pulumi.CustomResource {
     constructor(name: string, args: RegisteredPrefixArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.peeringName === undefined) {
+            if ((!args || args.peeringName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'peeringName'");
             }
-            if (!args || args.registeredPrefixName === undefined) {
+            if ((!args || args.registeredPrefixName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'registeredPrefixName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["peeringName"] = args ? args.peeringName : undefined;

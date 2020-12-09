@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -81,13 +82,13 @@ export class WorkloadNetworkPortMirroring extends pulumi.CustomResource {
     constructor(name: string, args: WorkloadNetworkPortMirroringArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.portMirroringId === undefined) {
+            if ((!args || args.portMirroringId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'portMirroringId'");
             }
-            if (!args || args.privateCloudName === undefined) {
+            if ((!args || args.privateCloudName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["destination"] = args ? args.destination : undefined;
@@ -135,7 +136,7 @@ export interface WorkloadNetworkPortMirroringArgs {
     /**
      * Direction of port mirroring profile.
      */
-    readonly direction?: pulumi.Input<string>;
+    readonly direction?: pulumi.Input<string | enums.avs.v20200717preview.PortMirroringDirectionEnum>;
     /**
      * Display name of the port mirroring profile.
      */

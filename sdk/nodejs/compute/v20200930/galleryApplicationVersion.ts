@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -74,22 +74,22 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
     constructor(name: string, args: GalleryApplicationVersionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.galleryApplicationName === undefined) {
+            if ((!args || args.galleryApplicationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'galleryApplicationName'");
             }
-            if (!args || args.galleryApplicationVersionName === undefined) {
+            if ((!args || args.galleryApplicationVersionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'galleryApplicationVersionName'");
             }
-            if (!args || args.galleryName === undefined) {
+            if ((!args || args.galleryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'galleryName'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.publishingProfile === undefined) {
+            if ((!args || args.publishingProfile === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'publishingProfile'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["galleryApplicationName"] = args ? args.galleryApplicationName : undefined;

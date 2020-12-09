@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -98,22 +98,22 @@ export class Link extends pulumi.CustomResource {
     constructor(name: string, args: LinkArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.hubName === undefined) {
+            if ((!args || args.hubName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if (!args || args.linkName === undefined) {
+            if ((!args || args.linkName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'linkName'");
             }
-            if (!args || args.participantPropertyReferences === undefined) {
+            if ((!args || args.participantPropertyReferences === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'participantPropertyReferences'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sourceInteractionType === undefined) {
+            if ((!args || args.sourceInteractionType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sourceInteractionType'");
             }
-            if (!args || args.targetProfileType === undefined) {
+            if ((!args || args.targetProfileType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetProfileType'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -186,7 +186,7 @@ export interface LinkArgs {
     /**
      * Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
      */
-    readonly operationType?: pulumi.Input<string>;
+    readonly operationType?: pulumi.Input<enums.customerinsights.v20170101.InstanceOperationType>;
     /**
      * The properties that represent the participating profile.
      */

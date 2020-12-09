@@ -73,13 +73,13 @@ export class VirtualHubBgpConnection extends pulumi.CustomResource {
     constructor(name: string, args: VirtualHubBgpConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.connectionName === undefined) {
+            if ((!args || args.connectionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'connectionName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.virtualHubName === undefined) {
+            if ((!args || args.virtualHubName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualHubName'");
             }
             inputs["connectionName"] = args ? args.connectionName : undefined;

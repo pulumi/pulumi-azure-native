@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 export function listConnectedClusterUserCredentials(args: ListConnectedClusterUserCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListConnectedClusterUserCredentialsResult> {
@@ -26,7 +26,7 @@ export interface ListConnectedClusterUserCredentialsArgs {
     /**
      * The mode of client authentication.
      */
-    readonly authenticationMethod: string;
+    readonly authenticationMethod: string | enums.kubernetes.v20200101preview.AuthenticationMethod;
     /**
      * Parameter to indicate whether the request is for client side proxy or not
      */

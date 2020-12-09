@@ -57,16 +57,16 @@ export class TrustedIdProvider extends pulumi.CustomResource {
     constructor(name: string, args: TrustedIdProviderArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.accountName === undefined) {
+            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.idProvider === undefined) {
+            if ((!args || args.idProvider === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'idProvider'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.trustedIdProviderName === undefined) {
+            if ((!args || args.trustedIdProviderName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'trustedIdProviderName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;

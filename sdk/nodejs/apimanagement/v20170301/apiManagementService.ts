@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -146,22 +146,22 @@ export class ApiManagementService extends pulumi.CustomResource {
     constructor(name: string, args: ApiManagementServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.publisherEmail === undefined) {
+            if ((!args || args.publisherEmail === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'publisherEmail'");
             }
-            if (!args || args.publisherName === undefined) {
+            if ((!args || args.publisherName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'publisherName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serviceName === undefined) {
+            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if (!args || args.sku === undefined) {
+            if ((!args || args.sku === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["additionalLocations"] = args ? args.additionalLocations : undefined;
@@ -294,5 +294,5 @@ export interface ApiManagementServiceArgs {
     /**
      * The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
      */
-    readonly virtualNetworkType?: pulumi.Input<string>;
+    readonly virtualNetworkType?: pulumi.Input<string | enums.apimanagement.v20170301.VirtualNetworkType>;
 }

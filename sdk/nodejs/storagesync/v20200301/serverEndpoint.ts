@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -126,16 +126,16 @@ export class ServerEndpoint extends pulumi.CustomResource {
     constructor(name: string, args: ServerEndpointArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverEndpointName === undefined) {
+            if ((!args || args.serverEndpointName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverEndpointName'");
             }
-            if (!args || args.storageSyncServiceName === undefined) {
+            if ((!args || args.storageSyncServiceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageSyncServiceName'");
             }
-            if (!args || args.syncGroupName === undefined) {
+            if ((!args || args.syncGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'syncGroupName'");
             }
             inputs["cloudTiering"] = args ? args.cloudTiering : undefined;
@@ -204,7 +204,7 @@ export interface ServerEndpointArgs {
     /**
      * Cloud Tiering.
      */
-    readonly cloudTiering?: pulumi.Input<string>;
+    readonly cloudTiering?: pulumi.Input<string | enums.storagesync.v20200301.FeatureStatus>;
     /**
      * Friendly Name
      */
@@ -212,15 +212,15 @@ export interface ServerEndpointArgs {
     /**
      * Policy for how namespace and files are recalled during FastDr.
      */
-    readonly initialDownloadPolicy?: pulumi.Input<string>;
+    readonly initialDownloadPolicy?: pulumi.Input<string | enums.storagesync.v20200301.InitialDownloadPolicy>;
     /**
      * Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
      */
-    readonly localCacheMode?: pulumi.Input<string>;
+    readonly localCacheMode?: pulumi.Input<string | enums.storagesync.v20200301.LocalCacheMode>;
     /**
      * Offline data transfer
      */
-    readonly offlineDataTransfer?: pulumi.Input<string>;
+    readonly offlineDataTransfer?: pulumi.Input<string | enums.storagesync.v20200301.FeatureStatus>;
     /**
      * Offline data transfer share name
      */

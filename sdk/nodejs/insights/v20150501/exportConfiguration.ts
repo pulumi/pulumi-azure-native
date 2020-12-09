@@ -121,13 +121,13 @@ export class ExportConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: ExportConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.exportId === undefined) {
+            if ((!args || args.exportId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'exportId'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.resourceName === undefined) {
+            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["destinationAccountId"] = args ? args.destinationAccountId : undefined;

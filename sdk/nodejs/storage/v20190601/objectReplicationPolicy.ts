@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -74,19 +74,19 @@ export class ObjectReplicationPolicy extends pulumi.CustomResource {
     constructor(name: string, args: ObjectReplicationPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.accountName === undefined) {
+            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.destinationAccount === undefined) {
+            if ((!args || args.destinationAccount === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'destinationAccount'");
             }
-            if (!args || args.objectReplicationPolicyId === undefined) {
+            if ((!args || args.objectReplicationPolicyId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'objectReplicationPolicyId'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sourceAccount === undefined) {
+            if ((!args || args.sourceAccount === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sourceAccount'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;

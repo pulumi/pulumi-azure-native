@@ -65,16 +65,16 @@ export class Channel extends pulumi.CustomResource {
     constructor(name: string, args: ChannelArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.accountName === undefined) {
+            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.channelName === undefined) {
+            if ((!args || args.channelName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'channelName'");
             }
-            if (!args || args.channelType === undefined) {
+            if ((!args || args.channelType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'channelType'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;

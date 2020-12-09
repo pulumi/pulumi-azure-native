@@ -93,10 +93,10 @@ export class IotSensor extends pulumi.CustomResource {
     constructor(name: string, args: IotSensorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.iotSensorName === undefined) {
+            if ((!args || args.iotSensorName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'iotSensorName'");
             }
-            if (!args || args.scope === undefined) {
+            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["iotSensorName"] = args ? args.iotSensorName : undefined;

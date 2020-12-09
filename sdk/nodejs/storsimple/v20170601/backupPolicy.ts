@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -85,19 +86,19 @@ export class BackupPolicy extends pulumi.CustomResource {
     constructor(name: string, args: BackupPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.backupPolicyName === undefined) {
+            if ((!args || args.backupPolicyName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'backupPolicyName'");
             }
-            if (!args || args.deviceName === undefined) {
+            if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if (!args || args.managerName === undefined) {
+            if ((!args || args.managerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.volumeIds === undefined) {
+            if ((!args || args.volumeIds === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'volumeIds'");
             }
             inputs["backupPolicyName"] = args ? args.backupPolicyName : undefined;
@@ -154,7 +155,7 @@ export interface BackupPolicyArgs {
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    readonly kind?: pulumi.Input<string>;
+    readonly kind?: pulumi.Input<enums.storsimple.v20170601.Kind>;
     /**
      * The manager name
      */

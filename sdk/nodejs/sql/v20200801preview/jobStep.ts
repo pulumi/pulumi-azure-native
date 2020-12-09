@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -78,28 +78,28 @@ export class JobStep extends pulumi.CustomResource {
     constructor(name: string, args: JobStepArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.action === undefined) {
+            if ((!args || args.action === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'action'");
             }
-            if (!args || args.credential === undefined) {
+            if ((!args || args.credential === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'credential'");
             }
-            if (!args || args.jobAgentName === undefined) {
+            if ((!args || args.jobAgentName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'jobAgentName'");
             }
-            if (!args || args.jobName === undefined) {
+            if ((!args || args.jobName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'jobName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverName === undefined) {
+            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if (!args || args.stepName === undefined) {
+            if ((!args || args.stepName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'stepName'");
             }
-            if (!args || args.targetGroup === undefined) {
+            if ((!args || args.targetGroup === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetGroup'");
             }
             inputs["action"] = args ? args.action : undefined;

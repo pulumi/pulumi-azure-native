@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -69,19 +70,19 @@ export class ComputePolicy extends pulumi.CustomResource {
     constructor(name: string, args: ComputePolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.accountName === undefined) {
+            if ((!args || args.accountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.computePolicyName === undefined) {
+            if ((!args || args.computePolicyName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'computePolicyName'");
             }
-            if (!args || args.objectId === undefined) {
+            if ((!args || args.objectId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'objectId'");
             }
-            if (!args || args.objectType === undefined) {
+            if ((!args || args.objectType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'objectType'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
@@ -141,7 +142,7 @@ export interface ComputePolicyArgs {
     /**
      * The type of AAD object the object identifier refers to.
      */
-    readonly objectType: pulumi.Input<string>;
+    readonly objectType: pulumi.Input<string | enums.datalakeanalytics.v20161101.AADObjectType>;
     /**
      * The name of the Azure resource group.
      */

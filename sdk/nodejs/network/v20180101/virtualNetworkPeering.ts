@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -86,13 +86,13 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
     constructor(name: string, args: VirtualNetworkPeeringArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.virtualNetworkName === undefined) {
+            if ((!args || args.virtualNetworkName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualNetworkName'");
             }
-            if (!args || args.virtualNetworkPeeringName === undefined) {
+            if ((!args || args.virtualNetworkPeeringName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualNetworkPeeringName'");
             }
             inputs["allowForwardedTraffic"] = args ? args.allowForwardedTraffic : undefined;
@@ -165,7 +165,7 @@ export interface VirtualNetworkPeeringArgs {
     /**
      * The status of the virtual network peering. Possible values are 'Initiated', 'Connected', and 'Disconnected'.
      */
-    readonly peeringState?: pulumi.Input<string>;
+    readonly peeringState?: pulumi.Input<string | enums.network.v20180101.VirtualNetworkPeeringState>;
     /**
      * The provisioning state of the resource.
      */

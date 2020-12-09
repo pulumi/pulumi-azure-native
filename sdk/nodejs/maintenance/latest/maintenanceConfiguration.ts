@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -73,10 +74,10 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: MaintenanceConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.resourceName === undefined) {
+            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["extensionProperties"] = args ? args.extensionProperties : undefined;
@@ -125,7 +126,7 @@ export interface MaintenanceConfigurationArgs {
     /**
      * Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
      */
-    readonly maintenanceScope?: pulumi.Input<string>;
+    readonly maintenanceScope?: pulumi.Input<string | enums.maintenance.latest.MaintenanceScope>;
     /**
      * Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
      */

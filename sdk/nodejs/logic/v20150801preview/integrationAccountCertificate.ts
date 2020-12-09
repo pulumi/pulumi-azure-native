@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 export class IntegrationAccountCertificate extends pulumi.CustomResource {
@@ -79,13 +79,13 @@ export class IntegrationAccountCertificate extends pulumi.CustomResource {
     constructor(name: string, args: IntegrationAccountCertificateArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.certificateName === undefined) {
+            if ((!args || args.certificateName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'certificateName'");
             }
-            if (!args || args.integrationAccountName === undefined) {
+            if ((!args || args.integrationAccountName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["certificateName"] = args ? args.certificateName : undefined;

@@ -85,13 +85,13 @@ export class CommunicationService extends pulumi.CustomResource {
     constructor(name: string, args: CommunicationServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.communicationServiceName === undefined) {
+            if ((!args || args.communicationServiceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'communicationServiceName'");
             }
-            if (!args || args.dataLocation === undefined) {
+            if ((!args || args.dataLocation === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataLocation'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["communicationServiceName"] = args ? args.communicationServiceName : undefined;

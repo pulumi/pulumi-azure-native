@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -94,16 +94,16 @@ export class Disk extends pulumi.CustomResource {
     constructor(name: string, args: DiskArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.creationData === undefined) {
+            if ((!args || args.creationData === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'creationData'");
             }
-            if (!args || args.diskName === undefined) {
+            if ((!args || args.diskName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'diskName'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountType"] = args ? args.accountType : undefined;
@@ -154,7 +154,7 @@ export interface DiskArgs {
     /**
      * the storage account type of the disk.
      */
-    readonly accountType?: pulumi.Input<string>;
+    readonly accountType?: pulumi.Input<enums.compute.v20160430preview.StorageAccountTypes>;
     /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
@@ -178,7 +178,7 @@ export interface DiskArgs {
     /**
      * The Operating System type.
      */
-    readonly osType?: pulumi.Input<string>;
+    readonly osType?: pulumi.Input<enums.compute.v20160430preview.OperatingSystemTypes>;
     /**
      * The name of the resource group.
      */

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -62,19 +62,19 @@ export class ReplicationProtectedItem extends pulumi.CustomResource {
     constructor(name: string, args: ReplicationProtectedItemArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.fabricName === undefined) {
+            if ((!args || args.fabricName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'fabricName'");
             }
-            if (!args || args.protectionContainerName === undefined) {
+            if ((!args || args.protectionContainerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'protectionContainerName'");
             }
-            if (!args || args.replicatedProtectedItemName === undefined) {
+            if ((!args || args.replicatedProtectedItemName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'replicatedProtectedItemName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.resourceName === undefined) {
+            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["fabricName"] = args ? args.fabricName : undefined;

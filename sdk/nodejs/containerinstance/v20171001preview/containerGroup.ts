@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -97,19 +97,19 @@ export class ContainerGroup extends pulumi.CustomResource {
     constructor(name: string, args: ContainerGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.containerGroupName === undefined) {
+            if ((!args || args.containerGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'containerGroupName'");
             }
-            if (!args || args.containers === undefined) {
+            if ((!args || args.containers === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'containers'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.osType === undefined) {
+            if ((!args || args.osType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'osType'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["containerGroupName"] = args ? args.containerGroupName : undefined;
@@ -180,7 +180,7 @@ export interface ContainerGroupArgs {
     /**
      * The operating system type required by the containers in the container group.
      */
-    readonly osType: pulumi.Input<string>;
+    readonly osType: pulumi.Input<string | enums.containerinstance.v20171001preview.OperatingSystemTypes>;
     /**
      * The name of the resource group.
      */
@@ -191,7 +191,7 @@ export interface ContainerGroupArgs {
      * - `OnFailure` Restart on failure
      * - `Never` Never restart
      */
-    readonly restartPolicy?: pulumi.Input<string>;
+    readonly restartPolicy?: pulumi.Input<string | enums.containerinstance.v20171001preview.ContainerGroupRestartPolicy>;
     /**
      * The resource tags.
      */

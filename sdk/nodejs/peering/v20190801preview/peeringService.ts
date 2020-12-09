@@ -73,13 +73,13 @@ export class PeeringService extends pulumi.CustomResource {
     constructor(name: string, args: PeeringServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.peeringServiceName === undefined) {
+            if ((!args || args.peeringServiceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'peeringServiceName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;

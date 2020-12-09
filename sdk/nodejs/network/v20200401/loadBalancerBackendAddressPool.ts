@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -82,13 +82,13 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
     constructor(name: string, args: LoadBalancerBackendAddressPoolArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.backendAddressPoolName === undefined) {
+            if ((!args || args.backendAddressPoolName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'backendAddressPoolName'");
             }
-            if (!args || args.loadBalancerName === undefined) {
+            if ((!args || args.loadBalancerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'loadBalancerName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["backendAddressPoolName"] = args ? args.backendAddressPoolName : undefined;

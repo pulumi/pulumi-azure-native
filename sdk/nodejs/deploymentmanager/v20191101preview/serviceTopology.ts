@@ -65,13 +65,13 @@ export class ServiceTopology extends pulumi.CustomResource {
     constructor(name: string, args: ServiceTopologyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serviceTopologyName === undefined) {
+            if ((!args || args.serviceTopologyName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceTopologyName'");
             }
             inputs["artifactSourceId"] = args ? args.artifactSourceId : undefined;

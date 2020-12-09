@@ -69,19 +69,19 @@ export class Cache extends pulumi.CustomResource {
     constructor(name: string, args: CacheArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.cacheId === undefined) {
+            if ((!args || args.cacheId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'cacheId'");
             }
-            if (!args || args.connectionString === undefined) {
+            if ((!args || args.connectionString === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'connectionString'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serviceName === undefined) {
+            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if (!args || args.useFromLocation === undefined) {
+            if ((!args || args.useFromLocation === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'useFromLocation'");
             }
             inputs["cacheId"] = args ? args.cacheId : undefined;

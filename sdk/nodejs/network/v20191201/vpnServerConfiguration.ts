@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -114,10 +114,10 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: VpnServerConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.vpnServerConfigurationName === undefined) {
+            if ((!args || args.vpnServerConfigurationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vpnServerConfigurationName'");
             }
             inputs["aadAuthenticationParameters"] = args ? args.aadAuthenticationParameters : undefined;
@@ -219,7 +219,7 @@ export interface VpnServerConfigurationArgs {
     /**
      * VPN authentication types for the VpnServerConfiguration.
      */
-    readonly vpnAuthenticationTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly vpnAuthenticationTypes?: pulumi.Input<pulumi.Input<string | enums.network.v20191201.VpnAuthenticationType>[]>;
     /**
      * VpnClientIpsecPolicies for VpnServerConfiguration.
      */
@@ -235,7 +235,7 @@ export interface VpnServerConfigurationArgs {
     /**
      * VPN protocols for the VpnServerConfiguration.
      */
-    readonly vpnProtocols?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly vpnProtocols?: pulumi.Input<pulumi.Input<string | enums.network.v20191201.VpnGatewayTunnelingProtocol>[]>;
     /**
      * The name of the VpnServerConfiguration being created or updated.
      */

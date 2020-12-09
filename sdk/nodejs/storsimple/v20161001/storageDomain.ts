@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -66,19 +66,19 @@ export class StorageDomain extends pulumi.CustomResource {
     constructor(name: string, args: StorageDomainArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.encryptionStatus === undefined) {
+            if ((!args || args.encryptionStatus === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'encryptionStatus'");
             }
-            if (!args || args.managerName === undefined) {
+            if ((!args || args.managerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.storageAccountCredentialIds === undefined) {
+            if ((!args || args.storageAccountCredentialIds === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageAccountCredentialIds'");
             }
-            if (!args || args.storageDomainName === undefined) {
+            if ((!args || args.storageDomainName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'storageDomainName'");
             }
             inputs["encryptionKey"] = args ? args.encryptionKey : undefined;
@@ -120,7 +120,7 @@ export interface StorageDomainArgs {
     /**
      * The encryption status "Enabled | Disabled".
      */
-    readonly encryptionStatus: pulumi.Input<string>;
+    readonly encryptionStatus: pulumi.Input<enums.storsimple.v20161001.EncryptionStatus>;
     /**
      * The manager name
      */

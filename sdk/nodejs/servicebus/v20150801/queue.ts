@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -146,16 +146,16 @@ export class Queue extends pulumi.CustomResource {
     constructor(name: string, args: QueueArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.namespaceName === undefined) {
+            if ((!args || args.namespaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if (!args || args.queueName === undefined) {
+            if ((!args || args.queueName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'queueName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
@@ -261,7 +261,7 @@ export interface QueueArgs {
     /**
      * Entity availability status for the queue.
      */
-    readonly entityAvailabilityStatus?: pulumi.Input<string>;
+    readonly entityAvailabilityStatus?: pulumi.Input<enums.servicebus.v20150801.EntityAvailabilityStatus>;
     /**
      * A value that indicates whether the message is accessible anonymously.
      */
@@ -309,7 +309,7 @@ export interface QueueArgs {
     /**
      * Enumerates the possible values for the status of a messaging entity.
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<enums.servicebus.v20150801.EntityStatus>;
     /**
      * A value that indicates whether the queue supports ordering.
      */

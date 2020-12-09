@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -74,25 +74,25 @@ export class ServiceUnit extends pulumi.CustomResource {
     constructor(name: string, args: ServiceUnitArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.deploymentMode === undefined) {
+            if ((!args || args.deploymentMode === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'deploymentMode'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serviceName === undefined) {
+            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if (!args || args.serviceTopologyName === undefined) {
+            if ((!args || args.serviceTopologyName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceTopologyName'");
             }
-            if (!args || args.serviceUnitName === undefined) {
+            if ((!args || args.serviceUnitName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceUnitName'");
             }
-            if (!args || args.targetResourceGroup === undefined) {
+            if ((!args || args.targetResourceGroup === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetResourceGroup'");
             }
             inputs["artifacts"] = args ? args.artifacts : undefined;
@@ -139,7 +139,7 @@ export interface ServiceUnitArgs {
     /**
      * Describes the type of ARM deployment to be performed on the resource.
      */
-    readonly deploymentMode: pulumi.Input<string>;
+    readonly deploymentMode: pulumi.Input<enums.deploymentmanager.v20191101preview.DeploymentMode>;
     /**
      * The geo-location where the resource lives
      */

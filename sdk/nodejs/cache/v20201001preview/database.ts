@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -82,13 +82,13 @@ export class Database extends pulumi.CustomResource {
     constructor(name: string, args: DatabaseArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.clusterName === undefined) {
+            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if (!args || args.databaseName === undefined) {
+            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["clientProtocol"] = args ? args.clientProtocol : undefined;
@@ -132,7 +132,7 @@ export interface DatabaseArgs {
     /**
      * Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
      */
-    readonly clientProtocol?: pulumi.Input<string>;
+    readonly clientProtocol?: pulumi.Input<string | enums.cache.v20201001preview.Protocol>;
     /**
      * The name of the RedisEnterprise cluster.
      */
@@ -140,7 +140,7 @@ export interface DatabaseArgs {
     /**
      * Clustering policy - default is OSSCluster. Specified at create time.
      */
-    readonly clusteringPolicy?: pulumi.Input<string>;
+    readonly clusteringPolicy?: pulumi.Input<string | enums.cache.v20201001preview.ClusteringPolicy>;
     /**
      * The name of the database.
      */
@@ -148,7 +148,7 @@ export interface DatabaseArgs {
     /**
      * Redis eviction policy - default is VolatileLRU
      */
-    readonly evictionPolicy?: pulumi.Input<string>;
+    readonly evictionPolicy?: pulumi.Input<string | enums.cache.v20201001preview.EvictionPolicy>;
     /**
      * Optional set of redis modules to enable in this database - modules can only be added at creation time.
      */

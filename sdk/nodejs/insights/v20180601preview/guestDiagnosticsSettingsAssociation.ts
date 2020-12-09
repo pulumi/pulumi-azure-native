@@ -65,16 +65,16 @@ export class GuestDiagnosticsSettingsAssociation extends pulumi.CustomResource {
     constructor(name: string, args: GuestDiagnosticsSettingsAssociationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.associationName === undefined) {
+            if ((!args || args.associationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'associationName'");
             }
-            if (!args || args.guestDiagnosticSettingsName === undefined) {
+            if ((!args || args.guestDiagnosticSettingsName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'guestDiagnosticSettingsName'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceUri === undefined) {
+            if ((!args || args.resourceUri === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceUri'");
             }
             inputs["associationName"] = args ? args.associationName : undefined;

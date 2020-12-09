@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -98,19 +98,19 @@ export class SourceControlConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: SourceControlConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.clusterName === undefined) {
+            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if (!args || args.clusterResourceName === undefined) {
+            if ((!args || args.clusterResourceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterResourceName'");
             }
-            if (!args || args.clusterRp === undefined) {
+            if ((!args || args.clusterRp === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterRp'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sourceControlConfigurationName === undefined) {
+            if ((!args || args.sourceControlConfigurationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sourceControlConfigurationName'");
             }
             inputs["clusterName"] = args ? args.clusterName : undefined;
@@ -178,7 +178,7 @@ export interface SourceControlConfigurationArgs {
     /**
      * Option to enable Helm Operator for this git configuration.
      */
-    readonly enableHelmOperator?: pulumi.Input<string>;
+    readonly enableHelmOperator?: pulumi.Input<string | enums.kubernetesconfiguration.v20191101preview.EnableHelmOperator>;
     /**
      * Properties for Helm operator.
      */
@@ -198,11 +198,11 @@ export interface SourceControlConfigurationArgs {
     /**
      * Scope at which the operator will be installed.
      */
-    readonly operatorScope?: pulumi.Input<string>;
+    readonly operatorScope?: pulumi.Input<string | enums.kubernetesconfiguration.v20191101preview.OperatorScope>;
     /**
      * Type of the operator
      */
-    readonly operatorType?: pulumi.Input<string>;
+    readonly operatorType?: pulumi.Input<string | enums.kubernetesconfiguration.v20191101preview.OperatorType>;
     /**
      * Url of the SourceControl Repository.
      */

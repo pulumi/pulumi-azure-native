@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -94,13 +94,13 @@ export class P2sVpnServerConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: P2sVpnServerConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.p2SVpnServerConfigurationName === undefined) {
+            if ((!args || args.p2SVpnServerConfigurationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'p2SVpnServerConfigurationName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.virtualWanName === undefined) {
+            if ((!args || args.virtualWanName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualWanName'");
             }
             inputs["etag"] = args ? args.etag : undefined;
@@ -205,5 +205,5 @@ export interface P2sVpnServerConfigurationArgs {
     /**
      * VPN protocols for the P2SVpnServerConfiguration.
      */
-    readonly vpnProtocols?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly vpnProtocols?: pulumi.Input<pulumi.Input<string | enums.network.latest.VpnGatewayTunnelingProtocol>[]>;
 }

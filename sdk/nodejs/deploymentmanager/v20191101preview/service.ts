@@ -69,22 +69,22 @@ export class Service extends pulumi.CustomResource {
     constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serviceName === undefined) {
+            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if (!args || args.serviceTopologyName === undefined) {
+            if ((!args || args.serviceTopologyName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceTopologyName'");
             }
-            if (!args || args.targetLocation === undefined) {
+            if ((!args || args.targetLocation === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetLocation'");
             }
-            if (!args || args.targetSubscriptionId === undefined) {
+            if ((!args || args.targetSubscriptionId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'targetSubscriptionId'");
             }
             inputs["location"] = args ? args.location : undefined;

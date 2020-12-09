@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -77,7 +78,7 @@ export class PolicyDefinition extends pulumi.CustomResource {
     constructor(name: string, args: PolicyDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.policyDefinitionName === undefined) {
+            if ((!args || args.policyDefinitionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policyDefinitionName'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -131,7 +132,7 @@ export interface PolicyDefinitionArgs {
     /**
      * The policy definition mode. Possible values are NotSpecified, Indexed, and All.
      */
-    readonly mode?: pulumi.Input<string>;
+    readonly mode?: pulumi.Input<string | enums.authorization.v20161201.PolicyMode>;
     /**
      * Required if a parameter is used in policy rule.
      */
@@ -147,5 +148,5 @@ export interface PolicyDefinitionArgs {
     /**
      * The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
      */
-    readonly policyType?: pulumi.Input<string>;
+    readonly policyType?: pulumi.Input<string | enums.authorization.v20161201.PolicyType>;
 }

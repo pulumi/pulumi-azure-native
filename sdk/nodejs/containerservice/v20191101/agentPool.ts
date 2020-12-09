@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -125,13 +126,13 @@ export class AgentPool extends pulumi.CustomResource {
     constructor(name: string, args: AgentPoolArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.agentPoolName === undefined) {
+            if ((!args || args.agentPoolName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'agentPoolName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.resourceName === undefined) {
+            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["agentPoolName"] = args ? args.agentPoolName : undefined;
@@ -247,7 +248,7 @@ export interface AgentPoolArgs {
     /**
      * OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
      */
-    readonly osType?: pulumi.Input<string>;
+    readonly osType?: pulumi.Input<string | enums.containerservice.v20191101.OSType>;
     /**
      * The name of the resource group.
      */
@@ -259,11 +260,11 @@ export interface AgentPoolArgs {
     /**
      * ScaleSetEvictionPolicy to be used to specify eviction policy for low priority virtual machine scale set. Default to Delete.
      */
-    readonly scaleSetEvictionPolicy?: pulumi.Input<string>;
+    readonly scaleSetEvictionPolicy?: pulumi.Input<string | enums.containerservice.v20191101.ScaleSetEvictionPolicy>;
     /**
      * ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
      */
-    readonly scaleSetPriority?: pulumi.Input<string>;
+    readonly scaleSetPriority?: pulumi.Input<string | enums.containerservice.v20191101.ScaleSetPriority>;
     /**
      * Agent pool tags to be persisted on the agent pool virtual machine scale set.
      */
@@ -271,11 +272,11 @@ export interface AgentPoolArgs {
     /**
      * AgentPoolType represents types of an agent pool
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type?: pulumi.Input<string | enums.containerservice.v20191101.AgentPoolType>;
     /**
      * Size of agent VMs.
      */
-    readonly vmSize?: pulumi.Input<string>;
+    readonly vmSize?: pulumi.Input<string | enums.containerservice.v20191101.ContainerServiceVMSizeTypes>;
     /**
      * VNet SubnetID specifies the VNet's subnet identifier.
      */

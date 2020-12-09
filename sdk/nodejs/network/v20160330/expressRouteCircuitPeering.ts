@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -106,13 +106,13 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
     constructor(name: string, args: ExpressRouteCircuitPeeringArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.circuitName === undefined) {
+            if ((!args || args.circuitName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'circuitName'");
             }
-            if (!args || args.peeringName === undefined) {
+            if ((!args || args.peeringName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'peeringName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["azureASN"] = args ? args.azureASN : undefined;
@@ -203,7 +203,7 @@ export interface ExpressRouteCircuitPeeringArgs {
     /**
      * Gets or sets PeeringType
      */
-    readonly peeringType?: pulumi.Input<string>;
+    readonly peeringType?: pulumi.Input<string | enums.network.v20160330.ExpressRouteCircuitPeeringType>;
     /**
      * Gets or sets the primary port
      */
@@ -235,7 +235,7 @@ export interface ExpressRouteCircuitPeeringArgs {
     /**
      * Gets or sets state of Peering
      */
-    readonly state?: pulumi.Input<string>;
+    readonly state?: pulumi.Input<string | enums.network.v20160330.ExpressRouteCircuitPeeringState>;
     /**
      * Gets or peering stats
      */

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -70,7 +70,7 @@ export class PeerAsn extends pulumi.CustomResource {
     constructor(name: string, args: PeerAsnArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.peerAsnName === undefined) {
+            if ((!args || args.peerAsnName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'peerAsnName'");
             }
             inputs["peerAsn"] = args ? args.peerAsn : undefined;
@@ -124,5 +124,5 @@ export interface PeerAsnArgs {
     /**
      * The validation state of the ASN associated with the peer.
      */
-    readonly validationState?: pulumi.Input<string>;
+    readonly validationState?: pulumi.Input<string | enums.peering.v20190801preview.ValidationState>;
 }

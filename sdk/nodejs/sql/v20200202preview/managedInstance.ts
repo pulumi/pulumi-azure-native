@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -164,13 +164,13 @@ export class ManagedInstance extends pulumi.CustomResource {
     constructor(name: string, args: ManagedInstanceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.managedInstanceName === undefined) {
+            if ((!args || args.managedInstanceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managedInstanceName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["administratorLogin"] = args ? args.administratorLogin : undefined;
@@ -277,7 +277,7 @@ export interface ManagedInstanceArgs {
     /**
      * The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
      */
-    readonly licenseType?: pulumi.Input<string>;
+    readonly licenseType?: pulumi.Input<string | enums.sql.v20200202preview.ManagedInstanceLicenseType>;
     /**
      * Resource location.
      */
@@ -293,7 +293,7 @@ export interface ManagedInstanceArgs {
      * 
      * Restore: Creates an instance by restoring a set of backups to specific point in time. RestorePointInTime and SourceManagedInstanceId must be specified.
      */
-    readonly managedInstanceCreateMode?: pulumi.Input<string>;
+    readonly managedInstanceCreateMode?: pulumi.Input<string | enums.sql.v20200202preview.ManagedServerCreateMode>;
     /**
      * The name of the managed instance.
      */
@@ -305,7 +305,7 @@ export interface ManagedInstanceArgs {
     /**
      * Connection type used for connecting to the instance.
      */
-    readonly proxyOverride?: pulumi.Input<string>;
+    readonly proxyOverride?: pulumi.Input<string | enums.sql.v20200202preview.ManagedInstanceProxyOverride>;
     /**
      * Whether or not the public data endpoint is enabled.
      */
@@ -329,7 +329,7 @@ export interface ManagedInstanceArgs {
     /**
      * The storage account type used to store backups for this instance. The options are LRS (LocallyRedundantStorage), ZRS (ZoneRedundantStorage) and GRS (GeoRedundantStorage)
      */
-    readonly storageAccountType?: pulumi.Input<string>;
+    readonly storageAccountType?: pulumi.Input<string | enums.sql.v20200202preview.StorageAccountType>;
     /**
      * Storage size in GB. Minimum value: 32. Maximum value: 8192. Increments of 32 GB allowed only.
      */

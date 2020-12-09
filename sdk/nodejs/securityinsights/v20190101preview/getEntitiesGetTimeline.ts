@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 export function getEntitiesGetTimeline(args: GetEntitiesGetTimelineArgs, opts?: pulumi.InvokeOptions): Promise<GetEntitiesGetTimelineResult> {
@@ -37,7 +37,7 @@ export interface GetEntitiesGetTimelineArgs {
     /**
      * Array of timeline Item kinds.
      */
-    readonly kinds?: string[];
+    readonly kinds?: string | enums.securityinsights.v20190101preview.EntityTimelineKind[];
     /**
      * The number of bucket for timeline queries aggregation.
      */

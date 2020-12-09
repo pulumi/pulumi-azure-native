@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -82,19 +82,19 @@ export class LogProfile extends pulumi.CustomResource {
     constructor(name: string, args: LogProfileArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.categories === undefined) {
+            if ((!args || args.categories === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'categories'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.locations === undefined) {
+            if ((!args || args.locations === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'locations'");
             }
-            if (!args || args.logProfileName === undefined) {
+            if ((!args || args.logProfileName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'logProfileName'");
             }
-            if (!args || args.retentionPolicy === undefined) {
+            if ((!args || args.retentionPolicy === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'retentionPolicy'");
             }
             inputs["categories"] = args ? args.categories : undefined;

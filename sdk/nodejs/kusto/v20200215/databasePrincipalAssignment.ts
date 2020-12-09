@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -81,25 +82,25 @@ export class DatabasePrincipalAssignment extends pulumi.CustomResource {
     constructor(name: string, args: DatabasePrincipalAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.clusterName === undefined) {
+            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if (!args || args.databaseName === undefined) {
+            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if (!args || args.principalAssignmentName === undefined) {
+            if ((!args || args.principalAssignmentName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'principalAssignmentName'");
             }
-            if (!args || args.principalId === undefined) {
+            if ((!args || args.principalId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'principalId'");
             }
-            if (!args || args.principalType === undefined) {
+            if ((!args || args.principalType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'principalType'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.role === undefined) {
+            if ((!args || args.role === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'role'");
             }
             inputs["clusterName"] = args ? args.clusterName : undefined;
@@ -162,7 +163,7 @@ export interface DatabasePrincipalAssignmentArgs {
     /**
      * Principal type.
      */
-    readonly principalType: pulumi.Input<string>;
+    readonly principalType: pulumi.Input<string | enums.kusto.v20200215.PrincipalType>;
     /**
      * The name of the resource group containing the Kusto cluster.
      */
@@ -170,7 +171,7 @@ export interface DatabasePrincipalAssignmentArgs {
     /**
      * Database principal role.
      */
-    readonly role: pulumi.Input<string>;
+    readonly role: pulumi.Input<string | enums.kusto.v20200215.DatabasePrincipalRole>;
     /**
      * The tenant id of the principal
      */

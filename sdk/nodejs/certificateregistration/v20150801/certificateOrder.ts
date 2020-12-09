@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -130,13 +130,13 @@ export class CertificateOrder extends pulumi.CustomResource {
     constructor(name: string, args: CertificateOrderArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["autoRenew"] = args ? args.autoRenew : undefined;
@@ -257,11 +257,11 @@ export interface CertificateOrderArgs {
     /**
      * Certificate product type
      */
-    readonly productType?: pulumi.Input<string>;
+    readonly productType?: pulumi.Input<enums.certificateregistration.v20150801.CertificateProductType>;
     /**
      * Status of certificate order
      */
-    readonly provisioningState?: pulumi.Input<string>;
+    readonly provisioningState?: pulumi.Input<enums.certificateregistration.v20150801.ProvisioningState>;
     /**
      * Azure resource group name
      */
@@ -281,7 +281,7 @@ export interface CertificateOrderArgs {
     /**
      * Current order status
      */
-    readonly status?: pulumi.Input<string>;
+    readonly status?: pulumi.Input<enums.certificateregistration.v20150801.CertificateOrderStatus>;
     /**
      * Resource tags
      */

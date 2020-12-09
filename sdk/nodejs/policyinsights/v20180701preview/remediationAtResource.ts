@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -82,10 +82,10 @@ export class RemediationAtResource extends pulumi.CustomResource {
     constructor(name: string, args: RemediationAtResourceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.remediationName === undefined) {
+            if ((!args || args.remediationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'remediationName'");
             }
-            if (!args || args.resourceId === undefined) {
+            if ((!args || args.resourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceId'");
             }
             inputs["deploymentStatus"] = args ? args.deploymentStatus : undefined;

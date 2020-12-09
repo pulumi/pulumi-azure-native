@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -78,13 +78,13 @@ export class AnalyticsItem extends pulumi.CustomResource {
     constructor(name: string, args: AnalyticsItemArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.resourceName === undefined) {
+            if ((!args || args.resourceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            if (!args || args.scopePath === undefined) {
+            if ((!args || args.scopePath === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scopePath'");
             }
             inputs["content"] = args ? args.content : undefined;
@@ -158,7 +158,7 @@ export interface AnalyticsItemArgs {
     /**
      * Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
-    readonly scope?: pulumi.Input<string>;
+    readonly scope?: pulumi.Input<string | enums.insights.v20150501.ItemScope>;
     /**
      * Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
@@ -166,5 +166,5 @@ export interface AnalyticsItemArgs {
     /**
      * Enum indicating the type of the Analytics item.
      */
-    readonly type?: pulumi.Input<string>;
+    readonly type?: pulumi.Input<string | enums.insights.v20150501.ItemType>;
 }

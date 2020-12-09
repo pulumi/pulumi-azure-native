@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -69,22 +70,22 @@ export class ServerAdministrator extends pulumi.CustomResource {
     constructor(name: string, args: ServerAdministratorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.administratorType === undefined) {
+            if ((!args || args.administratorType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'administratorType'");
             }
-            if (!args || args.login === undefined) {
+            if ((!args || args.login === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'login'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverName === undefined) {
+            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if (!args || args.sid === undefined) {
+            if ((!args || args.sid === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'sid'");
             }
-            if (!args || args.tenantId === undefined) {
+            if ((!args || args.tenantId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'tenantId'");
             }
             inputs["administratorType"] = args ? args.administratorType : undefined;
@@ -123,7 +124,7 @@ export interface ServerAdministratorArgs {
     /**
      * The type of administrator.
      */
-    readonly administratorType: pulumi.Input<string>;
+    readonly administratorType: pulumi.Input<string | enums.dbforpostgresql.v20171201preview.AdministratorType>;
     /**
      * The server administrator login account name.
      */

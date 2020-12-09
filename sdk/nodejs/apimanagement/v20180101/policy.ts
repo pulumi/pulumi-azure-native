@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -61,16 +62,16 @@ export class Policy extends pulumi.CustomResource {
     constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.policyContent === undefined) {
+            if ((!args || args.policyContent === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policyContent'");
             }
-            if (!args || args.policyId === undefined) {
+            if ((!args || args.policyId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'policyId'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serviceName === undefined) {
+            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["contentFormat"] = args ? args.contentFormat : undefined;
@@ -106,7 +107,7 @@ export interface PolicyArgs {
     /**
      * Format of the policyContent.
      */
-    readonly contentFormat?: pulumi.Input<string>;
+    readonly contentFormat?: pulumi.Input<string | enums.apimanagement.v20180101.PolicyContentFormat>;
     /**
      * Json escaped Xml Encoded contents of the Policy.
      */

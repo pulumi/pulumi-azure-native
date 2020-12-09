@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -90,10 +90,10 @@ export class EventSubscription extends pulumi.CustomResource {
     constructor(name: string, args: EventSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.eventSubscriptionName === undefined) {
+            if ((!args || args.eventSubscriptionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'eventSubscriptionName'");
             }
-            if (!args || args.scope === undefined) {
+            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["deadLetterDestination"] = args ? args.deadLetterDestination : undefined;
@@ -150,7 +150,7 @@ export interface EventSubscriptionArgs {
     /**
      * The event delivery schema for the event subscription.
      */
-    readonly eventDeliverySchema?: pulumi.Input<string>;
+    readonly eventDeliverySchema?: pulumi.Input<string | enums.eventgrid.v20200101preview.EventDeliverySchema>;
     /**
      * Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
      */

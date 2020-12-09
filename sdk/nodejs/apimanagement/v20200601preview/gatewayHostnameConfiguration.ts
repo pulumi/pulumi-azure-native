@@ -77,16 +77,16 @@ export class GatewayHostnameConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: GatewayHostnameConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.gatewayId === undefined) {
+            if ((!args || args.gatewayId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'gatewayId'");
             }
-            if (!args || args.hcId === undefined) {
+            if ((!args || args.hcId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hcId'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serviceName === undefined) {
+            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["certificateId"] = args ? args.certificateId : undefined;

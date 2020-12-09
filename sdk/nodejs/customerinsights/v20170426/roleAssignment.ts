@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -134,19 +134,19 @@ export class RoleAssignment extends pulumi.CustomResource {
     constructor(name: string, args: RoleAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.assignmentName === undefined) {
+            if ((!args || args.assignmentName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'assignmentName'");
             }
-            if (!args || args.hubName === undefined) {
+            if ((!args || args.hubName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if (!args || args.principals === undefined) {
+            if ((!args || args.principals === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'principals'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.role === undefined) {
+            if ((!args || args.role === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'role'");
             }
             inputs["assignmentName"] = args ? args.assignmentName : undefined;
@@ -273,7 +273,7 @@ export interface RoleAssignmentArgs {
     /**
      * Type of roles.
      */
-    readonly role: pulumi.Input<string>;
+    readonly role: pulumi.Input<enums.customerinsights.v20170426.RoleTypes>;
     /**
      * The Role assignments set for the assignment.
      */

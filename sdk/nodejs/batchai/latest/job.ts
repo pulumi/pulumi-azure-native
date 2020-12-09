@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -170,25 +170,25 @@ export class Job extends pulumi.CustomResource {
     constructor(name: string, args: JobArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.cluster === undefined) {
+            if ((!args || args.cluster === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'cluster'");
             }
-            if (!args || args.experimentName === undefined) {
+            if ((!args || args.experimentName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'experimentName'");
             }
-            if (!args || args.jobName === undefined) {
+            if ((!args || args.jobName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'jobName'");
             }
-            if (!args || args.nodeCount === undefined) {
+            if ((!args || args.nodeCount === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'nodeCount'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.stdOutErrPathPrefix === undefined) {
+            if ((!args || args.stdOutErrPathPrefix === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'stdOutErrPathPrefix'");
             }
-            if (!args || args.workspaceName === undefined) {
+            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["caffe2Settings"] = args ? args.caffe2Settings : undefined;
@@ -359,7 +359,7 @@ export interface JobArgs {
     /**
      * Scheduling priority associated with the job. Possible values: low, normal, high.
      */
-    readonly schedulingPriority?: pulumi.Input<string>;
+    readonly schedulingPriority?: pulumi.Input<string | enums.batchai.latest.JobPriority>;
     /**
      * A list of user defined environment variables with secret values which will be setup for the job. Server will never report values of these variables back.
      */

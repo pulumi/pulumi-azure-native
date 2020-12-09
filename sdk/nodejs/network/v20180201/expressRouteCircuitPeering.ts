@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -126,13 +126,13 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
     constructor(name: string, args: ExpressRouteCircuitPeeringArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.circuitName === undefined) {
+            if ((!args || args.circuitName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'circuitName'");
             }
-            if (!args || args.peeringName === undefined) {
+            if ((!args || args.peeringName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'peeringName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["azureASN"] = args ? args.azureASN : undefined;
@@ -245,7 +245,7 @@ export interface ExpressRouteCircuitPeeringArgs {
     /**
      * The peering type.
      */
-    readonly peeringType?: pulumi.Input<string>;
+    readonly peeringType?: pulumi.Input<string | enums.network.v20180201.ExpressRoutePeeringType>;
     /**
      * The primary port.
      */
@@ -281,7 +281,7 @@ export interface ExpressRouteCircuitPeeringArgs {
     /**
      * The peering state.
      */
-    readonly state?: pulumi.Input<string>;
+    readonly state?: pulumi.Input<string | enums.network.v20180201.ExpressRoutePeeringState>;
     /**
      * Gets peering stats.
      */

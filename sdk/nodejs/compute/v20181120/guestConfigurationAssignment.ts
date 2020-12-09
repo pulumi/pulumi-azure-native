@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -62,13 +62,13 @@ export class GuestConfigurationAssignment extends pulumi.CustomResource {
     constructor(name: string, args: GuestConfigurationAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.guestConfigurationAssignmentName === undefined) {
+            if ((!args || args.guestConfigurationAssignmentName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'guestConfigurationAssignmentName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.vmName === undefined) {
+            if ((!args || args.vmName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vmName'");
             }
             inputs["guestConfigurationAssignmentName"] = args ? args.guestConfigurationAssignmentName : undefined;

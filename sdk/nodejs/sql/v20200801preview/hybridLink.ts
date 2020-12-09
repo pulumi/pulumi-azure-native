@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -85,13 +86,13 @@ export class HybridLink extends pulumi.CustomResource {
     constructor(name: string, args: HybridLinkArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.distributedAvailabilityGroupName === undefined) {
+            if ((!args || args.distributedAvailabilityGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'distributedAvailabilityGroupName'");
             }
-            if (!args || args.managedInstanceName === undefined) {
+            if ((!args || args.managedInstanceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managedInstanceName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["distributedAvailabilityGroupName"] = args ? args.distributedAvailabilityGroupName : undefined;
@@ -149,7 +150,7 @@ export interface HybridLinkArgs {
     /**
      * The replication mode of hybrid link. Parameter will be ignored during link creation.
      */
-    readonly replicationMode?: pulumi.Input<string>;
+    readonly replicationMode?: pulumi.Input<string | enums.sql.v20200801preview.ReplicationMode>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

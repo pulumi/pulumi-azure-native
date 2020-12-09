@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -208,16 +208,16 @@ export class Database extends pulumi.CustomResource {
     constructor(name: string, args: DatabaseArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.databaseName === undefined) {
+            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverName === undefined) {
+            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverName'");
             }
             inputs["collation"] = args ? args.collation : undefined;
@@ -327,7 +327,7 @@ export interface DatabaseArgs {
      *
      * Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
      */
-    readonly createMode?: pulumi.Input<string>;
+    readonly createMode?: pulumi.Input<string | enums.sql.v20140401.CreateMode>;
     /**
      * The name of the database to be operated on (updated or created).
      */
@@ -345,7 +345,7 @@ export interface DatabaseArgs {
      * Get-AzSqlServerServiceObjective -Location <location>
      * ````
      */
-    readonly edition?: pulumi.Input<string>;
+    readonly edition?: pulumi.Input<string | enums.sql.v20140401.DatabaseEdition>;
     /**
      * The name of the elastic pool the database is in. If elasticPoolName and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveName is ignored. Not supported for DataWarehouse edition.
      */
@@ -361,7 +361,7 @@ export interface DatabaseArgs {
     /**
      * Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
      */
-    readonly readScale?: pulumi.Input<string>;
+    readonly readScale?: pulumi.Input<string | enums.sql.v20140401.ReadScale>;
     /**
      * Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
      */
@@ -385,7 +385,7 @@ export interface DatabaseArgs {
      * Get-AzSqlServerServiceObjective -Location <location>
      * ````
      */
-    readonly requestedServiceObjectiveName?: pulumi.Input<string>;
+    readonly requestedServiceObjectiveName?: pulumi.Input<string | enums.sql.v20140401.ServiceObjectiveName>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -397,7 +397,7 @@ export interface DatabaseArgs {
     /**
      * Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
      */
-    readonly sampleName?: pulumi.Input<string>;
+    readonly sampleName?: pulumi.Input<string | enums.sql.v20140401.SampleName>;
     /**
      * The name of the server.
      */

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -73,16 +74,16 @@ export class WorkloadNetworkDhcp extends pulumi.CustomResource {
     constructor(name: string, args: WorkloadNetworkDhcpArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.dhcpId === undefined) {
+            if ((!args || args.dhcpId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dhcpId'");
             }
-            if (!args || args.dhcpType === undefined) {
+            if ((!args || args.dhcpType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dhcpType'");
             }
-            if (!args || args.privateCloudName === undefined) {
+            if ((!args || args.privateCloudName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["dhcpId"] = args ? args.dhcpId : undefined;
@@ -126,7 +127,7 @@ export interface WorkloadNetworkDhcpArgs {
     /**
      * Type of DHCP: SERVER or RELAY.
      */
-    readonly dhcpType: pulumi.Input<string>;
+    readonly dhcpType: pulumi.Input<string | enums.avs.v20200717preview.DhcpTypeEnum>;
     /**
      * Display name of the DHCP entity.
      */

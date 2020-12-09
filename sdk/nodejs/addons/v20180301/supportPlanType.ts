@@ -57,10 +57,10 @@ export class SupportPlanType extends pulumi.CustomResource {
     constructor(name: string, args: SupportPlanTypeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.planTypeName === undefined) {
+            if ((!args || args.planTypeName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'planTypeName'");
             }
-            if (!args || args.providerName === undefined) {
+            if ((!args || args.providerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'providerName'");
             }
             inputs["planTypeName"] = args ? args.planTypeName : undefined;

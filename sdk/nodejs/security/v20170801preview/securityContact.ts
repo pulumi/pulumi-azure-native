@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -69,16 +70,16 @@ export class SecurityContact extends pulumi.CustomResource {
     constructor(name: string, args: SecurityContactArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.alertNotifications === undefined) {
+            if ((!args || args.alertNotifications === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'alertNotifications'");
             }
-            if (!args || args.alertsToAdmins === undefined) {
+            if ((!args || args.alertsToAdmins === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'alertsToAdmins'");
             }
-            if (!args || args.email === undefined) {
+            if ((!args || args.email === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'email'");
             }
-            if (!args || args.securityContactName === undefined) {
+            if ((!args || args.securityContactName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'securityContactName'");
             }
             inputs["alertNotifications"] = args ? args.alertNotifications : undefined;
@@ -116,11 +117,11 @@ export interface SecurityContactArgs {
     /**
      * Whether to send security alerts notifications to the security contact
      */
-    readonly alertNotifications: pulumi.Input<string>;
+    readonly alertNotifications: pulumi.Input<string | enums.security.v20170801preview.AlertNotifications>;
     /**
      * Whether to send security alerts notifications to subscription admins
      */
-    readonly alertsToAdmins: pulumi.Input<string>;
+    readonly alertsToAdmins: pulumi.Input<string | enums.security.v20170801preview.AlertsToAdmins>;
     /**
      * The email of this security contact
      */

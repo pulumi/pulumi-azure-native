@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -82,13 +82,13 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
     constructor(name: string, args: VirtualNetworkLinkArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.privateZoneName === undefined) {
+            if ((!args || args.privateZoneName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'privateZoneName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.virtualNetworkLinkName === undefined) {
+            if ((!args || args.virtualNetworkLinkName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'virtualNetworkLinkName'");
             }
             inputs["etag"] = args ? args.etag : undefined;

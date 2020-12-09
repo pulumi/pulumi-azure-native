@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -106,10 +106,10 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
     constructor(name: string, args: ExpressRouteCircuitArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.circuitName === undefined) {
+            if ((!args || args.circuitName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'circuitName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["allowClassicOperations"] = args ? args.allowClassicOperations : undefined;
@@ -219,7 +219,7 @@ export interface ExpressRouteCircuitArgs {
     /**
      * Gets or sets ServiceProviderProvisioningState state of the resource 
      */
-    readonly serviceProviderProvisioningState?: pulumi.Input<string>;
+    readonly serviceProviderProvisioningState?: pulumi.Input<string | enums.network.v20160330.ServiceProviderProvisioningState>;
     /**
      * Gets or sets sku
      */

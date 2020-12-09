@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -97,19 +98,19 @@ export class Connector extends pulumi.CustomResource {
     constructor(name: string, args: ConnectorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.connectorName === undefined) {
+            if ((!args || args.connectorName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'connectorName'");
             }
-            if (!args || args.connectorProperties === undefined) {
+            if ((!args || args.connectorProperties === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'connectorProperties'");
             }
-            if (!args || args.connectorType === undefined) {
+            if ((!args || args.connectorType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'connectorType'");
             }
-            if (!args || args.hubName === undefined) {
+            if ((!args || args.hubName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["connectorName"] = args ? args.connectorName : undefined;
@@ -170,7 +171,7 @@ export interface ConnectorArgs {
     /**
      * Type of connector.
      */
-    readonly connectorType: pulumi.Input<string>;
+    readonly connectorType: pulumi.Input<string | enums.customerinsights.latest.ConnectorTypes>;
     /**
      * Description of the connector.
      */

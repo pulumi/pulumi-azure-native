@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -57,19 +58,19 @@ export class TransparentDataEncryption extends pulumi.CustomResource {
     constructor(name: string, args: TransparentDataEncryptionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.databaseName === undefined) {
+            if ((!args || args.databaseName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverName === undefined) {
+            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if (!args || args.state === undefined) {
+            if ((!args || args.state === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'state'");
             }
-            if (!args || args.tdeName === undefined) {
+            if ((!args || args.tdeName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'tdeName'");
             }
             inputs["databaseName"] = args ? args.databaseName : undefined;
@@ -116,7 +117,7 @@ export interface TransparentDataEncryptionArgs {
     /**
      * Specifies the state of the transparent data encryption.
      */
-    readonly state: pulumi.Input<string>;
+    readonly state: pulumi.Input<enums.sql.v20200801preview.TransparentDataEncryptionState>;
     /**
      * The name of the transparent data encryption configuration.
      */

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -85,16 +86,16 @@ export class ManagerExtendedInfo extends pulumi.CustomResource {
     constructor(name: string, args: ManagerExtendedInfoArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.algorithm === undefined) {
+            if ((!args || args.algorithm === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'algorithm'");
             }
-            if (!args || args.integrityKey === undefined) {
+            if ((!args || args.integrityKey === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'integrityKey'");
             }
-            if (!args || args.managerName === undefined) {
+            if ((!args || args.managerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["algorithm"] = args ? args.algorithm : undefined;
@@ -161,7 +162,7 @@ export interface ManagerExtendedInfoArgs {
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    readonly kind?: pulumi.Input<string>;
+    readonly kind?: pulumi.Input<enums.storsimple.latest.Kind>;
     /**
      * The manager name
      */

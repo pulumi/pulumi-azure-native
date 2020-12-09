@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -106,10 +106,10 @@ export class DscpConfiguration extends pulumi.CustomResource {
     constructor(name: string, args: DscpConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.dscpConfigurationName === undefined) {
+            if ((!args || args.dscpConfigurationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dscpConfigurationName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["destinationIpRanges"] = args ? args.destinationIpRanges : undefined;
@@ -191,7 +191,7 @@ export interface DscpConfigurationArgs {
     /**
      * RNM supported protocol types.
      */
-    readonly protocol?: pulumi.Input<string>;
+    readonly protocol?: pulumi.Input<string | enums.network.latest.ProtocolType>;
     /**
      * The name of the resource group.
      */

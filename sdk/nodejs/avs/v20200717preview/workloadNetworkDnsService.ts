@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -85,13 +86,13 @@ export class WorkloadNetworkDnsService extends pulumi.CustomResource {
     constructor(name: string, args: WorkloadNetworkDnsServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.dnsServiceId === undefined) {
+            if ((!args || args.dnsServiceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dnsServiceId'");
             }
-            if (!args || args.privateCloudName === undefined) {
+            if ((!args || args.privateCloudName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["defaultDnsZone"] = args ? args.defaultDnsZone : undefined;
@@ -157,7 +158,7 @@ export interface WorkloadNetworkDnsServiceArgs {
     /**
      * DNS Service log level.
      */
-    readonly logLevel?: pulumi.Input<string>;
+    readonly logLevel?: pulumi.Input<string | enums.avs.v20200717preview.DnsServiceLogLevelEnum>;
     /**
      * Name of the private cloud
      */

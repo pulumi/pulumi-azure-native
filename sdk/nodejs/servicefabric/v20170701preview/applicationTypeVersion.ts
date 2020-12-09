@@ -69,19 +69,19 @@ export class ApplicationTypeVersion extends pulumi.CustomResource {
     constructor(name: string, args: ApplicationTypeVersionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.appPackageUrl === undefined) {
+            if ((!args || args.appPackageUrl === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'appPackageUrl'");
             }
-            if (!args || args.applicationTypeName === undefined) {
+            if ((!args || args.applicationTypeName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'applicationTypeName'");
             }
-            if (!args || args.clusterName === undefined) {
+            if ((!args || args.clusterName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.version === undefined) {
+            if ((!args || args.version === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'version'");
             }
             inputs["appPackageUrl"] = args ? args.appPackageUrl : undefined;

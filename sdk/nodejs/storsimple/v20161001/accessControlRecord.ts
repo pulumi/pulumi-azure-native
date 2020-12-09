@@ -57,16 +57,16 @@ export class AccessControlRecord extends pulumi.CustomResource {
     constructor(name: string, args: AccessControlRecordArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.accessControlRecordName === undefined) {
+            if ((!args || args.accessControlRecordName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accessControlRecordName'");
             }
-            if (!args || args.initiatorName === undefined) {
+            if ((!args || args.initiatorName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'initiatorName'");
             }
-            if (!args || args.managerName === undefined) {
+            if ((!args || args.managerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accessControlRecordName"] = args ? args.accessControlRecordName : undefined;

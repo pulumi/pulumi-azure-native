@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -85,34 +86,34 @@ export class FileShare extends pulumi.CustomResource {
     constructor(name: string, args: FileShareArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.adminUser === undefined) {
+            if ((!args || args.adminUser === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'adminUser'");
             }
-            if (!args || args.dataPolicy === undefined) {
+            if ((!args || args.dataPolicy === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dataPolicy'");
             }
-            if (!args || args.deviceName === undefined) {
+            if ((!args || args.deviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if (!args || args.fileServerName === undefined) {
+            if ((!args || args.fileServerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'fileServerName'");
             }
-            if (!args || args.managerName === undefined) {
+            if ((!args || args.managerName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if (!args || args.monitoringStatus === undefined) {
+            if ((!args || args.monitoringStatus === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'monitoringStatus'");
             }
-            if (!args || args.provisionedCapacityInBytes === undefined) {
+            if ((!args || args.provisionedCapacityInBytes === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'provisionedCapacityInBytes'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.shareName === undefined) {
+            if ((!args || args.shareName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'shareName'");
             }
-            if (!args || args.shareStatus === undefined) {
+            if ((!args || args.shareStatus === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'shareStatus'");
             }
             inputs["adminUser"] = args ? args.adminUser : undefined;
@@ -166,7 +167,7 @@ export interface FileShareArgs {
     /**
      * The data policy
      */
-    readonly dataPolicy: pulumi.Input<string>;
+    readonly dataPolicy: pulumi.Input<enums.storsimple.latest.DataPolicy>;
     /**
      * Description for file share
      */
@@ -186,7 +187,7 @@ export interface FileShareArgs {
     /**
      * The monitoring status
      */
-    readonly monitoringStatus: pulumi.Input<string>;
+    readonly monitoringStatus: pulumi.Input<enums.storsimple.latest.MonitoringStatus>;
     /**
      * The total provisioned capacity in Bytes
      */
@@ -202,5 +203,5 @@ export interface FileShareArgs {
     /**
      * The Share Status
      */
-    readonly shareStatus: pulumi.Input<string>;
+    readonly shareStatus: pulumi.Input<enums.storsimple.latest.ShareStatus>;
 }

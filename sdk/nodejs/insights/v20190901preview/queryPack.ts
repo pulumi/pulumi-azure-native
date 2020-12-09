@@ -77,13 +77,13 @@ export class QueryPack extends pulumi.CustomResource {
     constructor(name: string, args: QueryPackArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.location === undefined) {
+            if ((!args || args.location === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.queryPackName === undefined) {
+            if ((!args || args.queryPackName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'queryPackName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["location"] = args ? args.location : undefined;

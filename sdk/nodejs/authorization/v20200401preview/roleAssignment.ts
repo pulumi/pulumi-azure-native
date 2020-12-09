@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -105,16 +106,16 @@ export class RoleAssignment extends pulumi.CustomResource {
     constructor(name: string, args: RoleAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.principalId === undefined) {
+            if ((!args || args.principalId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'principalId'");
             }
-            if (!args || args.roleAssignmentName === undefined) {
+            if ((!args || args.roleAssignmentName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'roleAssignmentName'");
             }
-            if (!args || args.roleDefinitionId === undefined) {
+            if ((!args || args.roleDefinitionId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'roleDefinitionId'");
             }
-            if (!args || args.scope === undefined) {
+            if ((!args || args.scope === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'scope'");
             }
             inputs["canDelegate"] = args ? args.canDelegate : undefined;
@@ -190,7 +191,7 @@ export interface RoleAssignmentArgs {
     /**
      * The principal type of the assigned principal ID.
      */
-    readonly principalType?: pulumi.Input<string>;
+    readonly principalType?: pulumi.Input<string | enums.authorization.v20200401preview.PrincipalType>;
     /**
      * The name of the role assignment to create. It can be any valid GUID.
      */

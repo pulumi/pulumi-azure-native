@@ -73,22 +73,22 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
     constructor(name: string, args: OpenIdConnectProviderArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.clientId === undefined) {
+            if ((!args || args.clientId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if (!args || args.displayName === undefined) {
+            if ((!args || args.displayName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if (!args || args.metadataEndpoint === undefined) {
+            if ((!args || args.metadataEndpoint === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'metadataEndpoint'");
             }
-            if (!args || args.opid === undefined) {
+            if ((!args || args.opid === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'opid'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serviceName === undefined) {
+            if ((!args || args.serviceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["clientId"] = args ? args.clientId : undefined;

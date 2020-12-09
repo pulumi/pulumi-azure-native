@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -86,10 +86,10 @@ export class RemediationAtResourceGroup extends pulumi.CustomResource {
     constructor(name: string, args: RemediationAtResourceGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.remediationName === undefined) {
+            if ((!args || args.remediationName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'remediationName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["filters"] = args ? args.filters : undefined;
@@ -152,7 +152,7 @@ export interface RemediationAtResourceGroupArgs {
     /**
      * The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
      */
-    readonly resourceDiscoveryMode?: pulumi.Input<string>;
+    readonly resourceDiscoveryMode?: pulumi.Input<string | enums.policyinsights.latest.ResourceDiscoveryMode>;
     /**
      * Resource group name.
      */

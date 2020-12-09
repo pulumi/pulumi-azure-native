@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -66,13 +66,13 @@ export class ManagementLockAtResourceGroupLevel extends pulumi.CustomResource {
     constructor(name: string, args: ManagementLockAtResourceGroupLevelArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.level === undefined) {
+            if ((!args || args.level === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'level'");
             }
-            if (!args || args.lockName === undefined) {
+            if ((!args || args.lockName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'lockName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["level"] = args ? args.level : undefined;
@@ -109,7 +109,7 @@ export interface ManagementLockAtResourceGroupLevelArgs {
     /**
      * The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
      */
-    readonly level: pulumi.Input<string>;
+    readonly level: pulumi.Input<string | enums.authorization.v20160901.LockLevel>;
     /**
      * The lock name. The lock name can be a maximum of 260 characters. It cannot contain <, > %, &, :, \, ?, /, or any control characters.
      */

@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../../types";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -58,16 +58,16 @@ export class BuildStep extends pulumi.CustomResource {
     constructor(name: string, args: BuildStepArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.buildTaskName === undefined) {
+            if ((!args || args.buildTaskName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'buildTaskName'");
             }
-            if (!args || args.registryName === undefined) {
+            if ((!args || args.registryName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'registryName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.stepName === undefined) {
+            if ((!args || args.stepName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'stepName'");
             }
             inputs["buildTaskName"] = args ? args.buildTaskName : undefined;

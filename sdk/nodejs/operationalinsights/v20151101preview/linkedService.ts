@@ -57,16 +57,16 @@ export class LinkedService extends pulumi.CustomResource {
     constructor(name: string, args: LinkedServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.linkedServiceName === undefined) {
+            if ((!args || args.linkedServiceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'linkedServiceName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.resourceId === undefined) {
+            if ((!args || args.resourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if (!args || args.workspaceName === undefined) {
+            if ((!args || args.workspaceName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["linkedServiceName"] = args ? args.linkedServiceName : undefined;

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -69,16 +70,16 @@ export class ServerKey extends pulumi.CustomResource {
     constructor(name: string, args: ServerKeyArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
-            if (!args || args.keyName === undefined) {
+            if ((!args || args.keyName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'keyName'");
             }
-            if (!args || args.resourceGroupName === undefined) {
+            if ((!args || args.resourceGroupName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.serverKeyType === undefined) {
+            if ((!args || args.serverKeyType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverKeyType'");
             }
-            if (!args || args.serverName === undefined) {
+            if ((!args || args.serverName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serverName'");
             }
             inputs["keyName"] = args ? args.keyName : undefined;
@@ -126,7 +127,7 @@ export interface ServerKeyArgs {
     /**
      * The key type like 'AzureKeyVault'.
      */
-    readonly serverKeyType: pulumi.Input<string>;
+    readonly serverKeyType: pulumi.Input<string | enums.dbforpostgresql.v20200101.ServerKeyType>;
     /**
      * The name of the server.
      */
