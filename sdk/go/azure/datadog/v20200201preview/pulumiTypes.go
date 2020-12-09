@@ -1502,11 +1502,7 @@ func (o LinkedResourceResponseArrayOutput) Index(i pulumi.IntInput) LinkedResour
 type MonitorProperties struct {
 	// Datadog organization properties
 	DatadogOrganizationProperties *DatadogOrganizationProperties `pulumi:"datadogOrganizationProperties"`
-	// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
-	MarketplaceSubscriptionStatus *string `pulumi:"marketplaceSubscriptionStatus"`
-	// Flag specifying if the resource monitoring is enabled or disabled.
-	MonitoringStatus  *string `pulumi:"monitoringStatus"`
-	ProvisioningState *string `pulumi:"provisioningState"`
+	ProvisioningState             *string                        `pulumi:"provisioningState"`
 	// User info
 	UserInfo *UserInfo `pulumi:"userInfo"`
 }
@@ -1526,11 +1522,7 @@ type MonitorPropertiesInput interface {
 type MonitorPropertiesArgs struct {
 	// Datadog organization properties
 	DatadogOrganizationProperties DatadogOrganizationPropertiesPtrInput `pulumi:"datadogOrganizationProperties"`
-	// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
-	MarketplaceSubscriptionStatus pulumi.StringPtrInput `pulumi:"marketplaceSubscriptionStatus"`
-	// Flag specifying if the resource monitoring is enabled or disabled.
-	MonitoringStatus  pulumi.StringPtrInput `pulumi:"monitoringStatus"`
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
+	ProvisioningState             pulumi.StringPtrInput                 `pulumi:"provisioningState"`
 	// User info
 	UserInfo UserInfoPtrInput `pulumi:"userInfo"`
 }
@@ -1618,16 +1610,6 @@ func (o MonitorPropertiesOutput) DatadogOrganizationProperties() DatadogOrganiza
 	return o.ApplyT(func(v MonitorProperties) *DatadogOrganizationProperties { return v.DatadogOrganizationProperties }).(DatadogOrganizationPropertiesPtrOutput)
 }
 
-// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
-func (o MonitorPropertiesOutput) MarketplaceSubscriptionStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MonitorProperties) *string { return v.MarketplaceSubscriptionStatus }).(pulumi.StringPtrOutput)
-}
-
-// Flag specifying if the resource monitoring is enabled or disabled.
-func (o MonitorPropertiesOutput) MonitoringStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MonitorProperties) *string { return v.MonitoringStatus }).(pulumi.StringPtrOutput)
-}
-
 func (o MonitorPropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
@@ -1665,26 +1647,6 @@ func (o MonitorPropertiesPtrOutput) DatadogOrganizationProperties() DatadogOrgan
 	}).(DatadogOrganizationPropertiesPtrOutput)
 }
 
-// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
-func (o MonitorPropertiesPtrOutput) MarketplaceSubscriptionStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MonitorProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MarketplaceSubscriptionStatus
-	}).(pulumi.StringPtrOutput)
-}
-
-// Flag specifying if the resource monitoring is enabled or disabled.
-func (o MonitorPropertiesPtrOutput) MonitoringStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MonitorProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MonitoringStatus
-	}).(pulumi.StringPtrOutput)
-}
-
 func (o MonitorPropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorProperties) *string {
 		if v == nil {
@@ -1712,9 +1674,9 @@ type MonitorPropertiesResponse struct {
 	// The priority of the resource.
 	LiftrResourcePreference int `pulumi:"liftrResourcePreference"`
 	// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
-	MarketplaceSubscriptionStatus *string `pulumi:"marketplaceSubscriptionStatus"`
+	MarketplaceSubscriptionStatus string `pulumi:"marketplaceSubscriptionStatus"`
 	// Flag specifying if the resource monitoring is enabled or disabled.
-	MonitoringStatus  *string `pulumi:"monitoringStatus"`
+	MonitoringStatus  string  `pulumi:"monitoringStatus"`
 	ProvisioningState *string `pulumi:"provisioningState"`
 	// User info
 	UserInfo *UserInfoResponse `pulumi:"userInfo"`
@@ -1739,9 +1701,9 @@ type MonitorPropertiesResponseArgs struct {
 	// The priority of the resource.
 	LiftrResourcePreference pulumi.IntInput `pulumi:"liftrResourcePreference"`
 	// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
-	MarketplaceSubscriptionStatus pulumi.StringPtrInput `pulumi:"marketplaceSubscriptionStatus"`
+	MarketplaceSubscriptionStatus pulumi.StringInput `pulumi:"marketplaceSubscriptionStatus"`
 	// Flag specifying if the resource monitoring is enabled or disabled.
-	MonitoringStatus  pulumi.StringPtrInput `pulumi:"monitoringStatus"`
+	MonitoringStatus  pulumi.StringInput    `pulumi:"monitoringStatus"`
 	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 	// User info
 	UserInfo UserInfoResponsePtrInput `pulumi:"userInfo"`
@@ -1842,13 +1804,13 @@ func (o MonitorPropertiesResponseOutput) LiftrResourcePreference() pulumi.IntOut
 }
 
 // Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
-func (o MonitorPropertiesResponseOutput) MarketplaceSubscriptionStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MonitorPropertiesResponse) *string { return v.MarketplaceSubscriptionStatus }).(pulumi.StringPtrOutput)
+func (o MonitorPropertiesResponseOutput) MarketplaceSubscriptionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitorPropertiesResponse) string { return v.MarketplaceSubscriptionStatus }).(pulumi.StringOutput)
 }
 
 // Flag specifying if the resource monitoring is enabled or disabled.
-func (o MonitorPropertiesResponseOutput) MonitoringStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MonitorPropertiesResponse) *string { return v.MonitoringStatus }).(pulumi.StringPtrOutput)
+func (o MonitorPropertiesResponseOutput) MonitoringStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitorPropertiesResponse) string { return v.MonitoringStatus }).(pulumi.StringOutput)
 }
 
 func (o MonitorPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
@@ -1913,7 +1875,7 @@ func (o MonitorPropertiesResponsePtrOutput) MarketplaceSubscriptionStatus() pulu
 		if v == nil {
 			return nil
 		}
-		return v.MarketplaceSubscriptionStatus
+		return &v.MarketplaceSubscriptionStatus
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1923,7 +1885,7 @@ func (o MonitorPropertiesResponsePtrOutput) MonitoringStatus() pulumi.StringPtrO
 		if v == nil {
 			return nil
 		}
-		return v.MonitoringStatus
+		return &v.MonitoringStatus
 	}).(pulumi.StringPtrOutput)
 }
 

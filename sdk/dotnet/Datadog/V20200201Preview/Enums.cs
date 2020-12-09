@@ -38,68 +38,6 @@ namespace Pulumi.AzureNextGen.Datadog.V20200201Preview
         public override string ToString() => _value;
     }
 
-    /// <summary>
-    /// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
-    /// </summary>
-    [EnumType]
-    public readonly struct MarketplaceSubscriptionStatus : IEquatable<MarketplaceSubscriptionStatus>
-    {
-        private readonly string _value;
-
-        private MarketplaceSubscriptionStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static MarketplaceSubscriptionStatus Active { get; } = new MarketplaceSubscriptionStatus("Active");
-        public static MarketplaceSubscriptionStatus Suspended { get; } = new MarketplaceSubscriptionStatus("Suspended");
-
-        public static bool operator ==(MarketplaceSubscriptionStatus left, MarketplaceSubscriptionStatus right) => left.Equals(right);
-        public static bool operator !=(MarketplaceSubscriptionStatus left, MarketplaceSubscriptionStatus right) => !left.Equals(right);
-
-        public static explicit operator string(MarketplaceSubscriptionStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is MarketplaceSubscriptionStatus other && Equals(other);
-        public bool Equals(MarketplaceSubscriptionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Flag specifying if the resource monitoring is enabled or disabled.
-    /// </summary>
-    [EnumType]
-    public readonly struct MonitoringStatus : IEquatable<MonitoringStatus>
-    {
-        private readonly string _value;
-
-        private MonitoringStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static MonitoringStatus Enabled { get; } = new MonitoringStatus("Enabled");
-        public static MonitoringStatus Disabled { get; } = new MonitoringStatus("Disabled");
-
-        public static bool operator ==(MonitoringStatus left, MonitoringStatus right) => left.Equals(right);
-        public static bool operator !=(MonitoringStatus left, MonitoringStatus right) => !left.Equals(right);
-
-        public static explicit operator string(MonitoringStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is MonitoringStatus other && Equals(other);
-        public bool Equals(MonitoringStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
     [EnumType]
     public readonly struct ProvisioningState : IEquatable<ProvisioningState>
     {

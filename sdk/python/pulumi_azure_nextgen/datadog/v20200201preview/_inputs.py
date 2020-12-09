@@ -100,23 +100,15 @@ class IdentityPropertiesArgs:
 class MonitorPropertiesArgs:
     def __init__(__self__, *,
                  datadog_organization_properties: Optional[pulumi.Input['DatadogOrganizationPropertiesArgs']] = None,
-                 marketplace_subscription_status: Optional[pulumi.Input[Union[str, 'MarketplaceSubscriptionStatus']]] = None,
-                 monitoring_status: Optional[pulumi.Input[Union[str, 'MonitoringStatus']]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  user_info: Optional[pulumi.Input['UserInfoArgs']] = None):
         """
         Properties specific to the monitor resource.
         :param pulumi.Input['DatadogOrganizationPropertiesArgs'] datadog_organization_properties: Datadog organization properties
-        :param pulumi.Input[Union[str, 'MarketplaceSubscriptionStatus']] marketplace_subscription_status: Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
-        :param pulumi.Input[Union[str, 'MonitoringStatus']] monitoring_status: Flag specifying if the resource monitoring is enabled or disabled.
         :param pulumi.Input['UserInfoArgs'] user_info: User info
         """
         if datadog_organization_properties is not None:
             pulumi.set(__self__, "datadog_organization_properties", datadog_organization_properties)
-        if marketplace_subscription_status is not None:
-            pulumi.set(__self__, "marketplace_subscription_status", marketplace_subscription_status)
-        if monitoring_status is not None:
-            pulumi.set(__self__, "monitoring_status", monitoring_status)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
         if user_info is not None:
@@ -133,30 +125,6 @@ class MonitorPropertiesArgs:
     @datadog_organization_properties.setter
     def datadog_organization_properties(self, value: Optional[pulumi.Input['DatadogOrganizationPropertiesArgs']]):
         pulumi.set(self, "datadog_organization_properties", value)
-
-    @property
-    @pulumi.getter(name="marketplaceSubscriptionStatus")
-    def marketplace_subscription_status(self) -> Optional[pulumi.Input[Union[str, 'MarketplaceSubscriptionStatus']]]:
-        """
-        Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
-        """
-        return pulumi.get(self, "marketplace_subscription_status")
-
-    @marketplace_subscription_status.setter
-    def marketplace_subscription_status(self, value: Optional[pulumi.Input[Union[str, 'MarketplaceSubscriptionStatus']]]):
-        pulumi.set(self, "marketplace_subscription_status", value)
-
-    @property
-    @pulumi.getter(name="monitoringStatus")
-    def monitoring_status(self) -> Optional[pulumi.Input[Union[str, 'MonitoringStatus']]]:
-        """
-        Flag specifying if the resource monitoring is enabled or disabled.
-        """
-        return pulumi.get(self, "monitoring_status")
-
-    @monitoring_status.setter
-    def monitoring_status(self, value: Optional[pulumi.Input[Union[str, 'MonitoringStatus']]]):
-        pulumi.set(self, "monitoring_status", value)
 
     @property
     @pulumi.getter(name="provisioningState")

@@ -374,27 +374,25 @@ class MonitorPropertiesResponse(dict):
     def __init__(__self__, *,
                  liftr_resource_category: str,
                  liftr_resource_preference: int,
+                 marketplace_subscription_status: str,
+                 monitoring_status: str,
                  datadog_organization_properties: Optional['outputs.DatadogOrganizationPropertiesResponse'] = None,
-                 marketplace_subscription_status: Optional[str] = None,
-                 monitoring_status: Optional[str] = None,
                  provisioning_state: Optional[str] = None,
                  user_info: Optional['outputs.UserInfoResponse'] = None):
         """
         Properties specific to the monitor resource.
         :param int liftr_resource_preference: The priority of the resource.
-        :param 'DatadogOrganizationPropertiesResponseArgs' datadog_organization_properties: Datadog organization properties
         :param str marketplace_subscription_status: Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
         :param str monitoring_status: Flag specifying if the resource monitoring is enabled or disabled.
+        :param 'DatadogOrganizationPropertiesResponseArgs' datadog_organization_properties: Datadog organization properties
         :param 'UserInfoResponseArgs' user_info: User info
         """
         pulumi.set(__self__, "liftr_resource_category", liftr_resource_category)
         pulumi.set(__self__, "liftr_resource_preference", liftr_resource_preference)
+        pulumi.set(__self__, "marketplace_subscription_status", marketplace_subscription_status)
+        pulumi.set(__self__, "monitoring_status", monitoring_status)
         if datadog_organization_properties is not None:
             pulumi.set(__self__, "datadog_organization_properties", datadog_organization_properties)
-        if marketplace_subscription_status is not None:
-            pulumi.set(__self__, "marketplace_subscription_status", marketplace_subscription_status)
-        if monitoring_status is not None:
-            pulumi.set(__self__, "monitoring_status", monitoring_status)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
         if user_info is not None:
@@ -414,16 +412,8 @@ class MonitorPropertiesResponse(dict):
         return pulumi.get(self, "liftr_resource_preference")
 
     @property
-    @pulumi.getter(name="datadogOrganizationProperties")
-    def datadog_organization_properties(self) -> Optional['outputs.DatadogOrganizationPropertiesResponse']:
-        """
-        Datadog organization properties
-        """
-        return pulumi.get(self, "datadog_organization_properties")
-
-    @property
     @pulumi.getter(name="marketplaceSubscriptionStatus")
-    def marketplace_subscription_status(self) -> Optional[str]:
+    def marketplace_subscription_status(self) -> str:
         """
         Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
         """
@@ -431,11 +421,19 @@ class MonitorPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="monitoringStatus")
-    def monitoring_status(self) -> Optional[str]:
+    def monitoring_status(self) -> str:
         """
         Flag specifying if the resource monitoring is enabled or disabled.
         """
         return pulumi.get(self, "monitoring_status")
+
+    @property
+    @pulumi.getter(name="datadogOrganizationProperties")
+    def datadog_organization_properties(self) -> Optional['outputs.DatadogOrganizationPropertiesResponse']:
+        """
+        Datadog organization properties
+        """
+        return pulumi.get(self, "datadog_organization_properties")
 
     @property
     @pulumi.getter(name="provisioningState")
