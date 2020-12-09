@@ -3,9 +3,11 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .get_key import *
 from .get_private_endpoint_connection import *
 from .get_secret import *
 from .get_vault import *
+from .key import *
 from .private_endpoint_connection import *
 from .secret import *
 from .vault import *
