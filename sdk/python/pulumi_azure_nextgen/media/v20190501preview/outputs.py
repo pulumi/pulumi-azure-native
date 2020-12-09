@@ -606,7 +606,7 @@ class LiveEventTranscriptionResponse(dict):
         """
         Describes the transcription tracks in the output of a Live Event, generated using speech-to-text transcription.
         :param Sequence['LiveEventInputTrackSelectionResponseArgs'] input_track_selection: Provides a mechanism to select the audio track in the input live feed, to which speech-to-text transcription is applied.
-        :param str language: Specifies the language (locale) used for speech-to-text transcription � it should match the spoken language in the audio track. The value should be in BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are 'en-US' and 'en-GB'.
+        :param str language: Specifies the language (locale) used for speech-to-text transcription - it should match the spoken language in the audio track. The value should be in BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are 'en-US' and 'en-GB'.
         :param 'LiveEventOutputTranscriptionTrackResponseArgs' output_transcription_track: Describes a transcription track in the output of a Live Event, generated using speech-to-text transcription.
         """
         if input_track_selection is not None:
@@ -628,7 +628,7 @@ class LiveEventTranscriptionResponse(dict):
     @pulumi.getter
     def language(self) -> Optional[str]:
         """
-        Specifies the language (locale) used for speech-to-text transcription � it should match the spoken language in the audio track. The value should be in BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are 'en-US' and 'en-GB'.
+        Specifies the language (locale) used for speech-to-text transcription - it should match the spoken language in the audio track. The value should be in BCP-47 format of 'language tag-region' (e.g: 'en-US'). The list of supported languages are 'en-US' and 'en-GB'.
         """
         return pulumi.get(self, "language")
 

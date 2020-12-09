@@ -82,6 +82,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20170401
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:eventhub/latest:DisasterRecoveryConfig"},
+                    new Pulumi.Alias { Type = "azure-nextgen:eventhub/v20180101preview:DisasterRecoveryConfig"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

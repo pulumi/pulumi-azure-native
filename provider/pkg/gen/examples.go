@@ -84,6 +84,7 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata,
 			if seen.Has(example.Location) {
 				continue
 			}
+
 			seen.Add(example.Location)
 			f, err := os.Open(example.Location)
 			if err != nil {

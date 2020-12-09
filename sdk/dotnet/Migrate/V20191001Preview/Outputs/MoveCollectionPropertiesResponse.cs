@@ -14,6 +14,10 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Outputs
     public sealed class MoveCollectionPropertiesResponse
     {
         /// <summary>
+        /// Defines the move collection errors.
+        /// </summary>
+        public readonly Outputs.MoveCollectionPropertiesResponseErrors Errors;
+        /// <summary>
         /// Defines the provisioning states.
         /// </summary>
         public readonly string ProvisioningState;
@@ -28,12 +32,15 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview.Outputs
 
         [OutputConstructor]
         private MoveCollectionPropertiesResponse(
+            Outputs.MoveCollectionPropertiesResponseErrors errors,
+
             string provisioningState,
 
             string sourceRegion,
 
             string targetRegion)
         {
+            Errors = errors;
             ProvisioningState = provisioningState;
             SourceRegion = sourceRegion;
             TargetRegion = targetRegion;

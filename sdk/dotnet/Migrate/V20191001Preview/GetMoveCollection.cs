@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview
     public sealed class GetMoveCollectionResult
     {
         /// <summary>
+        /// The etag of the resource.
+        /// </summary>
+        public readonly string Etag;
+        /// <summary>
         /// Defines the MSI properties of the Move Collection.
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview
 
         [OutputConstructor]
         private GetMoveCollectionResult(
+            string etag,
+
             Outputs.IdentityResponse? identity,
 
             string? location,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview
 
             string type)
         {
+            Etag = etag;
             Identity = identity;
             Location = location;
             Name = name;

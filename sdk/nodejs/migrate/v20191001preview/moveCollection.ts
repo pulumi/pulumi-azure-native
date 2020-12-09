@@ -36,6 +36,10 @@ export class MoveCollection extends pulumi.CustomResource {
     }
 
     /**
+     * The etag of the resource.
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
      * Defines the MSI properties of the Move Collection.
      */
     public readonly identity!: pulumi.Output<outputs.migrate.v20191001preview.IdentityResponse | undefined>;
@@ -82,9 +86,11 @@ export class MoveCollection extends pulumi.CustomResource {
             inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["etag"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         } else {
+            inputs["etag"] = undefined /*out*/;
             inputs["identity"] = undefined /*out*/;
             inputs["location"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;

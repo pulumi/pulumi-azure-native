@@ -10,6 +10,464 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Properties to configure capture description for eventhub
+type CaptureDescription struct {
+	// Properties of Destination where capture will be stored. (Storage Account, Blob Names)
+	Destination *Destination `pulumi:"destination"`
+	// A value that indicates whether capture description is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
+	Encoding *string `pulumi:"encoding"`
+	// The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
+	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
+	// The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
+	SizeLimitInBytes *int `pulumi:"sizeLimitInBytes"`
+	// A value that indicates whether to Skip Empty Archives
+	SkipEmptyArchives *bool `pulumi:"skipEmptyArchives"`
+}
+
+// CaptureDescriptionInput is an input type that accepts CaptureDescriptionArgs and CaptureDescriptionOutput values.
+// You can construct a concrete instance of `CaptureDescriptionInput` via:
+//
+//          CaptureDescriptionArgs{...}
+type CaptureDescriptionInput interface {
+	pulumi.Input
+
+	ToCaptureDescriptionOutput() CaptureDescriptionOutput
+	ToCaptureDescriptionOutputWithContext(context.Context) CaptureDescriptionOutput
+}
+
+// Properties to configure capture description for eventhub
+type CaptureDescriptionArgs struct {
+	// Properties of Destination where capture will be stored. (Storage Account, Blob Names)
+	Destination DestinationPtrInput `pulumi:"destination"`
+	// A value that indicates whether capture description is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
+	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
+	// The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
+	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
+	// The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
+	SizeLimitInBytes pulumi.IntPtrInput `pulumi:"sizeLimitInBytes"`
+	// A value that indicates whether to Skip Empty Archives
+	SkipEmptyArchives pulumi.BoolPtrInput `pulumi:"skipEmptyArchives"`
+}
+
+func (CaptureDescriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CaptureDescription)(nil)).Elem()
+}
+
+func (i CaptureDescriptionArgs) ToCaptureDescriptionOutput() CaptureDescriptionOutput {
+	return i.ToCaptureDescriptionOutputWithContext(context.Background())
+}
+
+func (i CaptureDescriptionArgs) ToCaptureDescriptionOutputWithContext(ctx context.Context) CaptureDescriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CaptureDescriptionOutput)
+}
+
+func (i CaptureDescriptionArgs) ToCaptureDescriptionPtrOutput() CaptureDescriptionPtrOutput {
+	return i.ToCaptureDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (i CaptureDescriptionArgs) ToCaptureDescriptionPtrOutputWithContext(ctx context.Context) CaptureDescriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CaptureDescriptionOutput).ToCaptureDescriptionPtrOutputWithContext(ctx)
+}
+
+// CaptureDescriptionPtrInput is an input type that accepts CaptureDescriptionArgs, CaptureDescriptionPtr and CaptureDescriptionPtrOutput values.
+// You can construct a concrete instance of `CaptureDescriptionPtrInput` via:
+//
+//          CaptureDescriptionArgs{...}
+//
+//  or:
+//
+//          nil
+type CaptureDescriptionPtrInput interface {
+	pulumi.Input
+
+	ToCaptureDescriptionPtrOutput() CaptureDescriptionPtrOutput
+	ToCaptureDescriptionPtrOutputWithContext(context.Context) CaptureDescriptionPtrOutput
+}
+
+type captureDescriptionPtrType CaptureDescriptionArgs
+
+func CaptureDescriptionPtr(v *CaptureDescriptionArgs) CaptureDescriptionPtrInput {
+	return (*captureDescriptionPtrType)(v)
+}
+
+func (*captureDescriptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CaptureDescription)(nil)).Elem()
+}
+
+func (i *captureDescriptionPtrType) ToCaptureDescriptionPtrOutput() CaptureDescriptionPtrOutput {
+	return i.ToCaptureDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (i *captureDescriptionPtrType) ToCaptureDescriptionPtrOutputWithContext(ctx context.Context) CaptureDescriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CaptureDescriptionPtrOutput)
+}
+
+// Properties to configure capture description for eventhub
+type CaptureDescriptionOutput struct{ *pulumi.OutputState }
+
+func (CaptureDescriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CaptureDescription)(nil)).Elem()
+}
+
+func (o CaptureDescriptionOutput) ToCaptureDescriptionOutput() CaptureDescriptionOutput {
+	return o
+}
+
+func (o CaptureDescriptionOutput) ToCaptureDescriptionOutputWithContext(ctx context.Context) CaptureDescriptionOutput {
+	return o
+}
+
+func (o CaptureDescriptionOutput) ToCaptureDescriptionPtrOutput() CaptureDescriptionPtrOutput {
+	return o.ToCaptureDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (o CaptureDescriptionOutput) ToCaptureDescriptionPtrOutputWithContext(ctx context.Context) CaptureDescriptionPtrOutput {
+	return o.ApplyT(func(v CaptureDescription) *CaptureDescription {
+		return &v
+	}).(CaptureDescriptionPtrOutput)
+}
+
+// Properties of Destination where capture will be stored. (Storage Account, Blob Names)
+func (o CaptureDescriptionOutput) Destination() DestinationPtrOutput {
+	return o.ApplyT(func(v CaptureDescription) *Destination { return v.Destination }).(DestinationPtrOutput)
+}
+
+// A value that indicates whether capture description is enabled.
+func (o CaptureDescriptionOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CaptureDescription) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
+func (o CaptureDescriptionOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CaptureDescription) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+}
+
+// The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
+func (o CaptureDescriptionOutput) IntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CaptureDescription) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
+func (o CaptureDescriptionOutput) SizeLimitInBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CaptureDescription) *int { return v.SizeLimitInBytes }).(pulumi.IntPtrOutput)
+}
+
+// A value that indicates whether to Skip Empty Archives
+func (o CaptureDescriptionOutput) SkipEmptyArchives() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CaptureDescription) *bool { return v.SkipEmptyArchives }).(pulumi.BoolPtrOutput)
+}
+
+type CaptureDescriptionPtrOutput struct{ *pulumi.OutputState }
+
+func (CaptureDescriptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CaptureDescription)(nil)).Elem()
+}
+
+func (o CaptureDescriptionPtrOutput) ToCaptureDescriptionPtrOutput() CaptureDescriptionPtrOutput {
+	return o
+}
+
+func (o CaptureDescriptionPtrOutput) ToCaptureDescriptionPtrOutputWithContext(ctx context.Context) CaptureDescriptionPtrOutput {
+	return o
+}
+
+func (o CaptureDescriptionPtrOutput) Elem() CaptureDescriptionOutput {
+	return o.ApplyT(func(v *CaptureDescription) CaptureDescription { return *v }).(CaptureDescriptionOutput)
+}
+
+// Properties of Destination where capture will be stored. (Storage Account, Blob Names)
+func (o CaptureDescriptionPtrOutput) Destination() DestinationPtrOutput {
+	return o.ApplyT(func(v *CaptureDescription) *Destination {
+		if v == nil {
+			return nil
+		}
+		return v.Destination
+	}).(DestinationPtrOutput)
+}
+
+// A value that indicates whether capture description is enabled.
+func (o CaptureDescriptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CaptureDescription) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
+func (o CaptureDescriptionPtrOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CaptureDescription) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Encoding
+	}).(pulumi.StringPtrOutput)
+}
+
+// The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
+func (o CaptureDescriptionPtrOutput) IntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CaptureDescription) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IntervalInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
+func (o CaptureDescriptionPtrOutput) SizeLimitInBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CaptureDescription) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SizeLimitInBytes
+	}).(pulumi.IntPtrOutput)
+}
+
+// A value that indicates whether to Skip Empty Archives
+func (o CaptureDescriptionPtrOutput) SkipEmptyArchives() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CaptureDescription) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SkipEmptyArchives
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Properties to configure capture description for eventhub
+type CaptureDescriptionResponse struct {
+	// Properties of Destination where capture will be stored. (Storage Account, Blob Names)
+	Destination *DestinationResponse `pulumi:"destination"`
+	// A value that indicates whether capture description is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
+	Encoding *string `pulumi:"encoding"`
+	// The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
+	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
+	// The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
+	SizeLimitInBytes *int `pulumi:"sizeLimitInBytes"`
+	// A value that indicates whether to Skip Empty Archives
+	SkipEmptyArchives *bool `pulumi:"skipEmptyArchives"`
+}
+
+// CaptureDescriptionResponseInput is an input type that accepts CaptureDescriptionResponseArgs and CaptureDescriptionResponseOutput values.
+// You can construct a concrete instance of `CaptureDescriptionResponseInput` via:
+//
+//          CaptureDescriptionResponseArgs{...}
+type CaptureDescriptionResponseInput interface {
+	pulumi.Input
+
+	ToCaptureDescriptionResponseOutput() CaptureDescriptionResponseOutput
+	ToCaptureDescriptionResponseOutputWithContext(context.Context) CaptureDescriptionResponseOutput
+}
+
+// Properties to configure capture description for eventhub
+type CaptureDescriptionResponseArgs struct {
+	// Properties of Destination where capture will be stored. (Storage Account, Blob Names)
+	Destination DestinationResponsePtrInput `pulumi:"destination"`
+	// A value that indicates whether capture description is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
+	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
+	// The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
+	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
+	// The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
+	SizeLimitInBytes pulumi.IntPtrInput `pulumi:"sizeLimitInBytes"`
+	// A value that indicates whether to Skip Empty Archives
+	SkipEmptyArchives pulumi.BoolPtrInput `pulumi:"skipEmptyArchives"`
+}
+
+func (CaptureDescriptionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CaptureDescriptionResponse)(nil)).Elem()
+}
+
+func (i CaptureDescriptionResponseArgs) ToCaptureDescriptionResponseOutput() CaptureDescriptionResponseOutput {
+	return i.ToCaptureDescriptionResponseOutputWithContext(context.Background())
+}
+
+func (i CaptureDescriptionResponseArgs) ToCaptureDescriptionResponseOutputWithContext(ctx context.Context) CaptureDescriptionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CaptureDescriptionResponseOutput)
+}
+
+func (i CaptureDescriptionResponseArgs) ToCaptureDescriptionResponsePtrOutput() CaptureDescriptionResponsePtrOutput {
+	return i.ToCaptureDescriptionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CaptureDescriptionResponseArgs) ToCaptureDescriptionResponsePtrOutputWithContext(ctx context.Context) CaptureDescriptionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CaptureDescriptionResponseOutput).ToCaptureDescriptionResponsePtrOutputWithContext(ctx)
+}
+
+// CaptureDescriptionResponsePtrInput is an input type that accepts CaptureDescriptionResponseArgs, CaptureDescriptionResponsePtr and CaptureDescriptionResponsePtrOutput values.
+// You can construct a concrete instance of `CaptureDescriptionResponsePtrInput` via:
+//
+//          CaptureDescriptionResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CaptureDescriptionResponsePtrInput interface {
+	pulumi.Input
+
+	ToCaptureDescriptionResponsePtrOutput() CaptureDescriptionResponsePtrOutput
+	ToCaptureDescriptionResponsePtrOutputWithContext(context.Context) CaptureDescriptionResponsePtrOutput
+}
+
+type captureDescriptionResponsePtrType CaptureDescriptionResponseArgs
+
+func CaptureDescriptionResponsePtr(v *CaptureDescriptionResponseArgs) CaptureDescriptionResponsePtrInput {
+	return (*captureDescriptionResponsePtrType)(v)
+}
+
+func (*captureDescriptionResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CaptureDescriptionResponse)(nil)).Elem()
+}
+
+func (i *captureDescriptionResponsePtrType) ToCaptureDescriptionResponsePtrOutput() CaptureDescriptionResponsePtrOutput {
+	return i.ToCaptureDescriptionResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *captureDescriptionResponsePtrType) ToCaptureDescriptionResponsePtrOutputWithContext(ctx context.Context) CaptureDescriptionResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CaptureDescriptionResponsePtrOutput)
+}
+
+// Properties to configure capture description for eventhub
+type CaptureDescriptionResponseOutput struct{ *pulumi.OutputState }
+
+func (CaptureDescriptionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CaptureDescriptionResponse)(nil)).Elem()
+}
+
+func (o CaptureDescriptionResponseOutput) ToCaptureDescriptionResponseOutput() CaptureDescriptionResponseOutput {
+	return o
+}
+
+func (o CaptureDescriptionResponseOutput) ToCaptureDescriptionResponseOutputWithContext(ctx context.Context) CaptureDescriptionResponseOutput {
+	return o
+}
+
+func (o CaptureDescriptionResponseOutput) ToCaptureDescriptionResponsePtrOutput() CaptureDescriptionResponsePtrOutput {
+	return o.ToCaptureDescriptionResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CaptureDescriptionResponseOutput) ToCaptureDescriptionResponsePtrOutputWithContext(ctx context.Context) CaptureDescriptionResponsePtrOutput {
+	return o.ApplyT(func(v CaptureDescriptionResponse) *CaptureDescriptionResponse {
+		return &v
+	}).(CaptureDescriptionResponsePtrOutput)
+}
+
+// Properties of Destination where capture will be stored. (Storage Account, Blob Names)
+func (o CaptureDescriptionResponseOutput) Destination() DestinationResponsePtrOutput {
+	return o.ApplyT(func(v CaptureDescriptionResponse) *DestinationResponse { return v.Destination }).(DestinationResponsePtrOutput)
+}
+
+// A value that indicates whether capture description is enabled.
+func (o CaptureDescriptionResponseOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CaptureDescriptionResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
+func (o CaptureDescriptionResponseOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CaptureDescriptionResponse) *string { return v.Encoding }).(pulumi.StringPtrOutput)
+}
+
+// The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
+func (o CaptureDescriptionResponseOutput) IntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CaptureDescriptionResponse) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
+func (o CaptureDescriptionResponseOutput) SizeLimitInBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CaptureDescriptionResponse) *int { return v.SizeLimitInBytes }).(pulumi.IntPtrOutput)
+}
+
+// A value that indicates whether to Skip Empty Archives
+func (o CaptureDescriptionResponseOutput) SkipEmptyArchives() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CaptureDescriptionResponse) *bool { return v.SkipEmptyArchives }).(pulumi.BoolPtrOutput)
+}
+
+type CaptureDescriptionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CaptureDescriptionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CaptureDescriptionResponse)(nil)).Elem()
+}
+
+func (o CaptureDescriptionResponsePtrOutput) ToCaptureDescriptionResponsePtrOutput() CaptureDescriptionResponsePtrOutput {
+	return o
+}
+
+func (o CaptureDescriptionResponsePtrOutput) ToCaptureDescriptionResponsePtrOutputWithContext(ctx context.Context) CaptureDescriptionResponsePtrOutput {
+	return o
+}
+
+func (o CaptureDescriptionResponsePtrOutput) Elem() CaptureDescriptionResponseOutput {
+	return o.ApplyT(func(v *CaptureDescriptionResponse) CaptureDescriptionResponse { return *v }).(CaptureDescriptionResponseOutput)
+}
+
+// Properties of Destination where capture will be stored. (Storage Account, Blob Names)
+func (o CaptureDescriptionResponsePtrOutput) Destination() DestinationResponsePtrOutput {
+	return o.ApplyT(func(v *CaptureDescriptionResponse) *DestinationResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Destination
+	}).(DestinationResponsePtrOutput)
+}
+
+// A value that indicates whether capture description is enabled.
+func (o CaptureDescriptionResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CaptureDescriptionResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
+func (o CaptureDescriptionResponsePtrOutput) Encoding() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CaptureDescriptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Encoding
+	}).(pulumi.StringPtrOutput)
+}
+
+// The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
+func (o CaptureDescriptionResponsePtrOutput) IntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CaptureDescriptionResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IntervalInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
+func (o CaptureDescriptionResponsePtrOutput) SizeLimitInBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CaptureDescriptionResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SizeLimitInBytes
+	}).(pulumi.IntPtrOutput)
+}
+
+// A value that indicates whether to Skip Empty Archives
+func (o CaptureDescriptionResponsePtrOutput) SkipEmptyArchives() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CaptureDescriptionResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SkipEmptyArchives
+	}).(pulumi.BoolPtrOutput)
+}
+
 // SKU parameters particular to a cluster instance.
 type ClusterSku struct {
 	// The quantity of Event Hubs Cluster Capacity Units contained in this cluster.
@@ -619,6 +1077,388 @@ func (o ConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// Capture storage details for capture description
+type Destination struct {
+	// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
+	ArchiveNameFormat *string `pulumi:"archiveNameFormat"`
+	// Blob container Name
+	BlobContainer *string `pulumi:"blobContainer"`
+	// Name for capture destination
+	Name *string `pulumi:"name"`
+	// Resource id of the storage account to be used to create the blobs
+	StorageAccountResourceId *string `pulumi:"storageAccountResourceId"`
+}
+
+// DestinationInput is an input type that accepts DestinationArgs and DestinationOutput values.
+// You can construct a concrete instance of `DestinationInput` via:
+//
+//          DestinationArgs{...}
+type DestinationInput interface {
+	pulumi.Input
+
+	ToDestinationOutput() DestinationOutput
+	ToDestinationOutputWithContext(context.Context) DestinationOutput
+}
+
+// Capture storage details for capture description
+type DestinationArgs struct {
+	// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
+	ArchiveNameFormat pulumi.StringPtrInput `pulumi:"archiveNameFormat"`
+	// Blob container Name
+	BlobContainer pulumi.StringPtrInput `pulumi:"blobContainer"`
+	// Name for capture destination
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Resource id of the storage account to be used to create the blobs
+	StorageAccountResourceId pulumi.StringPtrInput `pulumi:"storageAccountResourceId"`
+}
+
+func (DestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Destination)(nil)).Elem()
+}
+
+func (i DestinationArgs) ToDestinationOutput() DestinationOutput {
+	return i.ToDestinationOutputWithContext(context.Background())
+}
+
+func (i DestinationArgs) ToDestinationOutputWithContext(ctx context.Context) DestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationOutput)
+}
+
+func (i DestinationArgs) ToDestinationPtrOutput() DestinationPtrOutput {
+	return i.ToDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i DestinationArgs) ToDestinationPtrOutputWithContext(ctx context.Context) DestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationOutput).ToDestinationPtrOutputWithContext(ctx)
+}
+
+// DestinationPtrInput is an input type that accepts DestinationArgs, DestinationPtr and DestinationPtrOutput values.
+// You can construct a concrete instance of `DestinationPtrInput` via:
+//
+//          DestinationArgs{...}
+//
+//  or:
+//
+//          nil
+type DestinationPtrInput interface {
+	pulumi.Input
+
+	ToDestinationPtrOutput() DestinationPtrOutput
+	ToDestinationPtrOutputWithContext(context.Context) DestinationPtrOutput
+}
+
+type destinationPtrType DestinationArgs
+
+func DestinationPtr(v *DestinationArgs) DestinationPtrInput {
+	return (*destinationPtrType)(v)
+}
+
+func (*destinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Destination)(nil)).Elem()
+}
+
+func (i *destinationPtrType) ToDestinationPtrOutput() DestinationPtrOutput {
+	return i.ToDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *destinationPtrType) ToDestinationPtrOutputWithContext(ctx context.Context) DestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationPtrOutput)
+}
+
+// Capture storage details for capture description
+type DestinationOutput struct{ *pulumi.OutputState }
+
+func (DestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Destination)(nil)).Elem()
+}
+
+func (o DestinationOutput) ToDestinationOutput() DestinationOutput {
+	return o
+}
+
+func (o DestinationOutput) ToDestinationOutputWithContext(ctx context.Context) DestinationOutput {
+	return o
+}
+
+func (o DestinationOutput) ToDestinationPtrOutput() DestinationPtrOutput {
+	return o.ToDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o DestinationOutput) ToDestinationPtrOutputWithContext(ctx context.Context) DestinationPtrOutput {
+	return o.ApplyT(func(v Destination) *Destination {
+		return &v
+	}).(DestinationPtrOutput)
+}
+
+// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
+func (o DestinationOutput) ArchiveNameFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Destination) *string { return v.ArchiveNameFormat }).(pulumi.StringPtrOutput)
+}
+
+// Blob container Name
+func (o DestinationOutput) BlobContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Destination) *string { return v.BlobContainer }).(pulumi.StringPtrOutput)
+}
+
+// Name for capture destination
+func (o DestinationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Destination) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Resource id of the storage account to be used to create the blobs
+func (o DestinationOutput) StorageAccountResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Destination) *string { return v.StorageAccountResourceId }).(pulumi.StringPtrOutput)
+}
+
+type DestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Destination)(nil)).Elem()
+}
+
+func (o DestinationPtrOutput) ToDestinationPtrOutput() DestinationPtrOutput {
+	return o
+}
+
+func (o DestinationPtrOutput) ToDestinationPtrOutputWithContext(ctx context.Context) DestinationPtrOutput {
+	return o
+}
+
+func (o DestinationPtrOutput) Elem() DestinationOutput {
+	return o.ApplyT(func(v *Destination) Destination { return *v }).(DestinationOutput)
+}
+
+// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
+func (o DestinationPtrOutput) ArchiveNameFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Destination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ArchiveNameFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// Blob container Name
+func (o DestinationPtrOutput) BlobContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Destination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BlobContainer
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name for capture destination
+func (o DestinationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Destination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource id of the storage account to be used to create the blobs
+func (o DestinationPtrOutput) StorageAccountResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Destination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAccountResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Capture storage details for capture description
+type DestinationResponse struct {
+	// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
+	ArchiveNameFormat *string `pulumi:"archiveNameFormat"`
+	// Blob container Name
+	BlobContainer *string `pulumi:"blobContainer"`
+	// Name for capture destination
+	Name *string `pulumi:"name"`
+	// Resource id of the storage account to be used to create the blobs
+	StorageAccountResourceId *string `pulumi:"storageAccountResourceId"`
+}
+
+// DestinationResponseInput is an input type that accepts DestinationResponseArgs and DestinationResponseOutput values.
+// You can construct a concrete instance of `DestinationResponseInput` via:
+//
+//          DestinationResponseArgs{...}
+type DestinationResponseInput interface {
+	pulumi.Input
+
+	ToDestinationResponseOutput() DestinationResponseOutput
+	ToDestinationResponseOutputWithContext(context.Context) DestinationResponseOutput
+}
+
+// Capture storage details for capture description
+type DestinationResponseArgs struct {
+	// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
+	ArchiveNameFormat pulumi.StringPtrInput `pulumi:"archiveNameFormat"`
+	// Blob container Name
+	BlobContainer pulumi.StringPtrInput `pulumi:"blobContainer"`
+	// Name for capture destination
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Resource id of the storage account to be used to create the blobs
+	StorageAccountResourceId pulumi.StringPtrInput `pulumi:"storageAccountResourceId"`
+}
+
+func (DestinationResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationResponse)(nil)).Elem()
+}
+
+func (i DestinationResponseArgs) ToDestinationResponseOutput() DestinationResponseOutput {
+	return i.ToDestinationResponseOutputWithContext(context.Background())
+}
+
+func (i DestinationResponseArgs) ToDestinationResponseOutputWithContext(ctx context.Context) DestinationResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationResponseOutput)
+}
+
+func (i DestinationResponseArgs) ToDestinationResponsePtrOutput() DestinationResponsePtrOutput {
+	return i.ToDestinationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i DestinationResponseArgs) ToDestinationResponsePtrOutputWithContext(ctx context.Context) DestinationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationResponseOutput).ToDestinationResponsePtrOutputWithContext(ctx)
+}
+
+// DestinationResponsePtrInput is an input type that accepts DestinationResponseArgs, DestinationResponsePtr and DestinationResponsePtrOutput values.
+// You can construct a concrete instance of `DestinationResponsePtrInput` via:
+//
+//          DestinationResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type DestinationResponsePtrInput interface {
+	pulumi.Input
+
+	ToDestinationResponsePtrOutput() DestinationResponsePtrOutput
+	ToDestinationResponsePtrOutputWithContext(context.Context) DestinationResponsePtrOutput
+}
+
+type destinationResponsePtrType DestinationResponseArgs
+
+func DestinationResponsePtr(v *DestinationResponseArgs) DestinationResponsePtrInput {
+	return (*destinationResponsePtrType)(v)
+}
+
+func (*destinationResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationResponse)(nil)).Elem()
+}
+
+func (i *destinationResponsePtrType) ToDestinationResponsePtrOutput() DestinationResponsePtrOutput {
+	return i.ToDestinationResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *destinationResponsePtrType) ToDestinationResponsePtrOutputWithContext(ctx context.Context) DestinationResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DestinationResponsePtrOutput)
+}
+
+// Capture storage details for capture description
+type DestinationResponseOutput struct{ *pulumi.OutputState }
+
+func (DestinationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DestinationResponse)(nil)).Elem()
+}
+
+func (o DestinationResponseOutput) ToDestinationResponseOutput() DestinationResponseOutput {
+	return o
+}
+
+func (o DestinationResponseOutput) ToDestinationResponseOutputWithContext(ctx context.Context) DestinationResponseOutput {
+	return o
+}
+
+func (o DestinationResponseOutput) ToDestinationResponsePtrOutput() DestinationResponsePtrOutput {
+	return o.ToDestinationResponsePtrOutputWithContext(context.Background())
+}
+
+func (o DestinationResponseOutput) ToDestinationResponsePtrOutputWithContext(ctx context.Context) DestinationResponsePtrOutput {
+	return o.ApplyT(func(v DestinationResponse) *DestinationResponse {
+		return &v
+	}).(DestinationResponsePtrOutput)
+}
+
+// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
+func (o DestinationResponseOutput) ArchiveNameFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DestinationResponse) *string { return v.ArchiveNameFormat }).(pulumi.StringPtrOutput)
+}
+
+// Blob container Name
+func (o DestinationResponseOutput) BlobContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DestinationResponse) *string { return v.BlobContainer }).(pulumi.StringPtrOutput)
+}
+
+// Name for capture destination
+func (o DestinationResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DestinationResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Resource id of the storage account to be used to create the blobs
+func (o DestinationResponseOutput) StorageAccountResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DestinationResponse) *string { return v.StorageAccountResourceId }).(pulumi.StringPtrOutput)
+}
+
+type DestinationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (DestinationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DestinationResponse)(nil)).Elem()
+}
+
+func (o DestinationResponsePtrOutput) ToDestinationResponsePtrOutput() DestinationResponsePtrOutput {
+	return o
+}
+
+func (o DestinationResponsePtrOutput) ToDestinationResponsePtrOutputWithContext(ctx context.Context) DestinationResponsePtrOutput {
+	return o
+}
+
+func (o DestinationResponsePtrOutput) Elem() DestinationResponseOutput {
+	return o.ApplyT(func(v *DestinationResponse) DestinationResponse { return *v }).(DestinationResponseOutput)
+}
+
+// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
+func (o DestinationResponsePtrOutput) ArchiveNameFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DestinationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ArchiveNameFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// Blob container Name
+func (o DestinationResponsePtrOutput) BlobContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DestinationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BlobContainer
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name for capture destination
+func (o DestinationResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DestinationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Resource id of the storage account to be used to create the blobs
+func (o DestinationResponsePtrOutput) StorageAccountResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DestinationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAccountResourceId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1689,6 +2529,10 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterOutputType(CaptureDescriptionOutput{})
+	pulumi.RegisterOutputType(CaptureDescriptionPtrOutput{})
+	pulumi.RegisterOutputType(CaptureDescriptionResponseOutput{})
+	pulumi.RegisterOutputType(CaptureDescriptionResponsePtrOutput{})
 	pulumi.RegisterOutputType(ClusterSkuOutput{})
 	pulumi.RegisterOutputType(ClusterSkuPtrOutput{})
 	pulumi.RegisterOutputType(ClusterSkuResponseOutput{})
@@ -1697,6 +2541,10 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(ConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(ConnectionStateResponsePtrOutput{})
+	pulumi.RegisterOutputType(DestinationOutput{})
+	pulumi.RegisterOutputType(DestinationPtrOutput{})
+	pulumi.RegisterOutputType(DestinationResponseOutput{})
+	pulumi.RegisterOutputType(DestinationResponsePtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponseOutput{})

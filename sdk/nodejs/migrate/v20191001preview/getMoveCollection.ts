@@ -35,6 +35,10 @@ export interface GetMoveCollectionArgs {
  */
 export interface GetMoveCollectionResult {
     /**
+     * The etag of the resource.
+     */
+    readonly etag: string;
+    /**
      * Defines the MSI properties of the Move Collection.
      */
     readonly identity?: outputs.migrate.v20191001preview.IdentityResponse;
