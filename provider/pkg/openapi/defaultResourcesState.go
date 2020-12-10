@@ -1,9 +1,6 @@
 package openapi
 
-import (
-	"fmt"
-	"reflect"
-)
+import "reflect"
 
 // defaultResourcesStateRaw is a map non-normalized paths. It's handy to have paths as they are in the Open API spec's
 // latest version for easy search. This map shouldn't be used for lookups: use 'defaultResourcesStateMap' instead.
@@ -20,8 +17,15 @@ var defaultResourcesStateRaw = map[string]map[string]interface{}{
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/networkRuleSets/default": {
 		"defaultAction": "Deny",
 	},
+	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/currentbillingfeatures": {
+		"currentBillingFeatures": []string{"Basic"},
+		"dataVolumeCap":          map[string]string{},
+	},
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/networkRuleSets/default": {
 		"defaultAction": "Deny",
+	},
+	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/geoBackupPolicies/{geoBackupPolicyName}": {
+		"state": "Disabled",
 	},
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/transparentDataEncryption/{transparentDataEncryptionName}": {
 		"status": "Disabled",
@@ -32,6 +36,9 @@ var defaultResourcesStateRaw = map[string]map[string]interface{}{
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/tableServices/{tableServiceName}": {},
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Synapse/workspaces/{workspaceName}/sqlPools/{sqlPoolName}/transparentDataEncryption/{transparentDataEncryptionName}": {
 		"status": "Disabled",
+	},
+	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/logs": {
+		"applicationLogs": map[string]string{},
 	},
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/slotConfigNames": {
 		"appSettingNames": []string{},
@@ -52,21 +59,23 @@ var defaultResourcesStateNormalized map[string]map[string]interface{}
 func init() {
 	defaultResourcesStateNormalized = map[string]map[string]interface{}{}
 	for key, value := range defaultResourcesStateRaw {
-		for _, propValue := range value {
-			if propValue == nil {
-				continue
-			}
-			typ := reflect.TypeOf(propValue)
-			switch typ.Kind() {
-			case reflect.Map, reflect.Slice, reflect.Array:
-				val := reflect.ValueOf(propValue)
-				if val.Len() > 0 {
-					// See the limitation in `SdkShapeConverter.isDefaultResponse()`
-					panic(fmt.Sprintf("invalid defaultResourcesState '%s': non-empty collections aren't supported", key))
-				}
-			}
-		}
-
 		defaultResourcesStateNormalized[normalizePath(key)] = value
 	}
+}
+
+func containsNonEmptyCollections(value map[string]interface{}) bool {
+	for _, propValue := range value {
+		if propValue == nil {
+			continue
+		}
+		typ := reflect.TypeOf(propValue)
+		switch typ.Kind() {
+		case reflect.Map, reflect.Slice, reflect.Array:
+			val := reflect.ValueOf(propValue)
+			if val.Len() > 0 {
+				return true
+			}
+		}
+	}
+	return false
 }

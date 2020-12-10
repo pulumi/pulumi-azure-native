@@ -23,6 +23,7 @@ __all__ = [
     'InternalLoadBalancingMode',
     'IpFilterTag',
     'LoadBalancingMode',
+    'LogLevel',
     'ManagedPipelineMode',
     'ManagedServiceIdentityType',
     'ProvisioningState',
@@ -208,6 +209,17 @@ class LoadBalancingMode(str, Enum):
     WEB = "Web"
     PUBLISHING = "Publishing"
     WEB_PUBLISHING = "Web,Publishing"
+
+
+class LogLevel(str, Enum):
+    """
+    Log level.
+    """
+    OFF = "Off"
+    VERBOSE = "Verbose"
+    INFORMATION = "Information"
+    WARNING = "Warning"
+    ERROR = "Error"
 
 
 class ManagedPipelineMode(str, Enum):

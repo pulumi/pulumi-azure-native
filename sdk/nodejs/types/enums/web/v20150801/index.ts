@@ -117,6 +117,19 @@ export const InternalLoadBalancingMode = {
  */
 export type InternalLoadBalancingMode = (typeof InternalLoadBalancingMode)[keyof typeof InternalLoadBalancingMode];
 
+export const LogLevel = {
+    Off: "Off",
+    Verbose: "Verbose",
+    Information: "Information",
+    Warning: "Warning",
+    Error: "Error",
+} as const;
+
+/**
+ * Log level
+ */
+export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
+
 export const ManagedPipelineMode = {
     Integrated: "Integrated",
     Classic: "Classic",

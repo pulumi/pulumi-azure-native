@@ -19,6 +19,7 @@ export * from "./getSiteHostNameBinding";
 export * from "./getSiteHostNameBindingSlot";
 export * from "./getSiteInstanceDeployment";
 export * from "./getSiteInstanceDeploymentSlot";
+export * from "./getSiteLogsConfig";
 export * from "./getSiteRelayServiceConnection";
 export * from "./getSiteRelayServiceConnectionSlot";
 export * from "./getSiteSlot";
@@ -52,6 +53,7 @@ export * from "./siteHostNameBinding";
 export * from "./siteHostNameBindingSlot";
 export * from "./siteInstanceDeployment";
 export * from "./siteInstanceDeploymentSlot";
+export * from "./siteLogsConfig";
 export * from "./siteRelayServiceConnection";
 export * from "./siteRelayServiceConnectionSlot";
 export * from "./siteSlot";
@@ -78,6 +80,7 @@ import { SiteHostNameBinding } from "./siteHostNameBinding";
 import { SiteHostNameBindingSlot } from "./siteHostNameBindingSlot";
 import { SiteInstanceDeployment } from "./siteInstanceDeployment";
 import { SiteInstanceDeploymentSlot } from "./siteInstanceDeploymentSlot";
+import { SiteLogsConfig } from "./siteLogsConfig";
 import { SiteRelayServiceConnection } from "./siteRelayServiceConnection";
 import { SiteRelayServiceConnectionSlot } from "./siteRelayServiceConnectionSlot";
 import { SiteSlot } from "./siteSlot";
@@ -117,6 +120,8 @@ const _module = {
                 return new SiteInstanceDeployment(name, <any>undefined, { urn })
             case "azure-nextgen:web/v20150801:SiteInstanceDeploymentSlot":
                 return new SiteInstanceDeploymentSlot(name, <any>undefined, { urn })
+            case "azure-nextgen:web/v20150801:SiteLogsConfig":
+                return new SiteLogsConfig(name, <any>undefined, { urn })
             case "azure-nextgen:web/v20150801:SiteRelayServiceConnection":
                 return new SiteRelayServiceConnection(name, <any>undefined, { urn })
             case "azure-nextgen:web/v20150801:SiteRelayServiceConnectionSlot":

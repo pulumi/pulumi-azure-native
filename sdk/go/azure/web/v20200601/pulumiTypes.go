@@ -546,6 +546,354 @@ func (o ApiManagementConfigResponsePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Application logs configuration.
+type ApplicationLogsConfig struct {
+	// Application logs to blob storage configuration.
+	AzureBlobStorage *AzureBlobStorageApplicationLogsConfig `pulumi:"azureBlobStorage"`
+	// Application logs to azure table storage configuration.
+	AzureTableStorage *AzureTableStorageApplicationLogsConfig `pulumi:"azureTableStorage"`
+	// Application logs to file system configuration.
+	FileSystem *FileSystemApplicationLogsConfig `pulumi:"fileSystem"`
+}
+
+// ApplicationLogsConfigInput is an input type that accepts ApplicationLogsConfigArgs and ApplicationLogsConfigOutput values.
+// You can construct a concrete instance of `ApplicationLogsConfigInput` via:
+//
+//          ApplicationLogsConfigArgs{...}
+type ApplicationLogsConfigInput interface {
+	pulumi.Input
+
+	ToApplicationLogsConfigOutput() ApplicationLogsConfigOutput
+	ToApplicationLogsConfigOutputWithContext(context.Context) ApplicationLogsConfigOutput
+}
+
+// Application logs configuration.
+type ApplicationLogsConfigArgs struct {
+	// Application logs to blob storage configuration.
+	AzureBlobStorage AzureBlobStorageApplicationLogsConfigPtrInput `pulumi:"azureBlobStorage"`
+	// Application logs to azure table storage configuration.
+	AzureTableStorage AzureTableStorageApplicationLogsConfigPtrInput `pulumi:"azureTableStorage"`
+	// Application logs to file system configuration.
+	FileSystem FileSystemApplicationLogsConfigPtrInput `pulumi:"fileSystem"`
+}
+
+func (ApplicationLogsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationLogsConfig)(nil)).Elem()
+}
+
+func (i ApplicationLogsConfigArgs) ToApplicationLogsConfigOutput() ApplicationLogsConfigOutput {
+	return i.ToApplicationLogsConfigOutputWithContext(context.Background())
+}
+
+func (i ApplicationLogsConfigArgs) ToApplicationLogsConfigOutputWithContext(ctx context.Context) ApplicationLogsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationLogsConfigOutput)
+}
+
+func (i ApplicationLogsConfigArgs) ToApplicationLogsConfigPtrOutput() ApplicationLogsConfigPtrOutput {
+	return i.ToApplicationLogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationLogsConfigArgs) ToApplicationLogsConfigPtrOutputWithContext(ctx context.Context) ApplicationLogsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationLogsConfigOutput).ToApplicationLogsConfigPtrOutputWithContext(ctx)
+}
+
+// ApplicationLogsConfigPtrInput is an input type that accepts ApplicationLogsConfigArgs, ApplicationLogsConfigPtr and ApplicationLogsConfigPtrOutput values.
+// You can construct a concrete instance of `ApplicationLogsConfigPtrInput` via:
+//
+//          ApplicationLogsConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ApplicationLogsConfigPtrInput interface {
+	pulumi.Input
+
+	ToApplicationLogsConfigPtrOutput() ApplicationLogsConfigPtrOutput
+	ToApplicationLogsConfigPtrOutputWithContext(context.Context) ApplicationLogsConfigPtrOutput
+}
+
+type applicationLogsConfigPtrType ApplicationLogsConfigArgs
+
+func ApplicationLogsConfigPtr(v *ApplicationLogsConfigArgs) ApplicationLogsConfigPtrInput {
+	return (*applicationLogsConfigPtrType)(v)
+}
+
+func (*applicationLogsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationLogsConfig)(nil)).Elem()
+}
+
+func (i *applicationLogsConfigPtrType) ToApplicationLogsConfigPtrOutput() ApplicationLogsConfigPtrOutput {
+	return i.ToApplicationLogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationLogsConfigPtrType) ToApplicationLogsConfigPtrOutputWithContext(ctx context.Context) ApplicationLogsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationLogsConfigPtrOutput)
+}
+
+// Application logs configuration.
+type ApplicationLogsConfigOutput struct{ *pulumi.OutputState }
+
+func (ApplicationLogsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationLogsConfig)(nil)).Elem()
+}
+
+func (o ApplicationLogsConfigOutput) ToApplicationLogsConfigOutput() ApplicationLogsConfigOutput {
+	return o
+}
+
+func (o ApplicationLogsConfigOutput) ToApplicationLogsConfigOutputWithContext(ctx context.Context) ApplicationLogsConfigOutput {
+	return o
+}
+
+func (o ApplicationLogsConfigOutput) ToApplicationLogsConfigPtrOutput() ApplicationLogsConfigPtrOutput {
+	return o.ToApplicationLogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationLogsConfigOutput) ToApplicationLogsConfigPtrOutputWithContext(ctx context.Context) ApplicationLogsConfigPtrOutput {
+	return o.ApplyT(func(v ApplicationLogsConfig) *ApplicationLogsConfig {
+		return &v
+	}).(ApplicationLogsConfigPtrOutput)
+}
+
+// Application logs to blob storage configuration.
+func (o ApplicationLogsConfigOutput) AzureBlobStorage() AzureBlobStorageApplicationLogsConfigPtrOutput {
+	return o.ApplyT(func(v ApplicationLogsConfig) *AzureBlobStorageApplicationLogsConfig { return v.AzureBlobStorage }).(AzureBlobStorageApplicationLogsConfigPtrOutput)
+}
+
+// Application logs to azure table storage configuration.
+func (o ApplicationLogsConfigOutput) AzureTableStorage() AzureTableStorageApplicationLogsConfigPtrOutput {
+	return o.ApplyT(func(v ApplicationLogsConfig) *AzureTableStorageApplicationLogsConfig { return v.AzureTableStorage }).(AzureTableStorageApplicationLogsConfigPtrOutput)
+}
+
+// Application logs to file system configuration.
+func (o ApplicationLogsConfigOutput) FileSystem() FileSystemApplicationLogsConfigPtrOutput {
+	return o.ApplyT(func(v ApplicationLogsConfig) *FileSystemApplicationLogsConfig { return v.FileSystem }).(FileSystemApplicationLogsConfigPtrOutput)
+}
+
+type ApplicationLogsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationLogsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationLogsConfig)(nil)).Elem()
+}
+
+func (o ApplicationLogsConfigPtrOutput) ToApplicationLogsConfigPtrOutput() ApplicationLogsConfigPtrOutput {
+	return o
+}
+
+func (o ApplicationLogsConfigPtrOutput) ToApplicationLogsConfigPtrOutputWithContext(ctx context.Context) ApplicationLogsConfigPtrOutput {
+	return o
+}
+
+func (o ApplicationLogsConfigPtrOutput) Elem() ApplicationLogsConfigOutput {
+	return o.ApplyT(func(v *ApplicationLogsConfig) ApplicationLogsConfig { return *v }).(ApplicationLogsConfigOutput)
+}
+
+// Application logs to blob storage configuration.
+func (o ApplicationLogsConfigPtrOutput) AzureBlobStorage() AzureBlobStorageApplicationLogsConfigPtrOutput {
+	return o.ApplyT(func(v *ApplicationLogsConfig) *AzureBlobStorageApplicationLogsConfig {
+		if v == nil {
+			return nil
+		}
+		return v.AzureBlobStorage
+	}).(AzureBlobStorageApplicationLogsConfigPtrOutput)
+}
+
+// Application logs to azure table storage configuration.
+func (o ApplicationLogsConfigPtrOutput) AzureTableStorage() AzureTableStorageApplicationLogsConfigPtrOutput {
+	return o.ApplyT(func(v *ApplicationLogsConfig) *AzureTableStorageApplicationLogsConfig {
+		if v == nil {
+			return nil
+		}
+		return v.AzureTableStorage
+	}).(AzureTableStorageApplicationLogsConfigPtrOutput)
+}
+
+// Application logs to file system configuration.
+func (o ApplicationLogsConfigPtrOutput) FileSystem() FileSystemApplicationLogsConfigPtrOutput {
+	return o.ApplyT(func(v *ApplicationLogsConfig) *FileSystemApplicationLogsConfig {
+		if v == nil {
+			return nil
+		}
+		return v.FileSystem
+	}).(FileSystemApplicationLogsConfigPtrOutput)
+}
+
+// Application logs configuration.
+type ApplicationLogsConfigResponse struct {
+	// Application logs to blob storage configuration.
+	AzureBlobStorage *AzureBlobStorageApplicationLogsConfigResponse `pulumi:"azureBlobStorage"`
+	// Application logs to azure table storage configuration.
+	AzureTableStorage *AzureTableStorageApplicationLogsConfigResponse `pulumi:"azureTableStorage"`
+	// Application logs to file system configuration.
+	FileSystem *FileSystemApplicationLogsConfigResponse `pulumi:"fileSystem"`
+}
+
+// ApplicationLogsConfigResponseInput is an input type that accepts ApplicationLogsConfigResponseArgs and ApplicationLogsConfigResponseOutput values.
+// You can construct a concrete instance of `ApplicationLogsConfigResponseInput` via:
+//
+//          ApplicationLogsConfigResponseArgs{...}
+type ApplicationLogsConfigResponseInput interface {
+	pulumi.Input
+
+	ToApplicationLogsConfigResponseOutput() ApplicationLogsConfigResponseOutput
+	ToApplicationLogsConfigResponseOutputWithContext(context.Context) ApplicationLogsConfigResponseOutput
+}
+
+// Application logs configuration.
+type ApplicationLogsConfigResponseArgs struct {
+	// Application logs to blob storage configuration.
+	AzureBlobStorage AzureBlobStorageApplicationLogsConfigResponsePtrInput `pulumi:"azureBlobStorage"`
+	// Application logs to azure table storage configuration.
+	AzureTableStorage AzureTableStorageApplicationLogsConfigResponsePtrInput `pulumi:"azureTableStorage"`
+	// Application logs to file system configuration.
+	FileSystem FileSystemApplicationLogsConfigResponsePtrInput `pulumi:"fileSystem"`
+}
+
+func (ApplicationLogsConfigResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationLogsConfigResponse)(nil)).Elem()
+}
+
+func (i ApplicationLogsConfigResponseArgs) ToApplicationLogsConfigResponseOutput() ApplicationLogsConfigResponseOutput {
+	return i.ToApplicationLogsConfigResponseOutputWithContext(context.Background())
+}
+
+func (i ApplicationLogsConfigResponseArgs) ToApplicationLogsConfigResponseOutputWithContext(ctx context.Context) ApplicationLogsConfigResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationLogsConfigResponseOutput)
+}
+
+func (i ApplicationLogsConfigResponseArgs) ToApplicationLogsConfigResponsePtrOutput() ApplicationLogsConfigResponsePtrOutput {
+	return i.ToApplicationLogsConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationLogsConfigResponseArgs) ToApplicationLogsConfigResponsePtrOutputWithContext(ctx context.Context) ApplicationLogsConfigResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationLogsConfigResponseOutput).ToApplicationLogsConfigResponsePtrOutputWithContext(ctx)
+}
+
+// ApplicationLogsConfigResponsePtrInput is an input type that accepts ApplicationLogsConfigResponseArgs, ApplicationLogsConfigResponsePtr and ApplicationLogsConfigResponsePtrOutput values.
+// You can construct a concrete instance of `ApplicationLogsConfigResponsePtrInput` via:
+//
+//          ApplicationLogsConfigResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ApplicationLogsConfigResponsePtrInput interface {
+	pulumi.Input
+
+	ToApplicationLogsConfigResponsePtrOutput() ApplicationLogsConfigResponsePtrOutput
+	ToApplicationLogsConfigResponsePtrOutputWithContext(context.Context) ApplicationLogsConfigResponsePtrOutput
+}
+
+type applicationLogsConfigResponsePtrType ApplicationLogsConfigResponseArgs
+
+func ApplicationLogsConfigResponsePtr(v *ApplicationLogsConfigResponseArgs) ApplicationLogsConfigResponsePtrInput {
+	return (*applicationLogsConfigResponsePtrType)(v)
+}
+
+func (*applicationLogsConfigResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationLogsConfigResponse)(nil)).Elem()
+}
+
+func (i *applicationLogsConfigResponsePtrType) ToApplicationLogsConfigResponsePtrOutput() ApplicationLogsConfigResponsePtrOutput {
+	return i.ToApplicationLogsConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *applicationLogsConfigResponsePtrType) ToApplicationLogsConfigResponsePtrOutputWithContext(ctx context.Context) ApplicationLogsConfigResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationLogsConfigResponsePtrOutput)
+}
+
+// Application logs configuration.
+type ApplicationLogsConfigResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationLogsConfigResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationLogsConfigResponse)(nil)).Elem()
+}
+
+func (o ApplicationLogsConfigResponseOutput) ToApplicationLogsConfigResponseOutput() ApplicationLogsConfigResponseOutput {
+	return o
+}
+
+func (o ApplicationLogsConfigResponseOutput) ToApplicationLogsConfigResponseOutputWithContext(ctx context.Context) ApplicationLogsConfigResponseOutput {
+	return o
+}
+
+func (o ApplicationLogsConfigResponseOutput) ToApplicationLogsConfigResponsePtrOutput() ApplicationLogsConfigResponsePtrOutput {
+	return o.ToApplicationLogsConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationLogsConfigResponseOutput) ToApplicationLogsConfigResponsePtrOutputWithContext(ctx context.Context) ApplicationLogsConfigResponsePtrOutput {
+	return o.ApplyT(func(v ApplicationLogsConfigResponse) *ApplicationLogsConfigResponse {
+		return &v
+	}).(ApplicationLogsConfigResponsePtrOutput)
+}
+
+// Application logs to blob storage configuration.
+func (o ApplicationLogsConfigResponseOutput) AzureBlobStorage() AzureBlobStorageApplicationLogsConfigResponsePtrOutput {
+	return o.ApplyT(func(v ApplicationLogsConfigResponse) *AzureBlobStorageApplicationLogsConfigResponse {
+		return v.AzureBlobStorage
+	}).(AzureBlobStorageApplicationLogsConfigResponsePtrOutput)
+}
+
+// Application logs to azure table storage configuration.
+func (o ApplicationLogsConfigResponseOutput) AzureTableStorage() AzureTableStorageApplicationLogsConfigResponsePtrOutput {
+	return o.ApplyT(func(v ApplicationLogsConfigResponse) *AzureTableStorageApplicationLogsConfigResponse {
+		return v.AzureTableStorage
+	}).(AzureTableStorageApplicationLogsConfigResponsePtrOutput)
+}
+
+// Application logs to file system configuration.
+func (o ApplicationLogsConfigResponseOutput) FileSystem() FileSystemApplicationLogsConfigResponsePtrOutput {
+	return o.ApplyT(func(v ApplicationLogsConfigResponse) *FileSystemApplicationLogsConfigResponse { return v.FileSystem }).(FileSystemApplicationLogsConfigResponsePtrOutput)
+}
+
+type ApplicationLogsConfigResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationLogsConfigResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationLogsConfigResponse)(nil)).Elem()
+}
+
+func (o ApplicationLogsConfigResponsePtrOutput) ToApplicationLogsConfigResponsePtrOutput() ApplicationLogsConfigResponsePtrOutput {
+	return o
+}
+
+func (o ApplicationLogsConfigResponsePtrOutput) ToApplicationLogsConfigResponsePtrOutputWithContext(ctx context.Context) ApplicationLogsConfigResponsePtrOutput {
+	return o
+}
+
+func (o ApplicationLogsConfigResponsePtrOutput) Elem() ApplicationLogsConfigResponseOutput {
+	return o.ApplyT(func(v *ApplicationLogsConfigResponse) ApplicationLogsConfigResponse { return *v }).(ApplicationLogsConfigResponseOutput)
+}
+
+// Application logs to blob storage configuration.
+func (o ApplicationLogsConfigResponsePtrOutput) AzureBlobStorage() AzureBlobStorageApplicationLogsConfigResponsePtrOutput {
+	return o.ApplyT(func(v *ApplicationLogsConfigResponse) *AzureBlobStorageApplicationLogsConfigResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AzureBlobStorage
+	}).(AzureBlobStorageApplicationLogsConfigResponsePtrOutput)
+}
+
+// Application logs to azure table storage configuration.
+func (o ApplicationLogsConfigResponsePtrOutput) AzureTableStorage() AzureTableStorageApplicationLogsConfigResponsePtrOutput {
+	return o.ApplyT(func(v *ApplicationLogsConfigResponse) *AzureTableStorageApplicationLogsConfigResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AzureTableStorage
+	}).(AzureTableStorageApplicationLogsConfigResponsePtrOutput)
+}
+
+// Application logs to file system configuration.
+func (o ApplicationLogsConfigResponsePtrOutput) FileSystem() FileSystemApplicationLogsConfigResponsePtrOutput {
+	return o.ApplyT(func(v *ApplicationLogsConfigResponse) *FileSystemApplicationLogsConfigResponse {
+		if v == nil {
+			return nil
+		}
+		return v.FileSystem
+	}).(FileSystemApplicationLogsConfigResponsePtrOutput)
+}
+
 // A wrapper for an ARM resource id
 type ArmIdWrapperResponse struct {
 	Id string `pulumi:"id"`
@@ -2027,6 +2375,728 @@ func (o AutoHealTriggersResponsePtrOutput) StatusCodes() StatusCodesBasedTrigger
 	}).(StatusCodesBasedTriggerResponseArrayOutput)
 }
 
+// Application logs azure blob storage configuration.
+type AzureBlobStorageApplicationLogsConfig struct {
+	// Log level.
+	Level *string `pulumi:"level"`
+	// Retention in days.
+	// Remove blobs older than X days.
+	// 0 or lower means no retention.
+	RetentionInDays *int `pulumi:"retentionInDays"`
+	// SAS url to a azure blob container with read/write/list/delete permissions.
+	SasUrl *string `pulumi:"sasUrl"`
+}
+
+// AzureBlobStorageApplicationLogsConfigInput is an input type that accepts AzureBlobStorageApplicationLogsConfigArgs and AzureBlobStorageApplicationLogsConfigOutput values.
+// You can construct a concrete instance of `AzureBlobStorageApplicationLogsConfigInput` via:
+//
+//          AzureBlobStorageApplicationLogsConfigArgs{...}
+type AzureBlobStorageApplicationLogsConfigInput interface {
+	pulumi.Input
+
+	ToAzureBlobStorageApplicationLogsConfigOutput() AzureBlobStorageApplicationLogsConfigOutput
+	ToAzureBlobStorageApplicationLogsConfigOutputWithContext(context.Context) AzureBlobStorageApplicationLogsConfigOutput
+}
+
+// Application logs azure blob storage configuration.
+type AzureBlobStorageApplicationLogsConfigArgs struct {
+	// Log level.
+	Level LogLevel `pulumi:"level"`
+	// Retention in days.
+	// Remove blobs older than X days.
+	// 0 or lower means no retention.
+	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
+	// SAS url to a azure blob container with read/write/list/delete permissions.
+	SasUrl pulumi.StringPtrInput `pulumi:"sasUrl"`
+}
+
+func (AzureBlobStorageApplicationLogsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureBlobStorageApplicationLogsConfig)(nil)).Elem()
+}
+
+func (i AzureBlobStorageApplicationLogsConfigArgs) ToAzureBlobStorageApplicationLogsConfigOutput() AzureBlobStorageApplicationLogsConfigOutput {
+	return i.ToAzureBlobStorageApplicationLogsConfigOutputWithContext(context.Background())
+}
+
+func (i AzureBlobStorageApplicationLogsConfigArgs) ToAzureBlobStorageApplicationLogsConfigOutputWithContext(ctx context.Context) AzureBlobStorageApplicationLogsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureBlobStorageApplicationLogsConfigOutput)
+}
+
+func (i AzureBlobStorageApplicationLogsConfigArgs) ToAzureBlobStorageApplicationLogsConfigPtrOutput() AzureBlobStorageApplicationLogsConfigPtrOutput {
+	return i.ToAzureBlobStorageApplicationLogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AzureBlobStorageApplicationLogsConfigArgs) ToAzureBlobStorageApplicationLogsConfigPtrOutputWithContext(ctx context.Context) AzureBlobStorageApplicationLogsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureBlobStorageApplicationLogsConfigOutput).ToAzureBlobStorageApplicationLogsConfigPtrOutputWithContext(ctx)
+}
+
+// AzureBlobStorageApplicationLogsConfigPtrInput is an input type that accepts AzureBlobStorageApplicationLogsConfigArgs, AzureBlobStorageApplicationLogsConfigPtr and AzureBlobStorageApplicationLogsConfigPtrOutput values.
+// You can construct a concrete instance of `AzureBlobStorageApplicationLogsConfigPtrInput` via:
+//
+//          AzureBlobStorageApplicationLogsConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type AzureBlobStorageApplicationLogsConfigPtrInput interface {
+	pulumi.Input
+
+	ToAzureBlobStorageApplicationLogsConfigPtrOutput() AzureBlobStorageApplicationLogsConfigPtrOutput
+	ToAzureBlobStorageApplicationLogsConfigPtrOutputWithContext(context.Context) AzureBlobStorageApplicationLogsConfigPtrOutput
+}
+
+type azureBlobStorageApplicationLogsConfigPtrType AzureBlobStorageApplicationLogsConfigArgs
+
+func AzureBlobStorageApplicationLogsConfigPtr(v *AzureBlobStorageApplicationLogsConfigArgs) AzureBlobStorageApplicationLogsConfigPtrInput {
+	return (*azureBlobStorageApplicationLogsConfigPtrType)(v)
+}
+
+func (*azureBlobStorageApplicationLogsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureBlobStorageApplicationLogsConfig)(nil)).Elem()
+}
+
+func (i *azureBlobStorageApplicationLogsConfigPtrType) ToAzureBlobStorageApplicationLogsConfigPtrOutput() AzureBlobStorageApplicationLogsConfigPtrOutput {
+	return i.ToAzureBlobStorageApplicationLogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *azureBlobStorageApplicationLogsConfigPtrType) ToAzureBlobStorageApplicationLogsConfigPtrOutputWithContext(ctx context.Context) AzureBlobStorageApplicationLogsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureBlobStorageApplicationLogsConfigPtrOutput)
+}
+
+// Application logs azure blob storage configuration.
+type AzureBlobStorageApplicationLogsConfigOutput struct{ *pulumi.OutputState }
+
+func (AzureBlobStorageApplicationLogsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureBlobStorageApplicationLogsConfig)(nil)).Elem()
+}
+
+func (o AzureBlobStorageApplicationLogsConfigOutput) ToAzureBlobStorageApplicationLogsConfigOutput() AzureBlobStorageApplicationLogsConfigOutput {
+	return o
+}
+
+func (o AzureBlobStorageApplicationLogsConfigOutput) ToAzureBlobStorageApplicationLogsConfigOutputWithContext(ctx context.Context) AzureBlobStorageApplicationLogsConfigOutput {
+	return o
+}
+
+func (o AzureBlobStorageApplicationLogsConfigOutput) ToAzureBlobStorageApplicationLogsConfigPtrOutput() AzureBlobStorageApplicationLogsConfigPtrOutput {
+	return o.ToAzureBlobStorageApplicationLogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AzureBlobStorageApplicationLogsConfigOutput) ToAzureBlobStorageApplicationLogsConfigPtrOutputWithContext(ctx context.Context) AzureBlobStorageApplicationLogsConfigPtrOutput {
+	return o.ApplyT(func(v AzureBlobStorageApplicationLogsConfig) *AzureBlobStorageApplicationLogsConfig {
+		return &v
+	}).(AzureBlobStorageApplicationLogsConfigPtrOutput)
+}
+
+// Log level.
+func (o AzureBlobStorageApplicationLogsConfigOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBlobStorageApplicationLogsConfig) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+// Retention in days.
+// Remove blobs older than X days.
+// 0 or lower means no retention.
+func (o AzureBlobStorageApplicationLogsConfigOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureBlobStorageApplicationLogsConfig) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
+}
+
+// SAS url to a azure blob container with read/write/list/delete permissions.
+func (o AzureBlobStorageApplicationLogsConfigOutput) SasUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBlobStorageApplicationLogsConfig) *string { return v.SasUrl }).(pulumi.StringPtrOutput)
+}
+
+type AzureBlobStorageApplicationLogsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AzureBlobStorageApplicationLogsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureBlobStorageApplicationLogsConfig)(nil)).Elem()
+}
+
+func (o AzureBlobStorageApplicationLogsConfigPtrOutput) ToAzureBlobStorageApplicationLogsConfigPtrOutput() AzureBlobStorageApplicationLogsConfigPtrOutput {
+	return o
+}
+
+func (o AzureBlobStorageApplicationLogsConfigPtrOutput) ToAzureBlobStorageApplicationLogsConfigPtrOutputWithContext(ctx context.Context) AzureBlobStorageApplicationLogsConfigPtrOutput {
+	return o
+}
+
+func (o AzureBlobStorageApplicationLogsConfigPtrOutput) Elem() AzureBlobStorageApplicationLogsConfigOutput {
+	return o.ApplyT(func(v *AzureBlobStorageApplicationLogsConfig) AzureBlobStorageApplicationLogsConfig { return *v }).(AzureBlobStorageApplicationLogsConfigOutput)
+}
+
+// Log level.
+func (o AzureBlobStorageApplicationLogsConfigPtrOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureBlobStorageApplicationLogsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Level
+	}).(pulumi.StringPtrOutput)
+}
+
+// Retention in days.
+// Remove blobs older than X days.
+// 0 or lower means no retention.
+func (o AzureBlobStorageApplicationLogsConfigPtrOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AzureBlobStorageApplicationLogsConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// SAS url to a azure blob container with read/write/list/delete permissions.
+func (o AzureBlobStorageApplicationLogsConfigPtrOutput) SasUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureBlobStorageApplicationLogsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SasUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Application logs azure blob storage configuration.
+type AzureBlobStorageApplicationLogsConfigResponse struct {
+	// Log level.
+	Level *string `pulumi:"level"`
+	// Retention in days.
+	// Remove blobs older than X days.
+	// 0 or lower means no retention.
+	RetentionInDays *int `pulumi:"retentionInDays"`
+	// SAS url to a azure blob container with read/write/list/delete permissions.
+	SasUrl *string `pulumi:"sasUrl"`
+}
+
+// AzureBlobStorageApplicationLogsConfigResponseInput is an input type that accepts AzureBlobStorageApplicationLogsConfigResponseArgs and AzureBlobStorageApplicationLogsConfigResponseOutput values.
+// You can construct a concrete instance of `AzureBlobStorageApplicationLogsConfigResponseInput` via:
+//
+//          AzureBlobStorageApplicationLogsConfigResponseArgs{...}
+type AzureBlobStorageApplicationLogsConfigResponseInput interface {
+	pulumi.Input
+
+	ToAzureBlobStorageApplicationLogsConfigResponseOutput() AzureBlobStorageApplicationLogsConfigResponseOutput
+	ToAzureBlobStorageApplicationLogsConfigResponseOutputWithContext(context.Context) AzureBlobStorageApplicationLogsConfigResponseOutput
+}
+
+// Application logs azure blob storage configuration.
+type AzureBlobStorageApplicationLogsConfigResponseArgs struct {
+	// Log level.
+	Level pulumi.StringPtrInput `pulumi:"level"`
+	// Retention in days.
+	// Remove blobs older than X days.
+	// 0 or lower means no retention.
+	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
+	// SAS url to a azure blob container with read/write/list/delete permissions.
+	SasUrl pulumi.StringPtrInput `pulumi:"sasUrl"`
+}
+
+func (AzureBlobStorageApplicationLogsConfigResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureBlobStorageApplicationLogsConfigResponse)(nil)).Elem()
+}
+
+func (i AzureBlobStorageApplicationLogsConfigResponseArgs) ToAzureBlobStorageApplicationLogsConfigResponseOutput() AzureBlobStorageApplicationLogsConfigResponseOutput {
+	return i.ToAzureBlobStorageApplicationLogsConfigResponseOutputWithContext(context.Background())
+}
+
+func (i AzureBlobStorageApplicationLogsConfigResponseArgs) ToAzureBlobStorageApplicationLogsConfigResponseOutputWithContext(ctx context.Context) AzureBlobStorageApplicationLogsConfigResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureBlobStorageApplicationLogsConfigResponseOutput)
+}
+
+func (i AzureBlobStorageApplicationLogsConfigResponseArgs) ToAzureBlobStorageApplicationLogsConfigResponsePtrOutput() AzureBlobStorageApplicationLogsConfigResponsePtrOutput {
+	return i.ToAzureBlobStorageApplicationLogsConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AzureBlobStorageApplicationLogsConfigResponseArgs) ToAzureBlobStorageApplicationLogsConfigResponsePtrOutputWithContext(ctx context.Context) AzureBlobStorageApplicationLogsConfigResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureBlobStorageApplicationLogsConfigResponseOutput).ToAzureBlobStorageApplicationLogsConfigResponsePtrOutputWithContext(ctx)
+}
+
+// AzureBlobStorageApplicationLogsConfigResponsePtrInput is an input type that accepts AzureBlobStorageApplicationLogsConfigResponseArgs, AzureBlobStorageApplicationLogsConfigResponsePtr and AzureBlobStorageApplicationLogsConfigResponsePtrOutput values.
+// You can construct a concrete instance of `AzureBlobStorageApplicationLogsConfigResponsePtrInput` via:
+//
+//          AzureBlobStorageApplicationLogsConfigResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AzureBlobStorageApplicationLogsConfigResponsePtrInput interface {
+	pulumi.Input
+
+	ToAzureBlobStorageApplicationLogsConfigResponsePtrOutput() AzureBlobStorageApplicationLogsConfigResponsePtrOutput
+	ToAzureBlobStorageApplicationLogsConfigResponsePtrOutputWithContext(context.Context) AzureBlobStorageApplicationLogsConfigResponsePtrOutput
+}
+
+type azureBlobStorageApplicationLogsConfigResponsePtrType AzureBlobStorageApplicationLogsConfigResponseArgs
+
+func AzureBlobStorageApplicationLogsConfigResponsePtr(v *AzureBlobStorageApplicationLogsConfigResponseArgs) AzureBlobStorageApplicationLogsConfigResponsePtrInput {
+	return (*azureBlobStorageApplicationLogsConfigResponsePtrType)(v)
+}
+
+func (*azureBlobStorageApplicationLogsConfigResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureBlobStorageApplicationLogsConfigResponse)(nil)).Elem()
+}
+
+func (i *azureBlobStorageApplicationLogsConfigResponsePtrType) ToAzureBlobStorageApplicationLogsConfigResponsePtrOutput() AzureBlobStorageApplicationLogsConfigResponsePtrOutput {
+	return i.ToAzureBlobStorageApplicationLogsConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *azureBlobStorageApplicationLogsConfigResponsePtrType) ToAzureBlobStorageApplicationLogsConfigResponsePtrOutputWithContext(ctx context.Context) AzureBlobStorageApplicationLogsConfigResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureBlobStorageApplicationLogsConfigResponsePtrOutput)
+}
+
+// Application logs azure blob storage configuration.
+type AzureBlobStorageApplicationLogsConfigResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureBlobStorageApplicationLogsConfigResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureBlobStorageApplicationLogsConfigResponse)(nil)).Elem()
+}
+
+func (o AzureBlobStorageApplicationLogsConfigResponseOutput) ToAzureBlobStorageApplicationLogsConfigResponseOutput() AzureBlobStorageApplicationLogsConfigResponseOutput {
+	return o
+}
+
+func (o AzureBlobStorageApplicationLogsConfigResponseOutput) ToAzureBlobStorageApplicationLogsConfigResponseOutputWithContext(ctx context.Context) AzureBlobStorageApplicationLogsConfigResponseOutput {
+	return o
+}
+
+func (o AzureBlobStorageApplicationLogsConfigResponseOutput) ToAzureBlobStorageApplicationLogsConfigResponsePtrOutput() AzureBlobStorageApplicationLogsConfigResponsePtrOutput {
+	return o.ToAzureBlobStorageApplicationLogsConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AzureBlobStorageApplicationLogsConfigResponseOutput) ToAzureBlobStorageApplicationLogsConfigResponsePtrOutputWithContext(ctx context.Context) AzureBlobStorageApplicationLogsConfigResponsePtrOutput {
+	return o.ApplyT(func(v AzureBlobStorageApplicationLogsConfigResponse) *AzureBlobStorageApplicationLogsConfigResponse {
+		return &v
+	}).(AzureBlobStorageApplicationLogsConfigResponsePtrOutput)
+}
+
+// Log level.
+func (o AzureBlobStorageApplicationLogsConfigResponseOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBlobStorageApplicationLogsConfigResponse) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+// Retention in days.
+// Remove blobs older than X days.
+// 0 or lower means no retention.
+func (o AzureBlobStorageApplicationLogsConfigResponseOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureBlobStorageApplicationLogsConfigResponse) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
+}
+
+// SAS url to a azure blob container with read/write/list/delete permissions.
+func (o AzureBlobStorageApplicationLogsConfigResponseOutput) SasUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBlobStorageApplicationLogsConfigResponse) *string { return v.SasUrl }).(pulumi.StringPtrOutput)
+}
+
+type AzureBlobStorageApplicationLogsConfigResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AzureBlobStorageApplicationLogsConfigResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureBlobStorageApplicationLogsConfigResponse)(nil)).Elem()
+}
+
+func (o AzureBlobStorageApplicationLogsConfigResponsePtrOutput) ToAzureBlobStorageApplicationLogsConfigResponsePtrOutput() AzureBlobStorageApplicationLogsConfigResponsePtrOutput {
+	return o
+}
+
+func (o AzureBlobStorageApplicationLogsConfigResponsePtrOutput) ToAzureBlobStorageApplicationLogsConfigResponsePtrOutputWithContext(ctx context.Context) AzureBlobStorageApplicationLogsConfigResponsePtrOutput {
+	return o
+}
+
+func (o AzureBlobStorageApplicationLogsConfigResponsePtrOutput) Elem() AzureBlobStorageApplicationLogsConfigResponseOutput {
+	return o.ApplyT(func(v *AzureBlobStorageApplicationLogsConfigResponse) AzureBlobStorageApplicationLogsConfigResponse {
+		return *v
+	}).(AzureBlobStorageApplicationLogsConfigResponseOutput)
+}
+
+// Log level.
+func (o AzureBlobStorageApplicationLogsConfigResponsePtrOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureBlobStorageApplicationLogsConfigResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Level
+	}).(pulumi.StringPtrOutput)
+}
+
+// Retention in days.
+// Remove blobs older than X days.
+// 0 or lower means no retention.
+func (o AzureBlobStorageApplicationLogsConfigResponsePtrOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AzureBlobStorageApplicationLogsConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// SAS url to a azure blob container with read/write/list/delete permissions.
+func (o AzureBlobStorageApplicationLogsConfigResponsePtrOutput) SasUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureBlobStorageApplicationLogsConfigResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SasUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Http logs to azure blob storage configuration.
+type AzureBlobStorageHttpLogsConfig struct {
+	// True if configuration is enabled, false if it is disabled and null if configuration is not set.
+	Enabled *bool `pulumi:"enabled"`
+	// Retention in days.
+	// Remove blobs older than X days.
+	// 0 or lower means no retention.
+	RetentionInDays *int `pulumi:"retentionInDays"`
+	// SAS url to a azure blob container with read/write/list/delete permissions.
+	SasUrl *string `pulumi:"sasUrl"`
+}
+
+// AzureBlobStorageHttpLogsConfigInput is an input type that accepts AzureBlobStorageHttpLogsConfigArgs and AzureBlobStorageHttpLogsConfigOutput values.
+// You can construct a concrete instance of `AzureBlobStorageHttpLogsConfigInput` via:
+//
+//          AzureBlobStorageHttpLogsConfigArgs{...}
+type AzureBlobStorageHttpLogsConfigInput interface {
+	pulumi.Input
+
+	ToAzureBlobStorageHttpLogsConfigOutput() AzureBlobStorageHttpLogsConfigOutput
+	ToAzureBlobStorageHttpLogsConfigOutputWithContext(context.Context) AzureBlobStorageHttpLogsConfigOutput
+}
+
+// Http logs to azure blob storage configuration.
+type AzureBlobStorageHttpLogsConfigArgs struct {
+	// True if configuration is enabled, false if it is disabled and null if configuration is not set.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Retention in days.
+	// Remove blobs older than X days.
+	// 0 or lower means no retention.
+	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
+	// SAS url to a azure blob container with read/write/list/delete permissions.
+	SasUrl pulumi.StringPtrInput `pulumi:"sasUrl"`
+}
+
+func (AzureBlobStorageHttpLogsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureBlobStorageHttpLogsConfig)(nil)).Elem()
+}
+
+func (i AzureBlobStorageHttpLogsConfigArgs) ToAzureBlobStorageHttpLogsConfigOutput() AzureBlobStorageHttpLogsConfigOutput {
+	return i.ToAzureBlobStorageHttpLogsConfigOutputWithContext(context.Background())
+}
+
+func (i AzureBlobStorageHttpLogsConfigArgs) ToAzureBlobStorageHttpLogsConfigOutputWithContext(ctx context.Context) AzureBlobStorageHttpLogsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureBlobStorageHttpLogsConfigOutput)
+}
+
+func (i AzureBlobStorageHttpLogsConfigArgs) ToAzureBlobStorageHttpLogsConfigPtrOutput() AzureBlobStorageHttpLogsConfigPtrOutput {
+	return i.ToAzureBlobStorageHttpLogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AzureBlobStorageHttpLogsConfigArgs) ToAzureBlobStorageHttpLogsConfigPtrOutputWithContext(ctx context.Context) AzureBlobStorageHttpLogsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureBlobStorageHttpLogsConfigOutput).ToAzureBlobStorageHttpLogsConfigPtrOutputWithContext(ctx)
+}
+
+// AzureBlobStorageHttpLogsConfigPtrInput is an input type that accepts AzureBlobStorageHttpLogsConfigArgs, AzureBlobStorageHttpLogsConfigPtr and AzureBlobStorageHttpLogsConfigPtrOutput values.
+// You can construct a concrete instance of `AzureBlobStorageHttpLogsConfigPtrInput` via:
+//
+//          AzureBlobStorageHttpLogsConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type AzureBlobStorageHttpLogsConfigPtrInput interface {
+	pulumi.Input
+
+	ToAzureBlobStorageHttpLogsConfigPtrOutput() AzureBlobStorageHttpLogsConfigPtrOutput
+	ToAzureBlobStorageHttpLogsConfigPtrOutputWithContext(context.Context) AzureBlobStorageHttpLogsConfigPtrOutput
+}
+
+type azureBlobStorageHttpLogsConfigPtrType AzureBlobStorageHttpLogsConfigArgs
+
+func AzureBlobStorageHttpLogsConfigPtr(v *AzureBlobStorageHttpLogsConfigArgs) AzureBlobStorageHttpLogsConfigPtrInput {
+	return (*azureBlobStorageHttpLogsConfigPtrType)(v)
+}
+
+func (*azureBlobStorageHttpLogsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureBlobStorageHttpLogsConfig)(nil)).Elem()
+}
+
+func (i *azureBlobStorageHttpLogsConfigPtrType) ToAzureBlobStorageHttpLogsConfigPtrOutput() AzureBlobStorageHttpLogsConfigPtrOutput {
+	return i.ToAzureBlobStorageHttpLogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *azureBlobStorageHttpLogsConfigPtrType) ToAzureBlobStorageHttpLogsConfigPtrOutputWithContext(ctx context.Context) AzureBlobStorageHttpLogsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureBlobStorageHttpLogsConfigPtrOutput)
+}
+
+// Http logs to azure blob storage configuration.
+type AzureBlobStorageHttpLogsConfigOutput struct{ *pulumi.OutputState }
+
+func (AzureBlobStorageHttpLogsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureBlobStorageHttpLogsConfig)(nil)).Elem()
+}
+
+func (o AzureBlobStorageHttpLogsConfigOutput) ToAzureBlobStorageHttpLogsConfigOutput() AzureBlobStorageHttpLogsConfigOutput {
+	return o
+}
+
+func (o AzureBlobStorageHttpLogsConfigOutput) ToAzureBlobStorageHttpLogsConfigOutputWithContext(ctx context.Context) AzureBlobStorageHttpLogsConfigOutput {
+	return o
+}
+
+func (o AzureBlobStorageHttpLogsConfigOutput) ToAzureBlobStorageHttpLogsConfigPtrOutput() AzureBlobStorageHttpLogsConfigPtrOutput {
+	return o.ToAzureBlobStorageHttpLogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AzureBlobStorageHttpLogsConfigOutput) ToAzureBlobStorageHttpLogsConfigPtrOutputWithContext(ctx context.Context) AzureBlobStorageHttpLogsConfigPtrOutput {
+	return o.ApplyT(func(v AzureBlobStorageHttpLogsConfig) *AzureBlobStorageHttpLogsConfig {
+		return &v
+	}).(AzureBlobStorageHttpLogsConfigPtrOutput)
+}
+
+// True if configuration is enabled, false if it is disabled and null if configuration is not set.
+func (o AzureBlobStorageHttpLogsConfigOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureBlobStorageHttpLogsConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Retention in days.
+// Remove blobs older than X days.
+// 0 or lower means no retention.
+func (o AzureBlobStorageHttpLogsConfigOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureBlobStorageHttpLogsConfig) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
+}
+
+// SAS url to a azure blob container with read/write/list/delete permissions.
+func (o AzureBlobStorageHttpLogsConfigOutput) SasUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBlobStorageHttpLogsConfig) *string { return v.SasUrl }).(pulumi.StringPtrOutput)
+}
+
+type AzureBlobStorageHttpLogsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AzureBlobStorageHttpLogsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureBlobStorageHttpLogsConfig)(nil)).Elem()
+}
+
+func (o AzureBlobStorageHttpLogsConfigPtrOutput) ToAzureBlobStorageHttpLogsConfigPtrOutput() AzureBlobStorageHttpLogsConfigPtrOutput {
+	return o
+}
+
+func (o AzureBlobStorageHttpLogsConfigPtrOutput) ToAzureBlobStorageHttpLogsConfigPtrOutputWithContext(ctx context.Context) AzureBlobStorageHttpLogsConfigPtrOutput {
+	return o
+}
+
+func (o AzureBlobStorageHttpLogsConfigPtrOutput) Elem() AzureBlobStorageHttpLogsConfigOutput {
+	return o.ApplyT(func(v *AzureBlobStorageHttpLogsConfig) AzureBlobStorageHttpLogsConfig { return *v }).(AzureBlobStorageHttpLogsConfigOutput)
+}
+
+// True if configuration is enabled, false if it is disabled and null if configuration is not set.
+func (o AzureBlobStorageHttpLogsConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AzureBlobStorageHttpLogsConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Retention in days.
+// Remove blobs older than X days.
+// 0 or lower means no retention.
+func (o AzureBlobStorageHttpLogsConfigPtrOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AzureBlobStorageHttpLogsConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// SAS url to a azure blob container with read/write/list/delete permissions.
+func (o AzureBlobStorageHttpLogsConfigPtrOutput) SasUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureBlobStorageHttpLogsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SasUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Http logs to azure blob storage configuration.
+type AzureBlobStorageHttpLogsConfigResponse struct {
+	// True if configuration is enabled, false if it is disabled and null if configuration is not set.
+	Enabled *bool `pulumi:"enabled"`
+	// Retention in days.
+	// Remove blobs older than X days.
+	// 0 or lower means no retention.
+	RetentionInDays *int `pulumi:"retentionInDays"`
+	// SAS url to a azure blob container with read/write/list/delete permissions.
+	SasUrl *string `pulumi:"sasUrl"`
+}
+
+// AzureBlobStorageHttpLogsConfigResponseInput is an input type that accepts AzureBlobStorageHttpLogsConfigResponseArgs and AzureBlobStorageHttpLogsConfigResponseOutput values.
+// You can construct a concrete instance of `AzureBlobStorageHttpLogsConfigResponseInput` via:
+//
+//          AzureBlobStorageHttpLogsConfigResponseArgs{...}
+type AzureBlobStorageHttpLogsConfigResponseInput interface {
+	pulumi.Input
+
+	ToAzureBlobStorageHttpLogsConfigResponseOutput() AzureBlobStorageHttpLogsConfigResponseOutput
+	ToAzureBlobStorageHttpLogsConfigResponseOutputWithContext(context.Context) AzureBlobStorageHttpLogsConfigResponseOutput
+}
+
+// Http logs to azure blob storage configuration.
+type AzureBlobStorageHttpLogsConfigResponseArgs struct {
+	// True if configuration is enabled, false if it is disabled and null if configuration is not set.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Retention in days.
+	// Remove blobs older than X days.
+	// 0 or lower means no retention.
+	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
+	// SAS url to a azure blob container with read/write/list/delete permissions.
+	SasUrl pulumi.StringPtrInput `pulumi:"sasUrl"`
+}
+
+func (AzureBlobStorageHttpLogsConfigResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureBlobStorageHttpLogsConfigResponse)(nil)).Elem()
+}
+
+func (i AzureBlobStorageHttpLogsConfigResponseArgs) ToAzureBlobStorageHttpLogsConfigResponseOutput() AzureBlobStorageHttpLogsConfigResponseOutput {
+	return i.ToAzureBlobStorageHttpLogsConfigResponseOutputWithContext(context.Background())
+}
+
+func (i AzureBlobStorageHttpLogsConfigResponseArgs) ToAzureBlobStorageHttpLogsConfigResponseOutputWithContext(ctx context.Context) AzureBlobStorageHttpLogsConfigResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureBlobStorageHttpLogsConfigResponseOutput)
+}
+
+func (i AzureBlobStorageHttpLogsConfigResponseArgs) ToAzureBlobStorageHttpLogsConfigResponsePtrOutput() AzureBlobStorageHttpLogsConfigResponsePtrOutput {
+	return i.ToAzureBlobStorageHttpLogsConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AzureBlobStorageHttpLogsConfigResponseArgs) ToAzureBlobStorageHttpLogsConfigResponsePtrOutputWithContext(ctx context.Context) AzureBlobStorageHttpLogsConfigResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureBlobStorageHttpLogsConfigResponseOutput).ToAzureBlobStorageHttpLogsConfigResponsePtrOutputWithContext(ctx)
+}
+
+// AzureBlobStorageHttpLogsConfigResponsePtrInput is an input type that accepts AzureBlobStorageHttpLogsConfigResponseArgs, AzureBlobStorageHttpLogsConfigResponsePtr and AzureBlobStorageHttpLogsConfigResponsePtrOutput values.
+// You can construct a concrete instance of `AzureBlobStorageHttpLogsConfigResponsePtrInput` via:
+//
+//          AzureBlobStorageHttpLogsConfigResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AzureBlobStorageHttpLogsConfigResponsePtrInput interface {
+	pulumi.Input
+
+	ToAzureBlobStorageHttpLogsConfigResponsePtrOutput() AzureBlobStorageHttpLogsConfigResponsePtrOutput
+	ToAzureBlobStorageHttpLogsConfigResponsePtrOutputWithContext(context.Context) AzureBlobStorageHttpLogsConfigResponsePtrOutput
+}
+
+type azureBlobStorageHttpLogsConfigResponsePtrType AzureBlobStorageHttpLogsConfigResponseArgs
+
+func AzureBlobStorageHttpLogsConfigResponsePtr(v *AzureBlobStorageHttpLogsConfigResponseArgs) AzureBlobStorageHttpLogsConfigResponsePtrInput {
+	return (*azureBlobStorageHttpLogsConfigResponsePtrType)(v)
+}
+
+func (*azureBlobStorageHttpLogsConfigResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureBlobStorageHttpLogsConfigResponse)(nil)).Elem()
+}
+
+func (i *azureBlobStorageHttpLogsConfigResponsePtrType) ToAzureBlobStorageHttpLogsConfigResponsePtrOutput() AzureBlobStorageHttpLogsConfigResponsePtrOutput {
+	return i.ToAzureBlobStorageHttpLogsConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *azureBlobStorageHttpLogsConfigResponsePtrType) ToAzureBlobStorageHttpLogsConfigResponsePtrOutputWithContext(ctx context.Context) AzureBlobStorageHttpLogsConfigResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureBlobStorageHttpLogsConfigResponsePtrOutput)
+}
+
+// Http logs to azure blob storage configuration.
+type AzureBlobStorageHttpLogsConfigResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureBlobStorageHttpLogsConfigResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureBlobStorageHttpLogsConfigResponse)(nil)).Elem()
+}
+
+func (o AzureBlobStorageHttpLogsConfigResponseOutput) ToAzureBlobStorageHttpLogsConfigResponseOutput() AzureBlobStorageHttpLogsConfigResponseOutput {
+	return o
+}
+
+func (o AzureBlobStorageHttpLogsConfigResponseOutput) ToAzureBlobStorageHttpLogsConfigResponseOutputWithContext(ctx context.Context) AzureBlobStorageHttpLogsConfigResponseOutput {
+	return o
+}
+
+func (o AzureBlobStorageHttpLogsConfigResponseOutput) ToAzureBlobStorageHttpLogsConfigResponsePtrOutput() AzureBlobStorageHttpLogsConfigResponsePtrOutput {
+	return o.ToAzureBlobStorageHttpLogsConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AzureBlobStorageHttpLogsConfigResponseOutput) ToAzureBlobStorageHttpLogsConfigResponsePtrOutputWithContext(ctx context.Context) AzureBlobStorageHttpLogsConfigResponsePtrOutput {
+	return o.ApplyT(func(v AzureBlobStorageHttpLogsConfigResponse) *AzureBlobStorageHttpLogsConfigResponse {
+		return &v
+	}).(AzureBlobStorageHttpLogsConfigResponsePtrOutput)
+}
+
+// True if configuration is enabled, false if it is disabled and null if configuration is not set.
+func (o AzureBlobStorageHttpLogsConfigResponseOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AzureBlobStorageHttpLogsConfigResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Retention in days.
+// Remove blobs older than X days.
+// 0 or lower means no retention.
+func (o AzureBlobStorageHttpLogsConfigResponseOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AzureBlobStorageHttpLogsConfigResponse) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
+}
+
+// SAS url to a azure blob container with read/write/list/delete permissions.
+func (o AzureBlobStorageHttpLogsConfigResponseOutput) SasUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureBlobStorageHttpLogsConfigResponse) *string { return v.SasUrl }).(pulumi.StringPtrOutput)
+}
+
+type AzureBlobStorageHttpLogsConfigResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AzureBlobStorageHttpLogsConfigResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureBlobStorageHttpLogsConfigResponse)(nil)).Elem()
+}
+
+func (o AzureBlobStorageHttpLogsConfigResponsePtrOutput) ToAzureBlobStorageHttpLogsConfigResponsePtrOutput() AzureBlobStorageHttpLogsConfigResponsePtrOutput {
+	return o
+}
+
+func (o AzureBlobStorageHttpLogsConfigResponsePtrOutput) ToAzureBlobStorageHttpLogsConfigResponsePtrOutputWithContext(ctx context.Context) AzureBlobStorageHttpLogsConfigResponsePtrOutput {
+	return o
+}
+
+func (o AzureBlobStorageHttpLogsConfigResponsePtrOutput) Elem() AzureBlobStorageHttpLogsConfigResponseOutput {
+	return o.ApplyT(func(v *AzureBlobStorageHttpLogsConfigResponse) AzureBlobStorageHttpLogsConfigResponse { return *v }).(AzureBlobStorageHttpLogsConfigResponseOutput)
+}
+
+// True if configuration is enabled, false if it is disabled and null if configuration is not set.
+func (o AzureBlobStorageHttpLogsConfigResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AzureBlobStorageHttpLogsConfigResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Retention in days.
+// Remove blobs older than X days.
+// 0 or lower means no retention.
+func (o AzureBlobStorageHttpLogsConfigResponsePtrOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AzureBlobStorageHttpLogsConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// SAS url to a azure blob container with read/write/list/delete permissions.
+func (o AzureBlobStorageHttpLogsConfigResponsePtrOutput) SasUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureBlobStorageHttpLogsConfigResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SasUrl
+	}).(pulumi.StringPtrOutput)
+}
+
 // Azure Files or Blob Storage access information value for dictionary storage.
 type AzureStorageInfoValueResponse struct {
 	// Access key for the storage account.
@@ -2170,6 +3240,314 @@ func (o AzureStorageInfoValueResponseMapOutput) MapIndex(k pulumi.StringInput) A
 	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AzureStorageInfoValueResponse {
 		return vs[0].(map[string]AzureStorageInfoValueResponse)[vs[1].(string)]
 	}).(AzureStorageInfoValueResponseOutput)
+}
+
+// Application logs to Azure table storage configuration.
+type AzureTableStorageApplicationLogsConfig struct {
+	// Log level.
+	Level *string `pulumi:"level"`
+	// SAS URL to an Azure table with add/query/delete permissions.
+	SasUrl string `pulumi:"sasUrl"`
+}
+
+// AzureTableStorageApplicationLogsConfigInput is an input type that accepts AzureTableStorageApplicationLogsConfigArgs and AzureTableStorageApplicationLogsConfigOutput values.
+// You can construct a concrete instance of `AzureTableStorageApplicationLogsConfigInput` via:
+//
+//          AzureTableStorageApplicationLogsConfigArgs{...}
+type AzureTableStorageApplicationLogsConfigInput interface {
+	pulumi.Input
+
+	ToAzureTableStorageApplicationLogsConfigOutput() AzureTableStorageApplicationLogsConfigOutput
+	ToAzureTableStorageApplicationLogsConfigOutputWithContext(context.Context) AzureTableStorageApplicationLogsConfigOutput
+}
+
+// Application logs to Azure table storage configuration.
+type AzureTableStorageApplicationLogsConfigArgs struct {
+	// Log level.
+	Level LogLevel `pulumi:"level"`
+	// SAS URL to an Azure table with add/query/delete permissions.
+	SasUrl pulumi.StringInput `pulumi:"sasUrl"`
+}
+
+func (AzureTableStorageApplicationLogsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureTableStorageApplicationLogsConfig)(nil)).Elem()
+}
+
+func (i AzureTableStorageApplicationLogsConfigArgs) ToAzureTableStorageApplicationLogsConfigOutput() AzureTableStorageApplicationLogsConfigOutput {
+	return i.ToAzureTableStorageApplicationLogsConfigOutputWithContext(context.Background())
+}
+
+func (i AzureTableStorageApplicationLogsConfigArgs) ToAzureTableStorageApplicationLogsConfigOutputWithContext(ctx context.Context) AzureTableStorageApplicationLogsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureTableStorageApplicationLogsConfigOutput)
+}
+
+func (i AzureTableStorageApplicationLogsConfigArgs) ToAzureTableStorageApplicationLogsConfigPtrOutput() AzureTableStorageApplicationLogsConfigPtrOutput {
+	return i.ToAzureTableStorageApplicationLogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AzureTableStorageApplicationLogsConfigArgs) ToAzureTableStorageApplicationLogsConfigPtrOutputWithContext(ctx context.Context) AzureTableStorageApplicationLogsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureTableStorageApplicationLogsConfigOutput).ToAzureTableStorageApplicationLogsConfigPtrOutputWithContext(ctx)
+}
+
+// AzureTableStorageApplicationLogsConfigPtrInput is an input type that accepts AzureTableStorageApplicationLogsConfigArgs, AzureTableStorageApplicationLogsConfigPtr and AzureTableStorageApplicationLogsConfigPtrOutput values.
+// You can construct a concrete instance of `AzureTableStorageApplicationLogsConfigPtrInput` via:
+//
+//          AzureTableStorageApplicationLogsConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type AzureTableStorageApplicationLogsConfigPtrInput interface {
+	pulumi.Input
+
+	ToAzureTableStorageApplicationLogsConfigPtrOutput() AzureTableStorageApplicationLogsConfigPtrOutput
+	ToAzureTableStorageApplicationLogsConfigPtrOutputWithContext(context.Context) AzureTableStorageApplicationLogsConfigPtrOutput
+}
+
+type azureTableStorageApplicationLogsConfigPtrType AzureTableStorageApplicationLogsConfigArgs
+
+func AzureTableStorageApplicationLogsConfigPtr(v *AzureTableStorageApplicationLogsConfigArgs) AzureTableStorageApplicationLogsConfigPtrInput {
+	return (*azureTableStorageApplicationLogsConfigPtrType)(v)
+}
+
+func (*azureTableStorageApplicationLogsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureTableStorageApplicationLogsConfig)(nil)).Elem()
+}
+
+func (i *azureTableStorageApplicationLogsConfigPtrType) ToAzureTableStorageApplicationLogsConfigPtrOutput() AzureTableStorageApplicationLogsConfigPtrOutput {
+	return i.ToAzureTableStorageApplicationLogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *azureTableStorageApplicationLogsConfigPtrType) ToAzureTableStorageApplicationLogsConfigPtrOutputWithContext(ctx context.Context) AzureTableStorageApplicationLogsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureTableStorageApplicationLogsConfigPtrOutput)
+}
+
+// Application logs to Azure table storage configuration.
+type AzureTableStorageApplicationLogsConfigOutput struct{ *pulumi.OutputState }
+
+func (AzureTableStorageApplicationLogsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureTableStorageApplicationLogsConfig)(nil)).Elem()
+}
+
+func (o AzureTableStorageApplicationLogsConfigOutput) ToAzureTableStorageApplicationLogsConfigOutput() AzureTableStorageApplicationLogsConfigOutput {
+	return o
+}
+
+func (o AzureTableStorageApplicationLogsConfigOutput) ToAzureTableStorageApplicationLogsConfigOutputWithContext(ctx context.Context) AzureTableStorageApplicationLogsConfigOutput {
+	return o
+}
+
+func (o AzureTableStorageApplicationLogsConfigOutput) ToAzureTableStorageApplicationLogsConfigPtrOutput() AzureTableStorageApplicationLogsConfigPtrOutput {
+	return o.ToAzureTableStorageApplicationLogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AzureTableStorageApplicationLogsConfigOutput) ToAzureTableStorageApplicationLogsConfigPtrOutputWithContext(ctx context.Context) AzureTableStorageApplicationLogsConfigPtrOutput {
+	return o.ApplyT(func(v AzureTableStorageApplicationLogsConfig) *AzureTableStorageApplicationLogsConfig {
+		return &v
+	}).(AzureTableStorageApplicationLogsConfigPtrOutput)
+}
+
+// Log level.
+func (o AzureTableStorageApplicationLogsConfigOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureTableStorageApplicationLogsConfig) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+// SAS URL to an Azure table with add/query/delete permissions.
+func (o AzureTableStorageApplicationLogsConfigOutput) SasUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureTableStorageApplicationLogsConfig) string { return v.SasUrl }).(pulumi.StringOutput)
+}
+
+type AzureTableStorageApplicationLogsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AzureTableStorageApplicationLogsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureTableStorageApplicationLogsConfig)(nil)).Elem()
+}
+
+func (o AzureTableStorageApplicationLogsConfigPtrOutput) ToAzureTableStorageApplicationLogsConfigPtrOutput() AzureTableStorageApplicationLogsConfigPtrOutput {
+	return o
+}
+
+func (o AzureTableStorageApplicationLogsConfigPtrOutput) ToAzureTableStorageApplicationLogsConfigPtrOutputWithContext(ctx context.Context) AzureTableStorageApplicationLogsConfigPtrOutput {
+	return o
+}
+
+func (o AzureTableStorageApplicationLogsConfigPtrOutput) Elem() AzureTableStorageApplicationLogsConfigOutput {
+	return o.ApplyT(func(v *AzureTableStorageApplicationLogsConfig) AzureTableStorageApplicationLogsConfig { return *v }).(AzureTableStorageApplicationLogsConfigOutput)
+}
+
+// Log level.
+func (o AzureTableStorageApplicationLogsConfigPtrOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureTableStorageApplicationLogsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Level
+	}).(pulumi.StringPtrOutput)
+}
+
+// SAS URL to an Azure table with add/query/delete permissions.
+func (o AzureTableStorageApplicationLogsConfigPtrOutput) SasUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureTableStorageApplicationLogsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SasUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Application logs to Azure table storage configuration.
+type AzureTableStorageApplicationLogsConfigResponse struct {
+	// Log level.
+	Level *string `pulumi:"level"`
+	// SAS URL to an Azure table with add/query/delete permissions.
+	SasUrl string `pulumi:"sasUrl"`
+}
+
+// AzureTableStorageApplicationLogsConfigResponseInput is an input type that accepts AzureTableStorageApplicationLogsConfigResponseArgs and AzureTableStorageApplicationLogsConfigResponseOutput values.
+// You can construct a concrete instance of `AzureTableStorageApplicationLogsConfigResponseInput` via:
+//
+//          AzureTableStorageApplicationLogsConfigResponseArgs{...}
+type AzureTableStorageApplicationLogsConfigResponseInput interface {
+	pulumi.Input
+
+	ToAzureTableStorageApplicationLogsConfigResponseOutput() AzureTableStorageApplicationLogsConfigResponseOutput
+	ToAzureTableStorageApplicationLogsConfigResponseOutputWithContext(context.Context) AzureTableStorageApplicationLogsConfigResponseOutput
+}
+
+// Application logs to Azure table storage configuration.
+type AzureTableStorageApplicationLogsConfigResponseArgs struct {
+	// Log level.
+	Level pulumi.StringPtrInput `pulumi:"level"`
+	// SAS URL to an Azure table with add/query/delete permissions.
+	SasUrl pulumi.StringInput `pulumi:"sasUrl"`
+}
+
+func (AzureTableStorageApplicationLogsConfigResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureTableStorageApplicationLogsConfigResponse)(nil)).Elem()
+}
+
+func (i AzureTableStorageApplicationLogsConfigResponseArgs) ToAzureTableStorageApplicationLogsConfigResponseOutput() AzureTableStorageApplicationLogsConfigResponseOutput {
+	return i.ToAzureTableStorageApplicationLogsConfigResponseOutputWithContext(context.Background())
+}
+
+func (i AzureTableStorageApplicationLogsConfigResponseArgs) ToAzureTableStorageApplicationLogsConfigResponseOutputWithContext(ctx context.Context) AzureTableStorageApplicationLogsConfigResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureTableStorageApplicationLogsConfigResponseOutput)
+}
+
+func (i AzureTableStorageApplicationLogsConfigResponseArgs) ToAzureTableStorageApplicationLogsConfigResponsePtrOutput() AzureTableStorageApplicationLogsConfigResponsePtrOutput {
+	return i.ToAzureTableStorageApplicationLogsConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (i AzureTableStorageApplicationLogsConfigResponseArgs) ToAzureTableStorageApplicationLogsConfigResponsePtrOutputWithContext(ctx context.Context) AzureTableStorageApplicationLogsConfigResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureTableStorageApplicationLogsConfigResponseOutput).ToAzureTableStorageApplicationLogsConfigResponsePtrOutputWithContext(ctx)
+}
+
+// AzureTableStorageApplicationLogsConfigResponsePtrInput is an input type that accepts AzureTableStorageApplicationLogsConfigResponseArgs, AzureTableStorageApplicationLogsConfigResponsePtr and AzureTableStorageApplicationLogsConfigResponsePtrOutput values.
+// You can construct a concrete instance of `AzureTableStorageApplicationLogsConfigResponsePtrInput` via:
+//
+//          AzureTableStorageApplicationLogsConfigResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type AzureTableStorageApplicationLogsConfigResponsePtrInput interface {
+	pulumi.Input
+
+	ToAzureTableStorageApplicationLogsConfigResponsePtrOutput() AzureTableStorageApplicationLogsConfigResponsePtrOutput
+	ToAzureTableStorageApplicationLogsConfigResponsePtrOutputWithContext(context.Context) AzureTableStorageApplicationLogsConfigResponsePtrOutput
+}
+
+type azureTableStorageApplicationLogsConfigResponsePtrType AzureTableStorageApplicationLogsConfigResponseArgs
+
+func AzureTableStorageApplicationLogsConfigResponsePtr(v *AzureTableStorageApplicationLogsConfigResponseArgs) AzureTableStorageApplicationLogsConfigResponsePtrInput {
+	return (*azureTableStorageApplicationLogsConfigResponsePtrType)(v)
+}
+
+func (*azureTableStorageApplicationLogsConfigResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureTableStorageApplicationLogsConfigResponse)(nil)).Elem()
+}
+
+func (i *azureTableStorageApplicationLogsConfigResponsePtrType) ToAzureTableStorageApplicationLogsConfigResponsePtrOutput() AzureTableStorageApplicationLogsConfigResponsePtrOutput {
+	return i.ToAzureTableStorageApplicationLogsConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *azureTableStorageApplicationLogsConfigResponsePtrType) ToAzureTableStorageApplicationLogsConfigResponsePtrOutputWithContext(ctx context.Context) AzureTableStorageApplicationLogsConfigResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureTableStorageApplicationLogsConfigResponsePtrOutput)
+}
+
+// Application logs to Azure table storage configuration.
+type AzureTableStorageApplicationLogsConfigResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureTableStorageApplicationLogsConfigResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureTableStorageApplicationLogsConfigResponse)(nil)).Elem()
+}
+
+func (o AzureTableStorageApplicationLogsConfigResponseOutput) ToAzureTableStorageApplicationLogsConfigResponseOutput() AzureTableStorageApplicationLogsConfigResponseOutput {
+	return o
+}
+
+func (o AzureTableStorageApplicationLogsConfigResponseOutput) ToAzureTableStorageApplicationLogsConfigResponseOutputWithContext(ctx context.Context) AzureTableStorageApplicationLogsConfigResponseOutput {
+	return o
+}
+
+func (o AzureTableStorageApplicationLogsConfigResponseOutput) ToAzureTableStorageApplicationLogsConfigResponsePtrOutput() AzureTableStorageApplicationLogsConfigResponsePtrOutput {
+	return o.ToAzureTableStorageApplicationLogsConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (o AzureTableStorageApplicationLogsConfigResponseOutput) ToAzureTableStorageApplicationLogsConfigResponsePtrOutputWithContext(ctx context.Context) AzureTableStorageApplicationLogsConfigResponsePtrOutput {
+	return o.ApplyT(func(v AzureTableStorageApplicationLogsConfigResponse) *AzureTableStorageApplicationLogsConfigResponse {
+		return &v
+	}).(AzureTableStorageApplicationLogsConfigResponsePtrOutput)
+}
+
+// Log level.
+func (o AzureTableStorageApplicationLogsConfigResponseOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureTableStorageApplicationLogsConfigResponse) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+// SAS URL to an Azure table with add/query/delete permissions.
+func (o AzureTableStorageApplicationLogsConfigResponseOutput) SasUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureTableStorageApplicationLogsConfigResponse) string { return v.SasUrl }).(pulumi.StringOutput)
+}
+
+type AzureTableStorageApplicationLogsConfigResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AzureTableStorageApplicationLogsConfigResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureTableStorageApplicationLogsConfigResponse)(nil)).Elem()
+}
+
+func (o AzureTableStorageApplicationLogsConfigResponsePtrOutput) ToAzureTableStorageApplicationLogsConfigResponsePtrOutput() AzureTableStorageApplicationLogsConfigResponsePtrOutput {
+	return o
+}
+
+func (o AzureTableStorageApplicationLogsConfigResponsePtrOutput) ToAzureTableStorageApplicationLogsConfigResponsePtrOutputWithContext(ctx context.Context) AzureTableStorageApplicationLogsConfigResponsePtrOutput {
+	return o
+}
+
+func (o AzureTableStorageApplicationLogsConfigResponsePtrOutput) Elem() AzureTableStorageApplicationLogsConfigResponseOutput {
+	return o.ApplyT(func(v *AzureTableStorageApplicationLogsConfigResponse) AzureTableStorageApplicationLogsConfigResponse {
+		return *v
+	}).(AzureTableStorageApplicationLogsConfigResponseOutput)
+}
+
+// Log level.
+func (o AzureTableStorageApplicationLogsConfigResponsePtrOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureTableStorageApplicationLogsConfigResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Level
+	}).(pulumi.StringPtrOutput)
+}
+
+// SAS URL to an Azure table with add/query/delete permissions.
+func (o AzureTableStorageApplicationLogsConfigResponsePtrOutput) SasUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureTableStorageApplicationLogsConfigResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SasUrl
+	}).(pulumi.StringPtrOutput)
 }
 
 // Backup description.
@@ -4460,6 +5838,274 @@ func (o DatabaseBackupSettingResponseArrayOutput) Index(i pulumi.IntInput) Datab
 	}).(DatabaseBackupSettingResponseOutput)
 }
 
+// Enabled configuration.
+type EnabledConfig struct {
+	// True if configuration is enabled, false if it is disabled and null if configuration is not set.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// EnabledConfigInput is an input type that accepts EnabledConfigArgs and EnabledConfigOutput values.
+// You can construct a concrete instance of `EnabledConfigInput` via:
+//
+//          EnabledConfigArgs{...}
+type EnabledConfigInput interface {
+	pulumi.Input
+
+	ToEnabledConfigOutput() EnabledConfigOutput
+	ToEnabledConfigOutputWithContext(context.Context) EnabledConfigOutput
+}
+
+// Enabled configuration.
+type EnabledConfigArgs struct {
+	// True if configuration is enabled, false if it is disabled and null if configuration is not set.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (EnabledConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnabledConfig)(nil)).Elem()
+}
+
+func (i EnabledConfigArgs) ToEnabledConfigOutput() EnabledConfigOutput {
+	return i.ToEnabledConfigOutputWithContext(context.Background())
+}
+
+func (i EnabledConfigArgs) ToEnabledConfigOutputWithContext(ctx context.Context) EnabledConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnabledConfigOutput)
+}
+
+func (i EnabledConfigArgs) ToEnabledConfigPtrOutput() EnabledConfigPtrOutput {
+	return i.ToEnabledConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EnabledConfigArgs) ToEnabledConfigPtrOutputWithContext(ctx context.Context) EnabledConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnabledConfigOutput).ToEnabledConfigPtrOutputWithContext(ctx)
+}
+
+// EnabledConfigPtrInput is an input type that accepts EnabledConfigArgs, EnabledConfigPtr and EnabledConfigPtrOutput values.
+// You can construct a concrete instance of `EnabledConfigPtrInput` via:
+//
+//          EnabledConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type EnabledConfigPtrInput interface {
+	pulumi.Input
+
+	ToEnabledConfigPtrOutput() EnabledConfigPtrOutput
+	ToEnabledConfigPtrOutputWithContext(context.Context) EnabledConfigPtrOutput
+}
+
+type enabledConfigPtrType EnabledConfigArgs
+
+func EnabledConfigPtr(v *EnabledConfigArgs) EnabledConfigPtrInput {
+	return (*enabledConfigPtrType)(v)
+}
+
+func (*enabledConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnabledConfig)(nil)).Elem()
+}
+
+func (i *enabledConfigPtrType) ToEnabledConfigPtrOutput() EnabledConfigPtrOutput {
+	return i.ToEnabledConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *enabledConfigPtrType) ToEnabledConfigPtrOutputWithContext(ctx context.Context) EnabledConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnabledConfigPtrOutput)
+}
+
+// Enabled configuration.
+type EnabledConfigOutput struct{ *pulumi.OutputState }
+
+func (EnabledConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnabledConfig)(nil)).Elem()
+}
+
+func (o EnabledConfigOutput) ToEnabledConfigOutput() EnabledConfigOutput {
+	return o
+}
+
+func (o EnabledConfigOutput) ToEnabledConfigOutputWithContext(ctx context.Context) EnabledConfigOutput {
+	return o
+}
+
+func (o EnabledConfigOutput) ToEnabledConfigPtrOutput() EnabledConfigPtrOutput {
+	return o.ToEnabledConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EnabledConfigOutput) ToEnabledConfigPtrOutputWithContext(ctx context.Context) EnabledConfigPtrOutput {
+	return o.ApplyT(func(v EnabledConfig) *EnabledConfig {
+		return &v
+	}).(EnabledConfigPtrOutput)
+}
+
+// True if configuration is enabled, false if it is disabled and null if configuration is not set.
+func (o EnabledConfigOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EnabledConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type EnabledConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EnabledConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnabledConfig)(nil)).Elem()
+}
+
+func (o EnabledConfigPtrOutput) ToEnabledConfigPtrOutput() EnabledConfigPtrOutput {
+	return o
+}
+
+func (o EnabledConfigPtrOutput) ToEnabledConfigPtrOutputWithContext(ctx context.Context) EnabledConfigPtrOutput {
+	return o
+}
+
+func (o EnabledConfigPtrOutput) Elem() EnabledConfigOutput {
+	return o.ApplyT(func(v *EnabledConfig) EnabledConfig { return *v }).(EnabledConfigOutput)
+}
+
+// True if configuration is enabled, false if it is disabled and null if configuration is not set.
+func (o EnabledConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EnabledConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enabled configuration.
+type EnabledConfigResponse struct {
+	// True if configuration is enabled, false if it is disabled and null if configuration is not set.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// EnabledConfigResponseInput is an input type that accepts EnabledConfigResponseArgs and EnabledConfigResponseOutput values.
+// You can construct a concrete instance of `EnabledConfigResponseInput` via:
+//
+//          EnabledConfigResponseArgs{...}
+type EnabledConfigResponseInput interface {
+	pulumi.Input
+
+	ToEnabledConfigResponseOutput() EnabledConfigResponseOutput
+	ToEnabledConfigResponseOutputWithContext(context.Context) EnabledConfigResponseOutput
+}
+
+// Enabled configuration.
+type EnabledConfigResponseArgs struct {
+	// True if configuration is enabled, false if it is disabled and null if configuration is not set.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (EnabledConfigResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnabledConfigResponse)(nil)).Elem()
+}
+
+func (i EnabledConfigResponseArgs) ToEnabledConfigResponseOutput() EnabledConfigResponseOutput {
+	return i.ToEnabledConfigResponseOutputWithContext(context.Background())
+}
+
+func (i EnabledConfigResponseArgs) ToEnabledConfigResponseOutputWithContext(ctx context.Context) EnabledConfigResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnabledConfigResponseOutput)
+}
+
+func (i EnabledConfigResponseArgs) ToEnabledConfigResponsePtrOutput() EnabledConfigResponsePtrOutput {
+	return i.ToEnabledConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EnabledConfigResponseArgs) ToEnabledConfigResponsePtrOutputWithContext(ctx context.Context) EnabledConfigResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnabledConfigResponseOutput).ToEnabledConfigResponsePtrOutputWithContext(ctx)
+}
+
+// EnabledConfigResponsePtrInput is an input type that accepts EnabledConfigResponseArgs, EnabledConfigResponsePtr and EnabledConfigResponsePtrOutput values.
+// You can construct a concrete instance of `EnabledConfigResponsePtrInput` via:
+//
+//          EnabledConfigResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EnabledConfigResponsePtrInput interface {
+	pulumi.Input
+
+	ToEnabledConfigResponsePtrOutput() EnabledConfigResponsePtrOutput
+	ToEnabledConfigResponsePtrOutputWithContext(context.Context) EnabledConfigResponsePtrOutput
+}
+
+type enabledConfigResponsePtrType EnabledConfigResponseArgs
+
+func EnabledConfigResponsePtr(v *EnabledConfigResponseArgs) EnabledConfigResponsePtrInput {
+	return (*enabledConfigResponsePtrType)(v)
+}
+
+func (*enabledConfigResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnabledConfigResponse)(nil)).Elem()
+}
+
+func (i *enabledConfigResponsePtrType) ToEnabledConfigResponsePtrOutput() EnabledConfigResponsePtrOutput {
+	return i.ToEnabledConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *enabledConfigResponsePtrType) ToEnabledConfigResponsePtrOutputWithContext(ctx context.Context) EnabledConfigResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EnabledConfigResponsePtrOutput)
+}
+
+// Enabled configuration.
+type EnabledConfigResponseOutput struct{ *pulumi.OutputState }
+
+func (EnabledConfigResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnabledConfigResponse)(nil)).Elem()
+}
+
+func (o EnabledConfigResponseOutput) ToEnabledConfigResponseOutput() EnabledConfigResponseOutput {
+	return o
+}
+
+func (o EnabledConfigResponseOutput) ToEnabledConfigResponseOutputWithContext(ctx context.Context) EnabledConfigResponseOutput {
+	return o
+}
+
+func (o EnabledConfigResponseOutput) ToEnabledConfigResponsePtrOutput() EnabledConfigResponsePtrOutput {
+	return o.ToEnabledConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EnabledConfigResponseOutput) ToEnabledConfigResponsePtrOutputWithContext(ctx context.Context) EnabledConfigResponsePtrOutput {
+	return o.ApplyT(func(v EnabledConfigResponse) *EnabledConfigResponse {
+		return &v
+	}).(EnabledConfigResponsePtrOutput)
+}
+
+// True if configuration is enabled, false if it is disabled and null if configuration is not set.
+func (o EnabledConfigResponseOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EnabledConfigResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type EnabledConfigResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EnabledConfigResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnabledConfigResponse)(nil)).Elem()
+}
+
+func (o EnabledConfigResponsePtrOutput) ToEnabledConfigResponsePtrOutput() EnabledConfigResponsePtrOutput {
+	return o
+}
+
+func (o EnabledConfigResponsePtrOutput) ToEnabledConfigResponsePtrOutputWithContext(ctx context.Context) EnabledConfigResponsePtrOutput {
+	return o
+}
+
+func (o EnabledConfigResponsePtrOutput) Elem() EnabledConfigResponseOutput {
+	return o.ApplyT(func(v *EnabledConfigResponse) EnabledConfigResponse { return *v }).(EnabledConfigResponseOutput)
+}
+
+// True if configuration is enabled, false if it is disabled and null if configuration is not set.
+func (o EnabledConfigResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EnabledConfigResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Routing rules in production experiments.
 type Experiments struct {
 	// List of ramp-up rules.
@@ -4726,6 +6372,650 @@ func (o ExperimentsResponsePtrOutput) RampUpRules() RampUpRuleResponseArrayOutpu
 		}
 		return v.RampUpRules
 	}).(RampUpRuleResponseArrayOutput)
+}
+
+// Application logs to file system configuration.
+type FileSystemApplicationLogsConfig struct {
+	// Log level.
+	Level *string `pulumi:"level"`
+}
+
+// FileSystemApplicationLogsConfigInput is an input type that accepts FileSystemApplicationLogsConfigArgs and FileSystemApplicationLogsConfigOutput values.
+// You can construct a concrete instance of `FileSystemApplicationLogsConfigInput` via:
+//
+//          FileSystemApplicationLogsConfigArgs{...}
+type FileSystemApplicationLogsConfigInput interface {
+	pulumi.Input
+
+	ToFileSystemApplicationLogsConfigOutput() FileSystemApplicationLogsConfigOutput
+	ToFileSystemApplicationLogsConfigOutputWithContext(context.Context) FileSystemApplicationLogsConfigOutput
+}
+
+// Application logs to file system configuration.
+type FileSystemApplicationLogsConfigArgs struct {
+	// Log level.
+	Level LogLevel `pulumi:"level"`
+}
+
+func (FileSystemApplicationLogsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemApplicationLogsConfig)(nil)).Elem()
+}
+
+func (i FileSystemApplicationLogsConfigArgs) ToFileSystemApplicationLogsConfigOutput() FileSystemApplicationLogsConfigOutput {
+	return i.ToFileSystemApplicationLogsConfigOutputWithContext(context.Background())
+}
+
+func (i FileSystemApplicationLogsConfigArgs) ToFileSystemApplicationLogsConfigOutputWithContext(ctx context.Context) FileSystemApplicationLogsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemApplicationLogsConfigOutput)
+}
+
+func (i FileSystemApplicationLogsConfigArgs) ToFileSystemApplicationLogsConfigPtrOutput() FileSystemApplicationLogsConfigPtrOutput {
+	return i.ToFileSystemApplicationLogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FileSystemApplicationLogsConfigArgs) ToFileSystemApplicationLogsConfigPtrOutputWithContext(ctx context.Context) FileSystemApplicationLogsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemApplicationLogsConfigOutput).ToFileSystemApplicationLogsConfigPtrOutputWithContext(ctx)
+}
+
+// FileSystemApplicationLogsConfigPtrInput is an input type that accepts FileSystemApplicationLogsConfigArgs, FileSystemApplicationLogsConfigPtr and FileSystemApplicationLogsConfigPtrOutput values.
+// You can construct a concrete instance of `FileSystemApplicationLogsConfigPtrInput` via:
+//
+//          FileSystemApplicationLogsConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type FileSystemApplicationLogsConfigPtrInput interface {
+	pulumi.Input
+
+	ToFileSystemApplicationLogsConfigPtrOutput() FileSystemApplicationLogsConfigPtrOutput
+	ToFileSystemApplicationLogsConfigPtrOutputWithContext(context.Context) FileSystemApplicationLogsConfigPtrOutput
+}
+
+type fileSystemApplicationLogsConfigPtrType FileSystemApplicationLogsConfigArgs
+
+func FileSystemApplicationLogsConfigPtr(v *FileSystemApplicationLogsConfigArgs) FileSystemApplicationLogsConfigPtrInput {
+	return (*fileSystemApplicationLogsConfigPtrType)(v)
+}
+
+func (*fileSystemApplicationLogsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileSystemApplicationLogsConfig)(nil)).Elem()
+}
+
+func (i *fileSystemApplicationLogsConfigPtrType) ToFileSystemApplicationLogsConfigPtrOutput() FileSystemApplicationLogsConfigPtrOutput {
+	return i.ToFileSystemApplicationLogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *fileSystemApplicationLogsConfigPtrType) ToFileSystemApplicationLogsConfigPtrOutputWithContext(ctx context.Context) FileSystemApplicationLogsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemApplicationLogsConfigPtrOutput)
+}
+
+// Application logs to file system configuration.
+type FileSystemApplicationLogsConfigOutput struct{ *pulumi.OutputState }
+
+func (FileSystemApplicationLogsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemApplicationLogsConfig)(nil)).Elem()
+}
+
+func (o FileSystemApplicationLogsConfigOutput) ToFileSystemApplicationLogsConfigOutput() FileSystemApplicationLogsConfigOutput {
+	return o
+}
+
+func (o FileSystemApplicationLogsConfigOutput) ToFileSystemApplicationLogsConfigOutputWithContext(ctx context.Context) FileSystemApplicationLogsConfigOutput {
+	return o
+}
+
+func (o FileSystemApplicationLogsConfigOutput) ToFileSystemApplicationLogsConfigPtrOutput() FileSystemApplicationLogsConfigPtrOutput {
+	return o.ToFileSystemApplicationLogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FileSystemApplicationLogsConfigOutput) ToFileSystemApplicationLogsConfigPtrOutputWithContext(ctx context.Context) FileSystemApplicationLogsConfigPtrOutput {
+	return o.ApplyT(func(v FileSystemApplicationLogsConfig) *FileSystemApplicationLogsConfig {
+		return &v
+	}).(FileSystemApplicationLogsConfigPtrOutput)
+}
+
+// Log level.
+func (o FileSystemApplicationLogsConfigOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemApplicationLogsConfig) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+type FileSystemApplicationLogsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FileSystemApplicationLogsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileSystemApplicationLogsConfig)(nil)).Elem()
+}
+
+func (o FileSystemApplicationLogsConfigPtrOutput) ToFileSystemApplicationLogsConfigPtrOutput() FileSystemApplicationLogsConfigPtrOutput {
+	return o
+}
+
+func (o FileSystemApplicationLogsConfigPtrOutput) ToFileSystemApplicationLogsConfigPtrOutputWithContext(ctx context.Context) FileSystemApplicationLogsConfigPtrOutput {
+	return o
+}
+
+func (o FileSystemApplicationLogsConfigPtrOutput) Elem() FileSystemApplicationLogsConfigOutput {
+	return o.ApplyT(func(v *FileSystemApplicationLogsConfig) FileSystemApplicationLogsConfig { return *v }).(FileSystemApplicationLogsConfigOutput)
+}
+
+// Log level.
+func (o FileSystemApplicationLogsConfigPtrOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystemApplicationLogsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Level
+	}).(pulumi.StringPtrOutput)
+}
+
+// Application logs to file system configuration.
+type FileSystemApplicationLogsConfigResponse struct {
+	// Log level.
+	Level *string `pulumi:"level"`
+}
+
+// FileSystemApplicationLogsConfigResponseInput is an input type that accepts FileSystemApplicationLogsConfigResponseArgs and FileSystemApplicationLogsConfigResponseOutput values.
+// You can construct a concrete instance of `FileSystemApplicationLogsConfigResponseInput` via:
+//
+//          FileSystemApplicationLogsConfigResponseArgs{...}
+type FileSystemApplicationLogsConfigResponseInput interface {
+	pulumi.Input
+
+	ToFileSystemApplicationLogsConfigResponseOutput() FileSystemApplicationLogsConfigResponseOutput
+	ToFileSystemApplicationLogsConfigResponseOutputWithContext(context.Context) FileSystemApplicationLogsConfigResponseOutput
+}
+
+// Application logs to file system configuration.
+type FileSystemApplicationLogsConfigResponseArgs struct {
+	// Log level.
+	Level pulumi.StringPtrInput `pulumi:"level"`
+}
+
+func (FileSystemApplicationLogsConfigResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemApplicationLogsConfigResponse)(nil)).Elem()
+}
+
+func (i FileSystemApplicationLogsConfigResponseArgs) ToFileSystemApplicationLogsConfigResponseOutput() FileSystemApplicationLogsConfigResponseOutput {
+	return i.ToFileSystemApplicationLogsConfigResponseOutputWithContext(context.Background())
+}
+
+func (i FileSystemApplicationLogsConfigResponseArgs) ToFileSystemApplicationLogsConfigResponseOutputWithContext(ctx context.Context) FileSystemApplicationLogsConfigResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemApplicationLogsConfigResponseOutput)
+}
+
+func (i FileSystemApplicationLogsConfigResponseArgs) ToFileSystemApplicationLogsConfigResponsePtrOutput() FileSystemApplicationLogsConfigResponsePtrOutput {
+	return i.ToFileSystemApplicationLogsConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (i FileSystemApplicationLogsConfigResponseArgs) ToFileSystemApplicationLogsConfigResponsePtrOutputWithContext(ctx context.Context) FileSystemApplicationLogsConfigResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemApplicationLogsConfigResponseOutput).ToFileSystemApplicationLogsConfigResponsePtrOutputWithContext(ctx)
+}
+
+// FileSystemApplicationLogsConfigResponsePtrInput is an input type that accepts FileSystemApplicationLogsConfigResponseArgs, FileSystemApplicationLogsConfigResponsePtr and FileSystemApplicationLogsConfigResponsePtrOutput values.
+// You can construct a concrete instance of `FileSystemApplicationLogsConfigResponsePtrInput` via:
+//
+//          FileSystemApplicationLogsConfigResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type FileSystemApplicationLogsConfigResponsePtrInput interface {
+	pulumi.Input
+
+	ToFileSystemApplicationLogsConfigResponsePtrOutput() FileSystemApplicationLogsConfigResponsePtrOutput
+	ToFileSystemApplicationLogsConfigResponsePtrOutputWithContext(context.Context) FileSystemApplicationLogsConfigResponsePtrOutput
+}
+
+type fileSystemApplicationLogsConfigResponsePtrType FileSystemApplicationLogsConfigResponseArgs
+
+func FileSystemApplicationLogsConfigResponsePtr(v *FileSystemApplicationLogsConfigResponseArgs) FileSystemApplicationLogsConfigResponsePtrInput {
+	return (*fileSystemApplicationLogsConfigResponsePtrType)(v)
+}
+
+func (*fileSystemApplicationLogsConfigResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileSystemApplicationLogsConfigResponse)(nil)).Elem()
+}
+
+func (i *fileSystemApplicationLogsConfigResponsePtrType) ToFileSystemApplicationLogsConfigResponsePtrOutput() FileSystemApplicationLogsConfigResponsePtrOutput {
+	return i.ToFileSystemApplicationLogsConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *fileSystemApplicationLogsConfigResponsePtrType) ToFileSystemApplicationLogsConfigResponsePtrOutputWithContext(ctx context.Context) FileSystemApplicationLogsConfigResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemApplicationLogsConfigResponsePtrOutput)
+}
+
+// Application logs to file system configuration.
+type FileSystemApplicationLogsConfigResponseOutput struct{ *pulumi.OutputState }
+
+func (FileSystemApplicationLogsConfigResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemApplicationLogsConfigResponse)(nil)).Elem()
+}
+
+func (o FileSystemApplicationLogsConfigResponseOutput) ToFileSystemApplicationLogsConfigResponseOutput() FileSystemApplicationLogsConfigResponseOutput {
+	return o
+}
+
+func (o FileSystemApplicationLogsConfigResponseOutput) ToFileSystemApplicationLogsConfigResponseOutputWithContext(ctx context.Context) FileSystemApplicationLogsConfigResponseOutput {
+	return o
+}
+
+func (o FileSystemApplicationLogsConfigResponseOutput) ToFileSystemApplicationLogsConfigResponsePtrOutput() FileSystemApplicationLogsConfigResponsePtrOutput {
+	return o.ToFileSystemApplicationLogsConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (o FileSystemApplicationLogsConfigResponseOutput) ToFileSystemApplicationLogsConfigResponsePtrOutputWithContext(ctx context.Context) FileSystemApplicationLogsConfigResponsePtrOutput {
+	return o.ApplyT(func(v FileSystemApplicationLogsConfigResponse) *FileSystemApplicationLogsConfigResponse {
+		return &v
+	}).(FileSystemApplicationLogsConfigResponsePtrOutput)
+}
+
+// Log level.
+func (o FileSystemApplicationLogsConfigResponseOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemApplicationLogsConfigResponse) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+type FileSystemApplicationLogsConfigResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (FileSystemApplicationLogsConfigResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileSystemApplicationLogsConfigResponse)(nil)).Elem()
+}
+
+func (o FileSystemApplicationLogsConfigResponsePtrOutput) ToFileSystemApplicationLogsConfigResponsePtrOutput() FileSystemApplicationLogsConfigResponsePtrOutput {
+	return o
+}
+
+func (o FileSystemApplicationLogsConfigResponsePtrOutput) ToFileSystemApplicationLogsConfigResponsePtrOutputWithContext(ctx context.Context) FileSystemApplicationLogsConfigResponsePtrOutput {
+	return o
+}
+
+func (o FileSystemApplicationLogsConfigResponsePtrOutput) Elem() FileSystemApplicationLogsConfigResponseOutput {
+	return o.ApplyT(func(v *FileSystemApplicationLogsConfigResponse) FileSystemApplicationLogsConfigResponse { return *v }).(FileSystemApplicationLogsConfigResponseOutput)
+}
+
+// Log level.
+func (o FileSystemApplicationLogsConfigResponsePtrOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileSystemApplicationLogsConfigResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Level
+	}).(pulumi.StringPtrOutput)
+}
+
+// Http logs to file system configuration.
+type FileSystemHttpLogsConfig struct {
+	// True if configuration is enabled, false if it is disabled and null if configuration is not set.
+	Enabled *bool `pulumi:"enabled"`
+	// Retention in days.
+	// Remove files older than X days.
+	// 0 or lower means no retention.
+	RetentionInDays *int `pulumi:"retentionInDays"`
+	// Maximum size in megabytes that http log files can use.
+	// When reached old log files will be removed to make space for new ones.
+	// Value can range between 25 and 100.
+	RetentionInMb *int `pulumi:"retentionInMb"`
+}
+
+// FileSystemHttpLogsConfigInput is an input type that accepts FileSystemHttpLogsConfigArgs and FileSystemHttpLogsConfigOutput values.
+// You can construct a concrete instance of `FileSystemHttpLogsConfigInput` via:
+//
+//          FileSystemHttpLogsConfigArgs{...}
+type FileSystemHttpLogsConfigInput interface {
+	pulumi.Input
+
+	ToFileSystemHttpLogsConfigOutput() FileSystemHttpLogsConfigOutput
+	ToFileSystemHttpLogsConfigOutputWithContext(context.Context) FileSystemHttpLogsConfigOutput
+}
+
+// Http logs to file system configuration.
+type FileSystemHttpLogsConfigArgs struct {
+	// True if configuration is enabled, false if it is disabled and null if configuration is not set.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Retention in days.
+	// Remove files older than X days.
+	// 0 or lower means no retention.
+	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
+	// Maximum size in megabytes that http log files can use.
+	// When reached old log files will be removed to make space for new ones.
+	// Value can range between 25 and 100.
+	RetentionInMb pulumi.IntPtrInput `pulumi:"retentionInMb"`
+}
+
+func (FileSystemHttpLogsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemHttpLogsConfig)(nil)).Elem()
+}
+
+func (i FileSystemHttpLogsConfigArgs) ToFileSystemHttpLogsConfigOutput() FileSystemHttpLogsConfigOutput {
+	return i.ToFileSystemHttpLogsConfigOutputWithContext(context.Background())
+}
+
+func (i FileSystemHttpLogsConfigArgs) ToFileSystemHttpLogsConfigOutputWithContext(ctx context.Context) FileSystemHttpLogsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemHttpLogsConfigOutput)
+}
+
+func (i FileSystemHttpLogsConfigArgs) ToFileSystemHttpLogsConfigPtrOutput() FileSystemHttpLogsConfigPtrOutput {
+	return i.ToFileSystemHttpLogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FileSystemHttpLogsConfigArgs) ToFileSystemHttpLogsConfigPtrOutputWithContext(ctx context.Context) FileSystemHttpLogsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemHttpLogsConfigOutput).ToFileSystemHttpLogsConfigPtrOutputWithContext(ctx)
+}
+
+// FileSystemHttpLogsConfigPtrInput is an input type that accepts FileSystemHttpLogsConfigArgs, FileSystemHttpLogsConfigPtr and FileSystemHttpLogsConfigPtrOutput values.
+// You can construct a concrete instance of `FileSystemHttpLogsConfigPtrInput` via:
+//
+//          FileSystemHttpLogsConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type FileSystemHttpLogsConfigPtrInput interface {
+	pulumi.Input
+
+	ToFileSystemHttpLogsConfigPtrOutput() FileSystemHttpLogsConfigPtrOutput
+	ToFileSystemHttpLogsConfigPtrOutputWithContext(context.Context) FileSystemHttpLogsConfigPtrOutput
+}
+
+type fileSystemHttpLogsConfigPtrType FileSystemHttpLogsConfigArgs
+
+func FileSystemHttpLogsConfigPtr(v *FileSystemHttpLogsConfigArgs) FileSystemHttpLogsConfigPtrInput {
+	return (*fileSystemHttpLogsConfigPtrType)(v)
+}
+
+func (*fileSystemHttpLogsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileSystemHttpLogsConfig)(nil)).Elem()
+}
+
+func (i *fileSystemHttpLogsConfigPtrType) ToFileSystemHttpLogsConfigPtrOutput() FileSystemHttpLogsConfigPtrOutput {
+	return i.ToFileSystemHttpLogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *fileSystemHttpLogsConfigPtrType) ToFileSystemHttpLogsConfigPtrOutputWithContext(ctx context.Context) FileSystemHttpLogsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemHttpLogsConfigPtrOutput)
+}
+
+// Http logs to file system configuration.
+type FileSystemHttpLogsConfigOutput struct{ *pulumi.OutputState }
+
+func (FileSystemHttpLogsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemHttpLogsConfig)(nil)).Elem()
+}
+
+func (o FileSystemHttpLogsConfigOutput) ToFileSystemHttpLogsConfigOutput() FileSystemHttpLogsConfigOutput {
+	return o
+}
+
+func (o FileSystemHttpLogsConfigOutput) ToFileSystemHttpLogsConfigOutputWithContext(ctx context.Context) FileSystemHttpLogsConfigOutput {
+	return o
+}
+
+func (o FileSystemHttpLogsConfigOutput) ToFileSystemHttpLogsConfigPtrOutput() FileSystemHttpLogsConfigPtrOutput {
+	return o.ToFileSystemHttpLogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FileSystemHttpLogsConfigOutput) ToFileSystemHttpLogsConfigPtrOutputWithContext(ctx context.Context) FileSystemHttpLogsConfigPtrOutput {
+	return o.ApplyT(func(v FileSystemHttpLogsConfig) *FileSystemHttpLogsConfig {
+		return &v
+	}).(FileSystemHttpLogsConfigPtrOutput)
+}
+
+// True if configuration is enabled, false if it is disabled and null if configuration is not set.
+func (o FileSystemHttpLogsConfigOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FileSystemHttpLogsConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Retention in days.
+// Remove files older than X days.
+// 0 or lower means no retention.
+func (o FileSystemHttpLogsConfigOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FileSystemHttpLogsConfig) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
+}
+
+// Maximum size in megabytes that http log files can use.
+// When reached old log files will be removed to make space for new ones.
+// Value can range between 25 and 100.
+func (o FileSystemHttpLogsConfigOutput) RetentionInMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FileSystemHttpLogsConfig) *int { return v.RetentionInMb }).(pulumi.IntPtrOutput)
+}
+
+type FileSystemHttpLogsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FileSystemHttpLogsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileSystemHttpLogsConfig)(nil)).Elem()
+}
+
+func (o FileSystemHttpLogsConfigPtrOutput) ToFileSystemHttpLogsConfigPtrOutput() FileSystemHttpLogsConfigPtrOutput {
+	return o
+}
+
+func (o FileSystemHttpLogsConfigPtrOutput) ToFileSystemHttpLogsConfigPtrOutputWithContext(ctx context.Context) FileSystemHttpLogsConfigPtrOutput {
+	return o
+}
+
+func (o FileSystemHttpLogsConfigPtrOutput) Elem() FileSystemHttpLogsConfigOutput {
+	return o.ApplyT(func(v *FileSystemHttpLogsConfig) FileSystemHttpLogsConfig { return *v }).(FileSystemHttpLogsConfigOutput)
+}
+
+// True if configuration is enabled, false if it is disabled and null if configuration is not set.
+func (o FileSystemHttpLogsConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FileSystemHttpLogsConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Retention in days.
+// Remove files older than X days.
+// 0 or lower means no retention.
+func (o FileSystemHttpLogsConfigPtrOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FileSystemHttpLogsConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum size in megabytes that http log files can use.
+// When reached old log files will be removed to make space for new ones.
+// Value can range between 25 and 100.
+func (o FileSystemHttpLogsConfigPtrOutput) RetentionInMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FileSystemHttpLogsConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionInMb
+	}).(pulumi.IntPtrOutput)
+}
+
+// Http logs to file system configuration.
+type FileSystemHttpLogsConfigResponse struct {
+	// True if configuration is enabled, false if it is disabled and null if configuration is not set.
+	Enabled *bool `pulumi:"enabled"`
+	// Retention in days.
+	// Remove files older than X days.
+	// 0 or lower means no retention.
+	RetentionInDays *int `pulumi:"retentionInDays"`
+	// Maximum size in megabytes that http log files can use.
+	// When reached old log files will be removed to make space for new ones.
+	// Value can range between 25 and 100.
+	RetentionInMb *int `pulumi:"retentionInMb"`
+}
+
+// FileSystemHttpLogsConfigResponseInput is an input type that accepts FileSystemHttpLogsConfigResponseArgs and FileSystemHttpLogsConfigResponseOutput values.
+// You can construct a concrete instance of `FileSystemHttpLogsConfigResponseInput` via:
+//
+//          FileSystemHttpLogsConfigResponseArgs{...}
+type FileSystemHttpLogsConfigResponseInput interface {
+	pulumi.Input
+
+	ToFileSystemHttpLogsConfigResponseOutput() FileSystemHttpLogsConfigResponseOutput
+	ToFileSystemHttpLogsConfigResponseOutputWithContext(context.Context) FileSystemHttpLogsConfigResponseOutput
+}
+
+// Http logs to file system configuration.
+type FileSystemHttpLogsConfigResponseArgs struct {
+	// True if configuration is enabled, false if it is disabled and null if configuration is not set.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Retention in days.
+	// Remove files older than X days.
+	// 0 or lower means no retention.
+	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
+	// Maximum size in megabytes that http log files can use.
+	// When reached old log files will be removed to make space for new ones.
+	// Value can range between 25 and 100.
+	RetentionInMb pulumi.IntPtrInput `pulumi:"retentionInMb"`
+}
+
+func (FileSystemHttpLogsConfigResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemHttpLogsConfigResponse)(nil)).Elem()
+}
+
+func (i FileSystemHttpLogsConfigResponseArgs) ToFileSystemHttpLogsConfigResponseOutput() FileSystemHttpLogsConfigResponseOutput {
+	return i.ToFileSystemHttpLogsConfigResponseOutputWithContext(context.Background())
+}
+
+func (i FileSystemHttpLogsConfigResponseArgs) ToFileSystemHttpLogsConfigResponseOutputWithContext(ctx context.Context) FileSystemHttpLogsConfigResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemHttpLogsConfigResponseOutput)
+}
+
+func (i FileSystemHttpLogsConfigResponseArgs) ToFileSystemHttpLogsConfigResponsePtrOutput() FileSystemHttpLogsConfigResponsePtrOutput {
+	return i.ToFileSystemHttpLogsConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (i FileSystemHttpLogsConfigResponseArgs) ToFileSystemHttpLogsConfigResponsePtrOutputWithContext(ctx context.Context) FileSystemHttpLogsConfigResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemHttpLogsConfigResponseOutput).ToFileSystemHttpLogsConfigResponsePtrOutputWithContext(ctx)
+}
+
+// FileSystemHttpLogsConfigResponsePtrInput is an input type that accepts FileSystemHttpLogsConfigResponseArgs, FileSystemHttpLogsConfigResponsePtr and FileSystemHttpLogsConfigResponsePtrOutput values.
+// You can construct a concrete instance of `FileSystemHttpLogsConfigResponsePtrInput` via:
+//
+//          FileSystemHttpLogsConfigResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type FileSystemHttpLogsConfigResponsePtrInput interface {
+	pulumi.Input
+
+	ToFileSystemHttpLogsConfigResponsePtrOutput() FileSystemHttpLogsConfigResponsePtrOutput
+	ToFileSystemHttpLogsConfigResponsePtrOutputWithContext(context.Context) FileSystemHttpLogsConfigResponsePtrOutput
+}
+
+type fileSystemHttpLogsConfigResponsePtrType FileSystemHttpLogsConfigResponseArgs
+
+func FileSystemHttpLogsConfigResponsePtr(v *FileSystemHttpLogsConfigResponseArgs) FileSystemHttpLogsConfigResponsePtrInput {
+	return (*fileSystemHttpLogsConfigResponsePtrType)(v)
+}
+
+func (*fileSystemHttpLogsConfigResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileSystemHttpLogsConfigResponse)(nil)).Elem()
+}
+
+func (i *fileSystemHttpLogsConfigResponsePtrType) ToFileSystemHttpLogsConfigResponsePtrOutput() FileSystemHttpLogsConfigResponsePtrOutput {
+	return i.ToFileSystemHttpLogsConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *fileSystemHttpLogsConfigResponsePtrType) ToFileSystemHttpLogsConfigResponsePtrOutputWithContext(ctx context.Context) FileSystemHttpLogsConfigResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemHttpLogsConfigResponsePtrOutput)
+}
+
+// Http logs to file system configuration.
+type FileSystemHttpLogsConfigResponseOutput struct{ *pulumi.OutputState }
+
+func (FileSystemHttpLogsConfigResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemHttpLogsConfigResponse)(nil)).Elem()
+}
+
+func (o FileSystemHttpLogsConfigResponseOutput) ToFileSystemHttpLogsConfigResponseOutput() FileSystemHttpLogsConfigResponseOutput {
+	return o
+}
+
+func (o FileSystemHttpLogsConfigResponseOutput) ToFileSystemHttpLogsConfigResponseOutputWithContext(ctx context.Context) FileSystemHttpLogsConfigResponseOutput {
+	return o
+}
+
+func (o FileSystemHttpLogsConfigResponseOutput) ToFileSystemHttpLogsConfigResponsePtrOutput() FileSystemHttpLogsConfigResponsePtrOutput {
+	return o.ToFileSystemHttpLogsConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (o FileSystemHttpLogsConfigResponseOutput) ToFileSystemHttpLogsConfigResponsePtrOutputWithContext(ctx context.Context) FileSystemHttpLogsConfigResponsePtrOutput {
+	return o.ApplyT(func(v FileSystemHttpLogsConfigResponse) *FileSystemHttpLogsConfigResponse {
+		return &v
+	}).(FileSystemHttpLogsConfigResponsePtrOutput)
+}
+
+// True if configuration is enabled, false if it is disabled and null if configuration is not set.
+func (o FileSystemHttpLogsConfigResponseOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FileSystemHttpLogsConfigResponse) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Retention in days.
+// Remove files older than X days.
+// 0 or lower means no retention.
+func (o FileSystemHttpLogsConfigResponseOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FileSystemHttpLogsConfigResponse) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
+}
+
+// Maximum size in megabytes that http log files can use.
+// When reached old log files will be removed to make space for new ones.
+// Value can range between 25 and 100.
+func (o FileSystemHttpLogsConfigResponseOutput) RetentionInMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FileSystemHttpLogsConfigResponse) *int { return v.RetentionInMb }).(pulumi.IntPtrOutput)
+}
+
+type FileSystemHttpLogsConfigResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (FileSystemHttpLogsConfigResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileSystemHttpLogsConfigResponse)(nil)).Elem()
+}
+
+func (o FileSystemHttpLogsConfigResponsePtrOutput) ToFileSystemHttpLogsConfigResponsePtrOutput() FileSystemHttpLogsConfigResponsePtrOutput {
+	return o
+}
+
+func (o FileSystemHttpLogsConfigResponsePtrOutput) ToFileSystemHttpLogsConfigResponsePtrOutputWithContext(ctx context.Context) FileSystemHttpLogsConfigResponsePtrOutput {
+	return o
+}
+
+func (o FileSystemHttpLogsConfigResponsePtrOutput) Elem() FileSystemHttpLogsConfigResponseOutput {
+	return o.ApplyT(func(v *FileSystemHttpLogsConfigResponse) FileSystemHttpLogsConfigResponse { return *v }).(FileSystemHttpLogsConfigResponseOutput)
+}
+
+// True if configuration is enabled, false if it is disabled and null if configuration is not set.
+func (o FileSystemHttpLogsConfigResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FileSystemHttpLogsConfigResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Retention in days.
+// Remove files older than X days.
+// 0 or lower means no retention.
+func (o FileSystemHttpLogsConfigResponsePtrOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FileSystemHttpLogsConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum size in megabytes that http log files can use.
+// When reached old log files will be removed to make space for new ones.
+// Value can range between 25 and 100.
+func (o FileSystemHttpLogsConfigResponsePtrOutput) RetentionInMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FileSystemHttpLogsConfigResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionInMb
+	}).(pulumi.IntPtrOutput)
 }
 
 // The IIS handler mappings used to define which handler processes HTTP requests with certain extension.
@@ -5564,6 +7854,312 @@ func (o HostingEnvironmentProfileResponsePtrOutput) Type() pulumi.StringPtrOutpu
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+// Http logs configuration.
+type HttpLogsConfig struct {
+	// Http logs to azure blob storage configuration.
+	AzureBlobStorage *AzureBlobStorageHttpLogsConfig `pulumi:"azureBlobStorage"`
+	// Http logs to file system configuration.
+	FileSystem *FileSystemHttpLogsConfig `pulumi:"fileSystem"`
+}
+
+// HttpLogsConfigInput is an input type that accepts HttpLogsConfigArgs and HttpLogsConfigOutput values.
+// You can construct a concrete instance of `HttpLogsConfigInput` via:
+//
+//          HttpLogsConfigArgs{...}
+type HttpLogsConfigInput interface {
+	pulumi.Input
+
+	ToHttpLogsConfigOutput() HttpLogsConfigOutput
+	ToHttpLogsConfigOutputWithContext(context.Context) HttpLogsConfigOutput
+}
+
+// Http logs configuration.
+type HttpLogsConfigArgs struct {
+	// Http logs to azure blob storage configuration.
+	AzureBlobStorage AzureBlobStorageHttpLogsConfigPtrInput `pulumi:"azureBlobStorage"`
+	// Http logs to file system configuration.
+	FileSystem FileSystemHttpLogsConfigPtrInput `pulumi:"fileSystem"`
+}
+
+func (HttpLogsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HttpLogsConfig)(nil)).Elem()
+}
+
+func (i HttpLogsConfigArgs) ToHttpLogsConfigOutput() HttpLogsConfigOutput {
+	return i.ToHttpLogsConfigOutputWithContext(context.Background())
+}
+
+func (i HttpLogsConfigArgs) ToHttpLogsConfigOutputWithContext(ctx context.Context) HttpLogsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HttpLogsConfigOutput)
+}
+
+func (i HttpLogsConfigArgs) ToHttpLogsConfigPtrOutput() HttpLogsConfigPtrOutput {
+	return i.ToHttpLogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i HttpLogsConfigArgs) ToHttpLogsConfigPtrOutputWithContext(ctx context.Context) HttpLogsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HttpLogsConfigOutput).ToHttpLogsConfigPtrOutputWithContext(ctx)
+}
+
+// HttpLogsConfigPtrInput is an input type that accepts HttpLogsConfigArgs, HttpLogsConfigPtr and HttpLogsConfigPtrOutput values.
+// You can construct a concrete instance of `HttpLogsConfigPtrInput` via:
+//
+//          HttpLogsConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type HttpLogsConfigPtrInput interface {
+	pulumi.Input
+
+	ToHttpLogsConfigPtrOutput() HttpLogsConfigPtrOutput
+	ToHttpLogsConfigPtrOutputWithContext(context.Context) HttpLogsConfigPtrOutput
+}
+
+type httpLogsConfigPtrType HttpLogsConfigArgs
+
+func HttpLogsConfigPtr(v *HttpLogsConfigArgs) HttpLogsConfigPtrInput {
+	return (*httpLogsConfigPtrType)(v)
+}
+
+func (*httpLogsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HttpLogsConfig)(nil)).Elem()
+}
+
+func (i *httpLogsConfigPtrType) ToHttpLogsConfigPtrOutput() HttpLogsConfigPtrOutput {
+	return i.ToHttpLogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *httpLogsConfigPtrType) ToHttpLogsConfigPtrOutputWithContext(ctx context.Context) HttpLogsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HttpLogsConfigPtrOutput)
+}
+
+// Http logs configuration.
+type HttpLogsConfigOutput struct{ *pulumi.OutputState }
+
+func (HttpLogsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HttpLogsConfig)(nil)).Elem()
+}
+
+func (o HttpLogsConfigOutput) ToHttpLogsConfigOutput() HttpLogsConfigOutput {
+	return o
+}
+
+func (o HttpLogsConfigOutput) ToHttpLogsConfigOutputWithContext(ctx context.Context) HttpLogsConfigOutput {
+	return o
+}
+
+func (o HttpLogsConfigOutput) ToHttpLogsConfigPtrOutput() HttpLogsConfigPtrOutput {
+	return o.ToHttpLogsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o HttpLogsConfigOutput) ToHttpLogsConfigPtrOutputWithContext(ctx context.Context) HttpLogsConfigPtrOutput {
+	return o.ApplyT(func(v HttpLogsConfig) *HttpLogsConfig {
+		return &v
+	}).(HttpLogsConfigPtrOutput)
+}
+
+// Http logs to azure blob storage configuration.
+func (o HttpLogsConfigOutput) AzureBlobStorage() AzureBlobStorageHttpLogsConfigPtrOutput {
+	return o.ApplyT(func(v HttpLogsConfig) *AzureBlobStorageHttpLogsConfig { return v.AzureBlobStorage }).(AzureBlobStorageHttpLogsConfigPtrOutput)
+}
+
+// Http logs to file system configuration.
+func (o HttpLogsConfigOutput) FileSystem() FileSystemHttpLogsConfigPtrOutput {
+	return o.ApplyT(func(v HttpLogsConfig) *FileSystemHttpLogsConfig { return v.FileSystem }).(FileSystemHttpLogsConfigPtrOutput)
+}
+
+type HttpLogsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (HttpLogsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HttpLogsConfig)(nil)).Elem()
+}
+
+func (o HttpLogsConfigPtrOutput) ToHttpLogsConfigPtrOutput() HttpLogsConfigPtrOutput {
+	return o
+}
+
+func (o HttpLogsConfigPtrOutput) ToHttpLogsConfigPtrOutputWithContext(ctx context.Context) HttpLogsConfigPtrOutput {
+	return o
+}
+
+func (o HttpLogsConfigPtrOutput) Elem() HttpLogsConfigOutput {
+	return o.ApplyT(func(v *HttpLogsConfig) HttpLogsConfig { return *v }).(HttpLogsConfigOutput)
+}
+
+// Http logs to azure blob storage configuration.
+func (o HttpLogsConfigPtrOutput) AzureBlobStorage() AzureBlobStorageHttpLogsConfigPtrOutput {
+	return o.ApplyT(func(v *HttpLogsConfig) *AzureBlobStorageHttpLogsConfig {
+		if v == nil {
+			return nil
+		}
+		return v.AzureBlobStorage
+	}).(AzureBlobStorageHttpLogsConfigPtrOutput)
+}
+
+// Http logs to file system configuration.
+func (o HttpLogsConfigPtrOutput) FileSystem() FileSystemHttpLogsConfigPtrOutput {
+	return o.ApplyT(func(v *HttpLogsConfig) *FileSystemHttpLogsConfig {
+		if v == nil {
+			return nil
+		}
+		return v.FileSystem
+	}).(FileSystemHttpLogsConfigPtrOutput)
+}
+
+// Http logs configuration.
+type HttpLogsConfigResponse struct {
+	// Http logs to azure blob storage configuration.
+	AzureBlobStorage *AzureBlobStorageHttpLogsConfigResponse `pulumi:"azureBlobStorage"`
+	// Http logs to file system configuration.
+	FileSystem *FileSystemHttpLogsConfigResponse `pulumi:"fileSystem"`
+}
+
+// HttpLogsConfigResponseInput is an input type that accepts HttpLogsConfigResponseArgs and HttpLogsConfigResponseOutput values.
+// You can construct a concrete instance of `HttpLogsConfigResponseInput` via:
+//
+//          HttpLogsConfigResponseArgs{...}
+type HttpLogsConfigResponseInput interface {
+	pulumi.Input
+
+	ToHttpLogsConfigResponseOutput() HttpLogsConfigResponseOutput
+	ToHttpLogsConfigResponseOutputWithContext(context.Context) HttpLogsConfigResponseOutput
+}
+
+// Http logs configuration.
+type HttpLogsConfigResponseArgs struct {
+	// Http logs to azure blob storage configuration.
+	AzureBlobStorage AzureBlobStorageHttpLogsConfigResponsePtrInput `pulumi:"azureBlobStorage"`
+	// Http logs to file system configuration.
+	FileSystem FileSystemHttpLogsConfigResponsePtrInput `pulumi:"fileSystem"`
+}
+
+func (HttpLogsConfigResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HttpLogsConfigResponse)(nil)).Elem()
+}
+
+func (i HttpLogsConfigResponseArgs) ToHttpLogsConfigResponseOutput() HttpLogsConfigResponseOutput {
+	return i.ToHttpLogsConfigResponseOutputWithContext(context.Background())
+}
+
+func (i HttpLogsConfigResponseArgs) ToHttpLogsConfigResponseOutputWithContext(ctx context.Context) HttpLogsConfigResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HttpLogsConfigResponseOutput)
+}
+
+func (i HttpLogsConfigResponseArgs) ToHttpLogsConfigResponsePtrOutput() HttpLogsConfigResponsePtrOutput {
+	return i.ToHttpLogsConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (i HttpLogsConfigResponseArgs) ToHttpLogsConfigResponsePtrOutputWithContext(ctx context.Context) HttpLogsConfigResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HttpLogsConfigResponseOutput).ToHttpLogsConfigResponsePtrOutputWithContext(ctx)
+}
+
+// HttpLogsConfigResponsePtrInput is an input type that accepts HttpLogsConfigResponseArgs, HttpLogsConfigResponsePtr and HttpLogsConfigResponsePtrOutput values.
+// You can construct a concrete instance of `HttpLogsConfigResponsePtrInput` via:
+//
+//          HttpLogsConfigResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type HttpLogsConfigResponsePtrInput interface {
+	pulumi.Input
+
+	ToHttpLogsConfigResponsePtrOutput() HttpLogsConfigResponsePtrOutput
+	ToHttpLogsConfigResponsePtrOutputWithContext(context.Context) HttpLogsConfigResponsePtrOutput
+}
+
+type httpLogsConfigResponsePtrType HttpLogsConfigResponseArgs
+
+func HttpLogsConfigResponsePtr(v *HttpLogsConfigResponseArgs) HttpLogsConfigResponsePtrInput {
+	return (*httpLogsConfigResponsePtrType)(v)
+}
+
+func (*httpLogsConfigResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HttpLogsConfigResponse)(nil)).Elem()
+}
+
+func (i *httpLogsConfigResponsePtrType) ToHttpLogsConfigResponsePtrOutput() HttpLogsConfigResponsePtrOutput {
+	return i.ToHttpLogsConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *httpLogsConfigResponsePtrType) ToHttpLogsConfigResponsePtrOutputWithContext(ctx context.Context) HttpLogsConfigResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HttpLogsConfigResponsePtrOutput)
+}
+
+// Http logs configuration.
+type HttpLogsConfigResponseOutput struct{ *pulumi.OutputState }
+
+func (HttpLogsConfigResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HttpLogsConfigResponse)(nil)).Elem()
+}
+
+func (o HttpLogsConfigResponseOutput) ToHttpLogsConfigResponseOutput() HttpLogsConfigResponseOutput {
+	return o
+}
+
+func (o HttpLogsConfigResponseOutput) ToHttpLogsConfigResponseOutputWithContext(ctx context.Context) HttpLogsConfigResponseOutput {
+	return o
+}
+
+func (o HttpLogsConfigResponseOutput) ToHttpLogsConfigResponsePtrOutput() HttpLogsConfigResponsePtrOutput {
+	return o.ToHttpLogsConfigResponsePtrOutputWithContext(context.Background())
+}
+
+func (o HttpLogsConfigResponseOutput) ToHttpLogsConfigResponsePtrOutputWithContext(ctx context.Context) HttpLogsConfigResponsePtrOutput {
+	return o.ApplyT(func(v HttpLogsConfigResponse) *HttpLogsConfigResponse {
+		return &v
+	}).(HttpLogsConfigResponsePtrOutput)
+}
+
+// Http logs to azure blob storage configuration.
+func (o HttpLogsConfigResponseOutput) AzureBlobStorage() AzureBlobStorageHttpLogsConfigResponsePtrOutput {
+	return o.ApplyT(func(v HttpLogsConfigResponse) *AzureBlobStorageHttpLogsConfigResponse { return v.AzureBlobStorage }).(AzureBlobStorageHttpLogsConfigResponsePtrOutput)
+}
+
+// Http logs to file system configuration.
+func (o HttpLogsConfigResponseOutput) FileSystem() FileSystemHttpLogsConfigResponsePtrOutput {
+	return o.ApplyT(func(v HttpLogsConfigResponse) *FileSystemHttpLogsConfigResponse { return v.FileSystem }).(FileSystemHttpLogsConfigResponsePtrOutput)
+}
+
+type HttpLogsConfigResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (HttpLogsConfigResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HttpLogsConfigResponse)(nil)).Elem()
+}
+
+func (o HttpLogsConfigResponsePtrOutput) ToHttpLogsConfigResponsePtrOutput() HttpLogsConfigResponsePtrOutput {
+	return o
+}
+
+func (o HttpLogsConfigResponsePtrOutput) ToHttpLogsConfigResponsePtrOutputWithContext(ctx context.Context) HttpLogsConfigResponsePtrOutput {
+	return o
+}
+
+func (o HttpLogsConfigResponsePtrOutput) Elem() HttpLogsConfigResponseOutput {
+	return o.ApplyT(func(v *HttpLogsConfigResponse) HttpLogsConfigResponse { return *v }).(HttpLogsConfigResponseOutput)
+}
+
+// Http logs to azure blob storage configuration.
+func (o HttpLogsConfigResponsePtrOutput) AzureBlobStorage() AzureBlobStorageHttpLogsConfigResponsePtrOutput {
+	return o.ApplyT(func(v *HttpLogsConfigResponse) *AzureBlobStorageHttpLogsConfigResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AzureBlobStorage
+	}).(AzureBlobStorageHttpLogsConfigResponsePtrOutput)
+}
+
+// Http logs to file system configuration.
+func (o HttpLogsConfigResponsePtrOutput) FileSystem() FileSystemHttpLogsConfigResponsePtrOutput {
+	return o.ApplyT(func(v *HttpLogsConfigResponse) *FileSystemHttpLogsConfigResponse {
+		if v == nil {
+			return nil
+		}
+		return v.FileSystem
+	}).(FileSystemHttpLogsConfigResponsePtrOutput)
 }
 
 // A domain specific resource identifier.
@@ -15373,6 +17969,10 @@ func init() {
 	pulumi.RegisterOutputType(ApiManagementConfigPtrOutput{})
 	pulumi.RegisterOutputType(ApiManagementConfigResponseOutput{})
 	pulumi.RegisterOutputType(ApiManagementConfigResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApplicationLogsConfigOutput{})
+	pulumi.RegisterOutputType(ApplicationLogsConfigPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationLogsConfigResponseOutput{})
+	pulumi.RegisterOutputType(ApplicationLogsConfigResponsePtrOutput{})
 	pulumi.RegisterOutputType(ArmIdWrapperResponseOutput{})
 	pulumi.RegisterOutputType(ArmIdWrapperResponsePtrOutput{})
 	pulumi.RegisterOutputType(AutoHealActionsOutput{})
@@ -15391,8 +17991,20 @@ func init() {
 	pulumi.RegisterOutputType(AutoHealTriggersPtrOutput{})
 	pulumi.RegisterOutputType(AutoHealTriggersResponseOutput{})
 	pulumi.RegisterOutputType(AutoHealTriggersResponsePtrOutput{})
+	pulumi.RegisterOutputType(AzureBlobStorageApplicationLogsConfigOutput{})
+	pulumi.RegisterOutputType(AzureBlobStorageApplicationLogsConfigPtrOutput{})
+	pulumi.RegisterOutputType(AzureBlobStorageApplicationLogsConfigResponseOutput{})
+	pulumi.RegisterOutputType(AzureBlobStorageApplicationLogsConfigResponsePtrOutput{})
+	pulumi.RegisterOutputType(AzureBlobStorageHttpLogsConfigOutput{})
+	pulumi.RegisterOutputType(AzureBlobStorageHttpLogsConfigPtrOutput{})
+	pulumi.RegisterOutputType(AzureBlobStorageHttpLogsConfigResponseOutput{})
+	pulumi.RegisterOutputType(AzureBlobStorageHttpLogsConfigResponsePtrOutput{})
 	pulumi.RegisterOutputType(AzureStorageInfoValueResponseOutput{})
 	pulumi.RegisterOutputType(AzureStorageInfoValueResponseMapOutput{})
+	pulumi.RegisterOutputType(AzureTableStorageApplicationLogsConfigOutput{})
+	pulumi.RegisterOutputType(AzureTableStorageApplicationLogsConfigPtrOutput{})
+	pulumi.RegisterOutputType(AzureTableStorageApplicationLogsConfigResponseOutput{})
+	pulumi.RegisterOutputType(AzureTableStorageApplicationLogsConfigResponsePtrOutput{})
 	pulumi.RegisterOutputType(BackupItemResponseOutput{})
 	pulumi.RegisterOutputType(BackupItemResponseArrayOutput{})
 	pulumi.RegisterOutputType(BackupScheduleOutput{})
@@ -15419,10 +18031,22 @@ func init() {
 	pulumi.RegisterOutputType(DatabaseBackupSettingArrayOutput{})
 	pulumi.RegisterOutputType(DatabaseBackupSettingResponseOutput{})
 	pulumi.RegisterOutputType(DatabaseBackupSettingResponseArrayOutput{})
+	pulumi.RegisterOutputType(EnabledConfigOutput{})
+	pulumi.RegisterOutputType(EnabledConfigPtrOutput{})
+	pulumi.RegisterOutputType(EnabledConfigResponseOutput{})
+	pulumi.RegisterOutputType(EnabledConfigResponsePtrOutput{})
 	pulumi.RegisterOutputType(ExperimentsOutput{})
 	pulumi.RegisterOutputType(ExperimentsPtrOutput{})
 	pulumi.RegisterOutputType(ExperimentsResponseOutput{})
 	pulumi.RegisterOutputType(ExperimentsResponsePtrOutput{})
+	pulumi.RegisterOutputType(FileSystemApplicationLogsConfigOutput{})
+	pulumi.RegisterOutputType(FileSystemApplicationLogsConfigPtrOutput{})
+	pulumi.RegisterOutputType(FileSystemApplicationLogsConfigResponseOutput{})
+	pulumi.RegisterOutputType(FileSystemApplicationLogsConfigResponsePtrOutput{})
+	pulumi.RegisterOutputType(FileSystemHttpLogsConfigOutput{})
+	pulumi.RegisterOutputType(FileSystemHttpLogsConfigPtrOutput{})
+	pulumi.RegisterOutputType(FileSystemHttpLogsConfigResponseOutput{})
+	pulumi.RegisterOutputType(FileSystemHttpLogsConfigResponsePtrOutput{})
 	pulumi.RegisterOutputType(HandlerMappingOutput{})
 	pulumi.RegisterOutputType(HandlerMappingArrayOutput{})
 	pulumi.RegisterOutputType(HandlerMappingResponseOutput{})
@@ -15435,6 +18059,10 @@ func init() {
 	pulumi.RegisterOutputType(HostingEnvironmentProfilePtrOutput{})
 	pulumi.RegisterOutputType(HostingEnvironmentProfileResponseOutput{})
 	pulumi.RegisterOutputType(HostingEnvironmentProfileResponsePtrOutput{})
+	pulumi.RegisterOutputType(HttpLogsConfigOutput{})
+	pulumi.RegisterOutputType(HttpLogsConfigPtrOutput{})
+	pulumi.RegisterOutputType(HttpLogsConfigResponseOutput{})
+	pulumi.RegisterOutputType(HttpLogsConfigResponsePtrOutput{})
 	pulumi.RegisterOutputType(IdentifierResponseOutput{})
 	pulumi.RegisterOutputType(IdentifierResponseArrayOutput{})
 	pulumi.RegisterOutputType(IpSecurityRestrictionOutput{})

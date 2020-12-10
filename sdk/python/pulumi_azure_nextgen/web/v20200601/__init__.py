@@ -15,6 +15,7 @@ from .get_static_site import *
 from .get_web_app import *
 from .get_web_app_deployment import *
 from .get_web_app_deployment_slot import *
+from .get_web_app_diagnostic_logs_configuration import *
 from .get_web_app_domain_ownership_identifier import *
 from .get_web_app_domain_ownership_identifier_slot import *
 from .get_web_app_function import *
@@ -78,6 +79,7 @@ from .static_site import *
 from .web_app import *
 from .web_app_deployment import *
 from .web_app_deployment_slot import *
+from .web_app_diagnostic_logs_configuration import *
 from .web_app_domain_ownership_identifier import *
 from .web_app_domain_ownership_identifier_slot import *
 from .web_app_function import *
@@ -134,6 +136,8 @@ def _register_module():
                 return WebAppDeployment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:web/v20200601:WebAppDeploymentSlot":
                 return WebAppDeploymentSlot(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:web/v20200601:WebAppDiagnosticLogsConfiguration":
+                return WebAppDiagnosticLogsConfiguration(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:web/v20200601:WebAppDomainOwnershipIdentifier":
                 return WebAppDomainOwnershipIdentifier(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:web/v20200601:WebAppDomainOwnershipIdentifierSlot":

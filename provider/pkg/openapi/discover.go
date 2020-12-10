@@ -3,6 +3,7 @@
 package openapi
 
 import (
+	"fmt"
 	"github.com/go-openapi/spec"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/provider"
 	"github.com/pulumi/pulumi/pkg/v2/codegen"
@@ -210,6 +211,11 @@ func addAPIPath(providers AzureProviders, path string, swagger *Spec) {
 		pathItem.Get != nil && !pathItem.Get.Deprecated {
 		defaultBody, hasDefault := defaultResourcesStateNormalized[normalizePath(path)]
 		hasDelete := pathItem.Delete != nil && !pathItem.Delete.Deprecated
+
+		if hasDefault && hasDelete && containsNonEmptyCollections(defaultBody) {
+			// See the limitation in `SdkShapeConverter.isDefaultResponse()`
+			panic(fmt.Sprintf("invalid defaultResourcesState '%s': non-empty collections aren't supported for deletable resources", path))
+		}
 
 		typeName := provider.ResourceName(pathItem.Get.ID)
 		if typeName != "" && (hasDelete || hasDefault) {

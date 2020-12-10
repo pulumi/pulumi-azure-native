@@ -10,6 +10,7 @@ from .alert_rule import *
 from .analytics_item import *
 from .autoscale_setting import *
 from .component import *
+from .component_current_billing_feature import *
 from .export_configuration import *
 from .favorite import *
 from .get_action_group import *
@@ -18,6 +19,7 @@ from .get_alert_rule import *
 from .get_analytics_item import *
 from .get_autoscale_setting import *
 from .get_component import *
+from .get_component_current_billing_feature import *
 from .get_export_configuration import *
 from .get_favorite import *
 from .get_log_profile import *
@@ -60,6 +62,8 @@ def _register_module():
                 return AutoscaleSetting(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:insights/latest:Component":
                 return Component(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:insights/latest:ComponentCurrentBillingFeature":
+                return ComponentCurrentBillingFeature(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:insights/latest:ExportConfiguration":
                 return ExportConfiguration(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:insights/latest:Favorite":

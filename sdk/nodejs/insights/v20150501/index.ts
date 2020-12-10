@@ -7,10 +7,12 @@ import * as utilities from "../../utilities";
 // Export members:
 export * from "./analyticsItem";
 export * from "./component";
+export * from "./componentCurrentBillingFeature";
 export * from "./exportConfiguration";
 export * from "./favorite";
 export * from "./getAnalyticsItem";
 export * from "./getComponent";
+export * from "./getComponentCurrentBillingFeature";
 export * from "./getExportConfiguration";
 export * from "./getFavorite";
 export * from "./getMyWorkbook";
@@ -26,6 +28,7 @@ export * from "../../types/enums/insights/v20150501";
 // Import resources to register:
 import { AnalyticsItem } from "./analyticsItem";
 import { Component } from "./component";
+import { ComponentCurrentBillingFeature } from "./componentCurrentBillingFeature";
 import { ExportConfiguration } from "./exportConfiguration";
 import { Favorite } from "./favorite";
 import { MyWorkbook } from "./myWorkbook";
@@ -40,6 +43,8 @@ const _module = {
                 return new AnalyticsItem(name, <any>undefined, { urn })
             case "azure-nextgen:insights/v20150501:Component":
                 return new Component(name, <any>undefined, { urn })
+            case "azure-nextgen:insights/v20150501:ComponentCurrentBillingFeature":
+                return new ComponentCurrentBillingFeature(name, <any>undefined, { urn })
             case "azure-nextgen:insights/v20150501:ExportConfiguration":
                 return new ExportConfiguration(name, <any>undefined, { urn })
             case "azure-nextgen:insights/v20150501:Favorite":

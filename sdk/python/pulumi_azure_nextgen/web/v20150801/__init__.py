@@ -18,6 +18,7 @@ from .get_site_host_name_binding import *
 from .get_site_host_name_binding_slot import *
 from .get_site_instance_deployment import *
 from .get_site_instance_deployment_slot import *
+from .get_site_logs_config import *
 from .get_site_relay_service_connection import *
 from .get_site_relay_service_connection_slot import *
 from .get_site_slot import *
@@ -51,6 +52,7 @@ from .site_host_name_binding import *
 from .site_host_name_binding_slot import *
 from .site_instance_deployment import *
 from .site_instance_deployment_slot import *
+from .site_logs_config import *
 from .site_relay_service_connection import *
 from .site_relay_service_connection_slot import *
 from .site_slot import *
@@ -100,6 +102,8 @@ def _register_module():
                 return SiteInstanceDeployment(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:web/v20150801:SiteInstanceDeploymentSlot":
                 return SiteInstanceDeploymentSlot(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:web/v20150801:SiteLogsConfig":
+                return SiteLogsConfig(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:web/v20150801:SiteRelayServiceConnection":
                 return SiteRelayServiceConnection(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:web/v20150801:SiteRelayServiceConnectionSlot":

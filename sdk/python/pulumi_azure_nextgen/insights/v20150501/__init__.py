@@ -6,10 +6,12 @@
 from ._enums import *
 from .analytics_item import *
 from .component import *
+from .component_current_billing_feature import *
 from .export_configuration import *
 from .favorite import *
 from .get_analytics_item import *
 from .get_component import *
+from .get_component_current_billing_feature import *
 from .get_export_configuration import *
 from .get_favorite import *
 from .get_my_workbook import *
@@ -37,6 +39,8 @@ def _register_module():
                 return AnalyticsItem(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:insights/v20150501:Component":
                 return Component(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:insights/v20150501:ComponentCurrentBillingFeature":
+                return ComponentCurrentBillingFeature(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:insights/v20150501:ExportConfiguration":
                 return ExportConfiguration(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:insights/v20150501:Favorite":

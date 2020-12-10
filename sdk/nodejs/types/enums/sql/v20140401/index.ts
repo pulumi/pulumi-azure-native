@@ -88,6 +88,16 @@ export const ElasticPoolEdition = {
  */
 export type ElasticPoolEdition = (typeof ElasticPoolEdition)[keyof typeof ElasticPoolEdition];
 
+export const GeoBackupPolicyState = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * The state of the geo backup policy.
+ */
+export type GeoBackupPolicyState = (typeof GeoBackupPolicyState)[keyof typeof GeoBackupPolicyState];
+
 export const ReadScale = {
     Enabled: "Enabled",
     Disabled: "Disabled",

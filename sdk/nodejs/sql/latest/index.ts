@@ -9,10 +9,12 @@ export * from "./database";
 export * from "./disasterRecoveryConfiguration";
 export * from "./elasticPool";
 export * from "./firewallRule";
+export * from "./geoBackupPolicy";
 export * from "./getDatabase";
 export * from "./getDisasterRecoveryConfiguration";
 export * from "./getElasticPool";
 export * from "./getFirewallRule";
+export * from "./getGeoBackupPolicy";
 export * from "./getServer";
 export * from "./getServerAzureADAdministrator";
 export * from "./getServerCommunicationLink";
@@ -30,6 +32,7 @@ import { Database } from "./database";
 import { DisasterRecoveryConfiguration } from "./disasterRecoveryConfiguration";
 import { ElasticPool } from "./elasticPool";
 import { FirewallRule } from "./firewallRule";
+import { GeoBackupPolicy } from "./geoBackupPolicy";
 import { Server } from "./server";
 import { ServerAzureADAdministrator } from "./serverAzureADAdministrator";
 import { ServerCommunicationLink } from "./serverCommunicationLink";
@@ -47,6 +50,8 @@ const _module = {
                 return new ElasticPool(name, <any>undefined, { urn })
             case "azure-nextgen:sql/latest:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/latest:GeoBackupPolicy":
+                return new GeoBackupPolicy(name, <any>undefined, { urn })
             case "azure-nextgen:sql/latest:Server":
                 return new Server(name, <any>undefined, { urn })
             case "azure-nextgen:sql/latest:ServerAzureADAdministrator":
