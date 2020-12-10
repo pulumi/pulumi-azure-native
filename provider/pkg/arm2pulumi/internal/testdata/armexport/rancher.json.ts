@@ -13,7 +13,9 @@ const availabilitySetResource = new azure_nextgen.compute.v20190701.Availability
     sku: {
         name: "Aligned",
     },
-    virtualMachines: [{}],
+    virtualMachines: [{
+        id: "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_pulumirancher_name'))]",
+    }],
 });
 const extensionsDockerExtensionCaParam = config.require("extensionsDockerExtensionCaParam");
 const extensionsDockerExtensionCertParam = config.require("extensionsDockerExtensionCertParam");
@@ -77,8 +79,12 @@ const networkInterfaceResource = new azure_nextgen.network.v20200501.NetworkInte
         privateIPAddress: "192.168.254.4",
         privateIPAddressVersion: "IPv4",
         privateIPAllocationMethod: "Dynamic",
-        publicIPAddress: {},
-        subnet: {},
+        publicIPAddress: {
+            id: "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_pulumirancher_pip1_name'))]",
+        },
+        subnet: {
+            id: "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_pulumirancher_vnet_name'), 'pulumirancher-subnet')]",
+        },
     }],
     location: "westus2",
     networkInterfaceName: networkInterfacesPulumirancherNicNameParam,
@@ -213,20 +219,26 @@ const virtualNetworksPulumirancherVnetNameParam = config.get("virtualNetworksPul
 const subnetResource = new azure_nextgen.network.v20200501.Subnet("subnetResource", {
     addressPrefix: "192.168.254.0/24",
     delegations: [],
-    networkSecurityGroup: {},
+    networkSecurityGroup: {
+        id: "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_pulumirancher_nsg_name'))]",
+    },
     privateEndpointNetworkPolicies: "Enabled",
     privateLinkServiceNetworkPolicies: "Enabled",
     resourceGroupName: resourceGroupNameParam,
     subnetName: `${virtualNetworksPulumirancherVnetNameParam}/pulumirancher-subnet`,
 });
 const virtualMachineResource = new azure_nextgen.compute.v20190701.VirtualMachine("virtualMachineResource", {
-    availabilitySet: {},
+    availabilitySet: {
+        id: "[resourceId('Microsoft.Compute/availabilitySets', parameters('availabilitySets_pulumirancher_avset_name'))]",
+    },
     hardwareProfile: {
         vmSize: "Standard_B2s",
     },
     location: "westus2",
     networkProfile: {
-        networkInterfaces: [{}],
+        networkInterfaces: [{
+            id: "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_pulumirancher_nic_name'))]",
+        }],
     },
     osProfile: {
         adminUsername: "pulumibot",
@@ -250,6 +262,7 @@ const virtualMachineResource = new azure_nextgen.compute.v20190701.VirtualMachin
             createOption: "FromImage",
             diskSizeGB: 30,
             managedDisk: {
+                id: "[resourceId('Microsoft.Compute/disks', concat(parameters('virtualMachines_pulumirancher_name'), '_Os_Disk_1'))]",
                 storageAccountType: "Standard_LRS",
             },
             name: `${virtualMachinesPulumirancherNameParam}_Os_Disk_1`,
@@ -270,7 +283,9 @@ const virtualNetworkResource = new azure_nextgen.network.v20200501.VirtualNetwor
         addressPrefix: "192.168.254.0/24",
         delegations: [],
         name: "pulumirancher-subnet",
-        networkSecurityGroup: {},
+        networkSecurityGroup: {
+            id: "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_pulumirancher_nsg_name'))]",
+        },
         privateEndpointNetworkPolicies: "Enabled",
         privateLinkServiceNetworkPolicies: "Enabled",
     }],

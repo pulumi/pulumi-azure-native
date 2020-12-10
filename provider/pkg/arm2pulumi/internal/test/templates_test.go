@@ -3,10 +3,10 @@ package test
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/magiconair/properties/assert"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/arm2pulumi"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/provider"
 	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
+	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"io/ioutil"
 	"os"
@@ -15,6 +15,10 @@ import (
 )
 
 var testdataPath = filepath.Join("../testdata", "*/", "*.json")
+
+var renderOptionsOverride = map[string][]arm2pulumi.RenderOption{
+	"../testdata/armexport/rancher.json": {arm2pulumi.DisableResourceLinking()},
+}
 
 func loadMetadata(t *testing.T) *provider.AzureAPIMetadata {
 	bytes, err := ioutil.ReadFile("../../../../cmd/pulumi-resource-azure-nextgen/metadata.json")
@@ -35,12 +39,20 @@ func loadSchema(t *testing.T) *schema.PackageSpec {
 func TestTemplateCoverage(t *testing.T) {
 	matches, err := filepath.Glob(testdataPath)
 	require.NoError(t, err)
-
 	renderer := arm2pulumi.NewRenderer(loadSchema(t), loadMetadata(t))
 	for _, match := range matches {
 		t.Run(match, func(t *testing.T) {
-			body, _, err := renderer.RenderFileIR(match)
-			require.NoError(t, err)
+			body, diags, err := renderer.RenderFileIR(match, renderOptionsOverride[match]...)
+			if err != nil {
+				t.Logf("%+v", err)
+			}
+			require.NoError(t, err, "%+v", err)
+			for k, v := range diags {
+				t.Logf("Diagnostics for %s", k)
+				for _, diag := range v {
+					t.Logf("[%s] '%s' @%s - %s", diag.Severity, diag.SourceToken, diag.SourceElement, diag.Description)
+				}
+			}
 			fmt.Printf("%s\n%s\n", match, body)
 			var langs []string
 			var expected []string
@@ -71,7 +83,7 @@ func TestTemplateCoverage(t *testing.T) {
 			rendered, _, err := renderer.RenderPrograms(body, langs)
 			require.NoError(t, err)
 			for i, lang := range langs {
-				assert.Equal(t, rendered[lang], expected[i], match)
+				assert.Equal(t, expected[i], rendered[lang], match)
 			}
 		})
 

@@ -24,13 +24,16 @@ type TemplateElement interface {
 	Name() string
 	Args() interface{}
 	SetArgs(interface{})
-	// FinishInitializing is called after all template evaluation phases are complete
-	// but before PCLExpression. Most relevant usecase is to inject
-	// implicit default variables and validate against metadata. Returns a general
-	// error if a fatal issue is hit. Returned error may be a Diagnostic in which
-	// case the error may be non-fatal but may result in the element being excluded
-	// in the IR format.
-	FinishInitializing(ctx *pclRenderContext, implicits implicitVariables) error
+	// IntrospectElement is called after all template evaluation phases are complete
+	// but before PCLExpression. This allows element to introspect the raw properties
+	// specified in the template, validate and load then in preparation for linking and
+	// code-generation (PCLExpression). Most relevant to resource elements where we inject
+	// implicit default variables and validate against metadata.
+	// Returns a general error if a fatal issue is hit. Returned error may be a
+	// Diagnostic in which case the error may be non-fatal but may result in the
+	// element being excluded in the IR format.
+	IntrospectElement(ctx *pclRenderContext, implicits implicitVariables) error
+	LinkElements(ctx *pclRenderContext, elements *TemplateElements) error
 	PCLExpression(ctx *pclRenderContext) ([]model.BodyItem, error)
 }
 
@@ -44,6 +47,7 @@ type pclRenderContext struct {
 	pkgSpec                *schema.PackageSpec
 	dep                    *dependencyTracking
 	resourceTokenConverter *resourceTokenConverter
+	resourceIdMap          map[string]resourceIdTargetEntry
 }
 
 func newParameter(name string, rawBody map[string]interface{}) *parameter {
@@ -58,7 +62,11 @@ type parameter struct {
 	rawBody   map[string]interface{}
 }
 
-func (p *parameter) FinishInitializing(ctx *pclRenderContext, implicits implicitVariables) error {
+func (p *parameter) LinkElements(ctx *pclRenderContext, elements *TemplateElements) error {
+	return nil
+}
+
+func (p *parameter) IntrospectElement(ctx *pclRenderContext, implicits implicitVariables) error {
 	return nil
 }
 
@@ -127,7 +135,11 @@ type variable struct {
 	rawBody interface{}
 }
 
-func (v *variable) FinishInitializing(ctx *pclRenderContext, implicits implicitVariables) error {
+func (v *variable) LinkElements(ctx *pclRenderContext, elements *TemplateElements) error {
+	return nil
+}
+
+func (v *variable) IntrospectElement(ctx *pclRenderContext, implicits implicitVariables) error {
 	return nil
 }
 
@@ -172,7 +184,11 @@ type output struct {
 	rawBody    map[string]interface{}
 }
 
-func (o *output) FinishInitializing(ctx *pclRenderContext, implicits implicitVariables) error {
+func (o *output) LinkElements(ctx *pclRenderContext, elements *TemplateElements) error {
+	return nil
+}
+
+func (o *output) IntrospectElement(ctx *pclRenderContext, implicits implicitVariables) error {
 	return nil
 }
 
@@ -233,11 +249,17 @@ func (o *output) PCLExpression(_ *pclRenderContext) ([]model.BodyItem, error) {
 	}}, nil
 }
 
-func NewTemplateElements() *TemplateElements {
+func NewTemplateElements(options ...RenderOption) *TemplateElements {
+	renderOpts := renderOptions{}
+	for _, o := range options {
+		o.apply(&renderOpts)
+	}
 	return &TemplateElements{
 		elements:       map[string]*dependencyTracking{},
 		canonicalNames: map[string]string{},
 		diagnostics:    map[string][]Diagnostic{},
+		resourceIdMap:  map[string]resourceIdTargetEntry{},
+		renderOptions:  renderOpts,
 	}
 }
 
@@ -247,6 +269,13 @@ type TemplateElements struct {
 	elements       map[string]*dependencyTracking
 	canonicalNames map[string]string
 	diagnostics    map[string][]Diagnostic
+	resourceIdMap  map[string]resourceIdTargetEntry
+	renderOptions  renderOptions
+}
+
+type resourceIdTargetEntry struct {
+	variableExpression model.Expression
+	targetElementName  string
 }
 
 func (t *TemplateElements) lookup(name string) *dependencyTracking {
@@ -268,21 +297,33 @@ func (t *TemplateElements) recordCanonicalizedName(name string) string {
 	return cName
 }
 
-// EvaluateExpressions evaluates template expressions. By default, it tries
-// to evaluate all templates if preliminaryPhase is true, it will skip resolving
-// evaluating templates with certain functions. This is required for instance,
-// with functions like reference. Since we may add additional elements due to
-// template evaluation and the order of evaluation is random, we wait to perform
-// referential evaluations till after all other evaluations are complete.
-func (t *TemplateElements) EvaluateExpressions(preliminaryPhase bool) error {
+// EvaluateExpressions evaluates template expressions.
+func (t *TemplateElements) EvaluateExpressions() error {
+	// Initially we will skip resolving templates with certain functions. This is required with functions
+	// like reference, resourceId etc. where we may add additional elements due to template evaluation
+	// and since the order of evaluation is random.
 	for name, el := range t.elements {
 		args := el.TemplateElement.Args()
 		var err error
-		if preliminaryPhase {
-			args, err = t.evalTemplateExpressions(el, args, "", "reference")
-		} else {
-			args, err = t.evalTemplateExpressions(el, args, "")
+		args, err = t.evalTemplateExpressions(el, args, "", "reference", "resourceId")
+		if err != nil {
+			return fmt.Errorf("failed to evaluate template expression for %s: %w", name, err)
 		}
+		el.SetArgs(args)
+	}
+
+	var funcs []string
+	if t.renderOptions.disableResourceLinking {
+		funcs = append(funcs, "resourceId")
+	}
+
+	// At this point each element should be loaded into memory with auxiliary entries as needed.
+	// All supported template functions are fair game here. However, if resource linking is disabled,
+	// resourceId template function is continued to be ignored.
+	for name, el := range t.elements {
+		args := el.TemplateElement.Args()
+		var err error
+		args, err = t.evalTemplateExpressions(el, args, "", funcs...)
 		if err != nil {
 			return fmt.Errorf("failed to evaluate template expression for %s: %w", name, err)
 		}
@@ -572,14 +613,39 @@ func (t *TemplateElements) GetDiagnostics() map[string][]Diagnostic {
 
 func (t *TemplateElements) Validate(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata) error {
 	resourceTokenConverter := newResourceTokenConverter(metadata)
-	for _, el := range t.elements {
+	for i := range t.elements {
+		el := t.elements[i]
 		ctx := pclRenderContext{
 			metadata:               metadata,
 			pkgSpec:                pkgSpec,
 			dep:                    el,
 			resourceTokenConverter: resourceTokenConverter,
+			resourceIdMap:          t.resourceIdMap,
 		}
-		if err := el.TemplateElement.FinishInitializing(&ctx, t); err != nil {
+		if err := el.TemplateElement.IntrospectElement(&ctx, t); err != nil {
+			diag := &Diagnostic{}
+			if errors.As(err, &diag) {
+				t.addDiagnostic(*diag)
+			}
+		}
+	}
+
+	if t.renderOptions.disableResourceLinking {
+		return nil
+	}
+
+	// Linking may rely on properties derived from introspection so we do another
+	// full pass for linking
+	for i := range t.elements {
+		el := t.elements[i]
+		ctx := pclRenderContext{
+			metadata:               metadata,
+			pkgSpec:                pkgSpec,
+			dep:                    el,
+			resourceTokenConverter: resourceTokenConverter,
+			resourceIdMap:          t.resourceIdMap,
+		}
+		if err := el.TemplateElement.LinkElements(&ctx, t); err != nil {
 			diag := &Diagnostic{}
 			if errors.As(err, &diag) {
 				t.addDiagnostic(*diag)
@@ -611,6 +677,7 @@ func (t *TemplateElements) RenderPCL(
 			pkgSpec:                pkgSpec,
 			dep:                    el,
 			resourceTokenConverter: resourceTokenConverter,
+			resourceIdMap:          t.resourceIdMap,
 		}
 		bodyItems, err := el.PCLExpression(&ctx)
 		if err != nil {

@@ -22,8 +22,11 @@ func newResource(name string, rawBody map[string]interface{}, resourceToken stri
 type resource struct {
 	resourceName   string
 	rawBody        map[string]interface{}
+	nameParam      string
 	resourceToken  string // initial guess at pulumi resource token
 	resourceParams map[string]interface{}
+	dependsOn      model.BodyItem
+	resource       *provider.AzureAPIResource
 	exclude        bool
 }
 
@@ -39,7 +42,7 @@ func (r *resource) SetArgs(body interface{}) {
 	r.rawBody = body.(map[string]interface{})
 }
 
-func (r *resource) FinishInitializing(ctx *pclRenderContext, implicits implicitVariables) error {
+func (r *resource) IntrospectElement(ctx *pclRenderContext, implicits implicitVariables) error {
 	diag := Diagnostic{
 		SourceElement: r.resourceName,
 		Severity:      SevHigh,
@@ -73,9 +76,6 @@ func (r *resource) FinishInitializing(ctx *pclRenderContext, implicits implicitV
 			}
 		case "properties":
 			r.resourceParams = map[string]interface{}{"properties": r.rawBody[k].(map[string]interface{})}
-		case "dependsOn":
-			// TODO
-			continue
 		case "location":
 			location = v
 		case "tags", "sku", "plan", "kind":
@@ -111,18 +111,25 @@ func (r *resource) FinishInitializing(ctx *pclRenderContext, implicits implicitV
 		return &diag
 	}
 
-	var err error
-
 	// TODO: simplify lookupResource
-	_, res, _ := lookupResource(ctx, token)
-	r.resourceParams, err = r.transformRequestBody(ctx, res, r.resourceParams, templateName)
+	_, r.resource, ok = lookupResource(ctx, token)
+	if !ok {
+		panic(token)
+	}
+	// Set the name
+	nameParam, err := extractResourceNameParameter(r.resource)
 	if err != nil {
 		return err
+	}
+	r.nameParam = nameParam.Name
+	r.resourceParams, err = r.transformRequestBody(ctx, r.resource, r.resourceParams, templateName)
+	if err != nil {
+		return fmt.Errorf("missing resource name attribute for resource: %s", r.resourceName)
 	}
 
 	supported := codegen.NewStringSet()
 	required := codegen.NewStringSet()
-	for _, param := range res.PutParameters {
+	for _, param := range r.resource.PutParameters {
 		// We fold body params in so we don't look for the body field directly
 		if param.IsRequired && param.Body == nil {
 			required.Add(param.Name)
@@ -139,7 +146,7 @@ func (r *resource) FinishInitializing(ctx *pclRenderContext, implicits implicitV
 		}
 	}
 
-	rgParam := extractResourceGroupNameParameter(res)
+	rgParam := extractResourceGroupNameParameter(r.resource)
 	if rgParam != nil {
 		if required.Has(rgParam.Name) {
 			if _, ok := r.resourceParams[rgParam.Name]; !ok {
@@ -177,8 +184,73 @@ func (r *resource) FinishInitializing(ctx *pclRenderContext, implicits implicitV
 		}
 	}
 
-	// TODO: Need to find the missing required link back to the parent resource
 	return nil
+}
+
+func (r *resource) LinkElements(ctx *pclRenderContext, elements *TemplateElements) error {
+	if r.exclude {
+		return nil
+	}
+	diag := Diagnostic{
+		SourceElement: r.resourceName,
+		Severity:      SevHigh,
+	}
+
+	if v, ok := r.rawBody["dependsOn"]; ok {
+		asSlice, ok := v.([]interface{})
+		if !ok {
+			r.exclude = true
+			diag.Description = "expect dependsOn to be a list"
+			return &diag
+		}
+
+		for _, dependency := range asSlice {
+			switch dependency.(type) {
+			case string:
+				resourceId := dependency.(string)
+				if targetInfo, ok := ctx.resourceIdMap[resourceId]; ok {
+					target := elements.lookup(targetInfo.targetElementName)
+					if res, ok := target.TemplateElement.(*resource); ok {
+						for _, v := range r.resource.PutParameters {
+							_, inResourceParams := r.resourceParams[v.Name]
+							if v.Name == res.nameParam && v.IsRequired && !inResourceParams {
+								r.resourceParams[v.Name] = pcl.RelativeTraversal(targetInfo.variableExpression, "name")
+								ctx.dep.RefersTo(target)
+								break
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	substituteResourceIds(ctx, r.resourceParams, elements)
+	return nil
+}
+
+func substituteResourceIds(ctx *pclRenderContext, params interface{}, elements *TemplateElements) interface{} {
+	switch val := params.(type) {
+	case string:
+		if targetInfo, ok := ctx.resourceIdMap[val]; ok {
+			params = pcl.RelativeTraversal(targetInfo.variableExpression, "id")
+			ctx.dep.RefersTo(elements.lookup(targetInfo.targetElementName))
+			return params
+		}
+	case []map[string]interface{}:
+		for i := range val {
+			substituteResourceIds(ctx, val[i], elements)
+		}
+	case []interface{}:
+		for i := range val {
+			val[i] = substituteResourceIds(ctx, val[i], elements)
+		}
+	case map[string]interface{}:
+		for k := range val {
+			val[k] = substituteResourceIds(ctx, val[k], elements)
+		}
+	}
+	return params
 }
 
 func (r *resource) PCLExpression(ctx *pclRenderContext) ([]model.BodyItem, error) {
@@ -195,8 +267,6 @@ func (r *resource) PCLExpression(ctx *pclRenderContext) ([]model.BodyItem, error
 	}
 
 	var items []model.BodyItem
-	var dependsOn []model.BodyItem
-
 	keys := codegen.SortedKeys(r.resourceParams)
 	for _, k := range keys {
 		v := r.resourceParams[k]
@@ -210,8 +280,9 @@ func (r *resource) PCLExpression(ctx *pclRenderContext) ([]model.BodyItem, error
 		})
 	}
 
-	items = append(items, dependsOn...)
-
+	if r.dependsOn != nil {
+		items = append(items, r.dependsOn)
+	}
 	comment := extractDescription(r.rawBody)
 	block := model.Block{
 		Tokens: getLeadingTriviaTokens(comment),
@@ -258,12 +329,7 @@ func (r *resource) transformRequestBody(ctx *pclRenderContext,
 		}
 	}
 
-	// Set the name
-	nameParamFromMetadata, err := extractResourceNameParameter(res)
-	if err != nil {
-		return nil, fmt.Errorf("missing resource name attribute for resource: %s", r.resourceName)
-	}
-	resourceParams[nameParamFromMetadata.Name] = templateResourceName
+	resourceParams[r.nameParam] = templateResourceName
 
 	flattened, err := gen.FlattenParams(resourceParams, metadataResParams, ctx.metadata.Types)
 	if err != nil {
