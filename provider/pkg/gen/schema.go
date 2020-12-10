@@ -391,6 +391,10 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 
 	gen.escapeCSharpNames(typeName, resourceResponse)
 
+	// Id is a property of the base Custom Resource, we don't want to introduce it on derived resources.
+	delete(resourceResponse.specs, "id")
+	resourceResponse.requiredSpecs.Delete("id")
+
 	// Add an alias for each API version that has the same path in it.
 	var aliases []pschema.AliasSpec
 	for _, version := range resource.CompatibleVersions {
@@ -752,10 +756,6 @@ func (m *moduleGenerator) genResponse(statusCodeResponses map[int]spec.Response,
 		if len(result.specs) == 0 {
 			continue
 		}
-
-		// Id is a property of the base Custom Resource, we don't want to introduce it on derived resources.
-		delete(result.specs, "id")
-		result.requiredSpecs.Delete("id")
 
 		// Special case the 'properties' output property as required.
 		// This should be gone when we apply flattening.
