@@ -7,16 +7,16 @@ import (
 	"compress/gzip"
 	"encoding/json"
 	"fmt"
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/debug"
 	"os"
 	"path"
 	"strings"
 
 	"github.com/pkg/errors"
 
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/debug"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/openapi"
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/provider"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/resources"
 	dotnetgen "github.com/pulumi/pulumi/pkg/v2/codegen/dotnet"
 	gogen "github.com/pulumi/pulumi/pkg/v2/codegen/go"
 	nodejsgen "github.com/pulumi/pulumi/pkg/v2/codegen/nodejs"
@@ -70,8 +70,8 @@ func main() {
 			outdir := path.Join(".", "provider", "cmd", "pulumi-resource-azure-nextgen")
 			docsProviders := openapi.SingleVersion(azureProviders)
 			var docsPkgSpec *schema.PackageSpec
-			var resExamples map[string][]provider.AzureAPIExample
-			var docsMeta *provider.AzureAPIMetadata
+			var resExamples map[string][]resources.AzureAPIExample
+			var docsMeta *resources.AzureAPIMetadata
 			docsPkgSpec, docsMeta, resExamples, err = gen.PulumiSchema(docsProviders)
 			if err != nil {
 				break
@@ -145,7 +145,7 @@ func emitDocsSchema(pkgSpec *schema.PackageSpec, outDir string) error {
 	return emitFile(outDir, "schema.json", schemaJSON)
 }
 
-func emitMetadata(metadata *provider.AzureAPIMetadata, outDir string, goPackageName string, emitJSON bool) error {
+func emitMetadata(metadata *resources.AzureAPIMetadata, outDir string, goPackageName string, emitJSON bool) error {
 	compressedMeta := bytes.Buffer{}
 	compressedWriter := gzip.NewWriter(&compressedMeta)
 	err := json.NewEncoder(compressedWriter).Encode(metadata)

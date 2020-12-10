@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/pcl"
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/provider"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v2/codegen"
 	"github.com/pulumi/pulumi/pkg/v2/codegen/hcl2/model"
 	"strings"
@@ -26,7 +26,7 @@ type resource struct {
 	resourceToken  string // initial guess at pulumi resource token
 	resourceParams map[string]interface{}
 	dependsOn      model.BodyItem
-	resource       *provider.AzureAPIResource
+	resource       *resources.AzureAPIResource
 	exclude        bool
 }
 
@@ -294,11 +294,11 @@ func (r *resource) PCLExpression(ctx *pclRenderContext) ([]model.BodyItem, error
 }
 
 func (r *resource) transformRequestBody(ctx *pclRenderContext,
-	res *provider.AzureAPIResource,
+	res *resources.AzureAPIResource,
 	resourceParams map[string]interface{},
 	templateResourceName interface{},
 ) (map[string]interface{}, error) {
-	metadataResParams := map[string]provider.AzureAPIParameter{}
+	metadataResParams := map[string]resources.AzureAPIParameter{}
 	for _, param := range res.PutParameters {
 		metadataResParams[param.Name] = param
 	}
@@ -344,7 +344,7 @@ func (r *resource) transformRequestBody(ctx *pclRenderContext,
 // lookup for aliases in the package spec if the metadata misses.
 // Also, since the templates seem to be case insensitive, we allow
 // a slow case insensitive lookup.
-func lookupResource(ctx *pclRenderContext, resourceToken string) (string, *provider.AzureAPIResource, bool) {
+func lookupResource(ctx *pclRenderContext, resourceToken string) (string, *resources.AzureAPIResource, bool) {
 	var actualResourceToken string
 
 	res, ok := ctx.metadata.Resources[resourceToken]

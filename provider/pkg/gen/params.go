@@ -3,7 +3,7 @@ package gen
 import (
 	"fmt"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/debug"
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/provider"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/resources"
 )
 
 // FlattenParams takes the parameters specified in Azure API specs/ARM templates and
@@ -13,11 +13,11 @@ import (
 // The latter two can be derived from the metadata generated during schema generation.
 func FlattenParams(
 	input map[string]interface{},
-	resourceParams map[string]provider.AzureAPIParameter,
-	types map[string]provider.AzureAPIType,
+	resourceParams map[string]resources.AzureAPIParameter,
+	types map[string]resources.AzureAPIType,
 ) (map[string]interface{}, error) {
 	out := map[string]interface{}{}
-	converter := provider.SdkShapeConverter{Types: types}
+	converter := resources.SdkShapeConverter{Types: types}
 	for k, v := range input {
 		switch k {
 		case "If-Match": // TODO: Not handled in schema

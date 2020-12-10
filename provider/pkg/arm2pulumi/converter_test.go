@@ -1,14 +1,14 @@
 package arm2pulumi
 
 import (
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/provider"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/resources"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
 func TestConvert(t *testing.T) {
-	metadata := provider.AzureAPIMetadata{
-		Resources: map[string]provider.AzureAPIResource{
+	metadata := resources.AzureAPIMetadata{
+		Resources: map[string]resources.AzureAPIResource{
 			"azure-nextgen:machinelearningservices/v20200501preview:MachineLearningDatastore": {
 				Path:       "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/datastores/{datastoreName}",
 				APIVersion: "2020-05-01-preview",

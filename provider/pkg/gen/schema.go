@@ -29,7 +29,7 @@ import (
 	"github.com/pkg/errors"
 
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/openapi"
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/provider"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v2/codegen"
 	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
 	pschema "github.com/pulumi/pulumi/pkg/v2/codegen/schema"
@@ -40,7 +40,7 @@ import (
 const goBasePath = "github.com/pulumi/pulumi-azure-nextgen/sdk/go/azure"
 
 // PulumiSchema will generate a Pulumi schema for the given Azure providers and resources map.
-func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *provider.AzureAPIMetadata, map[string][]provider.AzureAPIExample, error) {
+func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *resources.AzureAPIMetadata, map[string][]resources.AzureAPIExample, error) {
 	pkg := pschema.PackageSpec{
 		Name:        "azure-nextgen",
 		Description: "A Next Generation Pulumi package for creating and managing Azure resources.",
@@ -223,10 +223,10 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *pr
 		Functions: map[string]pschema.FunctionSpec{},
 		Language:  map[string]json.RawMessage{},
 	}
-	metadata := provider.AzureAPIMetadata{
-		Types:     map[string]provider.AzureAPIType{},
-		Resources: map[string]provider.AzureAPIResource{},
-		Invokes:   map[string]provider.AzureAPIInvoke{},
+	metadata := resources.AzureAPIMetadata{
+		Types:     map[string]resources.AzureAPIType{},
+		Resources: map[string]resources.AzureAPIResource{},
+		Invokes:   map[string]resources.AzureAPIInvoke{},
 	}
 
 	csharpVersionReplacer := strings.NewReplacer("privatepreview", "PrivatePreview", "preview", "Preview", "beta", "Beta")
@@ -242,7 +242,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *pr
 	}
 	sort.Strings(providers)
 
-	exampleMap := make(map[string][]provider.AzureAPIExample)
+	exampleMap := make(map[string][]resources.AzureAPIExample)
 	for _, providerName := range providers {
 		versionMap := providerMap[providerName]
 		var versions []string
@@ -349,8 +349,8 @@ const (
 
 type packageGenerator struct {
 	pkg        *pschema.PackageSpec
-	metadata   *provider.AzureAPIMetadata
-	examples   map[string][]provider.AzureAPIExample
+	metadata   *resources.AzureAPIMetadata
+	examples   map[string][]resources.AzureAPIExample
 	apiVersion string
 }
 
@@ -446,7 +446,7 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 	}
 	g.pkg.Functions[functionTok] = functionSpec
 
-	r := provider.AzureAPIResource{
+	r := resources.AzureAPIResource{
 		APIVersion:       swagger.Info.Version,
 		Path:             resource.Path,
 		GetParameters:    requestFunction.parameters,
@@ -459,7 +459,7 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 	}
 	g.metadata.Resources[resourceTok] = r
 
-	f := provider.AzureAPIInvoke{
+	f := resources.AzureAPIInvoke{
 		APIVersion:    swagger.Info.Version,
 		Path:          resource.Path,
 		GetParameters: requestFunction.parameters,
@@ -478,7 +478,7 @@ func (g *packageGenerator) generateExampleReferences(resourceTok string, path *s
 
 	examples := raw.(map[string]interface{})
 
-	result := make([]provider.AzureAPIExample, 0, len(examples))
+	result := make([]resources.AzureAPIExample, 0, len(examples))
 	for k, v := range examples {
 		resolved := v.(map[string]interface{})
 		if _, ok := resolved["$ref"]; !ok {
@@ -507,7 +507,7 @@ func (g *packageGenerator) generateExampleReferences(resourceTok string, path *s
 		if _, err := os.Stat(url); err != nil {
 			return err
 		}
-		result = append(result, provider.AzureAPIExample{
+		result = append(result, resources.AzureAPIExample{
 			Description: k,
 			Location:    url,
 		})
@@ -572,7 +572,7 @@ func (g *packageGenerator) genPostFunctions(prov, typeName, path string, pathIte
 	}
 	g.pkg.Functions[functionTok] = functionSpec
 
-	f := provider.AzureAPIInvoke{
+	f := resources.AzureAPIInvoke{
 		APIVersion:     swagger.Info.Version,
 		Path:           path,
 		PostParameters: request.parameters,
@@ -607,7 +607,7 @@ func (g *packageGenerator) getAsyncStyle(op *spec.Operation) string {
 
 type moduleGenerator struct {
 	pkg           *pschema.PackageSpec
-	metadata      *provider.AzureAPIMetadata
+	metadata      *resources.AzureAPIMetadata
 	module        string
 	prov          string
 	resourceName  string
@@ -638,11 +638,11 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 			return nil, err
 		}
 
-		apiParameter := provider.AzureAPIParameter{
+		apiParameter := resources.AzureAPIParameter{
 			Name:       param.Name,
 			Location:   param.In,
 			IsRequired: param.Required,
-			Value: &provider.AzureAPIProperty{
+			Value: &resources.AzureAPIProperty{
 				Type:      param.Type,
 				MinLength: param.MinLength,
 				MaxLength: param.MaxLength,
@@ -673,7 +673,7 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 			}
 
 			result.merge(props)
-			apiParameter.Body = &provider.AzureAPIType{
+			apiParameter.Body = &resources.AzureAPIType{
 				Properties:         props.properties,
 				RequiredProperties: props.requiredProperties.SortedValues(),
 			}
@@ -812,7 +812,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			}
 
 			// Adjust every property to mark them as flattened.
-			newProperties := map[string]provider.AzureAPIProperty{}
+			newProperties := map[string]resources.AzureAPIProperty{}
 			for n, value := range bag.properties {
 				// The order of containers is important, so we prepend the outermost name.
 				value.Containers = append([]string{name}, value.Containers...)
@@ -839,24 +839,24 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			continue
 		}
 
-		var apiProperty provider.AzureAPIProperty
+		var apiProperty resources.AzureAPIProperty
 		if isOutput {
 			if resolvedProperty.ReadOnly {
 				result.requiredSpecs.Add(sdkName)
 			}
-			apiProperty = provider.AzureAPIProperty{
+			apiProperty = resources.AzureAPIProperty{
 				OneOf: m.getOneOfValues(propertySpec),
 				Ref:   propertySpec.Ref,
 				Items: m.itemTypeToProperty(propertySpec.Items),
 			}
 		} else {
 			if m.isEnum(&propertySpec.TypeSpec) {
-				apiProperty = provider.AzureAPIProperty{
+				apiProperty = resources.AzureAPIProperty{
 					Type: "string",
 					Enum: m.getEnumValues(resolvedProperty.Schema),
 				}
 			} else {
-				apiProperty = provider.AzureAPIProperty{
+				apiProperty = resources.AzureAPIProperty{
 					Type:      propertySpec.Type,
 					OneOf:     m.getOneOfValues(propertySpec),
 					Ref:       propertySpec.Ref,
@@ -994,13 +994,13 @@ func (m *moduleGenerator) getOneOfValues(property *pschema.PropertySpec) (values
 // itemTypeToProperty converts a type of an element in an array to a corresponding API property
 // definition of that element type. It only converts the relevant subset of properties, and does
 // so recursively.
-func (m *moduleGenerator) itemTypeToProperty(typ *schema.TypeSpec) *provider.AzureAPIProperty {
+func (m *moduleGenerator) itemTypeToProperty(typ *schema.TypeSpec) *resources.AzureAPIProperty {
 	if typ == nil {
 		return nil
 	}
 
 	if m.isEnum(typ) {
-		return &provider.AzureAPIProperty{Type: "string"}
+		return &resources.AzureAPIProperty{Type: "string"}
 	}
 
 	var oneOf []string
@@ -1012,7 +1012,7 @@ func (m *moduleGenerator) itemTypeToProperty(typ *schema.TypeSpec) *provider.Azu
 		}
 	}
 
-	return &provider.AzureAPIProperty{
+	return &resources.AzureAPIProperty{
 		Type:  typ.Type,
 		Ref:   typ.Ref,
 		OneOf: oneOf,
@@ -1140,7 +1140,7 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 				},
 			}
 
-			m.metadata.Types[tok] = provider.AzureAPIType{
+			m.metadata.Types[tok] = resources.AzureAPIType{
 				Properties:         props.properties,
 				RequiredProperties: props.requiredProperties.SortedValues(),
 			}
@@ -1330,7 +1330,7 @@ func (m *moduleGenerator) typeName(ctx *openapi.ReferenceContext, isOutput bool)
 type parameterBag struct {
 	description   string
 	specs         map[string]pschema.PropertySpec
-	parameters    []provider.AzureAPIParameter
+	parameters    []resources.AzureAPIParameter
 	requiredSpecs codegen.StringSet
 }
 
@@ -1354,7 +1354,7 @@ func (bag *parameterBag) merge(other *propertyBag) {
 type propertyBag struct {
 	description        string
 	specs              map[string]pschema.PropertySpec
-	properties         map[string]provider.AzureAPIProperty
+	properties         map[string]resources.AzureAPIProperty
 	requiredSpecs      codegen.StringSet
 	requiredProperties codegen.StringSet
 }
@@ -1362,7 +1362,7 @@ type propertyBag struct {
 func newPropertyBag() *propertyBag {
 	return &propertyBag{
 		specs:              map[string]pschema.PropertySpec{},
-		properties:         map[string]provider.AzureAPIProperty{},
+		properties:         map[string]resources.AzureAPIProperty{},
 		requiredSpecs:      codegen.NewStringSet(),
 		requiredProperties: codegen.NewStringSet(),
 	}

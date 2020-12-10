@@ -5,7 +5,7 @@ package openapi
 import (
 	"fmt"
 	"github.com/go-openapi/spec"
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/provider"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v2/codegen"
 	"os"
 	"path/filepath"
@@ -173,7 +173,7 @@ func swaggerLocations() ([]string, error) {
 // addAPIPath considers whether an API path contains resources and/or invokes and adds corresponding entries to the
 // provider map. `providers` are mutated in-place.
 func addAPIPath(providers AzureProviders, path string, swagger *Spec) {
-	prov := provider.ResourceProvider(path)
+	prov := resources.ResourceProvider(path)
 	if prov == "" {
 		return
 	}
@@ -198,7 +198,7 @@ func addAPIPath(providers AzureProviders, path string, swagger *Spec) {
 
 	pathItem := swagger.Paths.Paths[path]
 
-	if ok := provider.HasCustomDelete(path); ok {
+	if ok := resources.HasCustomDelete(path); ok {
 		pathItem.Delete = &spec.Operation{
 			OperationProps: spec.OperationProps{
 				Description: "Custom implementation of this operation is available",
@@ -217,7 +217,7 @@ func addAPIPath(providers AzureProviders, path string, swagger *Spec) {
 			panic(fmt.Sprintf("invalid defaultResourcesState '%s': non-empty collections aren't supported for deletable resources", path))
 		}
 
-		typeName := provider.ResourceName(pathItem.Get.ID)
+		typeName := resources.ResourceName(pathItem.Get.ID)
 		if typeName != "" && (hasDelete || hasDefault) {
 			version.Resources[typeName] = &ResourceSpec{
 				Path:        path,
@@ -242,7 +242,7 @@ func addAPIPath(providers AzureProviders, path string, swagger *Spec) {
 			return
 		}
 
-		typeName := provider.ResourceName(pathItem.Post.ID)
+		typeName := resources.ResourceName(pathItem.Post.ID)
 		if typeName != "" {
 			version.Invokes[prefix+typeName] = &ResourceSpec{
 				Path:     path,

@@ -3,6 +3,7 @@
 package provider
 
 import (
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/resources"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
 	rpc "github.com/pulumi/pulumi/sdk/v2/proto/go"
 	"github.com/stretchr/testify/assert"
@@ -10,13 +11,13 @@ import (
 )
 
 func TestCalculateDiffBodyProperties(t *testing.T) {
-	res := AzureAPIResource{
-		PutParameters: []AzureAPIParameter{
+	res := resources.AzureAPIResource{
+		PutParameters: []resources.AzureAPIParameter{
 			{
 				Location: "body",
 				Name:     "bodyProperties",
-				Body: &AzureAPIType{
-					Properties: map[string]AzureAPIProperty{
+				Body: &resources.AzureAPIType{
+					Properties: map[string]resources.AzureAPIProperty{
 						"p1": {Type: "string"},
 						"p2": {Type: "number"},
 						"p3": {Type: "boolean"},
@@ -81,8 +82,8 @@ func TestCalculateDiffBodyProperties(t *testing.T) {
 }
 
 func TestCalculateDiffReplacesPathParameters(t *testing.T) {
-	res := AzureAPIResource{
-		PutParameters: []AzureAPIParameter{
+	res := resources.AzureAPIResource{
+		PutParameters: []resources.AzureAPIParameter{
 			{
 				Location: "path",
 				Name:     "p1",
@@ -90,7 +91,7 @@ func TestCalculateDiffReplacesPathParameters(t *testing.T) {
 			{
 				Location: "path",
 				Name:     "p2",
-				Value: &AzureAPIProperty{
+				Value: &resources.AzureAPIProperty{
 					SdkName: "Prop2",
 				},
 			},
@@ -136,13 +137,13 @@ func TestCalculateDiffReplacesPathParameters(t *testing.T) {
 }
 
 func TestCalculateDiffReplacesBodyProperties(t *testing.T) {
-	res := AzureAPIResource{
-		PutParameters: []AzureAPIParameter{
+	res := resources.AzureAPIResource{
+		PutParameters: []resources.AzureAPIParameter{
 			{
 				Location: "body",
 				Name:     "bodyProperties",
-				Body: &AzureAPIType{
-					Properties: map[string]AzureAPIProperty{
+				Body: &resources.AzureAPIType{
+					Properties: map[string]resources.AzureAPIProperty{
 						"p1": {Type: "string"},
 						"p2": {Type: "number", ForceNew: true},
 						"p3": {Ref: "#/types/azure-nextgen:foobar/v20200101:FooType"},

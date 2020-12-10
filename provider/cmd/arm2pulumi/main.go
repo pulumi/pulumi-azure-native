@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/arm2pulumi"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/provider"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/version"
 	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
 	"io"
@@ -89,7 +90,7 @@ func main() {
 
 // loadMetadata loads the serialized/compressed metadata generated during
 // schema generation from metadata.go
-func loadMetadata() (*provider.AzureAPIMetadata, error) {
+func loadMetadata() (*resources.AzureAPIMetadata, error) {
 	metadata, err := provider.LoadMetadata(azureApiResources)
 	if err != nil {
 		return nil, fmt.Errorf("loading metadata: %w", err)

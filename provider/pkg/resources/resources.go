@@ -1,6 +1,6 @@
 // Copyright 2016-2020, Pulumi Corporation.
 
-package provider
+package resources
 
 import (
 	"strings"

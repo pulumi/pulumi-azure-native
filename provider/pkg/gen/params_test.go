@@ -7,12 +7,12 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/provider"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/resources"
 	"github.com/stretchr/testify/require"
 )
 
 func TestFlattenParams(t *testing.T) {
-	var metadata provider.AzureAPIMetadata
+	var metadata resources.AzureAPIMetadata
 	// TODO - Requires `make generate_schema` to be run first
 	// turn this into a proper unit test instead
 	f, err := os.Open("../../cmd/pulumi-resource-azure-nextgen/metadata.json")
@@ -816,7 +816,7 @@ func TestFlattenParams(t *testing.T) {
 				test.input = test.inputFunc(t)
 			}
 			in := test.input["parameters"].(map[string]interface{})
-			params := map[string]provider.AzureAPIParameter{}
+			params := map[string]resources.AzureAPIParameter{}
 			for _, param := range metadata.Resources[test.resourceName].PutParameters {
 				params[param.Name] = param
 			}
