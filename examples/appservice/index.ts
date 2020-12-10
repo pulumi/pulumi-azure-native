@@ -69,7 +69,7 @@ const appInsights = new insights.Component("ai", {
 
 new insights.ComponentCurrentBillingFeature("ccbf", {
     resourceGroupName: resourceGroup.name,
-    resourceName: randomString.result,
+    resourceName: appInsights.name,
     currentBillingFeatures: ["Basic"],
     dataVolumeCap: {
         cap: 2,
