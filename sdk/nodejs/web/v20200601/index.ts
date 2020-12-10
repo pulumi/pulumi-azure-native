@@ -16,6 +16,7 @@ export * from "./getStaticSite";
 export * from "./getWebApp";
 export * from "./getWebAppDeployment";
 export * from "./getWebAppDeploymentSlot";
+export * from "./getWebAppDiagnosticLogsConfiguration";
 export * from "./getWebAppDomainOwnershipIdentifier";
 export * from "./getWebAppDomainOwnershipIdentifierSlot";
 export * from "./getWebAppFunction";
@@ -79,6 +80,7 @@ export * from "./staticSite";
 export * from "./webApp";
 export * from "./webAppDeployment";
 export * from "./webAppDeploymentSlot";
+export * from "./webAppDiagnosticLogsConfiguration";
 export * from "./webAppDomainOwnershipIdentifier";
 export * from "./webAppDomainOwnershipIdentifierSlot";
 export * from "./webAppFunction";
@@ -117,6 +119,7 @@ import { StaticSite } from "./staticSite";
 import { WebApp } from "./webApp";
 import { WebAppDeployment } from "./webAppDeployment";
 import { WebAppDeploymentSlot } from "./webAppDeploymentSlot";
+import { WebAppDiagnosticLogsConfiguration } from "./webAppDiagnosticLogsConfiguration";
 import { WebAppDomainOwnershipIdentifier } from "./webAppDomainOwnershipIdentifier";
 import { WebAppDomainOwnershipIdentifierSlot } from "./webAppDomainOwnershipIdentifierSlot";
 import { WebAppFunction } from "./webAppFunction";
@@ -163,6 +166,8 @@ const _module = {
                 return new WebAppDeployment(name, <any>undefined, { urn })
             case "azure-nextgen:web/v20200601:WebAppDeploymentSlot":
                 return new WebAppDeploymentSlot(name, <any>undefined, { urn })
+            case "azure-nextgen:web/v20200601:WebAppDiagnosticLogsConfiguration":
+                return new WebAppDiagnosticLogsConfiguration(name, <any>undefined, { urn })
             case "azure-nextgen:web/v20200601:WebAppDomainOwnershipIdentifier":
                 return new WebAppDomainOwnershipIdentifier(name, <any>undefined, { urn })
             case "azure-nextgen:web/v20200601:WebAppDomainOwnershipIdentifierSlot":

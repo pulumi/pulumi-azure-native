@@ -125,6 +125,19 @@ export const IpFilterTag = {
  */
 export type IpFilterTag = (typeof IpFilterTag)[keyof typeof IpFilterTag];
 
+export const LogLevel = {
+    Off: "Off",
+    Verbose: "Verbose",
+    Information: "Information",
+    Warning: "Warning",
+    Error: "Error",
+} as const;
+
+/**
+ * Log level.
+ */
+export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
+
 export const ManagedPipelineMode = {
     Integrated: "Integrated",
     Classic: "Classic",

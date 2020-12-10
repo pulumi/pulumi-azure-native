@@ -11,6 +11,7 @@ export * from "./alertRule";
 export * from "./analyticsItem";
 export * from "./autoscaleSetting";
 export * from "./component";
+export * from "./componentCurrentBillingFeature";
 export * from "./exportConfiguration";
 export * from "./favorite";
 export * from "./getActionGroup";
@@ -19,6 +20,7 @@ export * from "./getAlertRule";
 export * from "./getAnalyticsItem";
 export * from "./getAutoscaleSetting";
 export * from "./getComponent";
+export * from "./getComponentCurrentBillingFeature";
 export * from "./getExportConfiguration";
 export * from "./getFavorite";
 export * from "./getLogProfile";
@@ -45,6 +47,7 @@ import { AlertRule } from "./alertRule";
 import { AnalyticsItem } from "./analyticsItem";
 import { AutoscaleSetting } from "./autoscaleSetting";
 import { Component } from "./component";
+import { ComponentCurrentBillingFeature } from "./componentCurrentBillingFeature";
 import { ExportConfiguration } from "./exportConfiguration";
 import { Favorite } from "./favorite";
 import { LogProfile } from "./logProfile";
@@ -70,6 +73,8 @@ const _module = {
                 return new AutoscaleSetting(name, <any>undefined, { urn })
             case "azure-nextgen:insights/latest:Component":
                 return new Component(name, <any>undefined, { urn })
+            case "azure-nextgen:insights/latest:ComponentCurrentBillingFeature":
+                return new ComponentCurrentBillingFeature(name, <any>undefined, { urn })
             case "azure-nextgen:insights/latest:ExportConfiguration":
                 return new ExportConfiguration(name, <any>undefined, { urn })
             case "azure-nextgen:insights/latest:Favorite":
