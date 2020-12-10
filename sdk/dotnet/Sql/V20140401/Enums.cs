@@ -178,6 +178,37 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
     }
 
     /// <summary>
+    /// The state of the geo backup policy.
+    /// </summary>
+    [EnumType]
+    public readonly struct GeoBackupPolicyState : IEquatable<GeoBackupPolicyState>
+    {
+        private readonly string _value;
+
+        private GeoBackupPolicyState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GeoBackupPolicyState Disabled { get; } = new GeoBackupPolicyState("Disabled");
+        public static GeoBackupPolicyState Enabled { get; } = new GeoBackupPolicyState("Enabled");
+
+        public static bool operator ==(GeoBackupPolicyState left, GeoBackupPolicyState right) => left.Equals(right);
+        public static bool operator !=(GeoBackupPolicyState left, GeoBackupPolicyState right) => !left.Equals(right);
+
+        public static explicit operator string(GeoBackupPolicyState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GeoBackupPolicyState other && Equals(other);
+        public bool Equals(GeoBackupPolicyState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
     /// </summary>
     [EnumType]
