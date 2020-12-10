@@ -25,11 +25,11 @@ namespace Pulumi.AzureNextGen.Datadog.V20200201Preview.Outputs
         /// <summary>
         /// Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state.
         /// </summary>
-        public readonly string? MarketplaceSubscriptionStatus;
+        public readonly string MarketplaceSubscriptionStatus;
         /// <summary>
         /// Flag specifying if the resource monitoring is enabled or disabled.
         /// </summary>
-        public readonly string? MonitoringStatus;
+        public readonly string MonitoringStatus;
         public readonly string? ProvisioningState;
         /// <summary>
         /// User info
@@ -44,9 +44,9 @@ namespace Pulumi.AzureNextGen.Datadog.V20200201Preview.Outputs
 
             int liftrResourcePreference,
 
-            string? marketplaceSubscriptionStatus,
+            string marketplaceSubscriptionStatus,
 
-            string? monitoringStatus,
+            string monitoringStatus,
 
             string? provisioningState,
 
