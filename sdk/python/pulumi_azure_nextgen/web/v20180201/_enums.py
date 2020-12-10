@@ -19,6 +19,7 @@ __all__ = [
     'HostType',
     'InternalLoadBalancingMode',
     'IpFilterTag',
+    'LogLevel',
     'ManagedPipelineMode',
     'ManagedServiceIdentityType',
     'PublicCertificateLocation',
@@ -156,6 +157,17 @@ class IpFilterTag(str, Enum):
     """
     DEFAULT = "Default"
     XFF_PROXY = "XffProxy"
+
+
+class LogLevel(str, Enum):
+    """
+    Log level.
+    """
+    OFF = "Off"
+    VERBOSE = "Verbose"
+    INFORMATION = "Information"
+    WARNING = "Warning"
+    ERROR = "Error"
 
 
 class ManagedPipelineMode(str, Enum):

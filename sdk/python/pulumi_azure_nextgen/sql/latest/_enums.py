@@ -9,6 +9,7 @@ __all__ = [
     'CreateMode',
     'DatabaseEdition',
     'ElasticPoolEdition',
+    'GeoBackupPolicyState',
     'ReadScale',
     'SampleName',
     'ServerVersion',
@@ -93,6 +94,14 @@ class ElasticPoolEdition(str, Enum):
     PREMIUM = "Premium"
     GENERAL_PURPOSE = "GeneralPurpose"
     BUSINESS_CRITICAL = "BusinessCritical"
+
+
+class GeoBackupPolicyState(str, Enum):
+    """
+    The state of the geo backup policy.
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
 
 
 class ReadScale(str, Enum):

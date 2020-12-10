@@ -8,10 +8,12 @@ from .database import *
 from .disaster_recovery_configuration import *
 from .elastic_pool import *
 from .firewall_rule import *
+from .geo_backup_policy import *
 from .get_database import *
 from .get_disaster_recovery_configuration import *
 from .get_elastic_pool import *
 from .get_firewall_rule import *
+from .get_geo_backup_policy import *
 from .get_server import *
 from .get_server_azure_ad_administrator import *
 from .get_server_communication_link import *
@@ -42,6 +44,8 @@ def _register_module():
                 return ElasticPool(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:sql/v20140401:FirewallRule":
                 return FirewallRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azure-nextgen:sql/v20140401:GeoBackupPolicy":
+                return GeoBackupPolicy(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:sql/v20140401:Server":
                 return Server(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azure-nextgen:sql/v20140401:ServerAzureADAdministrator":

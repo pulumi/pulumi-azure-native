@@ -12,22 +12,30 @@ from ._enums import *
 
 __all__ = [
     'ApiDefinitionInfoResponse',
+    'ApplicationLogsConfigResponse',
     'AutoHealActionsResponse',
     'AutoHealCustomActionResponse',
     'AutoHealRulesResponse',
     'AutoHealTriggersResponse',
+    'AzureBlobStorageApplicationLogsConfigResponse',
+    'AzureBlobStorageHttpLogsConfigResponse',
     'AzureStorageInfoValueResponse',
+    'AzureTableStorageApplicationLogsConfigResponse',
     'BackupScheduleResponseResult',
     'CloningInfoResponse',
     'ConnStringInfoResponse',
     'ConnStringValueTypePairResponseResult',
     'CorsSettingsResponse',
     'DatabaseBackupSettingResponseResult',
+    'EnabledConfigResponse',
     'ExperimentsResponse',
+    'FileSystemApplicationLogsConfigResponse',
+    'FileSystemHttpLogsConfigResponse',
     'GeoDistributionResponse',
     'HandlerMappingResponse',
     'HostNameSslStateResponse',
     'HostingEnvironmentProfileResponse',
+    'HttpLogsConfigResponse',
     'IpSecurityRestrictionResponse',
     'ManagedServiceIdentityResponse',
     'ManagedServiceIdentityResponseUserAssignedIdentities',
@@ -67,6 +75,56 @@ class ApiDefinitionInfoResponse(dict):
         The URL of the API definition.
         """
         return pulumi.get(self, "url")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ApplicationLogsConfigResponse(dict):
+    """
+    Application logs configuration.
+    """
+    def __init__(__self__, *,
+                 azure_blob_storage: Optional['outputs.AzureBlobStorageApplicationLogsConfigResponse'] = None,
+                 azure_table_storage: Optional['outputs.AzureTableStorageApplicationLogsConfigResponse'] = None,
+                 file_system: Optional['outputs.FileSystemApplicationLogsConfigResponse'] = None):
+        """
+        Application logs configuration.
+        :param 'AzureBlobStorageApplicationLogsConfigResponseArgs' azure_blob_storage: Application logs to blob storage configuration.
+        :param 'AzureTableStorageApplicationLogsConfigResponseArgs' azure_table_storage: Application logs to azure table storage configuration.
+        :param 'FileSystemApplicationLogsConfigResponseArgs' file_system: Application logs to file system configuration.
+        """
+        if azure_blob_storage is not None:
+            pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
+        if azure_table_storage is not None:
+            pulumi.set(__self__, "azure_table_storage", azure_table_storage)
+        if file_system is not None:
+            pulumi.set(__self__, "file_system", file_system)
+
+    @property
+    @pulumi.getter(name="azureBlobStorage")
+    def azure_blob_storage(self) -> Optional['outputs.AzureBlobStorageApplicationLogsConfigResponse']:
+        """
+        Application logs to blob storage configuration.
+        """
+        return pulumi.get(self, "azure_blob_storage")
+
+    @property
+    @pulumi.getter(name="azureTableStorage")
+    def azure_table_storage(self) -> Optional['outputs.AzureTableStorageApplicationLogsConfigResponse']:
+        """
+        Application logs to azure table storage configuration.
+        """
+        return pulumi.get(self, "azure_table_storage")
+
+    @property
+    @pulumi.getter(name="fileSystem")
+    def file_system(self) -> Optional['outputs.FileSystemApplicationLogsConfigResponse']:
+        """
+        Application logs to file system configuration.
+        """
+        return pulumi.get(self, "file_system")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -265,6 +323,114 @@ class AutoHealTriggersResponse(dict):
 
 
 @pulumi.output_type
+class AzureBlobStorageApplicationLogsConfigResponse(dict):
+    """
+    Application logs azure blob storage configuration.
+    """
+    def __init__(__self__, *,
+                 level: Optional[str] = None,
+                 retention_in_days: Optional[int] = None,
+                 sas_url: Optional[str] = None):
+        """
+        Application logs azure blob storage configuration.
+        :param str level: Log level.
+        :param int retention_in_days: Retention in days.
+               Remove blobs older than X days.
+               0 or lower means no retention.
+        :param str sas_url: SAS url to a azure blob container with read/write/list/delete permissions.
+        """
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if retention_in_days is not None:
+            pulumi.set(__self__, "retention_in_days", retention_in_days)
+        if sas_url is not None:
+            pulumi.set(__self__, "sas_url", sas_url)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        """
+        Log level.
+        """
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter(name="retentionInDays")
+    def retention_in_days(self) -> Optional[int]:
+        """
+        Retention in days.
+        Remove blobs older than X days.
+        0 or lower means no retention.
+        """
+        return pulumi.get(self, "retention_in_days")
+
+    @property
+    @pulumi.getter(name="sasUrl")
+    def sas_url(self) -> Optional[str]:
+        """
+        SAS url to a azure blob container with read/write/list/delete permissions.
+        """
+        return pulumi.get(self, "sas_url")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AzureBlobStorageHttpLogsConfigResponse(dict):
+    """
+    Http logs to azure blob storage configuration.
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 retention_in_days: Optional[int] = None,
+                 sas_url: Optional[str] = None):
+        """
+        Http logs to azure blob storage configuration.
+        :param bool enabled: True if configuration is enabled, false if it is disabled and null if configuration is not set.
+        :param int retention_in_days: Retention in days.
+               Remove blobs older than X days.
+               0 or lower means no retention.
+        :param str sas_url: SAS url to a azure blob container with read/write/list/delete permissions.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if retention_in_days is not None:
+            pulumi.set(__self__, "retention_in_days", retention_in_days)
+        if sas_url is not None:
+            pulumi.set(__self__, "sas_url", sas_url)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        True if configuration is enabled, false if it is disabled and null if configuration is not set.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="retentionInDays")
+    def retention_in_days(self) -> Optional[int]:
+        """
+        Retention in days.
+        Remove blobs older than X days.
+        0 or lower means no retention.
+        """
+        return pulumi.get(self, "retention_in_days")
+
+    @property
+    @pulumi.getter(name="sasUrl")
+    def sas_url(self) -> Optional[str]:
+        """
+        SAS url to a azure blob container with read/write/list/delete permissions.
+        """
+        return pulumi.get(self, "sas_url")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class AzureStorageInfoValueResponse(dict):
     """
     Azure Files or Blob Storage access information value for dictionary storage.
@@ -344,6 +510,43 @@ class AzureStorageInfoValueResponse(dict):
         Type of storage.
         """
         return pulumi.get(self, "type")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class AzureTableStorageApplicationLogsConfigResponse(dict):
+    """
+    Application logs to Azure table storage configuration.
+    """
+    def __init__(__self__, *,
+                 sas_url: str,
+                 level: Optional[str] = None):
+        """
+        Application logs to Azure table storage configuration.
+        :param str sas_url: SAS URL to an Azure table with add/query/delete permissions.
+        :param str level: Log level.
+        """
+        pulumi.set(__self__, "sas_url", sas_url)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+
+    @property
+    @pulumi.getter(name="sasUrl")
+    def sas_url(self) -> str:
+        """
+        SAS URL to an Azure table with add/query/delete permissions.
+        """
+        return pulumi.get(self, "sas_url")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        """
+        Log level.
+        """
+        return pulumi.get(self, "level")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -766,6 +969,32 @@ class DatabaseBackupSettingResponseResult(dict):
 
 
 @pulumi.output_type
+class EnabledConfigResponse(dict):
+    """
+    Enabled configuration.
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        Enabled configuration.
+        :param bool enabled: True if configuration is enabled, false if it is disabled and null if configuration is not set.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        True if configuration is enabled, false if it is disabled and null if configuration is not set.
+        """
+        return pulumi.get(self, "enabled")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
 class ExperimentsResponse(dict):
     """
     Routing rules in production experiments.
@@ -786,6 +1015,90 @@ class ExperimentsResponse(dict):
         List of ramp-up rules.
         """
         return pulumi.get(self, "ramp_up_rules")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class FileSystemApplicationLogsConfigResponse(dict):
+    """
+    Application logs to file system configuration.
+    """
+    def __init__(__self__, *,
+                 level: Optional[str] = None):
+        """
+        Application logs to file system configuration.
+        :param str level: Log level.
+        """
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        """
+        Log level.
+        """
+        return pulumi.get(self, "level")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class FileSystemHttpLogsConfigResponse(dict):
+    """
+    Http logs to file system configuration.
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 retention_in_days: Optional[int] = None,
+                 retention_in_mb: Optional[int] = None):
+        """
+        Http logs to file system configuration.
+        :param bool enabled: True if configuration is enabled, false if it is disabled and null if configuration is not set.
+        :param int retention_in_days: Retention in days.
+               Remove files older than X days.
+               0 or lower means no retention.
+        :param int retention_in_mb: Maximum size in megabytes that http log files can use.
+               When reached old log files will be removed to make space for new ones.
+               Value can range between 25 and 100.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if retention_in_days is not None:
+            pulumi.set(__self__, "retention_in_days", retention_in_days)
+        if retention_in_mb is not None:
+            pulumi.set(__self__, "retention_in_mb", retention_in_mb)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        True if configuration is enabled, false if it is disabled and null if configuration is not set.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="retentionInDays")
+    def retention_in_days(self) -> Optional[int]:
+        """
+        Retention in days.
+        Remove files older than X days.
+        0 or lower means no retention.
+        """
+        return pulumi.get(self, "retention_in_days")
+
+    @property
+    @pulumi.getter(name="retentionInMb")
+    def retention_in_mb(self) -> Optional[int]:
+        """
+        Maximum size in megabytes that http log files can use.
+        When reached old log files will be removed to make space for new ones.
+        Value can range between 25 and 100.
+        """
+        return pulumi.get(self, "retention_in_mb")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
@@ -1010,6 +1323,44 @@ class HostingEnvironmentProfileResponse(dict):
         Resource ID of the App Service Environment.
         """
         return pulumi.get(self, "id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class HttpLogsConfigResponse(dict):
+    """
+    Http logs configuration.
+    """
+    def __init__(__self__, *,
+                 azure_blob_storage: Optional['outputs.AzureBlobStorageHttpLogsConfigResponse'] = None,
+                 file_system: Optional['outputs.FileSystemHttpLogsConfigResponse'] = None):
+        """
+        Http logs configuration.
+        :param 'AzureBlobStorageHttpLogsConfigResponseArgs' azure_blob_storage: Http logs to azure blob storage configuration.
+        :param 'FileSystemHttpLogsConfigResponseArgs' file_system: Http logs to file system configuration.
+        """
+        if azure_blob_storage is not None:
+            pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
+        if file_system is not None:
+            pulumi.set(__self__, "file_system", file_system)
+
+    @property
+    @pulumi.getter(name="azureBlobStorage")
+    def azure_blob_storage(self) -> Optional['outputs.AzureBlobStorageHttpLogsConfigResponse']:
+        """
+        Http logs to azure blob storage configuration.
+        """
+        return pulumi.get(self, "azure_blob_storage")
+
+    @property
+    @pulumi.getter(name="fileSystem")
+    def file_system(self) -> Optional['outputs.FileSystemHttpLogsConfigResponse']:
+        """
+        Http logs to file system configuration.
+        """
+        return pulumi.get(self, "file_system")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

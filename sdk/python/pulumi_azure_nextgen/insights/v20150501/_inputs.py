@@ -11,6 +11,7 @@ from ._enums import *
 
 __all__ = [
     'ApplicationInsightsComponentAnalyticsItemPropertiesArgs',
+    'ApplicationInsightsComponentDataVolumeCapArgs',
     'WebTestGeolocationArgs',
     'WebTestPropertiesConfigurationArgs',
 ]
@@ -37,6 +38,78 @@ class ApplicationInsightsComponentAnalyticsItemPropertiesArgs:
     @function_alias.setter
     def function_alias(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "function_alias", value)
+
+
+@pulumi.input_type
+class ApplicationInsightsComponentDataVolumeCapArgs:
+    def __init__(__self__, *,
+                 cap: Optional[pulumi.Input[float]] = None,
+                 stop_send_notification_when_hit_cap: Optional[pulumi.Input[bool]] = None,
+                 stop_send_notification_when_hit_threshold: Optional[pulumi.Input[bool]] = None,
+                 warning_threshold: Optional[pulumi.Input[int]] = None):
+        """
+        An Application Insights component daily data volume cap
+        :param pulumi.Input[float] cap: Daily data volume cap in GB.
+        :param pulumi.Input[bool] stop_send_notification_when_hit_cap: Do not send a notification email when the daily data volume cap is met.
+        :param pulumi.Input[bool] stop_send_notification_when_hit_threshold: Reserved, not used for now.
+        :param pulumi.Input[int] warning_threshold: Reserved, not used for now.
+        """
+        if cap is not None:
+            pulumi.set(__self__, "cap", cap)
+        if stop_send_notification_when_hit_cap is not None:
+            pulumi.set(__self__, "stop_send_notification_when_hit_cap", stop_send_notification_when_hit_cap)
+        if stop_send_notification_when_hit_threshold is not None:
+            pulumi.set(__self__, "stop_send_notification_when_hit_threshold", stop_send_notification_when_hit_threshold)
+        if warning_threshold is not None:
+            pulumi.set(__self__, "warning_threshold", warning_threshold)
+
+    @property
+    @pulumi.getter
+    def cap(self) -> Optional[pulumi.Input[float]]:
+        """
+        Daily data volume cap in GB.
+        """
+        return pulumi.get(self, "cap")
+
+    @cap.setter
+    def cap(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "cap", value)
+
+    @property
+    @pulumi.getter(name="stopSendNotificationWhenHitCap")
+    def stop_send_notification_when_hit_cap(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Do not send a notification email when the daily data volume cap is met.
+        """
+        return pulumi.get(self, "stop_send_notification_when_hit_cap")
+
+    @stop_send_notification_when_hit_cap.setter
+    def stop_send_notification_when_hit_cap(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "stop_send_notification_when_hit_cap", value)
+
+    @property
+    @pulumi.getter(name="stopSendNotificationWhenHitThreshold")
+    def stop_send_notification_when_hit_threshold(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Reserved, not used for now.
+        """
+        return pulumi.get(self, "stop_send_notification_when_hit_threshold")
+
+    @stop_send_notification_when_hit_threshold.setter
+    def stop_send_notification_when_hit_threshold(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "stop_send_notification_when_hit_threshold", value)
+
+    @property
+    @pulumi.getter(name="warningThreshold")
+    def warning_threshold(self) -> Optional[pulumi.Input[int]]:
+        """
+        Reserved, not used for now.
+        """
+        return pulumi.get(self, "warning_threshold")
+
+    @warning_threshold.setter
+    def warning_threshold(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "warning_threshold", value)
 
 
 @pulumi.input_type

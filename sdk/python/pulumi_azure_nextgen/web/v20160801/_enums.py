@@ -14,6 +14,7 @@ __all__ = [
     'FrequencyUnit',
     'HostNameType',
     'HostType',
+    'LogLevel',
     'ManagedPipelineMode',
     'ManagedServiceIdentityType',
     'PublicCertificateLocation',
@@ -108,6 +109,17 @@ class HostType(str, Enum):
     """
     STANDARD = "Standard"
     REPOSITORY = "Repository"
+
+
+class LogLevel(str, Enum):
+    """
+    Log level.
+    """
+    OFF = "Off"
+    VERBOSE = "Verbose"
+    INFORMATION = "Information"
+    WARNING = "Warning"
+    ERROR = "Error"
 
 
 class ManagedPipelineMode(str, Enum):

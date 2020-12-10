@@ -11,6 +11,7 @@ from ._enums import *
 
 __all__ = [
     'ApplicationInsightsComponentAnalyticsItemPropertiesResponse',
+    'ApplicationInsightsComponentDataVolumeCapResponse',
     'PrivateLinkScopedResourceResponse',
     'WebTestGeolocationResponse',
     'WebTestPropertiesResponseConfiguration',
@@ -37,6 +38,90 @@ class ApplicationInsightsComponentAnalyticsItemPropertiesResponse(dict):
         A function alias, used when the type of the item is Function
         """
         return pulumi.get(self, "function_alias")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ApplicationInsightsComponentDataVolumeCapResponse(dict):
+    """
+    An Application Insights component daily data volume cap
+    """
+    def __init__(__self__, *,
+                 max_history_cap: float,
+                 reset_time: int,
+                 cap: Optional[float] = None,
+                 stop_send_notification_when_hit_cap: Optional[bool] = None,
+                 stop_send_notification_when_hit_threshold: Optional[bool] = None,
+                 warning_threshold: Optional[int] = None):
+        """
+        An Application Insights component daily data volume cap
+        :param float max_history_cap: Maximum daily data volume cap that the user can set for this component.
+        :param int reset_time: Daily data volume cap UTC reset hour.
+        :param float cap: Daily data volume cap in GB.
+        :param bool stop_send_notification_when_hit_cap: Do not send a notification email when the daily data volume cap is met.
+        :param bool stop_send_notification_when_hit_threshold: Reserved, not used for now.
+        :param int warning_threshold: Reserved, not used for now.
+        """
+        pulumi.set(__self__, "max_history_cap", max_history_cap)
+        pulumi.set(__self__, "reset_time", reset_time)
+        if cap is not None:
+            pulumi.set(__self__, "cap", cap)
+        if stop_send_notification_when_hit_cap is not None:
+            pulumi.set(__self__, "stop_send_notification_when_hit_cap", stop_send_notification_when_hit_cap)
+        if stop_send_notification_when_hit_threshold is not None:
+            pulumi.set(__self__, "stop_send_notification_when_hit_threshold", stop_send_notification_when_hit_threshold)
+        if warning_threshold is not None:
+            pulumi.set(__self__, "warning_threshold", warning_threshold)
+
+    @property
+    @pulumi.getter(name="maxHistoryCap")
+    def max_history_cap(self) -> float:
+        """
+        Maximum daily data volume cap that the user can set for this component.
+        """
+        return pulumi.get(self, "max_history_cap")
+
+    @property
+    @pulumi.getter(name="resetTime")
+    def reset_time(self) -> int:
+        """
+        Daily data volume cap UTC reset hour.
+        """
+        return pulumi.get(self, "reset_time")
+
+    @property
+    @pulumi.getter
+    def cap(self) -> Optional[float]:
+        """
+        Daily data volume cap in GB.
+        """
+        return pulumi.get(self, "cap")
+
+    @property
+    @pulumi.getter(name="stopSendNotificationWhenHitCap")
+    def stop_send_notification_when_hit_cap(self) -> Optional[bool]:
+        """
+        Do not send a notification email when the daily data volume cap is met.
+        """
+        return pulumi.get(self, "stop_send_notification_when_hit_cap")
+
+    @property
+    @pulumi.getter(name="stopSendNotificationWhenHitThreshold")
+    def stop_send_notification_when_hit_threshold(self) -> Optional[bool]:
+        """
+        Reserved, not used for now.
+        """
+        return pulumi.get(self, "stop_send_notification_when_hit_threshold")
+
+    @property
+    @pulumi.getter(name="warningThreshold")
+    def warning_threshold(self) -> Optional[int]:
+        """
+        Reserved, not used for now.
+        """
+        return pulumi.get(self, "warning_threshold")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
