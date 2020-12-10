@@ -21,7 +21,6 @@ __all__ = [
     'SkuArgs',
     'TagsArgs',
     'TemplateLinkArgs',
-    'UserAssignedIdentityArgs',
 ]
 
 @pulumi.input_type
@@ -251,11 +250,11 @@ class IdentityArgs:
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Managed identity generic object.
         :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of the managed identity.
-        :param pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]] user_assigned_identities: The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
+        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -276,14 +275,14 @@ class ManagedServiceIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
         The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -664,45 +663,5 @@ class TemplateLinkArgs:
     @uri.setter
     def uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "uri", value)
-
-
-@pulumi.input_type
-class UserAssignedIdentityArgs:
-    def __init__(__self__, *,
-                 client_id: Optional[pulumi.Input[str]] = None,
-                 principal_id: Optional[pulumi.Input[str]] = None):
-        """
-        User-assigned managed identity.
-        :param pulumi.Input[str] client_id: Client App Id associated with this identity.
-        :param pulumi.Input[str] principal_id: Azure Active Directory principal ID associated with this identity.
-        """
-        if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
-        if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
-
-    @property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Client App Id associated with this identity.
-        """
-        return pulumi.get(self, "client_id")
-
-    @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "client_id", value)
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Azure Active Directory principal ID associated with this identity.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "principal_id", value)
 
 

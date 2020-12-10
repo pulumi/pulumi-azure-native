@@ -16,17 +16,17 @@ namespace Pulumi.AzureNextGen.Resources.V20201001.Outputs
         /// <summary>
         /// Client App Id associated with this identity.
         /// </summary>
-        public readonly string? ClientId;
+        public readonly string ClientId;
         /// <summary>
         /// Azure Active Directory principal ID associated with this identity.
         /// </summary>
-        public readonly string? PrincipalId;
+        public readonly string PrincipalId;
 
         [OutputConstructor]
         private UserAssignedIdentityResponse(
-            string? clientId,
+            string clientId,
 
-            string? principalId)
+            string principalId)
         {
             ClientId = clientId;
             PrincipalId = principalId;
