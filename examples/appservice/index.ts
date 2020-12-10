@@ -67,6 +67,15 @@ const appInsights = new insights.Component("ai", {
     applicationType: insights.ApplicationType.Web,
 });
 
+new insights.ComponentCurrentBillingFeature("ccbf", {
+    resourceGroupName: resourceGroup.name,
+    resourceName: randomString.result,
+    currentBillingFeatures: ["Basic"],
+    dataVolumeCap: {
+        cap: 2,
+    },
+});
+
 const username = "pulumi";
 const pwd = "Not2S3cure!?";
 
@@ -126,6 +135,14 @@ new web.WebAppSourceControl("sc", {
     name: app.name,
     repoUrl: "https://github.com/octocat/Hello-World",
     isManualIntegration: true,
+});
+
+new web.WebAppDiagnosticLogsConfiguration("wadlc", {
+    resourceGroupName: resourceGroup.name,
+    name: app.name,
+    applicationLogs: {
+        fileSystem: { level: "Verbose" },
+    },
 });
 
 export const endpoint = pulumi.interpolate `https://${app.defaultHostName}`;
