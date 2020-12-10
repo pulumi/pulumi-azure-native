@@ -282,6 +282,434 @@ func (o ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput) Fu
 	}).(pulumi.StringPtrOutput)
 }
 
+// An Application Insights component daily data volume cap
+type ApplicationInsightsComponentDataVolumeCap struct {
+	// Daily data volume cap in GB.
+	Cap *float64 `pulumi:"cap"`
+	// Do not send a notification email when the daily data volume cap is met.
+	StopSendNotificationWhenHitCap *bool `pulumi:"stopSendNotificationWhenHitCap"`
+	// Reserved, not used for now.
+	StopSendNotificationWhenHitThreshold *bool `pulumi:"stopSendNotificationWhenHitThreshold"`
+	// Reserved, not used for now.
+	WarningThreshold *int `pulumi:"warningThreshold"`
+}
+
+// ApplicationInsightsComponentDataVolumeCapInput is an input type that accepts ApplicationInsightsComponentDataVolumeCapArgs and ApplicationInsightsComponentDataVolumeCapOutput values.
+// You can construct a concrete instance of `ApplicationInsightsComponentDataVolumeCapInput` via:
+//
+//          ApplicationInsightsComponentDataVolumeCapArgs{...}
+type ApplicationInsightsComponentDataVolumeCapInput interface {
+	pulumi.Input
+
+	ToApplicationInsightsComponentDataVolumeCapOutput() ApplicationInsightsComponentDataVolumeCapOutput
+	ToApplicationInsightsComponentDataVolumeCapOutputWithContext(context.Context) ApplicationInsightsComponentDataVolumeCapOutput
+}
+
+// An Application Insights component daily data volume cap
+type ApplicationInsightsComponentDataVolumeCapArgs struct {
+	// Daily data volume cap in GB.
+	Cap pulumi.Float64PtrInput `pulumi:"cap"`
+	// Do not send a notification email when the daily data volume cap is met.
+	StopSendNotificationWhenHitCap pulumi.BoolPtrInput `pulumi:"stopSendNotificationWhenHitCap"`
+	// Reserved, not used for now.
+	StopSendNotificationWhenHitThreshold pulumi.BoolPtrInput `pulumi:"stopSendNotificationWhenHitThreshold"`
+	// Reserved, not used for now.
+	WarningThreshold pulumi.IntPtrInput `pulumi:"warningThreshold"`
+}
+
+func (ApplicationInsightsComponentDataVolumeCapArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationInsightsComponentDataVolumeCap)(nil)).Elem()
+}
+
+func (i ApplicationInsightsComponentDataVolumeCapArgs) ToApplicationInsightsComponentDataVolumeCapOutput() ApplicationInsightsComponentDataVolumeCapOutput {
+	return i.ToApplicationInsightsComponentDataVolumeCapOutputWithContext(context.Background())
+}
+
+func (i ApplicationInsightsComponentDataVolumeCapArgs) ToApplicationInsightsComponentDataVolumeCapOutputWithContext(ctx context.Context) ApplicationInsightsComponentDataVolumeCapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInsightsComponentDataVolumeCapOutput)
+}
+
+func (i ApplicationInsightsComponentDataVolumeCapArgs) ToApplicationInsightsComponentDataVolumeCapPtrOutput() ApplicationInsightsComponentDataVolumeCapPtrOutput {
+	return i.ToApplicationInsightsComponentDataVolumeCapPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationInsightsComponentDataVolumeCapArgs) ToApplicationInsightsComponentDataVolumeCapPtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentDataVolumeCapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInsightsComponentDataVolumeCapOutput).ToApplicationInsightsComponentDataVolumeCapPtrOutputWithContext(ctx)
+}
+
+// ApplicationInsightsComponentDataVolumeCapPtrInput is an input type that accepts ApplicationInsightsComponentDataVolumeCapArgs, ApplicationInsightsComponentDataVolumeCapPtr and ApplicationInsightsComponentDataVolumeCapPtrOutput values.
+// You can construct a concrete instance of `ApplicationInsightsComponentDataVolumeCapPtrInput` via:
+//
+//          ApplicationInsightsComponentDataVolumeCapArgs{...}
+//
+//  or:
+//
+//          nil
+type ApplicationInsightsComponentDataVolumeCapPtrInput interface {
+	pulumi.Input
+
+	ToApplicationInsightsComponentDataVolumeCapPtrOutput() ApplicationInsightsComponentDataVolumeCapPtrOutput
+	ToApplicationInsightsComponentDataVolumeCapPtrOutputWithContext(context.Context) ApplicationInsightsComponentDataVolumeCapPtrOutput
+}
+
+type applicationInsightsComponentDataVolumeCapPtrType ApplicationInsightsComponentDataVolumeCapArgs
+
+func ApplicationInsightsComponentDataVolumeCapPtr(v *ApplicationInsightsComponentDataVolumeCapArgs) ApplicationInsightsComponentDataVolumeCapPtrInput {
+	return (*applicationInsightsComponentDataVolumeCapPtrType)(v)
+}
+
+func (*applicationInsightsComponentDataVolumeCapPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationInsightsComponentDataVolumeCap)(nil)).Elem()
+}
+
+func (i *applicationInsightsComponentDataVolumeCapPtrType) ToApplicationInsightsComponentDataVolumeCapPtrOutput() ApplicationInsightsComponentDataVolumeCapPtrOutput {
+	return i.ToApplicationInsightsComponentDataVolumeCapPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationInsightsComponentDataVolumeCapPtrType) ToApplicationInsightsComponentDataVolumeCapPtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentDataVolumeCapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInsightsComponentDataVolumeCapPtrOutput)
+}
+
+// An Application Insights component daily data volume cap
+type ApplicationInsightsComponentDataVolumeCapOutput struct{ *pulumi.OutputState }
+
+func (ApplicationInsightsComponentDataVolumeCapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationInsightsComponentDataVolumeCap)(nil)).Elem()
+}
+
+func (o ApplicationInsightsComponentDataVolumeCapOutput) ToApplicationInsightsComponentDataVolumeCapOutput() ApplicationInsightsComponentDataVolumeCapOutput {
+	return o
+}
+
+func (o ApplicationInsightsComponentDataVolumeCapOutput) ToApplicationInsightsComponentDataVolumeCapOutputWithContext(ctx context.Context) ApplicationInsightsComponentDataVolumeCapOutput {
+	return o
+}
+
+func (o ApplicationInsightsComponentDataVolumeCapOutput) ToApplicationInsightsComponentDataVolumeCapPtrOutput() ApplicationInsightsComponentDataVolumeCapPtrOutput {
+	return o.ToApplicationInsightsComponentDataVolumeCapPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationInsightsComponentDataVolumeCapOutput) ToApplicationInsightsComponentDataVolumeCapPtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentDataVolumeCapPtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCap) *ApplicationInsightsComponentDataVolumeCap {
+		return &v
+	}).(ApplicationInsightsComponentDataVolumeCapPtrOutput)
+}
+
+// Daily data volume cap in GB.
+func (o ApplicationInsightsComponentDataVolumeCapOutput) Cap() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCap) *float64 { return v.Cap }).(pulumi.Float64PtrOutput)
+}
+
+// Do not send a notification email when the daily data volume cap is met.
+func (o ApplicationInsightsComponentDataVolumeCapOutput) StopSendNotificationWhenHitCap() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCap) *bool { return v.StopSendNotificationWhenHitCap }).(pulumi.BoolPtrOutput)
+}
+
+// Reserved, not used for now.
+func (o ApplicationInsightsComponentDataVolumeCapOutput) StopSendNotificationWhenHitThreshold() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCap) *bool { return v.StopSendNotificationWhenHitThreshold }).(pulumi.BoolPtrOutput)
+}
+
+// Reserved, not used for now.
+func (o ApplicationInsightsComponentDataVolumeCapOutput) WarningThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCap) *int { return v.WarningThreshold }).(pulumi.IntPtrOutput)
+}
+
+type ApplicationInsightsComponentDataVolumeCapPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationInsightsComponentDataVolumeCapPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationInsightsComponentDataVolumeCap)(nil)).Elem()
+}
+
+func (o ApplicationInsightsComponentDataVolumeCapPtrOutput) ToApplicationInsightsComponentDataVolumeCapPtrOutput() ApplicationInsightsComponentDataVolumeCapPtrOutput {
+	return o
+}
+
+func (o ApplicationInsightsComponentDataVolumeCapPtrOutput) ToApplicationInsightsComponentDataVolumeCapPtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentDataVolumeCapPtrOutput {
+	return o
+}
+
+func (o ApplicationInsightsComponentDataVolumeCapPtrOutput) Elem() ApplicationInsightsComponentDataVolumeCapOutput {
+	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCap) ApplicationInsightsComponentDataVolumeCap {
+		return *v
+	}).(ApplicationInsightsComponentDataVolumeCapOutput)
+}
+
+// Daily data volume cap in GB.
+func (o ApplicationInsightsComponentDataVolumeCapPtrOutput) Cap() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCap) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Cap
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Do not send a notification email when the daily data volume cap is met.
+func (o ApplicationInsightsComponentDataVolumeCapPtrOutput) StopSendNotificationWhenHitCap() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCap) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StopSendNotificationWhenHitCap
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Reserved, not used for now.
+func (o ApplicationInsightsComponentDataVolumeCapPtrOutput) StopSendNotificationWhenHitThreshold() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCap) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StopSendNotificationWhenHitThreshold
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Reserved, not used for now.
+func (o ApplicationInsightsComponentDataVolumeCapPtrOutput) WarningThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCap) *int {
+		if v == nil {
+			return nil
+		}
+		return v.WarningThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+// An Application Insights component daily data volume cap
+type ApplicationInsightsComponentDataVolumeCapResponse struct {
+	// Daily data volume cap in GB.
+	Cap *float64 `pulumi:"cap"`
+	// Maximum daily data volume cap that the user can set for this component.
+	MaxHistoryCap float64 `pulumi:"maxHistoryCap"`
+	// Daily data volume cap UTC reset hour.
+	ResetTime int `pulumi:"resetTime"`
+	// Do not send a notification email when the daily data volume cap is met.
+	StopSendNotificationWhenHitCap *bool `pulumi:"stopSendNotificationWhenHitCap"`
+	// Reserved, not used for now.
+	StopSendNotificationWhenHitThreshold *bool `pulumi:"stopSendNotificationWhenHitThreshold"`
+	// Reserved, not used for now.
+	WarningThreshold *int `pulumi:"warningThreshold"`
+}
+
+// ApplicationInsightsComponentDataVolumeCapResponseInput is an input type that accepts ApplicationInsightsComponentDataVolumeCapResponseArgs and ApplicationInsightsComponentDataVolumeCapResponseOutput values.
+// You can construct a concrete instance of `ApplicationInsightsComponentDataVolumeCapResponseInput` via:
+//
+//          ApplicationInsightsComponentDataVolumeCapResponseArgs{...}
+type ApplicationInsightsComponentDataVolumeCapResponseInput interface {
+	pulumi.Input
+
+	ToApplicationInsightsComponentDataVolumeCapResponseOutput() ApplicationInsightsComponentDataVolumeCapResponseOutput
+	ToApplicationInsightsComponentDataVolumeCapResponseOutputWithContext(context.Context) ApplicationInsightsComponentDataVolumeCapResponseOutput
+}
+
+// An Application Insights component daily data volume cap
+type ApplicationInsightsComponentDataVolumeCapResponseArgs struct {
+	// Daily data volume cap in GB.
+	Cap pulumi.Float64PtrInput `pulumi:"cap"`
+	// Maximum daily data volume cap that the user can set for this component.
+	MaxHistoryCap pulumi.Float64Input `pulumi:"maxHistoryCap"`
+	// Daily data volume cap UTC reset hour.
+	ResetTime pulumi.IntInput `pulumi:"resetTime"`
+	// Do not send a notification email when the daily data volume cap is met.
+	StopSendNotificationWhenHitCap pulumi.BoolPtrInput `pulumi:"stopSendNotificationWhenHitCap"`
+	// Reserved, not used for now.
+	StopSendNotificationWhenHitThreshold pulumi.BoolPtrInput `pulumi:"stopSendNotificationWhenHitThreshold"`
+	// Reserved, not used for now.
+	WarningThreshold pulumi.IntPtrInput `pulumi:"warningThreshold"`
+}
+
+func (ApplicationInsightsComponentDataVolumeCapResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationInsightsComponentDataVolumeCapResponse)(nil)).Elem()
+}
+
+func (i ApplicationInsightsComponentDataVolumeCapResponseArgs) ToApplicationInsightsComponentDataVolumeCapResponseOutput() ApplicationInsightsComponentDataVolumeCapResponseOutput {
+	return i.ToApplicationInsightsComponentDataVolumeCapResponseOutputWithContext(context.Background())
+}
+
+func (i ApplicationInsightsComponentDataVolumeCapResponseArgs) ToApplicationInsightsComponentDataVolumeCapResponseOutputWithContext(ctx context.Context) ApplicationInsightsComponentDataVolumeCapResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInsightsComponentDataVolumeCapResponseOutput)
+}
+
+func (i ApplicationInsightsComponentDataVolumeCapResponseArgs) ToApplicationInsightsComponentDataVolumeCapResponsePtrOutput() ApplicationInsightsComponentDataVolumeCapResponsePtrOutput {
+	return i.ToApplicationInsightsComponentDataVolumeCapResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationInsightsComponentDataVolumeCapResponseArgs) ToApplicationInsightsComponentDataVolumeCapResponsePtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentDataVolumeCapResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInsightsComponentDataVolumeCapResponseOutput).ToApplicationInsightsComponentDataVolumeCapResponsePtrOutputWithContext(ctx)
+}
+
+// ApplicationInsightsComponentDataVolumeCapResponsePtrInput is an input type that accepts ApplicationInsightsComponentDataVolumeCapResponseArgs, ApplicationInsightsComponentDataVolumeCapResponsePtr and ApplicationInsightsComponentDataVolumeCapResponsePtrOutput values.
+// You can construct a concrete instance of `ApplicationInsightsComponentDataVolumeCapResponsePtrInput` via:
+//
+//          ApplicationInsightsComponentDataVolumeCapResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ApplicationInsightsComponentDataVolumeCapResponsePtrInput interface {
+	pulumi.Input
+
+	ToApplicationInsightsComponentDataVolumeCapResponsePtrOutput() ApplicationInsightsComponentDataVolumeCapResponsePtrOutput
+	ToApplicationInsightsComponentDataVolumeCapResponsePtrOutputWithContext(context.Context) ApplicationInsightsComponentDataVolumeCapResponsePtrOutput
+}
+
+type applicationInsightsComponentDataVolumeCapResponsePtrType ApplicationInsightsComponentDataVolumeCapResponseArgs
+
+func ApplicationInsightsComponentDataVolumeCapResponsePtr(v *ApplicationInsightsComponentDataVolumeCapResponseArgs) ApplicationInsightsComponentDataVolumeCapResponsePtrInput {
+	return (*applicationInsightsComponentDataVolumeCapResponsePtrType)(v)
+}
+
+func (*applicationInsightsComponentDataVolumeCapResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationInsightsComponentDataVolumeCapResponse)(nil)).Elem()
+}
+
+func (i *applicationInsightsComponentDataVolumeCapResponsePtrType) ToApplicationInsightsComponentDataVolumeCapResponsePtrOutput() ApplicationInsightsComponentDataVolumeCapResponsePtrOutput {
+	return i.ToApplicationInsightsComponentDataVolumeCapResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *applicationInsightsComponentDataVolumeCapResponsePtrType) ToApplicationInsightsComponentDataVolumeCapResponsePtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentDataVolumeCapResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInsightsComponentDataVolumeCapResponsePtrOutput)
+}
+
+// An Application Insights component daily data volume cap
+type ApplicationInsightsComponentDataVolumeCapResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationInsightsComponentDataVolumeCapResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationInsightsComponentDataVolumeCapResponse)(nil)).Elem()
+}
+
+func (o ApplicationInsightsComponentDataVolumeCapResponseOutput) ToApplicationInsightsComponentDataVolumeCapResponseOutput() ApplicationInsightsComponentDataVolumeCapResponseOutput {
+	return o
+}
+
+func (o ApplicationInsightsComponentDataVolumeCapResponseOutput) ToApplicationInsightsComponentDataVolumeCapResponseOutputWithContext(ctx context.Context) ApplicationInsightsComponentDataVolumeCapResponseOutput {
+	return o
+}
+
+func (o ApplicationInsightsComponentDataVolumeCapResponseOutput) ToApplicationInsightsComponentDataVolumeCapResponsePtrOutput() ApplicationInsightsComponentDataVolumeCapResponsePtrOutput {
+	return o.ToApplicationInsightsComponentDataVolumeCapResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationInsightsComponentDataVolumeCapResponseOutput) ToApplicationInsightsComponentDataVolumeCapResponsePtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentDataVolumeCapResponsePtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCapResponse) *ApplicationInsightsComponentDataVolumeCapResponse {
+		return &v
+	}).(ApplicationInsightsComponentDataVolumeCapResponsePtrOutput)
+}
+
+// Daily data volume cap in GB.
+func (o ApplicationInsightsComponentDataVolumeCapResponseOutput) Cap() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCapResponse) *float64 { return v.Cap }).(pulumi.Float64PtrOutput)
+}
+
+// Maximum daily data volume cap that the user can set for this component.
+func (o ApplicationInsightsComponentDataVolumeCapResponseOutput) MaxHistoryCap() pulumi.Float64Output {
+	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCapResponse) float64 { return v.MaxHistoryCap }).(pulumi.Float64Output)
+}
+
+// Daily data volume cap UTC reset hour.
+func (o ApplicationInsightsComponentDataVolumeCapResponseOutput) ResetTime() pulumi.IntOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCapResponse) int { return v.ResetTime }).(pulumi.IntOutput)
+}
+
+// Do not send a notification email when the daily data volume cap is met.
+func (o ApplicationInsightsComponentDataVolumeCapResponseOutput) StopSendNotificationWhenHitCap() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCapResponse) *bool {
+		return v.StopSendNotificationWhenHitCap
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Reserved, not used for now.
+func (o ApplicationInsightsComponentDataVolumeCapResponseOutput) StopSendNotificationWhenHitThreshold() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCapResponse) *bool {
+		return v.StopSendNotificationWhenHitThreshold
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Reserved, not used for now.
+func (o ApplicationInsightsComponentDataVolumeCapResponseOutput) WarningThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApplicationInsightsComponentDataVolumeCapResponse) *int { return v.WarningThreshold }).(pulumi.IntPtrOutput)
+}
+
+type ApplicationInsightsComponentDataVolumeCapResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationInsightsComponentDataVolumeCapResponse)(nil)).Elem()
+}
+
+func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) ToApplicationInsightsComponentDataVolumeCapResponsePtrOutput() ApplicationInsightsComponentDataVolumeCapResponsePtrOutput {
+	return o
+}
+
+func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) ToApplicationInsightsComponentDataVolumeCapResponsePtrOutputWithContext(ctx context.Context) ApplicationInsightsComponentDataVolumeCapResponsePtrOutput {
+	return o
+}
+
+func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) Elem() ApplicationInsightsComponentDataVolumeCapResponseOutput {
+	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCapResponse) ApplicationInsightsComponentDataVolumeCapResponse {
+		return *v
+	}).(ApplicationInsightsComponentDataVolumeCapResponseOutput)
+}
+
+// Daily data volume cap in GB.
+func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) Cap() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCapResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Cap
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Maximum daily data volume cap that the user can set for this component.
+func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) MaxHistoryCap() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCapResponse) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxHistoryCap
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Daily data volume cap UTC reset hour.
+func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) ResetTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCapResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ResetTime
+	}).(pulumi.IntPtrOutput)
+}
+
+// Do not send a notification email when the daily data volume cap is met.
+func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) StopSendNotificationWhenHitCap() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCapResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StopSendNotificationWhenHitCap
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Reserved, not used for now.
+func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) StopSendNotificationWhenHitThreshold() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCapResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StopSendNotificationWhenHitThreshold
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Reserved, not used for now.
+func (o ApplicationInsightsComponentDataVolumeCapResponsePtrOutput) WarningThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ApplicationInsightsComponentDataVolumeCapResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.WarningThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
 // The private link scope resource reference.
 type PrivateLinkScopedResourceResponse struct {
 	// The full resource Id of the private link scope resource.
@@ -864,6 +1292,10 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationInsightsComponentAnalyticsItemPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationInsightsComponentAnalyticsItemPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationInsightsComponentAnalyticsItemPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApplicationInsightsComponentDataVolumeCapOutput{})
+	pulumi.RegisterOutputType(ApplicationInsightsComponentDataVolumeCapPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationInsightsComponentDataVolumeCapResponseOutput{})
+	pulumi.RegisterOutputType(ApplicationInsightsComponentDataVolumeCapResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkScopedResourceResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkScopedResourceResponseArrayOutput{})
 	pulumi.RegisterOutputType(WebTestGeolocationOutput{})
