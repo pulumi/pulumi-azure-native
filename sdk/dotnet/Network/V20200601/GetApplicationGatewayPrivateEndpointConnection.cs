@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The consumer link id.
         /// </summary>
         public readonly string LinkIdentifier;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         private GetApplicationGatewayPrivateEndpointConnectionResult(
             string etag,
 
+            string? id,
+
             string linkIdentifier,
 
             string? name,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
             string type)
         {
             Etag = etag;
+            Id = id;
             LinkIdentifier = linkIdentifier;
             Name = name;
             PrivateEndpoint = privateEndpoint;

@@ -40,6 +40,10 @@ export interface GetComputePolicyArgs {
  */
 export interface GetComputePolicyResult {
     /**
+     * The resource identifier.
+     */
+    readonly id: string;
+    /**
      * The maximum degree of parallelism per job this user can use to submit jobs.
      */
     readonly maxDegreeOfParallelismPerJob: number;

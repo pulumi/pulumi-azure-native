@@ -20,7 +20,7 @@ class GetLabResult:
     """
     Represents a lab.
     """
-    def __init__(__self__, created_by_object_id=None, created_by_user_principal_name=None, created_date=None, invitation_code=None, latest_operation_result=None, location=None, max_users_in_lab=None, name=None, provisioning_state=None, tags=None, type=None, unique_identifier=None, usage_quota=None, user_access_mode=None, user_quota=None):
+    def __init__(__self__, created_by_object_id=None, created_by_user_principal_name=None, created_date=None, id=None, invitation_code=None, latest_operation_result=None, location=None, max_users_in_lab=None, name=None, provisioning_state=None, tags=None, type=None, unique_identifier=None, usage_quota=None, user_access_mode=None, user_quota=None):
         if created_by_object_id and not isinstance(created_by_object_id, str):
             raise TypeError("Expected argument 'created_by_object_id' to be a str")
         pulumi.set(__self__, "created_by_object_id", created_by_object_id)
@@ -30,6 +30,9 @@ class GetLabResult:
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if invitation_code and not isinstance(invitation_code, str):
             raise TypeError("Expected argument 'invitation_code' to be a str")
         pulumi.set(__self__, "invitation_code", invitation_code)
@@ -90,6 +93,14 @@ class GetLabResult:
         Creation date for the lab
         """
         return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="invitationCode")
@@ -197,6 +208,7 @@ class AwaitableGetLabResult(GetLabResult):
             created_by_object_id=self.created_by_object_id,
             created_by_user_principal_name=self.created_by_user_principal_name,
             created_date=self.created_date,
+            id=self.id,
             invitation_code=self.invitation_code,
             latest_operation_result=self.latest_operation_result,
             location=self.location,
@@ -239,6 +251,7 @@ def get_lab(expand: Optional[str] = None,
         created_by_object_id=__ret__.created_by_object_id,
         created_by_user_principal_name=__ret__.created_by_user_principal_name,
         created_date=__ret__.created_date,
+        id=__ret__.id,
         invitation_code=__ret__.invitation_code,
         latest_operation_result=__ret__.latest_operation_result,
         location=__ret__.location,

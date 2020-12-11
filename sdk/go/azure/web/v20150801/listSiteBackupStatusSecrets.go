@@ -55,6 +55,8 @@ type ListSiteBackupStatusSecretsResult struct {
 	Databases []DatabaseBackupSettingResponse `pulumi:"databases"`
 	// Timestamp when this backup finished.
 	FinishedTimeStamp *string `pulumi:"finishedTimeStamp"`
+	// Resource Id
+	Id *string `pulumi:"id"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Timestamp of a last restore operation which used this backup.

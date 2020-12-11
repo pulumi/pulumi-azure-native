@@ -29,6 +29,8 @@ type LookupNamedValueArgs struct {
 type LookupNamedValueResult struct {
 	// Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
 	DisplayName string `pulumi:"displayName"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Determines whether the value is a secret and should be encrypted or not. Default value is false.

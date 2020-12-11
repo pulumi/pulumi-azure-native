@@ -37,6 +37,8 @@ type LookupConnectionResult struct {
 	DisplayName *string `pulumi:"displayName"`
 	// Time in UTC when the first expiration of OAuth tokens
 	FirstExpirationTime *string `pulumi:"firstExpirationTime"`
+	// Resource Id
+	Id *string `pulumi:"id"`
 	// List of Keywords that tag the acl
 	Keywords []string `pulumi:"keywords"`
 	// Kind of resource

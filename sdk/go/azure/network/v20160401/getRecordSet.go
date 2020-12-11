@@ -39,6 +39,8 @@ type LookupRecordSetResult struct {
 	Etag *string `pulumi:"etag"`
 	// Fully qualified domain name of the record set.
 	Fqdn string `pulumi:"fqdn"`
+	// The ID of the record set.
+	Id *string `pulumi:"id"`
 	// The metadata attached to the record set.
 	Metadata map[string]string `pulumi:"metadata"`
 	// The list of MX records in the record set.

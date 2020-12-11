@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.Insights.V20170501Preview
         /// </summary>
         public readonly string? EventHubName;
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// A string indicating whether the export to Log Analytics should use the default destination type, i.e. AzureDiagnostics, or use a destination type constructed as follows: &lt;normalized service identity&gt;_&lt;normalized category name&gt;. Possible values are: Dedicated and null (null is default.)
         /// </summary>
         public readonly string? LogAnalyticsDestinationType;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.Insights.V20170501Preview
 
             string? eventHubName,
 
+            string id,
+
             string? logAnalyticsDestinationType,
 
             ImmutableArray<Outputs.LogSettingsResponse> logs,
@@ -104,6 +110,7 @@ namespace Pulumi.AzureNextGen.Insights.V20170501Preview
         {
             EventHubAuthorizationRuleId = eventHubAuthorizationRuleId;
             EventHubName = eventHubName;
+            Id = id;
             LogAnalyticsDestinationType = logAnalyticsDestinationType;
             Logs = logs;
             Metrics = metrics;

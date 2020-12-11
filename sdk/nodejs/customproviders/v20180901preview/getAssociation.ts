@@ -35,6 +35,10 @@ export interface GetAssociationArgs {
  */
 export interface GetAssociationResult {
     /**
+     * The association id.
+     */
+    readonly id: string;
+    /**
      * The association name.
      */
     readonly name: string;

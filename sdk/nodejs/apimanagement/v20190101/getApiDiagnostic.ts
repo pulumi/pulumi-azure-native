@@ -65,6 +65,10 @@ export interface GetApiDiagnosticResult {
      */
     readonly httpCorrelationProtocol?: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource Id of a target logger.
      */
     readonly loggerId: string;

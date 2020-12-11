@@ -91,6 +91,10 @@ export interface GetApplicationGatewayResult {
      */
     readonly httpListeners?: outputs.network.v20200401.ApplicationGatewayHttpListenerResponse[];
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * The identity of the application gateway, if configured.
      */
     readonly identity?: outputs.network.v20200401.ManagedServiceIdentityResponse;

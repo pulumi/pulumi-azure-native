@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         /// </summary>
         public readonly string Description;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
 
             string description,
 
+            string id,
+
             string name,
 
             string? state,
@@ -105,6 +111,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
             ApiId = apiId;
             CreatedDate = createdDate;
             Description = description;
+            Id = id;
             Name = name;
             State = state;
             Title = title;

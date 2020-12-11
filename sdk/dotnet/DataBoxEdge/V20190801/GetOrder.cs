@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801
         /// </summary>
         public readonly ImmutableArray<Outputs.TrackingInfoResponse> DeliveryTrackingInfo;
         /// <summary>
+        /// The path ID that uniquely identifies the object.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The object name.
         /// </summary>
         public readonly string Name;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801
 
             ImmutableArray<Outputs.TrackingInfoResponse> deliveryTrackingInfo,
 
+            string id,
+
             string name,
 
             ImmutableArray<Outputs.OrderStatusResponse> orderHistory,
@@ -99,6 +105,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801
             ContactInformation = contactInformation;
             CurrentStatus = currentStatus;
             DeliveryTrackingInfo = deliveryTrackingInfo;
+            Id = id;
             Name = name;
             OrderHistory = orderHistory;
             ReturnTrackingInfo = returnTrackingInfo;

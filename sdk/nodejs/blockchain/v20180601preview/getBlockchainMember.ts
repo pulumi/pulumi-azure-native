@@ -63,6 +63,10 @@ export interface GetBlockchainMemberResult {
      */
     readonly firewallRules?: outputs.blockchain.v20180601preview.FirewallRuleResponse[];
     /**
+     * Fully qualified resource Id of the resource.
+     */
+    readonly id: string;
+    /**
      * The GEO location of the blockchain service.
      */
     readonly location?: string;

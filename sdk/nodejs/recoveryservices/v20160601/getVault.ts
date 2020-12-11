@@ -39,6 +39,10 @@ export interface GetVaultResult {
      */
     readonly eTag?: string;
     /**
+     * Resource Id represents the complete path to the resource.
+     */
+    readonly id: string;
+    /**
      * Identity for the resource.
      */
     readonly identity?: outputs.recoveryservices.v20160601.IdentityDataResponse;

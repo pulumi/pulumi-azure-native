@@ -40,6 +40,10 @@ export interface GetArtifactArgs {
  */
 export interface GetArtifactResult {
     /**
+     * String Id used to locate any resource on Azure.
+     */
+    readonly id: string;
+    /**
      * Specifies the kind of Blueprint artifact.
      */
     readonly kind: string;

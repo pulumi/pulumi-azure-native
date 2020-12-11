@@ -19,13 +19,16 @@ class GetSiteSlotConfigNamesResult:
     """
     Slot Config names azure resource
     """
-    def __init__(__self__, app_setting_names=None, connection_string_names=None, kind=None, location=None, name=None, tags=None, type=None):
+    def __init__(__self__, app_setting_names=None, connection_string_names=None, id=None, kind=None, location=None, name=None, tags=None, type=None):
         if app_setting_names and not isinstance(app_setting_names, list):
             raise TypeError("Expected argument 'app_setting_names' to be a list")
         pulumi.set(__self__, "app_setting_names", app_setting_names)
         if connection_string_names and not isinstance(connection_string_names, list):
             raise TypeError("Expected argument 'connection_string_names' to be a list")
         pulumi.set(__self__, "connection_string_names", connection_string_names)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -57,6 +60,14 @@ class GetSiteSlotConfigNamesResult:
         List of connection string names
         """
         return pulumi.get(self, "connection_string_names")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -107,6 +118,7 @@ class AwaitableGetSiteSlotConfigNamesResult(GetSiteSlotConfigNamesResult):
         return GetSiteSlotConfigNamesResult(
             app_setting_names=self.app_setting_names,
             connection_string_names=self.connection_string_names,
+            id=self.id,
             kind=self.kind,
             location=self.location,
             name=self.name,
@@ -135,6 +147,7 @@ def get_site_slot_config_names(name: Optional[str] = None,
     return AwaitableGetSiteSlotConfigNamesResult(
         app_setting_names=__ret__.app_setting_names,
         connection_string_names=__ret__.connection_string_names,
+        id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,

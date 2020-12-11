@@ -27,6 +27,8 @@ type LookupImageArgs struct {
 
 // The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
 type LookupImageResult struct {
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name

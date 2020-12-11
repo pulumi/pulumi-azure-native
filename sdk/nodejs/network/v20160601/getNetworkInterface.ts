@@ -52,6 +52,10 @@ export interface GetNetworkInterfaceResult {
      */
     readonly etag?: string;
     /**
+     * Resource Id
+     */
+    readonly id?: string;
+    /**
      * Gets or sets list of IPConfigurations of the network interface
      */
     readonly ipConfigurations?: outputs.network.v20160601.NetworkInterfaceIPConfigurationResponse[];

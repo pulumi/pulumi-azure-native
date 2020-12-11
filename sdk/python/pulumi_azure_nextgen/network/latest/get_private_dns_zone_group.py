@@ -20,10 +20,13 @@ class GetPrivateDnsZoneGroupResult:
     """
     Private dns zone group resource.
     """
-    def __init__(__self__, etag=None, name=None, private_dns_zone_configs=None, provisioning_state=None):
+    def __init__(__self__, etag=None, id=None, name=None, private_dns_zone_configs=None, provisioning_state=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -41,6 +44,14 @@ class GetPrivateDnsZoneGroupResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -74,6 +85,7 @@ class AwaitableGetPrivateDnsZoneGroupResult(GetPrivateDnsZoneGroupResult):
             yield self
         return GetPrivateDnsZoneGroupResult(
             etag=self.etag,
+            id=self.id,
             name=self.name,
             private_dns_zone_configs=self.private_dns_zone_configs,
             provisioning_state=self.provisioning_state)
@@ -102,6 +114,7 @@ def get_private_dns_zone_group(private_dns_zone_group_name: Optional[str] = None
 
     return AwaitableGetPrivateDnsZoneGroupResult(
         etag=__ret__.etag,
+        id=__ret__.id,
         name=__ret__.name,
         private_dns_zone_configs=__ret__.private_dns_zone_configs,
         provisioning_state=__ret__.provisioning_state)

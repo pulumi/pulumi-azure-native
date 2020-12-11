@@ -70,6 +70,10 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
         /// </summary>
         public readonly Outputs.JobStepExecutionOptionsResponse? ExecutionOptions;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -98,6 +102,8 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
 
             Outputs.JobStepExecutionOptionsResponse? executionOptions,
 
+            string id,
+
             string name,
 
             Outputs.JobStepOutputResponse? output,
@@ -111,6 +117,7 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
             Action = action;
             Credential = credential;
             ExecutionOptions = executionOptions;
+            Id = id;
             Name = name;
             Output = output;
             StepId = stepId;

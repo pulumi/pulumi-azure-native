@@ -41,6 +41,8 @@ type LookupSignalRResult struct {
 	// Prefix for the hostName of the SignalR service. Retained for future use.
 	// The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
 	HostNamePrefix *string `pulumi:"hostNamePrefix"`
+	// Fully qualified resource Id for the resource.
+	Id string `pulumi:"id"`
 	// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
 	Kind *string `pulumi:"kind"`
 	// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.

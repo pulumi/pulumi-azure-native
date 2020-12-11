@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
         /// </summary>
         public readonly ImmutableDictionary<string, string>? DisplayName;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -98,6 +102,8 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
 
             ImmutableDictionary<string, string>? displayName,
 
+            string id,
+
             string name,
 
             string tenantId,
@@ -112,6 +118,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
             Created = created;
             Definition = definition;
             DisplayName = displayName;
+            Id = id;
             Name = name;
             TenantId = tenantId;
             Type = type;

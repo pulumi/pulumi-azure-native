@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Compute.V20150615
     public sealed class GetAvailabilitySetResult
     {
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -74,6 +78,8 @@ namespace Pulumi.AzureNextGen.Compute.V20150615
 
         [OutputConstructor]
         private GetAvailabilitySetResult(
+            string id,
+
             string location,
 
             string name,
@@ -90,6 +96,7 @@ namespace Pulumi.AzureNextGen.Compute.V20150615
 
             ImmutableArray<Outputs.SubResourceResponse> virtualMachines)
         {
+            Id = id;
             Location = location;
             Name = name;
             PlatformFaultDomainCount = platformFaultDomainCount;

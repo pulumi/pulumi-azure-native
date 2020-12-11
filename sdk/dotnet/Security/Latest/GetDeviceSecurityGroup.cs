@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.Security.Latest
         /// </summary>
         public readonly ImmutableArray<Outputs.DenylistCustomAlertRuleResponse> DenylistRules;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
@@ -70,6 +74,8 @@ namespace Pulumi.AzureNextGen.Security.Latest
 
             ImmutableArray<Outputs.DenylistCustomAlertRuleResponse> denylistRules,
 
+            string id,
+
             string name,
 
             ImmutableArray<Outputs.ThresholdCustomAlertRuleResponse> thresholdRules,
@@ -80,6 +86,7 @@ namespace Pulumi.AzureNextGen.Security.Latest
         {
             AllowlistRules = allowlistRules;
             DenylistRules = denylistRules;
+            Id = id;
             Name = name;
             ThresholdRules = thresholdRules;
             TimeWindowRules = timeWindowRules;

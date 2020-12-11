@@ -20,7 +20,7 @@ class GetExpressRoutePortResult:
     """
     ExpressRoutePort resource definition.
     """
-    def __init__(__self__, allocation_date=None, bandwidth_in_gbps=None, circuits=None, encapsulation=None, etag=None, ether_type=None, identity=None, links=None, location=None, mtu=None, name=None, peering_location=None, provisioned_bandwidth_in_gbps=None, provisioning_state=None, resource_guid=None, tags=None, type=None):
+    def __init__(__self__, allocation_date=None, bandwidth_in_gbps=None, circuits=None, encapsulation=None, etag=None, ether_type=None, id=None, identity=None, links=None, location=None, mtu=None, name=None, peering_location=None, provisioned_bandwidth_in_gbps=None, provisioning_state=None, resource_guid=None, tags=None, type=None):
         if allocation_date and not isinstance(allocation_date, str):
             raise TypeError("Expected argument 'allocation_date' to be a str")
         pulumi.set(__self__, "allocation_date", allocation_date)
@@ -39,6 +39,9 @@ class GetExpressRoutePortResult:
         if ether_type and not isinstance(ether_type, str):
             raise TypeError("Expected argument 'ether_type' to be a str")
         pulumi.set(__self__, "ether_type", ether_type)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -120,6 +123,14 @@ class GetExpressRoutePortResult:
         Ether type of the physical port.
         """
         return pulumi.get(self, "ether_type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -222,6 +233,7 @@ class AwaitableGetExpressRoutePortResult(GetExpressRoutePortResult):
             encapsulation=self.encapsulation,
             etag=self.etag,
             ether_type=self.ether_type,
+            id=self.id,
             identity=self.identity,
             links=self.links,
             location=self.location,
@@ -260,6 +272,7 @@ def get_express_route_port(express_route_port_name: Optional[str] = None,
         encapsulation=__ret__.encapsulation,
         etag=__ret__.etag,
         ether_type=__ret__.ether_type,
+        id=__ret__.id,
         identity=__ret__.identity,
         links=__ret__.links,
         location=__ret__.location,

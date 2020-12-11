@@ -20,10 +20,13 @@ class GetNamespaceResult:
     """
     Single Namespace item in List or Get Operation
     """
-    def __init__(__self__, created_at=None, is_auto_inflate_enabled=None, kafka_enabled=None, location=None, maximum_throughput_units=None, metric_id=None, name=None, provisioning_state=None, service_bus_endpoint=None, sku=None, tags=None, type=None, updated_at=None):
+    def __init__(__self__, created_at=None, id=None, is_auto_inflate_enabled=None, kafka_enabled=None, location=None, maximum_throughput_units=None, metric_id=None, name=None, provisioning_state=None, service_bus_endpoint=None, sku=None, tags=None, type=None, updated_at=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_auto_inflate_enabled and not isinstance(is_auto_inflate_enabled, bool):
             raise TypeError("Expected argument 'is_auto_inflate_enabled' to be a bool")
         pulumi.set(__self__, "is_auto_inflate_enabled", is_auto_inflate_enabled)
@@ -68,6 +71,14 @@ class GetNamespaceResult:
         The time the Namespace was created.
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isAutoInflateEnabled")
@@ -173,6 +184,7 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
             yield self
         return GetNamespaceResult(
             created_at=self.created_at,
+            id=self.id,
             is_auto_inflate_enabled=self.is_auto_inflate_enabled,
             kafka_enabled=self.kafka_enabled,
             location=self.location,
@@ -207,6 +219,7 @@ def get_namespace(namespace_name: Optional[str] = None,
 
     return AwaitableGetNamespaceResult(
         created_at=__ret__.created_at,
+        id=__ret__.id,
         is_auto_inflate_enabled=__ret__.is_auto_inflate_enabled,
         kafka_enabled=__ret__.kafka_enabled,
         location=__ret__.location,

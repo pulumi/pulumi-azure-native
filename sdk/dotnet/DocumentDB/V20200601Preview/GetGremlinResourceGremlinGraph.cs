@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
     public sealed class GetGremlinResourceGremlinGraphResult
     {
         /// <summary>
+        /// The unique resource identifier of the ARM resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Identity for the resource.
         /// </summary>
         public readonly Outputs.ManagedServiceIdentityResponse? Identity;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
 
         [OutputConstructor]
         private GetGremlinResourceGremlinGraphResult(
+            string id,
+
             Outputs.ManagedServiceIdentityResponse? identity,
 
             string? location,
@@ -90,6 +96,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
 
             string type)
         {
+            Id = id;
             Identity = identity;
             Location = location;
             Name = name;

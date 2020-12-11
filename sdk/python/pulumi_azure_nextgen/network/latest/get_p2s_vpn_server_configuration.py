@@ -20,10 +20,13 @@ class GetP2sVpnServerConfigurationResult:
     """
     P2SVpnServerConfiguration Resource.
     """
-    def __init__(__self__, etag=None, name=None, p2_s_vpn_gateways=None, p2_s_vpn_server_config_radius_client_root_certificates=None, p2_s_vpn_server_config_radius_server_root_certificates=None, p2_s_vpn_server_config_vpn_client_revoked_certificates=None, p2_s_vpn_server_config_vpn_client_root_certificates=None, provisioning_state=None, radius_server_address=None, radius_server_secret=None, vpn_client_ipsec_policies=None, vpn_protocols=None):
+    def __init__(__self__, etag=None, id=None, name=None, p2_s_vpn_gateways=None, p2_s_vpn_server_config_radius_client_root_certificates=None, p2_s_vpn_server_config_radius_server_root_certificates=None, p2_s_vpn_server_config_vpn_client_revoked_certificates=None, p2_s_vpn_server_config_vpn_client_root_certificates=None, provisioning_state=None, radius_server_address=None, radius_server_secret=None, vpn_client_ipsec_policies=None, vpn_protocols=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -65,6 +68,14 @@ class GetP2sVpnServerConfigurationResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -162,6 +173,7 @@ class AwaitableGetP2sVpnServerConfigurationResult(GetP2sVpnServerConfigurationRe
             yield self
         return GetP2sVpnServerConfigurationResult(
             etag=self.etag,
+            id=self.id,
             name=self.name,
             p2_s_vpn_gateways=self.p2_s_vpn_gateways,
             p2_s_vpn_server_config_radius_client_root_certificates=self.p2_s_vpn_server_config_radius_client_root_certificates,
@@ -198,6 +210,7 @@ def get_p2s_vpn_server_configuration(p2_s_vpn_server_configuration_name: Optiona
 
     return AwaitableGetP2sVpnServerConfigurationResult(
         etag=__ret__.etag,
+        id=__ret__.id,
         name=__ret__.name,
         p2_s_vpn_gateways=__ret__.p2_s_vpn_gateways,
         p2_s_vpn_server_config_radius_client_root_certificates=__ret__.p2_s_vpn_server_config_radius_client_root_certificates,

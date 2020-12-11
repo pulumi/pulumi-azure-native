@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
         /// </summary>
         public readonly object? Document;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -74,12 +78,15 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
 
             object? document,
 
+            string id,
+
             string name,
 
             string type)
         {
             ContentType = contentType;
             Document = document;
+            Id = id;
             Name = name;
             Type = type;
         }

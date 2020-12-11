@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20170401
         /// </summary>
         public readonly Outputs.GcmCredentialResponse? GcmCredential;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string? Location;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20170401
 
             Outputs.GcmCredentialResponse? gcmCredential,
 
+            string id,
+
             string? location,
 
             Outputs.MpnsCredentialResponse? mpnsCredential,
@@ -131,6 +137,7 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20170401
             AuthorizationRules = authorizationRules;
             BaiduCredential = baiduCredential;
             GcmCredential = gcmCredential;
+            Id = id;
             Location = location;
             MpnsCredential = mpnsCredential;
             Name = name;

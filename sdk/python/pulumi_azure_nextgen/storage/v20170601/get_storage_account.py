@@ -20,7 +20,7 @@ class GetStorageAccountResult:
     """
     The storage account.
     """
-    def __init__(__self__, access_tier=None, creation_time=None, custom_domain=None, enable_https_traffic_only=None, encryption=None, identity=None, kind=None, last_geo_failover_time=None, location=None, name=None, network_rule_set=None, primary_endpoints=None, primary_location=None, provisioning_state=None, secondary_endpoints=None, secondary_location=None, sku=None, status_of_primary=None, status_of_secondary=None, tags=None, type=None):
+    def __init__(__self__, access_tier=None, creation_time=None, custom_domain=None, enable_https_traffic_only=None, encryption=None, id=None, identity=None, kind=None, last_geo_failover_time=None, location=None, name=None, network_rule_set=None, primary_endpoints=None, primary_location=None, provisioning_state=None, secondary_endpoints=None, secondary_location=None, sku=None, status_of_primary=None, status_of_secondary=None, tags=None, type=None):
         if access_tier and not isinstance(access_tier, str):
             raise TypeError("Expected argument 'access_tier' to be a str")
         pulumi.set(__self__, "access_tier", access_tier)
@@ -36,6 +36,9 @@ class GetStorageAccountResult:
         if encryption and not isinstance(encryption, dict):
             raise TypeError("Expected argument 'encryption' to be a dict")
         pulumi.set(__self__, "encryption", encryption)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -124,6 +127,14 @@ class GetStorageAccountResult:
         Gets the encryption settings on the account. If unspecified, the account is unencrypted.
         """
         return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -265,6 +276,7 @@ class AwaitableGetStorageAccountResult(GetStorageAccountResult):
             custom_domain=self.custom_domain,
             enable_https_traffic_only=self.enable_https_traffic_only,
             encryption=self.encryption,
+            id=self.id,
             identity=self.identity,
             kind=self.kind,
             last_geo_failover_time=self.last_geo_failover_time,
@@ -307,6 +319,7 @@ def get_storage_account(account_name: Optional[str] = None,
         custom_domain=__ret__.custom_domain,
         enable_https_traffic_only=__ret__.enable_https_traffic_only,
         encryption=__ret__.encryption,
+        id=__ret__.id,
         identity=__ret__.identity,
         kind=__ret__.kind,
         last_geo_failover_time=__ret__.last_geo_failover_time,

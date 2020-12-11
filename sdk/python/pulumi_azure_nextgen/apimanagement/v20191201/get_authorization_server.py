@@ -20,7 +20,7 @@ class GetAuthorizationServerResult:
     """
     External OAuth authorization server settings.
     """
-    def __init__(__self__, authorization_endpoint=None, authorization_methods=None, bearer_token_sending_methods=None, client_authentication_method=None, client_id=None, client_registration_endpoint=None, client_secret=None, default_scope=None, description=None, display_name=None, grant_types=None, name=None, resource_owner_password=None, resource_owner_username=None, support_state=None, token_body_parameters=None, token_endpoint=None, type=None):
+    def __init__(__self__, authorization_endpoint=None, authorization_methods=None, bearer_token_sending_methods=None, client_authentication_method=None, client_id=None, client_registration_endpoint=None, client_secret=None, default_scope=None, description=None, display_name=None, grant_types=None, id=None, name=None, resource_owner_password=None, resource_owner_username=None, support_state=None, token_body_parameters=None, token_endpoint=None, type=None):
         if authorization_endpoint and not isinstance(authorization_endpoint, str):
             raise TypeError("Expected argument 'authorization_endpoint' to be a str")
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
@@ -54,6 +54,9 @@ class GetAuthorizationServerResult:
         if grant_types and not isinstance(grant_types, list):
             raise TypeError("Expected argument 'grant_types' to be a list")
         pulumi.set(__self__, "grant_types", grant_types)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -166,6 +169,14 @@ class GetAuthorizationServerResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         Resource name.
@@ -238,6 +249,7 @@ class AwaitableGetAuthorizationServerResult(GetAuthorizationServerResult):
             description=self.description,
             display_name=self.display_name,
             grant_types=self.grant_types,
+            id=self.id,
             name=self.name,
             resource_owner_password=self.resource_owner_password,
             resource_owner_username=self.resource_owner_username,
@@ -280,6 +292,7 @@ def get_authorization_server(authsid: Optional[str] = None,
         description=__ret__.description,
         display_name=__ret__.display_name,
         grant_types=__ret__.grant_types,
+        id=__ret__.id,
         name=__ret__.name,
         resource_owner_password=__ret__.resource_owner_password,
         resource_owner_username=__ret__.resource_owner_username,

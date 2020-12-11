@@ -49,6 +49,10 @@ export interface GetBlobContainerImmutabilityPolicyResult {
      */
     readonly etag: string;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * The immutability period for the blobs in the container since the policy creation, in days.
      */
     readonly immutabilityPeriodSinceCreationInDays: number;

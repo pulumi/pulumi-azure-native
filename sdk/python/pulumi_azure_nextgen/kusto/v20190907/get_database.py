@@ -19,7 +19,10 @@ class GetDatabaseResult:
     """
     Class representing a Kusto database.
     """
-    def __init__(__self__, kind=None, location=None, name=None, type=None):
+    def __init__(__self__, id=None, kind=None, location=None, name=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -32,6 +35,14 @@ class GetDatabaseResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -72,6 +83,7 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
         if False:
             yield self
         return GetDatabaseResult(
+            id=self.id,
             kind=self.kind,
             location=self.location,
             name=self.name,
@@ -100,6 +112,7 @@ def get_database(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:kusto/v20190907:getDatabase', __args__, opts=opts, typ=GetDatabaseResult).value
 
     return AwaitableGetDatabaseResult(
+        id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,

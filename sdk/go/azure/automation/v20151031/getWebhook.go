@@ -33,6 +33,8 @@ type LookupWebhookResult struct {
 	Description *string `pulumi:"description"`
 	// Gets or sets the expiry time.
 	ExpiryTime *string `pulumi:"expiryTime"`
+	// Fully qualified resource Id for the resource
+	Id string `pulumi:"id"`
 	// Gets or sets the value of the enabled flag of the webhook.
 	IsEnabled *bool `pulumi:"isEnabled"`
 	// Gets or sets the last invoked time.

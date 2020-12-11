@@ -45,6 +45,10 @@ export interface GetAppArgs {
  */
 export interface GetAppResult {
     /**
+     * Fully qualified resource Id for the resource.
+     */
+    readonly id: string;
+    /**
      * The Managed Identity type of the app resource
      */
     readonly identity?: outputs.appplatform.v20200701.ManagedIdentityPropertiesResponse;

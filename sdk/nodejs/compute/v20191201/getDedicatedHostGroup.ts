@@ -39,6 +39,10 @@ export interface GetDedicatedHostGroupResult {
      */
     readonly hosts: outputs.compute.v20191201.SubResourceReadOnlyResponse[];
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

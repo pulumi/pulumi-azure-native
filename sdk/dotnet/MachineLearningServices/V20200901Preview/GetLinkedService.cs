@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview
     public sealed class GetLinkedServiceResult
     {
         /// <summary>
+        /// ResourceId of the link of the linked service.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Identity for the resource.
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview
 
         [OutputConstructor]
         private GetLinkedServiceResult(
+            string id,
+
             Outputs.IdentityResponse? identity,
 
             string? location,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview
 
             string type)
         {
+            Id = id;
             Identity = identity;
             Location = location;
             Name = name;

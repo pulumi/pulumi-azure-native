@@ -20,7 +20,7 @@ class GetClusterResult:
     """
     The cluster resource
     """
-    def __init__(__self__, add_on_features=None, available_cluster_versions=None, azure_active_directory=None, certificate=None, certificate_common_names=None, client_certificate_common_names=None, client_certificate_thumbprints=None, cluster_code_version=None, cluster_endpoint=None, cluster_id=None, cluster_state=None, diagnostics_storage_account_config=None, fabric_settings=None, location=None, management_endpoint=None, name=None, node_types=None, provisioning_state=None, reliability_level=None, reverse_proxy_certificate=None, reverse_proxy_certificate_common_names=None, tags=None, type=None, upgrade_description=None, upgrade_mode=None, vm_image=None):
+    def __init__(__self__, add_on_features=None, available_cluster_versions=None, azure_active_directory=None, certificate=None, certificate_common_names=None, client_certificate_common_names=None, client_certificate_thumbprints=None, cluster_code_version=None, cluster_endpoint=None, cluster_id=None, cluster_state=None, diagnostics_storage_account_config=None, fabric_settings=None, id=None, location=None, management_endpoint=None, name=None, node_types=None, provisioning_state=None, reliability_level=None, reverse_proxy_certificate=None, reverse_proxy_certificate_common_names=None, tags=None, type=None, upgrade_description=None, upgrade_mode=None, vm_image=None):
         if add_on_features and not isinstance(add_on_features, list):
             raise TypeError("Expected argument 'add_on_features' to be a list")
         pulumi.set(__self__, "add_on_features", add_on_features)
@@ -60,6 +60,9 @@ class GetClusterResult:
         if fabric_settings and not isinstance(fabric_settings, list):
             raise TypeError("Expected argument 'fabric_settings' to be a list")
         pulumi.set(__self__, "fabric_settings", fabric_settings)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -217,6 +220,14 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource identifier.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def location(self) -> str:
         """
         Azure resource location.
@@ -348,6 +359,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             cluster_state=self.cluster_state,
             diagnostics_storage_account_config=self.diagnostics_storage_account_config,
             fabric_settings=self.fabric_settings,
+            id=self.id,
             location=self.location,
             management_endpoint=self.management_endpoint,
             name=self.name,
@@ -395,6 +407,7 @@ def get_cluster(cluster_name: Optional[str] = None,
         cluster_state=__ret__.cluster_state,
         diagnostics_storage_account_config=__ret__.diagnostics_storage_account_config,
         fabric_settings=__ret__.fabric_settings,
+        id=__ret__.id,
         location=__ret__.location,
         management_endpoint=__ret__.management_endpoint,
         name=__ret__.name,

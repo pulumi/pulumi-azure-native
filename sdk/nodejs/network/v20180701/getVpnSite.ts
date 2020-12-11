@@ -51,6 +51,10 @@ export interface GetVpnSiteResult {
      */
     readonly etag: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * The ip-address for the vpn-site.
      */
     readonly ipAddress?: string;

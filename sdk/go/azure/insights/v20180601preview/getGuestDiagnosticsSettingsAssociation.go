@@ -27,6 +27,8 @@ type LookupGuestDiagnosticsSettingsAssociationArgs struct {
 type LookupGuestDiagnosticsSettingsAssociationResult struct {
 	// The guest diagnostic settings name.
 	GuestDiagnosticSettingsName string `pulumi:"guestDiagnosticSettingsName"`
+	// Azure resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Azure resource name

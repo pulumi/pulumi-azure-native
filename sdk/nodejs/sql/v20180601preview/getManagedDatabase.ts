@@ -68,6 +68,10 @@ export interface GetManagedDatabaseResult {
      */
     readonly failoverGroupId: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource location.
      */
     readonly location: string;

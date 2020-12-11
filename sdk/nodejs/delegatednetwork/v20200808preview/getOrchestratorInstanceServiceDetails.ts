@@ -47,6 +47,10 @@ export interface GetOrchestratorInstanceServiceDetailsResult {
      */
     readonly controllerDetails: outputs.delegatednetwork.v20200808preview.ControllerDetailsResponse;
     /**
+     * An identifier that represents the resource.
+     */
+    readonly id: string;
+    /**
      * The identity of the orchestrator
      */
     readonly identity?: outputs.delegatednetwork.v20200808preview.OrchestratorIdentityResponse;

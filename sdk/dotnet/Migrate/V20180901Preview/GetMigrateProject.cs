@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Migrate.V20180901Preview
         /// </summary>
         public readonly string? ETag;
         /// <summary>
+        /// Gets the relative URL to get this migrate project.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Gets or sets the Azure location in which migrate project is created.
         /// </summary>
         public readonly string? Location;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.Migrate.V20180901Preview
         private GetMigrateProjectResult(
             string? eTag,
 
+            string id,
+
             string? location,
 
             string name,
@@ -79,6 +85,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20180901Preview
             string type)
         {
             ETag = eTag;
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

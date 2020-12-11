@@ -31,6 +31,8 @@ type LookupAlertRuleResult struct {
 	Condition interface{} `pulumi:"condition"`
 	// the description of the alert rule that will be included in the alert email.
 	Description *string `pulumi:"description"`
+	// Azure resource Id
+	Id string `pulumi:"id"`
 	// the flag that indicates whether the alert rule is enabled.
 	IsEnabled bool `pulumi:"isEnabled"`
 	// Last time the rule was updated in ISO8601 format.

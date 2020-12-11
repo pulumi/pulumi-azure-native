@@ -65,6 +65,10 @@ export interface GetSiteHostNameBindingSlotResult {
      */
     readonly hostNameType?: string;
     /**
+     * Resource Id
+     */
+    readonly id?: string;
+    /**
      * Kind of resource
      */
     readonly kind?: string;

@@ -29,6 +29,8 @@ type LookupNamedValueArgs struct {
 type LookupNamedValueResult struct {
 	// Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
 	DisplayName string `pulumi:"displayName"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// KeyVault location details of the namedValue.
 	KeyVault *KeyVaultContractPropertiesResponse `pulumi:"keyVault"`
 	// Resource name.

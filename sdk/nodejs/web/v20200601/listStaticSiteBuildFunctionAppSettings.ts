@@ -40,6 +40,10 @@ export interface ListStaticSiteBuildFunctionAppSettingsArgs {
  */
 export interface ListStaticSiteBuildFunctionAppSettingsResult {
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;

@@ -20,13 +20,16 @@ class GetDatabaseResult:
     """
     Class representing a Kusto database.
     """
-    def __init__(__self__, etag=None, hot_cache_period_in_days=None, location=None, name=None, provisioning_state=None, soft_delete_period_in_days=None, statistics=None, tags=None, type=None):
+    def __init__(__self__, etag=None, hot_cache_period_in_days=None, id=None, location=None, name=None, provisioning_state=None, soft_delete_period_in_days=None, statistics=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
         if hot_cache_period_in_days and not isinstance(hot_cache_period_in_days, int):
             raise TypeError("Expected argument 'hot_cache_period_in_days' to be a int")
         pulumi.set(__self__, "hot_cache_period_in_days", hot_cache_period_in_days)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -64,6 +67,14 @@ class GetDatabaseResult:
         The number of days of data that should be kept in cache for fast queries.
         """
         return pulumi.get(self, "hot_cache_period_in_days")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -130,6 +141,7 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
         return GetDatabaseResult(
             etag=self.etag,
             hot_cache_period_in_days=self.hot_cache_period_in_days,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -163,6 +175,7 @@ def get_database(cluster_name: Optional[str] = None,
     return AwaitableGetDatabaseResult(
         etag=__ret__.etag,
         hot_cache_period_in_days=__ret__.hot_cache_period_in_days,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

@@ -48,6 +48,10 @@ export interface GetMachineExtensionResult {
      */
     readonly forceUpdateTag?: string;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * The machine extension instance view.
      */
     readonly instanceView?: outputs.hybridcompute.v20200815preview.MachineExtensionPropertiesResponseInstanceView;

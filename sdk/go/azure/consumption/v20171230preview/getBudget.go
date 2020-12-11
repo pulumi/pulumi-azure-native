@@ -31,6 +31,8 @@ type LookupBudgetResult struct {
 	CurrentSpend CurrentSpendResponse `pulumi:"currentSpend"`
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag *string `pulumi:"eTag"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Dictionary of notifications associated with the budget. Budget can have up to five notifications.

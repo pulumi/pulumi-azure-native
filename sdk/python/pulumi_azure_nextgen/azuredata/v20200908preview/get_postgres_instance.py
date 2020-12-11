@@ -20,13 +20,16 @@ class GetPostgresInstanceResult:
     """
     A Postgres Instance.
     """
-    def __init__(__self__, admin=None, data_controller_id=None, k8s_raw=None, last_uploaded_date=None, location=None, name=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, admin=None, data_controller_id=None, id=None, k8s_raw=None, last_uploaded_date=None, location=None, name=None, system_data=None, tags=None, type=None):
         if admin and not isinstance(admin, str):
             raise TypeError("Expected argument 'admin' to be a str")
         pulumi.set(__self__, "admin", admin)
         if data_controller_id and not isinstance(data_controller_id, str):
             raise TypeError("Expected argument 'data_controller_id' to be a str")
         pulumi.set(__self__, "data_controller_id", data_controller_id)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if k8s_raw and not isinstance(k8s_raw, dict):
             raise TypeError("Expected argument 'k8s_raw' to be a dict")
         pulumi.set(__self__, "k8s_raw", k8s_raw)
@@ -64,6 +67,14 @@ class GetPostgresInstanceResult:
         The data controller id
         """
         return pulumi.get(self, "data_controller_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="k8sRaw")
@@ -130,6 +141,7 @@ class AwaitableGetPostgresInstanceResult(GetPostgresInstanceResult):
         return GetPostgresInstanceResult(
             admin=self.admin,
             data_controller_id=self.data_controller_id,
+            id=self.id,
             k8s_raw=self.k8s_raw,
             last_uploaded_date=self.last_uploaded_date,
             location=self.location,
@@ -160,6 +172,7 @@ def get_postgres_instance(postgres_instance_name: Optional[str] = None,
     return AwaitableGetPostgresInstanceResult(
         admin=__ret__.admin,
         data_controller_id=__ret__.data_controller_id,
+        id=__ret__.id,
         k8s_raw=__ret__.k8s_raw,
         last_uploaded_date=__ret__.last_uploaded_date,
         location=__ret__.location,

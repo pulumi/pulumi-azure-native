@@ -35,6 +35,8 @@ type LookupWorkloadNetworkDnsZoneResult struct {
 	DnsServices *int `pulumi:"dnsServices"`
 	// Domain names of the DNS Zone.
 	Domain []string `pulumi:"domain"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The provisioning state

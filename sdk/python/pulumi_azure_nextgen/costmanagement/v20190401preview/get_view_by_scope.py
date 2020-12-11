@@ -20,7 +20,7 @@ class GetViewByScopeResult:
     """
     States and configurations of Cost Analysis.
     """
-    def __init__(__self__, accumulated=None, chart=None, created_on=None, dataset=None, display_name=None, e_tag=None, kpis=None, metric=None, modified_on=None, name=None, pivots=None, scope=None, time_period=None, timeframe=None, type=None):
+    def __init__(__self__, accumulated=None, chart=None, created_on=None, dataset=None, display_name=None, e_tag=None, id=None, kpis=None, metric=None, modified_on=None, name=None, pivots=None, scope=None, time_period=None, timeframe=None, type=None):
         if accumulated and not isinstance(accumulated, str):
             raise TypeError("Expected argument 'accumulated' to be a str")
         pulumi.set(__self__, "accumulated", accumulated)
@@ -39,6 +39,9 @@ class GetViewByScopeResult:
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kpis and not isinstance(kpis, list):
             raise TypeError("Expected argument 'kpis' to be a list")
         pulumi.set(__self__, "kpis", kpis)
@@ -114,6 +117,14 @@ class GetViewByScopeResult:
         eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         """
         return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -200,6 +211,7 @@ class AwaitableGetViewByScopeResult(GetViewByScopeResult):
             dataset=self.dataset,
             display_name=self.display_name,
             e_tag=self.e_tag,
+            id=self.id,
             kpis=self.kpis,
             metric=self.metric,
             modified_on=self.modified_on,
@@ -236,6 +248,7 @@ def get_view_by_scope(scope: Optional[str] = None,
         dataset=__ret__.dataset,
         display_name=__ret__.display_name,
         e_tag=__ret__.e_tag,
+        id=__ret__.id,
         kpis=__ret__.kpis,
         metric=__ret__.metric,
         modified_on=__ret__.modified_on,

@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// The resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
 
             string? description,
 
+            string id,
+
             string name,
 
             string provisioningState,
@@ -95,6 +101,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
             Actions = actions;
             CreationDate = creationDate;
             Description = description;
+            Id = id;
             Name = name;
             ProvisioningState = provisioningState;
             SystemData = systemData;

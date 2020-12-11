@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Network.V20180501
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string Location;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.Network.V20180501
         private GetZoneResult(
             string? etag,
 
+            string id,
+
             string location,
 
             int maxNumberOfRecordSets,
@@ -115,6 +121,7 @@ namespace Pulumi.AzureNextGen.Network.V20180501
             string? zoneType)
         {
             Etag = etag;
+            Id = id;
             Location = location;
             MaxNumberOfRecordSets = maxNumberOfRecordSets;
             MaxNumberOfRecordsPerRecordSet = maxNumberOfRecordsPerRecordSet;

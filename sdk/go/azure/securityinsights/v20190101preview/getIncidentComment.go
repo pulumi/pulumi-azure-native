@@ -37,6 +37,8 @@ type LookupIncidentCommentResult struct {
 	CreatedTimeUtc string `pulumi:"createdTimeUtc"`
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
+	// Azure resource Id
+	Id string `pulumi:"id"`
 	// The time the comment was updated
 	LastModifiedTimeUtc string `pulumi:"lastModifiedTimeUtc"`
 	// The comment message

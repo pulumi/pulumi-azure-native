@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200601
         /// </summary>
         public readonly ImmutableArray<string> GroupIds;
         /// <summary>
+        /// Fully qualified identifier of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Name of the resource.
         /// </summary>
         public readonly string Name;
@@ -80,6 +84,8 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200601
         private GetPrivateEndpointConnectionResult(
             ImmutableArray<string> groupIds,
 
+            string id,
+
             string name,
 
             Outputs.PrivateEndpointResponse? privateEndpoint,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200601
             string type)
         {
             GroupIds = groupIds;
+            Id = id;
             Name = name;
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;

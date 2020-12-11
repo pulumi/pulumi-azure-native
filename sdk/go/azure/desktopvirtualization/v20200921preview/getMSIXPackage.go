@@ -29,6 +29,8 @@ type LookupMSIXPackageArgs struct {
 type LookupMSIXPackageResult struct {
 	// User friendly Name to be displayed in the portal.
 	DisplayName *string `pulumi:"displayName"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// VHD/CIM image path on Network Share.
 	ImagePath *string `pulumi:"imagePath"`
 	// Make this version of the package the active one across the hostpool.

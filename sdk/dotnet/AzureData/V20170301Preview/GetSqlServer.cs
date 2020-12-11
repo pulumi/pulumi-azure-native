@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.AzureData.V20170301Preview
         /// </summary>
         public readonly string? Edition;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.AzureData.V20170301Preview
 
             string? edition,
 
+            string id,
+
             string name,
 
             string? propertyBag,
@@ -98,6 +104,7 @@ namespace Pulumi.AzureNextGen.AzureData.V20170301Preview
         {
             Cores = cores;
             Edition = edition;
+            Id = id;
             Name = name;
             PropertyBag = propertyBag;
             RegistrationID = registrationID;

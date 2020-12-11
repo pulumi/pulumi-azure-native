@@ -20,7 +20,7 @@ class GetRuleResult:
     """
     Description of Rule Resource.
     """
-    def __init__(__self__, action=None, correlation_filter=None, filter_type=None, name=None, sql_filter=None, type=None):
+    def __init__(__self__, action=None, correlation_filter=None, filter_type=None, id=None, name=None, sql_filter=None, type=None):
         if action and not isinstance(action, dict):
             raise TypeError("Expected argument 'action' to be a dict")
         pulumi.set(__self__, "action", action)
@@ -30,6 +30,9 @@ class GetRuleResult:
         if filter_type and not isinstance(filter_type, str):
             raise TypeError("Expected argument 'filter_type' to be a str")
         pulumi.set(__self__, "filter_type", filter_type)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -66,6 +69,14 @@ class GetRuleResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         Resource name
@@ -98,6 +109,7 @@ class AwaitableGetRuleResult(GetRuleResult):
             action=self.action,
             correlation_filter=self.correlation_filter,
             filter_type=self.filter_type,
+            id=self.id,
             name=self.name,
             sql_filter=self.sql_filter,
             type=self.type)
@@ -134,6 +146,7 @@ def get_rule(namespace_name: Optional[str] = None,
         action=__ret__.action,
         correlation_filter=__ret__.correlation_filter,
         filter_type=__ret__.filter_type,
+        id=__ret__.id,
         name=__ret__.name,
         sql_filter=__ret__.sql_filter,
         type=__ret__.type)

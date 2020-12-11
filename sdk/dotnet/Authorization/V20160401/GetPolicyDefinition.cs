@@ -42,6 +42,10 @@ namespace Pulumi.AzureNextGen.Authorization.V20160401
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
+        /// The ID of the policy definition.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
         /// </summary>
         public readonly string? Name;
@@ -60,6 +64,8 @@ namespace Pulumi.AzureNextGen.Authorization.V20160401
 
             string? displayName,
 
+            string id,
+
             string? name,
 
             object? policyRule,
@@ -68,6 +74,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20160401
         {
             Description = description;
             DisplayName = displayName;
+            Id = id;
             Name = name;
             PolicyRule = policyRule;
             PolicyType = policyType;

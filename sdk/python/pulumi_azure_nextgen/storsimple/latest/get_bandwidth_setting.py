@@ -20,7 +20,10 @@ class GetBandwidthSettingResult:
     """
     The bandwidth setting.
     """
-    def __init__(__self__, kind=None, name=None, schedules=None, type=None, volume_count=None):
+    def __init__(__self__, id=None, kind=None, name=None, schedules=None, type=None, volume_count=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -36,6 +39,14 @@ class GetBandwidthSettingResult:
         if volume_count and not isinstance(volume_count, int):
             raise TypeError("Expected argument 'volume_count' to be a int")
         pulumi.set(__self__, "volume_count", volume_count)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The path ID that uniquely identifies the object.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -84,6 +95,7 @@ class AwaitableGetBandwidthSettingResult(GetBandwidthSettingResult):
         if False:
             yield self
         return GetBandwidthSettingResult(
+            id=self.id,
             kind=self.kind,
             name=self.name,
             schedules=self.schedules,
@@ -113,6 +125,7 @@ def get_bandwidth_setting(bandwidth_setting_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:storsimple/latest:getBandwidthSetting', __args__, opts=opts, typ=GetBandwidthSettingResult).value
 
     return AwaitableGetBandwidthSettingResult(
+        id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
         schedules=__ret__.schedules,

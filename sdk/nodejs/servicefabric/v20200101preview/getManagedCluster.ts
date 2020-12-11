@@ -113,6 +113,10 @@ export interface GetManagedClusterResult {
      */
     readonly httpGatewayConnectionPort?: number;
     /**
+     * Azure resource identifier.
+     */
+    readonly id: string;
+    /**
      * Describes load balancing rules.
      */
     readonly loadBalancingRules?: outputs.servicefabric.v20200101preview.LoadBalancingRuleResponse[];

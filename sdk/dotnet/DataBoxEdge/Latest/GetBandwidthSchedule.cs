@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// </summary>
         public readonly ImmutableArray<string> Days;
         /// <summary>
+        /// The path ID that uniquely identifies the object.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The object name.
         /// </summary>
         public readonly string Name;
@@ -74,6 +78,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         private GetBandwidthScheduleResult(
             ImmutableArray<string> days,
 
+            string id,
+
             string name,
 
             int rateInMbps,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
             string type)
         {
             Days = days;
+            Id = id;
             Name = name;
             RateInMbps = rateInMbps;
             Start = start;

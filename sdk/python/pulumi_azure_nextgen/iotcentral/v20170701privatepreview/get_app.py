@@ -20,13 +20,16 @@ class GetAppResult:
     """
     The IoT Central application.
     """
-    def __init__(__self__, application_id=None, display_name=None, location=None, name=None, sku=None, subdomain=None, tags=None, template=None, type=None):
+    def __init__(__self__, application_id=None, display_name=None, id=None, location=None, name=None, sku=None, subdomain=None, tags=None, template=None, type=None):
         if application_id and not isinstance(application_id, str):
             raise TypeError("Expected argument 'application_id' to be a str")
         pulumi.set(__self__, "application_id", application_id)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -64,6 +67,14 @@ class GetAppResult:
         The display name of the application.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ARM resource identifier.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -130,6 +141,7 @@ class AwaitableGetAppResult(GetAppResult):
         return GetAppResult(
             application_id=self.application_id,
             display_name=self.display_name,
+            id=self.id,
             location=self.location,
             name=self.name,
             sku=self.sku,
@@ -160,6 +172,7 @@ def get_app(resource_group_name: Optional[str] = None,
     return AwaitableGetAppResult(
         application_id=__ret__.application_id,
         display_name=__ret__.display_name,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         sku=__ret__.sku,

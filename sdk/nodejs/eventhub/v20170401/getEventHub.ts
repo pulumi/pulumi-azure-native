@@ -48,6 +48,10 @@ export interface GetEventHubResult {
      */
     readonly createdAt: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Number of days to retain the events for this Event Hub, value should be 1 to 7 days
      */
     readonly messageRetentionInDays?: number;

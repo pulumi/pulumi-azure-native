@@ -52,6 +52,10 @@ export interface GetDatabaseResult {
      */
     readonly evictionPolicy?: string;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * Optional set of redis modules to enable in this database - modules can only be added at creation time.
      */
     readonly modules?: outputs.cache.v20201001preview.ModuleResponse[];

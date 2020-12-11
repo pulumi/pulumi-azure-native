@@ -33,6 +33,8 @@ type LookupSqlServerResult struct {
 	Cores *int `pulumi:"cores"`
 	// Sql Server Edition.
 	Edition *string `pulumi:"edition"`
+	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Sql Server Json Property Bag.

@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20190201Preview
         /// </summary>
         public readonly string Endpoint;
         /// <summary>
+        /// The resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
         public readonly string Location;
@@ -74,6 +78,8 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20190201Preview
 
             string endpoint,
 
+            string id,
+
             string location,
 
             string name,
@@ -86,6 +92,7 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20190201Preview
         {
             CreationDate = creationDate;
             Endpoint = endpoint;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

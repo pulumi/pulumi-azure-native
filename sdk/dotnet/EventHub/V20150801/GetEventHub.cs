@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.EventHub.V20150801
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string? Location;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.EventHub.V20150801
         private GetEventHubResult(
             string createdAt,
 
+            string id,
+
             string? location,
 
             int? messageRetentionInDays,
@@ -103,6 +109,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20150801
             string updatedAt)
         {
             CreatedAt = createdAt;
+            Id = id;
             Location = location;
             MessageRetentionInDays = messageRetentionInDays;
             Name = name;

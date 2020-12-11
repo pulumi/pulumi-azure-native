@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview
         /// </summary>
         public readonly string? FirstExpirationTime;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// List of Keywords that tag the acl
         /// </summary>
         public readonly ImmutableArray<string> Keywords;
@@ -116,6 +120,8 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview
 
             string? firstExpirationTime,
 
+            string? id,
+
             ImmutableArray<string> keywords,
 
             string? kind,
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801Preview
             CustomParameterValues = customParameterValues;
             DisplayName = displayName;
             FirstExpirationTime = firstExpirationTime;
+            Id = id;
             Keywords = keywords;
             Kind = kind;
             Location = location;

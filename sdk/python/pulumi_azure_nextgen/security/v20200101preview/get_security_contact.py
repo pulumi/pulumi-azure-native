@@ -20,13 +20,16 @@ class GetSecurityContactResult:
     """
     Contact details and configurations for notifications coming from Azure Security Center.
     """
-    def __init__(__self__, alert_notifications=None, emails=None, name=None, notifications_by_role=None, phone=None, type=None):
+    def __init__(__self__, alert_notifications=None, emails=None, id=None, name=None, notifications_by_role=None, phone=None, type=None):
         if alert_notifications and not isinstance(alert_notifications, dict):
             raise TypeError("Expected argument 'alert_notifications' to be a dict")
         pulumi.set(__self__, "alert_notifications", alert_notifications)
         if emails and not isinstance(emails, str):
             raise TypeError("Expected argument 'emails' to be a str")
         pulumi.set(__self__, "emails", emails)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -55,6 +58,14 @@ class GetSecurityContactResult:
         List of email addresses which will get notifications from Azure Security Center by the configurations defined in this security contact.
         """
         return pulumi.get(self, "emails")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -97,6 +108,7 @@ class AwaitableGetSecurityContactResult(GetSecurityContactResult):
         return GetSecurityContactResult(
             alert_notifications=self.alert_notifications,
             emails=self.emails,
+            id=self.id,
             name=self.name,
             notifications_by_role=self.notifications_by_role,
             phone=self.phone,
@@ -121,6 +133,7 @@ def get_security_contact(security_contact_name: Optional[str] = None,
     return AwaitableGetSecurityContactResult(
         alert_notifications=__ret__.alert_notifications,
         emails=__ret__.emails,
+        id=__ret__.id,
         name=__ret__.name,
         notifications_by_role=__ret__.notifications_by_role,
         phone=__ret__.phone,

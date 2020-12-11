@@ -56,6 +56,10 @@ export interface GetExportResult {
      */
     readonly format?: string;
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

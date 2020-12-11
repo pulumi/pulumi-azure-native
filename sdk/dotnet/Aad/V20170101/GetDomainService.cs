@@ -76,6 +76,10 @@ namespace Pulumi.AzureNextGen.Aad.V20170101
         /// </summary>
         public readonly ImmutableArray<Outputs.HealthMonitorResponse> HealthMonitors;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Secure LDAP Settings
         /// </summary>
         public readonly Outputs.LdapsSettingsResponse? LdapsSettings;
@@ -140,6 +144,8 @@ namespace Pulumi.AzureNextGen.Aad.V20170101
 
             ImmutableArray<Outputs.HealthMonitorResponse> healthMonitors,
 
+            string id,
+
             Outputs.LdapsSettingsResponse? ldapsSettings,
 
             string? location,
@@ -171,6 +177,7 @@ namespace Pulumi.AzureNextGen.Aad.V20170101
             HealthAlerts = healthAlerts;
             HealthLastEvaluated = healthLastEvaluated;
             HealthMonitors = healthMonitors;
+            Id = id;
             LdapsSettings = ldapsSettings;
             Location = location;
             Name = name;

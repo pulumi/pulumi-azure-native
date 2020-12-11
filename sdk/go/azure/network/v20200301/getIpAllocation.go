@@ -31,6 +31,8 @@ type LookupIpAllocationResult struct {
 	AllocationTags map[string]string `pulumi:"allocationTags"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// The IPAM allocation ID.
 	IpamAllocationId *string `pulumi:"ipamAllocationId"`
 	// Resource location.

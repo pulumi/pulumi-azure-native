@@ -50,6 +50,10 @@ export interface GetGalleryImageVersionArgs {
  */
 export interface GetGalleryImageVersionResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

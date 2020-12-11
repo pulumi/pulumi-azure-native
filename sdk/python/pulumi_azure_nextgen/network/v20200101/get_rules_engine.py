@@ -20,7 +20,10 @@ class GetRulesEngineResult:
     """
     A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
     """
-    def __init__(__self__, name=None, resource_state=None, rules=None, type=None):
+    def __init__(__self__, id=None, name=None, resource_state=None, rules=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -33,6 +36,14 @@ class GetRulesEngineResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -73,6 +84,7 @@ class AwaitableGetRulesEngineResult(GetRulesEngineResult):
         if False:
             yield self
         return GetRulesEngineResult(
+            id=self.id,
             name=self.name,
             resource_state=self.resource_state,
             rules=self.rules,
@@ -101,6 +113,7 @@ def get_rules_engine(front_door_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:network/v20200101:getRulesEngine', __args__, opts=opts, typ=GetRulesEngineResult).value
 
     return AwaitableGetRulesEngineResult(
+        id=__ret__.id,
         name=__ret__.name,
         resource_state=__ret__.resource_state,
         rules=__ret__.rules,

@@ -56,6 +56,10 @@ export interface GetRosettaNetProcessConfigurationResult {
      */
     readonly description?: string;
     /**
+     * The resource id.
+     */
+    readonly id: string;
+    /**
      * The RosettaNet initiator role settings.
      */
     readonly initiatorRoleSettings: outputs.logic.v20160601.RosettaNetPipRoleSettingsResponse;

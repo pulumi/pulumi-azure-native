@@ -19,7 +19,7 @@ class GetCertificateCsrResult:
     """
     Certificate signing request object
     """
-    def __init__(__self__, csr_string=None, distinguished_name=None, hosting_environment=None, kind=None, location=None, name=None, password=None, pfx_blob=None, public_key_hash=None, tags=None, type=None):
+    def __init__(__self__, csr_string=None, distinguished_name=None, hosting_environment=None, id=None, kind=None, location=None, name=None, password=None, pfx_blob=None, public_key_hash=None, tags=None, type=None):
         if csr_string and not isinstance(csr_string, str):
             raise TypeError("Expected argument 'csr_string' to be a str")
         pulumi.set(__self__, "csr_string", csr_string)
@@ -29,6 +29,9 @@ class GetCertificateCsrResult:
         if hosting_environment and not isinstance(hosting_environment, str):
             raise TypeError("Expected argument 'hosting_environment' to be a str")
         pulumi.set(__self__, "hosting_environment", hosting_environment)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -77,6 +80,14 @@ class GetCertificateCsrResult:
         Hosting environment
         """
         return pulumi.get(self, "hosting_environment")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -152,6 +163,7 @@ class AwaitableGetCertificateCsrResult(GetCertificateCsrResult):
             csr_string=self.csr_string,
             distinguished_name=self.distinguished_name,
             hosting_environment=self.hosting_environment,
+            id=self.id,
             kind=self.kind,
             location=self.location,
             name=self.name,
@@ -184,6 +196,7 @@ def get_certificate_csr(name: Optional[str] = None,
         csr_string=__ret__.csr_string,
         distinguished_name=__ret__.distinguished_name,
         hosting_environment=__ret__.hosting_environment,
+        id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,

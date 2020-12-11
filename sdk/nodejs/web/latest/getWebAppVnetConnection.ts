@@ -53,6 +53,10 @@ export interface GetWebAppVnetConnectionResult {
      */
     readonly dnsServers?: string;
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Flag that is used to denote if this is VNET injection
      */
     readonly isSwift?: boolean;

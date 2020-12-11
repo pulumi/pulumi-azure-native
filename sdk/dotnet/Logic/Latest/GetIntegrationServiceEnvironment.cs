@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Logic.Latest
     public sealed class GetIntegrationServiceEnvironmentResult
     {
         /// <summary>
+        /// The resource id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string? Location;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.Logic.Latest
 
         [OutputConstructor]
         private GetIntegrationServiceEnvironmentResult(
+            string id,
+
             string? location,
 
             string name,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

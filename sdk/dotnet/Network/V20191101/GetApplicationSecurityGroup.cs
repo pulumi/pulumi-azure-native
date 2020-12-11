@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Network.V20191101
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.Network.V20191101
         private GetApplicationSecurityGroupResult(
             string etag,
 
+            string? id,
+
             string? location,
 
             string name,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.Network.V20191101
             string type)
         {
             Etag = etag;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

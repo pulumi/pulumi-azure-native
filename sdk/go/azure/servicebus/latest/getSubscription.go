@@ -51,6 +51,8 @@ type LookupSubscriptionResult struct {
 	ForwardDeadLetteredMessagesTo *string `pulumi:"forwardDeadLetteredMessagesTo"`
 	// Queue/Topic name to forward the messages
 	ForwardTo *string `pulumi:"forwardTo"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
 	LockDuration *string `pulumi:"lockDuration"`
 	// Number of maximum deliveries.

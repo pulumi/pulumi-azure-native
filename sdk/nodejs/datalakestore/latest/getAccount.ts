@@ -79,6 +79,10 @@ export interface GetAccountResult {
      */
     readonly firewallState: string;
     /**
+     * The resource identifier.
+     */
+    readonly id: string;
+    /**
      * The Key Vault encryption identity, if any.
      */
     readonly identity: outputs.datalakestore.latest.EncryptionIdentityResponse;

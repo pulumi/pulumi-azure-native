@@ -29,6 +29,8 @@ type LookupNamespaceResult struct {
 	ClusterArmId *string `pulumi:"clusterArmId"`
 	// The time the Namespace was created.
 	CreatedAt string `pulumi:"createdAt"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Value that indicates whether AutoInflate is enabled for eventhub namespace.
 	IsAutoInflateEnabled *bool `pulumi:"isAutoInflateEnabled"`
 	// Value that indicates whether Kafka is enabled for eventhub namespace.

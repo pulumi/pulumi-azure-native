@@ -25,6 +25,8 @@ type LookupManagementGroupSubscriptionArgs struct {
 type LookupManagementGroupSubscriptionResult struct {
 	// The friendly name of the subscription.
 	DisplayName *string `pulumi:"displayName"`
+	// The fully qualified ID for the subscription.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000/subscriptions/0000000-0000-0000-0000-000000000001
+	Id string `pulumi:"id"`
 	// The stringified id of the subscription. For example, 00000000-0000-0000-0000-000000000000
 	Name string `pulumi:"name"`
 	// The ID of the parent management group.

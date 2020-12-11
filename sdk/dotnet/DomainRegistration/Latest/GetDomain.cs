@@ -85,6 +85,10 @@ namespace Pulumi.AzureNextGen.DomainRegistration.Latest
         /// </summary>
         public readonly string ExpirationTime;
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
@@ -168,6 +172,8 @@ namespace Pulumi.AzureNextGen.DomainRegistration.Latest
 
             string expirationTime,
 
+            string id,
+
             string? kind,
 
             string lastRenewedTime,
@@ -208,6 +214,7 @@ namespace Pulumi.AzureNextGen.DomainRegistration.Latest
             DnsZoneId = dnsZoneId;
             DomainNotRenewableReasons = domainNotRenewableReasons;
             ExpirationTime = expirationTime;
+            Id = id;
             Kind = kind;
             LastRenewedTime = lastRenewedTime;
             Location = location;

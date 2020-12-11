@@ -29,6 +29,8 @@ type LookupWebAppDomainOwnershipIdentifierSlotArgs struct {
 
 // A domain specific resource identifier.
 type LookupWebAppDomainOwnershipIdentifierSlotResult struct {
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.

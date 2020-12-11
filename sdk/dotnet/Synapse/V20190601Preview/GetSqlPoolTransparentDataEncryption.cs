@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
     public sealed class GetSqlPoolTransparentDataEncryptionResult
     {
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string Location;
@@ -70,6 +74,8 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
         [OutputConstructor]
         private GetSqlPoolTransparentDataEncryptionResult(
+            string id,
+
             string location,
 
             string name,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Status = status;

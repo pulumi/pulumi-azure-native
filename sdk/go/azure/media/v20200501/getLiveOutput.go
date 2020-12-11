@@ -39,6 +39,8 @@ type LookupLiveOutputResult struct {
 	Description *string `pulumi:"description"`
 	// HTTP Live Streaming (HLS) packing setting for the live output.
 	Hls *HlsResponse `pulumi:"hls"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The time the live output was last modified.
 	LastModified string `pulumi:"lastModified"`
 	// The manifest file name. If not provided, the service will generate one automatically.

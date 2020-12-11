@@ -33,6 +33,8 @@ type LookupPrefixResult struct {
 	ErrorMessage string `pulumi:"errorMessage"`
 	// The list of events for peering service prefix
 	Events []PeeringServicePrefixEventResponse `pulumi:"events"`
+	// The ID of the resource.
+	Id string `pulumi:"id"`
 	// The prefix learned type
 	LearnedType string `pulumi:"learnedType"`
 	// The name of the resource.

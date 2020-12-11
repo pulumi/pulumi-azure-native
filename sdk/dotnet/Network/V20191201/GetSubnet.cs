@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.Network.V20191201
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Array of IP configuration profiles which reference this subnet.
         /// </summary>
         public readonly ImmutableArray<Outputs.IPConfigurationProfileResponse> IpConfigurationProfiles;
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNextGen.Network.V20191201
 
             string etag,
 
+            string? id,
+
             ImmutableArray<Outputs.IPConfigurationProfileResponse> ipConfigurationProfiles,
 
             ImmutableArray<Outputs.IPConfigurationResponse> ipConfigurations,
@@ -172,6 +178,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201
             AddressPrefixes = addressPrefixes;
             Delegations = delegations;
             Etag = etag;
+            Id = id;
             IpConfigurationProfiles = ipConfigurationProfiles;
             IpConfigurations = ipConfigurations;
             Name = name;

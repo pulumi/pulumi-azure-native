@@ -20,7 +20,7 @@ class GetStreamingEndpointResult:
     """
     The streaming endpoint.
     """
-    def __init__(__self__, access_control=None, availability_set_name=None, cdn_enabled=None, cdn_profile=None, cdn_provider=None, created=None, cross_site_access_policies=None, custom_host_names=None, description=None, free_trial_end_time=None, host_name=None, last_modified=None, location=None, max_cache_age=None, name=None, provisioning_state=None, resource_state=None, scale_units=None, tags=None, type=None):
+    def __init__(__self__, access_control=None, availability_set_name=None, cdn_enabled=None, cdn_profile=None, cdn_provider=None, created=None, cross_site_access_policies=None, custom_host_names=None, description=None, free_trial_end_time=None, host_name=None, id=None, last_modified=None, location=None, max_cache_age=None, name=None, provisioning_state=None, resource_state=None, scale_units=None, tags=None, type=None):
         if access_control and not isinstance(access_control, dict):
             raise TypeError("Expected argument 'access_control' to be a dict")
         pulumi.set(__self__, "access_control", access_control)
@@ -54,6 +54,9 @@ class GetStreamingEndpointResult:
         if host_name and not isinstance(host_name, str):
             raise TypeError("Expected argument 'host_name' to be a str")
         pulumi.set(__self__, "host_name", host_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_modified and not isinstance(last_modified, str):
             raise TypeError("Expected argument 'last_modified' to be a str")
         pulumi.set(__self__, "last_modified", last_modified)
@@ -171,6 +174,14 @@ class GetStreamingEndpointResult:
         return pulumi.get(self, "host_name")
 
     @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
     @pulumi.getter(name="lastModified")
     def last_modified(self) -> str:
         """
@@ -260,6 +271,7 @@ class AwaitableGetStreamingEndpointResult(GetStreamingEndpointResult):
             description=self.description,
             free_trial_end_time=self.free_trial_end_time,
             host_name=self.host_name,
+            id=self.id,
             last_modified=self.last_modified,
             location=self.location,
             max_cache_age=self.max_cache_age,
@@ -304,6 +316,7 @@ def get_streaming_endpoint(account_name: Optional[str] = None,
         description=__ret__.description,
         free_trial_end_time=__ret__.free_trial_end_time,
         host_name=__ret__.host_name,
+        id=__ret__.id,
         last_modified=__ret__.last_modified,
         location=__ret__.location,
         max_cache_age=__ret__.max_cache_age,

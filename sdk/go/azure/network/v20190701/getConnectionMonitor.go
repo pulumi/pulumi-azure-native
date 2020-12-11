@@ -33,6 +33,8 @@ type LookupConnectionMonitorResult struct {
 	Destination ConnectionMonitorDestinationResponse `pulumi:"destination"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// ID of the connection monitor.
+	Id string `pulumi:"id"`
 	// Connection monitor location.
 	Location *string `pulumi:"location"`
 	// Monitoring interval in seconds.

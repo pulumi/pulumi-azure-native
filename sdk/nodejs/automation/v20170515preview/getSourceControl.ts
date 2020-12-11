@@ -60,6 +60,10 @@ export interface GetSourceControlResult {
      */
     readonly folderPath?: string;
     /**
+     * Fully qualified resource Id for the resource
+     */
+    readonly id: string;
+    /**
      * The last modified time.
      */
     readonly lastModifiedTime?: string;

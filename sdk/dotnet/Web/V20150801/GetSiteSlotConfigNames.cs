@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// </summary>
         public readonly ImmutableArray<string> ConnectionStringNames;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Kind of resource
         /// </summary>
         public readonly string? Kind;
@@ -74,6 +78,8 @@ namespace Pulumi.AzureNextGen.Web.V20150801
 
             ImmutableArray<string> connectionStringNames,
 
+            string? id,
+
             string? kind,
 
             string location,
@@ -86,6 +92,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         {
             AppSettingNames = appSettingNames;
             ConnectionStringNames = connectionStringNames;
+            Id = id;
             Kind = kind;
             Location = location;
             Name = name;

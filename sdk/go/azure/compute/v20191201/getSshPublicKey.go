@@ -25,6 +25,8 @@ type LookupSshPublicKeyArgs struct {
 
 // Specifies information about the SSH public key.
 type LookupSshPublicKeyResult struct {
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name

@@ -72,6 +72,10 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         /// </summary>
         public readonly string? GatewayManagerEtag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNextGen.Network.V20180801
 
             string? gatewayManagerEtag,
 
+            string? id,
+
             string? location,
 
             string name,
@@ -170,6 +176,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
             Etag = etag;
             ExpressRoutePort = expressRoutePort;
             GatewayManagerEtag = gatewayManagerEtag;
+            Id = id;
             Location = location;
             Name = name;
             Peerings = peerings;

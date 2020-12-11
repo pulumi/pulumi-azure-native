@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Virtual machine members of this group.
         /// </summary>
         public readonly ImmutableArray<string> Members;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         private GetWorkloadNetworkVMGroupResult(
             string? displayName,
 
+            string id,
+
             ImmutableArray<string> members,
 
             string name,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
             string type)
         {
             DisplayName = displayName;
+            Id = id;
             Members = members;
             Name = name;
             ProvisioningState = provisioningState;

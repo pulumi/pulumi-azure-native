@@ -35,6 +35,8 @@ type LookupExportResult struct {
 	ETag *string `pulumi:"eTag"`
 	// The format of the export being delivered. Currently only 'Csv' is supported.
 	Format *string `pulumi:"format"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// If the export has an active schedule, provides an estimate of the next execution time.

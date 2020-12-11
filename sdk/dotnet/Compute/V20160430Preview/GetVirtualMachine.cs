@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Compute.V20160430Preview
         /// </summary>
         public readonly Outputs.HardwareProfileResponse? HardwareProfile;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the virtual machine, if configured.
         /// </summary>
         public readonly Outputs.VirtualMachineIdentityResponse? Identity;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNextGen.Compute.V20160430Preview
 
             Outputs.HardwareProfileResponse? hardwareProfile,
 
+            string id,
+
             Outputs.VirtualMachineIdentityResponse? identity,
 
             Outputs.VirtualMachineInstanceViewResponse instanceView,
@@ -153,6 +159,7 @@ namespace Pulumi.AzureNextGen.Compute.V20160430Preview
             AvailabilitySet = availabilitySet;
             DiagnosticsProfile = diagnosticsProfile;
             HardwareProfile = hardwareProfile;
+            Id = id;
             Identity = identity;
             InstanceView = instanceView;
             LicenseType = licenseType;

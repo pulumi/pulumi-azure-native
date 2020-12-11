@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
         /// </summary>
         public readonly object? Definitions;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
 
             object? definitions,
 
+            string id,
+
             string name,
 
             string type,
@@ -86,6 +92,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
         {
             ContentType = contentType;
             Definitions = definitions;
+            Id = id;
             Name = name;
             Type = type;
             Value = value;

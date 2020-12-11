@@ -20,7 +20,7 @@ class GetOperationalizationClusterResult:
     """
     Instance of an Azure ML Operationalization Cluster resource.
     """
-    def __init__(__self__, app_insights=None, cluster_type=None, container_registry=None, container_service=None, created_on=None, description=None, global_service_configuration=None, location=None, modified_on=None, name=None, provisioning_state=None, storage_account=None, tags=None, type=None):
+    def __init__(__self__, app_insights=None, cluster_type=None, container_registry=None, container_service=None, created_on=None, description=None, global_service_configuration=None, id=None, location=None, modified_on=None, name=None, provisioning_state=None, storage_account=None, tags=None, type=None):
         if app_insights and not isinstance(app_insights, dict):
             raise TypeError("Expected argument 'app_insights' to be a dict")
         pulumi.set(__self__, "app_insights", app_insights)
@@ -42,6 +42,9 @@ class GetOperationalizationClusterResult:
         if global_service_configuration and not isinstance(global_service_configuration, dict):
             raise TypeError("Expected argument 'global_service_configuration' to be a dict")
         pulumi.set(__self__, "global_service_configuration", global_service_configuration)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -122,6 +125,14 @@ class GetOperationalizationClusterResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        Specifies the resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def location(self) -> str:
         """
         Specifies the location of the resource.
@@ -190,6 +201,7 @@ class AwaitableGetOperationalizationClusterResult(GetOperationalizationClusterRe
             created_on=self.created_on,
             description=self.description,
             global_service_configuration=self.global_service_configuration,
+            id=self.id,
             location=self.location,
             modified_on=self.modified_on,
             name=self.name,
@@ -225,6 +237,7 @@ def get_operationalization_cluster(cluster_name: Optional[str] = None,
         created_on=__ret__.created_on,
         description=__ret__.description,
         global_service_configuration=__ret__.global_service_configuration,
+        id=__ret__.id,
         location=__ret__.location,
         modified_on=__ret__.modified_on,
         name=__ret__.name,

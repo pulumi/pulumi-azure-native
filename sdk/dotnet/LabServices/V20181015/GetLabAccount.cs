@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
         /// </summary>
         public readonly bool? EnabledRegionSelection;
         /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The details of the latest operation. ex: status, error
         /// </summary>
         public readonly Outputs.LatestOperationResultResponse LatestOperationResult;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
         private GetLabAccountResult(
             bool? enabledRegionSelection,
 
+            string id,
+
             Outputs.LatestOperationResultResponse latestOperationResult,
 
             string? location,
@@ -103,6 +109,7 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
             string? uniqueIdentifier)
         {
             EnabledRegionSelection = enabledRegionSelection;
+            Id = id;
             LatestOperationResult = latestOperationResult;
             Location = location;
             Name = name;

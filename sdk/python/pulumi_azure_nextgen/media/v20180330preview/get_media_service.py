@@ -20,7 +20,10 @@ class GetMediaServiceResult:
     """
     A Media Services account.
     """
-    def __init__(__self__, location=None, media_service_id=None, name=None, storage_accounts=None, tags=None, type=None):
+    def __init__(__self__, id=None, location=None, media_service_id=None, name=None, storage_accounts=None, tags=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -39,6 +42,14 @@ class GetMediaServiceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -95,6 +106,7 @@ class AwaitableGetMediaServiceResult(GetMediaServiceResult):
         if False:
             yield self
         return GetMediaServiceResult(
+            id=self.id,
             location=self.location,
             media_service_id=self.media_service_id,
             name=self.name,
@@ -122,6 +134,7 @@ def get_media_service(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:media/v20180330preview:getMediaService', __args__, opts=opts, typ=GetMediaServiceResult).value
 
     return AwaitableGetMediaServiceResult(
+        id=__ret__.id,
         location=__ret__.location,
         media_service_id=__ret__.media_service_id,
         name=__ret__.name,

@@ -40,6 +40,10 @@ export interface GetRoleArgs {
  */
 export interface GetRoleResult {
     /**
+     * The path ID that uniquely identifies the object.
+     */
+    readonly id: string;
+    /**
      * Role type.
      */
     readonly kind: string;

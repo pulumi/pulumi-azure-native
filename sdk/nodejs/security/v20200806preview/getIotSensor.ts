@@ -47,6 +47,10 @@ export interface GetIotSensorResult {
      */
     readonly dynamicLearning: boolean;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Learning mode status of the IoT sensor
      */
     readonly learningMode: boolean;

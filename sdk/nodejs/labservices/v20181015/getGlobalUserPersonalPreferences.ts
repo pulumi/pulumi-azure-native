@@ -48,4 +48,8 @@ export interface GetGlobalUserPersonalPreferencesResult {
      * Array of favorite lab resource ids
      */
     readonly favoriteLabResourceIds?: string[];
+    /**
+     * Id to be used by the cache orchestrator
+     */
+    readonly id?: string;
 }

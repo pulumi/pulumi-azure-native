@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         private GetConsumerGroupResult(
             string createdAt,
 
+            string id,
+
             string name,
 
             string type,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
             string? userMetadata)
         {
             CreatedAt = createdAt;
+            Id = id;
             Name = name;
             Type = type;
             UpdatedAt = updatedAt;

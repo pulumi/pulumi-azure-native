@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.AzureData.V20200908Preview
         /// </summary>
         public readonly string? EndTime;
         /// <summary>
+        /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The on premise instance endpoint
         /// </summary>
         public readonly string? InstanceEndpoint;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.AzureData.V20200908Preview
 
             string? endTime,
 
+            string id,
+
             string? instanceEndpoint,
 
             object? k8sRaw,
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNextGen.AzureData.V20200908Preview
             Admin = admin;
             DataControllerId = dataControllerId;
             EndTime = endTime;
+            Id = id;
             InstanceEndpoint = instanceEndpoint;
             K8sRaw = k8sRaw;
             LastUploadedDate = lastUploadedDate;

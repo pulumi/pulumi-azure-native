@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.NetApp.V20200601
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.NetApp.V20200601
 
             bool? enabled,
 
+            string id,
+
             string location,
 
             int? monthlyBackupsToKeep,
@@ -122,6 +128,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200601
         {
             DailyBackupsToKeep = dailyBackupsToKeep;
             Enabled = enabled;
+            Id = id;
             Location = location;
             MonthlyBackupsToKeep = monthlyBackupsToKeep;
             Name = name;

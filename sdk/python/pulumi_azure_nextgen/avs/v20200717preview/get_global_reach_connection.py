@@ -19,7 +19,7 @@ class GetGlobalReachConnectionResult:
     """
     A global reach connection resource
     """
-    def __init__(__self__, address_prefix=None, authorization_key=None, circuit_connection_status=None, name=None, peer_express_route_circuit=None, provisioning_state=None, type=None):
+    def __init__(__self__, address_prefix=None, authorization_key=None, circuit_connection_status=None, id=None, name=None, peer_express_route_circuit=None, provisioning_state=None, type=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
         pulumi.set(__self__, "address_prefix", address_prefix)
@@ -29,6 +29,9 @@ class GetGlobalReachConnectionResult:
         if circuit_connection_status and not isinstance(circuit_connection_status, str):
             raise TypeError("Expected argument 'circuit_connection_status' to be a str")
         pulumi.set(__self__, "circuit_connection_status", circuit_connection_status)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -65,6 +68,14 @@ class GetGlobalReachConnectionResult:
         The connection status of the global reach connection
         """
         return pulumi.get(self, "circuit_connection_status")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -108,6 +119,7 @@ class AwaitableGetGlobalReachConnectionResult(GetGlobalReachConnectionResult):
             address_prefix=self.address_prefix,
             authorization_key=self.authorization_key,
             circuit_connection_status=self.circuit_connection_status,
+            id=self.id,
             name=self.name,
             peer_express_route_circuit=self.peer_express_route_circuit,
             provisioning_state=self.provisioning_state,
@@ -139,6 +151,7 @@ def get_global_reach_connection(global_reach_connection_name: Optional[str] = No
         address_prefix=__ret__.address_prefix,
         authorization_key=__ret__.authorization_key,
         circuit_connection_status=__ret__.circuit_connection_status,
+        id=__ret__.id,
         name=__ret__.name,
         peer_express_route_circuit=__ret__.peer_express_route_circuit,
         provisioning_state=__ret__.provisioning_state,

@@ -20,13 +20,16 @@ class GetMyWorkbookResult:
     """
     An Application Insights private workbook definition.
     """
-    def __init__(__self__, category=None, display_name=None, identity=None, kind=None, location=None, name=None, serialized_data=None, source_id=None, storage_uri=None, tags=None, time_modified=None, type=None, user_id=None, version=None):
+    def __init__(__self__, category=None, display_name=None, id=None, identity=None, kind=None, location=None, name=None, serialized_data=None, source_id=None, storage_uri=None, tags=None, time_modified=None, type=None, user_id=None, version=None):
         if category and not isinstance(category, str):
             raise TypeError("Expected argument 'category' to be a str")
         pulumi.set(__self__, "category", category)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -79,6 +82,14 @@ class GetMyWorkbookResult:
         The user-defined name of the private workbook.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -185,6 +196,7 @@ class AwaitableGetMyWorkbookResult(GetMyWorkbookResult):
         return GetMyWorkbookResult(
             category=self.category,
             display_name=self.display_name,
+            id=self.id,
             identity=self.identity,
             kind=self.kind,
             location=self.location,
@@ -220,6 +232,7 @@ def get_my_workbook(resource_group_name: Optional[str] = None,
     return AwaitableGetMyWorkbookResult(
         category=__ret__.category,
         display_name=__ret__.display_name,
+        id=__ret__.id,
         identity=__ret__.identity,
         kind=__ret__.kind,
         location=__ret__.location,

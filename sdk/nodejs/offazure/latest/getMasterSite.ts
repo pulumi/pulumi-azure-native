@@ -39,6 +39,10 @@ export interface GetMasterSiteResult {
      */
     readonly eTag?: string;
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Azure location in which Sites is created.
      */
     readonly location?: string;

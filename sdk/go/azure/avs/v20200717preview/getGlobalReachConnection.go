@@ -33,6 +33,8 @@ type LookupGlobalReachConnectionResult struct {
 	AuthorizationKey *string `pulumi:"authorizationKey"`
 	// The connection status of the global reach connection
 	CircuitConnectionStatus string `pulumi:"circuitConnectionStatus"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Identifier of the ExpressRoute Circuit to peer with in the global reach connection

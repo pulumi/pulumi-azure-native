@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
         /// </summary>
         public readonly string EndPoint;
         /// <summary>
+        /// The path ID that uniquely identifies the object.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         public readonly string? Kind;
@@ -80,6 +84,8 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
 
             string endPoint,
 
+            string id,
+
             string? kind,
 
             string name,
@@ -92,6 +98,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
         {
             AccessKey = accessKey;
             EndPoint = endPoint;
+            Id = id;
             Kind = kind;
             Name = name;
             SslStatus = sslStatus;

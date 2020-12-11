@@ -39,6 +39,8 @@ type LookupBlobServicePropertiesResult struct {
 	DefaultServiceVersion *string `pulumi:"defaultServiceVersion"`
 	// The blob service properties for blob soft delete.
 	DeleteRetentionPolicy *DeleteRetentionPolicyResponse `pulumi:"deleteRetentionPolicy"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// Versioning is enabled if set to true.
 	IsVersioningEnabled *bool `pulumi:"isVersioningEnabled"`
 	// The name of the resource

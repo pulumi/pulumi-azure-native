@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20200701
     public sealed class GetAppResult
     {
         /// <summary>
+        /// Fully qualified resource Id for the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The Managed Identity type of the app resource
         /// </summary>
         public readonly Outputs.ManagedIdentityPropertiesResponse? Identity;
@@ -74,6 +78,8 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20200701
 
         [OutputConstructor]
         private GetAppResult(
+            string id,
+
             Outputs.ManagedIdentityPropertiesResponse? identity,
 
             string? location,
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20200701
 
             string type)
         {
+            Id = id;
             Identity = identity;
             Location = location;
             Name = name;

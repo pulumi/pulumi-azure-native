@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Automation.Latest
         /// </summary>
         public readonly string ExpiryTime;
         /// <summary>
+        /// Fully qualified resource Id for the resource
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Gets the is exportable flag of the certificate.
         /// </summary>
         public readonly bool IsExportable;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.Automation.Latest
 
             string expiryTime,
 
+            string id,
+
             bool isExportable,
 
             string lastModifiedTime,
@@ -99,6 +105,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
             CreationTime = creationTime;
             Description = description;
             ExpiryTime = expiryTime;
+            Id = id;
             IsExportable = isExportable;
             LastModifiedTime = lastModifiedTime;
             Name = name;

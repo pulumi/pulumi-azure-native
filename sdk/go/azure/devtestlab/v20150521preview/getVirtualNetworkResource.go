@@ -33,6 +33,8 @@ type LookupVirtualNetworkResourceResult struct {
 	Description *string `pulumi:"description"`
 	// The Microsoft.Network resource identifier of the virtual network.
 	ExternalProviderResourceId *string `pulumi:"externalProviderResourceId"`
+	// The identifier of the resource.
+	Id *string `pulumi:"id"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.

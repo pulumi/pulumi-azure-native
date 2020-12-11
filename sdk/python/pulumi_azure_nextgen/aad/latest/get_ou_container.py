@@ -20,7 +20,7 @@ class GetOuContainerResult:
     """
     Resource for OuContainer.
     """
-    def __init__(__self__, accounts=None, container_id=None, deployment_id=None, distinguished_name=None, domain_name=None, etag=None, location=None, name=None, provisioning_state=None, service_status=None, tags=None, tenant_id=None, type=None):
+    def __init__(__self__, accounts=None, container_id=None, deployment_id=None, distinguished_name=None, domain_name=None, etag=None, id=None, location=None, name=None, provisioning_state=None, service_status=None, tags=None, tenant_id=None, type=None):
         if accounts and not isinstance(accounts, list):
             raise TypeError("Expected argument 'accounts' to be a list")
         pulumi.set(__self__, "accounts", accounts)
@@ -39,6 +39,9 @@ class GetOuContainerResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -111,6 +114,14 @@ class GetOuContainerResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[str]:
         """
         Resource location
@@ -178,6 +189,7 @@ class AwaitableGetOuContainerResult(GetOuContainerResult):
             distinguished_name=self.distinguished_name,
             domain_name=self.domain_name,
             etag=self.etag,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -215,6 +227,7 @@ def get_ou_container(domain_service_name: Optional[str] = None,
         distinguished_name=__ret__.distinguished_name,
         domain_name=__ret__.domain_name,
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

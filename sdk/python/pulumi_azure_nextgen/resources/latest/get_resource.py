@@ -20,7 +20,10 @@ class GetResourceResult:
     """
     Resource information.
     """
-    def __init__(__self__, identity=None, kind=None, location=None, managed_by=None, name=None, plan=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, id=None, identity=None, kind=None, location=None, managed_by=None, name=None, plan=None, properties=None, sku=None, tags=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -51,6 +54,14 @@ class GetResourceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -139,6 +150,7 @@ class AwaitableGetResourceResult(GetResourceResult):
         if False:
             yield self
         return GetResourceResult(
+            id=self.id,
             identity=self.identity,
             kind=self.kind,
             location=self.location,
@@ -179,6 +191,7 @@ def get_resource(parent_resource_path: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:resources/latest:getResource', __args__, opts=opts, typ=GetResourceResult).value
 
     return AwaitableGetResourceResult(
+        id=__ret__.id,
         identity=__ret__.identity,
         kind=__ret__.kind,
         location=__ret__.location,

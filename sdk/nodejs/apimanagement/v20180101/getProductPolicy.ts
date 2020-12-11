@@ -49,6 +49,10 @@ export interface GetProductPolicyResult {
      */
     readonly contentFormat?: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

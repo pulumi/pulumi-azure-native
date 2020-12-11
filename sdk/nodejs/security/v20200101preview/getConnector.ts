@@ -38,6 +38,10 @@ export interface GetConnectorResult {
      */
     readonly hybridComputeSettings?: outputs.security.v20200101preview.HybridComputeSettingsPropertiesResponse;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource name
      */
     readonly name: string;

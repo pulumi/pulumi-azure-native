@@ -20,7 +20,7 @@ class GetConnectionMonitorResult:
     """
     Information about the connection monitor.
     """
-    def __init__(__self__, auto_start=None, destination=None, etag=None, location=None, monitoring_interval_in_seconds=None, monitoring_status=None, name=None, provisioning_state=None, source=None, start_time=None, tags=None, type=None):
+    def __init__(__self__, auto_start=None, destination=None, etag=None, id=None, location=None, monitoring_interval_in_seconds=None, monitoring_status=None, name=None, provisioning_state=None, source=None, start_time=None, tags=None, type=None):
         if auto_start and not isinstance(auto_start, bool):
             raise TypeError("Expected argument 'auto_start' to be a bool")
         pulumi.set(__self__, "auto_start", auto_start)
@@ -30,6 +30,9 @@ class GetConnectionMonitorResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -78,6 +81,14 @@ class GetConnectionMonitorResult:
     @pulumi.getter
     def etag(self) -> Optional[str]:
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        ID of the connection monitor.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -161,6 +172,7 @@ class AwaitableGetConnectionMonitorResult(GetConnectionMonitorResult):
             auto_start=self.auto_start,
             destination=self.destination,
             etag=self.etag,
+            id=self.id,
             location=self.location,
             monitoring_interval_in_seconds=self.monitoring_interval_in_seconds,
             monitoring_status=self.monitoring_status,
@@ -197,6 +209,7 @@ def get_connection_monitor(connection_monitor_name: Optional[str] = None,
         auto_start=__ret__.auto_start,
         destination=__ret__.destination,
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         monitoring_interval_in_seconds=__ret__.monitoring_interval_in_seconds,
         monitoring_status=__ret__.monitoring_status,

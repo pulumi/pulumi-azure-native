@@ -32,6 +32,8 @@ type LookupKeyValueResult struct {
 	ContentType *string `pulumi:"contentType"`
 	// An ETag indicating the state of a key-value within a configuration store.
 	ETag string `pulumi:"eTag"`
+	// The resource ID.
+	Id string `pulumi:"id"`
 	// The primary identifier of a key-value.
 	// The key is used in unison with the label to uniquely identify a key-value.
 	Key string `pulumi:"key"`

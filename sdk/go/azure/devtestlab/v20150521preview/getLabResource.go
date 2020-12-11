@@ -33,6 +33,8 @@ type LookupLabResourceResult struct {
 	DefaultStorageAccount *string `pulumi:"defaultStorageAccount"`
 	// The default virtual network identifier of the lab.
 	DefaultVirtualNetworkId *string `pulumi:"defaultVirtualNetworkId"`
+	// The identifier of the resource.
+	Id *string `pulumi:"id"`
 	// The type of the lab storage.
 	LabStorageType *string `pulumi:"labStorageType"`
 	// The location of the resource.

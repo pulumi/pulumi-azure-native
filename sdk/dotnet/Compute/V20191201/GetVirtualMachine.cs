@@ -74,6 +74,10 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
         /// </summary>
         public readonly Outputs.SubResourceResponse? Host;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the virtual machine, if configured.
         /// </summary>
         public readonly Outputs.VirtualMachineIdentityResponse? Identity;
@@ -162,6 +166,8 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
 
             Outputs.SubResourceResponse? host,
 
+            string id,
+
             Outputs.VirtualMachineIdentityResponse? identity,
 
             Outputs.VirtualMachineInstanceViewResponse instanceView,
@@ -205,6 +211,7 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
             EvictionPolicy = evictionPolicy;
             HardwareProfile = hardwareProfile;
             Host = host;
+            Id = id;
             Identity = identity;
             InstanceView = instanceView;
             LicenseType = licenseType;

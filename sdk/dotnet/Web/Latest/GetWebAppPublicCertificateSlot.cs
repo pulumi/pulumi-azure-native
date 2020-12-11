@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// </summary>
         public readonly string? Blob;
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNextGen.Web.Latest
         private GetWebAppPublicCertificateSlotResult(
             string? blob,
 
+            string id,
+
             string? kind,
 
             string name,
@@ -97,6 +103,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
             string type)
         {
             Blob = blob;
+            Id = id;
             Kind = kind;
             Name = name;
             PublicCertificateLocation = publicCertificateLocation;

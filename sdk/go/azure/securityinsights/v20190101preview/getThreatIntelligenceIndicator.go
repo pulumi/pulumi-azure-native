@@ -31,6 +31,8 @@ type LookupThreatIntelligenceIndicatorArgs struct {
 type LookupThreatIntelligenceIndicatorResult struct {
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
+	// Azure resource Id
+	Id string `pulumi:"id"`
 	// The kind of the entity.
 	Kind string `pulumi:"kind"`
 	// Azure resource name

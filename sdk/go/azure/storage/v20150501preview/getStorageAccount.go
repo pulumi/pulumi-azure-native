@@ -31,6 +31,8 @@ type LookupStorageAccountResult struct {
 	CreationTime *string `pulumi:"creationTime"`
 	// Gets the user assigned custom domain assigned to this storage account.
 	CustomDomain *CustomDomainResponse `pulumi:"customDomain"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is StandardGRS or StandardRAGRS.
 	LastGeoFailoverTime *string `pulumi:"lastGeoFailoverTime"`
 	// Resource location

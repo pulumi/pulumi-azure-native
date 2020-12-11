@@ -35,6 +35,8 @@ type LookupEndpointResult struct {
 	GeoFilters []GeoFilterResponse `pulumi:"geoFilters"`
 	// The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
 	HostName string `pulumi:"hostName"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
 	IsCompressionEnabled *bool `pulumi:"isCompressionEnabled"`
 	// Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.

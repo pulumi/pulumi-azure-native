@@ -72,6 +72,10 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         /// </summary>
         public readonly ImmutableArray<Outputs.ExternalSubnetResponse> ExternalSubnets;
         /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string? Location;
@@ -112,6 +116,8 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
 
             ImmutableArray<Outputs.ExternalSubnetResponse> externalSubnets,
 
+            string id,
+
             string? location,
 
             string name,
@@ -131,6 +137,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
             Description = description;
             ExternalProviderResourceId = externalProviderResourceId;
             ExternalSubnets = externalSubnets;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

@@ -20,7 +20,7 @@ class GetWorkspaceResult:
     """
     A workspace
     """
-    def __init__(__self__, connectivity_endpoints=None, default_data_lake_storage=None, encryption=None, extra_properties=None, identity=None, location=None, managed_resource_group_name=None, managed_virtual_network=None, managed_virtual_network_settings=None, name=None, private_endpoint_connections=None, provisioning_state=None, purview_configuration=None, sql_administrator_login=None, sql_administrator_login_password=None, tags=None, type=None, virtual_network_profile=None, workspace_repository_configuration=None, workspace_uid=None):
+    def __init__(__self__, connectivity_endpoints=None, default_data_lake_storage=None, encryption=None, extra_properties=None, id=None, identity=None, location=None, managed_resource_group_name=None, managed_virtual_network=None, managed_virtual_network_settings=None, name=None, private_endpoint_connections=None, provisioning_state=None, purview_configuration=None, sql_administrator_login=None, sql_administrator_login_password=None, tags=None, type=None, virtual_network_profile=None, workspace_repository_configuration=None, workspace_uid=None):
         if connectivity_endpoints and not isinstance(connectivity_endpoints, dict):
             raise TypeError("Expected argument 'connectivity_endpoints' to be a dict")
         pulumi.set(__self__, "connectivity_endpoints", connectivity_endpoints)
@@ -33,6 +33,9 @@ class GetWorkspaceResult:
         if extra_properties and not isinstance(extra_properties, dict):
             raise TypeError("Expected argument 'extra_properties' to be a dict")
         pulumi.set(__self__, "extra_properties", extra_properties)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -113,6 +116,14 @@ class GetWorkspaceResult:
         Workspace level configs and feature flags
         """
         return pulumi.get(self, "extra_properties")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -253,6 +264,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             default_data_lake_storage=self.default_data_lake_storage,
             encryption=self.encryption,
             extra_properties=self.extra_properties,
+            id=self.id,
             identity=self.identity,
             location=self.location,
             managed_resource_group_name=self.managed_resource_group_name,
@@ -294,6 +306,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
         default_data_lake_storage=__ret__.default_data_lake_storage,
         encryption=__ret__.encryption,
         extra_properties=__ret__.extra_properties,
+        id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
         managed_resource_group_name=__ret__.managed_resource_group_name,

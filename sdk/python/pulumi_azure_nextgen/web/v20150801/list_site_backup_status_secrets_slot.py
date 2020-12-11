@@ -22,7 +22,7 @@ class ListSiteBackupStatusSecretsSlotResult:
     """
     Backup description
     """
-    def __init__(__self__, blob_name=None, correlation_id=None, created=None, databases=None, finished_time_stamp=None, kind=None, last_restore_time_stamp=None, location=None, log=None, name=None, scheduled=None, size_in_bytes=None, status=None, storage_account_url=None, tags=None, type=None, website_size_in_bytes=None):
+    def __init__(__self__, blob_name=None, correlation_id=None, created=None, databases=None, finished_time_stamp=None, id=None, kind=None, last_restore_time_stamp=None, location=None, log=None, name=None, scheduled=None, size_in_bytes=None, status=None, storage_account_url=None, tags=None, type=None, website_size_in_bytes=None):
         if blob_name and not isinstance(blob_name, str):
             raise TypeError("Expected argument 'blob_name' to be a str")
         pulumi.set(__self__, "blob_name", blob_name)
@@ -38,6 +38,9 @@ class ListSiteBackupStatusSecretsSlotResult:
         if finished_time_stamp and not isinstance(finished_time_stamp, str):
             raise TypeError("Expected argument 'finished_time_stamp' to be a str")
         pulumi.set(__self__, "finished_time_stamp", finished_time_stamp)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -114,6 +117,14 @@ class ListSiteBackupStatusSecretsSlotResult:
         Timestamp when this backup finished.
         """
         return pulumi.get(self, "finished_time_stamp")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -223,6 +234,7 @@ class AwaitableListSiteBackupStatusSecretsSlotResult(ListSiteBackupStatusSecrets
             created=self.created,
             databases=self.databases,
             finished_time_stamp=self.finished_time_stamp,
+            id=self.id,
             kind=self.kind,
             last_restore_time_stamp=self.last_restore_time_stamp,
             location=self.location,
@@ -294,6 +306,7 @@ def list_site_backup_status_secrets_slot(backup_id: Optional[str] = None,
         created=__ret__.created,
         databases=__ret__.databases,
         finished_time_stamp=__ret__.finished_time_stamp,
+        id=__ret__.id,
         kind=__ret__.kind,
         last_restore_time_stamp=__ret__.last_restore_time_stamp,
         location=__ret__.location,

@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.DataShare.V20181101Preview
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// The resource id of the azure resource
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Name of the azure resource
         /// </summary>
         public readonly string Name;
@@ -88,6 +92,8 @@ namespace Pulumi.AzureNextGen.DataShare.V20181101Preview
 
             string? description,
 
+            string id,
+
             string name,
 
             string provisioningState,
@@ -104,6 +110,7 @@ namespace Pulumi.AzureNextGen.DataShare.V20181101Preview
         {
             CreatedAt = createdAt;
             Description = description;
+            Id = id;
             Name = name;
             ProvisioningState = provisioningState;
             ShareKind = shareKind;

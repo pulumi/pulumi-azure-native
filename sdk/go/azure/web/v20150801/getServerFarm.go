@@ -31,6 +31,8 @@ type LookupServerFarmResult struct {
 	GeoRegion string `pulumi:"geoRegion"`
 	// Specification for the hosting environment (App Service Environment) to use for the App Service Plan
 	HostingEnvironmentProfile *HostingEnvironmentProfileResponse `pulumi:"hostingEnvironmentProfile"`
+	// Resource Id
+	Id *string `pulumi:"id"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location

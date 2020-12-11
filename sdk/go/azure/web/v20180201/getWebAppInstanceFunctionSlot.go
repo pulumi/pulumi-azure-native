@@ -39,6 +39,8 @@ type LookupWebAppInstanceFunctionSlotResult struct {
 	FunctionAppId *string `pulumi:"functionAppId"`
 	// Function URI.
 	Href *string `pulumi:"href"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// The invocation URL
 	InvokeUrlTemplate *string `pulumi:"invokeUrlTemplate"`
 	// Value indicating whether the function is disabled

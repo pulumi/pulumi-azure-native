@@ -20,7 +20,7 @@ class GetSyncGroupResult:
     """
     An Azure SQL Database sync group.
     """
-    def __init__(__self__, conflict_logging_retention_in_days=None, conflict_resolution_policy=None, enable_conflict_logging=None, hub_database_password=None, hub_database_user_name=None, interval=None, last_sync_time=None, name=None, private_endpoint_name=None, schema=None, sku=None, sync_database_id=None, sync_state=None, type=None, use_private_link_connection=None):
+    def __init__(__self__, conflict_logging_retention_in_days=None, conflict_resolution_policy=None, enable_conflict_logging=None, hub_database_password=None, hub_database_user_name=None, id=None, interval=None, last_sync_time=None, name=None, private_endpoint_name=None, schema=None, sku=None, sync_database_id=None, sync_state=None, type=None, use_private_link_connection=None):
         if conflict_logging_retention_in_days and not isinstance(conflict_logging_retention_in_days, int):
             raise TypeError("Expected argument 'conflict_logging_retention_in_days' to be a int")
         pulumi.set(__self__, "conflict_logging_retention_in_days", conflict_logging_retention_in_days)
@@ -36,6 +36,9 @@ class GetSyncGroupResult:
         if hub_database_user_name and not isinstance(hub_database_user_name, str):
             raise TypeError("Expected argument 'hub_database_user_name' to be a str")
         pulumi.set(__self__, "hub_database_user_name", hub_database_user_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if interval and not isinstance(interval, int):
             raise TypeError("Expected argument 'interval' to be a int")
         pulumi.set(__self__, "interval", interval)
@@ -106,6 +109,14 @@ class GetSyncGroupResult:
         User name for the sync group hub database credential.
         """
         return pulumi.get(self, "hub_database_user_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -199,6 +210,7 @@ class AwaitableGetSyncGroupResult(GetSyncGroupResult):
             enable_conflict_logging=self.enable_conflict_logging,
             hub_database_password=self.hub_database_password,
             hub_database_user_name=self.hub_database_user_name,
+            id=self.id,
             interval=self.interval,
             last_sync_time=self.last_sync_time,
             name=self.name,
@@ -241,6 +253,7 @@ def get_sync_group(database_name: Optional[str] = None,
         enable_conflict_logging=__ret__.enable_conflict_logging,
         hub_database_password=__ret__.hub_database_password,
         hub_database_user_name=__ret__.hub_database_user_name,
+        id=__ret__.id,
         interval=__ret__.interval,
         last_sync_time=__ret__.last_sync_time,
         name=__ret__.name,

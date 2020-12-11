@@ -48,6 +48,10 @@ export interface GetVariableResult {
      */
     readonly description?: string;
     /**
+     * Fully qualified resource Id for the resource
+     */
+    readonly id: string;
+    /**
      * Gets or sets the encrypted flag of the variable.
      */
     readonly isEncrypted?: boolean;

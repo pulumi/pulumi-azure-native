@@ -39,6 +39,10 @@ export interface GetMaintenanceConfigurationResult {
      */
     readonly extensionProperties?: {[key: string]: string};
     /**
+     * Fully qualified identifier of the resource
+     */
+    readonly id: string;
+    /**
      * Gets or sets location of the resource
      */
     readonly location?: string;

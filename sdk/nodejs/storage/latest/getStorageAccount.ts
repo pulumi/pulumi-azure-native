@@ -80,6 +80,10 @@ export interface GetStorageAccountResult {
      */
     readonly geoReplicationStats: outputs.storage.latest.GeoReplicationStatsResponse;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * The identity of the resource.
      */
     readonly identity?: outputs.storage.latest.IdentityResponse;

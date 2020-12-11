@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.NetApp.V20191001
         /// </summary>
         public readonly ImmutableArray<Outputs.ActiveDirectoryResponse> ActiveDirectories;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.NetApp.V20191001
         private GetAccountResult(
             ImmutableArray<Outputs.ActiveDirectoryResponse> activeDirectories,
 
+            string id,
+
             string location,
 
             string name,
@@ -79,6 +85,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20191001
             string type)
         {
             ActiveDirectories = activeDirectories;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

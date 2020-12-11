@@ -17,10 +17,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetVMwareCollectorResult:
-    def __init__(__self__, e_tag=None, name=None, properties=None, type=None):
+    def __init__(__self__, e_tag=None, id=None, name=None, properties=None, type=None):
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -35,6 +38,11 @@ class GetVMwareCollectorResult:
     @pulumi.getter(name="eTag")
     def e_tag(self) -> Optional[str]:
         return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -59,6 +67,7 @@ class AwaitableGetVMwareCollectorResult(GetVMwareCollectorResult):
             yield self
         return GetVMwareCollectorResult(
             e_tag=self.e_tag,
+            id=self.id,
             name=self.name,
             properties=self.properties,
             type=self.type)
@@ -87,6 +96,7 @@ def get_v_mware_collector(project_name: Optional[str] = None,
 
     return AwaitableGetVMwareCollectorResult(
         e_tag=__ret__.e_tag,
+        id=__ret__.id,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)

@@ -20,7 +20,10 @@ class GetRegistrationDefinitionResult:
     """
     Registration definition.
     """
-    def __init__(__self__, name=None, plan=None, properties=None, type=None):
+    def __init__(__self__, id=None, name=None, plan=None, properties=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -33,6 +36,14 @@ class GetRegistrationDefinitionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified path of the registration definition.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -73,6 +84,7 @@ class AwaitableGetRegistrationDefinitionResult(GetRegistrationDefinitionResult):
         if False:
             yield self
         return GetRegistrationDefinitionResult(
+            id=self.id,
             name=self.name,
             plan=self.plan,
             properties=self.properties,
@@ -98,6 +110,7 @@ def get_registration_definition(registration_definition_id: Optional[str] = None
     __ret__ = pulumi.runtime.invoke('azure-nextgen:managedservices/v20200201preview:getRegistrationDefinition', __args__, opts=opts, typ=GetRegistrationDefinitionResult).value
 
     return AwaitableGetRegistrationDefinitionResult(
+        id=__ret__.id,
         name=__ret__.name,
         plan=__ret__.plan,
         properties=__ret__.properties,

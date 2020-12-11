@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// </summary>
         public readonly string CircuitConnectionStatus;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
 
             string circuitConnectionStatus,
 
+            string id,
+
             string name,
 
             string? peerExpressRouteCircuit,
@@ -93,6 +99,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
             AddressPrefix = addressPrefix;
             AuthorizationKey = authorizationKey;
             CircuitConnectionStatus = circuitConnectionStatus;
+            Id = id;
             Name = name;
             PeerExpressRouteCircuit = peerExpressRouteCircuit;
             ProvisioningState = provisioningState;

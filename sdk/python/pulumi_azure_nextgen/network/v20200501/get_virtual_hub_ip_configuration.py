@@ -20,10 +20,13 @@ class GetVirtualHubIpConfigurationResult:
     """
     IpConfigurations.
     """
-    def __init__(__self__, etag=None, name=None, private_ip_address=None, private_ip_allocation_method=None, provisioning_state=None, public_ip_address=None, subnet=None, type=None):
+    def __init__(__self__, etag=None, id=None, name=None, private_ip_address=None, private_ip_allocation_method=None, provisioning_state=None, public_ip_address=None, subnet=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -53,6 +56,14 @@ class GetVirtualHubIpConfigurationResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -118,6 +129,7 @@ class AwaitableGetVirtualHubIpConfigurationResult(GetVirtualHubIpConfigurationRe
             yield self
         return GetVirtualHubIpConfigurationResult(
             etag=self.etag,
+            id=self.id,
             name=self.name,
             private_ip_address=self.private_ip_address,
             private_ip_allocation_method=self.private_ip_allocation_method,
@@ -150,6 +162,7 @@ def get_virtual_hub_ip_configuration(ip_config_name: Optional[str] = None,
 
     return AwaitableGetVirtualHubIpConfigurationResult(
         etag=__ret__.etag,
+        id=__ret__.id,
         name=__ret__.name,
         private_ip_address=__ret__.private_ip_address,
         private_ip_allocation_method=__ret__.private_ip_allocation_method,

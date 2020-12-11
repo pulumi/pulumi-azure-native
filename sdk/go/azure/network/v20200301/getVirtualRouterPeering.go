@@ -29,6 +29,8 @@ type LookupVirtualRouterPeeringArgs struct {
 type LookupVirtualRouterPeeringResult struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// Name of the virtual router peering that is unique within a virtual router.
 	Name *string `pulumi:"name"`
 	// Peer ASN.

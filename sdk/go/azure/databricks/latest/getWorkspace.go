@@ -31,6 +31,8 @@ type LookupWorkspaceResult struct {
 	CreatedBy *CreatedByResponse `pulumi:"createdBy"`
 	// Specifies the date and time when the workspace is created.
 	CreatedDateTime string `pulumi:"createdDateTime"`
+	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The managed resource group Id.

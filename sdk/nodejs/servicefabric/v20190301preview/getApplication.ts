@@ -44,6 +44,10 @@ export interface GetApplicationResult {
      */
     readonly etag: string;
     /**
+     * Azure resource identifier.
+     */
+    readonly id: string;
+    /**
      * Azure resource location.
      */
     readonly location?: string;

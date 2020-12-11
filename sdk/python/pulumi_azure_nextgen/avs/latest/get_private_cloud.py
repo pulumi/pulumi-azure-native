@@ -20,13 +20,16 @@ class GetPrivateCloudResult:
     """
     A private cloud resource
     """
-    def __init__(__self__, circuit=None, endpoints=None, identity_sources=None, internet=None, location=None, management_cluster=None, management_network=None, name=None, network_block=None, nsxt_certificate_thumbprint=None, nsxt_password=None, provisioning_network=None, provisioning_state=None, sku=None, tags=None, type=None, vcenter_certificate_thumbprint=None, vcenter_password=None, vmotion_network=None):
+    def __init__(__self__, circuit=None, endpoints=None, id=None, identity_sources=None, internet=None, location=None, management_cluster=None, management_network=None, name=None, network_block=None, nsxt_certificate_thumbprint=None, nsxt_password=None, provisioning_network=None, provisioning_state=None, sku=None, tags=None, type=None, vcenter_certificate_thumbprint=None, vcenter_password=None, vmotion_network=None):
         if circuit and not isinstance(circuit, dict):
             raise TypeError("Expected argument 'circuit' to be a dict")
         pulumi.set(__self__, "circuit", circuit)
         if endpoints and not isinstance(endpoints, dict):
             raise TypeError("Expected argument 'endpoints' to be a dict")
         pulumi.set(__self__, "endpoints", endpoints)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity_sources and not isinstance(identity_sources, list):
             raise TypeError("Expected argument 'identity_sources' to be a list")
         pulumi.set(__self__, "identity_sources", identity_sources)
@@ -94,6 +97,14 @@ class GetPrivateCloudResult:
         The endpoints
         """
         return pulumi.get(self, "endpoints")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="identitySources")
@@ -240,6 +251,7 @@ class AwaitableGetPrivateCloudResult(GetPrivateCloudResult):
         return GetPrivateCloudResult(
             circuit=self.circuit,
             endpoints=self.endpoints,
+            id=self.id,
             identity_sources=self.identity_sources,
             internet=self.internet,
             location=self.location,
@@ -280,6 +292,7 @@ def get_private_cloud(private_cloud_name: Optional[str] = None,
     return AwaitableGetPrivateCloudResult(
         circuit=__ret__.circuit,
         endpoints=__ret__.endpoints,
+        id=__ret__.id,
         identity_sources=__ret__.identity_sources,
         internet=__ret__.internet,
         location=__ret__.location,

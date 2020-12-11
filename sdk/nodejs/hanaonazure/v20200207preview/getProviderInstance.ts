@@ -40,6 +40,10 @@ export interface GetProviderInstanceArgs {
  */
 export interface GetProviderInstanceResult {
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * A JSON string containing metadata of the provider instance.
      */
     readonly metadata?: string;

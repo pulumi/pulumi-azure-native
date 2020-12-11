@@ -57,6 +57,10 @@ export interface GetNotificationChannelResult {
      */
     readonly events?: outputs.devtestlab.v20160515.EventResponse[];
     /**
+     * The identifier of the resource.
+     */
+    readonly id: string;
+    /**
      * The location of the resource.
      */
     readonly location?: string;

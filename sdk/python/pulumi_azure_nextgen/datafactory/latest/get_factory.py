@@ -20,7 +20,7 @@ class GetFactoryResult:
     """
     Factory resource type.
     """
-    def __init__(__self__, create_time=None, e_tag=None, encryption=None, global_parameters=None, identity=None, location=None, name=None, provisioning_state=None, public_network_access=None, repo_configuration=None, tags=None, type=None, version=None):
+    def __init__(__self__, create_time=None, e_tag=None, encryption=None, global_parameters=None, id=None, identity=None, location=None, name=None, provisioning_state=None, public_network_access=None, repo_configuration=None, tags=None, type=None, version=None):
         if create_time and not isinstance(create_time, str):
             raise TypeError("Expected argument 'create_time' to be a str")
         pulumi.set(__self__, "create_time", create_time)
@@ -33,6 +33,9 @@ class GetFactoryResult:
         if global_parameters and not isinstance(global_parameters, dict):
             raise TypeError("Expected argument 'global_parameters' to be a dict")
         pulumi.set(__self__, "global_parameters", global_parameters)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -92,6 +95,14 @@ class GetFactoryResult:
         List of parameters for factory.
         """
         return pulumi.get(self, "global_parameters")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource identifier.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -176,6 +187,7 @@ class AwaitableGetFactoryResult(GetFactoryResult):
             e_tag=self.e_tag,
             encryption=self.encryption,
             global_parameters=self.global_parameters,
+            id=self.id,
             identity=self.identity,
             location=self.location,
             name=self.name,
@@ -210,6 +222,7 @@ def get_factory(factory_name: Optional[str] = None,
         e_tag=__ret__.e_tag,
         encryption=__ret__.encryption,
         global_parameters=__ret__.global_parameters,
+        id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,

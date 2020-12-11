@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
     public sealed class GetAccessControlRecordResult
     {
         /// <summary>
+        /// The identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The Iscsi initiator name (IQN)
         /// </summary>
         public readonly string InitiatorName;
@@ -60,12 +64,15 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
 
         [OutputConstructor]
         private GetAccessControlRecordResult(
+            string id,
+
             string initiatorName,
 
             string name,
 
             string type)
         {
+            Id = id;
             InitiatorName = initiatorName;
             Name = name;
             Type = type;

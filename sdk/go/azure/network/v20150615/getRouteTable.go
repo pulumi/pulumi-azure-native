@@ -29,6 +29,8 @@ type LookupRouteTableArgs struct {
 type LookupRouteTableResult struct {
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// Resource Identifier.
+	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.

@@ -19,10 +19,13 @@ class GetAlertRuleActionResult:
     """
     Action for alert rule.
     """
-    def __init__(__self__, etag=None, logic_app_resource_id=None, name=None, type=None, workflow_id=None):
+    def __init__(__self__, etag=None, id=None, logic_app_resource_id=None, name=None, type=None, workflow_id=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if logic_app_resource_id and not isinstance(logic_app_resource_id, str):
             raise TypeError("Expected argument 'logic_app_resource_id' to be a str")
         pulumi.set(__self__, "logic_app_resource_id", logic_app_resource_id)
@@ -43,6 +46,14 @@ class GetAlertRuleActionResult:
         Etag of the action.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="logicAppResourceId")
@@ -84,6 +95,7 @@ class AwaitableGetAlertRuleActionResult(GetAlertRuleActionResult):
             yield self
         return GetAlertRuleActionResult(
             etag=self.etag,
+            id=self.id,
             logic_app_resource_id=self.logic_app_resource_id,
             name=self.name,
             type=self.type,
@@ -119,6 +131,7 @@ def get_alert_rule_action(action_id: Optional[str] = None,
 
     return AwaitableGetAlertRuleActionResult(
         etag=__ret__.etag,
+        id=__ret__.id,
         logic_app_resource_id=__ret__.logic_app_resource_id,
         name=__ret__.name,
         type=__ret__.type,

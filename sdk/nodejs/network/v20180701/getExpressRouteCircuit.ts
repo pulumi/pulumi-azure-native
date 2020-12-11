@@ -59,6 +59,10 @@ export interface GetExpressRouteCircuitResult {
      */
     readonly gatewayManagerEtag?: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * Resource location.
      */
     readonly location?: string;

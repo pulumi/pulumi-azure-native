@@ -17,13 +17,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetAdaptiveApplicationControlResult:
-    def __init__(__self__, configuration_status=None, enforcement_mode=None, issues=None, location=None, name=None, path_recommendations=None, protection_mode=None, recommendation_status=None, source_system=None, type=None, vm_recommendations=None):
+    def __init__(__self__, configuration_status=None, enforcement_mode=None, id=None, issues=None, location=None, name=None, path_recommendations=None, protection_mode=None, recommendation_status=None, source_system=None, type=None, vm_recommendations=None):
         if configuration_status and not isinstance(configuration_status, str):
             raise TypeError("Expected argument 'configuration_status' to be a str")
         pulumi.set(__self__, "configuration_status", configuration_status)
         if enforcement_mode and not isinstance(enforcement_mode, str):
             raise TypeError("Expected argument 'enforcement_mode' to be a str")
         pulumi.set(__self__, "enforcement_mode", enforcement_mode)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if issues and not isinstance(issues, list):
             raise TypeError("Expected argument 'issues' to be a list")
         pulumi.set(__self__, "issues", issues)
@@ -67,6 +70,14 @@ class GetAdaptiveApplicationControlResult:
         The application control policy enforcement/protection mode of the machine group
         """
         return pulumi.get(self, "enforcement_mode")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -140,6 +151,7 @@ class AwaitableGetAdaptiveApplicationControlResult(GetAdaptiveApplicationControl
         return GetAdaptiveApplicationControlResult(
             configuration_status=self.configuration_status,
             enforcement_mode=self.enforcement_mode,
+            id=self.id,
             issues=self.issues,
             location=self.location,
             name=self.name,
@@ -172,6 +184,7 @@ def get_adaptive_application_control(asc_location: Optional[str] = None,
     return AwaitableGetAdaptiveApplicationControlResult(
         configuration_status=__ret__.configuration_status,
         enforcement_mode=__ret__.enforcement_mode,
+        id=__ret__.id,
         issues=__ret__.issues,
         location=__ret__.location,
         name=__ret__.name,

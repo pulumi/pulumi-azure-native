@@ -41,6 +41,8 @@ type LookupStreamingLocatorResult struct {
 	EndTime *string `pulumi:"endTime"`
 	// A list of asset or account filters which apply to this streaming locator
 	Filters []string `pulumi:"filters"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The start time of the Streaming Locator.

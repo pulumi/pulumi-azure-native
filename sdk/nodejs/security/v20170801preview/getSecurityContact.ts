@@ -42,6 +42,10 @@ export interface GetSecurityContactResult {
      */
     readonly email: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource name
      */
     readonly name: string;

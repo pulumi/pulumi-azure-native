@@ -33,6 +33,8 @@ type LookupClusterResult struct {
 	BillingModel string `pulumi:"billingModel"`
 	// Unique, immutable resource id.
 	CloudId string `pulumi:"cloudId"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// Most recent billing meter timestamp.
 	LastBillingTimestamp string `pulumi:"lastBillingTimestamp"`
 	// Most recent cluster sync timestamp.

@@ -60,6 +60,10 @@ export interface GetStreamingPolicyResult {
      */
     readonly envelopeEncryption?: outputs.media.v20180330preview.EnvelopeEncryptionResponse;
     /**
+     * Fully qualified resource ID for the resource.
+     */
+    readonly id: string;
+    /**
      * The name of the resource.
      */
     readonly name: string;

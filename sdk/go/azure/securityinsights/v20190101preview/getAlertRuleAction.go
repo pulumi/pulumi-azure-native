@@ -33,6 +33,8 @@ type LookupAlertRuleActionArgs struct {
 type LookupAlertRuleActionResult struct {
 	// Etag of the action.
 	Etag *string `pulumi:"etag"`
+	// Azure resource Id
+	Id string `pulumi:"id"`
 	// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
 	LogicAppResourceId *string `pulumi:"logicAppResourceId"`
 	// Azure resource name

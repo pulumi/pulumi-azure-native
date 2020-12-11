@@ -29,6 +29,8 @@ type LookupConfigurationStoreResult struct {
 	CreationDate string `pulumi:"creationDate"`
 	// The DNS endpoint where the configuration store API will be available.
 	Endpoint string `pulumi:"endpoint"`
+	// The resource ID.
+	Id string `pulumi:"id"`
 	// The managed identity information, if configured.
 	Identity *ResourceIdentityResponse `pulumi:"identity"`
 	// The location of the resource. This cannot be changed after the resource is created.

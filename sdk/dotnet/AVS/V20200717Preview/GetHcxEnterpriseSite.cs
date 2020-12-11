@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// </summary>
         public readonly string ActivationKey;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         private GetHcxEnterpriseSiteResult(
             string activationKey,
 
+            string id,
+
             string name,
 
             string status,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
             string type)
         {
             ActivationKey = activationKey;
+            Id = id;
             Name = name;
             Status = status;
             Type = type;

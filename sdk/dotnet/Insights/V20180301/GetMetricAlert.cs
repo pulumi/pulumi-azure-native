@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.Insights.V20180301
         /// </summary>
         public readonly string EvaluationFrequency;
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Last time the rule was updated in ISO8601 format.
         /// </summary>
         public readonly string LastUpdatedTime;
@@ -118,6 +122,8 @@ namespace Pulumi.AzureNextGen.Insights.V20180301
 
             string evaluationFrequency,
 
+            string id,
+
             string lastUpdatedTime,
 
             string location,
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180301
             Description = description;
             Enabled = enabled;
             EvaluationFrequency = evaluationFrequency;
+            Id = id;
             LastUpdatedTime = lastUpdatedTime;
             Location = location;
             Name = name;

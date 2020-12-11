@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Media.V20180701
         /// </summary>
         public readonly Outputs.FirstQualityResponse? FirstQuality;
         /// <summary>
+        /// Fully qualified resource ID for the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.Media.V20180701
         private GetAssetFilterResult(
             Outputs.FirstQualityResponse? firstQuality,
 
+            string id,
+
             string name,
 
             Outputs.PresentationTimeRangeResponse? presentationTimeRange,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.Media.V20180701
             string type)
         {
             FirstQuality = firstQuality;
+            Id = id;
             Name = name;
             PresentationTimeRange = presentationTimeRange;
             Tracks = tracks;

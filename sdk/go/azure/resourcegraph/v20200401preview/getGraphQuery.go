@@ -29,6 +29,8 @@ type LookupGraphQueryResult struct {
 	Description *string `pulumi:"description"`
 	// This will be used to handle Optimistic Concurrency.
 	ETag *string `pulumi:"eTag"`
+	// Azure resource Id
+	Id string `pulumi:"id"`
 	// The location of the resource
 	Location string `pulumi:"location"`
 	// Azure resource name. This is GUID value. The display name should be assigned within properties field.

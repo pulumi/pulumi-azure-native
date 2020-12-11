@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// The resource id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The RosettaNet initiator role settings.
         /// </summary>
         public readonly Outputs.RosettaNetPipRoleSettingsResponse InitiatorRoleSettings;
@@ -112,6 +116,8 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
 
             string? description,
 
+            string id,
+
             Outputs.RosettaNetPipRoleSettingsResponse initiatorRoleSettings,
 
             string? location,
@@ -136,6 +142,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
             ChangedTime = changedTime;
             CreatedTime = createdTime;
             Description = description;
+            Id = id;
             InitiatorRoleSettings = initiatorRoleSettings;
             Location = location;
             Metadata = metadata;

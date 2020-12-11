@@ -31,6 +31,8 @@ type LookupBatchAccountResult struct {
 	// Contains information about the auto-storage account associated with a Batch account.
 	AutoStorage        AutoStoragePropertiesResponse `pulumi:"autoStorage"`
 	DedicatedCoreQuota int                           `pulumi:"dedicatedCoreQuota"`
+	// The ID of the resource.
+	Id string `pulumi:"id"`
 	// Identifies the Azure key vault associated with a Batch account.
 	KeyVaultReference KeyVaultReferenceResponse `pulumi:"keyVaultReference"`
 	// The location of the resource.

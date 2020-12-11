@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.ManagedIdentity.V20150831Preview
         /// </summary>
         public readonly string ClientSecretUrl;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.ManagedIdentity.V20150831Preview
 
             string clientSecretUrl,
 
+            string id,
+
             string location,
 
             string name,
@@ -92,6 +98,7 @@ namespace Pulumi.AzureNextGen.ManagedIdentity.V20150831Preview
         {
             ClientId = clientId;
             ClientSecretUrl = clientSecretUrl;
+            Id = id;
             Location = location;
             Name = name;
             PrincipalId = principalId;

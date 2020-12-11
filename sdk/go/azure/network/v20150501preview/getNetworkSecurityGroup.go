@@ -29,6 +29,8 @@ type LookupNetworkSecurityGroupResult struct {
 	DefaultSecurityRules []SecurityRuleResponse `pulumi:"defaultSecurityRules"`
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag *string `pulumi:"etag"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name

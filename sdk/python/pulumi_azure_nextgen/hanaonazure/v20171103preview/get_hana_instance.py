@@ -20,7 +20,7 @@ class GetHanaInstanceResult:
     """
     HANA instance info on Azure (ARM properties and HANA properties)
     """
-    def __init__(__self__, hana_instance_id=None, hardware_profile=None, hw_revision=None, location=None, name=None, network_profile=None, os_profile=None, partner_node_id=None, power_state=None, provisioning_state=None, proximity_placement_group=None, storage_profile=None, tags=None, type=None):
+    def __init__(__self__, hana_instance_id=None, hardware_profile=None, hw_revision=None, id=None, location=None, name=None, network_profile=None, os_profile=None, partner_node_id=None, power_state=None, provisioning_state=None, proximity_placement_group=None, storage_profile=None, tags=None, type=None):
         if hana_instance_id and not isinstance(hana_instance_id, str):
             raise TypeError("Expected argument 'hana_instance_id' to be a str")
         pulumi.set(__self__, "hana_instance_id", hana_instance_id)
@@ -30,6 +30,9 @@ class GetHanaInstanceResult:
         if hw_revision and not isinstance(hw_revision, str):
             raise TypeError("Expected argument 'hw_revision' to be a str")
         pulumi.set(__self__, "hw_revision", hw_revision)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -87,6 +90,14 @@ class GetHanaInstanceResult:
         Hardware revision of a HANA instance
         """
         return pulumi.get(self, "hw_revision")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -186,6 +197,7 @@ class AwaitableGetHanaInstanceResult(GetHanaInstanceResult):
             hana_instance_id=self.hana_instance_id,
             hardware_profile=self.hardware_profile,
             hw_revision=self.hw_revision,
+            id=self.id,
             location=self.location,
             name=self.name,
             network_profile=self.network_profile,
@@ -221,6 +233,7 @@ def get_hana_instance(hana_instance_name: Optional[str] = None,
         hana_instance_id=__ret__.hana_instance_id,
         hardware_profile=__ret__.hardware_profile,
         hw_revision=__ret__.hw_revision,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         network_profile=__ret__.network_profile,

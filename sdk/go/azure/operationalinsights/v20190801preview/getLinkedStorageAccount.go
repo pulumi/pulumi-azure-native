@@ -29,6 +29,8 @@ type LookupLinkedStorageAccountArgs struct {
 type LookupLinkedStorageAccountResult struct {
 	// Linked storage accounts type.
 	DataSourceType string `pulumi:"dataSourceType"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Linked storage accounts resources ids.

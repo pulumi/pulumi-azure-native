@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview
         private GetFileResult(
             string? etag,
 
+            string id,
+
             string name,
 
             Outputs.ProjectFilePropertiesResponse properties,
@@ -79,6 +85,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview
             string type)
         {
             Etag = etag;
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

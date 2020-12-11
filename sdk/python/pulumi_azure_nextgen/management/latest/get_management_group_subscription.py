@@ -20,10 +20,13 @@ class GetManagementGroupSubscriptionResult:
     """
     The details of subscription under management group.
     """
-    def __init__(__self__, display_name=None, name=None, parent=None, state=None, tenant=None, type=None):
+    def __init__(__self__, display_name=None, id=None, name=None, parent=None, state=None, tenant=None, type=None):
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -47,6 +50,14 @@ class GetManagementGroupSubscriptionResult:
         The friendly name of the subscription.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The fully qualified ID for the subscription.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000/subscriptions/0000000-0000-0000-0000-000000000001
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -96,6 +107,7 @@ class AwaitableGetManagementGroupSubscriptionResult(GetManagementGroupSubscripti
             yield self
         return GetManagementGroupSubscriptionResult(
             display_name=self.display_name,
+            id=self.id,
             name=self.name,
             parent=self.parent,
             state=self.state,
@@ -120,6 +132,7 @@ def get_management_group_subscription(group_id: Optional[str] = None,
 
     return AwaitableGetManagementGroupSubscriptionResult(
         display_name=__ret__.display_name,
+        id=__ret__.id,
         name=__ret__.name,
         parent=__ret__.parent,
         state=__ret__.state,

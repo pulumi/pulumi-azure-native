@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Web.V20180201
         /// </summary>
         public readonly Outputs.HttpLogsConfigResponse? HttpLogs;
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.Web.V20180201
 
             Outputs.HttpLogsConfigResponse? httpLogs,
 
+            string id,
+
             string? kind,
 
             string name,
@@ -88,6 +94,7 @@ namespace Pulumi.AzureNextGen.Web.V20180201
             DetailedErrorMessages = detailedErrorMessages;
             FailedRequestsTracing = failedRequestsTracing;
             HttpLogs = httpLogs;
+            Id = id;
             Kind = kind;
             Name = name;
             Type = type;

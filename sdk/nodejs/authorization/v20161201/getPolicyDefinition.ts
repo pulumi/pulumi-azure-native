@@ -38,6 +38,10 @@ export interface GetPolicyDefinitionResult {
      */
     readonly displayName?: string;
     /**
+     * The ID of the policy definition.
+     */
+    readonly id: string;
+    /**
      * The policy definition metadata.
      */
     readonly metadata?: any;

@@ -17,13 +17,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetVirtualMachineImageTemplateResult:
-    def __init__(__self__, customize=None, distribute=None, last_run_status=None, location=None, name=None, provisioning_error=None, provisioning_state=None, source=None, tags=None, type=None):
+    def __init__(__self__, customize=None, distribute=None, id=None, last_run_status=None, location=None, name=None, provisioning_error=None, provisioning_state=None, source=None, tags=None, type=None):
         if customize and not isinstance(customize, list):
             raise TypeError("Expected argument 'customize' to be a list")
         pulumi.set(__self__, "customize", customize)
         if distribute and not isinstance(distribute, list):
             raise TypeError("Expected argument 'distribute' to be a list")
         pulumi.set(__self__, "distribute", distribute)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_run_status and not isinstance(last_run_status, dict):
             raise TypeError("Expected argument 'last_run_status' to be a dict")
         pulumi.set(__self__, "last_run_status", last_run_status)
@@ -64,6 +67,14 @@ class GetVirtualMachineImageTemplateResult:
         The distribution targets where the image output needs to go to.
         """
         return pulumi.get(self, "distribute")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastRunStatus")
@@ -138,6 +149,7 @@ class AwaitableGetVirtualMachineImageTemplateResult(GetVirtualMachineImageTempla
         return GetVirtualMachineImageTemplateResult(
             customize=self.customize,
             distribute=self.distribute,
+            id=self.id,
             last_run_status=self.last_run_status,
             location=self.location,
             name=self.name,
@@ -169,6 +181,7 @@ def get_virtual_machine_image_template(image_template_name: Optional[str] = None
     return AwaitableGetVirtualMachineImageTemplateResult(
         customize=__ret__.customize,
         distribute=__ret__.distribute,
+        id=__ret__.id,
         last_run_status=__ret__.last_run_status,
         location=__ret__.location,
         name=__ret__.name,

@@ -20,7 +20,7 @@ class GetOpenShiftClusterResult:
     """
     OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
     """
-    def __init__(__self__, apiserver_profile=None, cluster_profile=None, console_profile=None, ingress_profiles=None, location=None, master_profile=None, name=None, network_profile=None, provisioning_state=None, service_principal_profile=None, tags=None, type=None, worker_profiles=None):
+    def __init__(__self__, apiserver_profile=None, cluster_profile=None, console_profile=None, id=None, ingress_profiles=None, location=None, master_profile=None, name=None, network_profile=None, provisioning_state=None, service_principal_profile=None, tags=None, type=None, worker_profiles=None):
         if apiserver_profile and not isinstance(apiserver_profile, dict):
             raise TypeError("Expected argument 'apiserver_profile' to be a dict")
         pulumi.set(__self__, "apiserver_profile", apiserver_profile)
@@ -30,6 +30,9 @@ class GetOpenShiftClusterResult:
         if console_profile and not isinstance(console_profile, dict):
             raise TypeError("Expected argument 'console_profile' to be a dict")
         pulumi.set(__self__, "console_profile", console_profile)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if ingress_profiles and not isinstance(ingress_profiles, list):
             raise TypeError("Expected argument 'ingress_profiles' to be a list")
         pulumi.set(__self__, "ingress_profiles", ingress_profiles)
@@ -84,6 +87,14 @@ class GetOpenShiftClusterResult:
         The console profile.
         """
         return pulumi.get(self, "console_profile")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ingressProfiles")
@@ -175,6 +186,7 @@ class AwaitableGetOpenShiftClusterResult(GetOpenShiftClusterResult):
             apiserver_profile=self.apiserver_profile,
             cluster_profile=self.cluster_profile,
             console_profile=self.console_profile,
+            id=self.id,
             ingress_profiles=self.ingress_profiles,
             location=self.location,
             master_profile=self.master_profile,
@@ -209,6 +221,7 @@ def get_open_shift_cluster(resource_group_name: Optional[str] = None,
         apiserver_profile=__ret__.apiserver_profile,
         cluster_profile=__ret__.cluster_profile,
         console_profile=__ret__.console_profile,
+        id=__ret__.id,
         ingress_profiles=__ret__.ingress_profiles,
         location=__ret__.location,
         master_profile=__ret__.master_profile,

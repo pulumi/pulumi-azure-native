@@ -20,7 +20,7 @@ class GetVirtualMachineResourceResult:
     """
     A virtual machine.
     """
-    def __init__(__self__, artifact_deployment_status=None, artifacts=None, compute_id=None, created_by_user=None, created_by_user_id=None, custom_image_id=None, disallow_public_ip_address=None, fqdn=None, gallery_image_reference=None, is_authentication_with_ssh_key=None, lab_subnet_name=None, lab_virtual_network_id=None, location=None, name=None, notes=None, os_type=None, owner_object_id=None, password=None, provisioning_state=None, size=None, ssh_key=None, tags=None, type=None, user_name=None):
+    def __init__(__self__, artifact_deployment_status=None, artifacts=None, compute_id=None, created_by_user=None, created_by_user_id=None, custom_image_id=None, disallow_public_ip_address=None, fqdn=None, gallery_image_reference=None, id=None, is_authentication_with_ssh_key=None, lab_subnet_name=None, lab_virtual_network_id=None, location=None, name=None, notes=None, os_type=None, owner_object_id=None, password=None, provisioning_state=None, size=None, ssh_key=None, tags=None, type=None, user_name=None):
         if artifact_deployment_status and not isinstance(artifact_deployment_status, dict):
             raise TypeError("Expected argument 'artifact_deployment_status' to be a dict")
         pulumi.set(__self__, "artifact_deployment_status", artifact_deployment_status)
@@ -48,6 +48,9 @@ class GetVirtualMachineResourceResult:
         if gallery_image_reference and not isinstance(gallery_image_reference, dict):
             raise TypeError("Expected argument 'gallery_image_reference' to be a dict")
         pulumi.set(__self__, "gallery_image_reference", gallery_image_reference)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_authentication_with_ssh_key and not isinstance(is_authentication_with_ssh_key, bool):
             raise TypeError("Expected argument 'is_authentication_with_ssh_key' to be a bool")
         pulumi.set(__self__, "is_authentication_with_ssh_key", is_authentication_with_ssh_key)
@@ -165,6 +168,14 @@ class GetVirtualMachineResourceResult:
         The Microsoft Azure Marketplace image reference of the virtual machine.
         """
         return pulumi.get(self, "gallery_image_reference")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The identifier of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isAuthenticationWithSshKey")
@@ -302,6 +313,7 @@ class AwaitableGetVirtualMachineResourceResult(GetVirtualMachineResourceResult):
             disallow_public_ip_address=self.disallow_public_ip_address,
             fqdn=self.fqdn,
             gallery_image_reference=self.gallery_image_reference,
+            id=self.id,
             is_authentication_with_ssh_key=self.is_authentication_with_ssh_key,
             lab_subnet_name=self.lab_subnet_name,
             lab_virtual_network_id=self.lab_virtual_network_id,
@@ -350,6 +362,7 @@ def get_virtual_machine_resource(lab_name: Optional[str] = None,
         disallow_public_ip_address=__ret__.disallow_public_ip_address,
         fqdn=__ret__.fqdn,
         gallery_image_reference=__ret__.gallery_image_reference,
+        id=__ret__.id,
         is_authentication_with_ssh_key=__ret__.is_authentication_with_ssh_key,
         lab_subnet_name=__ret__.lab_subnet_name,
         lab_virtual_network_id=__ret__.lab_virtual_network_id,

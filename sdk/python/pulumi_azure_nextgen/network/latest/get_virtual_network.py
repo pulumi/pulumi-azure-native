@@ -20,7 +20,7 @@ class GetVirtualNetworkResult:
     """
     Virtual Network resource.
     """
-    def __init__(__self__, address_space=None, bgp_communities=None, ddos_protection_plan=None, dhcp_options=None, enable_ddos_protection=None, enable_vm_protection=None, etag=None, extended_location=None, ip_allocations=None, location=None, name=None, provisioning_state=None, resource_guid=None, subnets=None, tags=None, type=None, virtual_network_peerings=None):
+    def __init__(__self__, address_space=None, bgp_communities=None, ddos_protection_plan=None, dhcp_options=None, enable_ddos_protection=None, enable_vm_protection=None, etag=None, extended_location=None, id=None, ip_allocations=None, location=None, name=None, provisioning_state=None, resource_guid=None, subnets=None, tags=None, type=None, virtual_network_peerings=None):
         if address_space and not isinstance(address_space, dict):
             raise TypeError("Expected argument 'address_space' to be a dict")
         pulumi.set(__self__, "address_space", address_space)
@@ -45,6 +45,9 @@ class GetVirtualNetworkResult:
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if ip_allocations and not isinstance(ip_allocations, list):
             raise TypeError("Expected argument 'ip_allocations' to be a list")
         pulumi.set(__self__, "ip_allocations", ip_allocations)
@@ -138,6 +141,14 @@ class GetVirtualNetworkResult:
         return pulumi.get(self, "extended_location")
 
     @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
     @pulumi.getter(name="ipAllocations")
     def ip_allocations(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
         """
@@ -224,6 +235,7 @@ class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
             enable_vm_protection=self.enable_vm_protection,
             etag=self.etag,
             extended_location=self.extended_location,
+            id=self.id,
             ip_allocations=self.ip_allocations,
             location=self.location,
             name=self.name,
@@ -265,6 +277,7 @@ def get_virtual_network(expand: Optional[str] = None,
         enable_vm_protection=__ret__.enable_vm_protection,
         etag=__ret__.etag,
         extended_location=__ret__.extended_location,
+        id=__ret__.id,
         ip_allocations=__ret__.ip_allocations,
         location=__ret__.location,
         name=__ret__.name,

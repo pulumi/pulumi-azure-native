@@ -104,6 +104,10 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
         /// </summary>
         public readonly ImmutableArray<Outputs.FailoverPolicyResponse> FailoverPolicies;
         /// <summary>
+        /// The unique resource identifier of the ARM resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Identity for the resource.
         /// </summary>
         public readonly Outputs.ManagedServiceIdentityResponse? Identity;
@@ -214,6 +218,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
 
             ImmutableArray<Outputs.FailoverPolicyResponse> failoverPolicies,
 
+            string id,
+
             Outputs.ManagedServiceIdentityResponse? identity,
 
             string instanceId,
@@ -268,6 +274,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
             EnableFreeTier = enableFreeTier;
             EnableMultipleWriteLocations = enableMultipleWriteLocations;
             FailoverPolicies = failoverPolicies;
+            Id = id;
             Identity = identity;
             InstanceId = instanceId;
             IpRules = ipRules;

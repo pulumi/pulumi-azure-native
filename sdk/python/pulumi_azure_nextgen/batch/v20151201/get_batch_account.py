@@ -20,7 +20,7 @@ class GetBatchAccountResult:
     """
     Contains information about an Azure Batch account.
     """
-    def __init__(__self__, account_endpoint=None, active_job_and_job_schedule_quota=None, auto_storage=None, core_quota=None, location=None, name=None, pool_quota=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, account_endpoint=None, active_job_and_job_schedule_quota=None, auto_storage=None, core_quota=None, id=None, location=None, name=None, pool_quota=None, provisioning_state=None, tags=None, type=None):
         if account_endpoint and not isinstance(account_endpoint, str):
             raise TypeError("Expected argument 'account_endpoint' to be a str")
         pulumi.set(__self__, "account_endpoint", account_endpoint)
@@ -33,6 +33,9 @@ class GetBatchAccountResult:
         if core_quota and not isinstance(core_quota, int):
             raise TypeError("Expected argument 'core_quota' to be a int")
         pulumi.set(__self__, "core_quota", core_quota)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -83,6 +86,14 @@ class GetBatchAccountResult:
         The core quota for this Batch account.
         """
         return pulumi.get(self, "core_quota")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the resource
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -143,6 +154,7 @@ class AwaitableGetBatchAccountResult(GetBatchAccountResult):
             active_job_and_job_schedule_quota=self.active_job_and_job_schedule_quota,
             auto_storage=self.auto_storage,
             core_quota=self.core_quota,
+            id=self.id,
             location=self.location,
             name=self.name,
             pool_quota=self.pool_quota,
@@ -174,6 +186,7 @@ def get_batch_account(account_name: Optional[str] = None,
         active_job_and_job_schedule_quota=__ret__.active_job_and_job_schedule_quota,
         auto_storage=__ret__.auto_storage,
         core_quota=__ret__.core_quota,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         pool_quota=__ret__.pool_quota,

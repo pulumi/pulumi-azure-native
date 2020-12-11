@@ -84,6 +84,10 @@ export interface GetTopicResult {
      */
     readonly filteringMessagesBeforePublishing?: boolean;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Value that indicates whether the message is accessible anonymously.
      */
     readonly isAnonymousAccessible?: boolean;

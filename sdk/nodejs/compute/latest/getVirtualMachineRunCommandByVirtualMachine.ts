@@ -53,6 +53,10 @@ export interface GetVirtualMachineRunCommandByVirtualMachineResult {
      */
     readonly errorBlobUri?: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * The virtual machine run command instance view.
      */
     readonly instanceView: outputs.compute.latest.VirtualMachineRunCommandInstanceViewResponse;

@@ -44,6 +44,10 @@ export interface GetGalleryResult {
      */
     readonly description?: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Describes the gallery unique name.
      */
     readonly identifier?: outputs.compute.v20200930.GalleryIdentifierResponse;

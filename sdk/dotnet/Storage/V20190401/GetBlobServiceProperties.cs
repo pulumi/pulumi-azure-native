@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.Storage.V20190401
         /// </summary>
         public readonly Outputs.DeleteRetentionPolicyResponse? DeleteRetentionPolicy;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.Storage.V20190401
 
             Outputs.DeleteRetentionPolicyResponse? deleteRetentionPolicy,
 
+            string id,
+
             string name,
 
             string type)
@@ -95,6 +101,7 @@ namespace Pulumi.AzureNextGen.Storage.V20190401
             Cors = cors;
             DefaultServiceVersion = defaultServiceVersion;
             DeleteRetentionPolicy = deleteRetentionPolicy;
+            Id = id;
             Name = name;
             Type = type;
         }

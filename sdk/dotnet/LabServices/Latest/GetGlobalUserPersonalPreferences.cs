@@ -55,11 +55,19 @@ namespace Pulumi.AzureNextGen.LabServices.Latest
         /// Array of favorite lab resource ids
         /// </summary>
         public readonly ImmutableArray<string> FavoriteLabResourceIds;
+        /// <summary>
+        /// Id to be used by the cache orchestrator
+        /// </summary>
+        public readonly string? Id;
 
         [OutputConstructor]
-        private GetGlobalUserPersonalPreferencesResult(ImmutableArray<string> favoriteLabResourceIds)
+        private GetGlobalUserPersonalPreferencesResult(
+            ImmutableArray<string> favoriteLabResourceIds,
+
+            string? id)
         {
             FavoriteLabResourceIds = favoriteLabResourceIds;
+            Id = id;
         }
     }
 }

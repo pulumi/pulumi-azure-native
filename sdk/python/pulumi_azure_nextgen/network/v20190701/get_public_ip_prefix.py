@@ -20,10 +20,13 @@ class GetPublicIPPrefixResult:
     """
     Public IP prefix resource.
     """
-    def __init__(__self__, etag=None, ip_prefix=None, ip_tags=None, load_balancer_frontend_ip_configuration=None, location=None, name=None, prefix_length=None, provisioning_state=None, public_ip_address_version=None, public_ip_addresses=None, resource_guid=None, sku=None, tags=None, type=None, zones=None):
+    def __init__(__self__, etag=None, id=None, ip_prefix=None, ip_tags=None, load_balancer_frontend_ip_configuration=None, location=None, name=None, prefix_length=None, provisioning_state=None, public_ip_address_version=None, public_ip_addresses=None, resource_guid=None, sku=None, tags=None, type=None, zones=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if ip_prefix and not isinstance(ip_prefix, str):
             raise TypeError("Expected argument 'ip_prefix' to be a str")
         pulumi.set(__self__, "ip_prefix", ip_prefix)
@@ -74,6 +77,14 @@ class GetPublicIPPrefixResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ipPrefix")
@@ -195,6 +206,7 @@ class AwaitableGetPublicIPPrefixResult(GetPublicIPPrefixResult):
             yield self
         return GetPublicIPPrefixResult(
             etag=self.etag,
+            id=self.id,
             ip_prefix=self.ip_prefix,
             ip_tags=self.ip_tags,
             load_balancer_frontend_ip_configuration=self.load_balancer_frontend_ip_configuration,
@@ -234,6 +246,7 @@ def get_public_ip_prefix(expand: Optional[str] = None,
 
     return AwaitableGetPublicIPPrefixResult(
         etag=__ret__.etag,
+        id=__ret__.id,
         ip_prefix=__ret__.ip_prefix,
         ip_tags=__ret__.ip_tags,
         load_balancer_frontend_ip_configuration=__ret__.load_balancer_frontend_ip_configuration,

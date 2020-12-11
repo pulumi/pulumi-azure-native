@@ -32,6 +32,8 @@ type LookupIntegrationAccountPartnerResult struct {
 	Content *PartnerContentResponse `pulumi:"content"`
 	// The created time.
 	CreatedTime string `pulumi:"createdTime"`
+	// The resource id.
+	Id *string `pulumi:"id"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The metadata.

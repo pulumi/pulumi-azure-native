@@ -37,6 +37,8 @@ type LookupRuleResult struct {
 	CorrelationFilter *CorrelationFilterResponse `pulumi:"correlationFilter"`
 	// Filter type that is evaluated against a BrokeredMessage.
 	FilterType *string `pulumi:"filterType"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// Properties of sqlFilter

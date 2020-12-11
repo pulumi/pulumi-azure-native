@@ -20,7 +20,7 @@ class GetEventChannelResult:
     """
     Event Channel.
     """
-    def __init__(__self__, destination=None, expiration_time_if_not_activated_utc=None, filter=None, name=None, partner_topic_friendly_description=None, partner_topic_readiness_state=None, provisioning_state=None, source=None, type=None):
+    def __init__(__self__, destination=None, expiration_time_if_not_activated_utc=None, filter=None, id=None, name=None, partner_topic_friendly_description=None, partner_topic_readiness_state=None, provisioning_state=None, source=None, type=None):
         if destination and not isinstance(destination, dict):
             raise TypeError("Expected argument 'destination' to be a dict")
         pulumi.set(__self__, "destination", destination)
@@ -30,6 +30,9 @@ class GetEventChannelResult:
         if filter and not isinstance(filter, dict):
             raise TypeError("Expected argument 'filter' to be a dict")
         pulumi.set(__self__, "filter", filter)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -73,6 +76,14 @@ class GetEventChannelResult:
         Information about the filter for the event channel.
         """
         return pulumi.get(self, "filter")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified identifier of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -133,6 +144,7 @@ class AwaitableGetEventChannelResult(GetEventChannelResult):
             destination=self.destination,
             expiration_time_if_not_activated_utc=self.expiration_time_if_not_activated_utc,
             filter=self.filter,
+            id=self.id,
             name=self.name,
             partner_topic_friendly_description=self.partner_topic_friendly_description,
             partner_topic_readiness_state=self.partner_topic_readiness_state,
@@ -166,6 +178,7 @@ def get_event_channel(event_channel_name: Optional[str] = None,
         destination=__ret__.destination,
         expiration_time_if_not_activated_utc=__ret__.expiration_time_if_not_activated_utc,
         filter=__ret__.filter,
+        id=__ret__.id,
         name=__ret__.name,
         partner_topic_friendly_description=__ret__.partner_topic_friendly_description,
         partner_topic_readiness_state=__ret__.partner_topic_readiness_state,

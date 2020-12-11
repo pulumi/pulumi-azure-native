@@ -70,6 +70,10 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
         /// </summary>
         public readonly Outputs.EnvironmentDeploymentPropertiesResponse? DeploymentProperties;
         /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string? Location;
@@ -106,6 +110,8 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
 
             Outputs.EnvironmentDeploymentPropertiesResponse? deploymentProperties,
 
+            string id,
+
             string? location,
 
             string name,
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
             ArmTemplateDisplayName = armTemplateDisplayName;
             CreatedByUser = createdByUser;
             DeploymentProperties = deploymentProperties;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

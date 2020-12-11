@@ -39,6 +39,8 @@ type LookupModuleResult struct {
 	Error *ModuleErrorInfoResponse `pulumi:"error"`
 	// Gets or sets the etag of the resource.
 	Etag *string `pulumi:"etag"`
+	// Fully qualified resource Id for the resource
+	Id string `pulumi:"id"`
 	// Gets or sets type of module, if its composite or not.
 	IsComposite *bool `pulumi:"isComposite"`
 	// Gets or sets the isGlobal flag of the module.

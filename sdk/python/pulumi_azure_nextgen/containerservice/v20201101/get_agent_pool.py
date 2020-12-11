@@ -20,7 +20,7 @@ class GetAgentPoolResult:
     """
     Agent Pool.
     """
-    def __init__(__self__, availability_zones=None, count=None, enable_auto_scaling=None, enable_node_public_ip=None, kubelet_config=None, linux_os_config=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_image_version=None, node_labels=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_disk_type=None, os_type=None, pod_subnet_id=None, power_state=None, provisioning_state=None, proximity_placement_group_id=None, scale_set_eviction_policy=None, scale_set_priority=None, spot_max_price=None, tags=None, type=None, upgrade_settings=None, vm_size=None, vnet_subnet_id=None):
+    def __init__(__self__, availability_zones=None, count=None, enable_auto_scaling=None, enable_node_public_ip=None, id=None, kubelet_config=None, linux_os_config=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_image_version=None, node_labels=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_disk_type=None, os_type=None, pod_subnet_id=None, power_state=None, provisioning_state=None, proximity_placement_group_id=None, scale_set_eviction_policy=None, scale_set_priority=None, spot_max_price=None, tags=None, type=None, upgrade_settings=None, vm_size=None, vnet_subnet_id=None):
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
@@ -33,6 +33,9 @@ class GetAgentPoolResult:
         if enable_node_public_ip and not isinstance(enable_node_public_ip, bool):
             raise TypeError("Expected argument 'enable_node_public_ip' to be a bool")
         pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kubelet_config and not isinstance(kubelet_config, dict):
             raise TypeError("Expected argument 'kubelet_config' to be a dict")
         pulumi.set(__self__, "kubelet_config", kubelet_config)
@@ -143,6 +146,14 @@ class GetAgentPoolResult:
         Enable public IP for nodes
         """
         return pulumi.get(self, "enable_node_public_ip")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="kubeletConfig")
@@ -363,6 +374,7 @@ class AwaitableGetAgentPoolResult(GetAgentPoolResult):
             count=self.count,
             enable_auto_scaling=self.enable_auto_scaling,
             enable_node_public_ip=self.enable_node_public_ip,
+            id=self.id,
             kubelet_config=self.kubelet_config,
             linux_os_config=self.linux_os_config,
             max_count=self.max_count,
@@ -417,6 +429,7 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
         count=__ret__.count,
         enable_auto_scaling=__ret__.enable_auto_scaling,
         enable_node_public_ip=__ret__.enable_node_public_ip,
+        id=__ret__.id,
         kubelet_config=__ret__.kubelet_config,
         linux_os_config=__ret__.linux_os_config,
         max_count=__ret__.max_count,

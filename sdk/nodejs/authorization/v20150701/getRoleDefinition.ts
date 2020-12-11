@@ -43,6 +43,10 @@ export interface GetRoleDefinitionResult {
      */
     readonly description?: string;
     /**
+     * The role definition ID.
+     */
+    readonly id: string;
+    /**
      * The role definition name.
      */
     readonly name: string;

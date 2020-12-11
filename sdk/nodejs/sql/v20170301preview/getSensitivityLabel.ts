@@ -60,6 +60,10 @@ export interface GetSensitivityLabelArgs {
  */
 export interface GetSensitivityLabelResult {
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * The information type.
      */
     readonly informationType?: string;

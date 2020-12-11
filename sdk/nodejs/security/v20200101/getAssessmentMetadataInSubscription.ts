@@ -43,6 +43,10 @@ export interface GetAssessmentMetadataInSubscriptionResult {
      */
     readonly displayName: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * The implementation effort required to remediate this assessment
      */
     readonly implementationEffort?: string;

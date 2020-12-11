@@ -34,6 +34,10 @@ export interface GetIotSiteResult {
      */
     readonly displayName: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource name
      */
     readonly name: string;

@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.Databricks.Latest
         /// </summary>
         public readonly Outputs.VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork? DatabricksVirtualNetwork;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Name of the virtual network peering resource
         /// </summary>
         public readonly string Name;
@@ -106,6 +110,8 @@ namespace Pulumi.AzureNextGen.Databricks.Latest
 
             Outputs.VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork? databricksVirtualNetwork,
 
+            string id,
+
             string name,
 
             string peeringState,
@@ -125,6 +131,7 @@ namespace Pulumi.AzureNextGen.Databricks.Latest
             AllowVirtualNetworkAccess = allowVirtualNetworkAccess;
             DatabricksAddressSpace = databricksAddressSpace;
             DatabricksVirtualNetwork = databricksVirtualNetwork;
+            Id = id;
             Name = name;
             PeeringState = peeringState;
             ProvisioningState = provisioningState;

@@ -45,6 +45,10 @@ export interface GetQueueAuthorizationRuleArgs {
  */
 export interface GetQueueAuthorizationRuleResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location.
      */
     readonly location?: string;

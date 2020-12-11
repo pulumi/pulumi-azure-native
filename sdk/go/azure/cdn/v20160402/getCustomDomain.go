@@ -31,6 +31,8 @@ type LookupCustomDomainArgs struct {
 type LookupCustomDomainResult struct {
 	// The host name of the custom domain. Must be a domain name.
 	HostName string `pulumi:"hostName"`
+	// Resource ID
+	Id string `pulumi:"id"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// Provisioning status of the custom domain.

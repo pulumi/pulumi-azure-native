@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.AzureStack.Latest
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// ID of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Name of the resource.
         /// </summary>
         public readonly string Name;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.AzureStack.Latest
         private GetCustomerSubscriptionResult(
             string? etag,
 
+            string id,
+
             string name,
 
             string? tenantId,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNextGen.AzureStack.Latest
             string type)
         {
             Etag = etag;
+            Id = id;
             Name = name;
             TenantId = tenantId;
             Type = type;

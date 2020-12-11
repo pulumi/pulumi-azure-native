@@ -20,7 +20,7 @@ class GetApplicationResult:
     """
     Information about managed application.
     """
-    def __init__(__self__, application_definition_id=None, artifacts=None, authorizations=None, billing_details=None, created_by=None, customer_support=None, identity=None, jit_access_policy=None, kind=None, location=None, managed_by=None, managed_resource_group_id=None, management_mode=None, name=None, outputs=None, parameters=None, plan=None, provisioning_state=None, publisher_tenant_id=None, sku=None, support_urls=None, tags=None, type=None, updated_by=None):
+    def __init__(__self__, application_definition_id=None, artifacts=None, authorizations=None, billing_details=None, created_by=None, customer_support=None, id=None, identity=None, jit_access_policy=None, kind=None, location=None, managed_by=None, managed_resource_group_id=None, management_mode=None, name=None, outputs=None, parameters=None, plan=None, provisioning_state=None, publisher_tenant_id=None, sku=None, support_urls=None, tags=None, type=None, updated_by=None):
         if application_definition_id and not isinstance(application_definition_id, str):
             raise TypeError("Expected argument 'application_definition_id' to be a str")
         pulumi.set(__self__, "application_definition_id", application_definition_id)
@@ -39,6 +39,9 @@ class GetApplicationResult:
         if customer_support and not isinstance(customer_support, dict):
             raise TypeError("Expected argument 'customer_support' to be a dict")
         pulumi.set(__self__, "customer_support", customer_support)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -141,6 +144,14 @@ class GetApplicationResult:
         The read-only customer support property that is retrieved from the application package.
         """
         return pulumi.get(self, "customer_support")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -299,6 +310,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             billing_details=self.billing_details,
             created_by=self.created_by,
             customer_support=self.customer_support,
+            id=self.id,
             identity=self.identity,
             jit_access_policy=self.jit_access_policy,
             kind=self.kind,
@@ -344,6 +356,7 @@ def get_application(application_name: Optional[str] = None,
         billing_details=__ret__.billing_details,
         created_by=__ret__.created_by,
         customer_support=__ret__.customer_support,
+        id=__ret__.id,
         identity=__ret__.identity,
         jit_access_policy=__ret__.jit_access_policy,
         kind=__ret__.kind,

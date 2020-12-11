@@ -37,6 +37,8 @@ type LookupShareResult struct {
 	DataPolicy *string `pulumi:"dataPolicy"`
 	// Description for the share.
 	Description *string `pulumi:"description"`
+	// The path ID that uniquely identifies the object.
+	Id string `pulumi:"id"`
 	// Current monitoring status of the share.
 	MonitoringStatus string `pulumi:"monitoringStatus"`
 	// The object name.

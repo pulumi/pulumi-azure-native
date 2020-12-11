@@ -35,6 +35,10 @@ export interface ListSiteAppSettingsArgs {
  */
 export interface ListSiteAppSettingsResult {
     /**
+     * Resource Id
+     */
+    readonly id?: string;
+    /**
      * Kind of resource
      */
     readonly kind?: string;

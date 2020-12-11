@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.Compute.V20171201
         /// </summary>
         public readonly string? ForceUpdateTag;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the extension.
         /// </summary>
         public readonly string? Name;
@@ -94,6 +98,8 @@ namespace Pulumi.AzureNextGen.Compute.V20171201
 
             string? forceUpdateTag,
 
+            string id,
+
             string? name,
 
             object? protectedSettings,
@@ -110,6 +116,7 @@ namespace Pulumi.AzureNextGen.Compute.V20171201
         {
             AutoUpgradeMinorVersion = autoUpgradeMinorVersion;
             ForceUpdateTag = forceUpdateTag;
+            Id = id;
             Name = name;
             ProtectedSettings = protectedSettings;
             ProvisioningState = provisioningState;

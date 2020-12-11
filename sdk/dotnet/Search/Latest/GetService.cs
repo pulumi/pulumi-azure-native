@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Search.Latest
         /// </summary>
         public readonly string? HostingMode;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
@@ -108,6 +112,8 @@ namespace Pulumi.AzureNextGen.Search.Latest
         private GetServiceResult(
             string? hostingMode,
 
+            string id,
+
             Outputs.IdentityResponse? identity,
 
             string location,
@@ -139,6 +145,7 @@ namespace Pulumi.AzureNextGen.Search.Latest
             string type)
         {
             HostingMode = hostingMode;
+            Id = id;
             Identity = identity;
             Location = location;
             Name = name;

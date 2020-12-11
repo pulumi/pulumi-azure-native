@@ -39,6 +39,10 @@ export interface GetProximityPlacementGroupResult {
      */
     readonly availabilitySets: outputs.compute.v20181001.SubResourceResponse[];
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

@@ -48,6 +48,10 @@ export interface GetStorageDomainResult {
      */
     readonly encryptionStatus: string;
     /**
+     * The identifier.
+     */
+    readonly id: string;
+    /**
      * The name.
      */
     readonly name: string;

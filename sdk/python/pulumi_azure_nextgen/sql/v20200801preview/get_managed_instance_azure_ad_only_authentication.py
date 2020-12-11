@@ -19,10 +19,13 @@ class GetManagedInstanceAzureADOnlyAuthenticationResult:
     """
     Azure Active Directory only authentication.
     """
-    def __init__(__self__, azure_ad_only_authentication=None, name=None, type=None):
+    def __init__(__self__, azure_ad_only_authentication=None, id=None, name=None, type=None):
         if azure_ad_only_authentication and not isinstance(azure_ad_only_authentication, bool):
             raise TypeError("Expected argument 'azure_ad_only_authentication' to be a bool")
         pulumi.set(__self__, "azure_ad_only_authentication", azure_ad_only_authentication)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -37,6 +40,14 @@ class GetManagedInstanceAzureADOnlyAuthenticationResult:
         Azure Active Directory only Authentication enabled.
         """
         return pulumi.get(self, "azure_ad_only_authentication")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -62,6 +73,7 @@ class AwaitableGetManagedInstanceAzureADOnlyAuthenticationResult(GetManagedInsta
             yield self
         return GetManagedInstanceAzureADOnlyAuthenticationResult(
             azure_ad_only_authentication=self.azure_ad_only_authentication,
+            id=self.id,
             name=self.name,
             type=self.type)
 
@@ -89,5 +101,6 @@ def get_managed_instance_azure_ad_only_authentication(authentication_name: Optio
 
     return AwaitableGetManagedInstanceAzureADOnlyAuthenticationResult(
         azure_ad_only_authentication=__ret__.azure_ad_only_authentication,
+        id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type)

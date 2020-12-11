@@ -65,6 +65,10 @@ export interface GetExpressRouteCircuitConnectionResult {
      */
     readonly expressRouteCircuitPeering?: outputs.network.v20200501.SubResourceResponse;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * IPv6 Address PrefixProperties of the express route circuit connection.
      */
     readonly ipv6CircuitConnectionConfig?: outputs.network.v20200501.Ipv6CircuitConnectionConfigResponse;

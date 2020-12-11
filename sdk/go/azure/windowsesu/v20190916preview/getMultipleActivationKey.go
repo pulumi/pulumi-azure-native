@@ -29,6 +29,8 @@ type LookupMultipleActivationKeyResult struct {
 	AgreementNumber *string `pulumi:"agreementNumber"`
 	// End of support of security updates activated by the MAK key.
 	ExpirationDate string `pulumi:"expirationDate"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// Number of activations/servers using the MAK key.
 	InstalledServerNumber *int `pulumi:"installedServerNumber"`
 	// <code> true </code> if user has eligible on-premises Windows physical or virtual machines, and that the requested key will only be used in their organization; <code> false </code> otherwise.

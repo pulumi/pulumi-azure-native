@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.AadIam.V20200301Preview
         /// </summary>
         public readonly bool? AllTenants;
         /// <summary>
+        /// String Id used to locate any resource on Azure.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Name of this resource.
         /// </summary>
         public readonly string? Name;
@@ -80,6 +84,8 @@ namespace Pulumi.AzureNextGen.AadIam.V20200301Preview
         private GetprivateLinkForAzureAdResult(
             bool? allTenants,
 
+            string id,
+
             string? name,
 
             string? ownerTenantId,
@@ -97,6 +103,7 @@ namespace Pulumi.AzureNextGen.AadIam.V20200301Preview
             string type)
         {
             AllTenants = allTenants;
+            Id = id;
             Name = name;
             OwnerTenantId = ownerTenantId;
             ResourceGroup = resourceGroup;

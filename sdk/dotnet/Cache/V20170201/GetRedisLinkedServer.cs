@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Cache.V20170201
     public sealed class GetRedisLinkedServerResult
     {
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Fully qualified resourceId of the linked redis cache.
         /// </summary>
         public readonly string LinkedRedisCacheId;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.Cache.V20170201
 
         [OutputConstructor]
         private GetRedisLinkedServerResult(
+            string id,
+
             string linkedRedisCacheId,
 
             string linkedRedisCacheLocation,
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNextGen.Cache.V20170201
 
             string type)
         {
+            Id = id;
             LinkedRedisCacheId = linkedRedisCacheId;
             LinkedRedisCacheLocation = linkedRedisCacheLocation;
             Name = name;

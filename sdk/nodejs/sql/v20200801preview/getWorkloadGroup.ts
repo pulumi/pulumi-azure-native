@@ -45,6 +45,10 @@ export interface GetWorkloadGroupArgs {
  */
 export interface GetWorkloadGroupResult {
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * The workload group importance level.
      */
     readonly importance?: string;

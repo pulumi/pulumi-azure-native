@@ -31,6 +31,8 @@ type LookupRolloutResult struct {
 	ArtifactSourceId *string `pulumi:"artifactSourceId"`
 	// The version of the build being deployed.
 	BuildVersion string `pulumi:"buildVersion"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// Identity for the resource.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// The geo-location where the resource lives

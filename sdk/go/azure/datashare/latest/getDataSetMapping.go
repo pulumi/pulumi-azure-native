@@ -29,6 +29,8 @@ type LookupDataSetMappingArgs struct {
 
 // A data set mapping data transfer object.
 type LookupDataSetMappingResult struct {
+	// The resource id of the azure resource
+	Id string `pulumi:"id"`
 	// Kind of data set mapping.
 	Kind string `pulumi:"kind"`
 	// Name of the azure resource

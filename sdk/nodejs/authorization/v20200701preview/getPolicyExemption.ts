@@ -51,6 +51,10 @@ export interface GetPolicyExemptionResult {
      */
     readonly expiresOn?: string;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
      */
     readonly metadata?: any;

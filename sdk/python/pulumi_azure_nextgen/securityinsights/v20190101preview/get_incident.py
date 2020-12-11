@@ -20,7 +20,7 @@ class GetIncidentResult:
     """
     Represents an incident in Azure Security Insights.
     """
-    def __init__(__self__, additional_data=None, classification=None, classification_comment=None, classification_reason=None, created_time_utc=None, description=None, etag=None, first_activity_time_utc=None, incident_number=None, incident_url=None, labels=None, last_activity_time_utc=None, last_modified_time_utc=None, name=None, owner=None, related_analytic_rule_ids=None, severity=None, status=None, title=None, type=None):
+    def __init__(__self__, additional_data=None, classification=None, classification_comment=None, classification_reason=None, created_time_utc=None, description=None, etag=None, first_activity_time_utc=None, id=None, incident_number=None, incident_url=None, labels=None, last_activity_time_utc=None, last_modified_time_utc=None, name=None, owner=None, related_analytic_rule_ids=None, severity=None, status=None, title=None, type=None):
         if additional_data and not isinstance(additional_data, dict):
             raise TypeError("Expected argument 'additional_data' to be a dict")
         pulumi.set(__self__, "additional_data", additional_data)
@@ -45,6 +45,9 @@ class GetIncidentResult:
         if first_activity_time_utc and not isinstance(first_activity_time_utc, str):
             raise TypeError("Expected argument 'first_activity_time_utc' to be a str")
         pulumi.set(__self__, "first_activity_time_utc", first_activity_time_utc)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if incident_number and not isinstance(incident_number, int):
             raise TypeError("Expected argument 'incident_number' to be a int")
         pulumi.set(__self__, "incident_number", incident_number)
@@ -145,6 +148,14 @@ class GetIncidentResult:
         The time of the first activity in the incident
         """
         return pulumi.get(self, "first_activity_time_utc")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="incidentNumber")
@@ -257,6 +268,7 @@ class AwaitableGetIncidentResult(GetIncidentResult):
             description=self.description,
             etag=self.etag,
             first_activity_time_utc=self.first_activity_time_utc,
+            id=self.id,
             incident_number=self.incident_number,
             incident_url=self.incident_url,
             labels=self.labels,
@@ -304,6 +316,7 @@ def get_incident(incident_id: Optional[str] = None,
         description=__ret__.description,
         etag=__ret__.etag,
         first_activity_time_utc=__ret__.first_activity_time_utc,
+        id=__ret__.id,
         incident_number=__ret__.incident_number,
         incident_url=__ret__.incident_url,
         labels=__ret__.labels,

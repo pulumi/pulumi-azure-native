@@ -52,6 +52,10 @@ export interface GetInterfaceEndpointResult {
      */
     readonly fqdn?: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * Resource location.
      */
     readonly location?: string;

@@ -20,7 +20,7 @@ class GetShareResult:
     """
     Represents a share on the  Data Box Edge/Gateway device.
     """
-    def __init__(__self__, access_protocol=None, azure_container_info=None, client_access_rights=None, data_policy=None, description=None, monitoring_status=None, name=None, refresh_details=None, share_mappings=None, share_status=None, type=None, user_access_rights=None):
+    def __init__(__self__, access_protocol=None, azure_container_info=None, client_access_rights=None, data_policy=None, description=None, id=None, monitoring_status=None, name=None, refresh_details=None, share_mappings=None, share_status=None, type=None, user_access_rights=None):
         if access_protocol and not isinstance(access_protocol, str):
             raise TypeError("Expected argument 'access_protocol' to be a str")
         pulumi.set(__self__, "access_protocol", access_protocol)
@@ -36,6 +36,9 @@ class GetShareResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if monitoring_status and not isinstance(monitoring_status, str):
             raise TypeError("Expected argument 'monitoring_status' to be a str")
         pulumi.set(__self__, "monitoring_status", monitoring_status)
@@ -97,6 +100,14 @@ class GetShareResult:
         Description for the share.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The path ID that uniquely identifies the object.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="monitoringStatus")
@@ -166,6 +177,7 @@ class AwaitableGetShareResult(GetShareResult):
             client_access_rights=self.client_access_rights,
             data_policy=self.data_policy,
             description=self.description,
+            id=self.id,
             monitoring_status=self.monitoring_status,
             name=self.name,
             refresh_details=self.refresh_details,
@@ -202,6 +214,7 @@ def get_share(device_name: Optional[str] = None,
         client_access_rights=__ret__.client_access_rights,
         data_policy=__ret__.data_policy,
         description=__ret__.description,
+        id=__ret__.id,
         monitoring_status=__ret__.monitoring_status,
         name=__ret__.name,
         refresh_details=__ret__.refresh_details,

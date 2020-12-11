@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
+        /// String Id used to locate any resource on Azure.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Managed identity for this blueprint assignment.
         /// </summary>
         public readonly Outputs.ManagedServiceIdentityResponse Identity;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
 
             string? displayName,
 
+            string id,
+
             Outputs.ManagedServiceIdentityResponse identity,
 
             string location,
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
             BlueprintId = blueprintId;
             Description = description;
             DisplayName = displayName;
+            Id = id;
             Identity = identity;
             Location = location;
             Locks = locks;

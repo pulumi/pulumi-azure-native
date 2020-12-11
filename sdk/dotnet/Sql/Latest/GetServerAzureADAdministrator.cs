@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Sql.Latest
         /// </summary>
         public readonly string AdministratorType;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The server administrator login value.
         /// </summary>
         public readonly string Login;
@@ -74,6 +78,8 @@ namespace Pulumi.AzureNextGen.Sql.Latest
         private GetServerAzureADAdministratorResult(
             string administratorType,
 
+            string id,
+
             string login,
 
             string name,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.Sql.Latest
             string type)
         {
             AdministratorType = administratorType;
+            Id = id;
             Login = login;
             Name = name;
             Sid = sid;

@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.Kusto.V20180907Preview
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -90,6 +94,8 @@ namespace Pulumi.AzureNextGen.Kusto.V20180907Preview
 
             string etag,
 
+            string id,
+
             string location,
 
             string name,
@@ -110,6 +116,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20180907Preview
         {
             DataIngestionUri = dataIngestionUri;
             Etag = etag;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

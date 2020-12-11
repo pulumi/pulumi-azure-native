@@ -60,6 +60,10 @@ export interface GetElasticPoolResult {
      */
     readonly edition?: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Kind of elastic pool.  This is metadata used for the Azure portal experience.
      */
     readonly kind: string;

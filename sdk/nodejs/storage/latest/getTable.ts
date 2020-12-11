@@ -40,6 +40,10 @@ export interface GetTableArgs {
  */
 export interface GetTableResult {
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * The name of the resource
      */
     readonly name: string;

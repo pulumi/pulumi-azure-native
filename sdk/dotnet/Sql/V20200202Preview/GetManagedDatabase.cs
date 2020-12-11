@@ -78,6 +78,10 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// </summary>
         public readonly string FailoverGroupId;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Last backup file name for restore of this managed database.
         /// </summary>
         public readonly string? LastBackupName;
@@ -148,6 +152,8 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
 
             string failoverGroupId,
 
+            string id,
+
             string? lastBackupName,
 
             string location,
@@ -182,6 +188,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
             DefaultSecondaryLocation = defaultSecondaryLocation;
             EarliestRestorePoint = earliestRestorePoint;
             FailoverGroupId = failoverGroupId;
+            Id = id;
             LastBackupName = lastBackupName;
             Location = location;
             LongTermRetentionBackupResourceId = longTermRetentionBackupResourceId;

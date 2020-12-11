@@ -48,6 +48,10 @@ export interface GetCredentialResult {
      */
     readonly description?: string;
     /**
+     * Fully qualified resource Id for the resource
+     */
+    readonly id: string;
+    /**
      * Gets the last modified time.
      */
     readonly lastModifiedTime: string;

@@ -27,6 +27,8 @@ type LookupNamespaceArgs struct {
 type LookupNamespaceResult struct {
 	// The time the namespace was created.
 	CreatedAt string `pulumi:"createdAt"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Identifier for Azure Insights metrics

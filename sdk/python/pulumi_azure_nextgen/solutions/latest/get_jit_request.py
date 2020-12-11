@@ -20,13 +20,16 @@ class GetJitRequestResult:
     """
     Information about JIT request definition.
     """
-    def __init__(__self__, application_resource_id=None, created_by=None, jit_authorization_policies=None, jit_request_state=None, jit_scheduling_policy=None, location=None, name=None, provisioning_state=None, publisher_tenant_id=None, tags=None, type=None, updated_by=None):
+    def __init__(__self__, application_resource_id=None, created_by=None, id=None, jit_authorization_policies=None, jit_request_state=None, jit_scheduling_policy=None, location=None, name=None, provisioning_state=None, publisher_tenant_id=None, tags=None, type=None, updated_by=None):
         if application_resource_id and not isinstance(application_resource_id, str):
             raise TypeError("Expected argument 'application_resource_id' to be a str")
         pulumi.set(__self__, "application_resource_id", application_resource_id)
         if created_by and not isinstance(created_by, dict):
             raise TypeError("Expected argument 'created_by' to be a dict")
         pulumi.set(__self__, "created_by", created_by)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if jit_authorization_policies and not isinstance(jit_authorization_policies, list):
             raise TypeError("Expected argument 'jit_authorization_policies' to be a list")
         pulumi.set(__self__, "jit_authorization_policies", jit_authorization_policies)
@@ -73,6 +76,14 @@ class GetJitRequestResult:
         The client entity that created the JIT request.
         """
         return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="jitAuthorizationPolicies")
@@ -163,6 +174,7 @@ class AwaitableGetJitRequestResult(GetJitRequestResult):
         return GetJitRequestResult(
             application_resource_id=self.application_resource_id,
             created_by=self.created_by,
+            id=self.id,
             jit_authorization_policies=self.jit_authorization_policies,
             jit_request_state=self.jit_request_state,
             jit_scheduling_policy=self.jit_scheduling_policy,
@@ -196,6 +208,7 @@ def get_jit_request(jit_request_name: Optional[str] = None,
     return AwaitableGetJitRequestResult(
         application_resource_id=__ret__.application_resource_id,
         created_by=__ret__.created_by,
+        id=__ret__.id,
         jit_authorization_policies=__ret__.jit_authorization_policies,
         jit_request_state=__ret__.jit_request_state,
         jit_scheduling_policy=__ret__.jit_scheduling_policy,

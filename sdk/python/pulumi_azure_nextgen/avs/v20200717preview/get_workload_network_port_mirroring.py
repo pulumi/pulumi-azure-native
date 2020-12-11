@@ -19,7 +19,7 @@ class GetWorkloadNetworkPortMirroringResult:
     """
     NSX Port Mirroring
     """
-    def __init__(__self__, destination=None, direction=None, display_name=None, name=None, provisioning_state=None, revision=None, source=None, status=None, type=None):
+    def __init__(__self__, destination=None, direction=None, display_name=None, id=None, name=None, provisioning_state=None, revision=None, source=None, status=None, type=None):
         if destination and not isinstance(destination, str):
             raise TypeError("Expected argument 'destination' to be a str")
         pulumi.set(__self__, "destination", destination)
@@ -29,6 +29,9 @@ class GetWorkloadNetworkPortMirroringResult:
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -71,6 +74,14 @@ class GetWorkloadNetworkPortMirroringResult:
         Display name of the port mirroring profile.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -130,6 +141,7 @@ class AwaitableGetWorkloadNetworkPortMirroringResult(GetWorkloadNetworkPortMirro
             destination=self.destination,
             direction=self.direction,
             display_name=self.display_name,
+            id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
             revision=self.revision,
@@ -163,6 +175,7 @@ def get_workload_network_port_mirroring(port_mirroring_id: Optional[str] = None,
         destination=__ret__.destination,
         direction=__ret__.direction,
         display_name=__ret__.display_name,
+        id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         revision=__ret__.revision,

@@ -37,6 +37,8 @@ type LookupAssetResult struct {
 	Created string `pulumi:"created"`
 	// The Asset description.
 	Description *string `pulumi:"description"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The last modified date of the Asset.
 	LastModified string `pulumi:"lastModified"`
 	// The name of the resource

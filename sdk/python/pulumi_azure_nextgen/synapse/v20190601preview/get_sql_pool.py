@@ -20,7 +20,7 @@ class GetSqlPoolResult:
     """
     A SQL Analytics pool
     """
-    def __init__(__self__, collation=None, create_mode=None, creation_date=None, location=None, max_size_bytes=None, name=None, provisioning_state=None, recoverable_database_id=None, restore_point_in_time=None, sku=None, source_database_id=None, status=None, tags=None, type=None):
+    def __init__(__self__, collation=None, create_mode=None, creation_date=None, id=None, location=None, max_size_bytes=None, name=None, provisioning_state=None, recoverable_database_id=None, restore_point_in_time=None, sku=None, source_database_id=None, status=None, tags=None, type=None):
         if collation and not isinstance(collation, str):
             raise TypeError("Expected argument 'collation' to be a str")
         pulumi.set(__self__, "collation", collation)
@@ -30,6 +30,9 @@ class GetSqlPoolResult:
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -87,6 +90,14 @@ class GetSqlPoolResult:
         Date the SQL pool was created
         """
         return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -186,6 +197,7 @@ class AwaitableGetSqlPoolResult(GetSqlPoolResult):
             collation=self.collation,
             create_mode=self.create_mode,
             creation_date=self.creation_date,
+            id=self.id,
             location=self.location,
             max_size_bytes=self.max_size_bytes,
             name=self.name,
@@ -224,6 +236,7 @@ def get_sql_pool(resource_group_name: Optional[str] = None,
         collation=__ret__.collation,
         create_mode=__ret__.create_mode,
         creation_date=__ret__.creation_date,
+        id=__ret__.id,
         location=__ret__.location,
         max_size_bytes=__ret__.max_size_bytes,
         name=__ret__.name,

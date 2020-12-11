@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Solutions.V20170901
         /// </summary>
         public readonly string? ApplicationDefinitionId;
         /// <summary>
+        /// Resource ID
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
@@ -104,6 +108,8 @@ namespace Pulumi.AzureNextGen.Solutions.V20170901
         private GetApplicationResult(
             string? applicationDefinitionId,
 
+            string id,
+
             Outputs.IdentityResponse? identity,
 
             string kind,
@@ -133,6 +139,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20170901
             string? uiDefinitionUri)
         {
             ApplicationDefinitionId = applicationDefinitionId;
+            Id = id;
             Identity = identity;
             Kind = kind;
             Location = location;

@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.Network.V20200501
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Name of the virtual appliance site.
         /// </summary>
         public readonly string? Name;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.Network.V20200501
 
             string etag,
 
+            string? id,
+
             string? name,
 
             Outputs.Office365PolicyPropertiesResponse? o365Policy,
@@ -86,6 +92,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
         {
             AddressPrefix = addressPrefix;
             Etag = etag;
+            Id = id;
             Name = name;
             O365Policy = o365Policy;
             ProvisioningState = provisioningState;

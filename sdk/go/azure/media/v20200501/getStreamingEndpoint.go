@@ -49,6 +49,8 @@ type LookupStreamingEndpointResult struct {
 	FreeTrialEndTime string `pulumi:"freeTrialEndTime"`
 	// The streaming endpoint host name.
 	HostName string `pulumi:"hostName"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The exact time the streaming endpoint was last modified.
 	LastModified string `pulumi:"lastModified"`
 	// The geo-location where the resource lives

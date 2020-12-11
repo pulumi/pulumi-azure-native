@@ -43,6 +43,8 @@ type LookupStreamingJobResult struct {
 	EventsOutOfOrderPolicy *string `pulumi:"eventsOutOfOrderPolicy"`
 	// A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
 	Functions []FunctionResponse `pulumi:"functions"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
 	Inputs []InputResponse `pulumi:"inputs"`
 	// A GUID uniquely identifying the streaming job. This GUID is generated upon creation of the streaming job.

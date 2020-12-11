@@ -20,10 +20,13 @@ class GetWorkspaceResult:
     """
     An object that represents a machine learning workspace.
     """
-    def __init__(__self__, creation_time=None, key_vault_identifier_id=None, location=None, name=None, owner_email=None, sku=None, studio_endpoint=None, tags=None, type=None, user_storage_account_id=None, workspace_id=None, workspace_state=None, workspace_type=None):
+    def __init__(__self__, creation_time=None, id=None, key_vault_identifier_id=None, location=None, name=None, owner_email=None, sku=None, studio_endpoint=None, tags=None, type=None, user_storage_account_id=None, workspace_id=None, workspace_state=None, workspace_type=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if key_vault_identifier_id and not isinstance(key_vault_identifier_id, str):
             raise TypeError("Expected argument 'key_vault_identifier_id' to be a str")
         pulumi.set(__self__, "key_vault_identifier_id", key_vault_identifier_id)
@@ -68,6 +71,14 @@ class GetWorkspaceResult:
         The creation time for this workspace resource.
         """
         return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="keyVaultIdentifierId")
@@ -173,6 +184,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             yield self
         return GetWorkspaceResult(
             creation_time=self.creation_time,
+            id=self.id,
             key_vault_identifier_id=self.key_vault_identifier_id,
             location=self.location,
             name=self.name,
@@ -207,6 +219,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
 
     return AwaitableGetWorkspaceResult(
         creation_time=__ret__.creation_time,
+        id=__ret__.id,
         key_vault_identifier_id=__ret__.key_vault_identifier_id,
         location=__ret__.location,
         name=__ret__.name,

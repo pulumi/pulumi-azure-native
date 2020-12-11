@@ -20,13 +20,16 @@ class GetDscNodeConfigurationResult:
     """
     Definition of the dsc node configuration.
     """
-    def __init__(__self__, configuration=None, creation_time=None, last_modified_time=None, name=None, type=None):
+    def __init__(__self__, configuration=None, creation_time=None, id=None, last_modified_time=None, name=None, type=None):
         if configuration and not isinstance(configuration, dict):
             raise TypeError("Expected argument 'configuration' to be a dict")
         pulumi.set(__self__, "configuration", configuration)
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_modified_time and not isinstance(last_modified_time, str):
             raise TypeError("Expected argument 'last_modified_time' to be a str")
         pulumi.set(__self__, "last_modified_time", last_modified_time)
@@ -52,6 +55,14 @@ class GetDscNodeConfigurationResult:
         Gets or sets creation time.
         """
         return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
@@ -86,6 +97,7 @@ class AwaitableGetDscNodeConfigurationResult(GetDscNodeConfigurationResult):
         return GetDscNodeConfigurationResult(
             configuration=self.configuration,
             creation_time=self.creation_time,
+            id=self.id,
             last_modified_time=self.last_modified_time,
             name=self.name,
             type=self.type)
@@ -115,6 +127,7 @@ def get_dsc_node_configuration(automation_account_name: Optional[str] = None,
     return AwaitableGetDscNodeConfigurationResult(
         configuration=__ret__.configuration,
         creation_time=__ret__.creation_time,
+        id=__ret__.id,
         last_modified_time=__ret__.last_modified_time,
         name=__ret__.name,
         type=__ret__.type)

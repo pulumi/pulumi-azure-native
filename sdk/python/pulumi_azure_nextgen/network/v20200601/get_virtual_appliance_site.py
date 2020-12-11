@@ -20,13 +20,16 @@ class GetVirtualApplianceSiteResult:
     """
     Virtual Appliance Site resource.
     """
-    def __init__(__self__, address_prefix=None, etag=None, name=None, o365_policy=None, provisioning_state=None, type=None):
+    def __init__(__self__, address_prefix=None, etag=None, id=None, name=None, o365_policy=None, provisioning_state=None, type=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
         pulumi.set(__self__, "address_prefix", address_prefix)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -55,6 +58,14 @@ class GetVirtualApplianceSiteResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -97,6 +108,7 @@ class AwaitableGetVirtualApplianceSiteResult(GetVirtualApplianceSiteResult):
         return GetVirtualApplianceSiteResult(
             address_prefix=self.address_prefix,
             etag=self.etag,
+            id=self.id,
             name=self.name,
             o365_policy=self.o365_policy,
             provisioning_state=self.provisioning_state,
@@ -127,6 +139,7 @@ def get_virtual_appliance_site(network_virtual_appliance_name: Optional[str] = N
     return AwaitableGetVirtualApplianceSiteResult(
         address_prefix=__ret__.address_prefix,
         etag=__ret__.etag,
+        id=__ret__.id,
         name=__ret__.name,
         o365_policy=__ret__.o365_policy,
         provisioning_state=__ret__.provisioning_state,

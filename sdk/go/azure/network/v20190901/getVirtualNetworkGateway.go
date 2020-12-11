@@ -41,6 +41,8 @@ type LookupVirtualNetworkGatewayResult struct {
 	GatewayDefaultSite *SubResourceResponse `pulumi:"gatewayDefaultSite"`
 	// The type of this virtual network gateway.
 	GatewayType *string `pulumi:"gatewayType"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// The IP address allocated by the gateway to which dns requests can be sent.
 	InboundDnsForwardingEndpoint string `pulumi:"inboundDnsForwardingEndpoint"`
 	// IP configurations for virtual network gateway.

@@ -20,13 +20,16 @@ class GetCertificateResult:
     """
     The integration account certificate.
     """
-    def __init__(__self__, changed_time=None, created_time=None, key=None, location=None, metadata=None, name=None, public_certificate=None, tags=None, type=None):
+    def __init__(__self__, changed_time=None, created_time=None, id=None, key=None, location=None, metadata=None, name=None, public_certificate=None, tags=None, type=None):
         if changed_time and not isinstance(changed_time, str):
             raise TypeError("Expected argument 'changed_time' to be a str")
         pulumi.set(__self__, "changed_time", changed_time)
         if created_time and not isinstance(created_time, str):
             raise TypeError("Expected argument 'created_time' to be a str")
         pulumi.set(__self__, "created_time", created_time)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if key and not isinstance(key, dict):
             raise TypeError("Expected argument 'key' to be a dict")
         pulumi.set(__self__, "key", key)
@@ -64,6 +67,14 @@ class GetCertificateResult:
         The created time.
         """
         return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -130,6 +141,7 @@ class AwaitableGetCertificateResult(GetCertificateResult):
         return GetCertificateResult(
             changed_time=self.changed_time,
             created_time=self.created_time,
+            id=self.id,
             key=self.key,
             location=self.location,
             metadata=self.metadata,
@@ -163,6 +175,7 @@ def get_certificate(certificate_name: Optional[str] = None,
     return AwaitableGetCertificateResult(
         changed_time=__ret__.changed_time,
         created_time=__ret__.created_time,
+        id=__ret__.id,
         key=__ret__.key,
         location=__ret__.location,
         metadata=__ret__.metadata,

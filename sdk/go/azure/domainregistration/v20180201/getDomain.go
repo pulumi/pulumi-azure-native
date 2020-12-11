@@ -48,6 +48,8 @@ type LookupDomainResult struct {
 	DomainNotRenewableReasons []string `pulumi:"domainNotRenewableReasons"`
 	// Domain expiration timestamp.
 	ExpirationTime string `pulumi:"expirationTime"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Timestamp when the domain was renewed last time.

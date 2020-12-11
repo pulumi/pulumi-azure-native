@@ -37,6 +37,8 @@ type LookupLiveEventResult struct {
 	Encoding *LiveEventEncodingResponse `pulumi:"encoding"`
 	// When useStaticHostname is set to true, the hostnamePrefix specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center.
 	HostnamePrefix *string `pulumi:"hostnamePrefix"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// Live event input settings. It defines how the live event receives input from a contribution encoder.
 	Input LiveEventInputResponse `pulumi:"input"`
 	// The last modified time of the live event.

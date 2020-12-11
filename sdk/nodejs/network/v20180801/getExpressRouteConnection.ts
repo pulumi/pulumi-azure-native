@@ -48,6 +48,10 @@ export interface GetExpressRouteConnectionResult {
      */
     readonly expressRouteCircuitPeering: outputs.network.v20180801.ExpressRouteCircuitPeeringIdResponse;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * The name of the resource.
      */
     readonly name: string;

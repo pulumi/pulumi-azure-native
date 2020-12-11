@@ -25,6 +25,8 @@ type LookupSolutionArgs struct {
 
 // The container for solution.
 type LookupSolutionResult struct {
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name.

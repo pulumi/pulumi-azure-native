@@ -53,6 +53,10 @@ export interface GetPrefixResult {
      */
     readonly events: outputs.peering.v20190901preview.PeeringServicePrefixEventResponse[];
     /**
+     * The ID of the resource.
+     */
+    readonly id: string;
+    /**
      * The prefix learned type
      */
     readonly learnedType: string;

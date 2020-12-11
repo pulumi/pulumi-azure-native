@@ -19,7 +19,10 @@ class GetWebAppPremierAddOnResult:
     """
     Premier add-on.
     """
-    def __init__(__self__, kind=None, location=None, marketplace_offer=None, marketplace_publisher=None, name=None, product=None, sku=None, tags=None, type=None, vendor=None):
+    def __init__(__self__, id=None, kind=None, location=None, marketplace_offer=None, marketplace_publisher=None, name=None, product=None, sku=None, tags=None, type=None, vendor=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -50,6 +53,14 @@ class GetWebAppPremierAddOnResult:
         if vendor and not isinstance(vendor, str):
             raise TypeError("Expected argument 'vendor' to be a str")
         pulumi.set(__self__, "vendor", vendor)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -138,6 +149,7 @@ class AwaitableGetWebAppPremierAddOnResult(GetWebAppPremierAddOnResult):
         if False:
             yield self
         return GetWebAppPremierAddOnResult(
+            id=self.id,
             kind=self.kind,
             location=self.location,
             marketplace_offer=self.marketplace_offer,
@@ -172,6 +184,7 @@ def get_web_app_premier_add_on(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:web/v20181101:getWebAppPremierAddOn', __args__, opts=opts, typ=GetWebAppPremierAddOnResult).value
 
     return AwaitableGetWebAppPremierAddOnResult(
+        id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
         marketplace_offer=__ret__.marketplace_offer,

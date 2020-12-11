@@ -65,6 +65,10 @@ export interface GetExpressRouteCircuitConnectionResult {
      */
     readonly expressRouteCircuitPeering?: outputs.network.v20180701.SubResourceResponse;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     readonly name?: string;

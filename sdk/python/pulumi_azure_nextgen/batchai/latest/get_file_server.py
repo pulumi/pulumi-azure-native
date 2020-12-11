@@ -20,13 +20,16 @@ class GetFileServerResult:
     """
     File Server information.
     """
-    def __init__(__self__, creation_time=None, data_disks=None, mount_settings=None, name=None, provisioning_state=None, provisioning_state_transition_time=None, ssh_configuration=None, subnet=None, type=None, vm_size=None):
+    def __init__(__self__, creation_time=None, data_disks=None, id=None, mount_settings=None, name=None, provisioning_state=None, provisioning_state_transition_time=None, ssh_configuration=None, subnet=None, type=None, vm_size=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
         if data_disks and not isinstance(data_disks, dict):
             raise TypeError("Expected argument 'data_disks' to be a dict")
         pulumi.set(__self__, "data_disks", data_disks)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if mount_settings and not isinstance(mount_settings, dict):
             raise TypeError("Expected argument 'mount_settings' to be a dict")
         pulumi.set(__self__, "mount_settings", mount_settings)
@@ -67,6 +70,14 @@ class GetFileServerResult:
         Information about disks attached to File Server VM.
         """
         return pulumi.get(self, "data_disks")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="mountSettings")
@@ -141,6 +152,7 @@ class AwaitableGetFileServerResult(GetFileServerResult):
         return GetFileServerResult(
             creation_time=self.creation_time,
             data_disks=self.data_disks,
+            id=self.id,
             mount_settings=self.mount_settings,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -175,6 +187,7 @@ def get_file_server(file_server_name: Optional[str] = None,
     return AwaitableGetFileServerResult(
         creation_time=__ret__.creation_time,
         data_disks=__ret__.data_disks,
+        id=__ret__.id,
         mount_settings=__ret__.mount_settings,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

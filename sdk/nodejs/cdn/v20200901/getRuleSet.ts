@@ -41,6 +41,10 @@ export interface GetRuleSetArgs {
 export interface GetRuleSetResult {
     readonly deploymentStatus: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

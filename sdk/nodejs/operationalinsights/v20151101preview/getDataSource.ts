@@ -44,6 +44,10 @@ export interface GetDataSourceResult {
      */
     readonly eTag?: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * The kind of the DataSource.
      */
     readonly kind: string;

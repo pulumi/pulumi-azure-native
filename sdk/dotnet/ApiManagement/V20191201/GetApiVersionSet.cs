@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -80,6 +84,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
 
             string displayName,
 
+            string id,
+
             string name,
 
             string type,
@@ -92,6 +98,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
         {
             Description = description;
             DisplayName = displayName;
+            Id = id;
             Name = name;
             Type = type;
             VersionHeaderName = versionHeaderName;

@@ -19,7 +19,7 @@ class GetProductResult:
     """
     Product details.
     """
-    def __init__(__self__, approval_required=None, description=None, display_name=None, name=None, state=None, subscription_required=None, subscriptions_limit=None, terms=None, type=None):
+    def __init__(__self__, approval_required=None, description=None, display_name=None, id=None, name=None, state=None, subscription_required=None, subscriptions_limit=None, terms=None, type=None):
         if approval_required and not isinstance(approval_required, bool):
             raise TypeError("Expected argument 'approval_required' to be a bool")
         pulumi.set(__self__, "approval_required", approval_required)
@@ -29,6 +29,9 @@ class GetProductResult:
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -71,6 +74,14 @@ class GetProductResult:
         Product name.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -130,6 +141,7 @@ class AwaitableGetProductResult(GetProductResult):
             approval_required=self.approval_required,
             description=self.description,
             display_name=self.display_name,
+            id=self.id,
             name=self.name,
             state=self.state,
             subscription_required=self.subscription_required,
@@ -163,6 +175,7 @@ def get_product(product_id: Optional[str] = None,
         approval_required=__ret__.approval_required,
         description=__ret__.description,
         display_name=__ret__.display_name,
+        id=__ret__.id,
         name=__ret__.name,
         state=__ret__.state,
         subscription_required=__ret__.subscription_required,

@@ -20,10 +20,13 @@ class GetNamespaceResult:
     """
     Description of a namespace resource.
     """
-    def __init__(__self__, created_at=None, key_source=None, key_vault_properties=None, location=None, metric_id=None, name=None, principal_id=None, provisioning_state=None, service_bus_endpoint=None, sku=None, tags=None, tenant_id=None, type=None, updated_at=None, zone_redundant=None):
+    def __init__(__self__, created_at=None, id=None, key_source=None, key_vault_properties=None, location=None, metric_id=None, name=None, principal_id=None, provisioning_state=None, service_bus_endpoint=None, sku=None, tags=None, tenant_id=None, type=None, updated_at=None, zone_redundant=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if key_source and not isinstance(key_source, str):
             raise TypeError("Expected argument 'key_source' to be a str")
         pulumi.set(__self__, "key_source", key_source)
@@ -74,6 +77,14 @@ class GetNamespaceResult:
         The time the namespace was created
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="keySource")
@@ -195,6 +206,7 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
             yield self
         return GetNamespaceResult(
             created_at=self.created_at,
+            id=self.id,
             key_source=self.key_source,
             key_vault_properties=self.key_vault_properties,
             location=self.location,
@@ -231,6 +243,7 @@ def get_namespace(namespace_name: Optional[str] = None,
 
     return AwaitableGetNamespaceResult(
         created_at=__ret__.created_at,
+        id=__ret__.id,
         key_source=__ret__.key_source,
         key_vault_properties=__ret__.key_vault_properties,
         location=__ret__.location,

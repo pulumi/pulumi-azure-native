@@ -62,6 +62,10 @@ export interface GetVirtualMachineScheduleResult {
      */
     readonly hourlyRecurrence?: outputs.devtestlab.v20160515.HourDetailsResponse;
     /**
+     * The identifier of the resource.
+     */
+    readonly id: string;
+    /**
      * The location of the resource.
      */
     readonly location?: string;

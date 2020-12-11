@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Web.V20160801
     public sealed class GetWebAppPremierAddOnSlotResult
     {
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
@@ -98,6 +102,8 @@ namespace Pulumi.AzureNextGen.Web.V20160801
 
         [OutputConstructor]
         private GetWebAppPremierAddOnSlotResult(
+            string id,
+
             string? kind,
 
             string location,
@@ -120,6 +126,7 @@ namespace Pulumi.AzureNextGen.Web.V20160801
 
             string? vendor)
         {
+            Id = id;
             Kind = kind;
             Location = location;
             MarketplaceOffer = marketplaceOffer;

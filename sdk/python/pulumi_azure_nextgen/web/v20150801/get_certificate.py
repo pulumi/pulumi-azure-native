@@ -20,7 +20,7 @@ class GetCertificateResult:
     """
     App certificate
     """
-    def __init__(__self__, cer_blob=None, expiration_date=None, friendly_name=None, host_names=None, hosting_environment_profile=None, issue_date=None, issuer=None, kind=None, location=None, name=None, password=None, pfx_blob=None, public_key_hash=None, self_link=None, site_name=None, subject_name=None, tags=None, thumbprint=None, type=None, valid=None):
+    def __init__(__self__, cer_blob=None, expiration_date=None, friendly_name=None, host_names=None, hosting_environment_profile=None, id=None, issue_date=None, issuer=None, kind=None, location=None, name=None, password=None, pfx_blob=None, public_key_hash=None, self_link=None, site_name=None, subject_name=None, tags=None, thumbprint=None, type=None, valid=None):
         if cer_blob and not isinstance(cer_blob, str):
             raise TypeError("Expected argument 'cer_blob' to be a str")
         pulumi.set(__self__, "cer_blob", cer_blob)
@@ -36,6 +36,9 @@ class GetCertificateResult:
         if hosting_environment_profile and not isinstance(hosting_environment_profile, dict):
             raise TypeError("Expected argument 'hosting_environment_profile' to be a dict")
         pulumi.set(__self__, "hosting_environment_profile", hosting_environment_profile)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if issue_date and not isinstance(issue_date, str):
             raise TypeError("Expected argument 'issue_date' to be a str")
         pulumi.set(__self__, "issue_date", issue_date)
@@ -121,6 +124,14 @@ class GetCertificateResult:
         Specification for the hosting environment (App Service Environment) to use for the certificate
         """
         return pulumi.get(self, "hosting_environment_profile")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="issueDate")
@@ -254,6 +265,7 @@ class AwaitableGetCertificateResult(GetCertificateResult):
             friendly_name=self.friendly_name,
             host_names=self.host_names,
             hosting_environment_profile=self.hosting_environment_profile,
+            id=self.id,
             issue_date=self.issue_date,
             issuer=self.issuer,
             kind=self.kind,
@@ -295,6 +307,7 @@ def get_certificate(name: Optional[str] = None,
         friendly_name=__ret__.friendly_name,
         host_names=__ret__.host_names,
         hosting_environment_profile=__ret__.hosting_environment_profile,
+        id=__ret__.id,
         issue_date=__ret__.issue_date,
         issuer=__ret__.issuer,
         kind=__ret__.kind,

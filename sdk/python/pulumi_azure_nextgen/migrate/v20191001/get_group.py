@@ -20,10 +20,13 @@ class GetGroupResult:
     """
     A group created in a Migration project.
     """
-    def __init__(__self__, e_tag=None, name=None, properties=None, type=None):
+    def __init__(__self__, e_tag=None, id=None, name=None, properties=None, type=None):
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -41,6 +44,14 @@ class GetGroupResult:
         For optimistic concurrency control.
         """
         return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Path reference to this group. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -74,6 +85,7 @@ class AwaitableGetGroupResult(GetGroupResult):
             yield self
         return GetGroupResult(
             e_tag=self.e_tag,
+            id=self.id,
             name=self.name,
             properties=self.properties,
             type=self.type)
@@ -102,6 +114,7 @@ def get_group(group_name: Optional[str] = None,
 
     return AwaitableGetGroupResult(
         e_tag=__ret__.e_tag,
+        id=__ret__.id,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)

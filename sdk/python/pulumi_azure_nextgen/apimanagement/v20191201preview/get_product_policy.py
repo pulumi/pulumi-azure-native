@@ -19,10 +19,13 @@ class GetProductPolicyResult:
     """
     Policy Contract details.
     """
-    def __init__(__self__, format=None, name=None, type=None, value=None):
+    def __init__(__self__, format=None, id=None, name=None, type=None, value=None):
         if format and not isinstance(format, str):
             raise TypeError("Expected argument 'format' to be a str")
         pulumi.set(__self__, "format", format)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -40,6 +43,14 @@ class GetProductPolicyResult:
         Format of the policyContent.
         """
         return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -73,6 +84,7 @@ class AwaitableGetProductPolicyResult(GetProductPolicyResult):
             yield self
         return GetProductPolicyResult(
             format=self.format,
+            id=self.id,
             name=self.name,
             type=self.type,
             value=self.value)
@@ -107,6 +119,7 @@ def get_product_policy(format: Optional[str] = None,
 
     return AwaitableGetProductPolicyResult(
         format=__ret__.format,
+        id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type,
         value=__ret__.value)

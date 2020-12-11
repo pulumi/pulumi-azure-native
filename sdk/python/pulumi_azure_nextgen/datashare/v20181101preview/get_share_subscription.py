@@ -19,10 +19,13 @@ class GetShareSubscriptionResult:
     """
     A share subscription data transfer object.
     """
-    def __init__(__self__, created_at=None, invitation_id=None, name=None, provider_email=None, provider_name=None, provider_tenant_name=None, provisioning_state=None, share_description=None, share_kind=None, share_name=None, share_subscription_status=None, share_terms=None, type=None, user_email=None, user_name=None):
+    def __init__(__self__, created_at=None, id=None, invitation_id=None, name=None, provider_email=None, provider_name=None, provider_tenant_name=None, provisioning_state=None, share_description=None, share_kind=None, share_name=None, share_subscription_status=None, share_terms=None, type=None, user_email=None, user_name=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if invitation_id and not isinstance(invitation_id, str):
             raise TypeError("Expected argument 'invitation_id' to be a str")
         pulumi.set(__self__, "invitation_id", invitation_id)
@@ -73,6 +76,14 @@ class GetShareSubscriptionResult:
         Time at which the share subscription was created.
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource id of the azure resource
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="invitationId")
@@ -194,6 +205,7 @@ class AwaitableGetShareSubscriptionResult(GetShareSubscriptionResult):
             yield self
         return GetShareSubscriptionResult(
             created_at=self.created_at,
+            id=self.id,
             invitation_id=self.invitation_id,
             name=self.name,
             provider_email=self.provider_email,
@@ -233,6 +245,7 @@ def get_share_subscription(account_name: Optional[str] = None,
 
     return AwaitableGetShareSubscriptionResult(
         created_at=__ret__.created_at,
+        id=__ret__.id,
         invitation_id=__ret__.invitation_id,
         name=__ret__.name,
         provider_email=__ret__.provider_email,

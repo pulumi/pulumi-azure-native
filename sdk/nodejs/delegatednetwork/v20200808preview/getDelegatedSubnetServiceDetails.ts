@@ -39,6 +39,10 @@ export interface GetDelegatedSubnetServiceDetailsResult {
      */
     readonly controllerDetails?: outputs.delegatednetwork.v20200808preview.ControllerDetailsResponse;
     /**
+     * An identifier that represents the resource.
+     */
+    readonly id: string;
+    /**
      * Location of the resource.
      */
     readonly location?: string;

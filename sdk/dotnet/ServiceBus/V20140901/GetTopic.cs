@@ -90,6 +90,10 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20140901
         /// </summary>
         public readonly bool? FilteringMessagesBeforePublishing;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Value that indicates whether the message is accessible anonymously.
         /// </summary>
         public readonly bool? IsAnonymousAccessible;
@@ -159,6 +163,8 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20140901
 
             bool? filteringMessagesBeforePublishing,
 
+            string id,
+
             bool? isAnonymousAccessible,
 
             bool? isExpress,
@@ -194,6 +200,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20140901
             EnablePartitioning = enablePartitioning;
             EntityAvailabilityStatus = entityAvailabilityStatus;
             FilteringMessagesBeforePublishing = filteringMessagesBeforePublishing;
+            Id = id;
             IsAnonymousAccessible = isAnonymousAccessible;
             IsExpress = isExpress;
             Location = location;

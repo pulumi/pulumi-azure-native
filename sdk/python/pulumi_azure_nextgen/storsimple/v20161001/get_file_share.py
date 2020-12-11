@@ -19,7 +19,7 @@ class GetFileShareResult:
     """
     The File Share.
     """
-    def __init__(__self__, admin_user=None, data_policy=None, description=None, local_used_capacity_in_bytes=None, monitoring_status=None, name=None, provisioned_capacity_in_bytes=None, share_status=None, type=None, used_capacity_in_bytes=None):
+    def __init__(__self__, admin_user=None, data_policy=None, description=None, id=None, local_used_capacity_in_bytes=None, monitoring_status=None, name=None, provisioned_capacity_in_bytes=None, share_status=None, type=None, used_capacity_in_bytes=None):
         if admin_user and not isinstance(admin_user, str):
             raise TypeError("Expected argument 'admin_user' to be a str")
         pulumi.set(__self__, "admin_user", admin_user)
@@ -29,6 +29,9 @@ class GetFileShareResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if local_used_capacity_in_bytes and not isinstance(local_used_capacity_in_bytes, int):
             raise TypeError("Expected argument 'local_used_capacity_in_bytes' to be a int")
         pulumi.set(__self__, "local_used_capacity_in_bytes", local_used_capacity_in_bytes)
@@ -74,6 +77,14 @@ class GetFileShareResult:
         Description for file share
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="localUsedCapacityInBytes")
@@ -141,6 +152,7 @@ class AwaitableGetFileShareResult(GetFileShareResult):
             admin_user=self.admin_user,
             data_policy=self.data_policy,
             description=self.description,
+            id=self.id,
             local_used_capacity_in_bytes=self.local_used_capacity_in_bytes,
             monitoring_status=self.monitoring_status,
             name=self.name,
@@ -181,6 +193,7 @@ def get_file_share(device_name: Optional[str] = None,
         admin_user=__ret__.admin_user,
         data_policy=__ret__.data_policy,
         description=__ret__.description,
+        id=__ret__.id,
         local_used_capacity_in_bytes=__ret__.local_used_capacity_in_bytes,
         monitoring_status=__ret__.monitoring_status,
         name=__ret__.name,

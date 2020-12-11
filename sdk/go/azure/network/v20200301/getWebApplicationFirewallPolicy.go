@@ -33,6 +33,8 @@ type LookupWebApplicationFirewallPolicyResult struct {
 	Etag string `pulumi:"etag"`
 	// A collection of references to application gateway http listeners.
 	HttpListeners []SubResourceResponse `pulumi:"httpListeners"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Describes the managedRules structure.

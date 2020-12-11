@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.StorageSync.V20170605Preview
         /// </summary>
         public readonly string? ClusterName;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Registered Server last heart beat
         /// </summary>
         public readonly string? LastHeartBeat;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNextGen.StorageSync.V20170605Preview
 
             string? clusterName,
 
+            string id,
+
             string? lastHeartBeat,
 
             string? lastWorkflowId,
@@ -135,6 +141,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20170605Preview
             AgentVersion = agentVersion;
             ClusterId = clusterId;
             ClusterName = clusterName;
+            Id = id;
             LastHeartBeat = lastHeartBeat;
             LastWorkflowId = lastWorkflowId;
             Name = name;

@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
     public sealed class GetArtifactResult
     {
         /// <summary>
+        /// String Id used to locate any resource on Azure.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Specifies the kind of blueprint artifact.
         /// </summary>
         public readonly string Kind;
@@ -60,12 +64,15 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
 
         [OutputConstructor]
         private GetArtifactResult(
+            string id,
+
             string kind,
 
             string name,
 
             string type)
         {
+            Id = id;
             Kind = kind;
             Name = name;
             Type = type;

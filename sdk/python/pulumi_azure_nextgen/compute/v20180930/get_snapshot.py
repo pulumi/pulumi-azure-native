@@ -20,7 +20,7 @@ class GetSnapshotResult:
     """
     Snapshot resource.
     """
-    def __init__(__self__, creation_data=None, disk_size_gb=None, encryption_settings_collection=None, hyper_v_generation=None, location=None, managed_by=None, name=None, os_type=None, provisioning_state=None, sku=None, tags=None, time_created=None, type=None):
+    def __init__(__self__, creation_data=None, disk_size_gb=None, encryption_settings_collection=None, hyper_v_generation=None, id=None, location=None, managed_by=None, name=None, os_type=None, provisioning_state=None, sku=None, tags=None, time_created=None, type=None):
         if creation_data and not isinstance(creation_data, dict):
             raise TypeError("Expected argument 'creation_data' to be a dict")
         pulumi.set(__self__, "creation_data", creation_data)
@@ -33,6 +33,9 @@ class GetSnapshotResult:
         if hyper_v_generation and not isinstance(hyper_v_generation, str):
             raise TypeError("Expected argument 'hyper_v_generation' to be a str")
         pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -92,6 +95,14 @@ class GetSnapshotResult:
         The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         """
         return pulumi.get(self, "hyper_v_generation")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -176,6 +187,7 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
             disk_size_gb=self.disk_size_gb,
             encryption_settings_collection=self.encryption_settings_collection,
             hyper_v_generation=self.hyper_v_generation,
+            id=self.id,
             location=self.location,
             managed_by=self.managed_by,
             name=self.name,
@@ -210,6 +222,7 @@ def get_snapshot(resource_group_name: Optional[str] = None,
         disk_size_gb=__ret__.disk_size_gb,
         encryption_settings_collection=__ret__.encryption_settings_collection,
         hyper_v_generation=__ret__.hyper_v_generation,
+        id=__ret__.id,
         location=__ret__.location,
         managed_by=__ret__.managed_by,
         name=__ret__.name,

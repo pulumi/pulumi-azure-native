@@ -76,6 +76,10 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// </summary>
         public readonly string? EndTime;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Kind of resource
         /// </summary>
         public readonly string? Kind;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             string? endTime,
 
+            string? id,
+
             string? kind,
 
             string location,
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
             Deployer = deployer;
             Details = details;
             EndTime = endTime;
+            Id = id;
             Kind = kind;
             Location = location;
             Message = message;

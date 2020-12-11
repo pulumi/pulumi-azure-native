@@ -64,6 +64,10 @@ export interface GetPython2PackageResult {
      */
     readonly etag?: string;
     /**
+     * Fully qualified resource Id for the resource
+     */
+    readonly id: string;
+    /**
      * Gets or sets type of module, if its composite or not.
      */
     readonly isComposite?: boolean;

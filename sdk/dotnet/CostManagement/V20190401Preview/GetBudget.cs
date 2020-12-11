@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.CostManagement.V20190401Preview
         /// </summary>
         public readonly Outputs.ReportConfigFilterResponse? Filter;
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.CostManagement.V20190401Preview
 
             Outputs.ReportConfigFilterResponse? filter,
 
+            string id,
+
             string name,
 
             ImmutableDictionary<string, Outputs.NotificationResponse>? notifications,
@@ -107,6 +113,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20190401Preview
             CurrentSpend = currentSpend;
             ETag = eTag;
             Filter = filter;
+            Id = id;
             Name = name;
             Notifications = notifications;
             TimeGrain = timeGrain;

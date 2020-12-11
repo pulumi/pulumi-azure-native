@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Web.V20160801
         /// </summary>
         public readonly string? DynamicTagsJson;
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Gets or sets a flag indicating whether the Push endpoint is enabled.
         /// </summary>
         public readonly bool IsPushEnabled;
@@ -81,6 +85,8 @@ namespace Pulumi.AzureNextGen.Web.V20160801
         private ListWebAppSitePushSettingsSlotResult(
             string? dynamicTagsJson,
 
+            string id,
+
             bool isPushEnabled,
 
             string? kind,
@@ -94,6 +100,7 @@ namespace Pulumi.AzureNextGen.Web.V20160801
             string type)
         {
             DynamicTagsJson = dynamicTagsJson;
+            Id = id;
             IsPushEnabled = isPushEnabled;
             Kind = kind;
             Name = name;

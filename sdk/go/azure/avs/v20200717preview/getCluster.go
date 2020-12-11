@@ -33,6 +33,8 @@ type LookupClusterResult struct {
 	ClusterSize *int `pulumi:"clusterSize"`
 	// The hosts
 	Hosts []string `pulumi:"hosts"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The state of the cluster provisioning

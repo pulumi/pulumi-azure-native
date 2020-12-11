@@ -34,6 +34,10 @@ namespace Pulumi.AzureNextGen.ChangeAnalysis.V20200401Preview
     public sealed class GetConfigurationProfileResult
     {
         /// <summary>
+        /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity block returned by ARM resource that supports managed identity.
         /// </summary>
         public readonly Outputs.ResourceIdentityResponse? Identity;
@@ -56,6 +60,8 @@ namespace Pulumi.AzureNextGen.ChangeAnalysis.V20200401Preview
 
         [OutputConstructor]
         private GetConfigurationProfileResult(
+            string id,
+
             Outputs.ResourceIdentityResponse? identity,
 
             string name,
@@ -66,6 +72,7 @@ namespace Pulumi.AzureNextGen.ChangeAnalysis.V20200401Preview
 
             string type)
         {
+            Id = id;
             Identity = identity;
             Name = name;
             Properties = properties;

@@ -31,6 +31,8 @@ type LookupSqlVirtualMachineResult struct {
 	AutoBackupSettings *AutoBackupSettingsResponse `pulumi:"autoBackupSettings"`
 	// Auto patching settings for applying critical security updates to SQL virtual machine.
 	AutoPatchingSettings *AutoPatchingSettingsResponse `pulumi:"autoPatchingSettings"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Azure Active Directory identity of the server.
 	Identity *ResourceIdentityResponse `pulumi:"identity"`
 	// Key vault credential settings.

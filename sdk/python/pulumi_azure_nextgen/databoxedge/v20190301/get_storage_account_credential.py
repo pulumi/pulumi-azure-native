@@ -20,7 +20,7 @@ class GetStorageAccountCredentialResult:
     """
     The storage account credential.
     """
-    def __init__(__self__, account_key=None, account_type=None, alias=None, blob_domain_name=None, connection_string=None, name=None, ssl_status=None, type=None, user_name=None):
+    def __init__(__self__, account_key=None, account_type=None, alias=None, blob_domain_name=None, connection_string=None, id=None, name=None, ssl_status=None, type=None, user_name=None):
         if account_key and not isinstance(account_key, dict):
             raise TypeError("Expected argument 'account_key' to be a dict")
         pulumi.set(__self__, "account_key", account_key)
@@ -36,6 +36,9 @@ class GetStorageAccountCredentialResult:
         if connection_string and not isinstance(connection_string, str):
             raise TypeError("Expected argument 'connection_string' to be a str")
         pulumi.set(__self__, "connection_string", connection_string)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -91,6 +94,14 @@ class GetStorageAccountCredentialResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        The path ID that uniquely identifies the object.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         The object name.
@@ -133,6 +144,7 @@ class AwaitableGetStorageAccountCredentialResult(GetStorageAccountCredentialResu
             alias=self.alias,
             blob_domain_name=self.blob_domain_name,
             connection_string=self.connection_string,
+            id=self.id,
             name=self.name,
             ssl_status=self.ssl_status,
             type=self.type,
@@ -166,6 +178,7 @@ def get_storage_account_credential(device_name: Optional[str] = None,
         alias=__ret__.alias,
         blob_domain_name=__ret__.blob_domain_name,
         connection_string=__ret__.connection_string,
+        id=__ret__.id,
         name=__ret__.name,
         ssl_status=__ret__.ssl_status,
         type=__ret__.type,

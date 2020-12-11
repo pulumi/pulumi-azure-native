@@ -20,10 +20,13 @@ class GetMoveCollectionResult:
     """
     Define the move collection.
     """
-    def __init__(__self__, etag=None, identity=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, etag=None, id=None, identity=None, location=None, name=None, properties=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -50,6 +53,14 @@ class GetMoveCollectionResult:
         The etag of the resource.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -107,6 +118,7 @@ class AwaitableGetMoveCollectionResult(GetMoveCollectionResult):
             yield self
         return GetMoveCollectionResult(
             etag=self.etag,
+            id=self.id,
             identity=self.identity,
             location=self.location,
             name=self.name,
@@ -135,6 +147,7 @@ def get_move_collection(move_collection_name: Optional[str] = None,
 
     return AwaitableGetMoveCollectionResult(
         etag=__ret__.etag,
+        id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,

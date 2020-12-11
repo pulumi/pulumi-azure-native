@@ -66,6 +66,10 @@ export interface GetIscsiDiskResult {
      */
     readonly diskStatus: string;
     /**
+     * The identifier.
+     */
+    readonly id: string;
+    /**
      * The local used capacity in bytes.
      */
     readonly localUsedCapacityInBytes: number;

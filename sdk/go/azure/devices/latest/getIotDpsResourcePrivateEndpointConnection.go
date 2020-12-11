@@ -27,6 +27,8 @@ type LookupIotDpsResourcePrivateEndpointConnectionArgs struct {
 
 // The private endpoint connection of a provisioning service
 type LookupIotDpsResourcePrivateEndpointConnectionResult struct {
+	// The resource identifier.
+	Id string `pulumi:"id"`
 	// The resource name.
 	Name string `pulumi:"name"`
 	// The properties of a private endpoint connection

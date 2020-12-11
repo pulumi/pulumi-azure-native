@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
         /// </summary>
         public readonly string? Content;
         /// <summary>
+        /// Internally assigned unique id of the item definition.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The user-defined name of the item.
         /// </summary>
         public readonly string? Name;
@@ -94,6 +98,8 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
         private GetAnalyticsItemResult(
             string? content,
 
+            string? id,
+
             string? name,
 
             Outputs.ApplicationInsightsComponentAnalyticsItemPropertiesResponse properties,
@@ -109,6 +115,7 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
             string version)
         {
             Content = content;
+            Id = id;
             Name = name;
             Properties = properties;
             Scope = scope;

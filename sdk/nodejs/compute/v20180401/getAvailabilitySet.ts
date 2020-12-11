@@ -35,6 +35,10 @@ export interface GetAvailabilitySetArgs {
  */
 export interface GetAvailabilitySetResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

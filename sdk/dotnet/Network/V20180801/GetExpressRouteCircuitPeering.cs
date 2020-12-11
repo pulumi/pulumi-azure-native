@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         /// </summary>
         public readonly string? GatewayManagerEtag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The IPv6 peering configuration.
         /// </summary>
         public readonly Outputs.Ipv6ExpressRouteCircuitPeeringConfigResponse? Ipv6PeeringConfig;
@@ -142,6 +146,8 @@ namespace Pulumi.AzureNextGen.Network.V20180801
 
             string? gatewayManagerEtag,
 
+            string? id,
+
             Outputs.Ipv6ExpressRouteCircuitPeeringConfigResponse? ipv6PeeringConfig,
 
             string? lastModifiedBy,
@@ -179,6 +185,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
             Etag = etag;
             ExpressRouteConnection = expressRouteConnection;
             GatewayManagerEtag = gatewayManagerEtag;
+            Id = id;
             Ipv6PeeringConfig = ipv6PeeringConfig;
             LastModifiedBy = lastModifiedBy;
             MicrosoftPeeringConfig = microsoftPeeringConfig;

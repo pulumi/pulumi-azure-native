@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly Outputs.SubResourceResponse? ExpressRouteGateway;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// List of references to IpConfigurations.
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> IpConfigurations;
@@ -146,6 +150,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             Outputs.SubResourceResponse? expressRouteGateway,
 
+            string? id,
+
             ImmutableArray<Outputs.SubResourceResponse> ipConfigurations,
 
             string location,
@@ -186,6 +192,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
             BgpConnections = bgpConnections;
             Etag = etag;
             ExpressRouteGateway = expressRouteGateway;
+            Id = id;
             IpConfigurations = ipConfigurations;
             Location = location;
             Name = name;

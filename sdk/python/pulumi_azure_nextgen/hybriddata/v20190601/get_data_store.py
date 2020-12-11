@@ -20,7 +20,7 @@ class GetDataStoreResult:
     """
     Data store.
     """
-    def __init__(__self__, customer_secrets=None, data_store_type_id=None, extended_properties=None, name=None, repository_id=None, state=None, type=None):
+    def __init__(__self__, customer_secrets=None, data_store_type_id=None, extended_properties=None, id=None, name=None, repository_id=None, state=None, type=None):
         if customer_secrets and not isinstance(customer_secrets, list):
             raise TypeError("Expected argument 'customer_secrets' to be a list")
         pulumi.set(__self__, "customer_secrets", customer_secrets)
@@ -30,6 +30,9 @@ class GetDataStoreResult:
         if extended_properties and not isinstance(extended_properties, dict):
             raise TypeError("Expected argument 'extended_properties' to be a dict")
         pulumi.set(__self__, "extended_properties", extended_properties)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -66,6 +69,14 @@ class GetDataStoreResult:
         A generic json used differently by each data source type.
         """
         return pulumi.get(self, "extended_properties")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Id of the object.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -109,6 +120,7 @@ class AwaitableGetDataStoreResult(GetDataStoreResult):
             customer_secrets=self.customer_secrets,
             data_store_type_id=self.data_store_type_id,
             extended_properties=self.extended_properties,
+            id=self.id,
             name=self.name,
             repository_id=self.repository_id,
             state=self.state,
@@ -140,6 +152,7 @@ def get_data_store(data_manager_name: Optional[str] = None,
         customer_secrets=__ret__.customer_secrets,
         data_store_type_id=__ret__.data_store_type_id,
         extended_properties=__ret__.extended_properties,
+        id=__ret__.id,
         name=__ret__.name,
         repository_id=__ret__.repository_id,
         state=__ret__.state,

@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Scheduler.V20160101
     public sealed class GetJobCollectionResult
     {
         /// <summary>
+        /// Gets the job collection resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Gets or sets the storage account location.
         /// </summary>
         public readonly string? Location;
@@ -62,6 +66,8 @@ namespace Pulumi.AzureNextGen.Scheduler.V20160101
 
         [OutputConstructor]
         private GetJobCollectionResult(
+            string id,
+
             string? location,
 
             string? name,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.Scheduler.V20160101
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

@@ -19,7 +19,10 @@ class GetGeoBackupPolicyResult:
     """
     A database geo backup policy.
     """
-    def __init__(__self__, kind=None, location=None, name=None, state=None, storage_type=None, type=None):
+    def __init__(__self__, id=None, kind=None, location=None, name=None, state=None, storage_type=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -38,6 +41,14 @@ class GetGeoBackupPolicyResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -94,6 +105,7 @@ class AwaitableGetGeoBackupPolicyResult(GetGeoBackupPolicyResult):
         if False:
             yield self
         return GetGeoBackupPolicyResult(
+            id=self.id,
             kind=self.kind,
             location=self.location,
             name=self.name,
@@ -127,6 +139,7 @@ def get_geo_backup_policy(database_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:sql/latest:getGeoBackupPolicy', __args__, opts=opts, typ=GetGeoBackupPolicyResult).value
 
     return AwaitableGetGeoBackupPolicyResult(
+        id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,

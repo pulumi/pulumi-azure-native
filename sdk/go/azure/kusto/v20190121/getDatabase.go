@@ -29,6 +29,8 @@ type LookupDatabaseArgs struct {
 type LookupDatabaseResult struct {
 	// The time the data that should be kept in cache for fast queries in TimeSpan.
 	HotCachePeriod *string `pulumi:"hotCachePeriod"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the resource

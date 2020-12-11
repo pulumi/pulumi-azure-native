@@ -33,6 +33,8 @@ type LookupSnapshotResult struct {
 	EncryptionSettingsCollection *EncryptionSettingsCollectionResponse `pulumi:"encryptionSettingsCollection"`
 	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Unused. Always Null.

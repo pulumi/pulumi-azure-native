@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// </summary>
         public readonly ImmutableArray<string> Domain;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
 
             ImmutableArray<string> domain,
 
+            string id,
+
             string name,
 
             string provisioningState,
@@ -106,6 +112,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
             DnsServerIps = dnsServerIps;
             DnsServices = dnsServices;
             Domain = domain;
+            Id = id;
             Name = name;
             ProvisioningState = provisioningState;
             Revision = revision;

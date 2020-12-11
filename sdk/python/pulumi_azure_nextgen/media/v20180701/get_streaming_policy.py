@@ -20,7 +20,7 @@ class GetStreamingPolicyResult:
     """
     A Streaming Policy resource
     """
-    def __init__(__self__, common_encryption_cbcs=None, common_encryption_cenc=None, created=None, default_content_key_policy_name=None, envelope_encryption=None, name=None, no_encryption=None, type=None):
+    def __init__(__self__, common_encryption_cbcs=None, common_encryption_cenc=None, created=None, default_content_key_policy_name=None, envelope_encryption=None, id=None, name=None, no_encryption=None, type=None):
         if common_encryption_cbcs and not isinstance(common_encryption_cbcs, dict):
             raise TypeError("Expected argument 'common_encryption_cbcs' to be a dict")
         pulumi.set(__self__, "common_encryption_cbcs", common_encryption_cbcs)
@@ -36,6 +36,9 @@ class GetStreamingPolicyResult:
         if envelope_encryption and not isinstance(envelope_encryption, dict):
             raise TypeError("Expected argument 'envelope_encryption' to be a dict")
         pulumi.set(__self__, "envelope_encryption", envelope_encryption)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -88,6 +91,14 @@ class GetStreamingPolicyResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         The name of the resource.
@@ -122,6 +133,7 @@ class AwaitableGetStreamingPolicyResult(GetStreamingPolicyResult):
             created=self.created,
             default_content_key_policy_name=self.default_content_key_policy_name,
             envelope_encryption=self.envelope_encryption,
+            id=self.id,
             name=self.name,
             no_encryption=self.no_encryption,
             type=self.type)
@@ -154,6 +166,7 @@ def get_streaming_policy(account_name: Optional[str] = None,
         created=__ret__.created,
         default_content_key_policy_name=__ret__.default_content_key_policy_name,
         envelope_encryption=__ret__.envelope_encryption,
+        id=__ret__.id,
         name=__ret__.name,
         no_encryption=__ret__.no_encryption,
         type=__ret__.type)

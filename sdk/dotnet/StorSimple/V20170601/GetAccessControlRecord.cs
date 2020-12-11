@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
     public sealed class GetAccessControlRecordResult
     {
         /// <summary>
+        /// The path ID that uniquely identifies the object.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The iSCSI initiator name (IQN).
         /// </summary>
         public readonly string InitiatorName;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
 
         [OutputConstructor]
         private GetAccessControlRecordResult(
+            string id,
+
             string initiatorName,
 
             string? kind,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
 
             int volumeCount)
         {
+            Id = id;
             InitiatorName = initiatorName;
             Kind = kind;
             Name = name;

@@ -33,6 +33,8 @@ type LookupChannelResult struct {
 	ChannelType string `pulumi:"channelType"`
 	// The channel credentials
 	Credentials map[string]string `pulumi:"credentials"`
+	// The ID of the resource
+	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The fully qualified type of the resource

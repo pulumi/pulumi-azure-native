@@ -29,6 +29,8 @@ type LookupVirtualHubIpConfigurationArgs struct {
 type LookupVirtualHubIpConfigurationResult struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// Name of the Ip Configuration.
 	Name *string `pulumi:"name"`
 	// The private IP address of the IP configuration.

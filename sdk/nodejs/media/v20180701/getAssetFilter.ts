@@ -49,6 +49,10 @@ export interface GetAssetFilterResult {
      */
     readonly firstQuality?: outputs.media.v20180701.FirstQualityResponse;
     /**
+     * Fully qualified resource ID for the resource.
+     */
+    readonly id: string;
+    /**
      * The name of the resource.
      */
     readonly name: string;

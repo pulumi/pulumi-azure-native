@@ -47,6 +47,10 @@ export interface GetPolicyResult {
      */
     readonly frontendEndpointLinks: outputs.network.v20191001.FrontendEndpointLinkResponse[];
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource location.
      */
     readonly location?: string;

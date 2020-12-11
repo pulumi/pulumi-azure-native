@@ -47,6 +47,10 @@ export interface GetServerFarmResult {
      */
     readonly hostingEnvironmentProfile?: outputs.web.v20150801.HostingEnvironmentProfileResponse;
     /**
+     * Resource Id
+     */
+    readonly id?: string;
+    /**
      * Kind of resource
      */
     readonly kind?: string;

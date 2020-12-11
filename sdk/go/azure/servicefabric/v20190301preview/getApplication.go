@@ -29,6 +29,8 @@ type LookupApplicationArgs struct {
 type LookupApplicationResult struct {
 	// Azure resource etag.
 	Etag string `pulumi:"etag"`
+	// Azure resource identifier.
+	Id string `pulumi:"id"`
 	// Azure resource location.
 	Location *string `pulumi:"location"`
 	// The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.

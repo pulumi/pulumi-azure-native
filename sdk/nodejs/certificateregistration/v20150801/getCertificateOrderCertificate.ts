@@ -40,6 +40,10 @@ export interface GetCertificateOrderCertificateArgs {
  */
 export interface GetCertificateOrderCertificateResult {
     /**
+     * Resource Id
+     */
+    readonly id?: string;
+    /**
      * Key Vault Csm resource Id
      */
     readonly keyVaultId?: string;

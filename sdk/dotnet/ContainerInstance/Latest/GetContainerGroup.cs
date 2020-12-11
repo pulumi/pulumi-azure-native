@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.ContainerInstance.Latest
         /// </summary>
         public readonly Outputs.EncryptionPropertiesResponse? EncryptionProperties;
         /// <summary>
+        /// The resource id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the container group, if configured.
         /// </summary>
         public readonly Outputs.ContainerGroupIdentityResponse? Identity;
@@ -129,6 +133,8 @@ namespace Pulumi.AzureNextGen.ContainerInstance.Latest
 
             Outputs.EncryptionPropertiesResponse? encryptionProperties,
 
+            string id,
+
             Outputs.ContainerGroupIdentityResponse? identity,
 
             ImmutableArray<Outputs.ImageRegistryCredentialResponse> imageRegistryCredentials,
@@ -163,6 +169,7 @@ namespace Pulumi.AzureNextGen.ContainerInstance.Latest
             Diagnostics = diagnostics;
             DnsConfig = dnsConfig;
             EncryptionProperties = encryptionProperties;
+            Id = id;
             Identity = identity;
             ImageRegistryCredentials = imageRegistryCredentials;
             InitContainers = initContainers;

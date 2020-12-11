@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.Insights.V20190901Preview
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Azure resource name
         /// </summary>
         public readonly string Name;
@@ -104,6 +108,8 @@ namespace Pulumi.AzureNextGen.Insights.V20190901Preview
 
             string displayName,
 
+            string id,
+
             string name,
 
             object properties,
@@ -124,6 +130,7 @@ namespace Pulumi.AzureNextGen.Insights.V20190901Preview
             Body = body;
             Description = description;
             DisplayName = displayName;
+            Id = id;
             Name = name;
             Properties = properties;
             Related = related;

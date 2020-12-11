@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Network.V20191101
         /// </summary>
         public readonly Outputs.SubResourceResponse? ExpressRouteGateway;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string Location;
@@ -118,6 +122,8 @@ namespace Pulumi.AzureNextGen.Network.V20191101
 
             Outputs.SubResourceResponse? expressRouteGateway,
 
+            string? id,
+
             string location,
 
             string name,
@@ -148,6 +154,7 @@ namespace Pulumi.AzureNextGen.Network.V20191101
             AzureFirewall = azureFirewall;
             Etag = etag;
             ExpressRouteGateway = expressRouteGateway;
+            Id = id;
             Location = location;
             Name = name;
             P2SVpnGateway = p2SVpnGateway;

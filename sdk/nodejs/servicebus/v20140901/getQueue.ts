@@ -84,6 +84,10 @@ export interface GetQueueResult {
      */
     readonly entityAvailabilityStatus?: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * A value that indicates whether the message is accessible anonymously.
      */
     readonly isAnonymousAccessible?: boolean;

@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214PrivatePreview
         /// </summary>
         public readonly string CreationDate;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Kind of encryption protector used to protect the key.
         /// </summary>
         public readonly string Kind;
@@ -74,6 +78,8 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214PrivatePreview
         private GetServerKeyResult(
             string creationDate,
 
+            string id,
+
             string kind,
 
             string name,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214PrivatePreview
             string? uri)
         {
             CreationDate = creationDate;
+            Id = id;
             Kind = kind;
             Name = name;
             ServerKeyType = serverKeyType;

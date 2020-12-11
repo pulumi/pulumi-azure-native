@@ -29,6 +29,8 @@ type GetDeviceExtendedInformationResult struct {
 	EncryptionKey *string `pulumi:"encryptionKey"`
 	// The digital signature of encrypted certificate.
 	EncryptionKeyThumbprint *string `pulumi:"encryptionKeyThumbprint"`
+	// The path ID that uniquely identifies the object.
+	Id string `pulumi:"id"`
 	// The object name.
 	Name string `pulumi:"name"`
 	// The Resource ID of the Resource.

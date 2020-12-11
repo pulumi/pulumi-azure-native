@@ -52,6 +52,10 @@ export interface GetVirtualRouterResult {
      */
     readonly hostedSubnet?: outputs.network.v20200301.SubResourceResponse;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * Resource location.
      */
     readonly location?: string;

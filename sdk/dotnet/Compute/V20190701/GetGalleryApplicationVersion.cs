@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Compute.V20190701
     public sealed class GetGalleryApplicationVersionResult
     {
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -88,6 +92,8 @@ namespace Pulumi.AzureNextGen.Compute.V20190701
 
         [OutputConstructor]
         private GetGalleryApplicationVersionResult(
+            string id,
+
             string location,
 
             string name,
@@ -102,6 +108,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190701
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

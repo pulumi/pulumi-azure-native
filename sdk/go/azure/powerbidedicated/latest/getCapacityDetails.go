@@ -27,6 +27,8 @@ type LookupCapacityDetailsArgs struct {
 type LookupCapacityDetailsResult struct {
 	// A collection of Dedicated capacity administrators
 	Administration *DedicatedCapacityAdministratorsResponse `pulumi:"administration"`
+	// An identifier that represents the PowerBI Dedicated resource.
+	Id string `pulumi:"id"`
 	// Location of the PowerBI Dedicated resource.
 	Location string `pulumi:"location"`
 	// The name of the PowerBI Dedicated resource.

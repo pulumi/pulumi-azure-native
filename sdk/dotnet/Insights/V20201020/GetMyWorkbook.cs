@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.Insights.V20201020
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Identity used for BYOS
         /// </summary>
         public readonly Outputs.ManagedIdentityResponse? Identity;
@@ -102,6 +106,8 @@ namespace Pulumi.AzureNextGen.Insights.V20201020
 
             string displayName,
 
+            string? id,
+
             Outputs.ManagedIdentityResponse? identity,
 
             string? kind,
@@ -128,6 +134,7 @@ namespace Pulumi.AzureNextGen.Insights.V20201020
         {
             Category = category;
             DisplayName = displayName;
+            Id = id;
             Identity = identity;
             Kind = kind;
             Location = location;

@@ -55,6 +55,10 @@ export interface GetStorageAccountResult {
      */
     readonly encryption: outputs.storage.v20171001.EncryptionResponse;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * The identity of the resource.
      */
     readonly identity?: outputs.storage.v20171001.IdentityResponse;

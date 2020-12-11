@@ -19,7 +19,10 @@ class GetTrafficManagerUserMetricsKeyResult:
     """
     Class representing Traffic Manager User Metrics.
     """
-    def __init__(__self__, key=None, name=None, type=None):
+    def __init__(__self__, id=None, key=None, name=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if key and not isinstance(key, str):
             raise TypeError("Expected argument 'key' to be a str")
         pulumi.set(__self__, "key", key)
@@ -29,6 +32,14 @@ class GetTrafficManagerUserMetricsKeyResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -61,6 +72,7 @@ class AwaitableGetTrafficManagerUserMetricsKeyResult(GetTrafficManagerUserMetric
         if False:
             yield self
         return GetTrafficManagerUserMetricsKeyResult(
+            id=self.id,
             key=self.key,
             name=self.name,
             type=self.type)
@@ -78,6 +90,7 @@ def get_traffic_manager_user_metrics_key(opts: Optional[pulumi.InvokeOptions] = 
     __ret__ = pulumi.runtime.invoke('azure-nextgen:network/v20180401:getTrafficManagerUserMetricsKey', __args__, opts=opts, typ=GetTrafficManagerUserMetricsKeyResult).value
 
     return AwaitableGetTrafficManagerUserMetricsKeyResult(
+        id=__ret__.id,
         key=__ret__.key,
         name=__ret__.name,
         type=__ret__.type)

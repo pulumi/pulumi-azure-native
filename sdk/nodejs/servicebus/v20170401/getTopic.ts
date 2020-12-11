@@ -76,6 +76,10 @@ export interface GetTopicResult {
      */
     readonly enablePartitioning?: boolean;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
      */
     readonly maxSizeInMegabytes?: number;

@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Cdn.V20150601
         /// </summary>
         public readonly string HostName;
         /// <summary>
+        /// Resource ID
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.Cdn.V20150601
         private GetCustomDomainResult(
             string hostName,
 
+            string id,
+
             string name,
 
             string provisioningState,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20150601
             string type)
         {
             HostName = hostName;
+            Id = id;
             Name = name;
             ProvisioningState = provisioningState;
             ResourceState = resourceState;

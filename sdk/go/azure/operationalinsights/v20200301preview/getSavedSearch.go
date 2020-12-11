@@ -37,6 +37,8 @@ type LookupSavedSearchResult struct {
 	FunctionAlias *string `pulumi:"functionAlias"`
 	// The optional function parameters if query serves as a function. Value should be in the following format: 'param-name1:type1 = default_value1, param-name2:type2 = default_value2'. For more examples and proper syntax please refer to https://docs.microsoft.com/en-us/azure/kusto/query/functions/user-defined-functions.
 	FunctionParameters *string `pulumi:"functionParameters"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The query expression for the saved search.

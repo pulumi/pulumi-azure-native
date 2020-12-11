@@ -31,6 +31,8 @@ type LookupSecretArgs struct {
 
 // A secret.
 type LookupSecretResult struct {
+	// The identifier of the resource.
+	Id string `pulumi:"id"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.

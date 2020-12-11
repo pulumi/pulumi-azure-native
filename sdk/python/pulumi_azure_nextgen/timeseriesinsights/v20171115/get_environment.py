@@ -20,7 +20,7 @@ class GetEnvironmentResult:
     """
     An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
     """
-    def __init__(__self__, creation_time=None, data_access_fqdn=None, data_access_id=None, data_retention_time=None, location=None, name=None, partition_key_properties=None, provisioning_state=None, sku=None, status=None, storage_limit_exceeded_behavior=None, tags=None, type=None):
+    def __init__(__self__, creation_time=None, data_access_fqdn=None, data_access_id=None, data_retention_time=None, id=None, location=None, name=None, partition_key_properties=None, provisioning_state=None, sku=None, status=None, storage_limit_exceeded_behavior=None, tags=None, type=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -33,6 +33,9 @@ class GetEnvironmentResult:
         if data_retention_time and not isinstance(data_retention_time, str):
             raise TypeError("Expected argument 'data_retention_time' to be a str")
         pulumi.set(__self__, "data_retention_time", data_retention_time)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -92,6 +95,14 @@ class GetEnvironmentResult:
         ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
         """
         return pulumi.get(self, "data_retention_time")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -176,6 +187,7 @@ class AwaitableGetEnvironmentResult(GetEnvironmentResult):
             data_access_fqdn=self.data_access_fqdn,
             data_access_id=self.data_access_id,
             data_retention_time=self.data_retention_time,
+            id=self.id,
             location=self.location,
             name=self.name,
             partition_key_properties=self.partition_key_properties,
@@ -213,6 +225,7 @@ def get_environment(environment_name: Optional[str] = None,
         data_access_fqdn=__ret__.data_access_fqdn,
         data_access_id=__ret__.data_access_id,
         data_retention_time=__ret__.data_retention_time,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         partition_key_properties=__ret__.partition_key_properties,

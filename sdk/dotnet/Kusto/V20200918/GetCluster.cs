@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.Kusto.V20200918
         /// </summary>
         public readonly string? EngineType;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the cluster, if configured.
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
@@ -142,6 +146,8 @@ namespace Pulumi.AzureNextGen.Kusto.V20200918
 
             string? engineType,
 
+            string id,
+
             Outputs.IdentityResponse? identity,
 
             Outputs.KeyVaultPropertiesResponse? keyVaultProperties,
@@ -180,6 +186,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20200918
             EnablePurge = enablePurge;
             EnableStreamingIngest = enableStreamingIngest;
             EngineType = engineType;
+            Id = id;
             Identity = identity;
             KeyVaultProperties = keyVaultProperties;
             LanguageExtensions = languageExtensions;

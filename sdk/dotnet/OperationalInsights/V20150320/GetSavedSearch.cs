@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20150320
         /// </summary>
         public readonly string? ETag;
         /// <summary>
+        /// The id of the saved search.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the saved search.
         /// </summary>
         public readonly string Name;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20150320
 
             string? eTag,
 
+            string id,
+
             string name,
 
             string query,
@@ -99,6 +105,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20150320
             Category = category;
             DisplayName = displayName;
             ETag = eTag;
+            Id = id;
             Name = name;
             Query = query;
             Tags = tags;

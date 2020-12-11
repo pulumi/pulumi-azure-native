@@ -20,7 +20,7 @@ class GetWebAppDeploymentResult:
     """
     User credentials used for publishing activity.
     """
-    def __init__(__self__, active=None, author=None, author_email=None, deployer=None, details=None, end_time=None, kind=None, message=None, name=None, start_time=None, status=None, system_data=None, type=None):
+    def __init__(__self__, active=None, author=None, author_email=None, deployer=None, details=None, end_time=None, id=None, kind=None, message=None, name=None, start_time=None, status=None, system_data=None, type=None):
         if active and not isinstance(active, bool):
             raise TypeError("Expected argument 'active' to be a bool")
         pulumi.set(__self__, "active", active)
@@ -39,6 +39,9 @@ class GetWebAppDeploymentResult:
         if end_time and not isinstance(end_time, str):
             raise TypeError("Expected argument 'end_time' to be a str")
         pulumi.set(__self__, "end_time", end_time)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -111,6 +114,14 @@ class GetWebAppDeploymentResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def kind(self) -> Optional[str]:
         """
         Kind of resource.
@@ -178,6 +189,7 @@ class AwaitableGetWebAppDeploymentResult(GetWebAppDeploymentResult):
             deployer=self.deployer,
             details=self.details,
             end_time=self.end_time,
+            id=self.id,
             kind=self.kind,
             message=self.message,
             name=self.name,
@@ -215,6 +227,7 @@ def get_web_app_deployment(id: Optional[str] = None,
         deployer=__ret__.deployer,
         details=__ret__.details,
         end_time=__ret__.end_time,
+        id=__ret__.id,
         kind=__ret__.kind,
         message=__ret__.message,
         name=__ret__.name,

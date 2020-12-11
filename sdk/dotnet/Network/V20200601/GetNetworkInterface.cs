@@ -70,6 +70,10 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         /// </summary>
         public readonly ImmutableArray<string> HostedWorkloads;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// A list of IPConfigurations of the network interface.
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponse> IpConfigurations;
@@ -136,6 +140,8 @@ namespace Pulumi.AzureNextGen.Network.V20200601
 
             ImmutableArray<string> hostedWorkloads,
 
+            string? id,
+
             ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponse> ipConfigurations,
 
             string? location,
@@ -168,6 +174,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
             EnableIPForwarding = enableIPForwarding;
             Etag = etag;
             HostedWorkloads = hostedWorkloads;
+            Id = id;
             IpConfigurations = ipConfigurations;
             Location = location;
             MacAddress = macAddress;

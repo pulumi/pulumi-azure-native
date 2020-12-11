@@ -29,6 +29,8 @@ type LookupApiPolicyArgs struct {
 
 // Policy Contract details.
 type LookupApiPolicyResult struct {
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Json escaped Xml Encoded contents of the Policy.

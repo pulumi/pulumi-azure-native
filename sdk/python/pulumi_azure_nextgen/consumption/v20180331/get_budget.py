@@ -20,7 +20,7 @@ class GetBudgetResult:
     """
     A budget resource.
     """
-    def __init__(__self__, amount=None, category=None, current_spend=None, e_tag=None, filters=None, name=None, notifications=None, time_grain=None, time_period=None, type=None):
+    def __init__(__self__, amount=None, category=None, current_spend=None, e_tag=None, filters=None, id=None, name=None, notifications=None, time_grain=None, time_period=None, type=None):
         if amount and not isinstance(amount, float):
             raise TypeError("Expected argument 'amount' to be a float")
         pulumi.set(__self__, "amount", amount)
@@ -36,6 +36,9 @@ class GetBudgetResult:
         if filters and not isinstance(filters, dict):
             raise TypeError("Expected argument 'filters' to be a dict")
         pulumi.set(__self__, "filters", filters)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -94,6 +97,14 @@ class GetBudgetResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         Resource name.
@@ -144,6 +155,7 @@ class AwaitableGetBudgetResult(GetBudgetResult):
             current_spend=self.current_spend,
             e_tag=self.e_tag,
             filters=self.filters,
+            id=self.id,
             name=self.name,
             notifications=self.notifications,
             time_grain=self.time_grain,
@@ -172,6 +184,7 @@ def get_budget(budget_name: Optional[str] = None,
         current_spend=__ret__.current_spend,
         e_tag=__ret__.e_tag,
         filters=__ret__.filters,
+        id=__ret__.id,
         name=__ret__.name,
         notifications=__ret__.notifications,
         time_grain=__ret__.time_grain,

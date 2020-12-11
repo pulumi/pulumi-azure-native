@@ -39,6 +39,10 @@ export interface GetNamespaceResult {
      */
     readonly createdAt: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * The Geo-location where the resource lives
      */
     readonly location: string;

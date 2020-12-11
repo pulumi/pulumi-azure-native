@@ -82,6 +82,10 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20170401
         /// </summary>
         public readonly bool? EnablePartitioning;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
         /// </summary>
         public readonly int? MaxSizeInMegabytes;
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20170401
 
             bool? enablePartitioning,
 
+            string id,
+
             int? maxSizeInMegabytes,
 
             string name,
@@ -165,6 +171,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20170401
             EnableBatchedOperations = enableBatchedOperations;
             EnableExpress = enableExpress;
             EnablePartitioning = enablePartitioning;
+            Id = id;
             MaxSizeInMegabytes = maxSizeInMegabytes;
             Name = name;
             RequiresDuplicateDetection = requiresDuplicateDetection;

@@ -27,6 +27,8 @@ type LookupTableArgs struct {
 
 // Properties of the table, including Id, resource name, resource type.
 type LookupTableResult struct {
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Table name under the specified account

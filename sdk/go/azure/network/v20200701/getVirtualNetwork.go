@@ -43,6 +43,8 @@ type LookupVirtualNetworkResult struct {
 	Etag string `pulumi:"etag"`
 	// The extended location of the virtual network.
 	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// Array of IpAllocation which reference this VNET.
 	IpAllocations []SubResourceResponse `pulumi:"ipAllocations"`
 	// Resource location.

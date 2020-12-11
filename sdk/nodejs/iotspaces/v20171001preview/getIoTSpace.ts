@@ -35,6 +35,10 @@ export interface GetIoTSpaceArgs {
  */
 export interface GetIoTSpaceResult {
     /**
+     * The resource identifier.
+     */
+    readonly id: string;
+    /**
      * The resource location.
      */
     readonly location: string;

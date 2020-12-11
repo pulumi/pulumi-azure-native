@@ -35,6 +35,10 @@ export interface GetDeploymentArgs {
  */
 export interface GetDeploymentResult {
     /**
+     * The ID of the deployment.
+     */
+    readonly id: string;
+    /**
      * the location of the deployment.
      */
     readonly location?: string;

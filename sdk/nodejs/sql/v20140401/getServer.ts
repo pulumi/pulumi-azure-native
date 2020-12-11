@@ -55,6 +55,10 @@ export interface GetServerResult {
      */
     readonly fullyQualifiedDomainName: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Kind of sql server.  This is metadata used for the Azure portal experience.
      */
     readonly kind: string;

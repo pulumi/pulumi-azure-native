@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601Preview
         /// </summary>
         public readonly string? FullyQualifiedDomainName;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The Azure Active Directory identity of the server.
         /// </summary>
         public readonly Outputs.ResourceIdentityResponse? Identity;
@@ -112,6 +116,8 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601Preview
 
             string? fullyQualifiedDomainName,
 
+            string id,
+
             Outputs.ResourceIdentityResponse? identity,
 
             string location,
@@ -141,6 +147,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601Preview
             AdministratorLogin = administratorLogin;
             EarliestRestoreDate = earliestRestoreDate;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
+            Id = id;
             Identity = identity;
             Location = location;
             MasterServerId = masterServerId;

@@ -29,6 +29,8 @@ type LookupJobAgentArgs struct {
 type LookupJobAgentResult struct {
 	// Resource ID of the database to store job metadata in.
 	DatabaseId string `pulumi:"databaseId"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// Resource name.

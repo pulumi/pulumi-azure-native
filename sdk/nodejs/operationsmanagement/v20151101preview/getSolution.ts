@@ -35,6 +35,10 @@ export interface GetSolutionArgs {
  */
 export interface GetSolutionResult {
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location?: string;

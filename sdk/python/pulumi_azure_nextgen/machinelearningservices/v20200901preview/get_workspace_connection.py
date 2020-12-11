@@ -19,13 +19,16 @@ class GetWorkspaceConnectionResult:
     """
     Workspace connection.
     """
-    def __init__(__self__, auth_type=None, category=None, name=None, target=None, type=None, value=None):
+    def __init__(__self__, auth_type=None, category=None, id=None, name=None, target=None, type=None, value=None):
         if auth_type and not isinstance(auth_type, str):
             raise TypeError("Expected argument 'auth_type' to be a str")
         pulumi.set(__self__, "auth_type", auth_type)
         if category and not isinstance(category, str):
             raise TypeError("Expected argument 'category' to be a str")
         pulumi.set(__self__, "category", category)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -54,6 +57,14 @@ class GetWorkspaceConnectionResult:
         Category of the workspace connection.
         """
         return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        ResourceId of the workspace connection.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -96,6 +107,7 @@ class AwaitableGetWorkspaceConnectionResult(GetWorkspaceConnectionResult):
         return GetWorkspaceConnectionResult(
             auth_type=self.auth_type,
             category=self.category,
+            id=self.id,
             name=self.name,
             target=self.target,
             type=self.type,
@@ -126,6 +138,7 @@ def get_workspace_connection(connection_name: Optional[str] = None,
     return AwaitableGetWorkspaceConnectionResult(
         auth_type=__ret__.auth_type,
         category=__ret__.category,
+        id=__ret__.id,
         name=__ret__.name,
         target=__ret__.target,
         type=__ret__.type,

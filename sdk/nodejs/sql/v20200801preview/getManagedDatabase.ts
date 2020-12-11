@@ -72,6 +72,10 @@ export interface GetManagedDatabaseResult {
      */
     readonly failoverGroupId: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Last backup file name for restore of this managed database.
      */
     readonly lastBackupName?: string;

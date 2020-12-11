@@ -82,6 +82,10 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// </summary>
         public readonly Outputs.SubResourceResponse? HostGroup;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the virtual machine, if configured.
         /// </summary>
         public readonly Outputs.VirtualMachineIdentityResponse? Identity;
@@ -178,6 +182,8 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 
             Outputs.SubResourceResponse? hostGroup,
 
+            string id,
+
             Outputs.VirtualMachineIdentityResponse? identity,
 
             Outputs.VirtualMachineInstanceViewResponse instanceView,
@@ -225,6 +231,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
             HardwareProfile = hardwareProfile;
             Host = host;
             HostGroup = hostGroup;
+            Id = id;
             Identity = identity;
             InstanceView = instanceView;
             LicenseType = licenseType;

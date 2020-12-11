@@ -19,7 +19,10 @@ class GetClusterPrincipalAssignmentResult:
     """
     Class representing a cluster principal assignment.
     """
-    def __init__(__self__, name=None, principal_id=None, principal_name=None, principal_type=None, provisioning_state=None, role=None, tenant_id=None, tenant_name=None, type=None):
+    def __init__(__self__, id=None, name=None, principal_id=None, principal_name=None, principal_type=None, provisioning_state=None, role=None, tenant_id=None, tenant_name=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -47,6 +50,14 @@ class GetClusterPrincipalAssignmentResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -127,6 +138,7 @@ class AwaitableGetClusterPrincipalAssignmentResult(GetClusterPrincipalAssignment
         if False:
             yield self
         return GetClusterPrincipalAssignmentResult(
+            id=self.id,
             name=self.name,
             principal_id=self.principal_id,
             principal_name=self.principal_name,
@@ -160,6 +172,7 @@ def get_cluster_principal_assignment(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:kusto/v20200918:getClusterPrincipalAssignment', __args__, opts=opts, typ=GetClusterPrincipalAssignmentResult).value
 
     return AwaitableGetClusterPrincipalAssignmentResult(
+        id=__ret__.id,
         name=__ret__.name,
         principal_id=__ret__.principal_id,
         principal_name=__ret__.principal_name,

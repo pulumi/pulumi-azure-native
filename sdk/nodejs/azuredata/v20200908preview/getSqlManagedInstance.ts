@@ -47,6 +47,10 @@ export interface GetSqlManagedInstanceResult {
      */
     readonly endTime?: string;
     /**
+     * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * The on premise instance endpoint
      */
     readonly instanceEndpoint?: string;

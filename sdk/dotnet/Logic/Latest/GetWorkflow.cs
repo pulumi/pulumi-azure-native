@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.Logic.Latest
         /// </summary>
         public readonly Outputs.FlowEndpointsConfigurationResponse? EndpointsConfiguration;
         /// <summary>
+        /// The resource id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The integration account.
         /// </summary>
         public readonly Outputs.ResourceReferenceResponse? IntegrationAccount;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNextGen.Logic.Latest
 
             Outputs.FlowEndpointsConfigurationResponse? endpointsConfiguration,
 
+            string id,
+
             Outputs.ResourceReferenceResponse? integrationAccount,
 
             Outputs.ResourceReferenceResponse? integrationServiceEnvironment,
@@ -150,6 +156,7 @@ namespace Pulumi.AzureNextGen.Logic.Latest
             CreatedTime = createdTime;
             Definition = definition;
             EndpointsConfiguration = endpointsConfiguration;
+            Id = id;
             IntegrationAccount = integrationAccount;
             IntegrationServiceEnvironment = integrationServiceEnvironment;
             Location = location;

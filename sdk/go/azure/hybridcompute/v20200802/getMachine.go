@@ -43,7 +43,9 @@ type LookupMachineResult struct {
 	ErrorDetails []ErrorDetailResponse `pulumi:"errorDetails"`
 	// Machine Extensions information
 	Extensions []MachineExtensionInstanceViewResponse `pulumi:"extensions"`
-	Identity   *MachineResponseIdentity               `pulumi:"identity"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id       string                   `pulumi:"id"`
+	Identity *MachineResponseIdentity `pulumi:"identity"`
 	// The time of the last status change.
 	LastStatusChange string `pulumi:"lastStatusChange"`
 	// The geo-location where the resource lives

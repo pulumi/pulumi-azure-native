@@ -33,6 +33,8 @@ type LookupInterfaceEndpointResult struct {
 	Etag *string `pulumi:"etag"`
 	// A first-party service's FQDN that is mapped to the private IP allocated via this interface endpoint.
 	Fqdn *string `pulumi:"fqdn"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.

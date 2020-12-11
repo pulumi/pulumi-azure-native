@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Network.V20200401
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.Network.V20200401
         private GetPrivateDnsZoneGroupResult(
             string etag,
 
+            string? id,
+
             string? name,
 
             ImmutableArray<Outputs.PrivateDnsZoneConfigResponse> privateDnsZoneConfigs,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNextGen.Network.V20200401
             string provisioningState)
         {
             Etag = etag;
+            Id = id;
             Name = name;
             PrivateDnsZoneConfigs = privateDnsZoneConfigs;
             ProvisioningState = provisioningState;

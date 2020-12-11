@@ -19,7 +19,10 @@ class GetVirtualNetworkRuleResult:
     """
     A virtual network rule.
     """
-    def __init__(__self__, ignore_missing_vnet_service_endpoint=None, name=None, state=None, type=None, virtual_network_subnet_id=None):
+    def __init__(__self__, id=None, ignore_missing_vnet_service_endpoint=None, name=None, state=None, type=None, virtual_network_subnet_id=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if ignore_missing_vnet_service_endpoint and not isinstance(ignore_missing_vnet_service_endpoint, bool):
             raise TypeError("Expected argument 'ignore_missing_vnet_service_endpoint' to be a bool")
         pulumi.set(__self__, "ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
@@ -35,6 +38,14 @@ class GetVirtualNetworkRuleResult:
         if virtual_network_subnet_id and not isinstance(virtual_network_subnet_id, str):
             raise TypeError("Expected argument 'virtual_network_subnet_id' to be a str")
         pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ignoreMissingVnetServiceEndpoint")
@@ -83,6 +94,7 @@ class AwaitableGetVirtualNetworkRuleResult(GetVirtualNetworkRuleResult):
         if False:
             yield self
         return GetVirtualNetworkRuleResult(
+            id=self.id,
             ignore_missing_vnet_service_endpoint=self.ignore_missing_vnet_service_endpoint,
             name=self.name,
             state=self.state,
@@ -112,6 +124,7 @@ def get_virtual_network_rule(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:dbformariadb/v20180601:getVirtualNetworkRule', __args__, opts=opts, typ=GetVirtualNetworkRuleResult).value
 
     return AwaitableGetVirtualNetworkRuleResult(
+        id=__ret__.id,
         ignore_missing_vnet_service_endpoint=__ret__.ignore_missing_vnet_service_endpoint,
         name=__ret__.name,
         state=__ret__.state,

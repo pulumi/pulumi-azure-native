@@ -51,6 +51,10 @@ export interface GetAppServicePlanResult {
      */
     readonly hyperV?: boolean;
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * If <code>true</code>, this App Service Plan owns spot instances.
      */
     readonly isSpot?: boolean;

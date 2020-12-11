@@ -82,6 +82,10 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20190123Preview
         /// </summary>
         public readonly string? IconPath;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -114,6 +118,8 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20190123Preview
 
             string? iconPath,
 
+            string id,
+
             string name,
 
             bool? showInPortal,
@@ -129,6 +135,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20190123Preview
             IconHash = iconHash;
             IconIndex = iconIndex;
             IconPath = iconPath;
+            Id = id;
             Name = name;
             ShowInPortal = showInPortal;
             Type = type;

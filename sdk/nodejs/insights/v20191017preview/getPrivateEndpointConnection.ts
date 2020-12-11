@@ -40,6 +40,10 @@ export interface GetPrivateEndpointConnectionArgs {
  */
 export interface GetPrivateEndpointConnectionResult {
     /**
+     * Azure resource Id
+     */
+    readonly id: string;
+    /**
      * Azure resource name
      */
     readonly name: string;

@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201001
         /// </summary>
         public readonly string? ETag;
         /// <summary>
+        /// Resource Id represents the complete path to the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201001
         private GetProtectedItemResult(
             string? eTag,
 
+            string id,
+
             string? location,
 
             string name,
@@ -103,6 +109,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20201001
             string type)
         {
             ETag = eTag;
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

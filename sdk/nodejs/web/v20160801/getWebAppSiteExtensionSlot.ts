@@ -73,6 +73,10 @@ export interface GetWebAppSiteExtensionSlotResult {
      */
     readonly iconUrl?: string;
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Installer command line parameters.
      */
     readonly installationArgs?: string;

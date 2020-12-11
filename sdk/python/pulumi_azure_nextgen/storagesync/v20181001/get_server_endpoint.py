@@ -20,13 +20,16 @@ class GetServerEndpointResult:
     """
     Server Endpoint object.
     """
-    def __init__(__self__, cloud_tiering=None, friendly_name=None, last_operation_name=None, last_workflow_id=None, name=None, offline_data_transfer=None, offline_data_transfer_share_name=None, offline_data_transfer_storage_account_resource_id=None, offline_data_transfer_storage_account_tenant_id=None, provisioning_state=None, server_local_path=None, server_resource_id=None, sync_status=None, tier_files_older_than_days=None, type=None, volume_free_space_percent=None):
+    def __init__(__self__, cloud_tiering=None, friendly_name=None, id=None, last_operation_name=None, last_workflow_id=None, name=None, offline_data_transfer=None, offline_data_transfer_share_name=None, offline_data_transfer_storage_account_resource_id=None, offline_data_transfer_storage_account_tenant_id=None, provisioning_state=None, server_local_path=None, server_resource_id=None, sync_status=None, tier_files_older_than_days=None, type=None, volume_free_space_percent=None):
         if cloud_tiering and not isinstance(cloud_tiering, str):
             raise TypeError("Expected argument 'cloud_tiering' to be a str")
         pulumi.set(__self__, "cloud_tiering", cloud_tiering)
         if friendly_name and not isinstance(friendly_name, str):
             raise TypeError("Expected argument 'friendly_name' to be a str")
         pulumi.set(__self__, "friendly_name", friendly_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_operation_name and not isinstance(last_operation_name, str):
             raise TypeError("Expected argument 'last_operation_name' to be a str")
         pulumi.set(__self__, "last_operation_name", last_operation_name)
@@ -85,6 +88,14 @@ class GetServerEndpointResult:
         Friendly Name
         """
         return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastOperationName")
@@ -207,6 +218,7 @@ class AwaitableGetServerEndpointResult(GetServerEndpointResult):
         return GetServerEndpointResult(
             cloud_tiering=self.cloud_tiering,
             friendly_name=self.friendly_name,
+            id=self.id,
             last_operation_name=self.last_operation_name,
             last_workflow_id=self.last_workflow_id,
             name=self.name,
@@ -250,6 +262,7 @@ def get_server_endpoint(resource_group_name: Optional[str] = None,
     return AwaitableGetServerEndpointResult(
         cloud_tiering=__ret__.cloud_tiering,
         friendly_name=__ret__.friendly_name,
+        id=__ret__.id,
         last_operation_name=__ret__.last_operation_name,
         last_workflow_id=__ret__.last_workflow_id,
         name=__ret__.name,

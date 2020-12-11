@@ -20,7 +20,7 @@ class GetExpressRouteCircuitResult:
     """
     ExpressRouteCircuit resource
     """
-    def __init__(__self__, allow_classic_operations=None, authorizations=None, bandwidth_in_gbps=None, circuit_provisioning_state=None, etag=None, express_route_port=None, gateway_manager_etag=None, global_reach_enabled=None, location=None, name=None, peerings=None, provisioning_state=None, service_key=None, service_provider_notes=None, service_provider_properties=None, service_provider_provisioning_state=None, sku=None, stag=None, tags=None, type=None):
+    def __init__(__self__, allow_classic_operations=None, authorizations=None, bandwidth_in_gbps=None, circuit_provisioning_state=None, etag=None, express_route_port=None, gateway_manager_etag=None, global_reach_enabled=None, id=None, location=None, name=None, peerings=None, provisioning_state=None, service_key=None, service_provider_notes=None, service_provider_properties=None, service_provider_provisioning_state=None, sku=None, stag=None, tags=None, type=None):
         if allow_classic_operations and not isinstance(allow_classic_operations, bool):
             raise TypeError("Expected argument 'allow_classic_operations' to be a bool")
         pulumi.set(__self__, "allow_classic_operations", allow_classic_operations)
@@ -45,6 +45,9 @@ class GetExpressRouteCircuitResult:
         if global_reach_enabled and not isinstance(global_reach_enabled, bool):
             raise TypeError("Expected argument 'global_reach_enabled' to be a bool")
         pulumi.set(__self__, "global_reach_enabled", global_reach_enabled)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -145,6 +148,14 @@ class GetExpressRouteCircuitResult:
         Flag denoting Global reach status.
         """
         return pulumi.get(self, "global_reach_enabled")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -257,6 +268,7 @@ class AwaitableGetExpressRouteCircuitResult(GetExpressRouteCircuitResult):
             express_route_port=self.express_route_port,
             gateway_manager_etag=self.gateway_manager_etag,
             global_reach_enabled=self.global_reach_enabled,
+            id=self.id,
             location=self.location,
             name=self.name,
             peerings=self.peerings,
@@ -298,6 +310,7 @@ def get_express_route_circuit(circuit_name: Optional[str] = None,
         express_route_port=__ret__.express_route_port,
         gateway_manager_etag=__ret__.gateway_manager_etag,
         global_reach_enabled=__ret__.global_reach_enabled,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         peerings=__ret__.peerings,

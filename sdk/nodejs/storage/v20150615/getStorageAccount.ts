@@ -47,6 +47,10 @@ export interface GetStorageAccountResult {
      */
     readonly customDomain?: outputs.storage.v20150615.CustomDomainResponse;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * The timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
      */
     readonly lastGeoFailoverTime?: string;

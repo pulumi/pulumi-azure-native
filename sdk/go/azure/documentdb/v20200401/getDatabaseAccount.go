@@ -53,6 +53,8 @@ type LookupDatabaseAccountResult struct {
 	EnableMultipleWriteLocations *bool `pulumi:"enableMultipleWriteLocations"`
 	// An array that contains the regions ordered by their failover priorities.
 	FailoverPolicies []FailoverPolicyResponse `pulumi:"failoverPolicies"`
+	// The unique resource identifier of the ARM resource.
+	Id string `pulumi:"id"`
 	// List of IpRules.
 	IpRules []IpAddressOrRangeResponse `pulumi:"ipRules"`
 	// Flag to indicate whether to enable/disable Virtual Network ACL rules.

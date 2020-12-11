@@ -19,7 +19,7 @@ class GetProjectResult:
     """
     Azure Migrate Project.
     """
-    def __init__(__self__, created_timestamp=None, customer_workspace_id=None, customer_workspace_location=None, discovery_status=None, e_tag=None, last_assessment_timestamp=None, last_discovery_session_id=None, last_discovery_timestamp=None, location=None, name=None, number_of_assessments=None, number_of_groups=None, number_of_machines=None, provisioning_state=None, tags=None, type=None, updated_timestamp=None):
+    def __init__(__self__, created_timestamp=None, customer_workspace_id=None, customer_workspace_location=None, discovery_status=None, e_tag=None, id=None, last_assessment_timestamp=None, last_discovery_session_id=None, last_discovery_timestamp=None, location=None, name=None, number_of_assessments=None, number_of_groups=None, number_of_machines=None, provisioning_state=None, tags=None, type=None, updated_timestamp=None):
         if created_timestamp and not isinstance(created_timestamp, str):
             raise TypeError("Expected argument 'created_timestamp' to be a str")
         pulumi.set(__self__, "created_timestamp", created_timestamp)
@@ -35,6 +35,9 @@ class GetProjectResult:
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_assessment_timestamp and not isinstance(last_assessment_timestamp, str):
             raise TypeError("Expected argument 'last_assessment_timestamp' to be a str")
         pulumi.set(__self__, "last_assessment_timestamp", last_assessment_timestamp)
@@ -111,6 +114,14 @@ class GetProjectResult:
         For optimistic concurrency control.
         """
         return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Path reference to this project /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastAssessmentTimestamp")
@@ -220,6 +231,7 @@ class AwaitableGetProjectResult(GetProjectResult):
             customer_workspace_location=self.customer_workspace_location,
             discovery_status=self.discovery_status,
             e_tag=self.e_tag,
+            id=self.id,
             last_assessment_timestamp=self.last_assessment_timestamp,
             last_discovery_session_id=self.last_discovery_session_id,
             last_discovery_timestamp=self.last_discovery_timestamp,
@@ -258,6 +270,7 @@ def get_project(project_name: Optional[str] = None,
         customer_workspace_location=__ret__.customer_workspace_location,
         discovery_status=__ret__.discovery_status,
         e_tag=__ret__.e_tag,
+        id=__ret__.id,
         last_assessment_timestamp=__ret__.last_assessment_timestamp,
         last_discovery_session_id=__ret__.last_discovery_session_id,
         last_discovery_timestamp=__ret__.last_discovery_timestamp,

@@ -19,7 +19,10 @@ class GetVirtualNetworkRuleResult:
     """
     Data Lake Store virtual network rule information.
     """
-    def __init__(__self__, name=None, subnet_id=None, type=None):
+    def __init__(__self__, id=None, name=None, subnet_id=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -29,6 +32,14 @@ class GetVirtualNetworkRuleResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource identifier.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -61,6 +72,7 @@ class AwaitableGetVirtualNetworkRuleResult(GetVirtualNetworkRuleResult):
         if False:
             yield self
         return GetVirtualNetworkRuleResult(
+            id=self.id,
             name=self.name,
             subnet_id=self.subnet_id,
             type=self.type)
@@ -88,6 +100,7 @@ def get_virtual_network_rule(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:datalakestore/latest:getVirtualNetworkRule', __args__, opts=opts, typ=GetVirtualNetworkRuleResult).value
 
     return AwaitableGetVirtualNetworkRuleResult(
+        id=__ret__.id,
         name=__ret__.name,
         subnet_id=__ret__.subnet_id,
         type=__ret__.type)

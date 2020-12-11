@@ -40,6 +40,10 @@ export interface ListWebAppSyncFunctionTriggersSlotArgs {
  */
 export interface ListWebAppSyncFunctionTriggersSlotResult {
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Secret key.
      */
     readonly key?: string;

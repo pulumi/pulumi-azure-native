@@ -20,13 +20,16 @@ class GetNamespaceResult:
     """
     Single Namespace item in List or Get Operation
     """
-    def __init__(__self__, cluster_arm_id=None, created_at=None, is_auto_inflate_enabled=None, kafka_enabled=None, key_source=None, key_vault_properties=None, location=None, maximum_throughput_units=None, metric_id=None, name=None, principal_id=None, provisioning_state=None, service_bus_endpoint=None, sku=None, tags=None, tenant_id=None, type=None, updated_at=None, zone_redundant=None):
+    def __init__(__self__, cluster_arm_id=None, created_at=None, id=None, is_auto_inflate_enabled=None, kafka_enabled=None, key_source=None, key_vault_properties=None, location=None, maximum_throughput_units=None, metric_id=None, name=None, principal_id=None, provisioning_state=None, service_bus_endpoint=None, sku=None, tags=None, tenant_id=None, type=None, updated_at=None, zone_redundant=None):
         if cluster_arm_id and not isinstance(cluster_arm_id, str):
             raise TypeError("Expected argument 'cluster_arm_id' to be a str")
         pulumi.set(__self__, "cluster_arm_id", cluster_arm_id)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_auto_inflate_enabled and not isinstance(is_auto_inflate_enabled, bool):
             raise TypeError("Expected argument 'is_auto_inflate_enabled' to be a bool")
         pulumi.set(__self__, "is_auto_inflate_enabled", is_auto_inflate_enabled)
@@ -94,6 +97,14 @@ class GetNamespaceResult:
         The time the Namespace was created.
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isAutoInflateEnabled")
@@ -240,6 +251,7 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
         return GetNamespaceResult(
             cluster_arm_id=self.cluster_arm_id,
             created_at=self.created_at,
+            id=self.id,
             is_auto_inflate_enabled=self.is_auto_inflate_enabled,
             kafka_enabled=self.kafka_enabled,
             key_source=self.key_source,
@@ -280,6 +292,7 @@ def get_namespace(namespace_name: Optional[str] = None,
     return AwaitableGetNamespaceResult(
         cluster_arm_id=__ret__.cluster_arm_id,
         created_at=__ret__.created_at,
+        id=__ret__.id,
         is_auto_inflate_enabled=__ret__.is_auto_inflate_enabled,
         kafka_enabled=__ret__.kafka_enabled,
         key_source=__ret__.key_source,

@@ -19,7 +19,7 @@ class GetRoleAssignmentResult:
     """
     Role Assignments
     """
-    def __init__(__self__, can_delegate=None, condition=None, condition_version=None, created_by=None, created_on=None, delegated_managed_identity_resource_id=None, description=None, name=None, principal_id=None, principal_type=None, role_definition_id=None, scope=None, type=None, updated_by=None, updated_on=None):
+    def __init__(__self__, can_delegate=None, condition=None, condition_version=None, created_by=None, created_on=None, delegated_managed_identity_resource_id=None, description=None, id=None, name=None, principal_id=None, principal_type=None, role_definition_id=None, scope=None, type=None, updated_by=None, updated_on=None):
         if can_delegate and not isinstance(can_delegate, bool):
             raise TypeError("Expected argument 'can_delegate' to be a bool")
         pulumi.set(__self__, "can_delegate", can_delegate)
@@ -41,6 +41,9 @@ class GetRoleAssignmentResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -124,6 +127,14 @@ class GetRoleAssignmentResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        The role assignment ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         The role assignment name.
@@ -200,6 +211,7 @@ class AwaitableGetRoleAssignmentResult(GetRoleAssignmentResult):
             created_on=self.created_on,
             delegated_managed_identity_resource_id=self.delegated_managed_identity_resource_id,
             description=self.description,
+            id=self.id,
             name=self.name,
             principal_id=self.principal_id,
             principal_type=self.principal_type,
@@ -236,6 +248,7 @@ def get_role_assignment(role_assignment_name: Optional[str] = None,
         created_on=__ret__.created_on,
         delegated_managed_identity_resource_id=__ret__.delegated_managed_identity_resource_id,
         description=__ret__.description,
+        id=__ret__.id,
         name=__ret__.name,
         principal_id=__ret__.principal_id,
         principal_type=__ret__.principal_type,

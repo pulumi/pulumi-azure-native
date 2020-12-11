@@ -35,6 +35,10 @@ export interface GetInstancePoolArgs {
  */
 export interface GetInstancePoolResult {
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * The license type. Possible values are 'LicenseIncluded' (price for SQL license is included) and 'BasePrice' (without SQL license price).
      */
     readonly licenseType: string;

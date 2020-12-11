@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
     public sealed class GetIntegrationAccountBatchConfigurationResult
     {
         /// <summary>
+        /// The resource id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string? Location;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
 
         [OutputConstructor]
         private GetIntegrationAccountBatchConfigurationResult(
+            string id,
+
             string? location,
 
             string name,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

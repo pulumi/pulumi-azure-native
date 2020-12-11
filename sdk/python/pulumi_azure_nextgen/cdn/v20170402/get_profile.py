@@ -20,7 +20,10 @@ class GetProfileResult:
     """
     CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
     """
-    def __init__(__self__, location=None, name=None, provisioning_state=None, resource_state=None, sku=None, tags=None, type=None):
+    def __init__(__self__, id=None, location=None, name=None, provisioning_state=None, resource_state=None, sku=None, tags=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -42,6 +45,14 @@ class GetProfileResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -106,6 +117,7 @@ class AwaitableGetProfileResult(GetProfileResult):
         if False:
             yield self
         return GetProfileResult(
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -134,6 +146,7 @@ def get_profile(profile_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:cdn/v20170402:getProfile', __args__, opts=opts, typ=GetProfileResult).value
 
     return AwaitableGetProfileResult(
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

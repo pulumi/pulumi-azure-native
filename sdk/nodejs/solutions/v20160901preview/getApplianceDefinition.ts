@@ -51,6 +51,10 @@ export interface GetApplianceDefinitionResult {
      */
     readonly displayName?: string;
     /**
+     * Resource ID
+     */
+    readonly id: string;
+    /**
      * The identity of the resource.
      */
     readonly identity?: outputs.solutions.v20160901preview.IdentityResponse;

@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Cache.V20201001Preview
         /// </summary>
         public readonly string? EvictionPolicy;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Optional set of redis modules to enable in this database - modules can only be added at creation time.
         /// </summary>
         public readonly ImmutableArray<Outputs.ModuleResponse> Modules;
@@ -90,6 +94,8 @@ namespace Pulumi.AzureNextGen.Cache.V20201001Preview
 
             string? evictionPolicy,
 
+            string id,
+
             ImmutableArray<Outputs.ModuleResponse> modules,
 
             string name,
@@ -105,6 +111,7 @@ namespace Pulumi.AzureNextGen.Cache.V20201001Preview
             ClientProtocol = clientProtocol;
             ClusteringPolicy = clusteringPolicy;
             EvictionPolicy = evictionPolicy;
+            Id = id;
             Modules = modules;
             Name = name;
             Port = port;

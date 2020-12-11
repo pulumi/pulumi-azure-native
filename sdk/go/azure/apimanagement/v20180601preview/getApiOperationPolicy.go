@@ -33,6 +33,8 @@ type LookupApiOperationPolicyArgs struct {
 type LookupApiOperationPolicyResult struct {
 	// Format of the policyContent.
 	ContentFormat *string `pulumi:"contentFormat"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Json escaped Xml Encoded contents of the Policy.

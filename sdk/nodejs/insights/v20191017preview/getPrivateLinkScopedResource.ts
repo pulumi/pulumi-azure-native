@@ -40,6 +40,10 @@ export interface GetPrivateLinkScopedResourceArgs {
  */
 export interface GetPrivateLinkScopedResourceResult {
     /**
+     * Azure resource Id
+     */
+    readonly id: string;
+    /**
      * The resource id of the scoped Azure monitor resource.
      */
     readonly linkedResourceId?: string;

@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
         /// </summary>
         public readonly int? Count;
         /// <summary>
+        /// The resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
         public readonly string Location;
@@ -90,6 +94,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
         private GetAgentPoolResult(
             int? count,
 
+            string id,
+
             string location,
 
             string name,
@@ -109,6 +115,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
             string? virtualNetworkSubnetResourceId)
         {
             Count = count;
+            Id = id;
             Location = location;
             Name = name;
             Os = os;

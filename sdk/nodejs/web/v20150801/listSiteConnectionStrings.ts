@@ -35,6 +35,10 @@ export interface ListSiteConnectionStringsArgs {
  */
 export interface ListSiteConnectionStringsResult {
     /**
+     * Resource Id
+     */
+    readonly id?: string;
+    /**
      * Kind of resource
      */
     readonly kind?: string;

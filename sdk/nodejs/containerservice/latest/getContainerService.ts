@@ -47,6 +47,10 @@ export interface GetContainerServiceResult {
      */
     readonly diagnosticsProfile?: outputs.containerservice.latest.ContainerServiceDiagnosticsProfileResponse;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Properties of Linux VMs.
      */
     readonly linuxProfile: outputs.containerservice.latest.ContainerServiceLinuxProfileResponse;

@@ -34,6 +34,10 @@ export interface GetManagementGroupSubscriptionResult {
      */
     readonly displayName?: string;
     /**
+     * The fully qualified ID for the subscription.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000/subscriptions/0000000-0000-0000-0000-000000000001
+     */
+    readonly id: string;
+    /**
      * The stringified id of the subscription. For example, 00000000-0000-0000-0000-000000000000
      */
     readonly name: string;

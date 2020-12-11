@@ -19,7 +19,7 @@ class GetAttachedDatabaseConfigurationResult:
     """
     Class representing an attached database configuration.
     """
-    def __init__(__self__, attached_database_names=None, cluster_resource_id=None, database_name=None, default_principals_modification_kind=None, location=None, name=None, provisioning_state=None, type=None):
+    def __init__(__self__, attached_database_names=None, cluster_resource_id=None, database_name=None, default_principals_modification_kind=None, id=None, location=None, name=None, provisioning_state=None, type=None):
         if attached_database_names and not isinstance(attached_database_names, list):
             raise TypeError("Expected argument 'attached_database_names' to be a list")
         pulumi.set(__self__, "attached_database_names", attached_database_names)
@@ -32,6 +32,9 @@ class GetAttachedDatabaseConfigurationResult:
         if default_principals_modification_kind and not isinstance(default_principals_modification_kind, str):
             raise TypeError("Expected argument 'default_principals_modification_kind' to be a str")
         pulumi.set(__self__, "default_principals_modification_kind", default_principals_modification_kind)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -79,6 +82,14 @@ class GetAttachedDatabaseConfigurationResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[str]:
         """
         Resource location.
@@ -120,6 +131,7 @@ class AwaitableGetAttachedDatabaseConfigurationResult(GetAttachedDatabaseConfigu
             cluster_resource_id=self.cluster_resource_id,
             database_name=self.database_name,
             default_principals_modification_kind=self.default_principals_modification_kind,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -152,6 +164,7 @@ def get_attached_database_configuration(attached_database_configuration_name: Op
         cluster_resource_id=__ret__.cluster_resource_id,
         database_name=__ret__.database_name,
         default_principals_modification_kind=__ret__.default_principals_modification_kind,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

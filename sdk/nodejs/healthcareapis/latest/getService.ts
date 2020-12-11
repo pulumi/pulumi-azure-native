@@ -39,6 +39,10 @@ export interface GetServiceResult {
      */
     readonly etag?: string;
     /**
+     * The resource identifier.
+     */
+    readonly id: string;
+    /**
      * Setting indicating whether the service has a managed identity associated with it.
      */
     readonly identity?: outputs.healthcareapis.latest.ServicesResourceResponseIdentity;

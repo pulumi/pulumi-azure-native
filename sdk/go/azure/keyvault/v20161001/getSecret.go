@@ -27,6 +27,8 @@ type LookupSecretArgs struct {
 
 // Resource information with extended details.
 type LookupSecretResult struct {
+	// The Azure Resource Manager resource ID for the key vault.
+	Id string `pulumi:"id"`
 	// The supported Azure location where the key vault should be created.
 	Location string `pulumi:"location"`
 	// The name of the key vault.

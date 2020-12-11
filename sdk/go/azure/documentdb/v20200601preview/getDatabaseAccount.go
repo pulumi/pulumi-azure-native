@@ -57,6 +57,8 @@ type LookupDatabaseAccountResult struct {
 	EnableMultipleWriteLocations *bool `pulumi:"enableMultipleWriteLocations"`
 	// An array that contains the regions ordered by their failover priorities.
 	FailoverPolicies []FailoverPolicyResponse `pulumi:"failoverPolicies"`
+	// The unique resource identifier of the ARM resource.
+	Id string `pulumi:"id"`
 	// Identity for the resource.
 	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
 	// A unique identifier assigned to the database account

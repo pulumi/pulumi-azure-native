@@ -29,6 +29,8 @@ type LookupJobTargetGroupArgs struct {
 
 // A group of job targets.
 type LookupJobTargetGroupResult struct {
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Members of the target group.
 	Members []JobTargetResponse `pulumi:"members"`
 	// Resource name.

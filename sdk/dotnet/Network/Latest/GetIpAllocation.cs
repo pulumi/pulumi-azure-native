@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The IPAM allocation ID.
         /// </summary>
         public readonly string? IpamAllocationId;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string etag,
 
+            string? id,
+
             string? ipamAllocationId,
 
             string? location,
@@ -122,6 +128,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         {
             AllocationTags = allocationTags;
             Etag = etag;
+            Id = id;
             IpamAllocationId = ipamAllocationId;
             Location = location;
             Name = name;

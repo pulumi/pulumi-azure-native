@@ -20,10 +20,13 @@ class GetPeerAsnResult:
     """
     The essential information related to the peer's ASN.
     """
-    def __init__(__self__, error_message=None, name=None, peer_asn=None, peer_contact_detail=None, peer_name=None, type=None, validation_state=None):
+    def __init__(__self__, error_message=None, id=None, name=None, peer_asn=None, peer_contact_detail=None, peer_name=None, type=None, validation_state=None):
         if error_message and not isinstance(error_message, str):
             raise TypeError("Expected argument 'error_message' to be a str")
         pulumi.set(__self__, "error_message", error_message)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -50,6 +53,14 @@ class GetPeerAsnResult:
         The error message for the validation state
         """
         return pulumi.get(self, "error_message")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -107,6 +118,7 @@ class AwaitableGetPeerAsnResult(GetPeerAsnResult):
             yield self
         return GetPeerAsnResult(
             error_message=self.error_message,
+            id=self.id,
             name=self.name,
             peer_asn=self.peer_asn,
             peer_contact_detail=self.peer_contact_detail,
@@ -132,6 +144,7 @@ def get_peer_asn(peer_asn_name: Optional[str] = None,
 
     return AwaitableGetPeerAsnResult(
         error_message=__ret__.error_message,
+        id=__ret__.id,
         name=__ret__.name,
         peer_asn=__ret__.peer_asn,
         peer_contact_detail=__ret__.peer_contact_detail,

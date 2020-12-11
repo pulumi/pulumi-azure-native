@@ -52,6 +52,10 @@ export interface GetOutputResult {
      */
     readonly etag: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource name
      */
     readonly name?: string;

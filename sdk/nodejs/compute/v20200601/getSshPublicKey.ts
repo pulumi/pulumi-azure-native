@@ -35,6 +35,10 @@ export interface GetSshPublicKeyArgs {
  */
 export interface GetSshPublicKeyResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

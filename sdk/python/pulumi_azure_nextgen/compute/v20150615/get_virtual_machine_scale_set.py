@@ -20,7 +20,10 @@ class GetVirtualMachineScaleSetResult:
     """
     Describes a Virtual Machine Scale Set.
     """
-    def __init__(__self__, location=None, name=None, over_provision=None, provisioning_state=None, sku=None, tags=None, type=None, upgrade_policy=None, virtual_machine_profile=None):
+    def __init__(__self__, id=None, location=None, name=None, over_provision=None, provisioning_state=None, sku=None, tags=None, type=None, upgrade_policy=None, virtual_machine_profile=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -48,6 +51,14 @@ class GetVirtualMachineScaleSetResult:
         if virtual_machine_profile and not isinstance(virtual_machine_profile, dict):
             raise TypeError("Expected argument 'virtual_machine_profile' to be a dict")
         pulumi.set(__self__, "virtual_machine_profile", virtual_machine_profile)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -128,6 +139,7 @@ class AwaitableGetVirtualMachineScaleSetResult(GetVirtualMachineScaleSetResult):
         if False:
             yield self
         return GetVirtualMachineScaleSetResult(
+            id=self.id,
             location=self.location,
             name=self.name,
             over_provision=self.over_provision,
@@ -158,6 +170,7 @@ def get_virtual_machine_scale_set(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:compute/v20150615:getVirtualMachineScaleSet', __args__, opts=opts, typ=GetVirtualMachineScaleSetResult).value
 
     return AwaitableGetVirtualMachineScaleSetResult(
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         over_provision=__ret__.over_provision,

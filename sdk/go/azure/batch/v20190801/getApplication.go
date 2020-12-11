@@ -35,6 +35,8 @@ type LookupApplicationResult struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The ETag of the resource, used for concurrency statements.
 	Etag string `pulumi:"etag"`
+	// The ID of the resource.
+	Id string `pulumi:"id"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The type of the resource.

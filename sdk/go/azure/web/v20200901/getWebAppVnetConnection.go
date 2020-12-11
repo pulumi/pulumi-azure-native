@@ -34,6 +34,8 @@ type LookupWebAppVnetConnectionResult struct {
 	CertThumbprint string `pulumi:"certThumbprint"`
 	// DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
 	DnsServers *string `pulumi:"dnsServers"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Flag that is used to denote if this is VNET injection
 	IsSwift *bool `pulumi:"isSwift"`
 	// Kind of resource.

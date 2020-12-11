@@ -44,6 +44,10 @@ export interface ListWebAppSitePushSettingsSlotResult {
      */
     readonly dynamicTagsJson?: string;
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Gets or sets a flag indicating whether the Push endpoint is enabled.
      */
     readonly isPushEnabled: boolean;

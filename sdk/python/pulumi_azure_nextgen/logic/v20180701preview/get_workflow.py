@@ -20,7 +20,7 @@ class GetWorkflowResult:
     """
     The workflow type.
     """
-    def __init__(__self__, access_endpoint=None, changed_time=None, created_time=None, definition=None, integration_account=None, location=None, name=None, parameters=None, provisioning_state=None, sku=None, state=None, tags=None, type=None, version=None):
+    def __init__(__self__, access_endpoint=None, changed_time=None, created_time=None, definition=None, id=None, integration_account=None, location=None, name=None, parameters=None, provisioning_state=None, sku=None, state=None, tags=None, type=None, version=None):
         if access_endpoint and not isinstance(access_endpoint, str):
             raise TypeError("Expected argument 'access_endpoint' to be a str")
         pulumi.set(__self__, "access_endpoint", access_endpoint)
@@ -33,6 +33,9 @@ class GetWorkflowResult:
         if definition and not isinstance(definition, dict):
             raise TypeError("Expected argument 'definition' to be a dict")
         pulumi.set(__self__, "definition", definition)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if integration_account and not isinstance(integration_account, dict):
             raise TypeError("Expected argument 'integration_account' to be a dict")
         pulumi.set(__self__, "integration_account", integration_account)
@@ -95,6 +98,14 @@ class GetWorkflowResult:
         The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
         """
         return pulumi.get(self, "definition")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="integrationAccount")
@@ -187,6 +198,7 @@ class AwaitableGetWorkflowResult(GetWorkflowResult):
             changed_time=self.changed_time,
             created_time=self.created_time,
             definition=self.definition,
+            id=self.id,
             integration_account=self.integration_account,
             location=self.location,
             name=self.name,
@@ -222,6 +234,7 @@ def get_workflow(resource_group_name: Optional[str] = None,
         changed_time=__ret__.changed_time,
         created_time=__ret__.created_time,
         definition=__ret__.definition,
+        id=__ret__.id,
         integration_account=__ret__.integration_account,
         location=__ret__.location,
         name=__ret__.name,

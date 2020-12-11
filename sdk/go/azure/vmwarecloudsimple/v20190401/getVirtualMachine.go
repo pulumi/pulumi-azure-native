@@ -43,6 +43,8 @@ type LookupVirtualMachineResult struct {
 	GuestOS string `pulumi:"guestOS"`
 	// The Guest OS type
 	GuestOSType string `pulumi:"guestOSType"`
+	// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/virtualMachines/{virtualMachineName}
+	Id string `pulumi:"id"`
 	// Azure region
 	Location string `pulumi:"location"`
 	// {virtualMachineName}

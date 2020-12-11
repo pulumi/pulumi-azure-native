@@ -55,6 +55,10 @@ export interface GetRegistryResult {
      */
     readonly encryption?: outputs.containerregistry.v20191201preview.EncryptionPropertyResponse;
     /**
+     * The resource ID.
+     */
+    readonly id: string;
+    /**
      * The identity of the container registry.
      */
     readonly identity?: outputs.containerregistry.v20191201preview.IdentityPropertiesResponse;

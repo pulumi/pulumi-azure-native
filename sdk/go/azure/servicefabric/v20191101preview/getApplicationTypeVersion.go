@@ -35,6 +35,8 @@ type LookupApplicationTypeVersionResult struct {
 	DefaultParameterList map[string]string `pulumi:"defaultParameterList"`
 	// Azure resource etag.
 	Etag string `pulumi:"etag"`
+	// Azure resource identifier.
+	Id string `pulumi:"id"`
 	// It will be deprecated in New API, resource location depends on the parent resource.
 	Location *string `pulumi:"location"`
 	// Azure resource name.

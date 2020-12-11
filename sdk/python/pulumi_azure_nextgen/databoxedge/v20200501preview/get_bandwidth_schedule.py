@@ -19,10 +19,13 @@ class GetBandwidthScheduleResult:
     """
     The bandwidth schedule details.
     """
-    def __init__(__self__, days=None, name=None, rate_in_mbps=None, start=None, stop=None, type=None):
+    def __init__(__self__, days=None, id=None, name=None, rate_in_mbps=None, start=None, stop=None, type=None):
         if days and not isinstance(days, list):
             raise TypeError("Expected argument 'days' to be a list")
         pulumi.set(__self__, "days", days)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -46,6 +49,14 @@ class GetBandwidthScheduleResult:
         The days of the week when this schedule is applicable.
         """
         return pulumi.get(self, "days")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The path ID that uniquely identifies the object.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -95,6 +106,7 @@ class AwaitableGetBandwidthScheduleResult(GetBandwidthScheduleResult):
             yield self
         return GetBandwidthScheduleResult(
             days=self.days,
+            id=self.id,
             name=self.name,
             rate_in_mbps=self.rate_in_mbps,
             start=self.start,
@@ -125,6 +137,7 @@ def get_bandwidth_schedule(device_name: Optional[str] = None,
 
     return AwaitableGetBandwidthScheduleResult(
         days=__ret__.days,
+        id=__ret__.id,
         name=__ret__.name,
         rate_in_mbps=__ret__.rate_in_mbps,
         start=__ret__.start,

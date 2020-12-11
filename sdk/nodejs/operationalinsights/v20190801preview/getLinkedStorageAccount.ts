@@ -44,6 +44,10 @@ export interface GetLinkedStorageAccountResult {
      */
     readonly dataSourceType: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

@@ -20,7 +20,10 @@ class ListWebAppFunctionKeysSlotResult:
     """
     String dictionary resource.
     """
-    def __init__(__self__, kind=None, name=None, properties=None, system_data=None, type=None):
+    def __init__(__self__, id=None, kind=None, name=None, properties=None, system_data=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -36,6 +39,14 @@ class ListWebAppFunctionKeysSlotResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -84,6 +95,7 @@ class AwaitableListWebAppFunctionKeysSlotResult(ListWebAppFunctionKeysSlotResult
         if False:
             yield self
         return ListWebAppFunctionKeysSlotResult(
+            id=self.id,
             kind=self.kind,
             name=self.name,
             properties=self.properties,
@@ -116,6 +128,7 @@ def list_web_app_function_keys_slot(function_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:web/latest:listWebAppFunctionKeysSlot', __args__, opts=opts, typ=ListWebAppFunctionKeysSlotResult).value
 
     return AwaitableListWebAppFunctionKeysSlotResult(
+        id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
         properties=__ret__.properties,

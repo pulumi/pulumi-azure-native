@@ -43,6 +43,10 @@ export interface GetProfileResult {
      */
     readonly endpoints?: outputs.network.v20151101.EndpointResponse[];
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location?: string;

@@ -20,10 +20,13 @@ class GetClusterResult:
     """
     The top level Log Analytics cluster resource container.
     """
-    def __init__(__self__, cluster_id=None, identity=None, key_vault_properties=None, location=None, name=None, next_link=None, provisioning_state=None, sku=None, tags=None, type=None):
+    def __init__(__self__, cluster_id=None, id=None, identity=None, key_vault_properties=None, location=None, name=None, next_link=None, provisioning_state=None, sku=None, tags=None, type=None):
         if cluster_id and not isinstance(cluster_id, str):
             raise TypeError("Expected argument 'cluster_id' to be a str")
         pulumi.set(__self__, "cluster_id", cluster_id)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -59,6 +62,14 @@ class GetClusterResult:
         The ID associated with the cluster.
         """
         return pulumi.get(self, "cluster_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -140,6 +151,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             yield self
         return GetClusterResult(
             cluster_id=self.cluster_id,
+            id=self.id,
             identity=self.identity,
             key_vault_properties=self.key_vault_properties,
             location=self.location,
@@ -171,6 +183,7 @@ def get_cluster(cluster_name: Optional[str] = None,
 
     return AwaitableGetClusterResult(
         cluster_id=__ret__.cluster_id,
+        id=__ret__.id,
         identity=__ret__.identity,
         key_vault_properties=__ret__.key_vault_properties,
         location=__ret__.location,

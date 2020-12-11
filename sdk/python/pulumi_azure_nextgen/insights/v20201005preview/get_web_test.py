@@ -20,7 +20,7 @@ class GetWebTestResult:
     """
     An Application Insights WebTest definition.
     """
-    def __init__(__self__, configuration=None, content_validation=None, description=None, enabled=None, expected_http_status_code=None, frequency=None, ignore_https_status_code=None, kind=None, location=None, locations=None, name=None, provisioning_state=None, request=None, retry_enabled=None, s_sl_cert_remaining_lifetime_check=None, s_sl_check=None, synthetic_monitor_id=None, tags=None, timeout=None, type=None, web_test_kind=None, web_test_name=None):
+    def __init__(__self__, configuration=None, content_validation=None, description=None, enabled=None, expected_http_status_code=None, frequency=None, id=None, ignore_https_status_code=None, kind=None, location=None, locations=None, name=None, provisioning_state=None, request=None, retry_enabled=None, s_sl_cert_remaining_lifetime_check=None, s_sl_check=None, synthetic_monitor_id=None, tags=None, timeout=None, type=None, web_test_kind=None, web_test_name=None):
         if configuration and not isinstance(configuration, dict):
             raise TypeError("Expected argument 'configuration' to be a dict")
         pulumi.set(__self__, "configuration", configuration)
@@ -39,6 +39,9 @@ class GetWebTestResult:
         if frequency and not isinstance(frequency, int):
             raise TypeError("Expected argument 'frequency' to be a int")
         pulumi.set(__self__, "frequency", frequency)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if ignore_https_status_code and not isinstance(ignore_https_status_code, bool):
             raise TypeError("Expected argument 'ignore_https_status_code' to be a bool")
         pulumi.set(__self__, "ignore_https_status_code", ignore_https_status_code)
@@ -135,6 +138,14 @@ class GetWebTestResult:
         Interval in seconds between test runs for this WebTest. Default value is 300.
         """
         return pulumi.get(self, "frequency")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ignoreHttpsStatusCode")
@@ -277,6 +288,7 @@ class AwaitableGetWebTestResult(GetWebTestResult):
             enabled=self.enabled,
             expected_http_status_code=self.expected_http_status_code,
             frequency=self.frequency,
+            id=self.id,
             ignore_https_status_code=self.ignore_https_status_code,
             kind=self.kind,
             location=self.location,
@@ -320,6 +332,7 @@ def get_web_test(resource_group_name: Optional[str] = None,
         enabled=__ret__.enabled,
         expected_http_status_code=__ret__.expected_http_status_code,
         frequency=__ret__.frequency,
+        id=__ret__.id,
         ignore_https_status_code=__ret__.ignore_https_status_code,
         kind=__ret__.kind,
         location=__ret__.location,

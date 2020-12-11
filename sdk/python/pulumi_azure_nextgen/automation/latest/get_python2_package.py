@@ -20,7 +20,7 @@ class GetPython2PackageResult:
     """
     Definition of the module type.
     """
-    def __init__(__self__, activity_count=None, content_link=None, creation_time=None, description=None, error=None, etag=None, is_composite=None, is_global=None, last_modified_time=None, location=None, name=None, provisioning_state=None, size_in_bytes=None, tags=None, type=None, version=None):
+    def __init__(__self__, activity_count=None, content_link=None, creation_time=None, description=None, error=None, etag=None, id=None, is_composite=None, is_global=None, last_modified_time=None, location=None, name=None, provisioning_state=None, size_in_bytes=None, tags=None, type=None, version=None):
         if activity_count and not isinstance(activity_count, int):
             raise TypeError("Expected argument 'activity_count' to be a int")
         pulumi.set(__self__, "activity_count", activity_count)
@@ -39,6 +39,9 @@ class GetPython2PackageResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_composite and not isinstance(is_composite, bool):
             raise TypeError("Expected argument 'is_composite' to be a bool")
         pulumi.set(__self__, "is_composite", is_composite)
@@ -117,6 +120,14 @@ class GetPython2PackageResult:
         Gets or sets the etag of the resource.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isComposite")
@@ -211,6 +222,7 @@ class AwaitableGetPython2PackageResult(GetPython2PackageResult):
             description=self.description,
             error=self.error,
             etag=self.etag,
+            id=self.id,
             is_composite=self.is_composite,
             is_global=self.is_global,
             last_modified_time=self.last_modified_time,
@@ -251,6 +263,7 @@ def get_python2_package(automation_account_name: Optional[str] = None,
         description=__ret__.description,
         error=__ret__.error,
         etag=__ret__.etag,
+        id=__ret__.id,
         is_composite=__ret__.is_composite,
         is_global=__ret__.is_global,
         last_modified_time=__ret__.last_modified_time,

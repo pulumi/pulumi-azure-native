@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.Sql.V20180601Preview
         /// </summary>
         public readonly string FullyQualifiedDomainName;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The Azure Active Directory identity of the managed instance.
         /// </summary>
         public readonly Outputs.ResourceIdentityResponse? Identity;
@@ -167,6 +171,8 @@ namespace Pulumi.AzureNextGen.Sql.V20180601Preview
 
             string fullyQualifiedDomainName,
 
+            string id,
+
             Outputs.ResourceIdentityResponse? identity,
 
             string? instancePoolId,
@@ -213,6 +219,7 @@ namespace Pulumi.AzureNextGen.Sql.V20180601Preview
             DnsZone = dnsZone;
             DnsZonePartner = dnsZonePartner;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
+            Id = id;
             Identity = identity;
             InstancePoolId = instancePoolId;
             LicenseType = licenseType;

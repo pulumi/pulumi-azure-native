@@ -65,6 +65,10 @@ export interface GetVirtualNetworkResult {
      */
     readonly externalSubnets: outputs.devtestlab.latest.ExternalSubnetResponse[];
     /**
+     * The identifier of the resource.
+     */
+    readonly id: string;
+    /**
      * The location of the resource.
      */
     readonly location?: string;

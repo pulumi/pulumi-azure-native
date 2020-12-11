@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.EngagementFabric.V20180901Preview
     public sealed class GetAccountResult
     {
         /// <summary>
+        /// The ID of the resource
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the resource
         /// </summary>
         public readonly string Location;
@@ -62,6 +66,8 @@ namespace Pulumi.AzureNextGen.EngagementFabric.V20180901Preview
 
         [OutputConstructor]
         private GetAccountResult(
+            string id,
+
             string location,
 
             string name,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.EngagementFabric.V20180901Preview
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Sku = sku;

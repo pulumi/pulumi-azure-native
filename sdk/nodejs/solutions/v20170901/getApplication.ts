@@ -39,6 +39,10 @@ export interface GetApplicationResult {
      */
     readonly applicationDefinitionId?: string;
     /**
+     * Resource ID
+     */
+    readonly id: string;
+    /**
      * The identity of the resource.
      */
     readonly identity?: outputs.solutions.v20170901.IdentityResponse;

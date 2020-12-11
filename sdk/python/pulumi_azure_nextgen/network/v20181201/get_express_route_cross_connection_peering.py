@@ -20,7 +20,7 @@ class GetExpressRouteCrossConnectionPeeringResult:
     """
     Peering in an ExpressRoute Cross Connection resource.
     """
-    def __init__(__self__, azure_asn=None, etag=None, gateway_manager_etag=None, ipv6_peering_config=None, last_modified_by=None, microsoft_peering_config=None, name=None, peer_asn=None, peering_type=None, primary_azure_port=None, primary_peer_address_prefix=None, provisioning_state=None, secondary_azure_port=None, secondary_peer_address_prefix=None, shared_key=None, state=None, vlan_id=None):
+    def __init__(__self__, azure_asn=None, etag=None, gateway_manager_etag=None, id=None, ipv6_peering_config=None, last_modified_by=None, microsoft_peering_config=None, name=None, peer_asn=None, peering_type=None, primary_azure_port=None, primary_peer_address_prefix=None, provisioning_state=None, secondary_azure_port=None, secondary_peer_address_prefix=None, shared_key=None, state=None, vlan_id=None):
         if azure_asn and not isinstance(azure_asn, int):
             raise TypeError("Expected argument 'azure_asn' to be a int")
         pulumi.set(__self__, "azure_asn", azure_asn)
@@ -30,6 +30,9 @@ class GetExpressRouteCrossConnectionPeeringResult:
         if gateway_manager_etag and not isinstance(gateway_manager_etag, str):
             raise TypeError("Expected argument 'gateway_manager_etag' to be a str")
         pulumi.set(__self__, "gateway_manager_etag", gateway_manager_etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if ipv6_peering_config and not isinstance(ipv6_peering_config, dict):
             raise TypeError("Expected argument 'ipv6_peering_config' to be a dict")
         pulumi.set(__self__, "ipv6_peering_config", ipv6_peering_config)
@@ -96,6 +99,14 @@ class GetExpressRouteCrossConnectionPeeringResult:
         The GatewayManager Etag.
         """
         return pulumi.get(self, "gateway_manager_etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ipv6PeeringConfig")
@@ -219,6 +230,7 @@ class AwaitableGetExpressRouteCrossConnectionPeeringResult(GetExpressRouteCrossC
             azure_asn=self.azure_asn,
             etag=self.etag,
             gateway_manager_etag=self.gateway_manager_etag,
+            id=self.id,
             ipv6_peering_config=self.ipv6_peering_config,
             last_modified_by=self.last_modified_by,
             microsoft_peering_config=self.microsoft_peering_config,
@@ -260,6 +272,7 @@ def get_express_route_cross_connection_peering(cross_connection_name: Optional[s
         azure_asn=__ret__.azure_asn,
         etag=__ret__.etag,
         gateway_manager_etag=__ret__.gateway_manager_etag,
+        id=__ret__.id,
         ipv6_peering_config=__ret__.ipv6_peering_config,
         last_modified_by=__ret__.last_modified_by,
         microsoft_peering_config=__ret__.microsoft_peering_config,

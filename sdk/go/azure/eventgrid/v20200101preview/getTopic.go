@@ -27,6 +27,8 @@ type LookupTopicArgs struct {
 type LookupTopicResult struct {
 	// Endpoint for the topic.
 	Endpoint string `pulumi:"endpoint"`
+	// Fully qualified identifier of the resource
+	Id string `pulumi:"id"`
 	// This determines the format that Event Grid should expect for incoming events published to the topic.
 	InputSchema *string `pulumi:"inputSchema"`
 	// This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.

@@ -33,6 +33,8 @@ type LookupAppServicePlanResult struct {
 	HostingEnvironmentProfile *HostingEnvironmentProfileResponse `pulumi:"hostingEnvironmentProfile"`
 	// If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
 	HyperV *bool `pulumi:"hyperV"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// If <code>true</code>, this App Service Plan owns spot instances.
 	IsSpot *bool `pulumi:"isSpot"`
 	// Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.

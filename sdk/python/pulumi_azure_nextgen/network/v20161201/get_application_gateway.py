@@ -20,7 +20,7 @@ class GetApplicationGatewayResult:
     """
     Application gateway resource
     """
-    def __init__(__self__, authentication_certificates=None, backend_address_pools=None, backend_http_settings_collection=None, etag=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, location=None, name=None, operational_state=None, probes=None, provisioning_state=None, request_routing_rules=None, resource_guid=None, sku=None, ssl_certificates=None, ssl_policy=None, tags=None, type=None, url_path_maps=None, web_application_firewall_configuration=None):
+    def __init__(__self__, authentication_certificates=None, backend_address_pools=None, backend_http_settings_collection=None, etag=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, id=None, location=None, name=None, operational_state=None, probes=None, provisioning_state=None, request_routing_rules=None, resource_guid=None, sku=None, ssl_certificates=None, ssl_policy=None, tags=None, type=None, url_path_maps=None, web_application_firewall_configuration=None):
         if authentication_certificates and not isinstance(authentication_certificates, list):
             raise TypeError("Expected argument 'authentication_certificates' to be a list")
         pulumi.set(__self__, "authentication_certificates", authentication_certificates)
@@ -45,6 +45,9 @@ class GetApplicationGatewayResult:
         if http_listeners and not isinstance(http_listeners, list):
             raise TypeError("Expected argument 'http_listeners' to be a list")
         pulumi.set(__self__, "http_listeners", http_listeners)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -151,6 +154,14 @@ class GetApplicationGatewayResult:
         Http listeners of the application gateway resource.
         """
         return pulumi.get(self, "http_listeners")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -279,6 +290,7 @@ class AwaitableGetApplicationGatewayResult(GetApplicationGatewayResult):
             frontend_ports=self.frontend_ports,
             gateway_ip_configurations=self.gateway_ip_configurations,
             http_listeners=self.http_listeners,
+            id=self.id,
             location=self.location,
             name=self.name,
             operational_state=self.operational_state,
@@ -322,6 +334,7 @@ def get_application_gateway(application_gateway_name: Optional[str] = None,
         frontend_ports=__ret__.frontend_ports,
         gateway_ip_configurations=__ret__.gateway_ip_configurations,
         http_listeners=__ret__.http_listeners,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         operational_state=__ret__.operational_state,

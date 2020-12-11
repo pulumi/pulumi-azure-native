@@ -31,6 +31,8 @@ type LookupReplicationProtectionContainerMappingArgs struct {
 
 // Protection container mapping object.
 type LookupReplicationProtectionContainerMappingResult struct {
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource Location
 	Location *string `pulumi:"location"`
 	// Resource Name

@@ -39,6 +39,10 @@ export interface GetEnterpriseChannelResult {
      */
     readonly etag?: string;
     /**
+     * Specifies the resource ID.
+     */
+    readonly id: string;
+    /**
      * Required. Gets or sets the Kind of the resource.
      */
     readonly kind?: string;

@@ -19,7 +19,7 @@ class GetIoMAMPolicyByNameResult:
     """
     iOS Policy entity for Intune MAM.
     """
-    def __init__(__self__, access_recheck_offline_timeout=None, access_recheck_online_timeout=None, app_sharing_from_level=None, app_sharing_to_level=None, authentication=None, clipboard_sharing_level=None, data_backup=None, description=None, device_compliance=None, file_encryption_level=None, file_sharing_save_as=None, friendly_name=None, group_status=None, last_modified_time=None, location=None, managed_browser=None, name=None, num_of_apps=None, offline_wipe_timeout=None, pin=None, pin_num_retry=None, tags=None, touch_id=None, type=None):
+    def __init__(__self__, access_recheck_offline_timeout=None, access_recheck_online_timeout=None, app_sharing_from_level=None, app_sharing_to_level=None, authentication=None, clipboard_sharing_level=None, data_backup=None, description=None, device_compliance=None, file_encryption_level=None, file_sharing_save_as=None, friendly_name=None, group_status=None, id=None, last_modified_time=None, location=None, managed_browser=None, name=None, num_of_apps=None, offline_wipe_timeout=None, pin=None, pin_num_retry=None, tags=None, touch_id=None, type=None):
         if access_recheck_offline_timeout and not isinstance(access_recheck_offline_timeout, str):
             raise TypeError("Expected argument 'access_recheck_offline_timeout' to be a str")
         pulumi.set(__self__, "access_recheck_offline_timeout", access_recheck_offline_timeout)
@@ -59,6 +59,9 @@ class GetIoMAMPolicyByNameResult:
         if group_status and not isinstance(group_status, str):
             raise TypeError("Expected argument 'group_status' to be a str")
         pulumi.set(__self__, "group_status", group_status)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_modified_time and not isinstance(last_modified_time, str):
             raise TypeError("Expected argument 'last_modified_time' to be a str")
         pulumi.set(__self__, "last_modified_time", last_modified_time)
@@ -159,6 +162,14 @@ class GetIoMAMPolicyByNameResult:
         return pulumi.get(self, "group_status")
 
     @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
+
+    @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> str:
         return pulumi.get(self, "last_modified_time")
@@ -245,6 +256,7 @@ class AwaitableGetIoMAMPolicyByNameResult(GetIoMAMPolicyByNameResult):
             file_sharing_save_as=self.file_sharing_save_as,
             friendly_name=self.friendly_name,
             group_status=self.group_status,
+            id=self.id,
             last_modified_time=self.last_modified_time,
             location=self.location,
             managed_browser=self.managed_browser,
@@ -293,6 +305,7 @@ def get_io_mam_policy_by_name(host_name: Optional[str] = None,
         file_sharing_save_as=__ret__.file_sharing_save_as,
         friendly_name=__ret__.friendly_name,
         group_status=__ret__.group_status,
+        id=__ret__.id,
         last_modified_time=__ret__.last_modified_time,
         location=__ret__.location,
         managed_browser=__ret__.managed_browser,

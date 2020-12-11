@@ -72,6 +72,10 @@ export interface GetApiResult {
      */
     readonly displayName?: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Indicates if API revision is current api revision.
      */
     readonly isCurrent: boolean;

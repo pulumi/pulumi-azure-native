@@ -65,6 +65,10 @@ export interface GetLiveOutputResult {
      */
     readonly hls?: outputs.media.v20180701.HlsResponse;
     /**
+     * Fully qualified resource ID for the resource.
+     */
+    readonly id: string;
+    /**
      * The exact time the Live Output was last modified.
      */
     readonly lastModified: string;

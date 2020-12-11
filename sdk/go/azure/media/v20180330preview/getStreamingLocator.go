@@ -37,6 +37,8 @@ type LookupStreamingLocatorResult struct {
 	DefaultContentKeyPolicyName *string `pulumi:"defaultContentKeyPolicyName"`
 	// EndTime of Streaming Locator
 	EndTime *string `pulumi:"endTime"`
+	// Fully qualified resource ID for the resource.
+	Id string `pulumi:"id"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// StartTime of Streaming Locator

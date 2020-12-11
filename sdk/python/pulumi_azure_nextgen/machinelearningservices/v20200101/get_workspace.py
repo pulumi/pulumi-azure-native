@@ -20,7 +20,7 @@ class GetWorkspaceResult:
     """
     An object that represents a machine learning workspace.
     """
-    def __init__(__self__, application_insights=None, container_registry=None, creation_time=None, description=None, discovery_url=None, encryption=None, friendly_name=None, hbi_workspace=None, identity=None, key_vault=None, location=None, name=None, provisioning_state=None, service_provisioned_resource_group=None, sku=None, storage_account=None, tags=None, type=None, workspace_id=None):
+    def __init__(__self__, application_insights=None, container_registry=None, creation_time=None, description=None, discovery_url=None, encryption=None, friendly_name=None, hbi_workspace=None, id=None, identity=None, key_vault=None, location=None, name=None, provisioning_state=None, service_provisioned_resource_group=None, sku=None, storage_account=None, tags=None, type=None, workspace_id=None):
         if application_insights and not isinstance(application_insights, str):
             raise TypeError("Expected argument 'application_insights' to be a str")
         pulumi.set(__self__, "application_insights", application_insights)
@@ -45,6 +45,9 @@ class GetWorkspaceResult:
         if hbi_workspace and not isinstance(hbi_workspace, bool):
             raise TypeError("Expected argument 'hbi_workspace' to be a bool")
         pulumi.set(__self__, "hbi_workspace", hbi_workspace)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -142,6 +145,14 @@ class GetWorkspaceResult:
         The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
         """
         return pulumi.get(self, "hbi_workspace")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Specifies the resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -246,6 +257,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             encryption=self.encryption,
             friendly_name=self.friendly_name,
             hbi_workspace=self.hbi_workspace,
+            id=self.id,
             identity=self.identity,
             key_vault=self.key_vault,
             location=self.location,
@@ -286,6 +298,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
         encryption=__ret__.encryption,
         friendly_name=__ret__.friendly_name,
         hbi_workspace=__ret__.hbi_workspace,
+        id=__ret__.id,
         identity=__ret__.identity,
         key_vault=__ret__.key_vault,
         location=__ret__.location,

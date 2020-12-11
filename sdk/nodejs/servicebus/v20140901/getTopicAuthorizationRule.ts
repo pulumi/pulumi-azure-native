@@ -45,6 +45,10 @@ export interface GetTopicAuthorizationRuleArgs {
  */
 export interface GetTopicAuthorizationRuleResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location.
      */
     readonly location?: string;

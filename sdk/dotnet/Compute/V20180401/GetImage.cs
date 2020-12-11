@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Compute.V20180401
     public sealed class GetImageResult
     {
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.Compute.V20180401
 
         [OutputConstructor]
         private GetImageResult(
+            string id,
+
             string location,
 
             string name,
@@ -90,6 +96,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180401
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

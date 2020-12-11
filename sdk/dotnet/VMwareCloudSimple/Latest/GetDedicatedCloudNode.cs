@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.Latest
         /// </summary>
         public readonly object Created;
         /// <summary>
+        /// SKU's id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Azure region
         /// </summary>
         public readonly string Location;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.Latest
 
             object created,
 
+            string id,
+
             string location,
 
             string name,
@@ -154,6 +160,7 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.Latest
             AvailabilityZoneName = availabilityZoneName;
             CloudRackName = cloudRackName;
             Created = created;
+            Id = id;
             Location = location;
             Name = name;
             NodesCount = nodesCount;

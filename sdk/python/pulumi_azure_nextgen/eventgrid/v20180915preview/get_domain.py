@@ -20,10 +20,13 @@ class GetDomainResult:
     """
     EventGrid Domain
     """
-    def __init__(__self__, endpoint=None, input_schema=None, input_schema_mapping=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, endpoint=None, id=None, input_schema=None, input_schema_mapping=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if input_schema and not isinstance(input_schema, str):
             raise TypeError("Expected argument 'input_schema' to be a str")
         pulumi.set(__self__, "input_schema", input_schema)
@@ -53,6 +56,14 @@ class GetDomainResult:
         Endpoint for the domain.
         """
         return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified identifier of the resource
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="inputSchema")
@@ -118,6 +129,7 @@ class AwaitableGetDomainResult(GetDomainResult):
             yield self
         return GetDomainResult(
             endpoint=self.endpoint,
+            id=self.id,
             input_schema=self.input_schema,
             input_schema_mapping=self.input_schema_mapping,
             location=self.location,
@@ -147,6 +159,7 @@ def get_domain(domain_name: Optional[str] = None,
 
     return AwaitableGetDomainResult(
         endpoint=__ret__.endpoint,
+        id=__ret__.id,
         input_schema=__ret__.input_schema,
         input_schema_mapping=__ret__.input_schema_mapping,
         location=__ret__.location,

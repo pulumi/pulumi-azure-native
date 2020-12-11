@@ -43,6 +43,10 @@ export interface GetProfileResult {
      */
     readonly endpoints?: outputs.network.v20170501.EndpointResponse[];
     /**
+     * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
+     */
+    readonly id: string;
+    /**
      * The Azure Region where the resource lives
      */
     readonly location?: string;

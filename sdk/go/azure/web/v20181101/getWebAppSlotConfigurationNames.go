@@ -31,6 +31,8 @@ type LookupWebAppSlotConfigurationNamesResult struct {
 	AzureStorageConfigNames []string `pulumi:"azureStorageConfigNames"`
 	// List of connection string names.
 	ConnectionStringNames []string `pulumi:"connectionStringNames"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.

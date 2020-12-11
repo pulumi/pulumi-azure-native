@@ -31,6 +31,8 @@ type LookupExpressRouteGatewayResult struct {
 	Etag string `pulumi:"etag"`
 	// List of ExpressRoute connections to the ExpressRoute gateway.
 	ExpressRouteConnections []ExpressRouteConnectionResponse `pulumi:"expressRouteConnections"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.

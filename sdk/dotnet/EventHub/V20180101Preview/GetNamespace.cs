@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Value that indicates whether AutoInflate is enabled for eventhub namespace.
         /// </summary>
         public readonly bool? IsAutoInflateEnabled;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
 
             string createdAt,
 
+            string id,
+
             bool? isAutoInflateEnabled,
 
             bool? kafkaEnabled,
@@ -158,6 +164,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         {
             ClusterArmId = clusterArmId;
             CreatedAt = createdAt;
+            Id = id;
             IsAutoInflateEnabled = isAutoInflateEnabled;
             KafkaEnabled = kafkaEnabled;
             KeySource = keySource;

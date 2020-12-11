@@ -20,7 +20,7 @@ class GetVirtualHubResult:
     """
     VirtualHub Resource.
     """
-    def __init__(__self__, address_prefix=None, etag=None, express_route_gateway=None, location=None, name=None, p2_s_vpn_gateway=None, provisioning_state=None, route_table=None, tags=None, type=None, virtual_network_connections=None, virtual_wan=None, vpn_gateway=None):
+    def __init__(__self__, address_prefix=None, etag=None, express_route_gateway=None, id=None, location=None, name=None, p2_s_vpn_gateway=None, provisioning_state=None, route_table=None, tags=None, type=None, virtual_network_connections=None, virtual_wan=None, vpn_gateway=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
         pulumi.set(__self__, "address_prefix", address_prefix)
@@ -30,6 +30,9 @@ class GetVirtualHubResult:
         if express_route_gateway and not isinstance(express_route_gateway, dict):
             raise TypeError("Expected argument 'express_route_gateway' to be a dict")
         pulumi.set(__self__, "express_route_gateway", express_route_gateway)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -84,6 +87,14 @@ class GetVirtualHubResult:
         The expressRouteGateway associated with this VirtualHub
         """
         return pulumi.get(self, "express_route_gateway")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -175,6 +186,7 @@ class AwaitableGetVirtualHubResult(GetVirtualHubResult):
             address_prefix=self.address_prefix,
             etag=self.etag,
             express_route_gateway=self.express_route_gateway,
+            id=self.id,
             location=self.location,
             name=self.name,
             p2_s_vpn_gateway=self.p2_s_vpn_gateway,
@@ -209,6 +221,7 @@ def get_virtual_hub(resource_group_name: Optional[str] = None,
         address_prefix=__ret__.address_prefix,
         etag=__ret__.etag,
         express_route_gateway=__ret__.express_route_gateway,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         p2_s_vpn_gateway=__ret__.p2_s_vpn_gateway,

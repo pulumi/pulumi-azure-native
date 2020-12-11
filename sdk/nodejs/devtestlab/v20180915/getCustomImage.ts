@@ -65,6 +65,10 @@ export interface GetCustomImageResult {
      */
     readonly description?: string;
     /**
+     * The identifier of the resource.
+     */
+    readonly id: string;
+    /**
      * Whether or not the custom images underlying offer/plan has been enabled for programmatic deployment
      */
     readonly isPlanAuthorized?: boolean;

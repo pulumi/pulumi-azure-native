@@ -40,6 +40,10 @@ export interface GetPrivateEndpointConnectionArgs {
  */
 export interface GetPrivateEndpointConnectionResult {
     /**
+     * ARM resource id of the EnterprisePolicy.
+     */
+    readonly id: string;
+    /**
      * Region where the EnterprisePolicy is located.
      */
     readonly location: string;

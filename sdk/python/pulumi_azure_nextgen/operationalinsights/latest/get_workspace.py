@@ -20,7 +20,7 @@ class GetWorkspaceResult:
     """
     The top level Workspace resource container.
     """
-    def __init__(__self__, customer_id=None, e_tag=None, force_cmk_for_query=None, location=None, name=None, private_link_scoped_resources=None, provisioning_state=None, public_network_access_for_ingestion=None, public_network_access_for_query=None, retention_in_days=None, sku=None, tags=None, type=None, workspace_capping=None):
+    def __init__(__self__, customer_id=None, e_tag=None, force_cmk_for_query=None, id=None, location=None, name=None, private_link_scoped_resources=None, provisioning_state=None, public_network_access_for_ingestion=None, public_network_access_for_query=None, retention_in_days=None, sku=None, tags=None, type=None, workspace_capping=None):
         if customer_id and not isinstance(customer_id, str):
             raise TypeError("Expected argument 'customer_id' to be a str")
         pulumi.set(__self__, "customer_id", customer_id)
@@ -30,6 +30,9 @@ class GetWorkspaceResult:
         if force_cmk_for_query and not isinstance(force_cmk_for_query, bool):
             raise TypeError("Expected argument 'force_cmk_for_query' to be a bool")
         pulumi.set(__self__, "force_cmk_for_query", force_cmk_for_query)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -87,6 +90,14 @@ class GetWorkspaceResult:
         Indicates whether customer managed storage is mandatory for query management.
         """
         return pulumi.get(self, "force_cmk_for_query")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -186,6 +197,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             customer_id=self.customer_id,
             e_tag=self.e_tag,
             force_cmk_for_query=self.force_cmk_for_query,
+            id=self.id,
             location=self.location,
             name=self.name,
             private_link_scoped_resources=self.private_link_scoped_resources,
@@ -221,6 +233,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
         customer_id=__ret__.customer_id,
         e_tag=__ret__.e_tag,
         force_cmk_for_query=__ret__.force_cmk_for_query,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         private_link_scoped_resources=__ret__.private_link_scoped_resources,

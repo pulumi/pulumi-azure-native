@@ -30,6 +30,10 @@ export interface GetWorkspaceSettingArgs {
  */
 export interface GetWorkspaceSettingResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource name
      */
     readonly name: string;

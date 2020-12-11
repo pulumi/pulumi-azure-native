@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Azure resource name
         /// </summary>
         public readonly string Name;
@@ -90,6 +94,8 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         private GetBookmarkRelationResult(
             string? etag,
 
+            string id,
+
             string name,
 
             string relatedResourceId,
@@ -103,6 +109,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
             string type)
         {
             Etag = etag;
+            Id = id;
             Name = name;
             RelatedResourceId = relatedResourceId;
             RelatedResourceKind = relatedResourceKind;

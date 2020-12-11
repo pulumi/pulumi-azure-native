@@ -62,6 +62,10 @@ export interface GetViewResult {
      */
     readonly eTag?: string;
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * List of KPIs to show in Cost Analysis UI.
      */
     readonly kpis?: outputs.costmanagement.v20191101.KpiPropertiesResponse[];

@@ -35,6 +35,8 @@ type LookupEnvironmentResult struct {
 	DataAccessId string `pulumi:"dataAccessId"`
 	// ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
 	DataRetentionTime string `pulumi:"dataRetentionTime"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name

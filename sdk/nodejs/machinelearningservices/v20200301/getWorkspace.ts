@@ -71,6 +71,10 @@ export interface GetWorkspaceResult {
      */
     readonly hbiWorkspace?: boolean;
     /**
+     * Specifies the resource ID.
+     */
+    readonly id: string;
+    /**
      * The identity of the resource.
      */
     readonly identity?: outputs.machinelearningservices.v20200301.IdentityResponse;

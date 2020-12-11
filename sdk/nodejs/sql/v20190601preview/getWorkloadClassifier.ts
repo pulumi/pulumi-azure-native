@@ -58,6 +58,10 @@ export interface GetWorkloadClassifierResult {
      */
     readonly endTime?: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * The workload classifier importance.
      */
     readonly importance?: string;

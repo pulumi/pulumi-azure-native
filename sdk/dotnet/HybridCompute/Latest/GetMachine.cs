@@ -77,6 +77,10 @@ namespace Pulumi.AzureNextGen.HybridCompute.Latest
         /// Machine Extensions information
         /// </summary>
         public readonly ImmutableArray<Outputs.MachineExtensionInstanceViewResponse> Extensions;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
         public readonly Outputs.MachineResponseIdentity? Identity;
         /// <summary>
         /// The time of the last status change.
@@ -157,6 +161,8 @@ namespace Pulumi.AzureNextGen.HybridCompute.Latest
 
             ImmutableArray<Outputs.MachineExtensionInstanceViewResponse> extensions,
 
+            string id,
+
             Outputs.MachineResponseIdentity? identity,
 
             string lastStatusChange,
@@ -197,6 +203,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.Latest
             DomainName = domainName;
             ErrorDetails = errorDetails;
             Extensions = extensions;
+            Id = id;
             Identity = identity;
             LastStatusChange = lastStatusChange;
             Location = location;

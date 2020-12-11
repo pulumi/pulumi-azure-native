@@ -27,6 +27,8 @@ type LookupTrustedIdProviderArgs struct {
 
 // Data Lake Store trusted identity provider information.
 type LookupTrustedIdProviderResult struct {
+	// The resource identifier.
+	Id string `pulumi:"id"`
 	// The URL of this trusted identity provider.
 	IdProvider string `pulumi:"idProvider"`
 	// The resource name.

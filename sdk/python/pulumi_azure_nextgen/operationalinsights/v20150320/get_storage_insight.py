@@ -20,13 +20,16 @@ class GetStorageInsightResult:
     """
     The top level storage insight resource container.
     """
-    def __init__(__self__, containers=None, e_tag=None, name=None, status=None, storage_account=None, tables=None, tags=None, type=None):
+    def __init__(__self__, containers=None, e_tag=None, id=None, name=None, status=None, storage_account=None, tables=None, tags=None, type=None):
         if containers and not isinstance(containers, list):
             raise TypeError("Expected argument 'containers' to be a list")
         pulumi.set(__self__, "containers", containers)
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -61,6 +64,14 @@ class GetStorageInsightResult:
         The ETag of the storage insight.
         """
         return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -119,6 +130,7 @@ class AwaitableGetStorageInsightResult(GetStorageInsightResult):
         return GetStorageInsightResult(
             containers=self.containers,
             e_tag=self.e_tag,
+            id=self.id,
             name=self.name,
             status=self.status,
             storage_account=self.storage_account,
@@ -151,6 +163,7 @@ def get_storage_insight(resource_group_name: Optional[str] = None,
     return AwaitableGetStorageInsightResult(
         containers=__ret__.containers,
         e_tag=__ret__.e_tag,
+        id=__ret__.id,
         name=__ret__.name,
         status=__ret__.status,
         storage_account=__ret__.storage_account,

@@ -41,6 +41,8 @@ type LookupProfileResult struct {
 	EntityType *string `pulumi:"entityType"`
 	// The properties of the Profile.
 	Fields []PropertyDefinitionResponse `pulumi:"fields"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// The instance count.
 	InstancesCount *int `pulumi:"instancesCount"`
 	// Large Image associated with the Property or EntityType.

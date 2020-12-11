@@ -39,6 +39,10 @@ export interface GetEnterprisePolicyResult {
      */
     readonly encryption?: outputs.powerplatform.v20201030preview.PropertiesResponseEncryption;
     /**
+     * ARM resource id of the EnterprisePolicy.
+     */
+    readonly id: string;
+    /**
      * The identity of the EnterprisePolicy.
      */
     readonly identity?: outputs.powerplatform.v20201030preview.EnterprisePolicyIdentityResponse;

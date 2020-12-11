@@ -19,7 +19,10 @@ class GetTrustedIdProviderResult:
     """
     Data Lake Store trusted identity provider information.
     """
-    def __init__(__self__, id_provider=None, name=None, type=None):
+    def __init__(__self__, id=None, id_provider=None, name=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if id_provider and not isinstance(id_provider, str):
             raise TypeError("Expected argument 'id_provider' to be a str")
         pulumi.set(__self__, "id_provider", id_provider)
@@ -29,6 +32,14 @@ class GetTrustedIdProviderResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource identifier.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="idProvider")
@@ -61,6 +72,7 @@ class AwaitableGetTrustedIdProviderResult(GetTrustedIdProviderResult):
         if False:
             yield self
         return GetTrustedIdProviderResult(
+            id=self.id,
             id_provider=self.id_provider,
             name=self.name,
             type=self.type)
@@ -88,6 +100,7 @@ def get_trusted_id_provider(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:datalakestore/v20161101:getTrustedIdProvider', __args__, opts=opts, typ=GetTrustedIdProviderResult).value
 
     return AwaitableGetTrustedIdProviderResult(
+        id=__ret__.id,
         id_provider=__ret__.id_provider,
         name=__ret__.name,
         type=__ret__.type)

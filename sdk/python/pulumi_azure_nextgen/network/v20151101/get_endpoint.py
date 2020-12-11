@@ -19,7 +19,7 @@ class GetEndpointResult:
     """
     Class representing a Traffic Manager endpoint.
     """
-    def __init__(__self__, endpoint_location=None, endpoint_monitor_status=None, endpoint_status=None, min_child_endpoints=None, name=None, priority=None, target=None, target_resource_id=None, type=None, weight=None):
+    def __init__(__self__, endpoint_location=None, endpoint_monitor_status=None, endpoint_status=None, id=None, min_child_endpoints=None, name=None, priority=None, target=None, target_resource_id=None, type=None, weight=None):
         if endpoint_location and not isinstance(endpoint_location, str):
             raise TypeError("Expected argument 'endpoint_location' to be a str")
         pulumi.set(__self__, "endpoint_location", endpoint_location)
@@ -29,6 +29,9 @@ class GetEndpointResult:
         if endpoint_status and not isinstance(endpoint_status, str):
             raise TypeError("Expected argument 'endpoint_status' to be a str")
         pulumi.set(__self__, "endpoint_status", endpoint_status)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if min_child_endpoints and not isinstance(min_child_endpoints, int):
             raise TypeError("Expected argument 'min_child_endpoints' to be a int")
         pulumi.set(__self__, "min_child_endpoints", min_child_endpoints)
@@ -74,6 +77,14 @@ class GetEndpointResult:
         Gets or sets the status of the endpoint..  If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.  Possible values are 'Enabled' and 'Disabled'.
         """
         return pulumi.get(self, "endpoint_status")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Gets or sets the ID of the Traffic Manager endpoint.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="minChildEndpoints")
@@ -141,6 +152,7 @@ class AwaitableGetEndpointResult(GetEndpointResult):
             endpoint_location=self.endpoint_location,
             endpoint_monitor_status=self.endpoint_monitor_status,
             endpoint_status=self.endpoint_status,
+            id=self.id,
             min_child_endpoints=self.min_child_endpoints,
             name=self.name,
             priority=self.priority,
@@ -178,6 +190,7 @@ def get_endpoint(endpoint_name: Optional[str] = None,
         endpoint_location=__ret__.endpoint_location,
         endpoint_monitor_status=__ret__.endpoint_monitor_status,
         endpoint_status=__ret__.endpoint_status,
+        id=__ret__.id,
         min_child_endpoints=__ret__.min_child_endpoints,
         name=__ret__.name,
         priority=__ret__.priority,

@@ -31,6 +31,8 @@ type LookupDataCollectionRuleAssociationResult struct {
 	Description *string `pulumi:"description"`
 	// Resource entity tag (ETag).
 	Etag string `pulumi:"etag"`
+	// Fully qualified ID of the resource.
+	Id string `pulumi:"id"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The resource provisioning state.

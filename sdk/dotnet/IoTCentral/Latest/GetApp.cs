@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.IoTCentral.Latest
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
+        /// The ARM resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string Location;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNextGen.IoTCentral.Latest
 
             string? displayName,
 
+            string id,
+
             string location,
 
             string name,
@@ -98,6 +104,7 @@ namespace Pulumi.AzureNextGen.IoTCentral.Latest
         {
             ApplicationId = applicationId;
             DisplayName = displayName;
+            Id = id;
             Location = location;
             Name = name;
             Sku = sku;

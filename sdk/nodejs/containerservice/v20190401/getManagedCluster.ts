@@ -67,6 +67,10 @@ export interface GetManagedClusterResult {
      */
     readonly fqdn: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * The identity of the managed cluster, if configured.
      */
     readonly identity?: outputs.containerservice.v20190401.ManagedClusterIdentityResponse;

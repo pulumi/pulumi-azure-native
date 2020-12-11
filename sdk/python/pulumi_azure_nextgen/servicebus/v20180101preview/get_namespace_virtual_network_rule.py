@@ -19,7 +19,10 @@ class GetNamespaceVirtualNetworkRuleResult:
     """
     Single item in a List or Get VirtualNetworkRules operation
     """
-    def __init__(__self__, name=None, type=None, virtual_network_subnet_id=None):
+    def __init__(__self__, id=None, name=None, type=None, virtual_network_subnet_id=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -29,6 +32,14 @@ class GetNamespaceVirtualNetworkRuleResult:
         if virtual_network_subnet_id and not isinstance(virtual_network_subnet_id, str):
             raise TypeError("Expected argument 'virtual_network_subnet_id' to be a str")
         pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -61,6 +72,7 @@ class AwaitableGetNamespaceVirtualNetworkRuleResult(GetNamespaceVirtualNetworkRu
         if False:
             yield self
         return GetNamespaceVirtualNetworkRuleResult(
+            id=self.id,
             name=self.name,
             type=self.type,
             virtual_network_subnet_id=self.virtual_network_subnet_id)
@@ -88,6 +100,7 @@ def get_namespace_virtual_network_rule(namespace_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:servicebus/v20180101preview:getNamespaceVirtualNetworkRule', __args__, opts=opts, typ=GetNamespaceVirtualNetworkRuleResult).value
 
     return AwaitableGetNamespaceVirtualNetworkRuleResult(
+        id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type,
         virtual_network_subnet_id=__ret__.virtual_network_subnet_id)

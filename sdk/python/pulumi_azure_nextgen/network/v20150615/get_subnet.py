@@ -20,13 +20,16 @@ class GetSubnetResult:
     """
     Subnet in a virtual network resource.
     """
-    def __init__(__self__, address_prefix=None, etag=None, ip_configurations=None, name=None, network_security_group=None, provisioning_state=None, route_table=None):
+    def __init__(__self__, address_prefix=None, etag=None, id=None, ip_configurations=None, name=None, network_security_group=None, provisioning_state=None, route_table=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
         pulumi.set(__self__, "address_prefix", address_prefix)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if ip_configurations and not isinstance(ip_configurations, list):
             raise TypeError("Expected argument 'ip_configurations' to be a list")
         pulumi.set(__self__, "ip_configurations", ip_configurations)
@@ -58,6 +61,14 @@ class GetSubnetResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource Identifier.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ipConfigurations")
@@ -108,6 +119,7 @@ class AwaitableGetSubnetResult(GetSubnetResult):
         return GetSubnetResult(
             address_prefix=self.address_prefix,
             etag=self.etag,
+            id=self.id,
             ip_configurations=self.ip_configurations,
             name=self.name,
             network_security_group=self.network_security_group,
@@ -142,6 +154,7 @@ def get_subnet(expand: Optional[str] = None,
     return AwaitableGetSubnetResult(
         address_prefix=__ret__.address_prefix,
         etag=__ret__.etag,
+        id=__ret__.id,
         ip_configurations=__ret__.ip_configurations,
         name=__ret__.name,
         network_security_group=__ret__.network_security_group,

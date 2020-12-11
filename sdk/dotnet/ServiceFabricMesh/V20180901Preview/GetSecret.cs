@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview
     public sealed class GetSecretResult
     {
         /// <summary>
+        /// Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -62,6 +66,8 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview
 
         [OutputConstructor]
         private GetSecretResult(
+            string id,
+
             string location,
 
             string name,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

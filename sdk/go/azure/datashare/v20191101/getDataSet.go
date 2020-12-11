@@ -29,6 +29,8 @@ type LookupDataSetArgs struct {
 
 // A DataSet data transfer object.
 type LookupDataSetResult struct {
+	// The resource id of the azure resource
+	Id string `pulumi:"id"`
 	// Kind of data set.
 	Kind string `pulumi:"kind"`
 	// Name of the azure resource

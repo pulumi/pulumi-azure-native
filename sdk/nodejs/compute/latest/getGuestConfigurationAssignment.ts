@@ -40,6 +40,10 @@ export interface GetGuestConfigurationAssignmentArgs {
  */
 export interface GetGuestConfigurationAssignmentResult {
     /**
+     * ARM resource id of the guest configuration assignment.
+     */
+    readonly id: string;
+    /**
      * Region where the VM is located.
      */
     readonly location?: string;

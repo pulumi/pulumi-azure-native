@@ -48,6 +48,10 @@ export interface GetIntegrationAccountCertificateResult {
      */
     readonly createdTime: string;
     /**
+     * The resource id.
+     */
+    readonly id: string;
+    /**
      * The key details in the key vault.
      */
     readonly key?: outputs.logic.v20180701preview.KeyVaultKeyReferenceResponse;

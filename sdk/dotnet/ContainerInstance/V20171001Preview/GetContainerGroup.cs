@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20171001Preview
         /// </summary>
         public readonly ImmutableArray<Outputs.ContainerResponse> Containers;
         /// <summary>
+        /// The resource id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The image registry credentials by which the container group is created from.
         /// </summary>
         public readonly ImmutableArray<Outputs.ImageRegistryCredentialResponse> ImageRegistryCredentials;
@@ -95,6 +99,8 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20171001Preview
         private GetContainerGroupResult(
             ImmutableArray<Outputs.ContainerResponse> containers,
 
+            string id,
+
             ImmutableArray<Outputs.ImageRegistryCredentialResponse> imageRegistryCredentials,
 
             Outputs.ContainerGroupResponseInstanceView instanceView,
@@ -118,6 +124,7 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20171001Preview
             ImmutableArray<Outputs.VolumeResponse> volumes)
         {
             Containers = containers;
+            Id = id;
             ImageRegistryCredentials = imageRegistryCredentials;
             InstanceView = instanceView;
             IpAddress = ipAddress;

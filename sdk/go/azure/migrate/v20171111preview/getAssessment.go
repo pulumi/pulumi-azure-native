@@ -47,6 +47,8 @@ type LookupAssessmentResult struct {
 	DiscountPercentage float64 `pulumi:"discountPercentage"`
 	// For optimistic concurrency control.
 	ETag *string `pulumi:"eTag"`
+	// Path reference to this assessment. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessment/{assessmentName}
+	Id string `pulumi:"id"`
 	// Monthly network cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
 	MonthlyBandwidthCost float64 `pulumi:"monthlyBandwidthCost"`
 	// Monthly compute cost estimate for the machines that are part of this assessment as a group, for a 31-day month.

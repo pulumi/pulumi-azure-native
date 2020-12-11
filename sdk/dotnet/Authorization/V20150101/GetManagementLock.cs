@@ -34,6 +34,10 @@ namespace Pulumi.AzureNextGen.Authorization.V20150101
     public sealed class GetManagementLockResult
     {
         /// <summary>
+        /// The Id of the lock.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The lock level of the management lock.
         /// </summary>
         public readonly string? Level;
@@ -52,6 +56,8 @@ namespace Pulumi.AzureNextGen.Authorization.V20150101
 
         [OutputConstructor]
         private GetManagementLockResult(
+            string id,
+
             string? level,
 
             string? name,
@@ -60,6 +66,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20150101
 
             string type)
         {
+            Id = id;
             Level = level;
             Name = name;
             Notes = notes;

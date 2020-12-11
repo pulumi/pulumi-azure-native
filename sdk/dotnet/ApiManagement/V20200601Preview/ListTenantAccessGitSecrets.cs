@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
+        /// Identifier.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Primary access key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
         /// </summary>
         public readonly string? PrimaryKey;
@@ -62,11 +66,14 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         private ListTenantAccessGitSecretsResult(
             bool? enabled,
 
+            string? id,
+
             string? primaryKey,
 
             string? secondaryKey)
         {
             Enabled = enabled;
+            Id = id;
             PrimaryKey = primaryKey;
             SecondaryKey = secondaryKey;
         }

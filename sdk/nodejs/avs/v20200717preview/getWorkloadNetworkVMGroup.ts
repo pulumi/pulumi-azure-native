@@ -44,6 +44,10 @@ export interface GetWorkloadNetworkVMGroupResult {
      */
     readonly displayName?: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Virtual machine members of this group.
      */
     readonly members?: string[];

@@ -27,6 +27,8 @@ type LookupWorkspaceAadAdminArgs struct {
 type LookupWorkspaceAadAdminResult struct {
 	// Workspace active directory administrator type
 	AdministratorType *string `pulumi:"administratorType"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// Login of the workspace active directory administrator
 	Login *string `pulumi:"login"`
 	// The name of the resource

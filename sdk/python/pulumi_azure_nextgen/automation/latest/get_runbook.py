@@ -20,7 +20,7 @@ class GetRunbookResult:
     """
     Definition of the runbook type.
     """
-    def __init__(__self__, creation_time=None, description=None, draft=None, etag=None, job_count=None, last_modified_by=None, last_modified_time=None, location=None, log_activity_trace=None, log_progress=None, log_verbose=None, name=None, output_types=None, parameters=None, provisioning_state=None, publish_content_link=None, runbook_type=None, state=None, tags=None, type=None):
+    def __init__(__self__, creation_time=None, description=None, draft=None, etag=None, id=None, job_count=None, last_modified_by=None, last_modified_time=None, location=None, log_activity_trace=None, log_progress=None, log_verbose=None, name=None, output_types=None, parameters=None, provisioning_state=None, publish_content_link=None, runbook_type=None, state=None, tags=None, type=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -33,6 +33,9 @@ class GetRunbookResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if job_count and not isinstance(job_count, int):
             raise TypeError("Expected argument 'job_count' to be a int")
         pulumi.set(__self__, "job_count", job_count)
@@ -113,6 +116,14 @@ class GetRunbookResult:
         Gets or sets the etag of the resource.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="jobCount")
@@ -253,6 +264,7 @@ class AwaitableGetRunbookResult(GetRunbookResult):
             description=self.description,
             draft=self.draft,
             etag=self.etag,
+            id=self.id,
             job_count=self.job_count,
             last_modified_by=self.last_modified_by,
             last_modified_time=self.last_modified_time,
@@ -297,6 +309,7 @@ def get_runbook(automation_account_name: Optional[str] = None,
         description=__ret__.description,
         draft=__ret__.draft,
         etag=__ret__.etag,
+        id=__ret__.id,
         job_count=__ret__.job_count,
         last_modified_by=__ret__.last_modified_by,
         last_modified_time=__ret__.last_modified_time,

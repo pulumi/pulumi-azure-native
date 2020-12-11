@@ -19,13 +19,16 @@ class GetRouteResult:
     """
     Route resource.
     """
-    def __init__(__self__, address_prefix=None, etag=None, name=None, next_hop_ip_address=None, next_hop_type=None, provisioning_state=None):
+    def __init__(__self__, address_prefix=None, etag=None, id=None, name=None, next_hop_ip_address=None, next_hop_type=None, provisioning_state=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
         pulumi.set(__self__, "address_prefix", address_prefix)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -54,6 +57,14 @@ class GetRouteResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -96,6 +107,7 @@ class AwaitableGetRouteResult(GetRouteResult):
         return GetRouteResult(
             address_prefix=self.address_prefix,
             etag=self.etag,
+            id=self.id,
             name=self.name,
             next_hop_ip_address=self.next_hop_ip_address,
             next_hop_type=self.next_hop_type,
@@ -126,6 +138,7 @@ def get_route(resource_group_name: Optional[str] = None,
     return AwaitableGetRouteResult(
         address_prefix=__ret__.address_prefix,
         etag=__ret__.etag,
+        id=__ret__.id,
         name=__ret__.name,
         next_hop_ip_address=__ret__.next_hop_ip_address,
         next_hop_type=__ret__.next_hop_type,

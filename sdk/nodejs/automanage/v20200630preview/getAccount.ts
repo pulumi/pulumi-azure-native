@@ -35,6 +35,10 @@ export interface GetAccountArgs {
  */
 export interface GetAccountResult {
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * The identity of the Automanage account.
      */
     readonly identity?: outputs.automanage.v20200630preview.AccountIdentityResponse;

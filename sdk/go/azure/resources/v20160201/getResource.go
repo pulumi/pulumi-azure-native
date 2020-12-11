@@ -31,6 +31,8 @@ type LookupResourceArgs struct {
 
 // Resource information.
 type LookupResourceResult struct {
+	// Resource Id
+	Id string `pulumi:"id"`
 	// The identity of the resource.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// The kind of the resource.

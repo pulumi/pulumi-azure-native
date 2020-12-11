@@ -27,6 +27,8 @@ type LookupCustomResourceProviderArgs struct {
 type LookupCustomResourceProviderResult struct {
 	// A list of actions that the custom resource provider implements.
 	Actions []CustomRPActionRouteDefinitionResponse `pulumi:"actions"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name

@@ -51,6 +51,10 @@ export interface GetContainerGroupResult {
      */
     readonly encryptionProperties?: outputs.containerinstance.latest.EncryptionPropertiesResponse;
     /**
+     * The resource id.
+     */
+    readonly id: string;
+    /**
      * The identity of the container group, if configured.
      */
     readonly identity?: outputs.containerinstance.latest.ContainerGroupIdentityResponse;

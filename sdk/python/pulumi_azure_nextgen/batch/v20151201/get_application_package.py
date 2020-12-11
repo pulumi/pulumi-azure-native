@@ -19,10 +19,13 @@ class GetApplicationPackageResult:
     """
     An application package which represents a particular version of an application.
     """
-    def __init__(__self__, format=None, last_activation_time=None, state=None, storage_url=None, storage_url_expiry=None, version=None):
+    def __init__(__self__, format=None, id=None, last_activation_time=None, state=None, storage_url=None, storage_url_expiry=None, version=None):
         if format and not isinstance(format, str):
             raise TypeError("Expected argument 'format' to be a str")
         pulumi.set(__self__, "format", format)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_activation_time and not isinstance(last_activation_time, str):
             raise TypeError("Expected argument 'last_activation_time' to be a str")
         pulumi.set(__self__, "last_activation_time", last_activation_time)
@@ -46,6 +49,14 @@ class GetApplicationPackageResult:
         The format of the application package, if the package is active.
         """
         return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The ID of the application.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastActivationTime")
@@ -95,6 +106,7 @@ class AwaitableGetApplicationPackageResult(GetApplicationPackageResult):
             yield self
         return GetApplicationPackageResult(
             format=self.format,
+            id=self.id,
             last_activation_time=self.last_activation_time,
             state=self.state,
             storage_url=self.storage_url,
@@ -128,6 +140,7 @@ def get_application_package(account_name: Optional[str] = None,
 
     return AwaitableGetApplicationPackageResult(
         format=__ret__.format,
+        id=__ret__.id,
         last_activation_time=__ret__.last_activation_time,
         state=__ret__.state,
         storage_url=__ret__.storage_url,

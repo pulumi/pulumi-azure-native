@@ -44,6 +44,10 @@ export interface GetApplicationResult {
      */
     readonly etag: string;
     /**
+     * Azure resource identifier.
+     */
+    readonly id: string;
+    /**
      * Describes the managed identities for an Azure resource.
      */
     readonly identity?: outputs.servicefabric.v20200301.ManagedIdentityResponse;

@@ -19,10 +19,13 @@ class GetprivateLinkForAzureAdResult:
     """
     PrivateLink Policy configuration object.
     """
-    def __init__(__self__, all_tenants=None, name=None, owner_tenant_id=None, resource_group=None, resource_name=None, subscription_id=None, tags=None, tenants=None, type=None):
+    def __init__(__self__, all_tenants=None, id=None, name=None, owner_tenant_id=None, resource_group=None, resource_name=None, subscription_id=None, tags=None, tenants=None, type=None):
         if all_tenants and not isinstance(all_tenants, bool):
             raise TypeError("Expected argument 'all_tenants' to be a bool")
         pulumi.set(__self__, "all_tenants", all_tenants)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -55,6 +58,14 @@ class GetprivateLinkForAzureAdResult:
         Flag indicating whether all tenants are allowed
         """
         return pulumi.get(self, "all_tenants")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        String Id used to locate any resource on Azure.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -128,6 +139,7 @@ class AwaitableGetprivateLinkForAzureAdResult(GetprivateLinkForAzureAdResult):
             yield self
         return GetprivateLinkForAzureAdResult(
             all_tenants=self.all_tenants,
+            id=self.id,
             name=self.name,
             owner_tenant_id=self.owner_tenant_id,
             resource_group=self.resource_group,
@@ -158,6 +170,7 @@ def getprivate_link_for_azure_ad(policy_name: Optional[str] = None,
 
     return AwaitableGetprivateLinkForAzureAdResult(
         all_tenants=__ret__.all_tenants,
+        id=__ret__.id,
         name=__ret__.name,
         owner_tenant_id=__ret__.owner_tenant_id,
         resource_group=__ret__.resource_group,

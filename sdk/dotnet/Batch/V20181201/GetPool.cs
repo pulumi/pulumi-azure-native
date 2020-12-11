@@ -79,6 +79,10 @@ namespace Pulumi.AzureNextGen.Batch.V20181201
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// The ID of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
         /// </summary>
         public readonly string? InterNodeCommunication;
@@ -150,6 +154,8 @@ namespace Pulumi.AzureNextGen.Batch.V20181201
 
             string etag,
 
+            string id,
+
             string? interNodeCommunication,
 
             string lastModified,
@@ -192,6 +198,7 @@ namespace Pulumi.AzureNextGen.Batch.V20181201
             DeploymentConfiguration = deploymentConfiguration;
             DisplayName = displayName;
             Etag = etag;
+            Id = id;
             InterNodeCommunication = interNodeCommunication;
             LastModified = lastModified;
             MaxTasksPerNode = maxTasksPerNode;

@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
     public sealed class GetRulesEngineResult
     {
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -64,6 +68,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
         [OutputConstructor]
         private GetRulesEngineResult(
+            string id,
+
             string name,
 
             string resourceState,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string type)
         {
+            Id = id;
             Name = name;
             ResourceState = resourceState;
             Rules = rules;

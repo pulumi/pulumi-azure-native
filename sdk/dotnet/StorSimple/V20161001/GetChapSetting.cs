@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
     public sealed class GetChapSettingResult
     {
         /// <summary>
+        /// The identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name.
         /// </summary>
         public readonly string Name;
@@ -66,12 +70,15 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
 
         [OutputConstructor]
         private GetChapSettingResult(
+            string id,
+
             string name,
 
             Outputs.AsymmetricEncryptedSecretResponse password,
 
             string type)
         {
+            Id = id;
             Name = name;
             Password = password;
             Type = type;

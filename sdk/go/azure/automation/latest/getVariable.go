@@ -31,6 +31,8 @@ type LookupVariableResult struct {
 	CreationTime *string `pulumi:"creationTime"`
 	// Gets or sets the description.
 	Description *string `pulumi:"description"`
+	// Fully qualified resource Id for the resource
+	Id string `pulumi:"id"`
 	// Gets or sets the encrypted flag of the variable.
 	IsEncrypted *bool `pulumi:"isEncrypted"`
 	// Gets or sets the last modified time.

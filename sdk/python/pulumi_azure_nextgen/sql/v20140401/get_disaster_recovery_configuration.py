@@ -19,13 +19,16 @@ class GetDisasterRecoveryConfigurationResult:
     """
     Represents a disaster recovery configuration.
     """
-    def __init__(__self__, auto_failover=None, failover_policy=None, location=None, logical_server_name=None, name=None, partner_logical_server_name=None, partner_server_id=None, role=None, status=None, type=None):
+    def __init__(__self__, auto_failover=None, failover_policy=None, id=None, location=None, logical_server_name=None, name=None, partner_logical_server_name=None, partner_server_id=None, role=None, status=None, type=None):
         if auto_failover and not isinstance(auto_failover, str):
             raise TypeError("Expected argument 'auto_failover' to be a str")
         pulumi.set(__self__, "auto_failover", auto_failover)
         if failover_policy and not isinstance(failover_policy, str):
             raise TypeError("Expected argument 'failover_policy' to be a str")
         pulumi.set(__self__, "failover_policy", failover_policy)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -66,6 +69,14 @@ class GetDisasterRecoveryConfigurationResult:
         How aggressive the automatic failover should be.
         """
         return pulumi.get(self, "failover_policy")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -140,6 +151,7 @@ class AwaitableGetDisasterRecoveryConfigurationResult(GetDisasterRecoveryConfigu
         return GetDisasterRecoveryConfigurationResult(
             auto_failover=self.auto_failover,
             failover_policy=self.failover_policy,
+            id=self.id,
             location=self.location,
             logical_server_name=self.logical_server_name,
             name=self.name,
@@ -174,6 +186,7 @@ def get_disaster_recovery_configuration(disaster_recovery_configuration_name: Op
     return AwaitableGetDisasterRecoveryConfigurationResult(
         auto_failover=__ret__.auto_failover,
         failover_policy=__ret__.failover_policy,
+        id=__ret__.id,
         location=__ret__.location,
         logical_server_name=__ret__.logical_server_name,
         name=__ret__.name,

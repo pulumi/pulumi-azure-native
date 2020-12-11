@@ -31,6 +31,8 @@ type LookupAssessmentArgs struct {
 type LookupAssessmentResult struct {
 	// For optimistic concurrency control.
 	ETag *string `pulumi:"eTag"`
+	// Path reference to this assessment. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/assessment/{assessmentName}
+	Id string `pulumi:"id"`
 	// Unique name of an assessment.
 	Name string `pulumi:"name"`
 	// Properties of the assessment.

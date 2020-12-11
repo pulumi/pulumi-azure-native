@@ -32,6 +32,10 @@ export interface GetWorkspaceCollectionArgs {
 
 export interface GetWorkspaceCollectionResult {
     /**
+     * Resource id
+     */
+    readonly id?: string;
+    /**
      * Azure location
      */
     readonly location?: string;

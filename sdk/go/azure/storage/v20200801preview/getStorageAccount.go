@@ -49,6 +49,8 @@ type LookupStorageAccountResult struct {
 	FailoverInProgress bool `pulumi:"failoverInProgress"`
 	// Geo Replication Stats
 	GeoReplicationStats GeoReplicationStatsResponse `pulumi:"geoReplicationStats"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The identity of the resource.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// Account HierarchicalNamespace enabled if sets to true.

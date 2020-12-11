@@ -31,6 +31,8 @@ type LookupVirtualHubBgpConnectionResult struct {
 	ConnectionState string `pulumi:"connectionState"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// Name of the connection.
 	Name *string `pulumi:"name"`
 	// Peer ASN.

@@ -26,6 +26,8 @@ type LookupWorkflowAccessKeyArgs struct {
 }
 
 type LookupWorkflowAccessKeyResult struct {
+	// Gets or sets the resource id.
+	Id *string `pulumi:"id"`
 	// Gets the workflow access key name.
 	Name string `pulumi:"name"`
 	// Gets or sets the not-after time.

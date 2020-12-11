@@ -36,6 +36,8 @@ type LookupDataCollectionRuleResult struct {
 	Destinations DataCollectionRuleResponseDestinations `pulumi:"destinations"`
 	// Resource entity tag (ETag).
 	Etag string `pulumi:"etag"`
+	// Fully qualified ID of the resource.
+	Id string `pulumi:"id"`
 	// The geo-location where the resource lives.
 	Location string `pulumi:"location"`
 	// The name of the resource.

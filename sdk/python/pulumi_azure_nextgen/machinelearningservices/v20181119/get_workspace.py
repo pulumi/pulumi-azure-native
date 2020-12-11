@@ -20,7 +20,7 @@ class GetWorkspaceResult:
     """
     An object that represents a machine learning workspace.
     """
-    def __init__(__self__, application_insights=None, container_registry=None, creation_time=None, description=None, discovery_url=None, friendly_name=None, identity=None, key_vault=None, location=None, name=None, provisioning_state=None, storage_account=None, tags=None, type=None, workspace_id=None):
+    def __init__(__self__, application_insights=None, container_registry=None, creation_time=None, description=None, discovery_url=None, friendly_name=None, id=None, identity=None, key_vault=None, location=None, name=None, provisioning_state=None, storage_account=None, tags=None, type=None, workspace_id=None):
         if application_insights and not isinstance(application_insights, str):
             raise TypeError("Expected argument 'application_insights' to be a str")
         pulumi.set(__self__, "application_insights", application_insights)
@@ -39,6 +39,9 @@ class GetWorkspaceResult:
         if friendly_name and not isinstance(friendly_name, str):
             raise TypeError("Expected argument 'friendly_name' to be a str")
         pulumi.set(__self__, "friendly_name", friendly_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -114,6 +117,14 @@ class GetWorkspaceResult:
         The friendly name for this workspace. This name in mutable
         """
         return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Specifies the resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -200,6 +211,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             description=self.description,
             discovery_url=self.discovery_url,
             friendly_name=self.friendly_name,
+            id=self.id,
             identity=self.identity,
             key_vault=self.key_vault,
             location=self.location,
@@ -236,6 +248,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
         description=__ret__.description,
         discovery_url=__ret__.discovery_url,
         friendly_name=__ret__.friendly_name,
+        id=__ret__.id,
         identity=__ret__.identity,
         key_vault=__ret__.key_vault,
         location=__ret__.location,

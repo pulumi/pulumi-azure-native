@@ -20,7 +20,10 @@ class GetVirtualMachineScaleSetResult:
     """
     Describes a Virtual Machine Scale Set.
     """
-    def __init__(__self__, identity=None, location=None, name=None, over_provision=None, provisioning_state=None, sku=None, tags=None, type=None, upgrade_policy=None, virtual_machine_profile=None):
+    def __init__(__self__, id=None, identity=None, location=None, name=None, over_provision=None, provisioning_state=None, sku=None, tags=None, type=None, upgrade_policy=None, virtual_machine_profile=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -51,6 +54,14 @@ class GetVirtualMachineScaleSetResult:
         if virtual_machine_profile and not isinstance(virtual_machine_profile, dict):
             raise TypeError("Expected argument 'virtual_machine_profile' to be a dict")
         pulumi.set(__self__, "virtual_machine_profile", virtual_machine_profile)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -139,6 +150,7 @@ class AwaitableGetVirtualMachineScaleSetResult(GetVirtualMachineScaleSetResult):
         if False:
             yield self
         return GetVirtualMachineScaleSetResult(
+            id=self.id,
             identity=self.identity,
             location=self.location,
             name=self.name,
@@ -170,6 +182,7 @@ def get_virtual_machine_scale_set(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:compute/v20160330:getVirtualMachineScaleSet', __args__, opts=opts, typ=GetVirtualMachineScaleSetResult).value
 
     return AwaitableGetVirtualMachineScaleSetResult(
+        id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,

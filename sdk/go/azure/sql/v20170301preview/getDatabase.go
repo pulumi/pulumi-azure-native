@@ -61,6 +61,8 @@ type LookupDatabaseResult struct {
 	ElasticPoolId *string `pulumi:"elasticPoolId"`
 	// Failover Group resource identifier that this database belongs to.
 	FailoverGroupId string `pulumi:"failoverGroupId"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Kind of database. This is metadata used for the Azure portal experience.
 	Kind string `pulumi:"kind"`
 	// Resource location.

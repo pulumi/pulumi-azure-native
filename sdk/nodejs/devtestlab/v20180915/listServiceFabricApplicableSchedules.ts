@@ -45,6 +45,10 @@ export interface ListServiceFabricApplicableSchedulesArgs {
  */
 export interface ListServiceFabricApplicableSchedulesResult {
     /**
+     * The identifier of the resource.
+     */
+    readonly id: string;
+    /**
      * The auto-shutdown schedule, if one has been set at the lab or lab resource level.
      */
     readonly labVmsShutdown?: outputs.devtestlab.v20180915.ScheduleResponse;

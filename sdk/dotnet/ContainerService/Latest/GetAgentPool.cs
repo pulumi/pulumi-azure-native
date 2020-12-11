@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         /// </summary>
         public readonly bool? EnableNodePublicIP;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// KubeletConfig specifies the configuration of kubelet on agent nodes.
         /// </summary>
         public readonly Outputs.KubeletConfigResponse? KubeletConfig;
@@ -176,6 +180,8 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
 
             bool? enableNodePublicIP,
 
+            string id,
+
             Outputs.KubeletConfigResponse? kubeletConfig,
 
             Outputs.LinuxOSConfigResponse? linuxOSConfig,
@@ -232,6 +238,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
             Count = count;
             EnableAutoScaling = enableAutoScaling;
             EnableNodePublicIP = enableNodePublicIP;
+            Id = id;
             KubeletConfig = kubeletConfig;
             LinuxOSConfig = linuxOSConfig;
             MaxCount = maxCount;

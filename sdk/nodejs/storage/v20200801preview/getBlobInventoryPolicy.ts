@@ -40,6 +40,10 @@ export interface GetBlobInventoryPolicyArgs {
  */
 export interface GetBlobInventoryPolicyResult {
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * Returns the last modified date and time of the blob inventory policy.
      */
     readonly lastModifiedTime: string;

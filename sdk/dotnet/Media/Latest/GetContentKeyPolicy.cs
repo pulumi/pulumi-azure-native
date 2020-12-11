@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The last modified date of the Policy
         /// </summary>
         public readonly string LastModified;
@@ -80,6 +84,8 @@ namespace Pulumi.AzureNextGen.Media.Latest
 
             string? description,
 
+            string id,
+
             string lastModified,
 
             string name,
@@ -92,6 +98,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
         {
             Created = created;
             Description = description;
+            Id = id;
             LastModified = lastModified;
             Name = name;
             Options = options;

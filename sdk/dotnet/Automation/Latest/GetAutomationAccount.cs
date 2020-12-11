@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Automation.Latest
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Fully qualified resource Id for the resource
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Gets or sets the last modified by.
         /// </summary>
         public readonly string? LastModifiedBy;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.Automation.Latest
 
             string? etag,
 
+            string id,
+
             string? lastModifiedBy,
 
             string lastModifiedTime,
@@ -111,6 +117,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
             CreationTime = creationTime;
             Description = description;
             Etag = etag;
+            Id = id;
             LastModifiedBy = lastModifiedBy;
             LastModifiedTime = lastModifiedTime;
             Location = location;

@@ -33,6 +33,8 @@ type LookupCustomDomainResult struct {
 	CustomHttpsProvisioningState string `pulumi:"customHttpsProvisioningState"`
 	// The host name of the custom domain. Must be a domain name.
 	HostName string `pulumi:"hostName"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// Resource name.

@@ -35,6 +35,8 @@ type LookupApplicationDefinitionResult struct {
 	Description *string `pulumi:"description"`
 	// The managed application definition display name.
 	DisplayName *string `pulumi:"displayName"`
+	// Resource ID
+	Id string `pulumi:"id"`
 	// The identity of the resource.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// A value indicating whether the package is enabled or not.

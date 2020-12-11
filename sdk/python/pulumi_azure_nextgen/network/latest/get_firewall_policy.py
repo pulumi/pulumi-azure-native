@@ -20,7 +20,7 @@ class GetFirewallPolicyResult:
     """
     FirewallPolicy Resource.
     """
-    def __init__(__self__, base_policy=None, child_policies=None, dns_settings=None, etag=None, firewalls=None, identity=None, intrusion_detection=None, location=None, name=None, provisioning_state=None, rule_collection_groups=None, sku=None, tags=None, threat_intel_mode=None, threat_intel_whitelist=None, transport_security=None, type=None):
+    def __init__(__self__, base_policy=None, child_policies=None, dns_settings=None, etag=None, firewalls=None, id=None, identity=None, intrusion_detection=None, location=None, name=None, provisioning_state=None, rule_collection_groups=None, sku=None, tags=None, threat_intel_mode=None, threat_intel_whitelist=None, transport_security=None, type=None):
         if base_policy and not isinstance(base_policy, dict):
             raise TypeError("Expected argument 'base_policy' to be a dict")
         pulumi.set(__self__, "base_policy", base_policy)
@@ -36,6 +36,9 @@ class GetFirewallPolicyResult:
         if firewalls and not isinstance(firewalls, list):
             raise TypeError("Expected argument 'firewalls' to be a list")
         pulumi.set(__self__, "firewalls", firewalls)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -112,6 +115,14 @@ class GetFirewallPolicyResult:
         List of references to Azure Firewalls that this Firewall Policy is associated with.
         """
         return pulumi.get(self, "firewalls")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -221,6 +232,7 @@ class AwaitableGetFirewallPolicyResult(GetFirewallPolicyResult):
             dns_settings=self.dns_settings,
             etag=self.etag,
             firewalls=self.firewalls,
+            id=self.id,
             identity=self.identity,
             intrusion_detection=self.intrusion_detection,
             location=self.location,
@@ -262,6 +274,7 @@ def get_firewall_policy(expand: Optional[str] = None,
         dns_settings=__ret__.dns_settings,
         etag=__ret__.etag,
         firewalls=__ret__.firewalls,
+        id=__ret__.id,
         identity=__ret__.identity,
         intrusion_detection=__ret__.intrusion_detection,
         location=__ret__.location,

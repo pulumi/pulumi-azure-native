@@ -20,7 +20,7 @@ class GetTopicResult:
     """
     Description of topic resource.
     """
-    def __init__(__self__, accessed_at=None, auto_delete_on_idle=None, count_details=None, created_at=None, default_message_time_to_live=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_partitioning=None, entity_availability_status=None, filtering_messages_before_publishing=None, is_anonymous_accessible=None, is_express=None, location=None, max_size_in_megabytes=None, name=None, requires_duplicate_detection=None, size_in_bytes=None, status=None, subscription_count=None, support_ordering=None, type=None, updated_at=None):
+    def __init__(__self__, accessed_at=None, auto_delete_on_idle=None, count_details=None, created_at=None, default_message_time_to_live=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_partitioning=None, entity_availability_status=None, filtering_messages_before_publishing=None, id=None, is_anonymous_accessible=None, is_express=None, location=None, max_size_in_megabytes=None, name=None, requires_duplicate_detection=None, size_in_bytes=None, status=None, subscription_count=None, support_ordering=None, type=None, updated_at=None):
         if accessed_at and not isinstance(accessed_at, str):
             raise TypeError("Expected argument 'accessed_at' to be a str")
         pulumi.set(__self__, "accessed_at", accessed_at)
@@ -54,6 +54,9 @@ class GetTopicResult:
         if filtering_messages_before_publishing and not isinstance(filtering_messages_before_publishing, bool):
             raise TypeError("Expected argument 'filtering_messages_before_publishing' to be a bool")
         pulumi.set(__self__, "filtering_messages_before_publishing", filtering_messages_before_publishing)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_anonymous_accessible and not isinstance(is_anonymous_accessible, bool):
             raise TypeError("Expected argument 'is_anonymous_accessible' to be a bool")
         pulumi.set(__self__, "is_anonymous_accessible", is_anonymous_accessible)
@@ -180,6 +183,14 @@ class GetTopicResult:
         return pulumi.get(self, "filtering_messages_before_publishing")
 
     @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
+
+    @property
     @pulumi.getter(name="isAnonymousAccessible")
     def is_anonymous_accessible(self) -> Optional[bool]:
         """
@@ -290,6 +301,7 @@ class AwaitableGetTopicResult(GetTopicResult):
             enable_partitioning=self.enable_partitioning,
             entity_availability_status=self.entity_availability_status,
             filtering_messages_before_publishing=self.filtering_messages_before_publishing,
+            id=self.id,
             is_anonymous_accessible=self.is_anonymous_accessible,
             is_express=self.is_express,
             location=self.location,
@@ -337,6 +349,7 @@ def get_topic(namespace_name: Optional[str] = None,
         enable_partitioning=__ret__.enable_partitioning,
         entity_availability_status=__ret__.entity_availability_status,
         filtering_messages_before_publishing=__ret__.filtering_messages_before_publishing,
+        id=__ret__.id,
         is_anonymous_accessible=__ret__.is_anonymous_accessible,
         is_express=__ret__.is_express,
         location=__ret__.location,

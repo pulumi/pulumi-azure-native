@@ -31,6 +31,8 @@ type LookupBackendResult struct {
 	Credentials *BackendCredentialsContractResponse `pulumi:"credentials"`
 	// Backend Description.
 	Description *string `pulumi:"description"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Backend Properties contract

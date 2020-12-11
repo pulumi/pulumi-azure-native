@@ -48,6 +48,10 @@ export interface GetDisasterRecoveryConfigurationResult {
      */
     readonly failoverPolicy: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Location of the server that contains this disaster recovery configuration.
      */
     readonly location: string;

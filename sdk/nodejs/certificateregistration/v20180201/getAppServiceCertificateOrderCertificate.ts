@@ -40,6 +40,10 @@ export interface GetAppServiceCertificateOrderCertificateArgs {
  */
 export interface GetAppServiceCertificateOrderCertificateResult {
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Key Vault resource Id.
      */
     readonly keyVaultId?: string;

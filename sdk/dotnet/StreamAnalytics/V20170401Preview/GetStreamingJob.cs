@@ -90,6 +90,10 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
         /// </summary>
         public readonly ImmutableArray<Outputs.FunctionResponse> Functions;
         /// <summary>
+        /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Describes the system-assigned managed identity assigned to this job that can be used to authenticate with inputs and outputs.
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
@@ -186,6 +190,8 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
 
             ImmutableArray<Outputs.FunctionResponse> functions,
 
+            string id,
+
             Outputs.IdentityResponse? identity,
 
             ImmutableArray<Outputs.InputResponse> inputs,
@@ -233,6 +239,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
             EventsOutOfOrderPolicy = eventsOutOfOrderPolicy;
             Externals = externals;
             Functions = functions;
+            Id = id;
             Identity = identity;
             Inputs = inputs;
             JobId = jobId;

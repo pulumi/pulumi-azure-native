@@ -27,6 +27,8 @@ type LookupHyperVSiteArgs struct {
 type LookupHyperVSiteResult struct {
 	// eTag for concurrency control.
 	ETag *string `pulumi:"eTag"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Azure location in which Sites is created.
 	Location *string `pulumi:"location"`
 	// Name of the Hyper-V site.

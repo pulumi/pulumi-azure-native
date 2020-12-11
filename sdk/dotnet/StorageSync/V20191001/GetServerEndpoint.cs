@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.StorageSync.V20191001
         /// </summary>
         public readonly string? FriendlyName;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource Last Operation Name
         /// </summary>
         public readonly string LastOperationName;
@@ -132,6 +136,8 @@ namespace Pulumi.AzureNextGen.StorageSync.V20191001
 
             string? friendlyName,
 
+            string id,
+
             string lastOperationName,
 
             string lastWorkflowId,
@@ -165,6 +171,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20191001
             CloudTiering = cloudTiering;
             CloudTieringStatus = cloudTieringStatus;
             FriendlyName = friendlyName;
+            Id = id;
             LastOperationName = lastOperationName;
             LastWorkflowId = lastWorkflowId;
             Name = name;

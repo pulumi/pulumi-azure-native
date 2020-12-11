@@ -35,6 +35,10 @@ export interface GetPrivateCloudArgs {
  */
 export interface GetPrivateCloudResult {
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location?: string;

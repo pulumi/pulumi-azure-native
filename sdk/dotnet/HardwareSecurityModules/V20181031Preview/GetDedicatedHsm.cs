@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.HardwareSecurityModules.V20181031Preview
     public sealed class GetDedicatedHsmResult
     {
         /// <summary>
+        /// The Azure Resource Manager resource ID for the dedicated HSM.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The supported Azure location where the dedicated HSM should be created.
         /// </summary>
         public readonly string Location;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNextGen.HardwareSecurityModules.V20181031Preview
 
         [OutputConstructor]
         private GetDedicatedHsmResult(
+            string id,
+
             string location,
 
             string name,
@@ -102,6 +108,7 @@ namespace Pulumi.AzureNextGen.HardwareSecurityModules.V20181031Preview
 
             ImmutableArray<string> zones)
         {
+            Id = id;
             Location = location;
             Name = name;
             NetworkProfile = networkProfile;

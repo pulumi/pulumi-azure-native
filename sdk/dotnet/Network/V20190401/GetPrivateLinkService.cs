@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.Network.V20190401
         /// </summary>
         public readonly ImmutableArray<string> Fqdns;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// An array of references to the private link service IP configuration.
         /// </summary>
         public readonly ImmutableArray<Outputs.PrivateLinkServiceIpConfigurationResponse> IpConfigurations;
@@ -112,6 +116,8 @@ namespace Pulumi.AzureNextGen.Network.V20190401
 
             ImmutableArray<string> fqdns,
 
+            string? id,
+
             ImmutableArray<Outputs.PrivateLinkServiceIpConfigurationResponse> ipConfigurations,
 
             ImmutableArray<Outputs.FrontendIPConfigurationResponse> loadBalancerFrontendIpConfigurations,
@@ -136,6 +142,7 @@ namespace Pulumi.AzureNextGen.Network.V20190401
             AutoApproval = autoApproval;
             Etag = etag;
             Fqdns = fqdns;
+            Id = id;
             IpConfigurations = ipConfigurations;
             LoadBalancerFrontendIpConfigurations = loadBalancerFrontendIpConfigurations;
             Location = location;

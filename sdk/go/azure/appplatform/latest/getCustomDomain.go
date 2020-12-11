@@ -29,6 +29,8 @@ type LookupCustomDomainArgs struct {
 
 // Custom domain resource payload.
 type LookupCustomDomainResult struct {
+	// Fully qualified resource Id for the resource.
+	Id string `pulumi:"id"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// Properties of the custom domain resource.

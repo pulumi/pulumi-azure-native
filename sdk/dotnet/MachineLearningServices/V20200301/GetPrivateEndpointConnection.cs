@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200301
     public sealed class GetPrivateEndpointConnectionResult
     {
         /// <summary>
+        /// Specifies the resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200301
 
         [OutputConstructor]
         private GetPrivateEndpointConnectionResult(
+            string id,
+
             Outputs.IdentityResponse? identity,
 
             string? location,
@@ -102,6 +108,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200301
 
             string type)
         {
+            Id = id;
             Identity = identity;
             Location = location;
             Name = name;

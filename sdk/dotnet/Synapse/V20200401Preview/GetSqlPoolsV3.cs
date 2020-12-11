@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Synapse.V20200401Preview
         /// </summary>
         public readonly string CurrentServiceObjectiveName;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Kind of SqlPool.
         /// </summary>
         public readonly string Kind;
@@ -94,6 +98,8 @@ namespace Pulumi.AzureNextGen.Synapse.V20200401Preview
         private GetSqlPoolsV3Result(
             string currentServiceObjectiveName,
 
+            string id,
+
             string kind,
 
             string location,
@@ -115,6 +121,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20200401Preview
             string type)
         {
             CurrentServiceObjectiveName = currentServiceObjectiveName;
+            Id = id;
             Kind = kind;
             Location = location;
             Name = name;

@@ -40,6 +40,10 @@ export interface GetInstanceFailoverGroupArgs {
  */
 export interface GetInstanceFailoverGroupResult {
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * List of managed instance pairs in the failover group.
      */
     readonly managedInstancePairs: outputs.sql.v20200801preview.ManagedInstancePairInfoResponse[];

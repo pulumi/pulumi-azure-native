@@ -37,6 +37,8 @@ type LookupNotificationHubResult struct {
 	BaiduCredential *BaiduCredentialResponse `pulumi:"baiduCredential"`
 	// The GcmCredential of the created NotificationHub
 	GcmCredential *GcmCredentialResponse `pulumi:"gcmCredential"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// The MpnsCredential of the created NotificationHub

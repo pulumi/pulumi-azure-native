@@ -20,10 +20,13 @@ class GetWebhookResult:
     """
     An object that represents a webhook for a container registry.
     """
-    def __init__(__self__, actions=None, location=None, name=None, provisioning_state=None, scope=None, status=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, actions=None, id=None, location=None, name=None, provisioning_state=None, scope=None, status=None, system_data=None, tags=None, type=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -56,6 +59,14 @@ class GetWebhookResult:
         The list of actions that trigger the webhook to post notifications.
         """
         return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -129,6 +140,7 @@ class AwaitableGetWebhookResult(GetWebhookResult):
             yield self
         return GetWebhookResult(
             actions=self.actions,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -162,6 +174,7 @@ def get_webhook(registry_name: Optional[str] = None,
 
     return AwaitableGetWebhookResult(
         actions=__ret__.actions,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

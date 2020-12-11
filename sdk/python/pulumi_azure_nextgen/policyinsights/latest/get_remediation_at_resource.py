@@ -20,7 +20,7 @@ class GetRemediationAtResourceResult:
     """
     The remediation definition.
     """
-    def __init__(__self__, created_on=None, deployment_status=None, filters=None, last_updated_on=None, name=None, policy_assignment_id=None, policy_definition_reference_id=None, provisioning_state=None, resource_discovery_mode=None, type=None):
+    def __init__(__self__, created_on=None, deployment_status=None, filters=None, id=None, last_updated_on=None, name=None, policy_assignment_id=None, policy_definition_reference_id=None, provisioning_state=None, resource_discovery_mode=None, type=None):
         if created_on and not isinstance(created_on, str):
             raise TypeError("Expected argument 'created_on' to be a str")
         pulumi.set(__self__, "created_on", created_on)
@@ -30,6 +30,9 @@ class GetRemediationAtResourceResult:
         if filters and not isinstance(filters, dict):
             raise TypeError("Expected argument 'filters' to be a dict")
         pulumi.set(__self__, "filters", filters)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_updated_on and not isinstance(last_updated_on, str):
             raise TypeError("Expected argument 'last_updated_on' to be a str")
         pulumi.set(__self__, "last_updated_on", last_updated_on)
@@ -75,6 +78,14 @@ class GetRemediationAtResourceResult:
         The filters that will be applied to determine which resources to remediate.
         """
         return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the remediation.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastUpdatedOn")
@@ -142,6 +153,7 @@ class AwaitableGetRemediationAtResourceResult(GetRemediationAtResourceResult):
             created_on=self.created_on,
             deployment_status=self.deployment_status,
             filters=self.filters,
+            id=self.id,
             last_updated_on=self.last_updated_on,
             name=self.name,
             policy_assignment_id=self.policy_assignment_id,
@@ -173,6 +185,7 @@ def get_remediation_at_resource(remediation_name: Optional[str] = None,
         created_on=__ret__.created_on,
         deployment_status=__ret__.deployment_status,
         filters=__ret__.filters,
+        id=__ret__.id,
         last_updated_on=__ret__.last_updated_on,
         name=__ret__.name,
         policy_assignment_id=__ret__.policy_assignment_id,

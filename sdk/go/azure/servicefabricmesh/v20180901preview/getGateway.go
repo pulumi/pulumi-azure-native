@@ -31,6 +31,8 @@ type LookupGatewayResult struct {
 	DestinationNetwork NetworkRefResponse `pulumi:"destinationNetwork"`
 	// Configuration for http connectivity for this gateway.
 	Http []HttpConfigResponse `pulumi:"http"`
+	// Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// IP address of the gateway. This is populated in the response and is ignored for incoming requests.
 	IpAddress string `pulumi:"ipAddress"`
 	// The geo-location where the resource lives

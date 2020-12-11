@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview
         /// </summary>
         public readonly string? Distribution;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the connected cluster.
         /// </summary>
         public readonly Outputs.ConnectedClusterIdentityResponse Identity;
@@ -124,6 +128,8 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview
 
             string? distribution,
 
+            string id,
+
             Outputs.ConnectedClusterIdentityResponse identity,
 
             string? infrastructure,
@@ -155,6 +161,7 @@ namespace Pulumi.AzureNextGen.Kubernetes.V20200101Preview
             AgentVersion = agentVersion;
             ConnectivityStatus = connectivityStatus;
             Distribution = distribution;
+            Id = id;
             Identity = identity;
             Infrastructure = infrastructure;
             KubernetesVersion = kubernetesVersion;

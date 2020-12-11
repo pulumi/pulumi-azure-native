@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// </summary>
         public readonly Outputs.SubResourceResponse? HostedSubnet;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -98,6 +102,8 @@ namespace Pulumi.AzureNextGen.Network.V20190801
 
             Outputs.SubResourceResponse? hostedSubnet,
 
+            string? id,
+
             string? location,
 
             string name,
@@ -117,6 +123,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
             Etag = etag;
             HostedGateway = hostedGateway;
             HostedSubnet = hostedSubnet;
+            Id = id;
             Location = location;
             Name = name;
             Peerings = peerings;

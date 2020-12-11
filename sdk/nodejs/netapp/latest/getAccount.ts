@@ -39,6 +39,10 @@ export interface GetAccountResult {
      */
     readonly activeDirectories?: outputs.netapp.latest.ActiveDirectoryResponse[];
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

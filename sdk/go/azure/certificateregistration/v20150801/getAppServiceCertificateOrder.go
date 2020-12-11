@@ -39,6 +39,8 @@ type LookupAppServiceCertificateOrderResult struct {
 	DomainVerificationToken string `pulumi:"domainVerificationToken"`
 	// Certificate expiration time.
 	ExpirationTime string `pulumi:"expirationTime"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Intermediate certificate.
 	Intermediate CertificateDetailsResponse `pulumi:"intermediate"`
 	// <code>true</code> if private key is external; otherwise, <code>false</code>.

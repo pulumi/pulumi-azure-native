@@ -37,6 +37,8 @@ type LookupMapResult struct {
 	ContentType *string `pulumi:"contentType"`
 	// The created time.
 	CreatedTime string `pulumi:"createdTime"`
+	// The resource id.
+	Id string `pulumi:"id"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The map type.

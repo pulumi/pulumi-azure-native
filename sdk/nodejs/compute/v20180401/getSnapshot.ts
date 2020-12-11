@@ -47,6 +47,10 @@ export interface GetSnapshotResult {
      */
     readonly encryptionSettings?: outputs.compute.v20180401.EncryptionSettingsResponse;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

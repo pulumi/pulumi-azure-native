@@ -27,6 +27,8 @@ type LookupPrivateZoneArgs struct {
 type LookupPrivateZoneResult struct {
 	// The ETag of the zone.
 	Etag *string `pulumi:"etag"`
+	// Fully qualified resource Id for the resource. Example - '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateDnsZoneName}'.
+	Id string `pulumi:"id"`
 	// Private zone internal Id
 	InternalId string `pulumi:"internalId"`
 	// The Azure Region where the resource lives

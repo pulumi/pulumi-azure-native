@@ -29,6 +29,8 @@ type LookupChapSettingArgs struct {
 
 // Challenge-Handshake Authentication Protocol (CHAP) setting
 type LookupChapSettingResult struct {
+	// The identifier.
+	Id string `pulumi:"id"`
 	// The name.
 	Name string `pulumi:"name"`
 	// The chap password.

@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Network.V20200501
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// A collection of references to express route circuit ipv6 peerings.
         /// </summary>
         public readonly ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponse> Ipv6Peerings;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.Network.V20200501
         private GetRouteFilterResult(
             string etag,
 
+            string? id,
+
             ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponse> ipv6Peerings,
 
             string location,
@@ -103,6 +109,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
             string type)
         {
             Etag = etag;
+            Id = id;
             Ipv6Peerings = ipv6Peerings;
             Location = location;
             Name = name;

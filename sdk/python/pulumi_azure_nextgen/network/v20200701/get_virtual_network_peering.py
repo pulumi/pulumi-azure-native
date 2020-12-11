@@ -20,7 +20,7 @@ class GetVirtualNetworkPeeringResult:
     """
     Peerings in a virtual network resource.
     """
-    def __init__(__self__, allow_forwarded_traffic=None, allow_gateway_transit=None, allow_virtual_network_access=None, etag=None, name=None, peering_state=None, provisioning_state=None, remote_address_space=None, remote_bgp_communities=None, remote_virtual_network=None, use_remote_gateways=None):
+    def __init__(__self__, allow_forwarded_traffic=None, allow_gateway_transit=None, allow_virtual_network_access=None, etag=None, id=None, name=None, peering_state=None, provisioning_state=None, remote_address_space=None, remote_bgp_communities=None, remote_virtual_network=None, use_remote_gateways=None):
         if allow_forwarded_traffic and not isinstance(allow_forwarded_traffic, bool):
             raise TypeError("Expected argument 'allow_forwarded_traffic' to be a bool")
         pulumi.set(__self__, "allow_forwarded_traffic", allow_forwarded_traffic)
@@ -33,6 +33,9 @@ class GetVirtualNetworkPeeringResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -86,6 +89,14 @@ class GetVirtualNetworkPeeringResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -154,6 +165,7 @@ class AwaitableGetVirtualNetworkPeeringResult(GetVirtualNetworkPeeringResult):
             allow_gateway_transit=self.allow_gateway_transit,
             allow_virtual_network_access=self.allow_virtual_network_access,
             etag=self.etag,
+            id=self.id,
             name=self.name,
             peering_state=self.peering_state,
             provisioning_state=self.provisioning_state,
@@ -189,6 +201,7 @@ def get_virtual_network_peering(resource_group_name: Optional[str] = None,
         allow_gateway_transit=__ret__.allow_gateway_transit,
         allow_virtual_network_access=__ret__.allow_virtual_network_access,
         etag=__ret__.etag,
+        id=__ret__.id,
         name=__ret__.name,
         peering_state=__ret__.peering_state,
         provisioning_state=__ret__.provisioning_state,

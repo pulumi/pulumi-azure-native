@@ -33,6 +33,8 @@ type LookupServiceResult struct {
 	CorrelationScheme []ServiceCorrelationDescriptionResponse `pulumi:"correlationScheme"`
 	// Specifies the move cost for the service.
 	DefaultMoveCost *string `pulumi:"defaultMoveCost"`
+	// Azure resource identifier.
+	Id string `pulumi:"id"`
 	// Azure resource location.
 	Location *string `pulumi:"location"`
 	// Azure resource name.

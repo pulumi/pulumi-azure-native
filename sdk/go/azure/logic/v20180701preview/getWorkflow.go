@@ -33,6 +33,8 @@ type LookupWorkflowResult struct {
 	CreatedTime string `pulumi:"createdTime"`
 	// The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
 	Definition interface{} `pulumi:"definition"`
+	// The resource id.
+	Id string `pulumi:"id"`
 	// The integration account.
 	IntegrationAccount *ResourceReferenceResponse `pulumi:"integrationAccount"`
 	// The resource location.

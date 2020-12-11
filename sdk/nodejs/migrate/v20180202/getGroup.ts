@@ -52,6 +52,10 @@ export interface GetGroupResult {
      */
     readonly eTag?: string;
     /**
+     * Path reference to this group. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}
+     */
+    readonly id: string;
+    /**
      * List of machine names that are part of this group.
      */
     readonly machines: string[];

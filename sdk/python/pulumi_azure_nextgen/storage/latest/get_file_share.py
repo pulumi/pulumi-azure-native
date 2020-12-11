@@ -19,7 +19,7 @@ class GetFileShareResult:
     """
     Properties of the file share, including Id, resource name, resource type, Etag.
     """
-    def __init__(__self__, access_tier=None, access_tier_change_time=None, access_tier_status=None, deleted=None, deleted_time=None, enabled_protocols=None, etag=None, last_modified_time=None, metadata=None, name=None, remaining_retention_days=None, root_squash=None, share_quota=None, share_usage_bytes=None, type=None, version=None):
+    def __init__(__self__, access_tier=None, access_tier_change_time=None, access_tier_status=None, deleted=None, deleted_time=None, enabled_protocols=None, etag=None, id=None, last_modified_time=None, metadata=None, name=None, remaining_retention_days=None, root_squash=None, share_quota=None, share_usage_bytes=None, type=None, version=None):
         if access_tier and not isinstance(access_tier, str):
             raise TypeError("Expected argument 'access_tier' to be a str")
         pulumi.set(__self__, "access_tier", access_tier)
@@ -41,6 +41,9 @@ class GetFileShareResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_modified_time and not isinstance(last_modified_time, str):
             raise TypeError("Expected argument 'last_modified_time' to be a str")
         pulumi.set(__self__, "last_modified_time", last_modified_time)
@@ -124,6 +127,14 @@ class GetFileShareResult:
         Resource Etag.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
@@ -211,6 +222,7 @@ class AwaitableGetFileShareResult(GetFileShareResult):
             deleted_time=self.deleted_time,
             enabled_protocols=self.enabled_protocols,
             etag=self.etag,
+            id=self.id,
             last_modified_time=self.last_modified_time,
             metadata=self.metadata,
             name=self.name,
@@ -254,6 +266,7 @@ def get_file_share(account_name: Optional[str] = None,
         deleted_time=__ret__.deleted_time,
         enabled_protocols=__ret__.enabled_protocols,
         etag=__ret__.etag,
+        id=__ret__.id,
         last_modified_time=__ret__.last_modified_time,
         metadata=__ret__.metadata,
         name=__ret__.name,

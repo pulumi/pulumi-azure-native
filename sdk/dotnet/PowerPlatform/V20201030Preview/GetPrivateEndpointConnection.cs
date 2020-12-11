@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
     public sealed class GetPrivateEndpointConnectionResult
     {
         /// <summary>
+        /// ARM resource id of the EnterprisePolicy.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Region where the EnterprisePolicy is located.
         /// </summary>
         public readonly string Location;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
 
         [OutputConstructor]
         private GetPrivateEndpointConnectionResult(
+            string id,
+
             string location,
 
             string name,
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             PrivateEndpoint = privateEndpoint;

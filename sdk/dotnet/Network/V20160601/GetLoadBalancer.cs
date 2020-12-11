@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Network.V20160601
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontendIPConfigurationResponse> FrontendIPConfigurations;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Gets or sets inbound NAT pools
         /// </summary>
         public readonly ImmutableArray<Outputs.InboundNatPoolResponse> InboundNatPools;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNextGen.Network.V20160601
 
             ImmutableArray<Outputs.FrontendIPConfigurationResponse> frontendIPConfigurations,
 
+            string? id,
+
             ImmutableArray<Outputs.InboundNatPoolResponse> inboundNatPools,
 
             ImmutableArray<Outputs.InboundNatRuleResponse> inboundNatRules,
@@ -135,6 +141,7 @@ namespace Pulumi.AzureNextGen.Network.V20160601
             BackendAddressPools = backendAddressPools;
             Etag = etag;
             FrontendIPConfigurations = frontendIPConfigurations;
+            Id = id;
             InboundNatPools = inboundNatPools;
             InboundNatRules = inboundNatRules;
             LoadBalancingRules = loadBalancingRules;

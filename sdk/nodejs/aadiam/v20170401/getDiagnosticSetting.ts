@@ -38,6 +38,10 @@ export interface GetDiagnosticSettingResult {
      */
     readonly eventHubName?: string;
     /**
+     * Azure resource Id
+     */
+    readonly id: string;
+    /**
      * The list of logs settings.
      */
     readonly logs?: outputs.aadiam.v20170401.LogSettingsResponse[];

@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Fully qualified resource Id for the resource
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Gets or sets the encrypted flag of the variable.
         /// </summary>
         public readonly bool? IsEncrypted;
@@ -80,6 +84,8 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
 
             string? description,
 
+            string id,
+
             bool? isEncrypted,
 
             string? lastModifiedTime,
@@ -92,6 +98,7 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
         {
             CreationTime = creationTime;
             Description = description;
+            Id = id;
             IsEncrypted = isEncrypted;
             LastModifiedTime = lastModifiedTime;
             Name = name;

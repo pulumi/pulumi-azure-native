@@ -29,6 +29,8 @@ type LookupGroupArgs struct {
 type LookupGroupResult struct {
 	// For optimistic concurrency control.
 	ETag *string `pulumi:"eTag"`
+	// Path reference to this group. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}
+	Id string `pulumi:"id"`
 	// Name of the group.
 	Name string `pulumi:"name"`
 	// Properties of the group.

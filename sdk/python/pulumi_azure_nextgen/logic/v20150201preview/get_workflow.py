@@ -17,7 +17,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetWorkflowResult:
-    def __init__(__self__, access_endpoint=None, changed_time=None, created_time=None, definition=None, definition_link=None, location=None, name=None, parameters=None, parameters_link=None, provisioning_state=None, sku=None, state=None, tags=None, type=None, version=None):
+    def __init__(__self__, access_endpoint=None, changed_time=None, created_time=None, definition=None, definition_link=None, id=None, location=None, name=None, parameters=None, parameters_link=None, provisioning_state=None, sku=None, state=None, tags=None, type=None, version=None):
         if access_endpoint and not isinstance(access_endpoint, str):
             raise TypeError("Expected argument 'access_endpoint' to be a str")
         pulumi.set(__self__, "access_endpoint", access_endpoint)
@@ -33,6 +33,9 @@ class GetWorkflowResult:
         if definition_link and not isinstance(definition_link, dict):
             raise TypeError("Expected argument 'definition_link' to be a dict")
         pulumi.set(__self__, "definition_link", definition_link)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -103,6 +106,14 @@ class GetWorkflowResult:
         Gets or sets the link to definition.
         """
         return pulumi.get(self, "definition_link")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Gets or sets the resource id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -196,6 +207,7 @@ class AwaitableGetWorkflowResult(GetWorkflowResult):
             created_time=self.created_time,
             definition=self.definition,
             definition_link=self.definition_link,
+            id=self.id,
             location=self.location,
             name=self.name,
             parameters=self.parameters,
@@ -232,6 +244,7 @@ def get_workflow(resource_group_name: Optional[str] = None,
         created_time=__ret__.created_time,
         definition=__ret__.definition,
         definition_link=__ret__.definition_link,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         parameters=__ret__.parameters,

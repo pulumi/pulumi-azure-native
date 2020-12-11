@@ -76,6 +76,10 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.V20190401
         /// </summary>
         public readonly string GuestOSType;
         /// <summary>
+        /// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/virtualMachines/{virtualMachineName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Azure region
         /// </summary>
         public readonly string Location;
@@ -164,6 +168,8 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.V20190401
 
             string guestOSType,
 
+            string id,
+
             string location,
 
             string name,
@@ -207,6 +213,7 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.V20190401
             Folder = folder;
             GuestOS = guestOS;
             GuestOSType = guestOSType;
+            Id = id;
             Location = location;
             Name = name;
             Nics = nics;

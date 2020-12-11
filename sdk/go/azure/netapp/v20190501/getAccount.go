@@ -27,6 +27,8 @@ type LookupAccountArgs struct {
 type LookupAccountResult struct {
 	// Active Directories
 	ActiveDirectories []ActiveDirectoryResponse `pulumi:"activeDirectories"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name

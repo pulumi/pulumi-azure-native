@@ -40,7 +40,9 @@ type LookupIoMAMPolicyByNameResult struct {
 	FileSharingSaveAs           *string `pulumi:"fileSharingSaveAs"`
 	FriendlyName                string  `pulumi:"friendlyName"`
 	GroupStatus                 string  `pulumi:"groupStatus"`
-	LastModifiedTime            string  `pulumi:"lastModifiedTime"`
+	// Resource Id
+	Id               string `pulumi:"id"`
+	LastModifiedTime string `pulumi:"lastModifiedTime"`
 	// Resource Location
 	Location       *string `pulumi:"location"`
 	ManagedBrowser *string `pulumi:"managedBrowser"`

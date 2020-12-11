@@ -19,13 +19,16 @@ class GetNetworkExperimentProfileResult:
     """
     Defines an Network Experiment Profile and lists of Experiments
     """
-    def __init__(__self__, enabled_state=None, etag=None, location=None, name=None, resource_state=None, tags=None, type=None):
+    def __init__(__self__, enabled_state=None, etag=None, id=None, location=None, name=None, resource_state=None, tags=None, type=None):
         if enabled_state and not isinstance(enabled_state, str):
             raise TypeError("Expected argument 'enabled_state' to be a str")
         pulumi.set(__self__, "enabled_state", enabled_state)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -57,6 +60,14 @@ class GetNetworkExperimentProfileResult:
         Gets a unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -107,6 +118,7 @@ class AwaitableGetNetworkExperimentProfileResult(GetNetworkExperimentProfileResu
         return GetNetworkExperimentProfileResult(
             enabled_state=self.enabled_state,
             etag=self.etag,
+            id=self.id,
             location=self.location,
             name=self.name,
             resource_state=self.resource_state,
@@ -135,6 +147,7 @@ def get_network_experiment_profile(profile_name: Optional[str] = None,
     return AwaitableGetNetworkExperimentProfileResult(
         enabled_state=__ret__.enabled_state,
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         resource_state=__ret__.resource_state,

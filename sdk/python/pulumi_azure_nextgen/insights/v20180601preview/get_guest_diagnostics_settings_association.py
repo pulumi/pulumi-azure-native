@@ -19,10 +19,13 @@ class GetGuestDiagnosticsSettingsAssociationResult:
     """
     Virtual machine guest diagnostic settings resource.
     """
-    def __init__(__self__, guest_diagnostic_settings_name=None, location=None, name=None, tags=None, type=None):
+    def __init__(__self__, guest_diagnostic_settings_name=None, id=None, location=None, name=None, tags=None, type=None):
         if guest_diagnostic_settings_name and not isinstance(guest_diagnostic_settings_name, str):
             raise TypeError("Expected argument 'guest_diagnostic_settings_name' to be a str")
         pulumi.set(__self__, "guest_diagnostic_settings_name", guest_diagnostic_settings_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -43,6 +46,14 @@ class GetGuestDiagnosticsSettingsAssociationResult:
         The guest diagnostic settings name.
         """
         return pulumi.get(self, "guest_diagnostic_settings_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -84,6 +95,7 @@ class AwaitableGetGuestDiagnosticsSettingsAssociationResult(GetGuestDiagnosticsS
             yield self
         return GetGuestDiagnosticsSettingsAssociationResult(
             guest_diagnostic_settings_name=self.guest_diagnostic_settings_name,
+            id=self.id,
             location=self.location,
             name=self.name,
             tags=self.tags,
@@ -110,6 +122,7 @@ def get_guest_diagnostics_settings_association(association_name: Optional[str] =
 
     return AwaitableGetGuestDiagnosticsSettingsAssociationResult(
         guest_diagnostic_settings_name=__ret__.guest_diagnostic_settings_name,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         tags=__ret__.tags,

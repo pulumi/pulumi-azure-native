@@ -20,7 +20,7 @@ class GetDiskResult:
     """
     Disk resource.
     """
-    def __init__(__self__, creation_data=None, disk_size_gb=None, encryption_settings=None, location=None, managed_by=None, name=None, os_type=None, provisioning_state=None, sku=None, tags=None, time_created=None, type=None, zones=None):
+    def __init__(__self__, creation_data=None, disk_size_gb=None, encryption_settings=None, id=None, location=None, managed_by=None, name=None, os_type=None, provisioning_state=None, sku=None, tags=None, time_created=None, type=None, zones=None):
         if creation_data and not isinstance(creation_data, dict):
             raise TypeError("Expected argument 'creation_data' to be a dict")
         pulumi.set(__self__, "creation_data", creation_data)
@@ -30,6 +30,9 @@ class GetDiskResult:
         if encryption_settings and not isinstance(encryption_settings, dict):
             raise TypeError("Expected argument 'encryption_settings' to be a dict")
         pulumi.set(__self__, "encryption_settings", encryption_settings)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -84,6 +87,14 @@ class GetDiskResult:
         Encryption settings for disk or snapshot
         """
         return pulumi.get(self, "encryption_settings")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -175,6 +186,7 @@ class AwaitableGetDiskResult(GetDiskResult):
             creation_data=self.creation_data,
             disk_size_gb=self.disk_size_gb,
             encryption_settings=self.encryption_settings,
+            id=self.id,
             location=self.location,
             managed_by=self.managed_by,
             name=self.name,
@@ -209,6 +221,7 @@ def get_disk(disk_name: Optional[str] = None,
         creation_data=__ret__.creation_data,
         disk_size_gb=__ret__.disk_size_gb,
         encryption_settings=__ret__.encryption_settings,
+        id=__ret__.id,
         location=__ret__.location,
         managed_by=__ret__.managed_by,
         name=__ret__.name,

@@ -20,13 +20,16 @@ class GetPrivateEndpointResult:
     """
     Private endpoint resource.
     """
-    def __init__(__self__, custom_dns_configs=None, etag=None, location=None, manual_private_link_service_connections=None, name=None, network_interfaces=None, private_link_service_connections=None, provisioning_state=None, subnet=None, tags=None, type=None):
+    def __init__(__self__, custom_dns_configs=None, etag=None, id=None, location=None, manual_private_link_service_connections=None, name=None, network_interfaces=None, private_link_service_connections=None, provisioning_state=None, subnet=None, tags=None, type=None):
         if custom_dns_configs and not isinstance(custom_dns_configs, list):
             raise TypeError("Expected argument 'custom_dns_configs' to be a list")
         pulumi.set(__self__, "custom_dns_configs", custom_dns_configs)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -70,6 +73,14 @@ class GetPrivateEndpointResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -152,6 +163,7 @@ class AwaitableGetPrivateEndpointResult(GetPrivateEndpointResult):
         return GetPrivateEndpointResult(
             custom_dns_configs=self.custom_dns_configs,
             etag=self.etag,
+            id=self.id,
             location=self.location,
             manual_private_link_service_connections=self.manual_private_link_service_connections,
             name=self.name,
@@ -187,6 +199,7 @@ def get_private_endpoint(expand: Optional[str] = None,
     return AwaitableGetPrivateEndpointResult(
         custom_dns_configs=__ret__.custom_dns_configs,
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         manual_private_link_service_connections=__ret__.manual_private_link_service_connections,
         name=__ret__.name,

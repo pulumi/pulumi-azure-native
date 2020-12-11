@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
     public sealed class GetTopicAuthorizationRuleResult
     {
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
@@ -66,12 +70,15 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
 
         [OutputConstructor]
         private GetTopicAuthorizationRuleResult(
+            string id,
+
             string name,
 
             ImmutableArray<string> rights,
 
             string type)
         {
+            Id = id;
             Name = name;
             Rights = rights;
             Type = type;

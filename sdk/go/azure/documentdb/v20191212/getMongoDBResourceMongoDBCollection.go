@@ -29,6 +29,8 @@ type LookupMongoDBResourceMongoDBCollectionArgs struct {
 
 // An Azure Cosmos DB MongoDB collection.
 type LookupMongoDBResourceMongoDBCollectionResult struct {
+	// The unique resource identifier of the ARM resource.
+	Id string `pulumi:"id"`
 	// The location of the resource group to which the resource belongs.
 	Location *string `pulumi:"location"`
 	// The name of the ARM resource.

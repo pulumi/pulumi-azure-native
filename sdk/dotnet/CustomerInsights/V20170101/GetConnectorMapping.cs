@@ -88,6 +88,10 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
         /// </summary>
         public readonly string EntityTypeName;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The last modified time.
         /// </summary>
         public readonly string LastModified;
@@ -140,6 +144,8 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
 
             string entityTypeName,
 
+            string id,
+
             string lastModified,
 
             Outputs.ConnectorMappingPropertiesResponse mappingProperties,
@@ -165,6 +171,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
             DisplayName = displayName;
             EntityType = entityType;
             EntityTypeName = entityTypeName;
+            Id = id;
             LastModified = lastModified;
             MappingProperties = mappingProperties;
             Name = name;

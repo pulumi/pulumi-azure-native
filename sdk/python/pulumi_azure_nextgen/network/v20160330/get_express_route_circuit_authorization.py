@@ -19,7 +19,7 @@ class GetExpressRouteCircuitAuthorizationResult:
     """
     Authorization in a ExpressRouteCircuit resource
     """
-    def __init__(__self__, authorization_key=None, authorization_use_status=None, etag=None, name=None, provisioning_state=None):
+    def __init__(__self__, authorization_key=None, authorization_use_status=None, etag=None, id=None, name=None, provisioning_state=None):
         if authorization_key and not isinstance(authorization_key, str):
             raise TypeError("Expected argument 'authorization_key' to be a str")
         pulumi.set(__self__, "authorization_key", authorization_key)
@@ -29,6 +29,9 @@ class GetExpressRouteCircuitAuthorizationResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -62,6 +65,14 @@ class GetExpressRouteCircuitAuthorizationResult:
 
     @property
     @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def name(self) -> Optional[str]:
         """
         Gets name of the resource that is unique within a resource group. This name can be used to access the resource
@@ -86,6 +97,7 @@ class AwaitableGetExpressRouteCircuitAuthorizationResult(GetExpressRouteCircuitA
             authorization_key=self.authorization_key,
             authorization_use_status=self.authorization_use_status,
             etag=self.etag,
+            id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state)
 
@@ -115,5 +127,6 @@ def get_express_route_circuit_authorization(authorization_name: Optional[str] = 
         authorization_key=__ret__.authorization_key,
         authorization_use_status=__ret__.authorization_use_status,
         etag=__ret__.etag,
+        id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state)

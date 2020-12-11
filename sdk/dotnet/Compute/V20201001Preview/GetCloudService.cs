@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Compute.V20201001Preview
     public sealed class GetCloudServiceResult
     {
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string Location;
@@ -62,6 +66,8 @@ namespace Pulumi.AzureNextGen.Compute.V20201001Preview
 
         [OutputConstructor]
         private GetCloudServiceResult(
+            string id,
+
             string location,
 
             string name,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.Compute.V20201001Preview
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

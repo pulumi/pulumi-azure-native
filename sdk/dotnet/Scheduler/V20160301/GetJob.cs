@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Scheduler.V20160301
     public sealed class GetJobResult
     {
         /// <summary>
+        /// Gets the job resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Gets the job resource name.
         /// </summary>
         public readonly string Name;
@@ -60,12 +64,15 @@ namespace Pulumi.AzureNextGen.Scheduler.V20160301
 
         [OutputConstructor]
         private GetJobResult(
+            string id,
+
             string name,
 
             Outputs.JobPropertiesResponse properties,
 
             string type)
         {
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Web.V20200601
         /// </summary>
         public readonly string DefaultHostname;
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
@@ -98,6 +102,8 @@ namespace Pulumi.AzureNextGen.Web.V20200601
 
             string defaultHostname,
 
+            string id,
+
             string? kind,
 
             string location,
@@ -118,6 +124,7 @@ namespace Pulumi.AzureNextGen.Web.V20200601
             BuildProperties = buildProperties;
             CustomDomains = customDomains;
             DefaultHostname = defaultHostname;
+            Id = id;
             Kind = kind;
             Location = location;
             Name = name;

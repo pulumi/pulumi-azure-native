@@ -47,6 +47,10 @@ export interface GetVpnGatewayResult {
      */
     readonly etag: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * List of all IPs configured on the gateway.
      */
     readonly ipConfigurations: outputs.network.v20200601.VpnGatewayIpConfigurationResponse[];

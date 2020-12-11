@@ -59,6 +59,10 @@ export interface GetVirtualNetworkGatewayResult {
      */
     readonly gatewayType?: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * IP configurations for virtual network gateway.
      */
     readonly ipConfigurations?: outputs.network.v20161201.VirtualNetworkGatewayIPConfigurationResponse[];

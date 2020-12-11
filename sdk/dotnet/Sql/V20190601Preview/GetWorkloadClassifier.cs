@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
         /// </summary>
         public readonly string? EndTime;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The workload classifier importance.
         /// </summary>
         public readonly string? Importance;
@@ -96,6 +100,8 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
 
             string? endTime,
 
+            string id,
+
             string? importance,
 
             string? label,
@@ -110,6 +116,7 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
         {
             Context = context;
             EndTime = endTime;
+            Id = id;
             Importance = importance;
             Label = label;
             MemberName = memberName;

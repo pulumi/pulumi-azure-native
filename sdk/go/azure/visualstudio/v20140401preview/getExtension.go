@@ -27,6 +27,8 @@ type LookupExtensionArgs struct {
 
 // The response to an extension resource GET request.
 type LookupExtensionResult struct {
+	// Unique identifier of the resource.
+	Id string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.

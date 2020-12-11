@@ -40,6 +40,10 @@ export interface GetEventSourceArgs {
  */
 export interface GetEventSourceResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * The kind of the event source.
      */
     readonly kind: string;

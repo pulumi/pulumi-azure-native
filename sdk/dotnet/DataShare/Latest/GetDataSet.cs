@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
     public sealed class GetDataSetResult
     {
         /// <summary>
+        /// The resource id of the azure resource
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Kind of data set.
         /// </summary>
         public readonly string Kind;
@@ -66,12 +70,15 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
 
         [OutputConstructor]
         private GetDataSetResult(
+            string id,
+
             string kind,
 
             string name,
 
             string type)
         {
+            Id = id;
             Kind = kind;
             Name = name;
             Type = type;

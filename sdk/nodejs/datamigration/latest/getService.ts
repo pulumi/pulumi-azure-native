@@ -39,6 +39,10 @@ export interface GetServiceResult {
      */
     readonly etag?: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * The resource kind. Only 'vm' (the default) is supported.
      */
     readonly kind?: string;

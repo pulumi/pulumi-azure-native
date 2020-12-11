@@ -20,7 +20,7 @@ class GetLiveEventResult:
     """
     The Live Event.
     """
-    def __init__(__self__, created=None, cross_site_access_policies=None, description=None, encoding=None, input=None, last_modified=None, location=None, name=None, preview=None, provisioning_state=None, resource_state=None, stream_options=None, tags=None, transcriptions=None, type=None, vanity_url=None):
+    def __init__(__self__, created=None, cross_site_access_policies=None, description=None, encoding=None, id=None, input=None, last_modified=None, location=None, name=None, preview=None, provisioning_state=None, resource_state=None, stream_options=None, tags=None, transcriptions=None, type=None, vanity_url=None):
         if created and not isinstance(created, str):
             raise TypeError("Expected argument 'created' to be a str")
         pulumi.set(__self__, "created", created)
@@ -33,6 +33,9 @@ class GetLiveEventResult:
         if encoding and not isinstance(encoding, dict):
             raise TypeError("Expected argument 'encoding' to be a dict")
         pulumi.set(__self__, "encoding", encoding)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if input and not isinstance(input, dict):
             raise TypeError("Expected argument 'input' to be a dict")
         pulumi.set(__self__, "input", input)
@@ -101,6 +104,14 @@ class GetLiveEventResult:
         The Live Event encoding.
         """
         return pulumi.get(self, "encoding")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -209,6 +220,7 @@ class AwaitableGetLiveEventResult(GetLiveEventResult):
             cross_site_access_policies=self.cross_site_access_policies,
             description=self.description,
             encoding=self.encoding,
+            id=self.id,
             input=self.input,
             last_modified=self.last_modified,
             location=self.location,
@@ -249,6 +261,7 @@ def get_live_event(account_name: Optional[str] = None,
         cross_site_access_policies=__ret__.cross_site_access_policies,
         description=__ret__.description,
         encoding=__ret__.encoding,
+        id=__ret__.id,
         input=__ret__.input,
         last_modified=__ret__.last_modified,
         location=__ret__.location,

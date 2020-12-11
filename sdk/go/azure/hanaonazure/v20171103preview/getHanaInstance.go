@@ -31,6 +31,8 @@ type LookupHanaInstanceResult struct {
 	HardwareProfile *HardwareProfileResponse `pulumi:"hardwareProfile"`
 	// Hardware revision of a HANA instance
 	HwRevision string `pulumi:"hwRevision"`
+	// Resource ID
+	Id string `pulumi:"id"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name

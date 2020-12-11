@@ -71,6 +71,10 @@ export interface GetExpressRouteCircuitResult {
      */
     readonly globalReachEnabled?: boolean;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * Resource location.
      */
     readonly location?: string;

@@ -20,13 +20,16 @@ class GetHybridUseBenefitResult:
     """
     Response on GET of a hybrid use benefit
     """
-    def __init__(__self__, created_date=None, etag=None, last_updated_date=None, name=None, provisioning_state=None, sku=None, type=None):
+    def __init__(__self__, created_date=None, etag=None, id=None, last_updated_date=None, name=None, provisioning_state=None, sku=None, type=None):
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
         if etag and not isinstance(etag, int):
             raise TypeError("Expected argument 'etag' to be a int")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_updated_date and not isinstance(last_updated_date, str):
             raise TypeError("Expected argument 'last_updated_date' to be a str")
         pulumi.set(__self__, "last_updated_date", last_updated_date)
@@ -58,6 +61,14 @@ class GetHybridUseBenefitResult:
         Indicates the revision of the hybrid use benefit
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastUpdatedDate")
@@ -108,6 +119,7 @@ class AwaitableGetHybridUseBenefitResult(GetHybridUseBenefitResult):
         return GetHybridUseBenefitResult(
             created_date=self.created_date,
             etag=self.etag,
+            id=self.id,
             last_updated_date=self.last_updated_date,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -136,6 +148,7 @@ def get_hybrid_use_benefit(plan_id: Optional[str] = None,
     return AwaitableGetHybridUseBenefitResult(
         created_date=__ret__.created_date,
         etag=__ret__.etag,
+        id=__ret__.id,
         last_updated_date=__ret__.last_updated_date,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

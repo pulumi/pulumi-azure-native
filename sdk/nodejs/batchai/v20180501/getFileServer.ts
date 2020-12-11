@@ -48,6 +48,10 @@ export interface GetFileServerResult {
      */
     readonly dataDisks?: outputs.batchai.v20180501.DataDisksResponse;
     /**
+     * The ID of the resource.
+     */
+    readonly id: string;
+    /**
      * File Server mount settings.
      */
     readonly mountSettings: outputs.batchai.v20180501.MountSettingsResponse;

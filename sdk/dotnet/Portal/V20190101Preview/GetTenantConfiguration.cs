@@ -38,6 +38,10 @@ namespace Pulumi.AzureNextGen.Portal.V20190101Preview
         /// </summary>
         public readonly bool? EnforcePrivateMarkdownStorage;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -50,11 +54,14 @@ namespace Pulumi.AzureNextGen.Portal.V20190101Preview
         private GetTenantConfigurationResult(
             bool? enforcePrivateMarkdownStorage,
 
+            string id,
+
             string name,
 
             string type)
         {
             EnforcePrivateMarkdownStorage = enforcePrivateMarkdownStorage;
+            Id = id;
             Name = name;
             Type = type;
         }

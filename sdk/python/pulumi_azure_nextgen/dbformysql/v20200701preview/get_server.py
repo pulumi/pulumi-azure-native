@@ -20,7 +20,7 @@ class GetServerResult:
     """
     Represents a server.
     """
-    def __init__(__self__, administrator_login=None, administrator_login_password=None, availability_zone=None, byok_enforcement=None, create_mode=None, delegated_subnet_arguments=None, earliest_restore_date=None, fully_qualified_domain_name=None, ha_enabled=None, ha_state=None, identity=None, infrastructure_encryption=None, location=None, maintenance_window=None, name=None, public_network_access=None, replica_capacity=None, replication_role=None, restore_point_in_time=None, sku=None, source_server_id=None, ssl_enforcement=None, standby_availability_zone=None, state=None, storage_profile=None, tags=None, type=None, version=None):
+    def __init__(__self__, administrator_login=None, administrator_login_password=None, availability_zone=None, byok_enforcement=None, create_mode=None, delegated_subnet_arguments=None, earliest_restore_date=None, fully_qualified_domain_name=None, ha_enabled=None, ha_state=None, id=None, identity=None, infrastructure_encryption=None, location=None, maintenance_window=None, name=None, public_network_access=None, replica_capacity=None, replication_role=None, restore_point_in_time=None, sku=None, source_server_id=None, ssl_enforcement=None, standby_availability_zone=None, state=None, storage_profile=None, tags=None, type=None, version=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
@@ -51,6 +51,9 @@ class GetServerResult:
         if ha_state and not isinstance(ha_state, str):
             raise TypeError("Expected argument 'ha_state' to be a str")
         pulumi.set(__self__, "ha_state", ha_state)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -185,6 +188,14 @@ class GetServerResult:
         The state of a HA server.
         """
         return pulumi.get(self, "ha_state")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -347,6 +358,7 @@ class AwaitableGetServerResult(GetServerResult):
             fully_qualified_domain_name=self.fully_qualified_domain_name,
             ha_enabled=self.ha_enabled,
             ha_state=self.ha_state,
+            id=self.id,
             identity=self.identity,
             infrastructure_encryption=self.infrastructure_encryption,
             location=self.location,
@@ -396,6 +408,7 @@ def get_server(resource_group_name: Optional[str] = None,
         fully_qualified_domain_name=__ret__.fully_qualified_domain_name,
         ha_enabled=__ret__.ha_enabled,
         ha_state=__ret__.ha_state,
+        id=__ret__.id,
         identity=__ret__.identity,
         infrastructure_encryption=__ret__.infrastructure_encryption,
         location=__ret__.location,

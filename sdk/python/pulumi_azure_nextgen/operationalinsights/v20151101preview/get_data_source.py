@@ -19,10 +19,13 @@ class GetDataSourceResult:
     """
     Datasources under OMS Workspace.
     """
-    def __init__(__self__, e_tag=None, kind=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, e_tag=None, id=None, kind=None, name=None, properties=None, tags=None, type=None):
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -46,6 +49,14 @@ class GetDataSourceResult:
         The ETag of the data source.
         """
         return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -95,6 +106,7 @@ class AwaitableGetDataSourceResult(GetDataSourceResult):
             yield self
         return GetDataSourceResult(
             e_tag=self.e_tag,
+            id=self.id,
             kind=self.kind,
             name=self.name,
             properties=self.properties,
@@ -125,6 +137,7 @@ def get_data_source(data_source_name: Optional[str] = None,
 
     return AwaitableGetDataSourceResult(
         e_tag=__ret__.e_tag,
+        id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
         properties=__ret__.properties,

@@ -19,13 +19,16 @@ class GetNamespaceIpFilterRuleResult:
     """
     Single item in a List or Get IpFilterRules operation
     """
-    def __init__(__self__, action=None, filter_name=None, ip_mask=None, name=None, type=None):
+    def __init__(__self__, action=None, filter_name=None, id=None, ip_mask=None, name=None, type=None):
         if action and not isinstance(action, str):
             raise TypeError("Expected argument 'action' to be a str")
         pulumi.set(__self__, "action", action)
         if filter_name and not isinstance(filter_name, str):
             raise TypeError("Expected argument 'filter_name' to be a str")
         pulumi.set(__self__, "filter_name", filter_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if ip_mask and not isinstance(ip_mask, str):
             raise TypeError("Expected argument 'ip_mask' to be a str")
         pulumi.set(__self__, "ip_mask", ip_mask)
@@ -51,6 +54,14 @@ class GetNamespaceIpFilterRuleResult:
         IP Filter name
         """
         return pulumi.get(self, "filter_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ipMask")
@@ -85,6 +96,7 @@ class AwaitableGetNamespaceIpFilterRuleResult(GetNamespaceIpFilterRuleResult):
         return GetNamespaceIpFilterRuleResult(
             action=self.action,
             filter_name=self.filter_name,
+            id=self.id,
             ip_mask=self.ip_mask,
             name=self.name,
             type=self.type)
@@ -114,6 +126,7 @@ def get_namespace_ip_filter_rule(ip_filter_rule_name: Optional[str] = None,
     return AwaitableGetNamespaceIpFilterRuleResult(
         action=__ret__.action,
         filter_name=__ret__.filter_name,
+        id=__ret__.id,
         ip_mask=__ret__.ip_mask,
         name=__ret__.name,
         type=__ret__.type)

@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
         /// </summary>
         public readonly ImmutableArray<Outputs.EventResponse> Events;
         /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string? Location;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
 
             ImmutableArray<Outputs.EventResponse> events,
 
+            string id,
+
             string? location,
 
             string name,
@@ -130,6 +136,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
             Description = description;
             EmailRecipient = emailRecipient;
             Events = events;
+            Id = id;
             Location = location;
             Name = name;
             NotificationLocale = notificationLocale;

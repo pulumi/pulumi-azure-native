@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Storage.V20160101
         /// </summary>
         public readonly Outputs.EncryptionResponse Encryption;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Gets the Kind.
         /// </summary>
         public readonly string Kind;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNextGen.Storage.V20160101
 
             Outputs.EncryptionResponse encryption,
 
+            string id,
+
             string kind,
 
             string lastGeoFailoverTime,
@@ -154,6 +160,7 @@ namespace Pulumi.AzureNextGen.Storage.V20160101
             CreationTime = creationTime;
             CustomDomain = customDomain;
             Encryption = encryption;
+            Id = id;
             Kind = kind;
             LastGeoFailoverTime = lastGeoFailoverTime;
             Location = location;

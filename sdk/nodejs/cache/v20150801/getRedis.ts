@@ -43,6 +43,10 @@ export interface GetRedisResult {
      */
     readonly hostName?: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource location.
      */
     readonly location: string;

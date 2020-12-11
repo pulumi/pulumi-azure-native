@@ -17,7 +17,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetJitNetworkAccessPolicyResult:
-    def __init__(__self__, kind=None, location=None, name=None, provisioning_state=None, requests=None, type=None, virtual_machines=None):
+    def __init__(__self__, id=None, kind=None, location=None, name=None, provisioning_state=None, requests=None, type=None, virtual_machines=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -39,6 +42,14 @@ class GetJitNetworkAccessPolicyResult:
         if virtual_machines and not isinstance(virtual_machines, list):
             raise TypeError("Expected argument 'virtual_machines' to be a list")
         pulumi.set(__self__, "virtual_machines", virtual_machines)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -100,6 +111,7 @@ class AwaitableGetJitNetworkAccessPolicyResult(GetJitNetworkAccessPolicyResult):
         if False:
             yield self
         return GetJitNetworkAccessPolicyResult(
+            id=self.id,
             kind=self.kind,
             location=self.location,
             name=self.name,
@@ -131,6 +143,7 @@ def get_jit_network_access_policy(asc_location: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:security/v20150601preview:getJitNetworkAccessPolicy', __args__, opts=opts, typ=GetJitNetworkAccessPolicyResult).value
 
     return AwaitableGetJitNetworkAccessPolicyResult(
+        id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,

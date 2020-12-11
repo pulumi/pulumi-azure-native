@@ -34,6 +34,8 @@ type LookupScheduledQueryRuleResult struct {
 	Enabled bool `pulumi:"enabled"`
 	// How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
 	EvaluationFrequency string `pulumi:"evaluationFrequency"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired.

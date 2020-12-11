@@ -61,6 +61,10 @@ export interface GetJobResult {
      */
     readonly endTime: string;
     /**
+     * Fully qualified resource ID for the resource.
+     */
+    readonly id: string;
+    /**
      * The inputs for the Job.
      */
     readonly input: outputs.media.v20180701.JobInputClipResponse | outputs.media.v20180701.JobInputsResponse;

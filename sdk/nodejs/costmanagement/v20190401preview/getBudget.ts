@@ -55,6 +55,10 @@ export interface GetBudgetResult {
      */
     readonly filter?: outputs.costmanagement.v20190401preview.ReportConfigFilterResponse;
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

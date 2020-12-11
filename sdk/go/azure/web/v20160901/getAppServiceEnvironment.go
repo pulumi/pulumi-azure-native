@@ -52,6 +52,8 @@ type LookupAppServiceEnvironmentResult struct {
 	EnvironmentStatus string `pulumi:"environmentStatus"`
 	// Scale factor for front-ends.
 	FrontEndScaleFactor *int `pulumi:"frontEndScaleFactor"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
 	InternalLoadBalancingMode *string `pulumi:"internalLoadBalancingMode"`
 	// Number of IP SSL addresses reserved for the App Service Environment.

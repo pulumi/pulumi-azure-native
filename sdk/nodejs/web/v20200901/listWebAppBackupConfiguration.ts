@@ -51,6 +51,10 @@ export interface ListWebAppBackupConfigurationResult {
      */
     readonly enabled?: boolean;
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;

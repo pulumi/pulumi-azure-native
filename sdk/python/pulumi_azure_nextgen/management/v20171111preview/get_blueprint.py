@@ -20,13 +20,16 @@ class GetBlueprintResult:
     """
     Represents a Blueprint definition.
     """
-    def __init__(__self__, description=None, display_name=None, layout=None, name=None, parameters=None, resource_groups=None, status=None, target_scope=None, type=None, versions=None):
+    def __init__(__self__, description=None, display_name=None, id=None, layout=None, name=None, parameters=None, resource_groups=None, status=None, target_scope=None, type=None, versions=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if layout and not isinstance(layout, dict):
             raise TypeError("Expected argument 'layout' to be a dict")
         pulumi.set(__self__, "layout", layout)
@@ -67,6 +70,14 @@ class GetBlueprintResult:
         One-liner string explain this resource.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        String Id used to locate any resource on Azure.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -141,6 +152,7 @@ class AwaitableGetBlueprintResult(GetBlueprintResult):
         return GetBlueprintResult(
             description=self.description,
             display_name=self.display_name,
+            id=self.id,
             layout=self.layout,
             name=self.name,
             parameters=self.parameters,
@@ -172,6 +184,7 @@ def get_blueprint(blueprint_name: Optional[str] = None,
     return AwaitableGetBlueprintResult(
         description=__ret__.description,
         display_name=__ret__.display_name,
+        id=__ret__.id,
         layout=__ret__.layout,
         name=__ret__.name,
         parameters=__ret__.parameters,

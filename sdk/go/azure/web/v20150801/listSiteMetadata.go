@@ -25,6 +25,8 @@ type ListSiteMetadataArgs struct {
 
 // String dictionary resource
 type ListSiteMetadataResult struct {
+	// Resource Id
+	Id *string `pulumi:"id"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location

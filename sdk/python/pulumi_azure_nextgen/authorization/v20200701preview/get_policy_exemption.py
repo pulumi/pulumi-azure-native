@@ -20,7 +20,7 @@ class GetPolicyExemptionResult:
     """
     The policy exemption.
     """
-    def __init__(__self__, description=None, display_name=None, exemption_category=None, expires_on=None, metadata=None, name=None, policy_assignment_id=None, policy_definition_reference_ids=None, system_data=None, type=None):
+    def __init__(__self__, description=None, display_name=None, exemption_category=None, expires_on=None, id=None, metadata=None, name=None, policy_assignment_id=None, policy_definition_reference_ids=None, system_data=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -33,6 +33,9 @@ class GetPolicyExemptionResult:
         if expires_on and not isinstance(expires_on, str):
             raise TypeError("Expected argument 'expires_on' to be a str")
         pulumi.set(__self__, "expires_on", expires_on)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if metadata and not isinstance(metadata, dict):
             raise TypeError("Expected argument 'metadata' to be a dict")
         pulumi.set(__self__, "metadata", metadata)
@@ -83,6 +86,14 @@ class GetPolicyExemptionResult:
         The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
         """
         return pulumi.get(self, "expires_on")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -143,6 +154,7 @@ class AwaitableGetPolicyExemptionResult(GetPolicyExemptionResult):
             display_name=self.display_name,
             exemption_category=self.exemption_category,
             expires_on=self.expires_on,
+            id=self.id,
             metadata=self.metadata,
             name=self.name,
             policy_assignment_id=self.policy_assignment_id,
@@ -174,6 +186,7 @@ def get_policy_exemption(policy_exemption_name: Optional[str] = None,
         display_name=__ret__.display_name,
         exemption_category=__ret__.exemption_category,
         expires_on=__ret__.expires_on,
+        id=__ret__.id,
         metadata=__ret__.metadata,
         name=__ret__.name,
         policy_assignment_id=__ret__.policy_assignment_id,

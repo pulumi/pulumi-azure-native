@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview
         /// </summary>
         public readonly string? EndTime;
         /// <summary>
+        /// Fully qualified resource ID for the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
@@ -98,6 +102,8 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview
 
             string? endTime,
 
+            string id,
+
             string name,
 
             string? startTime,
@@ -113,6 +119,7 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview
             Created = created;
             DefaultContentKeyPolicyName = defaultContentKeyPolicyName;
             EndTime = endTime;
+            Id = id;
             Name = name;
             StartTime = startTime;
             StreamingLocatorId = streamingLocatorId;

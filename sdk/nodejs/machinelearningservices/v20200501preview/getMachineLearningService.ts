@@ -45,6 +45,10 @@ export interface GetMachineLearningServiceArgs {
  */
 export interface GetMachineLearningServiceResult {
     /**
+     * Specifies the resource ID.
+     */
+    readonly id: string;
+    /**
      * The identity of the resource.
      */
     readonly identity?: outputs.machinelearningservices.v20200501preview.IdentityResponse;

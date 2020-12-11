@@ -29,6 +29,8 @@ type LookupShareSubscriptionArgs struct {
 type LookupShareSubscriptionResult struct {
 	// Time at which the share subscription was created.
 	CreatedAt string `pulumi:"createdAt"`
+	// The resource id of the azure resource
+	Id string `pulumi:"id"`
 	// The invitation id.
 	InvitationId string `pulumi:"invitationId"`
 	// Name of the azure resource

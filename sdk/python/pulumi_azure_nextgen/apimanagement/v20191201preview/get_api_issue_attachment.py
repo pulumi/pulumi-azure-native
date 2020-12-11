@@ -19,13 +19,16 @@ class GetApiIssueAttachmentResult:
     """
     Issue Attachment Contract details.
     """
-    def __init__(__self__, content=None, content_format=None, name=None, title=None, type=None):
+    def __init__(__self__, content=None, content_format=None, id=None, name=None, title=None, type=None):
         if content and not isinstance(content, str):
             raise TypeError("Expected argument 'content' to be a str")
         pulumi.set(__self__, "content", content)
         if content_format and not isinstance(content_format, str):
             raise TypeError("Expected argument 'content_format' to be a str")
         pulumi.set(__self__, "content_format", content_format)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -51,6 +54,14 @@ class GetApiIssueAttachmentResult:
         Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
         """
         return pulumi.get(self, "content_format")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -85,6 +96,7 @@ class AwaitableGetApiIssueAttachmentResult(GetApiIssueAttachmentResult):
         return GetApiIssueAttachmentResult(
             content=self.content,
             content_format=self.content_format,
+            id=self.id,
             name=self.name,
             title=self.title,
             type=self.type)
@@ -120,6 +132,7 @@ def get_api_issue_attachment(api_id: Optional[str] = None,
     return AwaitableGetApiIssueAttachmentResult(
         content=__ret__.content,
         content_format=__ret__.content_format,
+        id=__ret__.id,
         name=__ret__.name,
         title=__ret__.title,
         type=__ret__.type)

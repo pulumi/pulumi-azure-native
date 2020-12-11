@@ -32,6 +32,10 @@ export interface GetJobCollectionArgs {
 
 export interface GetJobCollectionResult {
     /**
+     * Gets the job collection resource identifier.
+     */
+    readonly id: string;
+    /**
      * Gets or sets the storage account location.
      */
     readonly location?: string;

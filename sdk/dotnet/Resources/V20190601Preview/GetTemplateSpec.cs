@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
+        /// String Id used to locate any resource on Azure.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the Template Spec. It cannot be changed after Template Spec creation. It must be one of the supported Azure locations.
         /// </summary>
         public readonly string Location;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview
 
             string? displayName,
 
+            string id,
+
             string location,
 
             string name,
@@ -98,6 +104,7 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview
         {
             Description = description;
             DisplayName = displayName;
+            Id = id;
             Location = location;
             Name = name;
             SystemData = systemData;

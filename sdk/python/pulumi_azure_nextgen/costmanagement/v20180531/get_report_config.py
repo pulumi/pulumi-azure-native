@@ -20,7 +20,7 @@ class GetReportConfigResult:
     """
     A report config resource.
     """
-    def __init__(__self__, definition=None, delivery_info=None, format=None, name=None, schedule=None, tags=None, type=None):
+    def __init__(__self__, definition=None, delivery_info=None, format=None, id=None, name=None, schedule=None, tags=None, type=None):
         if definition and not isinstance(definition, dict):
             raise TypeError("Expected argument 'definition' to be a dict")
         pulumi.set(__self__, "definition", definition)
@@ -30,6 +30,9 @@ class GetReportConfigResult:
         if format and not isinstance(format, str):
             raise TypeError("Expected argument 'format' to be a str")
         pulumi.set(__self__, "format", format)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -66,6 +69,14 @@ class GetReportConfigResult:
         The format of the report being delivered.
         """
         return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -109,6 +120,7 @@ class AwaitableGetReportConfigResult(GetReportConfigResult):
             definition=self.definition,
             delivery_info=self.delivery_info,
             format=self.format,
+            id=self.id,
             name=self.name,
             schedule=self.schedule,
             tags=self.tags,
@@ -134,6 +146,7 @@ def get_report_config(report_config_name: Optional[str] = None,
         definition=__ret__.definition,
         delivery_info=__ret__.delivery_info,
         format=__ret__.format,
+        id=__ret__.id,
         name=__ret__.name,
         schedule=__ret__.schedule,
         tags=__ret__.tags,

@@ -31,6 +31,8 @@ type LookupApplicationPackageArgs struct {
 type LookupApplicationPackageResult struct {
 	// The format of the application package, if the package is active.
 	Format *string `pulumi:"format"`
+	// The ID of the application.
+	Id *string `pulumi:"id"`
 	// The time at which the package was last activated, if the package is active.
 	LastActivationTime *string `pulumi:"lastActivationTime"`
 	// The current state of the application package.

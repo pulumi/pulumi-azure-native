@@ -19,10 +19,13 @@ class GetPrivateZoneResult:
     """
     Describes a Private DNS zone.
     """
-    def __init__(__self__, etag=None, location=None, max_number_of_record_sets=None, max_number_of_virtual_network_links=None, max_number_of_virtual_network_links_with_registration=None, name=None, number_of_record_sets=None, number_of_virtual_network_links=None, number_of_virtual_network_links_with_registration=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, etag=None, id=None, location=None, max_number_of_record_sets=None, max_number_of_virtual_network_links=None, max_number_of_virtual_network_links_with_registration=None, name=None, number_of_record_sets=None, number_of_virtual_network_links=None, number_of_virtual_network_links_with_registration=None, provisioning_state=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -64,6 +67,14 @@ class GetPrivateZoneResult:
         The ETag of the zone.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource. Example - '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateDnsZoneName}'.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -161,6 +172,7 @@ class AwaitableGetPrivateZoneResult(GetPrivateZoneResult):
             yield self
         return GetPrivateZoneResult(
             etag=self.etag,
+            id=self.id,
             location=self.location,
             max_number_of_record_sets=self.max_number_of_record_sets,
             max_number_of_virtual_network_links=self.max_number_of_virtual_network_links,
@@ -194,6 +206,7 @@ def get_private_zone(private_zone_name: Optional[str] = None,
 
     return AwaitableGetPrivateZoneResult(
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         max_number_of_record_sets=__ret__.max_number_of_record_sets,
         max_number_of_virtual_network_links=__ret__.max_number_of_virtual_network_links,

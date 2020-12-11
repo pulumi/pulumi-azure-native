@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.AVS.V20200320
         /// </summary>
         public readonly string ExpressRouteAuthorizationKey;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.AVS.V20200320
 
             string expressRouteAuthorizationKey,
 
+            string id,
+
             string name,
 
             string provisioningState,
@@ -80,6 +86,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200320
         {
             ExpressRouteAuthorizationId = expressRouteAuthorizationId;
             ExpressRouteAuthorizationKey = expressRouteAuthorizationKey;
+            Id = id;
             Name = name;
             ProvisioningState = provisioningState;
             Type = type;

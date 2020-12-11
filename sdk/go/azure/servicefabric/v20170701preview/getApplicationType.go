@@ -27,6 +27,8 @@ type LookupApplicationTypeArgs struct {
 
 // The application type name resource
 type LookupApplicationTypeResult struct {
+	// Azure resource identifier.
+	Id string `pulumi:"id"`
 	// Azure resource location.
 	Location *string `pulumi:"location"`
 	// Azure resource name.

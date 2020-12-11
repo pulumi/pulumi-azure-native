@@ -27,6 +27,8 @@ type LookupMoveResourceArgs struct {
 
 // Defines the move resource.
 type LookupMoveResourceResult struct {
+	// Fully qualified resource Id for the resource.
+	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Defines the move resource properties.

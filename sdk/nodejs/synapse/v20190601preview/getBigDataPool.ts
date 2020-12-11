@@ -60,6 +60,10 @@ export interface GetBigDataPoolResult {
      */
     readonly haveLibraryRequirementsChanged?: boolean;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * Whether compute isolation is required or not.
      */
     readonly isComputeIsolationEnabled?: boolean;

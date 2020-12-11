@@ -20,10 +20,13 @@ class GetJobAgentResult:
     """
     An Azure SQL job agent.
     """
-    def __init__(__self__, database_id=None, location=None, name=None, sku=None, state=None, tags=None, type=None):
+    def __init__(__self__, database_id=None, id=None, location=None, name=None, sku=None, state=None, tags=None, type=None):
         if database_id and not isinstance(database_id, str):
             raise TypeError("Expected argument 'database_id' to be a str")
         pulumi.set(__self__, "database_id", database_id)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -50,6 +53,14 @@ class GetJobAgentResult:
         Resource ID of the database to store job metadata in.
         """
         return pulumi.get(self, "database_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -107,6 +118,7 @@ class AwaitableGetJobAgentResult(GetJobAgentResult):
             yield self
         return GetJobAgentResult(
             database_id=self.database_id,
+            id=self.id,
             location=self.location,
             name=self.name,
             sku=self.sku,
@@ -138,6 +150,7 @@ def get_job_agent(job_agent_name: Optional[str] = None,
 
     return AwaitableGetJobAgentResult(
         database_id=__ret__.database_id,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         sku=__ret__.sku,

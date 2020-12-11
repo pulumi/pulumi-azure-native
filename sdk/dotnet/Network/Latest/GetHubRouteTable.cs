@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// List of labels associated with this route table.
         /// </summary>
         public readonly ImmutableArray<string> Labels;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string etag,
 
+            string? id,
+
             ImmutableArray<string> labels,
 
             string? name,
@@ -98,6 +104,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         {
             AssociatedConnections = associatedConnections;
             Etag = etag;
+            Id = id;
             Labels = labels;
             Name = name;
             PropagatingConnections = propagatingConnections;

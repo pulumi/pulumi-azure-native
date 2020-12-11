@@ -29,6 +29,8 @@ type LookupReplicationRecoveryServicesProviderArgs struct {
 
 // Provider details.
 type LookupReplicationRecoveryServicesProviderResult struct {
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource Location
 	Location *string `pulumi:"location"`
 	// Resource Name

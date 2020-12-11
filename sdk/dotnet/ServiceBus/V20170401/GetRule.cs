@@ -70,6 +70,10 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20170401
         /// </summary>
         public readonly string? FilterType;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
@@ -90,6 +94,8 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20170401
 
             string? filterType,
 
+            string id,
+
             string name,
 
             Outputs.SqlFilterResponse? sqlFilter,
@@ -99,6 +105,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20170401
             Action = action;
             CorrelationFilter = correlationFilter;
             FilterType = filterType;
+            Id = id;
             Name = name;
             SqlFilter = sqlFilter;
             Type = type;

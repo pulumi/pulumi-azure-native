@@ -34,6 +34,10 @@ namespace Pulumi.AzureNextGen.Peering.V20190801Preview
     public sealed class GetPeerAsnResult
     {
         /// <summary>
+        /// The ID of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
@@ -60,6 +64,8 @@ namespace Pulumi.AzureNextGen.Peering.V20190801Preview
 
         [OutputConstructor]
         private GetPeerAsnResult(
+            string id,
+
             string name,
 
             int? peerAsn,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.Peering.V20190801Preview
 
             string? validationState)
         {
+            Id = id;
             Name = name;
             PeerAsn = peerAsn;
             PeerContactInfo = peerContactInfo;

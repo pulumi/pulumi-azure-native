@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
         /// </summary>
         public readonly Outputs.CredentialsResponse? Credentials;
         /// <summary>
+        /// The resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Identity for the resource.
         /// </summary>
         public readonly Outputs.IdentityPropertiesResponse? Identity;
@@ -128,6 +132,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
 
             Outputs.CredentialsResponse? credentials,
 
+            string id,
+
             Outputs.IdentityPropertiesResponse? identity,
 
             bool? isSystemTask,
@@ -160,6 +166,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
             AgentPoolName = agentPoolName;
             CreationDate = creationDate;
             Credentials = credentials;
+            Id = id;
             Identity = identity;
             IsSystemTask = isSystemTask;
             Location = location;

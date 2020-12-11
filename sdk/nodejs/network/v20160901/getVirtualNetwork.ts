@@ -52,6 +52,10 @@ export interface GetVirtualNetworkResult {
      */
     readonly etag?: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * Resource location.
      */
     readonly location?: string;

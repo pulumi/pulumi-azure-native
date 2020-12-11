@@ -20,7 +20,7 @@ class GetPublicIPAddressResult:
     """
     Public IP address resource.
     """
-    def __init__(__self__, ddos_settings=None, dns_settings=None, etag=None, idle_timeout_in_minutes=None, ip_address=None, ip_configuration=None, ip_tags=None, location=None, name=None, provisioning_state=None, public_ip_address_version=None, public_ip_allocation_method=None, public_ip_prefix=None, resource_guid=None, sku=None, tags=None, type=None, zones=None):
+    def __init__(__self__, ddos_settings=None, dns_settings=None, etag=None, id=None, idle_timeout_in_minutes=None, ip_address=None, ip_configuration=None, ip_tags=None, location=None, name=None, provisioning_state=None, public_ip_address_version=None, public_ip_allocation_method=None, public_ip_prefix=None, resource_guid=None, sku=None, tags=None, type=None, zones=None):
         if ddos_settings and not isinstance(ddos_settings, dict):
             raise TypeError("Expected argument 'ddos_settings' to be a dict")
         pulumi.set(__self__, "ddos_settings", ddos_settings)
@@ -30,6 +30,9 @@ class GetPublicIPAddressResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if idle_timeout_in_minutes and not isinstance(idle_timeout_in_minutes, int):
             raise TypeError("Expected argument 'idle_timeout_in_minutes' to be a int")
         pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
@@ -99,6 +102,14 @@ class GetPublicIPAddressResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
@@ -230,6 +241,7 @@ class AwaitableGetPublicIPAddressResult(GetPublicIPAddressResult):
             ddos_settings=self.ddos_settings,
             dns_settings=self.dns_settings,
             etag=self.etag,
+            id=self.id,
             idle_timeout_in_minutes=self.idle_timeout_in_minutes,
             ip_address=self.ip_address,
             ip_configuration=self.ip_configuration,
@@ -272,6 +284,7 @@ def get_public_ip_address(expand: Optional[str] = None,
         ddos_settings=__ret__.ddos_settings,
         dns_settings=__ret__.dns_settings,
         etag=__ret__.etag,
+        id=__ret__.id,
         idle_timeout_in_minutes=__ret__.idle_timeout_in_minutes,
         ip_address=__ret__.ip_address,
         ip_configuration=__ret__.ip_configuration,

@@ -43,6 +43,8 @@ type LookupDatabaseAccountResult struct {
 	EnableMultipleWriteLocations *bool `pulumi:"enableMultipleWriteLocations"`
 	// An array that contains the regions ordered by their failover priorities.
 	FailoverPolicies []FailoverPolicyResponse `pulumi:"failoverPolicies"`
+	// The unique resource identifier of the database account.
+	Id string `pulumi:"id"`
 	// Cosmos DB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
 	IpRangeFilter *string `pulumi:"ipRangeFilter"`
 	// Flag to indicate whether to enable/disable Virtual Network ACL rules.

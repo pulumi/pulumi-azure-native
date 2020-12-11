@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
         /// </summary>
         public readonly ImmutableDictionary<string, string>? DisplayName;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The InteractionType associated with the Relationship Link.
         /// </summary>
         public readonly string InteractionType;
@@ -104,6 +108,8 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
 
             ImmutableDictionary<string, string>? displayName,
 
+            string id,
+
             string interactionType,
 
             string linkName,
@@ -128,6 +134,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170426
         {
             Description = description;
             DisplayName = displayName;
+            Id = id;
             InteractionType = interactionType;
             LinkName = linkName;
             Mappings = mappings;

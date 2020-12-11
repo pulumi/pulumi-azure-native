@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// </summary>
         public readonly bool? Http2Enabled;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
 
             bool? http2Enabled,
 
+            string id,
+
             string name,
 
             bool? negotiateClientCertificate,
@@ -105,6 +111,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
             CertificateId = certificateId;
             Hostname = hostname;
             Http2Enabled = http2Enabled;
+            Id = id;
             Name = name;
             NegotiateClientCertificate = negotiateClientCertificate;
             Tls10Enabled = tls10Enabled;

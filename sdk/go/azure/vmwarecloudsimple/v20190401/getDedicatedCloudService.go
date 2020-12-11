@@ -27,6 +27,8 @@ type LookupDedicatedCloudServiceArgs struct {
 type LookupDedicatedCloudServiceResult struct {
 	// gateway Subnet for the account. It will collect the subnet address and always treat it as /28
 	GatewaySubnet string `pulumi:"gatewaySubnet"`
+	// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/dedicatedCloudServices/{dedicatedCloudServiceName}
+	Id string `pulumi:"id"`
 	// indicates whether account onboarded or not in a given region
 	IsAccountOnboarded string `pulumi:"isAccountOnboarded"`
 	// Azure region

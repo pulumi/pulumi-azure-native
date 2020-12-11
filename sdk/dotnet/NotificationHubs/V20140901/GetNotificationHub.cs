@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20140901
     public sealed class GetNotificationHubResult
     {
         /// <summary>
+        /// Gets or sets the id of the created NotificationHub.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Gets or sets datacenter location of the NotificationHub.
         /// </summary>
         public readonly string? Location;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20140901
 
         [OutputConstructor]
         private GetNotificationHubResult(
+            string? id,
+
             string? location,
 
             string? name,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20140901
 
             string? type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

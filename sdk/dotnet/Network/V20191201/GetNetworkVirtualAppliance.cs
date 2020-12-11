@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Network.V20191201
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The service principal that has read access to cloud-init and config blob.
         /// </summary>
         public readonly Outputs.ManagedServiceIdentityResponse? Identity;
@@ -106,6 +110,8 @@ namespace Pulumi.AzureNextGen.Network.V20191201
 
             string etag,
 
+            string? id,
+
             Outputs.ManagedServiceIdentityResponse? identity,
 
             string? location,
@@ -129,6 +135,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201
             BootStrapConfigurationBlob = bootStrapConfigurationBlob;
             CloudInitConfigurationBlob = cloudInitConfigurationBlob;
             Etag = etag;
+            Id = id;
             Identity = identity;
             Location = location;
             Name = name;

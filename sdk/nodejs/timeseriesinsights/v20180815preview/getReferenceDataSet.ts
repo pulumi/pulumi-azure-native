@@ -48,6 +48,10 @@ export interface GetReferenceDataSetResult {
      */
     readonly dataStringComparisonBehavior?: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * The list of key properties for the reference data set.
      */
     readonly keyProperties: outputs.timeseriesinsights.v20180815preview.ReferenceDataSetKeyPropertyResponse[];

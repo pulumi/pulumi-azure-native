@@ -20,7 +20,7 @@ class GetDatabaseAccountGremlinGraphResult:
     """
     An Azure Cosmos DB Gremlin graph.
     """
-    def __init__(__self__, conflict_resolution_policy=None, default_ttl=None, etag=None, indexing_policy=None, location=None, name=None, partition_key=None, rid=None, tags=None, ts=None, type=None, unique_key_policy=None):
+    def __init__(__self__, conflict_resolution_policy=None, default_ttl=None, etag=None, id=None, indexing_policy=None, location=None, name=None, partition_key=None, rid=None, tags=None, ts=None, type=None, unique_key_policy=None):
         if conflict_resolution_policy and not isinstance(conflict_resolution_policy, dict):
             raise TypeError("Expected argument 'conflict_resolution_policy' to be a dict")
         pulumi.set(__self__, "conflict_resolution_policy", conflict_resolution_policy)
@@ -30,6 +30,9 @@ class GetDatabaseAccountGremlinGraphResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if indexing_policy and not isinstance(indexing_policy, dict):
             raise TypeError("Expected argument 'indexing_policy' to be a dict")
         pulumi.set(__self__, "indexing_policy", indexing_policy)
@@ -81,6 +84,14 @@ class GetDatabaseAccountGremlinGraphResult:
         A system generated property representing the resource etag required for optimistic concurrency control.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The unique resource identifier of the database account.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="indexingPolicy")
@@ -164,6 +175,7 @@ class AwaitableGetDatabaseAccountGremlinGraphResult(GetDatabaseAccountGremlinGra
             conflict_resolution_policy=self.conflict_resolution_policy,
             default_ttl=self.default_ttl,
             etag=self.etag,
+            id=self.id,
             indexing_policy=self.indexing_policy,
             location=self.location,
             name=self.name,
@@ -203,6 +215,7 @@ def get_database_account_gremlin_graph(account_name: Optional[str] = None,
         conflict_resolution_policy=__ret__.conflict_resolution_policy,
         default_ttl=__ret__.default_ttl,
         etag=__ret__.etag,
+        id=__ret__.id,
         indexing_policy=__ret__.indexing_policy,
         location=__ret__.location,
         name=__ret__.name,

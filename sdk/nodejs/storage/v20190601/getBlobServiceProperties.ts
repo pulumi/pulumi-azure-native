@@ -64,6 +64,10 @@ export interface GetBlobServicePropertiesResult {
      */
     readonly deleteRetentionPolicy?: outputs.storage.v20190601.DeleteRetentionPolicyResponse;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * Versioning is enabled if set to true.
      */
     readonly isVersioningEnabled?: boolean;

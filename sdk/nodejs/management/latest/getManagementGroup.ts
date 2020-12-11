@@ -57,6 +57,10 @@ export interface GetManagementGroupResult {
      */
     readonly displayName?: string;
     /**
+     * The fully qualified ID for the management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+     */
+    readonly id: string;
+    /**
      * The name of the management group. For example, 00000000-0000-0000-0000-000000000000
      */
     readonly name: string;

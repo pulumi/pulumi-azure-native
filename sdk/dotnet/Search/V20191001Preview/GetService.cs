@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Search.V20191001Preview
         /// </summary>
         public readonly string? HostingMode;
         /// <summary>
+        /// The ID of the resource. This can be used with the Azure Resource Manager to link resources together.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.Search.V20191001Preview
         private GetServiceResult(
             string? hostingMode,
 
+            string id,
+
             Outputs.IdentityResponse? identity,
 
             string? location,
@@ -127,6 +133,7 @@ namespace Pulumi.AzureNextGen.Search.V20191001Preview
             string type)
         {
             HostingMode = hostingMode;
+            Id = id;
             Identity = identity;
             Location = location;
             Name = name;

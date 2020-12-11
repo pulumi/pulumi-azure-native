@@ -67,6 +67,10 @@ export interface GetFrontDoorResult {
      */
     readonly healthProbeSettings?: outputs.network.v20200101.HealthProbeSettingsModelResponse[];
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Load balancing settings associated with this Front Door instance.
      */
     readonly loadBalancingSettings?: outputs.network.v20200101.LoadBalancingSettingsModelResponse[];

@@ -20,7 +20,7 @@ class GetNotificationHubResult:
     """
     Description of a NotificationHub Resource.
     """
-    def __init__(__self__, adm_credential=None, apns_credential=None, authorization_rules=None, baidu_credential=None, gcm_credential=None, location=None, mpns_credential=None, name=None, registration_ttl=None, sku=None, tags=None, type=None, wns_credential=None):
+    def __init__(__self__, adm_credential=None, apns_credential=None, authorization_rules=None, baidu_credential=None, gcm_credential=None, id=None, location=None, mpns_credential=None, name=None, registration_ttl=None, sku=None, tags=None, type=None, wns_credential=None):
         if adm_credential and not isinstance(adm_credential, dict):
             raise TypeError("Expected argument 'adm_credential' to be a dict")
         pulumi.set(__self__, "adm_credential", adm_credential)
@@ -36,6 +36,9 @@ class GetNotificationHubResult:
         if gcm_credential and not isinstance(gcm_credential, dict):
             raise TypeError("Expected argument 'gcm_credential' to be a dict")
         pulumi.set(__self__, "gcm_credential", gcm_credential)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -100,6 +103,14 @@ class GetNotificationHubResult:
         The GcmCredential of the created NotificationHub
         """
         return pulumi.get(self, "gcm_credential")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -177,6 +188,7 @@ class AwaitableGetNotificationHubResult(GetNotificationHubResult):
             authorization_rules=self.authorization_rules,
             baidu_credential=self.baidu_credential,
             gcm_credential=self.gcm_credential,
+            id=self.id,
             location=self.location,
             mpns_credential=self.mpns_credential,
             name=self.name,
@@ -214,6 +226,7 @@ def get_notification_hub(namespace_name: Optional[str] = None,
         authorization_rules=__ret__.authorization_rules,
         baidu_credential=__ret__.baidu_credential,
         gcm_credential=__ret__.gcm_credential,
+        id=__ret__.id,
         location=__ret__.location,
         mpns_credential=__ret__.mpns_credential,
         name=__ret__.name,

@@ -27,6 +27,8 @@ type LookupWorkbookArgs struct {
 type LookupWorkbookResult struct {
 	// Workbook category, as defined by the user at creation time.
 	Category string `pulumi:"category"`
+	// Azure resource Id
+	Id string `pulumi:"id"`
 	// The kind of workbook. Choices are user and shared.
 	Kind *string `pulumi:"kind"`
 	// Resource location

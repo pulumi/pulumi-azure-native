@@ -33,6 +33,8 @@ type LookupExportResult struct {
 	ETag *string `pulumi:"eTag"`
 	// The format of the export being delivered.
 	Format *string `pulumi:"format"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Has schedule information for the export.

@@ -51,6 +51,10 @@ export interface GetSnapshotResult {
      */
     readonly hyperVGeneration?: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

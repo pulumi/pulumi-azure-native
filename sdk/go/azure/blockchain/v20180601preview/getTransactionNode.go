@@ -31,6 +31,8 @@ type LookupTransactionNodeResult struct {
 	Dns string `pulumi:"dns"`
 	// Gets or sets the firewall rules.
 	FirewallRules []FirewallRuleResponse `pulumi:"firewallRules"`
+	// Fully qualified resource Id of the resource.
+	Id string `pulumi:"id"`
 	// Gets or sets the transaction node location.
 	Location *string `pulumi:"location"`
 	// The name of the resource.

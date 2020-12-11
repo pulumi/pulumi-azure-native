@@ -19,7 +19,10 @@ class GetTransparentDataEncryptionResult:
     """
     A logical database transparent data encryption state.
     """
-    def __init__(__self__, name=None, state=None, type=None):
+    def __init__(__self__, id=None, name=None, state=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -29,6 +32,14 @@ class GetTransparentDataEncryptionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -61,6 +72,7 @@ class AwaitableGetTransparentDataEncryptionResult(GetTransparentDataEncryptionRe
         if False:
             yield self
         return GetTransparentDataEncryptionResult(
+            id=self.id,
             name=self.name,
             state=self.state,
             type=self.type)
@@ -91,6 +103,7 @@ def get_transparent_data_encryption(database_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:sql/v20200801preview:getTransparentDataEncryption', __args__, opts=opts, typ=GetTransparentDataEncryptionResult).value
 
     return AwaitableGetTransparentDataEncryptionResult(
+        id=__ret__.id,
         name=__ret__.name,
         state=__ret__.state,
         type=__ret__.type)

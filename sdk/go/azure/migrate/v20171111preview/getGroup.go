@@ -33,6 +33,8 @@ type LookupGroupResult struct {
 	CreatedTimestamp string `pulumi:"createdTimestamp"`
 	// For optimistic concurrency control.
 	ETag *string `pulumi:"eTag"`
+	// Path reference to this group. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}
+	Id string `pulumi:"id"`
 	// List of machine names that are part of this group.
 	Machines []string `pulumi:"machines"`
 	// Name of the group.

@@ -44,6 +44,10 @@ export interface GetFailoverGroupResult {
      */
     readonly databases?: string[];
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource location.
      */
     readonly location: string;

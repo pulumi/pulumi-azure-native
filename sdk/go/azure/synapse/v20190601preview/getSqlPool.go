@@ -33,6 +33,8 @@ type LookupSqlPoolResult struct {
 	CreateMode *string `pulumi:"createMode"`
 	// Date the SQL pool was created
 	CreationDate *string `pulumi:"creationDate"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// Maximum size in bytes

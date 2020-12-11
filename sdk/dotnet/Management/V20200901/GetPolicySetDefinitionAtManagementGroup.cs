@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.Management.V20200901
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
+        /// The ID of the policy set definition.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
         /// </summary>
         public readonly object? Metadata;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNextGen.Management.V20200901
 
             string? displayName,
 
+            string id,
+
             object? metadata,
 
             string name,
@@ -98,6 +104,7 @@ namespace Pulumi.AzureNextGen.Management.V20200901
         {
             Description = description;
             DisplayName = displayName;
+            Id = id;
             Metadata = metadata;
             Name = name;
             Parameters = parameters;

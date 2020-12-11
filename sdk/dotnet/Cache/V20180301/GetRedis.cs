@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Cache.V20180301
         /// </summary>
         public readonly string HostName;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// List of the linked servers associated with the cache
         /// </summary>
         public readonly ImmutableArray<Outputs.RedisLinkedServerResponse> LinkedServers;
@@ -128,6 +132,8 @@ namespace Pulumi.AzureNextGen.Cache.V20180301
 
             string hostName,
 
+            string id,
+
             ImmutableArray<Outputs.RedisLinkedServerResponse> linkedServers,
 
             string location,
@@ -165,6 +171,7 @@ namespace Pulumi.AzureNextGen.Cache.V20180301
             AccessKeys = accessKeys;
             EnableNonSslPort = enableNonSslPort;
             HostName = hostName;
+            Id = id;
             LinkedServers = linkedServers;
             Location = location;
             MinimumTlsVersion = minimumTlsVersion;

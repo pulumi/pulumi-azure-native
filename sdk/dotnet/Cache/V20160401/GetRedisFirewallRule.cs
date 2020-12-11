@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Cache.V20160401
         /// </summary>
         public readonly string EndIP;
         /// <summary>
+        /// resource ID (of the firewall rule)
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// name of the firewall rule
         /// </summary>
         public readonly string Name;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.Cache.V20160401
         private GetRedisFirewallRuleResult(
             string endIP,
 
+            string id,
+
             string name,
 
             string startIP,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNextGen.Cache.V20160401
             string type)
         {
             EndIP = endIP;
+            Id = id;
             Name = name;
             StartIP = startIP;
             Type = type;

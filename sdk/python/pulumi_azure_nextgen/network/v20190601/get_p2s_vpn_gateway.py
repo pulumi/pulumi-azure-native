@@ -20,13 +20,16 @@ class GetP2sVpnGatewayResult:
     """
     P2SVpnGateway Resource.
     """
-    def __init__(__self__, custom_routes=None, etag=None, location=None, name=None, p2_s_vpn_server_configuration=None, provisioning_state=None, tags=None, type=None, virtual_hub=None, vpn_client_address_pool=None, vpn_client_connection_health=None, vpn_gateway_scale_unit=None):
+    def __init__(__self__, custom_routes=None, etag=None, id=None, location=None, name=None, p2_s_vpn_server_configuration=None, provisioning_state=None, tags=None, type=None, virtual_hub=None, vpn_client_address_pool=None, vpn_client_connection_health=None, vpn_gateway_scale_unit=None):
         if custom_routes and not isinstance(custom_routes, dict):
             raise TypeError("Expected argument 'custom_routes' to be a dict")
         pulumi.set(__self__, "custom_routes", custom_routes)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -73,6 +76,14 @@ class GetP2sVpnGatewayResult:
         Gets a unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -163,6 +174,7 @@ class AwaitableGetP2sVpnGatewayResult(GetP2sVpnGatewayResult):
         return GetP2sVpnGatewayResult(
             custom_routes=self.custom_routes,
             etag=self.etag,
+            id=self.id,
             location=self.location,
             name=self.name,
             p2_s_vpn_server_configuration=self.p2_s_vpn_server_configuration,
@@ -196,6 +208,7 @@ def get_p2s_vpn_gateway(gateway_name: Optional[str] = None,
     return AwaitableGetP2sVpnGatewayResult(
         custom_routes=__ret__.custom_routes,
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         p2_s_vpn_server_configuration=__ret__.p2_s_vpn_server_configuration,

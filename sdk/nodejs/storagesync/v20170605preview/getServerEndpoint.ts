@@ -65,6 +65,10 @@ export interface GetServerEndpointResult {
      */
     readonly friendlyName?: string;
     /**
+     * The id of the resource.
+     */
+    readonly id: string;
+    /**
      * Item download error count.
      */
     readonly itemDownloadErrorCount?: number;

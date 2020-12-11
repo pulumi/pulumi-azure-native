@@ -20,13 +20,16 @@ class GetRegistryResult:
     """
     An object that represents a container registry.
     """
-    def __init__(__self__, admin_user_enabled=None, creation_date=None, location=None, login_server=None, name=None, network_rule_set=None, policies=None, provisioning_state=None, sku=None, status=None, storage_account=None, tags=None, type=None):
+    def __init__(__self__, admin_user_enabled=None, creation_date=None, id=None, location=None, login_server=None, name=None, network_rule_set=None, policies=None, provisioning_state=None, sku=None, status=None, storage_account=None, tags=None, type=None):
         if admin_user_enabled and not isinstance(admin_user_enabled, bool):
             raise TypeError("Expected argument 'admin_user_enabled' to be a bool")
         pulumi.set(__self__, "admin_user_enabled", admin_user_enabled)
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -76,6 +79,14 @@ class GetRegistryResult:
         The creation date of the container registry in ISO8601 format.
         """
         return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -174,6 +185,7 @@ class AwaitableGetRegistryResult(GetRegistryResult):
         return GetRegistryResult(
             admin_user_enabled=self.admin_user_enabled,
             creation_date=self.creation_date,
+            id=self.id,
             location=self.location,
             login_server=self.login_server,
             name=self.name,
@@ -208,6 +220,7 @@ def get_registry(registry_name: Optional[str] = None,
     return AwaitableGetRegistryResult(
         admin_user_enabled=__ret__.admin_user_enabled,
         creation_date=__ret__.creation_date,
+        id=__ret__.id,
         location=__ret__.location,
         login_server=__ret__.login_server,
         name=__ret__.name,

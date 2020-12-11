@@ -20,7 +20,7 @@ class GetEnvironmentResult:
     """
     Represents an environment instance
     """
-    def __init__(__self__, claimed_by_user_name=None, claimed_by_user_object_id=None, claimed_by_user_principal_id=None, is_claimed=None, last_known_power_state=None, latest_operation_result=None, location=None, name=None, network_interface=None, password_last_reset=None, provisioning_state=None, resource_sets=None, tags=None, total_usage=None, type=None, unique_identifier=None):
+    def __init__(__self__, claimed_by_user_name=None, claimed_by_user_object_id=None, claimed_by_user_principal_id=None, id=None, is_claimed=None, last_known_power_state=None, latest_operation_result=None, location=None, name=None, network_interface=None, password_last_reset=None, provisioning_state=None, resource_sets=None, tags=None, total_usage=None, type=None, unique_identifier=None):
         if claimed_by_user_name and not isinstance(claimed_by_user_name, str):
             raise TypeError("Expected argument 'claimed_by_user_name' to be a str")
         pulumi.set(__self__, "claimed_by_user_name", claimed_by_user_name)
@@ -30,6 +30,9 @@ class GetEnvironmentResult:
         if claimed_by_user_principal_id and not isinstance(claimed_by_user_principal_id, str):
             raise TypeError("Expected argument 'claimed_by_user_principal_id' to be a str")
         pulumi.set(__self__, "claimed_by_user_principal_id", claimed_by_user_principal_id)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_claimed and not isinstance(is_claimed, bool):
             raise TypeError("Expected argument 'is_claimed' to be a bool")
         pulumi.set(__self__, "is_claimed", is_claimed)
@@ -93,6 +96,14 @@ class GetEnvironmentResult:
         The user principal Id of the user who has claimed the environment
         """
         return pulumi.get(self, "claimed_by_user_principal_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isClaimed")
@@ -208,6 +219,7 @@ class AwaitableGetEnvironmentResult(GetEnvironmentResult):
             claimed_by_user_name=self.claimed_by_user_name,
             claimed_by_user_object_id=self.claimed_by_user_object_id,
             claimed_by_user_principal_id=self.claimed_by_user_principal_id,
+            id=self.id,
             is_claimed=self.is_claimed,
             last_known_power_state=self.last_known_power_state,
             latest_operation_result=self.latest_operation_result,
@@ -257,6 +269,7 @@ def get_environment(environment_name: Optional[str] = None,
         claimed_by_user_name=__ret__.claimed_by_user_name,
         claimed_by_user_object_id=__ret__.claimed_by_user_object_id,
         claimed_by_user_principal_id=__ret__.claimed_by_user_principal_id,
+        id=__ret__.id,
         is_claimed=__ret__.is_claimed,
         last_known_power_state=__ret__.last_known_power_state,
         latest_operation_result=__ret__.latest_operation_result,

@@ -19,10 +19,13 @@ class GetUserAssignedIdentityResult:
     """
     Describes an identity resource.
     """
-    def __init__(__self__, client_id=None, location=None, name=None, principal_id=None, tags=None, tenant_id=None, type=None):
+    def __init__(__self__, client_id=None, id=None, location=None, name=None, principal_id=None, tags=None, tenant_id=None, type=None):
         if client_id and not isinstance(client_id, str):
             raise TypeError("Expected argument 'client_id' to be a str")
         pulumi.set(__self__, "client_id", client_id)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -49,6 +52,14 @@ class GetUserAssignedIdentityResult:
         The id of the app associated with the identity. This is a random generated UUID by MSI.
         """
         return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -106,6 +117,7 @@ class AwaitableGetUserAssignedIdentityResult(GetUserAssignedIdentityResult):
             yield self
         return GetUserAssignedIdentityResult(
             client_id=self.client_id,
+            id=self.id,
             location=self.location,
             name=self.name,
             principal_id=self.principal_id,
@@ -134,6 +146,7 @@ def get_user_assigned_identity(resource_group_name: Optional[str] = None,
 
     return AwaitableGetUserAssignedIdentityResult(
         client_id=__ret__.client_id,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         principal_id=__ret__.principal_id,

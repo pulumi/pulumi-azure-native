@@ -27,6 +27,8 @@ type LookupEnvironmentArgs struct {
 
 // An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
 type LookupEnvironmentResult struct {
+	// Resource Id
+	Id string `pulumi:"id"`
 	// The kind of the environment.
 	Kind string `pulumi:"kind"`
 	// Resource location

@@ -20,7 +20,7 @@ class GetSignalRResult:
     """
     A class represent a SignalR service resource.
     """
-    def __init__(__self__, external_ip=None, host_name=None, host_name_prefix=None, location=None, name=None, provisioning_state=None, public_port=None, server_port=None, sku=None, tags=None, type=None, version=None):
+    def __init__(__self__, external_ip=None, host_name=None, host_name_prefix=None, id=None, location=None, name=None, provisioning_state=None, public_port=None, server_port=None, sku=None, tags=None, type=None, version=None):
         if external_ip and not isinstance(external_ip, str):
             raise TypeError("Expected argument 'external_ip' to be a str")
         pulumi.set(__self__, "external_ip", external_ip)
@@ -30,6 +30,9 @@ class GetSignalRResult:
         if host_name_prefix and not isinstance(host_name_prefix, str):
             raise TypeError("Expected argument 'host_name_prefix' to be a str")
         pulumi.set(__self__, "host_name_prefix", host_name_prefix)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -82,6 +85,14 @@ class GetSignalRResult:
         The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
         """
         return pulumi.get(self, "host_name_prefix")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -165,6 +176,7 @@ class AwaitableGetSignalRResult(GetSignalRResult):
             external_ip=self.external_ip,
             host_name=self.host_name,
             host_name_prefix=self.host_name_prefix,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -198,6 +210,7 @@ def get_signal_r(resource_group_name: Optional[str] = None,
         external_ip=__ret__.external_ip,
         host_name=__ret__.host_name,
         host_name_prefix=__ret__.host_name_prefix,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

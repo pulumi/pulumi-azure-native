@@ -56,6 +56,10 @@ export interface GetDataExportResult {
      */
     readonly eventHubName?: string;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * Date and time when the export was last modified.
      */
     readonly lastModifiedDate?: string;

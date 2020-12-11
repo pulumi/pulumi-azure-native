@@ -27,6 +27,8 @@ type LookupProfileArgs struct {
 type LookupProfileResult struct {
 	// The Id of the frontdoor.
 	FrontdoorId string `pulumi:"frontdoorId"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// Resource name.

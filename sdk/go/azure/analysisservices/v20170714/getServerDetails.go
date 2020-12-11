@@ -31,6 +31,8 @@ type LookupServerDetailsResult struct {
 	BackupBlobContainerUri *string `pulumi:"backupBlobContainerUri"`
 	// The gateway details configured for the AS server.
 	GatewayDetails *GatewayDetailsResponse `pulumi:"gatewayDetails"`
+	// An identifier that represents the Analysis Services resource.
+	Id string `pulumi:"id"`
 	// Location of the Analysis Services resource.
 	Location string `pulumi:"location"`
 	// The name of the Analysis Services resource.

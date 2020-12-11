@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
     public sealed class GetPrivateEndpointConnectionResult
     {
         /// <summary>
+        /// The resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
 
         [OutputConstructor]
         private GetPrivateEndpointConnectionResult(
+            string id,
+
             string name,
 
             Outputs.PrivateEndpointResponse? privateEndpoint,
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
 
             string type)
         {
+            Id = id;
             Name = name;
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;

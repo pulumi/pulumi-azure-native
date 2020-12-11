@@ -19,7 +19,7 @@ class GetWebAppHostNameBindingResult:
     """
     A hostname binding object.
     """
-    def __init__(__self__, azure_resource_name=None, azure_resource_type=None, custom_host_name_dns_record_type=None, domain_id=None, host_name_type=None, kind=None, name=None, site_name=None, ssl_state=None, thumbprint=None, type=None, virtual_ip=None):
+    def __init__(__self__, azure_resource_name=None, azure_resource_type=None, custom_host_name_dns_record_type=None, domain_id=None, host_name_type=None, id=None, kind=None, name=None, site_name=None, ssl_state=None, thumbprint=None, type=None, virtual_ip=None):
         if azure_resource_name and not isinstance(azure_resource_name, str):
             raise TypeError("Expected argument 'azure_resource_name' to be a str")
         pulumi.set(__self__, "azure_resource_name", azure_resource_name)
@@ -35,6 +35,9 @@ class GetWebAppHostNameBindingResult:
         if host_name_type and not isinstance(host_name_type, str):
             raise TypeError("Expected argument 'host_name_type' to be a str")
         pulumi.set(__self__, "host_name_type", host_name_type)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -96,6 +99,14 @@ class GetWebAppHostNameBindingResult:
         Hostname type.
         """
         return pulumi.get(self, "host_name_type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -165,6 +176,7 @@ class AwaitableGetWebAppHostNameBindingResult(GetWebAppHostNameBindingResult):
             custom_host_name_dns_record_type=self.custom_host_name_dns_record_type,
             domain_id=self.domain_id,
             host_name_type=self.host_name_type,
+            id=self.id,
             kind=self.kind,
             name=self.name,
             site_name=self.site_name,
@@ -201,6 +213,7 @@ def get_web_app_host_name_binding(host_name: Optional[str] = None,
         custom_host_name_dns_record_type=__ret__.custom_host_name_dns_record_type,
         domain_id=__ret__.domain_id,
         host_name_type=__ret__.host_name_type,
+        id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
         site_name=__ret__.site_name,

@@ -31,6 +31,8 @@ type LookupSiteRelayServiceConnectionResult struct {
 	EntityConnectionString *string `pulumi:"entityConnectionString"`
 	EntityName             *string `pulumi:"entityName"`
 	Hostname               *string `pulumi:"hostname"`
+	// Resource Id
+	Id *string `pulumi:"id"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location

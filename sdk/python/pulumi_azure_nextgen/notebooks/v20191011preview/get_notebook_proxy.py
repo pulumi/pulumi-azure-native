@@ -19,10 +19,13 @@ class GetNotebookProxyResult:
     """
     A NotebookProxy resource.
     """
-    def __init__(__self__, hostname=None, name=None, resource_id=None, type=None):
+    def __init__(__self__, hostname=None, id=None, name=None, resource_id=None, type=None):
         if hostname and not isinstance(hostname, str):
             raise TypeError("Expected argument 'hostname' to be a str")
         pulumi.set(__self__, "hostname", hostname)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -40,6 +43,14 @@ class GetNotebookProxyResult:
         The friendly string identifier of the creator of the NotebookProxy resource.
         """
         return pulumi.get(self, "hostname")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -73,6 +84,7 @@ class AwaitableGetNotebookProxyResult(GetNotebookProxyResult):
             yield self
         return GetNotebookProxyResult(
             hostname=self.hostname,
+            id=self.id,
             name=self.name,
             resource_id=self.resource_id,
             type=self.type)
@@ -98,6 +110,7 @@ def get_notebook_proxy(resource_group_name: Optional[str] = None,
 
     return AwaitableGetNotebookProxyResult(
         hostname=__ret__.hostname,
+        id=__ret__.id,
         name=__ret__.name,
         resource_id=__ret__.resource_id,
         type=__ret__.type)

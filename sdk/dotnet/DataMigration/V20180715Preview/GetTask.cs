@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview
         private GetTaskResult(
             string? etag,
 
+            string id,
+
             string name,
 
             Union<Outputs.ConnectToMongoDbTaskPropertiesResponse, Union<Outputs.ConnectToSourceOracleSyncTaskPropertiesResponse, Union<Outputs.ConnectToSourcePostgreSqlSyncTaskPropertiesResponse, Union<Outputs.ConnectToSourceSqlServerSyncTaskPropertiesResponse, Union<Outputs.ConnectToSourceSqlServerTaskPropertiesResponse, Union<Outputs.ConnectToTargetAzureDbForMySqlTaskPropertiesResponse, Union<Outputs.ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponse, Union<Outputs.ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse, Union<Outputs.ConnectToTargetSqlDbTaskPropertiesResponse, Union<Outputs.ConnectToTargetSqlMISyncTaskPropertiesResponse, Union<Outputs.ConnectToTargetSqlMITaskPropertiesResponse, Union<Outputs.ConnectToTargetSqlSqlDbSyncTaskPropertiesResponse, Union<Outputs.GetTdeCertificatesSqlTaskPropertiesResponse, Union<Outputs.GetUserTablesOracleTaskPropertiesResponse, Union<Outputs.GetUserTablesPostgreSqlTaskPropertiesResponse, Union<Outputs.GetUserTablesSqlSyncTaskPropertiesResponse, Union<Outputs.GetUserTablesSqlTaskPropertiesResponse, Union<Outputs.MigrateMongoDbTaskPropertiesResponse, Union<Outputs.MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponse, Union<Outputs.MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse, Union<Outputs.MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse, Union<Outputs.MigrateSqlServerSqlDbSyncTaskPropertiesResponse, Union<Outputs.MigrateSqlServerSqlDbTaskPropertiesResponse, Union<Outputs.MigrateSqlServerSqlMISyncTaskPropertiesResponse, Union<Outputs.MigrateSqlServerSqlMITaskPropertiesResponse, Union<Outputs.MigrateSsisTaskPropertiesResponse, Union<Outputs.ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponse, Union<Outputs.ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponse, Union<Outputs.ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse, Union<Outputs.ValidateMongoDbTaskPropertiesResponse, Outputs.ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> properties,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview
             string type)
         {
             Etag = etag;
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

@@ -37,6 +37,7 @@ export interface GetVMwareCollectorArgs {
 
 export interface GetVMwareCollectorResult {
     readonly eTag?: string;
+    readonly id: string;
     readonly name: string;
     readonly properties: outputs.migrate.v20191001.CollectorPropertiesResponse;
     readonly type: string;

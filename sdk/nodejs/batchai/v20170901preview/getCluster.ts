@@ -46,6 +46,10 @@ export interface GetClusterResult {
      */
     readonly errors?: outputs.batchai.v20170901preview.BatchAIErrorResponse[];
     /**
+     * The ID of the resource
+     */
+    readonly id: string;
+    /**
      * The location of the resource
      */
     readonly location: string;

@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.HybridCompute.Latest
     public sealed class GetGuestConfigurationHCRPAssignmentResult
     {
         /// <summary>
+        /// ARM resource id of the guest configuration assignment.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Region where the VM is located.
         /// </summary>
         public readonly string? Location;
@@ -64,6 +68,8 @@ namespace Pulumi.AzureNextGen.HybridCompute.Latest
 
         [OutputConstructor]
         private GetGuestConfigurationHCRPAssignmentResult(
+            string id,
+
             string? location,
 
             string? name,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.Latest
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

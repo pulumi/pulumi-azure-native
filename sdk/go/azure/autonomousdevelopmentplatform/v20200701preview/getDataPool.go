@@ -29,6 +29,8 @@ type LookupDataPoolArgs struct {
 type LookupDataPoolResult struct {
 	// The Data Pool's data-plane ID
 	DataPoolId string `pulumi:"dataPoolId"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// Gets or sets the collection of locations where Data Pool resources should be created.
 	Locations []DataPoolLocationResponse `pulumi:"locations"`
 	// The name of the resource

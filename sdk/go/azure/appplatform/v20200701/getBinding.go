@@ -29,6 +29,8 @@ type LookupBindingArgs struct {
 
 // Binding resource payload
 type LookupBindingResult struct {
+	// Fully qualified resource Id for the resource.
+	Id string `pulumi:"id"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// Properties of the Binding resource

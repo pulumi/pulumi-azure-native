@@ -71,6 +71,10 @@ export interface GetApplicationGatewayResult {
      */
     readonly httpListeners?: outputs.network.v20180201.ApplicationGatewayHttpListenerResponse[];
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * Resource location.
      */
     readonly location?: string;

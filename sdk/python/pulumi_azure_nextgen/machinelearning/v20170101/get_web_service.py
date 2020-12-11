@@ -20,7 +20,10 @@ class GetWebServiceResult:
     """
     Instance of an Azure ML web service resource.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, id=None, location=None, name=None, properties=None, tags=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -36,6 +39,14 @@ class GetWebServiceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Specifies the resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -84,6 +95,7 @@ class AwaitableGetWebServiceResult(GetWebServiceResult):
         if False:
             yield self
         return GetWebServiceResult(
+            id=self.id,
             location=self.location,
             name=self.name,
             properties=self.properties,
@@ -113,6 +125,7 @@ def get_web_service(region: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:machinelearning/v20170101:getWebService', __args__, opts=opts, typ=GetWebServiceResult).value
 
     return AwaitableGetWebServiceResult(
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         properties=__ret__.properties,

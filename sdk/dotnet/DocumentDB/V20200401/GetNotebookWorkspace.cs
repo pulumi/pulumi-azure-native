@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200401
     public sealed class GetNotebookWorkspaceResult
     {
         /// <summary>
+        /// The unique resource identifier of the database account.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the database account.
         /// </summary>
         public readonly string Name;
@@ -64,6 +68,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200401
 
         [OutputConstructor]
         private GetNotebookWorkspaceResult(
+            string id,
+
             string name,
 
             string notebookServerEndpoint,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200401
 
             string type)
         {
+            Id = id;
             Name = name;
             NotebookServerEndpoint = notebookServerEndpoint;
             Status = status;

@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// </summary>
         public readonly string? HyperVGeneration;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         private GetImageResult(
             string? hyperVGeneration,
 
+            string id,
+
             string location,
 
             string name,
@@ -97,6 +103,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
             string type)
         {
             HyperVGeneration = hyperVGeneration;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

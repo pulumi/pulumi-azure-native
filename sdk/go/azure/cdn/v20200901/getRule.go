@@ -34,6 +34,8 @@ type LookupRuleResult struct {
 	// A list of conditions that must be matched for the actions to be executed
 	Conditions       []interface{} `pulumi:"conditions"`
 	DeploymentStatus string        `pulumi:"deploymentStatus"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
 	MatchProcessingBehavior *string `pulumi:"matchProcessingBehavior"`
 	// Resource name.

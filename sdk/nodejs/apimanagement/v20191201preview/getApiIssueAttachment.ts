@@ -58,6 +58,10 @@ export interface GetApiIssueAttachmentResult {
      */
     readonly contentFormat: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

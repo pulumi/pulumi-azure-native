@@ -65,6 +65,10 @@ export interface GetLiveOutputResult {
      */
     readonly hls?: outputs.media.v20200501.HlsResponse;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * The time the live output was last modified.
      */
     readonly lastModified: string;

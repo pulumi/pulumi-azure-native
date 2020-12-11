@@ -20,13 +20,16 @@ class GetAzureFirewallResult:
     """
     Azure Firewall resource
     """
-    def __init__(__self__, application_rule_collections=None, etag=None, ip_configurations=None, location=None, name=None, network_rule_collections=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, application_rule_collections=None, etag=None, id=None, ip_configurations=None, location=None, name=None, network_rule_collections=None, provisioning_state=None, tags=None, type=None):
         if application_rule_collections and not isinstance(application_rule_collections, list):
             raise TypeError("Expected argument 'application_rule_collections' to be a list")
         pulumi.set(__self__, "application_rule_collections", application_rule_collections)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if ip_configurations and not isinstance(ip_configurations, list):
             raise TypeError("Expected argument 'ip_configurations' to be a list")
         pulumi.set(__self__, "ip_configurations", ip_configurations)
@@ -64,6 +67,14 @@ class GetAzureFirewallResult:
         Gets a unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ipConfigurations")
@@ -130,6 +141,7 @@ class AwaitableGetAzureFirewallResult(GetAzureFirewallResult):
         return GetAzureFirewallResult(
             application_rule_collections=self.application_rule_collections,
             etag=self.etag,
+            id=self.id,
             ip_configurations=self.ip_configurations,
             location=self.location,
             name=self.name,
@@ -160,6 +172,7 @@ def get_azure_firewall(azure_firewall_name: Optional[str] = None,
     return AwaitableGetAzureFirewallResult(
         application_rule_collections=__ret__.application_rule_collections,
         etag=__ret__.etag,
+        id=__ret__.id,
         ip_configurations=__ret__.ip_configurations,
         location=__ret__.location,
         name=__ret__.name,

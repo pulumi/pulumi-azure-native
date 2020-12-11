@@ -20,10 +20,13 @@ class GetFileServicePropertiesResult:
     """
     The properties of File services in storage account.
     """
-    def __init__(__self__, cors=None, name=None, protocol_settings=None, share_delete_retention_policy=None, sku=None, type=None):
+    def __init__(__self__, cors=None, id=None, name=None, protocol_settings=None, share_delete_retention_policy=None, sku=None, type=None):
         if cors and not isinstance(cors, dict):
             raise TypeError("Expected argument 'cors' to be a dict")
         pulumi.set(__self__, "cors", cors)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -47,6 +50,14 @@ class GetFileServicePropertiesResult:
         Specifies CORS rules for the File service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the File service.
         """
         return pulumi.get(self, "cors")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -96,6 +107,7 @@ class AwaitableGetFileServicePropertiesResult(GetFileServicePropertiesResult):
             yield self
         return GetFileServicePropertiesResult(
             cors=self.cors,
+            id=self.id,
             name=self.name,
             protocol_settings=self.protocol_settings,
             share_delete_retention_policy=self.share_delete_retention_policy,
@@ -126,6 +138,7 @@ def get_file_service_properties(account_name: Optional[str] = None,
 
     return AwaitableGetFileServicePropertiesResult(
         cors=__ret__.cors,
+        id=__ret__.id,
         name=__ret__.name,
         protocol_settings=__ret__.protocol_settings,
         share_delete_retention_policy=__ret__.share_delete_retention_policy,

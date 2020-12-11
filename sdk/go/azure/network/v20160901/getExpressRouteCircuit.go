@@ -35,6 +35,8 @@ type LookupExpressRouteCircuitResult struct {
 	Etag *string `pulumi:"etag"`
 	// The GatewayManager Etag.
 	GatewayManagerEtag *string `pulumi:"gatewayManagerEtag"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.

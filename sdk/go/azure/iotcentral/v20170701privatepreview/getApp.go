@@ -29,6 +29,8 @@ type LookupAppResult struct {
 	ApplicationId string `pulumi:"applicationId"`
 	// The display name of the application.
 	DisplayName *string `pulumi:"displayName"`
+	// The ARM resource identifier.
+	Id string `pulumi:"id"`
 	// The resource location.
 	Location string `pulumi:"location"`
 	// The ARM resource name.

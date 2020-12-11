@@ -50,6 +50,10 @@ export interface GetSecretArgs {
  */
 export interface GetSecretResult {
     /**
+     * The identifier of the resource.
+     */
+    readonly id: string;
+    /**
      * The location of the resource.
      */
     readonly location?: string;

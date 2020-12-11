@@ -19,13 +19,16 @@ class GetWorkloadClassifierResult:
     """
     Workload classifier operations for a data warehouse
     """
-    def __init__(__self__, context=None, end_time=None, importance=None, label=None, member_name=None, name=None, start_time=None, type=None):
+    def __init__(__self__, context=None, end_time=None, id=None, importance=None, label=None, member_name=None, name=None, start_time=None, type=None):
         if context and not isinstance(context, str):
             raise TypeError("Expected argument 'context' to be a str")
         pulumi.set(__self__, "context", context)
         if end_time and not isinstance(end_time, str):
             raise TypeError("Expected argument 'end_time' to be a str")
         pulumi.set(__self__, "end_time", end_time)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if importance and not isinstance(importance, str):
             raise TypeError("Expected argument 'importance' to be a str")
         pulumi.set(__self__, "importance", importance)
@@ -60,6 +63,14 @@ class GetWorkloadClassifierResult:
         The workload classifier end time for classification.
         """
         return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -118,6 +129,7 @@ class AwaitableGetWorkloadClassifierResult(GetWorkloadClassifierResult):
         return GetWorkloadClassifierResult(
             context=self.context,
             end_time=self.end_time,
+            id=self.id,
             importance=self.importance,
             label=self.label,
             member_name=self.member_name,
@@ -156,6 +168,7 @@ def get_workload_classifier(database_name: Optional[str] = None,
     return AwaitableGetWorkloadClassifierResult(
         context=__ret__.context,
         end_time=__ret__.end_time,
+        id=__ret__.id,
         importance=__ret__.importance,
         label=__ret__.label,
         member_name=__ret__.member_name,

@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20200330
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// The resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Setting indicating whether the service has a managed identity associated with it.
         /// </summary>
         public readonly Outputs.ServicesResourceResponseIdentity? Identity;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20200330
         private GetServiceResult(
             string? etag,
 
+            string id,
+
             Outputs.ServicesResourceResponseIdentity? identity,
 
             string kind,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20200330
             string type)
         {
             Etag = etag;
+            Id = id;
             Identity = identity;
             Kind = kind;
             Location = location;

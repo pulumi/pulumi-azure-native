@@ -52,6 +52,10 @@ export interface GetRegisteredServerResult {
      */
     readonly clusterName?: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Registered Server last heart beat
      */
     readonly lastHeartBeat?: string;

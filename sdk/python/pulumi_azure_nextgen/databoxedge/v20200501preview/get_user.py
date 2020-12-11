@@ -20,10 +20,13 @@ class GetUserResult:
     """
     Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
     """
-    def __init__(__self__, encrypted_password=None, name=None, share_access_rights=None, type=None, user_type=None):
+    def __init__(__self__, encrypted_password=None, id=None, name=None, share_access_rights=None, type=None, user_type=None):
         if encrypted_password and not isinstance(encrypted_password, dict):
             raise TypeError("Expected argument 'encrypted_password' to be a dict")
         pulumi.set(__self__, "encrypted_password", encrypted_password)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -44,6 +47,14 @@ class GetUserResult:
         The password details.
         """
         return pulumi.get(self, "encrypted_password")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The path ID that uniquely identifies the object.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -85,6 +96,7 @@ class AwaitableGetUserResult(GetUserResult):
             yield self
         return GetUserResult(
             encrypted_password=self.encrypted_password,
+            id=self.id,
             name=self.name,
             share_access_rights=self.share_access_rights,
             type=self.type,
@@ -114,6 +126,7 @@ def get_user(device_name: Optional[str] = None,
 
     return AwaitableGetUserResult(
         encrypted_password=__ret__.encrypted_password,
+        id=__ret__.id,
         name=__ret__.name,
         share_access_rights=__ret__.share_access_rights,
         type=__ret__.type,

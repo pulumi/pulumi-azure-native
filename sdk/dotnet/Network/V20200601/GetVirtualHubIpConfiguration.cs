@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Name of the Ip Configuration.
         /// </summary>
         public readonly string? Name;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         private GetVirtualHubIpConfigurationResult(
             string etag,
 
+            string? id,
+
             string? name,
 
             string? privateIPAddress,
@@ -97,6 +103,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
             string type)
         {
             Etag = etag;
+            Id = id;
             Name = name;
             PrivateIPAddress = privateIPAddress;
             PrivateIPAllocationMethod = privateIPAllocationMethod;

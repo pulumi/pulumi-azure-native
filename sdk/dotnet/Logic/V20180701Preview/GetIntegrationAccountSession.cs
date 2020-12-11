@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
         /// </summary>
         public readonly string CreatedTime;
         /// <summary>
+        /// The resource id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string? Location;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
 
             string createdTime,
 
+            string id,
+
             string? location,
 
             string name,
@@ -93,6 +99,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
             ChangedTime = changedTime;
             Content = content;
             CreatedTime = createdTime;
+            Id = id;
             Location = location;
             Name = name;
             Tags = tags;

@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Network.V20180401
         /// </summary>
         public readonly ImmutableArray<Outputs.HubVirtualNetworkConnectionResponse> HubVirtualNetworkConnections;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string Location;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNextGen.Network.V20180401
 
             ImmutableArray<Outputs.HubVirtualNetworkConnectionResponse> hubVirtualNetworkConnections,
 
+            string? id,
+
             string location,
 
             string name,
@@ -99,6 +105,7 @@ namespace Pulumi.AzureNextGen.Network.V20180401
             AddressPrefix = addressPrefix;
             Etag = etag;
             HubVirtualNetworkConnections = hubVirtualNetworkConnections;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

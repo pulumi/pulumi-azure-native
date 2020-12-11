@@ -20,7 +20,10 @@ class GetApplicationResult:
     """
     The application resource.
     """
-    def __init__(__self__, location=None, maximum_nodes=None, metrics=None, minimum_nodes=None, name=None, parameters=None, provisioning_state=None, remove_application_capacity=None, type=None, type_name=None, type_version=None, upgrade_policy=None):
+    def __init__(__self__, id=None, location=None, maximum_nodes=None, metrics=None, minimum_nodes=None, name=None, parameters=None, provisioning_state=None, remove_application_capacity=None, type=None, type_name=None, type_version=None, upgrade_policy=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -57,6 +60,14 @@ class GetApplicationResult:
         if upgrade_policy and not isinstance(upgrade_policy, dict):
             raise TypeError("Expected argument 'upgrade_policy' to be a dict")
         pulumi.set(__self__, "upgrade_policy", upgrade_policy)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource identifier.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -161,6 +172,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
         if False:
             yield self
         return GetApplicationResult(
+            id=self.id,
             location=self.location,
             maximum_nodes=self.maximum_nodes,
             metrics=self.metrics,
@@ -197,6 +209,7 @@ def get_application(application_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:servicefabric/v20170701preview:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
 
     return AwaitableGetApplicationResult(
+        id=__ret__.id,
         location=__ret__.location,
         maximum_nodes=__ret__.maximum_nodes,
         metrics=__ret__.metrics,

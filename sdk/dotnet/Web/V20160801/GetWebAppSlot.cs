@@ -105,6 +105,10 @@ namespace Pulumi.AzureNextGen.Web.V20160801
         /// </summary>
         public readonly bool? HttpsOnly;
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Managed service identity.
         /// </summary>
         public readonly Outputs.ManagedServiceIdentityResponse? Identity;
@@ -232,6 +236,8 @@ namespace Pulumi.AzureNextGen.Web.V20160801
 
             bool? httpsOnly,
 
+            string id,
+
             Outputs.ManagedServiceIdentityResponse? identity,
 
             bool isDefaultContainer,
@@ -294,6 +300,7 @@ namespace Pulumi.AzureNextGen.Web.V20160801
             HostNamesDisabled = hostNamesDisabled;
             HostingEnvironmentProfile = hostingEnvironmentProfile;
             HttpsOnly = httpsOnly;
+            Id = id;
             Identity = identity;
             IsDefaultContainer = isDefaultContainer;
             Kind = kind;

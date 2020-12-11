@@ -19,7 +19,7 @@ class GetFileServerResult:
     """
     The file server.
     """
-    def __init__(__self__, backup_schedule_group_id=None, description=None, domain_name=None, name=None, storage_domain_id=None, type=None):
+    def __init__(__self__, backup_schedule_group_id=None, description=None, domain_name=None, id=None, name=None, storage_domain_id=None, type=None):
         if backup_schedule_group_id and not isinstance(backup_schedule_group_id, str):
             raise TypeError("Expected argument 'backup_schedule_group_id' to be a str")
         pulumi.set(__self__, "backup_schedule_group_id", backup_schedule_group_id)
@@ -29,6 +29,9 @@ class GetFileServerResult:
         if domain_name and not isinstance(domain_name, str):
             raise TypeError("Expected argument 'domain_name' to be a str")
         pulumi.set(__self__, "domain_name", domain_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -65,6 +68,14 @@ class GetFileServerResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         The name.
@@ -97,6 +108,7 @@ class AwaitableGetFileServerResult(GetFileServerResult):
             backup_schedule_group_id=self.backup_schedule_group_id,
             description=self.description,
             domain_name=self.domain_name,
+            id=self.id,
             name=self.name,
             storage_domain_id=self.storage_domain_id,
             type=self.type)
@@ -130,6 +142,7 @@ def get_file_server(device_name: Optional[str] = None,
         backup_schedule_group_id=__ret__.backup_schedule_group_id,
         description=__ret__.description,
         domain_name=__ret__.domain_name,
+        id=__ret__.id,
         name=__ret__.name,
         storage_domain_id=__ret__.storage_domain_id,
         type=__ret__.type)

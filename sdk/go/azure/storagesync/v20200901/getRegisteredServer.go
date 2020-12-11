@@ -41,6 +41,8 @@ type LookupRegisteredServerResult struct {
 	DiscoveryEndpointUri string `pulumi:"discoveryEndpointUri"`
 	// Friendly Name
 	FriendlyName *string `pulumi:"friendlyName"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// Registered Server last heart beat
 	LastHeartBeat string `pulumi:"lastHeartBeat"`
 	// Resource Last Operation Name

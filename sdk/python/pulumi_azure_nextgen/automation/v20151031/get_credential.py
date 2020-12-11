@@ -19,13 +19,16 @@ class GetCredentialResult:
     """
     Definition of the credential.
     """
-    def __init__(__self__, creation_time=None, description=None, last_modified_time=None, name=None, type=None, user_name=None):
+    def __init__(__self__, creation_time=None, description=None, id=None, last_modified_time=None, name=None, type=None, user_name=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_modified_time and not isinstance(last_modified_time, str):
             raise TypeError("Expected argument 'last_modified_time' to be a str")
         pulumi.set(__self__, "last_modified_time", last_modified_time)
@@ -54,6 +57,14 @@ class GetCredentialResult:
         Gets or sets the description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
@@ -96,6 +107,7 @@ class AwaitableGetCredentialResult(GetCredentialResult):
         return GetCredentialResult(
             creation_time=self.creation_time,
             description=self.description,
+            id=self.id,
             last_modified_time=self.last_modified_time,
             name=self.name,
             type=self.type,
@@ -126,6 +138,7 @@ def get_credential(automation_account_name: Optional[str] = None,
     return AwaitableGetCredentialResult(
         creation_time=__ret__.creation_time,
         description=__ret__.description,
+        id=__ret__.id,
         last_modified_time=__ret__.last_modified_time,
         name=__ret__.name,
         type=__ret__.type,

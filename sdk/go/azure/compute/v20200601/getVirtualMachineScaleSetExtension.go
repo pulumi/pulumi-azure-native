@@ -35,6 +35,8 @@ type LookupVirtualMachineScaleSetExtensionResult struct {
 	EnableAutomaticUpgrade *bool `pulumi:"enableAutomaticUpgrade"`
 	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// The name of the extension.
 	Name *string `pulumi:"name"`
 	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.

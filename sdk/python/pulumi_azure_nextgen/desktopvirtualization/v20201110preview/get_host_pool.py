@@ -20,7 +20,7 @@ class GetHostPoolResult:
     """
     Represents a HostPool definition.
     """
-    def __init__(__self__, application_group_references=None, custom_rdp_property=None, description=None, friendly_name=None, host_pool_type=None, load_balancer_type=None, location=None, max_session_limit=None, name=None, personal_desktop_assignment_type=None, preferred_app_group_type=None, registration_info=None, ring=None, sso_client_id=None, sso_client_secret_key_vault_path=None, sso_context=None, sso_secret_type=None, ssoadfs_authority=None, start_vm_on_connect=None, tags=None, type=None, validation_environment=None, vm_template=None):
+    def __init__(__self__, application_group_references=None, custom_rdp_property=None, description=None, friendly_name=None, host_pool_type=None, id=None, load_balancer_type=None, location=None, max_session_limit=None, name=None, personal_desktop_assignment_type=None, preferred_app_group_type=None, registration_info=None, ring=None, sso_client_id=None, sso_client_secret_key_vault_path=None, sso_context=None, sso_secret_type=None, ssoadfs_authority=None, start_vm_on_connect=None, tags=None, type=None, validation_environment=None, vm_template=None):
         if application_group_references and not isinstance(application_group_references, list):
             raise TypeError("Expected argument 'application_group_references' to be a list")
         pulumi.set(__self__, "application_group_references", application_group_references)
@@ -36,6 +36,9 @@ class GetHostPoolResult:
         if host_pool_type and not isinstance(host_pool_type, str):
             raise TypeError("Expected argument 'host_pool_type' to be a str")
         pulumi.set(__self__, "host_pool_type", host_pool_type)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if load_balancer_type and not isinstance(load_balancer_type, str):
             raise TypeError("Expected argument 'load_balancer_type' to be a str")
         pulumi.set(__self__, "load_balancer_type", load_balancer_type)
@@ -130,6 +133,14 @@ class GetHostPoolResult:
         HostPool type for desktop.
         """
         return pulumi.get(self, "host_pool_type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="loadBalancerType")
@@ -287,6 +298,7 @@ class AwaitableGetHostPoolResult(GetHostPoolResult):
             description=self.description,
             friendly_name=self.friendly_name,
             host_pool_type=self.host_pool_type,
+            id=self.id,
             load_balancer_type=self.load_balancer_type,
             location=self.location,
             max_session_limit=self.max_session_limit,
@@ -331,6 +343,7 @@ def get_host_pool(host_pool_name: Optional[str] = None,
         description=__ret__.description,
         friendly_name=__ret__.friendly_name,
         host_pool_type=__ret__.host_pool_type,
+        id=__ret__.id,
         load_balancer_type=__ret__.load_balancer_type,
         location=__ret__.location,
         max_session_limit=__ret__.max_session_limit,

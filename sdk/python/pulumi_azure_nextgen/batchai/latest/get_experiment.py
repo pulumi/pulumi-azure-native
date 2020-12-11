@@ -19,10 +19,13 @@ class GetExperimentResult:
     """
     Experiment information.
     """
-    def __init__(__self__, creation_time=None, name=None, provisioning_state=None, provisioning_state_transition_time=None, type=None):
+    def __init__(__self__, creation_time=None, id=None, name=None, provisioning_state=None, provisioning_state_transition_time=None, type=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -43,6 +46,14 @@ class GetExperimentResult:
         Time when the Experiment was created.
         """
         return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -84,6 +95,7 @@ class AwaitableGetExperimentResult(GetExperimentResult):
             yield self
         return GetExperimentResult(
             creation_time=self.creation_time,
+            id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
             provisioning_state_transition_time=self.provisioning_state_transition_time,
@@ -113,6 +125,7 @@ def get_experiment(experiment_name: Optional[str] = None,
 
     return AwaitableGetExperimentResult(
         creation_time=__ret__.creation_time,
+        id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         provisioning_state_transition_time=__ret__.provisioning_state_transition_time,

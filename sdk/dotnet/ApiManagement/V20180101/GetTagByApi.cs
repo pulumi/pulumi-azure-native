@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -68,11 +72,14 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         private GetTagByApiResult(
             string displayName,
 
+            string id,
+
             string name,
 
             string type)
         {
             DisplayName = displayName;
+            Id = id;
             Name = name;
             Type = type;
         }

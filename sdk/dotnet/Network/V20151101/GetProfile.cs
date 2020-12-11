@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.Network.V20151101
         /// </summary>
         public readonly ImmutableArray<Outputs.EndpointResponse> Endpoints;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string? Location;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNextGen.Network.V20151101
 
             ImmutableArray<Outputs.EndpointResponse> endpoints,
 
+            string id,
+
             string? location,
 
             Outputs.MonitorConfigResponse? monitorConfig,
@@ -98,6 +104,7 @@ namespace Pulumi.AzureNextGen.Network.V20151101
         {
             DnsConfig = dnsConfig;
             Endpoints = endpoints;
+            Id = id;
             Location = location;
             MonitorConfig = monitorConfig;
             Name = name;

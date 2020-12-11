@@ -20,10 +20,13 @@ class GetServiceResult:
     """
     A Data Migration Service resource
     """
-    def __init__(__self__, etag=None, kind=None, location=None, name=None, provisioning_state=None, public_key=None, sku=None, tags=None, type=None, virtual_subnet_id=None):
+    def __init__(__self__, etag=None, id=None, kind=None, location=None, name=None, provisioning_state=None, public_key=None, sku=None, tags=None, type=None, virtual_subnet_id=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -59,6 +62,14 @@ class GetServiceResult:
         HTTP strong entity tag value. Ignored if submitted
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -140,6 +151,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             yield self
         return GetServiceResult(
             etag=self.etag,
+            id=self.id,
             kind=self.kind,
             location=self.location,
             name=self.name,
@@ -171,6 +183,7 @@ def get_service(group_name: Optional[str] = None,
 
     return AwaitableGetServiceResult(
         etag=__ret__.etag,
+        id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,

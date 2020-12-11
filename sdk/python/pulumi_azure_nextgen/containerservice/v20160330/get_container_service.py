@@ -20,13 +20,16 @@ class GetContainerServiceResult:
     """
     Container service.
     """
-    def __init__(__self__, agent_pool_profiles=None, diagnostics_profile=None, linux_profile=None, location=None, master_profile=None, name=None, orchestrator_profile=None, provisioning_state=None, tags=None, type=None, windows_profile=None):
+    def __init__(__self__, agent_pool_profiles=None, diagnostics_profile=None, id=None, linux_profile=None, location=None, master_profile=None, name=None, orchestrator_profile=None, provisioning_state=None, tags=None, type=None, windows_profile=None):
         if agent_pool_profiles and not isinstance(agent_pool_profiles, list):
             raise TypeError("Expected argument 'agent_pool_profiles' to be a list")
         pulumi.set(__self__, "agent_pool_profiles", agent_pool_profiles)
         if diagnostics_profile and not isinstance(diagnostics_profile, dict):
             raise TypeError("Expected argument 'diagnostics_profile' to be a dict")
         pulumi.set(__self__, "diagnostics_profile", diagnostics_profile)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if linux_profile and not isinstance(linux_profile, dict):
             raise TypeError("Expected argument 'linux_profile' to be a dict")
         pulumi.set(__self__, "linux_profile", linux_profile)
@@ -70,6 +73,14 @@ class GetContainerServiceResult:
         Properties of the diagnostic agent.
         """
         return pulumi.get(self, "diagnostics_profile")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="linuxProfile")
@@ -152,6 +163,7 @@ class AwaitableGetContainerServiceResult(GetContainerServiceResult):
         return GetContainerServiceResult(
             agent_pool_profiles=self.agent_pool_profiles,
             diagnostics_profile=self.diagnostics_profile,
+            id=self.id,
             linux_profile=self.linux_profile,
             location=self.location,
             master_profile=self.master_profile,
@@ -184,6 +196,7 @@ def get_container_service(container_service_name: Optional[str] = None,
     return AwaitableGetContainerServiceResult(
         agent_pool_profiles=__ret__.agent_pool_profiles,
         diagnostics_profile=__ret__.diagnostics_profile,
+        id=__ret__.id,
         linux_profile=__ret__.linux_profile,
         location=__ret__.location,
         master_profile=__ret__.master_profile,

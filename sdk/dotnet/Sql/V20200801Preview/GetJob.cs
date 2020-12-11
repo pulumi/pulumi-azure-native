@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         private GetJobResult(
             string? description,
 
+            string id,
+
             string name,
 
             Outputs.JobScheduleResponse? schedule,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
             int version)
         {
             Description = description;
+            Id = id;
             Name = name;
             Schedule = schedule;
             Type = type;

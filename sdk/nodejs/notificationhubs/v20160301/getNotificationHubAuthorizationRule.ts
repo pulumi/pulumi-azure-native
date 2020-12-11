@@ -45,6 +45,10 @@ export interface GetNotificationHubAuthorizationRuleArgs {
  */
 export interface GetNotificationHubAuthorizationRuleResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

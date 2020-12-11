@@ -40,6 +40,10 @@ export interface GetRedisLinkedServerArgs {
  */
 export interface GetRedisLinkedServerResult {
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Fully qualified resourceId of the linked redis cache.
      */
     readonly linkedRedisCacheId: string;

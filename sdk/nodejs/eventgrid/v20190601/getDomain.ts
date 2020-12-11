@@ -39,6 +39,10 @@ export interface GetDomainResult {
      */
     readonly endpoint: string;
     /**
+     * Fully qualified identifier of the resource.
+     */
+    readonly id: string;
+    /**
      * Location of the resource.
      */
     readonly location: string;

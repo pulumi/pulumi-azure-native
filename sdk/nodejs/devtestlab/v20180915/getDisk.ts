@@ -74,6 +74,10 @@ export interface GetDiskResult {
      */
     readonly hostCaching?: string;
     /**
+     * The identifier of the resource.
+     */
+    readonly id: string;
+    /**
      * The resource ID of the VM to which this disk is leased.
      */
     readonly leasedByLabVmId?: string;

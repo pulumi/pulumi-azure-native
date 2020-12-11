@@ -20,7 +20,7 @@ class GetBlobServicePropertiesResult:
     """
     The properties of a storage account’s Blob service.
     """
-    def __init__(__self__, automatic_snapshot_policy_enabled=None, change_feed=None, cors=None, default_service_version=None, delete_retention_policy=None, name=None, type=None):
+    def __init__(__self__, automatic_snapshot_policy_enabled=None, change_feed=None, cors=None, default_service_version=None, delete_retention_policy=None, id=None, name=None, type=None):
         if automatic_snapshot_policy_enabled and not isinstance(automatic_snapshot_policy_enabled, bool):
             raise TypeError("Expected argument 'automatic_snapshot_policy_enabled' to be a bool")
         pulumi.set(__self__, "automatic_snapshot_policy_enabled", automatic_snapshot_policy_enabled)
@@ -36,6 +36,9 @@ class GetBlobServicePropertiesResult:
         if delete_retention_policy and not isinstance(delete_retention_policy, dict):
             raise TypeError("Expected argument 'delete_retention_policy' to be a dict")
         pulumi.set(__self__, "delete_retention_policy", delete_retention_policy)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -85,6 +88,14 @@ class GetBlobServicePropertiesResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         The name of the resource
@@ -111,6 +122,7 @@ class AwaitableGetBlobServicePropertiesResult(GetBlobServicePropertiesResult):
             cors=self.cors,
             default_service_version=self.default_service_version,
             delete_retention_policy=self.delete_retention_policy,
+            id=self.id,
             name=self.name,
             type=self.type)
 
@@ -142,5 +154,6 @@ def get_blob_service_properties(account_name: Optional[str] = None,
         cors=__ret__.cors,
         default_service_version=__ret__.default_service_version,
         delete_retention_policy=__ret__.delete_retention_policy,
+        id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type)

@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Cache.Latest
         /// </summary>
         public readonly string HostName;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// List of the Redis instances associated with the cache
         /// </summary>
         public readonly ImmutableArray<Outputs.RedisInstanceDetailsResponse> Instances;
@@ -144,6 +148,8 @@ namespace Pulumi.AzureNextGen.Cache.Latest
 
             string hostName,
 
+            string id,
+
             ImmutableArray<Outputs.RedisInstanceDetailsResponse> instances,
 
             ImmutableArray<Outputs.RedisLinkedServerResponse> linkedServers,
@@ -189,6 +195,7 @@ namespace Pulumi.AzureNextGen.Cache.Latest
             AccessKeys = accessKeys;
             EnableNonSslPort = enableNonSslPort;
             HostName = hostName;
+            Id = id;
             Instances = instances;
             LinkedServers = linkedServers;
             Location = location;

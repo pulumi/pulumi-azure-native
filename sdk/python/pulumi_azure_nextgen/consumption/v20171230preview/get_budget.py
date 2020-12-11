@@ -20,7 +20,7 @@ class GetBudgetResult:
     """
     A budget resource.
     """
-    def __init__(__self__, amount=None, category=None, current_spend=None, e_tag=None, name=None, notifications=None, time_grain=None, time_period=None, type=None):
+    def __init__(__self__, amount=None, category=None, current_spend=None, e_tag=None, id=None, name=None, notifications=None, time_grain=None, time_period=None, type=None):
         if amount and not isinstance(amount, float):
             raise TypeError("Expected argument 'amount' to be a float")
         pulumi.set(__self__, "amount", amount)
@@ -33,6 +33,9 @@ class GetBudgetResult:
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -80,6 +83,14 @@ class GetBudgetResult:
         eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         """
         return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -132,6 +143,7 @@ class AwaitableGetBudgetResult(GetBudgetResult):
             category=self.category,
             current_spend=self.current_spend,
             e_tag=self.e_tag,
+            id=self.id,
             name=self.name,
             notifications=self.notifications,
             time_grain=self.time_grain,
@@ -159,6 +171,7 @@ def get_budget(name: Optional[str] = None,
         category=__ret__.category,
         current_spend=__ret__.current_spend,
         e_tag=__ret__.e_tag,
+        id=__ret__.id,
         name=__ret__.name,
         notifications=__ret__.notifications,
         time_grain=__ret__.time_grain,

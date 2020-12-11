@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
         /// </summary>
         public readonly string Method;
@@ -98,6 +102,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
 
             string displayName,
 
+            string id,
+
             string method,
 
             string name,
@@ -116,6 +122,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         {
             Description = description;
             DisplayName = displayName;
+            Id = id;
             Method = method;
             Name = name;
             Policies = policies;

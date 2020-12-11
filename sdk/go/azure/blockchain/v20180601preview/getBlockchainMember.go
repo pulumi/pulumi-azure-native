@@ -39,6 +39,8 @@ type LookupBlockchainMemberResult struct {
 	Dns string `pulumi:"dns"`
 	// Gets or sets firewall rules
 	FirewallRules []FirewallRuleResponse `pulumi:"firewallRules"`
+	// Fully qualified resource Id of the resource.
+	Id string `pulumi:"id"`
 	// The GEO location of the blockchain service.
 	Location *string `pulumi:"location"`
 	// The name of the resource.

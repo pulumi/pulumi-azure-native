@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Sql.V20171001Preview
     public sealed class GetInstanceFailoverGroupResult
     {
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// List of managed instance pairs in the failover group.
         /// </summary>
         public readonly ImmutableArray<Outputs.ManagedInstancePairInfoResponse> ManagedInstancePairs;
@@ -80,6 +84,8 @@ namespace Pulumi.AzureNextGen.Sql.V20171001Preview
 
         [OutputConstructor]
         private GetInstanceFailoverGroupResult(
+            string id,
+
             ImmutableArray<Outputs.ManagedInstancePairInfoResponse> managedInstancePairs,
 
             string name,
@@ -96,6 +102,7 @@ namespace Pulumi.AzureNextGen.Sql.V20171001Preview
 
             string type)
         {
+            Id = id;
             ManagedInstancePairs = managedInstancePairs;
             Name = name;
             PartnerRegions = partnerRegions;

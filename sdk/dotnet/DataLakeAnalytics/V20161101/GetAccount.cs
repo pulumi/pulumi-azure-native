@@ -80,6 +80,10 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.V20161101
         /// </summary>
         public readonly string FirewallState;
         /// <summary>
+        /// The resource identifer.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The account last modified time.
         /// </summary>
         public readonly string LastModifiedTime;
@@ -166,6 +170,8 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.V20161101
 
             string firewallState,
 
+            string id,
+
             string lastModifiedTime,
 
             string location,
@@ -208,6 +214,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.V20161101
             FirewallAllowAzureIps = firewallAllowAzureIps;
             FirewallRules = firewallRules;
             FirewallState = firewallState;
+            Id = id;
             LastModifiedTime = lastModifiedTime;
             Location = location;
             MaxDegreeOfParallelism = maxDegreeOfParallelism;

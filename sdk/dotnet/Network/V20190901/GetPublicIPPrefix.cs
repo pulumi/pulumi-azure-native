@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Network.V20190901
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The allocated Prefix.
         /// </summary>
         public readonly string IpPrefix;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNextGen.Network.V20190901
         private GetPublicIPPrefixResult(
             string etag,
 
+            string? id,
+
             string ipPrefix,
 
             ImmutableArray<Outputs.IpTagResponse> ipTags,
@@ -139,6 +145,7 @@ namespace Pulumi.AzureNextGen.Network.V20190901
             ImmutableArray<string> zones)
         {
             Etag = etag;
+            Id = id;
             IpPrefix = ipPrefix;
             IpTags = ipTags;
             LoadBalancerFrontendIpConfiguration = loadBalancerFrontendIpConfiguration;

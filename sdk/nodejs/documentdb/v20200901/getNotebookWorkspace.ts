@@ -40,6 +40,10 @@ export interface GetNotebookWorkspaceArgs {
  */
 export interface GetNotebookWorkspaceResult {
     /**
+     * The unique resource identifier of the database account.
+     */
+    readonly id: string;
+    /**
      * The name of the database account.
      */
     readonly name: string;

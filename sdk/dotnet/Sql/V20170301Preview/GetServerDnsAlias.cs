@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
         /// </summary>
         public readonly string AzureDnsRecord;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -62,11 +66,14 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
         private GetServerDnsAliasResult(
             string azureDnsRecord,
 
+            string id,
+
             string name,
 
             string type)
         {
             AzureDnsRecord = azureDnsRecord;
+            Id = id;
             Name = name;
             Type = type;
         }

@@ -39,6 +39,10 @@ export interface GetDedicatedCloudServiceResult {
      */
     readonly gatewaySubnet: string;
     /**
+     * /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/dedicatedCloudServices/{dedicatedCloudServiceName}
+     */
+    readonly id: string;
+    /**
      * indicates whether account onboarded or not in a given region
      */
     readonly isAccountOnboarded: string;

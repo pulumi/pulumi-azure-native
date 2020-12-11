@@ -40,6 +40,10 @@ export interface ListSitePublishingCredentialsSlotArgs {
  */
 export interface ListSitePublishingCredentialsSlotResult {
     /**
+     * Resource Id
+     */
+    readonly id?: string;
+    /**
      * Kind of resource
      */
     readonly kind?: string;

@@ -27,6 +27,8 @@ type LookupClusterArgs struct {
 type LookupClusterResult struct {
 	// The UTC time when the Event Hubs Cluster was created.
 	CreatedAt string `pulumi:"createdAt"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The metric ID of the cluster resource. Provided by the service and not modifiable by the user.

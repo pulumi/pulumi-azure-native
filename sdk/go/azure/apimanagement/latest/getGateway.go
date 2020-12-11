@@ -29,6 +29,8 @@ type LookupGatewayArgs struct {
 type LookupGatewayResult struct {
 	// Gateway description
 	Description *string `pulumi:"description"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Gateway location.
 	LocationData *ResourceLocationDataContractResponse `pulumi:"locationData"`
 	// Resource name.

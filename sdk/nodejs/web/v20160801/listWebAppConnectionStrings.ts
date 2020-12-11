@@ -35,6 +35,10 @@ export interface ListWebAppConnectionStringsArgs {
  */
 export interface ListWebAppConnectionStringsResult {
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;

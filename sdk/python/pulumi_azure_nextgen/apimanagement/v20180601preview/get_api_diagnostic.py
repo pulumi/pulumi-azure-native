@@ -20,7 +20,7 @@ class GetApiDiagnosticResult:
     """
     Diagnostic details.
     """
-    def __init__(__self__, always_log=None, backend=None, enable_http_correlation_headers=None, frontend=None, logger_id=None, name=None, sampling=None, type=None):
+    def __init__(__self__, always_log=None, backend=None, enable_http_correlation_headers=None, frontend=None, id=None, logger_id=None, name=None, sampling=None, type=None):
         if always_log and not isinstance(always_log, str):
             raise TypeError("Expected argument 'always_log' to be a str")
         pulumi.set(__self__, "always_log", always_log)
@@ -33,6 +33,9 @@ class GetApiDiagnosticResult:
         if frontend and not isinstance(frontend, dict):
             raise TypeError("Expected argument 'frontend' to be a dict")
         pulumi.set(__self__, "frontend", frontend)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if logger_id and not isinstance(logger_id, str):
             raise TypeError("Expected argument 'logger_id' to be a str")
         pulumi.set(__self__, "logger_id", logger_id)
@@ -79,6 +82,14 @@ class GetApiDiagnosticResult:
         return pulumi.get(self, "frontend")
 
     @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
     @pulumi.getter(name="loggerId")
     def logger_id(self) -> str:
         """
@@ -121,6 +132,7 @@ class AwaitableGetApiDiagnosticResult(GetApiDiagnosticResult):
             backend=self.backend,
             enable_http_correlation_headers=self.enable_http_correlation_headers,
             frontend=self.frontend,
+            id=self.id,
             logger_id=self.logger_id,
             name=self.name,
             sampling=self.sampling,
@@ -156,6 +168,7 @@ def get_api_diagnostic(api_id: Optional[str] = None,
         backend=__ret__.backend,
         enable_http_correlation_headers=__ret__.enable_http_correlation_headers,
         frontend=__ret__.frontend,
+        id=__ret__.id,
         logger_id=__ret__.logger_id,
         name=__ret__.name,
         sampling=__ret__.sampling,

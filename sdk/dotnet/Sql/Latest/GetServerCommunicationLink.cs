@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Sql.Latest
     public sealed class GetServerCommunicationLinkResult
     {
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Communication link kind.  This property is used for Azure Portal metadata.
         /// </summary>
         public readonly string Kind;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.Sql.Latest
 
         [OutputConstructor]
         private GetServerCommunicationLinkResult(
+            string id,
+
             string kind,
 
             string location,
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNextGen.Sql.Latest
 
             string type)
         {
+            Id = id;
             Kind = kind;
             Location = location;
             Name = name;

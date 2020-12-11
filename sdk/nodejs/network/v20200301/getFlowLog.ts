@@ -56,6 +56,10 @@ export interface GetFlowLogResult {
      */
     readonly format?: outputs.network.v20200301.FlowLogFormatParametersResponse;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * Resource location.
      */
     readonly location?: string;

@@ -45,6 +45,10 @@ export interface GetApiPolicyArgs {
  */
 export interface GetApiPolicyResult {
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

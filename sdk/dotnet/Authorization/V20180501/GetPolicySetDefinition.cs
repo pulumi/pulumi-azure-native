@@ -42,6 +42,10 @@ namespace Pulumi.AzureNextGen.Authorization.V20180501
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
+        /// The ID of the policy set definition.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The policy set definition metadata.
         /// </summary>
         public readonly object? Metadata;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.Authorization.V20180501
 
             string? displayName,
 
+            string id,
+
             object? metadata,
 
             string name,
@@ -86,6 +92,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20180501
         {
             Description = description;
             DisplayName = displayName;
+            Id = id;
             Metadata = metadata;
             Name = name;
             Parameters = parameters;

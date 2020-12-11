@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Network.V20200701
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// List of all IPs configured on the gateway.
         /// </summary>
         public readonly ImmutableArray<Outputs.VpnGatewayIpConfigurationResponse> IpConfigurations;
@@ -96,6 +100,8 @@ namespace Pulumi.AzureNextGen.Network.V20200701
 
             string etag,
 
+            string? id,
+
             ImmutableArray<Outputs.VpnGatewayIpConfigurationResponse> ipConfigurations,
 
             bool? isRoutingPreferenceInternet,
@@ -117,6 +123,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
             BgpSettings = bgpSettings;
             Connections = connections;
             Etag = etag;
+            Id = id;
             IpConfigurations = ipConfigurations;
             IsRoutingPreferenceInternet = isRoutingPreferenceInternet;
             Location = location;

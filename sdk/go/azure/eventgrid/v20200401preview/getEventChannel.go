@@ -34,6 +34,8 @@ type LookupEventChannelResult struct {
 	ExpirationTimeIfNotActivatedUtc *string `pulumi:"expirationTimeIfNotActivatedUtc"`
 	// Information about the filter for the event channel.
 	Filter *EventChannelFilterResponse `pulumi:"filter"`
+	// Fully qualified identifier of the resource.
+	Id string `pulumi:"id"`
 	// Name of the resource
 	Name string `pulumi:"name"`
 	// Friendly description about the topic. This can be set by the publisher/partner to show custom description for the customer partner topic.

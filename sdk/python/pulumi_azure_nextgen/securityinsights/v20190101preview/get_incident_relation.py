@@ -19,10 +19,13 @@ class GetIncidentRelationResult:
     """
     Represents a relation between two resources
     """
-    def __init__(__self__, etag=None, name=None, related_resource_id=None, related_resource_kind=None, related_resource_name=None, related_resource_type=None, type=None):
+    def __init__(__self__, etag=None, id=None, name=None, related_resource_id=None, related_resource_kind=None, related_resource_name=None, related_resource_type=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -49,6 +52,14 @@ class GetIncidentRelationResult:
         Etag of the azure resource
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -106,6 +117,7 @@ class AwaitableGetIncidentRelationResult(GetIncidentRelationResult):
             yield self
         return GetIncidentRelationResult(
             etag=self.etag,
+            id=self.id,
             name=self.name,
             related_resource_id=self.related_resource_id,
             related_resource_kind=self.related_resource_kind,
@@ -143,6 +155,7 @@ def get_incident_relation(incident_id: Optional[str] = None,
 
     return AwaitableGetIncidentRelationResult(
         etag=__ret__.etag,
+        id=__ret__.id,
         name=__ret__.name,
         related_resource_id=__ret__.related_resource_id,
         related_resource_kind=__ret__.related_resource_kind,

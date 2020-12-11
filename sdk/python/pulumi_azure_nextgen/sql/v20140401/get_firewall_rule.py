@@ -19,10 +19,13 @@ class GetFirewallRuleResult:
     """
     Represents a server firewall rule.
     """
-    def __init__(__self__, end_ip_address=None, kind=None, location=None, name=None, start_ip_address=None, type=None):
+    def __init__(__self__, end_ip_address=None, id=None, kind=None, location=None, name=None, start_ip_address=None, type=None):
         if end_ip_address and not isinstance(end_ip_address, str):
             raise TypeError("Expected argument 'end_ip_address' to be a str")
         pulumi.set(__self__, "end_ip_address", end_ip_address)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -46,6 +49,14 @@ class GetFirewallRuleResult:
         The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' to represent all Azure-internal IP addresses.
         """
         return pulumi.get(self, "end_ip_address")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -95,6 +106,7 @@ class AwaitableGetFirewallRuleResult(GetFirewallRuleResult):
             yield self
         return GetFirewallRuleResult(
             end_ip_address=self.end_ip_address,
+            id=self.id,
             kind=self.kind,
             location=self.location,
             name=self.name,
@@ -125,6 +137,7 @@ def get_firewall_rule(firewall_rule_name: Optional[str] = None,
 
     return AwaitableGetFirewallRuleResult(
         end_ip_address=__ret__.end_ip_address,
+        id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,

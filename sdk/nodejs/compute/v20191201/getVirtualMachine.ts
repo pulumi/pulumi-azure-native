@@ -68,6 +68,10 @@ export interface GetVirtualMachineResult {
      */
     readonly host?: outputs.compute.v20191201.SubResourceResponse;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * The identity of the virtual machine, if configured.
      */
     readonly identity?: outputs.compute.v20191201.VirtualMachineIdentityResponse;

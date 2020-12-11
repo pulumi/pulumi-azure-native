@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         /// </summary>
         public readonly ImmutableArray<string> HostedWorkloads;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// A reference to the interface endpoint to which the network interface is linked.
         /// </summary>
         public readonly Outputs.InterfaceEndpointResponse InterfaceEndpoint;
@@ -130,6 +134,8 @@ namespace Pulumi.AzureNextGen.Network.V20180801
 
             ImmutableArray<string> hostedWorkloads,
 
+            string? id,
+
             Outputs.InterfaceEndpointResponse interfaceEndpoint,
 
             ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponse> ipConfigurations,
@@ -161,6 +167,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
             EnableIPForwarding = enableIPForwarding;
             Etag = etag;
             HostedWorkloads = hostedWorkloads;
+            Id = id;
             InterfaceEndpoint = interfaceEndpoint;
             IpConfigurations = ipConfigurations;
             Location = location;

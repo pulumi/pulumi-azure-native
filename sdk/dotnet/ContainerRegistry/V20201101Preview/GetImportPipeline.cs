@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
     public sealed class GetImportPipelineResult
     {
         /// <summary>
+        /// The resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the import pipeline.
         /// </summary>
         public readonly Outputs.IdentityPropertiesResponse? Identity;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
 
         [OutputConstructor]
         private GetImportPipelineResult(
+            string id,
+
             Outputs.IdentityPropertiesResponse? identity,
 
             string? location,
@@ -102,6 +108,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
 
             string type)
         {
+            Id = id;
             Identity = identity;
             Location = location;
             Name = name;

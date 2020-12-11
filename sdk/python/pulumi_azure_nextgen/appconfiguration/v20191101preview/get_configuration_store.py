@@ -20,7 +20,7 @@ class GetConfigurationStoreResult:
     """
     The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
     """
-    def __init__(__self__, creation_date=None, encryption=None, endpoint=None, identity=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, tags=None, type=None):
+    def __init__(__self__, creation_date=None, encryption=None, endpoint=None, id=None, identity=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, tags=None, type=None):
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
@@ -30,6 +30,9 @@ class GetConfigurationStoreResult:
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -81,6 +84,14 @@ class GetConfigurationStoreResult:
         The DNS endpoint where the configuration store API will be available.
         """
         return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -164,6 +175,7 @@ class AwaitableGetConfigurationStoreResult(GetConfigurationStoreResult):
             creation_date=self.creation_date,
             encryption=self.encryption,
             endpoint=self.endpoint,
+            id=self.id,
             identity=self.identity,
             location=self.location,
             name=self.name,
@@ -197,6 +209,7 @@ def get_configuration_store(config_store_name: Optional[str] = None,
         creation_date=__ret__.creation_date,
         encryption=__ret__.encryption,
         endpoint=__ret__.endpoint,
+        id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,

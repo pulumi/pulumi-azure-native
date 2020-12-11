@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.Network.V20160901
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.Network.V20160901
 
             string? etag,
 
+            string? id,
+
             string? name,
 
             string? peeringState,
@@ -106,6 +112,7 @@ namespace Pulumi.AzureNextGen.Network.V20160901
             AllowGatewayTransit = allowGatewayTransit;
             AllowVirtualNetworkAccess = allowVirtualNetworkAccess;
             Etag = etag;
+            Id = id;
             Name = name;
             PeeringState = peeringState;
             ProvisioningState = provisioningState;

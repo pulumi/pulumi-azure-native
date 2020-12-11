@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.DevOps.V20190701Preview
         /// </summary>
         public readonly Outputs.BootstrapConfigurationResponse BootstrapConfiguration;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource Location
         /// </summary>
         public readonly string? Location;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.DevOps.V20190701Preview
         private GetPipelineResult(
             Outputs.BootstrapConfigurationResponse bootstrapConfiguration,
 
+            string id,
+
             string? location,
 
             string name,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNextGen.DevOps.V20190701Preview
             string type)
         {
             BootstrapConfiguration = bootstrapConfiguration;
+            Id = id;
             Location = location;
             Name = name;
             Organization = organization;

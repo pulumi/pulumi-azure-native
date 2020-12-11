@@ -20,7 +20,7 @@ class GetDatabaseResult:
     """
     Describes a database on the RedisEnterprise cluster
     """
-    def __init__(__self__, client_protocol=None, clustering_policy=None, eviction_policy=None, modules=None, name=None, port=None, provisioning_state=None, resource_state=None, type=None):
+    def __init__(__self__, client_protocol=None, clustering_policy=None, eviction_policy=None, id=None, modules=None, name=None, port=None, provisioning_state=None, resource_state=None, type=None):
         if client_protocol and not isinstance(client_protocol, str):
             raise TypeError("Expected argument 'client_protocol' to be a str")
         pulumi.set(__self__, "client_protocol", client_protocol)
@@ -30,6 +30,9 @@ class GetDatabaseResult:
         if eviction_policy and not isinstance(eviction_policy, str):
             raise TypeError("Expected argument 'eviction_policy' to be a str")
         pulumi.set(__self__, "eviction_policy", eviction_policy)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if modules and not isinstance(modules, list):
             raise TypeError("Expected argument 'modules' to be a list")
         pulumi.set(__self__, "modules", modules)
@@ -72,6 +75,14 @@ class GetDatabaseResult:
         Redis eviction policy - default is VolatileLRU
         """
         return pulumi.get(self, "eviction_policy")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -131,6 +142,7 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
             client_protocol=self.client_protocol,
             clustering_policy=self.clustering_policy,
             eviction_policy=self.eviction_policy,
+            id=self.id,
             modules=self.modules,
             name=self.name,
             port=self.port,
@@ -164,6 +176,7 @@ def get_database(cluster_name: Optional[str] = None,
         client_protocol=__ret__.client_protocol,
         clustering_policy=__ret__.clustering_policy,
         eviction_policy=__ret__.eviction_policy,
+        id=__ret__.id,
         modules=__ret__.modules,
         name=__ret__.name,
         port=__ret__.port,

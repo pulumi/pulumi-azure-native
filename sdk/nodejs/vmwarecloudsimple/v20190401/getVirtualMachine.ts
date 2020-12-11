@@ -71,6 +71,10 @@ export interface GetVirtualMachineResult {
      */
     readonly guestOSType: string;
     /**
+     * /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/virtualMachines/{virtualMachineName}
+     */
+    readonly id: string;
+    /**
      * Azure region
      */
     readonly location: string;

@@ -39,6 +39,10 @@ export interface GetWorkbookResult {
      */
     readonly category: string;
     /**
+     * Azure resource Id
+     */
+    readonly id: string;
+    /**
      * The kind of workbook. Choices are user and shared.
      */
     readonly kind?: string;

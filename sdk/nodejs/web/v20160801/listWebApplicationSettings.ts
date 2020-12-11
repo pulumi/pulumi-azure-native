@@ -35,6 +35,10 @@ export interface ListWebApplicationSettingsArgs {
  */
 export interface ListWebApplicationSettingsResult {
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;

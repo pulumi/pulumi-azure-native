@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20191101Preview
         /// </summary>
         public readonly string BuildVersion;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Identity for the resource.
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
@@ -104,6 +108,8 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20191101Preview
 
             string buildVersion,
 
+            string id,
+
             Outputs.IdentityResponse? identity,
 
             string location,
@@ -128,6 +134,7 @@ namespace Pulumi.AzureNextGen.DeploymentManager.V20191101Preview
         {
             ArtifactSourceId = artifactSourceId;
             BuildVersion = buildVersion;
+            Id = id;
             Identity = identity;
             Location = location;
             Name = name;

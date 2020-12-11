@@ -63,6 +63,10 @@ export interface GetOperationalizationClusterResult {
      */
     readonly globalServiceConfiguration?: outputs.machinelearningcompute.v20170801preview.GlobalServiceConfigurationResponse;
     /**
+     * Specifies the resource ID.
+     */
+    readonly id: string;
+    /**
      * Specifies the location of the resource.
      */
     readonly location: string;

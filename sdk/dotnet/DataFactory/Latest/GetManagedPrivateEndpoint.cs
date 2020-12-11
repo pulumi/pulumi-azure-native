@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// The resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The resource name.
         /// </summary>
         public readonly string Name;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
         private GetManagedPrivateEndpointResult(
             string etag,
 
+            string id,
+
             string name,
 
             Outputs.ManagedPrivateEndpointResponse properties,
@@ -79,6 +85,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
             string type)
         {
             Etag = etag;
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

@@ -40,6 +40,10 @@ export interface GetTriggerArgs {
  */
 export interface GetTriggerResult {
     /**
+     * The path ID that uniquely identifies the object.
+     */
+    readonly id: string;
+    /**
      * Trigger Kind.
      */
     readonly kind: string;

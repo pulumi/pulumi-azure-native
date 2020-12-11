@@ -159,6 +159,10 @@ export interface ListWebAppAuthSettingsResult {
      */
     readonly googleOAuthScopes?: string[];
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * "true" if the auth config settings should be read from a file,
      * "false" otherwise
      */

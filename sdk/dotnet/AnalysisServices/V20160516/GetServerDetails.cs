@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20160516
         /// </summary>
         public readonly string? BackupBlobContainerUri;
         /// <summary>
+        /// An identifier that represents the Analysis Services resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Location of the Analysis Services resource.
         /// </summary>
         public readonly string Location;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20160516
 
             string? backupBlobContainerUri,
 
+            string id,
+
             string location,
 
             string name,
@@ -104,6 +110,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20160516
         {
             AsAdministrators = asAdministrators;
             BackupBlobContainerUri = backupBlobContainerUri;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

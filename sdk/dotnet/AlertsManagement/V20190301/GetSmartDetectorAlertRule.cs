@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20190301
         /// </summary>
         public readonly string Frequency;
         /// <summary>
+        /// The resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The resource name.
         /// </summary>
         public readonly string Name;
@@ -96,6 +100,8 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20190301
 
             string frequency,
 
+            string id,
+
             string name,
 
             ImmutableArray<string> scope,
@@ -112,6 +118,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20190301
             Description = description;
             Detector = detector;
             Frequency = frequency;
+            Id = id;
             Name = name;
             Scope = scope;
             Severity = severity;

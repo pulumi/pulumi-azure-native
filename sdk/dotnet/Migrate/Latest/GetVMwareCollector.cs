@@ -46,6 +46,7 @@ namespace Pulumi.AzureNextGen.Migrate.Latest
     public sealed class GetVMwareCollectorResult
     {
         public readonly string? ETag;
+        public readonly string Id;
         public readonly string Name;
         public readonly Outputs.CollectorPropertiesResponse Properties;
         public readonly string Type;
@@ -54,6 +55,8 @@ namespace Pulumi.AzureNextGen.Migrate.Latest
         private GetVMwareCollectorResult(
             string? eTag,
 
+            string id,
+
             string name,
 
             Outputs.CollectorPropertiesResponse properties,
@@ -61,6 +64,7 @@ namespace Pulumi.AzureNextGen.Migrate.Latest
             string type)
         {
             ETag = eTag;
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

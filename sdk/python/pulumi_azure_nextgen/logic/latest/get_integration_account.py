@@ -20,7 +20,10 @@ class GetIntegrationAccountResult:
     """
     The integration account.
     """
-    def __init__(__self__, integration_service_environment=None, location=None, name=None, sku=None, state=None, tags=None, type=None):
+    def __init__(__self__, id=None, integration_service_environment=None, location=None, name=None, sku=None, state=None, tags=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if integration_service_environment and not isinstance(integration_service_environment, dict):
             raise TypeError("Expected argument 'integration_service_environment' to be a dict")
         pulumi.set(__self__, "integration_service_environment", integration_service_environment)
@@ -42,6 +45,14 @@ class GetIntegrationAccountResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="integrationServiceEnvironment")
@@ -106,6 +117,7 @@ class AwaitableGetIntegrationAccountResult(GetIntegrationAccountResult):
         if False:
             yield self
         return GetIntegrationAccountResult(
+            id=self.id,
             integration_service_environment=self.integration_service_environment,
             location=self.location,
             name=self.name,
@@ -134,6 +146,7 @@ def get_integration_account(integration_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:logic/latest:getIntegrationAccount', __args__, opts=opts, typ=GetIntegrationAccountResult).value
 
     return AwaitableGetIntegrationAccountResult(
+        id=__ret__.id,
         integration_service_environment=__ret__.integration_service_environment,
         location=__ret__.location,
         name=__ret__.name,

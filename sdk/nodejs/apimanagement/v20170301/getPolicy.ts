@@ -40,6 +40,10 @@ export interface GetPolicyArgs {
  */
 export interface GetPolicyResult {
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

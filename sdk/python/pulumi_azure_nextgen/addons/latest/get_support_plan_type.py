@@ -19,7 +19,10 @@ class GetSupportPlanTypeResult:
     """
     The status of the Canonical support plan.
     """
-    def __init__(__self__, name=None, provisioning_state=None, type=None):
+    def __init__(__self__, id=None, name=None, provisioning_state=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -29,6 +32,14 @@ class GetSupportPlanTypeResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The id of the ARM resource, e.g. "/subscriptions/{id}/providers/Microsoft.Addons/supportProvider/{supportProviderName}/supportPlanTypes/{planTypeName}".
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -61,6 +72,7 @@ class AwaitableGetSupportPlanTypeResult(GetSupportPlanTypeResult):
         if False:
             yield self
         return GetSupportPlanTypeResult(
+            id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
             type=self.type)
@@ -85,6 +97,7 @@ def get_support_plan_type(plan_type_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:addons/latest:getSupportPlanType', __args__, opts=opts, typ=GetSupportPlanTypeResult).value
 
     return AwaitableGetSupportPlanTypeResult(
+        id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         type=__ret__.type)

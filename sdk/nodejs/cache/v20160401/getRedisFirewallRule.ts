@@ -44,6 +44,10 @@ export interface GetRedisFirewallRuleResult {
      */
     readonly endIP: string;
     /**
+     * resource ID (of the firewall rule)
+     */
+    readonly id: string;
+    /**
      * name of the firewall rule
      */
     readonly name: string;

@@ -19,7 +19,7 @@ class GetManagedDatabaseResult:
     """
     A managed database resource.
     """
-    def __init__(__self__, auto_complete_restore=None, catalog_collation=None, collation=None, create_mode=None, creation_date=None, default_secondary_location=None, earliest_restore_point=None, failover_group_id=None, last_backup_name=None, location=None, long_term_retention_backup_resource_id=None, name=None, recoverable_database_id=None, restorable_dropped_database_id=None, restore_point_in_time=None, source_database_id=None, status=None, storage_container_sas_token=None, storage_container_uri=None, tags=None, type=None):
+    def __init__(__self__, auto_complete_restore=None, catalog_collation=None, collation=None, create_mode=None, creation_date=None, default_secondary_location=None, earliest_restore_point=None, failover_group_id=None, id=None, last_backup_name=None, location=None, long_term_retention_backup_resource_id=None, name=None, recoverable_database_id=None, restorable_dropped_database_id=None, restore_point_in_time=None, source_database_id=None, status=None, storage_container_sas_token=None, storage_container_uri=None, tags=None, type=None):
         if auto_complete_restore and not isinstance(auto_complete_restore, bool):
             raise TypeError("Expected argument 'auto_complete_restore' to be a bool")
         pulumi.set(__self__, "auto_complete_restore", auto_complete_restore)
@@ -44,6 +44,9 @@ class GetManagedDatabaseResult:
         if failover_group_id and not isinstance(failover_group_id, str):
             raise TypeError("Expected argument 'failover_group_id' to be a str")
         pulumi.set(__self__, "failover_group_id", failover_group_id)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_backup_name and not isinstance(last_backup_name, str):
             raise TypeError("Expected argument 'last_backup_name' to be a str")
         pulumi.set(__self__, "last_backup_name", last_backup_name)
@@ -147,6 +150,14 @@ class GetManagedDatabaseResult:
         Instance Failover Group resource identifier that this managed database belongs to.
         """
         return pulumi.get(self, "failover_group_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastBackupName")
@@ -267,6 +278,7 @@ class AwaitableGetManagedDatabaseResult(GetManagedDatabaseResult):
             default_secondary_location=self.default_secondary_location,
             earliest_restore_point=self.earliest_restore_point,
             failover_group_id=self.failover_group_id,
+            id=self.id,
             last_backup_name=self.last_backup_name,
             location=self.location,
             long_term_retention_backup_resource_id=self.long_term_retention_backup_resource_id,
@@ -312,6 +324,7 @@ def get_managed_database(database_name: Optional[str] = None,
         default_secondary_location=__ret__.default_secondary_location,
         earliest_restore_point=__ret__.earliest_restore_point,
         failover_group_id=__ret__.failover_group_id,
+        id=__ret__.id,
         last_backup_name=__ret__.last_backup_name,
         location=__ret__.location,
         long_term_retention_backup_resource_id=__ret__.long_term_retention_backup_resource_id,

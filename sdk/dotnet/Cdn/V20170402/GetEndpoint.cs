@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Cdn.V20170402
         /// </summary>
         public readonly string HostName;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
         /// </summary>
         public readonly bool? IsCompressionEnabled;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNextGen.Cdn.V20170402
 
             string hostName,
 
+            string id,
+
             bool? isCompressionEnabled,
 
             bool? isHttpAllowed,
@@ -159,6 +165,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20170402
             ContentTypesToCompress = contentTypesToCompress;
             GeoFilters = geoFilters;
             HostName = hostName;
+            Id = id;
             IsCompressionEnabled = isCompressionEnabled;
             IsHttpAllowed = isHttpAllowed;
             IsHttpsAllowed = isHttpsAllowed;

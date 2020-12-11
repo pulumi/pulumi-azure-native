@@ -19,10 +19,13 @@ class GetWebAppHybridConnectionSlotResult:
     """
     Hybrid Connection contract. This is used to configure a Hybrid Connection.
     """
-    def __init__(__self__, hostname=None, kind=None, name=None, port=None, relay_arm_uri=None, relay_name=None, send_key_name=None, send_key_value=None, service_bus_namespace=None, service_bus_suffix=None, type=None):
+    def __init__(__self__, hostname=None, id=None, kind=None, name=None, port=None, relay_arm_uri=None, relay_name=None, send_key_name=None, send_key_value=None, service_bus_namespace=None, service_bus_suffix=None, type=None):
         if hostname and not isinstance(hostname, str):
             raise TypeError("Expected argument 'hostname' to be a str")
         pulumi.set(__self__, "hostname", hostname)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -61,6 +64,14 @@ class GetWebAppHybridConnectionSlotResult:
         The hostname of the endpoint.
         """
         return pulumi.get(self, "hostname")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -151,6 +162,7 @@ class AwaitableGetWebAppHybridConnectionSlotResult(GetWebAppHybridConnectionSlot
             yield self
         return GetWebAppHybridConnectionSlotResult(
             hostname=self.hostname,
+            id=self.id,
             kind=self.kind,
             name=self.name,
             port=self.port,
@@ -192,6 +204,7 @@ def get_web_app_hybrid_connection_slot(name: Optional[str] = None,
 
     return AwaitableGetWebAppHybridConnectionSlotResult(
         hostname=__ret__.hostname,
+        id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
         port=__ret__.port,

@@ -20,7 +20,7 @@ class GetEndpointResult:
     """
     Class representing a Traffic Manager endpoint.
     """
-    def __init__(__self__, custom_headers=None, endpoint_location=None, endpoint_monitor_status=None, endpoint_status=None, geo_mapping=None, min_child_endpoints=None, name=None, priority=None, target=None, target_resource_id=None, type=None, weight=None):
+    def __init__(__self__, custom_headers=None, endpoint_location=None, endpoint_monitor_status=None, endpoint_status=None, geo_mapping=None, id=None, min_child_endpoints=None, name=None, priority=None, target=None, target_resource_id=None, type=None, weight=None):
         if custom_headers and not isinstance(custom_headers, list):
             raise TypeError("Expected argument 'custom_headers' to be a list")
         pulumi.set(__self__, "custom_headers", custom_headers)
@@ -36,6 +36,9 @@ class GetEndpointResult:
         if geo_mapping and not isinstance(geo_mapping, list):
             raise TypeError("Expected argument 'geo_mapping' to be a list")
         pulumi.set(__self__, "geo_mapping", geo_mapping)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if min_child_endpoints and not isinstance(min_child_endpoints, int):
             raise TypeError("Expected argument 'min_child_endpoints' to be a int")
         pulumi.set(__self__, "min_child_endpoints", min_child_endpoints)
@@ -97,6 +100,14 @@ class GetEndpointResult:
         The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
         """
         return pulumi.get(self, "geo_mapping")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="minChildEndpoints")
@@ -166,6 +177,7 @@ class AwaitableGetEndpointResult(GetEndpointResult):
             endpoint_monitor_status=self.endpoint_monitor_status,
             endpoint_status=self.endpoint_status,
             geo_mapping=self.geo_mapping,
+            id=self.id,
             min_child_endpoints=self.min_child_endpoints,
             name=self.name,
             priority=self.priority,
@@ -205,6 +217,7 @@ def get_endpoint(endpoint_name: Optional[str] = None,
         endpoint_monitor_status=__ret__.endpoint_monitor_status,
         endpoint_status=__ret__.endpoint_status,
         geo_mapping=__ret__.geo_mapping,
+        id=__ret__.id,
         min_child_endpoints=__ret__.min_child_endpoints,
         name=__ret__.name,
         priority=__ret__.priority,

@@ -20,13 +20,16 @@ class GetRoleDefinitionResult:
     """
     Role definition.
     """
-    def __init__(__self__, assignable_scopes=None, description=None, name=None, permissions=None, role_name=None, role_type=None, type=None):
+    def __init__(__self__, assignable_scopes=None, description=None, id=None, name=None, permissions=None, role_name=None, role_type=None, type=None):
         if assignable_scopes and not isinstance(assignable_scopes, list):
             raise TypeError("Expected argument 'assignable_scopes' to be a list")
         pulumi.set(__self__, "assignable_scopes", assignable_scopes)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -58,6 +61,14 @@ class GetRoleDefinitionResult:
         The role definition description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The role definition ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -108,6 +119,7 @@ class AwaitableGetRoleDefinitionResult(GetRoleDefinitionResult):
         return GetRoleDefinitionResult(
             assignable_scopes=self.assignable_scopes,
             description=self.description,
+            id=self.id,
             name=self.name,
             permissions=self.permissions,
             role_name=self.role_name,
@@ -136,6 +148,7 @@ def get_role_definition(role_definition_id: Optional[str] = None,
     return AwaitableGetRoleDefinitionResult(
         assignable_scopes=__ret__.assignable_scopes,
         description=__ret__.description,
+        id=__ret__.id,
         name=__ret__.name,
         permissions=__ret__.permissions,
         role_name=__ret__.role_name,

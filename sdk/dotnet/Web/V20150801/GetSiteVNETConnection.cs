@@ -59,6 +59,10 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// </summary>
         public readonly string? DnsServers;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Kind of resource
         /// </summary>
         public readonly string? Kind;
@@ -99,6 +103,8 @@ namespace Pulumi.AzureNextGen.Web.V20150801
 
             string? dnsServers,
 
+            string? id,
+
             string? kind,
 
             string location,
@@ -118,6 +124,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
             CertBlob = certBlob;
             CertThumbprint = certThumbprint;
             DnsServers = dnsServers;
+            Id = id;
             Kind = kind;
             Location = location;
             Name = name;

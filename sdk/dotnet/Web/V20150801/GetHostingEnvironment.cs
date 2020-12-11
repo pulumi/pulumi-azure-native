@@ -80,6 +80,10 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// </summary>
         public readonly string? EnvironmentStatus;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
         /// </summary>
         public readonly string? InternalLoadBalancingMode;
@@ -203,6 +207,8 @@ namespace Pulumi.AzureNextGen.Web.V20150801
 
             string? environmentStatus,
 
+            string? id,
+
             string? internalLoadBalancingMode,
 
             int? ipsslAddressCount,
@@ -263,6 +269,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
             EnvironmentCapacities = environmentCapacities;
             EnvironmentIsHealthy = environmentIsHealthy;
             EnvironmentStatus = environmentStatus;
+            Id = id;
             InternalLoadBalancingMode = internalLoadBalancingMode;
             IpsslAddressCount = ipsslAddressCount;
             Kind = kind;

@@ -40,6 +40,10 @@ export interface GetMoveResourceArgs {
  */
 export interface GetMoveResourceResult {
     /**
+     * Fully qualified resource Id for the resource.
+     */
+    readonly id: string;
+    /**
      * The name of the resource
      */
     readonly name: string;

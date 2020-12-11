@@ -19,10 +19,13 @@ class GetWorkloadNetworkVMGroupResult:
     """
     NSX VM Group
     """
-    def __init__(__self__, display_name=None, members=None, name=None, provisioning_state=None, revision=None, status=None, type=None):
+    def __init__(__self__, display_name=None, id=None, members=None, name=None, provisioning_state=None, revision=None, status=None, type=None):
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if members and not isinstance(members, list):
             raise TypeError("Expected argument 'members' to be a list")
         pulumi.set(__self__, "members", members)
@@ -49,6 +52,14 @@ class GetWorkloadNetworkVMGroupResult:
         Display name of the VM group.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -106,6 +117,7 @@ class AwaitableGetWorkloadNetworkVMGroupResult(GetWorkloadNetworkVMGroupResult):
             yield self
         return GetWorkloadNetworkVMGroupResult(
             display_name=self.display_name,
+            id=self.id,
             members=self.members,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -137,6 +149,7 @@ def get_workload_network_vm_group(private_cloud_name: Optional[str] = None,
 
     return AwaitableGetWorkloadNetworkVMGroupResult(
         display_name=__ret__.display_name,
+        id=__ret__.id,
         members=__ret__.members,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

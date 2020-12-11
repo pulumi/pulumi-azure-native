@@ -25,6 +25,8 @@ type LookupServiceArgs struct {
 
 // Service resource
 type LookupServiceResult struct {
+	// Fully qualified resource Id for the resource.
+	Id string `pulumi:"id"`
 	// The GEO location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.

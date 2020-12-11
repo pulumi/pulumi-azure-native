@@ -27,6 +27,8 @@ type LookupPrivateEndpointConnectionArgs struct {
 
 // The Private Endpoint Connection resource.
 type LookupPrivateEndpointConnectionResult struct {
+	// ResourceId of the private endpoint connection.
+	Id string `pulumi:"id"`
 	// Friendly name of the private endpoint connection.
 	Name string `pulumi:"name"`
 	// The resource of private end point.

@@ -61,6 +61,10 @@ export interface GetEndpointResult {
      */
     readonly geoMapping?: string[];
     /**
+     * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
+     */
+    readonly id: string;
+    /**
      * The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
      */
     readonly minChildEndpoints?: number;

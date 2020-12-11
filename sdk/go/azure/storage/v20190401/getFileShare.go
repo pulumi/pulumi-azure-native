@@ -29,6 +29,8 @@ type LookupFileShareArgs struct {
 type LookupFileShareResult struct {
 	// Resource Etag.
 	Etag string `pulumi:"etag"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// Returns the date and time the share was last modified.
 	LastModifiedTime string `pulumi:"lastModifiedTime"`
 	// A name-value pair to associate with the share as metadata.

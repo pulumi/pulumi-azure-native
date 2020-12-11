@@ -31,6 +31,8 @@ type LookupScheduleResourceResult struct {
 	DailyRecurrence *DayDetailsResponse `pulumi:"dailyRecurrence"`
 	// The hourly recurrence of the schedule.
 	HourlyRecurrence *HourDetailsResponse `pulumi:"hourlyRecurrence"`
+	// The identifier of the resource.
+	Id *string `pulumi:"id"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.

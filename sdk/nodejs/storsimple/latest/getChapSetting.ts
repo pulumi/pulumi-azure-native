@@ -45,6 +45,10 @@ export interface GetChapSettingArgs {
  */
 export interface GetChapSettingResult {
     /**
+     * The identifier.
+     */
+    readonly id: string;
+    /**
      * The name.
      */
     readonly name: string;

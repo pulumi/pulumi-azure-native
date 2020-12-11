@@ -31,6 +31,8 @@ type LookupPolicyAssignmentResult struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
 	EnforcementMode *string `pulumi:"enforcementMode"`
+	// The ID of the policy assignment.
+	Id string `pulumi:"id"`
 	// The managed identity associated with the policy assignment.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// The location of the policy assignment. Only required when utilizing managed identity.

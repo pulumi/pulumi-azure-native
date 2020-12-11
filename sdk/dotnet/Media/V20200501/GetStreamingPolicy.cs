@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         /// </summary>
         public readonly Outputs.EnvelopeEncryptionResponse? EnvelopeEncryption;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -90,6 +94,8 @@ namespace Pulumi.AzureNextGen.Media.V20200501
 
             Outputs.EnvelopeEncryptionResponse? envelopeEncryption,
 
+            string id,
+
             string name,
 
             Outputs.NoEncryptionResponse? noEncryption,
@@ -101,6 +107,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501
             Created = created;
             DefaultContentKeyPolicyName = defaultContentKeyPolicyName;
             EnvelopeEncryption = envelopeEncryption;
+            Id = id;
             Name = name;
             NoEncryption = noEncryption;
             Type = type;

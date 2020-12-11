@@ -39,6 +39,10 @@ export interface GetVendorSkusResult {
      */
     readonly deploymentMode?: string;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * The parameters for the managed application to be supplied by the vendor.
      */
     readonly managedApplicationParameters?: any;

@@ -52,6 +52,10 @@ export interface GetApplicationResult {
      */
     readonly displayName?: string;
     /**
+     * A string that uniquely identifies the application within the account.
+     */
+    readonly id?: string;
+    /**
      * The list of packages under this application.
      */
     readonly packages?: outputs.batch.v20170901.ApplicationPackageResponse[];

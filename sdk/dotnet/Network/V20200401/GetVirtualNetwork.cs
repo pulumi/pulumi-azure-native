@@ -74,6 +74,10 @@ namespace Pulumi.AzureNextGen.Network.V20200401
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Array of IpAllocation which reference this VNET.
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> IpAllocations;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNextGen.Network.V20200401
 
             string etag,
 
+            string? id,
+
             ImmutableArray<Outputs.SubResourceResponse> ipAllocations,
 
             string? location,
@@ -151,6 +157,7 @@ namespace Pulumi.AzureNextGen.Network.V20200401
             EnableDdosProtection = enableDdosProtection;
             EnableVmProtection = enableVmProtection;
             Etag = etag;
+            Id = id;
             IpAllocations = ipAllocations;
             Location = location;
             Name = name;

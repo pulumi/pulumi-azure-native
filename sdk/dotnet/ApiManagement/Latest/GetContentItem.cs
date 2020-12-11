@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
     public sealed class GetContentItemResult
     {
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -66,12 +70,15 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
 
         [OutputConstructor]
         private GetContentItemResult(
+            string id,
+
             string name,
 
             object properties,
 
             string type)
         {
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

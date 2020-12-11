@@ -39,6 +39,10 @@ export interface GetPrivateZoneResult {
      */
     readonly etag?: string;
     /**
+     * Fully qualified resource Id for the resource. Example - '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateDnsZoneName}'.
+     */
+    readonly id: string;
+    /**
      * The Azure Region where the resource lives
      */
     readonly location?: string;

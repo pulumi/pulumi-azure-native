@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20160331
     public sealed class GetDatabaseAccountMongoDBCollectionResult
     {
         /// <summary>
+        /// The unique resource identifier of the database account.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// List of index keys
         /// </summary>
         public readonly ImmutableArray<Outputs.MongoIndexResponse> Indexes;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20160331
 
         [OutputConstructor]
         private GetDatabaseAccountMongoDBCollectionResult(
+            string id,
+
             ImmutableArray<Outputs.MongoIndexResponse> indexes,
 
             string? location,
@@ -90,6 +96,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20160331
 
             string type)
         {
+            Id = id;
             Indexes = indexes;
             Location = location;
             Name = name;

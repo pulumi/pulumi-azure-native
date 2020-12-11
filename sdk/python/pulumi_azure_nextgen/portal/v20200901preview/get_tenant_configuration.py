@@ -19,10 +19,13 @@ class GetTenantConfigurationResult:
     """
     Tenant configuration.
     """
-    def __init__(__self__, enforce_private_markdown_storage=None, name=None, type=None):
+    def __init__(__self__, enforce_private_markdown_storage=None, id=None, name=None, type=None):
         if enforce_private_markdown_storage and not isinstance(enforce_private_markdown_storage, bool):
             raise TypeError("Expected argument 'enforce_private_markdown_storage' to be a bool")
         pulumi.set(__self__, "enforce_private_markdown_storage", enforce_private_markdown_storage)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -37,6 +40,14 @@ class GetTenantConfigurationResult:
         When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
         """
         return pulumi.get(self, "enforce_private_markdown_storage")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -62,6 +73,7 @@ class AwaitableGetTenantConfigurationResult(GetTenantConfigurationResult):
             yield self
         return GetTenantConfigurationResult(
             enforce_private_markdown_storage=self.enforce_private_markdown_storage,
+            id=self.id,
             name=self.name,
             type=self.type)
 
@@ -83,5 +95,6 @@ def get_tenant_configuration(configuration_name: Optional[str] = None,
 
     return AwaitableGetTenantConfigurationResult(
         enforce_private_markdown_storage=__ret__.enforce_private_markdown_storage,
+        id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type)

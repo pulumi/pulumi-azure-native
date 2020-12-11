@@ -44,6 +44,10 @@ export interface ListTenantAccessGitSecretsResult {
      */
     readonly enabled?: boolean;
     /**
+     * Identifier.
+     */
+    readonly id?: string;
+    /**
      * Primary access key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
      */
     readonly primaryKey?: string;

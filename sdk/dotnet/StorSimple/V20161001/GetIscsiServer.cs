@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// The identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name.
         /// </summary>
         public readonly string Name;
@@ -88,6 +92,8 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
 
             string? description,
 
+            string id,
+
             string name,
 
             string? reverseChapId,
@@ -99,6 +105,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
             BackupScheduleGroupId = backupScheduleGroupId;
             ChapId = chapId;
             Description = description;
+            Id = id;
             Name = name;
             ReverseChapId = reverseChapId;
             StorageDomainId = storageDomainId;

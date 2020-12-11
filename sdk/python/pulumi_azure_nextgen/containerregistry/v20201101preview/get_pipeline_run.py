@@ -20,10 +20,13 @@ class GetPipelineRunResult:
     """
     An object that represents a pipeline run for a container registry.
     """
-    def __init__(__self__, force_update_tag=None, name=None, provisioning_state=None, request=None, response=None, system_data=None, type=None):
+    def __init__(__self__, force_update_tag=None, id=None, name=None, provisioning_state=None, request=None, response=None, system_data=None, type=None):
         if force_update_tag and not isinstance(force_update_tag, str):
             raise TypeError("Expected argument 'force_update_tag' to be a str")
         pulumi.set(__self__, "force_update_tag", force_update_tag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -50,6 +53,14 @@ class GetPipelineRunResult:
         How the pipeline run should be forced to recreate even if the pipeline run configuration has not changed.
         """
         return pulumi.get(self, "force_update_tag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -107,6 +118,7 @@ class AwaitableGetPipelineRunResult(GetPipelineRunResult):
             yield self
         return GetPipelineRunResult(
             force_update_tag=self.force_update_tag,
+            id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
             request=self.request,
@@ -138,6 +150,7 @@ def get_pipeline_run(pipeline_run_name: Optional[str] = None,
 
     return AwaitableGetPipelineRunResult(
         force_update_tag=__ret__.force_update_tag,
+        id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         request=__ret__.request,

@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.CostManagement.V20180801Preview
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
+        /// Connector id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Connector kind (eg aws)
         /// </summary>
         public readonly string? Kind;
@@ -108,6 +112,8 @@ namespace Pulumi.AzureNextGen.CostManagement.V20180801Preview
 
             string? displayName,
 
+            string id,
+
             string? kind,
 
             string? location,
@@ -131,6 +137,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20180801Preview
             CredentialsKey = credentialsKey;
             CredentialsSecret = credentialsSecret;
             DisplayName = displayName;
+            Id = id;
             Kind = kind;
             Location = location;
             ModifiedOn = modifiedOn;

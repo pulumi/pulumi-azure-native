@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.Peering.Latest
         /// </summary>
         public readonly ImmutableArray<Outputs.PeeringServicePrefixEventResponse> Events;
         /// <summary>
+        /// The ID of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The prefix learned type
         /// </summary>
         public readonly string LearnedType;
@@ -94,6 +98,8 @@ namespace Pulumi.AzureNextGen.Peering.Latest
 
             ImmutableArray<Outputs.PeeringServicePrefixEventResponse> events,
 
+            string id,
+
             string learnedType,
 
             string name,
@@ -110,6 +116,7 @@ namespace Pulumi.AzureNextGen.Peering.Latest
         {
             ErrorMessage = errorMessage;
             Events = events;
+            Id = id;
             LearnedType = learnedType;
             Name = name;
             PeeringServicePrefixKey = peeringServicePrefixKey;

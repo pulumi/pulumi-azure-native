@@ -56,6 +56,10 @@ export interface GetPredictionResult {
      */
     readonly grades?: outputs.customerinsights.v20170426.PredictionResponseGrades[];
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Interaction types involved in the prediction.
      */
     readonly involvedInteractionTypes?: string[];

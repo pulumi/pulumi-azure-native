@@ -19,7 +19,7 @@ class GetVolumeResult:
     """
     The volume.
     """
-    def __init__(__self__, access_control_record_ids=None, backup_policy_ids=None, backup_status=None, kind=None, monitoring_status=None, name=None, operation_status=None, size_in_bytes=None, type=None, volume_container_id=None, volume_status=None, volume_type=None):
+    def __init__(__self__, access_control_record_ids=None, backup_policy_ids=None, backup_status=None, id=None, kind=None, monitoring_status=None, name=None, operation_status=None, size_in_bytes=None, type=None, volume_container_id=None, volume_status=None, volume_type=None):
         if access_control_record_ids and not isinstance(access_control_record_ids, list):
             raise TypeError("Expected argument 'access_control_record_ids' to be a list")
         pulumi.set(__self__, "access_control_record_ids", access_control_record_ids)
@@ -29,6 +29,9 @@ class GetVolumeResult:
         if backup_status and not isinstance(backup_status, str):
             raise TypeError("Expected argument 'backup_status' to be a str")
         pulumi.set(__self__, "backup_status", backup_status)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -80,6 +83,14 @@ class GetVolumeResult:
         The backup status of the volume.
         """
         return pulumi.get(self, "backup_status")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The path ID that uniquely identifies the object.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -163,6 +174,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             access_control_record_ids=self.access_control_record_ids,
             backup_policy_ids=self.backup_policy_ids,
             backup_status=self.backup_status,
+            id=self.id,
             kind=self.kind,
             monitoring_status=self.monitoring_status,
             name=self.name,
@@ -205,6 +217,7 @@ def get_volume(device_name: Optional[str] = None,
         access_control_record_ids=__ret__.access_control_record_ids,
         backup_policy_ids=__ret__.backup_policy_ids,
         backup_status=__ret__.backup_status,
+        id=__ret__.id,
         kind=__ret__.kind,
         monitoring_status=__ret__.monitoring_status,
         name=__ret__.name,

@@ -97,6 +97,10 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// </summary>
         public readonly bool? HasLinuxWorkers;
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
         /// </summary>
         public readonly string? InternalLoadBalancingMode;
@@ -244,6 +248,8 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             bool? hasLinuxWorkers,
 
+            string id,
+
             string? internalLoadBalancingMode,
 
             int? ipsslAddressCount,
@@ -316,6 +322,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
             EnvironmentStatus = environmentStatus;
             FrontEndScaleFactor = frontEndScaleFactor;
             HasLinuxWorkers = hasLinuxWorkers;
+            Id = id;
             InternalLoadBalancingMode = internalLoadBalancingMode;
             IpsslAddressCount = ipsslAddressCount;
             Kind = kind;

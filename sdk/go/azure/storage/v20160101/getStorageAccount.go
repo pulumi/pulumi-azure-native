@@ -33,6 +33,8 @@ type LookupStorageAccountResult struct {
 	CustomDomain CustomDomainResponse `pulumi:"customDomain"`
 	// Gets the encryption settings on the account. If unspecified, the account is unencrypted.
 	Encryption EncryptionResponse `pulumi:"encryption"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Gets the Kind.
 	Kind string `pulumi:"kind"`
 	// Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.

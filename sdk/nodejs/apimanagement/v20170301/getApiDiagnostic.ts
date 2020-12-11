@@ -49,6 +49,10 @@ export interface GetApiDiagnosticResult {
      */
     readonly enabled: boolean;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

@@ -47,6 +47,10 @@ export interface GetCacheResult {
      */
     readonly health: outputs.storagecache.v20200301.CacheHealthResponse;
     /**
+     * Resource ID of the Cache.
+     */
+    readonly id: string;
+    /**
      * The identity of the cache, if configured.
      */
     readonly identity?: outputs.storagecache.v20200301.CacheIdentityResponse;

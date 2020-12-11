@@ -44,6 +44,10 @@ export interface GetCertificateResult {
      */
     readonly expirationDate: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

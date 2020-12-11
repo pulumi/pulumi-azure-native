@@ -59,6 +59,10 @@ export interface GetApiManagementServiceResult {
      */
     readonly hostnameConfigurations?: outputs.apimanagement.v20160707.HostnameConfigurationResponse[];
     /**
+     * The ID of the created API Management service.
+     */
+    readonly id: string;
+    /**
      * Datacenter location of the API Management service.
      */
     readonly location: string;

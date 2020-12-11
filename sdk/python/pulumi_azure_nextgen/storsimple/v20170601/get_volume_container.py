@@ -20,7 +20,7 @@ class GetVolumeContainerResult:
     """
     The volume container.
     """
-    def __init__(__self__, band_width_rate_in_mbps=None, bandwidth_setting_id=None, encryption_key=None, encryption_status=None, kind=None, name=None, owner_ship_status=None, storage_account_credential_id=None, total_cloud_storage_usage_in_bytes=None, type=None, volume_count=None):
+    def __init__(__self__, band_width_rate_in_mbps=None, bandwidth_setting_id=None, encryption_key=None, encryption_status=None, id=None, kind=None, name=None, owner_ship_status=None, storage_account_credential_id=None, total_cloud_storage_usage_in_bytes=None, type=None, volume_count=None):
         if band_width_rate_in_mbps and not isinstance(band_width_rate_in_mbps, int):
             raise TypeError("Expected argument 'band_width_rate_in_mbps' to be a int")
         pulumi.set(__self__, "band_width_rate_in_mbps", band_width_rate_in_mbps)
@@ -33,6 +33,9 @@ class GetVolumeContainerResult:
         if encryption_status and not isinstance(encryption_status, str):
             raise TypeError("Expected argument 'encryption_status' to be a str")
         pulumi.set(__self__, "encryption_status", encryption_status)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -86,6 +89,14 @@ class GetVolumeContainerResult:
         The flag to denote whether encryption is enabled or not.
         """
         return pulumi.get(self, "encryption_status")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The path ID that uniquely identifies the object.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -154,6 +165,7 @@ class AwaitableGetVolumeContainerResult(GetVolumeContainerResult):
             bandwidth_setting_id=self.bandwidth_setting_id,
             encryption_key=self.encryption_key,
             encryption_status=self.encryption_status,
+            id=self.id,
             kind=self.kind,
             name=self.name,
             owner_ship_status=self.owner_ship_status,
@@ -192,6 +204,7 @@ def get_volume_container(device_name: Optional[str] = None,
         bandwidth_setting_id=__ret__.bandwidth_setting_id,
         encryption_key=__ret__.encryption_key,
         encryption_status=__ret__.encryption_status,
+        id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
         owner_ship_status=__ret__.owner_ship_status,

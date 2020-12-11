@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Consumption.V20171230Preview
         /// </summary>
         public readonly string? ETag;
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -80,6 +84,8 @@ namespace Pulumi.AzureNextGen.Consumption.V20171230Preview
 
             string? eTag,
 
+            string id,
+
             string name,
 
             ImmutableDictionary<string, Outputs.NotificationResponse>? notifications,
@@ -94,6 +100,7 @@ namespace Pulumi.AzureNextGen.Consumption.V20171230Preview
             Category = category;
             CurrentSpend = currentSpend;
             ETag = eTag;
+            Id = id;
             Name = name;
             Notifications = notifications;
             TimeGrain = timeGrain;

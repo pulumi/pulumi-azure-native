@@ -48,6 +48,10 @@ export interface GetPublicIPAddressResult {
      */
     readonly etag?: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * The idle timeout of the public IP address.
      */
     readonly idleTimeoutInMinutes?: number;

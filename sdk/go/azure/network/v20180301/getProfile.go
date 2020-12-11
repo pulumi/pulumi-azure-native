@@ -29,6 +29,8 @@ type LookupProfileResult struct {
 	DnsConfig *DnsConfigResponse `pulumi:"dnsConfig"`
 	// The list of endpoints in the Traffic Manager profile.
 	Endpoints []EndpointResponse `pulumi:"endpoints"`
+	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
+	Id *string `pulumi:"id"`
 	// The Azure Region where the resource lives
 	Location *string `pulumi:"location"`
 	// The endpoint monitoring settings of the Traffic Manager profile.

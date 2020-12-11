@@ -25,6 +25,8 @@ type LookupProfileArgs struct {
 
 // CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
 type LookupProfileResult struct {
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// Resource name.

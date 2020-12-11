@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20180201Preview
     public sealed class GetBuildStepResult
     {
         /// <summary>
+        /// The resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
@@ -66,12 +70,15 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20180201Preview
 
         [OutputConstructor]
         private GetBuildStepResult(
+            string id,
+
             string name,
 
             Outputs.DockerBuildStepResponse properties,
 
             string type)
         {
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

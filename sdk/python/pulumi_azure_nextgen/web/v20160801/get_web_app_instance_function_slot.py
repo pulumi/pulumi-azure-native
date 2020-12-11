@@ -19,7 +19,7 @@ class GetWebAppInstanceFunctionSlotResult:
     """
     Web Job Information.
     """
-    def __init__(__self__, config=None, config_href=None, files=None, function_app_id=None, href=None, kind=None, name=None, script_href=None, script_root_path_href=None, secrets_file_href=None, test_data=None, type=None):
+    def __init__(__self__, config=None, config_href=None, files=None, function_app_id=None, href=None, id=None, kind=None, name=None, script_href=None, script_root_path_href=None, secrets_file_href=None, test_data=None, type=None):
         if config and not isinstance(config, dict):
             raise TypeError("Expected argument 'config' to be a dict")
         pulumi.set(__self__, "config", config)
@@ -35,6 +35,9 @@ class GetWebAppInstanceFunctionSlotResult:
         if href and not isinstance(href, str):
             raise TypeError("Expected argument 'href' to be a str")
         pulumi.set(__self__, "href", href)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -96,6 +99,14 @@ class GetWebAppInstanceFunctionSlotResult:
         Function URI.
         """
         return pulumi.get(self, "href")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -165,6 +176,7 @@ class AwaitableGetWebAppInstanceFunctionSlotResult(GetWebAppInstanceFunctionSlot
             files=self.files,
             function_app_id=self.function_app_id,
             href=self.href,
+            id=self.id,
             kind=self.kind,
             name=self.name,
             script_href=self.script_href,
@@ -204,6 +216,7 @@ def get_web_app_instance_function_slot(function_name: Optional[str] = None,
         files=__ret__.files,
         function_app_id=__ret__.function_app_id,
         href=__ret__.href,
+        id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
         script_href=__ret__.script_href,

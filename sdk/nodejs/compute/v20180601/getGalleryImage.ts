@@ -56,6 +56,10 @@ export interface GetGalleryImageResult {
      */
     readonly eula?: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * This is the gallery Image Definition identifier.
      */
     readonly identifier: outputs.compute.v20180601.GalleryImageIdentifierResponse;

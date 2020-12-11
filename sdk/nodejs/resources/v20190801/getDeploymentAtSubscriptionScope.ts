@@ -30,6 +30,10 @@ export interface GetDeploymentAtSubscriptionScopeArgs {
  */
 export interface GetDeploymentAtSubscriptionScopeResult {
     /**
+     * The ID of the deployment.
+     */
+    readonly id: string;
+    /**
      * the location of the deployment.
      */
     readonly location?: string;

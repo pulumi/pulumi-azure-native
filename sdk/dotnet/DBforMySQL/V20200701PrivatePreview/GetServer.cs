@@ -80,6 +80,10 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
         /// </summary>
         public readonly string HaState;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The Azure Active Directory identity of the server.
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
@@ -174,6 +178,8 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
 
             string haState,
 
+            string id,
+
             Outputs.IdentityResponse? identity,
 
             string? infrastructureEncryption,
@@ -220,6 +226,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20200701PrivatePreview
             FullyQualifiedDomainName = fullyQualifiedDomainName;
             HaEnabled = haEnabled;
             HaState = haState;
+            Id = id;
             Identity = identity;
             InfrastructureEncryption = infrastructureEncryption;
             Location = location;

@@ -20,7 +20,10 @@ class GetDashboardResult:
     """
     The shared dashboard resource definition.
     """
-    def __init__(__self__, lenses=None, location=None, metadata=None, name=None, tags=None, type=None):
+    def __init__(__self__, id=None, lenses=None, location=None, metadata=None, name=None, tags=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if lenses and not isinstance(lenses, dict):
             raise TypeError("Expected argument 'lenses' to be a dict")
         pulumi.set(__self__, "lenses", lenses)
@@ -39,6 +42,14 @@ class GetDashboardResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -95,6 +106,7 @@ class AwaitableGetDashboardResult(GetDashboardResult):
         if False:
             yield self
         return GetDashboardResult(
+            id=self.id,
             lenses=self.lenses,
             location=self.location,
             metadata=self.metadata,
@@ -122,6 +134,7 @@ def get_dashboard(dashboard_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:portal/v20190101preview:getDashboard', __args__, opts=opts, typ=GetDashboardResult).value
 
     return AwaitableGetDashboardResult(
+        id=__ret__.id,
         lenses=__ret__.lenses,
         location=__ret__.location,
         metadata=__ret__.metadata,

@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
         /// </summary>
         public readonly string EncryptionStatus;
         /// <summary>
+        /// The path ID that uniquely identifies the object.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         public readonly string? Kind;
@@ -106,6 +110,8 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
 
             string encryptionStatus,
 
+            string id,
+
             string? kind,
 
             string name,
@@ -124,6 +130,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
             BandwidthSettingId = bandwidthSettingId;
             EncryptionKey = encryptionKey;
             EncryptionStatus = encryptionStatus;
+            Id = id;
             Kind = kind;
             Name = name;
             OwnerShipStatus = ownerShipStatus;

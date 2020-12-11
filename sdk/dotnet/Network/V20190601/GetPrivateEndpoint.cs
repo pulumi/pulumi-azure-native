@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Network.V20190601
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -90,6 +94,8 @@ namespace Pulumi.AzureNextGen.Network.V20190601
         private GetPrivateEndpointResult(
             string? etag,
 
+            string? id,
+
             string? location,
 
             ImmutableArray<Outputs.PrivateLinkServiceConnectionResponse> manualPrivateLinkServiceConnections,
@@ -109,6 +115,7 @@ namespace Pulumi.AzureNextGen.Network.V20190601
             string type)
         {
             Etag = etag;
+            Id = id;
             Location = location;
             ManualPrivateLinkServiceConnections = manualPrivateLinkServiceConnections;
             Name = name;

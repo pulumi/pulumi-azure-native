@@ -20,7 +20,7 @@ class GetAppServicePlanResult:
     """
     App Service plan.
     """
-    def __init__(__self__, admin_site_name=None, geo_region=None, hosting_environment_profile=None, is_spot=None, kind=None, location=None, maximum_number_of_workers=None, name=None, number_of_sites=None, per_site_scaling=None, provisioning_state=None, reserved=None, resource_group=None, sku=None, spot_expiration_time=None, status=None, subscription=None, tags=None, target_worker_count=None, target_worker_size_id=None, type=None, worker_tier_name=None):
+    def __init__(__self__, admin_site_name=None, geo_region=None, hosting_environment_profile=None, id=None, is_spot=None, kind=None, location=None, maximum_number_of_workers=None, name=None, number_of_sites=None, per_site_scaling=None, provisioning_state=None, reserved=None, resource_group=None, sku=None, spot_expiration_time=None, status=None, subscription=None, tags=None, target_worker_count=None, target_worker_size_id=None, type=None, worker_tier_name=None):
         if admin_site_name and not isinstance(admin_site_name, str):
             raise TypeError("Expected argument 'admin_site_name' to be a str")
         pulumi.set(__self__, "admin_site_name", admin_site_name)
@@ -30,6 +30,9 @@ class GetAppServicePlanResult:
         if hosting_environment_profile and not isinstance(hosting_environment_profile, dict):
             raise TypeError("Expected argument 'hosting_environment_profile' to be a dict")
         pulumi.set(__self__, "hosting_environment_profile", hosting_environment_profile)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_spot and not isinstance(is_spot, bool):
             raise TypeError("Expected argument 'is_spot' to be a bool")
         pulumi.set(__self__, "is_spot", is_spot)
@@ -111,6 +114,14 @@ class GetAppServicePlanResult:
         Specification for the App Service Environment to use for the App Service plan.
         """
         return pulumi.get(self, "hosting_environment_profile")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isSpot")
@@ -275,6 +286,7 @@ class AwaitableGetAppServicePlanResult(GetAppServicePlanResult):
             admin_site_name=self.admin_site_name,
             geo_region=self.geo_region,
             hosting_environment_profile=self.hosting_environment_profile,
+            id=self.id,
             is_spot=self.is_spot,
             kind=self.kind,
             location=self.location,
@@ -318,6 +330,7 @@ def get_app_service_plan(name: Optional[str] = None,
         admin_site_name=__ret__.admin_site_name,
         geo_region=__ret__.geo_region,
         hosting_environment_profile=__ret__.hosting_environment_profile,
+        id=__ret__.id,
         is_spot=__ret__.is_spot,
         kind=__ret__.kind,
         location=__ret__.location,

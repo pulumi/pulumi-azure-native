@@ -20,7 +20,10 @@ class GetVirtualMachineScaleSetResult:
     """
     Describes a Virtual Machine Scale Set.
     """
-    def __init__(__self__, identity=None, location=None, name=None, overprovision=None, plan=None, platform_fault_domain_count=None, provisioning_state=None, proximity_placement_group=None, single_placement_group=None, sku=None, tags=None, type=None, unique_id=None, upgrade_policy=None, virtual_machine_profile=None, zone_balance=None, zones=None):
+    def __init__(__self__, id=None, identity=None, location=None, name=None, overprovision=None, plan=None, platform_fault_domain_count=None, provisioning_state=None, proximity_placement_group=None, single_placement_group=None, sku=None, tags=None, type=None, unique_id=None, upgrade_policy=None, virtual_machine_profile=None, zone_balance=None, zones=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -72,6 +75,14 @@ class GetVirtualMachineScaleSetResult:
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -216,6 +227,7 @@ class AwaitableGetVirtualMachineScaleSetResult(GetVirtualMachineScaleSetResult):
         if False:
             yield self
         return GetVirtualMachineScaleSetResult(
+            id=self.id,
             identity=self.identity,
             location=self.location,
             name=self.name,
@@ -254,6 +266,7 @@ def get_virtual_machine_scale_set(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:compute/v20180601:getVirtualMachineScaleSet', __args__, opts=opts, typ=GetVirtualMachineScaleSetResult).value
 
     return AwaitableGetVirtualMachineScaleSetResult(
+        id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,

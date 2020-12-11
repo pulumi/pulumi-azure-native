@@ -20,7 +20,7 @@ class GetVpnSiteResult:
     """
     VpnSite Resource.
     """
-    def __init__(__self__, address_space=None, bgp_properties=None, device_properties=None, etag=None, ip_address=None, is_security_site=None, location=None, name=None, provisioning_state=None, site_key=None, tags=None, type=None, virtual_wan=None):
+    def __init__(__self__, address_space=None, bgp_properties=None, device_properties=None, etag=None, id=None, ip_address=None, is_security_site=None, location=None, name=None, provisioning_state=None, site_key=None, tags=None, type=None, virtual_wan=None):
         if address_space and not isinstance(address_space, dict):
             raise TypeError("Expected argument 'address_space' to be a dict")
         pulumi.set(__self__, "address_space", address_space)
@@ -33,6 +33,9 @@ class GetVpnSiteResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if ip_address and not isinstance(ip_address, str):
             raise TypeError("Expected argument 'ip_address' to be a str")
         pulumi.set(__self__, "ip_address", ip_address)
@@ -92,6 +95,14 @@ class GetVpnSiteResult:
         Gets a unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ipAddress")
@@ -176,6 +187,7 @@ class AwaitableGetVpnSiteResult(GetVpnSiteResult):
             bgp_properties=self.bgp_properties,
             device_properties=self.device_properties,
             etag=self.etag,
+            id=self.id,
             ip_address=self.ip_address,
             is_security_site=self.is_security_site,
             location=self.location,
@@ -210,6 +222,7 @@ def get_vpn_site(resource_group_name: Optional[str] = None,
         bgp_properties=__ret__.bgp_properties,
         device_properties=__ret__.device_properties,
         etag=__ret__.etag,
+        id=__ret__.id,
         ip_address=__ret__.ip_address,
         is_security_site=__ret__.is_security_site,
         location=__ret__.location,

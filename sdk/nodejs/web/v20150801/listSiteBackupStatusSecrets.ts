@@ -105,6 +105,10 @@ export interface ListSiteBackupStatusSecretsResult {
      */
     readonly finishedTimeStamp?: string;
     /**
+     * Resource Id
+     */
+    readonly id?: string;
+    /**
      * Kind of resource
      */
     readonly kind?: string;

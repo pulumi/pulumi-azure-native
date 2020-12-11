@@ -35,6 +35,10 @@ export interface GetManagementConfigurationArgs {
  */
 export interface GetManagementConfigurationResult {
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location?: string;

@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.Web.V20160801
         /// </summary>
         public readonly string? Href;
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
@@ -106,6 +110,8 @@ namespace Pulumi.AzureNextGen.Web.V20160801
 
             string? href,
 
+            string id,
+
             string? kind,
 
             string name,
@@ -125,6 +131,7 @@ namespace Pulumi.AzureNextGen.Web.V20160801
             Files = files;
             FunctionAppId = functionAppId;
             Href = href;
+            Id = id;
             Kind = kind;
             Name = name;
             ScriptHref = scriptHref;

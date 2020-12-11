@@ -52,6 +52,10 @@ export interface GetLoadBalancerResult {
      */
     readonly frontendIPConfigurations?: outputs.network.v20160330.FrontendIPConfigurationResponse[];
     /**
+     * Resource Id
+     */
+    readonly id?: string;
+    /**
      * Gets or sets inbound NAT pools
      */
     readonly inboundNatPools?: outputs.network.v20160330.InboundNatPoolResponse[];

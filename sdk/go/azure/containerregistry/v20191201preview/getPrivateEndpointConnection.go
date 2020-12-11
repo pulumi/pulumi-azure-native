@@ -27,6 +27,8 @@ type LookupPrivateEndpointConnectionArgs struct {
 
 // An object that represents a private endpoint connection for a container registry.
 type LookupPrivateEndpointConnectionResult struct {
+	// The resource ID.
+	Id string `pulumi:"id"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The resource of private endpoint.

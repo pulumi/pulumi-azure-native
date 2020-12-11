@@ -37,6 +37,8 @@ type LookupStorageAccountCredentialResult struct {
 	BlobDomainName *string `pulumi:"blobDomainName"`
 	// Connection string for the storage account. Use this string if username and account key are not specified.
 	ConnectionString *string `pulumi:"connectionString"`
+	// The path ID that uniquely identifies the object.
+	Id string `pulumi:"id"`
 	// The object name.
 	Name string `pulumi:"name"`
 	// Signifies whether SSL needs to be enabled or not.

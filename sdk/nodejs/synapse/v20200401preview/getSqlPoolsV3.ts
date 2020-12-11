@@ -44,6 +44,10 @@ export interface GetSqlPoolsV3Result {
      */
     readonly currentServiceObjectiveName: string;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * Kind of SqlPool.
      */
     readonly kind: string;

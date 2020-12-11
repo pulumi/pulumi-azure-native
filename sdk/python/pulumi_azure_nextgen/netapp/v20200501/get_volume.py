@@ -20,7 +20,7 @@ class GetVolumeResult:
     """
     Volume resource
     """
-    def __init__(__self__, backup_id=None, baremetal_tenant_id=None, creation_token=None, data_protection=None, export_policy=None, file_system_id=None, is_restoring=None, kerberos_enabled=None, location=None, mount_targets=None, name=None, protocol_types=None, provisioning_state=None, service_level=None, snapshot_directory_visible=None, snapshot_id=None, subnet_id=None, tags=None, type=None, usage_threshold=None, volume_type=None):
+    def __init__(__self__, backup_id=None, baremetal_tenant_id=None, creation_token=None, data_protection=None, export_policy=None, file_system_id=None, id=None, is_restoring=None, kerberos_enabled=None, location=None, mount_targets=None, name=None, protocol_types=None, provisioning_state=None, service_level=None, snapshot_directory_visible=None, snapshot_id=None, subnet_id=None, tags=None, type=None, usage_threshold=None, volume_type=None):
         if backup_id and not isinstance(backup_id, str):
             raise TypeError("Expected argument 'backup_id' to be a str")
         pulumi.set(__self__, "backup_id", backup_id)
@@ -39,6 +39,9 @@ class GetVolumeResult:
         if file_system_id and not isinstance(file_system_id, str):
             raise TypeError("Expected argument 'file_system_id' to be a str")
         pulumi.set(__self__, "file_system_id", file_system_id)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_restoring and not isinstance(is_restoring, bool):
             raise TypeError("Expected argument 'is_restoring' to be a bool")
         pulumi.set(__self__, "is_restoring", is_restoring)
@@ -132,6 +135,14 @@ class GetVolumeResult:
         Unique FileSystem Identifier.
         """
         return pulumi.get(self, "file_system_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isRestoring")
@@ -266,6 +277,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             data_protection=self.data_protection,
             export_policy=self.export_policy,
             file_system_id=self.file_system_id,
+            id=self.id,
             is_restoring=self.is_restoring,
             kerberos_enabled=self.kerberos_enabled,
             location=self.location,
@@ -314,6 +326,7 @@ def get_volume(account_name: Optional[str] = None,
         data_protection=__ret__.data_protection,
         export_policy=__ret__.export_policy,
         file_system_id=__ret__.file_system_id,
+        id=__ret__.id,
         is_restoring=__ret__.is_restoring,
         kerberos_enabled=__ret__.kerberos_enabled,
         location=__ret__.location,

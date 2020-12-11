@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Cdn.V20191231
         /// </summary>
         public readonly Outputs.HealthProbeParametersResponse? HealthProbeSettings;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -88,6 +92,8 @@ namespace Pulumi.AzureNextGen.Cdn.V20191231
         private GetOriginGroupResult(
             Outputs.HealthProbeParametersResponse? healthProbeSettings,
 
+            string id,
+
             string name,
 
             ImmutableArray<Outputs.ResourceReferenceResponse> origins,
@@ -103,6 +109,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20191231
             string type)
         {
             HealthProbeSettings = healthProbeSettings;
+            Id = id;
             Name = name;
             Origins = origins;
             ProvisioningState = provisioningState;

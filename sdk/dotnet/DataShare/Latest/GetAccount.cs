@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
+        /// The resource id of the azure resource
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Identity Info on the Account
         /// </summary>
         public readonly Outputs.IdentityResponse Identity;
@@ -80,6 +84,8 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
         private GetAccountResult(
             string createdAt,
 
+            string id,
+
             Outputs.IdentityResponse identity,
 
             string? location,
@@ -97,6 +103,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
             string userName)
         {
             CreatedAt = createdAt;
+            Id = id;
             Identity = identity;
             Location = location;
             Name = name;

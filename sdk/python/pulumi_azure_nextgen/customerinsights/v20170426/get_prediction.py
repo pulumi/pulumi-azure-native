@@ -20,7 +20,7 @@ class GetPredictionResult:
     """
     The prediction resource format.
     """
-    def __init__(__self__, auto_analyze=None, description=None, display_name=None, grades=None, involved_interaction_types=None, involved_kpi_types=None, involved_relationships=None, mappings=None, name=None, negative_outcome_expression=None, positive_outcome_expression=None, prediction_name=None, primary_profile_type=None, provisioning_state=None, scope_expression=None, score_label=None, system_generated_entities=None, tenant_id=None, type=None):
+    def __init__(__self__, auto_analyze=None, description=None, display_name=None, grades=None, id=None, involved_interaction_types=None, involved_kpi_types=None, involved_relationships=None, mappings=None, name=None, negative_outcome_expression=None, positive_outcome_expression=None, prediction_name=None, primary_profile_type=None, provisioning_state=None, scope_expression=None, score_label=None, system_generated_entities=None, tenant_id=None, type=None):
         if auto_analyze and not isinstance(auto_analyze, bool):
             raise TypeError("Expected argument 'auto_analyze' to be a bool")
         pulumi.set(__self__, "auto_analyze", auto_analyze)
@@ -33,6 +33,9 @@ class GetPredictionResult:
         if grades and not isinstance(grades, list):
             raise TypeError("Expected argument 'grades' to be a list")
         pulumi.set(__self__, "grades", grades)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if involved_interaction_types and not isinstance(involved_interaction_types, list):
             raise TypeError("Expected argument 'involved_interaction_types' to be a list")
         pulumi.set(__self__, "involved_interaction_types", involved_interaction_types)
@@ -110,6 +113,14 @@ class GetPredictionResult:
         The prediction grades.
         """
         return pulumi.get(self, "grades")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="involvedInteractionTypes")
@@ -242,6 +253,7 @@ class AwaitableGetPredictionResult(GetPredictionResult):
             description=self.description,
             display_name=self.display_name,
             grades=self.grades,
+            id=self.id,
             involved_interaction_types=self.involved_interaction_types,
             involved_kpi_types=self.involved_kpi_types,
             involved_relationships=self.involved_relationships,
@@ -285,6 +297,7 @@ def get_prediction(hub_name: Optional[str] = None,
         description=__ret__.description,
         display_name=__ret__.display_name,
         grades=__ret__.grades,
+        id=__ret__.id,
         involved_interaction_types=__ret__.involved_interaction_types,
         involved_kpi_types=__ret__.involved_kpi_types,
         involved_relationships=__ret__.involved_relationships,

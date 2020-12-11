@@ -28,6 +28,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
     public sealed class GetTrafficManagerUserMetricsKeyResult
     {
         /// <summary>
+        /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The key returned by the User Metrics operation.
         /// </summary>
         public readonly string? Key;
@@ -42,12 +46,15 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
         [OutputConstructor]
         private GetTrafficManagerUserMetricsKeyResult(
+            string? id,
+
             string? key,
 
             string? name,
 
             string? type)
         {
+            Id = id;
             Key = key;
             Name = name;
             Type = type;

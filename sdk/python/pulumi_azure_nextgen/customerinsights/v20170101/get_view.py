@@ -19,7 +19,7 @@ class GetViewResult:
     """
     The view resource format.
     """
-    def __init__(__self__, changed=None, created=None, definition=None, display_name=None, name=None, tenant_id=None, type=None, user_id=None, view_name=None):
+    def __init__(__self__, changed=None, created=None, definition=None, display_name=None, id=None, name=None, tenant_id=None, type=None, user_id=None, view_name=None):
         if changed and not isinstance(changed, str):
             raise TypeError("Expected argument 'changed' to be a str")
         pulumi.set(__self__, "changed", changed)
@@ -32,6 +32,9 @@ class GetViewResult:
         if display_name and not isinstance(display_name, dict):
             raise TypeError("Expected argument 'display_name' to be a dict")
         pulumi.set(__self__, "display_name", display_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -79,6 +82,14 @@ class GetViewResult:
         Localized display name for the view.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -131,6 +142,7 @@ class AwaitableGetViewResult(GetViewResult):
             created=self.created,
             definition=self.definition,
             display_name=self.display_name,
+            id=self.id,
             name=self.name,
             tenant_id=self.tenant_id,
             type=self.type,
@@ -167,6 +179,7 @@ def get_view(hub_name: Optional[str] = None,
         created=__ret__.created,
         definition=__ret__.definition,
         display_name=__ret__.display_name,
+        id=__ret__.id,
         name=__ret__.name,
         tenant_id=__ret__.tenant_id,
         type=__ret__.type,

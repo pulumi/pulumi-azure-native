@@ -27,6 +27,8 @@ type LookupServiceArgs struct {
 type LookupServiceResult struct {
 	// An etag associated with the resource, used for optimistic concurrency when editing it.
 	Etag *string `pulumi:"etag"`
+	// The resource identifier.
+	Id string `pulumi:"id"`
 	// The kind of the service. Valid values are: fhir, fhir-Stu3 and fhir-R4.
 	Kind string `pulumi:"kind"`
 	// The resource location.

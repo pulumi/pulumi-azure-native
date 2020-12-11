@@ -49,6 +49,8 @@ type LookupAuthorizationServerResult struct {
 	DisplayName string `pulumi:"displayName"`
 	// Form of an authorization grant, which the client uses to request the access token.
 	GrantTypes []string `pulumi:"grantTypes"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner password.

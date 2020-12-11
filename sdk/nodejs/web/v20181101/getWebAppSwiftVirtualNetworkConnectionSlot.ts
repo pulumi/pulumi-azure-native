@@ -40,6 +40,10 @@ export interface GetWebAppSwiftVirtualNetworkConnectionSlotArgs {
  */
 export interface GetWebAppSwiftVirtualNetworkConnectionSlotResult {
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;

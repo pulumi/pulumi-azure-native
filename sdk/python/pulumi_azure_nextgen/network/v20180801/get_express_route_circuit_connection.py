@@ -20,7 +20,7 @@ class GetExpressRouteCircuitConnectionResult:
     """
     Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
     """
-    def __init__(__self__, address_prefix=None, authorization_key=None, circuit_connection_status=None, etag=None, express_route_circuit_peering=None, name=None, peer_express_route_circuit_peering=None, provisioning_state=None):
+    def __init__(__self__, address_prefix=None, authorization_key=None, circuit_connection_status=None, etag=None, express_route_circuit_peering=None, id=None, name=None, peer_express_route_circuit_peering=None, provisioning_state=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
         pulumi.set(__self__, "address_prefix", address_prefix)
@@ -36,6 +36,9 @@ class GetExpressRouteCircuitConnectionResult:
         if express_route_circuit_peering and not isinstance(express_route_circuit_peering, dict):
             raise TypeError("Expected argument 'express_route_circuit_peering' to be a dict")
         pulumi.set(__self__, "express_route_circuit_peering", express_route_circuit_peering)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -88,6 +91,14 @@ class GetExpressRouteCircuitConnectionResult:
 
     @property
     @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def name(self) -> Optional[str]:
         """
         Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -122,6 +133,7 @@ class AwaitableGetExpressRouteCircuitConnectionResult(GetExpressRouteCircuitConn
             circuit_connection_status=self.circuit_connection_status,
             etag=self.etag,
             express_route_circuit_peering=self.express_route_circuit_peering,
+            id=self.id,
             name=self.name,
             peer_express_route_circuit_peering=self.peer_express_route_circuit_peering,
             provisioning_state=self.provisioning_state)
@@ -157,6 +169,7 @@ def get_express_route_circuit_connection(circuit_name: Optional[str] = None,
         circuit_connection_status=__ret__.circuit_connection_status,
         etag=__ret__.etag,
         express_route_circuit_peering=__ret__.express_route_circuit_peering,
+        id=__ret__.id,
         name=__ret__.name,
         peer_express_route_circuit_peering=__ret__.peer_express_route_circuit_peering,
         provisioning_state=__ret__.provisioning_state)

@@ -59,6 +59,10 @@ export interface GetExpressRoutePortResult {
      */
     readonly etherType: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * The set of physical links of the ExpressRoutePort resource.
      */
     readonly links?: outputs.network.v20190601.ExpressRouteLinkResponse[];

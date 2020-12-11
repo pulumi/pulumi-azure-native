@@ -20,7 +20,7 @@ class GetHubVirtualNetworkConnectionResult:
     """
     HubVirtualNetworkConnection Resource.
     """
-    def __init__(__self__, allow_hub_to_remote_vnet_transit=None, allow_remote_vnet_to_use_hub_vnet_gateways=None, enable_internet_security=None, etag=None, name=None, provisioning_state=None, remote_virtual_network=None, routing_configuration=None):
+    def __init__(__self__, allow_hub_to_remote_vnet_transit=None, allow_remote_vnet_to_use_hub_vnet_gateways=None, enable_internet_security=None, etag=None, id=None, name=None, provisioning_state=None, remote_virtual_network=None, routing_configuration=None):
         if allow_hub_to_remote_vnet_transit and not isinstance(allow_hub_to_remote_vnet_transit, bool):
             raise TypeError("Expected argument 'allow_hub_to_remote_vnet_transit' to be a bool")
         pulumi.set(__self__, "allow_hub_to_remote_vnet_transit", allow_hub_to_remote_vnet_transit)
@@ -33,6 +33,9 @@ class GetHubVirtualNetworkConnectionResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -80,6 +83,14 @@ class GetHubVirtualNetworkConnectionResult:
 
     @property
     @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def name(self) -> Optional[str]:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -121,6 +132,7 @@ class AwaitableGetHubVirtualNetworkConnectionResult(GetHubVirtualNetworkConnecti
             allow_remote_vnet_to_use_hub_vnet_gateways=self.allow_remote_vnet_to_use_hub_vnet_gateways,
             enable_internet_security=self.enable_internet_security,
             etag=self.etag,
+            id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
             remote_virtual_network=self.remote_virtual_network,
@@ -153,6 +165,7 @@ def get_hub_virtual_network_connection(connection_name: Optional[str] = None,
         allow_remote_vnet_to_use_hub_vnet_gateways=__ret__.allow_remote_vnet_to_use_hub_vnet_gateways,
         enable_internet_security=__ret__.enable_internet_security,
         etag=__ret__.etag,
+        id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         remote_virtual_network=__ret__.remote_virtual_network,

@@ -20,7 +20,7 @@ class GetWebTestResult:
     """
     An Application Insights web test definition.
     """
-    def __init__(__self__, configuration=None, description=None, enabled=None, frequency=None, kind=None, location=None, locations=None, name=None, provisioning_state=None, retry_enabled=None, synthetic_monitor_id=None, tags=None, timeout=None, type=None, web_test_kind=None, web_test_name=None):
+    def __init__(__self__, configuration=None, description=None, enabled=None, frequency=None, id=None, kind=None, location=None, locations=None, name=None, provisioning_state=None, retry_enabled=None, synthetic_monitor_id=None, tags=None, timeout=None, type=None, web_test_kind=None, web_test_name=None):
         if configuration and not isinstance(configuration, dict):
             raise TypeError("Expected argument 'configuration' to be a dict")
         pulumi.set(__self__, "configuration", configuration)
@@ -33,6 +33,9 @@ class GetWebTestResult:
         if frequency and not isinstance(frequency, int):
             raise TypeError("Expected argument 'frequency' to be a int")
         pulumi.set(__self__, "frequency", frequency)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -101,6 +104,14 @@ class GetWebTestResult:
         Interval in seconds between test runs for this WebTest. Default value is 300.
         """
         return pulumi.get(self, "frequency")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -209,6 +220,7 @@ class AwaitableGetWebTestResult(GetWebTestResult):
             description=self.description,
             enabled=self.enabled,
             frequency=self.frequency,
+            id=self.id,
             kind=self.kind,
             location=self.location,
             locations=self.locations,
@@ -246,6 +258,7 @@ def get_web_test(resource_group_name: Optional[str] = None,
         description=__ret__.description,
         enabled=__ret__.enabled,
         frequency=__ret__.frequency,
+        id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
         locations=__ret__.locations,

@@ -55,6 +55,10 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20200701Preview
         /// </summary>
         public readonly string ETag;
         /// <summary>
+        /// The resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The primary identifier of a key-value.
         /// The key is used in unison with the label to uniquely identify a key-value.
         /// </summary>
@@ -96,6 +100,8 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20200701Preview
 
             string eTag,
 
+            string id,
+
             string key,
 
             string label,
@@ -114,6 +120,7 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20200701Preview
         {
             ContentType = contentType;
             ETag = eTag;
+            Id = id;
             Key = key;
             Label = label;
             LastModified = lastModified;

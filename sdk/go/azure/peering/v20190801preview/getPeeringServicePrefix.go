@@ -27,6 +27,8 @@ type LookupPeeringServicePrefixArgs struct {
 
 // The peering service prefix class.
 type LookupPeeringServicePrefixResult struct {
+	// The ID of the resource.
+	Id string `pulumi:"id"`
 	// The prefix learned type
 	LearnedType *string `pulumi:"learnedType"`
 	// The name of the resource.

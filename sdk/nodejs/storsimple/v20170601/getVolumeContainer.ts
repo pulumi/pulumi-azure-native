@@ -61,6 +61,10 @@ export interface GetVolumeContainerResult {
      */
     readonly encryptionStatus: string;
     /**
+     * The path ID that uniquely identifies the object.
+     */
+    readonly id: string;
+    /**
      * The Kind of the object. Currently only Series8000 is supported
      */
     readonly kind?: string;

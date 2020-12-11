@@ -29,6 +29,8 @@ type LookupContentItemArgs struct {
 
 // Content type contract details.
 type LookupContentItemResult struct {
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Properties of the content item.

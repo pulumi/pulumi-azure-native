@@ -29,6 +29,8 @@ type LookupAppArgs struct {
 
 // App resource payload
 type LookupAppResult struct {
+	// Fully qualified resource Id for the resource.
+	Id string `pulumi:"id"`
 	// The Managed Identity type of the app resource
 	Identity *ManagedIdentityPropertiesResponse `pulumi:"identity"`
 	// The GEO location of the application, always the same with its parent resource

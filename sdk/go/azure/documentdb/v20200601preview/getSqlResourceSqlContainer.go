@@ -29,6 +29,8 @@ type LookupSqlResourceSqlContainerArgs struct {
 
 // An Azure Cosmos DB container.
 type LookupSqlResourceSqlContainerResult struct {
+	// The unique resource identifier of the ARM resource.
+	Id string `pulumi:"id"`
 	// Identity for the resource.
 	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
 	// The location of the resource group to which the resource belongs.

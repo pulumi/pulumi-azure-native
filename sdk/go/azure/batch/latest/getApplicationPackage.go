@@ -33,6 +33,8 @@ type LookupApplicationPackageResult struct {
 	Etag string `pulumi:"etag"`
 	// The format of the application package, if the package is active.
 	Format string `pulumi:"format"`
+	// The ID of the resource.
+	Id string `pulumi:"id"`
 	// The time at which the package was last activated, if the package is active.
 	LastActivationTime string `pulumi:"lastActivationTime"`
 	// The name of the resource.

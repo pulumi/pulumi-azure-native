@@ -20,7 +20,7 @@ class GetPolicyResult:
     """
     Defines web application firewall policy.
     """
-    def __init__(__self__, custom_rules=None, etag=None, frontend_endpoint_links=None, location=None, managed_rules=None, name=None, policy_settings=None, provisioning_state=None, resource_state=None, tags=None, type=None):
+    def __init__(__self__, custom_rules=None, etag=None, frontend_endpoint_links=None, id=None, location=None, managed_rules=None, name=None, policy_settings=None, provisioning_state=None, resource_state=None, tags=None, type=None):
         if custom_rules and not isinstance(custom_rules, dict):
             raise TypeError("Expected argument 'custom_rules' to be a dict")
         pulumi.set(__self__, "custom_rules", custom_rules)
@@ -30,6 +30,9 @@ class GetPolicyResult:
         if frontend_endpoint_links and not isinstance(frontend_endpoint_links, list):
             raise TypeError("Expected argument 'frontend_endpoint_links' to be a list")
         pulumi.set(__self__, "frontend_endpoint_links", frontend_endpoint_links)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -78,6 +81,14 @@ class GetPolicyResult:
         Describes Frontend Endpoints associated with this Web Application Firewall policy.
         """
         return pulumi.get(self, "frontend_endpoint_links")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -150,6 +161,7 @@ class AwaitableGetPolicyResult(GetPolicyResult):
             custom_rules=self.custom_rules,
             etag=self.etag,
             frontend_endpoint_links=self.frontend_endpoint_links,
+            id=self.id,
             location=self.location,
             managed_rules=self.managed_rules,
             name=self.name,
@@ -182,6 +194,7 @@ def get_policy(policy_name: Optional[str] = None,
         custom_rules=__ret__.custom_rules,
         etag=__ret__.etag,
         frontend_endpoint_links=__ret__.frontend_endpoint_links,
+        id=__ret__.id,
         location=__ret__.location,
         managed_rules=__ret__.managed_rules,
         name=__ret__.name,

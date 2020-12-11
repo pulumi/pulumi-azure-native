@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
         /// </summary>
         public readonly string? Hostname;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
 
             string? hostname,
 
+            string id,
+
             string name,
 
             bool? negotiateClientCertificate,
@@ -86,6 +92,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
         {
             CertificateId = certificateId;
             Hostname = hostname;
+            Id = id;
             Name = name;
             NegotiateClientCertificate = negotiateClientCertificate;
             Type = type;

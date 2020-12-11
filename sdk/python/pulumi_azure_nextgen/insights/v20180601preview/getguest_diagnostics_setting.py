@@ -20,10 +20,13 @@ class GetguestDiagnosticsSettingResult:
     """
     Virtual machine guest diagnostics settings resource.
     """
-    def __init__(__self__, data_sources=None, location=None, name=None, os_type=None, proxy_setting=None, tags=None, type=None):
+    def __init__(__self__, data_sources=None, id=None, location=None, name=None, os_type=None, proxy_setting=None, tags=None, type=None):
         if data_sources and not isinstance(data_sources, list):
             raise TypeError("Expected argument 'data_sources' to be a list")
         pulumi.set(__self__, "data_sources", data_sources)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -50,6 +53,14 @@ class GetguestDiagnosticsSettingResult:
         the array of data source object which are configured to collect and send data
         """
         return pulumi.get(self, "data_sources")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -104,6 +115,7 @@ class AwaitableGetguestDiagnosticsSettingResult(GetguestDiagnosticsSettingResult
             yield self
         return GetguestDiagnosticsSettingResult(
             data_sources=self.data_sources,
+            id=self.id,
             location=self.location,
             name=self.name,
             os_type=self.os_type,
@@ -132,6 +144,7 @@ def getguest_diagnostics_setting(diagnostic_settings_name: Optional[str] = None,
 
     return AwaitableGetguestDiagnosticsSettingResult(
         data_sources=__ret__.data_sources,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         os_type=__ret__.os_type,

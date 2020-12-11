@@ -29,6 +29,8 @@ type LookupTransparentDataEncryptionArgs struct {
 
 // A logical database transparent data encryption state.
 type LookupTransparentDataEncryptionResult struct {
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Specifies the state of the transparent data encryption.

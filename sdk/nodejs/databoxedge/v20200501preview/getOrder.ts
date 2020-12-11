@@ -47,6 +47,10 @@ export interface GetOrderResult {
      */
     readonly deliveryTrackingInfo: outputs.databoxedge.v20200501preview.TrackingInfoResponse[];
     /**
+     * The path ID that uniquely identifies the object.
+     */
+    readonly id: string;
+    /**
      * The object name.
      */
     readonly name: string;

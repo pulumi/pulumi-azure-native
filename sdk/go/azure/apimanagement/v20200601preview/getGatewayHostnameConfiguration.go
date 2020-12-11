@@ -35,6 +35,8 @@ type LookupGatewayHostnameConfigurationResult struct {
 	Hostname *string `pulumi:"hostname"`
 	// Specifies if HTTP/2.0 is supported
 	Http2Enabled *bool `pulumi:"http2Enabled"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Determines whether gateway requests client certificate

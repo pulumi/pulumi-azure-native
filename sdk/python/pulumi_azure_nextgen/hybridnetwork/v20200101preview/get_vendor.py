@@ -20,7 +20,10 @@ class GetVendorResult:
     """
     Vendor resource.
     """
-    def __init__(__self__, name=None, provisioning_state=None, skus=None, type=None):
+    def __init__(__self__, id=None, name=None, provisioning_state=None, skus=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -33,6 +36,14 @@ class GetVendorResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -73,6 +84,7 @@ class AwaitableGetVendorResult(GetVendorResult):
         if False:
             yield self
         return GetVendorResult(
+            id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
             skus=self.skus,
@@ -95,6 +107,7 @@ def get_vendor(vendor_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:hybridnetwork/v20200101preview:getVendor', __args__, opts=opts, typ=GetVendorResult).value
 
     return AwaitableGetVendorResult(
+        id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         skus=__ret__.skus,

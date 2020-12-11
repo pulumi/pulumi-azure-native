@@ -27,6 +27,8 @@ type LookupComponentLinkedStorageAccountArgs struct {
 
 // An Application Insights component linked storage accounts
 type LookupComponentLinkedStorageAccountResult struct {
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// Linked storage account resource ID
 	LinkedStorageAccount *string `pulumi:"linkedStorageAccount"`
 	// The name of the resource

@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.ResourceGraph.V20200401Preview
         /// </summary>
         public readonly string? ETag;
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the resource
         /// </summary>
         public readonly string Location;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.ResourceGraph.V20200401Preview
 
             string? eTag,
 
+            string id,
+
             string location,
 
             string name,
@@ -104,6 +110,7 @@ namespace Pulumi.AzureNextGen.ResourceGraph.V20200401Preview
         {
             Description = description;
             ETag = eTag;
+            Id = id;
             Location = location;
             Name = name;
             Query = query;

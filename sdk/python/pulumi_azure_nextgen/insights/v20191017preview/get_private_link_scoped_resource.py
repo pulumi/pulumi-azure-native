@@ -19,7 +19,10 @@ class GetPrivateLinkScopedResourceResult:
     """
     A private link scoped resource
     """
-    def __init__(__self__, linked_resource_id=None, name=None, provisioning_state=None, type=None):
+    def __init__(__self__, id=None, linked_resource_id=None, name=None, provisioning_state=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if linked_resource_id and not isinstance(linked_resource_id, str):
             raise TypeError("Expected argument 'linked_resource_id' to be a str")
         pulumi.set(__self__, "linked_resource_id", linked_resource_id)
@@ -32,6 +35,14 @@ class GetPrivateLinkScopedResourceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="linkedResourceId")
@@ -72,6 +83,7 @@ class AwaitableGetPrivateLinkScopedResourceResult(GetPrivateLinkScopedResourceRe
         if False:
             yield self
         return GetPrivateLinkScopedResourceResult(
+            id=self.id,
             linked_resource_id=self.linked_resource_id,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -100,6 +112,7 @@ def get_private_link_scoped_resource(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:insights/v20191017preview:getPrivateLinkScopedResource', __args__, opts=opts, typ=GetPrivateLinkScopedResourceResult).value
 
     return AwaitableGetPrivateLinkScopedResourceResult(
+        id=__ret__.id,
         linked_resource_id=__ret__.linked_resource_id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

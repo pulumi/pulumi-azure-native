@@ -19,13 +19,16 @@ class GetWebAppSlotConfigurationNamesResult:
     """
     Slot Config names azure resource.
     """
-    def __init__(__self__, app_setting_names=None, connection_string_names=None, kind=None, name=None, type=None):
+    def __init__(__self__, app_setting_names=None, connection_string_names=None, id=None, kind=None, name=None, type=None):
         if app_setting_names and not isinstance(app_setting_names, list):
             raise TypeError("Expected argument 'app_setting_names' to be a list")
         pulumi.set(__self__, "app_setting_names", app_setting_names)
         if connection_string_names and not isinstance(connection_string_names, list):
             raise TypeError("Expected argument 'connection_string_names' to be a list")
         pulumi.set(__self__, "connection_string_names", connection_string_names)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -51,6 +54,14 @@ class GetWebAppSlotConfigurationNamesResult:
         List of connection string names.
         """
         return pulumi.get(self, "connection_string_names")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -85,6 +96,7 @@ class AwaitableGetWebAppSlotConfigurationNamesResult(GetWebAppSlotConfigurationN
         return GetWebAppSlotConfigurationNamesResult(
             app_setting_names=self.app_setting_names,
             connection_string_names=self.connection_string_names,
+            id=self.id,
             kind=self.kind,
             name=self.name,
             type=self.type)
@@ -111,6 +123,7 @@ def get_web_app_slot_configuration_names(name: Optional[str] = None,
     return AwaitableGetWebAppSlotConfigurationNamesResult(
         app_setting_names=__ret__.app_setting_names,
         connection_string_names=__ret__.connection_string_names,
+        id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
         type=__ret__.type)

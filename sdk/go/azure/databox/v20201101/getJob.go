@@ -37,6 +37,8 @@ type LookupJobResult struct {
 	Details interface{} `pulumi:"details"`
 	// Top level error for the job.
 	Error CloudErrorResponse `pulumi:"error"`
+	// Id of the object.
+	Id string `pulumi:"id"`
 	// Msi identity of the resource
 	Identity *ResourceIdentityResponse `pulumi:"identity"`
 	// Describes whether the job is cancellable or not.

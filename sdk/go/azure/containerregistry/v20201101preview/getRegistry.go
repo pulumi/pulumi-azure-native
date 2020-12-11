@@ -35,6 +35,8 @@ type LookupRegistryResult struct {
 	DataEndpointHostNames []string `pulumi:"dataEndpointHostNames"`
 	// The encryption settings of container registry.
 	Encryption *EncryptionPropertyResponse `pulumi:"encryption"`
+	// The resource ID.
+	Id string `pulumi:"id"`
 	// The identity of the container registry.
 	Identity *IdentityPropertiesResponse `pulumi:"identity"`
 	// The location of the resource. This cannot be changed after the resource is created.

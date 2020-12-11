@@ -27,6 +27,8 @@ type LookupPartnerResult struct {
 	CreatedTime *string `pulumi:"createdTime"`
 	// Type of the partner
 	Etag *int `pulumi:"etag"`
+	// Identifier of the partner
+	Id string `pulumi:"id"`
 	// Name of the partner
 	Name string `pulumi:"name"`
 	// This is the object id.

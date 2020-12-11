@@ -39,6 +39,8 @@ type LookupIscsiDiskResult struct {
 	Description *string `pulumi:"description"`
 	// The disk status.
 	DiskStatus string `pulumi:"diskStatus"`
+	// The identifier.
+	Id string `pulumi:"id"`
 	// The local used capacity in bytes.
 	LocalUsedCapacityInBytes int `pulumi:"localUsedCapacityInBytes"`
 	// The monitoring.

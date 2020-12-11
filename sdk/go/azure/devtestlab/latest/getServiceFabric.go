@@ -37,6 +37,8 @@ type LookupServiceFabricResult struct {
 	EnvironmentId *string `pulumi:"environmentId"`
 	// The backing service fabric resource's id
 	ExternalServiceFabricId *string `pulumi:"externalServiceFabricId"`
+	// The identifier of the resource.
+	Id string `pulumi:"id"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.

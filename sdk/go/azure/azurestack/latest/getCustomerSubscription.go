@@ -29,6 +29,8 @@ type LookupCustomerSubscriptionArgs struct {
 type LookupCustomerSubscriptionResult struct {
 	// The entity tag used for optimistic concurrency when modifying the resource.
 	Etag *string `pulumi:"etag"`
+	// ID of the resource.
+	Id string `pulumi:"id"`
 	// Name of the resource.
 	Name string `pulumi:"name"`
 	// Tenant Id.

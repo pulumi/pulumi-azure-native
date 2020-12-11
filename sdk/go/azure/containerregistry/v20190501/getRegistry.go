@@ -29,6 +29,8 @@ type LookupRegistryResult struct {
 	AdminUserEnabled *bool `pulumi:"adminUserEnabled"`
 	// The creation date of the container registry in ISO8601 format.
 	CreationDate string `pulumi:"creationDate"`
+	// The resource ID.
+	Id string `pulumi:"id"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location string `pulumi:"location"`
 	// The URL that can be used to log into the container registry.

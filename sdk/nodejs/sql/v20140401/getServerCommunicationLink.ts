@@ -40,6 +40,10 @@ export interface GetServerCommunicationLinkArgs {
  */
 export interface GetServerCommunicationLinkResult {
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Communication link kind.  This property is used for Azure Portal metadata.
      */
     readonly kind: string;

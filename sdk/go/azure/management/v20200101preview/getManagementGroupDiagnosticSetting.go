@@ -29,6 +29,8 @@ type LookupManagementGroupDiagnosticSettingResult struct {
 	EventHubAuthorizationRuleId *string `pulumi:"eventHubAuthorizationRuleId"`
 	// The name of the event hub. If none is specified, the default event hub will be selected.
 	EventHubName *string `pulumi:"eventHubName"`
+	// Azure resource Id
+	Id string `pulumi:"id"`
 	// Location of the resource
 	Location *string `pulumi:"location"`
 	// The list of logs settings.

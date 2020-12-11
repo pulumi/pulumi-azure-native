@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.StorageSync.V20190201
     public sealed class GetStorageSyncServiceResult
     {
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.StorageSync.V20190201
 
         [OutputConstructor]
         private GetStorageSyncServiceResult(
+            string id,
+
             string location,
 
             string name,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20190201
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             StorageSyncServiceStatus = storageSyncServiceStatus;

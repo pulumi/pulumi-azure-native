@@ -20,13 +20,16 @@ class GetDscNodeConfigurationResult:
     """
     Definition of the dsc node configuration.
     """
-    def __init__(__self__, configuration=None, creation_time=None, increment_node_configuration_build=None, last_modified_time=None, name=None, node_count=None, source=None, type=None):
+    def __init__(__self__, configuration=None, creation_time=None, id=None, increment_node_configuration_build=None, last_modified_time=None, name=None, node_count=None, source=None, type=None):
         if configuration and not isinstance(configuration, dict):
             raise TypeError("Expected argument 'configuration' to be a dict")
         pulumi.set(__self__, "configuration", configuration)
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if increment_node_configuration_build and not isinstance(increment_node_configuration_build, bool):
             raise TypeError("Expected argument 'increment_node_configuration_build' to be a bool")
         pulumi.set(__self__, "increment_node_configuration_build", increment_node_configuration_build)
@@ -61,6 +64,14 @@ class GetDscNodeConfigurationResult:
         Gets or sets creation time.
         """
         return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="incrementNodeConfigurationBuild")
@@ -119,6 +130,7 @@ class AwaitableGetDscNodeConfigurationResult(GetDscNodeConfigurationResult):
         return GetDscNodeConfigurationResult(
             configuration=self.configuration,
             creation_time=self.creation_time,
+            id=self.id,
             increment_node_configuration_build=self.increment_node_configuration_build,
             last_modified_time=self.last_modified_time,
             name=self.name,
@@ -151,6 +163,7 @@ def get_dsc_node_configuration(automation_account_name: Optional[str] = None,
     return AwaitableGetDscNodeConfigurationResult(
         configuration=__ret__.configuration,
         creation_time=__ret__.creation_time,
+        id=__ret__.id,
         increment_node_configuration_build=__ret__.increment_node_configuration_build,
         last_modified_time=__ret__.last_modified_time,
         name=__ret__.name,

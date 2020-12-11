@@ -44,6 +44,10 @@ export interface GetSolutionResult {
      */
     readonly etag?: string;
     /**
+     * Gets the relative URL to get to this REST resource.
+     */
+    readonly id: string;
+    /**
      * Gets the name of this REST resource.
      */
     readonly name: string;

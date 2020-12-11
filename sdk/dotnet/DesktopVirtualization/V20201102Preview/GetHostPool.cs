@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201102Preview
         /// </summary>
         public readonly string HostPoolType;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The type of the load balancer.
         /// </summary>
         public readonly string LoadBalancerType;
@@ -144,6 +148,8 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201102Preview
 
             string hostPoolType,
 
+            string id,
+
             string loadBalancerType,
 
             string location,
@@ -185,6 +191,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201102Preview
             Description = description;
             FriendlyName = friendlyName;
             HostPoolType = hostPoolType;
+            Id = id;
             LoadBalancerType = loadBalancerType;
             Location = location;
             MaxSessionLimit = maxSessionLimit;

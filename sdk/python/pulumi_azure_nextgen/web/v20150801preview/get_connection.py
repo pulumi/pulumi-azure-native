@@ -20,7 +20,7 @@ class GetConnectionResult:
     """
     API Connection
     """
-    def __init__(__self__, api=None, changed_time=None, created_time=None, custom_parameter_values=None, display_name=None, first_expiration_time=None, keywords=None, kind=None, location=None, metadata=None, name=None, non_secret_parameter_values=None, parameter_values=None, statuses=None, tags=None, tenant_id=None, type=None):
+    def __init__(__self__, api=None, changed_time=None, created_time=None, custom_parameter_values=None, display_name=None, first_expiration_time=None, id=None, keywords=None, kind=None, location=None, metadata=None, name=None, non_secret_parameter_values=None, parameter_values=None, statuses=None, tags=None, tenant_id=None, type=None):
         if api and not isinstance(api, dict):
             raise TypeError("Expected argument 'api' to be a dict")
         pulumi.set(__self__, "api", api)
@@ -39,6 +39,9 @@ class GetConnectionResult:
         if first_expiration_time and not isinstance(first_expiration_time, str):
             raise TypeError("Expected argument 'first_expiration_time' to be a str")
         pulumi.set(__self__, "first_expiration_time", first_expiration_time)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if keywords and not isinstance(keywords, list):
             raise TypeError("Expected argument 'keywords' to be a list")
         pulumi.set(__self__, "keywords", keywords)
@@ -120,6 +123,14 @@ class GetConnectionResult:
         Time in UTC when the first expiration of OAuth tokens
         """
         return pulumi.get(self, "first_expiration_time")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -216,6 +227,7 @@ class AwaitableGetConnectionResult(GetConnectionResult):
             custom_parameter_values=self.custom_parameter_values,
             display_name=self.display_name,
             first_expiration_time=self.first_expiration_time,
+            id=self.id,
             keywords=self.keywords,
             kind=self.kind,
             location=self.location,
@@ -254,6 +266,7 @@ def get_connection(connection_name: Optional[str] = None,
         custom_parameter_values=__ret__.custom_parameter_values,
         display_name=__ret__.display_name,
         first_expiration_time=__ret__.first_expiration_time,
+        id=__ret__.id,
         keywords=__ret__.keywords,
         kind=__ret__.kind,
         location=__ret__.location,

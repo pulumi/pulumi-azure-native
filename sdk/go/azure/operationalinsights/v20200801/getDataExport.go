@@ -35,6 +35,8 @@ type LookupDataExportResult struct {
 	Enable *bool `pulumi:"enable"`
 	// Optional. Allows to define an Event Hub name. Not applicable when destination is Storage Account.
 	EventHubName *string `pulumi:"eventHubName"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// Date and time when the export was last modified.
 	LastModifiedDate *string `pulumi:"lastModifiedDate"`
 	// The name of the resource

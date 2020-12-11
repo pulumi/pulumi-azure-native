@@ -31,6 +31,8 @@ type LookupCacheResult struct {
 	EncryptionSettings *CacheEncryptionSettingsResponse `pulumi:"encryptionSettings"`
 	// Health of the Cache.
 	Health CacheHealthResponse `pulumi:"health"`
+	// Resource ID of the Cache.
+	Id string `pulumi:"id"`
 	// The identity of the cache, if configured.
 	Identity *CacheIdentityResponse `pulumi:"identity"`
 	// Region name string.

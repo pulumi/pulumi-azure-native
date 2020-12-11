@@ -20,7 +20,7 @@ class GetBigDataPoolResult:
     """
     A Big Data pool
     """
-    def __init__(__self__, auto_pause=None, auto_scale=None, creation_date=None, default_spark_log_folder=None, have_library_requirements_changed=None, is_compute_isolation_enabled=None, library_requirements=None, location=None, name=None, node_count=None, node_size=None, node_size_family=None, provisioning_state=None, session_level_packages_enabled=None, spark_config_properties=None, spark_events_folder=None, spark_version=None, tags=None, type=None):
+    def __init__(__self__, auto_pause=None, auto_scale=None, creation_date=None, default_spark_log_folder=None, have_library_requirements_changed=None, id=None, is_compute_isolation_enabled=None, library_requirements=None, location=None, name=None, node_count=None, node_size=None, node_size_family=None, provisioning_state=None, session_level_packages_enabled=None, spark_config_properties=None, spark_events_folder=None, spark_version=None, tags=None, type=None):
         if auto_pause and not isinstance(auto_pause, dict):
             raise TypeError("Expected argument 'auto_pause' to be a dict")
         pulumi.set(__self__, "auto_pause", auto_pause)
@@ -36,6 +36,9 @@ class GetBigDataPoolResult:
         if have_library_requirements_changed and not isinstance(have_library_requirements_changed, bool):
             raise TypeError("Expected argument 'have_library_requirements_changed' to be a bool")
         pulumi.set(__self__, "have_library_requirements_changed", have_library_requirements_changed)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_compute_isolation_enabled and not isinstance(is_compute_isolation_enabled, bool):
             raise TypeError("Expected argument 'is_compute_isolation_enabled' to be a bool")
         pulumi.set(__self__, "is_compute_isolation_enabled", is_compute_isolation_enabled)
@@ -118,6 +121,14 @@ class GetBigDataPoolResult:
         Whether library requirements changed.
         """
         return pulumi.get(self, "have_library_requirements_changed")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isComputeIsolationEnabled")
@@ -243,6 +254,7 @@ class AwaitableGetBigDataPoolResult(GetBigDataPoolResult):
             creation_date=self.creation_date,
             default_spark_log_folder=self.default_spark_log_folder,
             have_library_requirements_changed=self.have_library_requirements_changed,
+            id=self.id,
             is_compute_isolation_enabled=self.is_compute_isolation_enabled,
             library_requirements=self.library_requirements,
             location=self.location,
@@ -286,6 +298,7 @@ def get_big_data_pool(big_data_pool_name: Optional[str] = None,
         creation_date=__ret__.creation_date,
         default_spark_log_folder=__ret__.default_spark_log_folder,
         have_library_requirements_changed=__ret__.have_library_requirements_changed,
+        id=__ret__.id,
         is_compute_isolation_enabled=__ret__.is_compute_isolation_enabled,
         library_requirements=__ret__.library_requirements,
         location=__ret__.location,

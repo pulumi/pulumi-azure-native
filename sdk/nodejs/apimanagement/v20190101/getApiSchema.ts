@@ -53,6 +53,10 @@ export interface GetApiSchemaResult {
      */
     readonly document?: any;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

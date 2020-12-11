@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Maintenance.V20200401
         /// </summary>
         public readonly ImmutableDictionary<string, string>? ExtensionProperties;
         /// <summary>
+        /// Fully qualified identifier of the resource
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Gets or sets location of the resource
         /// </summary>
         public readonly string? Location;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.Maintenance.V20200401
         private GetMaintenanceConfigurationResult(
             ImmutableDictionary<string, string>? extensionProperties,
 
+            string id,
+
             string? location,
 
             string? maintenanceScope,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.Maintenance.V20200401
             string type)
         {
             ExtensionProperties = extensionProperties;
+            Id = id;
             Location = location;
             MaintenanceScope = maintenanceScope;
             Name = name;

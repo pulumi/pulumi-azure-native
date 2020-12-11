@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
         /// </summary>
         public readonly string? ETag;
         /// <summary>
+        /// Resource Id represents the complete path to the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Identity for the resource.
         /// </summary>
         public readonly Outputs.IdentityDataResponse? Identity;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
         private GetVaultResult(
             string? eTag,
 
+            string id,
+
             Outputs.IdentityDataResponse? identity,
 
             string location,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
             string type)
         {
             ETag = eTag;
+            Id = id;
             Identity = identity;
             Location = location;
             Name = name;

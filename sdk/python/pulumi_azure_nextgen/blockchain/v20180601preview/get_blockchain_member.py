@@ -20,7 +20,7 @@ class GetBlockchainMemberResult:
     """
     Payload of the blockchain member which is exposed in the request/response of the resource provider.
     """
-    def __init__(__self__, consortium=None, consortium_management_account_address=None, consortium_management_account_password=None, consortium_member_display_name=None, consortium_role=None, dns=None, firewall_rules=None, location=None, name=None, password=None, protocol=None, provisioning_state=None, public_key=None, root_contract_address=None, sku=None, tags=None, type=None, user_name=None, validator_nodes_sku=None):
+    def __init__(__self__, consortium=None, consortium_management_account_address=None, consortium_management_account_password=None, consortium_member_display_name=None, consortium_role=None, dns=None, firewall_rules=None, id=None, location=None, name=None, password=None, protocol=None, provisioning_state=None, public_key=None, root_contract_address=None, sku=None, tags=None, type=None, user_name=None, validator_nodes_sku=None):
         if consortium and not isinstance(consortium, str):
             raise TypeError("Expected argument 'consortium' to be a str")
         pulumi.set(__self__, "consortium", consortium)
@@ -42,6 +42,9 @@ class GetBlockchainMemberResult:
         if firewall_rules and not isinstance(firewall_rules, list):
             raise TypeError("Expected argument 'firewall_rules' to be a list")
         pulumi.set(__self__, "firewall_rules", firewall_rules)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -134,6 +137,14 @@ class GetBlockchainMemberResult:
         Gets or sets firewall rules
         """
         return pulumi.get(self, "firewall_rules")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -245,6 +256,7 @@ class AwaitableGetBlockchainMemberResult(GetBlockchainMemberResult):
             consortium_role=self.consortium_role,
             dns=self.dns,
             firewall_rules=self.firewall_rules,
+            id=self.id,
             location=self.location,
             name=self.name,
             password=self.password,
@@ -285,6 +297,7 @@ def get_blockchain_member(blockchain_member_name: Optional[str] = None,
         consortium_role=__ret__.consortium_role,
         dns=__ret__.dns,
         firewall_rules=__ret__.firewall_rules,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         password=__ret__.password,

@@ -31,6 +31,8 @@ type LookupGalleryApplicationVersionArgs struct {
 
 // Specifies information about the gallery Application Version that you want to create or update.
 type LookupGalleryApplicationVersionResult struct {
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name

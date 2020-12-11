@@ -37,6 +37,8 @@ type LookupJobResult struct {
 	Details interface{} `pulumi:"details"`
 	// Top level error for the job.
 	Error ErrorResponse `pulumi:"error"`
+	// Id of the object.
+	Id string `pulumi:"id"`
 	// Describes whether the job is cancellable or not.
 	IsCancellable bool `pulumi:"isCancellable"`
 	// Flag to indicate cancellation of scheduled job.

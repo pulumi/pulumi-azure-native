@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Sql.V20150501Preview
         /// </summary>
         public readonly string ExpiryTime;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// If the sync agent version is up to date.
         /// </summary>
         public readonly bool IsUpToDate;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNextGen.Sql.V20150501Preview
         private GetSyncAgentResult(
             string expiryTime,
 
+            string id,
+
             bool isUpToDate,
 
             string lastAliveTime,
@@ -97,6 +103,7 @@ namespace Pulumi.AzureNextGen.Sql.V20150501Preview
             string version)
         {
             ExpiryTime = expiryTime;
+            Id = id;
             IsUpToDate = isUpToDate;
             LastAliveTime = lastAliveTime;
             Name = name;

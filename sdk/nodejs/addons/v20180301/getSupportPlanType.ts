@@ -35,6 +35,10 @@ export interface GetSupportPlanTypeArgs {
  */
 export interface GetSupportPlanTypeResult {
     /**
+     * The id of the ARM resource, e.g. "/subscriptions/{id}/providers/Microsoft.Addons/supportProvider/{supportProviderName}/supportPlanTypes/{planTypeName}".
+     */
+    readonly id: string;
+    /**
      * The name of the Canonical support plan, i.e. "essential", "standard" or "advanced".
      */
     readonly name: string;

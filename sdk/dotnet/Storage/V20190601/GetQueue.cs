@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
         /// </summary>
         public readonly int ApproximateMessageCount;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// A name-value pair that represents queue metadata.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Metadata;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
         private GetQueueResult(
             int approximateMessageCount,
 
+            string id,
+
             ImmutableDictionary<string, string>? metadata,
 
             string name,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
             string type)
         {
             ApproximateMessageCount = approximateMessageCount;
+            Id = id;
             Metadata = metadata;
             Name = name;
             Type = type;

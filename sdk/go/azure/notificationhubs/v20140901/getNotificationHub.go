@@ -27,6 +27,8 @@ type LookupNotificationHubArgs struct {
 
 // Description of a NotificationHub Resource.
 type LookupNotificationHubResult struct {
+	// Gets or sets the id of the created NotificationHub.
+	Id *string `pulumi:"id"`
 	// Gets or sets datacenter location of the NotificationHub.
 	Location *string `pulumi:"location"`
 	// Gets or sets name of the NotificationHub.

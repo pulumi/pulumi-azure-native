@@ -45,6 +45,8 @@ type LookupHostingEnvironmentResult struct {
 	EnvironmentIsHealthy *bool `pulumi:"environmentIsHealthy"`
 	// Detailed message about with results of the last check of the hostingEnvironment (App Service Environment)
 	EnvironmentStatus *string `pulumi:"environmentStatus"`
+	// Resource Id
+	Id *string `pulumi:"id"`
 	// Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
 	InternalLoadBalancingMode *string `pulumi:"internalLoadBalancingMode"`
 	// Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)

@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.Solutions.Latest
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
+        /// Resource ID
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// A value indicating whether the package is enabled or not.
         /// </summary>
         public readonly bool? IsEnabled;
@@ -134,6 +138,8 @@ namespace Pulumi.AzureNextGen.Solutions.Latest
 
             string? displayName,
 
+            string id,
+
             bool? isEnabled,
 
             string? location,
@@ -168,6 +174,7 @@ namespace Pulumi.AzureNextGen.Solutions.Latest
             DeploymentPolicy = deploymentPolicy;
             Description = description;
             DisplayName = displayName;
+            Id = id;
             IsEnabled = isEnabled;
             Location = location;
             LockLevel = lockLevel;

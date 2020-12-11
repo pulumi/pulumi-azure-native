@@ -19,10 +19,13 @@ class GetIotHubResourceEventHubConsumerGroupResult:
     """
     The properties of the EventHubConsumerGroupInfo object.
     """
-    def __init__(__self__, etag=None, name=None, properties=None, type=None):
+    def __init__(__self__, etag=None, id=None, name=None, properties=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -40,6 +43,14 @@ class GetIotHubResourceEventHubConsumerGroupResult:
         The etag.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The Event Hub-compatible consumer group identifier.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -73,6 +84,7 @@ class AwaitableGetIotHubResourceEventHubConsumerGroupResult(GetIotHubResourceEve
             yield self
         return GetIotHubResourceEventHubConsumerGroupResult(
             etag=self.etag,
+            id=self.id,
             name=self.name,
             properties=self.properties,
             type=self.type)
@@ -104,6 +116,7 @@ def get_iot_hub_resource_event_hub_consumer_group(event_hub_endpoint_name: Optio
 
     return AwaitableGetIotHubResourceEventHubConsumerGroupResult(
         etag=__ret__.etag,
+        id=__ret__.id,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)

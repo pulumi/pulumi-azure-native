@@ -31,6 +31,8 @@ type LookupLoadBalancerBackendAddressPoolResult struct {
 	BackendIPConfigurations []NetworkInterfaceIPConfigurationResponse `pulumi:"backendIPConfigurations"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// An array of backend addresses.
 	LoadBalancerBackendAddresses []LoadBalancerBackendAddressResponse `pulumi:"loadBalancerBackendAddresses"`
 	// An array of references to load balancing rules that use this backend address pool.

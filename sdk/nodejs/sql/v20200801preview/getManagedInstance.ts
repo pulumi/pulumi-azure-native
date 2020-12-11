@@ -59,6 +59,10 @@ export interface GetManagedInstanceResult {
      */
     readonly fullyQualifiedDomainName: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * The Azure Active Directory identity of the managed instance.
      */
     readonly identity?: outputs.sql.v20200801preview.ResourceIdentityResponse;

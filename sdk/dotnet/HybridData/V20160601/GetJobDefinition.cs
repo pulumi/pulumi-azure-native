@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.HybridData.V20160601
         /// </summary>
         public readonly string DataSourceId;
         /// <summary>
+        /// Id of the object.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Last modified time of the job definition.
         /// </summary>
         public readonly string? LastModifiedTime;
@@ -106,6 +110,8 @@ namespace Pulumi.AzureNextGen.HybridData.V20160601
 
             string dataSourceId,
 
+            string id,
+
             string? lastModifiedTime,
 
             string name,
@@ -124,6 +130,7 @@ namespace Pulumi.AzureNextGen.HybridData.V20160601
             DataServiceInput = dataServiceInput;
             DataSinkId = dataSinkId;
             DataSourceId = dataSourceId;
+            Id = id;
             LastModifiedTime = lastModifiedTime;
             Name = name;
             RunLocation = runLocation;

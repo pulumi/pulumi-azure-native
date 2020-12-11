@@ -42,6 +42,10 @@ namespace Pulumi.AzureNextGen.ManagementPartner.V20180201
         /// </summary>
         public readonly int? Etag;
         /// <summary>
+        /// Identifier of the partner
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Name of the partner
         /// </summary>
         public readonly string Name;
@@ -80,6 +84,8 @@ namespace Pulumi.AzureNextGen.ManagementPartner.V20180201
 
             int? etag,
 
+            string id,
+
             string name,
 
             string? objectId,
@@ -98,6 +104,7 @@ namespace Pulumi.AzureNextGen.ManagementPartner.V20180201
         {
             CreatedTime = createdTime;
             Etag = etag;
+            Id = id;
             Name = name;
             ObjectId = objectId;
             PartnerId = partnerId;

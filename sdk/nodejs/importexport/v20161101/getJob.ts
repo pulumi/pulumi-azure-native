@@ -35,6 +35,10 @@ export interface GetJobArgs {
  */
 export interface GetJobResult {
     /**
+     * Specifies the resource identifier of the job.
+     */
+    readonly id: string;
+    /**
      * Specifies the Azure location where the job is created.
      */
     readonly location?: string;

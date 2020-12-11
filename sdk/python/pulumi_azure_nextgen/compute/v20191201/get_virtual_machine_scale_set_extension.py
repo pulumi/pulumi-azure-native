@@ -19,13 +19,16 @@ class GetVirtualMachineScaleSetExtensionResult:
     """
     Describes a Virtual Machine Scale Set Extension.
     """
-    def __init__(__self__, auto_upgrade_minor_version=None, force_update_tag=None, name=None, protected_settings=None, provision_after_extensions=None, provisioning_state=None, publisher=None, settings=None, type=None, type_handler_version=None):
+    def __init__(__self__, auto_upgrade_minor_version=None, force_update_tag=None, id=None, name=None, protected_settings=None, provision_after_extensions=None, provisioning_state=None, publisher=None, settings=None, type=None, type_handler_version=None):
         if auto_upgrade_minor_version and not isinstance(auto_upgrade_minor_version, bool):
             raise TypeError("Expected argument 'auto_upgrade_minor_version' to be a bool")
         pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
         if force_update_tag and not isinstance(force_update_tag, str):
             raise TypeError("Expected argument 'force_update_tag' to be a str")
         pulumi.set(__self__, "force_update_tag", force_update_tag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -66,6 +69,14 @@ class GetVirtualMachineScaleSetExtensionResult:
         If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
         """
         return pulumi.get(self, "force_update_tag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -140,6 +151,7 @@ class AwaitableGetVirtualMachineScaleSetExtensionResult(GetVirtualMachineScaleSe
         return GetVirtualMachineScaleSetExtensionResult(
             auto_upgrade_minor_version=self.auto_upgrade_minor_version,
             force_update_tag=self.force_update_tag,
+            id=self.id,
             name=self.name,
             protected_settings=self.protected_settings,
             provision_after_extensions=self.provision_after_extensions,
@@ -177,6 +189,7 @@ def get_virtual_machine_scale_set_extension(expand: Optional[str] = None,
     return AwaitableGetVirtualMachineScaleSetExtensionResult(
         auto_upgrade_minor_version=__ret__.auto_upgrade_minor_version,
         force_update_tag=__ret__.force_update_tag,
+        id=__ret__.id,
         name=__ret__.name,
         protected_settings=__ret__.protected_settings,
         provision_after_extensions=__ret__.provision_after_extensions,

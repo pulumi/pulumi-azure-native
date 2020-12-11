@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         public readonly ImmutableDictionary<string, object> ExtraProperties;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Identity of the workspace
         /// </summary>
         public readonly Outputs.ManagedIdentityResponse? Identity;
@@ -130,6 +134,8 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
             ImmutableDictionary<string, object> extraProperties,
 
+            string id,
+
             Outputs.ManagedIdentityResponse? identity,
 
             string location,
@@ -166,6 +172,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
             DefaultDataLakeStorage = defaultDataLakeStorage;
             Encryption = encryption;
             ExtraProperties = extraProperties;
+            Id = id;
             Identity = identity;
             Location = location;
             ManagedResourceGroupName = managedResourceGroupName;

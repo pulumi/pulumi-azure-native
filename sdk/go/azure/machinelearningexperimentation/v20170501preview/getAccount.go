@@ -35,6 +35,8 @@ type LookupAccountResult struct {
 	DiscoveryUri string `pulumi:"discoveryUri"`
 	// The friendly name for this workspace. This will be the workspace name in the arm id when the workspace object gets created
 	FriendlyName *string `pulumi:"friendlyName"`
+	// The resource ID.
+	Id string `pulumi:"id"`
 	// The fully qualified arm id of the user key vault.
 	KeyVaultId string `pulumi:"keyVaultId"`
 	// The location of the resource. This cannot be changed after the resource is created.

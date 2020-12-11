@@ -29,6 +29,8 @@ type LookupWorkloadGroupArgs struct {
 
 // Workload group operations for a data warehouse
 type LookupWorkloadGroupResult struct {
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// The workload group importance level.
 	Importance *string `pulumi:"importance"`
 	// The workload group cap percentage resource.

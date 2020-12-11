@@ -19,7 +19,7 @@ class GetBillingRoleAssignmentByDepartmentResult:
     """
     The role assignment
     """
-    def __init__(__self__, created_by_principal_id=None, created_by_principal_tenant_id=None, created_by_user_email_address=None, created_on=None, name=None, principal_id=None, principal_tenant_id=None, role_definition_id=None, scope=None, type=None, user_authentication_type=None, user_email_address=None):
+    def __init__(__self__, created_by_principal_id=None, created_by_principal_tenant_id=None, created_by_user_email_address=None, created_on=None, id=None, name=None, principal_id=None, principal_tenant_id=None, role_definition_id=None, scope=None, type=None, user_authentication_type=None, user_email_address=None):
         if created_by_principal_id and not isinstance(created_by_principal_id, str):
             raise TypeError("Expected argument 'created_by_principal_id' to be a str")
         pulumi.set(__self__, "created_by_principal_id", created_by_principal_id)
@@ -32,6 +32,9 @@ class GetBillingRoleAssignmentByDepartmentResult:
         if created_on and not isinstance(created_on, str):
             raise TypeError("Expected argument 'created_on' to be a str")
         pulumi.set(__self__, "created_on", created_on)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -88,6 +91,14 @@ class GetBillingRoleAssignmentByDepartmentResult:
         The date the role assignment was created.
         """
         return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -164,6 +175,7 @@ class AwaitableGetBillingRoleAssignmentByDepartmentResult(GetBillingRoleAssignme
             created_by_principal_tenant_id=self.created_by_principal_tenant_id,
             created_by_user_email_address=self.created_by_user_email_address,
             created_on=self.created_on,
+            id=self.id,
             name=self.name,
             principal_id=self.principal_id,
             principal_tenant_id=self.principal_tenant_id,
@@ -200,6 +212,7 @@ def get_billing_role_assignment_by_department(billing_account_name: Optional[str
         created_by_principal_tenant_id=__ret__.created_by_principal_tenant_id,
         created_by_user_email_address=__ret__.created_by_user_email_address,
         created_on=__ret__.created_on,
+        id=__ret__.id,
         name=__ret__.name,
         principal_id=__ret__.principal_id,
         principal_tenant_id=__ret__.principal_tenant_id,

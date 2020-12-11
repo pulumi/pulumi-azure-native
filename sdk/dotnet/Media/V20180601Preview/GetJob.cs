@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Fully qualified resource ID for the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The inputs for the Job.
         /// </summary>
         public readonly Union<Outputs.JobInputClipResponse, Outputs.JobInputsResponse> Input;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview
 
             string? description,
 
+            string id,
+
             Union<Outputs.JobInputClipResponse, Outputs.JobInputsResponse> input,
 
             string lastModified,
@@ -117,6 +123,7 @@ namespace Pulumi.AzureNextGen.Media.V20180601Preview
             CorrelationData = correlationData;
             Created = created;
             Description = description;
+            Id = id;
             Input = input;
             LastModified = lastModified;
             Name = name;

@@ -31,6 +31,8 @@ type LookupCacheResult struct {
 	ConnectionString string `pulumi:"connectionString"`
 	// Cache description
 	Description *string `pulumi:"description"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Original uri of entity in external system cache points to

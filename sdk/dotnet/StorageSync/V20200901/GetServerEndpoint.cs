@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200901
         /// </summary>
         public readonly string? FriendlyName;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Policy for how namespace and files are recalled during FastDr.
         /// </summary>
         public readonly string? InitialDownloadPolicy;
@@ -144,6 +148,8 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200901
 
             string? friendlyName,
 
+            string id,
+
             string? initialDownloadPolicy,
 
             string lastOperationName,
@@ -183,6 +189,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200901
             CloudTiering = cloudTiering;
             CloudTieringStatus = cloudTieringStatus;
             FriendlyName = friendlyName;
+            Id = id;
             InitialDownloadPolicy = initialDownloadPolicy;
             LastOperationName = lastOperationName;
             LastWorkflowId = lastWorkflowId;

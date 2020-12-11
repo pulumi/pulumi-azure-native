@@ -56,6 +56,10 @@ export interface GetVirtualMachineResult {
      */
     readonly hardwareProfile?: outputs.compute.v20181001.HardwareProfileResponse;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * The identity of the virtual machine, if configured.
      */
     readonly identity?: outputs.compute.v20181001.VirtualMachineIdentityResponse;

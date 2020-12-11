@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.Network.V20150615
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Resource Identifier.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The ingress bytes transferred in this connection.
         /// </summary>
         public readonly int? IngressBytesTransferred;
@@ -130,6 +134,8 @@ namespace Pulumi.AzureNextGen.Network.V20150615
 
             string? etag,
 
+            string? id,
+
             int? ingressBytesTransferred,
 
             Outputs.LocalNetworkGatewayResponse? localNetworkGateway2,
@@ -162,6 +168,7 @@ namespace Pulumi.AzureNextGen.Network.V20150615
             EgressBytesTransferred = egressBytesTransferred;
             EnableBgp = enableBgp;
             Etag = etag;
+            Id = id;
             IngressBytesTransferred = ingressBytesTransferred;
             LocalNetworkGateway2 = localNetworkGateway2;
             Location = location;

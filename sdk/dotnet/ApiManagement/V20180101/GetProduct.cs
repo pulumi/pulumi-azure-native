@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -90,6 +94,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
 
             string displayName,
 
+            string id,
+
             string name,
 
             string? state,
@@ -105,6 +111,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
             ApprovalRequired = approvalRequired;
             Description = description;
             DisplayName = displayName;
+            Id = id;
             Name = name;
             State = state;
             SubscriptionRequired = subscriptionRequired;

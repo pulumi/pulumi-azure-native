@@ -20,7 +20,7 @@ class GetStreamingLocatorResult:
     """
     A Streaming Locator resource
     """
-    def __init__(__self__, alternative_media_id=None, asset_name=None, content_keys=None, created=None, default_content_key_policy_name=None, end_time=None, filters=None, name=None, start_time=None, streaming_locator_id=None, streaming_policy_name=None, type=None):
+    def __init__(__self__, alternative_media_id=None, asset_name=None, content_keys=None, created=None, default_content_key_policy_name=None, end_time=None, filters=None, id=None, name=None, start_time=None, streaming_locator_id=None, streaming_policy_name=None, type=None):
         if alternative_media_id and not isinstance(alternative_media_id, str):
             raise TypeError("Expected argument 'alternative_media_id' to be a str")
         pulumi.set(__self__, "alternative_media_id", alternative_media_id)
@@ -42,6 +42,9 @@ class GetStreamingLocatorResult:
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -116,6 +119,14 @@ class GetStreamingLocatorResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         The name of the resource
@@ -168,6 +179,7 @@ class AwaitableGetStreamingLocatorResult(GetStreamingLocatorResult):
             default_content_key_policy_name=self.default_content_key_policy_name,
             end_time=self.end_time,
             filters=self.filters,
+            id=self.id,
             name=self.name,
             start_time=self.start_time,
             streaming_locator_id=self.streaming_locator_id,
@@ -204,6 +216,7 @@ def get_streaming_locator(account_name: Optional[str] = None,
         default_content_key_policy_name=__ret__.default_content_key_policy_name,
         end_time=__ret__.end_time,
         filters=__ret__.filters,
+        id=__ret__.id,
         name=__ret__.name,
         start_time=__ret__.start_time,
         streaming_locator_id=__ret__.streaming_locator_id,

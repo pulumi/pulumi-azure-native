@@ -61,6 +61,10 @@ export interface GetVirtualMachineScaleSetVMResult {
      */
     readonly hardwareProfile?: outputs.compute.v20200601.HardwareProfileResponse;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * The virtual machine instance ID.
      */
     readonly instanceId: string;

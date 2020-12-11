@@ -51,6 +51,8 @@ type LookupApplicationGatewayResult struct {
 	GatewayIPConfigurations []ApplicationGatewayIPConfigurationResponse `pulumi:"gatewayIPConfigurations"`
 	// Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
 	HttpListeners []ApplicationGatewayHttpListenerResponse `pulumi:"httpListeners"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// The identity of the application gateway, if configured.
 	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
 	// Resource location.

@@ -20,7 +20,7 @@ class GetVirtualNetworkGatewayResult:
     """
     A common class for general resource information.
     """
-    def __init__(__self__, active_active=None, bgp_settings=None, custom_routes=None, enable_bgp=None, etag=None, gateway_default_site=None, gateway_type=None, ip_configurations=None, location=None, name=None, provisioning_state=None, resource_guid=None, sku=None, tags=None, type=None, vpn_client_configuration=None, vpn_type=None):
+    def __init__(__self__, active_active=None, bgp_settings=None, custom_routes=None, enable_bgp=None, etag=None, gateway_default_site=None, gateway_type=None, id=None, ip_configurations=None, location=None, name=None, provisioning_state=None, resource_guid=None, sku=None, tags=None, type=None, vpn_client_configuration=None, vpn_type=None):
         if active_active and not isinstance(active_active, bool):
             raise TypeError("Expected argument 'active_active' to be a bool")
         pulumi.set(__self__, "active_active", active_active)
@@ -42,6 +42,9 @@ class GetVirtualNetworkGatewayResult:
         if gateway_type and not isinstance(gateway_type, str):
             raise TypeError("Expected argument 'gateway_type' to be a str")
         pulumi.set(__self__, "gateway_type", gateway_type)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if ip_configurations and not isinstance(ip_configurations, list):
             raise TypeError("Expected argument 'ip_configurations' to be a list")
         pulumi.set(__self__, "ip_configurations", ip_configurations)
@@ -128,6 +131,14 @@ class GetVirtualNetworkGatewayResult:
         The type of this virtual network gateway.
         """
         return pulumi.get(self, "gateway_type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ipConfigurations")
@@ -223,6 +234,7 @@ class AwaitableGetVirtualNetworkGatewayResult(GetVirtualNetworkGatewayResult):
             etag=self.etag,
             gateway_default_site=self.gateway_default_site,
             gateway_type=self.gateway_type,
+            id=self.id,
             ip_configurations=self.ip_configurations,
             location=self.location,
             name=self.name,
@@ -261,6 +273,7 @@ def get_virtual_network_gateway(resource_group_name: Optional[str] = None,
         etag=__ret__.etag,
         gateway_default_site=__ret__.gateway_default_site,
         gateway_type=__ret__.gateway_type,
+        id=__ret__.id,
         ip_configurations=__ret__.ip_configurations,
         location=__ret__.location,
         name=__ret__.name,

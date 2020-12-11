@@ -45,6 +45,10 @@ export interface GetDataConnectionArgs {
  */
 export interface GetDataConnectionResult {
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * Kind of the endpoint for the data connection
      */
     readonly kind: string;

@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20140901
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string Location;
@@ -96,6 +100,8 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20140901
 
             bool? enabled,
 
+            string id,
+
             string location,
 
             string name,
@@ -117,6 +123,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20140901
             CreateACSNamespace = createACSNamespace;
             CreatedAt = createdAt;
             Enabled = enabled;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

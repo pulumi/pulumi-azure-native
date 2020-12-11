@@ -52,6 +52,10 @@ export interface GetSoftwareUpdateConfigurationByNameResult {
      */
     readonly error?: outputs.automation.v20170515preview.ErrorResponseResponse;
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * LastModifiedBy property, which only appears in the response.
      */
     readonly lastModifiedBy: string;

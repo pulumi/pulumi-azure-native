@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// </summary>
         public readonly bool? HyperV;
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// If &lt;code&gt;true&lt;/code&gt;, this App Service Plan owns spot instances.
         /// </summary>
         public readonly bool? IsSpot;
@@ -155,6 +159,8 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             bool? hyperV,
 
+            string id,
+
             bool? isSpot,
 
             bool? isXenon,
@@ -203,6 +209,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
             GeoRegion = geoRegion;
             HostingEnvironmentProfile = hostingEnvironmentProfile;
             HyperV = hyperV;
+            Id = id;
             IsSpot = isSpot;
             IsXenon = isXenon;
             Kind = kind;

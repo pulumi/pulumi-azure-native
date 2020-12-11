@@ -43,6 +43,10 @@ export interface GetSqlVirtualMachineGroupResult {
      */
     readonly clusterManagerType: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource location.
      */
     readonly location: string;

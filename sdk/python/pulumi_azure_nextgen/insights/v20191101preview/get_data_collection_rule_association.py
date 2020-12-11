@@ -19,7 +19,7 @@ class GetDataCollectionRuleAssociationResult:
     """
     Definition of generic ARM proxy resource.
     """
-    def __init__(__self__, data_collection_rule_id=None, description=None, etag=None, name=None, provisioning_state=None, type=None):
+    def __init__(__self__, data_collection_rule_id=None, description=None, etag=None, id=None, name=None, provisioning_state=None, type=None):
         if data_collection_rule_id and not isinstance(data_collection_rule_id, str):
             raise TypeError("Expected argument 'data_collection_rule_id' to be a str")
         pulumi.set(__self__, "data_collection_rule_id", data_collection_rule_id)
@@ -29,6 +29,9 @@ class GetDataCollectionRuleAssociationResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -65,6 +68,14 @@ class GetDataCollectionRuleAssociationResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified ID of the resource.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         The name of the resource.
@@ -97,6 +108,7 @@ class AwaitableGetDataCollectionRuleAssociationResult(GetDataCollectionRuleAssoc
             data_collection_rule_id=self.data_collection_rule_id,
             description=self.description,
             etag=self.etag,
+            id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
             type=self.type)
@@ -124,6 +136,7 @@ def get_data_collection_rule_association(association_name: Optional[str] = None,
         data_collection_rule_id=__ret__.data_collection_rule_id,
         description=__ret__.description,
         etag=__ret__.etag,
+        id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         type=__ret__.type)

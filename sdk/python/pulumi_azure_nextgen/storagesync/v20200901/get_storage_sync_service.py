@@ -20,7 +20,10 @@ class GetStorageSyncServiceResult:
     """
     Storage Sync Service object.
     """
-    def __init__(__self__, incoming_traffic_policy=None, last_operation_name=None, last_workflow_id=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, storage_sync_service_status=None, storage_sync_service_uid=None, tags=None, type=None):
+    def __init__(__self__, id=None, incoming_traffic_policy=None, last_operation_name=None, last_workflow_id=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, storage_sync_service_status=None, storage_sync_service_uid=None, tags=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if incoming_traffic_policy and not isinstance(incoming_traffic_policy, str):
             raise TypeError("Expected argument 'incoming_traffic_policy' to be a str")
         pulumi.set(__self__, "incoming_traffic_policy", incoming_traffic_policy)
@@ -54,6 +57,14 @@ class GetStorageSyncServiceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="incomingTrafficPolicy")
@@ -150,6 +161,7 @@ class AwaitableGetStorageSyncServiceResult(GetStorageSyncServiceResult):
         if False:
             yield self
         return GetStorageSyncServiceResult(
+            id=self.id,
             incoming_traffic_policy=self.incoming_traffic_policy,
             last_operation_name=self.last_operation_name,
             last_workflow_id=self.last_workflow_id,
@@ -182,6 +194,7 @@ def get_storage_sync_service(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:storagesync/v20200901:getStorageSyncService', __args__, opts=opts, typ=GetStorageSyncServiceResult).value
 
     return AwaitableGetStorageSyncServiceResult(
+        id=__ret__.id,
         incoming_traffic_policy=__ret__.incoming_traffic_policy,
         last_operation_name=__ret__.last_operation_name,
         last_workflow_id=__ret__.last_workflow_id,

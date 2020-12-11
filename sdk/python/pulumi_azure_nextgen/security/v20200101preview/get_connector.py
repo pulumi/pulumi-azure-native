@@ -20,13 +20,16 @@ class GetConnectorResult:
     """
     The connector setting
     """
-    def __init__(__self__, authentication_details=None, hybrid_compute_settings=None, name=None, type=None):
+    def __init__(__self__, authentication_details=None, hybrid_compute_settings=None, id=None, name=None, type=None):
         if authentication_details and not isinstance(authentication_details, dict):
             raise TypeError("Expected argument 'authentication_details' to be a dict")
         pulumi.set(__self__, "authentication_details", authentication_details)
         if hybrid_compute_settings and not isinstance(hybrid_compute_settings, dict):
             raise TypeError("Expected argument 'hybrid_compute_settings' to be a dict")
         pulumi.set(__self__, "hybrid_compute_settings", hybrid_compute_settings)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -49,6 +52,14 @@ class GetConnectorResult:
         Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
         """
         return pulumi.get(self, "hybrid_compute_settings")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -75,6 +86,7 @@ class AwaitableGetConnectorResult(GetConnectorResult):
         return GetConnectorResult(
             authentication_details=self.authentication_details,
             hybrid_compute_settings=self.hybrid_compute_settings,
+            id=self.id,
             name=self.name,
             type=self.type)
 
@@ -97,5 +109,6 @@ def get_connector(connector_name: Optional[str] = None,
     return AwaitableGetConnectorResult(
         authentication_details=__ret__.authentication_details,
         hybrid_compute_settings=__ret__.hybrid_compute_settings,
+        id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type)

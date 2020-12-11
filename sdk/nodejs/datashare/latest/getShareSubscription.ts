@@ -44,6 +44,10 @@ export interface GetShareSubscriptionResult {
      */
     readonly createdAt: string;
     /**
+     * The resource id of the azure resource
+     */
+    readonly id: string;
+    /**
      * The invitation id.
      */
     readonly invitationId: string;

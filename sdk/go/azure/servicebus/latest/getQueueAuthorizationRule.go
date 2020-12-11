@@ -29,6 +29,8 @@ type LookupQueueAuthorizationRuleArgs struct {
 
 // Description of a namespace authorization rule.
 type LookupQueueAuthorizationRuleResult struct {
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// The rights associated with the rule.

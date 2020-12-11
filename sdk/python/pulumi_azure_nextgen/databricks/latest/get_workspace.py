@@ -20,7 +20,7 @@ class GetWorkspaceResult:
     """
     Information about workspace.
     """
-    def __init__(__self__, authorizations=None, created_by=None, created_date_time=None, location=None, managed_resource_group_id=None, name=None, parameters=None, provisioning_state=None, sku=None, storage_account_identity=None, tags=None, type=None, ui_definition_uri=None, updated_by=None, workspace_id=None, workspace_url=None):
+    def __init__(__self__, authorizations=None, created_by=None, created_date_time=None, id=None, location=None, managed_resource_group_id=None, name=None, parameters=None, provisioning_state=None, sku=None, storage_account_identity=None, tags=None, type=None, ui_definition_uri=None, updated_by=None, workspace_id=None, workspace_url=None):
         if authorizations and not isinstance(authorizations, list):
             raise TypeError("Expected argument 'authorizations' to be a list")
         pulumi.set(__self__, "authorizations", authorizations)
@@ -30,6 +30,9 @@ class GetWorkspaceResult:
         if created_date_time and not isinstance(created_date_time, str):
             raise TypeError("Expected argument 'created_date_time' to be a str")
         pulumi.set(__self__, "created_date_time", created_date_time)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -93,6 +96,14 @@ class GetWorkspaceResult:
         Specifies the date and time when the workspace is created.
         """
         return pulumi.get(self, "created_date_time")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -208,6 +219,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             authorizations=self.authorizations,
             created_by=self.created_by,
             created_date_time=self.created_date_time,
+            id=self.id,
             location=self.location,
             managed_resource_group_id=self.managed_resource_group_id,
             name=self.name,
@@ -245,6 +257,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
         authorizations=__ret__.authorizations,
         created_by=__ret__.created_by,
         created_date_time=__ret__.created_date_time,
+        id=__ret__.id,
         location=__ret__.location,
         managed_resource_group_id=__ret__.managed_resource_group_id,
         name=__ret__.name,

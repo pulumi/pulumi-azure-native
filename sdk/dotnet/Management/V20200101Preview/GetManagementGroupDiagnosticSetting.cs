@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.Management.V20200101Preview
         /// </summary>
         public readonly string? EventHubName;
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Location of the resource
         /// </summary>
         public readonly string? Location;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNextGen.Management.V20200101Preview
 
             string? eventHubName,
 
+            string id,
+
             string? location,
 
             ImmutableArray<Outputs.ManagementGroupLogSettingsResponse> logs,
@@ -98,6 +104,7 @@ namespace Pulumi.AzureNextGen.Management.V20200101Preview
         {
             EventHubAuthorizationRuleId = eventHubAuthorizationRuleId;
             EventHubName = eventHubName;
+            Id = id;
             Location = location;
             Logs = logs;
             Name = name;

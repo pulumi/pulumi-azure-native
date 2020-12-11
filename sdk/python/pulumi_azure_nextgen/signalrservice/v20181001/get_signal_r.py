@@ -20,7 +20,7 @@ class GetSignalRResult:
     """
     A class represent a SignalR service resource.
     """
-    def __init__(__self__, cors=None, external_ip=None, features=None, host_name=None, host_name_prefix=None, location=None, name=None, provisioning_state=None, public_port=None, server_port=None, sku=None, tags=None, type=None, version=None):
+    def __init__(__self__, cors=None, external_ip=None, features=None, host_name=None, host_name_prefix=None, id=None, location=None, name=None, provisioning_state=None, public_port=None, server_port=None, sku=None, tags=None, type=None, version=None):
         if cors and not isinstance(cors, dict):
             raise TypeError("Expected argument 'cors' to be a dict")
         pulumi.set(__self__, "cors", cors)
@@ -36,6 +36,9 @@ class GetSignalRResult:
         if host_name_prefix and not isinstance(host_name_prefix, str):
             raise TypeError("Expected argument 'host_name_prefix' to be a str")
         pulumi.set(__self__, "host_name_prefix", host_name_prefix)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -109,6 +112,14 @@ class GetSignalRResult:
         The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
         """
         return pulumi.get(self, "host_name_prefix")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -194,6 +205,7 @@ class AwaitableGetSignalRResult(GetSignalRResult):
             features=self.features,
             host_name=self.host_name,
             host_name_prefix=self.host_name_prefix,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -229,6 +241,7 @@ def get_signal_r(resource_group_name: Optional[str] = None,
         features=__ret__.features,
         host_name=__ret__.host_name,
         host_name_prefix=__ret__.host_name_prefix,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

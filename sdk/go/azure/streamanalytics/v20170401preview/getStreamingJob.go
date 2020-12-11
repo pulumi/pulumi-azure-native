@@ -49,6 +49,8 @@ type LookupStreamingJobResult struct {
 	Externals *ExternalResponse `pulumi:"externals"`
 	// A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
 	Functions []FunctionResponse `pulumi:"functions"`
+	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// Describes the system-assigned managed identity assigned to this job that can be used to authenticate with inputs and outputs.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.

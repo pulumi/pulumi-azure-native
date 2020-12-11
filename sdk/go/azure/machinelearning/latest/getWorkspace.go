@@ -27,6 +27,8 @@ type LookupWorkspaceArgs struct {
 type LookupWorkspaceResult struct {
 	// The creation time for this workspace resource.
 	CreationTime string `pulumi:"creationTime"`
+	// The resource ID.
+	Id string `pulumi:"id"`
 	// The key vault identifier used for encrypted workspaces.
 	KeyVaultIdentifierId *string `pulumi:"keyVaultIdentifierId"`
 	// The location of the resource. This cannot be changed after the resource is created.

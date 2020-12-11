@@ -20,10 +20,13 @@ class GetDatabaseAccountCassandraTableResult:
     """
     An Azure Cosmos DB Cassandra table.
     """
-    def __init__(__self__, default_ttl=None, location=None, name=None, schema=None, tags=None, type=None):
+    def __init__(__self__, default_ttl=None, id=None, location=None, name=None, schema=None, tags=None, type=None):
         if default_ttl and not isinstance(default_ttl, int):
             raise TypeError("Expected argument 'default_ttl' to be a int")
         pulumi.set(__self__, "default_ttl", default_ttl)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -47,6 +50,14 @@ class GetDatabaseAccountCassandraTableResult:
         Time to live of the Cosmos DB Cassandra table
         """
         return pulumi.get(self, "default_ttl")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The unique resource identifier of the database account.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -96,6 +107,7 @@ class AwaitableGetDatabaseAccountCassandraTableResult(GetDatabaseAccountCassandr
             yield self
         return GetDatabaseAccountCassandraTableResult(
             default_ttl=self.default_ttl,
+            id=self.id,
             location=self.location,
             name=self.name,
             schema=self.schema,
@@ -129,6 +141,7 @@ def get_database_account_cassandra_table(account_name: Optional[str] = None,
 
     return AwaitableGetDatabaseAccountCassandraTableResult(
         default_ttl=__ret__.default_ttl,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         schema=__ret__.schema,

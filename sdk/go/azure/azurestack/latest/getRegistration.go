@@ -31,6 +31,8 @@ type LookupRegistrationResult struct {
 	CloudId *string `pulumi:"cloudId"`
 	// The entity tag used for optimistic concurrency when modifying the resource.
 	Etag *string `pulumi:"etag"`
+	// ID of the resource.
+	Id string `pulumi:"id"`
 	// Location of the resource.
 	Location string `pulumi:"location"`
 	// Name of the resource.

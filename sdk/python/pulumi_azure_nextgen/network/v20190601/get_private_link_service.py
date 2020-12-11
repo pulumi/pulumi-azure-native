@@ -20,7 +20,7 @@ class GetPrivateLinkServiceResult:
     """
     Private link service resource.
     """
-    def __init__(__self__, alias=None, auto_approval=None, etag=None, fqdns=None, ip_configurations=None, load_balancer_frontend_ip_configurations=None, location=None, name=None, network_interfaces=None, private_endpoint_connections=None, provisioning_state=None, tags=None, type=None, visibility=None):
+    def __init__(__self__, alias=None, auto_approval=None, etag=None, fqdns=None, id=None, ip_configurations=None, load_balancer_frontend_ip_configurations=None, location=None, name=None, network_interfaces=None, private_endpoint_connections=None, provisioning_state=None, tags=None, type=None, visibility=None):
         if alias and not isinstance(alias, str):
             raise TypeError("Expected argument 'alias' to be a str")
         pulumi.set(__self__, "alias", alias)
@@ -33,6 +33,9 @@ class GetPrivateLinkServiceResult:
         if fqdns and not isinstance(fqdns, list):
             raise TypeError("Expected argument 'fqdns' to be a list")
         pulumi.set(__self__, "fqdns", fqdns)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if ip_configurations and not isinstance(ip_configurations, list):
             raise TypeError("Expected argument 'ip_configurations' to be a list")
         pulumi.set(__self__, "ip_configurations", ip_configurations)
@@ -95,6 +98,14 @@ class GetPrivateLinkServiceResult:
         The list of Fqdn.
         """
         return pulumi.get(self, "fqdns")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ipConfigurations")
@@ -187,6 +198,7 @@ class AwaitableGetPrivateLinkServiceResult(GetPrivateLinkServiceResult):
             auto_approval=self.auto_approval,
             etag=self.etag,
             fqdns=self.fqdns,
+            id=self.id,
             ip_configurations=self.ip_configurations,
             load_balancer_frontend_ip_configurations=self.load_balancer_frontend_ip_configurations,
             location=self.location,
@@ -225,6 +237,7 @@ def get_private_link_service(expand: Optional[str] = None,
         auto_approval=__ret__.auto_approval,
         etag=__ret__.etag,
         fqdns=__ret__.fqdns,
+        id=__ret__.id,
         ip_configurations=__ret__.ip_configurations,
         load_balancer_frontend_ip_configurations=__ret__.load_balancer_frontend_ip_configurations,
         location=__ret__.location,

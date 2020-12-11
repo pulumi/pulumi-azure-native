@@ -20,10 +20,13 @@ class GetServiceResult:
     """
     The description of the service.
     """
-    def __init__(__self__, etag=None, identity=None, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, etag=None, id=None, identity=None, kind=None, location=None, name=None, properties=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -53,6 +56,14 @@ class GetServiceResult:
         An etag associated with the resource, used for optimistic concurrency when editing it.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource identifier.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -118,6 +129,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             yield self
         return GetServiceResult(
             etag=self.etag,
+            id=self.id,
             identity=self.identity,
             kind=self.kind,
             location=self.location,
@@ -147,6 +159,7 @@ def get_service(resource_group_name: Optional[str] = None,
 
     return AwaitableGetServiceResult(
         etag=__ret__.etag,
+        id=__ret__.id,
         identity=__ret__.identity,
         kind=__ret__.kind,
         location=__ret__.location,

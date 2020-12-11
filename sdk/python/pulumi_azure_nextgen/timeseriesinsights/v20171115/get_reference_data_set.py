@@ -20,13 +20,16 @@ class GetReferenceDataSetResult:
     """
     A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
     """
-    def __init__(__self__, creation_time=None, data_string_comparison_behavior=None, key_properties=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, creation_time=None, data_string_comparison_behavior=None, id=None, key_properties=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
         if data_string_comparison_behavior and not isinstance(data_string_comparison_behavior, str):
             raise TypeError("Expected argument 'data_string_comparison_behavior' to be a str")
         pulumi.set(__self__, "data_string_comparison_behavior", data_string_comparison_behavior)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if key_properties and not isinstance(key_properties, list):
             raise TypeError("Expected argument 'key_properties' to be a list")
         pulumi.set(__self__, "key_properties", key_properties)
@@ -61,6 +64,14 @@ class GetReferenceDataSetResult:
         The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
         """
         return pulumi.get(self, "data_string_comparison_behavior")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="keyProperties")
@@ -119,6 +130,7 @@ class AwaitableGetReferenceDataSetResult(GetReferenceDataSetResult):
         return GetReferenceDataSetResult(
             creation_time=self.creation_time,
             data_string_comparison_behavior=self.data_string_comparison_behavior,
+            id=self.id,
             key_properties=self.key_properties,
             location=self.location,
             name=self.name,
@@ -151,6 +163,7 @@ def get_reference_data_set(environment_name: Optional[str] = None,
     return AwaitableGetReferenceDataSetResult(
         creation_time=__ret__.creation_time,
         data_string_comparison_behavior=__ret__.data_string_comparison_behavior,
+        id=__ret__.id,
         key_properties=__ret__.key_properties,
         location=__ret__.location,
         name=__ret__.name,

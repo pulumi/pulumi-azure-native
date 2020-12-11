@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.DomainRegistration.Latest
     public sealed class GetDomainOwnershipIdentifierResult
     {
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.DomainRegistration.Latest
 
         [OutputConstructor]
         private GetDomainOwnershipIdentifierResult(
+            string id,
+
             string? kind,
 
             string name,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.DomainRegistration.Latest
 
             string type)
         {
+            Id = id;
             Kind = kind;
             Name = name;
             OwnershipId = ownershipId;

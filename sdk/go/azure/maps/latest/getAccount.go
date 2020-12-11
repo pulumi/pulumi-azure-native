@@ -25,6 +25,8 @@ type LookupAccountArgs struct {
 
 // An Azure resource which represents access to a suite of Maps REST APIs.
 type LookupAccountResult struct {
+	// The fully qualified Maps Account resource identifier.
+	Id string `pulumi:"id"`
 	// The location of the resource.
 	Location string `pulumi:"location"`
 	// The name of the Maps Account, which is unique within a Resource Group.

@@ -55,6 +55,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Whether records are buffered in the logger before publishing. Default is assumed to be true.
         /// </summary>
         public readonly bool? IsBuffered;
@@ -77,6 +81,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
 
             string? description,
 
+            string id,
+
             bool? isBuffered,
 
             string loggerType,
@@ -87,6 +93,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         {
             Credentials = credentials;
             Description = description;
+            Id = id;
             IsBuffered = isBuffered;
             LoggerType = loggerType;
             Name = name;

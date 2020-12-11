@@ -45,6 +45,10 @@ export interface GetAFDOriginGroupResult {
      */
     readonly healthProbeSettings?: outputs.cdn.v20200901.HealthProbeParametersResponse;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Load balancing settings for a backend pool
      */
     readonly loadBalancingSettings?: outputs.cdn.v20200901.LoadBalancingSettingsParametersResponse;

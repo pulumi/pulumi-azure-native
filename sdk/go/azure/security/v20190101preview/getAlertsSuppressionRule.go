@@ -29,6 +29,8 @@ type LookupAlertsSuppressionRuleResult struct {
 	Comment *string `pulumi:"comment"`
 	// Expiration date of the rule, if value is not provided or provided as null this field will default to the maximum allowed expiration date.
 	ExpirationDateUtc *string `pulumi:"expirationDateUtc"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// The last time this rule was modified
 	LastModifiedUtc string `pulumi:"lastModifiedUtc"`
 	// Resource name

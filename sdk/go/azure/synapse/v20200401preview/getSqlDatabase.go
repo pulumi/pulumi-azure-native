@@ -31,6 +31,8 @@ type LookupSqlDatabaseResult struct {
 	Collation *string `pulumi:"collation"`
 	// The Guid of the database.
 	DatabaseGuid string `pulumi:"databaseGuid"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The max size of the database expressed in bytes.

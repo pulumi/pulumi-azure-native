@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
         /// </summary>
         public readonly Outputs.InstanceViewStatusResponse? ColocationStatus;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -88,6 +92,8 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
 
             Outputs.InstanceViewStatusResponse? colocationStatus,
 
+            string id,
+
             string location,
 
             string name,
@@ -104,6 +110,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
         {
             AvailabilitySets = availabilitySets;
             ColocationStatus = colocationStatus;
+            Id = id;
             Location = location;
             Name = name;
             ProximityPlacementGroupType = proximityPlacementGroupType;

@@ -35,6 +35,10 @@ export interface GetPrivateLinkScopeArgs {
  */
 export interface GetPrivateLinkScopeResult {
     /**
+     * Azure resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

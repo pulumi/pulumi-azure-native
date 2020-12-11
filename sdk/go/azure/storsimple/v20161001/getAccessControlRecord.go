@@ -27,6 +27,8 @@ type LookupAccessControlRecordArgs struct {
 
 // The access control record
 type LookupAccessControlRecordResult struct {
+	// The identifier.
+	Id string `pulumi:"id"`
 	// The Iscsi initiator name (IQN)
 	InitiatorName string `pulumi:"initiatorName"`
 	// The name.

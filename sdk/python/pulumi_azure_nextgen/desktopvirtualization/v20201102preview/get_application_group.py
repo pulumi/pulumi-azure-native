@@ -19,7 +19,7 @@ class GetApplicationGroupResult:
     """
     Represents a ApplicationGroup definition.
     """
-    def __init__(__self__, application_group_type=None, description=None, friendly_name=None, host_pool_arm_path=None, location=None, name=None, tags=None, type=None, workspace_arm_path=None):
+    def __init__(__self__, application_group_type=None, description=None, friendly_name=None, host_pool_arm_path=None, id=None, location=None, name=None, tags=None, type=None, workspace_arm_path=None):
         if application_group_type and not isinstance(application_group_type, str):
             raise TypeError("Expected argument 'application_group_type' to be a str")
         pulumi.set(__self__, "application_group_type", application_group_type)
@@ -32,6 +32,9 @@ class GetApplicationGroupResult:
         if host_pool_arm_path and not isinstance(host_pool_arm_path, str):
             raise TypeError("Expected argument 'host_pool_arm_path' to be a str")
         pulumi.set(__self__, "host_pool_arm_path", host_pool_arm_path)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -79,6 +82,14 @@ class GetApplicationGroupResult:
         HostPool arm path of ApplicationGroup.
         """
         return pulumi.get(self, "host_pool_arm_path")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -131,6 +142,7 @@ class AwaitableGetApplicationGroupResult(GetApplicationGroupResult):
             description=self.description,
             friendly_name=self.friendly_name,
             host_pool_arm_path=self.host_pool_arm_path,
+            id=self.id,
             location=self.location,
             name=self.name,
             tags=self.tags,
@@ -161,6 +173,7 @@ def get_application_group(application_group_name: Optional[str] = None,
         description=__ret__.description,
         friendly_name=__ret__.friendly_name,
         host_pool_arm_path=__ret__.host_pool_arm_path,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         tags=__ret__.tags,

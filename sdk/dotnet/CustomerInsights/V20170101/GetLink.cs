@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
         /// </summary>
         public readonly ImmutableDictionary<string, string>? DisplayName;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The link name.
         /// </summary>
         public readonly string LinkName;
@@ -104,6 +108,8 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
 
             ImmutableDictionary<string, string>? displayName,
 
+            string id,
+
             string linkName,
 
             ImmutableArray<Outputs.TypePropertiesMappingResponse> mappings,
@@ -128,6 +134,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
         {
             Description = description;
             DisplayName = displayName;
+            Id = id;
             LinkName = linkName;
             Mappings = mappings;
             Name = name;

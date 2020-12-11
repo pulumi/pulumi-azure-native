@@ -39,6 +39,8 @@ type LookupOuContainerResult struct {
 	DomainName string `pulumi:"domainName"`
 	// Resource etag
 	Etag *string `pulumi:"etag"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name

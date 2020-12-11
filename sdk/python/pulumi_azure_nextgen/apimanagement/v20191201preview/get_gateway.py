@@ -20,10 +20,13 @@ class GetGatewayResult:
     """
     Gateway details.
     """
-    def __init__(__self__, description=None, location_data=None, name=None, type=None):
+    def __init__(__self__, description=None, id=None, location_data=None, name=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location_data and not isinstance(location_data, dict):
             raise TypeError("Expected argument 'location_data' to be a dict")
         pulumi.set(__self__, "location_data", location_data)
@@ -41,6 +44,14 @@ class GetGatewayResult:
         Gateway description
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="locationData")
@@ -74,6 +85,7 @@ class AwaitableGetGatewayResult(GetGatewayResult):
             yield self
         return GetGatewayResult(
             description=self.description,
+            id=self.id,
             location_data=self.location_data,
             name=self.name,
             type=self.type)
@@ -102,6 +114,7 @@ def get_gateway(gateway_id: Optional[str] = None,
 
     return AwaitableGetGatewayResult(
         description=__ret__.description,
+        id=__ret__.id,
         location_data=__ret__.location_data,
         name=__ret__.name,
         type=__ret__.type)

@@ -44,6 +44,10 @@ export interface GetPropertyResult {
      */
     readonly displayName: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

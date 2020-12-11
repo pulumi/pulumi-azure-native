@@ -25,6 +25,8 @@ type LookupPrivateLinkScopeArgs struct {
 
 // An Azure Arc PrivateLinkScope definition.
 type LookupPrivateLinkScopeResult struct {
+	// Azure resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Azure resource name

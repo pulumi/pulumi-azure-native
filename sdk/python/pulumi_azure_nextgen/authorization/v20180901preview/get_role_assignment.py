@@ -19,10 +19,13 @@ class GetRoleAssignmentResult:
     """
     Role Assignments
     """
-    def __init__(__self__, can_delegate=None, name=None, principal_id=None, principal_type=None, role_definition_id=None, scope=None, type=None):
+    def __init__(__self__, can_delegate=None, id=None, name=None, principal_id=None, principal_type=None, role_definition_id=None, scope=None, type=None):
         if can_delegate and not isinstance(can_delegate, bool):
             raise TypeError("Expected argument 'can_delegate' to be a bool")
         pulumi.set(__self__, "can_delegate", can_delegate)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -49,6 +52,14 @@ class GetRoleAssignmentResult:
         The Delegation flag for the role assignment
         """
         return pulumi.get(self, "can_delegate")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The role assignment ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -106,6 +117,7 @@ class AwaitableGetRoleAssignmentResult(GetRoleAssignmentResult):
             yield self
         return GetRoleAssignmentResult(
             can_delegate=self.can_delegate,
+            id=self.id,
             name=self.name,
             principal_id=self.principal_id,
             principal_type=self.principal_type,
@@ -134,6 +146,7 @@ def get_role_assignment(role_assignment_name: Optional[str] = None,
 
     return AwaitableGetRoleAssignmentResult(
         can_delegate=__ret__.can_delegate,
+        id=__ret__.id,
         name=__ret__.name,
         principal_id=__ret__.principal_id,
         principal_type=__ret__.principal_type,

@@ -62,6 +62,8 @@ type LookupClusterResult struct {
 	DiagnosticsStorageAccountConfig *DiagnosticsStorageAccountConfigResponse `pulumi:"diagnosticsStorageAccountConfig"`
 	// The list of custom fabric settings to configure the cluster.
 	FabricSettings []SettingsSectionDescriptionResponse `pulumi:"fabricSettings"`
+	// Azure resource identifier.
+	Id string `pulumi:"id"`
 	// Azure resource location.
 	Location string `pulumi:"location"`
 	// The http management endpoint of the cluster.

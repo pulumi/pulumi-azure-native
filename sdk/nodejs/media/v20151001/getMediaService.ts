@@ -39,6 +39,10 @@ export interface GetMediaServiceResult {
      */
     readonly apiEndpoints: outputs.media.v20151001.ApiEndpointResponse[];
     /**
+     * The id of the resource.
+     */
+    readonly id: string;
+    /**
      * The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth).
      */
     readonly location?: string;

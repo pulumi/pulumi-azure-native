@@ -61,6 +61,10 @@ export interface GetEndpointResult {
      */
     readonly geoMapping?: string[];
     /**
+     * Gets or sets the ID of the Traffic Manager endpoint.
+     */
+    readonly id?: string;
+    /**
      * Gets or sets the minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
      */
     readonly minChildEndpoints?: number;

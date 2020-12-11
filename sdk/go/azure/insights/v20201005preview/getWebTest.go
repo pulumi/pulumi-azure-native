@@ -37,6 +37,8 @@ type LookupWebTestResult struct {
 	ExpectedHttpStatusCode *int `pulumi:"expectedHttpStatusCode"`
 	// Interval in seconds between test runs for this WebTest. Default value is 300.
 	Frequency *int `pulumi:"frequency"`
+	// Azure resource Id
+	Id string `pulumi:"id"`
 	// When set, validation will ignore the status code.
 	IgnoreHttpsStatusCode *bool `pulumi:"ignoreHttpsStatusCode"`
 	// The kind of WebTest that this web test watches. Choices are ping and multistep.

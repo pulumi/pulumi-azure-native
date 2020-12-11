@@ -44,6 +44,10 @@ export interface GetLabAccountResult {
      */
     readonly enabledRegionSelection?: boolean;
     /**
+     * The identifier of the resource.
+     */
+    readonly id: string;
+    /**
      * The details of the latest operation. ex: status, error
      */
     readonly latestOperationResult: outputs.labservices.latest.LatestOperationResultResponse;

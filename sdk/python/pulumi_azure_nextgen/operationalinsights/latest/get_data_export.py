@@ -19,7 +19,7 @@ class GetDataExportResult:
     """
     The top level data export resource container.
     """
-    def __init__(__self__, created_date=None, data_export_id=None, enable=None, event_hub_name=None, last_modified_date=None, name=None, resource_id=None, table_names=None, type=None):
+    def __init__(__self__, created_date=None, data_export_id=None, enable=None, event_hub_name=None, id=None, last_modified_date=None, name=None, resource_id=None, table_names=None, type=None):
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
@@ -32,6 +32,9 @@ class GetDataExportResult:
         if event_hub_name and not isinstance(event_hub_name, str):
             raise TypeError("Expected argument 'event_hub_name' to be a str")
         pulumi.set(__self__, "event_hub_name", event_hub_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_modified_date and not isinstance(last_modified_date, str):
             raise TypeError("Expected argument 'last_modified_date' to be a str")
         pulumi.set(__self__, "last_modified_date", last_modified_date)
@@ -79,6 +82,14 @@ class GetDataExportResult:
         Optional. Allows to define an Event Hub name. Not applicable when destination is Storage Account.
         """
         return pulumi.get(self, "event_hub_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastModifiedDate")
@@ -131,6 +142,7 @@ class AwaitableGetDataExportResult(GetDataExportResult):
             data_export_id=self.data_export_id,
             enable=self.enable,
             event_hub_name=self.event_hub_name,
+            id=self.id,
             last_modified_date=self.last_modified_date,
             name=self.name,
             resource_id=self.resource_id,
@@ -164,6 +176,7 @@ def get_data_export(data_export_name: Optional[str] = None,
         data_export_id=__ret__.data_export_id,
         enable=__ret__.enable,
         event_hub_name=__ret__.event_hub_name,
+        id=__ret__.id,
         last_modified_date=__ret__.last_modified_date,
         name=__ret__.name,
         resource_id=__ret__.resource_id,

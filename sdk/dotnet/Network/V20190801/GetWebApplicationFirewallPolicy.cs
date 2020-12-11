@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.Network.V20190801
 
             string? etag,
 
+            string? id,
+
             string? location,
 
             Outputs.ManagedRulesDefinitionResponse managedRules,
@@ -111,6 +117,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
             ApplicationGateways = applicationGateways;
             CustomRules = customRules;
             Etag = etag;
+            Id = id;
             Location = location;
             ManagedRules = managedRules;
             Name = name;

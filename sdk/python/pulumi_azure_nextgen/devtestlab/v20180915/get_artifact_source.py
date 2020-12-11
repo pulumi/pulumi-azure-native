@@ -19,7 +19,7 @@ class GetArtifactSourceResult:
     """
     Properties of an artifact source.
     """
-    def __init__(__self__, arm_template_folder_path=None, branch_ref=None, created_date=None, display_name=None, folder_path=None, location=None, name=None, provisioning_state=None, security_token=None, source_type=None, status=None, tags=None, type=None, unique_identifier=None, uri=None):
+    def __init__(__self__, arm_template_folder_path=None, branch_ref=None, created_date=None, display_name=None, folder_path=None, id=None, location=None, name=None, provisioning_state=None, security_token=None, source_type=None, status=None, tags=None, type=None, unique_identifier=None, uri=None):
         if arm_template_folder_path and not isinstance(arm_template_folder_path, str):
             raise TypeError("Expected argument 'arm_template_folder_path' to be a str")
         pulumi.set(__self__, "arm_template_folder_path", arm_template_folder_path)
@@ -35,6 +35,9 @@ class GetArtifactSourceResult:
         if folder_path and not isinstance(folder_path, str):
             raise TypeError("Expected argument 'folder_path' to be a str")
         pulumi.set(__self__, "folder_path", folder_path)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -105,6 +108,14 @@ class GetArtifactSourceResult:
         The folder containing artifacts.
         """
         return pulumi.get(self, "folder_path")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -198,6 +209,7 @@ class AwaitableGetArtifactSourceResult(GetArtifactSourceResult):
             created_date=self.created_date,
             display_name=self.display_name,
             folder_path=self.folder_path,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -240,6 +252,7 @@ def get_artifact_source(expand: Optional[str] = None,
         created_date=__ret__.created_date,
         display_name=__ret__.display_name,
         folder_path=__ret__.folder_path,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

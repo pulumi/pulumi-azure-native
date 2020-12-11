@@ -20,7 +20,7 @@ class GetFormulaResult:
     """
     A formula for creating a VM, specifying an image base and other parameters
     """
-    def __init__(__self__, author=None, creation_date=None, description=None, formula_content=None, location=None, name=None, os_type=None, provisioning_state=None, tags=None, type=None, unique_identifier=None, vm=None):
+    def __init__(__self__, author=None, creation_date=None, description=None, formula_content=None, id=None, location=None, name=None, os_type=None, provisioning_state=None, tags=None, type=None, unique_identifier=None, vm=None):
         if author and not isinstance(author, str):
             raise TypeError("Expected argument 'author' to be a str")
         pulumi.set(__self__, "author", author)
@@ -33,6 +33,9 @@ class GetFormulaResult:
         if formula_content and not isinstance(formula_content, dict):
             raise TypeError("Expected argument 'formula_content' to be a dict")
         pulumi.set(__self__, "formula_content", formula_content)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -89,6 +92,14 @@ class GetFormulaResult:
         The content of the formula.
         """
         return pulumi.get(self, "formula_content")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -165,6 +176,7 @@ class AwaitableGetFormulaResult(GetFormulaResult):
             creation_date=self.creation_date,
             description=self.description,
             formula_content=self.formula_content,
+            id=self.id,
             location=self.location,
             name=self.name,
             os_type=self.os_type,
@@ -204,6 +216,7 @@ def get_formula(expand: Optional[str] = None,
         creation_date=__ret__.creation_date,
         description=__ret__.description,
         formula_content=__ret__.formula_content,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         os_type=__ret__.os_type,

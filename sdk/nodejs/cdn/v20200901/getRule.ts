@@ -54,6 +54,10 @@ export interface GetRuleResult {
     readonly conditions?: outputs.cdn.v20200901.DeliveryRuleCookiesConditionResponse | outputs.cdn.v20200901.DeliveryRuleHttpVersionConditionResponse | outputs.cdn.v20200901.DeliveryRuleIsDeviceConditionResponse | outputs.cdn.v20200901.DeliveryRulePostArgsConditionResponse | outputs.cdn.v20200901.DeliveryRuleQueryStringConditionResponse | outputs.cdn.v20200901.DeliveryRuleRemoteAddressConditionResponse | outputs.cdn.v20200901.DeliveryRuleRequestBodyConditionResponse | outputs.cdn.v20200901.DeliveryRuleRequestHeaderConditionResponse | outputs.cdn.v20200901.DeliveryRuleRequestMethodConditionResponse | outputs.cdn.v20200901.DeliveryRuleRequestSchemeConditionResponse | outputs.cdn.v20200901.DeliveryRuleRequestUriConditionResponse | outputs.cdn.v20200901.DeliveryRuleUrlFileExtensionConditionResponse | outputs.cdn.v20200901.DeliveryRuleUrlFileNameConditionResponse | outputs.cdn.v20200901.DeliveryRuleUrlPathConditionResponse[];
     readonly deploymentStatus: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
      */
     readonly matchProcessingBehavior?: string;

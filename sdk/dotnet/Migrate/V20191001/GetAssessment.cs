@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001
         /// </summary>
         public readonly string? ETag;
         /// <summary>
+        /// Path reference to this assessment. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/assessment/{assessmentName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Unique name of an assessment.
         /// </summary>
         public readonly string Name;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001
         private GetAssessmentResult(
             string? eTag,
 
+            string id,
+
             string name,
 
             Outputs.AssessmentPropertiesResponse properties,
@@ -79,6 +85,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001
             string type)
         {
             ETag = eTag;
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

@@ -42,6 +42,10 @@ export interface GetAlertsSuppressionRuleResult {
      */
     readonly expirationDateUtc?: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * The last time this rule was modified
      */
     readonly lastModifiedUtc: string;

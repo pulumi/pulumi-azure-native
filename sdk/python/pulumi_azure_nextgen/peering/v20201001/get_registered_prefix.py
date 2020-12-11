@@ -19,10 +19,13 @@ class GetRegisteredPrefixResult:
     """
     The customer's prefix that is registered by the peering service provider.
     """
-    def __init__(__self__, error_message=None, name=None, peering_service_prefix_key=None, prefix=None, prefix_validation_state=None, provisioning_state=None, type=None):
+    def __init__(__self__, error_message=None, id=None, name=None, peering_service_prefix_key=None, prefix=None, prefix_validation_state=None, provisioning_state=None, type=None):
         if error_message and not isinstance(error_message, str):
             raise TypeError("Expected argument 'error_message' to be a str")
         pulumi.set(__self__, "error_message", error_message)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -49,6 +52,14 @@ class GetRegisteredPrefixResult:
         The error message associated with the validation state, if any.
         """
         return pulumi.get(self, "error_message")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -106,6 +117,7 @@ class AwaitableGetRegisteredPrefixResult(GetRegisteredPrefixResult):
             yield self
         return GetRegisteredPrefixResult(
             error_message=self.error_message,
+            id=self.id,
             name=self.name,
             peering_service_prefix_key=self.peering_service_prefix_key,
             prefix=self.prefix,
@@ -137,6 +149,7 @@ def get_registered_prefix(peering_name: Optional[str] = None,
 
     return AwaitableGetRegisteredPrefixResult(
         error_message=__ret__.error_message,
+        id=__ret__.id,
         name=__ret__.name,
         peering_service_prefix_key=__ret__.peering_service_prefix_key,
         prefix=__ret__.prefix,

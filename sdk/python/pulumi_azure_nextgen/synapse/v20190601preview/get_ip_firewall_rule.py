@@ -19,10 +19,13 @@ class GetIpFirewallRuleResult:
     """
     IP firewall rule
     """
-    def __init__(__self__, end_ip_address=None, name=None, provisioning_state=None, start_ip_address=None, type=None):
+    def __init__(__self__, end_ip_address=None, id=None, name=None, provisioning_state=None, start_ip_address=None, type=None):
         if end_ip_address and not isinstance(end_ip_address, str):
             raise TypeError("Expected argument 'end_ip_address' to be a str")
         pulumi.set(__self__, "end_ip_address", end_ip_address)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -43,6 +46,14 @@ class GetIpFirewallRuleResult:
         The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress
         """
         return pulumi.get(self, "end_ip_address")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -84,6 +95,7 @@ class AwaitableGetIpFirewallRuleResult(GetIpFirewallRuleResult):
             yield self
         return GetIpFirewallRuleResult(
             end_ip_address=self.end_ip_address,
+            id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
             start_ip_address=self.start_ip_address,
@@ -113,6 +125,7 @@ def get_ip_firewall_rule(resource_group_name: Optional[str] = None,
 
     return AwaitableGetIpFirewallRuleResult(
         end_ip_address=__ret__.end_ip_address,
+        id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         start_ip_address=__ret__.start_ip_address,

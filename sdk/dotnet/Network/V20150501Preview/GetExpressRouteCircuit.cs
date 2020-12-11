@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -104,6 +108,8 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
 
             string? etag,
 
+            string id,
+
             string location,
 
             string name,
@@ -129,6 +135,7 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
             Authorizations = authorizations;
             CircuitProvisioningState = circuitProvisioningState;
             Etag = etag;
+            Id = id;
             Location = location;
             Name = name;
             Peerings = peerings;

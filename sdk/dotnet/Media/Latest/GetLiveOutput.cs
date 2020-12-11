@@ -72,6 +72,10 @@ namespace Pulumi.AzureNextGen.Media.Latest
         /// </summary>
         public readonly Outputs.HlsResponse? Hls;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The time the live output was last modified.
         /// </summary>
         public readonly string LastModified;
@@ -112,6 +116,8 @@ namespace Pulumi.AzureNextGen.Media.Latest
 
             Outputs.HlsResponse? hls,
 
+            string id,
+
             string lastModified,
 
             string? manifestName,
@@ -131,6 +137,7 @@ namespace Pulumi.AzureNextGen.Media.Latest
             Created = created;
             Description = description;
             Hls = hls;
+            Id = id;
             LastModified = lastModified;
             ManifestName = manifestName;
             Name = name;

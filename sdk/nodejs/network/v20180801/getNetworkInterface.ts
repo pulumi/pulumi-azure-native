@@ -60,6 +60,10 @@ export interface GetNetworkInterfaceResult {
      */
     readonly hostedWorkloads: string[];
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * A reference to the interface endpoint to which the network interface is linked.
      */
     readonly interfaceEndpoint: outputs.network.v20180801.InterfaceEndpointResponse;

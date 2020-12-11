@@ -30,6 +30,10 @@ export interface GetOnPremiseIotSensorArgs {
  */
 export interface GetOnPremiseIotSensorResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource name
      */
     readonly name: string;

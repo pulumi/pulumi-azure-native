@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.AzureStack.V20170601
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// ID of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Location of the resource.
         /// </summary>
         public readonly string Location;
@@ -80,6 +84,8 @@ namespace Pulumi.AzureNextGen.AzureStack.V20170601
 
             string? etag,
 
+            string id,
+
             string location,
 
             string name,
@@ -93,6 +99,7 @@ namespace Pulumi.AzureNextGen.AzureStack.V20170601
             BillingModel = billingModel;
             CloudId = cloudId;
             Etag = etag;
+            Id = id;
             Location = location;
             Name = name;
             ObjectId = objectId;

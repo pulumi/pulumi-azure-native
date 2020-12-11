@@ -20,7 +20,7 @@ class GetBatchAccountResult:
     """
     Contains information about an Azure Batch account.
     """
-    def __init__(__self__, account_endpoint=None, active_job_and_job_schedule_quota=None, auto_storage=None, dedicated_core_quota=None, dedicated_core_quota_per_vm_family=None, dedicated_core_quota_per_vm_family_enforced=None, encryption=None, key_vault_reference=None, location=None, low_priority_core_quota=None, name=None, pool_allocation_mode=None, pool_quota=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, tags=None, type=None):
+    def __init__(__self__, account_endpoint=None, active_job_and_job_schedule_quota=None, auto_storage=None, dedicated_core_quota=None, dedicated_core_quota_per_vm_family=None, dedicated_core_quota_per_vm_family_enforced=None, encryption=None, id=None, key_vault_reference=None, location=None, low_priority_core_quota=None, name=None, pool_allocation_mode=None, pool_quota=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, tags=None, type=None):
         if account_endpoint and not isinstance(account_endpoint, str):
             raise TypeError("Expected argument 'account_endpoint' to be a str")
         pulumi.set(__self__, "account_endpoint", account_endpoint)
@@ -42,6 +42,9 @@ class GetBatchAccountResult:
         if encryption and not isinstance(encryption, dict):
             raise TypeError("Expected argument 'encryption' to be a dict")
         pulumi.set(__self__, "encryption", encryption)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if key_vault_reference and not isinstance(key_vault_reference, dict):
             raise TypeError("Expected argument 'key_vault_reference' to be a dict")
         pulumi.set(__self__, "key_vault_reference", key_vault_reference)
@@ -125,6 +128,14 @@ class GetBatchAccountResult:
     @pulumi.getter
     def encryption(self) -> 'outputs.EncryptionPropertiesResponse':
         return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="keyVaultReference")
@@ -225,6 +236,7 @@ class AwaitableGetBatchAccountResult(GetBatchAccountResult):
             dedicated_core_quota_per_vm_family=self.dedicated_core_quota_per_vm_family,
             dedicated_core_quota_per_vm_family_enforced=self.dedicated_core_quota_per_vm_family_enforced,
             encryption=self.encryption,
+            id=self.id,
             key_vault_reference=self.key_vault_reference,
             location=self.location,
             low_priority_core_quota=self.low_priority_core_quota,
@@ -264,6 +276,7 @@ def get_batch_account(account_name: Optional[str] = None,
         dedicated_core_quota_per_vm_family=__ret__.dedicated_core_quota_per_vm_family,
         dedicated_core_quota_per_vm_family_enforced=__ret__.dedicated_core_quota_per_vm_family_enforced,
         encryption=__ret__.encryption,
+        id=__ret__.id,
         key_vault_reference=__ret__.key_vault_reference,
         location=__ret__.location,
         low_priority_core_quota=__ret__.low_priority_core_quota,

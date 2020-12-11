@@ -27,6 +27,8 @@ type LookupCommitmentPlanArgs struct {
 type LookupCommitmentPlanResult struct {
 	// An entity tag used to enforce optimistic concurrency.
 	Etag *string `pulumi:"etag"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// Resource name.

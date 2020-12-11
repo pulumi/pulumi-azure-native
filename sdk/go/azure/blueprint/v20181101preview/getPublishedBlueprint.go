@@ -35,6 +35,8 @@ type LookupPublishedBlueprintResult struct {
 	Description *string `pulumi:"description"`
 	// One-liner string explain this resource.
 	DisplayName *string `pulumi:"displayName"`
+	// String Id used to locate any resource on Azure.
+	Id string `pulumi:"id"`
 	// Name of this resource.
 	Name string `pulumi:"name"`
 	// Parameters required by this blueprint definition.

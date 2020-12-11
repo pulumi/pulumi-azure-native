@@ -53,6 +53,10 @@ export interface GetEventChannelResult {
      */
     readonly filter?: outputs.eventgrid.v20200401preview.EventChannelFilterResponse;
     /**
+     * Fully qualified identifier of the resource.
+     */
+    readonly id: string;
+    /**
      * Name of the resource
      */
     readonly name: string;

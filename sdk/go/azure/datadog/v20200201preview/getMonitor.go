@@ -24,6 +24,8 @@ type LookupMonitorArgs struct {
 }
 
 type LookupMonitorResult struct {
+	// ARM id of the monitor resource.
+	Id       string                      `pulumi:"id"`
 	Identity *IdentityPropertiesResponse `pulumi:"identity"`
 	Location string                      `pulumi:"location"`
 	// Name of the monitor resource.

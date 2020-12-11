@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Batch.V20151201
         /// </summary>
         public readonly int CoreQuota;
         /// <summary>
+        /// The ID of the resource
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the resource
         /// </summary>
         public readonly string? Location;
@@ -90,6 +94,8 @@ namespace Pulumi.AzureNextGen.Batch.V20151201
 
             int coreQuota,
 
+            string id,
+
             string? location,
 
             string name,
@@ -106,6 +112,7 @@ namespace Pulumi.AzureNextGen.Batch.V20151201
             ActiveJobAndJobScheduleQuota = activeJobAndJobScheduleQuota;
             AutoStorage = autoStorage;
             CoreQuota = coreQuota;
+            Id = id;
             Location = location;
             Name = name;
             PoolQuota = poolQuota;

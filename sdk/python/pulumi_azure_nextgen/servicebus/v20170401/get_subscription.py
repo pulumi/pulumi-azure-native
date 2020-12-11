@@ -20,7 +20,7 @@ class GetSubscriptionResult:
     """
     Description of subscription resource.
     """
-    def __init__(__self__, accessed_at=None, auto_delete_on_idle=None, count_details=None, created_at=None, dead_lettering_on_filter_evaluation_exceptions=None, dead_lettering_on_message_expiration=None, default_message_time_to_live=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, forward_dead_lettered_messages_to=None, forward_to=None, lock_duration=None, max_delivery_count=None, message_count=None, name=None, requires_session=None, status=None, type=None, updated_at=None):
+    def __init__(__self__, accessed_at=None, auto_delete_on_idle=None, count_details=None, created_at=None, dead_lettering_on_filter_evaluation_exceptions=None, dead_lettering_on_message_expiration=None, default_message_time_to_live=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, forward_dead_lettered_messages_to=None, forward_to=None, id=None, lock_duration=None, max_delivery_count=None, message_count=None, name=None, requires_session=None, status=None, type=None, updated_at=None):
         if accessed_at and not isinstance(accessed_at, str):
             raise TypeError("Expected argument 'accessed_at' to be a str")
         pulumi.set(__self__, "accessed_at", accessed_at)
@@ -54,6 +54,9 @@ class GetSubscriptionResult:
         if forward_to and not isinstance(forward_to, str):
             raise TypeError("Expected argument 'forward_to' to be a str")
         pulumi.set(__self__, "forward_to", forward_to)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if lock_duration and not isinstance(lock_duration, str):
             raise TypeError("Expected argument 'lock_duration' to be a str")
         pulumi.set(__self__, "lock_duration", lock_duration)
@@ -168,6 +171,14 @@ class GetSubscriptionResult:
         return pulumi.get(self, "forward_to")
 
     @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
+
+    @property
     @pulumi.getter(name="lockDuration")
     def lock_duration(self) -> Optional[str]:
         """
@@ -249,6 +260,7 @@ class AwaitableGetSubscriptionResult(GetSubscriptionResult):
             enable_batched_operations=self.enable_batched_operations,
             forward_dead_lettered_messages_to=self.forward_dead_lettered_messages_to,
             forward_to=self.forward_to,
+            id=self.id,
             lock_duration=self.lock_duration,
             max_delivery_count=self.max_delivery_count,
             message_count=self.message_count,
@@ -295,6 +307,7 @@ def get_subscription(namespace_name: Optional[str] = None,
         enable_batched_operations=__ret__.enable_batched_operations,
         forward_dead_lettered_messages_to=__ret__.forward_dead_lettered_messages_to,
         forward_to=__ret__.forward_to,
+        id=__ret__.id,
         lock_duration=__ret__.lock_duration,
         max_delivery_count=__ret__.max_delivery_count,
         message_count=__ret__.message_count,

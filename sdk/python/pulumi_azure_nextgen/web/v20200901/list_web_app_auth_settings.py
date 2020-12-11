@@ -20,7 +20,7 @@ class ListWebAppAuthSettingsResult:
     """
     Configuration settings for the Azure App Service Authentication / Authorization feature.
     """
-    def __init__(__self__, aad_claims_authorization=None, additional_login_params=None, allowed_audiences=None, allowed_external_redirect_urls=None, auth_file_path=None, client_id=None, client_secret=None, client_secret_certificate_thumbprint=None, client_secret_setting_name=None, default_provider=None, enabled=None, facebook_app_id=None, facebook_app_secret=None, facebook_app_secret_setting_name=None, facebook_o_auth_scopes=None, git_hub_client_id=None, git_hub_client_secret=None, git_hub_client_secret_setting_name=None, git_hub_o_auth_scopes=None, google_client_id=None, google_client_secret=None, google_client_secret_setting_name=None, google_o_auth_scopes=None, is_auth_from_file=None, issuer=None, kind=None, microsoft_account_client_id=None, microsoft_account_client_secret=None, microsoft_account_client_secret_setting_name=None, microsoft_account_o_auth_scopes=None, name=None, runtime_version=None, system_data=None, token_refresh_extension_hours=None, token_store_enabled=None, twitter_consumer_key=None, twitter_consumer_secret=None, twitter_consumer_secret_setting_name=None, type=None, unauthenticated_client_action=None, validate_issuer=None):
+    def __init__(__self__, aad_claims_authorization=None, additional_login_params=None, allowed_audiences=None, allowed_external_redirect_urls=None, auth_file_path=None, client_id=None, client_secret=None, client_secret_certificate_thumbprint=None, client_secret_setting_name=None, default_provider=None, enabled=None, facebook_app_id=None, facebook_app_secret=None, facebook_app_secret_setting_name=None, facebook_o_auth_scopes=None, git_hub_client_id=None, git_hub_client_secret=None, git_hub_client_secret_setting_name=None, git_hub_o_auth_scopes=None, google_client_id=None, google_client_secret=None, google_client_secret_setting_name=None, google_o_auth_scopes=None, id=None, is_auth_from_file=None, issuer=None, kind=None, microsoft_account_client_id=None, microsoft_account_client_secret=None, microsoft_account_client_secret_setting_name=None, microsoft_account_o_auth_scopes=None, name=None, runtime_version=None, system_data=None, token_refresh_extension_hours=None, token_store_enabled=None, twitter_consumer_key=None, twitter_consumer_secret=None, twitter_consumer_secret_setting_name=None, type=None, unauthenticated_client_action=None, validate_issuer=None):
         if aad_claims_authorization and not isinstance(aad_claims_authorization, str):
             raise TypeError("Expected argument 'aad_claims_authorization' to be a str")
         pulumi.set(__self__, "aad_claims_authorization", aad_claims_authorization)
@@ -90,6 +90,9 @@ class ListWebAppAuthSettingsResult:
         if google_o_auth_scopes and not isinstance(google_o_auth_scopes, list):
             raise TypeError("Expected argument 'google_o_auth_scopes' to be a list")
         pulumi.set(__self__, "google_o_auth_scopes", google_o_auth_scopes)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_auth_from_file and not isinstance(is_auth_from_file, str):
             raise TypeError("Expected argument 'is_auth_from_file' to be a str")
         pulumi.set(__self__, "is_auth_from_file", is_auth_from_file)
@@ -362,6 +365,14 @@ class ListWebAppAuthSettingsResult:
         return pulumi.get(self, "google_o_auth_scopes")
 
     @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
     @pulumi.getter(name="isAuthFromFile")
     def is_auth_from_file(self) -> Optional[str]:
         """
@@ -554,6 +565,7 @@ class AwaitableListWebAppAuthSettingsResult(ListWebAppAuthSettingsResult):
             google_client_secret=self.google_client_secret,
             google_client_secret_setting_name=self.google_client_secret_setting_name,
             google_o_auth_scopes=self.google_o_auth_scopes,
+            id=self.id,
             is_auth_from_file=self.is_auth_from_file,
             issuer=self.issuer,
             kind=self.kind,
@@ -616,6 +628,7 @@ def list_web_app_auth_settings(name: Optional[str] = None,
         google_client_secret=__ret__.google_client_secret,
         google_client_secret_setting_name=__ret__.google_client_secret_setting_name,
         google_o_auth_scopes=__ret__.google_o_auth_scopes,
+        id=__ret__.id,
         is_auth_from_file=__ret__.is_auth_from_file,
         issuer=__ret__.issuer,
         kind=__ret__.kind,

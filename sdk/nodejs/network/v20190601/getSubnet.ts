@@ -61,6 +61,10 @@ export interface GetSubnetResult {
      */
     readonly etag?: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * Array of IP configuration profiles which reference this subnet.
      */
     readonly ipConfigurationProfiles: outputs.network.v20190601.IPConfigurationProfileResponse[];

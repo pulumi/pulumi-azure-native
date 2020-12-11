@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
         /// </summary>
         public readonly string? ExternalDocsUrl;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -90,6 +94,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
 
             string? externalDocsUrl,
 
+            string id,
+
             string name,
 
             string? tagId,
@@ -100,6 +106,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201
             DisplayName = displayName;
             ExternalDocsDescription = externalDocsDescription;
             ExternalDocsUrl = externalDocsUrl;
+            Id = id;
             Name = name;
             TagId = tagId;
             Type = type;

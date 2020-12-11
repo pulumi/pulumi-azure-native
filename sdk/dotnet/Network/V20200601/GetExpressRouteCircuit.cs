@@ -72,6 +72,10 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         /// </summary>
         public readonly bool? GlobalReachEnabled;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNextGen.Network.V20200601
 
             bool? globalReachEnabled,
 
+            string? id,
+
             string? location,
 
             string name,
@@ -170,6 +176,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
             ExpressRoutePort = expressRoutePort;
             GatewayManagerEtag = gatewayManagerEtag;
             GlobalReachEnabled = globalReachEnabled;
+            Id = id;
             Location = location;
             Name = name;
             Peerings = peerings;

@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Portal.V20200901Preview
     public sealed class GetDashboardResult
     {
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The dashboard lenses.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardLensResponse> Lenses;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.Portal.V20200901Preview
 
         [OutputConstructor]
         private GetDashboardResult(
+            string id,
+
             ImmutableArray<Outputs.DashboardLensResponse> lenses,
 
             string location,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.Portal.V20200901Preview
 
             string type)
         {
+            Id = id;
             Lenses = lenses;
             Location = location;
             Metadata = metadata;

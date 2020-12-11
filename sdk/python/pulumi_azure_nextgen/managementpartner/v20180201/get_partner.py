@@ -19,13 +19,16 @@ class GetPartnerResult:
     """
     this is the management partner operations response
     """
-    def __init__(__self__, created_time=None, etag=None, name=None, object_id=None, partner_id=None, partner_name=None, tenant_id=None, type=None, updated_time=None, version=None):
+    def __init__(__self__, created_time=None, etag=None, id=None, name=None, object_id=None, partner_id=None, partner_name=None, tenant_id=None, type=None, updated_time=None, version=None):
         if created_time and not isinstance(created_time, str):
             raise TypeError("Expected argument 'created_time' to be a str")
         pulumi.set(__self__, "created_time", created_time)
         if etag and not isinstance(etag, int):
             raise TypeError("Expected argument 'etag' to be a int")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -66,6 +69,14 @@ class GetPartnerResult:
         Type of the partner
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Identifier of the partner
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -140,6 +151,7 @@ class AwaitableGetPartnerResult(GetPartnerResult):
         return GetPartnerResult(
             created_time=self.created_time,
             etag=self.etag,
+            id=self.id,
             name=self.name,
             object_id=self.object_id,
             partner_id=self.partner_id,
@@ -168,6 +180,7 @@ def get_partner(partner_id: Optional[str] = None,
     return AwaitableGetPartnerResult(
         created_time=__ret__.created_time,
         etag=__ret__.etag,
+        id=__ret__.id,
         name=__ret__.name,
         object_id=__ret__.object_id,
         partner_id=__ret__.partner_id,

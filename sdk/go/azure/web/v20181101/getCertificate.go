@@ -35,6 +35,8 @@ type LookupCertificateResult struct {
 	HostNames []string `pulumi:"hostNames"`
 	// Specification for the App Service Environment to use for the certificate.
 	HostingEnvironmentProfile HostingEnvironmentProfileResponse `pulumi:"hostingEnvironmentProfile"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Certificate issue Date.
 	IssueDate string `pulumi:"issueDate"`
 	// Certificate issuer.

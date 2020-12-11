@@ -20,13 +20,16 @@ class GetManagementGroupDiagnosticSettingResult:
     """
     The management group diagnostic setting resource.
     """
-    def __init__(__self__, event_hub_authorization_rule_id=None, event_hub_name=None, location=None, logs=None, name=None, service_bus_rule_id=None, storage_account_id=None, type=None, workspace_id=None):
+    def __init__(__self__, event_hub_authorization_rule_id=None, event_hub_name=None, id=None, location=None, logs=None, name=None, service_bus_rule_id=None, storage_account_id=None, type=None, workspace_id=None):
         if event_hub_authorization_rule_id and not isinstance(event_hub_authorization_rule_id, str):
             raise TypeError("Expected argument 'event_hub_authorization_rule_id' to be a str")
         pulumi.set(__self__, "event_hub_authorization_rule_id", event_hub_authorization_rule_id)
         if event_hub_name and not isinstance(event_hub_name, str):
             raise TypeError("Expected argument 'event_hub_name' to be a str")
         pulumi.set(__self__, "event_hub_name", event_hub_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -64,6 +67,14 @@ class GetManagementGroupDiagnosticSettingResult:
         The name of the event hub. If none is specified, the default event hub will be selected.
         """
         return pulumi.get(self, "event_hub_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -130,6 +141,7 @@ class AwaitableGetManagementGroupDiagnosticSettingResult(GetManagementGroupDiagn
         return GetManagementGroupDiagnosticSettingResult(
             event_hub_authorization_rule_id=self.event_hub_authorization_rule_id,
             event_hub_name=self.event_hub_name,
+            id=self.id,
             location=self.location,
             logs=self.logs,
             name=self.name,
@@ -160,6 +172,7 @@ def get_management_group_diagnostic_setting(management_group_id: Optional[str] =
     return AwaitableGetManagementGroupDiagnosticSettingResult(
         event_hub_authorization_rule_id=__ret__.event_hub_authorization_rule_id,
         event_hub_name=__ret__.event_hub_name,
+        id=__ret__.id,
         location=__ret__.location,
         logs=__ret__.logs,
         name=__ret__.name,

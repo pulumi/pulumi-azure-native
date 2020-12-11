@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.ContainerService.V20190801
     public sealed class ListManagedClusterAccessProfileResult
     {
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Base64-encoded Kubernetes configuration file.
         /// </summary>
         public readonly string? KubeConfig;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.ContainerService.V20190801
 
         [OutputConstructor]
         private ListManagedClusterAccessProfileResult(
+            string id,
+
             string? kubeConfig,
 
             string location,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20190801
 
             string type)
         {
+            Id = id;
             KubeConfig = kubeConfig;
             Location = location;
             Name = name;

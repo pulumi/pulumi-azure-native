@@ -48,6 +48,10 @@ export interface GetProjectResult {
      */
     readonly databasesInfo?: outputs.datamigration.latest.DatabaseInfoResponse[];
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource location.
      */
     readonly location: string;

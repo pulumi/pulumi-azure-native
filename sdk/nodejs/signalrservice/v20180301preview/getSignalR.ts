@@ -48,6 +48,10 @@ export interface GetSignalRResult {
      */
     readonly hostNamePrefix?: string;
     /**
+     * Fully qualified resource Id for the resource.
+     */
+    readonly id: string;
+    /**
      * The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
      */
     readonly location?: string;

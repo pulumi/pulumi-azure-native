@@ -20,7 +20,7 @@ class GetApplicationDefinitionResult:
     """
     Information about managed application definition.
     """
-    def __init__(__self__, artifacts=None, authorizations=None, create_ui_definition=None, description=None, display_name=None, identity=None, is_enabled=None, location=None, lock_level=None, main_template=None, managed_by=None, name=None, package_file_uri=None, sku=None, tags=None, type=None):
+    def __init__(__self__, artifacts=None, authorizations=None, create_ui_definition=None, description=None, display_name=None, id=None, identity=None, is_enabled=None, location=None, lock_level=None, main_template=None, managed_by=None, name=None, package_file_uri=None, sku=None, tags=None, type=None):
         if artifacts and not isinstance(artifacts, list):
             raise TypeError("Expected argument 'artifacts' to be a list")
         pulumi.set(__self__, "artifacts", artifacts)
@@ -36,6 +36,9 @@ class GetApplicationDefinitionResult:
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -109,6 +112,14 @@ class GetApplicationDefinitionResult:
         The managed application definition display name.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -210,6 +221,7 @@ class AwaitableGetApplicationDefinitionResult(GetApplicationDefinitionResult):
             create_ui_definition=self.create_ui_definition,
             description=self.description,
             display_name=self.display_name,
+            id=self.id,
             identity=self.identity,
             is_enabled=self.is_enabled,
             location=self.location,
@@ -247,6 +259,7 @@ def get_application_definition(application_definition_name: Optional[str] = None
         create_ui_definition=__ret__.create_ui_definition,
         description=__ret__.description,
         display_name=__ret__.display_name,
+        id=__ret__.id,
         identity=__ret__.identity,
         is_enabled=__ret__.is_enabled,
         location=__ret__.location,

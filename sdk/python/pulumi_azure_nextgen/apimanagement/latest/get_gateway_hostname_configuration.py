@@ -19,13 +19,16 @@ class GetGatewayHostnameConfigurationResult:
     """
     Gateway hostname configuration details.
     """
-    def __init__(__self__, certificate_id=None, hostname=None, name=None, negotiate_client_certificate=None, type=None):
+    def __init__(__self__, certificate_id=None, hostname=None, id=None, name=None, negotiate_client_certificate=None, type=None):
         if certificate_id and not isinstance(certificate_id, str):
             raise TypeError("Expected argument 'certificate_id' to be a str")
         pulumi.set(__self__, "certificate_id", certificate_id)
         if hostname and not isinstance(hostname, str):
             raise TypeError("Expected argument 'hostname' to be a str")
         pulumi.set(__self__, "hostname", hostname)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -51,6 +54,14 @@ class GetGatewayHostnameConfigurationResult:
         Hostname value. Supports valid domain name, partial or full wildcard
         """
         return pulumi.get(self, "hostname")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -85,6 +96,7 @@ class AwaitableGetGatewayHostnameConfigurationResult(GetGatewayHostnameConfigura
         return GetGatewayHostnameConfigurationResult(
             certificate_id=self.certificate_id,
             hostname=self.hostname,
+            id=self.id,
             name=self.name,
             negotiate_client_certificate=self.negotiate_client_certificate,
             type=self.type)
@@ -117,6 +129,7 @@ def get_gateway_hostname_configuration(gateway_id: Optional[str] = None,
     return AwaitableGetGatewayHostnameConfigurationResult(
         certificate_id=__ret__.certificate_id,
         hostname=__ret__.hostname,
+        id=__ret__.id,
         name=__ret__.name,
         negotiate_client_certificate=__ret__.negotiate_client_certificate,
         type=__ret__.type)

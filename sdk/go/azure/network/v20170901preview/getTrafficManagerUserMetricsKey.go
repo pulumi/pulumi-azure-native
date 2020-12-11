@@ -21,6 +21,8 @@ type LookupTrafficManagerUserMetricsKeyArgs struct {
 
 // Class representing a Traffic Manager Real User Metrics key response.
 type LookupTrafficManagerUserMetricsKeyResult struct {
+	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
+	Id string `pulumi:"id"`
 	// The key returned by the Real User Metrics operation.
 	Key *string `pulumi:"key"`
 	// The name of the resource

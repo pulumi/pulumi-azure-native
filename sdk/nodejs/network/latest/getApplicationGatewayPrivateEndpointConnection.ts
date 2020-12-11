@@ -44,6 +44,10 @@ export interface GetApplicationGatewayPrivateEndpointConnectionResult {
      */
     readonly etag: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * The consumer link id.
      */
     readonly linkIdentifier: string;

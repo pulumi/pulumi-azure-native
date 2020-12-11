@@ -20,7 +20,7 @@ class GetNetworkInterfaceResult:
     """
     A network interface in a resource group.
     """
-    def __init__(__self__, dns_settings=None, enable_accelerated_networking=None, enable_ip_forwarding=None, etag=None, hosted_workloads=None, interface_endpoint=None, ip_configurations=None, location=None, mac_address=None, name=None, network_security_group=None, primary=None, provisioning_state=None, resource_guid=None, tags=None, tap_configurations=None, type=None, virtual_machine=None):
+    def __init__(__self__, dns_settings=None, enable_accelerated_networking=None, enable_ip_forwarding=None, etag=None, hosted_workloads=None, id=None, interface_endpoint=None, ip_configurations=None, location=None, mac_address=None, name=None, network_security_group=None, primary=None, provisioning_state=None, resource_guid=None, tags=None, tap_configurations=None, type=None, virtual_machine=None):
         if dns_settings and not isinstance(dns_settings, dict):
             raise TypeError("Expected argument 'dns_settings' to be a dict")
         pulumi.set(__self__, "dns_settings", dns_settings)
@@ -36,6 +36,9 @@ class GetNetworkInterfaceResult:
         if hosted_workloads and not isinstance(hosted_workloads, list):
             raise TypeError("Expected argument 'hosted_workloads' to be a list")
         pulumi.set(__self__, "hosted_workloads", hosted_workloads)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if interface_endpoint and not isinstance(interface_endpoint, dict):
             raise TypeError("Expected argument 'interface_endpoint' to be a dict")
         pulumi.set(__self__, "interface_endpoint", interface_endpoint)
@@ -115,6 +118,14 @@ class GetNetworkInterfaceResult:
         A list of references to linked BareMetal resources
         """
         return pulumi.get(self, "hosted_workloads")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="interfaceEndpoint")
@@ -232,6 +243,7 @@ class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
             enable_ip_forwarding=self.enable_ip_forwarding,
             etag=self.etag,
             hosted_workloads=self.hosted_workloads,
+            id=self.id,
             interface_endpoint=self.interface_endpoint,
             ip_configurations=self.ip_configurations,
             location=self.location,
@@ -274,6 +286,7 @@ def get_network_interface(expand: Optional[str] = None,
         enable_ip_forwarding=__ret__.enable_ip_forwarding,
         etag=__ret__.etag,
         hosted_workloads=__ret__.hosted_workloads,
+        id=__ret__.id,
         interface_endpoint=__ret__.interface_endpoint,
         ip_configurations=__ret__.ip_configurations,
         location=__ret__.location,

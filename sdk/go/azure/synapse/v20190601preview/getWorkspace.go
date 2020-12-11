@@ -33,6 +33,8 @@ type LookupWorkspaceResult struct {
 	Encryption *EncryptionDetailsResponse `pulumi:"encryption"`
 	// Workspace level configs and feature flags
 	ExtraProperties map[string]interface{} `pulumi:"extraProperties"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// Identity of the workspace
 	Identity *ManagedIdentityResponse `pulumi:"identity"`
 	// The geo-location where the resource lives

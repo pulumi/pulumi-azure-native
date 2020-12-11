@@ -20,13 +20,16 @@ class GetNetworkResult:
     """
     This type describes a network resource.
     """
-    def __init__(__self__, address_prefix=None, description=None, ingress_config=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, address_prefix=None, description=None, id=None, ingress_config=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
         pulumi.set(__self__, "address_prefix", address_prefix)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if ingress_config and not isinstance(ingress_config, dict):
             raise TypeError("Expected argument 'ingress_config' to be a dict")
         pulumi.set(__self__, "ingress_config", ingress_config)
@@ -61,6 +64,14 @@ class GetNetworkResult:
         User readable description of the network.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ingressConfig")
@@ -119,6 +130,7 @@ class AwaitableGetNetworkResult(GetNetworkResult):
         return GetNetworkResult(
             address_prefix=self.address_prefix,
             description=self.description,
+            id=self.id,
             ingress_config=self.ingress_config,
             location=self.location,
             name=self.name,
@@ -148,6 +160,7 @@ def get_network(network_name: Optional[str] = None,
     return AwaitableGetNetworkResult(
         address_prefix=__ret__.address_prefix,
         description=__ret__.description,
+        id=__ret__.id,
         ingress_config=__ret__.ingress_config,
         location=__ret__.location,
         name=__ret__.name,

@@ -27,6 +27,8 @@ type LookupPrivateEndpointConnectionArgs struct {
 
 // Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
 type LookupPrivateEndpointConnectionResult struct {
+	// The ID of the private endpoint connection. This can be used with the Azure Resource Manager to link resources together.
+	Id string `pulumi:"id"`
 	// The name of the private endpoint connection.
 	Name string `pulumi:"name"`
 	// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.

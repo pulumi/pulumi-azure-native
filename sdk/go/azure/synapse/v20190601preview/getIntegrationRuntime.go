@@ -29,6 +29,8 @@ type LookupIntegrationRuntimeArgs struct {
 type LookupIntegrationRuntimeResult struct {
 	// Resource Etag.
 	Etag string `pulumi:"etag"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Integration runtime properties.

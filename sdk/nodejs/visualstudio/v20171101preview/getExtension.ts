@@ -40,6 +40,10 @@ export interface GetExtensionArgs {
  */
 export interface GetExtensionResult {
     /**
+     * Unique identifier of the resource.
+     */
+    readonly id: string;
+    /**
      * Resource location.
      */
     readonly location?: string;

@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.OperationsManagement.V20151101Preview
     public sealed class GetManagementAssociationResult
     {
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string? Location;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.OperationsManagement.V20151101Preview
 
         [OutputConstructor]
         private GetManagementAssociationResult(
+            string id,
+
             string? location,
 
             string name,
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNextGen.OperationsManagement.V20151101Preview
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

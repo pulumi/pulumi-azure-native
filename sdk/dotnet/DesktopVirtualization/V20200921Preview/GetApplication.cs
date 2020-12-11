@@ -86,6 +86,10 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20200921Preview
         /// </summary>
         public readonly string? IconPath;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Specifies the package application Id for MSIX applications
         /// </summary>
         public readonly string? MsixPackageApplicationId;
@@ -128,6 +132,8 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20200921Preview
 
             string? iconPath,
 
+            string id,
+
             string? msixPackageApplicationId,
 
             string? msixPackageFamilyName,
@@ -148,6 +154,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20200921Preview
             IconHash = iconHash;
             IconIndex = iconIndex;
             IconPath = iconPath;
+            Id = id;
             MsixPackageApplicationId = msixPackageApplicationId;
             MsixPackageFamilyName = msixPackageFamilyName;
             Name = name;

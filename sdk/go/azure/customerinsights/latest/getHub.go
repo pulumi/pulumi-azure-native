@@ -29,6 +29,8 @@ type LookupHubResult struct {
 	ApiEndpoint string `pulumi:"apiEndpoint"`
 	// Billing settings of the hub.
 	HubBillingInfo *HubBillingInfoFormatResponse `pulumi:"hubBillingInfo"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.

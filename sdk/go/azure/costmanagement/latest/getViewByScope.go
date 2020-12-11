@@ -37,6 +37,8 @@ type LookupViewByScopeResult struct {
 	DisplayName *string `pulumi:"displayName"`
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag *string `pulumi:"eTag"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// List of KPIs to show in Cost Analysis UI.
 	Kpis []KpiPropertiesResponse `pulumi:"kpis"`
 	// Metric to use when displaying costs.

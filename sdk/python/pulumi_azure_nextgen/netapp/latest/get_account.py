@@ -20,10 +20,13 @@ class GetAccountResult:
     """
     NetApp account resource
     """
-    def __init__(__self__, active_directories=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, active_directories=None, id=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
         if active_directories and not isinstance(active_directories, list):
             raise TypeError("Expected argument 'active_directories' to be a list")
         pulumi.set(__self__, "active_directories", active_directories)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -47,6 +50,14 @@ class GetAccountResult:
         Active Directories
         """
         return pulumi.get(self, "active_directories")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -96,6 +107,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             yield self
         return GetAccountResult(
             active_directories=self.active_directories,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -123,6 +135,7 @@ def get_account(account_name: Optional[str] = None,
 
     return AwaitableGetAccountResult(
         active_directories=__ret__.active_directories,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

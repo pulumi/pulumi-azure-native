@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.KeyVault.V20180214
     public sealed class GetSecretResult
     {
         /// <summary>
+        /// Fully qualified identifier of the key vault resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Azure location of the key vault resource.
         /// </summary>
         public readonly string Location;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.KeyVault.V20180214
 
         [OutputConstructor]
         private GetSecretResult(
+            string id,
+
             string location,
 
             string name,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.KeyVault.V20180214
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

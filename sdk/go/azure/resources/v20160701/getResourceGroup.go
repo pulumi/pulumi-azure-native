@@ -23,6 +23,8 @@ type LookupResourceGroupArgs struct {
 
 // Resource group information.
 type LookupResourceGroupResult struct {
+	// The ID of the resource group.
+	Id string `pulumi:"id"`
 	// The location of the resource group. It cannot be changed after the resource group has been created. Has to be one of the supported Azure Locations, such as West US, East US, West Europe, East Asia, etc.
 	Location string `pulumi:"location"`
 	// The Name of the resource group.

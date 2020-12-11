@@ -51,6 +51,10 @@ export interface GetDedicatedCloudNodeResult {
      */
     readonly created: any;
     /**
+     * SKU's id
+     */
+    readonly id: string;
+    /**
      * Azure region
      */
     readonly location: string;

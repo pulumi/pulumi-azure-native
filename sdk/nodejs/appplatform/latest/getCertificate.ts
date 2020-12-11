@@ -40,6 +40,10 @@ export interface GetCertificateArgs {
  */
 export interface GetCertificateResult {
     /**
+     * Fully qualified resource Id for the resource.
+     */
+    readonly id: string;
+    /**
      * The name of the resource.
      */
     readonly name: string;

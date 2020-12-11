@@ -39,6 +39,8 @@ type LookupVolumeResult struct {
 	ExportPolicy *VolumePropertiesResponseExportPolicy `pulumi:"exportPolicy"`
 	// Unique FileSystem Identifier.
 	FileSystemId string `pulumi:"fileSystemId"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Restoring
 	IsRestoring *bool `pulumi:"isRestoring"`
 	// Resource location

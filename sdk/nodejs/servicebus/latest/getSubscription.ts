@@ -89,6 +89,10 @@ export interface GetSubscriptionResult {
      */
     readonly forwardTo?: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
      */
     readonly lockDuration?: string;

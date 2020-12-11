@@ -35,6 +35,8 @@ type LookupEndpointResult struct {
 	EndpointMonitorStatus *string `pulumi:"endpointMonitorStatus"`
 	// Gets or sets the status of the endpoint..  If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.  Possible values are 'Enabled' and 'Disabled'.
 	EndpointStatus *string `pulumi:"endpointStatus"`
+	// Gets or sets the ID of the Traffic Manager endpoint.
+	Id *string `pulumi:"id"`
 	// Gets or sets the minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
 	MinChildEndpoints *int `pulumi:"minChildEndpoints"`
 	// Gets or sets the name of the Traffic Manager endpoint.

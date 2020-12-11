@@ -62,6 +62,10 @@ export interface GetApiIssueResult {
      */
     readonly description: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

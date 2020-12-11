@@ -52,6 +52,10 @@ export interface GetConnectedRegistryResult {
      */
     readonly connectionState: string;
     /**
+     * The resource ID.
+     */
+    readonly id: string;
+    /**
      * The last activity time of the connected registry.
      */
     readonly lastActivityTime: string;

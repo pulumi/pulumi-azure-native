@@ -51,6 +51,10 @@ export interface GetStaticSiteResult {
      */
     readonly defaultHostname: string;
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;

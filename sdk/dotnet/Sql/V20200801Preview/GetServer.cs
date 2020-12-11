@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// </summary>
         public readonly string FullyQualifiedDomainName;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The Azure Active Directory identity of the server.
         /// </summary>
         public readonly Outputs.ResourceIdentityResponse? Identity;
@@ -108,6 +112,8 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
 
             string fullyQualifiedDomainName,
 
+            string id,
+
             Outputs.ResourceIdentityResponse? identity,
 
             string kind,
@@ -135,6 +141,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
             AdministratorLogin = administratorLogin;
             AdministratorLoginPassword = administratorLoginPassword;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
+            Id = id;
             Identity = identity;
             Kind = kind;
             Location = location;

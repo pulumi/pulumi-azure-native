@@ -78,6 +78,10 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
         /// </summary>
         public readonly ImmutableArray<Outputs.FunctionResponse> Functions;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
         /// </summary>
         public readonly ImmutableArray<Outputs.InputResponse> Inputs;
@@ -156,6 +160,8 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
 
             ImmutableArray<Outputs.FunctionResponse> functions,
 
+            string id,
+
             ImmutableArray<Outputs.InputResponse> inputs,
 
             string jobId,
@@ -194,6 +200,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
             EventsOutOfOrderMaxDelayInSeconds = eventsOutOfOrderMaxDelayInSeconds;
             EventsOutOfOrderPolicy = eventsOutOfOrderPolicy;
             Functions = functions;
+            Id = id;
             Inputs = inputs;
             JobId = jobId;
             JobState = jobState;

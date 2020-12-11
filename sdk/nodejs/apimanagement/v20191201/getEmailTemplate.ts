@@ -48,6 +48,10 @@ export interface GetEmailTemplateResult {
      */
     readonly description?: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Whether the template is the default template provided by Api Management or has been edited.
      */
     readonly isDefault: boolean;

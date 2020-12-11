@@ -45,6 +45,10 @@ export interface GetDataSetMappingArgs {
  */
 export interface GetDataSetMappingResult {
     /**
+     * The resource id of the azure resource
+     */
+    readonly id: string;
+    /**
      * Kind of data set mapping.
      */
     readonly kind: string;

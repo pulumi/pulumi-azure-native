@@ -54,6 +54,8 @@ type LookupAppServiceEnvironmentResult struct {
 	FrontEndScaleFactor *int `pulumi:"frontEndScaleFactor"`
 	// Flag that displays whether an ASE has linux workers or not
 	HasLinuxWorkers *bool `pulumi:"hasLinuxWorkers"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
 	InternalLoadBalancingMode *string `pulumi:"internalLoadBalancingMode"`
 	// Number of IP SSL addresses reserved for the App Service Environment.

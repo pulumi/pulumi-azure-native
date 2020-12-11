@@ -27,6 +27,8 @@ type LookupUserAssignedIdentityArgs struct {
 type LookupUserAssignedIdentityResult struct {
 	// The id of the app associated with the identity. This is a random generated UUID by MSI.
 	ClientId string `pulumi:"clientId"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the resource

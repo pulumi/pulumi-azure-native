@@ -27,6 +27,8 @@ type LookupWebAppPremierAddOnArgs struct {
 
 // Premier add-on.
 type LookupWebAppPremierAddOnResult struct {
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Location.

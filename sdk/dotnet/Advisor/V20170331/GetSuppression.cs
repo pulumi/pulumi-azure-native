@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Advisor.V20170331
     public sealed class GetSuppressionResult
     {
         /// <summary>
+        /// The resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
@@ -64,6 +68,8 @@ namespace Pulumi.AzureNextGen.Advisor.V20170331
 
         [OutputConstructor]
         private GetSuppressionResult(
+            string id,
+
             string name,
 
             string? suppressionId,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.Advisor.V20170331
 
             string type)
         {
+            Id = id;
             Name = name;
             SuppressionId = suppressionId;
             Ttl = ttl;

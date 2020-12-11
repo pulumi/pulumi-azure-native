@@ -27,6 +27,8 @@ type LookupVaultArgs struct {
 type LookupVaultResult struct {
 	// Optional ETag.
 	ETag *string `pulumi:"eTag"`
+	// Resource Id represents the complete path to the resource.
+	Id string `pulumi:"id"`
 	// Identity for the resource.
 	Identity *IdentityDataResponse `pulumi:"identity"`
 	// Resource location.

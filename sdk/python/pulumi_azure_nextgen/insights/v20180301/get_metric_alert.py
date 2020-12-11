@@ -20,7 +20,7 @@ class GetMetricAlertResult:
     """
     The metric alert resource.
     """
-    def __init__(__self__, actions=None, auto_mitigate=None, criteria=None, description=None, enabled=None, evaluation_frequency=None, last_updated_time=None, location=None, name=None, scopes=None, severity=None, tags=None, target_resource_region=None, target_resource_type=None, type=None, window_size=None):
+    def __init__(__self__, actions=None, auto_mitigate=None, criteria=None, description=None, enabled=None, evaluation_frequency=None, id=None, last_updated_time=None, location=None, name=None, scopes=None, severity=None, tags=None, target_resource_region=None, target_resource_type=None, type=None, window_size=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
@@ -39,6 +39,9 @@ class GetMetricAlertResult:
         if evaluation_frequency and not isinstance(evaluation_frequency, str):
             raise TypeError("Expected argument 'evaluation_frequency' to be a str")
         pulumi.set(__self__, "evaluation_frequency", evaluation_frequency)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_updated_time and not isinstance(last_updated_time, str):
             raise TypeError("Expected argument 'last_updated_time' to be a str")
         pulumi.set(__self__, "last_updated_time", last_updated_time)
@@ -117,6 +120,14 @@ class GetMetricAlertResult:
         how often the metric alert is evaluated represented in ISO 8601 duration format.
         """
         return pulumi.get(self, "evaluation_frequency")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
@@ -211,6 +222,7 @@ class AwaitableGetMetricAlertResult(GetMetricAlertResult):
             description=self.description,
             enabled=self.enabled,
             evaluation_frequency=self.evaluation_frequency,
+            id=self.id,
             last_updated_time=self.last_updated_time,
             location=self.location,
             name=self.name,
@@ -248,6 +260,7 @@ def get_metric_alert(resource_group_name: Optional[str] = None,
         description=__ret__.description,
         enabled=__ret__.enabled,
         evaluation_frequency=__ret__.evaluation_frequency,
+        id=__ret__.id,
         last_updated_time=__ret__.last_updated_time,
         location=__ret__.location,
         name=__ret__.name,

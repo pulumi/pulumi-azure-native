@@ -19,7 +19,10 @@ class GetMigrationConfigResult:
     """
     Single item in List or Get Migration Config operation
     """
-    def __init__(__self__, migration_state=None, name=None, pending_replication_operations_count=None, post_migration_name=None, provisioning_state=None, target_namespace=None, type=None):
+    def __init__(__self__, id=None, migration_state=None, name=None, pending_replication_operations_count=None, post_migration_name=None, provisioning_state=None, target_namespace=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if migration_state and not isinstance(migration_state, str):
             raise TypeError("Expected argument 'migration_state' to be a str")
         pulumi.set(__self__, "migration_state", migration_state)
@@ -41,6 +44,14 @@ class GetMigrationConfigResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="migrationState")
@@ -105,6 +116,7 @@ class AwaitableGetMigrationConfigResult(GetMigrationConfigResult):
         if False:
             yield self
         return GetMigrationConfigResult(
+            id=self.id,
             migration_state=self.migration_state,
             name=self.name,
             pending_replication_operations_count=self.pending_replication_operations_count,
@@ -136,6 +148,7 @@ def get_migration_config(config_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:servicebus/latest:getMigrationConfig', __args__, opts=opts, typ=GetMigrationConfigResult).value
 
     return AwaitableGetMigrationConfigResult(
+        id=__ret__.id,
         migration_state=__ret__.migration_state,
         name=__ret__.name,
         pending_replication_operations_count=__ret__.pending_replication_operations_count,

@@ -37,6 +37,8 @@ type LookupOriginResult struct {
 	HttpPort *int `pulumi:"httpPort"`
 	// The value of the HTTPS port. Must be between 1 and 65535.
 	HttpsPort *int `pulumi:"httpsPort"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. If endpoint uses multiple origins for load balancing, then the host header at endpoint is ignored and this one is considered.

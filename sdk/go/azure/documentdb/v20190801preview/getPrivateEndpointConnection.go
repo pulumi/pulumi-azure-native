@@ -29,6 +29,8 @@ type LookupPrivateEndpointConnectionArgs struct {
 type LookupPrivateEndpointConnectionResult struct {
 	// Group id of the private endpoint.
 	GroupId *string `pulumi:"groupId"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Private endpoint which the connection belongs to.

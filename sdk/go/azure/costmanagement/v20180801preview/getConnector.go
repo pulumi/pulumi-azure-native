@@ -35,6 +35,8 @@ type LookupConnectorResult struct {
 	CredentialsSecret *string `pulumi:"credentialsSecret"`
 	// Connector DisplayName (defaults to Name)
 	DisplayName *string `pulumi:"displayName"`
+	// Connector id
+	Id string `pulumi:"id"`
 	// Connector kind (eg aws)
 	Kind *string `pulumi:"kind"`
 	// Connector location

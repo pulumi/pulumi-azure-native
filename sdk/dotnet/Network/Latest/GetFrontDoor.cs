@@ -72,6 +72,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly ImmutableArray<Outputs.HealthProbeSettingsModelResponse> HealthProbeSettings;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Load balancing settings associated with this Front Door instance.
         /// </summary>
         public readonly ImmutableArray<Outputs.LoadBalancingSettingsModelResponse> LoadBalancingSettings;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             ImmutableArray<Outputs.HealthProbeSettingsModelResponse> healthProbeSettings,
 
+            string id,
+
             ImmutableArray<Outputs.LoadBalancingSettingsModelResponse> loadBalancingSettings,
 
             string? location,
@@ -152,6 +158,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
             FrontdoorId = frontdoorId;
             FrontendEndpoints = frontendEndpoints;
             HealthProbeSettings = healthProbeSettings;
+            Id = id;
             LoadBalancingSettings = loadBalancingSettings;
             Location = location;
             Name = name;

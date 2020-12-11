@@ -57,6 +57,10 @@ export interface GetDatabaseAccountSqlContainerResult {
      */
     readonly etag?: string;
     /**
+     * The unique resource identifier of the database account.
+     */
+    readonly id: string;
+    /**
      * The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
      */
     readonly indexingPolicy?: outputs.documentdb.v20160319.IndexingPolicyResponse;

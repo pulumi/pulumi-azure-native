@@ -37,6 +37,8 @@ type LookupApplicationResult struct {
 	CreatedBy ApplicationClientDetailsResponse `pulumi:"createdBy"`
 	// The read-only customer support property that is retrieved from the application package.
 	CustomerSupport ApplicationPackageContactResponse `pulumi:"customerSupport"`
+	// Resource ID
+	Id string `pulumi:"id"`
 	// The identity of the resource.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// The managed application Jit access policy.

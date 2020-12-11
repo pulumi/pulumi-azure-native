@@ -29,6 +29,8 @@ type LookupSolutionArgs struct {
 type LookupSolutionResult struct {
 	// Gets or sets the ETAG for optimistic concurrency control.
 	Etag *string `pulumi:"etag"`
+	// Gets the relative URL to get to this REST resource.
+	Id string `pulumi:"id"`
 	// Gets the name of this REST resource.
 	Name string `pulumi:"name"`
 	// Gets or sets the properties of the solution.

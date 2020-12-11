@@ -38,6 +38,10 @@ namespace Pulumi.AzureNextGen.Insights.V20160301
         /// </summary>
         public readonly ImmutableArray<string> Categories;
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -74,6 +78,8 @@ namespace Pulumi.AzureNextGen.Insights.V20160301
         private GetLogProfileResult(
             ImmutableArray<string> categories,
 
+            string id,
+
             string location,
 
             ImmutableArray<string> locations,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNextGen.Insights.V20160301
             string type)
         {
             Categories = categories;
+            Id = id;
             Location = location;
             Locations = locations;
             Name = name;

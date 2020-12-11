@@ -20,7 +20,7 @@ class GetApplicationResult:
     """
     This type describes an application resource.
     """
-    def __init__(__self__, debug_params=None, description=None, diagnostics=None, health_state=None, location=None, name=None, provisioning_state=None, service_names=None, services=None, status=None, status_details=None, tags=None, type=None, unhealthy_evaluation=None):
+    def __init__(__self__, debug_params=None, description=None, diagnostics=None, health_state=None, id=None, location=None, name=None, provisioning_state=None, service_names=None, services=None, status=None, status_details=None, tags=None, type=None, unhealthy_evaluation=None):
         if debug_params and not isinstance(debug_params, str):
             raise TypeError("Expected argument 'debug_params' to be a str")
         pulumi.set(__self__, "debug_params", debug_params)
@@ -33,6 +33,9 @@ class GetApplicationResult:
         if health_state and not isinstance(health_state, str):
             raise TypeError("Expected argument 'health_state' to be a str")
         pulumi.set(__self__, "health_state", health_state)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -95,6 +98,14 @@ class GetApplicationResult:
         Describes the health state of an application resource.
         """
         return pulumi.get(self, "health_state")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -187,6 +198,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             description=self.description,
             diagnostics=self.diagnostics,
             health_state=self.health_state,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -222,6 +234,7 @@ def get_application(application_name: Optional[str] = None,
         description=__ret__.description,
         diagnostics=__ret__.diagnostics,
         health_state=__ret__.health_state,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

@@ -34,6 +34,8 @@ type LookupTaskResult struct {
 	CreationDate string `pulumi:"creationDate"`
 	// The properties that describes a set of credentials that will be used when this run is invoked.
 	Credentials *CredentialsResponse `pulumi:"credentials"`
+	// The resource ID.
+	Id string `pulumi:"id"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location string `pulumi:"location"`
 	// The name of the resource.

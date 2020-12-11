@@ -61,6 +61,10 @@ export interface GetSubnetResult {
      */
     readonly etag?: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * An array of references to interface endpoints 
      */
     readonly interfaceEndpoints: outputs.network.v20181001.InterfaceEndpointResponse[];

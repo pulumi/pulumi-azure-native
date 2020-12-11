@@ -20,10 +20,13 @@ class GetFirewallPolicyRuleCollectionGroupResult:
     """
     Rule Collection Group resource.
     """
-    def __init__(__self__, etag=None, name=None, priority=None, provisioning_state=None, rule_collections=None, type=None):
+    def __init__(__self__, etag=None, id=None, name=None, priority=None, provisioning_state=None, rule_collections=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -47,6 +50,14 @@ class GetFirewallPolicyRuleCollectionGroupResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -96,6 +107,7 @@ class AwaitableGetFirewallPolicyRuleCollectionGroupResult(GetFirewallPolicyRuleC
             yield self
         return GetFirewallPolicyRuleCollectionGroupResult(
             etag=self.etag,
+            id=self.id,
             name=self.name,
             priority=self.priority,
             provisioning_state=self.provisioning_state,
@@ -126,6 +138,7 @@ def get_firewall_policy_rule_collection_group(firewall_policy_name: Optional[str
 
     return AwaitableGetFirewallPolicyRuleCollectionGroupResult(
         etag=__ret__.etag,
+        id=__ret__.id,
         name=__ret__.name,
         priority=__ret__.priority,
         provisioning_state=__ret__.provisioning_state,

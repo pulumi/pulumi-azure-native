@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.MachineLearningExperimentation.V20170501Preview
         /// </summary>
         public readonly string? FriendlyName;
         /// <summary>
+        /// The resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The fully qualified arm id of the user key vault.
         /// </summary>
         public readonly string KeyVaultId;
@@ -108,6 +112,8 @@ namespace Pulumi.AzureNextGen.MachineLearningExperimentation.V20170501Preview
 
             string? friendlyName,
 
+            string id,
+
             string keyVaultId,
 
             string location,
@@ -131,6 +137,7 @@ namespace Pulumi.AzureNextGen.MachineLearningExperimentation.V20170501Preview
             Description = description;
             DiscoveryUri = discoveryUri;
             FriendlyName = friendlyName;
+            Id = id;
             KeyVaultId = keyVaultId;
             Location = location;
             Name = name;

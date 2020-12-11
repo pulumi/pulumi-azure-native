@@ -31,6 +31,8 @@ type LookupContainerServiceResult struct {
 	CustomProfile *ContainerServiceCustomProfileResponse `pulumi:"customProfile"`
 	// Properties of the diagnostic agent.
 	DiagnosticsProfile *ContainerServiceDiagnosticsProfileResponse `pulumi:"diagnosticsProfile"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Properties of Linux VMs.
 	LinuxProfile ContainerServiceLinuxProfileResponse `pulumi:"linuxProfile"`
 	// Resource location

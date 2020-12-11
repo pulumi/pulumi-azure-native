@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
         /// </summary>
         public readonly Outputs.PipelineDiagnosticSettingsResponse? Frontend;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource Id of a target logger.
         /// </summary>
         public readonly string LoggerId;
@@ -88,6 +92,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
 
             Outputs.PipelineDiagnosticSettingsResponse? frontend,
 
+            string id,
+
             string loggerId,
 
             string name,
@@ -100,6 +106,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
             Backend = backend;
             EnableHttpCorrelationHeaders = enableHttpCorrelationHeaders;
             Frontend = frontend;
+            Id = id;
             LoggerId = loggerId;
             Name = name;
             Sampling = sampling;

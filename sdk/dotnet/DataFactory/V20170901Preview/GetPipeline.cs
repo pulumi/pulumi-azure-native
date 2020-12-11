@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// The resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The resource name.
         /// </summary>
         public readonly string Name;
@@ -90,6 +94,8 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
 
             string etag,
 
+            string id,
+
             string name,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
@@ -101,6 +107,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
             Concurrency = concurrency;
             Description = description;
             Etag = etag;
+            Id = id;
             Name = name;
             Parameters = parameters;
             Type = type;

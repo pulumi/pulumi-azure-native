@@ -69,6 +69,10 @@ export interface GetIntegrationAccountAgreementResult {
      */
     readonly hostPartner?: string;
     /**
+     * The resource id.
+     */
+    readonly id?: string;
+    /**
      * The resource location.
      */
     readonly location?: string;

@@ -72,6 +72,10 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200218Preview
         /// </summary>
         public readonly bool? HbiWorkspace;
         /// <summary>
+        /// Specifies the resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
@@ -134,6 +138,8 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200218Preview
 
             bool? hbiWorkspace,
 
+            string id,
+
             Outputs.IdentityResponse? identity,
 
             string? keyVault,
@@ -164,6 +170,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200218Preview
             Encryption = encryption;
             FriendlyName = friendlyName;
             HbiWorkspace = hbiWorkspace;
+            Id = id;
             Identity = identity;
             KeyVault = keyVault;
             Location = location;

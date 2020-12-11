@@ -20,7 +20,10 @@ class GetIotDpsResourcePrivateEndpointConnectionResult:
     """
     The private endpoint connection of a provisioning service
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, id=None, name=None, properties=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -30,6 +33,14 @@ class GetIotDpsResourcePrivateEndpointConnectionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource identifier.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -62,6 +73,7 @@ class AwaitableGetIotDpsResourcePrivateEndpointConnectionResult(GetIotDpsResourc
         if False:
             yield self
         return GetIotDpsResourcePrivateEndpointConnectionResult(
+            id=self.id,
             name=self.name,
             properties=self.properties,
             type=self.type)
@@ -89,6 +101,7 @@ def get_iot_dps_resource_private_endpoint_connection(private_endpoint_connection
     __ret__ = pulumi.runtime.invoke('azure-nextgen:devices/v20200301:getIotDpsResourcePrivateEndpointConnection', __args__, opts=opts, typ=GetIotDpsResourcePrivateEndpointConnectionResult).value
 
     return AwaitableGetIotDpsResourcePrivateEndpointConnectionResult(
+        id=__ret__.id,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)

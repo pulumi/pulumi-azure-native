@@ -51,6 +51,10 @@ export interface GetFactoryResult {
      */
     readonly globalParameters?: {[key: string]: outputs.datafactory.latest.GlobalParameterSpecificationResponse};
     /**
+     * The resource identifier.
+     */
+    readonly id: string;
+    /**
      * Managed service identity of the factory.
      */
     readonly identity?: outputs.datafactory.latest.FactoryIdentityResponse;

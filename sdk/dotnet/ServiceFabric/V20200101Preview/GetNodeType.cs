@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview
         /// </summary>
         public readonly Outputs.EndpointRangeDescriptionResponse? EphemeralPorts;
         /// <summary>
+        /// Azure resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
         /// </summary>
         public readonly bool IsPrimary;
@@ -128,6 +132,8 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview
 
             Outputs.EndpointRangeDescriptionResponse? ephemeralPorts,
 
+            string id,
+
             bool isPrimary,
 
             string name,
@@ -160,6 +166,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview
             Capacities = capacities;
             DataDiskSizeGB = dataDiskSizeGB;
             EphemeralPorts = ephemeralPorts;
+            Id = id;
             IsPrimary = isPrimary;
             Name = name;
             PlacementProperties = placementProperties;

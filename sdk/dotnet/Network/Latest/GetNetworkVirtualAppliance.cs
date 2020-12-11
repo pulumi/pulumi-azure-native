@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The service principal that has read access to cloud-init and config blob.
         /// </summary>
         public readonly Outputs.ManagedServiceIdentityResponse? Identity;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string etag,
 
+            string? id,
+
             Outputs.ManagedServiceIdentityResponse? identity,
 
             ImmutableArray<Outputs.SubResourceResponse> inboundSecurityRules,
@@ -155,6 +161,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
             CloudInitConfiguration = cloudInitConfiguration;
             CloudInitConfigurationBlobs = cloudInitConfigurationBlobs;
             Etag = etag;
+            Id = id;
             Identity = identity;
             InboundSecurityRules = inboundSecurityRules;
             Location = location;

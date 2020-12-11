@@ -35,6 +35,10 @@ export interface GetStorageSyncServiceArgs {
  */
 export interface GetStorageSyncServiceResult {
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * Incoming Traffic Policy
      */
     readonly incomingTrafficPolicy?: string;

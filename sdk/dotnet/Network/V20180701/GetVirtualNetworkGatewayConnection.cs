@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.Network.V20180701
         /// </summary>
         public readonly bool? ExpressRouteGatewayBypass;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The ingress bytes transferred in this connection.
         /// </summary>
         public readonly int IngressBytesTransferred;
@@ -148,6 +152,8 @@ namespace Pulumi.AzureNextGen.Network.V20180701
 
             bool? expressRouteGatewayBypass,
 
+            string? id,
+
             int ingressBytesTransferred,
 
             ImmutableArray<Outputs.IpsecPolicyResponse> ipsecPolicies,
@@ -187,6 +193,7 @@ namespace Pulumi.AzureNextGen.Network.V20180701
             EnableBgp = enableBgp;
             Etag = etag;
             ExpressRouteGatewayBypass = expressRouteGatewayBypass;
+            Id = id;
             IngressBytesTransferred = ingressBytesTransferred;
             IpsecPolicies = ipsecPolicies;
             LocalNetworkGateway2 = localNetworkGateway2;

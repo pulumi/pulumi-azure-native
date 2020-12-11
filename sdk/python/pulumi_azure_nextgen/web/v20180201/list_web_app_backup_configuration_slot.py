@@ -20,7 +20,7 @@ class ListWebAppBackupConfigurationSlotResult:
     """
     Description of a backup which will be performed.
     """
-    def __init__(__self__, backup_name=None, backup_schedule=None, databases=None, enabled=None, kind=None, name=None, storage_account_url=None, type=None):
+    def __init__(__self__, backup_name=None, backup_schedule=None, databases=None, enabled=None, id=None, kind=None, name=None, storage_account_url=None, type=None):
         if backup_name and not isinstance(backup_name, str):
             raise TypeError("Expected argument 'backup_name' to be a str")
         pulumi.set(__self__, "backup_name", backup_name)
@@ -33,6 +33,9 @@ class ListWebAppBackupConfigurationSlotResult:
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -80,6 +83,14 @@ class ListWebAppBackupConfigurationSlotResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def kind(self) -> Optional[str]:
         """
         Kind of resource.
@@ -121,6 +132,7 @@ class AwaitableListWebAppBackupConfigurationSlotResult(ListWebAppBackupConfigura
             backup_schedule=self.backup_schedule,
             databases=self.databases,
             enabled=self.enabled,
+            id=self.id,
             kind=self.kind,
             name=self.name,
             storage_account_url=self.storage_account_url,
@@ -153,6 +165,7 @@ def list_web_app_backup_configuration_slot(name: Optional[str] = None,
         backup_schedule=__ret__.backup_schedule,
         databases=__ret__.databases,
         enabled=__ret__.enabled,
+        id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
         storage_account_url=__ret__.storage_account_url,

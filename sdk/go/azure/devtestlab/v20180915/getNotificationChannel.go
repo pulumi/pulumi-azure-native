@@ -37,6 +37,8 @@ type LookupNotificationChannelResult struct {
 	EmailRecipient *string `pulumi:"emailRecipient"`
 	// The list of event for which this notification is enabled.
 	Events []EventResponse `pulumi:"events"`
+	// The identifier of the resource.
+	Id string `pulumi:"id"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.

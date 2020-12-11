@@ -20,13 +20,16 @@ class GetVirtualHubRouteTableV2Result:
     """
     VirtualHubRouteTableV2 Resource.
     """
-    def __init__(__self__, attached_connections=None, etag=None, name=None, provisioning_state=None, routes=None):
+    def __init__(__self__, attached_connections=None, etag=None, id=None, name=None, provisioning_state=None, routes=None):
         if attached_connections and not isinstance(attached_connections, list):
             raise TypeError("Expected argument 'attached_connections' to be a list")
         pulumi.set(__self__, "attached_connections", attached_connections)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -52,6 +55,14 @@ class GetVirtualHubRouteTableV2Result:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -86,6 +97,7 @@ class AwaitableGetVirtualHubRouteTableV2Result(GetVirtualHubRouteTableV2Result):
         return GetVirtualHubRouteTableV2Result(
             attached_connections=self.attached_connections,
             etag=self.etag,
+            id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
             routes=self.routes)
@@ -115,6 +127,7 @@ def get_virtual_hub_route_table_v2(resource_group_name: Optional[str] = None,
     return AwaitableGetVirtualHubRouteTableV2Result(
         attached_connections=__ret__.attached_connections,
         etag=__ret__.etag,
+        id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         routes=__ret__.routes)

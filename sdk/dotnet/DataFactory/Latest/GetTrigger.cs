@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// The resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The resource name.
         /// </summary>
         public readonly string Name;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
         private GetTriggerResult(
             string etag,
 
+            string id,
+
             string name,
 
             Union<Outputs.ChainingTriggerResponse, Union<Outputs.MultiplePipelineTriggerResponse, Union<Outputs.RerunTumblingWindowTriggerResponse, Outputs.TumblingWindowTriggerResponse>>> properties,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
             string type)
         {
             Etag = etag;
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

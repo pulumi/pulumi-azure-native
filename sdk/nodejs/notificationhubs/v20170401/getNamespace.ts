@@ -51,6 +51,10 @@ export interface GetNamespaceResult {
      */
     readonly enabled?: boolean;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location?: string;

@@ -30,6 +30,8 @@ type LookupPrivateEndpointConnectionArgs struct {
 type LookupPrivateEndpointConnectionResult struct {
 	// GroupIds from the private link service resource.
 	GroupIds []string `pulumi:"groupIds"`
+	// Fully qualified identifier of the resource.
+	Id string `pulumi:"id"`
 	// Name of the resource
 	Name string `pulumi:"name"`
 	// The Private Endpoint resource for this Connection.

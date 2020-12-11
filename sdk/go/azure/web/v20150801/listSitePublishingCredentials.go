@@ -25,6 +25,8 @@ type ListSitePublishingCredentialsArgs struct {
 
 // Represents user credentials used for publishing activity
 type ListSitePublishingCredentialsResult struct {
+	// Resource Id
+	Id *string `pulumi:"id"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location

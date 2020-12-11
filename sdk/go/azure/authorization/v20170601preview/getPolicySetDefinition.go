@@ -27,6 +27,8 @@ type LookupPolicySetDefinitionResult struct {
 	Description *string `pulumi:"description"`
 	// The display name of the policy set definition.
 	DisplayName *string `pulumi:"displayName"`
+	// The ID of the policy set definition.
+	Id string `pulumi:"id"`
 	// The policy set definition metadata.
 	Metadata interface{} `pulumi:"metadata"`
 	// The name of the policy set definition.

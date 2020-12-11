@@ -27,6 +27,8 @@ type LookupAccessControlRecordArgs struct {
 
 // The access control record.
 type LookupAccessControlRecordResult struct {
+	// The path ID that uniquely identifies the object.
+	Id string `pulumi:"id"`
 	// The iSCSI initiator name (IQN).
 	InitiatorName string `pulumi:"initiatorName"`
 	// The Kind of the object. Currently only Series8000 is supported

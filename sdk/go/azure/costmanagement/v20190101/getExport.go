@@ -31,6 +31,8 @@ type LookupExportResult struct {
 	DeliveryInfo ExportDeliveryInfoResponse `pulumi:"deliveryInfo"`
 	// The format of the export being delivered.
 	Format *string `pulumi:"format"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Has schedule information for the export.

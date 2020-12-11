@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
         /// </summary>
         public readonly string? ExpirationDateUtc;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The last time this rule was modified
         /// </summary>
         public readonly string LastModifiedUtc;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
 
             string? expirationDateUtc,
 
+            string id,
+
             string lastModifiedUtc,
 
             string name,
@@ -93,6 +99,7 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
             AlertType = alertType;
             Comment = comment;
             ExpirationDateUtc = expirationDateUtc;
+            Id = id;
             LastModifiedUtc = lastModifiedUtc;
             Name = name;
             Reason = reason;

@@ -27,6 +27,8 @@ type ListWebAppAzureStorageAccountsSlotArgs struct {
 
 // AzureStorageInfo dictionary resource.
 type ListWebAppAzureStorageAccountsSlotResult struct {
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.

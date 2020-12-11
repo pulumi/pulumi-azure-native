@@ -19,7 +19,10 @@ class ListManagedClusterAccessProfileResult:
     """
     Managed cluster Access Profile.
     """
-    def __init__(__self__, kube_config=None, location=None, name=None, tags=None, type=None):
+    def __init__(__self__, id=None, kube_config=None, location=None, name=None, tags=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kube_config and not isinstance(kube_config, str):
             raise TypeError("Expected argument 'kube_config' to be a str")
         pulumi.set(__self__, "kube_config", kube_config)
@@ -35,6 +38,14 @@ class ListManagedClusterAccessProfileResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="kubeConfig")
@@ -83,6 +94,7 @@ class AwaitableListManagedClusterAccessProfileResult(ListManagedClusterAccessPro
         if False:
             yield self
         return ListManagedClusterAccessProfileResult(
+            id=self.id,
             kube_config=self.kube_config,
             location=self.location,
             name=self.name,
@@ -112,6 +124,7 @@ def list_managed_cluster_access_profile(resource_group_name: Optional[str] = Non
     __ret__ = pulumi.runtime.invoke('azure-nextgen:containerservice/v20191001:listManagedClusterAccessProfile', __args__, opts=opts, typ=ListManagedClusterAccessProfileResult).value
 
     return AwaitableListManagedClusterAccessProfileResult(
+        id=__ret__.id,
         kube_config=__ret__.kube_config,
         location=__ret__.location,
         name=__ret__.name,

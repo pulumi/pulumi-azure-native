@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Billing.V20200301Preview
     public sealed class GetCostAllocationRuleResult
     {
         /// <summary>
+        /// Azure Resource Manager Id for the rule. This is a read ony value.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Name of the rule. This is a read only value.
         /// </summary>
         public readonly string Name;
@@ -54,12 +58,15 @@ namespace Pulumi.AzureNextGen.Billing.V20200301Preview
 
         [OutputConstructor]
         private GetCostAllocationRuleResult(
+            string id,
+
             string name,
 
             Outputs.CostAllocationRulePropertiesResponse properties,
 
             string type)
         {
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

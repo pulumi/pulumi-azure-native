@@ -40,6 +40,10 @@ export interface ListVirtualMachineApplicableSchedulesArgs {
  */
 export interface ListVirtualMachineApplicableSchedulesResult {
     /**
+     * The identifier of the resource.
+     */
+    readonly id: string;
+    /**
      * The auto-shutdown schedule, if one has been set at the lab or lab resource level.
      */
     readonly labVmsShutdown?: outputs.devtestlab.latest.ScheduleResponse;

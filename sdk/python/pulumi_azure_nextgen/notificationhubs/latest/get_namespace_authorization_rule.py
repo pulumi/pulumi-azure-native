@@ -20,7 +20,7 @@ class GetNamespaceAuthorizationRuleResult:
     """
     Description of a Namespace AuthorizationRules.
     """
-    def __init__(__self__, claim_type=None, claim_value=None, created_time=None, key_name=None, location=None, modified_time=None, name=None, primary_key=None, revision=None, rights=None, secondary_key=None, sku=None, tags=None, type=None):
+    def __init__(__self__, claim_type=None, claim_value=None, created_time=None, id=None, key_name=None, location=None, modified_time=None, name=None, primary_key=None, revision=None, rights=None, secondary_key=None, sku=None, tags=None, type=None):
         if claim_type and not isinstance(claim_type, str):
             raise TypeError("Expected argument 'claim_type' to be a str")
         pulumi.set(__self__, "claim_type", claim_type)
@@ -30,6 +30,9 @@ class GetNamespaceAuthorizationRuleResult:
         if created_time and not isinstance(created_time, str):
             raise TypeError("Expected argument 'created_time' to be a str")
         pulumi.set(__self__, "created_time", created_time)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if key_name and not isinstance(key_name, str):
             raise TypeError("Expected argument 'key_name' to be a str")
         pulumi.set(__self__, "key_name", key_name)
@@ -87,6 +90,14 @@ class GetNamespaceAuthorizationRuleResult:
         The created time for this rule
         """
         return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="keyName")
@@ -186,6 +197,7 @@ class AwaitableGetNamespaceAuthorizationRuleResult(GetNamespaceAuthorizationRule
             claim_type=self.claim_type,
             claim_value=self.claim_value,
             created_time=self.created_time,
+            id=self.id,
             key_name=self.key_name,
             location=self.location,
             modified_time=self.modified_time,
@@ -224,6 +236,7 @@ def get_namespace_authorization_rule(authorization_rule_name: Optional[str] = No
         claim_type=__ret__.claim_type,
         claim_value=__ret__.claim_value,
         created_time=__ret__.created_time,
+        id=__ret__.id,
         key_name=__ret__.key_name,
         location=__ret__.location,
         modified_time=__ret__.modified_time,

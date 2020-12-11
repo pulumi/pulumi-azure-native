@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.AVS.V20190809Preview
     public sealed class GetPrivateCloudResult
     {
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string? Location;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.AVS.V20190809Preview
 
         [OutputConstructor]
         private GetPrivateCloudResult(
+            string id,
+
             string? location,
 
             string name,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.AVS.V20190809Preview
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

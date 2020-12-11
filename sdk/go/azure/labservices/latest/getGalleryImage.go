@@ -37,6 +37,8 @@ type LookupGalleryImageResult struct {
 	Description string `pulumi:"description"`
 	// The icon of the gallery image.
 	Icon string `pulumi:"icon"`
+	// The identifier of the resource.
+	Id string `pulumi:"id"`
 	// The image reference of the gallery image.
 	ImageReference GalleryImageReferenceResponse `pulumi:"imageReference"`
 	// Indicates whether this gallery image is enabled.

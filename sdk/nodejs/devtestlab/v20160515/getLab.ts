@@ -56,6 +56,10 @@ export interface GetLabResult {
      */
     readonly defaultStorageAccount: string;
     /**
+     * The identifier of the resource.
+     */
+    readonly id: string;
+    /**
      * Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
      */
     readonly labStorageType?: string;

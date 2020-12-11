@@ -29,6 +29,8 @@ type LookupCommunicationServiceResult struct {
 	DataLocation string `pulumi:"dataLocation"`
 	// FQDN of the CommunicationService instance.
 	HostName string `pulumi:"hostName"`
+	// Fully qualified resource ID for the resource.
+	Id string `pulumi:"id"`
 	// The immutable resource Id of the communication service.
 	ImmutableResourceId string `pulumi:"immutableResourceId"`
 	// The Azure location where the CommunicationService is running.

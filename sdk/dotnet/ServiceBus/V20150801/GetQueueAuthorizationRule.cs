@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20150801
     public sealed class GetQueueAuthorizationRuleResult
     {
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -70,6 +74,8 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20150801
 
         [OutputConstructor]
         private GetQueueAuthorizationRuleResult(
+            string id,
+
             string? location,
 
             string name,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20150801
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Rights = rights;

@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// </summary>
         public readonly ImmutableArray<string> FqdnZones;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// DNS Service log level.
         /// </summary>
         public readonly string? LogLevel;
@@ -96,6 +100,8 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
 
             ImmutableArray<string> fqdnZones,
 
+            string id,
+
             string? logLevel,
 
             string name,
@@ -112,6 +118,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
             DisplayName = displayName;
             DnsServiceIp = dnsServiceIp;
             FqdnZones = fqdnZones;
+            Id = id;
             LogLevel = logLevel;
             Name = name;
             ProvisioningState = provisioningState;

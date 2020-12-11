@@ -19,7 +19,7 @@ class GetGatewayHostnameConfigurationResult:
     """
     Gateway hostname configuration details.
     """
-    def __init__(__self__, certificate_id=None, hostname=None, http2_enabled=None, name=None, negotiate_client_certificate=None, tls10_enabled=None, tls11_enabled=None, type=None):
+    def __init__(__self__, certificate_id=None, hostname=None, http2_enabled=None, id=None, name=None, negotiate_client_certificate=None, tls10_enabled=None, tls11_enabled=None, type=None):
         if certificate_id and not isinstance(certificate_id, str):
             raise TypeError("Expected argument 'certificate_id' to be a str")
         pulumi.set(__self__, "certificate_id", certificate_id)
@@ -29,6 +29,9 @@ class GetGatewayHostnameConfigurationResult:
         if http2_enabled and not isinstance(http2_enabled, bool):
             raise TypeError("Expected argument 'http2_enabled' to be a bool")
         pulumi.set(__self__, "http2_enabled", http2_enabled)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -68,6 +71,14 @@ class GetGatewayHostnameConfigurationResult:
         Specifies if HTTP/2.0 is supported
         """
         return pulumi.get(self, "http2_enabled")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -119,6 +130,7 @@ class AwaitableGetGatewayHostnameConfigurationResult(GetGatewayHostnameConfigura
             certificate_id=self.certificate_id,
             hostname=self.hostname,
             http2_enabled=self.http2_enabled,
+            id=self.id,
             name=self.name,
             negotiate_client_certificate=self.negotiate_client_certificate,
             tls10_enabled=self.tls10_enabled,
@@ -154,6 +166,7 @@ def get_gateway_hostname_configuration(gateway_id: Optional[str] = None,
         certificate_id=__ret__.certificate_id,
         hostname=__ret__.hostname,
         http2_enabled=__ret__.http2_enabled,
+        id=__ret__.id,
         name=__ret__.name,
         negotiate_client_certificate=__ret__.negotiate_client_certificate,
         tls10_enabled=__ret__.tls10_enabled,

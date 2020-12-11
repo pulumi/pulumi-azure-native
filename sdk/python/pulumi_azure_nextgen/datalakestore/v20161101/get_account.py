@@ -20,7 +20,7 @@ class GetAccountResult:
     """
     Data Lake Store account information.
     """
-    def __init__(__self__, account_id=None, creation_time=None, current_tier=None, default_group=None, encryption_config=None, encryption_provisioning_state=None, encryption_state=None, endpoint=None, firewall_allow_azure_ips=None, firewall_rules=None, firewall_state=None, identity=None, last_modified_time=None, location=None, name=None, new_tier=None, provisioning_state=None, state=None, tags=None, trusted_id_provider_state=None, trusted_id_providers=None, type=None, virtual_network_rules=None):
+    def __init__(__self__, account_id=None, creation_time=None, current_tier=None, default_group=None, encryption_config=None, encryption_provisioning_state=None, encryption_state=None, endpoint=None, firewall_allow_azure_ips=None, firewall_rules=None, firewall_state=None, id=None, identity=None, last_modified_time=None, location=None, name=None, new_tier=None, provisioning_state=None, state=None, tags=None, trusted_id_provider_state=None, trusted_id_providers=None, type=None, virtual_network_rules=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
@@ -54,6 +54,9 @@ class GetAccountResult:
         if firewall_state and not isinstance(firewall_state, str):
             raise TypeError("Expected argument 'firewall_state' to be a str")
         pulumi.set(__self__, "firewall_state", firewall_state)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -181,6 +184,14 @@ class GetAccountResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource identifier.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def identity(self) -> 'outputs.EncryptionIdentityResponse':
         """
         The Key Vault encryption identity, if any.
@@ -293,6 +304,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             firewall_allow_azure_ips=self.firewall_allow_azure_ips,
             firewall_rules=self.firewall_rules,
             firewall_state=self.firewall_state,
+            id=self.id,
             identity=self.identity,
             last_modified_time=self.last_modified_time,
             location=self.location,
@@ -337,6 +349,7 @@ def get_account(account_name: Optional[str] = None,
         firewall_allow_azure_ips=__ret__.firewall_allow_azure_ips,
         firewall_rules=__ret__.firewall_rules,
         firewall_state=__ret__.firewall_state,
+        id=__ret__.id,
         identity=__ret__.identity,
         last_modified_time=__ret__.last_modified_time,
         location=__ret__.location,

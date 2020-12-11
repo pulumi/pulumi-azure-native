@@ -27,6 +27,8 @@ type LookupJobScheduleArgs struct {
 
 // Definition of the job schedule.
 type LookupJobScheduleResult struct {
+	// Gets the id of the resource.
+	Id string `pulumi:"id"`
 	// Gets or sets the id of job schedule.
 	JobScheduleId *string `pulumi:"jobScheduleId"`
 	// Gets the name of the variable.

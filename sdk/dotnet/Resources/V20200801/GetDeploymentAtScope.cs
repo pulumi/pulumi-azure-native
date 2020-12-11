@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Resources.V20200801
     public sealed class GetDeploymentAtScopeResult
     {
         /// <summary>
+        /// The ID of the deployment.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// the location of the deployment.
         /// </summary>
         public readonly string? Location;
@@ -62,6 +66,8 @@ namespace Pulumi.AzureNextGen.Resources.V20200801
 
         [OutputConstructor]
         private GetDeploymentAtScopeResult(
+            string id,
+
             string? location,
 
             string name,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.Resources.V20200801
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

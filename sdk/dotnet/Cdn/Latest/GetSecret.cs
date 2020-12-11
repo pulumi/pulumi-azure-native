@@ -47,6 +47,10 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
     {
         public readonly string DeploymentStatus;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -71,6 +75,8 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         private GetSecretResult(
             string deploymentStatus,
 
+            string id,
+
             string name,
 
             Union<Outputs.CustomerCertificateParametersResponse, Union<Outputs.ManagedCertificateParametersResponse, Outputs.UrlSigningKeyParametersResponse>>? parameters,
@@ -82,6 +88,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
             string type)
         {
             DeploymentStatus = deploymentStatus;
+            Id = id;
             Name = name;
             Parameters = parameters;
             ProvisioningState = provisioningState;

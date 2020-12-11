@@ -92,6 +92,10 @@ export interface GetDatabaseResult {
      */
     readonly failoverGroupId: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Kind of database. This is metadata used for the Azure portal experience.
      */
     readonly kind: string;

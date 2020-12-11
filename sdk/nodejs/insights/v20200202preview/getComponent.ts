@@ -71,6 +71,10 @@ export interface GetComponentResult {
      */
     readonly hockeyAppToken: string;
     /**
+     * Azure resource Id
+     */
+    readonly id: string;
+    /**
      * Purge data immediately after 30 days.
      */
     readonly immediatePurgeDataOn30Days?: boolean;

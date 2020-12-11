@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Databricks.Latest
         /// </summary>
         public readonly string CreatedDateTime;
         /// <summary>
+        /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -112,6 +116,8 @@ namespace Pulumi.AzureNextGen.Databricks.Latest
 
             string createdDateTime,
 
+            string id,
+
             string location,
 
             string managedResourceGroupId,
@@ -141,6 +147,7 @@ namespace Pulumi.AzureNextGen.Databricks.Latest
             Authorizations = authorizations;
             CreatedBy = createdBy;
             CreatedDateTime = createdDateTime;
+            Id = id;
             Location = location;
             ManagedResourceGroupId = managedResourceGroupId;
             Name = name;

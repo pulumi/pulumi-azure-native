@@ -35,6 +35,8 @@ type LookupEnvironmentSettingResult struct {
 	ConfigurationState *string `pulumi:"configurationState"`
 	// Describes the environment and its resource settings
 	Description *string `pulumi:"description"`
+	// The identifier of the resource.
+	Id string `pulumi:"id"`
 	// Time when the template VM was last changed.
 	LastChanged string `pulumi:"lastChanged"`
 	// Time when the template VM was last sent for publishing.

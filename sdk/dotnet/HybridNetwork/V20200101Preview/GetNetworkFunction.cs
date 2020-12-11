@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -106,6 +110,8 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
 
             string? etag,
 
+            string id,
+
             string location,
 
             Outputs.SubResourceResponse managedApplication,
@@ -134,6 +140,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         {
             Device = device;
             Etag = etag;
+            Id = id;
             Location = location;
             ManagedApplication = managedApplication;
             ManagedApplicationParameters = managedApplicationParameters;

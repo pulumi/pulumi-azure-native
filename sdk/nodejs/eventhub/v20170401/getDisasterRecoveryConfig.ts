@@ -44,6 +44,10 @@ export interface GetDisasterRecoveryConfigResult {
      */
     readonly alternateName?: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

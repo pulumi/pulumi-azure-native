@@ -29,6 +29,8 @@ type LookupNamespaceResult struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// Specifies whether this instance is enabled.
 	Enabled *bool `pulumi:"enabled"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Identifier for Azure Insights metrics

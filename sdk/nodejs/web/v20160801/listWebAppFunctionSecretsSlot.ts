@@ -45,6 +45,10 @@ export interface ListWebAppFunctionSecretsSlotArgs {
  */
 export interface ListWebAppFunctionSecretsSlotResult {
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Secret key.
      */
     readonly key?: string;

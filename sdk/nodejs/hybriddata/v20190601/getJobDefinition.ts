@@ -61,6 +61,10 @@ export interface GetJobDefinitionResult {
      */
     readonly dataSourceId: string;
     /**
+     * Id of the object.
+     */
+    readonly id: string;
+    /**
      * Last modified time of the job definition.
      */
     readonly lastModifiedTime?: string;

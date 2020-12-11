@@ -19,7 +19,7 @@ class GetSubscriptionResult:
     """
     Subscription details.
     """
-    def __init__(__self__, created_date=None, display_name=None, end_date=None, expiration_date=None, name=None, notification_date=None, primary_key=None, product_id=None, secondary_key=None, start_date=None, state=None, state_comment=None, type=None, user_id=None):
+    def __init__(__self__, created_date=None, display_name=None, end_date=None, expiration_date=None, id=None, name=None, notification_date=None, primary_key=None, product_id=None, secondary_key=None, start_date=None, state=None, state_comment=None, type=None, user_id=None):
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
@@ -32,6 +32,9 @@ class GetSubscriptionResult:
         if expiration_date and not isinstance(expiration_date, str):
             raise TypeError("Expected argument 'expiration_date' to be a str")
         pulumi.set(__self__, "expiration_date", expiration_date)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -94,6 +97,14 @@ class GetSubscriptionResult:
         Subscription expiration date. The setting is for audit purposes only and the subscription is not automatically expired. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
         """
         return pulumi.get(self, "expiration_date")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -186,6 +197,7 @@ class AwaitableGetSubscriptionResult(GetSubscriptionResult):
             display_name=self.display_name,
             end_date=self.end_date,
             expiration_date=self.expiration_date,
+            id=self.id,
             name=self.name,
             notification_date=self.notification_date,
             primary_key=self.primary_key,
@@ -224,6 +236,7 @@ def get_subscription(resource_group_name: Optional[str] = None,
         display_name=__ret__.display_name,
         end_date=__ret__.end_date,
         expiration_date=__ret__.expiration_date,
+        id=__ret__.id,
         name=__ret__.name,
         notification_date=__ret__.notification_date,
         primary_key=__ret__.primary_key,

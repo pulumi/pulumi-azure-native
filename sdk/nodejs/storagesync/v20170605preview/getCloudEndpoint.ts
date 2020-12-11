@@ -53,6 +53,10 @@ export interface GetCloudEndpointResult {
      */
     readonly friendlyName?: string;
     /**
+     * The id of the resource.
+     */
+    readonly id: string;
+    /**
      * CloudEndpoint lastWorkflowId
      */
     readonly lastWorkflowId?: string;

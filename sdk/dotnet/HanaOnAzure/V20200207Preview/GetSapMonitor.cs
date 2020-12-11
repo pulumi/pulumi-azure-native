@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20200207Preview
         /// </summary>
         public readonly bool? EnableCustomerAnalytics;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20200207Preview
         private GetSapMonitorResult(
             bool? enableCustomerAnalytics,
 
+            string id,
+
             string location,
 
             string? logAnalyticsWorkspaceArmId,
@@ -115,6 +121,7 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20200207Preview
             string type)
         {
             EnableCustomerAnalytics = enableCustomerAnalytics;
+            Id = id;
             Location = location;
             LogAnalyticsWorkspaceArmId = logAnalyticsWorkspaceArmId;
             LogAnalyticsWorkspaceId = logAnalyticsWorkspaceId;

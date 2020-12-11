@@ -33,6 +33,8 @@ type LookupApiReleaseResult struct {
 	ApiId *string `pulumi:"apiId"`
 	// The time the API was released. The date conforms to the following format: yyyy-MM-ddTHH:mm:ssZ as specified by the ISO 8601 standard.
 	CreatedDateTime string `pulumi:"createdDateTime"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Release Notes

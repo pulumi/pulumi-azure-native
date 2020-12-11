@@ -26,6 +26,8 @@ type LookupNetworkWatcherArgs struct {
 // Network watcher in a resource group.
 type LookupNetworkWatcherResult struct {
 	Etag *string `pulumi:"etag"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// Resource name.

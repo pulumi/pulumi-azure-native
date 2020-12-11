@@ -20,10 +20,13 @@ class GetMSIXPackageResult:
     """
     Schema for MSIX Package properties.
     """
-    def __init__(__self__, display_name=None, image_path=None, is_active=None, is_regular_registration=None, last_updated=None, name=None, package_applications=None, package_dependencies=None, package_family_name=None, package_name=None, package_relative_path=None, type=None, version=None):
+    def __init__(__self__, display_name=None, id=None, image_path=None, is_active=None, is_regular_registration=None, last_updated=None, name=None, package_applications=None, package_dependencies=None, package_family_name=None, package_name=None, package_relative_path=None, type=None, version=None):
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if image_path and not isinstance(image_path, str):
             raise TypeError("Expected argument 'image_path' to be a str")
         pulumi.set(__self__, "image_path", image_path)
@@ -68,6 +71,14 @@ class GetMSIXPackageResult:
         User friendly Name to be displayed in the portal. 
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="imagePath")
@@ -173,6 +184,7 @@ class AwaitableGetMSIXPackageResult(GetMSIXPackageResult):
             yield self
         return GetMSIXPackageResult(
             display_name=self.display_name,
+            id=self.id,
             image_path=self.image_path,
             is_active=self.is_active,
             is_regular_registration=self.is_regular_registration,
@@ -210,6 +222,7 @@ def get_msix_package(host_pool_name: Optional[str] = None,
 
     return AwaitableGetMSIXPackageResult(
         display_name=__ret__.display_name,
+        id=__ret__.id,
         image_path=__ret__.image_path,
         is_active=__ret__.is_active,
         is_regular_registration=__ret__.is_regular_registration,

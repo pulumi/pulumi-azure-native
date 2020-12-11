@@ -43,6 +43,8 @@ type LookupInboundNatRuleResult struct {
 	FrontendIPConfiguration *SubResourceResponse `pulumi:"frontendIPConfiguration"`
 	// The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
 	FrontendPort *int `pulumi:"frontendPort"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.

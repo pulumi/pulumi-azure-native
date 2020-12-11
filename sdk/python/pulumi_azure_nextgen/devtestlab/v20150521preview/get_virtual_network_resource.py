@@ -20,7 +20,7 @@ class GetVirtualNetworkResourceResult:
     """
     A virtual network.
     """
-    def __init__(__self__, allowed_subnets=None, description=None, external_provider_resource_id=None, location=None, name=None, provisioning_state=None, subnet_overrides=None, tags=None, type=None):
+    def __init__(__self__, allowed_subnets=None, description=None, external_provider_resource_id=None, id=None, location=None, name=None, provisioning_state=None, subnet_overrides=None, tags=None, type=None):
         if allowed_subnets and not isinstance(allowed_subnets, list):
             raise TypeError("Expected argument 'allowed_subnets' to be a list")
         pulumi.set(__self__, "allowed_subnets", allowed_subnets)
@@ -30,6 +30,9 @@ class GetVirtualNetworkResourceResult:
         if external_provider_resource_id and not isinstance(external_provider_resource_id, str):
             raise TypeError("Expected argument 'external_provider_resource_id' to be a str")
         pulumi.set(__self__, "external_provider_resource_id", external_provider_resource_id)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -72,6 +75,14 @@ class GetVirtualNetworkResourceResult:
         The Microsoft.Network resource identifier of the virtual network.
         """
         return pulumi.get(self, "external_provider_resource_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The identifier of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -131,6 +142,7 @@ class AwaitableGetVirtualNetworkResourceResult(GetVirtualNetworkResourceResult):
             allowed_subnets=self.allowed_subnets,
             description=self.description,
             external_provider_resource_id=self.external_provider_resource_id,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -164,6 +176,7 @@ def get_virtual_network_resource(lab_name: Optional[str] = None,
         allowed_subnets=__ret__.allowed_subnets,
         description=__ret__.description,
         external_provider_resource_id=__ret__.external_provider_resource_id,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

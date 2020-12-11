@@ -29,6 +29,8 @@ type LookupEventHubArgs struct {
 type LookupEventHubResult struct {
 	// Exact time the Event Hub was created.
 	CreatedAt string `pulumi:"createdAt"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Number of days to retain the events for this Event Hub.

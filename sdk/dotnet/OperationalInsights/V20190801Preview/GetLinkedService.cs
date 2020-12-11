@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20190801Preview
     public sealed class GetLinkedServiceResult
     {
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -64,6 +68,8 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20190801Preview
 
         [OutputConstructor]
         private GetLinkedServiceResult(
+            string id,
+
             string name,
 
             string? resourceId,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20190801Preview
 
             string? writeAccessResourceId)
         {
+            Id = id;
             Name = name;
             ResourceId = resourceId;
             Type = type;

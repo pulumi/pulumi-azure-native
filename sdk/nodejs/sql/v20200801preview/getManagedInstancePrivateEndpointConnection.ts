@@ -40,6 +40,10 @@ export interface GetManagedInstancePrivateEndpointConnectionArgs {
  */
 export interface GetManagedInstancePrivateEndpointConnectionResult {
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

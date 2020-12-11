@@ -25,6 +25,8 @@ type LookupWebAppSwiftVirtualNetworkConnectionArgs struct {
 
 // Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
 type LookupWebAppSwiftVirtualNetworkConnectionResult struct {
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.

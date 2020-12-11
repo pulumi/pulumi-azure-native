@@ -29,6 +29,8 @@ type LookupBackupScheduleGroupArgs struct {
 
 // The Backup Schedule Group
 type LookupBackupScheduleGroupResult struct {
+	// The identifier.
+	Id string `pulumi:"id"`
 	// The name.
 	Name string `pulumi:"name"`
 	// The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.

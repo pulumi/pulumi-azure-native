@@ -40,6 +40,10 @@ export interface GetImportPipelineArgs {
  */
 export interface GetImportPipelineResult {
     /**
+     * The resource ID.
+     */
+    readonly id: string;
+    /**
      * The identity of the import pipeline.
      */
     readonly identity?: outputs.containerregistry.v20201101preview.IdentityPropertiesResponse;

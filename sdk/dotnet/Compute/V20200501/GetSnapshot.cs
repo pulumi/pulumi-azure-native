@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.Compute.V20200501
         /// </summary>
         public readonly string? HyperVGeneration;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
         /// </summary>
         public readonly bool? Incremental;
@@ -132,6 +136,8 @@ namespace Pulumi.AzureNextGen.Compute.V20200501
 
             string? hyperVGeneration,
 
+            string id,
+
             bool? incremental,
 
             string location,
@@ -163,6 +169,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200501
             Encryption = encryption;
             EncryptionSettingsCollection = encryptionSettingsCollection;
             HyperVGeneration = hyperVGeneration;
+            Id = id;
             Incremental = incremental;
             Location = location;
             ManagedBy = managedBy;

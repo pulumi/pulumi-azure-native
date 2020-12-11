@@ -31,6 +31,8 @@ type LookupIpGroupResult struct {
 	Etag string `pulumi:"etag"`
 	// List of references to Azure resources that this IpGroups is associated with.
 	Firewalls []SubResourceResponse `pulumi:"firewalls"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// IpAddresses/IpAddressPrefixes in the IpGroups resource.
 	IpAddresses []string `pulumi:"ipAddresses"`
 	// Resource location.

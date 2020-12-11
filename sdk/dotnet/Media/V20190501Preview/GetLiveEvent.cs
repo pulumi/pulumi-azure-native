@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.Media.V20190501Preview
         /// </summary>
         public readonly Outputs.LiveEventEncodingResponse? Encoding;
         /// <summary>
+        /// Fully qualified resource ID for the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The Live Event input.
         /// </summary>
         public readonly Outputs.LiveEventInputResponse Input;
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNextGen.Media.V20190501Preview
 
             Outputs.LiveEventEncodingResponse? encoding,
 
+            string id,
+
             Outputs.LiveEventInputResponse input,
 
             string lastModified,
@@ -148,6 +154,7 @@ namespace Pulumi.AzureNextGen.Media.V20190501Preview
             CrossSiteAccessPolicies = crossSiteAccessPolicies;
             Description = description;
             Encoding = encoding;
+            Id = id;
             Input = input;
             LastModified = lastModified;
             Location = location;

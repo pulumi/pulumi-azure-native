@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
     public sealed class GetSqlResourceSqlRoleAssignmentResult
     {
         /// <summary>
+        /// The unique resource identifier of the database account.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the database account.
         /// </summary>
         public readonly string Name;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
 
         [OutputConstructor]
         private GetSqlResourceSqlRoleAssignmentResult(
+            string id,
+
             string name,
 
             string? principalId,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
 
             string type)
         {
+            Id = id;
             Name = name;
             PrincipalId = principalId;
             RoleDefinitionId = roleDefinitionId;

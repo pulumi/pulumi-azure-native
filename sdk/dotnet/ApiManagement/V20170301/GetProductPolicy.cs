@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301
     public sealed class GetProductPolicyResult
     {
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -66,12 +70,15 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301
 
         [OutputConstructor]
         private GetProductPolicyResult(
+            string id,
+
             string name,
 
             string policyContent,
 
             string type)
         {
+            Id = id;
             Name = name;
             PolicyContent = policyContent;
             Type = type;

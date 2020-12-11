@@ -44,6 +44,10 @@ export interface GetSqlResourceSqlRoleDefinitionResult {
      */
     readonly assignableScopes?: string[];
     /**
+     * The unique resource identifier of the database account.
+     */
+    readonly id: string;
+    /**
      * The name of the database account.
      */
     readonly name: string;

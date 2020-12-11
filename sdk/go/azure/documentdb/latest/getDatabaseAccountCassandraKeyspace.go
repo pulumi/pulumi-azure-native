@@ -27,6 +27,8 @@ type LookupDatabaseAccountCassandraKeyspaceArgs struct {
 
 // An Azure Cosmos DB Cassandra keyspace.
 type LookupDatabaseAccountCassandraKeyspaceResult struct {
+	// The unique resource identifier of the database account.
+	Id string `pulumi:"id"`
 	// The location of the resource group to which the resource belongs.
 	Location *string `pulumi:"location"`
 	// The name of the database account.

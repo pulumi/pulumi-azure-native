@@ -31,6 +31,8 @@ type LookupPolicyResult struct {
 	Etag *string `pulumi:"etag"`
 	// Describes Frontend Endpoints associated with this Web Application Firewall policy.
 	FrontendEndpointLinks []FrontendEndpointLinkResponse `pulumi:"frontendEndpointLinks"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Describes managed rules inside the policy.

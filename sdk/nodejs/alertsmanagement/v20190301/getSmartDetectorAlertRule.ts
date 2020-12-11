@@ -56,6 +56,10 @@ export interface GetSmartDetectorAlertRuleResult {
      */
     readonly frequency: string;
     /**
+     * The resource ID.
+     */
+    readonly id: string;
+    /**
      * The resource name.
      */
     readonly name: string;

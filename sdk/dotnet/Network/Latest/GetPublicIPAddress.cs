@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The idle timeout of the public IP address.
         /// </summary>
         public readonly int? IdleTimeoutInMinutes;
@@ -132,6 +136,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             Outputs.ExtendedLocationResponse? extendedLocation,
 
+            string? id,
+
             int? idleTimeoutInMinutes,
 
             string? ipAddress,
@@ -166,6 +172,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
             DnsSettings = dnsSettings;
             Etag = etag;
             ExtendedLocation = extendedLocation;
+            Id = id;
             IdleTimeoutInMinutes = idleTimeoutInMinutes;
             IpAddress = ipAddress;
             IpConfiguration = ipConfiguration;

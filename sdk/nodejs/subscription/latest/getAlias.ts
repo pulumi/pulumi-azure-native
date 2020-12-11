@@ -30,6 +30,10 @@ export interface GetAliasArgs {
  */
 export interface GetAliasResult {
     /**
+     * Fully qualified ID for the alias resource.
+     */
+    readonly id: string;
+    /**
      * Alias ID.
      */
     readonly name: string;

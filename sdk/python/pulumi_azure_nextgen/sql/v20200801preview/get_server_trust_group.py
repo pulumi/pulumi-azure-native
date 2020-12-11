@@ -20,10 +20,13 @@ class GetServerTrustGroupResult:
     """
     A server trust group.
     """
-    def __init__(__self__, group_members=None, name=None, trust_scopes=None, type=None):
+    def __init__(__self__, group_members=None, id=None, name=None, trust_scopes=None, type=None):
         if group_members and not isinstance(group_members, list):
             raise TypeError("Expected argument 'group_members' to be a list")
         pulumi.set(__self__, "group_members", group_members)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -41,6 +44,14 @@ class GetServerTrustGroupResult:
         Group members information for the server trust group.
         """
         return pulumi.get(self, "group_members")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -74,6 +85,7 @@ class AwaitableGetServerTrustGroupResult(GetServerTrustGroupResult):
             yield self
         return GetServerTrustGroupResult(
             group_members=self.group_members,
+            id=self.id,
             name=self.name,
             trust_scopes=self.trust_scopes,
             type=self.type)
@@ -102,6 +114,7 @@ def get_server_trust_group(location_name: Optional[str] = None,
 
     return AwaitableGetServerTrustGroupResult(
         group_members=__ret__.group_members,
+        id=__ret__.id,
         name=__ret__.name,
         trust_scopes=__ret__.trust_scopes,
         type=__ret__.type)

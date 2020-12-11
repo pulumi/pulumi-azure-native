@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20151101Preview
         /// </summary>
         public readonly string? ETag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The kind of the DataSource.
         /// </summary>
         public readonly string Kind;
@@ -74,6 +78,8 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20151101Preview
         private GetDataSourceResult(
             string? eTag,
 
+            string id,
+
             string kind,
 
             string name,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20151101Preview
             string type)
         {
             ETag = eTag;
+            Id = id;
             Kind = kind;
             Name = name;
             Properties = properties;

@@ -78,6 +78,10 @@ namespace Pulumi.AzureNextGen.Network.V20170601
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
@@ -128,6 +132,8 @@ namespace Pulumi.AzureNextGen.Network.V20170601
 
             string? etag,
 
+            string? id,
+
             string? name,
 
             int? priority,
@@ -152,6 +158,7 @@ namespace Pulumi.AzureNextGen.Network.V20170601
             DestinationPortRanges = destinationPortRanges;
             Direction = direction;
             Etag = etag;
+            Id = id;
             Name = name;
             Priority = priority;
             Protocol = protocol;

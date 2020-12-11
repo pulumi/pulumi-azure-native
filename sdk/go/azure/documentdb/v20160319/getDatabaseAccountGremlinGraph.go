@@ -35,6 +35,8 @@ type LookupDatabaseAccountGremlinGraphResult struct {
 	DefaultTtl *int `pulumi:"defaultTtl"`
 	// A system generated property representing the resource etag required for optimistic concurrency control.
 	Etag *string `pulumi:"etag"`
+	// The unique resource identifier of the database account.
+	Id string `pulumi:"id"`
 	// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
 	IndexingPolicy *IndexingPolicyResponse `pulumi:"indexingPolicy"`
 	// The location of the resource group to which the resource belongs.

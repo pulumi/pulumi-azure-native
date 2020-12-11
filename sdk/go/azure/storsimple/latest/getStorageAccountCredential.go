@@ -31,6 +31,8 @@ type LookupStorageAccountCredentialResult struct {
 	AccessKey *AsymmetricEncryptedSecretResponse `pulumi:"accessKey"`
 	// The storage endpoint
 	EndPoint string `pulumi:"endPoint"`
+	// The path ID that uniquely identifies the object.
+	Id string `pulumi:"id"`
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind *string `pulumi:"kind"`
 	// The name of the object.

@@ -19,7 +19,7 @@ class GetGalleryApplicationResult:
     """
     Specifies information about the gallery Application Definition that you want to create or update.
     """
-    def __init__(__self__, description=None, end_of_life_date=None, eula=None, location=None, name=None, privacy_statement_uri=None, release_note_uri=None, supported_os_type=None, tags=None, type=None):
+    def __init__(__self__, description=None, end_of_life_date=None, eula=None, id=None, location=None, name=None, privacy_statement_uri=None, release_note_uri=None, supported_os_type=None, tags=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -29,6 +29,9 @@ class GetGalleryApplicationResult:
         if eula and not isinstance(eula, str):
             raise TypeError("Expected argument 'eula' to be a str")
         pulumi.set(__self__, "eula", eula)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -74,6 +77,14 @@ class GetGalleryApplicationResult:
         The Eula agreement for the gallery Application Definition.
         """
         return pulumi.get(self, "eula")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -141,6 +152,7 @@ class AwaitableGetGalleryApplicationResult(GetGalleryApplicationResult):
             description=self.description,
             end_of_life_date=self.end_of_life_date,
             eula=self.eula,
+            id=self.id,
             location=self.location,
             name=self.name,
             privacy_statement_uri=self.privacy_statement_uri,
@@ -175,6 +187,7 @@ def get_gallery_application(gallery_application_name: Optional[str] = None,
         description=__ret__.description,
         end_of_life_date=__ret__.end_of_life_date,
         eula=__ret__.eula,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         privacy_statement_uri=__ret__.privacy_statement_uri,

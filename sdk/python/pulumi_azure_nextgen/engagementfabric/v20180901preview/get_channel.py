@@ -19,7 +19,7 @@ class GetChannelResult:
     """
     The EngagementFabric channel
     """
-    def __init__(__self__, channel_functions=None, channel_type=None, credentials=None, name=None, type=None):
+    def __init__(__self__, channel_functions=None, channel_type=None, credentials=None, id=None, name=None, type=None):
         if channel_functions and not isinstance(channel_functions, list):
             raise TypeError("Expected argument 'channel_functions' to be a list")
         pulumi.set(__self__, "channel_functions", channel_functions)
@@ -29,6 +29,9 @@ class GetChannelResult:
         if credentials and not isinstance(credentials, dict):
             raise TypeError("Expected argument 'credentials' to be a dict")
         pulumi.set(__self__, "credentials", credentials)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -62,6 +65,14 @@ class GetChannelResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the resource
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         The name of the resource
@@ -86,6 +97,7 @@ class AwaitableGetChannelResult(GetChannelResult):
             channel_functions=self.channel_functions,
             channel_type=self.channel_type,
             credentials=self.credentials,
+            id=self.id,
             name=self.name,
             type=self.type)
 
@@ -115,5 +127,6 @@ def get_channel(account_name: Optional[str] = None,
         channel_functions=__ret__.channel_functions,
         channel_type=__ret__.channel_type,
         credentials=__ret__.credentials,
+        id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type)

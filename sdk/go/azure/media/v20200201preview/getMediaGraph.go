@@ -31,6 +31,8 @@ type LookupMediaGraphResult struct {
 	Created string `pulumi:"created"`
 	// Media Graph description.
 	Description *string `pulumi:"description"`
+	// Fully qualified resource ID for the resource.
+	Id string `pulumi:"id"`
 	// Date the Media Graph was last modified.
 	LastModified string `pulumi:"lastModified"`
 	// The name of the resource.

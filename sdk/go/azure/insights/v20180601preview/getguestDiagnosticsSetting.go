@@ -27,6 +27,8 @@ type GetguestDiagnosticsSettingArgs struct {
 type GetguestDiagnosticsSettingResult struct {
 	// the array of data source object which are configured to collect and send data
 	DataSources []DataSourceResponse `pulumi:"dataSources"`
+	// Azure resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Azure resource name

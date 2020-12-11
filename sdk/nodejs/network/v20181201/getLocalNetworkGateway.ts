@@ -47,6 +47,10 @@ export interface GetLocalNetworkGatewayResult {
      */
     readonly gatewayIpAddress?: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * Local network site address space.
      */
     readonly localNetworkAddressSpace?: outputs.network.v20181201.AddressSpaceResponse;

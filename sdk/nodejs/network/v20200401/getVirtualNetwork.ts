@@ -68,6 +68,10 @@ export interface GetVirtualNetworkResult {
      */
     readonly etag: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * Array of IpAllocation which reference this VNET.
      */
     readonly ipAllocations?: outputs.network.v20200401.SubResourceResponse[];

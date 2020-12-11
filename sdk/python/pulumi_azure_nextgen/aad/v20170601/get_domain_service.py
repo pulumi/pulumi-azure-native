@@ -20,7 +20,7 @@ class GetDomainServiceResult:
     """
     Domain service.
     """
-    def __init__(__self__, deployment_id=None, domain_configuration_type=None, domain_controller_ip_address=None, domain_name=None, domain_security_settings=None, etag=None, filtered_sync=None, health_alerts=None, health_last_evaluated=None, health_monitors=None, ldaps_settings=None, location=None, migration_properties=None, name=None, notification_settings=None, provisioning_state=None, resource_forest_settings=None, service_status=None, sku=None, subnet_id=None, tags=None, tenant_id=None, type=None, version=None, vnet_site_id=None):
+    def __init__(__self__, deployment_id=None, domain_configuration_type=None, domain_controller_ip_address=None, domain_name=None, domain_security_settings=None, etag=None, filtered_sync=None, health_alerts=None, health_last_evaluated=None, health_monitors=None, id=None, ldaps_settings=None, location=None, migration_properties=None, name=None, notification_settings=None, provisioning_state=None, resource_forest_settings=None, service_status=None, sku=None, subnet_id=None, tags=None, tenant_id=None, type=None, version=None, vnet_site_id=None):
         if deployment_id and not isinstance(deployment_id, str):
             raise TypeError("Expected argument 'deployment_id' to be a str")
         pulumi.set(__self__, "deployment_id", deployment_id)
@@ -51,6 +51,9 @@ class GetDomainServiceResult:
         if health_monitors and not isinstance(health_monitors, list):
             raise TypeError("Expected argument 'health_monitors' to be a list")
         pulumi.set(__self__, "health_monitors", health_monitors)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if ldaps_settings and not isinstance(ldaps_settings, dict):
             raise TypeError("Expected argument 'ldaps_settings' to be a dict")
         pulumi.set(__self__, "ldaps_settings", ldaps_settings)
@@ -176,6 +179,14 @@ class GetDomainServiceResult:
         List of Domain Health Monitors
         """
         return pulumi.get(self, "health_monitors")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ldapsSettings")
@@ -314,6 +325,7 @@ class AwaitableGetDomainServiceResult(GetDomainServiceResult):
             health_alerts=self.health_alerts,
             health_last_evaluated=self.health_last_evaluated,
             health_monitors=self.health_monitors,
+            id=self.id,
             ldaps_settings=self.ldaps_settings,
             location=self.location,
             migration_properties=self.migration_properties,
@@ -360,6 +372,7 @@ def get_domain_service(domain_service_name: Optional[str] = None,
         health_alerts=__ret__.health_alerts,
         health_last_evaluated=__ret__.health_last_evaluated,
         health_monitors=__ret__.health_monitors,
+        id=__ret__.id,
         ldaps_settings=__ret__.ldaps_settings,
         location=__ret__.location,
         migration_properties=__ret__.migration_properties,

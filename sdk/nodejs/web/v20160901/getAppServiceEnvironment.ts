@@ -88,6 +88,10 @@ export interface GetAppServiceEnvironmentResult {
      */
     readonly frontEndScaleFactor?: number;
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
      */
     readonly internalLoadBalancingMode?: string;

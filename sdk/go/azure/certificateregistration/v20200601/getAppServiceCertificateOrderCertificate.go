@@ -27,6 +27,8 @@ type LookupAppServiceCertificateOrderCertificateArgs struct {
 
 // Key Vault container ARM resource for a certificate that is purchased through Azure.
 type LookupAppServiceCertificateOrderCertificateResult struct {
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Key Vault resource Id.
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// Key Vault secret name.

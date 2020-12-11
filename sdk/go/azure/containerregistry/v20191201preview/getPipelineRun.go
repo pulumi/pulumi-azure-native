@@ -29,6 +29,8 @@ type LookupPipelineRunArgs struct {
 type LookupPipelineRunResult struct {
 	// How the pipeline run should be forced to recreate even if the pipeline run configuration has not changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
+	// The resource ID.
+	Id string `pulumi:"id"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The provisioning state of a pipeline run.

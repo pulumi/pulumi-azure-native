@@ -35,6 +35,8 @@ type LookupApiIssueAttachmentResult struct {
 	Content string `pulumi:"content"`
 	// Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
 	ContentFormat string `pulumi:"contentFormat"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Filename by which the binary data will be saved.

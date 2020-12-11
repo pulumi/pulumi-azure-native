@@ -38,6 +38,10 @@ namespace Pulumi.AzureNextGen.Management.V20200201
         /// </summary>
         public readonly string? DefaultManagementGroup;
         /// <summary>
+        /// The fully qualified ID for the settings object.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000/settings/default.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the object. In this case, default.
         /// </summary>
         public readonly string Name;
@@ -58,6 +62,8 @@ namespace Pulumi.AzureNextGen.Management.V20200201
         private GetHierarchySettingResult(
             string? defaultManagementGroup,
 
+            string id,
+
             string name,
 
             bool? requireAuthorizationForGroupCreation,
@@ -67,6 +73,7 @@ namespace Pulumi.AzureNextGen.Management.V20200201
             string type)
         {
             DefaultManagementGroup = defaultManagementGroup;
+            Id = id;
             Name = name;
             RequireAuthorizationForGroupCreation = requireAuthorizationForGroupCreation;
             TenantId = tenantId;

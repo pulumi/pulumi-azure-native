@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// </summary>
         public readonly string? Enabled;
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Last time the rule was updated in IS08601 format.
         /// </summary>
         public readonly string LastUpdatedTime;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.Insights.Latest
 
             string? enabled,
 
+            string id,
+
             string lastUpdatedTime,
 
             string location,
@@ -111,6 +117,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
             Action = action;
             Description = description;
             Enabled = enabled;
+            Id = id;
             LastUpdatedTime = lastUpdatedTime;
             Location = location;
             Name = name;

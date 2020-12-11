@@ -48,6 +48,10 @@ export interface GetNamespaceIpFilterRuleResult {
      */
     readonly filterName?: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * IP Mask
      */
     readonly ipMask?: string;

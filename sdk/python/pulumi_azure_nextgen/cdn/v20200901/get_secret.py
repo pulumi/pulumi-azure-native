@@ -20,10 +20,13 @@ class GetSecretResult:
     """
     Friendly Secret name mapping to the any Secret or secret related information.
     """
-    def __init__(__self__, deployment_status=None, name=None, parameters=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, deployment_status=None, id=None, name=None, parameters=None, provisioning_state=None, system_data=None, type=None):
         if deployment_status and not isinstance(deployment_status, str):
             raise TypeError("Expected argument 'deployment_status' to be a str")
         pulumi.set(__self__, "deployment_status", deployment_status)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -44,6 +47,14 @@ class GetSecretResult:
     @pulumi.getter(name="deploymentStatus")
     def deployment_status(self) -> str:
         return pulumi.get(self, "deployment_status")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -93,6 +104,7 @@ class AwaitableGetSecretResult(GetSecretResult):
             yield self
         return GetSecretResult(
             deployment_status=self.deployment_status,
+            id=self.id,
             name=self.name,
             parameters=self.parameters,
             provisioning_state=self.provisioning_state,
@@ -123,6 +135,7 @@ def get_secret(profile_name: Optional[str] = None,
 
     return AwaitableGetSecretResult(
         deployment_status=__ret__.deployment_status,
+        id=__ret__.id,
         name=__ret__.name,
         parameters=__ret__.parameters,
         provisioning_state=__ret__.provisioning_state,

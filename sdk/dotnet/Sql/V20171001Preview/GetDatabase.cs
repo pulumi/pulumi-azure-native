@@ -110,6 +110,10 @@ namespace Pulumi.AzureNextGen.Sql.V20171001Preview
         /// </summary>
         public readonly string FailoverGroupId;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Kind of database. This is metadata used for the Azure portal experience.
         /// </summary>
         public readonly string Kind;
@@ -250,6 +254,8 @@ namespace Pulumi.AzureNextGen.Sql.V20171001Preview
 
             string failoverGroupId,
 
+            string id,
+
             string kind,
 
             string? licenseType,
@@ -314,6 +320,7 @@ namespace Pulumi.AzureNextGen.Sql.V20171001Preview
             EarliestRestoreDate = earliestRestoreDate;
             ElasticPoolId = elasticPoolId;
             FailoverGroupId = failoverGroupId;
+            Id = id;
             Kind = kind;
             LicenseType = licenseType;
             Location = location;

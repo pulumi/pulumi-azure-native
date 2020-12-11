@@ -90,6 +90,10 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
         /// </summary>
         public readonly Outputs.GeoReplicationStatsResponse GeoReplicationStats;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
@@ -198,6 +202,8 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
 
             Outputs.GeoReplicationStatsResponse geoReplicationStats,
 
+            string id,
+
             Outputs.IdentityResponse? identity,
 
             bool? isHnsEnabled,
@@ -251,6 +257,7 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
             ExtendedLocation = extendedLocation;
             FailoverInProgress = failoverInProgress;
             GeoReplicationStats = geoReplicationStats;
+            Id = id;
             Identity = identity;
             IsHnsEnabled = isHnsEnabled;
             Kind = kind;

@@ -39,6 +39,10 @@ export interface GetProfileResult {
      */
     readonly frontdoorId: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource location.
      */
     readonly location: string;

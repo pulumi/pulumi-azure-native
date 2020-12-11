@@ -45,6 +45,10 @@ export interface GetAgentPoolResult {
      */
     readonly count?: number;
     /**
+     * The resource ID.
+     */
+    readonly id: string;
+    /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
     readonly location: string;

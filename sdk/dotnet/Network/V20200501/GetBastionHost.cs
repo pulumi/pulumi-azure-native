@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.Network.V20200501
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// IP configuration of the Bastion Host resource.
         /// </summary>
         public readonly ImmutableArray<Outputs.BastionHostIPConfigurationResponse> IpConfigurations;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.Network.V20200501
 
             string etag,
 
+            string? id,
+
             ImmutableArray<Outputs.BastionHostIPConfigurationResponse> ipConfigurations,
 
             string? location,
@@ -92,6 +98,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
         {
             DnsName = dnsName;
             Etag = etag;
+            Id = id;
             IpConfigurations = ipConfigurations;
             Location = location;
             Name = name;

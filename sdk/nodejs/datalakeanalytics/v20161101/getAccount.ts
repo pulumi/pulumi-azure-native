@@ -75,6 +75,10 @@ export interface GetAccountResult {
      */
     readonly firewallState: string;
     /**
+     * The resource identifer.
+     */
+    readonly id: string;
+    /**
      * The account last modified time.
      */
     readonly lastModifiedTime: string;

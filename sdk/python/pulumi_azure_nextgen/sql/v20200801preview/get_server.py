@@ -20,7 +20,7 @@ class GetServerResult:
     """
     An Azure SQL Database server.
     """
-    def __init__(__self__, administrator_login=None, administrator_login_password=None, fully_qualified_domain_name=None, identity=None, kind=None, location=None, minimal_tls_version=None, name=None, private_endpoint_connections=None, public_network_access=None, state=None, tags=None, type=None, version=None, workspace_feature=None):
+    def __init__(__self__, administrator_login=None, administrator_login_password=None, fully_qualified_domain_name=None, id=None, identity=None, kind=None, location=None, minimal_tls_version=None, name=None, private_endpoint_connections=None, public_network_access=None, state=None, tags=None, type=None, version=None, workspace_feature=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
@@ -30,6 +30,9 @@ class GetServerResult:
         if fully_qualified_domain_name and not isinstance(fully_qualified_domain_name, str):
             raise TypeError("Expected argument 'fully_qualified_domain_name' to be a str")
         pulumi.set(__self__, "fully_qualified_domain_name", fully_qualified_domain_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -90,6 +93,14 @@ class GetServerResult:
         The fully qualified domain name of the server.
         """
         return pulumi.get(self, "fully_qualified_domain_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -197,6 +208,7 @@ class AwaitableGetServerResult(GetServerResult):
             administrator_login=self.administrator_login,
             administrator_login_password=self.administrator_login_password,
             fully_qualified_domain_name=self.fully_qualified_domain_name,
+            id=self.id,
             identity=self.identity,
             kind=self.kind,
             location=self.location,
@@ -233,6 +245,7 @@ def get_server(resource_group_name: Optional[str] = None,
         administrator_login=__ret__.administrator_login,
         administrator_login_password=__ret__.administrator_login_password,
         fully_qualified_domain_name=__ret__.fully_qualified_domain_name,
+        id=__ret__.id,
         identity=__ret__.identity,
         kind=__ret__.kind,
         location=__ret__.location,

@@ -40,6 +40,10 @@ export interface GetNamespaceAuthorizationRuleArgs {
  */
 export interface GetNamespaceAuthorizationRuleResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location.
      */
     readonly location?: string;

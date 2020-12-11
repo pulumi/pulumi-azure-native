@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180501
         /// </summary>
         public readonly Outputs.DataDisksResponse? DataDisks;
         /// <summary>
+        /// The ID of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// File Server mount settings.
         /// </summary>
         public readonly Outputs.MountSettingsResponse MountSettings;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180501
 
             Outputs.DataDisksResponse? dataDisks,
 
+            string id,
+
             Outputs.MountSettingsResponse mountSettings,
 
             string name,
@@ -110,6 +116,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180501
         {
             CreationTime = creationTime;
             DataDisks = dataDisks;
+            Id = id;
             MountSettings = mountSettings;
             Name = name;
             ProvisioningState = provisioningState;

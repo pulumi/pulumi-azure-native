@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.WindowsESU.V20190916Preview
         /// </summary>
         public readonly string ExpirationDate;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Number of activations/servers using the MAK key.
         /// </summary>
         public readonly int? InstalledServerNumber;
@@ -91,6 +95,8 @@ namespace Pulumi.AzureNextGen.WindowsESU.V20190916Preview
 
             string expirationDate,
 
+            string id,
+
             int? installedServerNumber,
 
             bool? isEligible,
@@ -113,6 +119,7 @@ namespace Pulumi.AzureNextGen.WindowsESU.V20190916Preview
         {
             AgreementNumber = agreementNumber;
             ExpirationDate = expirationDate;
+            Id = id;
             InstalledServerNumber = installedServerNumber;
             IsEligible = isEligible;
             Location = location;

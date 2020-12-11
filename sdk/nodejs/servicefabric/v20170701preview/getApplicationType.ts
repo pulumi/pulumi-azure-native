@@ -40,6 +40,10 @@ export interface GetApplicationTypeArgs {
  */
 export interface GetApplicationTypeResult {
     /**
+     * Azure resource identifier.
+     */
+    readonly id: string;
+    /**
      * Azure resource location.
      */
     readonly location?: string;

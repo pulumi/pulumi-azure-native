@@ -33,6 +33,8 @@ type LookupWebTestResult struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Interval in seconds between test runs for this WebTest. Default value is 300.
 	Frequency *int `pulumi:"frequency"`
+	// Azure resource Id
+	Id string `pulumi:"id"`
 	// The kind of web test that this web test watches. Choices are ping and multistep.
 	Kind *string `pulumi:"kind"`
 	// Resource location

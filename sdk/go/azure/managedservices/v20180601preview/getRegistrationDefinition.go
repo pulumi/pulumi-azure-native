@@ -25,6 +25,8 @@ type LookupRegistrationDefinitionArgs struct {
 
 // Registration definition.
 type LookupRegistrationDefinitionResult struct {
+	// Fully qualified path of the registration definition.
+	Id string `pulumi:"id"`
 	// Name of the registration definition.
 	Name string `pulumi:"name"`
 	// Plan details for the managed services.

@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
         /// </summary>
         public readonly string CreateTime;
         /// <summary>
+        /// The resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Managed service identity of the factory.
         /// </summary>
         public readonly Outputs.FactoryIdentityResponse? Identity;
@@ -80,6 +84,8 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
         private GetFactoryResult(
             string createTime,
 
+            string id,
+
             Outputs.FactoryIdentityResponse? identity,
 
             string? location,
@@ -97,6 +103,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20170901Preview
             Outputs.FactoryVSTSConfigurationResponse? vstsConfiguration)
         {
             CreateTime = createTime;
+            Id = id;
             Identity = identity;
             Location = location;
             Name = name;

@@ -20,7 +20,7 @@ class GetVirtualMachineScaleSetVMResult:
     """
     Describes a virtual machine scale set virtual machine.
     """
-    def __init__(__self__, availability_set=None, diagnostics_profile=None, hardware_profile=None, instance_id=None, instance_view=None, latest_model_applied=None, license_type=None, location=None, name=None, network_profile=None, os_profile=None, plan=None, provisioning_state=None, resources=None, sku=None, storage_profile=None, tags=None, type=None, vm_id=None):
+    def __init__(__self__, availability_set=None, diagnostics_profile=None, hardware_profile=None, id=None, instance_id=None, instance_view=None, latest_model_applied=None, license_type=None, location=None, name=None, network_profile=None, os_profile=None, plan=None, provisioning_state=None, resources=None, sku=None, storage_profile=None, tags=None, type=None, vm_id=None):
         if availability_set and not isinstance(availability_set, dict):
             raise TypeError("Expected argument 'availability_set' to be a dict")
         pulumi.set(__self__, "availability_set", availability_set)
@@ -30,6 +30,9 @@ class GetVirtualMachineScaleSetVMResult:
         if hardware_profile and not isinstance(hardware_profile, dict):
             raise TypeError("Expected argument 'hardware_profile' to be a dict")
         pulumi.set(__self__, "hardware_profile", hardware_profile)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if instance_id and not isinstance(instance_id, str):
             raise TypeError("Expected argument 'instance_id' to be a str")
         pulumi.set(__self__, "instance_id", instance_id)
@@ -102,6 +105,14 @@ class GetVirtualMachineScaleSetVMResult:
         Specifies the hardware settings for the virtual machine.
         """
         return pulumi.get(self, "hardware_profile")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="instanceId")
@@ -241,6 +252,7 @@ class AwaitableGetVirtualMachineScaleSetVMResult(GetVirtualMachineScaleSetVMResu
             availability_set=self.availability_set,
             diagnostics_profile=self.diagnostics_profile,
             hardware_profile=self.hardware_profile,
+            id=self.id,
             instance_id=self.instance_id,
             instance_view=self.instance_view,
             latest_model_applied=self.latest_model_applied,
@@ -284,6 +296,7 @@ def get_virtual_machine_scale_set_vm(instance_id: Optional[str] = None,
         availability_set=__ret__.availability_set,
         diagnostics_profile=__ret__.diagnostics_profile,
         hardware_profile=__ret__.hardware_profile,
+        id=__ret__.id,
         instance_id=__ret__.instance_id,
         instance_view=__ret__.instance_view,
         latest_model_applied=__ret__.latest_model_applied,

@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Kusto.V20190121
         /// </summary>
         public readonly string DataIngestionUri;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNextGen.Kusto.V20190121
         private GetClusterResult(
             string dataIngestionUri,
 
+            string id,
+
             string location,
 
             string name,
@@ -103,6 +109,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20190121
             string uri)
         {
             DataIngestionUri = dataIngestionUri;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

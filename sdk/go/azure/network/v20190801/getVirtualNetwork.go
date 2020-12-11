@@ -41,6 +41,8 @@ type LookupVirtualNetworkResult struct {
 	EnableVmProtection *bool `pulumi:"enableVmProtection"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.

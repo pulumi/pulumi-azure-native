@@ -29,6 +29,8 @@ type LookupPeeringResult struct {
 	Direct *PeeringPropertiesDirectResponse `pulumi:"direct"`
 	// The properties that define an exchange peering.
 	Exchange *PeeringPropertiesExchangeResponse `pulumi:"exchange"`
+	// The ID of the resource.
+	Id string `pulumi:"id"`
 	// The kind of the peering.
 	Kind string `pulumi:"kind"`
 	// The location of the resource.

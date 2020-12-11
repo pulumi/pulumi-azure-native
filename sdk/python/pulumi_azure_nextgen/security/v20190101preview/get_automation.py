@@ -20,7 +20,7 @@ class GetAutomationResult:
     """
     The security automation resource.
     """
-    def __init__(__self__, actions=None, description=None, etag=None, is_enabled=None, kind=None, location=None, name=None, scopes=None, sources=None, tags=None, type=None):
+    def __init__(__self__, actions=None, description=None, etag=None, id=None, is_enabled=None, kind=None, location=None, name=None, scopes=None, sources=None, tags=None, type=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
@@ -30,6 +30,9 @@ class GetAutomationResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_enabled and not isinstance(is_enabled, bool):
             raise TypeError("Expected argument 'is_enabled' to be a bool")
         pulumi.set(__self__, "is_enabled", is_enabled)
@@ -78,6 +81,14 @@ class GetAutomationResult:
         Entity tag is used for comparing two or more entities from the same requested resource.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -153,6 +164,7 @@ class AwaitableGetAutomationResult(GetAutomationResult):
             actions=self.actions,
             description=self.description,
             etag=self.etag,
+            id=self.id,
             is_enabled=self.is_enabled,
             kind=self.kind,
             location=self.location,
@@ -185,6 +197,7 @@ def get_automation(automation_name: Optional[str] = None,
         actions=__ret__.actions,
         description=__ret__.description,
         etag=__ret__.etag,
+        id=__ret__.id,
         is_enabled=__ret__.is_enabled,
         kind=__ret__.kind,
         location=__ret__.location,

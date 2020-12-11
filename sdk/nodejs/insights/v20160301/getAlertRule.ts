@@ -47,6 +47,10 @@ export interface GetAlertRuleResult {
      */
     readonly description?: string;
     /**
+     * Azure resource Id
+     */
+    readonly id: string;
+    /**
      * the flag that indicates whether the alert rule is enabled.
      */
     readonly isEnabled: boolean;

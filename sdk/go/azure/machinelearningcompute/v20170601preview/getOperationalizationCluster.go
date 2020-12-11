@@ -39,6 +39,8 @@ type LookupOperationalizationClusterResult struct {
 	Description *string `pulumi:"description"`
 	// Contains global configuration for the web services in the cluster.
 	GlobalServiceConfiguration *GlobalServiceConfigurationResponse `pulumi:"globalServiceConfiguration"`
+	// Specifies the resource ID.
+	Id string `pulumi:"id"`
 	// Specifies the location of the resource.
 	Location string `pulumi:"location"`
 	// The date and time when the cluster was last modified.

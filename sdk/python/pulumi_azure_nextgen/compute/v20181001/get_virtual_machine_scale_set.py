@@ -20,13 +20,16 @@ class GetVirtualMachineScaleSetResult:
     """
     Describes a Virtual Machine Scale Set.
     """
-    def __init__(__self__, automatic_repairs_policy=None, do_not_run_extensions_on_overprovisioned_vms=None, identity=None, location=None, name=None, overprovision=None, plan=None, platform_fault_domain_count=None, provisioning_state=None, proximity_placement_group=None, single_placement_group=None, sku=None, tags=None, type=None, unique_id=None, upgrade_policy=None, virtual_machine_profile=None, zone_balance=None, zones=None):
+    def __init__(__self__, automatic_repairs_policy=None, do_not_run_extensions_on_overprovisioned_vms=None, id=None, identity=None, location=None, name=None, overprovision=None, plan=None, platform_fault_domain_count=None, provisioning_state=None, proximity_placement_group=None, single_placement_group=None, sku=None, tags=None, type=None, unique_id=None, upgrade_policy=None, virtual_machine_profile=None, zone_balance=None, zones=None):
         if automatic_repairs_policy and not isinstance(automatic_repairs_policy, dict):
             raise TypeError("Expected argument 'automatic_repairs_policy' to be a dict")
         pulumi.set(__self__, "automatic_repairs_policy", automatic_repairs_policy)
         if do_not_run_extensions_on_overprovisioned_vms and not isinstance(do_not_run_extensions_on_overprovisioned_vms, bool):
             raise TypeError("Expected argument 'do_not_run_extensions_on_overprovisioned_vms' to be a bool")
         pulumi.set(__self__, "do_not_run_extensions_on_overprovisioned_vms", do_not_run_extensions_on_overprovisioned_vms)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -94,6 +97,14 @@ class GetVirtualMachineScaleSetResult:
         When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.
         """
         return pulumi.get(self, "do_not_run_extensions_on_overprovisioned_vms")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -240,6 +251,7 @@ class AwaitableGetVirtualMachineScaleSetResult(GetVirtualMachineScaleSetResult):
         return GetVirtualMachineScaleSetResult(
             automatic_repairs_policy=self.automatic_repairs_policy,
             do_not_run_extensions_on_overprovisioned_vms=self.do_not_run_extensions_on_overprovisioned_vms,
+            id=self.id,
             identity=self.identity,
             location=self.location,
             name=self.name,
@@ -280,6 +292,7 @@ def get_virtual_machine_scale_set(resource_group_name: Optional[str] = None,
     return AwaitableGetVirtualMachineScaleSetResult(
         automatic_repairs_policy=__ret__.automatic_repairs_policy,
         do_not_run_extensions_on_overprovisioned_vms=__ret__.do_not_run_extensions_on_overprovisioned_vms,
+        id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,

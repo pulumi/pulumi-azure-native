@@ -52,6 +52,10 @@ export interface GetNetworkSecurityGroupResult {
      */
     readonly flowLogs: outputs.network.v20200601.FlowLogResponse[];
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * Resource location.
      */
     readonly location?: string;

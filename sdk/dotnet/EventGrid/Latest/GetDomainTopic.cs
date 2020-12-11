@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest
     public sealed class GetDomainTopicResult
     {
         /// <summary>
+        /// Fully qualified identifier of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Name of the resource.
         /// </summary>
         public readonly string Name;
@@ -60,12 +64,15 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest
 
         [OutputConstructor]
         private GetDomainTopicResult(
+            string id,
+
             string name,
 
             string? provisioningState,
 
             string type)
         {
+            Id = id;
             Name = name;
             ProvisioningState = provisioningState;
             Type = type;

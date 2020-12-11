@@ -20,7 +20,10 @@ class GetManagementPolicyResult:
     """
     The Get Storage Account ManagementPolicies operation response.
     """
-    def __init__(__self__, last_modified_time=None, name=None, policy=None, type=None):
+    def __init__(__self__, id=None, last_modified_time=None, name=None, policy=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_modified_time and not isinstance(last_modified_time, str):
             raise TypeError("Expected argument 'last_modified_time' to be a str")
         pulumi.set(__self__, "last_modified_time", last_modified_time)
@@ -33,6 +36,14 @@ class GetManagementPolicyResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
@@ -73,6 +84,7 @@ class AwaitableGetManagementPolicyResult(GetManagementPolicyResult):
         if False:
             yield self
         return GetManagementPolicyResult(
+            id=self.id,
             last_modified_time=self.last_modified_time,
             name=self.name,
             policy=self.policy,
@@ -101,6 +113,7 @@ def get_management_policy(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:storage/latest:getManagementPolicy', __args__, opts=opts, typ=GetManagementPolicyResult).value
 
     return AwaitableGetManagementPolicyResult(
+        id=__ret__.id,
         last_modified_time=__ret__.last_modified_time,
         name=__ret__.name,
         policy=__ret__.policy,

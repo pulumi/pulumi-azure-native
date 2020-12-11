@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
     public sealed class GetComputePolicyResult
     {
         /// <summary>
+        /// The resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The maximum degree of parallelism per job this user can use to submit jobs.
         /// </summary>
         public readonly int MaxDegreeOfParallelismPerJob;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
 
         [OutputConstructor]
         private GetComputePolicyResult(
+            string id,
+
             int maxDegreeOfParallelismPerJob,
 
             int minPriorityPerJob,
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
 
             string type)
         {
+            Id = id;
             MaxDegreeOfParallelismPerJob = maxDegreeOfParallelismPerJob;
             MinPriorityPerJob = minPriorityPerJob;
             Name = name;

@@ -37,6 +37,8 @@ type LookupVirtualNetworkGatewayConnectionResult struct {
 	EnableBgp *bool `pulumi:"enableBgp"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// The ingress bytes transferred in this connection.
 	IngressBytesTransferred int `pulumi:"ingressBytesTransferred"`
 	// The IPSec Policies to be considered by this connection.

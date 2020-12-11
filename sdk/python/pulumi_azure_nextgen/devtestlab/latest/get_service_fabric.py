@@ -20,7 +20,7 @@ class GetServiceFabricResult:
     """
     A Service Fabric.
     """
-    def __init__(__self__, applicable_schedule=None, environment_id=None, external_service_fabric_id=None, location=None, name=None, provisioning_state=None, tags=None, type=None, unique_identifier=None):
+    def __init__(__self__, applicable_schedule=None, environment_id=None, external_service_fabric_id=None, id=None, location=None, name=None, provisioning_state=None, tags=None, type=None, unique_identifier=None):
         if applicable_schedule and not isinstance(applicable_schedule, dict):
             raise TypeError("Expected argument 'applicable_schedule' to be a dict")
         pulumi.set(__self__, "applicable_schedule", applicable_schedule)
@@ -30,6 +30,9 @@ class GetServiceFabricResult:
         if external_service_fabric_id and not isinstance(external_service_fabric_id, str):
             raise TypeError("Expected argument 'external_service_fabric_id' to be a str")
         pulumi.set(__self__, "external_service_fabric_id", external_service_fabric_id)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -72,6 +75,14 @@ class GetServiceFabricResult:
         The backing service fabric resource's id
         """
         return pulumi.get(self, "external_service_fabric_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -131,6 +142,7 @@ class AwaitableGetServiceFabricResult(GetServiceFabricResult):
             applicable_schedule=self.applicable_schedule,
             environment_id=self.environment_id,
             external_service_fabric_id=self.external_service_fabric_id,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -170,6 +182,7 @@ def get_service_fabric(expand: Optional[str] = None,
         applicable_schedule=__ret__.applicable_schedule,
         environment_id=__ret__.environment_id,
         external_service_fabric_id=__ret__.external_service_fabric_id,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

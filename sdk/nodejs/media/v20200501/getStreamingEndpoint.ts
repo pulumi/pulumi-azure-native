@@ -84,6 +84,10 @@ export interface GetStreamingEndpointResult {
      */
     readonly hostName: string;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * The exact time the streaming endpoint was last modified.
      */
     readonly lastModified: string;

@@ -29,6 +29,8 @@ type LookupAzureFirewallResult struct {
 	ApplicationRuleCollections []AzureFirewallApplicationRuleCollectionResponse `pulumi:"applicationRuleCollections"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// IP configuration of the Azure Firewall resource.
 	IpConfigurations []AzureFirewallIPConfigurationResponse `pulumi:"ipConfigurations"`
 	// Resource location.

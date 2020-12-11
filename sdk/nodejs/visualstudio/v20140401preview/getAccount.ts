@@ -35,6 +35,10 @@ export interface GetAccountArgs {
  */
 export interface GetAccountResult {
     /**
+     * Unique identifier of the resource.
+     */
+    readonly id: string;
+    /**
      * Resource location.
      */
     readonly location?: string;

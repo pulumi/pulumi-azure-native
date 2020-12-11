@@ -35,6 +35,8 @@ type LookupFormulaResourceResult struct {
 	Description *string `pulumi:"description"`
 	// The content of the formula.
 	FormulaContent *LabVirtualMachineResponse `pulumi:"formulaContent"`
+	// The identifier of the resource.
+	Id *string `pulumi:"id"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.

@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
         /// </summary>
         public readonly string LogicAppResourceId;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         private GetAlertRuleActionResult(
             string? etag,
 
+            string id,
+
             string logicAppResourceId,
 
             string name,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
             string? workflowId)
         {
             Etag = etag;
+            Id = id;
             LogicAppResourceId = logicAppResourceId;
             Name = name;
             Type = type;

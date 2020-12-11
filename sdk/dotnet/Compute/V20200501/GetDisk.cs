@@ -88,6 +88,10 @@ namespace Pulumi.AzureNextGen.Compute.V20200501
         /// </summary>
         public readonly string? HyperVGeneration;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -174,6 +178,8 @@ namespace Pulumi.AzureNextGen.Compute.V20200501
 
             string? hyperVGeneration,
 
+            string id,
+
             string location,
 
             string managedBy,
@@ -216,6 +222,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200501
             Encryption = encryption;
             EncryptionSettingsCollection = encryptionSettingsCollection;
             HyperVGeneration = hyperVGeneration;
+            Id = id;
             Location = location;
             ManagedBy = managedBy;
             ManagedByExtended = managedByExtended;

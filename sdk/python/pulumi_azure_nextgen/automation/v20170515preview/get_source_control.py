@@ -19,7 +19,7 @@ class GetSourceControlResult:
     """
     Definition of the source control.
     """
-    def __init__(__self__, auto_sync=None, branch=None, creation_time=None, description=None, folder_path=None, last_modified_time=None, name=None, publish_runbook=None, repo_url=None, source_type=None, type=None):
+    def __init__(__self__, auto_sync=None, branch=None, creation_time=None, description=None, folder_path=None, id=None, last_modified_time=None, name=None, publish_runbook=None, repo_url=None, source_type=None, type=None):
         if auto_sync and not isinstance(auto_sync, bool):
             raise TypeError("Expected argument 'auto_sync' to be a bool")
         pulumi.set(__self__, "auto_sync", auto_sync)
@@ -35,6 +35,9 @@ class GetSourceControlResult:
         if folder_path and not isinstance(folder_path, str):
             raise TypeError("Expected argument 'folder_path' to be a str")
         pulumi.set(__self__, "folder_path", folder_path)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_modified_time and not isinstance(last_modified_time, str):
             raise TypeError("Expected argument 'last_modified_time' to be a str")
         pulumi.set(__self__, "last_modified_time", last_modified_time)
@@ -93,6 +96,14 @@ class GetSourceControlResult:
         The folder path of the source control.
         """
         return pulumi.get(self, "folder_path")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
@@ -154,6 +165,7 @@ class AwaitableGetSourceControlResult(GetSourceControlResult):
             creation_time=self.creation_time,
             description=self.description,
             folder_path=self.folder_path,
+            id=self.id,
             last_modified_time=self.last_modified_time,
             name=self.name,
             publish_runbook=self.publish_runbook,
@@ -189,6 +201,7 @@ def get_source_control(automation_account_name: Optional[str] = None,
         creation_time=__ret__.creation_time,
         description=__ret__.description,
         folder_path=__ret__.folder_path,
+        id=__ret__.id,
         last_modified_time=__ret__.last_modified_time,
         name=__ret__.name,
         publish_runbook=__ret__.publish_runbook,

@@ -27,6 +27,8 @@ type LookupPrivateEndpointConnectionArgs struct {
 
 // The private endpoint connection of an IotHub
 type LookupPrivateEndpointConnectionResult struct {
+	// The resource identifier.
+	Id string `pulumi:"id"`
 	// The resource name.
 	Name string `pulumi:"name"`
 	// The properties of a private endpoint connection

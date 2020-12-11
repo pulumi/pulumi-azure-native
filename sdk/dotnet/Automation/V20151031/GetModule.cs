@@ -70,6 +70,10 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Fully qualified resource Id for the resource
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Gets or sets type of module, if its composite or not.
         /// </summary>
         public readonly bool? IsComposite;
@@ -124,6 +128,8 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
 
             string? etag,
 
+            string id,
+
             bool? isComposite,
 
             bool? isGlobal,
@@ -150,6 +156,7 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
             Description = description;
             Error = error;
             Etag = etag;
+            Id = id;
             IsComposite = isComposite;
             IsGlobal = isGlobal;
             LastModifiedTime = lastModifiedTime;

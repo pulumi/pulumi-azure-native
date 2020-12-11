@@ -20,7 +20,7 @@ class GetClusterResult:
     """
     Cluster details.
     """
-    def __init__(__self__, aad_client_id=None, aad_tenant_id=None, billing_model=None, cloud_id=None, last_billing_timestamp=None, last_sync_timestamp=None, location=None, name=None, provisioning_state=None, registration_timestamp=None, reported_properties=None, status=None, tags=None, trial_days_remaining=None, type=None):
+    def __init__(__self__, aad_client_id=None, aad_tenant_id=None, billing_model=None, cloud_id=None, id=None, last_billing_timestamp=None, last_sync_timestamp=None, location=None, name=None, provisioning_state=None, registration_timestamp=None, reported_properties=None, status=None, tags=None, trial_days_remaining=None, type=None):
         if aad_client_id and not isinstance(aad_client_id, str):
             raise TypeError("Expected argument 'aad_client_id' to be a str")
         pulumi.set(__self__, "aad_client_id", aad_client_id)
@@ -33,6 +33,9 @@ class GetClusterResult:
         if cloud_id and not isinstance(cloud_id, str):
             raise TypeError("Expected argument 'cloud_id' to be a str")
         pulumi.set(__self__, "cloud_id", cloud_id)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_billing_timestamp and not isinstance(last_billing_timestamp, str):
             raise TypeError("Expected argument 'last_billing_timestamp' to be a str")
         pulumi.set(__self__, "last_billing_timestamp", last_billing_timestamp)
@@ -98,6 +101,14 @@ class GetClusterResult:
         Unique, immutable resource id.
         """
         return pulumi.get(self, "cloud_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastBillingTimestamp")
@@ -198,6 +209,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             aad_tenant_id=self.aad_tenant_id,
             billing_model=self.billing_model,
             cloud_id=self.cloud_id,
+            id=self.id,
             last_billing_timestamp=self.last_billing_timestamp,
             last_sync_timestamp=self.last_sync_timestamp,
             location=self.location,
@@ -234,6 +246,7 @@ def get_cluster(cluster_name: Optional[str] = None,
         aad_tenant_id=__ret__.aad_tenant_id,
         billing_model=__ret__.billing_model,
         cloud_id=__ret__.cloud_id,
+        id=__ret__.id,
         last_billing_timestamp=__ret__.last_billing_timestamp,
         last_sync_timestamp=__ret__.last_sync_timestamp,
         location=__ret__.location,

@@ -31,6 +31,10 @@ export interface GetMonitorArgs {
 }
 
 export interface GetMonitorResult {
+    /**
+     * ARM id of the monitor resource.
+     */
+    readonly id: string;
     readonly identity?: outputs.datadog.v20200201preview.IdentityPropertiesResponse;
     readonly location: string;
     /**

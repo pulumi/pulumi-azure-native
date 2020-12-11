@@ -19,13 +19,16 @@ class GetDeviceExtendedInformationResult:
     """
     The extended Info of the Data Box Edge/Gateway device.
     """
-    def __init__(__self__, encryption_key=None, encryption_key_thumbprint=None, name=None, resource_key=None, type=None):
+    def __init__(__self__, encryption_key=None, encryption_key_thumbprint=None, id=None, name=None, resource_key=None, type=None):
         if encryption_key and not isinstance(encryption_key, str):
             raise TypeError("Expected argument 'encryption_key' to be a str")
         pulumi.set(__self__, "encryption_key", encryption_key)
         if encryption_key_thumbprint and not isinstance(encryption_key_thumbprint, str):
             raise TypeError("Expected argument 'encryption_key_thumbprint' to be a str")
         pulumi.set(__self__, "encryption_key_thumbprint", encryption_key_thumbprint)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -51,6 +54,14 @@ class GetDeviceExtendedInformationResult:
         The digital signature of encrypted certificate.
         """
         return pulumi.get(self, "encryption_key_thumbprint")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The path ID that uniquely identifies the object.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -85,6 +96,7 @@ class AwaitableGetDeviceExtendedInformationResult(GetDeviceExtendedInformationRe
         return GetDeviceExtendedInformationResult(
             encryption_key=self.encryption_key,
             encryption_key_thumbprint=self.encryption_key_thumbprint,
+            id=self.id,
             name=self.name,
             resource_key=self.resource_key,
             type=self.type)
@@ -111,6 +123,7 @@ def get_device_extended_information(device_name: Optional[str] = None,
     return AwaitableGetDeviceExtendedInformationResult(
         encryption_key=__ret__.encryption_key,
         encryption_key_thumbprint=__ret__.encryption_key_thumbprint,
+        id=__ret__.id,
         name=__ret__.name,
         resource_key=__ret__.resource_key,
         type=__ret__.type)

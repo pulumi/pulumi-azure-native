@@ -33,6 +33,8 @@ type LookupLocalNetworkGatewayResult struct {
 	Fqdn *string `pulumi:"fqdn"`
 	// IP address of local network gateway.
 	GatewayIpAddress *string `pulumi:"gatewayIpAddress"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// Local network site address space.
 	LocalNetworkAddressSpace *AddressSpaceResponse `pulumi:"localNetworkAddressSpace"`
 	// Resource location.

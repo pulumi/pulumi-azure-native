@@ -47,6 +47,10 @@ export interface GetWebApplicationFirewallPolicyResult {
      */
     readonly etag?: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * Resource location.
      */
     readonly location?: string;

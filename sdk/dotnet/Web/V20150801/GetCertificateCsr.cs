@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// </summary>
         public readonly string? HostingEnvironment;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Kind of resource
         /// </summary>
         public readonly string? Kind;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.Web.V20150801
 
             string? hostingEnvironment,
 
+            string? id,
+
             string? kind,
 
             string location,
@@ -111,6 +117,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
             CsrString = csrString;
             DistinguishedName = distinguishedName;
             HostingEnvironment = hostingEnvironment;
+            Id = id;
             Kind = kind;
             Location = location;
             Name = name;

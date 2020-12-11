@@ -26,6 +26,8 @@ type LookupJitNetworkAccessPolicyArgs struct {
 }
 
 type LookupJitNetworkAccessPolicyResult struct {
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Kind of the resource
 	Kind *string `pulumi:"kind"`
 	// Location where the resource is stored

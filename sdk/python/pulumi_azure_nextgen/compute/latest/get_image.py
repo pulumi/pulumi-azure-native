@@ -20,10 +20,13 @@ class GetImageResult:
     """
     The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
     """
-    def __init__(__self__, hyper_v_generation=None, location=None, name=None, provisioning_state=None, source_virtual_machine=None, storage_profile=None, tags=None, type=None):
+    def __init__(__self__, hyper_v_generation=None, id=None, location=None, name=None, provisioning_state=None, source_virtual_machine=None, storage_profile=None, tags=None, type=None):
         if hyper_v_generation and not isinstance(hyper_v_generation, str):
             raise TypeError("Expected argument 'hyper_v_generation' to be a str")
         pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -53,6 +56,14 @@ class GetImageResult:
         Gets the HyperVGenerationType of the VirtualMachine created from the image
         """
         return pulumi.get(self, "hyper_v_generation")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -118,6 +129,7 @@ class AwaitableGetImageResult(GetImageResult):
             yield self
         return GetImageResult(
             hyper_v_generation=self.hyper_v_generation,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -150,6 +162,7 @@ def get_image(expand: Optional[str] = None,
 
     return AwaitableGetImageResult(
         hyper_v_generation=__ret__.hyper_v_generation,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

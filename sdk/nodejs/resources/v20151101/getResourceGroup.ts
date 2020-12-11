@@ -30,6 +30,10 @@ export interface GetResourceGroupArgs {
  */
 export interface GetResourceGroupResult {
     /**
+     * Gets the ID of the resource group.
+     */
+    readonly id: string;
+    /**
      * Gets or sets the location of the resource group. It cannot be changed after the resource group has been created. Has to be one of the supported Azure Locations, such as West US, East US, West Europe, East Asia, etc.
      */
     readonly location: string;

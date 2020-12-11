@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Maps.Latest
     public sealed class ListAccountKeysResult
     {
         /// <summary>
+        /// The full Azure resource identifier of the Maps Account.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The primary key for accessing the Maps REST APIs.
         /// </summary>
         public readonly string PrimaryKey;
@@ -50,10 +54,13 @@ namespace Pulumi.AzureNextGen.Maps.Latest
 
         [OutputConstructor]
         private ListAccountKeysResult(
+            string id,
+
             string primaryKey,
 
             string secondaryKey)
         {
+            Id = id;
             PrimaryKey = primaryKey;
             SecondaryKey = secondaryKey;
         }

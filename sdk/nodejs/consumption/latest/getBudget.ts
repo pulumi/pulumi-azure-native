@@ -55,6 +55,10 @@ export interface GetBudgetResult {
      */
     readonly filter?: outputs.consumption.latest.BudgetFilterResponse;
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

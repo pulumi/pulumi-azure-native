@@ -27,6 +27,8 @@ type LookupPatchScheduleArgs struct {
 
 // Response to put/get patch schedules for Redis cache.
 type LookupPatchScheduleResult struct {
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// List of patch schedules for a Redis cache.

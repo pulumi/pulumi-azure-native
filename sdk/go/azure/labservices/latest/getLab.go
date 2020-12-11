@@ -35,6 +35,8 @@ type LookupLabResult struct {
 	CreatedByUserPrincipalName string `pulumi:"createdByUserPrincipalName"`
 	// Creation date for the lab
 	CreatedDate string `pulumi:"createdDate"`
+	// The identifier of the resource.
+	Id string `pulumi:"id"`
 	// Invitation code that users can use to join a lab.
 	InvitationCode string `pulumi:"invitationCode"`
 	// The details of the latest operation. ex: status, error

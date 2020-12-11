@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Network.V20181201
         /// </summary>
         public readonly string? Fqdn;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -98,6 +102,8 @@ namespace Pulumi.AzureNextGen.Network.V20181201
 
             string? fqdn,
 
+            string? id,
+
             string? location,
 
             string name,
@@ -117,6 +123,7 @@ namespace Pulumi.AzureNextGen.Network.V20181201
             EndpointService = endpointService;
             Etag = etag;
             Fqdn = fqdn;
+            Id = id;
             Location = location;
             Name = name;
             NetworkInterfaces = networkInterfaces;

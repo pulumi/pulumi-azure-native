@@ -59,6 +59,10 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
         /// </summary>
         public readonly Outputs.EventChannelFilterResponse? Filter;
         /// <summary>
+        /// Fully qualified identifier of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Name of the resource
         /// </summary>
         public readonly string Name;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
 
             Outputs.EventChannelFilterResponse? filter,
 
+            string id,
+
             string name,
 
             string? partnerTopicFriendlyDescription,
@@ -107,6 +113,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
             Destination = destination;
             ExpirationTimeIfNotActivatedUtc = expirationTimeIfNotActivatedUtc;
             Filter = filter;
+            Id = id;
             Name = name;
             PartnerTopicFriendlyDescription = partnerTopicFriendlyDescription;
             PartnerTopicReadinessState = partnerTopicReadinessState;

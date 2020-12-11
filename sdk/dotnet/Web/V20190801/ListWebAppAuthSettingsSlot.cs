@@ -128,6 +128,10 @@ namespace Pulumi.AzureNextGen.Web.V20190801
         /// </summary>
         public readonly ImmutableArray<string> GoogleOAuthScopes;
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
         /// When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
         /// This URI is a case-sensitive identifier for the token issuer.
@@ -230,6 +234,8 @@ namespace Pulumi.AzureNextGen.Web.V20190801
 
             ImmutableArray<string> googleOAuthScopes,
 
+            string id,
+
             string? issuer,
 
             string? kind,
@@ -272,6 +278,7 @@ namespace Pulumi.AzureNextGen.Web.V20190801
             GoogleClientId = googleClientId;
             GoogleClientSecret = googleClientSecret;
             GoogleOAuthScopes = googleOAuthScopes;
+            Id = id;
             Issuer = issuer;
             Kind = kind;
             MicrosoftAccountClientId = microsoftAccountClientId;

@@ -61,6 +61,10 @@ export interface GetSubnetResult {
      */
     readonly etag: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * Array of IpAllocation which reference this subnet.
      */
     readonly ipAllocations?: outputs.network.latest.SubResourceResponse[];

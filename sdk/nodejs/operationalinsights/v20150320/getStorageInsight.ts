@@ -48,6 +48,10 @@ export interface GetStorageInsightResult {
      */
     readonly eTag?: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

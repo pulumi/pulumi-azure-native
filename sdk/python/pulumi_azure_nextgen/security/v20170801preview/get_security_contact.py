@@ -19,7 +19,7 @@ class GetSecurityContactResult:
     """
     Contact details for security issues
     """
-    def __init__(__self__, alert_notifications=None, alerts_to_admins=None, email=None, name=None, phone=None, type=None):
+    def __init__(__self__, alert_notifications=None, alerts_to_admins=None, email=None, id=None, name=None, phone=None, type=None):
         if alert_notifications and not isinstance(alert_notifications, str):
             raise TypeError("Expected argument 'alert_notifications' to be a str")
         pulumi.set(__self__, "alert_notifications", alert_notifications)
@@ -29,6 +29,9 @@ class GetSecurityContactResult:
         if email and not isinstance(email, str):
             raise TypeError("Expected argument 'email' to be a str")
         pulumi.set(__self__, "email", email)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -65,6 +68,14 @@ class GetSecurityContactResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         Resource name
@@ -97,6 +108,7 @@ class AwaitableGetSecurityContactResult(GetSecurityContactResult):
             alert_notifications=self.alert_notifications,
             alerts_to_admins=self.alerts_to_admins,
             email=self.email,
+            id=self.id,
             name=self.name,
             phone=self.phone,
             type=self.type)
@@ -121,6 +133,7 @@ def get_security_contact(security_contact_name: Optional[str] = None,
         alert_notifications=__ret__.alert_notifications,
         alerts_to_admins=__ret__.alerts_to_admins,
         email=__ret__.email,
+        id=__ret__.id,
         name=__ret__.name,
         phone=__ret__.phone,
         type=__ret__.type)

@@ -47,6 +47,10 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
     {
         public readonly string DeploymentStatus;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -71,6 +75,8 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         private GetSecurityPolicyResult(
             string deploymentStatus,
 
+            string id,
+
             string name,
 
             Outputs.SecurityPolicyWebApplicationFirewallParametersResponse? parameters,
@@ -82,6 +88,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
             string type)
         {
             DeploymentStatus = deploymentStatus;
+            Id = id;
             Name = name;
             Parameters = parameters;
             ProvisioningState = provisioningState;

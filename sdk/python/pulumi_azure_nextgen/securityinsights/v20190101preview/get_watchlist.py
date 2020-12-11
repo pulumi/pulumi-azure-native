@@ -20,7 +20,7 @@ class GetWatchlistResult:
     """
     Represents a Watchlist in Azure Security Insights.
     """
-    def __init__(__self__, content_type=None, created=None, created_by=None, default_duration=None, description=None, display_name=None, etag=None, is_deleted=None, labels=None, name=None, number_of_lines_to_skip=None, provider=None, raw_content=None, source=None, tenant_id=None, type=None, updated=None, updated_by=None, watchlist_alias=None, watchlist_id=None, watchlist_type=None):
+    def __init__(__self__, content_type=None, created=None, created_by=None, default_duration=None, description=None, display_name=None, etag=None, id=None, is_deleted=None, labels=None, name=None, number_of_lines_to_skip=None, provider=None, raw_content=None, source=None, tenant_id=None, type=None, updated=None, updated_by=None, watchlist_alias=None, watchlist_id=None, watchlist_type=None):
         if content_type and not isinstance(content_type, str):
             raise TypeError("Expected argument 'content_type' to be a str")
         pulumi.set(__self__, "content_type", content_type)
@@ -42,6 +42,9 @@ class GetWatchlistResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_deleted and not isinstance(is_deleted, bool):
             raise TypeError("Expected argument 'is_deleted' to be a bool")
         pulumi.set(__self__, "is_deleted", is_deleted)
@@ -140,6 +143,14 @@ class GetWatchlistResult:
         Etag of the azure resource
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isDeleted")
@@ -267,6 +278,7 @@ class AwaitableGetWatchlistResult(GetWatchlistResult):
             description=self.description,
             display_name=self.display_name,
             etag=self.etag,
+            id=self.id,
             is_deleted=self.is_deleted,
             labels=self.labels,
             name=self.name,
@@ -315,6 +327,7 @@ def get_watchlist(operational_insights_resource_provider: Optional[str] = None,
         description=__ret__.description,
         display_name=__ret__.display_name,
         etag=__ret__.etag,
+        id=__ret__.id,
         is_deleted=__ret__.is_deleted,
         labels=__ret__.labels,
         name=__ret__.name,

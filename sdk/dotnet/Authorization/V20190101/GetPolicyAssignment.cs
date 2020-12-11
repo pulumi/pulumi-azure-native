@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.Authorization.V20190101
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
+        /// The ID of the policy assignment.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The managed identity associated with the policy assignment.
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
@@ -94,6 +98,8 @@ namespace Pulumi.AzureNextGen.Authorization.V20190101
 
             string? displayName,
 
+            string id,
+
             Outputs.IdentityResponse? identity,
 
             string? location,
@@ -116,6 +122,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20190101
         {
             Description = description;
             DisplayName = displayName;
+            Id = id;
             Identity = identity;
             Location = location;
             Metadata = metadata;

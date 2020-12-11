@@ -35,6 +35,10 @@ export interface GetDeploymentScriptArgs {
  */
 export interface GetDeploymentScriptResult {
     /**
+     * String Id used to locate any resource on Azure.
+     */
+    readonly id: string;
+    /**
      * Optional property. Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
      */
     readonly identity?: outputs.resources.v20201001.ManagedServiceIdentityResponse;

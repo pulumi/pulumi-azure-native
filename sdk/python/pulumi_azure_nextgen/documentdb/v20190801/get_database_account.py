@@ -20,7 +20,7 @@ class GetDatabaseAccountResult:
     """
     An Azure Cosmos DB database account.
     """
-    def __init__(__self__, capabilities=None, connector_offer=None, consistency_policy=None, database_account_offer_type=None, disable_key_based_metadata_write_access=None, document_endpoint=None, enable_automatic_failover=None, enable_cassandra_connector=None, enable_multiple_write_locations=None, failover_policies=None, ip_range_filter=None, is_virtual_network_filter_enabled=None, kind=None, location=None, locations=None, name=None, provisioning_state=None, read_locations=None, tags=None, type=None, virtual_network_rules=None, write_locations=None):
+    def __init__(__self__, capabilities=None, connector_offer=None, consistency_policy=None, database_account_offer_type=None, disable_key_based_metadata_write_access=None, document_endpoint=None, enable_automatic_failover=None, enable_cassandra_connector=None, enable_multiple_write_locations=None, failover_policies=None, id=None, ip_range_filter=None, is_virtual_network_filter_enabled=None, kind=None, location=None, locations=None, name=None, provisioning_state=None, read_locations=None, tags=None, type=None, virtual_network_rules=None, write_locations=None):
         if capabilities and not isinstance(capabilities, list):
             raise TypeError("Expected argument 'capabilities' to be a list")
         pulumi.set(__self__, "capabilities", capabilities)
@@ -51,6 +51,9 @@ class GetDatabaseAccountResult:
         if failover_policies and not isinstance(failover_policies, list):
             raise TypeError("Expected argument 'failover_policies' to be a list")
         pulumi.set(__self__, "failover_policies", failover_policies)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if ip_range_filter and not isinstance(ip_range_filter, str):
             raise TypeError("Expected argument 'ip_range_filter' to be a str")
         pulumi.set(__self__, "ip_range_filter", ip_range_filter)
@@ -169,6 +172,14 @@ class GetDatabaseAccountResult:
         return pulumi.get(self, "failover_policies")
 
     @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The unique resource identifier of the ARM resource.
+        """
+        return pulumi.get(self, "id")
+
+    @property
     @pulumi.getter(name="ipRangeFilter")
     def ip_range_filter(self) -> Optional[str]:
         """
@@ -281,6 +292,7 @@ class AwaitableGetDatabaseAccountResult(GetDatabaseAccountResult):
             enable_cassandra_connector=self.enable_cassandra_connector,
             enable_multiple_write_locations=self.enable_multiple_write_locations,
             failover_policies=self.failover_policies,
+            id=self.id,
             ip_range_filter=self.ip_range_filter,
             is_virtual_network_filter_enabled=self.is_virtual_network_filter_enabled,
             kind=self.kind,
@@ -324,6 +336,7 @@ def get_database_account(account_name: Optional[str] = None,
         enable_cassandra_connector=__ret__.enable_cassandra_connector,
         enable_multiple_write_locations=__ret__.enable_multiple_write_locations,
         failover_policies=__ret__.failover_policies,
+        id=__ret__.id,
         ip_range_filter=__ret__.ip_range_filter,
         is_virtual_network_filter_enabled=__ret__.is_virtual_network_filter_enabled,
         kind=__ret__.kind,

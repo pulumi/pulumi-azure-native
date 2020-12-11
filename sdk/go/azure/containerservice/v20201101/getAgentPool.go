@@ -35,6 +35,8 @@ type LookupAgentPoolResult struct {
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
 	// Enable public IP for nodes
 	EnableNodePublicIP *bool `pulumi:"enableNodePublicIP"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// KubeletConfig specifies the configuration of kubelet on agent nodes.
 	KubeletConfig *KubeletConfigResponse `pulumi:"kubeletConfig"`
 	// LinuxOSConfig specifies the OS configuration of linux agent nodes.

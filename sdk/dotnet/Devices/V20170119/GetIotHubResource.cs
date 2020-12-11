@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Devices.V20170119
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// The resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string Location;
@@ -80,6 +84,8 @@ namespace Pulumi.AzureNextGen.Devices.V20170119
         private GetIotHubResourceResult(
             string? etag,
 
+            string id,
+
             string location,
 
             string name,
@@ -97,6 +103,7 @@ namespace Pulumi.AzureNextGen.Devices.V20170119
             string type)
         {
             Etag = etag;
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

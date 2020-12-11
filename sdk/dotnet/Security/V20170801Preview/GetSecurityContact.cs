@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview
         /// </summary>
         public readonly string Email;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview
 
             string email,
 
+            string id,
+
             string name,
 
             string? phone,
@@ -75,6 +81,7 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview
             AlertNotifications = alertNotifications;
             AlertsToAdmins = alertsToAdmins;
             Email = email;
+            Id = id;
             Name = name;
             Phone = phone;
             Type = type;

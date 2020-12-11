@@ -20,7 +20,10 @@ class GetSqlResourceSqlUserDefinedFunctionResult:
     """
     An Azure Cosmos DB userDefinedFunction.
     """
-    def __init__(__self__, location=None, name=None, resource=None, tags=None, type=None):
+    def __init__(__self__, id=None, location=None, name=None, resource=None, tags=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -36,6 +39,14 @@ class GetSqlResourceSqlUserDefinedFunctionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The unique resource identifier of the ARM resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -81,6 +92,7 @@ class AwaitableGetSqlResourceSqlUserDefinedFunctionResult(GetSqlResourceSqlUserD
         if False:
             yield self
         return GetSqlResourceSqlUserDefinedFunctionResult(
+            id=self.id,
             location=self.location,
             name=self.name,
             resource=self.resource,
@@ -116,6 +128,7 @@ def get_sql_resource_sql_user_defined_function(account_name: Optional[str] = Non
     __ret__ = pulumi.runtime.invoke('azure-nextgen:documentdb/v20200901:getSqlResourceSqlUserDefinedFunction', __args__, opts=opts, typ=GetSqlResourceSqlUserDefinedFunctionResult).value
 
     return AwaitableGetSqlResourceSqlUserDefinedFunctionResult(
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         resource=__ret__.resource,

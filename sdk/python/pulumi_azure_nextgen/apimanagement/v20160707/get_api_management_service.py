@@ -20,7 +20,7 @@ class GetApiManagementServiceResult:
     """
     Description of an API Management service resource.
     """
-    def __init__(__self__, additional_locations=None, addresser_email=None, created_at_utc=None, custom_properties=None, etag=None, hostname_configurations=None, location=None, management_api_url=None, name=None, portal_url=None, provisioning_state=None, publisher_email=None, publisher_name=None, runtime_url=None, scm_url=None, sku=None, static_ips=None, tags=None, target_provisioning_state=None, type=None, vpn_type=None, vpnconfiguration=None):
+    def __init__(__self__, additional_locations=None, addresser_email=None, created_at_utc=None, custom_properties=None, etag=None, hostname_configurations=None, id=None, location=None, management_api_url=None, name=None, portal_url=None, provisioning_state=None, publisher_email=None, publisher_name=None, runtime_url=None, scm_url=None, sku=None, static_ips=None, tags=None, target_provisioning_state=None, type=None, vpn_type=None, vpnconfiguration=None):
         if additional_locations and not isinstance(additional_locations, list):
             raise TypeError("Expected argument 'additional_locations' to be a list")
         pulumi.set(__self__, "additional_locations", additional_locations)
@@ -39,6 +39,9 @@ class GetApiManagementServiceResult:
         if hostname_configurations and not isinstance(hostname_configurations, list):
             raise TypeError("Expected argument 'hostname_configurations' to be a list")
         pulumi.set(__self__, "hostname_configurations", hostname_configurations)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -135,6 +138,14 @@ class GetApiManagementServiceResult:
         Custom hostname configuration of the API Management service.
         """
         return pulumi.get(self, "hostname_configurations")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the created API Management service.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -277,6 +288,7 @@ class AwaitableGetApiManagementServiceResult(GetApiManagementServiceResult):
             custom_properties=self.custom_properties,
             etag=self.etag,
             hostname_configurations=self.hostname_configurations,
+            id=self.id,
             location=self.location,
             management_api_url=self.management_api_url,
             name=self.name,
@@ -320,6 +332,7 @@ def get_api_management_service(resource_group_name: Optional[str] = None,
         custom_properties=__ret__.custom_properties,
         etag=__ret__.etag,
         hostname_configurations=__ret__.hostname_configurations,
+        id=__ret__.id,
         location=__ret__.location,
         management_api_url=__ret__.management_api_url,
         name=__ret__.name,

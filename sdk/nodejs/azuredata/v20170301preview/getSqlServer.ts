@@ -53,6 +53,10 @@ export interface GetSqlServerResult {
      */
     readonly edition?: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

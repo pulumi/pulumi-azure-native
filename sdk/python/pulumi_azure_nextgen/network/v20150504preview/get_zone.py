@@ -20,10 +20,13 @@ class GetZoneResult:
     """
     Describes a DNS zone.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, etag=None, id=None, location=None, name=None, properties=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -47,6 +50,14 @@ class GetZoneResult:
         Gets or sets the ETag of the zone that is being updated, as received from a Get operation.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -96,6 +107,7 @@ class AwaitableGetZoneResult(GetZoneResult):
             yield self
         return GetZoneResult(
             etag=self.etag,
+            id=self.id,
             location=self.location,
             name=self.name,
             properties=self.properties,
@@ -123,6 +135,7 @@ def get_zone(resource_group_name: Optional[str] = None,
 
     return AwaitableGetZoneResult(
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         properties=__ret__.properties,

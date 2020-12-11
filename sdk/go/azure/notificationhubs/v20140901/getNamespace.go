@@ -25,6 +25,8 @@ type LookupNamespaceArgs struct {
 
 // Description of a Namespace resource.
 type LookupNamespaceResult struct {
+	// Gets or sets the id of the created Namespace.
+	Id *string `pulumi:"id"`
 	// Gets or sets datacenter location of the Namespace.
 	Location *string `pulumi:"location"`
 	// Gets or sets name of the Namespace.

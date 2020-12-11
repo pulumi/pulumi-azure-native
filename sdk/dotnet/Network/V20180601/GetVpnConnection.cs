@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.Network.V20180601
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Ingress bytes transferred.
         /// </summary>
         public readonly int IngressBytesTransferred;
@@ -106,6 +110,8 @@ namespace Pulumi.AzureNextGen.Network.V20180601
 
             string etag,
 
+            string? id,
+
             int ingressBytesTransferred,
 
             ImmutableArray<Outputs.IpsecPolicyResponse> ipsecPolicies,
@@ -125,6 +131,7 @@ namespace Pulumi.AzureNextGen.Network.V20180601
             EgressBytesTransferred = egressBytesTransferred;
             EnableBgp = enableBgp;
             Etag = etag;
+            Id = id;
             IngressBytesTransferred = ingressBytesTransferred;
             IpsecPolicies = ipsecPolicies;
             Name = name;

@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
         /// </summary>
         public readonly Outputs.CorsRulesResponse? Cors;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -74,6 +78,8 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
         private GetFileServicePropertiesResult(
             Outputs.CorsRulesResponse? cors,
 
+            string id,
+
             string name,
 
             Outputs.ProtocolSettingsResponse? protocolSettings,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
             string type)
         {
             Cors = cors;
+            Id = id;
             Name = name;
             ProtocolSettings = protocolSettings;
             ShareDeleteRetentionPolicy = shareDeleteRetentionPolicy;

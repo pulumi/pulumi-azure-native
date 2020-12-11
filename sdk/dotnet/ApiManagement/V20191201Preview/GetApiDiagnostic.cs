@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
         /// </summary>
         public readonly string? HttpCorrelationProtocol;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Log the ClientIP. Default is false.
         /// </summary>
         public readonly bool? LogClientIp;
@@ -102,6 +106,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
 
             string? httpCorrelationProtocol,
 
+            string id,
+
             bool? logClientIp,
 
             string loggerId,
@@ -118,6 +124,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
             Backend = backend;
             Frontend = frontend;
             HttpCorrelationProtocol = httpCorrelationProtocol;
+            Id = id;
             LogClientIp = logClientIp;
             LoggerId = loggerId;
             Name = name;

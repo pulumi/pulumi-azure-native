@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20150320
         /// </summary>
         public readonly string? ETag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20150320
 
             string? eTag,
 
+            string id,
+
             string name,
 
             Outputs.StorageInsightStatusResponse status,
@@ -98,6 +104,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20150320
         {
             Containers = containers;
             ETag = eTag;
+            Id = id;
             Name = name;
             Status = status;
             StorageAccount = storageAccount;

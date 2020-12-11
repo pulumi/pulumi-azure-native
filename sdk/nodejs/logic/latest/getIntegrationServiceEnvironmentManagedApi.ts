@@ -40,6 +40,10 @@ export interface GetIntegrationServiceEnvironmentManagedApiArgs {
  */
 export interface GetIntegrationServiceEnvironmentManagedApiResult {
     /**
+     * The resource id.
+     */
+    readonly id: string;
+    /**
      * The resource location.
      */
     readonly location?: string;

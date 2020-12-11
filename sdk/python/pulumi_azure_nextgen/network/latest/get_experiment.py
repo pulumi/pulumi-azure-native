@@ -20,7 +20,7 @@ class GetExperimentResult:
     """
     Defines the properties of an Experiment
     """
-    def __init__(__self__, description=None, enabled_state=None, endpoint_a=None, endpoint_b=None, location=None, name=None, resource_state=None, script_file_uri=None, status=None, tags=None, type=None):
+    def __init__(__self__, description=None, enabled_state=None, endpoint_a=None, endpoint_b=None, id=None, location=None, name=None, resource_state=None, script_file_uri=None, status=None, tags=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -33,6 +33,9 @@ class GetExperimentResult:
         if endpoint_b and not isinstance(endpoint_b, dict):
             raise TypeError("Expected argument 'endpoint_b' to be a dict")
         pulumi.set(__self__, "endpoint_b", endpoint_b)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -86,6 +89,14 @@ class GetExperimentResult:
         The endpoint B of an experiment
         """
         return pulumi.get(self, "endpoint_b")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -154,6 +165,7 @@ class AwaitableGetExperimentResult(GetExperimentResult):
             enabled_state=self.enabled_state,
             endpoint_a=self.endpoint_a,
             endpoint_b=self.endpoint_b,
+            id=self.id,
             location=self.location,
             name=self.name,
             resource_state=self.resource_state,
@@ -189,6 +201,7 @@ def get_experiment(experiment_name: Optional[str] = None,
         enabled_state=__ret__.enabled_state,
         endpoint_a=__ret__.endpoint_a,
         endpoint_b=__ret__.endpoint_b,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         resource_state=__ret__.resource_state,

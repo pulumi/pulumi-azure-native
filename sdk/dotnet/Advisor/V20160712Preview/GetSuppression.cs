@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Advisor.V20160712Preview
     public sealed class GetSuppressionResult
     {
         /// <summary>
+        /// The resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
         public readonly string? Location;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.Advisor.V20160712Preview
 
         [OutputConstructor]
         private GetSuppressionResult(
+            string id,
+
             string? location,
 
             string name,
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNextGen.Advisor.V20160712Preview
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             SuppressionId = suppressionId;

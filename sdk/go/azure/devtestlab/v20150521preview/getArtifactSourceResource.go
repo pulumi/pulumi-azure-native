@@ -33,6 +33,8 @@ type LookupArtifactSourceResourceResult struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The folder path of the artifact source.
 	FolderPath *string `pulumi:"folderPath"`
+	// The identifier of the resource.
+	Id *string `pulumi:"id"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.

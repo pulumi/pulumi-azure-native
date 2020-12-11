@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
     public sealed class GetStorageSyncServiceResult
     {
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Incoming Traffic Policy
         /// </summary>
         public readonly string? IncomingTrafficPolicy;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
 
         [OutputConstructor]
         private GetStorageSyncServiceResult(
+            string id,
+
             string? incomingTrafficPolicy,
 
             string lastOperationName,
@@ -108,6 +114,7 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
 
             string type)
         {
+            Id = id;
             IncomingTrafficPolicy = incomingTrafficPolicy;
             LastOperationName = lastOperationName;
             LastWorkflowId = lastWorkflowId;

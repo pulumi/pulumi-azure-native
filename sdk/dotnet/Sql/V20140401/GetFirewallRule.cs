@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
         /// </summary>
         public readonly string EndIpAddress;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Kind of server that contains this firewall rule.
         /// </summary>
         public readonly string Kind;
@@ -74,6 +78,8 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
         private GetFirewallRuleResult(
             string endIpAddress,
 
+            string id,
+
             string kind,
 
             string location,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
             string type)
         {
             EndIpAddress = endIpAddress;
+            Id = id;
             Kind = kind;
             Location = location;
             Name = name;

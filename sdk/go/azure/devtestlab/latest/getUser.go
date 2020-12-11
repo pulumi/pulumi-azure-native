@@ -31,6 +31,8 @@ type LookupUserArgs struct {
 type LookupUserResult struct {
 	// The creation date of the user profile.
 	CreatedDate string `pulumi:"createdDate"`
+	// The identifier of the resource.
+	Id string `pulumi:"id"`
 	// The identity of the user.
 	Identity *UserIdentityResponse `pulumi:"identity"`
 	// The location of the resource.

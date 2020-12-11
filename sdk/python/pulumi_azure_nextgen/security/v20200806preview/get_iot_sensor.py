@@ -19,7 +19,7 @@ class GetIotSensorResult:
     """
     IoT sensor model
     """
-    def __init__(__self__, connectivity_time=None, creation_time=None, dynamic_learning=None, learning_mode=None, name=None, sensor_status=None, sensor_version=None, ti_automatic_updates=None, ti_status=None, ti_version=None, type=None, zone=None):
+    def __init__(__self__, connectivity_time=None, creation_time=None, dynamic_learning=None, id=None, learning_mode=None, name=None, sensor_status=None, sensor_version=None, ti_automatic_updates=None, ti_status=None, ti_version=None, type=None, zone=None):
         if connectivity_time and not isinstance(connectivity_time, str):
             raise TypeError("Expected argument 'connectivity_time' to be a str")
         pulumi.set(__self__, "connectivity_time", connectivity_time)
@@ -29,6 +29,9 @@ class GetIotSensorResult:
         if dynamic_learning and not isinstance(dynamic_learning, bool):
             raise TypeError("Expected argument 'dynamic_learning' to be a bool")
         pulumi.set(__self__, "dynamic_learning", dynamic_learning)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if learning_mode and not isinstance(learning_mode, bool):
             raise TypeError("Expected argument 'learning_mode' to be a bool")
         pulumi.set(__self__, "learning_mode", learning_mode)
@@ -80,6 +83,14 @@ class GetIotSensorResult:
         Dynamic mode status of the IoT sensor
         """
         return pulumi.get(self, "dynamic_learning")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="learningMode")
@@ -163,6 +174,7 @@ class AwaitableGetIotSensorResult(GetIotSensorResult):
             connectivity_time=self.connectivity_time,
             creation_time=self.creation_time,
             dynamic_learning=self.dynamic_learning,
+            id=self.id,
             learning_mode=self.learning_mode,
             name=self.name,
             sensor_status=self.sensor_status,
@@ -196,6 +208,7 @@ def get_iot_sensor(iot_sensor_name: Optional[str] = None,
         connectivity_time=__ret__.connectivity_time,
         creation_time=__ret__.creation_time,
         dynamic_learning=__ret__.dynamic_learning,
+        id=__ret__.id,
         learning_mode=__ret__.learning_mode,
         name=__ret__.name,
         sensor_status=__ret__.sensor_status,

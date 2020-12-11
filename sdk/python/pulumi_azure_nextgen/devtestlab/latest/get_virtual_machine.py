@@ -20,7 +20,7 @@ class GetVirtualMachineResult:
     """
     A virtual machine.
     """
-    def __init__(__self__, allow_claim=None, applicable_schedule=None, artifact_deployment_status=None, artifacts=None, compute_id=None, compute_vm=None, created_by_user=None, created_by_user_id=None, created_date=None, custom_image_id=None, data_disk_parameters=None, disallow_public_ip_address=None, environment_id=None, expiration_date=None, fqdn=None, gallery_image_reference=None, is_authentication_with_ssh_key=None, lab_subnet_name=None, lab_virtual_network_id=None, last_known_power_state=None, location=None, name=None, network_interface=None, notes=None, os_type=None, owner_object_id=None, owner_user_principal_name=None, password=None, plan_id=None, provisioning_state=None, schedule_parameters=None, size=None, ssh_key=None, storage_type=None, tags=None, type=None, unique_identifier=None, user_name=None, virtual_machine_creation_source=None):
+    def __init__(__self__, allow_claim=None, applicable_schedule=None, artifact_deployment_status=None, artifacts=None, compute_id=None, compute_vm=None, created_by_user=None, created_by_user_id=None, created_date=None, custom_image_id=None, data_disk_parameters=None, disallow_public_ip_address=None, environment_id=None, expiration_date=None, fqdn=None, gallery_image_reference=None, id=None, is_authentication_with_ssh_key=None, lab_subnet_name=None, lab_virtual_network_id=None, last_known_power_state=None, location=None, name=None, network_interface=None, notes=None, os_type=None, owner_object_id=None, owner_user_principal_name=None, password=None, plan_id=None, provisioning_state=None, schedule_parameters=None, size=None, ssh_key=None, storage_type=None, tags=None, type=None, unique_identifier=None, user_name=None, virtual_machine_creation_source=None):
         if allow_claim and not isinstance(allow_claim, bool):
             raise TypeError("Expected argument 'allow_claim' to be a bool")
         pulumi.set(__self__, "allow_claim", allow_claim)
@@ -69,6 +69,9 @@ class GetVirtualMachineResult:
         if gallery_image_reference and not isinstance(gallery_image_reference, dict):
             raise TypeError("Expected argument 'gallery_image_reference' to be a dict")
         pulumi.set(__self__, "gallery_image_reference", gallery_image_reference)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_authentication_with_ssh_key and not isinstance(is_authentication_with_ssh_key, bool):
             raise TypeError("Expected argument 'is_authentication_with_ssh_key' to be a bool")
         pulumi.set(__self__, "is_authentication_with_ssh_key", is_authentication_with_ssh_key)
@@ -266,6 +269,14 @@ class GetVirtualMachineResult:
         The Microsoft Azure Marketplace image reference of the virtual machine.
         """
         return pulumi.get(self, "gallery_image_reference")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isAuthenticationWithSshKey")
@@ -474,6 +485,7 @@ class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
             expiration_date=self.expiration_date,
             fqdn=self.fqdn,
             gallery_image_reference=self.gallery_image_reference,
+            id=self.id,
             is_authentication_with_ssh_key=self.is_authentication_with_ssh_key,
             lab_subnet_name=self.lab_subnet_name,
             lab_virtual_network_id=self.lab_virtual_network_id,
@@ -540,6 +552,7 @@ def get_virtual_machine(expand: Optional[str] = None,
         expiration_date=__ret__.expiration_date,
         fqdn=__ret__.fqdn,
         gallery_image_reference=__ret__.gallery_image_reference,
+        id=__ret__.id,
         is_authentication_with_ssh_key=__ret__.is_authentication_with_ssh_key,
         lab_subnet_name=__ret__.lab_subnet_name,
         lab_virtual_network_id=__ret__.lab_virtual_network_id,

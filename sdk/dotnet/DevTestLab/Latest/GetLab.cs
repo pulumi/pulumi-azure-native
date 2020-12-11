@@ -74,6 +74,10 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
         /// </summary>
         public readonly ImmutableDictionary<string, string>? ExtendedProperties;
         /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
         /// </summary>
         public readonly string? LabStorageType;
@@ -160,6 +164,8 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
 
             ImmutableDictionary<string, string>? extendedProperties,
 
+            string id,
+
             string? labStorageType,
 
             string loadBalancerId,
@@ -201,6 +207,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
             DefaultStorageAccount = defaultStorageAccount;
             EnvironmentPermission = environmentPermission;
             ExtendedProperties = extendedProperties;
+            Id = id;
             LabStorageType = labStorageType;
             LoadBalancerId = loadBalancerId;
             Location = location;

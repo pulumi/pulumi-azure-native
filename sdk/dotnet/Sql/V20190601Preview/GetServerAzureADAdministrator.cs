@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
         /// </summary>
         public readonly bool AzureADOnlyAuthentication;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Login name of the server administrator.
         /// </summary>
         public readonly string Login;
@@ -80,6 +84,8 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
 
             bool azureADOnlyAuthentication,
 
+            string id,
+
             string login,
 
             string name,
@@ -92,6 +98,7 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
         {
             AdministratorType = administratorType;
             AzureADOnlyAuthentication = azureADOnlyAuthentication;
+            Id = id;
             Login = login;
             Name = name;
             Sid = sid;

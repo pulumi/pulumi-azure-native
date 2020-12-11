@@ -35,6 +35,10 @@ export interface GetGuestUsageArgs {
  */
 export interface GetGuestUsageResult {
     /**
+     * An identifier that represents the Guest Usages resource.
+     */
+    readonly id: string;
+    /**
      * Location of the Guest Usages resource.
      */
     readonly location?: string;

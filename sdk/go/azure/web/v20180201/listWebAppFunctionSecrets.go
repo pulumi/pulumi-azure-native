@@ -27,6 +27,8 @@ type ListWebAppFunctionSecretsArgs struct {
 
 // Function secrets.
 type ListWebAppFunctionSecretsResult struct {
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Secret key.
 	Key *string `pulumi:"key"`
 	// Kind of resource.

@@ -35,6 +35,10 @@ export interface GetVaultArgs {
  */
 export interface GetVaultResult {
     /**
+     * The Azure Resource Manager resource ID for the key vault.
+     */
+    readonly id: string;
+    /**
      * The supported Azure location where the key vault should be created.
      */
     readonly location: string;

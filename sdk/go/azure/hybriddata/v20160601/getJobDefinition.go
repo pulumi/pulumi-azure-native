@@ -37,6 +37,8 @@ type LookupJobDefinitionResult struct {
 	DataSinkId string `pulumi:"dataSinkId"`
 	// Data Source Id associated to the job definition.
 	DataSourceId string `pulumi:"dataSourceId"`
+	// Id of the object.
+	Id string `pulumi:"id"`
 	// Last modified time of the job definition.
 	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// Name of the object.

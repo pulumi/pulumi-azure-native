@@ -44,6 +44,10 @@ export interface GetCertificateResult {
      */
     readonly expirationDate: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * KeyVault location details of the certificate.
      */
     readonly keyVault?: outputs.apimanagement.v20200601preview.KeyVaultContractPropertiesResponse;

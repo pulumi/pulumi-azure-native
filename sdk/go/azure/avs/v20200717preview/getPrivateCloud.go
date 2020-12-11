@@ -29,6 +29,8 @@ type LookupPrivateCloudResult struct {
 	Circuit *CircuitResponse `pulumi:"circuit"`
 	// The endpoints
 	Endpoints EndpointsResponse `pulumi:"endpoints"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// vCenter Single Sign On Identity Sources
 	IdentitySources []IdentitySourceResponse `pulumi:"identitySources"`
 	// Connectivity to internet is enabled or disabled

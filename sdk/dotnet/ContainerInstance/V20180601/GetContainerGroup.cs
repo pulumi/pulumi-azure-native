@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20180601
         /// </summary>
         public readonly Outputs.ContainerGroupDiagnosticsResponse? Diagnostics;
         /// <summary>
+        /// The resource id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The image registry credentials by which the container group is created from.
         /// </summary>
         public readonly ImmutableArray<Outputs.ImageRegistryCredentialResponse> ImageRegistryCredentials;
@@ -101,6 +105,8 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20180601
 
             Outputs.ContainerGroupDiagnosticsResponse? diagnostics,
 
+            string id,
+
             ImmutableArray<Outputs.ImageRegistryCredentialResponse> imageRegistryCredentials,
 
             Outputs.ContainerGroupResponseInstanceView instanceView,
@@ -125,6 +131,7 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20180601
         {
             Containers = containers;
             Diagnostics = diagnostics;
+            Id = id;
             ImageRegistryCredentials = imageRegistryCredentials;
             InstanceView = instanceView;
             IpAddress = ipAddress;

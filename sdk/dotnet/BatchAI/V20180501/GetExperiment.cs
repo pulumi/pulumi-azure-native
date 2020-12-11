@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180501
         /// </summary>
         public readonly string CreationTime;
         /// <summary>
+        /// The ID of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
@@ -70,6 +74,8 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180501
         private GetExperimentResult(
             string creationTime,
 
+            string id,
+
             string name,
 
             string provisioningState,
@@ -79,6 +85,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180501
             string type)
         {
             CreationTime = creationTime;
+            Id = id;
             Name = name;
             ProvisioningState = provisioningState;
             ProvisioningStateTransitionTime = provisioningStateTransitionTime;

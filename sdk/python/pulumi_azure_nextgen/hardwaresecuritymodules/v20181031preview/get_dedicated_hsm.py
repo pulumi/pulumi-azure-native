@@ -20,7 +20,10 @@ class GetDedicatedHsmResult:
     """
     Resource information with extended details.
     """
-    def __init__(__self__, location=None, name=None, network_profile=None, provisioning_state=None, sku=None, stamp_id=None, status_message=None, tags=None, type=None, zones=None):
+    def __init__(__self__, id=None, location=None, name=None, network_profile=None, provisioning_state=None, sku=None, stamp_id=None, status_message=None, tags=None, type=None, zones=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -51,6 +54,14 @@ class GetDedicatedHsmResult:
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The Azure Resource Manager resource ID for the dedicated HSM.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -139,6 +150,7 @@ class AwaitableGetDedicatedHsmResult(GetDedicatedHsmResult):
         if False:
             yield self
         return GetDedicatedHsmResult(
+            id=self.id,
             location=self.location,
             name=self.name,
             network_profile=self.network_profile,
@@ -170,6 +182,7 @@ def get_dedicated_hsm(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:hardwaresecuritymodules/v20181031preview:getDedicatedHsm', __args__, opts=opts, typ=GetDedicatedHsmResult).value
 
     return AwaitableGetDedicatedHsmResult(
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         network_profile=__ret__.network_profile,

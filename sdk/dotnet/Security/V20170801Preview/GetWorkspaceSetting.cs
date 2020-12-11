@@ -34,6 +34,10 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview
     public sealed class GetWorkspaceSettingResult
     {
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
@@ -52,6 +56,8 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview
 
         [OutputConstructor]
         private GetWorkspaceSettingResult(
+            string id,
+
             string name,
 
             string scope,
@@ -60,6 +66,7 @@ namespace Pulumi.AzureNextGen.Security.V20170801Preview
 
             string workspaceId)
         {
+            Id = id;
             Name = name;
             Scope = scope;
             Type = type;

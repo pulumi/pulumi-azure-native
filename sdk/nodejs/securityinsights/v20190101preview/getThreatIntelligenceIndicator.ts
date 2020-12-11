@@ -49,6 +49,10 @@ export interface GetThreatIntelligenceIndicatorResult {
      */
     readonly etag?: string;
     /**
+     * Azure resource Id
+     */
+    readonly id: string;
+    /**
      * The kind of the entity.
      */
     readonly kind: string;

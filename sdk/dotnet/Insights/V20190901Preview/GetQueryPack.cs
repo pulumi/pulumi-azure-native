@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Insights.V20190901Preview
     public sealed class GetQueryPackResult
     {
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -74,6 +78,8 @@ namespace Pulumi.AzureNextGen.Insights.V20190901Preview
 
         [OutputConstructor]
         private GetQueryPackResult(
+            string id,
+
             string location,
 
             string name,
@@ -90,6 +96,7 @@ namespace Pulumi.AzureNextGen.Insights.V20190901Preview
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

@@ -37,6 +37,8 @@ type LookupCertificateOrderResult struct {
 	DomainVerificationToken *string `pulumi:"domainVerificationToken"`
 	// Certificate expiration time
 	ExpirationTime *string `pulumi:"expirationTime"`
+	// Resource Id
+	Id *string `pulumi:"id"`
 	// Intermediate certificate
 	Intermediate *CertificateDetailsResponse `pulumi:"intermediate"`
 	// Certificate Key Size

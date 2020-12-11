@@ -20,7 +20,7 @@ class GetInterfaceEndpointResult:
     """
     Interface endpoint resource.
     """
-    def __init__(__self__, endpoint_service=None, etag=None, fqdn=None, location=None, name=None, network_interfaces=None, owner=None, provisioning_state=None, subnet=None, tags=None, type=None):
+    def __init__(__self__, endpoint_service=None, etag=None, fqdn=None, id=None, location=None, name=None, network_interfaces=None, owner=None, provisioning_state=None, subnet=None, tags=None, type=None):
         if endpoint_service and not isinstance(endpoint_service, dict):
             raise TypeError("Expected argument 'endpoint_service' to be a dict")
         pulumi.set(__self__, "endpoint_service", endpoint_service)
@@ -30,6 +30,9 @@ class GetInterfaceEndpointResult:
         if fqdn and not isinstance(fqdn, str):
             raise TypeError("Expected argument 'fqdn' to be a str")
         pulumi.set(__self__, "fqdn", fqdn)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -78,6 +81,14 @@ class GetInterfaceEndpointResult:
         A first-party service's FQDN that is mapped to the private IP allocated via this interface endpoint.
         """
         return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -153,6 +164,7 @@ class AwaitableGetInterfaceEndpointResult(GetInterfaceEndpointResult):
             endpoint_service=self.endpoint_service,
             etag=self.etag,
             fqdn=self.fqdn,
+            id=self.id,
             location=self.location,
             name=self.name,
             network_interfaces=self.network_interfaces,
@@ -188,6 +200,7 @@ def get_interface_endpoint(expand: Optional[str] = None,
         endpoint_service=__ret__.endpoint_service,
         etag=__ret__.etag,
         fqdn=__ret__.fqdn,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         network_interfaces=__ret__.network_interfaces,

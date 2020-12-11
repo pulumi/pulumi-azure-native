@@ -28,6 +28,8 @@ type LookupFileServerResult struct {
 	CreationTime string `pulumi:"creationTime"`
 	// Settings for the data disk which would be created for the File Server.
 	DataDisks *DataDisksResponse `pulumi:"dataDisks"`
+	// The ID of the resource
+	Id string `pulumi:"id"`
 	// The location of the resource
 	Location string `pulumi:"location"`
 	// Details of the File Server.

@@ -33,6 +33,8 @@ type LookupApiPolicyArgs struct {
 type LookupApiPolicyResult struct {
 	// Format of the policyContent.
 	Format *string `pulumi:"format"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Resource type for API Management resource.

@@ -35,6 +35,10 @@ export interface GetIntegrationServiceEnvironmentArgs {
  */
 export interface GetIntegrationServiceEnvironmentResult {
     /**
+     * The resource id.
+     */
+    readonly id: string;
+    /**
      * The resource location.
      */
     readonly location?: string;

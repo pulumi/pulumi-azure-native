@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Authorization.V20160401
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
+        /// The ID of the policy assignment.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The name of the policy assignment.
         /// </summary>
         public readonly string? Name;
@@ -64,6 +68,8 @@ namespace Pulumi.AzureNextGen.Authorization.V20160401
         private GetPolicyAssignmentResult(
             string? displayName,
 
+            string? id,
+
             string? name,
 
             string? policyDefinitionId,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20160401
             string? type)
         {
             DisplayName = displayName;
+            Id = id;
             Name = name;
             PolicyDefinitionId = policyDefinitionId;
             Scope = scope;

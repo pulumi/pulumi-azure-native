@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// String Id used to locate any resource on Azure.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the Template Spec Version. It must match the location of the parent Template Spec.
         /// </summary>
         public readonly string Location;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview
 
             string? description,
 
+            string id,
+
             string location,
 
             string name,
@@ -98,6 +104,7 @@ namespace Pulumi.AzureNextGen.Resources.V20190601Preview
         {
             Artifacts = artifacts;
             Description = description;
+            Id = id;
             Location = location;
             Name = name;
             SystemData = systemData;

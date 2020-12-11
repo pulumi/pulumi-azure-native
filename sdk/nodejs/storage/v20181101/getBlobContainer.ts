@@ -52,6 +52,10 @@ export interface GetBlobContainerResult {
      */
     readonly hasLegalHold: boolean;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * The ImmutabilityPolicy property of the container.
      */
     readonly immutabilityPolicy: outputs.storage.v20181101.ImmutabilityPolicyPropertiesResponse;

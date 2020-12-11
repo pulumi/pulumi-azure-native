@@ -47,6 +47,10 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The implementation effort required to remediate this assessment
         /// </summary>
         public readonly string? ImplementationEffort;
@@ -90,6 +94,8 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
 
             string displayName,
 
+            string id,
+
             string? implementationEffort,
 
             string name,
@@ -112,6 +118,7 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
             Category = category;
             Description = description;
             DisplayName = displayName;
+            Id = id;
             ImplementationEffort = implementationEffort;
             Name = name;
             PolicyDefinitionId = policyDefinitionId;

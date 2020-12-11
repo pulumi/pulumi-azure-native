@@ -20,10 +20,13 @@ class GetEnterprisePolicyResult:
     """
     Definition of the EnterprisePolicy.
     """
-    def __init__(__self__, encryption=None, identity=None, location=None, lockbox=None, name=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, encryption=None, id=None, identity=None, location=None, lockbox=None, name=None, system_data=None, tags=None, type=None):
         if encryption and not isinstance(encryption, dict):
             raise TypeError("Expected argument 'encryption' to be a dict")
         pulumi.set(__self__, "encryption", encryption)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -53,6 +56,14 @@ class GetEnterprisePolicyResult:
         The encryption settings for a configuration store.
         """
         return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        ARM resource id of the EnterprisePolicy.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -118,6 +129,7 @@ class AwaitableGetEnterprisePolicyResult(GetEnterprisePolicyResult):
             yield self
         return GetEnterprisePolicyResult(
             encryption=self.encryption,
+            id=self.id,
             identity=self.identity,
             location=self.location,
             lockbox=self.lockbox,
@@ -147,6 +159,7 @@ def get_enterprise_policy(enterprise_policy_name: Optional[str] = None,
 
     return AwaitableGetEnterprisePolicyResult(
         encryption=__ret__.encryption,
+        id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
         lockbox=__ret__.lockbox,

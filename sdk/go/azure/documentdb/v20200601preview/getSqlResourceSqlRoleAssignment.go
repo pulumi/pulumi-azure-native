@@ -27,6 +27,8 @@ type LookupSqlResourceSqlRoleAssignmentArgs struct {
 
 // An Azure Cosmos DB Role Assignment
 type LookupSqlResourceSqlRoleAssignmentResult struct {
+	// The unique resource identifier of the database account.
+	Id string `pulumi:"id"`
 	// The name of the database account.
 	Name string `pulumi:"name"`
 	// The unique identifier for the associated AAD principal in the AAD graph to which access is being granted through this Role Assignment. Tenant ID for the principal is inferred using the tenant associated with the subscription.

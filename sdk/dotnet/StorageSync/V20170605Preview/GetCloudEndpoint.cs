@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.StorageSync.V20170605Preview
         /// </summary>
         public readonly string? FriendlyName;
         /// <summary>
+        /// The id of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// CloudEndpoint lastWorkflowId
         /// </summary>
         public readonly string? LastWorkflowId;
@@ -106,6 +110,8 @@ namespace Pulumi.AzureNextGen.StorageSync.V20170605Preview
 
             string? friendlyName,
 
+            string id,
+
             string? lastWorkflowId,
 
             string name,
@@ -128,6 +134,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20170605Preview
         {
             BackupEnabled = backupEnabled;
             FriendlyName = friendlyName;
+            Id = id;
             LastWorkflowId = lastWorkflowId;
             Name = name;
             PartnershipId = partnershipId;

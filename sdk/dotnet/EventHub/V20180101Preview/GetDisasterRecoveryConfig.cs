@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         /// </summary>
         public readonly string? AlternateName;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         private GetDisasterRecoveryConfigResult(
             string? alternateName,
 
+            string id,
+
             string name,
 
             string? partnerNamespace,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
             string type)
         {
             AlternateName = alternateName;
+            Id = id;
             Name = name;
             PartnerNamespace = partnerNamespace;
             PendingReplicationOperationsCount = pendingReplicationOperationsCount;

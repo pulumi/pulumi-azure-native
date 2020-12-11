@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.Web.V20190801
         /// </summary>
         public readonly string? Href;
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The invocation URL
         /// </summary>
         public readonly string? InvokeUrlTemplate;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNextGen.Web.V20190801
 
             string? href,
 
+            string id,
+
             string? invokeUrlTemplate,
 
             bool? isDisabled,
@@ -149,6 +155,7 @@ namespace Pulumi.AzureNextGen.Web.V20190801
             Files = files;
             FunctionAppId = functionAppId;
             Href = href;
+            Id = id;
             InvokeUrlTemplate = invokeUrlTemplate;
             IsDisabled = isDisabled;
             Kind = kind;

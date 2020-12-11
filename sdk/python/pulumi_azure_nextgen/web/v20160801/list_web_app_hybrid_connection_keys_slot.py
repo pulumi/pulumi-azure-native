@@ -19,7 +19,10 @@ class ListWebAppHybridConnectionKeysSlotResult:
     """
     Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
     """
-    def __init__(__self__, kind=None, name=None, send_key_name=None, send_key_value=None, type=None):
+    def __init__(__self__, id=None, kind=None, name=None, send_key_name=None, send_key_value=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -35,6 +38,14 @@ class ListWebAppHybridConnectionKeysSlotResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -83,6 +94,7 @@ class AwaitableListWebAppHybridConnectionKeysSlotResult(ListWebAppHybridConnecti
         if False:
             yield self
         return ListWebAppHybridConnectionKeysSlotResult(
+            id=self.id,
             kind=self.kind,
             name=self.name,
             send_key_name=self.send_key_name,
@@ -118,6 +130,7 @@ def list_web_app_hybrid_connection_keys_slot(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:web/v20160801:listWebAppHybridConnectionKeysSlot', __args__, opts=opts, typ=ListWebAppHybridConnectionKeysSlotResult).value
 
     return AwaitableListWebAppHybridConnectionKeysSlotResult(
+        id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
         send_key_name=__ret__.send_key_name,

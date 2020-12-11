@@ -20,10 +20,13 @@ class GetDdosCustomPolicyResult:
     """
     A DDoS custom policy in a resource group.
     """
-    def __init__(__self__, etag=None, location=None, name=None, protocol_custom_settings=None, provisioning_state=None, public_ip_addresses=None, resource_guid=None, tags=None, type=None):
+    def __init__(__self__, etag=None, id=None, location=None, name=None, protocol_custom_settings=None, provisioning_state=None, public_ip_addresses=None, resource_guid=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -56,6 +59,14 @@ class GetDdosCustomPolicyResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -129,6 +140,7 @@ class AwaitableGetDdosCustomPolicyResult(GetDdosCustomPolicyResult):
             yield self
         return GetDdosCustomPolicyResult(
             etag=self.etag,
+            id=self.id,
             location=self.location,
             name=self.name,
             protocol_custom_settings=self.protocol_custom_settings,
@@ -159,6 +171,7 @@ def get_ddos_custom_policy(ddos_custom_policy_name: Optional[str] = None,
 
     return AwaitableGetDdosCustomPolicyResult(
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         protocol_custom_settings=__ret__.protocol_custom_settings,

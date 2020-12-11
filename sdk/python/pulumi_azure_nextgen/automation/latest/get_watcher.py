@@ -19,7 +19,7 @@ class GetWatcherResult:
     """
     Definition of the watcher type.
     """
-    def __init__(__self__, creation_time=None, description=None, etag=None, execution_frequency_in_seconds=None, last_modified_by=None, last_modified_time=None, location=None, name=None, script_name=None, script_parameters=None, script_run_on=None, status=None, tags=None, type=None):
+    def __init__(__self__, creation_time=None, description=None, etag=None, execution_frequency_in_seconds=None, id=None, last_modified_by=None, last_modified_time=None, location=None, name=None, script_name=None, script_parameters=None, script_run_on=None, status=None, tags=None, type=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -32,6 +32,9 @@ class GetWatcherResult:
         if execution_frequency_in_seconds and not isinstance(execution_frequency_in_seconds, int):
             raise TypeError("Expected argument 'execution_frequency_in_seconds' to be a int")
         pulumi.set(__self__, "execution_frequency_in_seconds", execution_frequency_in_seconds)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_modified_by and not isinstance(last_modified_by, str):
             raise TypeError("Expected argument 'last_modified_by' to be a str")
         pulumi.set(__self__, "last_modified_by", last_modified_by)
@@ -94,6 +97,14 @@ class GetWatcherResult:
         Gets or sets the frequency at which the watcher is invoked.
         """
         return pulumi.get(self, "execution_frequency_in_seconds")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastModifiedBy")
@@ -186,6 +197,7 @@ class AwaitableGetWatcherResult(GetWatcherResult):
             description=self.description,
             etag=self.etag,
             execution_frequency_in_seconds=self.execution_frequency_in_seconds,
+            id=self.id,
             last_modified_by=self.last_modified_by,
             last_modified_time=self.last_modified_time,
             location=self.location,
@@ -224,6 +236,7 @@ def get_watcher(automation_account_name: Optional[str] = None,
         description=__ret__.description,
         etag=__ret__.etag,
         execution_frequency_in_seconds=__ret__.execution_frequency_in_seconds,
+        id=__ret__.id,
         last_modified_by=__ret__.last_modified_by,
         last_modified_time=__ret__.last_modified_time,
         location=__ret__.location,

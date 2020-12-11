@@ -35,6 +35,10 @@ export interface GetPeeringServiceArgs {
  */
 export interface GetPeeringServiceResult {
     /**
+     * The ID of the resource.
+     */
+    readonly id: string;
+    /**
      * The location of the resource.
      */
     readonly location: string;

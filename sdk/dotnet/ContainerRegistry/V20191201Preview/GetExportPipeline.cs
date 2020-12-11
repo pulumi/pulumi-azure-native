@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
     public sealed class GetExportPipelineResult
     {
         /// <summary>
+        /// The resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the export pipeline.
         /// </summary>
         public readonly Outputs.IdentityPropertiesResponse? Identity;
@@ -80,6 +84,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
 
         [OutputConstructor]
         private GetExportPipelineResult(
+            string id,
+
             Outputs.IdentityPropertiesResponse? identity,
 
             string? location,
@@ -96,6 +102,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
 
             string type)
         {
+            Id = id;
             Identity = identity;
             Location = location;
             Name = name;

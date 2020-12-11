@@ -33,6 +33,8 @@ type LookupOutputResult struct {
 	Diagnostics DiagnosticsResponse `pulumi:"diagnostics"`
 	// The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
 	Etag string `pulumi:"etag"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource name
 	Name *string `pulumi:"name"`
 	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.

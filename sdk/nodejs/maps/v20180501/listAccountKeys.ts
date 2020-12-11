@@ -35,6 +35,10 @@ export interface ListAccountKeysArgs {
  */
 export interface ListAccountKeysResult {
     /**
+     * The full Azure resource identifier of the Maps Account.
+     */
+    readonly id: string;
+    /**
      * The primary key for accessing the Maps REST APIs.
      */
     readonly primaryKey: string;

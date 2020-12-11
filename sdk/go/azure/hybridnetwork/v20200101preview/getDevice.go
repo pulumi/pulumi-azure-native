@@ -29,6 +29,8 @@ type LookupDeviceResult struct {
 	AzureStackEdge *SubResourceResponse `pulumi:"azureStackEdge"`
 	// The type of the device.
 	DeviceType string `pulumi:"deviceType"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the resource

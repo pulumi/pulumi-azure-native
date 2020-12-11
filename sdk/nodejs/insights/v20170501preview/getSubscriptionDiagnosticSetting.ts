@@ -38,6 +38,10 @@ export interface GetSubscriptionDiagnosticSettingResult {
      */
     readonly eventHubName?: string;
     /**
+     * Azure resource Id
+     */
+    readonly id: string;
+    /**
      * Location of the resource
      */
     readonly location?: string;

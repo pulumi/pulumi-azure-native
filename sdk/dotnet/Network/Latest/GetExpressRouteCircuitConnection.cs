@@ -72,6 +72,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly Outputs.SubResourceResponse? ExpressRouteCircuitPeering;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// IPv6 Address PrefixProperties of the express route circuit connection.
         /// </summary>
         public readonly Outputs.Ipv6CircuitConnectionConfigResponse? Ipv6CircuitConnectionConfig;
@@ -104,6 +108,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             Outputs.SubResourceResponse? expressRouteCircuitPeering,
 
+            string? id,
+
             Outputs.Ipv6CircuitConnectionConfigResponse? ipv6CircuitConnectionConfig,
 
             string? name,
@@ -119,6 +125,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
             CircuitConnectionStatus = circuitConnectionStatus;
             Etag = etag;
             ExpressRouteCircuitPeering = expressRouteCircuitPeering;
+            Id = id;
             Ipv6CircuitConnectionConfig = ipv6CircuitConnectionConfig;
             Name = name;
             PeerExpressRouteCircuitPeering = peerExpressRouteCircuitPeering;

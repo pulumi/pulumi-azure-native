@@ -25,6 +25,8 @@ type LookupDedicatedHsmArgs struct {
 
 // Resource information with extended details.
 type LookupDedicatedHsmResult struct {
+	// The Azure Resource Manager resource ID for the dedicated HSM.
+	Id string `pulumi:"id"`
 	// The supported Azure location where the dedicated HSM should be created.
 	Location string `pulumi:"location"`
 	// The name of the dedicated HSM.

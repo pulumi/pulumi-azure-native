@@ -27,6 +27,8 @@ type GetprivateLinkForAzureAdArgs struct {
 type GetprivateLinkForAzureAdResult struct {
 	// Flag indicating whether all tenants are allowed
 	AllTenants *bool `pulumi:"allTenants"`
+	// String Id used to locate any resource on Azure.
+	Id string `pulumi:"id"`
 	// Name of this resource.
 	Name *string `pulumi:"name"`
 	// Guid of the owner tenant

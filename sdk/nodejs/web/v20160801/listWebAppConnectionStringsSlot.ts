@@ -40,6 +40,10 @@ export interface ListWebAppConnectionStringsSlotArgs {
  */
 export interface ListWebAppConnectionStringsSlotResult {
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;

@@ -20,13 +20,16 @@ class GetProfileResult:
     """
     Class representing a Traffic Manager profile.
     """
-    def __init__(__self__, dns_config=None, endpoints=None, location=None, monitor_config=None, name=None, profile_status=None, tags=None, traffic_routing_method=None, type=None):
+    def __init__(__self__, dns_config=None, endpoints=None, id=None, location=None, monitor_config=None, name=None, profile_status=None, tags=None, traffic_routing_method=None, type=None):
         if dns_config and not isinstance(dns_config, dict):
             raise TypeError("Expected argument 'dns_config' to be a dict")
         pulumi.set(__self__, "dns_config", dns_config)
         if endpoints and not isinstance(endpoints, list):
             raise TypeError("Expected argument 'endpoints' to be a list")
         pulumi.set(__self__, "endpoints", endpoints)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -64,6 +67,14 @@ class GetProfileResult:
         Gets or sets the list of endpoints in the Traffic Manager profile.
         """
         return pulumi.get(self, "endpoints")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -130,6 +141,7 @@ class AwaitableGetProfileResult(GetProfileResult):
         return GetProfileResult(
             dns_config=self.dns_config,
             endpoints=self.endpoints,
+            id=self.id,
             location=self.location,
             monitor_config=self.monitor_config,
             name=self.name,
@@ -160,6 +172,7 @@ def get_profile(profile_name: Optional[str] = None,
     return AwaitableGetProfileResult(
         dns_config=__ret__.dns_config,
         endpoints=__ret__.endpoints,
+        id=__ret__.id,
         location=__ret__.location,
         monitor_config=__ret__.monitor_config,
         name=__ret__.name,

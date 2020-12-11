@@ -28,6 +28,8 @@ type LookupControllerResult struct {
 	DataPlaneFqdn string `pulumi:"dataPlaneFqdn"`
 	// DNS suffix for public endpoints running in the Azure Dev Spaces Controller.
 	HostSuffix string `pulumi:"hostSuffix"`
+	// Fully qualified resource Id for the resource.
+	Id string `pulumi:"id"`
 	// Region where the Azure resource is located.
 	Location string `pulumi:"location"`
 	// The name of the resource.

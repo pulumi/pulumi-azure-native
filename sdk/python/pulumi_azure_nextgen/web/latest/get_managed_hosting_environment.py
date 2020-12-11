@@ -20,7 +20,7 @@ class GetManagedHostingEnvironmentResult:
     """
     Description of a managed hosting environment
     """
-    def __init__(__self__, api_management_account=None, dns_suffix=None, environment_is_healthy=None, environment_status=None, ipssl_address_count=None, kind=None, location=None, name=None, resource_group=None, status=None, subscription_id=None, suspended=None, tags=None, type=None, virtual_network=None):
+    def __init__(__self__, api_management_account=None, dns_suffix=None, environment_is_healthy=None, environment_status=None, id=None, ipssl_address_count=None, kind=None, location=None, name=None, resource_group=None, status=None, subscription_id=None, suspended=None, tags=None, type=None, virtual_network=None):
         if api_management_account and not isinstance(api_management_account, str):
             raise TypeError("Expected argument 'api_management_account' to be a str")
         pulumi.set(__self__, "api_management_account", api_management_account)
@@ -33,6 +33,9 @@ class GetManagedHostingEnvironmentResult:
         if environment_status and not isinstance(environment_status, str):
             raise TypeError("Expected argument 'environment_status' to be a str")
         pulumi.set(__self__, "environment_status", environment_status)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if ipssl_address_count and not isinstance(ipssl_address_count, int):
             raise TypeError("Expected argument 'ipssl_address_count' to be a int")
         pulumi.set(__self__, "ipssl_address_count", ipssl_address_count)
@@ -98,6 +101,14 @@ class GetManagedHostingEnvironmentResult:
         Detailed message about with results of the last check of the managed hosting environment
         """
         return pulumi.get(self, "environment_status")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ipsslAddressCount")
@@ -199,6 +210,7 @@ class AwaitableGetManagedHostingEnvironmentResult(GetManagedHostingEnvironmentRe
             dns_suffix=self.dns_suffix,
             environment_is_healthy=self.environment_is_healthy,
             environment_status=self.environment_status,
+            id=self.id,
             ipssl_address_count=self.ipssl_address_count,
             kind=self.kind,
             location=self.location,
@@ -235,6 +247,7 @@ def get_managed_hosting_environment(name: Optional[str] = None,
         dns_suffix=__ret__.dns_suffix,
         environment_is_healthy=__ret__.environment_is_healthy,
         environment_status=__ret__.environment_status,
+        id=__ret__.id,
         ipssl_address_count=__ret__.ipssl_address_count,
         kind=__ret__.kind,
         location=__ret__.location,

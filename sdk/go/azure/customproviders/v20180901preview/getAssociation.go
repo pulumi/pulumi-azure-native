@@ -25,6 +25,8 @@ type LookupAssociationArgs struct {
 
 // The resource definition of this association.
 type LookupAssociationResult struct {
+	// The association id.
+	Id string `pulumi:"id"`
 	// The association name.
 	Name string `pulumi:"name"`
 	// The provisioning state of the association.

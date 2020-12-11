@@ -19,13 +19,16 @@ class GetCloudEndpointResult:
     """
     Cloud Endpoint object.
     """
-    def __init__(__self__, backup_enabled=None, friendly_name=None, last_operation_name=None, last_workflow_id=None, name=None, partnership_id=None, provisioning_state=None, storage_account_resource_id=None, storage_account_share_name=None, storage_account_tenant_id=None, type=None):
+    def __init__(__self__, backup_enabled=None, friendly_name=None, id=None, last_operation_name=None, last_workflow_id=None, name=None, partnership_id=None, provisioning_state=None, storage_account_resource_id=None, storage_account_share_name=None, storage_account_tenant_id=None, type=None):
         if backup_enabled and not isinstance(backup_enabled, str):
             raise TypeError("Expected argument 'backup_enabled' to be a str")
         pulumi.set(__self__, "backup_enabled", backup_enabled)
         if friendly_name and not isinstance(friendly_name, str):
             raise TypeError("Expected argument 'friendly_name' to be a str")
         pulumi.set(__self__, "friendly_name", friendly_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_operation_name and not isinstance(last_operation_name, str):
             raise TypeError("Expected argument 'last_operation_name' to be a str")
         pulumi.set(__self__, "last_operation_name", last_operation_name)
@@ -69,6 +72,14 @@ class GetCloudEndpointResult:
         Friendly Name
         """
         return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastOperationName")
@@ -151,6 +162,7 @@ class AwaitableGetCloudEndpointResult(GetCloudEndpointResult):
         return GetCloudEndpointResult(
             backup_enabled=self.backup_enabled,
             friendly_name=self.friendly_name,
+            id=self.id,
             last_operation_name=self.last_operation_name,
             last_workflow_id=self.last_workflow_id,
             name=self.name,
@@ -189,6 +201,7 @@ def get_cloud_endpoint(cloud_endpoint_name: Optional[str] = None,
     return AwaitableGetCloudEndpointResult(
         backup_enabled=__ret__.backup_enabled,
         friendly_name=__ret__.friendly_name,
+        id=__ret__.id,
         last_operation_name=__ret__.last_operation_name,
         last_workflow_id=__ret__.last_workflow_id,
         name=__ret__.name,

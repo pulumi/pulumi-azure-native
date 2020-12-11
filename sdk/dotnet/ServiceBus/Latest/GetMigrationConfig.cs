@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
     public sealed class GetMigrationConfigResult
     {
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// State in which Standard to Premium Migration is, possible values : Unknown, Reverting, Completing, Initiating, Syncing, Active
         /// </summary>
         public readonly string MigrationState;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
 
         [OutputConstructor]
         private GetMigrationConfigResult(
+            string id,
+
             string migrationState,
 
             string name,
@@ -90,6 +96,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
 
             string type)
         {
+            Id = id;
             MigrationState = migrationState;
             Name = name;
             PendingReplicationOperationsCount = pendingReplicationOperationsCount;

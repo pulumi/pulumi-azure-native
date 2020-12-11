@@ -115,6 +115,10 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20191101Preview
         /// </summary>
         public readonly ImmutableArray<Outputs.SettingsSectionDescriptionResponse> FabricSettings;
         /// <summary>
+        /// Azure resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Azure resource location.
         /// </summary>
         public readonly string Location;
@@ -210,6 +214,8 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20191101Preview
 
             ImmutableArray<Outputs.SettingsSectionDescriptionResponse> fabricSettings,
 
+            string id,
+
             string location,
 
             string managementEndpoint,
@@ -252,6 +258,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20191101Preview
             Etag = etag;
             EventStoreServiceEnabled = eventStoreServiceEnabled;
             FabricSettings = fabricSettings;
+            Id = id;
             Location = location;
             ManagementEndpoint = managementEndpoint;
             Name = name;

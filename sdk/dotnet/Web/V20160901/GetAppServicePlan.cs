@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Web.V20160901
         /// </summary>
         public readonly Outputs.HostingEnvironmentProfileResponse? HostingEnvironmentProfile;
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// If &lt;code&gt;true&lt;/code&gt;, this App Service Plan owns spot instances.
         /// </summary>
         public readonly bool? IsSpot;
@@ -137,6 +141,8 @@ namespace Pulumi.AzureNextGen.Web.V20160901
 
             Outputs.HostingEnvironmentProfileResponse? hostingEnvironmentProfile,
 
+            string id,
+
             bool? isSpot,
 
             string? kind,
@@ -178,6 +184,7 @@ namespace Pulumi.AzureNextGen.Web.V20160901
             AdminSiteName = adminSiteName;
             GeoRegion = geoRegion;
             HostingEnvironmentProfile = hostingEnvironmentProfile;
+            Id = id;
             IsSpot = isSpot;
             Kind = kind;
             Location = location;

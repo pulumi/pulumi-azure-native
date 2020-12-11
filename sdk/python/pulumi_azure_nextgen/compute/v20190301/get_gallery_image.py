@@ -20,7 +20,7 @@ class GetGalleryImageResult:
     """
     Specifies information about the gallery Image Definition that you want to create or update.
     """
-    def __init__(__self__, description=None, disallowed=None, end_of_life_date=None, eula=None, identifier=None, location=None, name=None, os_state=None, os_type=None, privacy_statement_uri=None, provisioning_state=None, purchase_plan=None, recommended=None, release_note_uri=None, tags=None, type=None):
+    def __init__(__self__, description=None, disallowed=None, end_of_life_date=None, eula=None, id=None, identifier=None, location=None, name=None, os_state=None, os_type=None, privacy_statement_uri=None, provisioning_state=None, purchase_plan=None, recommended=None, release_note_uri=None, tags=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -33,6 +33,9 @@ class GetGalleryImageResult:
         if eula and not isinstance(eula, str):
             raise TypeError("Expected argument 'eula' to be a str")
         pulumi.set(__self__, "eula", eula)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identifier and not isinstance(identifier, dict):
             raise TypeError("Expected argument 'identifier' to be a dict")
         pulumi.set(__self__, "identifier", identifier)
@@ -101,6 +104,14 @@ class GetGalleryImageResult:
         The Eula agreement for the gallery Image Definition.
         """
         return pulumi.get(self, "eula")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -209,6 +220,7 @@ class AwaitableGetGalleryImageResult(GetGalleryImageResult):
             disallowed=self.disallowed,
             end_of_life_date=self.end_of_life_date,
             eula=self.eula,
+            id=self.id,
             identifier=self.identifier,
             location=self.location,
             name=self.name,
@@ -249,6 +261,7 @@ def get_gallery_image(gallery_image_name: Optional[str] = None,
         disallowed=__ret__.disallowed,
         end_of_life_date=__ret__.end_of_life_date,
         eula=__ret__.eula,
+        id=__ret__.id,
         identifier=__ret__.identifier,
         location=__ret__.location,
         name=__ret__.name,

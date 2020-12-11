@@ -109,6 +109,10 @@ export interface GetVirtualMachineResult {
      */
     readonly galleryImageReference?: outputs.devtestlab.v20180915.GalleryImageReferenceResponse;
     /**
+     * The identifier of the resource.
+     */
+    readonly id: string;
+    /**
      * Indicates whether this virtual machine uses an SSH key for authentication.
      */
     readonly isAuthenticationWithSshKey?: boolean;

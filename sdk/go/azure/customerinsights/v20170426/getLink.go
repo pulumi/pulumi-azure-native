@@ -31,6 +31,8 @@ type LookupLinkResult struct {
 	Description map[string]string `pulumi:"description"`
 	// Localized display name for the Link.
 	DisplayName map[string]string `pulumi:"displayName"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// The link name.
 	LinkName string `pulumi:"linkName"`
 	// The set of properties mappings between the source and target Types.

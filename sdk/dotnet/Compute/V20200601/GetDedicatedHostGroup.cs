@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceReadOnlyResponse> Hosts;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The dedicated host group instance view, which has the list of instance view of the dedicated hosts under the dedicated host group.
         /// </summary>
         public readonly Outputs.DedicatedHostGroupInstanceViewResponse InstanceView;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
         private GetDedicatedHostGroupResult(
             ImmutableArray<Outputs.SubResourceReadOnlyResponse> hosts,
 
+            string id,
+
             Outputs.DedicatedHostGroupInstanceViewResponse instanceView,
 
             string location,
@@ -103,6 +109,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
             ImmutableArray<string> zones)
         {
             Hosts = hosts;
+            Id = id;
             InstanceView = instanceView;
             Location = location;
             Name = name;

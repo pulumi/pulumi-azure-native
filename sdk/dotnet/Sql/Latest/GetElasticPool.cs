@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.Sql.Latest
         /// </summary>
         public readonly string? Edition;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Kind of elastic pool.  This is metadata used for the Azure portal experience.
         /// </summary>
         public readonly string Kind;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNextGen.Sql.Latest
 
             string? edition,
 
+            string id,
+
             string kind,
 
             string location,
@@ -131,6 +137,7 @@ namespace Pulumi.AzureNextGen.Sql.Latest
             DatabaseDtuMin = databaseDtuMin;
             Dtu = dtu;
             Edition = edition;
+            Id = id;
             Kind = kind;
             Location = location;
             Name = name;

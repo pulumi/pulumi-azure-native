@@ -26,6 +26,10 @@ export interface GetTrafficManagerUserMetricsKeyArgs {
  */
 export interface GetTrafficManagerUserMetricsKeyResult {
     /**
+     * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
+     */
+    readonly id?: string;
+    /**
      * The key returned by the User Metrics operation.
      */
     readonly key?: string;

@@ -48,6 +48,10 @@ export interface GetIpGroupResult {
      */
     readonly firewalls: outputs.network.v20200401.SubResourceResponse[];
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * IpAddresses/IpAddressPrefixes in the IpGroups resource.
      */
     readonly ipAddresses?: string[];

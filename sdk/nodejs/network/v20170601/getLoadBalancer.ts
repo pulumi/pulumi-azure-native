@@ -52,6 +52,10 @@ export interface GetLoadBalancerResult {
      */
     readonly frontendIPConfigurations?: outputs.network.v20170601.FrontendIPConfigurationResponse[];
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
      */
     readonly inboundNatPools?: outputs.network.v20170601.InboundNatPoolResponse[];

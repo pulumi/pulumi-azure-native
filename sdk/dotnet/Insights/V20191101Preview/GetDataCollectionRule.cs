@@ -61,6 +61,10 @@ namespace Pulumi.AzureNextGen.Insights.V20191101Preview
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Fully qualified ID of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The geo-location where the resource lives.
         /// </summary>
         public readonly string Location;
@@ -93,6 +97,8 @@ namespace Pulumi.AzureNextGen.Insights.V20191101Preview
 
             string etag,
 
+            string id,
+
             string location,
 
             string name,
@@ -108,6 +114,7 @@ namespace Pulumi.AzureNextGen.Insights.V20191101Preview
             Description = description;
             Destinations = destinations;
             Etag = etag;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

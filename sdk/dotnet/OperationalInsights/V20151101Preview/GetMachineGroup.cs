@@ -74,6 +74,10 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20151101Preview
         /// </summary>
         public readonly string? GroupType;
         /// <summary>
+        /// Resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Additional resource type qualifier.
         /// </summary>
         public readonly string Kind;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20151101Preview
 
             string? groupType,
 
+            string id,
+
             string kind,
 
             ImmutableArray<Outputs.MachineReferenceWithHintsResponse> machines,
@@ -112,6 +118,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20151101Preview
             DisplayName = displayName;
             Etag = etag;
             GroupType = groupType;
+            Id = id;
             Kind = kind;
             Machines = machines;
             Name = name;

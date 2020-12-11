@@ -39,6 +39,10 @@ export interface GetOrganizationResult {
      */
     readonly createdTime: string;
     /**
+     * The ARM id of the resource.
+     */
+    readonly id: string;
+    /**
      * Location of Organization resource
      */
     readonly location?: string;

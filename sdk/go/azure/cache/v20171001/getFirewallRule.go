@@ -29,6 +29,8 @@ type LookupFirewallRuleArgs struct {
 type LookupFirewallRuleResult struct {
 	// highest IP address included in the range
 	EndIP string `pulumi:"endIP"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// lowest IP address included in the range

@@ -20,13 +20,16 @@ class GetObjectReplicationPolicyResult:
     """
     The replication policy between two storage accounts. Multiple rules can be defined in one policy.
     """
-    def __init__(__self__, destination_account=None, enabled_time=None, name=None, policy_id=None, rules=None, source_account=None, type=None):
+    def __init__(__self__, destination_account=None, enabled_time=None, id=None, name=None, policy_id=None, rules=None, source_account=None, type=None):
         if destination_account and not isinstance(destination_account, str):
             raise TypeError("Expected argument 'destination_account' to be a str")
         pulumi.set(__self__, "destination_account", destination_account)
         if enabled_time and not isinstance(enabled_time, str):
             raise TypeError("Expected argument 'enabled_time' to be a str")
         pulumi.set(__self__, "enabled_time", enabled_time)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -58,6 +61,14 @@ class GetObjectReplicationPolicyResult:
         Indicates when the policy is enabled on the source account.
         """
         return pulumi.get(self, "enabled_time")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -108,6 +119,7 @@ class AwaitableGetObjectReplicationPolicyResult(GetObjectReplicationPolicyResult
         return GetObjectReplicationPolicyResult(
             destination_account=self.destination_account,
             enabled_time=self.enabled_time,
+            id=self.id,
             name=self.name,
             policy_id=self.policy_id,
             rules=self.rules,
@@ -139,6 +151,7 @@ def get_object_replication_policy(account_name: Optional[str] = None,
     return AwaitableGetObjectReplicationPolicyResult(
         destination_account=__ret__.destination_account,
         enabled_time=__ret__.enabled_time,
+        id=__ret__.id,
         name=__ret__.name,
         policy_id=__ret__.policy_id,
         rules=__ret__.rules,

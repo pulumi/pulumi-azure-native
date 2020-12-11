@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Automation.Latest
     public sealed class GetJobScheduleResult
     {
         /// <summary>
+        /// Gets the id of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Gets or sets the id of job schedule.
         /// </summary>
         public readonly string? JobScheduleId;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.Automation.Latest
 
         [OutputConstructor]
         private GetJobScheduleResult(
+            string id,
+
             string? jobScheduleId,
 
             string name,
@@ -90,6 +96,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
 
             string type)
         {
+            Id = id;
             JobScheduleId = jobScheduleId;
             Name = name;
             Parameters = parameters;

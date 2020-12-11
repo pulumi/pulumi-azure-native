@@ -20,7 +20,7 @@ class GetRecordSetResult:
     """
     Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
     """
-    def __init__(__self__, a_records=None, aaaa_records=None, cname_record=None, etag=None, fqdn=None, is_auto_registered=None, metadata=None, mx_records=None, name=None, ptr_records=None, soa_record=None, srv_records=None, ttl=None, txt_records=None, type=None):
+    def __init__(__self__, a_records=None, aaaa_records=None, cname_record=None, etag=None, fqdn=None, id=None, is_auto_registered=None, metadata=None, mx_records=None, name=None, ptr_records=None, soa_record=None, srv_records=None, ttl=None, txt_records=None, type=None):
         if a_records and not isinstance(a_records, list):
             raise TypeError("Expected argument 'a_records' to be a list")
         pulumi.set(__self__, "a_records", a_records)
@@ -36,6 +36,9 @@ class GetRecordSetResult:
         if fqdn and not isinstance(fqdn, str):
             raise TypeError("Expected argument 'fqdn' to be a str")
         pulumi.set(__self__, "fqdn", fqdn)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_auto_registered and not isinstance(is_auto_registered, bool):
             raise TypeError("Expected argument 'is_auto_registered' to be a bool")
         pulumi.set(__self__, "is_auto_registered", is_auto_registered)
@@ -106,6 +109,14 @@ class GetRecordSetResult:
         Fully qualified domain name of the record set.
         """
         return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource. Example - '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateDnsZoneName}'.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isAutoRegistered")
@@ -199,6 +210,7 @@ class AwaitableGetRecordSetResult(GetRecordSetResult):
             cname_record=self.cname_record,
             etag=self.etag,
             fqdn=self.fqdn,
+            id=self.id,
             is_auto_registered=self.is_auto_registered,
             metadata=self.metadata,
             mx_records=self.mx_records,
@@ -241,6 +253,7 @@ def get_record_set(private_zone_name: Optional[str] = None,
         cname_record=__ret__.cname_record,
         etag=__ret__.etag,
         fqdn=__ret__.fqdn,
+        id=__ret__.id,
         is_auto_registered=__ret__.is_auto_registered,
         metadata=__ret__.metadata,
         mx_records=__ret__.mx_records,

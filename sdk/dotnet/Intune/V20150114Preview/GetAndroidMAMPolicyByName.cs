@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Intune.V20150114Preview
         public readonly string? FileSharingSaveAs;
         public readonly string FriendlyName;
         public readonly string GroupStatus;
+        /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
         public readonly string LastModifiedTime;
         /// <summary>
         /// Resource Location
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNextGen.Intune.V20150114Preview
 
             string groupStatus,
 
+            string id,
+
             string lastModifiedTime,
 
             string? location,
@@ -145,6 +151,7 @@ namespace Pulumi.AzureNextGen.Intune.V20150114Preview
             FileSharingSaveAs = fileSharingSaveAs;
             FriendlyName = friendlyName;
             GroupStatus = groupStatus;
+            Id = id;
             LastModifiedTime = lastModifiedTime;
             Location = location;
             ManagedBrowser = managedBrowser;

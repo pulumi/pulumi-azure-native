@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.Solutions.V20200821Preview
         /// </summary>
         public readonly Outputs.ApplicationPackageContactResponse CustomerSupport;
         /// <summary>
+        /// Resource ID
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
@@ -150,6 +154,8 @@ namespace Pulumi.AzureNextGen.Solutions.V20200821Preview
 
             Outputs.ApplicationPackageContactResponse customerSupport,
 
+            string id,
+
             Outputs.IdentityResponse? identity,
 
             Outputs.ApplicationJitAccessPolicyResponse? jitAccessPolicy,
@@ -192,6 +198,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20200821Preview
             BillingDetails = billingDetails;
             CreatedBy = createdBy;
             CustomerSupport = customerSupport;
+            Id = id;
             Identity = identity;
             JitAccessPolicy = jitAccessPolicy;
             Kind = kind;

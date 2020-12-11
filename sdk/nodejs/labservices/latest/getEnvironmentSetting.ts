@@ -58,6 +58,10 @@ export interface GetEnvironmentSettingResult {
      */
     readonly description?: string;
     /**
+     * The identifier of the resource.
+     */
+    readonly id: string;
+    /**
      * Time when the template VM was last changed.
      */
     readonly lastChanged: string;

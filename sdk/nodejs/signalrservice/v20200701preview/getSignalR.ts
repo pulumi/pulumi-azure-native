@@ -56,6 +56,10 @@ export interface GetSignalRResult {
      */
     readonly hostName: string;
     /**
+     * Fully qualified resource Id for the resource.
+     */
+    readonly id: string;
+    /**
      * The managed identity response
      */
     readonly identity?: outputs.signalrservice.v20200701preview.ManagedIdentityResponse;

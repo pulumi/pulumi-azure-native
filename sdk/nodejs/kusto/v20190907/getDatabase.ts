@@ -40,6 +40,10 @@ export interface GetDatabaseArgs {
  */
 export interface GetDatabaseResult {
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * Kind of the database
      */
     readonly kind?: string;

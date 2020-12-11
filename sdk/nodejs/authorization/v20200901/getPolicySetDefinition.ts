@@ -38,6 +38,10 @@ export interface GetPolicySetDefinitionResult {
      */
     readonly displayName?: string;
     /**
+     * The ID of the policy set definition.
+     */
+    readonly id: string;
+    /**
      * The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
      */
     readonly metadata?: any;

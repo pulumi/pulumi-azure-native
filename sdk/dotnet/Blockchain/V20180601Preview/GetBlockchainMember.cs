@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.Blockchain.V20180601Preview
         /// </summary>
         public readonly ImmutableArray<Outputs.FirewallRuleResponse> FirewallRules;
         /// <summary>
+        /// Fully qualified resource Id of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The GEO location of the blockchain service.
         /// </summary>
         public readonly string? Location;
@@ -132,6 +136,8 @@ namespace Pulumi.AzureNextGen.Blockchain.V20180601Preview
 
             ImmutableArray<Outputs.FirewallRuleResponse> firewallRules,
 
+            string id,
+
             string? location,
 
             string name,
@@ -163,6 +169,7 @@ namespace Pulumi.AzureNextGen.Blockchain.V20180601Preview
             ConsortiumRole = consortiumRole;
             Dns = dns;
             FirewallRules = firewallRules;
+            Id = id;
             Location = location;
             Name = name;
             Password = password;

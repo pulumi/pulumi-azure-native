@@ -40,6 +40,10 @@ export interface GetJobScheduleArgs {
  */
 export interface GetJobScheduleResult {
     /**
+     * Gets the id of the resource.
+     */
+    readonly id: string;
+    /**
      * Gets or sets the id of job schedule.
      */
     readonly jobScheduleId?: string;

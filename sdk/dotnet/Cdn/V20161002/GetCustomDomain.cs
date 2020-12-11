@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.Cdn.V20161002
         /// </summary>
         public readonly string HostName;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string Location;
@@ -94,6 +98,8 @@ namespace Pulumi.AzureNextGen.Cdn.V20161002
 
             string hostName,
 
+            string id,
+
             string location,
 
             string name,
@@ -110,6 +116,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20161002
         {
             CustomHttpsProvisioningState = customHttpsProvisioningState;
             HostName = hostName;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

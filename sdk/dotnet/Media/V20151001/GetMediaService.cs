@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Media.V20151001
         /// </summary>
         public readonly ImmutableArray<Outputs.ApiEndpointResponse> ApiEndpoints;
         /// <summary>
+        /// The id of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth).
         /// </summary>
         public readonly string? Location;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.Media.V20151001
         private GetMediaServiceResult(
             ImmutableArray<Outputs.ApiEndpointResponse> apiEndpoints,
 
+            string id,
+
             string? location,
 
             string name,
@@ -79,6 +85,7 @@ namespace Pulumi.AzureNextGen.Media.V20151001
             string type)
         {
             ApiEndpoints = apiEndpoints;
+            Id = id;
             Location = location;
             Name = name;
             StorageAccounts = storageAccounts;

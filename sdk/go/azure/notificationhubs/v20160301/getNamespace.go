@@ -31,6 +31,8 @@ type LookupNamespaceResult struct {
 	Critical *bool `pulumi:"critical"`
 	// Whether or not the namespace is currently enabled.
 	Enabled *bool `pulumi:"enabled"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name

@@ -20,13 +20,16 @@ class GetDiagnosticSettingResult:
     """
     The diagnostic setting resource.
     """
-    def __init__(__self__, event_hub_authorization_rule_id=None, event_hub_name=None, logs=None, name=None, service_bus_rule_id=None, storage_account_id=None, type=None, workspace_id=None):
+    def __init__(__self__, event_hub_authorization_rule_id=None, event_hub_name=None, id=None, logs=None, name=None, service_bus_rule_id=None, storage_account_id=None, type=None, workspace_id=None):
         if event_hub_authorization_rule_id and not isinstance(event_hub_authorization_rule_id, str):
             raise TypeError("Expected argument 'event_hub_authorization_rule_id' to be a str")
         pulumi.set(__self__, "event_hub_authorization_rule_id", event_hub_authorization_rule_id)
         if event_hub_name and not isinstance(event_hub_name, str):
             raise TypeError("Expected argument 'event_hub_name' to be a str")
         pulumi.set(__self__, "event_hub_name", event_hub_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if logs and not isinstance(logs, list):
             raise TypeError("Expected argument 'logs' to be a list")
         pulumi.set(__self__, "logs", logs)
@@ -61,6 +64,14 @@ class GetDiagnosticSettingResult:
         The name of the event hub. If none is specified, the default event hub will be selected.
         """
         return pulumi.get(self, "event_hub_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -119,6 +130,7 @@ class AwaitableGetDiagnosticSettingResult(GetDiagnosticSettingResult):
         return GetDiagnosticSettingResult(
             event_hub_authorization_rule_id=self.event_hub_authorization_rule_id,
             event_hub_name=self.event_hub_name,
+            id=self.id,
             logs=self.logs,
             name=self.name,
             service_bus_rule_id=self.service_bus_rule_id,
@@ -145,6 +157,7 @@ def get_diagnostic_setting(name: Optional[str] = None,
     return AwaitableGetDiagnosticSettingResult(
         event_hub_authorization_rule_id=__ret__.event_hub_authorization_rule_id,
         event_hub_name=__ret__.event_hub_name,
+        id=__ret__.id,
         logs=__ret__.logs,
         name=__ret__.name,
         service_bus_rule_id=__ret__.service_bus_rule_id,

@@ -27,6 +27,8 @@ type LookupMigrateProjectArgs struct {
 type LookupMigrateProjectResult struct {
 	// Gets or sets the eTag for concurrency control.
 	ETag *string `pulumi:"eTag"`
+	// Gets the relative URL to get this migrate project.
+	Id string `pulumi:"id"`
 	// Gets or sets the Azure location in which migrate project is created.
 	Location *string `pulumi:"location"`
 	// Gets the name of the migrate project.

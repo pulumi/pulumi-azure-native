@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -96,6 +100,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
 
             string? description,
 
+            string id,
+
             string name,
 
             Outputs.BackendPropertiesResponse properties,
@@ -116,6 +122,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
         {
             Credentials = credentials;
             Description = description;
+            Id = id;
             Name = name;
             Properties = properties;
             Protocol = protocol;

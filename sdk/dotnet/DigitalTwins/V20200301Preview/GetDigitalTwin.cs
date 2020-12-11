@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.DigitalTwins.V20200301Preview
         /// </summary>
         public readonly string HostName;
         /// <summary>
+        /// The resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Time when DigitalTwinsInstance was created.
         /// </summary>
         public readonly string LastUpdatedTime;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNextGen.DigitalTwins.V20200301Preview
 
             string hostName,
 
+            string id,
+
             string lastUpdatedTime,
 
             string location,
@@ -98,6 +104,7 @@ namespace Pulumi.AzureNextGen.DigitalTwins.V20200301Preview
         {
             CreatedTime = createdTime;
             HostName = hostName;
+            Id = id;
             LastUpdatedTime = lastUpdatedTime;
             Location = location;
             Name = name;

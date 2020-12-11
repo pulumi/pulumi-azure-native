@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20181119
         /// </summary>
         public readonly string? FriendlyName;
         /// <summary>
+        /// Specifies the resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
@@ -114,6 +118,8 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20181119
 
             string? friendlyName,
 
+            string id,
+
             Outputs.IdentityResponse? identity,
 
             string? keyVault,
@@ -138,6 +144,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20181119
             Description = description;
             DiscoveryUrl = discoveryUrl;
             FriendlyName = friendlyName;
+            Id = id;
             Identity = identity;
             KeyVault = keyVault;
             Location = location;

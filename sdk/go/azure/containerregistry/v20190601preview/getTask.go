@@ -36,6 +36,8 @@ type LookupTaskResult struct {
 	CreationDate string `pulumi:"creationDate"`
 	// The properties that describes a set of credentials that will be used when this run is invoked.
 	Credentials *CredentialsResponse `pulumi:"credentials"`
+	// The resource ID.
+	Id string `pulumi:"id"`
 	// Identity for the resource.
 	Identity *IdentityPropertiesResponse `pulumi:"identity"`
 	// The value of this property indicates whether the task resource is system task or not.

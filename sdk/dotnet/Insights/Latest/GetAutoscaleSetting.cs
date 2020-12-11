@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.Insights.Latest
         private GetAutoscaleSettingResult(
             bool? enabled,
 
+            string id,
+
             string location,
 
             string name,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNextGen.Insights.Latest
             string type)
         {
             Enabled = enabled;
+            Id = id;
             Location = location;
             Name = name;
             Notifications = notifications;

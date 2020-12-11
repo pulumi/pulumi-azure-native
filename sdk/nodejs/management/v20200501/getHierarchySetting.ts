@@ -34,6 +34,10 @@ export interface GetHierarchySettingResult {
      */
     readonly defaultManagementGroup?: string;
     /**
+     * The fully qualified ID for the settings object.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000/settings/default.
+     */
+    readonly id: string;
+    /**
      * The name of the object. In this case, default.
      */
     readonly name: string;

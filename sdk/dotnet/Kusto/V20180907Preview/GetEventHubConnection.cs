@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.Kusto.V20180907Preview
         /// </summary>
         public readonly string EventHubResourceId;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.Kusto.V20180907Preview
 
             string eventHubResourceId,
 
+            string id,
+
             string? location,
 
             string? mappingRuleName,
@@ -105,6 +111,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20180907Preview
             ConsumerGroup = consumerGroup;
             DataFormat = dataFormat;
             EventHubResourceId = eventHubResourceId;
+            Id = id;
             Location = location;
             MappingRuleName = mappingRuleName;
             Name = name;

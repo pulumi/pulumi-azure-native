@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301
         /// </summary>
         public readonly string? CreatedDate;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301
         private GetApiIssueCommentResult(
             string? createdDate,
 
+            string id,
+
             string name,
 
             string text,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301
             string userId)
         {
             CreatedDate = createdDate;
+            Id = id;
             Name = name;
             Text = text;
             Type = type;

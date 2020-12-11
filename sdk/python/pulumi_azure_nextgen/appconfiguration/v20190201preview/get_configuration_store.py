@@ -19,13 +19,16 @@ class GetConfigurationStoreResult:
     """
     The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
     """
-    def __init__(__self__, creation_date=None, endpoint=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, creation_date=None, endpoint=None, id=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -57,6 +60,14 @@ class GetConfigurationStoreResult:
         The DNS endpoint where the configuration store API will be available.
         """
         return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -107,6 +118,7 @@ class AwaitableGetConfigurationStoreResult(GetConfigurationStoreResult):
         return GetConfigurationStoreResult(
             creation_date=self.creation_date,
             endpoint=self.endpoint,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -135,6 +147,7 @@ def get_configuration_store(config_store_name: Optional[str] = None,
     return AwaitableGetConfigurationStoreResult(
         creation_date=__ret__.creation_date,
         endpoint=__ret__.endpoint,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

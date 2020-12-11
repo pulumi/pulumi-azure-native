@@ -61,6 +61,10 @@ namespace Pulumi.AzureNextGen.Batch.V20190401
         /// </summary>
         public readonly bool DedicatedCoreQuotaPerVMFamilyEnforced;
         /// <summary>
+        /// The ID of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Identifies the Azure key vault associated with a Batch account.
         /// </summary>
         public readonly Outputs.KeyVaultReferenceResponse KeyVaultReference;
@@ -108,6 +112,8 @@ namespace Pulumi.AzureNextGen.Batch.V20190401
 
             bool dedicatedCoreQuotaPerVMFamilyEnforced,
 
+            string id,
+
             Outputs.KeyVaultReferenceResponse keyVaultReference,
 
             string location,
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNextGen.Batch.V20190401
             DedicatedCoreQuota = dedicatedCoreQuota;
             DedicatedCoreQuotaPerVMFamily = dedicatedCoreQuotaPerVMFamily;
             DedicatedCoreQuotaPerVMFamilyEnforced = dedicatedCoreQuotaPerVMFamilyEnforced;
+            Id = id;
             KeyVaultReference = keyVaultReference;
             Location = location;
             LowPriorityCoreQuota = lowPriorityCoreQuota;

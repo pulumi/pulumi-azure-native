@@ -70,6 +70,10 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// </summary>
         public readonly Outputs.DeleteRetentionPolicyResponse? DeleteRetentionPolicy;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Versioning is enabled if set to true.
         /// </summary>
         public readonly bool? IsVersioningEnabled;
@@ -104,6 +108,8 @@ namespace Pulumi.AzureNextGen.Storage.Latest
 
             Outputs.DeleteRetentionPolicyResponse? deleteRetentionPolicy,
 
+            string id,
+
             bool? isVersioningEnabled,
 
             string name,
@@ -120,6 +126,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
             Cors = cors;
             DefaultServiceVersion = defaultServiceVersion;
             DeleteRetentionPolicy = deleteRetentionPolicy;
+            Id = id;
             IsVersioningEnabled = isVersioningEnabled;
             Name = name;
             RestorePolicy = restorePolicy;

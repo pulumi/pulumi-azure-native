@@ -40,6 +40,10 @@ export interface GetMachineLearningDatastoreArgs {
  */
 export interface GetMachineLearningDatastoreResult {
     /**
+     * Specifies the resource ID.
+     */
+    readonly id: string;
+    /**
      * The identity of the resource.
      */
     readonly identity?: outputs.machinelearningservices.v20200501preview.IdentityResponse;

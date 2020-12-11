@@ -20,7 +20,7 @@ class GetVirtualMachineImageTemplateResult:
     """
     Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
     """
-    def __init__(__self__, build_timeout_in_minutes=None, customize=None, distribute=None, identity=None, last_run_status=None, location=None, name=None, provisioning_error=None, provisioning_state=None, source=None, tags=None, type=None, vm_profile=None):
+    def __init__(__self__, build_timeout_in_minutes=None, customize=None, distribute=None, id=None, identity=None, last_run_status=None, location=None, name=None, provisioning_error=None, provisioning_state=None, source=None, tags=None, type=None, vm_profile=None):
         if build_timeout_in_minutes and not isinstance(build_timeout_in_minutes, int):
             raise TypeError("Expected argument 'build_timeout_in_minutes' to be a int")
         pulumi.set(__self__, "build_timeout_in_minutes", build_timeout_in_minutes)
@@ -30,6 +30,9 @@ class GetVirtualMachineImageTemplateResult:
         if distribute and not isinstance(distribute, list):
             raise TypeError("Expected argument 'distribute' to be a list")
         pulumi.set(__self__, "distribute", distribute)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -84,6 +87,14 @@ class GetVirtualMachineImageTemplateResult:
         The distribution targets where the image output needs to go to.
         """
         return pulumi.get(self, "distribute")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -175,6 +186,7 @@ class AwaitableGetVirtualMachineImageTemplateResult(GetVirtualMachineImageTempla
             build_timeout_in_minutes=self.build_timeout_in_minutes,
             customize=self.customize,
             distribute=self.distribute,
+            id=self.id,
             identity=self.identity,
             last_run_status=self.last_run_status,
             location=self.location,
@@ -209,6 +221,7 @@ def get_virtual_machine_image_template(image_template_name: Optional[str] = None
         build_timeout_in_minutes=__ret__.build_timeout_in_minutes,
         customize=__ret__.customize,
         distribute=__ret__.distribute,
+        id=__ret__.id,
         identity=__ret__.identity,
         last_run_status=__ret__.last_run_status,
         location=__ret__.location,

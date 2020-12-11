@@ -68,6 +68,10 @@ export interface GetConnectorResult {
      */
     readonly displayName?: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * If this is an internal connector.
      */
     readonly isInternal?: boolean;

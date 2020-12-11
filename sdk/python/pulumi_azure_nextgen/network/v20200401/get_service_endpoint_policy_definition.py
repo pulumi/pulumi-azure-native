@@ -19,13 +19,16 @@ class GetServiceEndpointPolicyDefinitionResult:
     """
     Service Endpoint policy definitions.
     """
-    def __init__(__self__, description=None, etag=None, name=None, provisioning_state=None, service=None, service_resources=None):
+    def __init__(__self__, description=None, etag=None, id=None, name=None, provisioning_state=None, service=None, service_resources=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -54,6 +57,14 @@ class GetServiceEndpointPolicyDefinitionResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -96,6 +107,7 @@ class AwaitableGetServiceEndpointPolicyDefinitionResult(GetServiceEndpointPolicy
         return GetServiceEndpointPolicyDefinitionResult(
             description=self.description,
             etag=self.etag,
+            id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
             service=self.service,
@@ -126,6 +138,7 @@ def get_service_endpoint_policy_definition(resource_group_name: Optional[str] = 
     return AwaitableGetServiceEndpointPolicyDefinitionResult(
         description=__ret__.description,
         etag=__ret__.etag,
+        id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         service=__ret__.service,

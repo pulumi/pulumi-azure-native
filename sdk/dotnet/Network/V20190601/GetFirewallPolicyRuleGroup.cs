@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Network.V20190601
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
@@ -74,6 +78,8 @@ namespace Pulumi.AzureNextGen.Network.V20190601
         private GetFirewallPolicyRuleGroupResult(
             string etag,
 
+            string? id,
+
             string? name,
 
             int? priority,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.Network.V20190601
             string type)
         {
             Etag = etag;
+            Id = id;
             Name = name;
             Priority = priority;
             ProvisioningState = provisioningState;

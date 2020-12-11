@@ -29,6 +29,8 @@ type LookupServerDnsAliasArgs struct {
 type LookupServerDnsAliasResult struct {
 	// The fully qualified DNS record for alias
 	AzureDnsRecord string `pulumi:"azureDnsRecord"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Resource type.

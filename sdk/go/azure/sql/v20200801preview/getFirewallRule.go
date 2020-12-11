@@ -29,6 +29,8 @@ type LookupFirewallRuleArgs struct {
 type LookupFirewallRuleResult struct {
 	// The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' for all Azure-internal IP addresses.
 	EndIpAddress *string `pulumi:"endIpAddress"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name *string `pulumi:"name"`
 	// The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' for all Azure-internal IP addresses.

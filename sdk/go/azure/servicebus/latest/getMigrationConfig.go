@@ -27,6 +27,8 @@ type LookupMigrationConfigArgs struct {
 
 // Single item in List or Get Migration Config operation
 type LookupMigrationConfigResult struct {
+	// Resource Id
+	Id string `pulumi:"id"`
 	// State in which Standard to Premium Migration is, possible values : Unknown, Reverting, Completing, Initiating, Syncing, Active
 	MigrationState string `pulumi:"migrationState"`
 	// Resource name

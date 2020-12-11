@@ -19,7 +19,7 @@ class GetDiskResult:
     """
     A Disk.
     """
-    def __init__(__self__, created_date=None, disk_blob_name=None, disk_size_gi_b=None, disk_type=None, disk_uri=None, host_caching=None, leased_by_lab_vm_id=None, location=None, managed_disk_id=None, name=None, provisioning_state=None, tags=None, type=None, unique_identifier=None):
+    def __init__(__self__, created_date=None, disk_blob_name=None, disk_size_gi_b=None, disk_type=None, disk_uri=None, host_caching=None, id=None, leased_by_lab_vm_id=None, location=None, managed_disk_id=None, name=None, provisioning_state=None, tags=None, type=None, unique_identifier=None):
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
@@ -38,6 +38,9 @@ class GetDiskResult:
         if host_caching and not isinstance(host_caching, str):
             raise TypeError("Expected argument 'host_caching' to be a str")
         pulumi.set(__self__, "host_caching", host_caching)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if leased_by_lab_vm_id and not isinstance(leased_by_lab_vm_id, str):
             raise TypeError("Expected argument 'leased_by_lab_vm_id' to be a str")
         pulumi.set(__self__, "leased_by_lab_vm_id", leased_by_lab_vm_id)
@@ -110,6 +113,14 @@ class GetDiskResult:
         The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
         """
         return pulumi.get(self, "host_caching")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="leasedByLabVmId")
@@ -188,6 +199,7 @@ class AwaitableGetDiskResult(GetDiskResult):
             disk_type=self.disk_type,
             disk_uri=self.disk_uri,
             host_caching=self.host_caching,
+            id=self.id,
             leased_by_lab_vm_id=self.leased_by_lab_vm_id,
             location=self.location,
             managed_disk_id=self.managed_disk_id,
@@ -232,6 +244,7 @@ def get_disk(expand: Optional[str] = None,
         disk_type=__ret__.disk_type,
         disk_uri=__ret__.disk_uri,
         host_caching=__ret__.host_caching,
+        id=__ret__.id,
         leased_by_lab_vm_id=__ret__.leased_by_lab_vm_id,
         location=__ret__.location,
         managed_disk_id=__ret__.managed_disk_id,

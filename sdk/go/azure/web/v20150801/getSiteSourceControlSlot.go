@@ -31,6 +31,8 @@ type LookupSiteSourceControlSlotResult struct {
 	Branch *string `pulumi:"branch"`
 	// Whether to manual or continuous integration
 	DeploymentRollbackEnabled *bool `pulumi:"deploymentRollbackEnabled"`
+	// Resource Id
+	Id *string `pulumi:"id"`
 	// Whether to manual or continuous integration
 	IsManualIntegration *bool `pulumi:"isManualIntegration"`
 	// Mercurial or Git repository type

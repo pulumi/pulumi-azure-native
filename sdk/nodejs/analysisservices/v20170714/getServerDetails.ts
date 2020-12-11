@@ -47,6 +47,10 @@ export interface GetServerDetailsResult {
      */
     readonly gatewayDetails?: outputs.analysisservices.v20170714.GatewayDetailsResponse;
     /**
+     * An identifier that represents the Analysis Services resource.
+     */
+    readonly id: string;
+    /**
      * Location of the Analysis Services resource.
      */
     readonly location: string;

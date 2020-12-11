@@ -31,6 +31,8 @@ type LookupServerResult struct {
 	EarliestRestoreDate *string `pulumi:"earliestRestoreDate"`
 	// The fully qualified domain name of a server.
 	FullyQualifiedDomainName *string `pulumi:"fullyQualifiedDomainName"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The Azure Active Directory identity of the server.
 	Identity *ResourceIdentityResponse `pulumi:"identity"`
 	// The geo-location where the resource lives

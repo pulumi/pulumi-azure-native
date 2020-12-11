@@ -43,6 +43,10 @@ export interface GetP2sVpnGatewayP2sVpnConnectionHealthResult {
      */
     readonly etag: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * Resource location.
      */
     readonly location: string;

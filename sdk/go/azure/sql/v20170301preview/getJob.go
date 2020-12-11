@@ -31,6 +31,8 @@ type LookupJobArgs struct {
 type LookupJobResult struct {
 	// User-defined description of the job.
 	Description *string `pulumi:"description"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Schedule properties of the job.

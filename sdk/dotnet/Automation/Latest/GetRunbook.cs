@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.Automation.Latest
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Fully qualified resource Id for the resource
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Gets or sets the job count of the runbook.
         /// </summary>
         public readonly int? JobCount;
@@ -136,6 +140,8 @@ namespace Pulumi.AzureNextGen.Automation.Latest
 
             string? etag,
 
+            string id,
+
             int? jobCount,
 
             string? lastModifiedBy,
@@ -172,6 +178,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
             Description = description;
             Draft = draft;
             Etag = etag;
+            Id = id;
             JobCount = jobCount;
             LastModifiedBy = lastModifiedBy;
             LastModifiedTime = lastModifiedTime;

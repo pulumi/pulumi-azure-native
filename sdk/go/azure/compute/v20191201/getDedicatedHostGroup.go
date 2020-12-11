@@ -27,6 +27,8 @@ type LookupDedicatedHostGroupArgs struct {
 type LookupDedicatedHostGroupResult struct {
 	// A list of references to all dedicated hosts in the dedicated host group.
 	Hosts []SubResourceReadOnlyResponse `pulumi:"hosts"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name

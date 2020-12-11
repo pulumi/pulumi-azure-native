@@ -20,7 +20,7 @@ class GetAzureFirewallResult:
     """
     Azure Firewall resource.
     """
-    def __init__(__self__, additional_properties=None, application_rule_collections=None, etag=None, firewall_policy=None, hub_ip_addresses=None, ip_configurations=None, ip_groups=None, location=None, management_ip_configuration=None, name=None, nat_rule_collections=None, network_rule_collections=None, provisioning_state=None, sku=None, tags=None, threat_intel_mode=None, type=None, virtual_hub=None, zones=None):
+    def __init__(__self__, additional_properties=None, application_rule_collections=None, etag=None, firewall_policy=None, hub_ip_addresses=None, id=None, ip_configurations=None, ip_groups=None, location=None, management_ip_configuration=None, name=None, nat_rule_collections=None, network_rule_collections=None, provisioning_state=None, sku=None, tags=None, threat_intel_mode=None, type=None, virtual_hub=None, zones=None):
         if additional_properties and not isinstance(additional_properties, dict):
             raise TypeError("Expected argument 'additional_properties' to be a dict")
         pulumi.set(__self__, "additional_properties", additional_properties)
@@ -36,6 +36,9 @@ class GetAzureFirewallResult:
         if hub_ip_addresses and not isinstance(hub_ip_addresses, dict):
             raise TypeError("Expected argument 'hub_ip_addresses' to be a dict")
         pulumi.set(__self__, "hub_ip_addresses", hub_ip_addresses)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if ip_configurations and not isinstance(ip_configurations, list):
             raise TypeError("Expected argument 'ip_configurations' to be a list")
         pulumi.set(__self__, "ip_configurations", ip_configurations)
@@ -118,6 +121,14 @@ class GetAzureFirewallResult:
         IP addresses associated with AzureFirewall.
         """
         return pulumi.get(self, "hub_ip_addresses")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ipConfigurations")
@@ -243,6 +254,7 @@ class AwaitableGetAzureFirewallResult(GetAzureFirewallResult):
             etag=self.etag,
             firewall_policy=self.firewall_policy,
             hub_ip_addresses=self.hub_ip_addresses,
+            id=self.id,
             ip_configurations=self.ip_configurations,
             ip_groups=self.ip_groups,
             location=self.location,
@@ -283,6 +295,7 @@ def get_azure_firewall(azure_firewall_name: Optional[str] = None,
         etag=__ret__.etag,
         firewall_policy=__ret__.firewall_policy,
         hub_ip_addresses=__ret__.hub_ip_addresses,
+        id=__ret__.id,
         ip_configurations=__ret__.ip_configurations,
         ip_groups=__ret__.ip_groups,
         location=__ret__.location,

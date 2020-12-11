@@ -33,6 +33,8 @@ type LookupNamespaceAuthorizationRuleResult struct {
 	ClaimValue string `pulumi:"claimValue"`
 	// The created time for this rule
 	CreatedTime string `pulumi:"createdTime"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// A string that describes the authorization rule.
 	KeyName string `pulumi:"keyName"`
 	// Resource location

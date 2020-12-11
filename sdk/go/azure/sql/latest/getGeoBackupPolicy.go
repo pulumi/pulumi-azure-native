@@ -29,6 +29,8 @@ type LookupGeoBackupPolicyArgs struct {
 
 // A database geo backup policy.
 type LookupGeoBackupPolicyResult struct {
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Kind of geo backup policy.  This is metadata used for the Azure portal experience.
 	Kind string `pulumi:"kind"`
 	// Backup policy location.

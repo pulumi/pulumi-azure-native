@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Kusto.V20190121
         /// </summary>
         public readonly string? HotCachePeriod;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.Kusto.V20190121
         private GetDatabaseResult(
             string? hotCachePeriod,
 
+            string id,
+
             string? location,
 
             string name,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20190121
             string type)
         {
             HotCachePeriod = hotCachePeriod;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

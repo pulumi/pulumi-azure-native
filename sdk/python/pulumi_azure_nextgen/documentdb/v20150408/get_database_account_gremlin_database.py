@@ -19,10 +19,13 @@ class GetDatabaseAccountGremlinDatabaseResult:
     """
     An Azure Cosmos DB Gremlin database.
     """
-    def __init__(__self__, etag=None, location=None, name=None, rid=None, tags=None, ts=None, type=None):
+    def __init__(__self__, etag=None, id=None, location=None, name=None, rid=None, tags=None, ts=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -49,6 +52,14 @@ class GetDatabaseAccountGremlinDatabaseResult:
         A system generated property representing the resource etag required for optimistic concurrency control.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The unique resource identifier of the database account.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -106,6 +117,7 @@ class AwaitableGetDatabaseAccountGremlinDatabaseResult(GetDatabaseAccountGremlin
             yield self
         return GetDatabaseAccountGremlinDatabaseResult(
             etag=self.etag,
+            id=self.id,
             location=self.location,
             name=self.name,
             rid=self.rid,
@@ -137,6 +149,7 @@ def get_database_account_gremlin_database(account_name: Optional[str] = None,
 
     return AwaitableGetDatabaseAccountGremlinDatabaseResult(
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         rid=__ret__.rid,

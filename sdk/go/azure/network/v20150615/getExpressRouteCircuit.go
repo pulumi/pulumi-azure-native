@@ -31,6 +31,8 @@ type LookupExpressRouteCircuitResult struct {
 	CircuitProvisioningState *string `pulumi:"circuitProvisioningState"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// Resource Identifier.
+	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.

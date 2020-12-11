@@ -48,6 +48,10 @@ export interface GetShareResult {
      */
     readonly description?: string;
     /**
+     * The resource id of the azure resource
+     */
+    readonly id: string;
+    /**
      * Name of the azure resource
      */
     readonly name: string;

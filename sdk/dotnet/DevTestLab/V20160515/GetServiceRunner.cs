@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
     public sealed class GetServiceRunnerResult
     {
         /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         public readonly Outputs.IdentityPropertiesResponse? Identity;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
 
         [OutputConstructor]
         private GetServiceRunnerResult(
+            string id,
+
             Outputs.IdentityPropertiesResponse? identity,
 
             string? location,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
 
             string type)
         {
+            Id = id;
             Identity = identity;
             Location = location;
             Name = name;

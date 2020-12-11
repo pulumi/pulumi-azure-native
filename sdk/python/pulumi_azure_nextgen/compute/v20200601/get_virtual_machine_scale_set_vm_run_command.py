@@ -20,13 +20,16 @@ class GetVirtualMachineScaleSetVMRunCommandResult:
     """
     Describes a Virtual Machine run command.
     """
-    def __init__(__self__, async_execution=None, error_blob_uri=None, instance_view=None, location=None, name=None, output_blob_uri=None, parameters=None, protected_parameters=None, provisioning_state=None, run_as_password=None, run_as_user=None, source=None, tags=None, timeout_in_seconds=None, type=None):
+    def __init__(__self__, async_execution=None, error_blob_uri=None, id=None, instance_view=None, location=None, name=None, output_blob_uri=None, parameters=None, protected_parameters=None, provisioning_state=None, run_as_password=None, run_as_user=None, source=None, tags=None, timeout_in_seconds=None, type=None):
         if async_execution and not isinstance(async_execution, bool):
             raise TypeError("Expected argument 'async_execution' to be a bool")
         pulumi.set(__self__, "async_execution", async_execution)
         if error_blob_uri and not isinstance(error_blob_uri, str):
             raise TypeError("Expected argument 'error_blob_uri' to be a str")
         pulumi.set(__self__, "error_blob_uri", error_blob_uri)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if instance_view and not isinstance(instance_view, dict):
             raise TypeError("Expected argument 'instance_view' to be a dict")
         pulumi.set(__self__, "instance_view", instance_view)
@@ -82,6 +85,14 @@ class GetVirtualMachineScaleSetVMRunCommandResult:
         Specifies the Azure storage blob where script error stream will be uploaded.
         """
         return pulumi.get(self, "error_blob_uri")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="instanceView")
@@ -196,6 +207,7 @@ class AwaitableGetVirtualMachineScaleSetVMRunCommandResult(GetVirtualMachineScal
         return GetVirtualMachineScaleSetVMRunCommandResult(
             async_execution=self.async_execution,
             error_blob_uri=self.error_blob_uri,
+            id=self.id,
             instance_view=self.instance_view,
             location=self.location,
             name=self.name,
@@ -241,6 +253,7 @@ def get_virtual_machine_scale_set_vm_run_command(expand: Optional[str] = None,
     return AwaitableGetVirtualMachineScaleSetVMRunCommandResult(
         async_execution=__ret__.async_execution,
         error_blob_uri=__ret__.error_blob_uri,
+        id=__ret__.id,
         instance_view=__ret__.instance_view,
         location=__ret__.location,
         name=__ret__.name,

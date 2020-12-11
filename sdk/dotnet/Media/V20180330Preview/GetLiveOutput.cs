@@ -72,6 +72,10 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview
         /// </summary>
         public readonly Outputs.HlsResponse? Hls;
         /// <summary>
+        /// Fully qualified resource ID for the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The exact time the Live Output was last modified.
         /// </summary>
         public readonly string LastModified;
@@ -112,6 +116,8 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview
 
             Outputs.HlsResponse? hls,
 
+            string id,
+
             string lastModified,
 
             string? manifestName,
@@ -131,6 +137,7 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview
             Created = created;
             Description = description;
             Hls = hls;
+            Id = id;
             LastModified = lastModified;
             ManifestName = manifestName;
             Name = name;

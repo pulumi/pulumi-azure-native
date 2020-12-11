@@ -39,6 +39,10 @@ export interface GetTopicResult {
      */
     readonly endpoint: string;
     /**
+     * Fully qualified identifier of the resource.
+     */
+    readonly id: string;
+    /**
      * Identity information for the resource.
      */
     readonly identity?: outputs.eventgrid.v20200401preview.IdentityInfoResponse;

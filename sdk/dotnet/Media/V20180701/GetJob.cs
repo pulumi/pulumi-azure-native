@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.Media.V20180701
         /// </summary>
         public readonly string EndTime;
         /// <summary>
+        /// Fully qualified resource ID for the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The inputs for the Job.
         /// </summary>
         public readonly Union<Outputs.JobInputClipResponse, Outputs.JobInputsResponse> Input;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNextGen.Media.V20180701
 
             string endTime,
 
+            string id,
+
             Union<Outputs.JobInputClipResponse, Outputs.JobInputsResponse> input,
 
             string lastModified,
@@ -130,6 +136,7 @@ namespace Pulumi.AzureNextGen.Media.V20180701
             Created = created;
             Description = description;
             EndTime = endTime;
+            Id = id;
             Input = input;
             LastModified = lastModified;
             Name = name;

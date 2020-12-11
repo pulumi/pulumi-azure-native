@@ -20,10 +20,13 @@ class GetMasterSiteResult:
     """
     Site REST Resource.
     """
-    def __init__(__self__, e_tag=None, location=None, name=None, properties=None, type=None):
+    def __init__(__self__, e_tag=None, id=None, location=None, name=None, properties=None, type=None):
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -44,6 +47,14 @@ class GetMasterSiteResult:
         eTag for concurrency control.
         """
         return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -85,6 +96,7 @@ class AwaitableGetMasterSiteResult(GetMasterSiteResult):
             yield self
         return GetMasterSiteResult(
             e_tag=self.e_tag,
+            id=self.id,
             location=self.location,
             name=self.name,
             properties=self.properties,
@@ -111,6 +123,7 @@ def get_master_site(resource_group_name: Optional[str] = None,
 
     return AwaitableGetMasterSiteResult(
         e_tag=__ret__.e_tag,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         properties=__ret__.properties,

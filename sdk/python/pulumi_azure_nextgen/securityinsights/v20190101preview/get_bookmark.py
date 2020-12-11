@@ -20,7 +20,7 @@ class GetBookmarkResult:
     """
     Represents a bookmark in Azure Security Insights.
     """
-    def __init__(__self__, created=None, created_by=None, display_name=None, etag=None, incident_info=None, labels=None, name=None, notes=None, query=None, query_result=None, type=None, updated=None, updated_by=None):
+    def __init__(__self__, created=None, created_by=None, display_name=None, etag=None, id=None, incident_info=None, labels=None, name=None, notes=None, query=None, query_result=None, type=None, updated=None, updated_by=None):
         if created and not isinstance(created, str):
             raise TypeError("Expected argument 'created' to be a str")
         pulumi.set(__self__, "created", created)
@@ -33,6 +33,9 @@ class GetBookmarkResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if incident_info and not isinstance(incident_info, dict):
             raise TypeError("Expected argument 'incident_info' to be a dict")
         pulumi.set(__self__, "incident_info", incident_info)
@@ -92,6 +95,14 @@ class GetBookmarkResult:
         Etag of the azure resource
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="incidentInfo")
@@ -176,6 +187,7 @@ class AwaitableGetBookmarkResult(GetBookmarkResult):
             created_by=self.created_by,
             display_name=self.display_name,
             etag=self.etag,
+            id=self.id,
             incident_info=self.incident_info,
             labels=self.labels,
             name=self.name,
@@ -216,6 +228,7 @@ def get_bookmark(bookmark_id: Optional[str] = None,
         created_by=__ret__.created_by,
         display_name=__ret__.display_name,
         etag=__ret__.etag,
+        id=__ret__.id,
         incident_info=__ret__.incident_info,
         labels=__ret__.labels,
         name=__ret__.name,

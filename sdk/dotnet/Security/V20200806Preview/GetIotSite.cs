@@ -38,6 +38,10 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
@@ -54,6 +58,8 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
         private GetIotSiteResult(
             string displayName,
 
+            string id,
+
             string name,
 
             ImmutableDictionary<string, string>? tags,
@@ -61,6 +67,7 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
             string type)
         {
             DisplayName = displayName;
+            Id = id;
             Name = name;
             Tags = tags;
             Type = type;

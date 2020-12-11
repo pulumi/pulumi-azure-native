@@ -49,6 +49,8 @@ type LookupStreamingEndpointResult struct {
 	FreeTrialEndTime string `pulumi:"freeTrialEndTime"`
 	// The StreamingEndpoint host name.
 	HostName string `pulumi:"hostName"`
+	// Fully qualified resource ID for the resource.
+	Id string `pulumi:"id"`
 	// The exact time the StreamingEndpoint was last modified.
 	LastModified string `pulumi:"lastModified"`
 	// The Azure Region of the resource.

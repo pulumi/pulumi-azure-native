@@ -19,10 +19,13 @@ class GetApiIssueCommentResult:
     """
     Issue Comment Contract details.
     """
-    def __init__(__self__, created_date=None, name=None, text=None, type=None, user_id=None):
+    def __init__(__self__, created_date=None, id=None, name=None, text=None, type=None, user_id=None):
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -43,6 +46,14 @@ class GetApiIssueCommentResult:
         Date and time when the comment was created.
         """
         return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -84,6 +95,7 @@ class AwaitableGetApiIssueCommentResult(GetApiIssueCommentResult):
             yield self
         return GetApiIssueCommentResult(
             created_date=self.created_date,
+            id=self.id,
             name=self.name,
             text=self.text,
             type=self.type,
@@ -119,6 +131,7 @@ def get_api_issue_comment(api_id: Optional[str] = None,
 
     return AwaitableGetApiIssueCommentResult(
         created_date=__ret__.created_date,
+        id=__ret__.id,
         name=__ret__.name,
         text=__ret__.text,
         type=__ret__.type,

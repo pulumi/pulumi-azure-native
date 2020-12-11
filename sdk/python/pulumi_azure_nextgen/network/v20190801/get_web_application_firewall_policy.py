@@ -20,7 +20,7 @@ class GetWebApplicationFirewallPolicyResult:
     """
     Defines web application firewall policy.
     """
-    def __init__(__self__, application_gateways=None, custom_rules=None, etag=None, location=None, managed_rules=None, name=None, policy_settings=None, provisioning_state=None, resource_state=None, tags=None, type=None):
+    def __init__(__self__, application_gateways=None, custom_rules=None, etag=None, id=None, location=None, managed_rules=None, name=None, policy_settings=None, provisioning_state=None, resource_state=None, tags=None, type=None):
         if application_gateways and not isinstance(application_gateways, list):
             raise TypeError("Expected argument 'application_gateways' to be a list")
         pulumi.set(__self__, "application_gateways", application_gateways)
@@ -30,6 +30,9 @@ class GetWebApplicationFirewallPolicyResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -78,6 +81,14 @@ class GetWebApplicationFirewallPolicyResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -153,6 +164,7 @@ class AwaitableGetWebApplicationFirewallPolicyResult(GetWebApplicationFirewallPo
             application_gateways=self.application_gateways,
             custom_rules=self.custom_rules,
             etag=self.etag,
+            id=self.id,
             location=self.location,
             managed_rules=self.managed_rules,
             name=self.name,
@@ -185,6 +197,7 @@ def get_web_application_firewall_policy(policy_name: Optional[str] = None,
         application_gateways=__ret__.application_gateways,
         custom_rules=__ret__.custom_rules,
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         managed_rules=__ret__.managed_rules,
         name=__ret__.name,

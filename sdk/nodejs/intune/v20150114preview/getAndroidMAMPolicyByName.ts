@@ -52,6 +52,10 @@ export interface GetAndroidMAMPolicyByNameResult {
     readonly fileSharingSaveAs?: string;
     readonly friendlyName: string;
     readonly groupStatus: string;
+    /**
+     * Resource Id
+     */
+    readonly id: string;
     readonly lastModifiedTime: string;
     /**
      * Resource Location

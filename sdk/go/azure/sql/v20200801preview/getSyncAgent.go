@@ -29,6 +29,8 @@ type LookupSyncAgentArgs struct {
 type LookupSyncAgentResult struct {
 	// Expiration time of the sync agent version.
 	ExpiryTime string `pulumi:"expiryTime"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// If the sync agent version is up to date.
 	IsUpToDate bool `pulumi:"isUpToDate"`
 	// Last alive time of the sync agent.

@@ -43,6 +43,10 @@ export interface GetDeviceSecurityGroupResult {
      */
     readonly denylistRules?: outputs.security.v20190801.DenylistCustomAlertRuleResponse[];
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource name
      */
     readonly name: string;

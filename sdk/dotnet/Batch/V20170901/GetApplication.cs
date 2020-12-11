@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Batch.V20170901
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
+        /// A string that uniquely identifies the application within the account.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The list of packages under this application.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationPackageResponse> Packages;
@@ -70,11 +74,14 @@ namespace Pulumi.AzureNextGen.Batch.V20170901
 
             string? displayName,
 
+            string? id,
+
             ImmutableArray<Outputs.ApplicationPackageResponse> packages)
         {
             AllowUpdates = allowUpdates;
             DefaultVersion = defaultVersion;
             DisplayName = displayName;
+            Id = id;
             Packages = packages;
         }
     }

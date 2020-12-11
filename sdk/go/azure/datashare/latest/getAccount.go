@@ -27,6 +27,8 @@ type LookupAccountArgs struct {
 type LookupAccountResult struct {
 	// Time at which the account was created.
 	CreatedAt string `pulumi:"createdAt"`
+	// The resource id of the azure resource
+	Id string `pulumi:"id"`
 	// Identity Info on the Account
 	Identity IdentityResponse `pulumi:"identity"`
 	// Location of the azure resource.

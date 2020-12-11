@@ -37,6 +37,10 @@ export interface GetWorkflowAccessKeyArgs {
 
 export interface GetWorkflowAccessKeyResult {
     /**
+     * Gets or sets the resource id.
+     */
+    readonly id?: string;
+    /**
      * Gets the workflow access key name.
      */
     readonly name: string;

@@ -94,6 +94,10 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20170401
         /// </summary>
         public readonly string? ForwardTo;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
         /// </summary>
         public readonly string? LockDuration;
@@ -164,6 +168,8 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20170401
 
             string? forwardTo,
 
+            string id,
+
             string? lockDuration,
 
             int? maxDeliveryCount,
@@ -198,6 +204,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20170401
             EnablePartitioning = enablePartitioning;
             ForwardDeadLetteredMessagesTo = forwardDeadLetteredMessagesTo;
             ForwardTo = forwardTo;
+            Id = id;
             LockDuration = lockDuration;
             MaxDeliveryCount = maxDeliveryCount;
             MaxSizeInMegabytes = maxSizeInMegabytes;

@@ -44,6 +44,10 @@ export interface GetUserResult {
      */
     readonly encryptedPassword?: outputs.databoxedge.v20200501preview.AsymmetricEncryptedSecretResponse;
     /**
+     * The path ID that uniquely identifies the object.
+     */
+    readonly id: string;
+    /**
      * The object name.
      */
     readonly name: string;

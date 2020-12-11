@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Cache.V20170201
         /// </summary>
         public readonly string HostName;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// List of the linked servers associated with the cache
         /// </summary>
         public readonly Outputs.RedisLinkedServerListResponse LinkedServers;
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNextGen.Cache.V20170201
 
             string hostName,
 
+            string id,
+
             Outputs.RedisLinkedServerListResponse linkedServers,
 
             string location,
@@ -153,6 +159,7 @@ namespace Pulumi.AzureNextGen.Cache.V20170201
             AccessKeys = accessKeys;
             EnableNonSslPort = enableNonSslPort;
             HostName = hostName;
+            Id = id;
             LinkedServers = linkedServers;
             Location = location;
             Name = name;

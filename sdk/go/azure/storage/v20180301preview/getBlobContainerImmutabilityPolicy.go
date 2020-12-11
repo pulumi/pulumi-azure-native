@@ -31,6 +31,8 @@ type LookupBlobContainerImmutabilityPolicyArgs struct {
 type LookupBlobContainerImmutabilityPolicyResult struct {
 	// Resource Etag.
 	Etag string `pulumi:"etag"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The immutability period for the blobs in the container since the policy creation, in days.
 	ImmutabilityPeriodSinceCreationInDays int `pulumi:"immutabilityPeriodSinceCreationInDays"`
 	// The name of the resource

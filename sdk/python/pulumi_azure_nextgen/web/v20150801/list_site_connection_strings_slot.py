@@ -20,7 +20,10 @@ class ListSiteConnectionStringsSlotResult:
     """
     String dictionary resource
     """
-    def __init__(__self__, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, id=None, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -39,6 +42,14 @@ class ListSiteConnectionStringsSlotResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -95,6 +106,7 @@ class AwaitableListSiteConnectionStringsSlotResult(ListSiteConnectionStringsSlot
         if False:
             yield self
         return ListSiteConnectionStringsSlotResult(
+            id=self.id,
             kind=self.kind,
             location=self.location,
             name=self.name,
@@ -125,6 +137,7 @@ def list_site_connection_strings_slot(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:web/v20150801:listSiteConnectionStringsSlot', __args__, opts=opts, typ=ListSiteConnectionStringsSlotResult).value
 
     return AwaitableListSiteConnectionStringsSlotResult(
+        id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,

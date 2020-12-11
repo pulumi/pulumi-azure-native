@@ -27,6 +27,8 @@ type LookupSignalRPrivateEndpointConnectionArgs struct {
 
 // A private endpoint connection to SignalR resource
 type LookupSignalRPrivateEndpointConnectionResult struct {
+	// Fully qualified resource Id for the resource.
+	Id string `pulumi:"id"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// Private endpoint associated with the private endpoint connection

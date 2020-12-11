@@ -29,6 +29,8 @@ type LookupSqlResourceSqlRoleDefinitionArgs struct {
 type LookupSqlResourceSqlRoleDefinitionResult struct {
 	// A set of fully qualified Scopes at or below which Role Assignments may be created using this Role Definition. This will allow application of this Role Definition on the entire database account or any underlying Database / Collection. Must have at least one element. Scopes higher than Database account are not enforceable as assignable Scopes. Note that resources referenced in assignable Scopes need not exist.
 	AssignableScopes []string `pulumi:"assignableScopes"`
+	// The unique resource identifier of the database account.
+	Id string `pulumi:"id"`
 	// The name of the database account.
 	Name string `pulumi:"name"`
 	// The set of operations allowed through this Role Definition.

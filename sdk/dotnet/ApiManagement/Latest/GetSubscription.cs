@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// </summary>
         public readonly string? ExpirationDate;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -118,6 +122,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
 
             string? expirationDate,
 
+            string id,
+
             string name,
 
             string? notificationDate,
@@ -143,6 +149,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
             DisplayName = displayName;
             EndDate = endDate;
             ExpirationDate = expirationDate;
+            Id = id;
             Name = name;
             NotificationDate = notificationDate;
             OwnerId = ownerId;

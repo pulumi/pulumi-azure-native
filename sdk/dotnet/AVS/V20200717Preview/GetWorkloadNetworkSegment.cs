@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -88,6 +92,8 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
 
             string? displayName,
 
+            string id,
+
             string name,
 
             ImmutableArray<Outputs.WorkloadNetworkSegmentPortVifResponse> portVif,
@@ -104,6 +110,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         {
             ConnectedGateway = connectedGateway;
             DisplayName = displayName;
+            Id = id;
             Name = name;
             PortVif = portVif;
             ProvisioningState = provisioningState;

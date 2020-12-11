@@ -34,6 +34,10 @@ namespace Pulumi.AzureNextGen.Resources.V20151101
     public sealed class GetResourceGroupResult
     {
         /// <summary>
+        /// Gets the ID of the resource group.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Gets or sets the location of the resource group. It cannot be changed after the resource group has been created. Has to be one of the supported Azure Locations, such as West US, East US, West Europe, East Asia, etc.
         /// </summary>
         public readonly string Location;
@@ -52,6 +56,8 @@ namespace Pulumi.AzureNextGen.Resources.V20151101
 
         [OutputConstructor]
         private GetResourceGroupResult(
+            string id,
+
             string location,
 
             string? name,
@@ -60,6 +66,7 @@ namespace Pulumi.AzureNextGen.Resources.V20151101
 
             ImmutableDictionary<string, string>? tags)
         {
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

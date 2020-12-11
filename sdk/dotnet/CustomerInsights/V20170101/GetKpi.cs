@@ -98,6 +98,10 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
         /// </summary>
         public readonly ImmutableArray<Outputs.KpiGroupByMetadataResponse> GroupByMetadata;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The KPI name.
         /// </summary>
         public readonly string KpiName;
@@ -158,6 +162,8 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
 
             ImmutableArray<Outputs.KpiGroupByMetadataResponse> groupByMetadata,
 
+            string id,
+
             string kpiName,
 
             string name,
@@ -187,6 +193,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
             Function = function;
             GroupBy = groupBy;
             GroupByMetadata = groupByMetadata;
+            Id = id;
             KpiName = kpiName;
             Name = name;
             ParticipantProfilesMetadata = participantProfilesMetadata;

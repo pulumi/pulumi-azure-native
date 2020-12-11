@@ -27,6 +27,8 @@ type LookupClusterArgs struct {
 type LookupClusterResult struct {
 	// The ID associated with the cluster.
 	ClusterId string `pulumi:"clusterId"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The identity of the resource.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// The associated key properties.

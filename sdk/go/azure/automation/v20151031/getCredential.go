@@ -31,6 +31,8 @@ type LookupCredentialResult struct {
 	CreationTime string `pulumi:"creationTime"`
 	// Gets or sets the description.
 	Description *string `pulumi:"description"`
+	// Fully qualified resource Id for the resource
+	Id string `pulumi:"id"`
 	// Gets the last modified time.
 	LastModifiedTime string `pulumi:"lastModifiedTime"`
 	// The name of the resource

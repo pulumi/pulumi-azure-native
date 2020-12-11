@@ -65,6 +65,10 @@ export interface GetRecordSetResult {
      */
     readonly fqdn: string;
     /**
+     * Fully qualified resource Id for the resource. Example - '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateDnsZoneName}'.
+     */
+    readonly id: string;
+    /**
      * Is the record set auto-registered in the Private DNS zone through a virtual network link?
      */
     readonly isAutoRegistered: boolean;

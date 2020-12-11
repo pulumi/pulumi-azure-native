@@ -20,7 +20,7 @@ class GetEventSubscriptionResult:
     """
     Event Subscription
     """
-    def __init__(__self__, dead_letter_destination=None, destination=None, event_delivery_schema=None, expiration_time_utc=None, filter=None, labels=None, name=None, provisioning_state=None, retry_policy=None, topic=None, type=None):
+    def __init__(__self__, dead_letter_destination=None, destination=None, event_delivery_schema=None, expiration_time_utc=None, filter=None, id=None, labels=None, name=None, provisioning_state=None, retry_policy=None, topic=None, type=None):
         if dead_letter_destination and not isinstance(dead_letter_destination, dict):
             raise TypeError("Expected argument 'dead_letter_destination' to be a dict")
         pulumi.set(__self__, "dead_letter_destination", dead_letter_destination)
@@ -36,6 +36,9 @@ class GetEventSubscriptionResult:
         if filter and not isinstance(filter, dict):
             raise TypeError("Expected argument 'filter' to be a dict")
         pulumi.set(__self__, "filter", filter)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if labels and not isinstance(labels, list):
             raise TypeError("Expected argument 'labels' to be a list")
         pulumi.set(__self__, "labels", labels)
@@ -97,6 +100,14 @@ class GetEventSubscriptionResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified identifier of the resource
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def labels(self) -> Optional[Sequence[str]]:
         """
         List of user defined labels.
@@ -155,6 +166,7 @@ class AwaitableGetEventSubscriptionResult(GetEventSubscriptionResult):
             event_delivery_schema=self.event_delivery_schema,
             expiration_time_utc=self.expiration_time_utc,
             filter=self.filter,
+            id=self.id,
             labels=self.labels,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -187,6 +199,7 @@ def get_event_subscription(event_subscription_name: Optional[str] = None,
         event_delivery_schema=__ret__.event_delivery_schema,
         expiration_time_utc=__ret__.expiration_time_utc,
         filter=__ret__.filter,
+        id=__ret__.id,
         labels=__ret__.labels,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

@@ -48,6 +48,10 @@ export interface GetVirtualApplianceSiteResult {
      */
     readonly etag: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * Name of the virtual appliance site.
      */
     readonly name?: string;

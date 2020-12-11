@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Compute.V20150615
     public sealed class GetVirtualMachineScaleSetResult
     {
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.Compute.V20150615
 
         [OutputConstructor]
         private GetVirtualMachineScaleSetResult(
+            string id,
+
             string location,
 
             string name,
@@ -96,6 +102,7 @@ namespace Pulumi.AzureNextGen.Compute.V20150615
 
             Outputs.VirtualMachineScaleSetVMProfileResponse? virtualMachineProfile)
         {
+            Id = id;
             Location = location;
             Name = name;
             OverProvision = overProvision;

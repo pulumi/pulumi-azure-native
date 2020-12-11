@@ -47,6 +47,8 @@ type LookupManagedClusterResult struct {
 	EnableRBAC *bool `pulumi:"enableRBAC"`
 	// FQDN for the master pool.
 	Fqdn string `pulumi:"fqdn"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// The identity of the managed cluster, if configured.
 	Identity *ManagedClusterIdentityResponse `pulumi:"identity"`
 	// Identities associated with the cluster.

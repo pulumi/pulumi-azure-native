@@ -34,6 +34,10 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
     public sealed class GetOnPremiseIotSensorResult
     {
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
@@ -44,10 +48,13 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
 
         [OutputConstructor]
         private GetOnPremiseIotSensorResult(
+            string id,
+
             string name,
 
             string type)
         {
+            Id = id;
             Name = name;
             Type = type;
         }

@@ -19,7 +19,10 @@ class GetAssociationResult:
     """
     The resource definition of this association.
     """
-    def __init__(__self__, name=None, provisioning_state=None, target_resource_id=None, type=None):
+    def __init__(__self__, id=None, name=None, provisioning_state=None, target_resource_id=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -32,6 +35,14 @@ class GetAssociationResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The association id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -72,6 +83,7 @@ class AwaitableGetAssociationResult(GetAssociationResult):
         if False:
             yield self
         return GetAssociationResult(
+            id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
             target_resource_id=self.target_resource_id,
@@ -97,6 +109,7 @@ def get_association(association_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:customproviders/v20180901preview:getAssociation', __args__, opts=opts, typ=GetAssociationResult).value
 
     return AwaitableGetAssociationResult(
+        id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         target_resource_id=__ret__.target_resource_id,

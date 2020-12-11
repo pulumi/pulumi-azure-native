@@ -33,6 +33,8 @@ type LookupAgentPoolResult struct {
 	Count int `pulumi:"count"`
 	// Whether to enable auto-scaler
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Maximum number of nodes for auto-scaling
 	MaxCount *int `pulumi:"maxCount"`
 	// Maximum number of pods that can run on a node.

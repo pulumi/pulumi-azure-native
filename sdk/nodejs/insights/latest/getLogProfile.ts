@@ -34,6 +34,10 @@ export interface GetLogProfileResult {
      */
     readonly categories: string[];
     /**
+     * Azure resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

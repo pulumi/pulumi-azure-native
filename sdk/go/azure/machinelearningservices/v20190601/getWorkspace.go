@@ -37,6 +37,8 @@ type LookupWorkspaceResult struct {
 	DiscoveryUrl *string `pulumi:"discoveryUrl"`
 	// The friendly name for this workspace. This name in mutable
 	FriendlyName *string `pulumi:"friendlyName"`
+	// Specifies the resource ID.
+	Id string `pulumi:"id"`
 	// The identity of the resource.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created

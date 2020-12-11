@@ -27,6 +27,8 @@ type LookupDomainArgs struct {
 type LookupDomainResult struct {
 	// Endpoint for the domain.
 	Endpoint string `pulumi:"endpoint"`
+	// Fully qualified identifier of the resource
+	Id string `pulumi:"id"`
 	// This determines the format that Event Grid should expect for incoming events published to the domain.
 	InputSchema *string `pulumi:"inputSchema"`
 	// Information about the InputSchemaMapping which specified the info about mapping event payload.

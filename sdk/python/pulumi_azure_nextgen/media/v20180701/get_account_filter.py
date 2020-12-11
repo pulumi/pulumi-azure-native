@@ -20,10 +20,13 @@ class GetAccountFilterResult:
     """
     An Account Filter.
     """
-    def __init__(__self__, first_quality=None, name=None, presentation_time_range=None, tracks=None, type=None):
+    def __init__(__self__, first_quality=None, id=None, name=None, presentation_time_range=None, tracks=None, type=None):
         if first_quality and not isinstance(first_quality, dict):
             raise TypeError("Expected argument 'first_quality' to be a dict")
         pulumi.set(__self__, "first_quality", first_quality)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -44,6 +47,14 @@ class GetAccountFilterResult:
         The first quality.
         """
         return pulumi.get(self, "first_quality")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -85,6 +96,7 @@ class AwaitableGetAccountFilterResult(GetAccountFilterResult):
             yield self
         return GetAccountFilterResult(
             first_quality=self.first_quality,
+            id=self.id,
             name=self.name,
             presentation_time_range=self.presentation_time_range,
             tracks=self.tracks,
@@ -114,6 +126,7 @@ def get_account_filter(account_name: Optional[str] = None,
 
     return AwaitableGetAccountFilterResult(
         first_quality=__ret__.first_quality,
+        id=__ret__.id,
         name=__ret__.name,
         presentation_time_range=__ret__.presentation_time_range,
         tracks=__ret__.tracks,

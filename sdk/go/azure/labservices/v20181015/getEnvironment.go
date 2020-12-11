@@ -39,6 +39,8 @@ type LookupEnvironmentResult struct {
 	ClaimedByUserObjectId string `pulumi:"claimedByUserObjectId"`
 	// The user principal Id of the user who has claimed the environment
 	ClaimedByUserPrincipalId string `pulumi:"claimedByUserPrincipalId"`
+	// The identifier of the resource.
+	Id string `pulumi:"id"`
 	// Is the environment claimed or not
 	IsClaimed bool `pulumi:"isClaimed"`
 	// Last known power state of the environment

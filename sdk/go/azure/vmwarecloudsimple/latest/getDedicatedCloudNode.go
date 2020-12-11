@@ -33,6 +33,8 @@ type LookupDedicatedCloudNodeResult struct {
 	CloudRackName string `pulumi:"cloudRackName"`
 	// date time the resource was created
 	Created interface{} `pulumi:"created"`
+	// SKU's id
+	Id string `pulumi:"id"`
 	// Azure region
 	Location string `pulumi:"location"`
 	// SKU's name

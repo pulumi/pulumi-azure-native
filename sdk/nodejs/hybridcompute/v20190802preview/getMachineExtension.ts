@@ -48,6 +48,10 @@ export interface GetMachineExtensionResult {
      */
     readonly forceUpdateTag?: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * The machine extension instance view.
      */
     readonly instanceView?: outputs.hybridcompute.v20190802preview.MachineExtensionInstanceViewResponse;

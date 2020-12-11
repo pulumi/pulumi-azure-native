@@ -20,13 +20,16 @@ class GetRolloutResult:
     """
     Defines the rollout.
     """
-    def __init__(__self__, artifact_source_id=None, build_version=None, identity=None, location=None, name=None, operation_info=None, services=None, status=None, step_groups=None, tags=None, target_service_topology_id=None, total_retry_attempts=None, type=None):
+    def __init__(__self__, artifact_source_id=None, build_version=None, id=None, identity=None, location=None, name=None, operation_info=None, services=None, status=None, step_groups=None, tags=None, target_service_topology_id=None, total_retry_attempts=None, type=None):
         if artifact_source_id and not isinstance(artifact_source_id, str):
             raise TypeError("Expected argument 'artifact_source_id' to be a str")
         pulumi.set(__self__, "artifact_source_id", artifact_source_id)
         if build_version and not isinstance(build_version, str):
             raise TypeError("Expected argument 'build_version' to be a str")
         pulumi.set(__self__, "build_version", build_version)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -76,6 +79,14 @@ class GetRolloutResult:
         The version of the build being deployed.
         """
         return pulumi.get(self, "build_version")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -174,6 +185,7 @@ class AwaitableGetRolloutResult(GetRolloutResult):
         return GetRolloutResult(
             artifact_source_id=self.artifact_source_id,
             build_version=self.build_version,
+            id=self.id,
             identity=self.identity,
             location=self.location,
             name=self.name,
@@ -211,6 +223,7 @@ def get_rollout(resource_group_name: Optional[str] = None,
     return AwaitableGetRolloutResult(
         artifact_source_id=__ret__.artifact_source_id,
         build_version=__ret__.build_version,
+        id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,

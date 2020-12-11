@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.Sql.V20150501Preview
         /// </summary>
         public readonly string? DatabaseType;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -108,6 +112,8 @@ namespace Pulumi.AzureNextGen.Sql.V20150501Preview
 
             string? databaseType,
 
+            string id,
+
             string name,
 
             string? password,
@@ -128,6 +134,7 @@ namespace Pulumi.AzureNextGen.Sql.V20150501Preview
         {
             DatabaseName = databaseName;
             DatabaseType = databaseType;
+            Id = id;
             Name = name;
             Password = password;
             ServerName = serverName;

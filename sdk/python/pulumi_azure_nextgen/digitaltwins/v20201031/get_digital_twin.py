@@ -19,13 +19,16 @@ class GetDigitalTwinResult:
     """
     The description of the DigitalTwins service.
     """
-    def __init__(__self__, created_time=None, host_name=None, last_updated_time=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, created_time=None, host_name=None, id=None, last_updated_time=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
         if created_time and not isinstance(created_time, str):
             raise TypeError("Expected argument 'created_time' to be a str")
         pulumi.set(__self__, "created_time", created_time)
         if host_name and not isinstance(host_name, str):
             raise TypeError("Expected argument 'host_name' to be a str")
         pulumi.set(__self__, "host_name", host_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_updated_time and not isinstance(last_updated_time, str):
             raise TypeError("Expected argument 'last_updated_time' to be a str")
         pulumi.set(__self__, "last_updated_time", last_updated_time)
@@ -60,6 +63,14 @@ class GetDigitalTwinResult:
         Api endpoint to work with DigitalTwinsInstance.
         """
         return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource identifier.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
@@ -118,6 +129,7 @@ class AwaitableGetDigitalTwinResult(GetDigitalTwinResult):
         return GetDigitalTwinResult(
             created_time=self.created_time,
             host_name=self.host_name,
+            id=self.id,
             last_updated_time=self.last_updated_time,
             location=self.location,
             name=self.name,
@@ -147,6 +159,7 @@ def get_digital_twin(resource_group_name: Optional[str] = None,
     return AwaitableGetDigitalTwinResult(
         created_time=__ret__.created_time,
         host_name=__ret__.host_name,
+        id=__ret__.id,
         last_updated_time=__ret__.last_updated_time,
         location=__ret__.location,
         name=__ret__.name,

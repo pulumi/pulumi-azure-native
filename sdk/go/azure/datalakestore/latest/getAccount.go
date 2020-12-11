@@ -47,6 +47,8 @@ type LookupAccountResult struct {
 	FirewallRules []FirewallRuleResponse `pulumi:"firewallRules"`
 	// The current state of the IP address firewall for this Data Lake Store account.
 	FirewallState string `pulumi:"firewallState"`
+	// The resource identifier.
+	Id string `pulumi:"id"`
 	// The Key Vault encryption identity, if any.
 	Identity EncryptionIdentityResponse `pulumi:"identity"`
 	// The account last modified time.

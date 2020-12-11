@@ -19,10 +19,13 @@ class GetRegisteredAsnResult:
     """
     The customer's ASN that is registered by the peering service provider.
     """
-    def __init__(__self__, asn=None, name=None, peering_service_prefix_key=None, provisioning_state=None, type=None):
+    def __init__(__self__, asn=None, id=None, name=None, peering_service_prefix_key=None, provisioning_state=None, type=None):
         if asn and not isinstance(asn, int):
             raise TypeError("Expected argument 'asn' to be a int")
         pulumi.set(__self__, "asn", asn)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -43,6 +46,14 @@ class GetRegisteredAsnResult:
         The customer's ASN from which traffic originates.
         """
         return pulumi.get(self, "asn")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -84,6 +95,7 @@ class AwaitableGetRegisteredAsnResult(GetRegisteredAsnResult):
             yield self
         return GetRegisteredAsnResult(
             asn=self.asn,
+            id=self.id,
             name=self.name,
             peering_service_prefix_key=self.peering_service_prefix_key,
             provisioning_state=self.provisioning_state,
@@ -113,6 +125,7 @@ def get_registered_asn(peering_name: Optional[str] = None,
 
     return AwaitableGetRegisteredAsnResult(
         asn=__ret__.asn,
+        id=__ret__.id,
         name=__ret__.name,
         peering_service_prefix_key=__ret__.peering_service_prefix_key,
         provisioning_state=__ret__.provisioning_state,

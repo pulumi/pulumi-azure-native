@@ -25,6 +25,8 @@ type LookupStorageSyncServiceArgs struct {
 
 // Storage Sync Service object.
 type LookupStorageSyncServiceResult struct {
+	// The id of the resource.
+	Id string `pulumi:"id"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.

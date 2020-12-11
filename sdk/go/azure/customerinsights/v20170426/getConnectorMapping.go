@@ -47,6 +47,8 @@ type LookupConnectorMappingResult struct {
 	EntityType string `pulumi:"entityType"`
 	// The mapping entity name.
 	EntityTypeName string `pulumi:"entityTypeName"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// The last modified time.
 	LastModified string `pulumi:"lastModified"`
 	// The properties of the mapping.

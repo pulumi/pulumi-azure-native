@@ -29,6 +29,8 @@ type LookupSqlVirtualMachineGroupResult struct {
 	ClusterConfiguration string `pulumi:"clusterConfiguration"`
 	// Type of cluster manager: Windows Server Failover Cluster (WSFC), implied by the scale type of the group and the OS type.
 	ClusterManagerType string `pulumi:"clusterManagerType"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// Resource name.

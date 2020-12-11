@@ -20,7 +20,7 @@ class GetSnapshotPolicyResult:
     """
     Snapshot policy information
     """
-    def __init__(__self__, daily_schedule=None, enabled=None, hourly_schedule=None, location=None, monthly_schedule=None, name=None, provisioning_state=None, tags=None, type=None, weekly_schedule=None):
+    def __init__(__self__, daily_schedule=None, enabled=None, hourly_schedule=None, id=None, location=None, monthly_schedule=None, name=None, provisioning_state=None, tags=None, type=None, weekly_schedule=None):
         if daily_schedule and not isinstance(daily_schedule, dict):
             raise TypeError("Expected argument 'daily_schedule' to be a dict")
         pulumi.set(__self__, "daily_schedule", daily_schedule)
@@ -30,6 +30,9 @@ class GetSnapshotPolicyResult:
         if hourly_schedule and not isinstance(hourly_schedule, dict):
             raise TypeError("Expected argument 'hourly_schedule' to be a dict")
         pulumi.set(__self__, "hourly_schedule", hourly_schedule)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -75,6 +78,14 @@ class GetSnapshotPolicyResult:
         Schedule for hourly snapshots
         """
         return pulumi.get(self, "hourly_schedule")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -142,6 +153,7 @@ class AwaitableGetSnapshotPolicyResult(GetSnapshotPolicyResult):
             daily_schedule=self.daily_schedule,
             enabled=self.enabled,
             hourly_schedule=self.hourly_schedule,
+            id=self.id,
             location=self.location,
             monthly_schedule=self.monthly_schedule,
             name=self.name,
@@ -176,6 +188,7 @@ def get_snapshot_policy(account_name: Optional[str] = None,
         daily_schedule=__ret__.daily_schedule,
         enabled=__ret__.enabled,
         hourly_schedule=__ret__.hourly_schedule,
+        id=__ret__.id,
         location=__ret__.location,
         monthly_schedule=__ret__.monthly_schedule,
         name=__ret__.name,

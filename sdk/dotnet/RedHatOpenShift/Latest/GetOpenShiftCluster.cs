@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.RedHatOpenShift.Latest
         /// </summary>
         public readonly Outputs.ConsoleProfileResponse? ConsoleProfile;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The cluster ingress profiles.
         /// </summary>
         public readonly ImmutableArray<Outputs.IngressProfileResponse> IngressProfiles;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.RedHatOpenShift.Latest
 
             Outputs.ConsoleProfileResponse? consoleProfile,
 
+            string id,
+
             ImmutableArray<Outputs.IngressProfileResponse> ingressProfiles,
 
             string location,
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNextGen.RedHatOpenShift.Latest
             ApiserverProfile = apiserverProfile;
             ClusterProfile = clusterProfile;
             ConsoleProfile = consoleProfile;
+            Id = id;
             IngressProfiles = ingressProfiles;
             Location = location;
             MasterProfile = masterProfile;

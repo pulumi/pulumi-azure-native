@@ -48,6 +48,10 @@ export interface GetTemplateSpecResult {
      */
     readonly displayName?: string;
     /**
+     * String Id used to locate any resource on Azure.
+     */
+    readonly id: string;
+    /**
      * The location of the Template Spec. It cannot be changed after Template Spec creation. It must be one of the supported Azure locations.
      */
     readonly location: string;

@@ -17,7 +17,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetProviderRegistrationResult:
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, id=None, name=None, properties=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -27,6 +30,14 @@ class GetProviderRegistrationResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -56,6 +67,7 @@ class AwaitableGetProviderRegistrationResult(GetProviderRegistrationResult):
         if False:
             yield self
         return GetProviderRegistrationResult(
+            id=self.id,
             name=self.name,
             properties=self.properties,
             type=self.type)
@@ -77,6 +89,7 @@ def get_provider_registration(provider_namespace: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:providerhub/v20201120:getProviderRegistration', __args__, opts=opts, typ=GetProviderRegistrationResult).value
 
     return AwaitableGetProviderRegistrationResult(
+        id=__ret__.id,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)

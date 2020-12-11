@@ -45,6 +45,10 @@ export interface GetInvitationArgs {
  */
 export interface GetInvitationResult {
     /**
+     * The resource id of the azure resource
+     */
+    readonly id: string;
+    /**
      * unique invitation id
      */
     readonly invitationId: string;

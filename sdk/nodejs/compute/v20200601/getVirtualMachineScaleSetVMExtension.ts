@@ -62,6 +62,10 @@ export interface GetVirtualMachineScaleSetVMExtensionResult {
      */
     readonly forceUpdateTag?: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * The virtual machine extension instance view.
      */
     readonly instanceView?: outputs.compute.v20200601.VirtualMachineExtensionInstanceViewResponse;

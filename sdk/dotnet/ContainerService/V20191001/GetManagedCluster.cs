@@ -72,6 +72,10 @@ namespace Pulumi.AzureNextGen.ContainerService.V20191001
         /// </summary>
         public readonly string Fqdn;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the managed cluster, if configured.
         /// </summary>
         public readonly Outputs.ManagedClusterIdentityResponse? Identity;
@@ -146,6 +150,8 @@ namespace Pulumi.AzureNextGen.ContainerService.V20191001
 
             string fqdn,
 
+            string id,
+
             Outputs.ManagedClusterIdentityResponse? identity,
 
             string? kubernetesVersion,
@@ -182,6 +188,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20191001
             EnablePodSecurityPolicy = enablePodSecurityPolicy;
             EnableRBAC = enableRBAC;
             Fqdn = fqdn;
+            Id = id;
             Identity = identity;
             KubernetesVersion = kubernetesVersion;
             LinuxProfile = linuxProfile;

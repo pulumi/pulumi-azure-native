@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string? Location;
@@ -108,6 +112,8 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
 
             string? description,
 
+            string id,
+
             string? location,
 
             string? managedImageId,
@@ -129,6 +135,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
             Author = author;
             CreationDate = creationDate;
             Description = description;
+            Id = id;
             Location = location;
             ManagedImageId = managedImageId;
             Name = name;

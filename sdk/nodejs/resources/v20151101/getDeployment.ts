@@ -35,6 +35,10 @@ export interface GetDeploymentArgs {
  */
 export interface GetDeploymentResult {
     /**
+     * Gets or sets the ID of the deployment.
+     */
+    readonly id: string;
+    /**
      * Gets or sets the name of the deployment.
      */
     readonly name: string;

@@ -19,7 +19,10 @@ class GetAccessControlRecordResult:
     """
     The access control record.
     """
-    def __init__(__self__, initiator_name=None, kind=None, name=None, type=None, volume_count=None):
+    def __init__(__self__, id=None, initiator_name=None, kind=None, name=None, type=None, volume_count=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if initiator_name and not isinstance(initiator_name, str):
             raise TypeError("Expected argument 'initiator_name' to be a str")
         pulumi.set(__self__, "initiator_name", initiator_name)
@@ -35,6 +38,14 @@ class GetAccessControlRecordResult:
         if volume_count and not isinstance(volume_count, int):
             raise TypeError("Expected argument 'volume_count' to be a int")
         pulumi.set(__self__, "volume_count", volume_count)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The path ID that uniquely identifies the object.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="initiatorName")
@@ -83,6 +94,7 @@ class AwaitableGetAccessControlRecordResult(GetAccessControlRecordResult):
         if False:
             yield self
         return GetAccessControlRecordResult(
+            id=self.id,
             initiator_name=self.initiator_name,
             kind=self.kind,
             name=self.name,
@@ -112,6 +124,7 @@ def get_access_control_record(access_control_record_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:storsimple/latest:getAccessControlRecord', __args__, opts=opts, typ=GetAccessControlRecordResult).value
 
     return AwaitableGetAccessControlRecordResult(
+        id=__ret__.id,
         initiator_name=__ret__.initiator_name,
         kind=__ret__.kind,
         name=__ret__.name,

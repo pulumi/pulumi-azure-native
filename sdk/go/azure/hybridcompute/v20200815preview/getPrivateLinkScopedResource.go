@@ -27,6 +27,8 @@ type LookupPrivateLinkScopedResourceArgs struct {
 
 // A private link scoped resource
 type LookupPrivateLinkScopedResourceResult struct {
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The resource id of the scoped Azure monitor resource.
 	LinkedResourceId *string `pulumi:"linkedResourceId"`
 	// The name of the resource

@@ -64,6 +64,10 @@ export interface GetScheduleResult {
      */
     readonly frequency?: string;
     /**
+     * Fully qualified resource Id for the resource
+     */
+    readonly id: string;
+    /**
      * Gets or sets the interval of the schedule.
      */
     readonly interval?: any;

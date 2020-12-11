@@ -20,13 +20,16 @@ class GetDiskPoolResult:
     """
     Request payload for Create or Update Disk Pool requests.
     """
-    def __init__(__self__, availability_zones=None, disks=None, location=None, name=None, provisioning_state=None, sku=None, status=None, subnet_id=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, availability_zones=None, disks=None, id=None, location=None, name=None, provisioning_state=None, sku=None, status=None, subnet_id=None, system_data=None, tags=None, type=None):
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
         if disks and not isinstance(disks, list):
             raise TypeError("Expected argument 'disks' to be a list")
         pulumi.set(__self__, "disks", disks)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -70,6 +73,14 @@ class GetDiskPoolResult:
         List of Azure managed disks to attach to a DiskPool
         """
         return pulumi.get(self, "disks")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -152,6 +163,7 @@ class AwaitableGetDiskPoolResult(GetDiskPoolResult):
         return GetDiskPoolResult(
             availability_zones=self.availability_zones,
             disks=self.disks,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -184,6 +196,7 @@ def get_disk_pool(disk_pool_name: Optional[str] = None,
     return AwaitableGetDiskPoolResult(
         availability_zones=__ret__.availability_zones,
         disks=__ret__.disks,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

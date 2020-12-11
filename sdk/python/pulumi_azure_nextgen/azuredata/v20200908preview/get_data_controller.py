@@ -20,7 +20,10 @@ class GetDataControllerResult:
     """
     Data controller resource
     """
-    def __init__(__self__, k8s_raw=None, last_uploaded_date=None, location=None, name=None, on_premise_property=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, id=None, k8s_raw=None, last_uploaded_date=None, location=None, name=None, on_premise_property=None, system_data=None, tags=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if k8s_raw and not isinstance(k8s_raw, dict):
             raise TypeError("Expected argument 'k8s_raw' to be a dict")
         pulumi.set(__self__, "k8s_raw", k8s_raw)
@@ -45,6 +48,14 @@ class GetDataControllerResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="k8sRaw")
@@ -117,6 +128,7 @@ class AwaitableGetDataControllerResult(GetDataControllerResult):
         if False:
             yield self
         return GetDataControllerResult(
+            id=self.id,
             k8s_raw=self.k8s_raw,
             last_uploaded_date=self.last_uploaded_date,
             location=self.location,
@@ -145,6 +157,7 @@ def get_data_controller(data_controller_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:azuredata/v20200908preview:getDataController', __args__, opts=opts, typ=GetDataControllerResult).value
 
     return AwaitableGetDataControllerResult(
+        id=__ret__.id,
         k8s_raw=__ret__.k8s_raw,
         last_uploaded_date=__ret__.last_uploaded_date,
         location=__ret__.location,

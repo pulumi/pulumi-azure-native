@@ -19,7 +19,10 @@ class GetKeyResult:
     """
     A workspace key
     """
-    def __init__(__self__, is_active_cmk=None, key_vault_url=None, name=None, type=None):
+    def __init__(__self__, id=None, is_active_cmk=None, key_vault_url=None, name=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_active_cmk and not isinstance(is_active_cmk, bool):
             raise TypeError("Expected argument 'is_active_cmk' to be a bool")
         pulumi.set(__self__, "is_active_cmk", is_active_cmk)
@@ -32,6 +35,14 @@ class GetKeyResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isActiveCMK")
@@ -72,6 +83,7 @@ class AwaitableGetKeyResult(GetKeyResult):
         if False:
             yield self
         return GetKeyResult(
+            id=self.id,
             is_active_cmk=self.is_active_cmk,
             key_vault_url=self.key_vault_url,
             name=self.name,
@@ -100,6 +112,7 @@ def get_key(key_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:synapse/v20190601preview:getKey', __args__, opts=opts, typ=GetKeyResult).value
 
     return AwaitableGetKeyResult(
+        id=__ret__.id,
         is_active_cmk=__ret__.is_active_cmk,
         key_vault_url=__ret__.key_vault_url,
         name=__ret__.name,

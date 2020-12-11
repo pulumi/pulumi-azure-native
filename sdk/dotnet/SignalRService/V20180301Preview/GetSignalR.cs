@@ -53,6 +53,10 @@ namespace Pulumi.AzureNextGen.SignalRService.V20180301Preview
         /// </summary>
         public readonly string? HostNamePrefix;
         /// <summary>
+        /// Fully qualified resource Id for the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
         /// </summary>
         public readonly string? Location;
@@ -97,6 +101,8 @@ namespace Pulumi.AzureNextGen.SignalRService.V20180301Preview
 
             string? hostNamePrefix,
 
+            string id,
+
             string? location,
 
             string name,
@@ -118,6 +124,7 @@ namespace Pulumi.AzureNextGen.SignalRService.V20180301Preview
             ExternalIP = externalIP;
             HostName = hostName;
             HostNamePrefix = hostNamePrefix;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

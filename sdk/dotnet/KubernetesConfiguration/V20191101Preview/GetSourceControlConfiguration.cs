@@ -70,6 +70,10 @@ namespace Pulumi.AzureNextGen.KubernetesConfiguration.V20191101Preview
         /// </summary>
         public readonly Outputs.HelmOperatorPropertiesResponse? HelmOperatorProperties;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
@@ -118,6 +122,8 @@ namespace Pulumi.AzureNextGen.KubernetesConfiguration.V20191101Preview
 
             Outputs.HelmOperatorPropertiesResponse? helmOperatorProperties,
 
+            string id,
+
             string name,
 
             string? operatorInstanceName,
@@ -141,6 +147,7 @@ namespace Pulumi.AzureNextGen.KubernetesConfiguration.V20191101Preview
             ComplianceStatus = complianceStatus;
             EnableHelmOperator = enableHelmOperator;
             HelmOperatorProperties = helmOperatorProperties;
+            Id = id;
             Name = name;
             OperatorInstanceName = operatorInstanceName;
             OperatorNamespace = operatorNamespace;

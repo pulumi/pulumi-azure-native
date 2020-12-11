@@ -40,6 +40,10 @@ export interface GetVirtualNetworkRuleArgs {
  */
 export interface GetVirtualNetworkRuleResult {
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * Create firewall rule before the virtual network has vnet service endpoint enabled.
      */
     readonly ignoreMissingVnetServiceEndpoint?: boolean;

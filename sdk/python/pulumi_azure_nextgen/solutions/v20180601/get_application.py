@@ -20,10 +20,13 @@ class GetApplicationResult:
     """
     Information about managed application.
     """
-    def __init__(__self__, application_definition_id=None, identity=None, kind=None, location=None, managed_by=None, managed_resource_group_id=None, name=None, outputs=None, parameters=None, plan=None, provisioning_state=None, sku=None, tags=None, type=None):
+    def __init__(__self__, application_definition_id=None, id=None, identity=None, kind=None, location=None, managed_by=None, managed_resource_group_id=None, name=None, outputs=None, parameters=None, plan=None, provisioning_state=None, sku=None, tags=None, type=None):
         if application_definition_id and not isinstance(application_definition_id, str):
             raise TypeError("Expected argument 'application_definition_id' to be a str")
         pulumi.set(__self__, "application_definition_id", application_definition_id)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -71,6 +74,14 @@ class GetApplicationResult:
         The fully qualified path of managed application definition Id.
         """
         return pulumi.get(self, "application_definition_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -184,6 +195,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             yield self
         return GetApplicationResult(
             application_definition_id=self.application_definition_id,
+            id=self.id,
             identity=self.identity,
             kind=self.kind,
             location=self.location,
@@ -219,6 +231,7 @@ def get_application(application_name: Optional[str] = None,
 
     return AwaitableGetApplicationResult(
         application_definition_id=__ret__.application_definition_id,
+        id=__ret__.id,
         identity=__ret__.identity,
         kind=__ret__.kind,
         location=__ret__.location,

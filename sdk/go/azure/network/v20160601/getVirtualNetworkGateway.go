@@ -37,6 +37,8 @@ type LookupVirtualNetworkGatewayResult struct {
 	GatewayDefaultSite *SubResourceResponse `pulumi:"gatewayDefaultSite"`
 	// The type of this virtual network gateway.
 	GatewayType *string `pulumi:"gatewayType"`
+	// Resource Id
+	Id *string `pulumi:"id"`
 	// IpConfigurations for Virtual network gateway.
 	IpConfigurations []VirtualNetworkGatewayIPConfigurationResponse `pulumi:"ipConfigurations"`
 	// Resource location

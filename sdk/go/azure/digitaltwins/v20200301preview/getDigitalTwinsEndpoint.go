@@ -27,6 +27,8 @@ type LookupDigitalTwinsEndpointArgs struct {
 
 // DigitalTwinsInstance endpoint resource.
 type LookupDigitalTwinsEndpointResult struct {
+	// The resource identifier.
+	Id string `pulumi:"id"`
 	// Extension resource name.
 	Name string `pulumi:"name"`
 	// DigitalTwinsInstance endpoint resource properties.

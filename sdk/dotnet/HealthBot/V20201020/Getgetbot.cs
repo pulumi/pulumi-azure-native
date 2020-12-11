@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.HealthBot.V20201020
     public sealed class GetgetbotResult
     {
         /// <summary>
+        /// Fully qualified resource Id for the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -70,6 +74,8 @@ namespace Pulumi.AzureNextGen.HealthBot.V20201020
 
         [OutputConstructor]
         private GetgetbotResult(
+            string id,
+
             string location,
 
             string name,
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNextGen.HealthBot.V20201020
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

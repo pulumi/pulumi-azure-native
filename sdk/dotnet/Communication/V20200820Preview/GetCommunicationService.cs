@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.Communication.V20200820Preview
         /// </summary>
         public readonly string HostName;
         /// <summary>
+        /// Fully qualified resource ID for the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The immutable resource Id of the communication service.
         /// </summary>
         public readonly string ImmutableResourceId;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.Communication.V20200820Preview
 
             string hostName,
 
+            string id,
+
             string immutableResourceId,
 
             string? location,
@@ -104,6 +110,7 @@ namespace Pulumi.AzureNextGen.Communication.V20200820Preview
         {
             DataLocation = dataLocation;
             HostName = hostName;
+            Id = id;
             ImmutableResourceId = immutableResourceId;
             Location = location;
             Name = name;

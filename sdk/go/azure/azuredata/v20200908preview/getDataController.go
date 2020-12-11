@@ -24,6 +24,8 @@ type LookupDataControllerArgs struct {
 
 // Data controller resource
 type LookupDataControllerResult struct {
+	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The raw kubernetes information
 	K8sRaw interface{} `pulumi:"k8sRaw"`
 	// Last uploaded date from on premise cluster. Defaults to current date time

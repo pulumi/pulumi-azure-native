@@ -63,6 +63,10 @@ export interface GetWorkspaceResult {
      */
     readonly friendlyName?: string;
     /**
+     * Specifies the resource ID.
+     */
+    readonly id: string;
+    /**
      * The identity of the resource.
      */
     readonly identity?: outputs.machinelearningservices.v20180301preview.IdentityResponse;

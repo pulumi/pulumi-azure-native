@@ -20,7 +20,10 @@ class ListVirtualMachineApplicableSchedulesResult:
     """
     Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
     """
-    def __init__(__self__, lab_vms_shutdown=None, lab_vms_startup=None, location=None, name=None, tags=None, type=None):
+    def __init__(__self__, id=None, lab_vms_shutdown=None, lab_vms_startup=None, location=None, name=None, tags=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if lab_vms_shutdown and not isinstance(lab_vms_shutdown, dict):
             raise TypeError("Expected argument 'lab_vms_shutdown' to be a dict")
         pulumi.set(__self__, "lab_vms_shutdown", lab_vms_shutdown)
@@ -39,6 +42,14 @@ class ListVirtualMachineApplicableSchedulesResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="labVmsShutdown")
@@ -95,6 +106,7 @@ class AwaitableListVirtualMachineApplicableSchedulesResult(ListVirtualMachineApp
         if False:
             yield self
         return ListVirtualMachineApplicableSchedulesResult(
+            id=self.id,
             lab_vms_shutdown=self.lab_vms_shutdown,
             lab_vms_startup=self.lab_vms_startup,
             location=self.location,
@@ -125,6 +137,7 @@ def list_virtual_machine_applicable_schedules(lab_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:devtestlab/v20160515:listVirtualMachineApplicableSchedules', __args__, opts=opts, typ=ListVirtualMachineApplicableSchedulesResult).value
 
     return AwaitableListVirtualMachineApplicableSchedulesResult(
+        id=__ret__.id,
         lab_vms_shutdown=__ret__.lab_vms_shutdown,
         lab_vms_startup=__ret__.lab_vms_startup,
         location=__ret__.location,

@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// </summary>
         public readonly string EndPoint;
         /// <summary>
+        /// The identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The storage account's geo location
         /// </summary>
         public readonly string? Location;
@@ -88,6 +92,8 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
 
             string endPoint,
 
+            string id,
+
             string? location,
 
             string login,
@@ -100,6 +106,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
             CloudType = cloudType;
             EnableSSL = enableSSL;
             EndPoint = endPoint;
+            Id = id;
             Location = location;
             Login = login;
             Name = name;

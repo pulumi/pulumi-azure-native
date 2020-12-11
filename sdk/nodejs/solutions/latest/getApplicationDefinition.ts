@@ -59,6 +59,10 @@ export interface GetApplicationDefinitionResult {
      */
     readonly displayName?: string;
     /**
+     * Resource ID
+     */
+    readonly id: string;
+    /**
      * A value indicating whether the package is enabled or not.
      */
     readonly isEnabled?: boolean;

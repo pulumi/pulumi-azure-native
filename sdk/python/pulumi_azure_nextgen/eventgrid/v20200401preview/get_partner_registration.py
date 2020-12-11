@@ -19,13 +19,16 @@ class GetPartnerRegistrationResult:
     """
     Information about a partner registration.
     """
-    def __init__(__self__, authorized_azure_subscription_ids=None, customer_service_uri=None, location=None, logo_uri=None, long_description=None, name=None, partner_customer_service_extension=None, partner_customer_service_number=None, partner_name=None, partner_resource_type_description=None, partner_resource_type_display_name=None, partner_resource_type_name=None, provisioning_state=None, setup_uri=None, tags=None, type=None, visibility_state=None):
+    def __init__(__self__, authorized_azure_subscription_ids=None, customer_service_uri=None, id=None, location=None, logo_uri=None, long_description=None, name=None, partner_customer_service_extension=None, partner_customer_service_number=None, partner_name=None, partner_resource_type_description=None, partner_resource_type_display_name=None, partner_resource_type_name=None, provisioning_state=None, setup_uri=None, tags=None, type=None, visibility_state=None):
         if authorized_azure_subscription_ids and not isinstance(authorized_azure_subscription_ids, list):
             raise TypeError("Expected argument 'authorized_azure_subscription_ids' to be a list")
         pulumi.set(__self__, "authorized_azure_subscription_ids", authorized_azure_subscription_ids)
         if customer_service_uri and not isinstance(customer_service_uri, str):
             raise TypeError("Expected argument 'customer_service_uri' to be a str")
         pulumi.set(__self__, "customer_service_uri", customer_service_uri)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -90,6 +93,14 @@ class GetPartnerRegistrationResult:
         The extension of the customer service URI of the publisher.
         """
         return pulumi.get(self, "customer_service_uri")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified identifier of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -225,6 +236,7 @@ class AwaitableGetPartnerRegistrationResult(GetPartnerRegistrationResult):
         return GetPartnerRegistrationResult(
             authorized_azure_subscription_ids=self.authorized_azure_subscription_ids,
             customer_service_uri=self.customer_service_uri,
+            id=self.id,
             location=self.location,
             logo_uri=self.logo_uri,
             long_description=self.long_description,
@@ -263,6 +275,7 @@ def get_partner_registration(partner_registration_name: Optional[str] = None,
     return AwaitableGetPartnerRegistrationResult(
         authorized_azure_subscription_ids=__ret__.authorized_azure_subscription_ids,
         customer_service_uri=__ret__.customer_service_uri,
+        id=__ret__.id,
         location=__ret__.location,
         logo_uri=__ret__.logo_uri,
         long_description=__ret__.long_description,

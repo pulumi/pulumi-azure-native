@@ -28,6 +28,8 @@ type LookupSecurityPolicyArgs struct {
 // SecurityPolicy association for AzureFrontDoor profile
 type LookupSecurityPolicyResult struct {
 	DeploymentStatus string `pulumi:"deploymentStatus"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// object which contains security policy parameters

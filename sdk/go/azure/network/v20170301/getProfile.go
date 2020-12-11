@@ -29,6 +29,8 @@ type LookupProfileResult struct {
 	DnsConfig *DnsConfigResponse `pulumi:"dnsConfig"`
 	// Gets or sets the list of endpoints in the Traffic Manager profile.
 	Endpoints []EndpointResponse `pulumi:"endpoints"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Gets or sets the endpoint monitoring settings of the Traffic Manager profile.

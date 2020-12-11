@@ -47,6 +47,10 @@ export interface GetPrivateStoreOfferResult {
      */
     readonly iconFileUris?: {[key: string]: string};
     /**
+     * The resource ID.
+     */
+    readonly id: string;
+    /**
      * Private store offer modification date
      */
     readonly modifiedAt: string;

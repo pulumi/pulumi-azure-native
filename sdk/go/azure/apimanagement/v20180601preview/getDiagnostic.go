@@ -35,6 +35,8 @@ type LookupDiagnosticResult struct {
 	EnableHttpCorrelationHeaders *bool `pulumi:"enableHttpCorrelationHeaders"`
 	// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
 	Frontend *PipelineDiagnosticSettingsResponse `pulumi:"frontend"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource Id of a target logger.
 	LoggerId string `pulumi:"loggerId"`
 	// Resource name.

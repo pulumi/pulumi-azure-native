@@ -20,7 +20,7 @@ class GetRelationshipResult:
     """
     The relationship resource format.
     """
-    def __init__(__self__, cardinality=None, description=None, display_name=None, expiry_date_time_utc=None, fields=None, lookup_mappings=None, name=None, profile_type=None, provisioning_state=None, related_profile_type=None, relationship_guid_id=None, relationship_name=None, tenant_id=None, type=None):
+    def __init__(__self__, cardinality=None, description=None, display_name=None, expiry_date_time_utc=None, fields=None, id=None, lookup_mappings=None, name=None, profile_type=None, provisioning_state=None, related_profile_type=None, relationship_guid_id=None, relationship_name=None, tenant_id=None, type=None):
         if cardinality and not isinstance(cardinality, str):
             raise TypeError("Expected argument 'cardinality' to be a str")
         pulumi.set(__self__, "cardinality", cardinality)
@@ -36,6 +36,9 @@ class GetRelationshipResult:
         if fields and not isinstance(fields, list):
             raise TypeError("Expected argument 'fields' to be a list")
         pulumi.set(__self__, "fields", fields)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if lookup_mappings and not isinstance(lookup_mappings, list):
             raise TypeError("Expected argument 'lookup_mappings' to be a list")
         pulumi.set(__self__, "lookup_mappings", lookup_mappings)
@@ -103,6 +106,14 @@ class GetRelationshipResult:
         The properties of the Relationship.
         """
         return pulumi.get(self, "fields")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lookupMappings")
@@ -188,6 +199,7 @@ class AwaitableGetRelationshipResult(GetRelationshipResult):
             display_name=self.display_name,
             expiry_date_time_utc=self.expiry_date_time_utc,
             fields=self.fields,
+            id=self.id,
             lookup_mappings=self.lookup_mappings,
             name=self.name,
             profile_type=self.profile_type,
@@ -226,6 +238,7 @@ def get_relationship(hub_name: Optional[str] = None,
         display_name=__ret__.display_name,
         expiry_date_time_utc=__ret__.expiry_date_time_utc,
         fields=__ret__.fields,
+        id=__ret__.id,
         lookup_mappings=__ret__.lookup_mappings,
         name=__ret__.name,
         profile_type=__ret__.profile_type,

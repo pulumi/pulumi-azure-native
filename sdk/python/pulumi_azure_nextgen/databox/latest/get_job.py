@@ -20,7 +20,7 @@ class GetJobResult:
     """
     Job Resource.
     """
-    def __init__(__self__, cancellation_reason=None, delivery_info=None, delivery_type=None, details=None, error=None, identity=None, is_cancellable=None, is_cancellable_without_fee=None, is_deletable=None, is_prepare_to_ship_enabled=None, is_shipping_address_editable=None, location=None, name=None, sku=None, start_time=None, status=None, tags=None, transfer_type=None, type=None):
+    def __init__(__self__, cancellation_reason=None, delivery_info=None, delivery_type=None, details=None, error=None, id=None, identity=None, is_cancellable=None, is_cancellable_without_fee=None, is_deletable=None, is_prepare_to_ship_enabled=None, is_shipping_address_editable=None, location=None, name=None, sku=None, start_time=None, status=None, tags=None, transfer_type=None, type=None):
         if cancellation_reason and not isinstance(cancellation_reason, str):
             raise TypeError("Expected argument 'cancellation_reason' to be a str")
         pulumi.set(__self__, "cancellation_reason", cancellation_reason)
@@ -36,6 +36,9 @@ class GetJobResult:
         if error and not isinstance(error, dict):
             raise TypeError("Expected argument 'error' to be a dict")
         pulumi.set(__self__, "error", error)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -118,6 +121,14 @@ class GetJobResult:
         Top level error for the job.
         """
         return pulumi.get(self, "error")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Id of the object.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -243,6 +254,7 @@ class AwaitableGetJobResult(GetJobResult):
             delivery_type=self.delivery_type,
             details=self.details,
             error=self.error,
+            id=self.id,
             identity=self.identity,
             is_cancellable=self.is_cancellable,
             is_cancellable_without_fee=self.is_cancellable_without_fee,
@@ -286,6 +298,7 @@ def get_job(expand: Optional[str] = None,
         delivery_type=__ret__.delivery_type,
         details=__ret__.details,
         error=__ret__.error,
+        id=__ret__.id,
         identity=__ret__.identity,
         is_cancellable=__ret__.is_cancellable,
         is_cancellable_without_fee=__ret__.is_cancellable_without_fee,

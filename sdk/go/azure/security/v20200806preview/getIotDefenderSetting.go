@@ -23,6 +23,8 @@ type LookupIotDefenderSettingArgs struct {
 type LookupIotDefenderSettingResult struct {
 	// Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
 	DeviceQuota int `pulumi:"deviceQuota"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// Sentinel Workspace Resource Ids

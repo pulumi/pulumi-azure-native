@@ -31,6 +31,8 @@ type LookupSqlManagedInstanceResult struct {
 	DataControllerId *string `pulumi:"dataControllerId"`
 	// The instance end time
 	EndTime *string `pulumi:"endTime"`
+	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The on premise instance endpoint
 	InstanceEndpoint *string `pulumi:"instanceEndpoint"`
 	// The raw kubernetes information

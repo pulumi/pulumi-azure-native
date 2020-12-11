@@ -20,10 +20,13 @@ class GetProfileResult:
     """
     CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
     """
-    def __init__(__self__, frontdoor_id=None, location=None, name=None, provisioning_state=None, resource_state=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, frontdoor_id=None, id=None, location=None, name=None, provisioning_state=None, resource_state=None, sku=None, system_data=None, tags=None, type=None):
         if frontdoor_id and not isinstance(frontdoor_id, str):
             raise TypeError("Expected argument 'frontdoor_id' to be a str")
         pulumi.set(__self__, "frontdoor_id", frontdoor_id)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -56,6 +59,14 @@ class GetProfileResult:
         The Id of the frontdoor.
         """
         return pulumi.get(self, "frontdoor_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -129,6 +140,7 @@ class AwaitableGetProfileResult(GetProfileResult):
             yield self
         return GetProfileResult(
             frontdoor_id=self.frontdoor_id,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -159,6 +171,7 @@ def get_profile(profile_name: Optional[str] = None,
 
     return AwaitableGetProfileResult(
         frontdoor_id=__ret__.frontdoor_id,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

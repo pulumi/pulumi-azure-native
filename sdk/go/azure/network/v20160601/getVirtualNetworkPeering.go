@@ -35,6 +35,8 @@ type LookupVirtualNetworkPeeringResult struct {
 	AllowVirtualNetworkAccess *bool `pulumi:"allowVirtualNetworkAccess"`
 	// A unique read-only string that changes whenever the resource is updated
 	Etag *string `pulumi:"etag"`
+	// Resource Id
+	Id *string `pulumi:"id"`
 	// Gets or sets the name of the resource that is unique within a resource group. This name can be used to access the resource
 	Name *string `pulumi:"name"`
 	// Gets the status of the virtual network peering

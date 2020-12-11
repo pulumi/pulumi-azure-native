@@ -20,7 +20,7 @@ class GetExportResult:
     """
     A export resource.
     """
-    def __init__(__self__, definition=None, delivery_info=None, e_tag=None, format=None, name=None, schedule=None, type=None):
+    def __init__(__self__, definition=None, delivery_info=None, e_tag=None, format=None, id=None, name=None, schedule=None, type=None):
         if definition and not isinstance(definition, dict):
             raise TypeError("Expected argument 'definition' to be a dict")
         pulumi.set(__self__, "definition", definition)
@@ -33,6 +33,9 @@ class GetExportResult:
         if format and not isinstance(format, str):
             raise TypeError("Expected argument 'format' to be a str")
         pulumi.set(__self__, "format", format)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -77,6 +80,14 @@ class GetExportResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         Resource name.
@@ -110,6 +121,7 @@ class AwaitableGetExportResult(GetExportResult):
             delivery_info=self.delivery_info,
             e_tag=self.e_tag,
             format=self.format,
+            id=self.id,
             name=self.name,
             schedule=self.schedule,
             type=self.type)
@@ -138,6 +150,7 @@ def get_export(export_name: Optional[str] = None,
         delivery_info=__ret__.delivery_info,
         e_tag=__ret__.e_tag,
         format=__ret__.format,
+        id=__ret__.id,
         name=__ret__.name,
         schedule=__ret__.schedule,
         type=__ret__.type)

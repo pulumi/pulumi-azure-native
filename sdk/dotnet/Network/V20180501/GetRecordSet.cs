@@ -76,6 +76,10 @@ namespace Pulumi.AzureNextGen.Network.V20180501
         /// </summary>
         public readonly string Fqdn;
         /// <summary>
+        /// The ID of the record set.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The metadata attached to the record set.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Metadata;
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNextGen.Network.V20180501
 
             string fqdn,
 
+            string id,
+
             ImmutableDictionary<string, string>? metadata,
 
             ImmutableArray<Outputs.MxRecordResponse> mxRecords,
@@ -168,6 +174,7 @@ namespace Pulumi.AzureNextGen.Network.V20180501
             CnameRecord = cnameRecord;
             Etag = etag;
             Fqdn = fqdn;
+            Id = id;
             Metadata = metadata;
             MxRecords = mxRecords;
             Name = name;

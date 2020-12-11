@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.EngagementFabric.V20180901Preview
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Credentials;
         /// <summary>
+        /// The ID of the resource
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -74,6 +78,8 @@ namespace Pulumi.AzureNextGen.EngagementFabric.V20180901Preview
 
             ImmutableDictionary<string, string>? credentials,
 
+            string id,
+
             string name,
 
             string type)
@@ -81,6 +87,7 @@ namespace Pulumi.AzureNextGen.EngagementFabric.V20180901Preview
             ChannelFunctions = channelFunctions;
             ChannelType = channelType;
             Credentials = credentials;
+            Id = id;
             Name = name;
             Type = type;
         }

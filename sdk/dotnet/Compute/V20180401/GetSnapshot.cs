@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Compute.V20180401
         /// </summary>
         public readonly Outputs.EncryptionSettingsResponse? EncryptionSettings;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -96,6 +100,8 @@ namespace Pulumi.AzureNextGen.Compute.V20180401
 
             Outputs.EncryptionSettingsResponse? encryptionSettings,
 
+            string id,
+
             string location,
 
             string managedBy,
@@ -117,6 +123,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180401
             CreationData = creationData;
             DiskSizeGB = diskSizeGB;
             EncryptionSettings = encryptionSettings;
+            Id = id;
             Location = location;
             ManagedBy = managedBy;
             Name = name;

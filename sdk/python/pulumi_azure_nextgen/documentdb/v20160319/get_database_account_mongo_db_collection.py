@@ -20,7 +20,10 @@ class GetDatabaseAccountMongoDBCollectionResult:
     """
     An Azure Cosmos DB MongoDB collection.
     """
-    def __init__(__self__, indexes=None, location=None, name=None, shard_key=None, tags=None, type=None):
+    def __init__(__self__, id=None, indexes=None, location=None, name=None, shard_key=None, tags=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if indexes and not isinstance(indexes, list):
             raise TypeError("Expected argument 'indexes' to be a list")
         pulumi.set(__self__, "indexes", indexes)
@@ -39,6 +42,14 @@ class GetDatabaseAccountMongoDBCollectionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The unique resource identifier of the database account.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -95,6 +106,7 @@ class AwaitableGetDatabaseAccountMongoDBCollectionResult(GetDatabaseAccountMongo
         if False:
             yield self
         return GetDatabaseAccountMongoDBCollectionResult(
+            id=self.id,
             indexes=self.indexes,
             location=self.location,
             name=self.name,
@@ -128,6 +140,7 @@ def get_database_account_mongo_db_collection(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:documentdb/v20160319:getDatabaseAccountMongoDBCollection', __args__, opts=opts, typ=GetDatabaseAccountMongoDBCollectionResult).value
 
     return AwaitableGetDatabaseAccountMongoDBCollectionResult(
+        id=__ret__.id,
         indexes=__ret__.indexes,
         location=__ret__.location,
         name=__ret__.name,

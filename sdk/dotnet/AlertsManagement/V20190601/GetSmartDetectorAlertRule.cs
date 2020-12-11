@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20190601
         /// </summary>
         public readonly string Frequency;
         /// <summary>
+        /// The resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string? Location;
@@ -104,6 +108,8 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20190601
 
             string frequency,
 
+            string id,
+
             string? location,
 
             string name,
@@ -124,6 +130,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20190601
             Description = description;
             Detector = detector;
             Frequency = frequency;
+            Id = id;
             Location = location;
             Name = name;
             Scope = scope;

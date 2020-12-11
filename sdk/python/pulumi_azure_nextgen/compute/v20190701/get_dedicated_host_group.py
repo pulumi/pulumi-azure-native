@@ -20,10 +20,13 @@ class GetDedicatedHostGroupResult:
     """
     Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
     """
-    def __init__(__self__, hosts=None, location=None, name=None, platform_fault_domain_count=None, tags=None, type=None, zones=None):
+    def __init__(__self__, hosts=None, id=None, location=None, name=None, platform_fault_domain_count=None, tags=None, type=None, zones=None):
         if hosts and not isinstance(hosts, list):
             raise TypeError("Expected argument 'hosts' to be a list")
         pulumi.set(__self__, "hosts", hosts)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -50,6 +53,14 @@ class GetDedicatedHostGroupResult:
         A list of references to all dedicated hosts in the dedicated host group.
         """
         return pulumi.get(self, "hosts")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -107,6 +118,7 @@ class AwaitableGetDedicatedHostGroupResult(GetDedicatedHostGroupResult):
             yield self
         return GetDedicatedHostGroupResult(
             hosts=self.hosts,
+            id=self.id,
             location=self.location,
             name=self.name,
             platform_fault_domain_count=self.platform_fault_domain_count,
@@ -135,6 +147,7 @@ def get_dedicated_host_group(host_group_name: Optional[str] = None,
 
     return AwaitableGetDedicatedHostGroupResult(
         hosts=__ret__.hosts,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         platform_fault_domain_count=__ret__.platform_fault_domain_count,

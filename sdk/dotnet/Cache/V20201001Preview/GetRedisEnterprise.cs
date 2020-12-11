@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Cache.V20201001Preview
         /// </summary>
         public readonly string HostName;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.Cache.V20201001Preview
         private GetRedisEnterpriseResult(
             string hostName,
 
+            string id,
+
             string location,
 
             string? minimumTlsVersion,
@@ -115,6 +121,7 @@ namespace Pulumi.AzureNextGen.Cache.V20201001Preview
             ImmutableArray<string> zones)
         {
             HostName = hostName;
+            Id = id;
             Location = location;
             MinimumTlsVersion = minimumTlsVersion;
             Name = name;

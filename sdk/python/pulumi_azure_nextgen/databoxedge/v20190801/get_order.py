@@ -20,7 +20,7 @@ class GetOrderResult:
     """
     The order details.
     """
-    def __init__(__self__, contact_information=None, current_status=None, delivery_tracking_info=None, name=None, order_history=None, return_tracking_info=None, serial_number=None, shipping_address=None, type=None):
+    def __init__(__self__, contact_information=None, current_status=None, delivery_tracking_info=None, id=None, name=None, order_history=None, return_tracking_info=None, serial_number=None, shipping_address=None, type=None):
         if contact_information and not isinstance(contact_information, dict):
             raise TypeError("Expected argument 'contact_information' to be a dict")
         pulumi.set(__self__, "contact_information", contact_information)
@@ -30,6 +30,9 @@ class GetOrderResult:
         if delivery_tracking_info and not isinstance(delivery_tracking_info, list):
             raise TypeError("Expected argument 'delivery_tracking_info' to be a list")
         pulumi.set(__self__, "delivery_tracking_info", delivery_tracking_info)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -72,6 +75,14 @@ class GetOrderResult:
         Tracking information for the package delivered to the customer whether it has an original or a replacement device.
         """
         return pulumi.get(self, "delivery_tracking_info")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The path ID that uniquely identifies the object.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -131,6 +142,7 @@ class AwaitableGetOrderResult(GetOrderResult):
             contact_information=self.contact_information,
             current_status=self.current_status,
             delivery_tracking_info=self.delivery_tracking_info,
+            id=self.id,
             name=self.name,
             order_history=self.order_history,
             return_tracking_info=self.return_tracking_info,
@@ -161,6 +173,7 @@ def get_order(device_name: Optional[str] = None,
         contact_information=__ret__.contact_information,
         current_status=__ret__.current_status,
         delivery_tracking_info=__ret__.delivery_tracking_info,
+        id=__ret__.id,
         name=__ret__.name,
         order_history=__ret__.order_history,
         return_tracking_info=__ret__.return_tracking_info,

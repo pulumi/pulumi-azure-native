@@ -19,13 +19,16 @@ class GetWebAppSourceControlResult:
     """
     Source control configuration for an app.
     """
-    def __init__(__self__, branch=None, deployment_rollback_enabled=None, is_git_hub_action=None, is_manual_integration=None, is_mercurial=None, kind=None, name=None, repo_url=None, type=None):
+    def __init__(__self__, branch=None, deployment_rollback_enabled=None, id=None, is_git_hub_action=None, is_manual_integration=None, is_mercurial=None, kind=None, name=None, repo_url=None, type=None):
         if branch and not isinstance(branch, str):
             raise TypeError("Expected argument 'branch' to be a str")
         pulumi.set(__self__, "branch", branch)
         if deployment_rollback_enabled and not isinstance(deployment_rollback_enabled, bool):
             raise TypeError("Expected argument 'deployment_rollback_enabled' to be a bool")
         pulumi.set(__self__, "deployment_rollback_enabled", deployment_rollback_enabled)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_git_hub_action and not isinstance(is_git_hub_action, bool):
             raise TypeError("Expected argument 'is_git_hub_action' to be a bool")
         pulumi.set(__self__, "is_git_hub_action", is_git_hub_action)
@@ -63,6 +66,14 @@ class GetWebAppSourceControlResult:
         <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
         """
         return pulumi.get(self, "deployment_rollback_enabled")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isGitHubAction")
@@ -129,6 +140,7 @@ class AwaitableGetWebAppSourceControlResult(GetWebAppSourceControlResult):
         return GetWebAppSourceControlResult(
             branch=self.branch,
             deployment_rollback_enabled=self.deployment_rollback_enabled,
+            id=self.id,
             is_git_hub_action=self.is_git_hub_action,
             is_manual_integration=self.is_manual_integration,
             is_mercurial=self.is_mercurial,
@@ -159,6 +171,7 @@ def get_web_app_source_control(name: Optional[str] = None,
     return AwaitableGetWebAppSourceControlResult(
         branch=__ret__.branch,
         deployment_rollback_enabled=__ret__.deployment_rollback_enabled,
+        id=__ret__.id,
         is_git_hub_action=__ret__.is_git_hub_action,
         is_manual_integration=__ret__.is_manual_integration,
         is_mercurial=__ret__.is_mercurial,

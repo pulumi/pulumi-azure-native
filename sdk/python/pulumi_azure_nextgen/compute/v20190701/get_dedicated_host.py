@@ -20,13 +20,16 @@ class GetDedicatedHostResult:
     """
     Specifies information about the Dedicated host.
     """
-    def __init__(__self__, auto_replace_on_failure=None, host_id=None, instance_view=None, license_type=None, location=None, name=None, platform_fault_domain=None, provisioning_state=None, provisioning_time=None, sku=None, tags=None, type=None, virtual_machines=None):
+    def __init__(__self__, auto_replace_on_failure=None, host_id=None, id=None, instance_view=None, license_type=None, location=None, name=None, platform_fault_domain=None, provisioning_state=None, provisioning_time=None, sku=None, tags=None, type=None, virtual_machines=None):
         if auto_replace_on_failure and not isinstance(auto_replace_on_failure, bool):
             raise TypeError("Expected argument 'auto_replace_on_failure' to be a bool")
         pulumi.set(__self__, "auto_replace_on_failure", auto_replace_on_failure)
         if host_id and not isinstance(host_id, str):
             raise TypeError("Expected argument 'host_id' to be a str")
         pulumi.set(__self__, "host_id", host_id)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if instance_view and not isinstance(instance_view, dict):
             raise TypeError("Expected argument 'instance_view' to be a dict")
         pulumi.set(__self__, "instance_view", instance_view)
@@ -76,6 +79,14 @@ class GetDedicatedHostResult:
         A unique id generated and assigned to the dedicated host by the platform. <br><br> Does not change throughout the lifetime of the host.
         """
         return pulumi.get(self, "host_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="instanceView")
@@ -174,6 +185,7 @@ class AwaitableGetDedicatedHostResult(GetDedicatedHostResult):
         return GetDedicatedHostResult(
             auto_replace_on_failure=self.auto_replace_on_failure,
             host_id=self.host_id,
+            id=self.id,
             instance_view=self.instance_view,
             license_type=self.license_type,
             location=self.location,
@@ -214,6 +226,7 @@ def get_dedicated_host(expand: Optional[str] = None,
     return AwaitableGetDedicatedHostResult(
         auto_replace_on_failure=__ret__.auto_replace_on_failure,
         host_id=__ret__.host_id,
+        id=__ret__.id,
         instance_view=__ret__.instance_view,
         license_type=__ret__.license_type,
         location=__ret__.location,

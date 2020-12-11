@@ -40,6 +40,10 @@ export interface GetTableResourceTableArgs {
  */
 export interface GetTableResourceTableResult {
     /**
+     * The unique resource identifier of the ARM resource.
+     */
+    readonly id: string;
+    /**
      * Identity for the resource.
      */
     readonly identity?: outputs.documentdb.v20200601preview.ManagedServiceIdentityResponse;

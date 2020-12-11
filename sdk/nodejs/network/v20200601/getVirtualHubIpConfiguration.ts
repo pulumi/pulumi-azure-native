@@ -44,6 +44,10 @@ export interface GetVirtualHubIpConfigurationResult {
      */
     readonly etag: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * Name of the Ip Configuration.
      */
     readonly name?: string;

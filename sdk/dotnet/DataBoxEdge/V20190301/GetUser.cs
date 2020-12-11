@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190301
         /// </summary>
         public readonly Outputs.AsymmetricEncryptedSecretResponse? EncryptedPassword;
         /// <summary>
+        /// The path ID that uniquely identifies the object.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The object name.
         /// </summary>
         public readonly string Name;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190301
         private GetUserResult(
             Outputs.AsymmetricEncryptedSecretResponse? encryptedPassword,
 
+            string id,
+
             string name,
 
             ImmutableArray<Outputs.ShareAccessRightResponse> shareAccessRights,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190301
             string type)
         {
             EncryptedPassword = encryptedPassword;
+            Id = id;
             Name = name;
             ShareAccessRights = shareAccessRights;
             Type = type;

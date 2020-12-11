@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Parent VirtualWan resource name.
         /// </summary>
         public readonly string? Name;
@@ -95,6 +99,8 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         private GetP2sVpnServerConfigurationResult(
             string etag,
 
+            string? id,
+
             string? name,
 
             ImmutableArray<Outputs.SubResourceResponse> p2SVpnGateways,
@@ -118,6 +124,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
             ImmutableArray<string> vpnProtocols)
         {
             Etag = etag;
+            Id = id;
             Name = name;
             P2SVpnGateways = p2SVpnGateways;
             P2SVpnServerConfigRadiusClientRootCertificates = p2SVpnServerConfigRadiusClientRootCertificates;

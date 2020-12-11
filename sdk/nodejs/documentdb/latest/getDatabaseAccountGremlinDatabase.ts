@@ -44,6 +44,10 @@ export interface GetDatabaseAccountGremlinDatabaseResult {
      */
     readonly etag?: string;
     /**
+     * The unique resource identifier of the database account.
+     */
+    readonly id: string;
+    /**
      * The location of the resource group to which the resource belongs.
      */
     readonly location?: string;

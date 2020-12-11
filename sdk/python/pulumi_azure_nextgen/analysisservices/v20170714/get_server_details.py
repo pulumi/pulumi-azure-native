@@ -20,7 +20,7 @@ class GetServerDetailsResult:
     """
     Represents an instance of an Analysis Services resource.
     """
-    def __init__(__self__, as_administrators=None, backup_blob_container_uri=None, gateway_details=None, location=None, name=None, provisioning_state=None, server_full_name=None, sku=None, state=None, tags=None, type=None):
+    def __init__(__self__, as_administrators=None, backup_blob_container_uri=None, gateway_details=None, id=None, location=None, name=None, provisioning_state=None, server_full_name=None, sku=None, state=None, tags=None, type=None):
         if as_administrators and not isinstance(as_administrators, dict):
             raise TypeError("Expected argument 'as_administrators' to be a dict")
         pulumi.set(__self__, "as_administrators", as_administrators)
@@ -30,6 +30,9 @@ class GetServerDetailsResult:
         if gateway_details and not isinstance(gateway_details, dict):
             raise TypeError("Expected argument 'gateway_details' to be a dict")
         pulumi.set(__self__, "gateway_details", gateway_details)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -78,6 +81,14 @@ class GetServerDetailsResult:
         The gateway details configured for the AS server.
         """
         return pulumi.get(self, "gateway_details")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        An identifier that represents the Analysis Services resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -153,6 +164,7 @@ class AwaitableGetServerDetailsResult(GetServerDetailsResult):
             as_administrators=self.as_administrators,
             backup_blob_container_uri=self.backup_blob_container_uri,
             gateway_details=self.gateway_details,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -185,6 +197,7 @@ def get_server_details(resource_group_name: Optional[str] = None,
         as_administrators=__ret__.as_administrators,
         backup_blob_container_uri=__ret__.backup_blob_container_uri,
         gateway_details=__ret__.gateway_details,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

@@ -43,6 +43,8 @@ type LookupDomainServiceResult struct {
 	HealthLastEvaluated string `pulumi:"healthLastEvaluated"`
 	// List of Domain Health Monitors
 	HealthMonitors []HealthMonitorResponse `pulumi:"healthMonitors"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Secure LDAP Settings
 	LdapsSettings *LdapsSettingsResponse `pulumi:"ldapsSettings"`
 	// Resource location

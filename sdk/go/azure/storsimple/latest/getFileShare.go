@@ -37,6 +37,8 @@ type LookupFileShareResult struct {
 	DataPolicy string `pulumi:"dataPolicy"`
 	// Description for file share
 	Description *string `pulumi:"description"`
+	// The identifier.
+	Id string `pulumi:"id"`
 	// The local used capacity in Bytes.
 	LocalUsedCapacityInBytes int `pulumi:"localUsedCapacityInBytes"`
 	// The monitoring status

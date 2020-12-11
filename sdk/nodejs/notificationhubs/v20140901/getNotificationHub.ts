@@ -40,6 +40,10 @@ export interface GetNotificationHubArgs {
  */
 export interface GetNotificationHubResult {
     /**
+     * Gets or sets the id of the created NotificationHub.
+     */
+    readonly id?: string;
+    /**
      * Gets or sets datacenter location of the NotificationHub.
      */
     readonly location?: string;

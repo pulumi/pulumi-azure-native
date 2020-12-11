@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         /// </summary>
         public readonly string? EventHubName;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Date and time when the export was last modified.
         /// </summary>
         public readonly string? LastModifiedDate;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
 
             string? eventHubName,
 
+            string id,
+
             string? lastModifiedDate,
 
             string name,
@@ -106,6 +112,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
             DataExportId = dataExportId;
             Enable = enable;
             EventHubName = eventHubName;
+            Id = id;
             LastModifiedDate = lastModifiedDate;
             Name = name;
             ResourceId = resourceId;

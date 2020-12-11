@@ -52,6 +52,10 @@ export interface GetSnapshotPolicyResult {
      */
     readonly hourlySchedule?: outputs.netapp.latest.HourlyScheduleResponse;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

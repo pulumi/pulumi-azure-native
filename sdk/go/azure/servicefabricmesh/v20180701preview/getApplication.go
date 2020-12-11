@@ -33,6 +33,8 @@ type LookupApplicationResult struct {
 	Diagnostics *DiagnosticsDescriptionResponse `pulumi:"diagnostics"`
 	// Describes the health state of an application resource.
 	HealthState string `pulumi:"healthState"`
+	// Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the resource

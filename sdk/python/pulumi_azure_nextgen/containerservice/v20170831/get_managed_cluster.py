@@ -20,7 +20,7 @@ class GetManagedClusterResult:
     """
     Managed cluster.
     """
-    def __init__(__self__, agent_pool_profiles=None, dns_prefix=None, fqdn=None, kubernetes_version=None, linux_profile=None, location=None, name=None, provisioning_state=None, service_principal_profile=None, tags=None, type=None):
+    def __init__(__self__, agent_pool_profiles=None, dns_prefix=None, fqdn=None, id=None, kubernetes_version=None, linux_profile=None, location=None, name=None, provisioning_state=None, service_principal_profile=None, tags=None, type=None):
         if agent_pool_profiles and not isinstance(agent_pool_profiles, list):
             raise TypeError("Expected argument 'agent_pool_profiles' to be a list")
         pulumi.set(__self__, "agent_pool_profiles", agent_pool_profiles)
@@ -30,6 +30,9 @@ class GetManagedClusterResult:
         if fqdn and not isinstance(fqdn, str):
             raise TypeError("Expected argument 'fqdn' to be a str")
         pulumi.set(__self__, "fqdn", fqdn)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kubernetes_version and not isinstance(kubernetes_version, str):
             raise TypeError("Expected argument 'kubernetes_version' to be a str")
         pulumi.set(__self__, "kubernetes_version", kubernetes_version)
@@ -78,6 +81,14 @@ class GetManagedClusterResult:
         FQDN for the master pool.
         """
         return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="kubernetesVersion")
@@ -153,6 +164,7 @@ class AwaitableGetManagedClusterResult(GetManagedClusterResult):
             agent_pool_profiles=self.agent_pool_profiles,
             dns_prefix=self.dns_prefix,
             fqdn=self.fqdn,
+            id=self.id,
             kubernetes_version=self.kubernetes_version,
             linux_profile=self.linux_profile,
             location=self.location,
@@ -185,6 +197,7 @@ def get_managed_cluster(resource_group_name: Optional[str] = None,
         agent_pool_profiles=__ret__.agent_pool_profiles,
         dns_prefix=__ret__.dns_prefix,
         fqdn=__ret__.fqdn,
+        id=__ret__.id,
         kubernetes_version=__ret__.kubernetes_version,
         linux_profile=__ret__.linux_profile,
         location=__ret__.location,

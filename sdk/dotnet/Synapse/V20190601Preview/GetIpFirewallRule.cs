@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         public readonly string? EndIpAddress;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -70,6 +74,8 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         private GetIpFirewallRuleResult(
             string? endIpAddress,
 
+            string id,
+
             string name,
 
             string provisioningState,
@@ -79,6 +85,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
             string type)
         {
             EndIpAddress = endIpAddress;
+            Id = id;
             Name = name;
             ProvisioningState = provisioningState;
             StartIpAddress = startIpAddress;

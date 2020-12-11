@@ -19,7 +19,7 @@ class GetIntegrationAccountSessionResult:
     """
     The integration account session.
     """
-    def __init__(__self__, changed_time=None, content=None, created_time=None, location=None, name=None, tags=None, type=None):
+    def __init__(__self__, changed_time=None, content=None, created_time=None, id=None, location=None, name=None, tags=None, type=None):
         if changed_time and not isinstance(changed_time, str):
             raise TypeError("Expected argument 'changed_time' to be a str")
         pulumi.set(__self__, "changed_time", changed_time)
@@ -29,6 +29,9 @@ class GetIntegrationAccountSessionResult:
         if created_time and not isinstance(created_time, str):
             raise TypeError("Expected argument 'created_time' to be a str")
         pulumi.set(__self__, "created_time", created_time)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -65,6 +68,14 @@ class GetIntegrationAccountSessionResult:
         The created time.
         """
         return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -108,6 +119,7 @@ class AwaitableGetIntegrationAccountSessionResult(GetIntegrationAccountSessionRe
             changed_time=self.changed_time,
             content=self.content,
             created_time=self.created_time,
+            id=self.id,
             location=self.location,
             name=self.name,
             tags=self.tags,
@@ -139,6 +151,7 @@ def get_integration_account_session(integration_account_name: Optional[str] = No
         changed_time=__ret__.changed_time,
         content=__ret__.content,
         created_time=__ret__.created_time,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         tags=__ret__.tags,

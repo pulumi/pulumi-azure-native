@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview
         /// </summary>
         public readonly Outputs.ControllerDetailsResponse ControllerDetails;
         /// <summary>
+        /// An identifier that represents the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the orchestrator
         /// </summary>
         public readonly Outputs.OrchestratorIdentityResponse? Identity;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview
 
             Outputs.ControllerDetailsResponse controllerDetails,
 
+            string id,
+
             Outputs.OrchestratorIdentityResponse? identity,
 
             string kind,
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview
             ApiServerEndpoint = apiServerEndpoint;
             ClusterRootCA = clusterRootCA;
             ControllerDetails = controllerDetails;
+            Id = id;
             Identity = identity;
             Kind = kind;
             Location = location;

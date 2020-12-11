@@ -19,7 +19,10 @@ class GetInvitationResult:
     """
     A Invitation data transfer object.
     """
-    def __init__(__self__, invitation_id=None, invitation_status=None, name=None, responded_at=None, sent_at=None, target_active_directory_id=None, target_email=None, target_object_id=None, type=None, user_email=None, user_name=None):
+    def __init__(__self__, id=None, invitation_id=None, invitation_status=None, name=None, responded_at=None, sent_at=None, target_active_directory_id=None, target_email=None, target_object_id=None, type=None, user_email=None, user_name=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if invitation_id and not isinstance(invitation_id, str):
             raise TypeError("Expected argument 'invitation_id' to be a str")
         pulumi.set(__self__, "invitation_id", invitation_id)
@@ -53,6 +56,14 @@ class GetInvitationResult:
         if user_name and not isinstance(user_name, str):
             raise TypeError("Expected argument 'user_name' to be a str")
         pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource id of the azure resource
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="invitationId")
@@ -151,6 +162,7 @@ class AwaitableGetInvitationResult(GetInvitationResult):
         if False:
             yield self
         return GetInvitationResult(
+            id=self.id,
             invitation_id=self.invitation_id,
             invitation_status=self.invitation_status,
             name=self.name,
@@ -189,6 +201,7 @@ def get_invitation(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:datashare/v20191101:getInvitation', __args__, opts=opts, typ=GetInvitationResult).value
 
     return AwaitableGetInvitationResult(
+        id=__ret__.id,
         invitation_id=__ret__.invitation_id,
         invitation_status=__ret__.invitation_status,
         name=__ret__.name,

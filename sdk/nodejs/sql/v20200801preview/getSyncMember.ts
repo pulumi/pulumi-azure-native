@@ -58,6 +58,10 @@ export interface GetSyncMemberResult {
      */
     readonly databaseType?: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

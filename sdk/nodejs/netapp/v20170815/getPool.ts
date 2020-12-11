@@ -40,6 +40,10 @@ export interface GetPoolArgs {
  */
 export interface GetPoolResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

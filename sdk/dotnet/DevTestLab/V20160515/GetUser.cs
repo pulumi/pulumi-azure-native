@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         /// </summary>
         public readonly string CreatedDate;
         /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the user.
         /// </summary>
         public readonly Outputs.UserIdentityResponse? Identity;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         private GetUserResult(
             string createdDate,
 
+            string id,
+
             Outputs.UserIdentityResponse? identity,
 
             string? location,
@@ -109,6 +115,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
             string? uniqueIdentifier)
         {
             CreatedDate = createdDate;
+            Id = id;
             Identity = identity;
             Location = location;
             Name = name;

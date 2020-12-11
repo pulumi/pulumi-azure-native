@@ -31,6 +31,8 @@ type LookupDatabaseAccountCassandraTableArgs struct {
 type LookupDatabaseAccountCassandraTableResult struct {
 	// Time to live of the Cosmos DB Cassandra table
 	DefaultTtl *int `pulumi:"defaultTtl"`
+	// The unique resource identifier of the database account.
+	Id string `pulumi:"id"`
 	// The location of the resource group to which the resource belongs.
 	Location *string `pulumi:"location"`
 	// The name of the database account.

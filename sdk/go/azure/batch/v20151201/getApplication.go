@@ -33,6 +33,8 @@ type LookupApplicationResult struct {
 	DefaultVersion *string `pulumi:"defaultVersion"`
 	// The display name for the application.
 	DisplayName *string `pulumi:"displayName"`
+	// A string that uniquely identifies the application within the account.
+	Id *string `pulumi:"id"`
 	// The list of packages under this application.
 	Packages []ApplicationPackageResponse `pulumi:"packages"`
 }

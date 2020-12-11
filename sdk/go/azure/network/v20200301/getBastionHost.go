@@ -29,6 +29,8 @@ type LookupBastionHostResult struct {
 	DnsName *string `pulumi:"dnsName"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// IP configuration of the Bastion Host resource.
 	IpConfigurations []BastionHostIPConfigurationResponse `pulumi:"ipConfigurations"`
 	// Resource location.

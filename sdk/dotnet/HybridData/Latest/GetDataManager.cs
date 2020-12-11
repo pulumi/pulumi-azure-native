@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.HybridData.Latest
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// The Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East
         /// US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo
         /// region is specified on update the request will succeed.
@@ -71,6 +75,8 @@ namespace Pulumi.AzureNextGen.HybridData.Latest
         private GetDataManagerResult(
             string? etag,
 
+            string id,
+
             string location,
 
             string name,
@@ -82,6 +88,7 @@ namespace Pulumi.AzureNextGen.HybridData.Latest
             string type)
         {
             Etag = etag;
+            Id = id;
             Location = location;
             Name = name;
             Sku = sku;

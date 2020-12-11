@@ -61,6 +61,10 @@ export interface GetSignalRResult {
      */
     readonly hostNamePrefix?: string;
     /**
+     * Fully qualified resource Id for the resource.
+     */
+    readonly id: string;
+    /**
      * The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
      */
     readonly kind?: string;

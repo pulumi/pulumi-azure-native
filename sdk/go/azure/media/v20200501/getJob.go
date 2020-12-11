@@ -37,6 +37,8 @@ type LookupJobResult struct {
 	Description *string `pulumi:"description"`
 	// The UTC date and time at which this Job finished processing.
 	EndTime string `pulumi:"endTime"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The inputs for the Job.
 	Input interface{} `pulumi:"input"`
 	// The UTC date and time when the customer has last updated the Job, in 'YYYY-MM-DDThh:mm:ssZ' format.

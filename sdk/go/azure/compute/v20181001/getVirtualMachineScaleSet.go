@@ -29,6 +29,8 @@ type LookupVirtualMachineScaleSetResult struct {
 	AutomaticRepairsPolicy *AutomaticRepairsPolicyResponse `pulumi:"automaticRepairsPolicy"`
 	// When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.
 	DoNotRunExtensionsOnOverprovisionedVMs *bool `pulumi:"doNotRunExtensionsOnOverprovisionedVMs"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// The identity of the virtual machine scale set, if configured.
 	Identity *VirtualMachineScaleSetIdentityResponse `pulumi:"identity"`
 	// Resource location

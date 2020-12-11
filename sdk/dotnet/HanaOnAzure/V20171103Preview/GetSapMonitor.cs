@@ -76,6 +76,10 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20171103Preview
         /// </summary>
         public readonly string? HanaSubnet;
         /// <summary>
+        /// Resource ID
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Key Vault ID containing customer's HANA credentials.
         /// </summary>
         public readonly string? KeyVaultId;
@@ -136,6 +140,8 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20171103Preview
 
             string? hanaSubnet,
 
+            string id,
+
             string? keyVaultId,
 
             string? location,
@@ -165,6 +171,7 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20171103Preview
             HanaDbUsername = hanaDbUsername;
             HanaHostname = hanaHostname;
             HanaSubnet = hanaSubnet;
+            Id = id;
             KeyVaultId = keyVaultId;
             Location = location;
             LogAnalyticsWorkspaceArmId = logAnalyticsWorkspaceArmId;

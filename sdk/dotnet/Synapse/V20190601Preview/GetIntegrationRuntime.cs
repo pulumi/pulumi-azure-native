@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         private GetIntegrationRuntimeResult(
             string etag,
 
+            string id,
+
             string name,
 
             Union<Outputs.ManagedIntegrationRuntimeResponse, Outputs.SelfHostedIntegrationRuntimeResponse> properties,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
             string type)
         {
             Etag = etag;
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

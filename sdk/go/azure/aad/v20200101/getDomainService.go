@@ -37,6 +37,8 @@ type LookupDomainServiceResult struct {
 	Etag *string `pulumi:"etag"`
 	// Enabled or Disabled flag to turn on Group-based filtered sync
 	FilteredSync *string `pulumi:"filteredSync"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Secure LDAP Settings
 	LdapsSettings *LdapsSettingsResponse `pulumi:"ldapsSettings"`
 	// Resource location

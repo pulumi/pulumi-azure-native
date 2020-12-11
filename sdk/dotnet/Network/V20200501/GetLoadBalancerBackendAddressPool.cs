@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.Network.V20200501
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// An array of backend addresses.
         /// </summary>
         public readonly ImmutableArray<Outputs.LoadBalancerBackendAddressResponse> LoadBalancerBackendAddresses;
@@ -88,6 +92,8 @@ namespace Pulumi.AzureNextGen.Network.V20200501
 
             string etag,
 
+            string? id,
+
             ImmutableArray<Outputs.LoadBalancerBackendAddressResponse> loadBalancerBackendAddresses,
 
             ImmutableArray<Outputs.SubResourceResponse> loadBalancingRules,
@@ -104,6 +110,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
         {
             BackendIPConfigurations = backendIPConfigurations;
             Etag = etag;
+            Id = id;
             LoadBalancerBackendAddresses = loadBalancerBackendAddresses;
             LoadBalancingRules = loadBalancingRules;
             Name = name;

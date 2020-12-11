@@ -33,6 +33,8 @@ type LookupCertificateResult struct {
 	Etag string `pulumi:"etag"`
 	// The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
 	Format *string `pulumi:"format"`
+	// The ID of the resource.
+	Id string `pulumi:"id"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The previous provisioned state of the resource

@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Insights.V20170401
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.Insights.V20170401
 
             bool? enabled,
 
+            string id,
+
             string location,
 
             string name,
@@ -100,6 +106,7 @@ namespace Pulumi.AzureNextGen.Insights.V20170401
             Condition = condition;
             Description = description;
             Enabled = enabled;
+            Id = id;
             Location = location;
             Name = name;
             Scopes = scopes;

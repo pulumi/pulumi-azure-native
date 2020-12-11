@@ -58,6 +58,8 @@ type LookupWebAppSlotResult struct {
 	// HttpsOnly: configures a web site to accept only https requests. Issues redirect for
 	// http requests
 	HttpsOnly *bool `pulumi:"httpsOnly"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Managed service identity.
 	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
 	// <code>true</code> if the app is a default container; otherwise, <code>false</code>.

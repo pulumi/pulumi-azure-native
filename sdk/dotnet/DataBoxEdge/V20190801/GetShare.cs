@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// The path ID that uniquely identifies the object.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Current monitoring status of the share.
         /// </summary>
         public readonly string MonitoringStatus;
@@ -106,6 +110,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801
 
             string? description,
 
+            string id,
+
             string monitoringStatus,
 
             string name,
@@ -125,6 +131,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801
             ClientAccessRights = clientAccessRights;
             DataPolicy = dataPolicy;
             Description = description;
+            Id = id;
             MonitoringStatus = monitoringStatus;
             Name = name;
             RefreshDetails = refreshDetails;

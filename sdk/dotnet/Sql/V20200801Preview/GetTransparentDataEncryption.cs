@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
     public sealed class GetTransparentDataEncryptionResult
     {
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -66,12 +70,15 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
 
         [OutputConstructor]
         private GetTransparentDataEncryptionResult(
+            string id,
+
             string name,
 
             string state,
 
             string type)
         {
+            Id = id;
             Name = name;
             State = state;
             Type = type;

@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Relay.V20160701
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// true if the relay is dynamic; otherwise, false.
         /// </summary>
         public readonly bool IsDynamic;
@@ -90,6 +94,8 @@ namespace Pulumi.AzureNextGen.Relay.V20160701
         private GetWCFRelayResult(
             string createdAt,
 
+            string id,
+
             bool isDynamic,
 
             int listenerCount,
@@ -109,6 +115,7 @@ namespace Pulumi.AzureNextGen.Relay.V20160701
             string? userMetadata)
         {
             CreatedAt = createdAt;
+            Id = id;
             IsDynamic = isDynamic;
             ListenerCount = listenerCount;
             Name = name;

@@ -20,7 +20,10 @@ class GetConfigurationProfileResult:
     """
     A profile object that contains change analysis configuration, such as notification settings, for this subscription
     """
-    def __init__(__self__, identity=None, name=None, properties=None, system_data=None, type=None):
+    def __init__(__self__, id=None, identity=None, name=None, properties=None, system_data=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -36,6 +39,14 @@ class GetConfigurationProfileResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -84,6 +95,7 @@ class AwaitableGetConfigurationProfileResult(GetConfigurationProfileResult):
         if False:
             yield self
         return GetConfigurationProfileResult(
+            id=self.id,
             identity=self.identity,
             name=self.name,
             properties=self.properties,
@@ -107,6 +119,7 @@ def get_configuration_profile(profile_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:changeanalysis/v20200401preview:getConfigurationProfile', __args__, opts=opts, typ=GetConfigurationProfileResult).value
 
     return AwaitableGetConfigurationProfileResult(
+        id=__ret__.id,
         identity=__ret__.identity,
         name=__ret__.name,
         properties=__ret__.properties,

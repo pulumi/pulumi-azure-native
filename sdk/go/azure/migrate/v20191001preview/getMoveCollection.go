@@ -27,6 +27,8 @@ type LookupMoveCollectionArgs struct {
 type LookupMoveCollectionResult struct {
 	// The etag of the resource.
 	Etag string `pulumi:"etag"`
+	// Fully qualified resource Id for the resource.
+	Id string `pulumi:"id"`
 	// Defines the MSI properties of the Move Collection.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// The geo-location where the resource lives.

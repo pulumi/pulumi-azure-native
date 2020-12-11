@@ -84,6 +84,10 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190701
         /// </summary>
         public readonly string? FriendlyName;
         /// <summary>
+        /// The path ID that uniquely identifies the object.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
         /// </summary>
         public readonly string Location;
@@ -144,6 +148,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190701
 
             string? friendlyName,
 
+            string id,
+
             string location,
 
             string? modelDescription,
@@ -173,6 +179,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190701
             DeviceType = deviceType;
             Etag = etag;
             FriendlyName = friendlyName;
+            Id = id;
             Location = location;
             ModelDescription = modelDescription;
             Name = name;

@@ -27,6 +27,8 @@ type LookupAccountArgs struct {
 type LookupAccountResult struct {
 	// Entity Tag
 	Etag string `pulumi:"etag"`
+	// The id of the created account
+	Id string `pulumi:"id"`
 	// The identity of Cognitive Services account.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// The Kind of the resource.

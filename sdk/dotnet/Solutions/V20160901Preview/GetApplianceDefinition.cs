@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Solutions.V20160901Preview
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
+        /// Resource ID
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
@@ -102,6 +106,8 @@ namespace Pulumi.AzureNextGen.Solutions.V20160901Preview
 
             string? displayName,
 
+            string id,
+
             Outputs.IdentityResponse? identity,
 
             string? location,
@@ -124,6 +130,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20160901Preview
             Authorizations = authorizations;
             Description = description;
             DisplayName = displayName;
+            Id = id;
             Identity = identity;
             Location = location;
             LockLevel = lockLevel;

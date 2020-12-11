@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// </summary>
         public readonly string DomainName;
         /// <summary>
+        /// The identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name.
         /// </summary>
         public readonly string Name;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
 
             string domainName,
 
+            string id,
+
             string name,
 
             string storageDomainId,
@@ -93,6 +99,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
             BackupScheduleGroupId = backupScheduleGroupId;
             Description = description;
             DomainName = domainName;
+            Id = id;
             Name = name;
             StorageDomainId = storageDomainId;
             Type = type;

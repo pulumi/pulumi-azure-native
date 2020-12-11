@@ -40,6 +40,10 @@ export interface GetLinkedServiceArgs {
  */
 export interface GetLinkedServiceResult {
     /**
+     * ResourceId of the link of the linked service.
+     */
+    readonly id: string;
+    /**
      * Identity for the resource.
      */
     readonly identity?: outputs.machinelearningservices.v20200901preview.IdentityResponse;

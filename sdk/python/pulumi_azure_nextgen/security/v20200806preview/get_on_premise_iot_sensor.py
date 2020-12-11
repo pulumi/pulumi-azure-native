@@ -19,13 +19,24 @@ class GetOnPremiseIotSensorResult:
     """
     On-premise IoT sensor
     """
-    def __init__(__self__, name=None, type=None):
+    def __init__(__self__, id=None, name=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -50,6 +61,7 @@ class AwaitableGetOnPremiseIotSensorResult(GetOnPremiseIotSensorResult):
         if False:
             yield self
         return GetOnPremiseIotSensorResult(
+            id=self.id,
             name=self.name,
             type=self.type)
 
@@ -70,5 +82,6 @@ def get_on_premise_iot_sensor(on_premise_iot_sensor_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:security/v20200806preview:getOnPremiseIotSensor', __args__, opts=opts, typ=GetOnPremiseIotSensorResult).value
 
     return AwaitableGetOnPremiseIotSensorResult(
+        id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type)

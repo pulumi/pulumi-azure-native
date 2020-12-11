@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         public readonly bool? HaveLibraryRequirementsChanged;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Whether compute isolation is required or not.
         /// </summary>
         public readonly bool? IsComputeIsolationEnabled;
@@ -134,6 +138,8 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
             bool? haveLibraryRequirementsChanged,
 
+            string id,
+
             bool? isComputeIsolationEnabled,
 
             Outputs.LibraryRequirementsResponse? libraryRequirements,
@@ -167,6 +173,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
             CreationDate = creationDate;
             DefaultSparkLogFolder = defaultSparkLogFolder;
             HaveLibraryRequirementsChanged = haveLibraryRequirementsChanged;
+            Id = id;
             IsComputeIsolationEnabled = isComputeIsolationEnabled;
             LibraryRequirements = libraryRequirements;
             Location = location;

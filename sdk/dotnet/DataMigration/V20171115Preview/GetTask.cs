@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.DataMigration.V20171115Preview
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.DataMigration.V20171115Preview
         private GetTaskResult(
             string? etag,
 
+            string id,
+
             string name,
 
             Union<Outputs.ConnectToSourceSqlServerTaskPropertiesResponse, Union<Outputs.ConnectToTargetSqlDbTaskPropertiesResponse, Union<Outputs.GetUserTablesSqlTaskPropertiesResponse, Outputs.MigrateSqlServerSqlDbTaskPropertiesResponse>>> properties,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20171115Preview
             string type)
         {
             Etag = etag;
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

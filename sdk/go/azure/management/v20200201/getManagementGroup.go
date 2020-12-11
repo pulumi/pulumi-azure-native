@@ -35,6 +35,8 @@ type LookupManagementGroupResult struct {
 	Details *ManagementGroupDetailsResponse `pulumi:"details"`
 	// The friendly name of the management group.
 	DisplayName *string `pulumi:"displayName"`
+	// The fully qualified ID for the management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+	Id string `pulumi:"id"`
 	// The name of the management group. For example, 00000000-0000-0000-0000-000000000000
 	Name string `pulumi:"name"`
 	// The path from the root to the current group.

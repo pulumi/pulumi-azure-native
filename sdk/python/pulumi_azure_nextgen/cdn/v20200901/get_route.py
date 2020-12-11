@@ -20,7 +20,7 @@ class GetRouteResult:
     """
     Friendly Routes name mapping to the any Routes or secret related information.
     """
-    def __init__(__self__, compression_settings=None, custom_domains=None, deployment_status=None, enabled_state=None, forwarding_protocol=None, https_redirect=None, link_to_default_domain=None, name=None, optimization_type=None, origin_group=None, origin_path=None, patterns_to_match=None, provisioning_state=None, query_string_caching_behavior=None, rule_sets=None, supported_protocols=None, system_data=None, type=None):
+    def __init__(__self__, compression_settings=None, custom_domains=None, deployment_status=None, enabled_state=None, forwarding_protocol=None, https_redirect=None, id=None, link_to_default_domain=None, name=None, optimization_type=None, origin_group=None, origin_path=None, patterns_to_match=None, provisioning_state=None, query_string_caching_behavior=None, rule_sets=None, supported_protocols=None, system_data=None, type=None):
         if compression_settings and not isinstance(compression_settings, list):
             raise TypeError("Expected argument 'compression_settings' to be a list")
         pulumi.set(__self__, "compression_settings", compression_settings)
@@ -39,6 +39,9 @@ class GetRouteResult:
         if https_redirect and not isinstance(https_redirect, str):
             raise TypeError("Expected argument 'https_redirect' to be a str")
         pulumi.set(__self__, "https_redirect", https_redirect)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if link_to_default_domain and not isinstance(link_to_default_domain, str):
             raise TypeError("Expected argument 'link_to_default_domain' to be a str")
         pulumi.set(__self__, "link_to_default_domain", link_to_default_domain)
@@ -120,6 +123,14 @@ class GetRouteResult:
         Whether to automatically redirect HTTP traffic to HTTPS traffic. Note that this is a easy way to set up this rule and it will be the first rule that gets executed.
         """
         return pulumi.get(self, "https_redirect")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="linkToDefaultDomain")
@@ -230,6 +241,7 @@ class AwaitableGetRouteResult(GetRouteResult):
             enabled_state=self.enabled_state,
             forwarding_protocol=self.forwarding_protocol,
             https_redirect=self.https_redirect,
+            id=self.id,
             link_to_default_domain=self.link_to_default_domain,
             name=self.name,
             optimization_type=self.optimization_type,
@@ -275,6 +287,7 @@ def get_route(endpoint_name: Optional[str] = None,
         enabled_state=__ret__.enabled_state,
         forwarding_protocol=__ret__.forwarding_protocol,
         https_redirect=__ret__.https_redirect,
+        id=__ret__.id,
         link_to_default_domain=__ret__.link_to_default_domain,
         name=__ret__.name,
         optimization_type=__ret__.optimization_type,

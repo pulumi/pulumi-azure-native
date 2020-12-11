@@ -31,6 +31,8 @@ type LookupWorkloadNetworkSegmentResult struct {
 	ConnectedGateway *string `pulumi:"connectedGateway"`
 	// Display name of the segment.
 	DisplayName *string `pulumi:"displayName"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Port Vif which segment is associated with.

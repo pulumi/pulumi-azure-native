@@ -60,6 +60,10 @@ export interface GetLiveEventResult {
      */
     readonly hostnamePrefix?: string;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * Live event input settings. It defines how the live event receives input from a contribution encoder.
      */
     readonly input: outputs.media.v20200501.LiveEventInputResponse;

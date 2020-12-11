@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
         /// </summary>
         public readonly string? ETag;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
 
             string? eTag,
 
+            string id,
+
             string name,
 
             Outputs.StorageInsightStatusResponse status,
@@ -98,6 +104,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
         {
             Containers = containers;
             ETag = eTag;
+            Id = id;
             Name = name;
             Status = status;
             StorageAccount = storageAccount;

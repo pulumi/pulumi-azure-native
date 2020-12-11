@@ -38,6 +38,10 @@ namespace Pulumi.AzureNextGen.Management.V20200501
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
+        /// The fully qualified ID for the subscription.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000/subscriptions/0000000-0000-0000-0000-000000000001
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The stringified id of the subscription. For example, 00000000-0000-0000-0000-000000000000
         /// </summary>
         public readonly string Name;
@@ -62,6 +66,8 @@ namespace Pulumi.AzureNextGen.Management.V20200501
         private GetManagementGroupSubscriptionResult(
             string? displayName,
 
+            string id,
+
             string name,
 
             Outputs.DescendantParentGroupInfoResponse? parent,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNextGen.Management.V20200501
             string type)
         {
             DisplayName = displayName;
+            Id = id;
             Name = name;
             Parent = parent;
             State = state;

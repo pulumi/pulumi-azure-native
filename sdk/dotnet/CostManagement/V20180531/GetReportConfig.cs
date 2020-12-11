@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.CostManagement.V20180531
         /// </summary>
         public readonly string? Format;
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -70,6 +74,8 @@ namespace Pulumi.AzureNextGen.CostManagement.V20180531
 
             string? format,
 
+            string id,
+
             string name,
 
             Outputs.ReportConfigScheduleResponse? schedule,
@@ -81,6 +87,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20180531
             Definition = definition;
             DeliveryInfo = deliveryInfo;
             Format = format;
+            Id = id;
             Name = name;
             Schedule = schedule;
             Tags = tags;

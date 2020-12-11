@@ -29,6 +29,8 @@ type LookupDataSourceArgs struct {
 type LookupDataSourceResult struct {
 	// The ETag of the data source.
 	ETag *string `pulumi:"eTag"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// The kind of the DataSource.
 	Kind string `pulumi:"kind"`
 	// Resource name.

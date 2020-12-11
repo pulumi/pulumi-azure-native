@@ -20,7 +20,7 @@ class GetAlertsSuppressionRuleResult:
     """
     Describes the suppression rule
     """
-    def __init__(__self__, alert_type=None, comment=None, expiration_date_utc=None, last_modified_utc=None, name=None, reason=None, state=None, suppression_alerts_scope=None, type=None):
+    def __init__(__self__, alert_type=None, comment=None, expiration_date_utc=None, id=None, last_modified_utc=None, name=None, reason=None, state=None, suppression_alerts_scope=None, type=None):
         if alert_type and not isinstance(alert_type, str):
             raise TypeError("Expected argument 'alert_type' to be a str")
         pulumi.set(__self__, "alert_type", alert_type)
@@ -30,6 +30,9 @@ class GetAlertsSuppressionRuleResult:
         if expiration_date_utc and not isinstance(expiration_date_utc, str):
             raise TypeError("Expected argument 'expiration_date_utc' to be a str")
         pulumi.set(__self__, "expiration_date_utc", expiration_date_utc)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_modified_utc and not isinstance(last_modified_utc, str):
             raise TypeError("Expected argument 'last_modified_utc' to be a str")
         pulumi.set(__self__, "last_modified_utc", last_modified_utc)
@@ -72,6 +75,14 @@ class GetAlertsSuppressionRuleResult:
         Expiration date of the rule, if value is not provided or provided as null this field will default to the maximum allowed expiration date.
         """
         return pulumi.get(self, "expiration_date_utc")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastModifiedUtc")
@@ -131,6 +142,7 @@ class AwaitableGetAlertsSuppressionRuleResult(GetAlertsSuppressionRuleResult):
             alert_type=self.alert_type,
             comment=self.comment,
             expiration_date_utc=self.expiration_date_utc,
+            id=self.id,
             last_modified_utc=self.last_modified_utc,
             name=self.name,
             reason=self.reason,
@@ -158,6 +170,7 @@ def get_alerts_suppression_rule(alerts_suppression_rule_name: Optional[str] = No
         alert_type=__ret__.alert_type,
         comment=__ret__.comment,
         expiration_date_utc=__ret__.expiration_date_utc,
+        id=__ret__.id,
         last_modified_utc=__ret__.last_modified_utc,
         name=__ret__.name,
         reason=__ret__.reason,

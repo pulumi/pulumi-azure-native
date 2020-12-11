@@ -29,6 +29,8 @@ type LookupRegisteredPrefixArgs struct {
 type LookupRegisteredPrefixResult struct {
 	// The error message associated with the validation state, if any.
 	ErrorMessage string `pulumi:"errorMessage"`
+	// The ID of the resource.
+	Id string `pulumi:"id"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The peering service prefix key that is to be shared with the customer.

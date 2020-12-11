@@ -20,10 +20,13 @@ class GetPostgresInstanceResult:
     """
     A Postgres Instance.
     """
-    def __init__(__self__, hybrid_data_manager_id=None, location=None, name=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, hybrid_data_manager_id=None, id=None, location=None, name=None, system_data=None, tags=None, type=None):
         if hybrid_data_manager_id and not isinstance(hybrid_data_manager_id, str):
             raise TypeError("Expected argument 'hybrid_data_manager_id' to be a str")
         pulumi.set(__self__, "hybrid_data_manager_id", hybrid_data_manager_id)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -47,6 +50,14 @@ class GetPostgresInstanceResult:
         null
         """
         return pulumi.get(self, "hybrid_data_manager_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -96,6 +107,7 @@ class AwaitableGetPostgresInstanceResult(GetPostgresInstanceResult):
             yield self
         return GetPostgresInstanceResult(
             hybrid_data_manager_id=self.hybrid_data_manager_id,
+            id=self.id,
             location=self.location,
             name=self.name,
             system_data=self.system_data,
@@ -123,6 +135,7 @@ def get_postgres_instance(postgres_instance_name: Optional[str] = None,
 
     return AwaitableGetPostgresInstanceResult(
         hybrid_data_manager_id=__ret__.hybrid_data_manager_id,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         system_data=__ret__.system_data,

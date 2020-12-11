@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Compute.V20160430Preview
     public sealed class GetAvailabilitySetResult
     {
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNextGen.Compute.V20160430Preview
 
         [OutputConstructor]
         private GetAvailabilitySetResult(
+            string id,
+
             string location,
 
             bool? managed,
@@ -102,6 +108,7 @@ namespace Pulumi.AzureNextGen.Compute.V20160430Preview
 
             ImmutableArray<Outputs.SubResourceResponse> virtualMachines)
         {
+            Id = id;
             Location = location;
             Managed = managed;
             Name = name;

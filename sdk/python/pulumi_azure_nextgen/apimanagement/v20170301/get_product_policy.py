@@ -19,7 +19,10 @@ class GetProductPolicyResult:
     """
     Policy Contract details.
     """
-    def __init__(__self__, name=None, policy_content=None, type=None):
+    def __init__(__self__, id=None, name=None, policy_content=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -29,6 +32,14 @@ class GetProductPolicyResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -61,6 +72,7 @@ class AwaitableGetProductPolicyResult(GetProductPolicyResult):
         if False:
             yield self
         return GetProductPolicyResult(
+            id=self.id,
             name=self.name,
             policy_content=self.policy_content,
             type=self.type)
@@ -91,6 +103,7 @@ def get_product_policy(policy_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:apimanagement/v20170301:getProductPolicy', __args__, opts=opts, typ=GetProductPolicyResult).value
 
     return AwaitableGetProductPolicyResult(
+        id=__ret__.id,
         name=__ret__.name,
         policy_content=__ret__.policy_content,
         type=__ret__.type)

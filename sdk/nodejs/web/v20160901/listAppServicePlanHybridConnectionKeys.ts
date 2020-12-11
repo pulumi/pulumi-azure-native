@@ -45,6 +45,10 @@ export interface ListAppServicePlanHybridConnectionKeysArgs {
  */
 export interface ListAppServicePlanHybridConnectionKeysResult {
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;

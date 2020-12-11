@@ -39,6 +39,10 @@ export interface GetServerAdministratorResult {
      */
     readonly administratorType: string;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * The server administrator login account name.
      */
     readonly login: string;

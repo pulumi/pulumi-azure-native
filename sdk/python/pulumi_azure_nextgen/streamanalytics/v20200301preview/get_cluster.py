@@ -20,10 +20,13 @@ class GetClusterResult:
     """
     A Stream Analytics Cluster object
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, etag=None, id=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -50,6 +53,14 @@ class GetClusterResult:
         The current entity tag for the cluster. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -107,6 +118,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             yield self
         return GetClusterResult(
             etag=self.etag,
+            id=self.id,
             location=self.location,
             name=self.name,
             properties=self.properties,
@@ -135,6 +147,7 @@ def get_cluster(cluster_name: Optional[str] = None,
 
     return AwaitableGetClusterResult(
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         properties=__ret__.properties,

@@ -43,6 +43,8 @@ type LookupCloudConnectorResult struct {
 	DisplayName *string `pulumi:"displayName"`
 	// Associated ExternalBillingAccountId
 	ExternalBillingAccountId string `pulumi:"externalBillingAccountId"`
+	// Connector id
+	Id string `pulumi:"id"`
 	// Connector kind (eg aws)
 	Kind *string `pulumi:"kind"`
 	// Connector last modified datetime

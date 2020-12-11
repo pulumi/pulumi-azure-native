@@ -68,6 +68,10 @@ export interface GetVpnConnectionResult {
      */
     readonly etag: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * Ingress bytes transferred.
      */
     readonly ingressBytesTransferred: number;

@@ -43,6 +43,10 @@ export interface GetCacheResult {
      */
     readonly health: outputs.storagecache.v20190801preview.CacheHealthResponse;
     /**
+     * Fully qualified URL of the cache.
+     */
+    readonly id: string;
+    /**
      * Region name string.
      */
     readonly location?: string;

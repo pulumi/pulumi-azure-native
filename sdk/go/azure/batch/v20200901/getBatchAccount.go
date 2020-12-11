@@ -38,6 +38,8 @@ type LookupBatchAccountResult struct {
 	DedicatedCoreQuotaPerVMFamilyEnforced bool `pulumi:"dedicatedCoreQuotaPerVMFamilyEnforced"`
 	// Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
 	Encryption EncryptionPropertiesResponse `pulumi:"encryption"`
+	// The ID of the resource.
+	Id string `pulumi:"id"`
 	// The identity of the Batch account.
 	Identity *BatchAccountIdentityResponse `pulumi:"identity"`
 	// Identifies the Azure key vault associated with a Batch account.

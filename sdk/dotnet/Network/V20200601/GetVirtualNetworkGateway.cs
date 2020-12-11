@@ -76,6 +76,10 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         /// </summary>
         public readonly string? GatewayType;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The IP address allocated by the gateway to which dns requests can be sent.
         /// </summary>
         public readonly string InboundDnsForwardingEndpoint;
@@ -144,6 +148,8 @@ namespace Pulumi.AzureNextGen.Network.V20200601
 
             string? gatewayType,
 
+            string? id,
+
             string inboundDnsForwardingEndpoint,
 
             ImmutableArray<Outputs.VirtualNetworkGatewayIPConfigurationResponse> ipConfigurations,
@@ -177,6 +183,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
             Etag = etag;
             GatewayDefaultSite = gatewayDefaultSite;
             GatewayType = gatewayType;
+            Id = id;
             InboundDnsForwardingEndpoint = inboundDnsForwardingEndpoint;
             IpConfigurations = ipConfigurations;
             Location = location;

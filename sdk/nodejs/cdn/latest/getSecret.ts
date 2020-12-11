@@ -41,6 +41,10 @@ export interface GetSecretArgs {
 export interface GetSecretResult {
     readonly deploymentStatus: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

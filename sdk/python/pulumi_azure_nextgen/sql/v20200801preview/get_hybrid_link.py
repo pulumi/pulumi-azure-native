@@ -19,10 +19,13 @@ class GetHybridLinkResult:
     """
     Hybrid link between box and Sql Managed Instance.
     """
-    def __init__(__self__, distributed_availability_group_id=None, name=None, primary_availability_group_name=None, replication_mode=None, secondary_availability_group_name=None, source_endpoint=None, source_replica_id=None, target_database=None, target_replica_id=None, type=None):
+    def __init__(__self__, distributed_availability_group_id=None, id=None, name=None, primary_availability_group_name=None, replication_mode=None, secondary_availability_group_name=None, source_endpoint=None, source_replica_id=None, target_database=None, target_replica_id=None, type=None):
         if distributed_availability_group_id and not isinstance(distributed_availability_group_id, str):
             raise TypeError("Expected argument 'distributed_availability_group_id' to be a str")
         pulumi.set(__self__, "distributed_availability_group_id", distributed_availability_group_id)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -58,6 +61,14 @@ class GetHybridLinkResult:
         The distributed availability group id
         """
         return pulumi.get(self, "distributed_availability_group_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -139,6 +150,7 @@ class AwaitableGetHybridLinkResult(GetHybridLinkResult):
             yield self
         return GetHybridLinkResult(
             distributed_availability_group_id=self.distributed_availability_group_id,
+            id=self.id,
             name=self.name,
             primary_availability_group_name=self.primary_availability_group_name,
             replication_mode=self.replication_mode,
@@ -173,6 +185,7 @@ def get_hybrid_link(distributed_availability_group_name: Optional[str] = None,
 
     return AwaitableGetHybridLinkResult(
         distributed_availability_group_id=__ret__.distributed_availability_group_id,
+        id=__ret__.id,
         name=__ret__.name,
         primary_availability_group_name=__ret__.primary_availability_group_name,
         replication_mode=__ret__.replication_mode,

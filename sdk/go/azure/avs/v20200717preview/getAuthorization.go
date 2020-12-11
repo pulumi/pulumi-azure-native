@@ -31,6 +31,8 @@ type LookupAuthorizationResult struct {
 	ExpressRouteAuthorizationId string `pulumi:"expressRouteAuthorizationId"`
 	// The key of the ExpressRoute Circuit Authorization
 	ExpressRouteAuthorizationKey string `pulumi:"expressRouteAuthorizationKey"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The state of the  ExpressRoute Circuit Authorization provisioning

@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
         /// </summary>
         public readonly string CreationTime;
         /// <summary>
+        /// The ID of the resource
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the resource
         /// </summary>
         public readonly string Location;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
         private GetWorkspaceResult(
             string creationTime,
 
+            string id,
+
             string location,
 
             string name,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
             string type)
         {
             CreationTime = creationTime;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

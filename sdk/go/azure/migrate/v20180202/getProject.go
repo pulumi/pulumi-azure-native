@@ -35,6 +35,8 @@ type LookupProjectResult struct {
 	DiscoveryStatus string `pulumi:"discoveryStatus"`
 	// For optimistic concurrency control.
 	ETag *string `pulumi:"eTag"`
+	// Path reference to this project /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}
+	Id string `pulumi:"id"`
 	// Time when last assessment was created. Date-Time represented in ISO-8601 format. This value will be null until assessment is created.
 	LastAssessmentTimestamp string `pulumi:"lastAssessmentTimestamp"`
 	// Session id of the last discovery.

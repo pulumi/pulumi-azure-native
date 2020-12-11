@@ -49,6 +49,10 @@ export interface GetAFDEndpointResult {
      */
     readonly hostName: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource location.
      */
     readonly location: string;

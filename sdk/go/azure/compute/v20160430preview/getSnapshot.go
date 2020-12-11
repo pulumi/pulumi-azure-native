@@ -33,6 +33,8 @@ type LookupSnapshotResult struct {
 	DiskSizeGB *int `pulumi:"diskSizeGB"`
 	// Encryption settings for disk or snapshot
 	EncryptionSettings *EncryptionSettingsResponse `pulumi:"encryptionSettings"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name

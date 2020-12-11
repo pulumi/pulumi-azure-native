@@ -29,6 +29,8 @@ type ListTenantAccessGitSecretsArgs struct {
 type ListTenantAccessGitSecretsResult struct {
 	// Determines whether direct access is enabled.
 	Enabled *bool `pulumi:"enabled"`
+	// Identifier.
+	Id *string `pulumi:"id"`
 	// Primary access key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
 	PrimaryKey *string `pulumi:"primaryKey"`
 	// Secondary access key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.

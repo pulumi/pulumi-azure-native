@@ -17,13 +17,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetControllerResult:
-    def __init__(__self__, data_plane_fqdn=None, host_suffix=None, location=None, name=None, provisioning_state=None, sku=None, tags=None, target_container_host_api_server_fqdn=None, target_container_host_credentials_base64=None, target_container_host_resource_id=None, type=None):
+    def __init__(__self__, data_plane_fqdn=None, host_suffix=None, id=None, location=None, name=None, provisioning_state=None, sku=None, tags=None, target_container_host_api_server_fqdn=None, target_container_host_credentials_base64=None, target_container_host_resource_id=None, type=None):
         if data_plane_fqdn and not isinstance(data_plane_fqdn, str):
             raise TypeError("Expected argument 'data_plane_fqdn' to be a str")
         pulumi.set(__self__, "data_plane_fqdn", data_plane_fqdn)
         if host_suffix and not isinstance(host_suffix, str):
             raise TypeError("Expected argument 'host_suffix' to be a str")
         pulumi.set(__self__, "host_suffix", host_suffix)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -67,6 +70,14 @@ class GetControllerResult:
         DNS suffix for public endpoints running in the Azure Dev Spaces Controller.
         """
         return pulumi.get(self, "host_suffix")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -149,6 +160,7 @@ class AwaitableGetControllerResult(GetControllerResult):
         return GetControllerResult(
             data_plane_fqdn=self.data_plane_fqdn,
             host_suffix=self.host_suffix,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -181,6 +193,7 @@ def get_controller(name: Optional[str] = None,
     return AwaitableGetControllerResult(
         data_plane_fqdn=__ret__.data_plane_fqdn,
         host_suffix=__ret__.host_suffix,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

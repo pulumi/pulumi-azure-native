@@ -72,6 +72,10 @@ namespace Pulumi.AzureNextGen.NetApp.V20200301
         /// </summary>
         public readonly string FileSystemId;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Restoring
         /// </summary>
         public readonly bool? IsRestoring;
@@ -140,6 +144,8 @@ namespace Pulumi.AzureNextGen.NetApp.V20200301
 
             string fileSystemId,
 
+            string id,
+
             bool? isRestoring,
 
             string location,
@@ -173,6 +179,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200301
             DataProtection = dataProtection;
             ExportPolicy = exportPolicy;
             FileSystemId = fileSystemId;
+            Id = id;
             IsRestoring = isRestoring;
             Location = location;
             MountTargets = mountTargets;

@@ -86,6 +86,10 @@ export interface GetJobResult {
      * Describe the experiment information of the job
      */
     readonly experimentName?: string;
+    /**
+     * The ID of the resource
+     */
+    readonly id: string;
     readonly inputDirectories?: outputs.batchai.v20170901preview.InputDirectoryResponse[];
     /**
      * The specified actions will run on all the nodes that are part of the job

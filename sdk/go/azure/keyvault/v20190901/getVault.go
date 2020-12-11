@@ -25,6 +25,8 @@ type LookupVaultArgs struct {
 
 // Resource information with extended details.
 type LookupVaultResult struct {
+	// Fully qualified identifier of the key vault resource.
+	Id string `pulumi:"id"`
 	// Azure location of the key vault resource.
 	Location *string `pulumi:"location"`
 	// Name of the key vault resource.

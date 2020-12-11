@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001
         /// </summary>
         public readonly string? ETag;
         /// <summary>
+        /// Path reference to this group. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Name of the group.
         /// </summary>
         public readonly string Name;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001
         private GetGroupResult(
             string? eTag,
 
+            string id,
+
             string name,
 
             Outputs.GroupPropertiesResponse properties,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001
             string type)
         {
             ETag = eTag;
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

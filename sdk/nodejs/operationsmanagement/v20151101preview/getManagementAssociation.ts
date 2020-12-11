@@ -50,6 +50,10 @@ export interface GetManagementAssociationArgs {
  */
 export interface GetManagementAssociationResult {
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location?: string;

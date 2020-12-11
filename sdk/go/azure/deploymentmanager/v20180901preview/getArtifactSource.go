@@ -29,6 +29,8 @@ type LookupArtifactSourceResult struct {
 	ArtifactRoot *string `pulumi:"artifactRoot"`
 	// The authentication method to use to access the artifact source.
 	Authentication SasAuthenticationResponse `pulumi:"authentication"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the resource

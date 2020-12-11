@@ -81,6 +81,10 @@ export interface GetConnectorMappingResult {
      */
     readonly entityTypeName: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * The last modified time.
      */
     readonly lastModified: string;

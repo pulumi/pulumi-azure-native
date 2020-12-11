@@ -69,6 +69,10 @@ export interface GetVolumeResult {
      */
     readonly fileSystemId: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Restoring
      */
     readonly isRestoring?: boolean;

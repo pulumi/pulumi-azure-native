@@ -20,7 +20,7 @@ class GetRecordSetResult:
     """
     Describes a DNS record set (a collection of DNS records with the same name and type).
     """
-    def __init__(__self__, a_records=None, aaaa_records=None, cname_record=None, etag=None, fqdn=None, metadata=None, mx_records=None, name=None, ns_records=None, ptr_records=None, soa_record=None, srv_records=None, ttl=None, txt_records=None, type=None):
+    def __init__(__self__, a_records=None, aaaa_records=None, cname_record=None, etag=None, fqdn=None, id=None, metadata=None, mx_records=None, name=None, ns_records=None, ptr_records=None, soa_record=None, srv_records=None, ttl=None, txt_records=None, type=None):
         if a_records and not isinstance(a_records, list):
             raise TypeError("Expected argument 'a_records' to be a list")
         pulumi.set(__self__, "a_records", a_records)
@@ -36,6 +36,9 @@ class GetRecordSetResult:
         if fqdn and not isinstance(fqdn, str):
             raise TypeError("Expected argument 'fqdn' to be a str")
         pulumi.set(__self__, "fqdn", fqdn)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if metadata and not isinstance(metadata, dict):
             raise TypeError("Expected argument 'metadata' to be a dict")
         pulumi.set(__self__, "metadata", metadata)
@@ -106,6 +109,14 @@ class GetRecordSetResult:
         Fully qualified domain name of the record set.
         """
         return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The ID of the record set.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -199,6 +210,7 @@ class AwaitableGetRecordSetResult(GetRecordSetResult):
             cname_record=self.cname_record,
             etag=self.etag,
             fqdn=self.fqdn,
+            id=self.id,
             metadata=self.metadata,
             mx_records=self.mx_records,
             name=self.name,
@@ -241,6 +253,7 @@ def get_record_set(record_type: Optional[str] = None,
         cname_record=__ret__.cname_record,
         etag=__ret__.etag,
         fqdn=__ret__.fqdn,
+        id=__ret__.id,
         metadata=__ret__.metadata,
         mx_records=__ret__.mx_records,
         name=__ret__.name,

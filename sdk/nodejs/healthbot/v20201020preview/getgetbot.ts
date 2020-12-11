@@ -35,6 +35,10 @@ export interface GetgetbotArgs {
  */
 export interface GetgetbotResult {
     /**
+     * Fully qualified resource Id for the resource.
+     */
+    readonly id: string;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: string;

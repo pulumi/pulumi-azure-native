@@ -37,6 +37,8 @@ type LookupExpressRouteCircuitPeeringResult struct {
 	ExpressRouteConnection *ExpressRouteConnectionIdResponse `pulumi:"expressRouteConnection"`
 	// The GatewayManager Etag.
 	GatewayManagerEtag *string `pulumi:"gatewayManagerEtag"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// The IPv6 peering configuration.
 	Ipv6PeeringConfig *Ipv6ExpressRouteCircuitPeeringConfigResponse `pulumi:"ipv6PeeringConfig"`
 	// Gets whether the provider or the customer last modified the peering.

@@ -48,6 +48,10 @@ export interface GetTransactionNodeResult {
      */
     readonly firewallRules?: outputs.blockchain.v20180601preview.FirewallRuleResponse[];
     /**
+     * Fully qualified resource Id of the resource.
+     */
+    readonly id: string;
+    /**
      * Gets or sets the transaction node location.
      */
     readonly location?: string;

@@ -84,6 +84,10 @@ export interface GetStreamingEndpointResult {
      */
     readonly hostName: string;
     /**
+     * Fully qualified resource ID for the resource.
+     */
+    readonly id: string;
+    /**
      * The exact time the StreamingEndpoint was last modified.
      */
     readonly lastModified: string;

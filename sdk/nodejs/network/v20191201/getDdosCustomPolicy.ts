@@ -39,6 +39,10 @@ export interface GetDdosCustomPolicyResult {
      */
     readonly etag: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * Resource location.
      */
     readonly location?: string;

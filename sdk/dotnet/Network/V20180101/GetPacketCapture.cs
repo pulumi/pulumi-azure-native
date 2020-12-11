@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Network.V20180101
         public readonly string? Etag;
         public readonly ImmutableArray<Outputs.PacketCaptureFilterResponse> Filters;
         /// <summary>
+        /// ID of the packet capture.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Name of the packet capture.
         /// </summary>
         public readonly string Name;
@@ -88,6 +92,8 @@ namespace Pulumi.AzureNextGen.Network.V20180101
 
             ImmutableArray<Outputs.PacketCaptureFilterResponse> filters,
 
+            string id,
+
             string name,
 
             string? provisioningState,
@@ -105,6 +111,7 @@ namespace Pulumi.AzureNextGen.Network.V20180101
             BytesToCapturePerPacket = bytesToCapturePerPacket;
             Etag = etag;
             Filters = filters;
+            Id = id;
             Name = name;
             ProvisioningState = provisioningState;
             StorageLocation = storageLocation;

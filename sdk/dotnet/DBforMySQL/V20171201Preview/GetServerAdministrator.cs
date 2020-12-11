@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20171201Preview
         /// </summary>
         public readonly string AdministratorType;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The server administrator login account name.
         /// </summary>
         public readonly string Login;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20171201Preview
         private GetServerAdministratorResult(
             string administratorType,
 
+            string id,
+
             string login,
 
             string name,
@@ -79,6 +85,7 @@ namespace Pulumi.AzureNextGen.DBforMySQL.V20171201Preview
             string type)
         {
             AdministratorType = administratorType;
+            Id = id;
             Login = login;
             Name = name;
             Sid = sid;

@@ -40,6 +40,10 @@ export interface GetVirtualMachineImageTemplateResult {
      */
     readonly distribute: outputs.virtualmachineimages.v20180201preview.ImageTemplateManagedImageDistributorResponse | outputs.virtualmachineimages.v20180201preview.ImageTemplateSharedImageDistributorResponse[];
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * State of 'run' that is currently executing or was last executed.
      */
     readonly lastRunStatus: outputs.virtualmachineimages.v20180201preview.ImageTemplateLastRunStatusResponse;

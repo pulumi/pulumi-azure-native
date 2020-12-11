@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.Migrate.V20180202
         /// </summary>
         public readonly string? ETag;
         /// <summary>
+        /// Path reference to this project /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Time when last assessment was created. Date-Time represented in ISO-8601 format. This value will be null until assessment is created.
         /// </summary>
         public readonly string LastAssessmentTimestamp;
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNextGen.Migrate.V20180202
 
             string? eTag,
 
+            string id,
+
             string lastAssessmentTimestamp,
 
             string lastDiscoverySessionId,
@@ -149,6 +155,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20180202
             CustomerWorkspaceLocation = customerWorkspaceLocation;
             DiscoveryStatus = discoveryStatus;
             ETag = eTag;
+            Id = id;
             LastAssessmentTimestamp = lastAssessmentTimestamp;
             LastDiscoverySessionId = lastDiscoverySessionId;
             LastDiscoveryTimestamp = lastDiscoveryTimestamp;

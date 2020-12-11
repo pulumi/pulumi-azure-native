@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.ManagedServices.V20200201Preview
     public sealed class GetRegistrationDefinitionResult
     {
         /// <summary>
+        /// Fully qualified path of the registration definition.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Name of the registration definition.
         /// </summary>
         public readonly string Name;
@@ -58,6 +62,8 @@ namespace Pulumi.AzureNextGen.ManagedServices.V20200201Preview
 
         [OutputConstructor]
         private GetRegistrationDefinitionResult(
+            string id,
+
             string name,
 
             Outputs.PlanResponse? plan,
@@ -66,6 +72,7 @@ namespace Pulumi.AzureNextGen.ManagedServices.V20200201Preview
 
             string type)
         {
+            Id = id;
             Name = name;
             Plan = plan;
             Properties = properties;

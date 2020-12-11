@@ -19,10 +19,13 @@ class GetDiagnosticResult:
     """
     Diagnostic details.
     """
-    def __init__(__self__, enabled=None, name=None, type=None):
+    def __init__(__self__, enabled=None, id=None, name=None, type=None):
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -37,6 +40,14 @@ class GetDiagnosticResult:
         Indicates whether a diagnostic should receive data or not.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -62,6 +73,7 @@ class AwaitableGetDiagnosticResult(GetDiagnosticResult):
             yield self
         return GetDiagnosticResult(
             enabled=self.enabled,
+            id=self.id,
             name=self.name,
             type=self.type)
 
@@ -89,5 +101,6 @@ def get_diagnostic(diagnostic_id: Optional[str] = None,
 
     return AwaitableGetDiagnosticResult(
         enabled=__ret__.enabled,
+        id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type)

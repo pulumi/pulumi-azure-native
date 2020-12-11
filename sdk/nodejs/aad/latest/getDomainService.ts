@@ -59,6 +59,10 @@ export interface GetDomainServiceResult {
      */
     readonly filteredSync?: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Secure LDAP Settings
      */
     readonly ldapsSettings?: outputs.aad.latest.LdapsSettingsResponse;

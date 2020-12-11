@@ -19,7 +19,7 @@ class GetWorkspaceResult:
     """
     An object that represents a machine learning team account workspace.
     """
-    def __init__(__self__, account_id=None, creation_date=None, description=None, friendly_name=None, location=None, name=None, provisioning_state=None, tags=None, type=None, workspace_id=None):
+    def __init__(__self__, account_id=None, creation_date=None, description=None, friendly_name=None, id=None, location=None, name=None, provisioning_state=None, tags=None, type=None, workspace_id=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
@@ -32,6 +32,9 @@ class GetWorkspaceResult:
         if friendly_name and not isinstance(friendly_name, str):
             raise TypeError("Expected argument 'friendly_name' to be a str")
         pulumi.set(__self__, "friendly_name", friendly_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -82,6 +85,14 @@ class GetWorkspaceResult:
         The friendly name for this workspace. This will be the workspace name in the arm id when the workspace object gets created
         """
         return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -142,6 +153,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             creation_date=self.creation_date,
             description=self.description,
             friendly_name=self.friendly_name,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -176,6 +188,7 @@ def get_workspace(account_name: Optional[str] = None,
         creation_date=__ret__.creation_date,
         description=__ret__.description,
         friendly_name=__ret__.friendly_name,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

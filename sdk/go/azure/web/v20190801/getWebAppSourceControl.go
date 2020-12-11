@@ -29,6 +29,8 @@ type LookupWebAppSourceControlResult struct {
 	Branch *string `pulumi:"branch"`
 	// <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
 	DeploymentRollbackEnabled *bool `pulumi:"deploymentRollbackEnabled"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
 	IsManualIntegration *bool `pulumi:"isManualIntegration"`
 	// <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.

@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         /// </summary>
         public readonly string? GatewayIpAddress;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Local network site address space.
         /// </summary>
         public readonly Outputs.AddressSpaceResponse? LocalNetworkAddressSpace;
@@ -94,6 +98,8 @@ namespace Pulumi.AzureNextGen.Network.V20200601
 
             string? gatewayIpAddress,
 
+            string? id,
+
             Outputs.AddressSpaceResponse? localNetworkAddressSpace,
 
             string? location,
@@ -112,6 +118,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
             Etag = etag;
             Fqdn = fqdn;
             GatewayIpAddress = gatewayIpAddress;
+            Id = id;
             LocalNetworkAddressSpace = localNetworkAddressSpace;
             Location = location;
             Name = name;

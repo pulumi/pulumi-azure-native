@@ -25,6 +25,8 @@ type LookupInstancePoolArgs struct {
 
 // An Azure SQL instance pool.
 type LookupInstancePoolResult struct {
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// The license type. Possible values are 'LicenseIncluded' (price for SQL license is included) and 'BasePrice' (without SQL license price).
 	LicenseType string `pulumi:"licenseType"`
 	// Resource location.

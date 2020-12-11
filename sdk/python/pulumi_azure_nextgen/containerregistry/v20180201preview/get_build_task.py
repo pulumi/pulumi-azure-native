@@ -20,13 +20,16 @@ class GetBuildTaskResult:
     """
     The build task that has the resource properties and all build items. The build task will have all information to schedule a build against it.
     """
-    def __init__(__self__, alias=None, creation_date=None, location=None, name=None, platform=None, provisioning_state=None, source_repository=None, status=None, tags=None, timeout=None, type=None):
+    def __init__(__self__, alias=None, creation_date=None, id=None, location=None, name=None, platform=None, provisioning_state=None, source_repository=None, status=None, tags=None, timeout=None, type=None):
         if alias and not isinstance(alias, str):
             raise TypeError("Expected argument 'alias' to be a str")
         pulumi.set(__self__, "alias", alias)
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -70,6 +73,14 @@ class GetBuildTaskResult:
         The creation date of build task.
         """
         return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -152,6 +163,7 @@ class AwaitableGetBuildTaskResult(GetBuildTaskResult):
         return GetBuildTaskResult(
             alias=self.alias,
             creation_date=self.creation_date,
+            id=self.id,
             location=self.location,
             name=self.name,
             platform=self.platform,
@@ -187,6 +199,7 @@ def get_build_task(build_task_name: Optional[str] = None,
     return AwaitableGetBuildTaskResult(
         alias=__ret__.alias,
         creation_date=__ret__.creation_date,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         platform=__ret__.platform,

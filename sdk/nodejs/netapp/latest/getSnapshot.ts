@@ -54,6 +54,10 @@ export interface GetSnapshotResult {
      */
     readonly created: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

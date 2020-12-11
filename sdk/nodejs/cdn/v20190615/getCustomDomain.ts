@@ -61,6 +61,10 @@ export interface GetCustomDomainResult {
      */
     readonly hostName: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

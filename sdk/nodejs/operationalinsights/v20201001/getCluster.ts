@@ -55,6 +55,10 @@ export interface GetClusterResult {
      */
     readonly createdDate: string;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * The identity of the resource.
      */
     readonly identity?: outputs.operationalinsights.v20201001.IdentityResponse;

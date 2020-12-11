@@ -52,6 +52,10 @@ export interface GetSavedSearchResult {
      */
     readonly eTag?: string;
     /**
+     * The id of the saved search.
+     */
+    readonly id: string;
+    /**
      * The name of the saved search.
      */
     readonly name: string;

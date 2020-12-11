@@ -78,6 +78,10 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
         /// </summary>
         public readonly string HostPartner;
         /// <summary>
+        /// The resource id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string? Location;
@@ -116,6 +120,8 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
 
             string hostPartner,
 
+            string id,
+
             string? location,
 
             object? metadata,
@@ -134,6 +140,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
             GuestPartner = guestPartner;
             HostIdentity = hostIdentity;
             HostPartner = hostPartner;
+            Id = id;
             Location = location;
             Metadata = metadata;
             Name = name;

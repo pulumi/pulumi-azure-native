@@ -31,6 +31,8 @@ type LookupTransformResult struct {
 	Created string `pulumi:"created"`
 	// An optional verbose description of the Transform.
 	Description *string `pulumi:"description"`
+	// Fully qualified resource ID for the resource.
+	Id string `pulumi:"id"`
 	// The UTC date and time when the Transform was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
 	LastModified string `pulumi:"lastModified"`
 	// The name of the resource.

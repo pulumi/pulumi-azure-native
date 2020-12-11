@@ -43,6 +43,8 @@ type LookupVirtualNetworkGatewayConnectionResult struct {
 	Etag string `pulumi:"etag"`
 	// Bypass ExpressRoute Gateway for data forwarding.
 	ExpressRouteGatewayBypass *bool `pulumi:"expressRouteGatewayBypass"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// The ingress bytes transferred in this connection.
 	IngressBytesTransferred int `pulumi:"ingressBytesTransferred"`
 	// The IPSec Policies to be considered by this connection.

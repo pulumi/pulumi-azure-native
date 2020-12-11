@@ -20,7 +20,7 @@ class GetActivityLogAlertResult:
     """
     An activity log alert resource.
     """
-    def __init__(__self__, actions=None, condition=None, description=None, enabled=None, location=None, name=None, scopes=None, tags=None, type=None):
+    def __init__(__self__, actions=None, condition=None, description=None, enabled=None, id=None, location=None, name=None, scopes=None, tags=None, type=None):
         if actions and not isinstance(actions, dict):
             raise TypeError("Expected argument 'actions' to be a dict")
         pulumi.set(__self__, "actions", actions)
@@ -33,6 +33,9 @@ class GetActivityLogAlertResult:
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -80,6 +83,14 @@ class GetActivityLogAlertResult:
         Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -132,6 +143,7 @@ class AwaitableGetActivityLogAlertResult(GetActivityLogAlertResult):
             condition=self.condition,
             description=self.description,
             enabled=self.enabled,
+            id=self.id,
             location=self.location,
             name=self.name,
             scopes=self.scopes,
@@ -162,6 +174,7 @@ def get_activity_log_alert(activity_log_alert_name: Optional[str] = None,
         condition=__ret__.condition,
         description=__ret__.description,
         enabled=__ret__.enabled,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         scopes=__ret__.scopes,

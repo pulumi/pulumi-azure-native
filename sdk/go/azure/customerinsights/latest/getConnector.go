@@ -41,6 +41,8 @@ type LookupConnectorResult struct {
 	Description *string `pulumi:"description"`
 	// Display name of the connector.
 	DisplayName *string `pulumi:"displayName"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// If this is an internal connector.
 	IsInternal *bool `pulumi:"isInternal"`
 	// The last modified time.

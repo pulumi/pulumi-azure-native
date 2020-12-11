@@ -20,10 +20,13 @@ class GetApplicationResult:
     """
     The application resource.
     """
-    def __init__(__self__, etag=None, identity=None, location=None, managed_identities=None, maximum_nodes=None, metrics=None, minimum_nodes=None, name=None, parameters=None, provisioning_state=None, remove_application_capacity=None, tags=None, type=None, type_name=None, type_version=None, upgrade_policy=None):
+    def __init__(__self__, etag=None, id=None, identity=None, location=None, managed_identities=None, maximum_nodes=None, metrics=None, minimum_nodes=None, name=None, parameters=None, provisioning_state=None, remove_application_capacity=None, tags=None, type=None, type_name=None, type_version=None, upgrade_policy=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -77,6 +80,14 @@ class GetApplicationResult:
         Azure resource etag.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource identifier.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -206,6 +217,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             yield self
         return GetApplicationResult(
             etag=self.etag,
+            id=self.id,
             identity=self.identity,
             location=self.location,
             managed_identities=self.managed_identities,
@@ -246,6 +258,7 @@ def get_application(application_name: Optional[str] = None,
 
     return AwaitableGetApplicationResult(
         etag=__ret__.etag,
+        id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
         managed_identities=__ret__.managed_identities,

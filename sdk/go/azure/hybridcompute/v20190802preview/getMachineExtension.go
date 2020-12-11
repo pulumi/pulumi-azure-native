@@ -31,6 +31,8 @@ type LookupMachineExtensionResult struct {
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
 	// How the extension handler should be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// The machine extension instance view.
 	InstanceView *MachineExtensionInstanceViewResponse `pulumi:"instanceView"`
 	// Resource location

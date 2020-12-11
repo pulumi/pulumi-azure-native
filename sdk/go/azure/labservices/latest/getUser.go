@@ -37,6 +37,8 @@ type LookupUserResult struct {
 	FamilyName string `pulumi:"familyName"`
 	// The user given name, as it was specified during registration.
 	GivenName string `pulumi:"givenName"`
+	// The identifier of the resource.
+	Id string `pulumi:"id"`
 	// The details of the latest operation. ex: status, error
 	LatestOperationResult LatestOperationResultResponse `pulumi:"latestOperationResult"`
 	// The location of the resource.

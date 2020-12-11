@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.V20190401
         /// </summary>
         public readonly object Created;
         /// <summary>
+        /// SKU's id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Azure region
         /// </summary>
         public readonly string Location;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.V20190401
 
             object created,
 
+            string id,
+
             string location,
 
             string name,
@@ -154,6 +160,7 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.V20190401
             AvailabilityZoneName = availabilityZoneName;
             CloudRackName = cloudRackName;
             Created = created;
+            Id = id;
             Location = location;
             Name = name;
             NodesCount = nodesCount;

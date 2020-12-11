@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.Logic.V20150201Preview
         /// </summary>
         public readonly Outputs.ContentLinkResponse? DefinitionLink;
         /// <summary>
+        /// Gets or sets the resource id.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Gets or sets the resource location.
         /// </summary>
         public readonly string? Location;
@@ -112,6 +116,8 @@ namespace Pulumi.AzureNextGen.Logic.V20150201Preview
 
             Outputs.ContentLinkResponse? definitionLink,
 
+            string? id,
+
             string? location,
 
             string? name,
@@ -137,6 +143,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150201Preview
             CreatedTime = createdTime;
             Definition = definition;
             DefinitionLink = definitionLink;
+            Id = id;
             Location = location;
             Name = name;
             Parameters = parameters;

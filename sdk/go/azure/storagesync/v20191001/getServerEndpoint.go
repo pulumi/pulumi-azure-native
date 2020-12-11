@@ -35,6 +35,8 @@ type LookupServerEndpointResult struct {
 	CloudTieringStatus ServerEndpointCloudTieringStatusResponse `pulumi:"cloudTieringStatus"`
 	// Friendly Name
 	FriendlyName *string `pulumi:"friendlyName"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// Resource Last Operation Name
 	LastOperationName string `pulumi:"lastOperationName"`
 	// ServerEndpoint lastWorkflowId

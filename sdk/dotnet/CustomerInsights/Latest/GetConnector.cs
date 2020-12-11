@@ -74,6 +74,10 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// If this is an internal connector.
         /// </summary>
         public readonly bool? IsInternal;
@@ -114,6 +118,8 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
 
             string? displayName,
 
+            string id,
+
             bool? isInternal,
 
             string lastModified,
@@ -133,6 +139,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
             Created = created;
             Description = description;
             DisplayName = displayName;
+            Id = id;
             IsInternal = isInternal;
             LastModified = lastModified;
             Name = name;

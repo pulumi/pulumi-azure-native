@@ -43,6 +43,10 @@ export interface GetNetworkResult {
      */
     readonly description?: string;
     /**
+     * Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * Configuration for public connectivity for this network.
      */
     readonly ingressConfig?: outputs.servicefabricmesh.v20180701preview.IngressConfigResponse;

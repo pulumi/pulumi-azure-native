@@ -20,10 +20,13 @@ class GetJobResult:
     """
     A job.
     """
-    def __init__(__self__, description=None, name=None, schedule=None, type=None, version=None):
+    def __init__(__self__, description=None, id=None, name=None, schedule=None, type=None, version=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -44,6 +47,14 @@ class GetJobResult:
         User-defined description of the job.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -85,6 +96,7 @@ class AwaitableGetJobResult(GetJobResult):
             yield self
         return GetJobResult(
             description=self.description,
+            id=self.id,
             name=self.name,
             schedule=self.schedule,
             type=self.type,
@@ -117,6 +129,7 @@ def get_job(job_agent_name: Optional[str] = None,
 
     return AwaitableGetJobResult(
         description=__ret__.description,
+        id=__ret__.id,
         name=__ret__.name,
         schedule=__ret__.schedule,
         type=__ret__.type,

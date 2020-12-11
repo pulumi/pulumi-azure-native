@@ -47,6 +47,10 @@ export interface GetServiceResult {
      */
     readonly etag?: string;
     /**
+     * Fully qualified resource Id for the resource
+     */
+    readonly id: string;
+    /**
      * The Azure Region where the resource lives
      */
     readonly location?: string;

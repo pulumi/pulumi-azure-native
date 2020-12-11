@@ -80,6 +80,10 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Returns the date and time the share was last modified.
         /// </summary>
         public readonly string LastModifiedTime;
@@ -132,6 +136,8 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
 
             string etag,
 
+            string id,
+
             string lastModifiedTime,
 
             ImmutableDictionary<string, string>? metadata,
@@ -157,6 +163,7 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
             DeletedTime = deletedTime;
             EnabledProtocols = enabledProtocols;
             Etag = etag;
+            Id = id;
             LastModifiedTime = lastModifiedTime;
             Metadata = metadata;
             Name = name;

@@ -31,6 +31,8 @@ type LookupVpnGatewayResult struct {
 	Connections []VpnConnectionResponse `pulumi:"connections"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// List of all IPs configured on the gateway.
 	IpConfigurations []VpnGatewayIpConfigurationResponse `pulumi:"ipConfigurations"`
 	// Resource location.

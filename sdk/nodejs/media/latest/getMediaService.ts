@@ -39,6 +39,10 @@ export interface GetMediaServiceResult {
      */
     readonly encryption?: outputs.media.latest.AccountEncryptionResponse;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * The Managed Identity for the Media Services account.
      */
     readonly identity?: outputs.media.latest.MediaServiceIdentityResponse;

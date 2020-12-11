@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
         /// </summary>
         public readonly ImmutableArray<string> AssignableScopes;
         /// <summary>
+        /// The unique resource identifier of the database account.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the database account.
         /// </summary>
         public readonly string Name;
@@ -70,6 +74,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
         private GetSqlResourceSqlRoleDefinitionResult(
             ImmutableArray<string> assignableScopes,
 
+            string id,
+
             string name,
 
             ImmutableArray<Outputs.PermissionResponse> permissions,
@@ -79,6 +85,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview
             string type)
         {
             AssignableScopes = assignableScopes;
+            Id = id;
             Name = name;
             Permissions = permissions;
             RoleName = roleName;

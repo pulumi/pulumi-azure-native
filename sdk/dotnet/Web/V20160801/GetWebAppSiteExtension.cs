@@ -74,6 +74,10 @@ namespace Pulumi.AzureNextGen.Web.V20160801
         /// </summary>
         public readonly string? IconUrl;
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Installer command line parameters.
         /// </summary>
         public readonly string? InstallationArgs;
@@ -146,6 +150,8 @@ namespace Pulumi.AzureNextGen.Web.V20160801
 
             string? iconUrl,
 
+            string id,
+
             string? installationArgs,
 
             string? installedDateTime,
@@ -181,6 +187,7 @@ namespace Pulumi.AzureNextGen.Web.V20160801
             ExtensionUrl = extensionUrl;
             FeedUrl = feedUrl;
             IconUrl = iconUrl;
+            Id = id;
             InstallationArgs = installationArgs;
             InstalledDateTime = installedDateTime;
             Kind = kind;

@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Peering.V20190901Preview
     public sealed class GetPeeringServiceResult
     {
         /// <summary>
+        /// The ID of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string Location;
@@ -70,6 +74,8 @@ namespace Pulumi.AzureNextGen.Peering.V20190901Preview
 
         [OutputConstructor]
         private GetPeeringServiceResult(
+            string id,
+
             string location,
 
             string name,
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNextGen.Peering.V20190901Preview
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             PeeringServiceLocation = peeringServiceLocation;

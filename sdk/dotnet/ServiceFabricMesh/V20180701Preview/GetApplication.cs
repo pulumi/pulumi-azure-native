@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview
         /// </summary>
         public readonly string HealthState;
         /// <summary>
+        /// Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -106,6 +110,8 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview
 
             string healthState,
 
+            string id,
+
             string location,
 
             string name,
@@ -130,6 +136,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview
             Description = description;
             Diagnostics = diagnostics;
             HealthState = healthState;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

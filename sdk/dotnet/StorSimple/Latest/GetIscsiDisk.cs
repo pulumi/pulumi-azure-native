@@ -74,6 +74,10 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// </summary>
         public readonly string DiskStatus;
         /// <summary>
+        /// The identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The local used capacity in bytes.
         /// </summary>
         public readonly int LocalUsedCapacityInBytes;
@@ -108,6 +112,8 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
 
             string diskStatus,
 
+            string id,
+
             int localUsedCapacityInBytes,
 
             string monitoringStatus,
@@ -124,6 +130,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
             DataPolicy = dataPolicy;
             Description = description;
             DiskStatus = diskStatus;
+            Id = id;
             LocalUsedCapacityInBytes = localUsedCapacityInBytes;
             MonitoringStatus = monitoringStatus;
             Name = name;

@@ -60,6 +60,10 @@ export interface GetExpressRouteCircuitPeeringResult {
      */
     readonly gatewayManagerEtag?: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * The IPv6 peering configuration.
      */
     readonly ipv6PeeringConfig?: outputs.network.v20191201.Ipv6ExpressRouteCircuitPeeringConfigResponse;

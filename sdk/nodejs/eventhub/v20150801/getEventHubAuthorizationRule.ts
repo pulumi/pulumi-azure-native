@@ -45,6 +45,10 @@ export interface GetEventHubAuthorizationRuleArgs {
  */
 export interface GetEventHubAuthorizationRuleResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location?: string;

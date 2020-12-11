@@ -29,6 +29,8 @@ type LookupDpsCertificateArgs struct {
 type LookupDpsCertificateResult struct {
 	// The entity tag.
 	Etag string `pulumi:"etag"`
+	// The resource identifier.
+	Id string `pulumi:"id"`
 	// The name of the certificate.
 	Name string `pulumi:"name"`
 	// properties of a certificate

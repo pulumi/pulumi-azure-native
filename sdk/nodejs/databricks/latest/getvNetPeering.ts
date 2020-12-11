@@ -60,6 +60,10 @@ export interface GetvNetPeeringResult {
      */
     readonly databricksVirtualNetwork?: outputs.databricks.latest.VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Name of the virtual network peering resource
      */
     readonly name: string;

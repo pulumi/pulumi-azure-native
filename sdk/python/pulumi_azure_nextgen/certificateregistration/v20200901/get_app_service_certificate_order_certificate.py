@@ -20,7 +20,10 @@ class GetAppServiceCertificateOrderCertificateResult:
     """
     Key Vault container ARM resource for a certificate that is purchased through Azure.
     """
-    def __init__(__self__, key_vault_id=None, key_vault_secret_name=None, kind=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, id=None, key_vault_id=None, key_vault_secret_name=None, kind=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if key_vault_id and not isinstance(key_vault_id, str):
             raise TypeError("Expected argument 'key_vault_id' to be a str")
         pulumi.set(__self__, "key_vault_id", key_vault_id)
@@ -48,6 +51,14 @@ class GetAppServiceCertificateOrderCertificateResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="keyVaultId")
@@ -128,6 +139,7 @@ class AwaitableGetAppServiceCertificateOrderCertificateResult(GetAppServiceCerti
         if False:
             yield self
         return GetAppServiceCertificateOrderCertificateResult(
+            id=self.id,
             key_vault_id=self.key_vault_id,
             key_vault_secret_name=self.key_vault_secret_name,
             kind=self.kind,
@@ -161,6 +173,7 @@ def get_app_service_certificate_order_certificate(certificate_order_name: Option
     __ret__ = pulumi.runtime.invoke('azure-nextgen:certificateregistration/v20200901:getAppServiceCertificateOrderCertificate', __args__, opts=opts, typ=GetAppServiceCertificateOrderCertificateResult).value
 
     return AwaitableGetAppServiceCertificateOrderCertificateResult(
+        id=__ret__.id,
         key_vault_id=__ret__.key_vault_id,
         key_vault_secret_name=__ret__.key_vault_secret_name,
         kind=__ret__.kind,

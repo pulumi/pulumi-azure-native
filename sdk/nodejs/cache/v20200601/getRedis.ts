@@ -47,6 +47,10 @@ export interface GetRedisResult {
      */
     readonly hostName: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * List of the Redis instances associated with the cache
      */
     readonly instances: outputs.cache.v20200601.RedisInstanceDetailsResponse[];

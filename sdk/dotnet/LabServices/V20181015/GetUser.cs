@@ -70,6 +70,10 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
         /// </summary>
         public readonly string GivenName;
         /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The details of the latest operation. ex: status, error
         /// </summary>
         public readonly Outputs.LatestOperationResultResponse LatestOperationResult;
@@ -114,6 +118,8 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
 
             string givenName,
 
+            string id,
+
             Outputs.LatestOperationResultResponse latestOperationResult,
 
             string? location,
@@ -135,6 +141,7 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
             Email = email;
             FamilyName = familyName;
             GivenName = givenName;
+            Id = id;
             LatestOperationResult = latestOperationResult;
             Location = location;
             Name = name;

@@ -19,7 +19,10 @@ class GetNotebookWorkspaceResult:
     """
     A notebook workspace resource
     """
-    def __init__(__self__, name=None, notebook_server_endpoint=None, status=None, type=None):
+    def __init__(__self__, id=None, name=None, notebook_server_endpoint=None, status=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -32,6 +35,14 @@ class GetNotebookWorkspaceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The unique resource identifier of the database account.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -72,6 +83,7 @@ class AwaitableGetNotebookWorkspaceResult(GetNotebookWorkspaceResult):
         if False:
             yield self
         return GetNotebookWorkspaceResult(
+            id=self.id,
             name=self.name,
             notebook_server_endpoint=self.notebook_server_endpoint,
             status=self.status,
@@ -100,6 +112,7 @@ def get_notebook_workspace(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:documentdb/v20200601preview:getNotebookWorkspace', __args__, opts=opts, typ=GetNotebookWorkspaceResult).value
 
     return AwaitableGetNotebookWorkspaceResult(
+        id=__ret__.id,
         name=__ret__.name,
         notebook_server_endpoint=__ret__.notebook_server_endpoint,
         status=__ret__.status,

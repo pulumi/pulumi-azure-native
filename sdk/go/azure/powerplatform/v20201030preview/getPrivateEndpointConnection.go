@@ -27,6 +27,8 @@ type LookupPrivateEndpointConnectionArgs struct {
 
 // A private endpoint connection
 type LookupPrivateEndpointConnectionResult struct {
+	// ARM resource id of the EnterprisePolicy.
+	Id string `pulumi:"id"`
 	// Region where the EnterprisePolicy is located.
 	Location string `pulumi:"location"`
 	// Name of the EnterprisePolicy.

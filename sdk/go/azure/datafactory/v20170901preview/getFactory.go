@@ -27,6 +27,8 @@ type LookupFactoryArgs struct {
 type LookupFactoryResult struct {
 	// Time the factory was created in ISO8601 format.
 	CreateTime string `pulumi:"createTime"`
+	// The resource identifier.
+	Id string `pulumi:"id"`
 	// Managed service identity of the factory.
 	Identity *FactoryIdentityResponse `pulumi:"identity"`
 	// The resource location.

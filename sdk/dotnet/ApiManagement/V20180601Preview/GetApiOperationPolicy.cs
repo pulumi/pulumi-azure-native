@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
         /// </summary>
         public readonly string? ContentFormat;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
         private GetApiOperationPolicyResult(
             string? contentFormat,
 
+            string id,
+
             string name,
 
             string policyContent,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
             string type)
         {
             ContentFormat = contentFormat;
+            Id = id;
             Name = name;
             PolicyContent = policyContent;
             Type = type;

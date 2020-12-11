@@ -19,13 +19,16 @@ class GetSqlServerResult:
     """
     A SQL server.
     """
-    def __init__(__self__, cores=None, edition=None, name=None, property_bag=None, registration_id=None, type=None, version=None):
+    def __init__(__self__, cores=None, edition=None, id=None, name=None, property_bag=None, registration_id=None, type=None, version=None):
         if cores and not isinstance(cores, int):
             raise TypeError("Expected argument 'cores' to be a int")
         pulumi.set(__self__, "cores", cores)
         if edition and not isinstance(edition, str):
             raise TypeError("Expected argument 'edition' to be a str")
         pulumi.set(__self__, "edition", edition)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -57,6 +60,14 @@ class GetSqlServerResult:
         Sql Server Edition.
         """
         return pulumi.get(self, "edition")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -107,6 +118,7 @@ class AwaitableGetSqlServerResult(GetSqlServerResult):
         return GetSqlServerResult(
             cores=self.cores,
             edition=self.edition,
+            id=self.id,
             name=self.name,
             property_bag=self.property_bag,
             registration_id=self.registration_id,
@@ -141,6 +153,7 @@ def get_sql_server(expand: Optional[str] = None,
     return AwaitableGetSqlServerResult(
         cores=__ret__.cores,
         edition=__ret__.edition,
+        id=__ret__.id,
         name=__ret__.name,
         property_bag=__ret__.property_bag,
         registration_id=__ret__.registration_id,

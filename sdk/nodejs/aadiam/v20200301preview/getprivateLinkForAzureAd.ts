@@ -39,6 +39,10 @@ export interface GetprivateLinkForAzureAdResult {
      */
     readonly allTenants?: boolean;
     /**
+     * String Id used to locate any resource on Azure.
+     */
+    readonly id: string;
+    /**
      * Name of this resource.
      */
     readonly name?: string;

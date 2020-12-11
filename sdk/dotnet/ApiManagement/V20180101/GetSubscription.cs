@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
         /// </summary>
         public readonly string? ExpirationDate;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -112,6 +116,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
 
             string? expirationDate,
 
+            string id,
+
             string name,
 
             string? notificationDate,
@@ -136,6 +142,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180101
             DisplayName = displayName;
             EndDate = endDate;
             ExpirationDate = expirationDate;
+            Id = id;
             Name = name;
             NotificationDate = notificationDate;
             PrimaryKey = primaryKey;

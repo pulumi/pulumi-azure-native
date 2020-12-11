@@ -27,6 +27,8 @@ type LookupVirtualNetworkRuleArgs struct {
 
 // A virtual network rule.
 type LookupVirtualNetworkRuleResult struct {
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Create firewall rule before the virtual network has vnet service endpoint enabled.
 	IgnoreMissingVnetServiceEndpoint *bool `pulumi:"ignoreMissingVnetServiceEndpoint"`
 	// Resource name.

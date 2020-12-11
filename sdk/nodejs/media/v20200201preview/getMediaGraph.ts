@@ -48,6 +48,10 @@ export interface GetMediaGraphResult {
      */
     readonly description?: string;
     /**
+     * Fully qualified resource ID for the resource.
+     */
+    readonly id: string;
+    /**
      * Date the Media Graph was last modified.
      */
     readonly lastModified: string;

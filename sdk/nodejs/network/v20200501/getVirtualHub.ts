@@ -55,6 +55,10 @@ export interface GetVirtualHubResult {
      */
     readonly expressRouteGateway?: outputs.network.v20200501.SubResourceResponse;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * List of references to IpConfigurations.
      */
     readonly ipConfigurations: outputs.network.v20200501.SubResourceResponse[];

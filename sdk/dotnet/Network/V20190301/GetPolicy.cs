@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Network.V20190301
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontendEndpointLinkResponse> FrontendEndpointLinks;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -89,6 +93,8 @@ namespace Pulumi.AzureNextGen.Network.V20190301
 
             ImmutableArray<Outputs.FrontendEndpointLinkResponse> frontendEndpointLinks,
 
+            string id,
+
             string? location,
 
             Outputs.ManagedRuleSetListResponse? managedRules,
@@ -108,6 +114,7 @@ namespace Pulumi.AzureNextGen.Network.V20190301
             CustomRules = customRules;
             Etag = etag;
             FrontendEndpointLinks = frontendEndpointLinks;
+            Id = id;
             Location = location;
             ManagedRules = managedRules;
             Name = name;

@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
         /// </summary>
         public readonly string HostId;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The dedicated host instance view.
         /// </summary>
         public readonly Outputs.DedicatedHostInstanceViewResponse InstanceView;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
 
             string hostId,
 
+            string id,
+
             Outputs.DedicatedHostInstanceViewResponse instanceView,
 
             string? licenseType,
@@ -134,6 +140,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
         {
             AutoReplaceOnFailure = autoReplaceOnFailure;
             HostId = hostId;
+            Id = id;
             InstanceView = instanceView;
             LicenseType = licenseType;
             Location = location;

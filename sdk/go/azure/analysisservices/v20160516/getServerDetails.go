@@ -29,6 +29,8 @@ type LookupServerDetailsResult struct {
 	AsAdministrators *ServerAdministratorsResponse `pulumi:"asAdministrators"`
 	// The container URI of backup blob.
 	BackupBlobContainerUri *string `pulumi:"backupBlobContainerUri"`
+	// An identifier that represents the Analysis Services resource.
+	Id string `pulumi:"id"`
 	// Location of the Analysis Services resource.
 	Location string `pulumi:"location"`
 	// The name of the Analysis Services resource.

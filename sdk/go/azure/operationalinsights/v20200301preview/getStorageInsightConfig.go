@@ -31,6 +31,8 @@ type LookupStorageInsightConfigResult struct {
 	Containers []string `pulumi:"containers"`
 	// The ETag of the storage insight.
 	ETag *string `pulumi:"eTag"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The status of the storage insight

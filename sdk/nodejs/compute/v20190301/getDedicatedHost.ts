@@ -53,6 +53,10 @@ export interface GetDedicatedHostResult {
      */
     readonly hostId: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * The dedicated host instance view.
      */
     readonly instanceView: outputs.compute.v20190301.DedicatedHostInstanceViewResponse;

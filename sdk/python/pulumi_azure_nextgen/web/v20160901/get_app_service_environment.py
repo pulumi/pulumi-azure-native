@@ -20,7 +20,7 @@ class GetAppServiceEnvironmentResult:
     """
     App Service Environment ARM resource.
     """
-    def __init__(__self__, allowed_multi_sizes=None, allowed_worker_sizes=None, api_management_account_id=None, cluster_settings=None, database_edition=None, database_service_objective=None, default_front_end_scale_factor=None, dns_suffix=None, dynamic_cache_enabled=None, environment_capacities=None, environment_is_healthy=None, environment_status=None, front_end_scale_factor=None, internal_load_balancing_mode=None, ipssl_address_count=None, kind=None, last_action=None, last_action_result=None, location=None, maximum_number_of_machines=None, multi_role_count=None, multi_size=None, name=None, network_access_control_list=None, provisioning_state=None, resource_group=None, status=None, subscription_id=None, suspended=None, tags=None, type=None, upgrade_domains=None, user_whitelisted_ip_ranges=None, vip_mappings=None, virtual_network=None, vnet_name=None, vnet_resource_group_name=None, vnet_subnet_name=None, worker_pools=None):
+    def __init__(__self__, allowed_multi_sizes=None, allowed_worker_sizes=None, api_management_account_id=None, cluster_settings=None, database_edition=None, database_service_objective=None, default_front_end_scale_factor=None, dns_suffix=None, dynamic_cache_enabled=None, environment_capacities=None, environment_is_healthy=None, environment_status=None, front_end_scale_factor=None, id=None, internal_load_balancing_mode=None, ipssl_address_count=None, kind=None, last_action=None, last_action_result=None, location=None, maximum_number_of_machines=None, multi_role_count=None, multi_size=None, name=None, network_access_control_list=None, provisioning_state=None, resource_group=None, status=None, subscription_id=None, suspended=None, tags=None, type=None, upgrade_domains=None, user_whitelisted_ip_ranges=None, vip_mappings=None, virtual_network=None, vnet_name=None, vnet_resource_group_name=None, vnet_subnet_name=None, worker_pools=None):
         if allowed_multi_sizes and not isinstance(allowed_multi_sizes, str):
             raise TypeError("Expected argument 'allowed_multi_sizes' to be a str")
         pulumi.set(__self__, "allowed_multi_sizes", allowed_multi_sizes)
@@ -60,6 +60,9 @@ class GetAppServiceEnvironmentResult:
         if front_end_scale_factor and not isinstance(front_end_scale_factor, int):
             raise TypeError("Expected argument 'front_end_scale_factor' to be a int")
         pulumi.set(__self__, "front_end_scale_factor", front_end_scale_factor)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if internal_load_balancing_mode and not isinstance(internal_load_balancing_mode, str):
             raise TypeError("Expected argument 'internal_load_balancing_mode' to be a str")
         pulumi.set(__self__, "internal_load_balancing_mode", internal_load_balancing_mode)
@@ -243,6 +246,14 @@ class GetAppServiceEnvironmentResult:
         Scale factor for front-ends.
         """
         return pulumi.get(self, "front_end_scale_factor")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="internalLoadBalancingMode")
@@ -473,6 +484,7 @@ class AwaitableGetAppServiceEnvironmentResult(GetAppServiceEnvironmentResult):
             environment_is_healthy=self.environment_is_healthy,
             environment_status=self.environment_status,
             front_end_scale_factor=self.front_end_scale_factor,
+            id=self.id,
             internal_load_balancing_mode=self.internal_load_balancing_mode,
             ipssl_address_count=self.ipssl_address_count,
             kind=self.kind,
@@ -533,6 +545,7 @@ def get_app_service_environment(name: Optional[str] = None,
         environment_is_healthy=__ret__.environment_is_healthy,
         environment_status=__ret__.environment_status,
         front_end_scale_factor=__ret__.front_end_scale_factor,
+        id=__ret__.id,
         internal_load_balancing_mode=__ret__.internal_load_balancing_mode,
         ipssl_address_count=__ret__.ipssl_address_count,
         kind=__ret__.kind,

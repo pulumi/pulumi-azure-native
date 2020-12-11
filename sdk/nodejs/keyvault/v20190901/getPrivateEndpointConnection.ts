@@ -40,6 +40,10 @@ export interface GetPrivateEndpointConnectionArgs {
  */
 export interface GetPrivateEndpointConnectionResult {
     /**
+     * Fully qualified identifier of the key vault resource.
+     */
+    readonly id: string;
+    /**
      * Azure location of the key vault resource.
      */
     readonly location: string;

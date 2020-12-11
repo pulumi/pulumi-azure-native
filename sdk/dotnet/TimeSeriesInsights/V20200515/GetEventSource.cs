@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20200515
     public sealed class GetEventSourceResult
     {
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The kind of the event source.
         /// </summary>
         public readonly string Kind;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20200515
 
         [OutputConstructor]
         private GetEventSourceResult(
+            string id,
+
             string kind,
 
             string location,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20200515
 
             string type)
         {
+            Id = id;
             Kind = kind;
             Location = location;
             Name = name;

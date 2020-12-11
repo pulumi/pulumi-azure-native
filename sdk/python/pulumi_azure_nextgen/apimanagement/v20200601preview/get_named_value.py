@@ -20,10 +20,13 @@ class GetNamedValueResult:
     """
     NamedValue details.
     """
-    def __init__(__self__, display_name=None, key_vault=None, name=None, secret=None, tags=None, type=None, value=None):
+    def __init__(__self__, display_name=None, id=None, key_vault=None, name=None, secret=None, tags=None, type=None, value=None):
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if key_vault and not isinstance(key_vault, dict):
             raise TypeError("Expected argument 'key_vault' to be a dict")
         pulumi.set(__self__, "key_vault", key_vault)
@@ -50,6 +53,14 @@ class GetNamedValueResult:
         Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="keyVault")
@@ -107,6 +118,7 @@ class AwaitableGetNamedValueResult(GetNamedValueResult):
             yield self
         return GetNamedValueResult(
             display_name=self.display_name,
+            id=self.id,
             key_vault=self.key_vault,
             name=self.name,
             secret=self.secret,
@@ -138,6 +150,7 @@ def get_named_value(named_value_id: Optional[str] = None,
 
     return AwaitableGetNamedValueResult(
         display_name=__ret__.display_name,
+        id=__ret__.id,
         key_vault=__ret__.key_vault,
         name=__ret__.name,
         secret=__ret__.secret,

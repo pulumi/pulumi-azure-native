@@ -44,6 +44,10 @@ export interface GetServerTrustGroupResult {
      */
     readonly groupMembers: outputs.sql.v20200202preview.ServerInfoResponse[];
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

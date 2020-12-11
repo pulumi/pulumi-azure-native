@@ -20,13 +20,16 @@ class GetDiagnosticSettingResult:
     """
     The diagnostic setting resource.
     """
-    def __init__(__self__, event_hub_authorization_rule_id=None, event_hub_name=None, log_analytics_destination_type=None, logs=None, metrics=None, name=None, service_bus_rule_id=None, storage_account_id=None, type=None, workspace_id=None):
+    def __init__(__self__, event_hub_authorization_rule_id=None, event_hub_name=None, id=None, log_analytics_destination_type=None, logs=None, metrics=None, name=None, service_bus_rule_id=None, storage_account_id=None, type=None, workspace_id=None):
         if event_hub_authorization_rule_id and not isinstance(event_hub_authorization_rule_id, str):
             raise TypeError("Expected argument 'event_hub_authorization_rule_id' to be a str")
         pulumi.set(__self__, "event_hub_authorization_rule_id", event_hub_authorization_rule_id)
         if event_hub_name and not isinstance(event_hub_name, str):
             raise TypeError("Expected argument 'event_hub_name' to be a str")
         pulumi.set(__self__, "event_hub_name", event_hub_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if log_analytics_destination_type and not isinstance(log_analytics_destination_type, str):
             raise TypeError("Expected argument 'log_analytics_destination_type' to be a str")
         pulumi.set(__self__, "log_analytics_destination_type", log_analytics_destination_type)
@@ -67,6 +70,14 @@ class GetDiagnosticSettingResult:
         The name of the event hub. If none is specified, the default event hub will be selected.
         """
         return pulumi.get(self, "event_hub_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="logAnalyticsDestinationType")
@@ -141,6 +152,7 @@ class AwaitableGetDiagnosticSettingResult(GetDiagnosticSettingResult):
         return GetDiagnosticSettingResult(
             event_hub_authorization_rule_id=self.event_hub_authorization_rule_id,
             event_hub_name=self.event_hub_name,
+            id=self.id,
             log_analytics_destination_type=self.log_analytics_destination_type,
             logs=self.logs,
             metrics=self.metrics,
@@ -172,6 +184,7 @@ def get_diagnostic_setting(name: Optional[str] = None,
     return AwaitableGetDiagnosticSettingResult(
         event_hub_authorization_rule_id=__ret__.event_hub_authorization_rule_id,
         event_hub_name=__ret__.event_hub_name,
+        id=__ret__.id,
         log_analytics_destination_type=__ret__.log_analytics_destination_type,
         logs=__ret__.logs,
         metrics=__ret__.metrics,

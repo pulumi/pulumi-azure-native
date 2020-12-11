@@ -19,7 +19,10 @@ class GetSqlPoolTransparentDataEncryptionResult:
     """
     Represents a Sql pool transparent data encryption configuration.
     """
-    def __init__(__self__, location=None, name=None, status=None, type=None):
+    def __init__(__self__, id=None, location=None, name=None, status=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -32,6 +35,14 @@ class GetSqlPoolTransparentDataEncryptionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -72,6 +83,7 @@ class AwaitableGetSqlPoolTransparentDataEncryptionResult(GetSqlPoolTransparentDa
         if False:
             yield self
         return GetSqlPoolTransparentDataEncryptionResult(
+            id=self.id,
             location=self.location,
             name=self.name,
             status=self.status,
@@ -103,6 +115,7 @@ def get_sql_pool_transparent_data_encryption(resource_group_name: Optional[str] 
     __ret__ = pulumi.runtime.invoke('azure-nextgen:synapse/v20190601preview:getSqlPoolTransparentDataEncryption', __args__, opts=opts, typ=GetSqlPoolTransparentDataEncryptionResult).value
 
     return AwaitableGetSqlPoolTransparentDataEncryptionResult(
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         status=__ret__.status,

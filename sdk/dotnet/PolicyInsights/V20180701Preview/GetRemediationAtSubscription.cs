@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.PolicyInsights.V20180701Preview
         /// </summary>
         public readonly Outputs.RemediationFiltersResponse? Filters;
         /// <summary>
+        /// The ID of the remediation.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The time at which the remediation was last updated.
         /// </summary>
         public readonly string LastUpdatedOn;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.PolicyInsights.V20180701Preview
 
             Outputs.RemediationFiltersResponse? filters,
 
+            string id,
+
             string lastUpdatedOn,
 
             string name,
@@ -93,6 +99,7 @@ namespace Pulumi.AzureNextGen.PolicyInsights.V20180701Preview
             CreatedOn = createdOn;
             DeploymentStatus = deploymentStatus;
             Filters = filters;
+            Id = id;
             LastUpdatedOn = lastUpdatedOn;
             Name = name;
             PolicyAssignmentId = policyAssignmentId;

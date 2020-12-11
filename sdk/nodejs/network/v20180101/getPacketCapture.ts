@@ -46,6 +46,10 @@ export interface GetPacketCaptureResult {
     readonly etag?: string;
     readonly filters?: outputs.network.v20180101.PacketCaptureFilterResponse[];
     /**
+     * ID of the packet capture.
+     */
+    readonly id: string;
+    /**
      * Name of the packet capture.
      */
     readonly name: string;

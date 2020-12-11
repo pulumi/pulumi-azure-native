@@ -20,10 +20,13 @@ class GetProtectionContainerResult:
     """
     Base class for container with backup items. Containers with specific workloads are derived from this class.
     """
-    def __init__(__self__, e_tag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, e_tag=None, id=None, location=None, name=None, properties=None, tags=None, type=None):
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -47,6 +50,14 @@ class GetProtectionContainerResult:
         Optional ETag.
         """
         return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id represents the complete path to the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -96,6 +107,7 @@ class AwaitableGetProtectionContainerResult(GetProtectionContainerResult):
             yield self
         return GetProtectionContainerResult(
             e_tag=self.e_tag,
+            id=self.id,
             location=self.location,
             name=self.name,
             properties=self.properties,
@@ -129,6 +141,7 @@ def get_protection_container(container_name: Optional[str] = None,
 
     return AwaitableGetProtectionContainerResult(
         e_tag=__ret__.e_tag,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         properties=__ret__.properties,

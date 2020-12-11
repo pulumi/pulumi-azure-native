@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// </summary>
         public readonly string ContentFormat;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
 
             string contentFormat,
 
+            string id,
+
             string name,
 
             string title,
@@ -92,6 +98,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         {
             Content = content;
             ContentFormat = contentFormat;
+            Id = id;
             Name = name;
             Title = title;
             Type = type;

@@ -19,13 +19,16 @@ class GetCustomDomainResult:
     """
     Customer provided domain for branding purposes, e.g. www.contoso.com.
     """
-    def __init__(__self__, custom_https_provisioning_state=None, host_name=None, location=None, name=None, provisioning_state=None, resource_state=None, tags=None, type=None, validation_data=None):
+    def __init__(__self__, custom_https_provisioning_state=None, host_name=None, id=None, location=None, name=None, provisioning_state=None, resource_state=None, tags=None, type=None, validation_data=None):
         if custom_https_provisioning_state and not isinstance(custom_https_provisioning_state, str):
             raise TypeError("Expected argument 'custom_https_provisioning_state' to be a str")
         pulumi.set(__self__, "custom_https_provisioning_state", custom_https_provisioning_state)
         if host_name and not isinstance(host_name, str):
             raise TypeError("Expected argument 'host_name' to be a str")
         pulumi.set(__self__, "host_name", host_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -63,6 +66,14 @@ class GetCustomDomainResult:
         The host name of the custom domain. Must be a domain name.
         """
         return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -129,6 +140,7 @@ class AwaitableGetCustomDomainResult(GetCustomDomainResult):
         return GetCustomDomainResult(
             custom_https_provisioning_state=self.custom_https_provisioning_state,
             host_name=self.host_name,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -165,6 +177,7 @@ def get_custom_domain(custom_domain_name: Optional[str] = None,
     return AwaitableGetCustomDomainResult(
         custom_https_provisioning_state=__ret__.custom_https_provisioning_state,
         host_name=__ret__.host_name,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

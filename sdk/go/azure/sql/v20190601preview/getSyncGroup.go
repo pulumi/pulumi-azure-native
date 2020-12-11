@@ -35,6 +35,8 @@ type LookupSyncGroupResult struct {
 	HubDatabasePassword *string `pulumi:"hubDatabasePassword"`
 	// User name for the sync group hub database credential.
 	HubDatabaseUserName *string `pulumi:"hubDatabaseUserName"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Sync interval of the sync group.
 	Interval *int `pulumi:"interval"`
 	// Last sync time of the sync group.

@@ -29,6 +29,8 @@ type LookupRegisteredAsnArgs struct {
 type LookupRegisteredAsnResult struct {
 	// The customer's ASN from which traffic originates.
 	Asn *int `pulumi:"asn"`
+	// The ID of the resource.
+	Id string `pulumi:"id"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The peering service prefix key that is to be shared with the customer.

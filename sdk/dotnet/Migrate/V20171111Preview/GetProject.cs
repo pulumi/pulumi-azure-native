@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Migrate.V20171111Preview
         /// </summary>
         public readonly string? ETag;
         /// <summary>
+        /// Path reference to this project /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Azure location in which project is created.
         /// </summary>
         public readonly string? Location;
@@ -102,6 +106,8 @@ namespace Pulumi.AzureNextGen.Migrate.V20171111Preview
 
             string? eTag,
 
+            string id,
+
             string? location,
 
             string name,
@@ -124,6 +130,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20171111Preview
             CustomerWorkspaceId = customerWorkspaceId;
             DiscoveryStatus = discoveryStatus;
             ETag = eTag;
+            Id = id;
             Location = location;
             Name = name;
             NumberOfAssessments = numberOfAssessments;

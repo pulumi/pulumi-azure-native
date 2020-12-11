@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
     public sealed class GetIscsiTargetResult
     {
         /// <summary>
+        /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
 
         [OutputConstructor]
         private GetIscsiTargetResult(
+            string id,
+
             string name,
 
             string provisioningState,
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNextGen.StoragePool.V20200315Preview
 
             string type)
         {
+            Id = id;
             Name = name;
             ProvisioningState = provisioningState;
             Status = status;

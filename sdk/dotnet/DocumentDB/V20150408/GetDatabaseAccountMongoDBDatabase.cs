@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20150408
     public sealed class GetDatabaseAccountMongoDBDatabaseResult
     {
         /// <summary>
+        /// The unique resource identifier of the database account.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the resource group to which the resource belongs.
         /// </summary>
         public readonly string? Location;
@@ -64,6 +68,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20150408
 
         [OutputConstructor]
         private GetDatabaseAccountMongoDBDatabaseResult(
+            string id,
+
             string? location,
 
             string name,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20150408
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Tags = tags;

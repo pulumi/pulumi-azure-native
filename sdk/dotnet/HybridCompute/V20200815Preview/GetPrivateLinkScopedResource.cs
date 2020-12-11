@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20200815Preview
     public sealed class GetPrivateLinkScopedResourceResult
     {
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The resource id of the scoped Azure monitor resource.
         /// </summary>
         public readonly string? LinkedResourceId;
@@ -64,6 +68,8 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20200815Preview
 
         [OutputConstructor]
         private GetPrivateLinkScopedResourceResult(
+            string id,
+
             string? linkedResourceId,
 
             string name,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20200815Preview
 
             string type)
         {
+            Id = id;
             LinkedResourceId = linkedResourceId;
             Name = name;
             ProvisioningState = provisioningState;

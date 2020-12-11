@@ -20,13 +20,16 @@ class GetManagerResult:
     """
     The StorSimple Manager.
     """
-    def __init__(__self__, cis_intrinsic_settings=None, etag=None, location=None, name=None, provisioning_state=None, sku=None, tags=None, type=None):
+    def __init__(__self__, cis_intrinsic_settings=None, etag=None, id=None, location=None, name=None, provisioning_state=None, sku=None, tags=None, type=None):
         if cis_intrinsic_settings and not isinstance(cis_intrinsic_settings, dict):
             raise TypeError("Expected argument 'cis_intrinsic_settings' to be a dict")
         pulumi.set(__self__, "cis_intrinsic_settings", cis_intrinsic_settings)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -61,6 +64,14 @@ class GetManagerResult:
         The etag of the manager.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -119,6 +130,7 @@ class AwaitableGetManagerResult(GetManagerResult):
         return GetManagerResult(
             cis_intrinsic_settings=self.cis_intrinsic_settings,
             etag=self.etag,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -148,6 +160,7 @@ def get_manager(manager_name: Optional[str] = None,
     return AwaitableGetManagerResult(
         cis_intrinsic_settings=__ret__.cis_intrinsic_settings,
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

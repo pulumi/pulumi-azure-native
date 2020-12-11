@@ -31,6 +31,8 @@ type LookupIotHubResourceEventHubConsumerGroupArgs struct {
 type LookupIotHubResourceEventHubConsumerGroupResult struct {
 	// The etag.
 	Etag string `pulumi:"etag"`
+	// The Event Hub-compatible consumer group identifier.
+	Id string `pulumi:"id"`
 	// The Event Hub-compatible consumer group name.
 	Name string `pulumi:"name"`
 	// The tags.

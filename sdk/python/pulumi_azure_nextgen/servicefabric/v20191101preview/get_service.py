@@ -20,7 +20,7 @@ class GetServiceResult:
     """
     The service resource.
     """
-    def __init__(__self__, correlation_scheme=None, default_move_cost=None, etag=None, location=None, name=None, partition_description=None, placement_constraints=None, provisioning_state=None, service_dns_name=None, service_kind=None, service_load_metrics=None, service_package_activation_mode=None, service_placement_policies=None, service_type_name=None, tags=None, type=None):
+    def __init__(__self__, correlation_scheme=None, default_move_cost=None, etag=None, id=None, location=None, name=None, partition_description=None, placement_constraints=None, provisioning_state=None, service_dns_name=None, service_kind=None, service_load_metrics=None, service_package_activation_mode=None, service_placement_policies=None, service_type_name=None, tags=None, type=None):
         if correlation_scheme and not isinstance(correlation_scheme, list):
             raise TypeError("Expected argument 'correlation_scheme' to be a list")
         pulumi.set(__self__, "correlation_scheme", correlation_scheme)
@@ -30,6 +30,9 @@ class GetServiceResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -93,6 +96,14 @@ class GetServiceResult:
         Azure resource etag.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource identifier.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -208,6 +219,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             correlation_scheme=self.correlation_scheme,
             default_move_cost=self.default_move_cost,
             etag=self.etag,
+            id=self.id,
             location=self.location,
             name=self.name,
             partition_description=self.partition_description,
@@ -251,6 +263,7 @@ def get_service(application_name: Optional[str] = None,
         correlation_scheme=__ret__.correlation_scheme,
         default_move_cost=__ret__.default_move_cost,
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         partition_description=__ret__.partition_description,

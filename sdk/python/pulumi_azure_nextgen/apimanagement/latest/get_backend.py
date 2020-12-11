@@ -20,13 +20,16 @@ class GetBackendResult:
     """
     Backend details.
     """
-    def __init__(__self__, credentials=None, description=None, name=None, properties=None, protocol=None, proxy=None, resource_id=None, title=None, tls=None, type=None, url=None):
+    def __init__(__self__, credentials=None, description=None, id=None, name=None, properties=None, protocol=None, proxy=None, resource_id=None, title=None, tls=None, type=None, url=None):
         if credentials and not isinstance(credentials, dict):
             raise TypeError("Expected argument 'credentials' to be a dict")
         pulumi.set(__self__, "credentials", credentials)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -70,6 +73,14 @@ class GetBackendResult:
         Backend Description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -152,6 +163,7 @@ class AwaitableGetBackendResult(GetBackendResult):
         return GetBackendResult(
             credentials=self.credentials,
             description=self.description,
+            id=self.id,
             name=self.name,
             properties=self.properties,
             protocol=self.protocol,
@@ -187,6 +199,7 @@ def get_backend(backend_id: Optional[str] = None,
     return AwaitableGetBackendResult(
         credentials=__ret__.credentials,
         description=__ret__.description,
+        id=__ret__.id,
         name=__ret__.name,
         properties=__ret__.properties,
         protocol=__ret__.protocol,

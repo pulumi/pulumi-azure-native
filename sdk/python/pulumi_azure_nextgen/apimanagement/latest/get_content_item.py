@@ -19,7 +19,10 @@ class GetContentItemResult:
     """
     Content type contract details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, id=None, name=None, properties=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -29,6 +32,14 @@ class GetContentItemResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -61,6 +72,7 @@ class AwaitableGetContentItemResult(GetContentItemResult):
         if False:
             yield self
         return GetContentItemResult(
+            id=self.id,
             name=self.name,
             properties=self.properties,
             type=self.type)
@@ -91,6 +103,7 @@ def get_content_item(content_item_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:apimanagement/latest:getContentItem', __args__, opts=opts, typ=GetContentItemResult).value
 
     return AwaitableGetContentItemResult(
+        id=__ret__.id,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)

@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview
     public sealed class GetMediaServiceResult
     {
         /// <summary>
+        /// Fully qualified resource ID for the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The Azure Region of the resource.
         /// </summary>
         public readonly string? Location;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview
 
         [OutputConstructor]
         private GetMediaServiceResult(
+            string id,
+
             string? location,
 
             string mediaServiceId,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview
 
             string type)
         {
+            Id = id;
             Location = location;
             MediaServiceId = mediaServiceId;
             Name = name;

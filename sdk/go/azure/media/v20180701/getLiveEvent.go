@@ -35,6 +35,8 @@ type LookupLiveEventResult struct {
 	Description *string `pulumi:"description"`
 	// The Live Event encoding.
 	Encoding *LiveEventEncodingResponse `pulumi:"encoding"`
+	// Fully qualified resource ID for the resource.
+	Id string `pulumi:"id"`
 	// The Live Event input.
 	Input LiveEventInputResponse `pulumi:"input"`
 	// The exact time the Live Event was last modified.

@@ -50,6 +50,10 @@ export interface GetReplicationProtectedItemArgs {
  */
 export interface GetReplicationProtectedItemResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource Location
      */
     readonly location?: string;

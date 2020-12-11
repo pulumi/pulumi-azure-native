@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.DigitalTwins.V20201031
     public sealed class GetDigitalTwinsEndpointResult
     {
         /// <summary>
+        /// The resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Extension resource name.
         /// </summary>
         public readonly string Name;
@@ -60,12 +64,15 @@ namespace Pulumi.AzureNextGen.DigitalTwins.V20201031
 
         [OutputConstructor]
         private GetDigitalTwinsEndpointResult(
+            string id,
+
             string name,
 
             Union<Outputs.EventGridResponse, Union<Outputs.EventHubResponse, Outputs.ServiceBusResponse>> properties,
 
             string type)
         {
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

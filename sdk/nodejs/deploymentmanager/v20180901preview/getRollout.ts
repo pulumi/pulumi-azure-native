@@ -48,6 +48,10 @@ export interface GetRolloutResult {
      */
     readonly buildVersion: string;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * Identity for the resource.
      */
     readonly identity?: outputs.deploymentmanager.v20180901preview.IdentityResponse;

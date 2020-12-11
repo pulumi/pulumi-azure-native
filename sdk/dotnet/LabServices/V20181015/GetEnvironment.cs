@@ -76,6 +76,10 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
         /// </summary>
         public readonly string ClaimedByUserPrincipalId;
         /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Is the environment claimed or not
         /// </summary>
         public readonly bool IsClaimed;
@@ -136,6 +140,8 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
 
             string claimedByUserPrincipalId,
 
+            string id,
+
             bool isClaimed,
 
             string lastKnownPowerState,
@@ -165,6 +171,7 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
             ClaimedByUserName = claimedByUserName;
             ClaimedByUserObjectId = claimedByUserObjectId;
             ClaimedByUserPrincipalId = claimedByUserPrincipalId;
+            Id = id;
             IsClaimed = isClaimed;
             LastKnownPowerState = lastKnownPowerState;
             LatestOperationResult = latestOperationResult;

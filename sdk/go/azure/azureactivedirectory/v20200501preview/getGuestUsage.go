@@ -25,6 +25,8 @@ type LookupGuestUsageArgs struct {
 
 // Guest Usages Resource
 type LookupGuestUsageResult struct {
+	// An identifier that represents the Guest Usages resource.
+	Id string `pulumi:"id"`
 	// Location of the Guest Usages resource.
 	Location *string `pulumi:"location"`
 	// The name of the Guest Usages resource.

@@ -20,13 +20,16 @@ class GetAssessmentResult:
     """
     Security assessment on a resource
     """
-    def __init__(__self__, additional_data=None, display_name=None, links=None, metadata=None, name=None, partners_data=None, resource_details=None, status=None, type=None):
+    def __init__(__self__, additional_data=None, display_name=None, id=None, links=None, metadata=None, name=None, partners_data=None, resource_details=None, status=None, type=None):
         if additional_data and not isinstance(additional_data, dict):
             raise TypeError("Expected argument 'additional_data' to be a dict")
         pulumi.set(__self__, "additional_data", additional_data)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if links and not isinstance(links, dict):
             raise TypeError("Expected argument 'links' to be a dict")
         pulumi.set(__self__, "links", links)
@@ -64,6 +67,14 @@ class GetAssessmentResult:
         User friendly display name of the assessment
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -130,6 +141,7 @@ class AwaitableGetAssessmentResult(GetAssessmentResult):
         return GetAssessmentResult(
             additional_data=self.additional_data,
             display_name=self.display_name,
+            id=self.id,
             links=self.links,
             metadata=self.metadata,
             name=self.name,
@@ -163,6 +175,7 @@ def get_assessment(assessment_name: Optional[str] = None,
     return AwaitableGetAssessmentResult(
         additional_data=__ret__.additional_data,
         display_name=__ret__.display_name,
+        id=__ret__.id,
         links=__ret__.links,
         metadata=__ret__.metadata,
         name=__ret__.name,

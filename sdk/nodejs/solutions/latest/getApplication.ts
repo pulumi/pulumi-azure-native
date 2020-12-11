@@ -59,6 +59,10 @@ export interface GetApplicationResult {
      */
     readonly customerSupport: outputs.solutions.latest.ApplicationPackageContactResponse;
     /**
+     * Resource ID
+     */
+    readonly id: string;
+    /**
      * The identity of the resource.
      */
     readonly identity?: outputs.solutions.latest.IdentityResponse;

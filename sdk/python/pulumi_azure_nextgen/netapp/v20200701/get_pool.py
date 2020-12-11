@@ -19,7 +19,10 @@ class GetPoolResult:
     """
     Capacity pool resource
     """
-    def __init__(__self__, location=None, name=None, pool_id=None, provisioning_state=None, qos_type=None, service_level=None, size=None, tags=None, total_throughput_mibps=None, type=None, utilized_throughput_mibps=None):
+    def __init__(__self__, id=None, location=None, name=None, pool_id=None, provisioning_state=None, qos_type=None, service_level=None, size=None, tags=None, total_throughput_mibps=None, type=None, utilized_throughput_mibps=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -53,6 +56,14 @@ class GetPoolResult:
         if utilized_throughput_mibps and not isinstance(utilized_throughput_mibps, float):
             raise TypeError("Expected argument 'utilized_throughput_mibps' to be a float")
         pulumi.set(__self__, "utilized_throughput_mibps", utilized_throughput_mibps)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -149,6 +160,7 @@ class AwaitableGetPoolResult(GetPoolResult):
         if False:
             yield self
         return GetPoolResult(
+            id=self.id,
             location=self.location,
             name=self.name,
             pool_id=self.pool_id,
@@ -184,6 +196,7 @@ def get_pool(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:netapp/v20200701:getPool', __args__, opts=opts, typ=GetPoolResult).value
 
     return AwaitableGetPoolResult(
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         pool_id=__ret__.pool_id,

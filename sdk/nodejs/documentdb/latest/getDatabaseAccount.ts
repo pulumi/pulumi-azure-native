@@ -95,6 +95,10 @@ export interface GetDatabaseAccountResult {
      */
     readonly failoverPolicies: outputs.documentdb.latest.FailoverPolicyResponse[];
     /**
+     * The unique resource identifier of the ARM resource.
+     */
+    readonly id: string;
+    /**
      * List of IpRules.
      */
     readonly ipRules?: outputs.documentdb.latest.IpAddressOrRangeResponse[];

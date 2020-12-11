@@ -33,6 +33,8 @@ type LookupCertificateResult struct {
 	Description *string `pulumi:"description"`
 	// Gets the expiry time of the certificate.
 	ExpiryTime string `pulumi:"expiryTime"`
+	// Fully qualified resource Id for the resource
+	Id string `pulumi:"id"`
 	// Gets the is exportable flag of the certificate.
 	IsExportable bool `pulumi:"isExportable"`
 	// Gets the last modified time.

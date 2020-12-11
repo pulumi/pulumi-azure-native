@@ -20,7 +20,7 @@ class GetServerFarmResult:
     """
     App Service Plan Model
     """
-    def __init__(__self__, admin_site_name=None, geo_region=None, hosting_environment_profile=None, kind=None, location=None, maximum_number_of_workers=None, name=None, number_of_sites=None, per_site_scaling=None, reserved=None, resource_group=None, sku=None, status=None, subscription=None, tags=None, type=None, worker_tier_name=None):
+    def __init__(__self__, admin_site_name=None, geo_region=None, hosting_environment_profile=None, id=None, kind=None, location=None, maximum_number_of_workers=None, name=None, number_of_sites=None, per_site_scaling=None, reserved=None, resource_group=None, sku=None, status=None, subscription=None, tags=None, type=None, worker_tier_name=None):
         if admin_site_name and not isinstance(admin_site_name, str):
             raise TypeError("Expected argument 'admin_site_name' to be a str")
         pulumi.set(__self__, "admin_site_name", admin_site_name)
@@ -30,6 +30,9 @@ class GetServerFarmResult:
         if hosting_environment_profile and not isinstance(hosting_environment_profile, dict):
             raise TypeError("Expected argument 'hosting_environment_profile' to be a dict")
         pulumi.set(__self__, "hosting_environment_profile", hosting_environment_profile)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -96,6 +99,14 @@ class GetServerFarmResult:
         Specification for the hosting environment (App Service Environment) to use for the App Service Plan
         """
         return pulumi.get(self, "hosting_environment_profile")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -220,6 +231,7 @@ class AwaitableGetServerFarmResult(GetServerFarmResult):
             admin_site_name=self.admin_site_name,
             geo_region=self.geo_region,
             hosting_environment_profile=self.hosting_environment_profile,
+            id=self.id,
             kind=self.kind,
             location=self.location,
             maximum_number_of_workers=self.maximum_number_of_workers,
@@ -258,6 +270,7 @@ def get_server_farm(name: Optional[str] = None,
         admin_site_name=__ret__.admin_site_name,
         geo_region=__ret__.geo_region,
         hosting_environment_profile=__ret__.hosting_environment_profile,
+        id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
         maximum_number_of_workers=__ret__.maximum_number_of_workers,

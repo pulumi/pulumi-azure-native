@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Cache.V20171001
         /// </summary>
         public readonly string EndIP;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.Cache.V20171001
         private GetFirewallRuleResult(
             string endIP,
 
+            string id,
+
             string name,
 
             string startIP,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNextGen.Cache.V20171001
             string type)
         {
             EndIP = endIP;
+            Id = id;
             Name = name;
             StartIP = startIP;
             Type = type;

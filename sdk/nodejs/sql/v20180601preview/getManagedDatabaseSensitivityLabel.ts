@@ -60,6 +60,10 @@ export interface GetManagedDatabaseSensitivityLabelArgs {
  */
 export interface GetManagedDatabaseSensitivityLabelResult {
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * The information type.
      */
     readonly informationType?: string;

@@ -20,10 +20,13 @@ class GetRedisEnterpriseResult:
     """
     Describes the RedisEnterprise cluster
     """
-    def __init__(__self__, host_name=None, location=None, minimum_tls_version=None, name=None, private_endpoint_connections=None, provisioning_state=None, redis_version=None, resource_state=None, sku=None, tags=None, type=None, zones=None):
+    def __init__(__self__, host_name=None, id=None, location=None, minimum_tls_version=None, name=None, private_endpoint_connections=None, provisioning_state=None, redis_version=None, resource_state=None, sku=None, tags=None, type=None, zones=None):
         if host_name and not isinstance(host_name, str):
             raise TypeError("Expected argument 'host_name' to be a str")
         pulumi.set(__self__, "host_name", host_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -65,6 +68,14 @@ class GetRedisEnterpriseResult:
         DNS name of the cluster endpoint
         """
         return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -162,6 +173,7 @@ class AwaitableGetRedisEnterpriseResult(GetRedisEnterpriseResult):
             yield self
         return GetRedisEnterpriseResult(
             host_name=self.host_name,
+            id=self.id,
             location=self.location,
             minimum_tls_version=self.minimum_tls_version,
             name=self.name,
@@ -195,6 +207,7 @@ def get_redis_enterprise(cluster_name: Optional[str] = None,
 
     return AwaitableGetRedisEnterpriseResult(
         host_name=__ret__.host_name,
+        id=__ret__.id,
         location=__ret__.location,
         minimum_tls_version=__ret__.minimum_tls_version,
         name=__ret__.name,

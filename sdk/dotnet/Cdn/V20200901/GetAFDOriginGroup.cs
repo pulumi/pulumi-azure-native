@@ -51,6 +51,10 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// </summary>
         public readonly Outputs.HealthProbeParametersResponse? HealthProbeSettings;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Load balancing settings for a backend pool
         /// </summary>
         public readonly Outputs.LoadBalancingSettingsParametersResponse? LoadBalancingSettings;
@@ -89,6 +93,8 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
 
             Outputs.HealthProbeParametersResponse? healthProbeSettings,
 
+            string id,
+
             Outputs.LoadBalancingSettingsParametersResponse? loadBalancingSettings,
 
             string name,
@@ -107,6 +113,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         {
             DeploymentStatus = deploymentStatus;
             HealthProbeSettings = healthProbeSettings;
+            Id = id;
             LoadBalancingSettings = loadBalancingSettings;
             Name = name;
             ProvisioningState = provisioningState;

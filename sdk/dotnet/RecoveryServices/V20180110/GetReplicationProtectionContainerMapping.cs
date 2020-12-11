@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180110
     public sealed class GetReplicationProtectionContainerMappingResult
     {
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource Location
         /// </summary>
         public readonly string? Location;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180110
 
         [OutputConstructor]
         private GetReplicationProtectionContainerMappingResult(
+            string id,
+
             string? location,
 
             string name,
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180110
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

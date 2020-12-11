@@ -44,6 +44,10 @@ export interface GetServerKeyResult {
      */
     readonly creationDate?: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Kind of encryption protector. This is metadata used for the Azure portal experience.
      */
     readonly kind?: string;

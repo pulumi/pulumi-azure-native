@@ -96,6 +96,10 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200401
         /// </summary>
         public readonly ImmutableArray<Outputs.FailoverPolicyResponse> FailoverPolicies;
         /// <summary>
+        /// The unique resource identifier of the ARM resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// List of IpRules.
         /// </summary>
         public readonly ImmutableArray<Outputs.IpAddressOrRangeResponse> IpRules;
@@ -186,6 +190,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200401
 
             ImmutableArray<Outputs.FailoverPolicyResponse> failoverPolicies,
 
+            string id,
+
             ImmutableArray<Outputs.IpAddressOrRangeResponse> ipRules,
 
             bool? isVirtualNetworkFilterEnabled,
@@ -230,6 +236,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200401
             EnableFreeTier = enableFreeTier;
             EnableMultipleWriteLocations = enableMultipleWriteLocations;
             FailoverPolicies = failoverPolicies;
+            Id = id;
             IpRules = ipRules;
             IsVirtualNetworkFilterEnabled = isVirtualNetworkFilterEnabled;
             KeyVaultKeyUri = keyVaultKeyUri;

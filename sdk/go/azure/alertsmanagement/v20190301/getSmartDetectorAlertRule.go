@@ -35,6 +35,8 @@ type LookupSmartDetectorAlertRuleResult struct {
 	Detector DetectorResponse `pulumi:"detector"`
 	// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
 	Frequency string `pulumi:"frequency"`
+	// The resource ID.
+	Id string `pulumi:"id"`
 	// The resource name.
 	Name string `pulumi:"name"`
 	// The alert rule resources scope.

@@ -39,6 +39,10 @@ export interface GetCapacityDetailsResult {
      */
     readonly administration?: outputs.powerbidedicated.latest.DedicatedCapacityAdministratorsResponse;
     /**
+     * An identifier that represents the PowerBI Dedicated resource.
+     */
+    readonly id: string;
+    /**
      * Location of the PowerBI Dedicated resource.
      */
     readonly location: string;

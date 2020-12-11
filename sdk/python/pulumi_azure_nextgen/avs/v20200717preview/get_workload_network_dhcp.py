@@ -19,13 +19,16 @@ class GetWorkloadNetworkDhcpResult:
     """
     NSX DHCP
     """
-    def __init__(__self__, dhcp_type=None, display_name=None, name=None, provisioning_state=None, revision=None, segments=None, type=None):
+    def __init__(__self__, dhcp_type=None, display_name=None, id=None, name=None, provisioning_state=None, revision=None, segments=None, type=None):
         if dhcp_type and not isinstance(dhcp_type, str):
             raise TypeError("Expected argument 'dhcp_type' to be a str")
         pulumi.set(__self__, "dhcp_type", dhcp_type)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -57,6 +60,14 @@ class GetWorkloadNetworkDhcpResult:
         Display name of the DHCP entity.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -107,6 +118,7 @@ class AwaitableGetWorkloadNetworkDhcpResult(GetWorkloadNetworkDhcpResult):
         return GetWorkloadNetworkDhcpResult(
             dhcp_type=self.dhcp_type,
             display_name=self.display_name,
+            id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
             revision=self.revision,
@@ -138,6 +150,7 @@ def get_workload_network_dhcp(dhcp_id: Optional[str] = None,
     return AwaitableGetWorkloadNetworkDhcpResult(
         dhcp_type=__ret__.dhcp_type,
         display_name=__ret__.display_name,
+        id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         revision=__ret__.revision,

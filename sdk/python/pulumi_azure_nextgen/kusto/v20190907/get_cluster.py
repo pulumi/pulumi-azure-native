@@ -20,7 +20,7 @@ class GetClusterResult:
     """
     Class representing a Kusto cluster.
     """
-    def __init__(__self__, data_ingestion_uri=None, enable_disk_encryption=None, enable_streaming_ingest=None, identity=None, key_vault_properties=None, location=None, name=None, optimized_autoscale=None, provisioning_state=None, sku=None, state=None, tags=None, trusted_external_tenants=None, type=None, uri=None, virtual_network_configuration=None, zones=None):
+    def __init__(__self__, data_ingestion_uri=None, enable_disk_encryption=None, enable_streaming_ingest=None, id=None, identity=None, key_vault_properties=None, location=None, name=None, optimized_autoscale=None, provisioning_state=None, sku=None, state=None, tags=None, trusted_external_tenants=None, type=None, uri=None, virtual_network_configuration=None, zones=None):
         if data_ingestion_uri and not isinstance(data_ingestion_uri, str):
             raise TypeError("Expected argument 'data_ingestion_uri' to be a str")
         pulumi.set(__self__, "data_ingestion_uri", data_ingestion_uri)
@@ -30,6 +30,9 @@ class GetClusterResult:
         if enable_streaming_ingest and not isinstance(enable_streaming_ingest, bool):
             raise TypeError("Expected argument 'enable_streaming_ingest' to be a bool")
         pulumi.set(__self__, "enable_streaming_ingest", enable_streaming_ingest)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -96,6 +99,14 @@ class GetClusterResult:
         A boolean value that indicates if the streaming ingest is enabled.
         """
         return pulumi.get(self, "enable_streaming_ingest")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -219,6 +230,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             data_ingestion_uri=self.data_ingestion_uri,
             enable_disk_encryption=self.enable_disk_encryption,
             enable_streaming_ingest=self.enable_streaming_ingest,
+            id=self.id,
             identity=self.identity,
             key_vault_properties=self.key_vault_properties,
             location=self.location,
@@ -257,6 +269,7 @@ def get_cluster(cluster_name: Optional[str] = None,
         data_ingestion_uri=__ret__.data_ingestion_uri,
         enable_disk_encryption=__ret__.enable_disk_encryption,
         enable_streaming_ingest=__ret__.enable_streaming_ingest,
+        id=__ret__.id,
         identity=__ret__.identity,
         key_vault_properties=__ret__.key_vault_properties,
         location=__ret__.location,

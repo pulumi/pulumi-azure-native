@@ -60,6 +60,10 @@ export interface GetRoleAssignmentResult {
      */
     readonly displayName?: {[key: string]: string};
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Interactions set for the assignment.
      */
     readonly interactions?: outputs.customerinsights.latest.ResourceSetDescriptionResponse;

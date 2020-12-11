@@ -72,6 +72,10 @@ export interface GetVirtualNetworkResult {
      */
     readonly extendedLocation?: outputs.network.v20200701.ExtendedLocationResponse;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * Array of IpAllocation which reference this VNET.
      */
     readonly ipAllocations?: outputs.network.v20200701.SubResourceResponse[];

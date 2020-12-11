@@ -20,13 +20,16 @@ class GetKeyResult:
     """
     The key resource.
     """
-    def __init__(__self__, attributes=None, curve_name=None, key_ops=None, key_size=None, key_uri=None, key_uri_with_version=None, kty=None, location=None, name=None, tags=None, type=None):
+    def __init__(__self__, attributes=None, curve_name=None, id=None, key_ops=None, key_size=None, key_uri=None, key_uri_with_version=None, kty=None, location=None, name=None, tags=None, type=None):
         if attributes and not isinstance(attributes, dict):
             raise TypeError("Expected argument 'attributes' to be a dict")
         pulumi.set(__self__, "attributes", attributes)
         if curve_name and not isinstance(curve_name, str):
             raise TypeError("Expected argument 'curve_name' to be a str")
         pulumi.set(__self__, "curve_name", curve_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if key_ops and not isinstance(key_ops, list):
             raise TypeError("Expected argument 'key_ops' to be a list")
         pulumi.set(__self__, "key_ops", key_ops)
@@ -70,6 +73,14 @@ class GetKeyResult:
         The elliptic curve name. For valid values, see JsonWebKeyCurveName.
         """
         return pulumi.get(self, "curve_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified identifier of the key vault resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="keyOps")
@@ -149,6 +160,7 @@ class AwaitableGetKeyResult(GetKeyResult):
         return GetKeyResult(
             attributes=self.attributes,
             curve_name=self.curve_name,
+            id=self.id,
             key_ops=self.key_ops,
             key_size=self.key_size,
             key_uri=self.key_uri,
@@ -184,6 +196,7 @@ def get_key(key_name: Optional[str] = None,
     return AwaitableGetKeyResult(
         attributes=__ret__.attributes,
         curve_name=__ret__.curve_name,
+        id=__ret__.id,
         key_ops=__ret__.key_ops,
         key_size=__ret__.key_size,
         key_uri=__ret__.key_uri,

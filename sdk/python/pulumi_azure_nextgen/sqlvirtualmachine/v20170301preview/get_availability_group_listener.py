@@ -20,13 +20,16 @@ class GetAvailabilityGroupListenerResult:
     """
     A SQL Server availability group listener.
     """
-    def __init__(__self__, availability_group_name=None, create_default_availability_group_if_not_exist=None, load_balancer_configurations=None, name=None, port=None, provisioning_state=None, type=None):
+    def __init__(__self__, availability_group_name=None, create_default_availability_group_if_not_exist=None, id=None, load_balancer_configurations=None, name=None, port=None, provisioning_state=None, type=None):
         if availability_group_name and not isinstance(availability_group_name, str):
             raise TypeError("Expected argument 'availability_group_name' to be a str")
         pulumi.set(__self__, "availability_group_name", availability_group_name)
         if create_default_availability_group_if_not_exist and not isinstance(create_default_availability_group_if_not_exist, bool):
             raise TypeError("Expected argument 'create_default_availability_group_if_not_exist' to be a bool")
         pulumi.set(__self__, "create_default_availability_group_if_not_exist", create_default_availability_group_if_not_exist)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if load_balancer_configurations and not isinstance(load_balancer_configurations, list):
             raise TypeError("Expected argument 'load_balancer_configurations' to be a list")
         pulumi.set(__self__, "load_balancer_configurations", load_balancer_configurations)
@@ -58,6 +61,14 @@ class GetAvailabilityGroupListenerResult:
         Create a default availability group if it does not exist.
         """
         return pulumi.get(self, "create_default_availability_group_if_not_exist")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="loadBalancerConfigurations")
@@ -108,6 +119,7 @@ class AwaitableGetAvailabilityGroupListenerResult(GetAvailabilityGroupListenerRe
         return GetAvailabilityGroupListenerResult(
             availability_group_name=self.availability_group_name,
             create_default_availability_group_if_not_exist=self.create_default_availability_group_if_not_exist,
+            id=self.id,
             load_balancer_configurations=self.load_balancer_configurations,
             name=self.name,
             port=self.port,
@@ -139,6 +151,7 @@ def get_availability_group_listener(availability_group_listener_name: Optional[s
     return AwaitableGetAvailabilityGroupListenerResult(
         availability_group_name=__ret__.availability_group_name,
         create_default_availability_group_if_not_exist=__ret__.create_default_availability_group_if_not_exist,
+        id=__ret__.id,
         load_balancer_configurations=__ret__.load_balancer_configurations,
         name=__ret__.name,
         port=__ret__.port,

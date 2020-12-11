@@ -19,10 +19,13 @@ class GetServerDnsAliasResult:
     """
     A server DNS alias.
     """
-    def __init__(__self__, azure_dns_record=None, name=None, type=None):
+    def __init__(__self__, azure_dns_record=None, id=None, name=None, type=None):
         if azure_dns_record and not isinstance(azure_dns_record, str):
             raise TypeError("Expected argument 'azure_dns_record' to be a str")
         pulumi.set(__self__, "azure_dns_record", azure_dns_record)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -37,6 +40,14 @@ class GetServerDnsAliasResult:
         The fully qualified DNS record for alias
         """
         return pulumi.get(self, "azure_dns_record")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -62,6 +73,7 @@ class AwaitableGetServerDnsAliasResult(GetServerDnsAliasResult):
             yield self
         return GetServerDnsAliasResult(
             azure_dns_record=self.azure_dns_record,
+            id=self.id,
             name=self.name,
             type=self.type)
 
@@ -89,5 +101,6 @@ def get_server_dns_alias(dns_alias_name: Optional[str] = None,
 
     return AwaitableGetServerDnsAliasResult(
         azure_dns_record=__ret__.azure_dns_record,
+        id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type)

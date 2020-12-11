@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.NetApp.V20190601
         /// </summary>
         public readonly string? FileSystemId;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.NetApp.V20190601
 
             string? fileSystemId,
 
+            string id,
+
             string location,
 
             string name,
@@ -104,6 +110,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20190601
         {
             CreationDate = creationDate;
             FileSystemId = fileSystemId;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

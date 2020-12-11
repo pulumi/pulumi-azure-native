@@ -27,6 +27,8 @@ type LookupNamespaceVirtualNetworkRuleArgs struct {
 
 // Single item in a List or Get VirtualNetworkRules operation
 type LookupNamespaceVirtualNetworkRuleResult struct {
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// Resource type

@@ -20,7 +20,7 @@ class GetCacheResult:
     """
     A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
     """
-    def __init__(__self__, cache_size_gb=None, encryption_settings=None, health=None, identity=None, location=None, mount_addresses=None, name=None, network_settings=None, provisioning_state=None, security_settings=None, sku=None, subnet=None, system_data=None, tags=None, type=None, upgrade_status=None):
+    def __init__(__self__, cache_size_gb=None, encryption_settings=None, health=None, id=None, identity=None, location=None, mount_addresses=None, name=None, network_settings=None, provisioning_state=None, security_settings=None, sku=None, subnet=None, system_data=None, tags=None, type=None, upgrade_status=None):
         if cache_size_gb and not isinstance(cache_size_gb, int):
             raise TypeError("Expected argument 'cache_size_gb' to be a int")
         pulumi.set(__self__, "cache_size_gb", cache_size_gb)
@@ -30,6 +30,9 @@ class GetCacheResult:
         if health and not isinstance(health, dict):
             raise TypeError("Expected argument 'health' to be a dict")
         pulumi.set(__self__, "health", health)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -93,6 +96,14 @@ class GetCacheResult:
         Health of the Cache.
         """
         return pulumi.get(self, "health")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID of the Cache.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -208,6 +219,7 @@ class AwaitableGetCacheResult(GetCacheResult):
             cache_size_gb=self.cache_size_gb,
             encryption_settings=self.encryption_settings,
             health=self.health,
+            id=self.id,
             identity=self.identity,
             location=self.location,
             mount_addresses=self.mount_addresses,
@@ -245,6 +257,7 @@ def get_cache(cache_name: Optional[str] = None,
         cache_size_gb=__ret__.cache_size_gb,
         encryption_settings=__ret__.encryption_settings,
         health=__ret__.health,
+        id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
         mount_addresses=__ret__.mount_addresses,

@@ -39,6 +39,10 @@ export interface GetNamespaceNetworkRuleSetResult {
      */
     readonly defaultAction?: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * List of IpRules
      */
     readonly ipRules?: outputs.eventhub.v20170401.NWRuleSetIpRulesResponse[];

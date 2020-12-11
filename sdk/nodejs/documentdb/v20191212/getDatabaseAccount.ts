@@ -75,6 +75,10 @@ export interface GetDatabaseAccountResult {
      */
     readonly failoverPolicies: outputs.documentdb.v20191212.FailoverPolicyResponse[];
     /**
+     * The unique resource identifier of the ARM resource.
+     */
+    readonly id: string;
+    /**
      * Cosmos DB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
      */
     readonly ipRangeFilter?: string;

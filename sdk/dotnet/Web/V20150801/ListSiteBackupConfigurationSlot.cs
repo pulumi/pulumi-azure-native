@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Kind of resource
         /// </summary>
         public readonly string? Kind;
@@ -90,6 +94,8 @@ namespace Pulumi.AzureNextGen.Web.V20150801
 
             bool? enabled,
 
+            string? id,
+
             string? kind,
 
             string location,
@@ -105,6 +111,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
             BackupSchedule = backupSchedule;
             Databases = databases;
             Enabled = enabled;
+            Id = id;
             Kind = kind;
             Location = location;
             Name = name;

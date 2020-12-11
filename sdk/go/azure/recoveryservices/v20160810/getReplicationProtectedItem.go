@@ -31,6 +31,8 @@ type LookupReplicationProtectedItemArgs struct {
 
 // Replication protected item.
 type LookupReplicationProtectedItemResult struct {
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource Location
 	Location *string `pulumi:"location"`
 	// Resource Name

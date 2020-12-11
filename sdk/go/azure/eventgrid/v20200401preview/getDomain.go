@@ -27,6 +27,8 @@ type LookupDomainArgs struct {
 type LookupDomainResult struct {
 	// Endpoint for the domain.
 	Endpoint string `pulumi:"endpoint"`
+	// Fully qualified identifier of the resource.
+	Id string `pulumi:"id"`
 	// Identity information for the resource.
 	Identity *IdentityInfoResponse `pulumi:"identity"`
 	// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.

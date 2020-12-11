@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// </summary>
         public readonly string BackupPolicyCreationType;
         /// <summary>
+        /// The path ID that uniquely identifies the object.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         public readonly string? Kind;
@@ -96,6 +100,8 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         private GetBackupPolicyResult(
             string backupPolicyCreationType,
 
+            string id,
+
             string? kind,
 
             string lastBackupTime,
@@ -115,6 +121,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
             ImmutableArray<string> volumeIds)
         {
             BackupPolicyCreationType = backupPolicyCreationType;
+            Id = id;
             Kind = kind;
             LastBackupTime = lastBackupTime;
             Name = name;

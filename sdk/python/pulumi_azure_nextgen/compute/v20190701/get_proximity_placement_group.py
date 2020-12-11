@@ -20,13 +20,16 @@ class GetProximityPlacementGroupResult:
     """
     Specifies information about the proximity placement group.
     """
-    def __init__(__self__, availability_sets=None, colocation_status=None, location=None, name=None, proximity_placement_group_type=None, tags=None, type=None, virtual_machine_scale_sets=None, virtual_machines=None):
+    def __init__(__self__, availability_sets=None, colocation_status=None, id=None, location=None, name=None, proximity_placement_group_type=None, tags=None, type=None, virtual_machine_scale_sets=None, virtual_machines=None):
         if availability_sets and not isinstance(availability_sets, list):
             raise TypeError("Expected argument 'availability_sets' to be a list")
         pulumi.set(__self__, "availability_sets", availability_sets)
         if colocation_status and not isinstance(colocation_status, dict):
             raise TypeError("Expected argument 'colocation_status' to be a dict")
         pulumi.set(__self__, "colocation_status", colocation_status)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -64,6 +67,14 @@ class GetProximityPlacementGroupResult:
         Describes colocation status of the Proximity Placement Group.
         """
         return pulumi.get(self, "colocation_status")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -130,6 +141,7 @@ class AwaitableGetProximityPlacementGroupResult(GetProximityPlacementGroupResult
         return GetProximityPlacementGroupResult(
             availability_sets=self.availability_sets,
             colocation_status=self.colocation_status,
+            id=self.id,
             location=self.location,
             name=self.name,
             proximity_placement_group_type=self.proximity_placement_group_type,
@@ -163,6 +175,7 @@ def get_proximity_placement_group(include_colocation_status: Optional[str] = Non
     return AwaitableGetProximityPlacementGroupResult(
         availability_sets=__ret__.availability_sets,
         colocation_status=__ret__.colocation_status,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         proximity_placement_group_type=__ret__.proximity_placement_group_type,

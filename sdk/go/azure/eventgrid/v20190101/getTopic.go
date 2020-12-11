@@ -27,6 +27,8 @@ type LookupTopicArgs struct {
 type LookupTopicResult struct {
 	// Endpoint for the topic.
 	Endpoint string `pulumi:"endpoint"`
+	// Fully qualified identifier of the resource
+	Id string `pulumi:"id"`
 	// Location of the resource
 	Location string `pulumi:"location"`
 	// Name of the resource

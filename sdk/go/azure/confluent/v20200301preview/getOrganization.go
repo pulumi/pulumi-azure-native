@@ -27,6 +27,8 @@ type LookupOrganizationArgs struct {
 type LookupOrganizationResult struct {
 	// The creation time of the resource.
 	CreatedTime string `pulumi:"createdTime"`
+	// The ARM id of the resource.
+	Id string `pulumi:"id"`
 	// Location of Organization resource
 	Location *string `pulumi:"location"`
 	// The name of the resource.

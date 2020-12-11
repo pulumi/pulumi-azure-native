@@ -29,6 +29,8 @@ type LookupManagedInstanceAdministratorArgs struct {
 type LookupManagedInstanceAdministratorResult struct {
 	// Type of the managed instance administrator.
 	AdministratorType string `pulumi:"administratorType"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Login name of the managed instance administrator.
 	Login string `pulumi:"login"`
 	// Resource name.

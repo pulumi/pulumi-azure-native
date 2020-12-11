@@ -35,6 +35,8 @@ type LookupVirtualHubResult struct {
 	Etag string `pulumi:"etag"`
 	// The expressRouteGateway associated with this VirtualHub.
 	ExpressRouteGateway *SubResourceResponse `pulumi:"expressRouteGateway"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// List of references to IpConfigurations.
 	IpConfigurations []SubResourceResponse `pulumi:"ipConfigurations"`
 	// Resource location.

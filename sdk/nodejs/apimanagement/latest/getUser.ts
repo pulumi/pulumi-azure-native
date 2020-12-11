@@ -52,6 +52,10 @@ export interface GetUserResult {
      */
     readonly groups: outputs.apimanagement.latest.GroupContractPropertiesResponse[];
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Collection of user identities.
      */
     readonly identities?: outputs.apimanagement.latest.UserIdentityContractResponse[];

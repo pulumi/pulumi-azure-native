@@ -37,6 +37,8 @@ type LookupNetworkInterfaceResult struct {
 	Etag *string `pulumi:"etag"`
 	// A list of references to linked BareMetal resources
 	HostedWorkloads []string `pulumi:"hostedWorkloads"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// A reference to the interface endpoint to which the network interface is linked.
 	InterfaceEndpoint InterfaceEndpointResponse `pulumi:"interfaceEndpoint"`
 	// A list of IPConfigurations of the network interface.

@@ -27,6 +27,8 @@ type LookupPolicyDefinitionResult struct {
 	Description *string `pulumi:"description"`
 	// The display name of the policy definition.
 	DisplayName *string `pulumi:"displayName"`
+	// The ID of the policy definition.
+	Id string `pulumi:"id"`
 	// The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
 	Name *string `pulumi:"name"`
 	// The policy rule.

@@ -33,6 +33,8 @@ type LookupWebAppDiagnosticLogsConfigurationResult struct {
 	FailedRequestsTracing *EnabledConfigResponse `pulumi:"failedRequestsTracing"`
 	// HTTP logs configuration.
 	HttpLogs *HttpLogsConfigResponse `pulumi:"httpLogs"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.

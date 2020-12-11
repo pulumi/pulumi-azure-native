@@ -20,10 +20,13 @@ class GetFailoverGroupResult:
     """
     A failover group.
     """
-    def __init__(__self__, databases=None, location=None, name=None, partner_servers=None, read_only_endpoint=None, read_write_endpoint=None, replication_role=None, replication_state=None, tags=None, type=None):
+    def __init__(__self__, databases=None, id=None, location=None, name=None, partner_servers=None, read_only_endpoint=None, read_write_endpoint=None, replication_role=None, replication_state=None, tags=None, type=None):
         if databases and not isinstance(databases, list):
             raise TypeError("Expected argument 'databases' to be a list")
         pulumi.set(__self__, "databases", databases)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -59,6 +62,14 @@ class GetFailoverGroupResult:
         List of databases in the failover group.
         """
         return pulumi.get(self, "databases")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -140,6 +151,7 @@ class AwaitableGetFailoverGroupResult(GetFailoverGroupResult):
             yield self
         return GetFailoverGroupResult(
             databases=self.databases,
+            id=self.id,
             location=self.location,
             name=self.name,
             partner_servers=self.partner_servers,
@@ -174,6 +186,7 @@ def get_failover_group(failover_group_name: Optional[str] = None,
 
     return AwaitableGetFailoverGroupResult(
         databases=__ret__.databases,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         partner_servers=__ret__.partner_servers,

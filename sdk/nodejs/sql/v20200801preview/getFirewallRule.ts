@@ -44,6 +44,10 @@ export interface GetFirewallRuleResult {
      */
     readonly endIpAddress?: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name?: string;

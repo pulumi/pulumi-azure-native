@@ -20,7 +20,10 @@ class GetInstancePoolResult:
     """
     An Azure SQL instance pool.
     """
-    def __init__(__self__, license_type=None, location=None, name=None, sku=None, subnet_id=None, tags=None, type=None, v_cores=None):
+    def __init__(__self__, id=None, license_type=None, location=None, name=None, sku=None, subnet_id=None, tags=None, type=None, v_cores=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if license_type and not isinstance(license_type, str):
             raise TypeError("Expected argument 'license_type' to be a str")
         pulumi.set(__self__, "license_type", license_type)
@@ -45,6 +48,14 @@ class GetInstancePoolResult:
         if v_cores and not isinstance(v_cores, int):
             raise TypeError("Expected argument 'v_cores' to be a int")
         pulumi.set(__self__, "v_cores", v_cores)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="licenseType")
@@ -117,6 +128,7 @@ class AwaitableGetInstancePoolResult(GetInstancePoolResult):
         if False:
             yield self
         return GetInstancePoolResult(
+            id=self.id,
             license_type=self.license_type,
             location=self.location,
             name=self.name,
@@ -146,6 +158,7 @@ def get_instance_pool(instance_pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:sql/v20200801preview:getInstancePool', __args__, opts=opts, typ=GetInstancePoolResult).value
 
     return AwaitableGetInstancePoolResult(
+        id=__ret__.id,
         license_type=__ret__.license_type,
         location=__ret__.location,
         name=__ret__.name,

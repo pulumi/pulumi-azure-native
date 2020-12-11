@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly ImmutableArray<Outputs.EndpointResponse> Endpoints;
         /// <summary>
+        /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The Azure Region where the resource lives
         /// </summary>
         public readonly string? Location;
@@ -90,6 +94,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             ImmutableArray<Outputs.EndpointResponse> endpoints,
 
+            string? id,
+
             string? location,
 
             int? maxReturn,
@@ -110,6 +116,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
         {
             DnsConfig = dnsConfig;
             Endpoints = endpoints;
+            Id = id;
             Location = location;
             MaxReturn = maxReturn;
             MonitorConfig = monitorConfig;

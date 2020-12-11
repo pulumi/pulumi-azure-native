@@ -27,6 +27,8 @@ type LookupLinkedServiceArgs struct {
 
 // The top level Linked service resource container.
 type LookupLinkedServiceResult struct {
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The resource id of the resource that will be linked to the workspace.

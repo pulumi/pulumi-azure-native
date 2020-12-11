@@ -20,7 +20,7 @@ class GetApplicationGatewayResult:
     """
     Application gateway resource
     """
-    def __init__(__self__, authentication_certificates=None, autoscale_configuration=None, backend_address_pools=None, backend_http_settings_collection=None, custom_error_configurations=None, enable_fips=None, enable_http2=None, etag=None, firewall_policy=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, identity=None, location=None, name=None, operational_state=None, probes=None, provisioning_state=None, redirect_configurations=None, request_routing_rules=None, resource_guid=None, rewrite_rule_sets=None, sku=None, ssl_certificates=None, ssl_policy=None, tags=None, trusted_root_certificates=None, type=None, url_path_maps=None, web_application_firewall_configuration=None, zones=None):
+    def __init__(__self__, authentication_certificates=None, autoscale_configuration=None, backend_address_pools=None, backend_http_settings_collection=None, custom_error_configurations=None, enable_fips=None, enable_http2=None, etag=None, firewall_policy=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, id=None, identity=None, location=None, name=None, operational_state=None, probes=None, provisioning_state=None, redirect_configurations=None, request_routing_rules=None, resource_guid=None, rewrite_rule_sets=None, sku=None, ssl_certificates=None, ssl_policy=None, tags=None, trusted_root_certificates=None, type=None, url_path_maps=None, web_application_firewall_configuration=None, zones=None):
         if authentication_certificates and not isinstance(authentication_certificates, list):
             raise TypeError("Expected argument 'authentication_certificates' to be a list")
         pulumi.set(__self__, "authentication_certificates", authentication_certificates)
@@ -60,6 +60,9 @@ class GetApplicationGatewayResult:
         if http_listeners and not isinstance(http_listeners, list):
             raise TypeError("Expected argument 'http_listeners' to be a list")
         pulumi.set(__self__, "http_listeners", http_listeners)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -221,6 +224,14 @@ class GetApplicationGatewayResult:
         Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         """
         return pulumi.get(self, "http_listeners")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -394,6 +405,7 @@ class AwaitableGetApplicationGatewayResult(GetApplicationGatewayResult):
             frontend_ports=self.frontend_ports,
             gateway_ip_configurations=self.gateway_ip_configurations,
             http_listeners=self.http_listeners,
+            id=self.id,
             identity=self.identity,
             location=self.location,
             name=self.name,
@@ -447,6 +459,7 @@ def get_application_gateway(application_gateway_name: Optional[str] = None,
         frontend_ports=__ret__.frontend_ports,
         gateway_ip_configurations=__ret__.gateway_ip_configurations,
         http_listeners=__ret__.http_listeners,
+        id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,

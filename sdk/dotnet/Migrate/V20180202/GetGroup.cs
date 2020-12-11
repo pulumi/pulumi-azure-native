@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Migrate.V20180202
         /// </summary>
         public readonly string? ETag;
         /// <summary>
+        /// Path reference to this group. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// List of machine names that are part of this group.
         /// </summary>
         public readonly ImmutableArray<string> Machines;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNextGen.Migrate.V20180202
 
             string? eTag,
 
+            string id,
+
             ImmutableArray<string> machines,
 
             string name,
@@ -93,6 +99,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20180202
             Assessments = assessments;
             CreatedTimestamp = createdTimestamp;
             ETag = eTag;
+            Id = id;
             Machines = machines;
             Name = name;
             Type = type;

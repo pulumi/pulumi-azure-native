@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Insights.V20191101Preview
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Fully qualified ID of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.Insights.V20191101Preview
 
             string etag,
 
+            string id,
+
             string name,
 
             string provisioningState,
@@ -81,6 +87,7 @@ namespace Pulumi.AzureNextGen.Insights.V20191101Preview
             DataCollectionRuleId = dataCollectionRuleId;
             Description = description;
             Etag = etag;
+            Id = id;
             Name = name;
             ProvisioningState = provisioningState;
             Type = type;

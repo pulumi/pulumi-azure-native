@@ -20,7 +20,7 @@ class GetSavedSearchResult:
     """
     Value object for saved search results.
     """
-    def __init__(__self__, category=None, display_name=None, e_tag=None, name=None, query=None, tags=None, type=None, version=None):
+    def __init__(__self__, category=None, display_name=None, e_tag=None, id=None, name=None, query=None, tags=None, type=None, version=None):
         if category and not isinstance(category, str):
             raise TypeError("Expected argument 'category' to be a str")
         pulumi.set(__self__, "category", category)
@@ -30,6 +30,9 @@ class GetSavedSearchResult:
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -69,6 +72,14 @@ class GetSavedSearchResult:
         The ETag of the saved search.
         """
         return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The id of the saved search.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -120,6 +131,7 @@ class AwaitableGetSavedSearchResult(GetSavedSearchResult):
             category=self.category,
             display_name=self.display_name,
             e_tag=self.e_tag,
+            id=self.id,
             name=self.name,
             query=self.query,
             tags=self.tags,
@@ -152,6 +164,7 @@ def get_saved_search(resource_group_name: Optional[str] = None,
         category=__ret__.category,
         display_name=__ret__.display_name,
         e_tag=__ret__.e_tag,
+        id=__ret__.id,
         name=__ret__.name,
         query=__ret__.query,
         tags=__ret__.tags,

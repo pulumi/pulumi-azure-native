@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
         /// </summary>
         public readonly string DatabaseId;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string Location;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
         private GetJobAgentResult(
             string databaseId,
 
+            string id,
+
             string location,
 
             string name,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
             string type)
         {
             DatabaseId = databaseId;
+            Id = id;
             Location = location;
             Name = name;
             Sku = sku;

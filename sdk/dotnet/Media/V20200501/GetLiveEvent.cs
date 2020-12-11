@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         /// </summary>
         public readonly string? HostnamePrefix;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Live event input settings. It defines how the live event receives input from a contribution encoder.
         /// </summary>
         public readonly Outputs.LiveEventInputResponse Input;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNextGen.Media.V20200501
 
             string? hostnamePrefix,
 
+            string id,
+
             Outputs.LiveEventInputResponse input,
 
             string lastModified,
@@ -155,6 +161,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501
             Description = description;
             Encoding = encoding;
             HostnamePrefix = hostnamePrefix;
+            Id = id;
             Input = input;
             LastModified = lastModified;
             Location = location;

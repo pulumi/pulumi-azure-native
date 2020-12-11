@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         public readonly string? CreationDate;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
             string? creationDate,
 
+            string id,
+
             string location,
 
             int? maxSizeBytes,
@@ -135,6 +141,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
             Collation = collation;
             CreateMode = createMode;
             CreationDate = creationDate;
+            Id = id;
             Location = location;
             MaxSizeBytes = maxSizeBytes;
             Name = name;

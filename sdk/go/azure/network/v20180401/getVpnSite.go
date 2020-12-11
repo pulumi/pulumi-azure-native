@@ -33,6 +33,8 @@ type LookupVpnSiteResult struct {
 	DeviceProperties *DevicePropertiesResponse `pulumi:"deviceProperties"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// The ip-address for the vpn-site.
 	IpAddress *string `pulumi:"ipAddress"`
 	// Resource location.

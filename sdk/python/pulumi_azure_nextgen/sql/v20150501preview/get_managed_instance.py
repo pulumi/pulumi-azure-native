@@ -20,7 +20,7 @@ class GetManagedInstanceResult:
     """
     An Azure SQL managed instance.
     """
-    def __init__(__self__, administrator_login=None, administrator_login_password=None, collation=None, dns_zone=None, dns_zone_partner=None, fully_qualified_domain_name=None, identity=None, instance_pool_id=None, license_type=None, location=None, maintenance_configuration_id=None, managed_instance_create_mode=None, minimal_tls_version=None, name=None, proxy_override=None, public_data_endpoint_enabled=None, restore_point_in_time=None, sku=None, source_managed_instance_id=None, state=None, storage_size_in_gb=None, subnet_id=None, tags=None, timezone_id=None, type=None, v_cores=None):
+    def __init__(__self__, administrator_login=None, administrator_login_password=None, collation=None, dns_zone=None, dns_zone_partner=None, fully_qualified_domain_name=None, id=None, identity=None, instance_pool_id=None, license_type=None, location=None, maintenance_configuration_id=None, managed_instance_create_mode=None, minimal_tls_version=None, name=None, proxy_override=None, public_data_endpoint_enabled=None, restore_point_in_time=None, sku=None, source_managed_instance_id=None, state=None, storage_size_in_gb=None, subnet_id=None, tags=None, timezone_id=None, type=None, v_cores=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
@@ -39,6 +39,9 @@ class GetManagedInstanceResult:
         if fully_qualified_domain_name and not isinstance(fully_qualified_domain_name, str):
             raise TypeError("Expected argument 'fully_qualified_domain_name' to be a str")
         pulumi.set(__self__, "fully_qualified_domain_name", fully_qualified_domain_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -147,6 +150,14 @@ class GetManagedInstanceResult:
         The fully qualified domain name of the managed instance.
         """
         return pulumi.get(self, "fully_qualified_domain_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -330,6 +341,7 @@ class AwaitableGetManagedInstanceResult(GetManagedInstanceResult):
             dns_zone=self.dns_zone,
             dns_zone_partner=self.dns_zone_partner,
             fully_qualified_domain_name=self.fully_qualified_domain_name,
+            id=self.id,
             identity=self.identity,
             instance_pool_id=self.instance_pool_id,
             license_type=self.license_type,
@@ -377,6 +389,7 @@ def get_managed_instance(managed_instance_name: Optional[str] = None,
         dns_zone=__ret__.dns_zone,
         dns_zone_partner=__ret__.dns_zone_partner,
         fully_qualified_domain_name=__ret__.fully_qualified_domain_name,
+        id=__ret__.id,
         identity=__ret__.identity,
         instance_pool_id=__ret__.instance_pool_id,
         license_type=__ret__.license_type,

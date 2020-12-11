@@ -20,7 +20,7 @@ class GetRegistryResult:
     """
     An object that represents a container registry.
     """
-    def __init__(__self__, admin_user_enabled=None, creation_date=None, data_endpoint_enabled=None, data_endpoint_host_names=None, encryption=None, identity=None, location=None, login_server=None, name=None, network_rule_set=None, policies=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, status=None, storage_account=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, admin_user_enabled=None, creation_date=None, data_endpoint_enabled=None, data_endpoint_host_names=None, encryption=None, id=None, identity=None, location=None, login_server=None, name=None, network_rule_set=None, policies=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, status=None, storage_account=None, system_data=None, tags=None, type=None):
         if admin_user_enabled and not isinstance(admin_user_enabled, bool):
             raise TypeError("Expected argument 'admin_user_enabled' to be a bool")
         pulumi.set(__self__, "admin_user_enabled", admin_user_enabled)
@@ -36,6 +36,9 @@ class GetRegistryResult:
         if encryption and not isinstance(encryption, dict):
             raise TypeError("Expected argument 'encryption' to be a dict")
         pulumi.set(__self__, "encryption", encryption)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -121,6 +124,14 @@ class GetRegistryResult:
         The encryption settings of container registry.
         """
         return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -254,6 +265,7 @@ class AwaitableGetRegistryResult(GetRegistryResult):
             data_endpoint_enabled=self.data_endpoint_enabled,
             data_endpoint_host_names=self.data_endpoint_host_names,
             encryption=self.encryption,
+            id=self.id,
             identity=self.identity,
             location=self.location,
             login_server=self.login_server,
@@ -295,6 +307,7 @@ def get_registry(registry_name: Optional[str] = None,
         data_endpoint_enabled=__ret__.data_endpoint_enabled,
         data_endpoint_host_names=__ret__.data_endpoint_host_names,
         encryption=__ret__.encryption,
+        id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
         login_server=__ret__.login_server,

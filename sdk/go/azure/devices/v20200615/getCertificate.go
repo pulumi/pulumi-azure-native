@@ -29,6 +29,8 @@ type LookupCertificateArgs struct {
 type LookupCertificateResult struct {
 	// The entity tag.
 	Etag string `pulumi:"etag"`
+	// The resource identifier.
+	Id string `pulumi:"id"`
 	// The name of the certificate.
 	Name string `pulumi:"name"`
 	// The description of an X509 CA Certificate.

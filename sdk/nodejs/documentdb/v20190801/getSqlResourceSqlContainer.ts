@@ -45,6 +45,10 @@ export interface GetSqlResourceSqlContainerArgs {
  */
 export interface GetSqlResourceSqlContainerResult {
     /**
+     * The unique resource identifier of the ARM resource.
+     */
+    readonly id: string;
+    /**
      * The location of the resource group to which the resource belongs.
      */
     readonly location?: string;

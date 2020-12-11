@@ -29,6 +29,8 @@ type LookupServerAzureADAdministratorArgs struct {
 type LookupServerAzureADAdministratorResult struct {
 	// The type of administrator.
 	AdministratorType string `pulumi:"administratorType"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// The server administrator login value.
 	Login string `pulumi:"login"`
 	// Resource name.

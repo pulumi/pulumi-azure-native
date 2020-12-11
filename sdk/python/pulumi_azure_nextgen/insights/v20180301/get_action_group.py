@@ -20,7 +20,7 @@ class GetActionGroupResult:
     """
     An action group resource.
     """
-    def __init__(__self__, automation_runbook_receivers=None, azure_app_push_receivers=None, azure_function_receivers=None, email_receivers=None, enabled=None, group_short_name=None, itsm_receivers=None, location=None, logic_app_receivers=None, name=None, sms_receivers=None, tags=None, type=None, voice_receivers=None, webhook_receivers=None):
+    def __init__(__self__, automation_runbook_receivers=None, azure_app_push_receivers=None, azure_function_receivers=None, email_receivers=None, enabled=None, group_short_name=None, id=None, itsm_receivers=None, location=None, logic_app_receivers=None, name=None, sms_receivers=None, tags=None, type=None, voice_receivers=None, webhook_receivers=None):
         if automation_runbook_receivers and not isinstance(automation_runbook_receivers, list):
             raise TypeError("Expected argument 'automation_runbook_receivers' to be a list")
         pulumi.set(__self__, "automation_runbook_receivers", automation_runbook_receivers)
@@ -39,6 +39,9 @@ class GetActionGroupResult:
         if group_short_name and not isinstance(group_short_name, str):
             raise TypeError("Expected argument 'group_short_name' to be a str")
         pulumi.set(__self__, "group_short_name", group_short_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if itsm_receivers and not isinstance(itsm_receivers, list):
             raise TypeError("Expected argument 'itsm_receivers' to be a list")
         pulumi.set(__self__, "itsm_receivers", itsm_receivers)
@@ -114,6 +117,14 @@ class GetActionGroupResult:
         The short name of the action group. This will be used in SMS messages.
         """
         return pulumi.get(self, "group_short_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="itsmReceivers")
@@ -200,6 +211,7 @@ class AwaitableGetActionGroupResult(GetActionGroupResult):
             email_receivers=self.email_receivers,
             enabled=self.enabled,
             group_short_name=self.group_short_name,
+            id=self.id,
             itsm_receivers=self.itsm_receivers,
             location=self.location,
             logic_app_receivers=self.logic_app_receivers,
@@ -236,6 +248,7 @@ def get_action_group(action_group_name: Optional[str] = None,
         email_receivers=__ret__.email_receivers,
         enabled=__ret__.enabled,
         group_short_name=__ret__.group_short_name,
+        id=__ret__.id,
         itsm_receivers=__ret__.itsm_receivers,
         location=__ret__.location,
         logic_app_receivers=__ret__.logic_app_receivers,

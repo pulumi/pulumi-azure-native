@@ -82,6 +82,10 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
         /// </summary>
         public readonly string? HostCaching;
         /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The resource ID of the VM to which this disk is leased.
         /// </summary>
         public readonly string? LeasedByLabVmId;
@@ -128,6 +132,8 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
 
             string? hostCaching,
 
+            string id,
+
             string? leasedByLabVmId,
 
             string? location,
@@ -150,6 +156,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
             DiskType = diskType;
             DiskUri = diskUri;
             HostCaching = hostCaching;
+            Id = id;
             LeasedByLabVmId = leasedByLabVmId;
             Location = location;
             ManagedDiskId = managedDiskId;

@@ -19,7 +19,7 @@ class GetIscsiDiskResult:
     """
     The iSCSI disk.
     """
-    def __init__(__self__, access_control_records=None, data_policy=None, description=None, disk_status=None, local_used_capacity_in_bytes=None, monitoring_status=None, name=None, provisioned_capacity_in_bytes=None, type=None, used_capacity_in_bytes=None):
+    def __init__(__self__, access_control_records=None, data_policy=None, description=None, disk_status=None, id=None, local_used_capacity_in_bytes=None, monitoring_status=None, name=None, provisioned_capacity_in_bytes=None, type=None, used_capacity_in_bytes=None):
         if access_control_records and not isinstance(access_control_records, list):
             raise TypeError("Expected argument 'access_control_records' to be a list")
         pulumi.set(__self__, "access_control_records", access_control_records)
@@ -32,6 +32,9 @@ class GetIscsiDiskResult:
         if disk_status and not isinstance(disk_status, str):
             raise TypeError("Expected argument 'disk_status' to be a str")
         pulumi.set(__self__, "disk_status", disk_status)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if local_used_capacity_in_bytes and not isinstance(local_used_capacity_in_bytes, int):
             raise TypeError("Expected argument 'local_used_capacity_in_bytes' to be a int")
         pulumi.set(__self__, "local_used_capacity_in_bytes", local_used_capacity_in_bytes)
@@ -82,6 +85,14 @@ class GetIscsiDiskResult:
         The disk status.
         """
         return pulumi.get(self, "disk_status")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="localUsedCapacityInBytes")
@@ -142,6 +153,7 @@ class AwaitableGetIscsiDiskResult(GetIscsiDiskResult):
             data_policy=self.data_policy,
             description=self.description,
             disk_status=self.disk_status,
+            id=self.id,
             local_used_capacity_in_bytes=self.local_used_capacity_in_bytes,
             monitoring_status=self.monitoring_status,
             name=self.name,
@@ -182,6 +194,7 @@ def get_iscsi_disk(device_name: Optional[str] = None,
         data_policy=__ret__.data_policy,
         description=__ret__.description,
         disk_status=__ret__.disk_status,
+        id=__ret__.id,
         local_used_capacity_in_bytes=__ret__.local_used_capacity_in_bytes,
         monitoring_status=__ret__.monitoring_status,
         name=__ret__.name,

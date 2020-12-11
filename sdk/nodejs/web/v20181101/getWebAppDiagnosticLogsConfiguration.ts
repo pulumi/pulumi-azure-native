@@ -51,6 +51,10 @@ export interface GetWebAppDiagnosticLogsConfigurationResult {
      */
     readonly httpLogs?: outputs.web.v20181101.HttpLogsConfigResponse;
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;

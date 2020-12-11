@@ -44,6 +44,10 @@ export interface GetDatasetResult {
      */
     readonly etag: string;
     /**
+     * The resource identifier.
+     */
+    readonly id: string;
+    /**
      * The resource name.
      */
     readonly name: string;

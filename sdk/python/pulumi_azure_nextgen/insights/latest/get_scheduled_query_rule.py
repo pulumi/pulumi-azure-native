@@ -20,7 +20,7 @@ class GetScheduledQueryRuleResult:
     """
     The Log Search Rule resource.
     """
-    def __init__(__self__, action=None, description=None, enabled=None, last_updated_time=None, location=None, name=None, provisioning_state=None, schedule=None, source=None, tags=None, type=None):
+    def __init__(__self__, action=None, description=None, enabled=None, id=None, last_updated_time=None, location=None, name=None, provisioning_state=None, schedule=None, source=None, tags=None, type=None):
         if action and not isinstance(action, dict):
             raise TypeError("Expected argument 'action' to be a dict")
         pulumi.set(__self__, "action", action)
@@ -30,6 +30,9 @@ class GetScheduledQueryRuleResult:
         if enabled and not isinstance(enabled, str):
             raise TypeError("Expected argument 'enabled' to be a str")
         pulumi.set(__self__, "enabled", enabled)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_updated_time and not isinstance(last_updated_time, str):
             raise TypeError("Expected argument 'last_updated_time' to be a str")
         pulumi.set(__self__, "last_updated_time", last_updated_time)
@@ -78,6 +81,14 @@ class GetScheduledQueryRuleResult:
         The flag which indicates whether the Log Search rule is enabled. Value should be true or false
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
@@ -153,6 +164,7 @@ class AwaitableGetScheduledQueryRuleResult(GetScheduledQueryRuleResult):
             action=self.action,
             description=self.description,
             enabled=self.enabled,
+            id=self.id,
             last_updated_time=self.last_updated_time,
             location=self.location,
             name=self.name,
@@ -185,6 +197,7 @@ def get_scheduled_query_rule(resource_group_name: Optional[str] = None,
         action=__ret__.action,
         description=__ret__.description,
         enabled=__ret__.enabled,
+        id=__ret__.id,
         last_updated_time=__ret__.last_updated_time,
         location=__ret__.location,
         name=__ret__.name,

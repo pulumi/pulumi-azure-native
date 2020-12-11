@@ -20,13 +20,16 @@ class GetCacheResult:
     """
     A cache instance.  Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
     """
-    def __init__(__self__, cache_size_gb=None, health=None, location=None, mount_addresses=None, name=None, provisioning_state=None, sku=None, subnet=None, tags=None, type=None, upgrade_status=None):
+    def __init__(__self__, cache_size_gb=None, health=None, id=None, location=None, mount_addresses=None, name=None, provisioning_state=None, sku=None, subnet=None, tags=None, type=None, upgrade_status=None):
         if cache_size_gb and not isinstance(cache_size_gb, int):
             raise TypeError("Expected argument 'cache_size_gb' to be a int")
         pulumi.set(__self__, "cache_size_gb", cache_size_gb)
         if health and not isinstance(health, dict):
             raise TypeError("Expected argument 'health' to be a dict")
         pulumi.set(__self__, "health", health)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -70,6 +73,14 @@ class GetCacheResult:
         Health of the cache.
         """
         return pulumi.get(self, "health")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified URL of the cache.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -152,6 +163,7 @@ class AwaitableGetCacheResult(GetCacheResult):
         return GetCacheResult(
             cache_size_gb=self.cache_size_gb,
             health=self.health,
+            id=self.id,
             location=self.location,
             mount_addresses=self.mount_addresses,
             name=self.name,
@@ -184,6 +196,7 @@ def get_cache(cache_name: Optional[str] = None,
     return AwaitableGetCacheResult(
         cache_size_gb=__ret__.cache_size_gb,
         health=__ret__.health,
+        id=__ret__.id,
         location=__ret__.location,
         mount_addresses=__ret__.mount_addresses,
         name=__ret__.name,

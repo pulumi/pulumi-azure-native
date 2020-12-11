@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
         /// </summary>
         public readonly string Icon;
         /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The image reference of the gallery image.
         /// </summary>
         public readonly Outputs.GalleryImageReferenceResponse ImageReference;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
 
             string icon,
 
+            string id,
+
             Outputs.GalleryImageReferenceResponse imageReference,
 
             bool? isEnabled,
@@ -154,6 +160,7 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
             CreatedDate = createdDate;
             Description = description;
             Icon = icon;
+            Id = id;
             ImageReference = imageReference;
             IsEnabled = isEnabled;
             IsOverride = isOverride;

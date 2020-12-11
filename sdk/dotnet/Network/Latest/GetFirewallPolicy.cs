@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> Firewalls;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The identity of the firewall policy.
         /// </summary>
         public readonly Outputs.ManagedServiceIdentityResponse? Identity;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             ImmutableArray<Outputs.SubResourceResponse> firewalls,
 
+            string? id,
+
             Outputs.ManagedServiceIdentityResponse? identity,
 
             Outputs.FirewallPolicyIntrusionDetectionResponse? intrusionDetection,
@@ -155,6 +161,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
             DnsSettings = dnsSettings;
             Etag = etag;
             Firewalls = firewalls;
+            Id = id;
             Identity = identity;
             IntrusionDetection = intrusionDetection;
             Location = location;

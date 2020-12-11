@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Cache.V20160401
         /// </summary>
         public readonly string HostName;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string Location;
@@ -116,6 +120,8 @@ namespace Pulumi.AzureNextGen.Cache.V20160401
 
             string hostName,
 
+            string id,
+
             string location,
 
             string name,
@@ -147,6 +153,7 @@ namespace Pulumi.AzureNextGen.Cache.V20160401
             AccessKeys = accessKeys;
             EnableNonSslPort = enableNonSslPort;
             HostName = hostName;
+            Id = id;
             Location = location;
             Name = name;
             Port = port;

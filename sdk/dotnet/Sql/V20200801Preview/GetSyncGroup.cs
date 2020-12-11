@@ -72,6 +72,10 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// </summary>
         public readonly string? HubDatabaseUserName;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Sync interval of the sync group.
         /// </summary>
         public readonly int? Interval;
@@ -124,6 +128,8 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
 
             string? hubDatabaseUserName,
 
+            string id,
+
             int? interval,
 
             string lastSyncTime,
@@ -149,6 +155,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
             EnableConflictLogging = enableConflictLogging;
             HubDatabasePassword = hubDatabasePassword;
             HubDatabaseUserName = hubDatabaseUserName;
+            Id = id;
             Interval = interval;
             LastSyncTime = lastSyncTime;
             Name = name;

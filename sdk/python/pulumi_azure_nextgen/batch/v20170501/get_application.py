@@ -20,7 +20,7 @@ class GetApplicationResult:
     """
     Contains information about an application in a Batch account.
     """
-    def __init__(__self__, allow_updates=None, default_version=None, display_name=None, packages=None):
+    def __init__(__self__, allow_updates=None, default_version=None, display_name=None, id=None, packages=None):
         if allow_updates and not isinstance(allow_updates, bool):
             raise TypeError("Expected argument 'allow_updates' to be a bool")
         pulumi.set(__self__, "allow_updates", allow_updates)
@@ -30,6 +30,9 @@ class GetApplicationResult:
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if packages and not isinstance(packages, list):
             raise TypeError("Expected argument 'packages' to be a list")
         pulumi.set(__self__, "packages", packages)
@@ -60,6 +63,14 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        A string that uniquely identifies the application within the account.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def packages(self) -> Optional[Sequence['outputs.ApplicationPackageResponse']]:
         """
         The list of packages under this application.
@@ -76,6 +87,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             allow_updates=self.allow_updates,
             default_version=self.default_version,
             display_name=self.display_name,
+            id=self.id,
             packages=self.packages)
 
 
@@ -104,4 +116,5 @@ def get_application(account_name: Optional[str] = None,
         allow_updates=__ret__.allow_updates,
         default_version=__ret__.default_version,
         display_name=__ret__.display_name,
+        id=__ret__.id,
         packages=__ret__.packages)

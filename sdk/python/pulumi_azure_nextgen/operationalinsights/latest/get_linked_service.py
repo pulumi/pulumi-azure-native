@@ -19,7 +19,10 @@ class GetLinkedServiceResult:
     """
     The top level Linked service resource container.
     """
-    def __init__(__self__, name=None, provisioning_state=None, resource_id=None, tags=None, type=None, write_access_resource_id=None):
+    def __init__(__self__, id=None, name=None, provisioning_state=None, resource_id=None, tags=None, type=None, write_access_resource_id=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -38,6 +41,14 @@ class GetLinkedServiceResult:
         if write_access_resource_id and not isinstance(write_access_resource_id, str):
             raise TypeError("Expected argument 'write_access_resource_id' to be a str")
         pulumi.set(__self__, "write_access_resource_id", write_access_resource_id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -94,6 +105,7 @@ class AwaitableGetLinkedServiceResult(GetLinkedServiceResult):
         if False:
             yield self
         return GetLinkedServiceResult(
+            id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
             resource_id=self.resource_id,
@@ -124,6 +136,7 @@ def get_linked_service(linked_service_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:operationalinsights/latest:getLinkedService', __args__, opts=opts, typ=GetLinkedServiceResult).value
 
     return AwaitableGetLinkedServiceResult(
+        id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         resource_id=__ret__.resource_id,

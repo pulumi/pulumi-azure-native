@@ -48,6 +48,10 @@ export interface GetLinkResult {
      */
     readonly displayName?: {[key: string]: string};
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * The link name.
      */
     readonly linkName: string;

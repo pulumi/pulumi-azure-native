@@ -39,6 +39,10 @@ export interface GetAccountResult {
      */
     readonly etag: string;
     /**
+     * The id of the created account
+     */
+    readonly id: string;
+    /**
      * The identity of Cognitive Services account.
      */
     readonly identity?: outputs.cognitiveservices.latest.IdentityResponse;

@@ -27,6 +27,8 @@ type LookupClusterArgs struct {
 
 // A cluster resource
 type LookupClusterResult struct {
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The properties of a cluster resource

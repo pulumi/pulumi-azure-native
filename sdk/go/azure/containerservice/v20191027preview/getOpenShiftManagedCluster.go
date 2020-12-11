@@ -33,6 +33,8 @@ type LookupOpenShiftManagedClusterResult struct {
 	ClusterVersion string `pulumi:"clusterVersion"`
 	// Service generated FQDN for OpenShift API server loadbalancer internal hostname.
 	Fqdn string `pulumi:"fqdn"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Configuration for OpenShift master VMs.

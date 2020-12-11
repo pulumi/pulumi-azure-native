@@ -20,7 +20,7 @@ class GetEnvironmentResult:
     """
     An environment, which is essentially an ARM template deployment.
     """
-    def __init__(__self__, arm_template_display_name=None, created_by_user=None, deployment_properties=None, location=None, name=None, provisioning_state=None, resource_group_id=None, tags=None, type=None, unique_identifier=None):
+    def __init__(__self__, arm_template_display_name=None, created_by_user=None, deployment_properties=None, id=None, location=None, name=None, provisioning_state=None, resource_group_id=None, tags=None, type=None, unique_identifier=None):
         if arm_template_display_name and not isinstance(arm_template_display_name, str):
             raise TypeError("Expected argument 'arm_template_display_name' to be a str")
         pulumi.set(__self__, "arm_template_display_name", arm_template_display_name)
@@ -30,6 +30,9 @@ class GetEnvironmentResult:
         if deployment_properties and not isinstance(deployment_properties, dict):
             raise TypeError("Expected argument 'deployment_properties' to be a dict")
         pulumi.set(__self__, "deployment_properties", deployment_properties)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -75,6 +78,14 @@ class GetEnvironmentResult:
         The deployment properties of the environment.
         """
         return pulumi.get(self, "deployment_properties")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -142,6 +153,7 @@ class AwaitableGetEnvironmentResult(GetEnvironmentResult):
             arm_template_display_name=self.arm_template_display_name,
             created_by_user=self.created_by_user,
             deployment_properties=self.deployment_properties,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -182,6 +194,7 @@ def get_environment(expand: Optional[str] = None,
         arm_template_display_name=__ret__.arm_template_display_name,
         created_by_user=__ret__.created_by_user,
         deployment_properties=__ret__.deployment_properties,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

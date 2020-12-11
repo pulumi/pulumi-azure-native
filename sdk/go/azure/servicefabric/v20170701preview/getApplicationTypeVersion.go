@@ -33,6 +33,8 @@ type LookupApplicationTypeVersionResult struct {
 	AppPackageUrl string `pulumi:"appPackageUrl"`
 	// List of application type parameters that can be overridden when creating or updating the application.
 	DefaultParameterList map[string]string `pulumi:"defaultParameterList"`
+	// Azure resource identifier.
+	Id string `pulumi:"id"`
 	// Azure resource location.
 	Location *string `pulumi:"location"`
 	// Azure resource name.

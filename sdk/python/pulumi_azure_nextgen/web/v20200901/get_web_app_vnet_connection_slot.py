@@ -20,7 +20,7 @@ class GetWebAppVnetConnectionSlotResult:
     """
     Virtual Network information contract.
     """
-    def __init__(__self__, cert_blob=None, cert_thumbprint=None, dns_servers=None, is_swift=None, kind=None, name=None, resync_required=None, routes=None, system_data=None, type=None, vnet_resource_id=None):
+    def __init__(__self__, cert_blob=None, cert_thumbprint=None, dns_servers=None, id=None, is_swift=None, kind=None, name=None, resync_required=None, routes=None, system_data=None, type=None, vnet_resource_id=None):
         if cert_blob and not isinstance(cert_blob, str):
             raise TypeError("Expected argument 'cert_blob' to be a str")
         pulumi.set(__self__, "cert_blob", cert_blob)
@@ -30,6 +30,9 @@ class GetWebAppVnetConnectionSlotResult:
         if dns_servers and not isinstance(dns_servers, str):
             raise TypeError("Expected argument 'dns_servers' to be a str")
         pulumi.set(__self__, "dns_servers", dns_servers)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_swift and not isinstance(is_swift, bool):
             raise TypeError("Expected argument 'is_swift' to be a bool")
         pulumi.set(__self__, "is_swift", is_swift)
@@ -79,6 +82,14 @@ class GetWebAppVnetConnectionSlotResult:
         DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
         """
         return pulumi.get(self, "dns_servers")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isSwift")
@@ -154,6 +165,7 @@ class AwaitableGetWebAppVnetConnectionSlotResult(GetWebAppVnetConnectionSlotResu
             cert_blob=self.cert_blob,
             cert_thumbprint=self.cert_thumbprint,
             dns_servers=self.dns_servers,
+            id=self.id,
             is_swift=self.is_swift,
             kind=self.kind,
             name=self.name,
@@ -192,6 +204,7 @@ def get_web_app_vnet_connection_slot(name: Optional[str] = None,
         cert_blob=__ret__.cert_blob,
         cert_thumbprint=__ret__.cert_thumbprint,
         dns_servers=__ret__.dns_servers,
+        id=__ret__.id,
         is_swift=__ret__.is_swift,
         kind=__ret__.kind,
         name=__ret__.name,

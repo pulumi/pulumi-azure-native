@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Network.V20190901
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> HttpListeners;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -102,6 +106,8 @@ namespace Pulumi.AzureNextGen.Network.V20190901
 
             ImmutableArray<Outputs.SubResourceResponse> httpListeners,
 
+            string? id,
+
             string? location,
 
             Outputs.ManagedRulesDefinitionResponse managedRules,
@@ -124,6 +130,7 @@ namespace Pulumi.AzureNextGen.Network.V20190901
             CustomRules = customRules;
             Etag = etag;
             HttpListeners = httpListeners;
+            Id = id;
             Location = location;
             ManagedRules = managedRules;
             Name = name;

@@ -20,10 +20,13 @@ class GetAnalyticsItemResult:
     """
     Properties that define an Analytics item that is associated to an Application Insights component.
     """
-    def __init__(__self__, content=None, name=None, properties=None, scope=None, time_created=None, time_modified=None, type=None, version=None):
+    def __init__(__self__, content=None, id=None, name=None, properties=None, scope=None, time_created=None, time_modified=None, type=None, version=None):
         if content and not isinstance(content, str):
             raise TypeError("Expected argument 'content' to be a str")
         pulumi.set(__self__, "content", content)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -53,6 +56,14 @@ class GetAnalyticsItemResult:
         The content of this item
         """
         return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Internally assigned unique id of the item definition.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -118,6 +129,7 @@ class AwaitableGetAnalyticsItemResult(GetAnalyticsItemResult):
             yield self
         return GetAnalyticsItemResult(
             content=self.content,
+            id=self.id,
             name=self.name,
             properties=self.properties,
             scope=self.scope,
@@ -156,6 +168,7 @@ def get_analytics_item(id: Optional[str] = None,
 
     return AwaitableGetAnalyticsItemResult(
         content=__ret__.content,
+        id=__ret__.id,
         name=__ret__.name,
         properties=__ret__.properties,
         scope=__ret__.scope,

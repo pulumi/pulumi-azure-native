@@ -39,6 +39,8 @@ type LookupVirtualNetworkResult struct {
 	ExternalProviderResourceId *string `pulumi:"externalProviderResourceId"`
 	// The external subnet properties.
 	ExternalSubnets []ExternalSubnetResponse `pulumi:"externalSubnets"`
+	// The identifier of the resource.
+	Id string `pulumi:"id"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.

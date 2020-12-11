@@ -60,6 +60,10 @@ export interface GetJobResult {
      */
     readonly error: outputs.databox.v20201101.CloudErrorResponse;
     /**
+     * Id of the object.
+     */
+    readonly id: string;
+    /**
      * Msi identity of the resource
      */
     readonly identity?: outputs.databox.v20201101.ResourceIdentityResponse;

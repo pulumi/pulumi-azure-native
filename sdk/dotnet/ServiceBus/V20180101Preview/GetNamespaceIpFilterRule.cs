@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// </summary>
         public readonly string? FilterName;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// IP Mask
         /// </summary>
         public readonly string? IpMask;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
 
             string? filterName,
 
+            string id,
+
             string? ipMask,
 
             string name,
@@ -80,6 +86,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         {
             Action = action;
             FilterName = filterName;
+            Id = id;
             IpMask = ipMask;
             Name = name;
             Type = type;

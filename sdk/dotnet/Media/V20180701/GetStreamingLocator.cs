@@ -74,6 +74,10 @@ namespace Pulumi.AzureNextGen.Media.V20180701
         /// </summary>
         public readonly ImmutableArray<string> Filters;
         /// <summary>
+        /// Fully qualified resource ID for the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNextGen.Media.V20180701
 
             ImmutableArray<string> filters,
 
+            string id,
+
             string name,
 
             string? startTime,
@@ -127,6 +133,7 @@ namespace Pulumi.AzureNextGen.Media.V20180701
             DefaultContentKeyPolicyName = defaultContentKeyPolicyName;
             EndTime = endTime;
             Filters = filters;
+            Id = id;
             Name = name;
             StartTime = startTime;
             StreamingLocatorId = streamingLocatorId;

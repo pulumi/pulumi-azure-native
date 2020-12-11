@@ -20,7 +20,7 @@ class GetEndpointResult:
     """
     CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
     """
-    def __init__(__self__, content_types_to_compress=None, default_origin_group=None, delivery_policy=None, geo_filters=None, host_name=None, is_compression_enabled=None, is_http_allowed=None, is_https_allowed=None, location=None, name=None, optimization_type=None, origin_groups=None, origin_host_header=None, origin_path=None, origins=None, probe_path=None, provisioning_state=None, query_string_caching_behavior=None, resource_state=None, tags=None, type=None):
+    def __init__(__self__, content_types_to_compress=None, default_origin_group=None, delivery_policy=None, geo_filters=None, host_name=None, id=None, is_compression_enabled=None, is_http_allowed=None, is_https_allowed=None, location=None, name=None, optimization_type=None, origin_groups=None, origin_host_header=None, origin_path=None, origins=None, probe_path=None, provisioning_state=None, query_string_caching_behavior=None, resource_state=None, tags=None, type=None):
         if content_types_to_compress and not isinstance(content_types_to_compress, list):
             raise TypeError("Expected argument 'content_types_to_compress' to be a list")
         pulumi.set(__self__, "content_types_to_compress", content_types_to_compress)
@@ -36,6 +36,9 @@ class GetEndpointResult:
         if host_name and not isinstance(host_name, str):
             raise TypeError("Expected argument 'host_name' to be a str")
         pulumi.set(__self__, "host_name", host_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_compression_enabled and not isinstance(is_compression_enabled, bool):
             raise TypeError("Expected argument 'is_compression_enabled' to be a bool")
         pulumi.set(__self__, "is_compression_enabled", is_compression_enabled)
@@ -124,6 +127,14 @@ class GetEndpointResult:
         The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
         """
         return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isCompressionEnabled")
@@ -265,6 +276,7 @@ class AwaitableGetEndpointResult(GetEndpointResult):
             delivery_policy=self.delivery_policy,
             geo_filters=self.geo_filters,
             host_name=self.host_name,
+            id=self.id,
             is_compression_enabled=self.is_compression_enabled,
             is_http_allowed=self.is_http_allowed,
             is_https_allowed=self.is_https_allowed,
@@ -310,6 +322,7 @@ def get_endpoint(endpoint_name: Optional[str] = None,
         delivery_policy=__ret__.delivery_policy,
         geo_filters=__ret__.geo_filters,
         host_name=__ret__.host_name,
+        id=__ret__.id,
         is_compression_enabled=__ret__.is_compression_enabled,
         is_http_allowed=__ret__.is_http_allowed,
         is_https_allowed=__ret__.is_https_allowed,

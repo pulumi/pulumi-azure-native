@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview
         /// </summary>
         public readonly Outputs.AutoPatchingSettingsResponse? AutoPatchingSettings;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Azure Active Directory identity of the server.
         /// </summary>
         public readonly Outputs.ResourceIdentityResponse? Identity;
@@ -124,6 +128,8 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview
 
             Outputs.AutoPatchingSettingsResponse? autoPatchingSettings,
 
+            string id,
+
             Outputs.ResourceIdentityResponse? identity,
 
             Outputs.KeyVaultCredentialSettingsResponse? keyVaultCredentialSettings,
@@ -158,6 +164,7 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview
         {
             AutoBackupSettings = autoBackupSettings;
             AutoPatchingSettings = autoPatchingSettings;
+            Id = id;
             Identity = identity;
             KeyVaultCredentialSettings = keyVaultCredentialSettings;
             Location = location;

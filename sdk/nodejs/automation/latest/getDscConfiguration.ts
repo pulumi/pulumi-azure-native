@@ -52,6 +52,10 @@ export interface GetDscConfigurationResult {
      */
     readonly etag?: string;
     /**
+     * Fully qualified resource Id for the resource
+     */
+    readonly id: string;
+    /**
      * Gets or sets the job count of the configuration.
      */
     readonly jobCount?: number;

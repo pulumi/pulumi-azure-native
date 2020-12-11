@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Network.V20190401
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.Network.V20190401
 
             string etag,
 
+            string? id,
+
             string? name,
 
             string? provisioningState,
@@ -87,6 +93,7 @@ namespace Pulumi.AzureNextGen.Network.V20190401
             AuthorizationKey = authorizationKey;
             AuthorizationUseStatus = authorizationUseStatus;
             Etag = etag;
+            Id = id;
             Name = name;
             ProvisioningState = provisioningState;
             Type = type;

@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.Network.V20190201
         /// </summary>
         public readonly Outputs.ExpressRouteCircuitPeeringIdResponse ExpressRouteCircuitPeering;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.Network.V20190201
 
             Outputs.ExpressRouteCircuitPeeringIdResponse expressRouteCircuitPeering,
 
+            string? id,
+
             string name,
 
             string provisioningState,
@@ -80,6 +86,7 @@ namespace Pulumi.AzureNextGen.Network.V20190201
         {
             AuthorizationKey = authorizationKey;
             ExpressRouteCircuitPeering = expressRouteCircuitPeering;
+            Id = id;
             Name = name;
             ProvisioningState = provisioningState;
             RoutingWeight = routingWeight;

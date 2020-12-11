@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Network.V20200101
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Fully qualified resource Id for the resource. Example - '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateDnsZoneName}'.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Private zone internal Id
         /// </summary>
         public readonly string InternalId;
@@ -96,6 +100,8 @@ namespace Pulumi.AzureNextGen.Network.V20200101
         private GetPrivateZoneResult(
             string? etag,
 
+            string id,
+
             string internalId,
 
             string? location,
@@ -121,6 +127,7 @@ namespace Pulumi.AzureNextGen.Network.V20200101
             string type)
         {
             Etag = etag;
+            Id = id;
             InternalId = internalId;
             Location = location;
             MaxNumberOfRecordSets = maxNumberOfRecordSets;

@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         /// </summary>
         public readonly string? DeploymentMode;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The parameters for the managed application to be supplied by the vendor.
         /// </summary>
         public readonly object? ManagedApplicationParameters;
@@ -80,6 +84,8 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
         private GetVendorSkusResult(
             string? deploymentMode,
 
+            string id,
+
             object? managedApplicationParameters,
 
             object? managedApplicationTemplate,
@@ -97,6 +103,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
             string type)
         {
             DeploymentMode = deploymentMode;
+            Id = id;
             ManagedApplicationParameters = managedApplicationParameters;
             ManagedApplicationTemplate = managedApplicationTemplate;
             Name = name;

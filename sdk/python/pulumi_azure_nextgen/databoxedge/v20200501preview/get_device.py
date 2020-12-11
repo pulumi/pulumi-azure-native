@@ -20,7 +20,7 @@ class GetDeviceResult:
     """
     The Data Box Edge/Gateway device.
     """
-    def __init__(__self__, configured_role_types=None, culture=None, data_box_edge_device_status=None, description=None, device_hcs_version=None, device_local_capacity=None, device_model=None, device_software_version=None, device_type=None, etag=None, friendly_name=None, location=None, model_description=None, name=None, node_count=None, serial_number=None, sku=None, tags=None, time_zone=None, type=None):
+    def __init__(__self__, configured_role_types=None, culture=None, data_box_edge_device_status=None, description=None, device_hcs_version=None, device_local_capacity=None, device_model=None, device_software_version=None, device_type=None, etag=None, friendly_name=None, id=None, location=None, model_description=None, name=None, node_count=None, serial_number=None, sku=None, tags=None, time_zone=None, type=None):
         if configured_role_types and not isinstance(configured_role_types, list):
             raise TypeError("Expected argument 'configured_role_types' to be a list")
         pulumi.set(__self__, "configured_role_types", configured_role_types)
@@ -54,6 +54,9 @@ class GetDeviceResult:
         if friendly_name and not isinstance(friendly_name, str):
             raise TypeError("Expected argument 'friendly_name' to be a str")
         pulumi.set(__self__, "friendly_name", friendly_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -172,6 +175,14 @@ class GetDeviceResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        The path ID that uniquely identifies the object.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def location(self) -> str:
         """
         The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
@@ -260,6 +271,7 @@ class AwaitableGetDeviceResult(GetDeviceResult):
             device_type=self.device_type,
             etag=self.etag,
             friendly_name=self.friendly_name,
+            id=self.id,
             location=self.location,
             model_description=self.model_description,
             name=self.name,
@@ -301,6 +313,7 @@ def get_device(device_name: Optional[str] = None,
         device_type=__ret__.device_type,
         etag=__ret__.etag,
         friendly_name=__ret__.friendly_name,
+        id=__ret__.id,
         location=__ret__.location,
         model_description=__ret__.model_description,
         name=__ret__.name,

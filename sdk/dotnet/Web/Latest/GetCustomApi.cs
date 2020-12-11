@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Resource id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string? Location;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.Web.Latest
         private GetCustomApiResult(
             string? etag,
 
+            string id,
+
             string? location,
 
             string name,
@@ -79,6 +85,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
             string type)
         {
             Etag = etag;
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

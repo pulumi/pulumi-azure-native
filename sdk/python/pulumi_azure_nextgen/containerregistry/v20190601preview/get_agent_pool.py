@@ -21,10 +21,13 @@ class GetAgentPoolResult:
     The agentpool that has the ARM resource and properties. 
     The agentpool will have all information to create an agent pool.
     """
-    def __init__(__self__, count=None, location=None, name=None, os=None, provisioning_state=None, system_data=None, tags=None, tier=None, type=None, virtual_network_subnet_resource_id=None):
+    def __init__(__self__, count=None, id=None, location=None, name=None, os=None, provisioning_state=None, system_data=None, tags=None, tier=None, type=None, virtual_network_subnet_resource_id=None):
         if count and not isinstance(count, int):
             raise TypeError("Expected argument 'count' to be a int")
         pulumi.set(__self__, "count", count)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -60,6 +63,14 @@ class GetAgentPoolResult:
         The count of agent machine
         """
         return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -141,6 +152,7 @@ class AwaitableGetAgentPoolResult(GetAgentPoolResult):
             yield self
         return GetAgentPoolResult(
             count=self.count,
+            id=self.id,
             location=self.location,
             name=self.name,
             os=self.os,
@@ -175,6 +187,7 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
 
     return AwaitableGetAgentPoolResult(
         count=__ret__.count,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         os=__ret__.os,

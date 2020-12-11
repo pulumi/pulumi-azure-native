@@ -42,6 +42,10 @@ export interface GetAssignmentResult {
      */
     readonly displayName?: string;
     /**
+     * String Id used to locate any resource on Azure.
+     */
+    readonly id: string;
+    /**
      * Managed Service Identity for this Blueprint assignment
      */
     readonly identity: outputs.blueprint.v20171111preview.ManagedServiceIdentityResponse;

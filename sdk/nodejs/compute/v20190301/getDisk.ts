@@ -67,6 +67,10 @@ export interface GetDiskResult {
      */
     readonly hyperVGeneration?: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Compute.V20200630Preview
     public sealed class GetConfigurationProfileAssignmentResult
     {
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -60,12 +64,15 @@ namespace Pulumi.AzureNextGen.Compute.V20200630Preview
 
         [OutputConstructor]
         private GetConfigurationProfileAssignmentResult(
+            string id,
+
             string name,
 
             Outputs.ConfigurationProfileAssignmentPropertiesResponse properties,
 
             string type)
         {
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

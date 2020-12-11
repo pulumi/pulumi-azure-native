@@ -19,10 +19,13 @@ class GetSensitivityLabelResult:
     """
     A sensitivity label.
     """
-    def __init__(__self__, column_name=None, information_type=None, information_type_id=None, is_disabled=None, label_id=None, label_name=None, managed_by=None, name=None, rank=None, schema_name=None, table_name=None, type=None):
+    def __init__(__self__, column_name=None, id=None, information_type=None, information_type_id=None, is_disabled=None, label_id=None, label_name=None, managed_by=None, name=None, rank=None, schema_name=None, table_name=None, type=None):
         if column_name and not isinstance(column_name, str):
             raise TypeError("Expected argument 'column_name' to be a str")
         pulumi.set(__self__, "column_name", column_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if information_type and not isinstance(information_type, str):
             raise TypeError("Expected argument 'information_type' to be a str")
         pulumi.set(__self__, "information_type", information_type)
@@ -64,6 +67,14 @@ class GetSensitivityLabelResult:
         The column name.
         """
         return pulumi.get(self, "column_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="informationType")
@@ -158,6 +169,7 @@ class AwaitableGetSensitivityLabelResult(GetSensitivityLabelResult):
             yield self
         return GetSensitivityLabelResult(
             column_name=self.column_name,
+            id=self.id,
             information_type=self.information_type,
             information_type_id=self.information_type_id,
             is_disabled=self.is_disabled,
@@ -206,6 +218,7 @@ def get_sensitivity_label(column_name: Optional[str] = None,
 
     return AwaitableGetSensitivityLabelResult(
         column_name=__ret__.column_name,
+        id=__ret__.id,
         information_type=__ret__.information_type,
         information_type_id=__ret__.information_type_id,
         is_disabled=__ret__.is_disabled,

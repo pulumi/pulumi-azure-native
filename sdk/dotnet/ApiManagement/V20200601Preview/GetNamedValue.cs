@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// KeyVault location details of the namedValue.
         /// </summary>
         public readonly Outputs.KeyVaultContractPropertiesResponse? KeyVault;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         private GetNamedValueResult(
             string displayName,
 
+            string id,
+
             Outputs.KeyVaultContractPropertiesResponse? keyVault,
 
             string name,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
             string? value)
         {
             DisplayName = displayName;
+            Id = id;
             KeyVault = keyVault;
             Name = name;
             Secret = secret;

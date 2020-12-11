@@ -20,7 +20,7 @@ class GetVirtualHubResult:
     """
     VirtualHub Resource.
     """
-    def __init__(__self__, address_prefix=None, etag=None, hub_virtual_network_connections=None, location=None, name=None, provisioning_state=None, tags=None, type=None, virtual_wan=None):
+    def __init__(__self__, address_prefix=None, etag=None, hub_virtual_network_connections=None, id=None, location=None, name=None, provisioning_state=None, tags=None, type=None, virtual_wan=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
         pulumi.set(__self__, "address_prefix", address_prefix)
@@ -30,6 +30,9 @@ class GetVirtualHubResult:
         if hub_virtual_network_connections and not isinstance(hub_virtual_network_connections, list):
             raise TypeError("Expected argument 'hub_virtual_network_connections' to be a list")
         pulumi.set(__self__, "hub_virtual_network_connections", hub_virtual_network_connections)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -72,6 +75,14 @@ class GetVirtualHubResult:
         list of all vnet connections with this VirtualHub.
         """
         return pulumi.get(self, "hub_virtual_network_connections")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -131,6 +142,7 @@ class AwaitableGetVirtualHubResult(GetVirtualHubResult):
             address_prefix=self.address_prefix,
             etag=self.etag,
             hub_virtual_network_connections=self.hub_virtual_network_connections,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -161,6 +173,7 @@ def get_virtual_hub(resource_group_name: Optional[str] = None,
         address_prefix=__ret__.address_prefix,
         etag=__ret__.etag,
         hub_virtual_network_connections=__ret__.hub_virtual_network_connections,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

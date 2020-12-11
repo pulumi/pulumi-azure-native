@@ -48,6 +48,10 @@ export interface GetTokenResult {
      */
     readonly credentials?: outputs.containerregistry.v20190501preview.TokenCredentialsPropertiesResponse;
     /**
+     * The resource ID.
+     */
+    readonly id: string;
+    /**
      * The name of the resource.
      */
     readonly name: string;

@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.KeyVault.V20161001
     public sealed class GetVaultResult
     {
         /// <summary>
+        /// The Azure Resource Manager resource ID for the key vault.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The supported Azure location where the key vault should be created.
         /// </summary>
         public readonly string Location;
@@ -62,6 +66,8 @@ namespace Pulumi.AzureNextGen.KeyVault.V20161001
 
         [OutputConstructor]
         private GetVaultResult(
+            string id,
+
             string location,
 
             string name,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.KeyVault.V20161001
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

@@ -37,6 +37,8 @@ type LookupApiTagDescriptionResult struct {
 	ExternalDocsDescription *string `pulumi:"externalDocsDescription"`
 	// Absolute URL of external resources describing the tag.
 	ExternalDocsUrl *string `pulumi:"externalDocsUrl"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Resource type for API Management resource.

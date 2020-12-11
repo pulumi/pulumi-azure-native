@@ -20,13 +20,24 @@ class GetDeploymentResult:
     """
     Deployment information.
     """
-    def __init__(__self__, name=None, properties=None):
+    def __init__(__self__, id=None, name=None, properties=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if properties and not isinstance(properties, dict):
             raise TypeError("Expected argument 'properties' to be a dict")
         pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the deployment.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -51,6 +62,7 @@ class AwaitableGetDeploymentResult(GetDeploymentResult):
         if False:
             yield self
         return GetDeploymentResult(
+            id=self.id,
             name=self.name,
             properties=self.properties)
 
@@ -74,5 +86,6 @@ def get_deployment(deployment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:resources/v20160901:getDeployment', __args__, opts=opts, typ=GetDeploymentResult).value
 
     return AwaitableGetDeploymentResult(
+        id=__ret__.id,
         name=__ret__.name,
         properties=__ret__.properties)

@@ -19,7 +19,10 @@ class GetEventHubAuthorizationRuleResult:
     """
     Single item in a List or Get AuthorizationRule operation
     """
-    def __init__(__self__, name=None, rights=None, type=None):
+    def __init__(__self__, id=None, name=None, rights=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -29,6 +32,14 @@ class GetEventHubAuthorizationRuleResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -61,6 +72,7 @@ class AwaitableGetEventHubAuthorizationRuleResult(GetEventHubAuthorizationRuleRe
         if False:
             yield self
         return GetEventHubAuthorizationRuleResult(
+            id=self.id,
             name=self.name,
             rights=self.rights,
             type=self.type)
@@ -91,6 +103,7 @@ def get_event_hub_authorization_rule(authorization_rule_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-nextgen:eventhub/latest:getEventHubAuthorizationRule', __args__, opts=opts, typ=GetEventHubAuthorizationRuleResult).value
 
     return AwaitableGetEventHubAuthorizationRuleResult(
+        id=__ret__.id,
         name=__ret__.name,
         rights=__ret__.rights,
         type=__ret__.type)

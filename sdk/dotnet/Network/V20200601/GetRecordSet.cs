@@ -72,6 +72,10 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         /// </summary>
         public readonly string Fqdn;
         /// <summary>
+        /// Fully qualified resource Id for the resource. Example - '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateDnsZoneName}'.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Is the record set auto-registered in the Private DNS zone through a virtual network link?
         /// </summary>
         public readonly bool IsAutoRegistered;
@@ -124,6 +128,8 @@ namespace Pulumi.AzureNextGen.Network.V20200601
 
             string fqdn,
 
+            string id,
+
             bool isAutoRegistered,
 
             ImmutableDictionary<string, string>? metadata,
@@ -149,6 +155,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
             CnameRecord = cnameRecord;
             Etag = etag;
             Fqdn = fqdn;
+            Id = id;
             IsAutoRegistered = isAutoRegistered;
             Metadata = metadata;
             MxRecords = mxRecords;

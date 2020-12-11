@@ -33,6 +33,8 @@ type LookupManagedHostingEnvironmentResult struct {
 	EnvironmentIsHealthy *bool `pulumi:"environmentIsHealthy"`
 	// Detailed message about with results of the last check of the managed hosting environment
 	EnvironmentStatus *string `pulumi:"environmentStatus"`
+	// Resource Id
+	Id *string `pulumi:"id"`
 	// Number of ip ssl addresses reserved for the managed hosting environment
 	IpsslAddressCount *int `pulumi:"ipsslAddressCount"`
 	// Kind of resource

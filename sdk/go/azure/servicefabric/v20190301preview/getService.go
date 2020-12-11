@@ -35,6 +35,8 @@ type LookupServiceResult struct {
 	DefaultMoveCost *string `pulumi:"defaultMoveCost"`
 	// Azure resource etag.
 	Etag string `pulumi:"etag"`
+	// Azure resource identifier.
+	Id string `pulumi:"id"`
 	// Azure resource location.
 	Location *string `pulumi:"location"`
 	// Azure resource name.

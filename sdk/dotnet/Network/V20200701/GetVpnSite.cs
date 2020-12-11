@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Network.V20200701
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The ip-address for the vpn-site.
         /// </summary>
         public readonly string? IpAddress;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNextGen.Network.V20200701
 
             string etag,
 
+            string? id,
+
             string? ipAddress,
 
             bool? isSecuritySite,
@@ -136,6 +142,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
             BgpProperties = bgpProperties;
             DeviceProperties = deviceProperties;
             Etag = etag;
+            Id = id;
             IpAddress = ipAddress;
             IsSecuritySite = isSecuritySite;
             Location = location;

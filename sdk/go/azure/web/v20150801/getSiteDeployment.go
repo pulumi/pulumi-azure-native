@@ -39,6 +39,8 @@ type LookupSiteDeploymentResult struct {
 	Details *string `pulumi:"details"`
 	// EndTime
 	EndTime *string `pulumi:"endTime"`
+	// Resource Id
+	Id *string `pulumi:"id"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location

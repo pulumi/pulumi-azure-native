@@ -59,6 +59,10 @@ export interface GetManagedClusterResult {
      */
     readonly fqdn: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Version of Kubernetes specified when creating the managed cluster.
      */
     readonly kubernetesVersion?: string;

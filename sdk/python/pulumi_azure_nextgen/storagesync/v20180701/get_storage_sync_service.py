@@ -19,7 +19,10 @@ class GetStorageSyncServiceResult:
     """
     Storage Sync Service object.
     """
-    def __init__(__self__, location=None, name=None, storage_sync_service_status=None, storage_sync_service_uid=None, tags=None, type=None):
+    def __init__(__self__, id=None, location=None, name=None, storage_sync_service_status=None, storage_sync_service_uid=None, tags=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -38,6 +41,14 @@ class GetStorageSyncServiceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -94,6 +105,7 @@ class AwaitableGetStorageSyncServiceResult(GetStorageSyncServiceResult):
         if False:
             yield self
         return GetStorageSyncServiceResult(
+            id=self.id,
             location=self.location,
             name=self.name,
             storage_sync_service_status=self.storage_sync_service_status,
@@ -121,6 +133,7 @@ def get_storage_sync_service(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:storagesync/v20180701:getStorageSyncService', __args__, opts=opts, typ=GetStorageSyncServiceResult).value
 
     return AwaitableGetStorageSyncServiceResult(
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         storage_sync_service_status=__ret__.storage_sync_service_status,

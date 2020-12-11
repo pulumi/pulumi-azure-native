@@ -31,6 +31,8 @@ type LookupBackupPolicyResult struct {
 	DailyBackupsToKeep *int `pulumi:"dailyBackupsToKeep"`
 	// The property to decide policy is enabled or not
 	Enabled *bool `pulumi:"enabled"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Monthly backups count to keep

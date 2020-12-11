@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Advisor.V20200101
         /// </summary>
         public readonly string ExpirationTimeStamp;
         /// <summary>
+        /// The resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
@@ -70,6 +74,8 @@ namespace Pulumi.AzureNextGen.Advisor.V20200101
         private GetSuppressionResult(
             string expirationTimeStamp,
 
+            string id,
+
             string name,
 
             string? suppressionId,
@@ -79,6 +85,7 @@ namespace Pulumi.AzureNextGen.Advisor.V20200101
             string type)
         {
             ExpirationTimeStamp = expirationTimeStamp;
+            Id = id;
             Name = name;
             SuppressionId = suppressionId;
             Ttl = ttl;

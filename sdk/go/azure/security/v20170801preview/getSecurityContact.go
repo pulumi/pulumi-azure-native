@@ -29,6 +29,8 @@ type LookupSecurityContactResult struct {
 	AlertsToAdmins string `pulumi:"alertsToAdmins"`
 	// The email of this security contact
 	Email string `pulumi:"email"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// The phone number of this security contact

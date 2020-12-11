@@ -44,6 +44,10 @@ export interface GetFirewallRuleResult {
      */
     readonly endIpAddress: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Kind of server that contains this firewall rule.
      */
     readonly kind: string;

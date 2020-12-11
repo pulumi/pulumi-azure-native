@@ -40,6 +40,10 @@ export interface GetEnvironmentArgs {
  */
 export interface GetEnvironmentResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * The kind of the environment.
      */
     readonly kind: string;

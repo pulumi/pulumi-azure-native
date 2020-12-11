@@ -20,10 +20,13 @@ class GetSqlPoolsV3Result:
     """
     A sql pool resource.
     """
-    def __init__(__self__, current_service_objective_name=None, kind=None, location=None, name=None, requested_service_objective_name=None, sku=None, sql_pool_guid=None, status=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, current_service_objective_name=None, id=None, kind=None, location=None, name=None, requested_service_objective_name=None, sku=None, sql_pool_guid=None, status=None, system_data=None, tags=None, type=None):
         if current_service_objective_name and not isinstance(current_service_objective_name, str):
             raise TypeError("Expected argument 'current_service_objective_name' to be a str")
         pulumi.set(__self__, "current_service_objective_name", current_service_objective_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -62,6 +65,14 @@ class GetSqlPoolsV3Result:
         The current service level objective name of the sql pool.
         """
         return pulumi.get(self, "current_service_objective_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -151,6 +162,7 @@ class AwaitableGetSqlPoolsV3Result(GetSqlPoolsV3Result):
             yield self
         return GetSqlPoolsV3Result(
             current_service_objective_name=self.current_service_objective_name,
+            id=self.id,
             kind=self.kind,
             location=self.location,
             name=self.name,
@@ -186,6 +198,7 @@ def get_sql_pools_v3(resource_group_name: Optional[str] = None,
 
     return AwaitableGetSqlPoolsV3Result(
         current_service_objective_name=__ret__.current_service_objective_name,
+        id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,

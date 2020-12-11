@@ -27,6 +27,8 @@ type LookupApplianceArgs struct {
 type LookupApplianceResult struct {
 	// The fully qualified path of appliance definition Id.
 	ApplianceDefinitionId *string `pulumi:"applianceDefinitionId"`
+	// Resource ID
+	Id string `pulumi:"id"`
 	// The identity of the resource.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// The kind of the appliance. Allowed values are MarketPlace and ServiceCatalog.

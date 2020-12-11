@@ -29,6 +29,8 @@ type LookupIotHubResourceEventHubConsumerGroupArgs struct {
 
 // The properties of the EventHubConsumerGroupInfo object.
 type LookupIotHubResourceEventHubConsumerGroupResult struct {
+	// The Event Hub-compatible consumer group identifier.
+	Id *string `pulumi:"id"`
 	// The Event Hub-compatible consumer group name.
 	Name *string `pulumi:"name"`
 	// The tags.

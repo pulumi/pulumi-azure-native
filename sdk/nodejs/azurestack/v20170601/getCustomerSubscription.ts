@@ -44,6 +44,10 @@ export interface GetCustomerSubscriptionResult {
      */
     readonly etag?: string;
     /**
+     * ID of the resource.
+     */
+    readonly id: string;
+    /**
      * Name of the resource.
      */
     readonly name: string;

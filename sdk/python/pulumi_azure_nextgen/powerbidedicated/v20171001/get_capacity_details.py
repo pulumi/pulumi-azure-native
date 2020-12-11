@@ -20,10 +20,13 @@ class GetCapacityDetailsResult:
     """
     Represents an instance of a Dedicated Capacity resource.
     """
-    def __init__(__self__, administration=None, location=None, name=None, provisioning_state=None, sku=None, state=None, tags=None, type=None):
+    def __init__(__self__, administration=None, id=None, location=None, name=None, provisioning_state=None, sku=None, state=None, tags=None, type=None):
         if administration and not isinstance(administration, dict):
             raise TypeError("Expected argument 'administration' to be a dict")
         pulumi.set(__self__, "administration", administration)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -53,6 +56,14 @@ class GetCapacityDetailsResult:
         A collection of Dedicated capacity administrators
         """
         return pulumi.get(self, "administration")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        An identifier that represents the PowerBI Dedicated resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -118,6 +129,7 @@ class AwaitableGetCapacityDetailsResult(GetCapacityDetailsResult):
             yield self
         return GetCapacityDetailsResult(
             administration=self.administration,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -147,6 +159,7 @@ def get_capacity_details(dedicated_capacity_name: Optional[str] = None,
 
     return AwaitableGetCapacityDetailsResult(
         administration=__ret__.administration,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

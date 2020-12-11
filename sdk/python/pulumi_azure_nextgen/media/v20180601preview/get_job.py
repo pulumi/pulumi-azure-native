@@ -20,7 +20,7 @@ class GetJobResult:
     """
     A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
     """
-    def __init__(__self__, correlation_data=None, created=None, description=None, input=None, last_modified=None, name=None, outputs=None, priority=None, state=None, type=None):
+    def __init__(__self__, correlation_data=None, created=None, description=None, id=None, input=None, last_modified=None, name=None, outputs=None, priority=None, state=None, type=None):
         if correlation_data and not isinstance(correlation_data, dict):
             raise TypeError("Expected argument 'correlation_data' to be a dict")
         pulumi.set(__self__, "correlation_data", correlation_data)
@@ -30,6 +30,9 @@ class GetJobResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if input and not isinstance(input, dict):
             raise TypeError("Expected argument 'input' to be a dict")
         pulumi.set(__self__, "input", input)
@@ -75,6 +78,14 @@ class GetJobResult:
         Optional customer supplied description of the Job.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -142,6 +153,7 @@ class AwaitableGetJobResult(GetJobResult):
             correlation_data=self.correlation_data,
             created=self.created,
             description=self.description,
+            id=self.id,
             input=self.input,
             last_modified=self.last_modified,
             name=self.name,
@@ -179,6 +191,7 @@ def get_job(account_name: Optional[str] = None,
         correlation_data=__ret__.correlation_data,
         created=__ret__.created,
         description=__ret__.description,
+        id=__ret__.id,
         input=__ret__.input,
         last_modified=__ret__.last_modified,
         name=__ret__.name,

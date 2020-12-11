@@ -40,6 +40,10 @@ export interface ListWebAppAzureStorageAccountsSlotArgs {
  */
 export interface ListWebAppAzureStorageAccountsSlotResult {
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;

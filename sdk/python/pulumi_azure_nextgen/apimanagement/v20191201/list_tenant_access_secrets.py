@@ -19,10 +19,13 @@ class ListTenantAccessSecretsResult:
     """
     Tenant access information contract of the API Management service.
     """
-    def __init__(__self__, enabled=None, primary_key=None, secondary_key=None):
+    def __init__(__self__, enabled=None, id=None, primary_key=None, secondary_key=None):
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if primary_key and not isinstance(primary_key, str):
             raise TypeError("Expected argument 'primary_key' to be a str")
         pulumi.set(__self__, "primary_key", primary_key)
@@ -37,6 +40,14 @@ class ListTenantAccessSecretsResult:
         Determines whether direct access is enabled.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Identifier.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="primaryKey")
@@ -62,6 +73,7 @@ class AwaitableListTenantAccessSecretsResult(ListTenantAccessSecretsResult):
             yield self
         return ListTenantAccessSecretsResult(
             enabled=self.enabled,
+            id=self.id,
             primary_key=self.primary_key,
             secondary_key=self.secondary_key)
 
@@ -89,5 +101,6 @@ def list_tenant_access_secrets(access_name: Optional[str] = None,
 
     return AwaitableListTenantAccessSecretsResult(
         enabled=__ret__.enabled,
+        id=__ret__.id,
         primary_key=__ret__.primary_key,
         secondary_key=__ret__.secondary_key)

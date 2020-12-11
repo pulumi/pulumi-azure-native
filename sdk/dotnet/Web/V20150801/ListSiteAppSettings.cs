@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Web.V20150801
     public sealed class ListSiteAppSettingsResult
     {
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Kind of resource
         /// </summary>
         public readonly string? Kind;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.Web.V20150801
 
         [OutputConstructor]
         private ListSiteAppSettingsResult(
+            string? id,
+
             string? kind,
 
             string location,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
 
             string? type)
         {
+            Id = id;
             Kind = kind;
             Location = location;
             Name = name;

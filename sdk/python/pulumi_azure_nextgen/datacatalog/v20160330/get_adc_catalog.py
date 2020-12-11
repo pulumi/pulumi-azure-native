@@ -20,7 +20,7 @@ class GetADCCatalogResult:
     """
     Azure Data Catalog.
     """
-    def __init__(__self__, admins=None, enable_automatic_unit_adjustment=None, etag=None, location=None, name=None, sku=None, successfully_provisioned=None, tags=None, type=None, units=None, users=None):
+    def __init__(__self__, admins=None, enable_automatic_unit_adjustment=None, etag=None, id=None, location=None, name=None, sku=None, successfully_provisioned=None, tags=None, type=None, units=None, users=None):
         if admins and not isinstance(admins, list):
             raise TypeError("Expected argument 'admins' to be a list")
         pulumi.set(__self__, "admins", admins)
@@ -30,6 +30,9 @@ class GetADCCatalogResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -78,6 +81,14 @@ class GetADCCatalogResult:
         Resource etag
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -153,6 +164,7 @@ class AwaitableGetADCCatalogResult(GetADCCatalogResult):
             admins=self.admins,
             enable_automatic_unit_adjustment=self.enable_automatic_unit_adjustment,
             etag=self.etag,
+            id=self.id,
             location=self.location,
             name=self.name,
             sku=self.sku,
@@ -185,6 +197,7 @@ def get_adc_catalog(catalog_name: Optional[str] = None,
         admins=__ret__.admins,
         enable_automatic_unit_adjustment=__ret__.enable_automatic_unit_adjustment,
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         sku=__ret__.sku,

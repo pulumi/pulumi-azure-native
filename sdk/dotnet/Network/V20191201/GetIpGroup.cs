@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.Network.V20191201
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> Firewalls;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// IpAddresses/IpAddressPrefixes in the IpGroups resource.
         /// </summary>
         public readonly ImmutableArray<string> IpAddresses;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNextGen.Network.V20191201
 
             ImmutableArray<Outputs.SubResourceResponse> firewalls,
 
+            string? id,
+
             ImmutableArray<string> ipAddresses,
 
             string? location,
@@ -98,6 +104,7 @@ namespace Pulumi.AzureNextGen.Network.V20191201
         {
             Etag = etag;
             Firewalls = firewalls;
+            Id = id;
             IpAddresses = ipAddresses;
             Location = location;
             Name = name;

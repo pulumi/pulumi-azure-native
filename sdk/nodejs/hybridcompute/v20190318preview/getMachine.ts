@@ -56,6 +56,10 @@ export interface GetMachineResult {
      */
     readonly errorDetails: outputs.hybridcompute.v20190318preview.ErrorDetailResponse[];
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * The time of the last status change.
      */
     readonly lastStatusChange: string;

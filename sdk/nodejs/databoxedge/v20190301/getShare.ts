@@ -60,6 +60,10 @@ export interface GetShareResult {
      */
     readonly description?: string;
     /**
+     * The path ID that uniquely identifies the object.
+     */
+    readonly id: string;
+    /**
      * Current monitoring status of the share.
      */
     readonly monitoringStatus: string;

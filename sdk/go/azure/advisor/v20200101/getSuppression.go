@@ -29,6 +29,8 @@ type LookupSuppressionArgs struct {
 type LookupSuppressionResult struct {
 	// Gets or sets the expiration time stamp.
 	ExpirationTimeStamp string `pulumi:"expirationTimeStamp"`
+	// The resource ID.
+	Id string `pulumi:"id"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The GUID of the suppression.

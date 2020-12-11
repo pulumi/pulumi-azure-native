@@ -71,6 +71,8 @@ type LookupManagedClusterResult struct {
 	Fqdn string `pulumi:"fqdn"`
 	// The port used for http connections to the cluster.
 	HttpGatewayConnectionPort *int `pulumi:"httpGatewayConnectionPort"`
+	// Azure resource identifier.
+	Id string `pulumi:"id"`
 	// Describes load balancing rules.
 	LoadBalancingRules []LoadBalancingRuleResponse `pulumi:"loadBalancingRules"`
 	// Azure resource location.

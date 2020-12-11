@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
     public sealed class GetVirtualNetworkRuleResult
     {
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Create firewall rule before the virtual network has vnet service endpoint enabled.
         /// </summary>
         public readonly bool? IgnoreMissingVnetServiceEndpoint;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
 
         [OutputConstructor]
         private GetVirtualNetworkRuleResult(
+            string id,
+
             bool? ignoreMissingVnetServiceEndpoint,
 
             string name,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
 
             string virtualNetworkSubnetId)
         {
+            Id = id;
             IgnoreMissingVnetServiceEndpoint = ignoreMissingVnetServiceEndpoint;
             Name = name;
             State = state;

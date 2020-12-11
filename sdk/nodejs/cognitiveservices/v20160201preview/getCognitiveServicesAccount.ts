@@ -43,6 +43,10 @@ export interface GetCognitiveServicesAccountResult {
      */
     readonly etag?: string;
     /**
+     * The id of the created account
+     */
+    readonly id?: string;
+    /**
      * Type of cognitive service account.
      */
     readonly kind?: string;

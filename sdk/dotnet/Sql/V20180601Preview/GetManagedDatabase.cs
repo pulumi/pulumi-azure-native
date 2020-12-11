@@ -74,6 +74,10 @@ namespace Pulumi.AzureNextGen.Sql.V20180601Preview
         /// </summary>
         public readonly string FailoverGroupId;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string Location;
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNextGen.Sql.V20180601Preview
 
             string failoverGroupId,
 
+            string id,
+
             string location,
 
             string? longTermRetentionBackupResourceId,
@@ -169,6 +175,7 @@ namespace Pulumi.AzureNextGen.Sql.V20180601Preview
             DefaultSecondaryLocation = defaultSecondaryLocation;
             EarliestRestorePoint = earliestRestorePoint;
             FailoverGroupId = failoverGroupId;
+            Id = id;
             Location = location;
             LongTermRetentionBackupResourceId = longTermRetentionBackupResourceId;
             Name = name;

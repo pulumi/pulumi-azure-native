@@ -20,10 +20,13 @@ class GetNamespaceNetworkRuleSetResult:
     """
     Description of topic resource.
     """
-    def __init__(__self__, default_action=None, ip_rules=None, name=None, type=None):
+    def __init__(__self__, default_action=None, id=None, ip_rules=None, name=None, type=None):
         if default_action and not isinstance(default_action, str):
             raise TypeError("Expected argument 'default_action' to be a str")
         pulumi.set(__self__, "default_action", default_action)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if ip_rules and not isinstance(ip_rules, list):
             raise TypeError("Expected argument 'ip_rules' to be a list")
         pulumi.set(__self__, "ip_rules", ip_rules)
@@ -41,6 +44,14 @@ class GetNamespaceNetworkRuleSetResult:
         Default Action for Network Rule Set
         """
         return pulumi.get(self, "default_action")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ipRules")
@@ -74,6 +85,7 @@ class AwaitableGetNamespaceNetworkRuleSetResult(GetNamespaceNetworkRuleSetResult
             yield self
         return GetNamespaceNetworkRuleSetResult(
             default_action=self.default_action,
+            id=self.id,
             ip_rules=self.ip_rules,
             name=self.name,
             type=self.type)
@@ -99,6 +111,7 @@ def get_namespace_network_rule_set(namespace_name: Optional[str] = None,
 
     return AwaitableGetNamespaceNetworkRuleSetResult(
         default_action=__ret__.default_action,
+        id=__ret__.id,
         ip_rules=__ret__.ip_rules,
         name=__ret__.name,
         type=__ret__.type)

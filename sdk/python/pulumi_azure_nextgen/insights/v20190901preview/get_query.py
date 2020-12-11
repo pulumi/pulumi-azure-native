@@ -20,7 +20,7 @@ class GetQueryResult:
     """
     A Log Analytics QueryPack-Query definition.
     """
-    def __init__(__self__, author=None, body=None, description=None, display_name=None, name=None, properties=None, related=None, system_data=None, tags=None, time_created=None, time_modified=None, type=None):
+    def __init__(__self__, author=None, body=None, description=None, display_name=None, id=None, name=None, properties=None, related=None, system_data=None, tags=None, time_created=None, time_modified=None, type=None):
         if author and not isinstance(author, str):
             raise TypeError("Expected argument 'author' to be a str")
         pulumi.set(__self__, "author", author)
@@ -33,6 +33,9 @@ class GetQueryResult:
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -89,6 +92,14 @@ class GetQueryResult:
         Unique display name for your query within the Query Pack.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -165,6 +176,7 @@ class AwaitableGetQueryResult(GetQueryResult):
             body=self.body,
             description=self.description,
             display_name=self.display_name,
+            id=self.id,
             name=self.name,
             properties=self.properties,
             related=self.related,
@@ -201,6 +213,7 @@ def get_query(id: Optional[str] = None,
         body=__ret__.body,
         description=__ret__.description,
         display_name=__ret__.display_name,
+        id=__ret__.id,
         name=__ret__.name,
         properties=__ret__.properties,
         related=__ret__.related,

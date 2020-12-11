@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// </summary>
         public readonly string ConnectionState;
         /// <summary>
+        /// The resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The last activity time of the connected registry.
         /// </summary>
         public readonly string LastActivityTime;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
 
             string connectionState,
 
+            string id,
+
             string lastActivityTime,
 
             Outputs.LoggingPropertiesResponse? logging,
@@ -135,6 +141,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
             Activation = activation;
             ClientTokenIds = clientTokenIds;
             ConnectionState = connectionState;
+            Id = id;
             LastActivityTime = lastActivityTime;
             Logging = logging;
             LoginServer = loginServer;

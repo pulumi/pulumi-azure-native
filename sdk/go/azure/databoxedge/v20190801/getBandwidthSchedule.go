@@ -29,6 +29,8 @@ type LookupBandwidthScheduleArgs struct {
 type LookupBandwidthScheduleResult struct {
 	// The days of the week when this schedule is applicable.
 	Days []string `pulumi:"days"`
+	// The path ID that uniquely identifies the object.
+	Id string `pulumi:"id"`
 	// The object name.
 	Name string `pulumi:"name"`
 	// The bandwidth rate in Mbps.

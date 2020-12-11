@@ -20,7 +20,7 @@ class GetSoftwareUpdateConfigurationByNameResult:
     """
     Software update configuration properties.
     """
-    def __init__(__self__, created_by=None, creation_time=None, error=None, last_modified_by=None, last_modified_time=None, name=None, provisioning_state=None, schedule_info=None, tasks=None, type=None, update_configuration=None):
+    def __init__(__self__, created_by=None, creation_time=None, error=None, id=None, last_modified_by=None, last_modified_time=None, name=None, provisioning_state=None, schedule_info=None, tasks=None, type=None, update_configuration=None):
         if created_by and not isinstance(created_by, str):
             raise TypeError("Expected argument 'created_by' to be a str")
         pulumi.set(__self__, "created_by", created_by)
@@ -30,6 +30,9 @@ class GetSoftwareUpdateConfigurationByNameResult:
         if error and not isinstance(error, dict):
             raise TypeError("Expected argument 'error' to be a dict")
         pulumi.set(__self__, "error", error)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_modified_by and not isinstance(last_modified_by, str):
             raise TypeError("Expected argument 'last_modified_by' to be a str")
         pulumi.set(__self__, "last_modified_by", last_modified_by)
@@ -78,6 +81,14 @@ class GetSoftwareUpdateConfigurationByNameResult:
         Details of provisioning error
         """
         return pulumi.get(self, "error")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastModifiedBy")
@@ -153,6 +164,7 @@ class AwaitableGetSoftwareUpdateConfigurationByNameResult(GetSoftwareUpdateConfi
             created_by=self.created_by,
             creation_time=self.creation_time,
             error=self.error,
+            id=self.id,
             last_modified_by=self.last_modified_by,
             last_modified_time=self.last_modified_time,
             name=self.name,
@@ -188,6 +200,7 @@ def get_software_update_configuration_by_name(automation_account_name: Optional[
         created_by=__ret__.created_by,
         creation_time=__ret__.creation_time,
         error=__ret__.error,
+        id=__ret__.id,
         last_modified_by=__ret__.last_modified_by,
         last_modified_time=__ret__.last_modified_time,
         name=__ret__.name,

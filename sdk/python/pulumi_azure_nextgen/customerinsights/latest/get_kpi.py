@@ -20,7 +20,7 @@ class GetKpiResult:
     """
     The KPI resource format.
     """
-    def __init__(__self__, aliases=None, calculation_window=None, calculation_window_field_name=None, description=None, display_name=None, entity_type=None, entity_type_name=None, expression=None, extracts=None, filter=None, function=None, group_by=None, group_by_metadata=None, kpi_name=None, name=None, participant_profiles_metadata=None, provisioning_state=None, tenant_id=None, thres_holds=None, type=None, unit=None):
+    def __init__(__self__, aliases=None, calculation_window=None, calculation_window_field_name=None, description=None, display_name=None, entity_type=None, entity_type_name=None, expression=None, extracts=None, filter=None, function=None, group_by=None, group_by_metadata=None, id=None, kpi_name=None, name=None, participant_profiles_metadata=None, provisioning_state=None, tenant_id=None, thres_holds=None, type=None, unit=None):
         if aliases and not isinstance(aliases, list):
             raise TypeError("Expected argument 'aliases' to be a list")
         pulumi.set(__self__, "aliases", aliases)
@@ -60,6 +60,9 @@ class GetKpiResult:
         if group_by_metadata and not isinstance(group_by_metadata, list):
             raise TypeError("Expected argument 'group_by_metadata' to be a list")
         pulumi.set(__self__, "group_by_metadata", group_by_metadata)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kpi_name and not isinstance(kpi_name, str):
             raise TypeError("Expected argument 'kpi_name' to be a str")
         pulumi.set(__self__, "kpi_name", kpi_name)
@@ -190,6 +193,14 @@ class GetKpiResult:
         return pulumi.get(self, "group_by_metadata")
 
     @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
     @pulumi.getter(name="kpiName")
     def kpi_name(self) -> str:
         """
@@ -273,6 +284,7 @@ class AwaitableGetKpiResult(GetKpiResult):
             function=self.function,
             group_by=self.group_by,
             group_by_metadata=self.group_by_metadata,
+            id=self.id,
             kpi_name=self.kpi_name,
             name=self.name,
             participant_profiles_metadata=self.participant_profiles_metadata,
@@ -318,6 +330,7 @@ def get_kpi(hub_name: Optional[str] = None,
         function=__ret__.function,
         group_by=__ret__.group_by,
         group_by_metadata=__ret__.group_by_metadata,
+        id=__ret__.id,
         kpi_name=__ret__.kpi_name,
         name=__ret__.name,
         participant_profiles_metadata=__ret__.participant_profiles_metadata,

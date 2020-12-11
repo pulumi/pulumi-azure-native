@@ -25,6 +25,8 @@ type LookupDeploymentArgs struct {
 
 // Deployment information.
 type LookupDeploymentResult struct {
+	// The ID of the deployment.
+	Id string `pulumi:"id"`
 	// The name of the deployment.
 	Name string `pulumi:"name"`
 	// Deployment properties.

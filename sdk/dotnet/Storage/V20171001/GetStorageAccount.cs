@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.Storage.V20171001
         /// </summary>
         public readonly Outputs.EncryptionResponse Encryption;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
@@ -136,6 +140,8 @@ namespace Pulumi.AzureNextGen.Storage.V20171001
 
             Outputs.EncryptionResponse encryption,
 
+            string id,
+
             Outputs.IdentityResponse? identity,
 
             string kind,
@@ -173,6 +179,7 @@ namespace Pulumi.AzureNextGen.Storage.V20171001
             CustomDomain = customDomain;
             EnableHttpsTrafficOnly = enableHttpsTrafficOnly;
             Encryption = encryption;
+            Id = id;
             Identity = identity;
             Kind = kind;
             LastGeoFailoverTime = lastGeoFailoverTime;

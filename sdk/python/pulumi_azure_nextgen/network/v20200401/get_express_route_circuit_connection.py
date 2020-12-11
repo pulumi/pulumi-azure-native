@@ -20,7 +20,7 @@ class GetExpressRouteCircuitConnectionResult:
     """
     Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
     """
-    def __init__(__self__, address_prefix=None, authorization_key=None, circuit_connection_status=None, etag=None, express_route_circuit_peering=None, ipv6_circuit_connection_config=None, name=None, peer_express_route_circuit_peering=None, provisioning_state=None, type=None):
+    def __init__(__self__, address_prefix=None, authorization_key=None, circuit_connection_status=None, etag=None, express_route_circuit_peering=None, id=None, ipv6_circuit_connection_config=None, name=None, peer_express_route_circuit_peering=None, provisioning_state=None, type=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
         pulumi.set(__self__, "address_prefix", address_prefix)
@@ -36,6 +36,9 @@ class GetExpressRouteCircuitConnectionResult:
         if express_route_circuit_peering and not isinstance(express_route_circuit_peering, dict):
             raise TypeError("Expected argument 'express_route_circuit_peering' to be a dict")
         pulumi.set(__self__, "express_route_circuit_peering", express_route_circuit_peering)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if ipv6_circuit_connection_config and not isinstance(ipv6_circuit_connection_config, dict):
             raise TypeError("Expected argument 'ipv6_circuit_connection_config' to be a dict")
         pulumi.set(__self__, "ipv6_circuit_connection_config", ipv6_circuit_connection_config)
@@ -93,6 +96,14 @@ class GetExpressRouteCircuitConnectionResult:
         return pulumi.get(self, "express_route_circuit_peering")
 
     @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
     @pulumi.getter(name="ipv6CircuitConnectionConfig")
     def ipv6_circuit_connection_config(self) -> Optional['outputs.Ipv6CircuitConnectionConfigResponse']:
         """
@@ -144,6 +155,7 @@ class AwaitableGetExpressRouteCircuitConnectionResult(GetExpressRouteCircuitConn
             circuit_connection_status=self.circuit_connection_status,
             etag=self.etag,
             express_route_circuit_peering=self.express_route_circuit_peering,
+            id=self.id,
             ipv6_circuit_connection_config=self.ipv6_circuit_connection_config,
             name=self.name,
             peer_express_route_circuit_peering=self.peer_express_route_circuit_peering,
@@ -181,6 +193,7 @@ def get_express_route_circuit_connection(circuit_name: Optional[str] = None,
         circuit_connection_status=__ret__.circuit_connection_status,
         etag=__ret__.etag,
         express_route_circuit_peering=__ret__.express_route_circuit_peering,
+        id=__ret__.id,
         ipv6_circuit_connection_config=__ret__.ipv6_circuit_connection_config,
         name=__ret__.name,
         peer_express_route_circuit_peering=__ret__.peer_express_route_circuit_peering,

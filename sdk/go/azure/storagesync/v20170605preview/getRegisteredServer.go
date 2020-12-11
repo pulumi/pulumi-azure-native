@@ -33,6 +33,8 @@ type LookupRegisteredServerResult struct {
 	ClusterId *string `pulumi:"clusterId"`
 	// Registered Server clusterName
 	ClusterName *string `pulumi:"clusterName"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Registered Server last heart beat
 	LastHeartBeat *string `pulumi:"lastHeartBeat"`
 	// Registered Server lastWorkflowId

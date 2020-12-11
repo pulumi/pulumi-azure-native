@@ -19,7 +19,7 @@ class GetEventHubConnectionResult:
     """
     Class representing an event hub connection.
     """
-    def __init__(__self__, consumer_group=None, data_format=None, event_hub_resource_id=None, location=None, mapping_rule_name=None, name=None, table_name=None, type=None):
+    def __init__(__self__, consumer_group=None, data_format=None, event_hub_resource_id=None, id=None, location=None, mapping_rule_name=None, name=None, table_name=None, type=None):
         if consumer_group and not isinstance(consumer_group, str):
             raise TypeError("Expected argument 'consumer_group' to be a str")
         pulumi.set(__self__, "consumer_group", consumer_group)
@@ -29,6 +29,9 @@ class GetEventHubConnectionResult:
         if event_hub_resource_id and not isinstance(event_hub_resource_id, str):
             raise TypeError("Expected argument 'event_hub_resource_id' to be a str")
         pulumi.set(__self__, "event_hub_resource_id", event_hub_resource_id)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -68,6 +71,14 @@ class GetEventHubConnectionResult:
         The resource ID of the event hub to be used to create a data connection.
         """
         return pulumi.get(self, "event_hub_resource_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -119,6 +130,7 @@ class AwaitableGetEventHubConnectionResult(GetEventHubConnectionResult):
             consumer_group=self.consumer_group,
             data_format=self.data_format,
             event_hub_resource_id=self.event_hub_resource_id,
+            id=self.id,
             location=self.location,
             mapping_rule_name=self.mapping_rule_name,
             name=self.name,
@@ -154,6 +166,7 @@ def get_event_hub_connection(cluster_name: Optional[str] = None,
         consumer_group=__ret__.consumer_group,
         data_format=__ret__.data_format,
         event_hub_resource_id=__ret__.event_hub_resource_id,
+        id=__ret__.id,
         location=__ret__.location,
         mapping_rule_name=__ret__.mapping_rule_name,
         name=__ret__.name,

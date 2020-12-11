@@ -52,6 +52,10 @@ export interface GetClusterResult {
      */
     readonly hosts: string[];
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

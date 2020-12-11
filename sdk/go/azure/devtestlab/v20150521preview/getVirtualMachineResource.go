@@ -45,6 +45,8 @@ type LookupVirtualMachineResourceResult struct {
 	Fqdn *string `pulumi:"fqdn"`
 	// The Microsoft Azure Marketplace image reference of the virtual machine.
 	GalleryImageReference *GalleryImageReferenceResponse `pulumi:"galleryImageReference"`
+	// The identifier of the resource.
+	Id *string `pulumi:"id"`
 	// A value indicating whether this virtual machine uses an SSH key for authentication.
 	IsAuthenticationWithSshKey *bool `pulumi:"isAuthenticationWithSshKey"`
 	// The lab subnet name of the virtual machine.
