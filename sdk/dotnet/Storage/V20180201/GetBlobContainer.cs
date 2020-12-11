@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Storage.V20180201
         /// </summary>
         public readonly bool HasLegalHold;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The ImmutabilityPolicy property of the container.
         /// </summary>
         public readonly Outputs.ImmutabilityPolicyPropertiesResponse ImmutabilityPolicy;
@@ -106,6 +110,8 @@ namespace Pulumi.AzureNextGen.Storage.V20180201
 
             bool hasLegalHold,
 
+            string id,
+
             Outputs.ImmutabilityPolicyPropertiesResponse immutabilityPolicy,
 
             string lastModifiedTime,
@@ -129,6 +135,7 @@ namespace Pulumi.AzureNextGen.Storage.V20180201
             Etag = etag;
             HasImmutabilityPolicy = hasImmutabilityPolicy;
             HasLegalHold = hasLegalHold;
+            Id = id;
             ImmutabilityPolicy = immutabilityPolicy;
             LastModifiedTime = lastModifiedTime;
             LeaseDuration = leaseDuration;

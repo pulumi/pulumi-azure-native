@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// </summary>
         public readonly string EncryptionStatus;
         /// <summary>
+        /// The identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name.
         /// </summary>
         public readonly string Name;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
 
             string encryptionStatus,
 
+            string id,
+
             string name,
 
             ImmutableArray<string> storageAccountCredentialIds,
@@ -80,6 +86,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         {
             EncryptionKey = encryptionKey;
             EncryptionStatus = encryptionStatus;
+            Id = id;
             Name = name;
             StorageAccountCredentialIds = storageAccountCredentialIds;
             Type = type;

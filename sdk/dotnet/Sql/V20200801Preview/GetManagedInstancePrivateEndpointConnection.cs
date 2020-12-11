@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
     public sealed class GetManagedInstancePrivateEndpointConnectionResult
     {
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
 
         [OutputConstructor]
         private GetManagedInstancePrivateEndpointConnectionResult(
+            string id,
+
             string name,
 
             Outputs.ManagedInstancePrivateEndpointPropertyResponse? privateEndpoint,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
 
             string type)
         {
+            Id = id;
             Name = name;
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;

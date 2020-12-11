@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
         private GetRouteTableResult(
             string? etag,
 
+            string id,
+
             string location,
 
             string name,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNextGen.Network.V20150501Preview
             string type)
         {
             Etag = etag;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// The path ID that uniquely identifies the object.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The object name.
         /// </summary>
         public readonly string Name;
@@ -88,6 +92,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
 
             string? description,
 
+            string id,
+
             string name,
 
             string? storageAccountCredentialId,
@@ -100,6 +106,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.Latest
             ContainerCount = containerCount;
             DataPolicy = dataPolicy;
             Description = description;
+            Id = id;
             Name = name;
             StorageAccountCredentialId = storageAccountCredentialId;
             StorageAccountStatus = storageAccountStatus;

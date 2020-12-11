@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.CustomProviders.V20180901Preview
         /// </summary>
         public readonly ImmutableArray<Outputs.CustomRPActionRouteDefinitionResponse> Actions;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.CustomProviders.V20180901Preview
         private GetCustomResourceProviderResult(
             ImmutableArray<Outputs.CustomRPActionRouteDefinitionResponse> actions,
 
+            string id,
+
             string location,
 
             string name,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNextGen.CustomProviders.V20180901Preview
             ImmutableArray<Outputs.CustomRPValidationsResponse> validations)
         {
             Actions = actions;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Describes an incident that relates to bookmark
         /// </summary>
         public readonly Outputs.IncidentInfoResponse? IncidentInfo;
@@ -108,6 +112,8 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
 
             string? etag,
 
+            string id,
+
             Outputs.IncidentInfoResponse? incidentInfo,
 
             ImmutableArray<string> labels,
@@ -130,6 +136,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
             CreatedBy = createdBy;
             DisplayName = displayName;
             Etag = etag;
+            Id = id;
             IncidentInfo = incidentInfo;
             Labels = labels;
             Name = name;

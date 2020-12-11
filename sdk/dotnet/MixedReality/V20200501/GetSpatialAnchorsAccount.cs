@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.MixedReality.V20200501
         /// </summary>
         public readonly string AccountId;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -70,6 +74,8 @@ namespace Pulumi.AzureNextGen.MixedReality.V20200501
 
             string accountId,
 
+            string id,
+
             string location,
 
             string name,
@@ -80,6 +86,7 @@ namespace Pulumi.AzureNextGen.MixedReality.V20200501
         {
             AccountDomain = accountDomain;
             AccountId = accountId;
+            Id = id;
             Location = location;
             Name = name;
             Tags = tags;

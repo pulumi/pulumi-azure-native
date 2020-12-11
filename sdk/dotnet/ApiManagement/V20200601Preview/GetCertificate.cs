@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// </summary>
         public readonly string ExpirationDate;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// KeyVault location details of the certificate.
         /// </summary>
         public readonly Outputs.KeyVaultContractPropertiesResponse? KeyVault;
@@ -74,6 +78,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         private GetCertificateResult(
             string expirationDate,
 
+            string id,
+
             Outputs.KeyVaultContractPropertiesResponse? keyVault,
 
             string name,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
             string type)
         {
             ExpirationDate = expirationDate;
+            Id = id;
             KeyVault = keyVault;
             Name = name;
             Subject = subject;

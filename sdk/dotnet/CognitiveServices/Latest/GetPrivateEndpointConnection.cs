@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.CognitiveServices.Latest
     public sealed class GetPrivateEndpointConnectionResult
     {
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -60,12 +64,15 @@ namespace Pulumi.AzureNextGen.CognitiveServices.Latest
 
         [OutputConstructor]
         private GetPrivateEndpointConnectionResult(
+            string id,
+
             string name,
 
             Outputs.PrivateEndpointConnectionPropertiesResponse properties,
 
             string type)
         {
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

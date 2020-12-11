@@ -103,6 +103,10 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// </summary>
         public readonly Outputs.HostingEnvironmentProfileResponse? HostingEnvironmentProfile;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Site is a default container
         /// </summary>
         public readonly bool IsDefaultContainer;
@@ -206,6 +210,8 @@ namespace Pulumi.AzureNextGen.Web.V20150801
 
             Outputs.HostingEnvironmentProfileResponse? hostingEnvironmentProfile,
 
+            string? id,
+
             bool isDefaultContainer,
 
             string? kind,
@@ -259,6 +265,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
             HostNames = hostNames;
             HostNamesDisabled = hostNamesDisabled;
             HostingEnvironmentProfile = hostingEnvironmentProfile;
+            Id = id;
             IsDefaultContainer = isDefaultContainer;
             Kind = kind;
             LastModifiedTimeUtc = lastModifiedTimeUtc;

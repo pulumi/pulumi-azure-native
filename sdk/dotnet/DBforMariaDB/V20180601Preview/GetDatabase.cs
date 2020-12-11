@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601Preview
         /// </summary>
         public readonly string? Collation;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -68,12 +72,15 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601Preview
 
             string? collation,
 
+            string id,
+
             string name,
 
             string type)
         {
             Charset = charset;
             Collation = collation;
+            Id = id;
             Name = name;
             Type = type;
         }

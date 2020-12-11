@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
         /// </summary>
         public readonly string CreatedDateTime;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
 
             string createdDateTime,
 
+            string id,
+
             string name,
 
             string? notes,
@@ -92,6 +98,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
         {
             ApiId = apiId;
             CreatedDateTime = createdDateTime;
+            Id = id;
             Name = name;
             Notes = notes;
             Type = type;

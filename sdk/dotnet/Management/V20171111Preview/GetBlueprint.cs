@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.Management.V20171111Preview
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
+        /// String Id used to locate any resource on Azure.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Layout view of the blueprint, for UI reference.
         /// </summary>
         public readonly object? Layout;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.Management.V20171111Preview
 
             string? displayName,
 
+            string id,
+
             object? layout,
 
             string name,
@@ -104,6 +110,7 @@ namespace Pulumi.AzureNextGen.Management.V20171111Preview
         {
             Description = description;
             DisplayName = displayName;
+            Id = id;
             Layout = layout;
             Name = name;
             Parameters = parameters;

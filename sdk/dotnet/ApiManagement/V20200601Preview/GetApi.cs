@@ -86,6 +86,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Indicates if API revision is current api revision.
         /// </summary>
         public readonly bool? IsCurrent;
@@ -148,6 +152,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
 
             string? displayName,
 
+            string id,
+
             bool? isCurrent,
 
             bool isOnline,
@@ -178,6 +184,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
             AuthenticationSettings = authenticationSettings;
             Description = description;
             DisplayName = displayName;
+            Id = id;
             IsCurrent = isCurrent;
             IsOnline = isOnline;
             Name = name;

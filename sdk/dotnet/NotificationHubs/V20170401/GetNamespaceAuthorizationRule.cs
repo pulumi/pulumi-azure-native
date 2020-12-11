@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20170401
         /// </summary>
         public readonly string CreatedTime;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// A string that describes the authorization rule.
         /// </summary>
         public readonly string KeyName;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20170401
 
             string createdTime,
 
+            string id,
+
             string keyName,
 
             string? location,
@@ -135,6 +141,7 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20170401
             ClaimType = claimType;
             ClaimValue = claimValue;
             CreatedTime = createdTime;
+            Id = id;
             KeyName = keyName;
             Location = location;
             ModifiedTime = modifiedTime;

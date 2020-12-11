@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The kind of the DataSource.
         /// </summary>
         public readonly string Kind;
@@ -74,6 +78,8 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
         private GetDataSourceResult(
             string? etag,
 
+            string id,
+
             string kind,
 
             string name,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
             string type)
         {
             Etag = etag;
+            Id = id;
             Kind = kind;
             Name = name;
             Properties = properties;

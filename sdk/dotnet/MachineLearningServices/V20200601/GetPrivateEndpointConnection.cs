@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200601
     public sealed class GetPrivateEndpointConnectionResult
     {
         /// <summary>
+        /// ResourceId of the private endpoint connection.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Friendly name of the private endpoint connection.
         /// </summary>
         public readonly string Name;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200601
 
         [OutputConstructor]
         private GetPrivateEndpointConnectionResult(
+            string id,
+
             string name,
 
             Outputs.PrivateEndpointResponse? privateEndpoint,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200601
 
             string type)
         {
+            Id = id;
             Name = name;
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;

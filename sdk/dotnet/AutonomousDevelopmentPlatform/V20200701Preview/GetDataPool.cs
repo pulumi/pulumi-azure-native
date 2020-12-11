@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.AutonomousDevelopmentPlatform.V20200701Preview
         /// </summary>
         public readonly string DataPoolId;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Gets or sets the collection of locations where Data Pool resources should be created.
         /// </summary>
         public readonly ImmutableArray<Outputs.DataPoolLocationResponse> Locations;
@@ -70,6 +74,8 @@ namespace Pulumi.AzureNextGen.AutonomousDevelopmentPlatform.V20200701Preview
         private GetDataPoolResult(
             string dataPoolId,
 
+            string id,
+
             ImmutableArray<Outputs.DataPoolLocationResponse> locations,
 
             string name,
@@ -79,6 +85,7 @@ namespace Pulumi.AzureNextGen.AutonomousDevelopmentPlatform.V20200701Preview
             string type)
         {
             DataPoolId = dataPoolId;
+            Id = id;
             Locations = locations;
             Name = name;
             ProvisioningState = provisioningState;

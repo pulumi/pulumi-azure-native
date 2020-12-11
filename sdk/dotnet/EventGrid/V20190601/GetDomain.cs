@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.EventGrid.V20190601
         /// </summary>
         public readonly string Endpoint;
         /// <summary>
+        /// Fully qualified identifier of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Location of the resource.
         /// </summary>
         public readonly string Location;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.EventGrid.V20190601
         private GetDomainResult(
             string endpoint,
 
+            string id,
+
             string location,
 
             string name,
@@ -79,6 +85,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20190601
             string type)
         {
             Endpoint = endpoint;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
         /// </summary>
         public readonly string Category;
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The kind of workbook. Choices are user and shared.
         /// </summary>
         public readonly string? Kind;
@@ -96,6 +100,8 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
         private GetWorkbookResult(
             string category,
 
+            string id,
+
             string? kind,
 
             string? location,
@@ -121,6 +127,7 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
             string workbookId)
         {
             Category = category;
+            Id = id;
             Kind = kind;
             Location = location;
             Name = name;

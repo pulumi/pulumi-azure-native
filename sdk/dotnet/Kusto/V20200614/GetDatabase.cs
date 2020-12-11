@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Kusto.V20200614
     public sealed class GetDatabaseResult
     {
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Kind of the database
         /// </summary>
         public readonly string Kind;
@@ -64,6 +68,8 @@ namespace Pulumi.AzureNextGen.Kusto.V20200614
 
         [OutputConstructor]
         private GetDatabaseResult(
+            string id,
+
             string kind,
 
             string? location,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20200614
 
             string type)
         {
+            Id = id;
             Kind = kind;
             Location = location;
             Name = name;

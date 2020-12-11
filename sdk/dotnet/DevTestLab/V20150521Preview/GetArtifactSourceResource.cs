@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// </summary>
         public readonly string? FolderPath;
         /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string? Location;
@@ -102,6 +106,8 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
 
             string? folderPath,
 
+            string? id,
+
             string? location,
 
             string? name,
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
             BranchRef = branchRef;
             DisplayName = displayName;
             FolderPath = folderPath;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

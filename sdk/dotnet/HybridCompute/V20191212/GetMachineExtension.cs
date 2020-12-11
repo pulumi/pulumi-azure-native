@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20191212
         /// </summary>
         public readonly string? ForceUpdateTag;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The machine extension instance view.
         /// </summary>
         public readonly Outputs.MachineExtensionPropertiesResponseInstanceView? InstanceView;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20191212
 
             string? forceUpdateTag,
 
+            string id,
+
             Outputs.MachineExtensionPropertiesResponseInstanceView? instanceView,
 
             string location,
@@ -122,6 +128,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20191212
         {
             AutoUpgradeMinorVersion = autoUpgradeMinorVersion;
             ForceUpdateTag = forceUpdateTag;
+            Id = id;
             InstanceView = instanceView;
             Location = location;
             Name = name;

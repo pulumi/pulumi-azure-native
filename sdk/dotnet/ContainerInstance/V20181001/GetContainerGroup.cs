@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20181001
         /// </summary>
         public readonly Outputs.DnsConfigurationResponse? DnsConfig;
         /// <summary>
+        /// The resource id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the container group, if configured.
         /// </summary>
         public readonly Outputs.ContainerGroupIdentityResponse? Identity;
@@ -115,6 +119,8 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20181001
 
             Outputs.DnsConfigurationResponse? dnsConfig,
 
+            string id,
+
             Outputs.ContainerGroupIdentityResponse? identity,
 
             ImmutableArray<Outputs.ImageRegistryCredentialResponse> imageRegistryCredentials,
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNextGen.ContainerInstance.V20181001
             Containers = containers;
             Diagnostics = diagnostics;
             DnsConfig = dnsConfig;
+            Id = id;
             Identity = identity;
             ImageRegistryCredentials = imageRegistryCredentials;
             InstanceView = instanceView;

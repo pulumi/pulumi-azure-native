@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Compute.V20171201
         /// </summary>
         public readonly Outputs.HardwareProfileResponse? HardwareProfile;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The virtual machine instance ID.
         /// </summary>
         public readonly string InstanceId;
@@ -130,6 +134,8 @@ namespace Pulumi.AzureNextGen.Compute.V20171201
 
             Outputs.HardwareProfileResponse? hardwareProfile,
 
+            string id,
+
             string instanceId,
 
             Outputs.VirtualMachineScaleSetVMInstanceViewResponse instanceView,
@@ -165,6 +171,7 @@ namespace Pulumi.AzureNextGen.Compute.V20171201
             AvailabilitySet = availabilitySet;
             DiagnosticsProfile = diagnosticsProfile;
             HardwareProfile = hardwareProfile;
+            Id = id;
             InstanceId = instanceId;
             InstanceView = instanceView;
             LatestModelApplied = latestModelApplied;

@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20161010
         /// </summary>
         public readonly ImmutableArray<Outputs.HostnameConfigurationResponse> HostnameConfigurations;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string Location;
@@ -142,6 +146,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20161010
 
             ImmutableArray<Outputs.HostnameConfigurationResponse> hostnameConfigurations,
 
+            string id,
+
             string location,
 
             string managementApiUrl,
@@ -180,6 +186,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20161010
             CustomProperties = customProperties;
             Etag = etag;
             HostnameConfigurations = hostnameConfigurations;
+            Id = id;
             Location = location;
             ManagementApiUrl = managementApiUrl;
             Name = name;

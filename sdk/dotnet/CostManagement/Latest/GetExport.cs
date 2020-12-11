@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.CostManagement.Latest
         /// </summary>
         public readonly string? Format;
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.CostManagement.Latest
 
             string? format,
 
+            string id,
+
             string name,
 
             string nextRunTimeEstimate,
@@ -106,6 +112,7 @@ namespace Pulumi.AzureNextGen.CostManagement.Latest
             DeliveryInfo = deliveryInfo;
             ETag = eTag;
             Format = format;
+            Id = id;
             Name = name;
             NextRunTimeEstimate = nextRunTimeEstimate;
             RunHistory = runHistory;

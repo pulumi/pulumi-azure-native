@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -62,11 +66,14 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301
         private GetDiagnosticResult(
             bool enabled,
 
+            string id,
+
             string name,
 
             string type)
         {
             Enabled = enabled;
+            Id = id;
             Name = name;
             Type = type;
         }

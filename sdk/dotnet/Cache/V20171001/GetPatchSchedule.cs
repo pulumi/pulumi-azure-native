@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Cache.V20171001
     public sealed class GetPatchScheduleResult
     {
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -60,12 +64,15 @@ namespace Pulumi.AzureNextGen.Cache.V20171001
 
         [OutputConstructor]
         private GetPatchScheduleResult(
+            string id,
+
             string name,
 
             ImmutableArray<Outputs.ScheduleEntryResponse> scheduleEntries,
 
             string type)
         {
+            Id = id;
             Name = name;
             ScheduleEntries = scheduleEntries;
             Type = type;

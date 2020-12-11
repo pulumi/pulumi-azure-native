@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20171115
         /// </summary>
         public readonly string DataRetentionTime;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -108,6 +112,8 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20171115
 
             string dataRetentionTime,
 
+            string id,
+
             string location,
 
             string name,
@@ -130,6 +136,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20171115
             DataAccessFqdn = dataAccessFqdn;
             DataAccessId = dataAccessId;
             DataRetentionTime = dataRetentionTime;
+            Id = id;
             Location = location;
             Name = name;
             PartitionKeyProperties = partitionKeyProperties;

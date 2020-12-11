@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.Insights.V20191017Preview
         /// </summary>
         public readonly ImmutableArray<Outputs.WorkbookTemplateGalleryResponse> Galleries;
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Key value pair of localized gallery. Each key is the locale code of languages supported by the Azure portal.
         /// </summary>
         public readonly ImmutableDictionary<string, ImmutableArray<Outputs.WorkbookTemplateLocalizedGalleryResponse>>? Localized;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNextGen.Insights.V20191017Preview
 
             ImmutableArray<Outputs.WorkbookTemplateGalleryResponse> galleries,
 
+            string id,
+
             ImmutableDictionary<string, ImmutableArray<Outputs.WorkbookTemplateLocalizedGalleryResponse>>? localized,
 
             string location,
@@ -98,6 +104,7 @@ namespace Pulumi.AzureNextGen.Insights.V20191017Preview
         {
             Author = author;
             Galleries = galleries;
+            Id = id;
             Localized = localized;
             Location = location;
             Name = name;

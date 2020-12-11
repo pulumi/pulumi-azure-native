@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// </summary>
         public readonly string BackupType;
         /// <summary>
+        /// The path ID that uniquely identifies the object.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         public readonly string? Kind;
@@ -98,6 +102,8 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         private GetBackupScheduleResult(
             string backupType,
 
+            string id,
+
             string? kind,
 
             string lastSuccessfulRun,
@@ -115,6 +121,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
             string type)
         {
             BackupType = backupType;
+            Id = id;
             Kind = kind;
             LastSuccessfulRun = lastSuccessfulRun;
             Name = name;

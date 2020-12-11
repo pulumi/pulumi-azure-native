@@ -70,6 +70,10 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
     public sealed class GetSqlPoolSensitivityLabelResult
     {
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The information type.
         /// </summary>
         public readonly string? InformationType;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
         [OutputConstructor]
         private GetSqlPoolSensitivityLabelResult(
+            string id,
+
             string? informationType,
 
             string? informationTypeId,
@@ -114,6 +120,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
             string type)
         {
+            Id = id;
             InformationType = informationType;
             InformationTypeId = informationTypeId;
             IsDisabled = isDisabled;

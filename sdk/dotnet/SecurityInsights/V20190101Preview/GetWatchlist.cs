@@ -80,6 +80,10 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// A flag that indicates if the watchlist is deleted or not
         /// </summary>
         public readonly bool? IsDeleted;
@@ -152,6 +156,8 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
 
             string? etag,
 
+            string id,
+
             bool? isDeleted,
 
             ImmutableArray<string> labels,
@@ -187,6 +193,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
             Description = description;
             DisplayName = displayName;
             Etag = etag;
+            Id = id;
             IsDeleted = isDeleted;
             Labels = labels;
             Name = name;

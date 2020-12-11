@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
         /// </summary>
         public readonly string Edition;
         /// <summary>
+        /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -96,6 +100,8 @@ namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
 
             string edition,
 
+            string id,
+
             string location,
 
             string name,
@@ -117,6 +123,7 @@ namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
             ContainerResourceId = containerResourceId;
             CreateTime = createTime;
             Edition = edition;
+            Id = id;
             Location = location;
             Name = name;
             Status = status;

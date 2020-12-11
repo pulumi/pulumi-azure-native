@@ -107,6 +107,10 @@ namespace Pulumi.AzureNextGen.Web.V20190801
         /// </summary>
         public readonly bool? HyperV;
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Managed service identity.
         /// </summary>
         public readonly Outputs.ManagedServiceIdentityResponse? Identity;
@@ -246,6 +250,8 @@ namespace Pulumi.AzureNextGen.Web.V20190801
 
             bool? hyperV,
 
+            string id,
+
             Outputs.ManagedServiceIdentityResponse? identity,
 
             string inProgressOperationId,
@@ -314,6 +320,7 @@ namespace Pulumi.AzureNextGen.Web.V20190801
             HostingEnvironmentProfile = hostingEnvironmentProfile;
             HttpsOnly = httpsOnly;
             HyperV = hyperV;
+            Id = id;
             Identity = identity;
             InProgressOperationId = inProgressOperationId;
             IsDefaultContainer = isDefaultContainer;

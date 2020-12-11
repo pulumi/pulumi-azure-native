@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.NetApp.V20200501
         /// </summary>
         public readonly string CreationDate;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Label for backup
         /// </summary>
         public readonly string? Label;
@@ -96,6 +100,8 @@ namespace Pulumi.AzureNextGen.NetApp.V20200501
 
             string creationDate,
 
+            string id,
+
             string? label,
 
             string location,
@@ -110,6 +116,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200501
         {
             BackupType = backupType;
             CreationDate = creationDate;
+            Id = id;
             Label = label;
             Location = location;
             Name = name;

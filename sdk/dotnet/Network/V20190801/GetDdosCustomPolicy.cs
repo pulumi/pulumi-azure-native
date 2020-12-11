@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -80,6 +84,8 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         private GetDdosCustomPolicyResult(
             string etag,
 
+            string? id,
+
             string? location,
 
             string name,
@@ -97,6 +103,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
             string type)
         {
             Etag = etag;
+            Id = id;
             Location = location;
             Name = name;
             ProtocolCustomSettings = protocolCustomSettings;

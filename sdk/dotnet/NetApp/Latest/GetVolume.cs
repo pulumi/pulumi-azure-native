@@ -76,6 +76,10 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
         /// </summary>
         public readonly string FileSystemId;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Restoring
         /// </summary>
         public readonly bool? IsRestoring;
@@ -155,6 +159,8 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
 
             string fileSystemId,
 
+            string id,
+
             bool? isRestoring,
 
             bool? kerberosEnabled,
@@ -195,6 +201,7 @@ namespace Pulumi.AzureNextGen.NetApp.Latest
             DataProtection = dataProtection;
             ExportPolicy = exportPolicy;
             FileSystemId = fileSystemId;
+            Id = id;
             IsRestoring = isRestoring;
             KerberosEnabled = kerberosEnabled;
             Location = location;

@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Devices.V20160203
     public sealed class GetIotHubResourceEventHubConsumerGroupResult
     {
         /// <summary>
+        /// The Event Hub-compatible consumer group identifier.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The Event Hub-compatible consumer group name.
         /// </summary>
         public readonly string? Name;
@@ -62,10 +66,13 @@ namespace Pulumi.AzureNextGen.Devices.V20160203
 
         [OutputConstructor]
         private GetIotHubResourceEventHubConsumerGroupResult(
+            string? id,
+
             string? name,
 
             ImmutableDictionary<string, string>? tags)
         {
+            Id = id;
             Name = name;
             Tags = tags;
         }

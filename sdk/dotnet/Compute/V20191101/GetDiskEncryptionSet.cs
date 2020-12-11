@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Compute.V20191101
         /// </summary>
         public readonly Outputs.KeyVaultAndKeyReferenceResponse? ActiveKey;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
         /// </summary>
         public readonly Outputs.EncryptionSetIdentityResponse? Identity;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.Compute.V20191101
         private GetDiskEncryptionSetResult(
             Outputs.KeyVaultAndKeyReferenceResponse? activeKey,
 
+            string id,
+
             Outputs.EncryptionSetIdentityResponse? identity,
 
             string location,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNextGen.Compute.V20191101
             string type)
         {
             ActiveKey = activeKey;
+            Id = id;
             Identity = identity;
             Location = location;
             Name = name;

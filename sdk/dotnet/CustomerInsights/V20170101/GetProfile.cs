@@ -76,6 +76,10 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
         /// </summary>
         public readonly ImmutableArray<Outputs.PropertyDefinitionResponse> Fields;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The instance count.
         /// </summary>
         public readonly int? InstancesCount;
@@ -146,6 +150,8 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
 
             ImmutableArray<Outputs.PropertyDefinitionResponse> fields,
 
+            string id,
+
             int? instancesCount,
 
             string? largeImage,
@@ -180,6 +186,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
             DisplayName = displayName;
             EntityType = entityType;
             Fields = fields;
+            Id = id;
             InstancesCount = instancesCount;
             LargeImage = largeImage;
             LastChangedUtc = lastChangedUtc;

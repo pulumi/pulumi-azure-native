@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.ManagedServices.V20200201Preview
     public sealed class GetRegistrationAssignmentResult
     {
         /// <summary>
+        /// The fully qualified path of the registration assignment.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Name of the registration assignment.
         /// </summary>
         public readonly string Name;
@@ -60,12 +64,15 @@ namespace Pulumi.AzureNextGen.ManagedServices.V20200201Preview
 
         [OutputConstructor]
         private GetRegistrationAssignmentResult(
+            string id,
+
             string name,
 
             Outputs.RegistrationAssignmentPropertiesResponse properties,
 
             string type)
         {
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

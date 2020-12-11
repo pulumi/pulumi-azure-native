@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -70,6 +74,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
         private GetContentTypeResult(
             string? description,
 
+            string id,
+
             string name,
 
             object? schema,
@@ -79,6 +85,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20200601Preview
             string? version)
         {
             Description = description;
+            Id = id;
             Name = name;
             Schema = schema;
             Type = type;

@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         /// </summary>
         public readonly string DefaultStorageAccount;
         /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
         /// </summary>
         public readonly string? LabStorageType;
@@ -114,6 +118,8 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
 
             string defaultStorageAccount,
 
+            string id,
+
             string? labStorageType,
 
             string? location,
@@ -138,6 +144,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
             CreatedDate = createdDate;
             DefaultPremiumStorageAccount = defaultPremiumStorageAccount;
             DefaultStorageAccount = defaultStorageAccount;
+            Id = id;
             LabStorageType = labStorageType;
             Location = location;
             Name = name;

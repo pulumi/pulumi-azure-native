@@ -77,6 +77,10 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview
         /// </summary>
         public readonly string HaState;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The Azure Active Directory identity of the server.
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
@@ -155,6 +159,8 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview
 
             string haState,
 
+            string id,
+
             Outputs.IdentityResponse? identity,
 
             string location,
@@ -193,6 +199,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20200214Preview
             FullyQualifiedDomainName = fullyQualifiedDomainName;
             HaEnabled = haEnabled;
             HaState = haState;
+            Id = id;
             Identity = identity;
             Location = location;
             MaintenanceWindow = maintenanceWindow;

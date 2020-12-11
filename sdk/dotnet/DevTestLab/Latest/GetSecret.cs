@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
     public sealed class GetSecretResult
     {
         /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string? Location;
@@ -88,6 +92,8 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
 
         [OutputConstructor]
         private GetSecretResult(
+            string id,
+
             string? location,
 
             string name,
@@ -102,6 +108,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
 
             string? value)
         {
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

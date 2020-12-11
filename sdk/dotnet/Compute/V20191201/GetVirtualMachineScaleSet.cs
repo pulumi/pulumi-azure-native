@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
         /// </summary>
         public readonly bool? DoNotRunExtensionsOnOverprovisionedVMs;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the virtual machine scale set, if configured.
         /// </summary>
         public readonly Outputs.VirtualMachineScaleSetIdentityResponse? Identity;
@@ -132,6 +136,8 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
 
             bool? doNotRunExtensionsOnOverprovisionedVMs,
 
+            string id,
+
             Outputs.VirtualMachineScaleSetIdentityResponse? identity,
 
             string location,
@@ -171,6 +177,7 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
             AdditionalCapabilities = additionalCapabilities;
             AutomaticRepairsPolicy = automaticRepairsPolicy;
             DoNotRunExtensionsOnOverprovisionedVMs = doNotRunExtensionsOnOverprovisionedVMs;
+            Id = id;
             Identity = identity;
             Location = location;
             Name = name;

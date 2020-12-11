@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20200301Preview
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string? Location;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20200301Preview
         private GetClusterResult(
             string etag,
 
+            string id,
+
             string? location,
 
             string name,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20200301Preview
             string type)
         {
             Etag = etag;
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201019Preview
         /// </summary>
         public readonly string HostPoolArmPath;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201019Preview
 
             string hostPoolArmPath,
 
+            string id,
+
             string location,
 
             string name,
@@ -100,6 +106,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20201019Preview
             Description = description;
             FriendlyName = friendlyName;
             HostPoolArmPath = hostPoolArmPath;
+            Id = id;
             Location = location;
             Name = name;
             Tags = tags;

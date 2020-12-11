@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
         /// </summary>
         public readonly string? ForceUpdateTag;
         /// <summary>
+        /// The resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Identity for the resource.
         /// </summary>
         public readonly Outputs.IdentityPropertiesResponse? Identity;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
         private ListTaskRunDetailsResult(
             string? forceUpdateTag,
 
+            string id,
+
             Outputs.IdentityPropertiesResponse? identity,
 
             string? location,
@@ -103,6 +109,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190601Preview
             string type)
         {
             ForceUpdateTag = forceUpdateTag;
+            Id = id;
             Identity = identity;
             Location = location;
             Name = name;

@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
     public sealed class GetJobCredentialResult
     {
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -70,6 +74,8 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
 
         [OutputConstructor]
         private GetJobCredentialResult(
+            string id,
+
             string name,
 
             string password,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
 
             string username)
         {
+            Id = id;
             Name = name;
             Password = password;
             Type = type;

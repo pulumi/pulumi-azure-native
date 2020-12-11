@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.EventHub.Latest
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Value that indicates whether AutoInflate is enabled for eventhub namespace.
         /// </summary>
         public readonly bool? IsAutoInflateEnabled;
@@ -96,6 +100,8 @@ namespace Pulumi.AzureNextGen.EventHub.Latest
         private GetNamespaceResult(
             string createdAt,
 
+            string id,
+
             bool? isAutoInflateEnabled,
 
             bool? kafkaEnabled,
@@ -121,6 +127,7 @@ namespace Pulumi.AzureNextGen.EventHub.Latest
             string updatedAt)
         {
             CreatedAt = createdAt;
+            Id = id;
             IsAutoInflateEnabled = isAutoInflateEnabled;
             KafkaEnabled = kafkaEnabled;
             Location = location;

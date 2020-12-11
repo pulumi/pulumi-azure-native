@@ -38,6 +38,10 @@ namespace Pulumi.AzureNextGen.Peering.V20200101Preview
         /// </summary>
         public readonly string ErrorMessage;
         /// <summary>
+        /// The ID of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.Peering.V20200101Preview
         private GetPeerAsnResult(
             string errorMessage,
 
+            string id,
+
             string name,
 
             int? peerAsn,
@@ -79,6 +85,7 @@ namespace Pulumi.AzureNextGen.Peering.V20200101Preview
             string? validationState)
         {
             ErrorMessage = errorMessage;
+            Id = id;
             Name = name;
             PeerAsn = peerAsn;
             PeerContactDetail = peerContactDetail;

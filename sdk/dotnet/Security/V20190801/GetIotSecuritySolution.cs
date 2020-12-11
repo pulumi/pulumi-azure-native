@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Security.V20190801
         /// </summary>
         public readonly ImmutableArray<string> Export;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// IoT Hub resource IDs
         /// </summary>
         public readonly ImmutableArray<string> IotHubs;
@@ -106,6 +110,8 @@ namespace Pulumi.AzureNextGen.Security.V20190801
 
             ImmutableArray<string> export,
 
+            string id,
+
             ImmutableArray<string> iotHubs,
 
             string? location,
@@ -130,6 +136,7 @@ namespace Pulumi.AzureNextGen.Security.V20190801
             DisabledDataSources = disabledDataSources;
             DisplayName = displayName;
             Export = export;
+            Id = id;
             IotHubs = iotHubs;
             Location = location;
             Name = name;

@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Cdn.V20150601
     public sealed class GetProfileResult
     {
         /// <summary>
+        /// Resource ID
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -70,6 +74,8 @@ namespace Pulumi.AzureNextGen.Cdn.V20150601
 
         [OutputConstructor]
         private GetProfileResult(
+            string id,
+
             string location,
 
             string name,
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20150601
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         /// </summary>
         public readonly string? DefaultAction;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// List of IpRules
         /// </summary>
         public readonly ImmutableArray<Outputs.NWRuleSetIpRulesResponse> IpRules;
@@ -60,6 +64,8 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
         private GetNamespaceNetworkRuleSetResult(
             string? defaultAction,
 
+            string id,
+
             ImmutableArray<Outputs.NWRuleSetIpRulesResponse> ipRules,
 
             string name,
@@ -67,6 +73,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
             string type)
         {
             DefaultAction = defaultAction;
+            Id = id;
             IpRules = ipRules;
             Name = name;
             Type = type;

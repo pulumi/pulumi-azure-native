@@ -84,6 +84,10 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20160901
         /// </summary>
         public readonly ImmutableArray<Outputs.SettingsSectionDescriptionResponse> FabricSettings;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string Location;
@@ -156,6 +160,8 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20160901
 
             ImmutableArray<Outputs.SettingsSectionDescriptionResponse> fabricSettings,
 
+            string id,
+
             string location,
 
             string managementEndpoint,
@@ -191,6 +197,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20160901
             ClusterState = clusterState;
             DiagnosticsStorageAccountConfig = diagnosticsStorageAccountConfig;
             FabricSettings = fabricSettings;
+            Id = id;
             Location = location;
             ManagementEndpoint = managementEndpoint;
             Name = name;

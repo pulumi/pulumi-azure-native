@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.StorageCache.V20190801Preview
         /// </summary>
         public readonly Outputs.ClfsTargetResponse? Clfs;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// List of cache namespace to target namespace associations.
         /// </summary>
         public readonly ImmutableArray<Outputs.NamespaceJunctionResponse> Junctions;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNextGen.StorageCache.V20190801Preview
         private GetStorageTargetResult(
             Outputs.ClfsTargetResponse? clfs,
 
+            string id,
+
             ImmutableArray<Outputs.NamespaceJunctionResponse> junctions,
 
             string name,
@@ -97,6 +103,7 @@ namespace Pulumi.AzureNextGen.StorageCache.V20190801Preview
             Outputs.UnknownTargetResponse? unknown)
         {
             Clfs = clfs;
+            Id = id;
             Junctions = junctions;
             Name = name;
             Nfs3 = nfs3;

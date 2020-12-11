@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.StorageCache.V20191101
         /// </summary>
         public readonly Outputs.CacheHealthResponse Health;
         /// <summary>
+        /// Resource ID of the Cache.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Region name string.
         /// </summary>
         public readonly string? Location;
@@ -90,6 +94,8 @@ namespace Pulumi.AzureNextGen.StorageCache.V20191101
 
             Outputs.CacheHealthResponse health,
 
+            string id,
+
             string? location,
 
             ImmutableArray<string> mountAddresses,
@@ -110,6 +116,7 @@ namespace Pulumi.AzureNextGen.StorageCache.V20191101
         {
             CacheSizeGB = cacheSizeGB;
             Health = health;
+            Id = id;
             Location = location;
             MountAddresses = mountAddresses;
             Name = name;

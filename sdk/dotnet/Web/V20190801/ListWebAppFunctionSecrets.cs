@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Web.V20190801
     public sealed class ListWebAppFunctionSecretsResult
     {
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Secret key.
         /// </summary>
         public readonly string? Key;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.Web.V20190801
 
         [OutputConstructor]
         private ListWebAppFunctionSecretsResult(
+            string id,
+
             string? key,
 
             string? kind,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.Web.V20190801
 
             string type)
         {
+            Id = id;
             Key = key;
             Kind = kind;
             Name = name;

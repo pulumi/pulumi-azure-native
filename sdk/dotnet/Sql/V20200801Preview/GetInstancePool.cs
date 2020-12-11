@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
     public sealed class GetInstancePoolResult
     {
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The license type. Possible values are 'LicenseIncluded' (price for SQL license is included) and 'BasePrice' (without SQL license price).
         /// </summary>
         public readonly string LicenseType;
@@ -74,6 +78,8 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
 
         [OutputConstructor]
         private GetInstancePoolResult(
+            string id,
+
             string licenseType,
 
             string location,
@@ -90,6 +96,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
 
             int vCores)
         {
+            Id = id;
             LicenseType = licenseType;
             Location = location;
             Name = name;

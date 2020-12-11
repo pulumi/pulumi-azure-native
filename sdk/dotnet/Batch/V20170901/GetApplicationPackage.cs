@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Batch.V20170901
         /// </summary>
         public readonly string Format;
         /// <summary>
+        /// The ID of the application.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The time at which the package was last activated, if the package is active.
         /// </summary>
         public readonly string LastActivationTime;
@@ -80,6 +84,8 @@ namespace Pulumi.AzureNextGen.Batch.V20170901
         private GetApplicationPackageResult(
             string format,
 
+            string id,
+
             string lastActivationTime,
 
             string state,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNextGen.Batch.V20170901
             string version)
         {
             Format = format;
+            Id = id;
             LastActivationTime = lastActivationTime;
             State = state;
             StorageUrl = storageUrl;

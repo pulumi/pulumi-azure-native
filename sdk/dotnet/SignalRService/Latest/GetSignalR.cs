@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.SignalRService.Latest
         /// </summary>
         public readonly string? HostNamePrefix;
         /// <summary>
+        /// Fully qualified resource Id for the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
         /// </summary>
         public readonly string? Kind;
@@ -130,6 +134,8 @@ namespace Pulumi.AzureNextGen.SignalRService.Latest
 
             string? hostNamePrefix,
 
+            string id,
+
             string? kind,
 
             string? location,
@@ -161,6 +167,7 @@ namespace Pulumi.AzureNextGen.SignalRService.Latest
             Features = features;
             HostName = hostName;
             HostNamePrefix = hostNamePrefix;
+            Id = id;
             Kind = kind;
             Location = location;
             Name = name;

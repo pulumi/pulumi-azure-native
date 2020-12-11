@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20160301
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -108,6 +112,8 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20160301
 
             bool? enabled,
 
+            string id,
+
             string location,
 
             string name,
@@ -135,6 +141,7 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20160301
             CreatedAt = createdAt;
             Critical = critical;
             Enabled = enabled;
+            Id = id;
             Location = location;
             Name = name;
             NamespaceType = namespaceType;

@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
     public sealed class ListServiceFabricApplicableSchedulesResult
     {
         /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The auto-shutdown schedule, if one has been set at the lab or lab resource level.
         /// </summary>
         public readonly Outputs.ScheduleResponse? LabVmsShutdown;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
 
         [OutputConstructor]
         private ListServiceFabricApplicableSchedulesResult(
+            string id,
+
             Outputs.ScheduleResponse? labVmsShutdown,
 
             Outputs.ScheduleResponse? labVmsStartup,
@@ -90,6 +96,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
 
             string type)
         {
+            Id = id;
             LabVmsShutdown = labVmsShutdown;
             LabVmsStartup = labVmsStartup;
             Location = location;

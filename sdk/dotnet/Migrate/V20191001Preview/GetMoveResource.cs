@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview
     public sealed class GetMoveResourceResult
     {
         /// <summary>
+        /// Fully qualified resource Id for the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -60,12 +64,15 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001Preview
 
         [OutputConstructor]
         private GetMoveResourceResult(
+            string id,
+
             string name,
 
             Outputs.MoveResourcePropertiesResponse properties,
 
             string type)
         {
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

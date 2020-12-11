@@ -61,6 +61,10 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview
         /// </summary>
         public readonly string HostName;
         /// <summary>
+        /// Fully qualified resource Id for the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The managed identity response
         /// </summary>
         public readonly Outputs.ManagedIdentityResponse? Identity;
@@ -131,6 +135,8 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview
 
             string hostName,
 
+            string id,
+
             Outputs.ManagedIdentityResponse? identity,
 
             string? kind,
@@ -165,6 +171,7 @@ namespace Pulumi.AzureNextGen.SignalRService.V20200701Preview
             ExternalIP = externalIP;
             Features = features;
             HostName = hostName;
+            Id = id;
             Identity = identity;
             Kind = kind;
             Location = location;

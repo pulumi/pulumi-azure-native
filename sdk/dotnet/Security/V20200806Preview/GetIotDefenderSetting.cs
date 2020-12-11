@@ -32,6 +32,10 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
         /// </summary>
         public readonly int DeviceQuota;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
@@ -48,6 +52,8 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
         private GetIotDefenderSettingResult(
             int deviceQuota,
 
+            string id,
+
             string name,
 
             ImmutableArray<string> sentinelWorkspaceResourceIds,
@@ -55,6 +61,7 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
             string type)
         {
             DeviceQuota = deviceQuota;
+            Id = id;
             Name = name;
             SentinelWorkspaceResourceIds = sentinelWorkspaceResourceIds;
             Type = type;

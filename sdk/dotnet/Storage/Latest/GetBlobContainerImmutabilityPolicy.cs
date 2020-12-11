@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The immutability period for the blobs in the container since the policy creation, in days.
         /// </summary>
         public readonly int? ImmutabilityPeriodSinceCreationInDays;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNextGen.Storage.Latest
 
             string etag,
 
+            string id,
+
             int? immutabilityPeriodSinceCreationInDays,
 
             string name,
@@ -92,6 +98,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         {
             AllowProtectedAppendWrites = allowProtectedAppendWrites;
             Etag = etag;
+            Id = id;
             ImmutabilityPeriodSinceCreationInDays = immutabilityPeriodSinceCreationInDays;
             Name = name;
             State = state;

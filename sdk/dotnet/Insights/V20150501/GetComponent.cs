@@ -76,6 +76,10 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
         /// </summary>
         public readonly string HockeyAppToken;
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Purge data immediately after 30 days.
         /// </summary>
         public readonly bool? ImmediatePurgeDataOn30Days;
@@ -152,6 +156,8 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
 
             string hockeyAppToken,
 
+            string id,
+
             bool? immediatePurgeDataOn30Days,
 
             string? ingestionMode,
@@ -189,6 +195,7 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
             FlowType = flowType;
             HockeyAppId = hockeyAppId;
             HockeyAppToken = hockeyAppToken;
+            Id = id;
             ImmediatePurgeDataOn30Days = immediatePurgeDataOn30Days;
             IngestionMode = ingestionMode;
             InstrumentationKey = instrumentationKey;

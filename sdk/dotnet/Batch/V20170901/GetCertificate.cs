@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Batch.V20170901
         /// </summary>
         public readonly string? Format;
         /// <summary>
+        /// The ID of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.Batch.V20170901
 
             string? format,
 
+            string id,
+
             string name,
 
             string previousProvisioningState,
@@ -121,6 +127,7 @@ namespace Pulumi.AzureNextGen.Batch.V20170901
             DeleteCertificateError = deleteCertificateError;
             Etag = etag;
             Format = format;
+            Id = id;
             Name = name;
             PreviousProvisioningState = previousProvisioningState;
             PreviousProvisioningStateTransitionTime = previousProvisioningStateTransitionTime;

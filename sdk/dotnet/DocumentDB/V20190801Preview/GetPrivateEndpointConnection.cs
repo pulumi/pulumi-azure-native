@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20190801Preview
         /// </summary>
         public readonly string? GroupId;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -74,6 +78,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20190801Preview
         private GetPrivateEndpointConnectionResult(
             string? groupId,
 
+            string id,
+
             string name,
 
             Outputs.PrivateEndpointPropertyResponse? privateEndpoint,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20190801Preview
             string type)
         {
             GroupId = groupId;
+            Id = id;
             Name = name;
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;

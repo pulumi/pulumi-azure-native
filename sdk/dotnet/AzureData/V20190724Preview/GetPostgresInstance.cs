@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
         /// </summary>
         public readonly string? HybridDataManagerId;
         /// <summary>
+        /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
         private GetPostgresInstanceResult(
             string? hybridDataManagerId,
 
+            string id,
+
             string location,
 
             string name,
@@ -79,6 +85,7 @@ namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
             string type)
         {
             HybridDataManagerId = hybridDataManagerId;
+            Id = id;
             Location = location;
             Name = name;
             SystemData = systemData;

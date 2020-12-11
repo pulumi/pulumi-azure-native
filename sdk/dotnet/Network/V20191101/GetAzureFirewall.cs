@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.Network.V20191101
         /// </summary>
         public readonly Outputs.HubIPAddressesResponse HubIpAddresses;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// IP configuration of the Azure Firewall resource.
         /// </summary>
         public readonly ImmutableArray<Outputs.AzureFirewallIPConfigurationResponse> IpConfigurations;
@@ -128,6 +132,8 @@ namespace Pulumi.AzureNextGen.Network.V20191101
 
             Outputs.HubIPAddressesResponse hubIpAddresses,
 
+            string? id,
+
             ImmutableArray<Outputs.AzureFirewallIPConfigurationResponse> ipConfigurations,
 
             ImmutableArray<Outputs.AzureFirewallIpGroupsResponse> ipGroups,
@@ -161,6 +167,7 @@ namespace Pulumi.AzureNextGen.Network.V20191101
             Etag = etag;
             FirewallPolicy = firewallPolicy;
             HubIpAddresses = hubIpAddresses;
+            Id = id;
             IpConfigurations = ipConfigurations;
             IpGroups = ipGroups;
             Location = location;

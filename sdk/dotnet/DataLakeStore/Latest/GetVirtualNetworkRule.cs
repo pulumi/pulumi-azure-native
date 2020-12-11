@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.DataLakeStore.Latest
     public sealed class GetVirtualNetworkRuleResult
     {
         /// <summary>
+        /// The resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The resource name.
         /// </summary>
         public readonly string Name;
@@ -60,12 +64,15 @@ namespace Pulumi.AzureNextGen.DataLakeStore.Latest
 
         [OutputConstructor]
         private GetVirtualNetworkRuleResult(
+            string id,
+
             string name,
 
             string subnetId,
 
             string type)
         {
+            Id = id;
             Name = name;
             SubnetId = subnetId;
             Type = type;

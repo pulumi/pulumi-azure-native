@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Web.V20160801
         public readonly string? EntityName;
         public readonly string? Hostname;
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
@@ -81,6 +85,8 @@ namespace Pulumi.AzureNextGen.Web.V20160801
 
             string? hostname,
 
+            string id,
+
             string? kind,
 
             string name,
@@ -97,6 +103,7 @@ namespace Pulumi.AzureNextGen.Web.V20160801
             EntityConnectionString = entityConnectionString;
             EntityName = entityName;
             Hostname = hostname;
+            Id = id;
             Kind = kind;
             Name = name;
             Port = port;

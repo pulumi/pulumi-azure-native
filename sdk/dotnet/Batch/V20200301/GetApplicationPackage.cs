@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.Batch.V20200301
         /// </summary>
         public readonly string Format;
         /// <summary>
+        /// The ID of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The time at which the package was last activated, if the package is active.
         /// </summary>
         public readonly string LastActivationTime;
@@ -90,6 +94,8 @@ namespace Pulumi.AzureNextGen.Batch.V20200301
 
             string format,
 
+            string id,
+
             string lastActivationTime,
 
             string name,
@@ -104,6 +110,7 @@ namespace Pulumi.AzureNextGen.Batch.V20200301
         {
             Etag = etag;
             Format = format;
+            Id = id;
             LastActivationTime = lastActivationTime;
             Name = name;
             State = state;

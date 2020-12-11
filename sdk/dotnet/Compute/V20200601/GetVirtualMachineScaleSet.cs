@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
         /// </summary>
         public readonly Outputs.SubResourceResponse? HostGroup;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the virtual machine scale set, if configured.
         /// </summary>
         public readonly Outputs.VirtualMachineScaleSetIdentityResponse? Identity;
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
 
             Outputs.SubResourceResponse? hostGroup,
 
+            string id,
+
             Outputs.VirtualMachineScaleSetIdentityResponse? identity,
 
             string location,
@@ -178,6 +184,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200601
             AutomaticRepairsPolicy = automaticRepairsPolicy;
             DoNotRunExtensionsOnOverprovisionedVMs = doNotRunExtensionsOnOverprovisionedVMs;
             HostGroup = hostGroup;
+            Id = id;
             Identity = identity;
             Location = location;
             Name = name;

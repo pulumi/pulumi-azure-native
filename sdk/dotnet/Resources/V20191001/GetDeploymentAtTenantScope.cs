@@ -34,6 +34,10 @@ namespace Pulumi.AzureNextGen.Resources.V20191001
     public sealed class GetDeploymentAtTenantScopeResult
     {
         /// <summary>
+        /// The ID of the deployment.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// the location of the deployment.
         /// </summary>
         public readonly string? Location;
@@ -56,6 +60,8 @@ namespace Pulumi.AzureNextGen.Resources.V20191001
 
         [OutputConstructor]
         private GetDeploymentAtTenantScopeResult(
+            string id,
+
             string? location,
 
             string name,
@@ -66,6 +72,7 @@ namespace Pulumi.AzureNextGen.Resources.V20191001
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

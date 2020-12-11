@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20200207Preview
     public sealed class GetProviderInstanceResult
     {
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// A JSON string containing metadata of the provider instance.
         /// </summary>
         public readonly string? Metadata;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20200207Preview
 
         [OutputConstructor]
         private GetProviderInstanceResult(
+            string id,
+
             string? metadata,
 
             string name,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20200207Preview
 
             string type)
         {
+            Id = id;
             Metadata = metadata;
             Name = name;
             Properties = properties;

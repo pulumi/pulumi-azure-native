@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.ContainerService.V20170131
         /// </summary>
         public readonly Outputs.ContainerServiceDiagnosticsProfileResponse? DiagnosticsProfile;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Properties of Linux VMs.
         /// </summary>
         public readonly Outputs.ContainerServiceLinuxProfileResponse LinuxProfile;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.ContainerService.V20170131
 
             Outputs.ContainerServiceDiagnosticsProfileResponse? diagnosticsProfile,
 
+            string id,
+
             Outputs.ContainerServiceLinuxProfileResponse linuxProfile,
 
             string location,
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20170131
             AgentPoolProfiles = agentPoolProfiles;
             CustomProfile = customProfile;
             DiagnosticsProfile = diagnosticsProfile;
+            Id = id;
             LinuxProfile = linuxProfile;
             Location = location;
             MasterProfile = masterProfile;

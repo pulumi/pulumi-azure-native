@@ -74,6 +74,10 @@ namespace Pulumi.AzureNextGen.Network.V20190201
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Ingress bytes transferred.
         /// </summary>
         public readonly int IngressBytesTransferred;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNextGen.Network.V20190201
 
             string etag,
 
+            string? id,
+
             int ingressBytesTransferred,
 
             ImmutableArray<Outputs.IpsecPolicyResponse> ipsecPolicies,
@@ -151,6 +157,7 @@ namespace Pulumi.AzureNextGen.Network.V20190201
             EnableInternetSecurity = enableInternetSecurity;
             EnableRateLimiting = enableRateLimiting;
             Etag = etag;
+            Id = id;
             IngressBytesTransferred = ingressBytesTransferred;
             IpsecPolicies = ipsecPolicies;
             Name = name;

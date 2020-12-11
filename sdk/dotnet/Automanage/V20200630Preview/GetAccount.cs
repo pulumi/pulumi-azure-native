@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Automanage.V20200630Preview
     public sealed class GetAccountResult
     {
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the Automanage account.
         /// </summary>
         public readonly Outputs.AccountIdentityResponse? Identity;
@@ -62,6 +66,8 @@ namespace Pulumi.AzureNextGen.Automanage.V20200630Preview
 
         [OutputConstructor]
         private GetAccountResult(
+            string id,
+
             Outputs.AccountIdentityResponse? identity,
 
             string location,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.Automanage.V20200630Preview
 
             string type)
         {
+            Id = id;
             Identity = identity;
             Location = location;
             Name = name;

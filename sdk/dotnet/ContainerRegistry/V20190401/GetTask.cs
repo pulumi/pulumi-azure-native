@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190401
         /// </summary>
         public readonly Outputs.CredentialsResponse? Credentials;
         /// <summary>
+        /// The resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Identity for the resource.
         /// </summary>
         public readonly Outputs.IdentityPropertiesResponse? Identity;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190401
 
             Outputs.CredentialsResponse? credentials,
 
+            string id,
+
             Outputs.IdentityPropertiesResponse? identity,
 
             string location,
@@ -135,6 +141,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20190401
             AgentConfiguration = agentConfiguration;
             CreationDate = creationDate;
             Credentials = credentials;
+            Id = id;
             Identity = identity;
             Location = location;
             Name = name;

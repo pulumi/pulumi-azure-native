@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Marketplace.V20200101
         /// </summary>
         public readonly ImmutableDictionary<string, string>? IconFileUris;
         /// <summary>
+        /// The resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Private store offer modification date
         /// </summary>
         public readonly string ModifiedAt;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.Marketplace.V20200101
 
             ImmutableDictionary<string, string>? iconFileUris,
 
+            string id,
+
             string modifiedAt,
 
             string name,
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNextGen.Marketplace.V20200101
             CreatedAt = createdAt;
             ETag = eTag;
             IconFileUris = iconFileUris;
+            Id = id;
             ModifiedAt = modifiedAt;
             Name = name;
             OfferDisplayName = offerDisplayName;

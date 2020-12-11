@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.ManagedNetwork.V20190601Preview
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Responsibility role under which this Managed Network Group will be created
         /// </summary>
         public readonly string? Kind;
@@ -90,6 +94,8 @@ namespace Pulumi.AzureNextGen.ManagedNetwork.V20190601Preview
         private GetManagedNetworkGroupResult(
             string etag,
 
+            string id,
+
             string? kind,
 
             string? location,
@@ -109,6 +115,7 @@ namespace Pulumi.AzureNextGen.ManagedNetwork.V20190601Preview
             ImmutableArray<Outputs.ResourceIdResponse> virtualNetworks)
         {
             Etag = etag;
+            Id = id;
             Kind = kind;
             Location = location;
             ManagementGroups = managementGroups;

@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
     public sealed class GetVendorSkuPreviewResult
     {
         /// <summary>
+        /// The ARM ID of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The preview subscription ID.
         /// </summary>
         public readonly string Name;
@@ -56,10 +60,13 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
 
         [OutputConstructor]
         private GetVendorSkuPreviewResult(
+            string id,
+
             string name,
 
             string type)
         {
+            Id = id;
             Name = name;
             Type = type;
         }

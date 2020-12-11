@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20200601
     public sealed class GetPrivateEndpointConnectionResult
     {
         /// <summary>
+        /// The resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20200601
 
         [OutputConstructor]
         private GetPrivateEndpointConnectionResult(
+            string id,
+
             string name,
 
             Outputs.PrivateEndpointResponse? privateEndpoint,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20200601
 
             string type)
         {
+            Id = id;
             Name = name;
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;

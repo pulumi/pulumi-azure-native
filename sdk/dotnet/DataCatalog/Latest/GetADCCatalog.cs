@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.DataCatalog.Latest
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string? Location;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.DataCatalog.Latest
 
             string? etag,
 
+            string id,
+
             string? location,
 
             string name,
@@ -111,6 +117,7 @@ namespace Pulumi.AzureNextGen.DataCatalog.Latest
             Admins = admins;
             EnableAutomaticUnitAdjustment = enableAutomaticUnitAdjustment;
             Etag = etag;
+            Id = id;
             Location = location;
             Name = name;
             Sku = sku;

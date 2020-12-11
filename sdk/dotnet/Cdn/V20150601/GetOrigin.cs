@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.Cdn.V20150601
         /// </summary>
         public readonly int? HttpsPort;
         /// <summary>
+        /// Resource ID
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
@@ -88,6 +92,8 @@ namespace Pulumi.AzureNextGen.Cdn.V20150601
 
             int? httpsPort,
 
+            string id,
+
             string name,
 
             string provisioningState,
@@ -99,6 +105,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20150601
             HostName = hostName;
             HttpPort = httpPort;
             HttpsPort = httpsPort;
+            Id = id;
             Name = name;
             ProvisioningState = provisioningState;
             ResourceState = resourceState;

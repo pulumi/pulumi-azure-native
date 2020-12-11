@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
         /// </summary>
         public readonly string? ForceUpdateTag;
         /// <summary>
+        /// The resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
         private GetPipelineRunResult(
             string? forceUpdateTag,
 
+            string id,
+
             string name,
 
             string provisioningState,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
             string type)
         {
             ForceUpdateTag = forceUpdateTag;
+            Id = id;
             Name = name;
             ProvisioningState = provisioningState;
             Request = request;

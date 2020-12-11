@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.Sql.Latest
         /// </summary>
         public readonly string FullyQualifiedDomainName;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Kind of sql server.  This is metadata used for the Azure portal experience.
         /// </summary>
         public readonly string Kind;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.Sql.Latest
 
             string fullyQualifiedDomainName,
 
+            string id,
+
             string kind,
 
             string location,
@@ -119,6 +125,7 @@ namespace Pulumi.AzureNextGen.Sql.Latest
             ExternalAdministratorLogin = externalAdministratorLogin;
             ExternalAdministratorSid = externalAdministratorSid;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
+            Id = id;
             Kind = kind;
             Location = location;
             Name = name;

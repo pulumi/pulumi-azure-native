@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly ImmutableArray<Outputs.ExpressRouteConnectionResponse> ExpressRouteConnections;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             ImmutableArray<Outputs.ExpressRouteConnectionResponse> expressRouteConnections,
 
+            string? id,
+
             string? location,
 
             string name,
@@ -99,6 +105,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
             AutoScaleConfiguration = autoScaleConfiguration;
             Etag = etag;
             ExpressRouteConnections = expressRouteConnections;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710
     public sealed class GetReplicationProtectedItemResult
     {
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource Location
         /// </summary>
         public readonly string? Location;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710
 
         [OutputConstructor]
         private GetReplicationProtectedItemResult(
+            string id,
+
             string? location,
 
             string name,
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.V20180710
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

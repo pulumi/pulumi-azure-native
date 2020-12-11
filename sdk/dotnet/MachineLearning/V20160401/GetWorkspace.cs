@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20160401
         /// </summary>
         public readonly string CreationTime;
         /// <summary>
+        /// The resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The key vault identifier used for encrypted workspaces.
         /// </summary>
         public readonly string? KeyVaultIdentifierId;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20160401
         private GetWorkspaceResult(
             string creationTime,
 
+            string id,
+
             string? keyVaultIdentifierId,
 
             string location,
@@ -115,6 +121,7 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20160401
             string workspaceType)
         {
             CreationTime = creationTime;
+            Id = id;
             KeyVaultIdentifierId = keyVaultIdentifierId;
             Location = location;
             Name = name;

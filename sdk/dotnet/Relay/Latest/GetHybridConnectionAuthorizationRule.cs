@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Relay.Latest
     public sealed class GetHybridConnectionAuthorizationRuleResult
     {
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -66,12 +70,15 @@ namespace Pulumi.AzureNextGen.Relay.Latest
 
         [OutputConstructor]
         private GetHybridConnectionAuthorizationRuleResult(
+            string id,
+
             string name,
 
             ImmutableArray<string> rights,
 
             string type)
         {
+            Id = id;
             Name = name;
             Rights = rights;
             Type = type;

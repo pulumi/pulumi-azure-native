@@ -39,6 +39,10 @@ namespace Pulumi.AzureNextGen.Datadog.V20200201Preview
     [OutputType]
     public sealed class GetMonitorResult
     {
+        /// <summary>
+        /// ARM id of the monitor resource.
+        /// </summary>
+        public readonly string Id;
         public readonly Outputs.IdentityPropertiesResponse? Identity;
         public readonly string Location;
         /// <summary>
@@ -58,6 +62,8 @@ namespace Pulumi.AzureNextGen.Datadog.V20200201Preview
 
         [OutputConstructor]
         private GetMonitorResult(
+            string id,
+
             Outputs.IdentityPropertiesResponse? identity,
 
             string location,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.Datadog.V20200201Preview
 
             string type)
         {
+            Id = id;
             Identity = identity;
             Location = location;
             Name = name;

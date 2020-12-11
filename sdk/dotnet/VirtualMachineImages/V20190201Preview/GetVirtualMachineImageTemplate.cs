@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20190201Preview
         /// </summary>
         public readonly ImmutableArray<Union<Outputs.ImageTemplateManagedImageDistributorResponse, Union<Outputs.ImageTemplateSharedImageDistributorResponse, Outputs.ImageTemplateVhdDistributorResponse>>> Distribute;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// State of 'run' that is currently executing or was last executed.
         /// </summary>
         public readonly Outputs.ImageTemplateLastRunStatusResponse LastRunStatus;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20190201Preview
 
             ImmutableArray<Union<Outputs.ImageTemplateManagedImageDistributorResponse, Union<Outputs.ImageTemplateSharedImageDistributorResponse, Outputs.ImageTemplateVhdDistributorResponse>>> distribute,
 
+            string id,
+
             Outputs.ImageTemplateLastRunStatusResponse lastRunStatus,
 
             string location,
@@ -104,6 +110,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.V20190201Preview
         {
             Customize = customize;
             Distribute = distribute;
+            Id = id;
             LastRunStatus = lastRunStatus;
             Location = location;
             Name = name;

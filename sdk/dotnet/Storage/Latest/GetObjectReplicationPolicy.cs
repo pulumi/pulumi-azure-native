@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         /// </summary>
         public readonly string EnabledTime;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -80,6 +84,8 @@ namespace Pulumi.AzureNextGen.Storage.Latest
 
             string enabledTime,
 
+            string id,
+
             string name,
 
             string policyId,
@@ -92,6 +98,7 @@ namespace Pulumi.AzureNextGen.Storage.Latest
         {
             DestinationAccount = destinationAccount;
             EnabledTime = enabledTime;
+            Id = id;
             Name = name;
             PolicyId = policyId;
             Rules = rules;

@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Logic.V20150201Preview
     public sealed class GetWorkflowAccessKeyResult
     {
         /// <summary>
+        /// Gets or sets the resource id.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Gets the workflow access key name.
         /// </summary>
         public readonly string Name;
@@ -64,6 +68,8 @@ namespace Pulumi.AzureNextGen.Logic.V20150201Preview
 
         [OutputConstructor]
         private GetWorkflowAccessKeyResult(
+            string? id,
+
             string name,
 
             string? notAfter,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.Logic.V20150201Preview
 
             string type)
         {
+            Id = id;
             Name = name;
             NotAfter = notAfter;
             NotBefore = notBefore;

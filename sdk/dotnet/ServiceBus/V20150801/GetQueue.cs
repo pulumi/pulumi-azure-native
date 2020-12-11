@@ -90,6 +90,10 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20150801
         /// </summary>
         public readonly string? EntityAvailabilityStatus;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// A value that indicates whether the message is accessible anonymously.
         /// </summary>
         public readonly bool? IsAnonymousAccessible;
@@ -170,6 +174,8 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20150801
 
             string? entityAvailabilityStatus,
 
+            string id,
+
             bool? isAnonymousAccessible,
 
             string? location,
@@ -209,6 +215,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20150801
             EnableExpress = enableExpress;
             EnablePartitioning = enablePartitioning;
             EntityAvailabilityStatus = entityAvailabilityStatus;
+            Id = id;
             IsAnonymousAccessible = isAnonymousAccessible;
             Location = location;
             LockDuration = lockDuration;

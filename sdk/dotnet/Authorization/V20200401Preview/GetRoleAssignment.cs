@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.Authorization.V20200401Preview
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// The role assignment ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The role assignment name.
         /// </summary>
         public readonly string Name;
@@ -116,6 +120,8 @@ namespace Pulumi.AzureNextGen.Authorization.V20200401Preview
 
             string? description,
 
+            string id,
+
             string name,
 
             string? principalId,
@@ -139,6 +145,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20200401Preview
             CreatedOn = createdOn;
             DelegatedManagedIdentityResourceId = delegatedManagedIdentityResourceId;
             Description = description;
+            Id = id;
             Name = name;
             PrincipalId = principalId;
             PrincipalType = principalType;

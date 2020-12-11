@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.V20150801
         /// </summary>
         public readonly string? ExpirationTime;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Intermediate certificate
         /// </summary>
         public readonly Outputs.CertificateDetailsResponse? Intermediate;
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.V20150801
 
             string? expirationTime,
 
+            string? id,
+
             Outputs.CertificateDetailsResponse? intermediate,
 
             int? keySize,
@@ -174,6 +180,7 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.V20150801
             DistinguishedName = distinguishedName;
             DomainVerificationToken = domainVerificationToken;
             ExpirationTime = expirationTime;
+            Id = id;
             Intermediate = intermediate;
             KeySize = keySize;
             Kind = kind;

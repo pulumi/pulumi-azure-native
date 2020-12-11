@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20160501Preview
     public sealed class GetWebServiceResult
     {
         /// <summary>
+        /// Specifies the resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Specifies the location of the resource.
         /// </summary>
         public readonly string Location;
@@ -62,6 +66,8 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20160501Preview
 
         [OutputConstructor]
         private GetWebServiceResult(
+            string id,
+
             string location,
 
             string? name,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.MachineLearning.V20160501Preview
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// IP configuration of the Azure Firewall resource.
         /// </summary>
         public readonly ImmutableArray<Outputs.AzureFirewallIPConfigurationResponse> IpConfigurations;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.Network.V20180801
 
             string etag,
 
+            string? id,
+
             ImmutableArray<Outputs.AzureFirewallIPConfigurationResponse> ipConfigurations,
 
             string? location,
@@ -104,6 +110,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         {
             ApplicationRuleCollections = applicationRuleCollections;
             Etag = etag;
+            Id = id;
             IpConfigurations = ipConfigurations;
             Location = location;
             Name = name;

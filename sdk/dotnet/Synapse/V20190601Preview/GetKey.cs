@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
     public sealed class GetKeyResult
     {
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Used to activate the workspace after a customer managed key is provided.
         /// </summary>
         public readonly bool? IsActiveCMK;
@@ -64,6 +68,8 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
         [OutputConstructor]
         private GetKeyResult(
+            string id,
+
             bool? isActiveCMK,
 
             string? keyVaultUrl,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
             string type)
         {
+            Id = id;
             IsActiveCMK = isActiveCMK;
             KeyVaultUrl = keyVaultUrl;
             Name = name;

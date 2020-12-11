@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.Web.V20200901
         /// </summary>
         public readonly bool? DeploymentRollbackEnabled;
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// &lt;code&gt;true&lt;/code&gt; if this is deployed via GitHub action.
         /// </summary>
         public readonly bool? IsGitHubAction;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.Web.V20200901
 
             bool? deploymentRollbackEnabled,
 
+            string id,
+
             bool? isGitHubAction,
 
             bool? isManualIntegration,
@@ -104,6 +110,7 @@ namespace Pulumi.AzureNextGen.Web.V20200901
         {
             Branch = branch;
             DeploymentRollbackEnabled = deploymentRollbackEnabled;
+            Id = id;
             IsGitHubAction = isGitHubAction;
             IsManualIntegration = isManualIntegration;
             IsMercurial = isMercurial;

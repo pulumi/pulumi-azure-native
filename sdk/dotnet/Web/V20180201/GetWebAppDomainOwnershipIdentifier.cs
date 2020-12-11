@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Web.V20180201
     public sealed class GetWebAppDomainOwnershipIdentifierResult
     {
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
@@ -60,12 +64,15 @@ namespace Pulumi.AzureNextGen.Web.V20180201
 
         [OutputConstructor]
         private GetWebAppDomainOwnershipIdentifierResult(
+            string id,
+
             string? kind,
 
             string name,
 
             string type)
         {
+            Id = id;
             Kind = kind;
             Name = name;
             Type = type;

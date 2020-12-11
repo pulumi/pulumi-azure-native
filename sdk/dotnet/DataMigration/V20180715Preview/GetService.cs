@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The resource kind. Only 'vm' (the default) is supported.
         /// </summary>
         public readonly string? Kind;
@@ -88,6 +92,8 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview
         private GetServiceResult(
             string? etag,
 
+            string id,
+
             string? kind,
 
             string location,
@@ -109,6 +115,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180715Preview
             string virtualSubnetId)
         {
             Etag = etag;
+            Id = id;
             Kind = kind;
             Location = location;
             Name = name;

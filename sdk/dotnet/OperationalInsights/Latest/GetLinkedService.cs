@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
     public sealed class GetLinkedServiceResult
     {
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
 
         [OutputConstructor]
         private GetLinkedServiceResult(
+            string id,
+
             string name,
 
             string? provisioningState,
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
 
             string? writeAccessResourceId)
         {
+            Id = id;
             Name = name;
             ProvisioningState = provisioningState;
             ResourceId = resourceId;

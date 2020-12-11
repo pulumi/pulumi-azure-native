@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview
         /// </summary>
         public readonly bool? CreateDefaultAvailabilityGroupIfNotExist;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// List of load balancer configurations for an availability group listener.
         /// </summary>
         public readonly ImmutableArray<Outputs.LoadBalancerConfigurationResponse> LoadBalancerConfigurations;
@@ -80,6 +84,8 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview
 
             bool? createDefaultAvailabilityGroupIfNotExist,
 
+            string id,
+
             ImmutableArray<Outputs.LoadBalancerConfigurationResponse> loadBalancerConfigurations,
 
             string name,
@@ -92,6 +98,7 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview
         {
             AvailabilityGroupName = availabilityGroupName;
             CreateDefaultAvailabilityGroupIfNotExist = createDefaultAvailabilityGroupIfNotExist;
+            Id = id;
             LoadBalancerConfigurations = loadBalancerConfigurations;
             Name = name;
             Port = port;

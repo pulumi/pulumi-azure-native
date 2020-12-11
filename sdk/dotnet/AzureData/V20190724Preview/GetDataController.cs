@@ -37,6 +37,10 @@ namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
     public sealed class GetDataControllerResult
     {
         /// <summary>
+        /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -63,6 +67,8 @@ namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
 
         [OutputConstructor]
         private GetDataControllerResult(
+            string id,
+
             string location,
 
             string name,
@@ -75,6 +81,7 @@ namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             OnPremiseProperty = onPremiseProperty;

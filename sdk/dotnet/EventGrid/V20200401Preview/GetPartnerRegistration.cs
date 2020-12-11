@@ -51,6 +51,10 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
         /// </summary>
         public readonly string? CustomerServiceUri;
         /// <summary>
+        /// Fully qualified identifier of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Location of the resource.
         /// </summary>
         public readonly string Location;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
 
             string? customerServiceUri,
 
+            string id,
+
             string location,
 
             string? logoUri,
@@ -154,6 +160,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
         {
             AuthorizedAzureSubscriptionIds = authorizedAzureSubscriptionIds;
             CustomerServiceUri = customerServiceUri;
+            Id = id;
             Location = location;
             LogoUri = logoUri;
             LongDescription = longDescription;

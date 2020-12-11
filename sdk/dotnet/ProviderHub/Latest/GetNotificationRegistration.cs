@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest
     public sealed class GetNotificationRegistrationResult
     {
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -51,12 +55,15 @@ namespace Pulumi.AzureNextGen.ProviderHub.Latest
 
         [OutputConstructor]
         private GetNotificationRegistrationResult(
+            string id,
+
             string name,
 
             Outputs.NotificationRegistrationResponseProperties properties,
 
             string type)
         {
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

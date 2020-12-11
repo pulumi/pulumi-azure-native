@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.Storage.V20180301Preview
         /// </summary>
         public readonly Outputs.EncryptionResponse Encryption;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
@@ -140,6 +144,8 @@ namespace Pulumi.AzureNextGen.Storage.V20180301Preview
 
             Outputs.EncryptionResponse encryption,
 
+            string id,
+
             Outputs.IdentityResponse? identity,
 
             bool? isHnsEnabled,
@@ -179,6 +185,7 @@ namespace Pulumi.AzureNextGen.Storage.V20180301Preview
             CustomDomain = customDomain;
             EnableHttpsTrafficOnly = enableHttpsTrafficOnly;
             Encryption = encryption;
+            Id = id;
             Identity = identity;
             IsHnsEnabled = isHnsEnabled;
             Kind = kind;

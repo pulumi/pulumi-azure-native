@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Security.V20200101
     public sealed class GetJitNetworkAccessPolicyResult
     {
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Kind of the resource
         /// </summary>
         public readonly string? Kind;
@@ -73,6 +77,8 @@ namespace Pulumi.AzureNextGen.Security.V20200101
 
         [OutputConstructor]
         private GetJitNetworkAccessPolicyResult(
+            string id,
+
             string? kind,
 
             string location,
@@ -87,6 +93,7 @@ namespace Pulumi.AzureNextGen.Security.V20200101
 
             ImmutableArray<Outputs.JitNetworkAccessPolicyVirtualMachineResponse> virtualMachines)
         {
+            Id = id;
             Kind = kind;
             Location = location;
             Name = name;

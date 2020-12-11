@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Automation.V20170515Preview
         /// </summary>
         public readonly Outputs.ErrorResponseResponse? Error;
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// LastModifiedBy property, which only appears in the response.
         /// </summary>
         public readonly string LastModifiedBy;
@@ -98,6 +102,8 @@ namespace Pulumi.AzureNextGen.Automation.V20170515Preview
 
             Outputs.ErrorResponseResponse? error,
 
+            string id,
+
             string lastModifiedBy,
 
             string lastModifiedTime,
@@ -117,6 +123,7 @@ namespace Pulumi.AzureNextGen.Automation.V20170515Preview
             CreatedBy = createdBy;
             CreationTime = creationTime;
             Error = error;
+            Id = id;
             LastModifiedBy = lastModifiedBy;
             LastModifiedTime = lastModifiedTime;
             Name = name;

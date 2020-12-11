@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Kusto.V20200918
     public sealed class GetDatabasePrincipalAssignmentResult
     {
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -90,6 +94,8 @@ namespace Pulumi.AzureNextGen.Kusto.V20200918
 
         [OutputConstructor]
         private GetDatabasePrincipalAssignmentResult(
+            string id,
+
             string name,
 
             string principalId,
@@ -108,6 +114,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20200918
 
             string type)
         {
+            Id = id;
             Name = name;
             PrincipalId = principalId;
             PrincipalName = principalName;

@@ -70,6 +70,10 @@ namespace Pulumi.AzureNextGen.Aad.Latest
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string? Location;
@@ -112,6 +116,8 @@ namespace Pulumi.AzureNextGen.Aad.Latest
 
             string? etag,
 
+            string id,
+
             string? location,
 
             string name,
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNextGen.Aad.Latest
             DistinguishedName = distinguishedName;
             DomainName = domainName;
             Etag = etag;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

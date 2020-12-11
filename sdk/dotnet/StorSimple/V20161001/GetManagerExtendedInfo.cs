@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// The identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Represents the CIK of the resource
         /// </summary>
         public readonly string IntegrityKey;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
 
             string? etag,
 
+            string id,
+
             string integrityKey,
 
             string name,
@@ -100,6 +106,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20161001
             EncryptionKey = encryptionKey;
             EncryptionKeyThumbprint = encryptionKeyThumbprint;
             Etag = etag;
+            Id = id;
             IntegrityKey = integrityKey;
             Name = name;
             PortalCertificateThumbprint = portalCertificateThumbprint;

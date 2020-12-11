@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20200301Preview
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20200301Preview
         private GetPrivateEndpointResult(
             string etag,
 
+            string id,
+
             string name,
 
             Outputs.PrivateEndpointPropertiesResponse properties,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20200301Preview
             string type)
         {
             Etag = etag;
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

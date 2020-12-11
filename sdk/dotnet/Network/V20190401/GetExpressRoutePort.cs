@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.Network.V20190401
         /// </summary>
         public readonly string EtherType;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The set of physical links of the ExpressRoutePort resource.
         /// </summary>
         public readonly ImmutableArray<Outputs.ExpressRouteLinkResponse> Links;
@@ -118,6 +122,8 @@ namespace Pulumi.AzureNextGen.Network.V20190401
 
             string etherType,
 
+            string? id,
+
             ImmutableArray<Outputs.ExpressRouteLinkResponse> links,
 
             string? location,
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNextGen.Network.V20190401
             Encapsulation = encapsulation;
             Etag = etag;
             EtherType = etherType;
+            Id = id;
             Links = links;
             Location = location;
             Mtu = mtu;

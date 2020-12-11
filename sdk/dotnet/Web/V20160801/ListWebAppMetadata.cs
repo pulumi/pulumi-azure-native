@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Web.V20160801
     public sealed class ListWebAppMetadataResult
     {
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
@@ -58,6 +62,8 @@ namespace Pulumi.AzureNextGen.Web.V20160801
 
         [OutputConstructor]
         private ListWebAppMetadataResult(
+            string id,
+
             string? kind,
 
             string name,
@@ -66,6 +72,7 @@ namespace Pulumi.AzureNextGen.Web.V20160801
 
             string type)
         {
+            Id = id;
             Kind = kind;
             Name = name;
             Properties = properties;

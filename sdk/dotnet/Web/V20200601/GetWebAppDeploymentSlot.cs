@@ -76,6 +76,10 @@ namespace Pulumi.AzureNextGen.Web.V20200601
         /// </summary>
         public readonly string? EndTime;
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
@@ -114,6 +118,8 @@ namespace Pulumi.AzureNextGen.Web.V20200601
 
             string? endTime,
 
+            string id,
+
             string? kind,
 
             string? message,
@@ -132,6 +138,7 @@ namespace Pulumi.AzureNextGen.Web.V20200601
             Deployer = deployer;
             Details = details;
             EndTime = endTime;
+            Id = id;
             Kind = kind;
             Message = message;
             Name = name;

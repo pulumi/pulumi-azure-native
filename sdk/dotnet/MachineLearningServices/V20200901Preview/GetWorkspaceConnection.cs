@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview
         /// </summary>
         public readonly string? Category;
         /// <summary>
+        /// ResourceId of the workspace connection.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Friendly name of the workspace connection.
         /// </summary>
         public readonly string Name;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview
 
             string? category,
 
+            string id,
+
             string name,
 
             string? target,
@@ -86,6 +92,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200901Preview
         {
             AuthType = authType;
             Category = category;
+            Id = id;
             Name = name;
             Target = target;
             Type = type;

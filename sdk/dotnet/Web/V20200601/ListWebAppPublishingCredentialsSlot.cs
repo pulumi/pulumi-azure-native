@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Web.V20200601
     public sealed class ListWebAppPublishingCredentialsSlotResult
     {
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
@@ -80,6 +84,8 @@ namespace Pulumi.AzureNextGen.Web.V20200601
 
         [OutputConstructor]
         private ListWebAppPublishingCredentialsSlotResult(
+            string id,
+
             string? kind,
 
             string name,
@@ -96,6 +102,7 @@ namespace Pulumi.AzureNextGen.Web.V20200601
 
             string type)
         {
+            Id = id;
             Kind = kind;
             Name = name;
             PublishingPassword = publishingPassword;

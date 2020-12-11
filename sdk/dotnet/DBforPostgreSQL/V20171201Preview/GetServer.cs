@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20171201Preview
         /// </summary>
         public readonly string? FullyQualifiedDomainName;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The Azure Active Directory identity of the server.
         /// </summary>
         public readonly Outputs.ResourceIdentityResponse? Identity;
@@ -134,6 +138,8 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20171201Preview
 
             string? fullyQualifiedDomainName,
 
+            string id,
+
             Outputs.ResourceIdentityResponse? identity,
 
             string? infrastructureEncryption,
@@ -172,6 +178,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20171201Preview
             ByokEnforcement = byokEnforcement;
             EarliestRestoreDate = earliestRestoreDate;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
+            Id = id;
             Identity = identity;
             InfrastructureEncryption = infrastructureEncryption;
             Location = location;

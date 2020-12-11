@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
     public sealed class GetSqlPoolWorkloadGroupResult
     {
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The workload group importance level.
         /// </summary>
         public readonly string? Importance;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
         [OutputConstructor]
         private GetSqlPoolWorkloadGroupResult(
+            string id,
+
             string? importance,
 
             int maxResourcePercent,
@@ -102,6 +108,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
 
             string type)
         {
+            Id = id;
             Importance = importance;
             MaxResourcePercent = maxResourcePercent;
             MaxResourcePercentPerRequest = maxResourcePercentPerRequest;

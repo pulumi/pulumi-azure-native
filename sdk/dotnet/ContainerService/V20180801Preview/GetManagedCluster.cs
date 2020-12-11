@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.ContainerService.V20180801Preview
         /// </summary>
         public readonly string Fqdn;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Version of Kubernetes specified when creating the managed cluster.
         /// </summary>
         public readonly string? KubernetesVersion;
@@ -118,6 +122,8 @@ namespace Pulumi.AzureNextGen.ContainerService.V20180801Preview
 
             string fqdn,
 
+            string id,
+
             string? kubernetesVersion,
 
             Outputs.ContainerServiceLinuxProfileResponse? linuxProfile,
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20180801Preview
             DnsPrefix = dnsPrefix;
             EnableRBAC = enableRBAC;
             Fqdn = fqdn;
+            Id = id;
             KubernetesVersion = kubernetesVersion;
             LinuxProfile = linuxProfile;
             Location = location;

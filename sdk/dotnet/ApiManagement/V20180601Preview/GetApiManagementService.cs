@@ -72,6 +72,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
         /// </summary>
         public readonly ImmutableArray<Outputs.HostnameConfigurationResponse> HostnameConfigurations;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Managed service identity of the Api Management service.
         /// </summary>
         public readonly Outputs.ApiManagementServiceIdentityResponse? Identity;
@@ -162,6 +166,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
 
             ImmutableArray<Outputs.HostnameConfigurationResponse> hostnameConfigurations,
 
+            string id,
+
             Outputs.ApiManagementServiceIdentityResponse? identity,
 
             string location,
@@ -206,6 +212,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
             GatewayRegionalUrl = gatewayRegionalUrl;
             GatewayUrl = gatewayUrl;
             HostnameConfigurations = hostnameConfigurations;
+            Id = id;
             Identity = identity;
             Location = location;
             ManagementApiUrl = managementApiUrl;

@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
         /// </summary>
         public readonly Outputs.CorsRulesResponse? Cors;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -70,6 +74,8 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
         private GetFileServicePropertiesResult(
             Outputs.CorsRulesResponse? cors,
 
+            string id,
+
             string name,
 
             Outputs.DeleteRetentionPolicyResponse? shareDeleteRetentionPolicy,
@@ -79,6 +85,7 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
             string type)
         {
             Cors = cors;
+            Id = id;
             Name = name;
             ShareDeleteRetentionPolicy = shareDeleteRetentionPolicy;
             Sku = sku;

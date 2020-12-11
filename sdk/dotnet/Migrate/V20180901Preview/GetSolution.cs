@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Migrate.V20180901Preview
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Gets the relative URL to get to this REST resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Gets the name of this REST resource.
         /// </summary>
         public readonly string Name;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.Migrate.V20180901Preview
         private GetSolutionResult(
             string? etag,
 
+            string id,
+
             string name,
 
             Outputs.SolutionPropertiesResponse properties,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20180901Preview
             string type)
         {
             Etag = etag;
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

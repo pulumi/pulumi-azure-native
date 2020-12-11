@@ -112,6 +112,10 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
         /// </summary>
         public readonly Outputs.HorovodSettingsResponse? HorovodSettings;
         /// <summary>
+        /// The ID of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// A list of input directories for the job.
         /// </summary>
         public readonly ImmutableArray<Outputs.InputDirectoryResponse> InputDirectories;
@@ -208,6 +212,8 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
 
             Outputs.HorovodSettingsResponse? horovodSettings,
 
+            string id,
+
             ImmutableArray<Outputs.InputDirectoryResponse> inputDirectories,
 
             string jobOutputDirectoryPathSegment,
@@ -255,6 +261,7 @@ namespace Pulumi.AzureNextGen.BatchAI.Latest
             ExecutionState = executionState;
             ExecutionStateTransitionTime = executionStateTransitionTime;
             HorovodSettings = horovodSettings;
+            Id = id;
             InputDirectories = inputDirectories;
             JobOutputDirectoryPathSegment = jobOutputDirectoryPathSegment;
             JobPreparation = jobPreparation;

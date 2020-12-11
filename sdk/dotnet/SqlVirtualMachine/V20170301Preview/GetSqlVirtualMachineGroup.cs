@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview
         /// </summary>
         public readonly string ClusterManagerType;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string Location;
@@ -90,6 +94,8 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview
 
             string clusterManagerType,
 
+            string id,
+
             string location,
 
             string name,
@@ -110,6 +116,7 @@ namespace Pulumi.AzureNextGen.SqlVirtualMachine.V20170301Preview
         {
             ClusterConfiguration = clusterConfiguration;
             ClusterManagerType = clusterManagerType;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

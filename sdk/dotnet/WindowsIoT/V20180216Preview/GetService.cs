@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.WindowsIoT.V20180216Preview
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Fully qualified resource Id for the resource
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The Azure Region where the resource lives
         /// </summary>
         public readonly string? Location;
@@ -88,6 +92,8 @@ namespace Pulumi.AzureNextGen.WindowsIoT.V20180216Preview
 
             string? etag,
 
+            string id,
+
             string? location,
 
             string name,
@@ -105,6 +111,7 @@ namespace Pulumi.AzureNextGen.WindowsIoT.V20180216Preview
             AdminDomainName = adminDomainName;
             BillingDomainName = billingDomainName;
             Etag = etag;
+            Id = id;
             Location = location;
             Name = name;
             Notes = notes;

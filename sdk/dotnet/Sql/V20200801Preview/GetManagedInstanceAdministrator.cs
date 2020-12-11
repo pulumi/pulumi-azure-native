@@ -47,6 +47,10 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// </summary>
         public readonly string AdministratorType;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Login name of the managed instance administrator.
         /// </summary>
         public readonly string Login;
@@ -71,6 +75,8 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         private GetManagedInstanceAdministratorResult(
             string administratorType,
 
+            string id,
+
             string login,
 
             string name,
@@ -82,6 +88,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
             string type)
         {
             AdministratorType = administratorType;
+            Id = id;
             Login = login;
             Name = name;
             Sid = sid;

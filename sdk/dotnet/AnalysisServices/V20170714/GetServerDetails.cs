@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20170714
         /// </summary>
         public readonly Outputs.GatewayDetailsResponse? GatewayDetails;
         /// <summary>
+        /// An identifier that represents the Analysis Services resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Location of the Analysis Services resource.
         /// </summary>
         public readonly string Location;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20170714
 
             Outputs.GatewayDetailsResponse? gatewayDetails,
 
+            string id,
+
             string location,
 
             string name,
@@ -111,6 +117,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices.V20170714
             AsAdministrators = asAdministrators;
             BackupBlobContainerUri = backupBlobContainerUri;
             GatewayDetails = gatewayDetails;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

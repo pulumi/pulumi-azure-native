@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
     public sealed class GetSshPublicKeyResult
     {
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -62,6 +66,8 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
 
         [OutputConstructor]
         private GetSshPublicKeyResult(
+            string id,
+
             string location,
 
             string name,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             PublicKey = publicKey;

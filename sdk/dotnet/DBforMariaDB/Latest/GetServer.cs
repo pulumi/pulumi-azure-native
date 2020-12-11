@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.Latest
         /// </summary>
         public readonly string? FullyQualifiedDomainName;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -116,6 +120,8 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.Latest
 
             string? fullyQualifiedDomainName,
 
+            string id,
+
             string location,
 
             string? masterServerId,
@@ -147,6 +153,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.Latest
             AdministratorLogin = administratorLogin;
             EarliestRestoreDate = earliestRestoreDate;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
+            Id = id;
             Location = location;
             MasterServerId = masterServerId;
             Name = name;

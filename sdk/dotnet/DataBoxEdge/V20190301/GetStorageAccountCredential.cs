@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190301
         /// </summary>
         public readonly string? ConnectionString;
         /// <summary>
+        /// The path ID that uniquely identifies the object.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The object name.
         /// </summary>
         public readonly string Name;
@@ -94,6 +98,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190301
 
             string? connectionString,
 
+            string id,
+
             string name,
 
             string sslStatus,
@@ -107,6 +113,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190301
             Alias = alias;
             BlobDomainName = blobDomainName;
             ConnectionString = connectionString;
+            Id = id;
             Name = name;
             SslStatus = sslStatus;
             Type = type;

@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Web.V20160801
     public sealed class ListWebAppSyncFunctionTriggersResult
     {
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Secret key.
         /// </summary>
         public readonly string? Key;
@@ -62,6 +66,8 @@ namespace Pulumi.AzureNextGen.Web.V20160801
 
         [OutputConstructor]
         private ListWebAppSyncFunctionTriggersResult(
+            string id,
+
             string? key,
 
             string? kind,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.Web.V20160801
 
             string type)
         {
+            Id = id;
             Key = key;
             Kind = kind;
             Name = name;

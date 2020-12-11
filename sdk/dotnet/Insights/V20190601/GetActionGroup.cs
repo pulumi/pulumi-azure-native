@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.Insights.V20190601
         /// </summary>
         public readonly string GroupShortName;
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The list of ITSM receivers that are part of this action group.
         /// </summary>
         public readonly ImmutableArray<Outputs.ItsmReceiverResponse> ItsmReceivers;
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNextGen.Insights.V20190601
 
             string groupShortName,
 
+            string id,
+
             ImmutableArray<Outputs.ItsmReceiverResponse> itsmReceivers,
 
             string location,
@@ -145,6 +151,7 @@ namespace Pulumi.AzureNextGen.Insights.V20190601
             EmailReceivers = emailReceivers;
             Enabled = enabled;
             GroupShortName = groupShortName;
+            Id = id;
             ItsmReceivers = itsmReceivers;
             Location = location;
             LogicAppReceivers = logicAppReceivers;

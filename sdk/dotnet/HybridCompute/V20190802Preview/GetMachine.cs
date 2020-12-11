@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20190802Preview
         /// </summary>
         public readonly ImmutableArray<Outputs.MachineExtensionInstanceViewResponse> Extensions;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The time of the last status change.
         /// </summary>
         public readonly string LastStatusChange;
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20190802Preview
 
             ImmutableArray<Outputs.MachineExtensionInstanceViewResponse> extensions,
 
+            string id,
+
             string lastStatusChange,
 
             string location,
@@ -173,6 +179,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20190802Preview
             DisplayName = displayName;
             ErrorDetails = errorDetails;
             Extensions = extensions;
+            Id = id;
             LastStatusChange = lastStatusChange;
             Location = location;
             MachineFqdn = machineFqdn;

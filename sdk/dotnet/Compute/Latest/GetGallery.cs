@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Describes the gallery unique name.
         /// </summary>
         public readonly Outputs.GalleryIdentifierResponse? Identifier;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         private GetGalleryResult(
             string? description,
 
+            string id,
+
             Outputs.GalleryIdentifierResponse? identifier,
 
             string location,
@@ -97,6 +103,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
             string type)
         {
             Description = description;
+            Id = id;
             Identifier = identifier;
             Location = location;
             Name = name;

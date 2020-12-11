@@ -72,6 +72,10 @@ namespace Pulumi.AzureNextGen.StorageSync.V20170605Preview
         /// </summary>
         public readonly string? FriendlyName;
         /// <summary>
+        /// The id of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Item download error count.
         /// </summary>
         public readonly int? ItemDownloadErrorCount;
@@ -152,6 +156,8 @@ namespace Pulumi.AzureNextGen.StorageSync.V20170605Preview
 
             string? friendlyName,
 
+            string id,
+
             int? itemDownloadErrorCount,
 
             int? itemProgressCount,
@@ -191,6 +197,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20170605Preview
             CloudTiering = cloudTiering;
             CurrentProgressType = currentProgressType;
             FriendlyName = friendlyName;
+            Id = id;
             ItemDownloadErrorCount = itemDownloadErrorCount;
             ItemProgressCount = itemProgressCount;
             ItemTotalCount = itemTotalCount;

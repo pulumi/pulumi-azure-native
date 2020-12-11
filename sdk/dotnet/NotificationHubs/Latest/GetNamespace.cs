@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.NotificationHubs.Latest
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string? Location;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNextGen.NotificationHubs.Latest
 
             bool? enabled,
 
+            string id,
+
             string? location,
 
             string metricId,
@@ -154,6 +160,7 @@ namespace Pulumi.AzureNextGen.NotificationHubs.Latest
             Critical = critical;
             DataCenter = dataCenter;
             Enabled = enabled;
+            Id = id;
             Location = location;
             MetricId = metricId;
             Name = name;

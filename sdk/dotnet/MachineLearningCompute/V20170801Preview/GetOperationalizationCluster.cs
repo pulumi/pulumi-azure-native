@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview
         /// </summary>
         public readonly Outputs.GlobalServiceConfigurationResponse? GlobalServiceConfiguration;
         /// <summary>
+        /// Specifies the resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Specifies the location of the resource.
         /// </summary>
         public readonly string Location;
@@ -116,6 +120,8 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview
 
             Outputs.GlobalServiceConfigurationResponse? globalServiceConfiguration,
 
+            string id,
+
             string location,
 
             string modifiedOn,
@@ -139,6 +145,7 @@ namespace Pulumi.AzureNextGen.MachineLearningCompute.V20170801Preview
             CreatedOn = createdOn;
             Description = description;
             GlobalServiceConfiguration = globalServiceConfiguration;
+            Id = id;
             Location = location;
             ModifiedOn = modifiedOn;
             Name = name;

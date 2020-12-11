@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.Automation.Latest
         /// </summary>
         public readonly int? ExecutionFrequencyInSeconds;
         /// <summary>
+        /// Fully qualified resource Id for the resource
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Details of the user who last modified the watcher.
         /// </summary>
         public readonly string LastModifiedBy;
@@ -112,6 +116,8 @@ namespace Pulumi.AzureNextGen.Automation.Latest
 
             int? executionFrequencyInSeconds,
 
+            string id,
+
             string lastModifiedBy,
 
             string lastModifiedTime,
@@ -136,6 +142,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
             Description = description;
             Etag = etag;
             ExecutionFrequencyInSeconds = executionFrequencyInSeconds;
+            Id = id;
             LastModifiedBy = lastModifiedBy;
             LastModifiedTime = lastModifiedTime;
             Location = location;

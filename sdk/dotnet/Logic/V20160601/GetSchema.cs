@@ -74,6 +74,10 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
         /// </summary>
         public readonly string? FileName;
         /// <summary>
+        /// The resource id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string? Location;
@@ -118,6 +122,8 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
 
             string? fileName,
 
+            string id,
+
             string? location,
 
             object? metadata,
@@ -139,6 +145,7 @@ namespace Pulumi.AzureNextGen.Logic.V20160601
             CreatedTime = createdTime;
             DocumentName = documentName;
             FileName = fileName;
+            Id = id;
             Location = location;
             Metadata = metadata;
             Name = name;

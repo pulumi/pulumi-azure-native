@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001
         /// </summary>
         public readonly string? ETag;
         /// <summary>
+        /// Path reference to this project /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Azure location in which project is created.
         /// </summary>
         public readonly string? Location;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001
         private GetProjectResult(
             string? eTag,
 
+            string id,
+
             string? location,
 
             string name,
@@ -79,6 +85,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20191001
             string type)
         {
             ETag = eTag;
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

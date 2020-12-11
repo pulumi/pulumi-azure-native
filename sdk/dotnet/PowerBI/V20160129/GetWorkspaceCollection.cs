@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.PowerBI.V20160129
     public sealed class GetWorkspaceCollectionResult
     {
         /// <summary>
+        /// Resource id
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Azure location
         /// </summary>
         public readonly string? Location;
@@ -60,6 +64,8 @@ namespace Pulumi.AzureNextGen.PowerBI.V20160129
 
         [OutputConstructor]
         private GetWorkspaceCollectionResult(
+            string? id,
+
             string? location,
 
             string? name,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.PowerBI.V20160129
 
             string? type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

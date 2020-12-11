@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Resources.V20191001Preview
     public sealed class GetDeploymentScriptResult
     {
         /// <summary>
+        /// String Id used to locate any resource on Azure.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
         /// </summary>
         public readonly Outputs.ManagedServiceIdentityResponse Identity;
@@ -70,6 +74,8 @@ namespace Pulumi.AzureNextGen.Resources.V20191001Preview
 
         [OutputConstructor]
         private GetDeploymentScriptResult(
+            string id,
+
             Outputs.ManagedServiceIdentityResponse identity,
 
             string kind,
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNextGen.Resources.V20191001Preview
 
             string type)
         {
+            Id = id;
             Identity = identity;
             Kind = kind;
             Location = location;

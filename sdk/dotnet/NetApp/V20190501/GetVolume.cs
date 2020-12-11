@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.NetApp.V20190501
         /// </summary>
         public readonly string FileSystemId;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNextGen.NetApp.V20190501
 
             string fileSystemId,
 
+            string id,
+
             string location,
 
             ImmutableArray<Outputs.MountTargetPropertiesResponse> mountTargets,
@@ -148,6 +154,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20190501
             CreationToken = creationToken;
             ExportPolicy = exportPolicy;
             FileSystemId = fileSystemId;
+            Id = id;
             Location = location;
             MountTargets = mountTargets;
             Name = name;

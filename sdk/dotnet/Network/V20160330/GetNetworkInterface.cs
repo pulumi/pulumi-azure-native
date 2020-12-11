@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Network.V20160330
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Gets or sets list of IPConfigurations of the NetworkInterface
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponse> IpConfigurations;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNextGen.Network.V20160330
 
             string? etag,
 
+            string? id,
+
             ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponse> ipConfigurations,
 
             string? location,
@@ -135,6 +141,7 @@ namespace Pulumi.AzureNextGen.Network.V20160330
             DnsSettings = dnsSettings;
             EnableIPForwarding = enableIPForwarding;
             Etag = etag;
+            Id = id;
             IpConfigurations = ipConfigurations;
             Location = location;
             MacAddress = macAddress;

@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.Network.V20150615
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Resource Identifier.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The Microsoft peering configuration.
         /// </summary>
         public readonly Outputs.ExpressRouteCircuitPeeringConfigResponse? MicrosoftPeeringConfig;
@@ -112,6 +116,8 @@ namespace Pulumi.AzureNextGen.Network.V20150615
 
             string? etag,
 
+            string? id,
+
             Outputs.ExpressRouteCircuitPeeringConfigResponse? microsoftPeeringConfig,
 
             string? name,
@@ -140,6 +146,7 @@ namespace Pulumi.AzureNextGen.Network.V20150615
         {
             AzureASN = azureASN;
             Etag = etag;
+            Id = id;
             MicrosoftPeeringConfig = microsoftPeeringConfig;
             Name = name;
             PeerASN = peerASN;

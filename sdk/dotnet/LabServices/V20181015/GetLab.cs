@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
         /// </summary>
         public readonly string CreatedDate;
         /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Invitation code that users can use to join a lab.
         /// </summary>
         public readonly string InvitationCode;
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
 
             string createdDate,
 
+            string id,
+
             string invitationCode,
 
             Outputs.LatestOperationResultResponse latestOperationResult,
@@ -147,6 +153,7 @@ namespace Pulumi.AzureNextGen.LabServices.V20181015
             CreatedByObjectId = createdByObjectId;
             CreatedByUserPrincipalName = createdByUserPrincipalName;
             CreatedDate = createdDate;
+            Id = id;
             InvitationCode = invitationCode;
             LatestOperationResult = latestOperationResult;
             Location = location;

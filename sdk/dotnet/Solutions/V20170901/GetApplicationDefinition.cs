@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.Solutions.V20170901
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
+        /// Resource ID
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
@@ -116,6 +120,8 @@ namespace Pulumi.AzureNextGen.Solutions.V20170901
 
             string? displayName,
 
+            string id,
+
             Outputs.IdentityResponse? identity,
 
             string? isEnabled,
@@ -143,6 +149,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20170901
             CreateUiDefinition = createUiDefinition;
             Description = description;
             DisplayName = displayName;
+            Id = id;
             Identity = identity;
             IsEnabled = isEnabled;
             Location = location;

@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20170701Preview
     public sealed class GetApplicationResult
     {
         /// <summary>
+        /// Azure resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Azure resource location.
         /// </summary>
         public readonly string? Location;
@@ -96,6 +100,8 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20170701Preview
 
         [OutputConstructor]
         private GetApplicationResult(
+            string id,
+
             string? location,
 
             int? maximumNodes,
@@ -120,6 +126,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20170701Preview
 
             Outputs.ApplicationUpgradePolicyResponse? upgradePolicy)
         {
+            Id = id;
             Location = location;
             MaximumNodes = maximumNodes;
             Metrics = metrics;

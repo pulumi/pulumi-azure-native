@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20170228Preview
         /// </summary>
         public readonly string CreationTime;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The list of key properties for the reference data set.
         /// </summary>
         public readonly ImmutableArray<Outputs.ReferenceDataSetKeyPropertyResponse> KeyProperties;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20170228Preview
         private GetReferenceDataSetResult(
             string creationTime,
 
+            string id,
+
             ImmutableArray<Outputs.ReferenceDataSetKeyPropertyResponse> keyProperties,
 
             string location,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20170228Preview
             string type)
         {
             CreationTime = creationTime;
+            Id = id;
             KeyProperties = keyProperties;
             Location = location;
             Name = name;

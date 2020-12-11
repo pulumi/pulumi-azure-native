@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
         /// </summary>
         public readonly string ClusterId;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
         private GetClusterResult(
             string clusterId,
 
+            string id,
+
             Outputs.IdentityResponse? identity,
 
             Outputs.KeyVaultPropertiesResponse? keyVaultProperties,
@@ -103,6 +109,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
             string type)
         {
             ClusterId = clusterId;
+            Id = id;
             Identity = identity;
             KeyVaultProperties = keyVaultProperties;
             Location = location;

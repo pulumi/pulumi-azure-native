@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Network.V20180201
         /// </summary>
         public readonly ImmutableArray<Outputs.FrontendIPConfigurationResponse> FrontendIPConfigurations;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
         /// </summary>
         public readonly ImmutableArray<Outputs.InboundNatPoolResponse> InboundNatPools;
@@ -114,6 +118,8 @@ namespace Pulumi.AzureNextGen.Network.V20180201
 
             ImmutableArray<Outputs.FrontendIPConfigurationResponse> frontendIPConfigurations,
 
+            string? id,
+
             ImmutableArray<Outputs.InboundNatPoolResponse> inboundNatPools,
 
             ImmutableArray<Outputs.InboundNatRuleResponse> inboundNatRules,
@@ -141,6 +147,7 @@ namespace Pulumi.AzureNextGen.Network.V20180201
             BackendAddressPools = backendAddressPools;
             Etag = etag;
             FrontendIPConfigurations = frontendIPConfigurations;
+            Id = id;
             InboundNatPools = inboundNatPools;
             InboundNatRules = inboundNatRules;
             LoadBalancingRules = loadBalancingRules;

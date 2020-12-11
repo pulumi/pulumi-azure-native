@@ -51,6 +51,10 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180301
         /// </summary>
         public readonly ImmutableArray<Outputs.BatchAIErrorResponse> Errors;
         /// <summary>
+        /// The ID of the resource
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the resource
         /// </summary>
         public readonly string Location;
@@ -116,6 +120,8 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180301
 
             ImmutableArray<Outputs.BatchAIErrorResponse> errors,
 
+            string id,
+
             string location,
 
             string name,
@@ -149,6 +155,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20180301
             CreationTime = creationTime;
             CurrentNodeCount = currentNodeCount;
             Errors = errors;
+            Id = id;
             Location = location;
             Name = name;
             NodeSetup = nodeSetup;

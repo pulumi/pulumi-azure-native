@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// </summary>
         public readonly string? EndIpAddress;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string? Name;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         private GetFirewallRuleResult(
             string? endIpAddress,
 
+            string id,
+
             string? name,
 
             string? startIpAddress,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
             string type)
         {
             EndIpAddress = endIpAddress;
+            Id = id;
             Name = name;
             StartIpAddress = startIpAddress;
             Type = type;

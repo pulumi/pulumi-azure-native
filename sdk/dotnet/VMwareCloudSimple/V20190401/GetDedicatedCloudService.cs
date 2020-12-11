@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.V20190401
         /// </summary>
         public readonly string GatewaySubnet;
         /// <summary>
+        /// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/dedicatedCloudServices/{dedicatedCloudServiceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// indicates whether account onboarded or not in a given region
         /// </summary>
         public readonly string IsAccountOnboarded;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.V20190401
         private GetDedicatedCloudServiceResult(
             string gatewaySubnet,
 
+            string id,
+
             string isAccountOnboarded,
 
             string location,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNextGen.VMwareCloudSimple.V20190401
             string type)
         {
             GatewaySubnet = gatewaySubnet;
+            Id = id;
             IsAccountOnboarded = isAccountOnboarded;
             Location = location;
             Name = name;

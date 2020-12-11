@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Authorization.V20200701Preview
         /// </summary>
         public readonly string? ExpiresOn;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
         /// </summary>
         public readonly object? Metadata;
@@ -90,6 +94,8 @@ namespace Pulumi.AzureNextGen.Authorization.V20200701Preview
 
             string? expiresOn,
 
+            string id,
+
             object? metadata,
 
             string name,
@@ -106,6 +112,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20200701Preview
             DisplayName = displayName;
             ExemptionCategory = exemptionCategory;
             ExpiresOn = expiresOn;
+            Id = id;
             Metadata = metadata;
             Name = name;
             PolicyAssignmentId = policyAssignmentId;

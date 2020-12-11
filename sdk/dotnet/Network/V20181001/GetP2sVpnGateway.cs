@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Network.V20181001
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string Location;
@@ -88,6 +92,8 @@ namespace Pulumi.AzureNextGen.Network.V20181001
         private GetP2sVpnGatewayResult(
             string etag,
 
+            string? id,
+
             string location,
 
             string name,
@@ -109,6 +115,7 @@ namespace Pulumi.AzureNextGen.Network.V20181001
             int? vpnGatewayScaleUnit)
         {
             Etag = etag;
+            Id = id;
             Location = location;
             Name = name;
             P2SVpnServerConfiguration = p2SVpnServerConfiguration;

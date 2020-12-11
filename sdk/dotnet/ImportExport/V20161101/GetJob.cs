@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.ImportExport.V20161101
     public sealed class GetJobResult
     {
         /// <summary>
+        /// Specifies the resource identifier of the job.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Specifies the Azure location where the job is created.
         /// </summary>
         public readonly string? Location;
@@ -62,6 +66,8 @@ namespace Pulumi.AzureNextGen.ImportExport.V20161101
 
         [OutputConstructor]
         private GetJobResult(
+            string id,
+
             string? location,
 
             string name,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.ImportExport.V20161101
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

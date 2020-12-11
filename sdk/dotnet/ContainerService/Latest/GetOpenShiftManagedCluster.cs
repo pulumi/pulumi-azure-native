@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
         /// </summary>
         public readonly string Fqdn;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
 
             string fqdn,
 
+            string id,
+
             string location,
 
             Outputs.OpenShiftManagedClusterMasterPoolProfileResponse? masterPoolProfile,
@@ -136,6 +142,7 @@ namespace Pulumi.AzureNextGen.ContainerService.Latest
             AuthProfile = authProfile;
             ClusterVersion = clusterVersion;
             Fqdn = fqdn;
+            Id = id;
             Location = location;
             MasterPoolProfile = masterPoolProfile;
             Name = name;

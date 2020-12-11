@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// The role definition ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The role definition name.
         /// </summary>
         public readonly string Name;
@@ -74,6 +78,8 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
 
             string? description,
 
+            string id,
+
             string name,
 
             ImmutableArray<Outputs.PermissionResponse> permissions,
@@ -86,6 +92,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
         {
             AssignableScopes = assignableScopes;
             Description = description;
+            Id = id;
             Name = name;
             Permissions = permissions;
             RoleName = roleName;

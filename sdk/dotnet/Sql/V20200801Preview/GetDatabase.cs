@@ -114,6 +114,10 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// </summary>
         public readonly int? HighAvailabilityReplicaCount;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Kind of database. This is metadata used for the Azure portal experience.
         /// </summary>
         public readonly string Kind;
@@ -264,6 +268,8 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
 
             int? highAvailabilityReplicaCount,
 
+            string id,
+
             string kind,
 
             string? licenseType,
@@ -333,6 +339,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
             ElasticPoolId = elasticPoolId;
             FailoverGroupId = failoverGroupId;
             HighAvailabilityReplicaCount = highAvailabilityReplicaCount;
+            Id = id;
             Kind = kind;
             LicenseType = licenseType;
             Location = location;

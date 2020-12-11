@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// </summary>
         public readonly string? DefaultVirtualNetworkId;
         /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The type of the lab storage.
         /// </summary>
         public readonly string? LabStorageType;
@@ -98,6 +102,8 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
 
             string? defaultVirtualNetworkId,
 
+            string? id,
+
             string? labStorageType,
 
             string? location,
@@ -118,6 +124,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
             CreatedDate = createdDate;
             DefaultStorageAccount = defaultStorageAccount;
             DefaultVirtualNetworkId = defaultVirtualNetworkId;
+            Id = id;
             LabStorageType = labStorageType;
             Location = location;
             Name = name;

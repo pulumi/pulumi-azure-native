@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
         /// </summary>
         public readonly string? FunctionParameters;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -98,6 +102,8 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
 
             string? functionParameters,
 
+            string id,
+
             string name,
 
             string query,
@@ -113,6 +119,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200301Preview
             Etag = etag;
             FunctionAlias = functionAlias;
             FunctionParameters = functionParameters;
+            Id = id;
             Name = name;
             Query = query;
             Tags = tags;

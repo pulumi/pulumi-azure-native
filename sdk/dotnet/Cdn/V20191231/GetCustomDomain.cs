@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.Cdn.V20191231
         /// </summary>
         public readonly string HostName;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.Cdn.V20191231
 
             string hostName,
 
+            string id,
+
             string name,
 
             string provisioningState,
@@ -105,6 +111,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20191231
             CustomHttpsProvisioningState = customHttpsProvisioningState;
             CustomHttpsProvisioningSubstate = customHttpsProvisioningSubstate;
             HostName = hostName;
+            Id = id;
             Name = name;
             ProvisioningState = provisioningState;
             ResourceState = resourceState;

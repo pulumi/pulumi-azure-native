@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.DataShare.V20191101
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
+        /// The resource id of the azure resource
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The invitation id.
         /// </summary>
         public readonly string InvitationId;
@@ -114,6 +118,8 @@ namespace Pulumi.AzureNextGen.DataShare.V20191101
         private GetShareSubscriptionResult(
             string createdAt,
 
+            string id,
+
             string invitationId,
 
             string name,
@@ -145,6 +151,7 @@ namespace Pulumi.AzureNextGen.DataShare.V20191101
             string userName)
         {
             CreatedAt = createdAt;
+            Id = id;
             InvitationId = invitationId;
             Name = name;
             ProviderEmail = providerEmail;

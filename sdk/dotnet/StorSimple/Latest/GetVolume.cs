@@ -70,6 +70,10 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// </summary>
         public readonly string BackupStatus;
         /// <summary>
+        /// The path ID that uniquely identifies the object.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         public readonly string? Kind;
@@ -114,6 +118,8 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
 
             string backupStatus,
 
+            string id,
+
             string? kind,
 
             string monitoringStatus,
@@ -135,6 +141,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
             AccessControlRecordIds = accessControlRecordIds;
             BackupPolicyIds = backupPolicyIds;
             BackupStatus = backupStatus;
+            Id = id;
             Kind = kind;
             MonitoringStatus = monitoringStatus;
             Name = name;

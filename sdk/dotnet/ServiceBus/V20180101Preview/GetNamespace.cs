@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Enumerates the possible value of keySource for Encryption
         /// </summary>
         public readonly string? KeySource;
@@ -104,6 +108,8 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
         private GetNamespaceResult(
             string createdAt,
 
+            string id,
+
             string? keySource,
 
             Outputs.KeyVaultPropertiesResponse? keyVaultProperties,
@@ -133,6 +139,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview
             bool? zoneRedundant)
         {
             CreatedAt = createdAt;
+            Id = id;
             KeySource = keySource;
             KeyVaultProperties = keyVaultProperties;
             Location = location;

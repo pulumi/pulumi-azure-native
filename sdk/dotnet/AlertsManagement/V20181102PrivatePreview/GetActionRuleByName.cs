@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20181102PrivatePreview
     public sealed class GetActionRuleByNameResult
     {
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -62,6 +66,8 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20181102PrivatePreview
 
         [OutputConstructor]
         private GetActionRuleByNameResult(
+            string id,
+
             string location,
 
             string name,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20181102PrivatePreview
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

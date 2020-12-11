@@ -70,6 +70,10 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
         /// </summary>
         public readonly string? ExternalServiceFabricId;
         /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string? Location;
@@ -102,6 +106,8 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
 
             string? externalServiceFabricId,
 
+            string id,
+
             string? location,
 
             string name,
@@ -117,6 +123,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
             ApplicableSchedule = applicableSchedule;
             EnvironmentId = environmentId;
             ExternalServiceFabricId = externalServiceFabricId;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

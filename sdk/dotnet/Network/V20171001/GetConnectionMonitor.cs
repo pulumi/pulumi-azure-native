@@ -55,6 +55,10 @@ namespace Pulumi.AzureNextGen.Network.V20171001
         public readonly Outputs.ConnectionMonitorDestinationResponse Destination;
         public readonly string? Etag;
         /// <summary>
+        /// ID of the connection monitor.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Connection monitor location.
         /// </summary>
         public readonly string? Location;
@@ -99,6 +103,8 @@ namespace Pulumi.AzureNextGen.Network.V20171001
 
             string? etag,
 
+            string id,
+
             string? location,
 
             int? monitoringIntervalInSeconds,
@@ -120,6 +126,7 @@ namespace Pulumi.AzureNextGen.Network.V20171001
             AutoStart = autoStart;
             Destination = destination;
             Etag = etag;
+            Id = id;
             Location = location;
             MonitoringIntervalInSeconds = monitoringIntervalInSeconds;
             MonitoringStatus = monitoringStatus;

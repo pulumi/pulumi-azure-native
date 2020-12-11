@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// </summary>
         public readonly ImmutableArray<Outputs.ServerInfoResponse> GroupMembers;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         private GetServerTrustGroupResult(
             ImmutableArray<Outputs.ServerInfoResponse> groupMembers,
 
+            string id,
+
             string name,
 
             ImmutableArray<string> trustScopes,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
             string type)
         {
             GroupMembers = groupMembers;
+            Id = id;
             Name = name;
             TrustScopes = trustScopes;
             Type = type;

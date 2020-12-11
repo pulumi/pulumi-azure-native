@@ -76,6 +76,10 @@ namespace Pulumi.AzureNextGen.CostManagement.V20190301Preview
         /// </summary>
         public readonly string ExternalBillingAccountId;
         /// <summary>
+        /// Connector id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Connector kind (eg aws)
         /// </summary>
         public readonly string? Kind;
@@ -132,6 +136,8 @@ namespace Pulumi.AzureNextGen.CostManagement.V20190301Preview
 
             string externalBillingAccountId,
 
+            string id,
+
             string? kind,
 
             string modifiedOn,
@@ -159,6 +165,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20190301Preview
             DefaultManagementGroupId = defaultManagementGroupId;
             DisplayName = displayName;
             ExternalBillingAccountId = externalBillingAccountId;
+            Id = id;
             Kind = kind;
             ModifiedOn = modifiedOn;
             Name = name;

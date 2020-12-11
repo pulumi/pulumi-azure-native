@@ -47,6 +47,10 @@ namespace Pulumi.AzureNextGen.Security.V20200101
         /// The application control policy enforcement/protection mode of the machine group
         /// </summary>
         public readonly string? EnforcementMode;
+        /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
         public readonly ImmutableArray<Outputs.AdaptiveApplicationControlIssueSummaryResponse> Issues;
         /// <summary>
         /// Location where the resource is stored
@@ -81,6 +85,8 @@ namespace Pulumi.AzureNextGen.Security.V20200101
 
             string? enforcementMode,
 
+            string id,
+
             ImmutableArray<Outputs.AdaptiveApplicationControlIssueSummaryResponse> issues,
 
             string location,
@@ -101,6 +107,7 @@ namespace Pulumi.AzureNextGen.Security.V20200101
         {
             ConfigurationStatus = configurationStatus;
             EnforcementMode = enforcementMode;
+            Id = id;
             Issues = issues;
             Location = location;
             Name = name;

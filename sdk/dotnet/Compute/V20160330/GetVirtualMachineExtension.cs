@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.Compute.V20160330
         /// </summary>
         public readonly string? ForceUpdateTag;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The virtual machine extension instance view.
         /// </summary>
         public readonly Outputs.VirtualMachineExtensionInstanceViewResponse? InstanceView;
@@ -106,6 +110,8 @@ namespace Pulumi.AzureNextGen.Compute.V20160330
 
             string? forceUpdateTag,
 
+            string id,
+
             Outputs.VirtualMachineExtensionInstanceViewResponse? instanceView,
 
             string location,
@@ -128,6 +134,7 @@ namespace Pulumi.AzureNextGen.Compute.V20160330
         {
             AutoUpgradeMinorVersion = autoUpgradeMinorVersion;
             ForceUpdateTag = forceUpdateTag;
+            Id = id;
             InstanceView = instanceView;
             Location = location;
             Name = name;

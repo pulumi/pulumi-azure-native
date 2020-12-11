@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
     public sealed class GetSystemTopicResult
     {
         /// <summary>
+        /// Fully qualified identifier of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Location of the resource.
         /// </summary>
         public readonly string Location;
@@ -74,6 +78,8 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
 
         [OutputConstructor]
         private GetSystemTopicResult(
+            string id,
+
             string location,
 
             string metricResourceId,
@@ -90,6 +96,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
 
             string type)
         {
+            Id = id;
             Location = location;
             MetricResourceId = metricResourceId;
             Name = name;

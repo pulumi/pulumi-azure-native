@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Indicates whether the security automation is enabled.
         /// </summary>
         public readonly bool? IsEnabled;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
 
             string? etag,
 
+            string id,
+
             bool? isEnabled,
 
             string? kind,
@@ -111,6 +117,7 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
             Actions = actions;
             Description = description;
             Etag = etag;
+            Id = id;
             IsEnabled = isEnabled;
             Kind = kind;
             Location = location;

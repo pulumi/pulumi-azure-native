@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
@@ -88,6 +92,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string etag,
 
+            string? id,
+
             string? name,
 
             string provisioningState,
@@ -100,6 +106,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
             AllowRemoteVnetToUseHubVnetGateways = allowRemoteVnetToUseHubVnetGateways;
             EnableInternetSecurity = enableInternetSecurity;
             Etag = etag;
+            Id = id;
             Name = name;
             ProvisioningState = provisioningState;
             RemoteVirtualNetwork = remoteVirtualNetwork;

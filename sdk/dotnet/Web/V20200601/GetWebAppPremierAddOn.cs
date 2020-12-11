@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Web.V20200601
     public sealed class GetWebAppPremierAddOnResult
     {
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
@@ -88,6 +92,8 @@ namespace Pulumi.AzureNextGen.Web.V20200601
 
         [OutputConstructor]
         private GetWebAppPremierAddOnResult(
+            string id,
+
             string? kind,
 
             string location,
@@ -108,6 +114,7 @@ namespace Pulumi.AzureNextGen.Web.V20200601
 
             string? vendor)
         {
+            Id = id;
             Kind = kind;
             Location = location;
             MarketplaceOffer = marketplaceOffer;

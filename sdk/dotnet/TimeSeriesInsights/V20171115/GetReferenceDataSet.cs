@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20171115
         /// </summary>
         public readonly string? DataStringComparisonBehavior;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The list of key properties for the reference data set.
         /// </summary>
         public readonly ImmutableArray<Outputs.ReferenceDataSetKeyPropertyResponse> KeyProperties;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20171115
 
             string? dataStringComparisonBehavior,
 
+            string id,
+
             ImmutableArray<Outputs.ReferenceDataSetKeyPropertyResponse> keyProperties,
 
             string location,
@@ -98,6 +104,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20171115
         {
             CreationTime = creationTime;
             DataStringComparisonBehavior = dataStringComparisonBehavior;
+            Id = id;
             KeyProperties = keyProperties;
             Location = location;
             Name = name;

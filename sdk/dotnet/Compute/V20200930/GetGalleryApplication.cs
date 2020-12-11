@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Compute.V20200930
         /// </summary>
         public readonly string? Eula;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -94,6 +98,8 @@ namespace Pulumi.AzureNextGen.Compute.V20200930
 
             string? eula,
 
+            string id,
+
             string location,
 
             string name,
@@ -111,6 +117,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200930
             Description = description;
             EndOfLifeDate = endOfLifeDate;
             Eula = eula;
+            Id = id;
             Location = location;
             Name = name;
             PrivacyStatementUri = privacyStatementUri;

@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
         /// </summary>
         public readonly object? Definition;
         /// <summary>
+        /// The resource id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The integration account.
         /// </summary>
         public readonly Outputs.ResourceReferenceResponse? IntegrationAccount;
@@ -106,6 +110,8 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
 
             object? definition,
 
+            string id,
+
             Outputs.ResourceReferenceResponse? integrationAccount,
 
             string? location,
@@ -130,6 +136,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
             ChangedTime = changedTime;
             CreatedTime = createdTime;
             Definition = definition;
+            Id = id;
             IntegrationAccount = integrationAccount;
             Location = location;
             Name = name;

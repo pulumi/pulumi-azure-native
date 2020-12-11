@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20200804Preview
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Last time the rule was updated in ISO8601 format.
         /// </summary>
         public readonly string LastUpdatedTime;
@@ -90,6 +94,8 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20200804Preview
 
             bool enabled,
 
+            string id,
+
             string lastUpdatedTime,
 
             string location,
@@ -106,6 +112,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20200804Preview
             Criteria = criteria;
             Description = description;
             Enabled = enabled;
+            Id = id;
             LastUpdatedTime = lastUpdatedTime;
             Location = location;
             Name = name;

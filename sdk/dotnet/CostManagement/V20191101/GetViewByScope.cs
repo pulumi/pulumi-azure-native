@@ -72,6 +72,10 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101
         /// </summary>
         public readonly string? ETag;
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// List of KPIs to show in Cost Analysis UI.
         /// </summary>
         public readonly ImmutableArray<Outputs.KpiPropertiesResponse> Kpis;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101
 
             string? eTag,
 
+            string id,
+
             ImmutableArray<Outputs.KpiPropertiesResponse> kpis,
 
             string? metric,
@@ -152,6 +158,7 @@ namespace Pulumi.AzureNextGen.CostManagement.V20191101
             DateRange = dateRange;
             DisplayName = displayName;
             ETag = eTag;
+            Id = id;
             Kpis = kpis;
             Metric = metric;
             ModifiedOn = modifiedOn;

@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.EventHub.V20140901
     public sealed class GetEventHubAuthorizationRuleResult
     {
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string? Location;
@@ -70,6 +74,8 @@ namespace Pulumi.AzureNextGen.EventHub.V20140901
 
         [OutputConstructor]
         private GetEventHubAuthorizationRuleResult(
+            string id,
+
             string? location,
 
             string name,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20140901
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Rights = rights;

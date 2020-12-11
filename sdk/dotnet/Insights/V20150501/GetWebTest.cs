@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
         /// </summary>
         public readonly int? Frequency;
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The kind of web test that this web test watches. Choices are ping and multistep.
         /// </summary>
         public readonly string? Kind;
@@ -114,6 +118,8 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
 
             int? frequency,
 
+            string id,
+
             string? kind,
 
             string location,
@@ -142,6 +148,7 @@ namespace Pulumi.AzureNextGen.Insights.V20150501
             Description = description;
             Enabled = enabled;
             Frequency = frequency;
+            Id = id;
             Kind = kind;
             Location = location;
             Locations = locations;

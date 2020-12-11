@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
     public sealed class GetNamespaceVirtualNetworkRuleResult
     {
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -60,12 +64,15 @@ namespace Pulumi.AzureNextGen.EventHub.V20180101Preview
 
         [OutputConstructor]
         private GetNamespaceVirtualNetworkRuleResult(
+            string id,
+
             string name,
 
             string type,
 
             string? virtualNetworkSubnetId)
         {
+            Id = id;
             Name = name;
             Type = type;
             VirtualNetworkSubnetId = virtualNetworkSubnetId;

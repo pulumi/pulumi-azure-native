@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.Automation.V20170515Preview
         /// </summary>
         public readonly string? FolderPath;
         /// <summary>
+        /// Fully qualified resource Id for the resource
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The last modified time.
         /// </summary>
         public readonly string? LastModifiedTime;
@@ -102,6 +106,8 @@ namespace Pulumi.AzureNextGen.Automation.V20170515Preview
 
             string? folderPath,
 
+            string id,
+
             string? lastModifiedTime,
 
             string name,
@@ -119,6 +125,7 @@ namespace Pulumi.AzureNextGen.Automation.V20170515Preview
             CreationTime = creationTime;
             Description = description;
             FolderPath = folderPath;
+            Id = id;
             LastModifiedTime = lastModifiedTime;
             Name = name;
             PublishRunbook = publishRunbook;

@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Maps.Latest
     public sealed class GetAccountResult
     {
         /// <summary>
+        /// The fully qualified Maps Account resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string Location;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.Maps.Latest
 
         [OutputConstructor]
         private GetAccountResult(
+            string id,
+
             string location,
 
             string name,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.Maps.Latest
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

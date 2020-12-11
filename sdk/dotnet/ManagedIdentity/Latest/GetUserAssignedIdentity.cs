@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.ManagedIdentity.Latest
         /// </summary>
         public readonly string ClientId;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.ManagedIdentity.Latest
         private GetUserAssignedIdentityResult(
             string clientId,
 
+            string id,
+
             string location,
 
             string name,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.ManagedIdentity.Latest
             string type)
         {
             ClientId = clientId;
+            Id = id;
             Location = location;
             Name = name;
             PrincipalId = principalId;

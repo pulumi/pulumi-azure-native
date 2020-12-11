@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
     public sealed class GetBandwidthSettingResult
     {
         /// <summary>
+        /// The path ID that uniquely identifies the object.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         public readonly string? Kind;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
 
         [OutputConstructor]
         private GetBandwidthSettingResult(
+            string id,
+
             string? kind,
 
             string name,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.StorSimple.V20170601
 
             int volumeCount)
         {
+            Id = id;
             Kind = kind;
             Name = name;
             Schedules = schedules;

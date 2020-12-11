@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.EventHub.Latest
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Number of days to retain the events for this Event Hub, value should be 1 to 7 days
         /// </summary>
         public readonly int? MessageRetentionInDays;
@@ -88,6 +92,8 @@ namespace Pulumi.AzureNextGen.EventHub.Latest
 
             string createdAt,
 
+            string id,
+
             int? messageRetentionInDays,
 
             string name,
@@ -104,6 +110,7 @@ namespace Pulumi.AzureNextGen.EventHub.Latest
         {
             CaptureDescription = captureDescription;
             CreatedAt = createdAt;
+            Id = id;
             MessageRetentionInDays = messageRetentionInDays;
             Name = name;
             PartitionCount = partitionCount;

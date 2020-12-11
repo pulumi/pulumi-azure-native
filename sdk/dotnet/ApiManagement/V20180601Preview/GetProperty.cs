@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -74,6 +78,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
         private GetPropertyResult(
             string displayName,
 
+            string id,
+
             string name,
 
             bool? secret,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20180601Preview
             string value)
         {
             DisplayName = displayName;
+            Id = id;
             Name = name;
             Secret = secret;
             Tags = tags;

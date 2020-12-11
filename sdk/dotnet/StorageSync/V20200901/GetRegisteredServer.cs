@@ -74,6 +74,10 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200901
         /// </summary>
         public readonly string? FriendlyName;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Registered Server last heart beat
         /// </summary>
         public readonly string LastHeartBeat;
@@ -162,6 +166,8 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200901
 
             string? friendlyName,
 
+            string id,
+
             string lastHeartBeat,
 
             string lastOperationName,
@@ -205,6 +211,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20200901
             ClusterName = clusterName;
             DiscoveryEndpointUri = discoveryEndpointUri;
             FriendlyName = friendlyName;
+            Id = id;
             LastHeartBeat = lastHeartBeat;
             LastOperationName = lastOperationName;
             LastWorkflowId = lastWorkflowId;

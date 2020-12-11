@@ -170,6 +170,10 @@ namespace Pulumi.AzureNextGen.Web.V20200601
         /// </summary>
         public readonly ImmutableArray<string> GoogleOAuthScopes;
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// "true" if the auth config settings should be read from a file,
         /// "false" otherwise
         /// </summary>
@@ -305,6 +309,8 @@ namespace Pulumi.AzureNextGen.Web.V20200601
 
             ImmutableArray<string> googleOAuthScopes,
 
+            string id,
+
             string? isAuthFromFile,
 
             string? issuer,
@@ -362,6 +368,7 @@ namespace Pulumi.AzureNextGen.Web.V20200601
             GoogleClientSecret = googleClientSecret;
             GoogleClientSecretSettingName = googleClientSecretSettingName;
             GoogleOAuthScopes = googleOAuthScopes;
+            Id = id;
             IsAuthFromFile = isAuthFromFile;
             Issuer = issuer;
             Kind = kind;

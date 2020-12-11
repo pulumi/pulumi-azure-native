@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.Network.V20160330
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Gets or sets the idle timeout of the public IP address
         /// </summary>
         public readonly int? IdleTimeoutInMinutes;
@@ -101,6 +105,8 @@ namespace Pulumi.AzureNextGen.Network.V20160330
 
             string? etag,
 
+            string? id,
+
             int? idleTimeoutInMinutes,
 
             string? ipAddress,
@@ -125,6 +131,7 @@ namespace Pulumi.AzureNextGen.Network.V20160330
         {
             DnsSettings = dnsSettings;
             Etag = etag;
+            Id = id;
             IdleTimeoutInMinutes = idleTimeoutInMinutes;
             IpAddress = ipAddress;
             IpConfiguration = ipConfiguration;

@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The kind of the entity.
         /// </summary>
         public readonly string Kind;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         private GetThreatIntelligenceIndicatorResult(
             string? etag,
 
+            string id,
+
             string kind,
 
             string name,
@@ -79,6 +85,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
             string type)
         {
             Etag = etag;
+            Id = id;
             Kind = kind;
             Name = name;
             Type = type;

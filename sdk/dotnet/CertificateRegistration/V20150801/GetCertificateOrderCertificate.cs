@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.V20150801
     public sealed class GetCertificateOrderCertificateResult
     {
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Key Vault Csm resource Id
         /// </summary>
         public readonly string? KeyVaultId;
@@ -80,6 +84,8 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.V20150801
 
         [OutputConstructor]
         private GetCertificateOrderCertificateResult(
+            string? id,
+
             string? keyVaultId,
 
             string? keyVaultSecretName,
@@ -96,6 +102,7 @@ namespace Pulumi.AzureNextGen.CertificateRegistration.V20150801
 
             string? type)
         {
+            Id = id;
             KeyVaultId = keyVaultId;
             KeyVaultSecretName = keyVaultSecretName;
             Kind = kind;

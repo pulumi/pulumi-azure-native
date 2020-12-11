@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Fully qualified resource Id for the resource
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Gets or sets the job count of the configuration.
         /// </summary>
         public readonly int? JobCount;
@@ -114,6 +118,8 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
 
             string? etag,
 
+            string id,
+
             int? jobCount,
 
             string? lastModifiedTime,
@@ -141,6 +147,7 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
             CreationTime = creationTime;
             Description = description;
             Etag = etag;
+            Id = id;
             JobCount = jobCount;
             LastModifiedTime = lastModifiedTime;
             Location = location;

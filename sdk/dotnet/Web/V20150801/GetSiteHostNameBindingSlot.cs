@@ -72,6 +72,10 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// </summary>
         public readonly string? HostNameType;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Kind of resource
         /// </summary>
         public readonly string? Kind;
@@ -108,6 +112,8 @@ namespace Pulumi.AzureNextGen.Web.V20150801
 
             string? hostNameType,
 
+            string? id,
+
             string? kind,
 
             string location,
@@ -125,6 +131,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
             CustomHostNameDnsRecordType = customHostNameDnsRecordType;
             DomainId = domainId;
             HostNameType = hostNameType;
+            Id = id;
             Kind = kind;
             Location = location;
             Name = name;

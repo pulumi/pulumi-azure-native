@@ -72,6 +72,10 @@ namespace Pulumi.AzureNextGen.Network.V20180401
         /// </summary>
         public readonly ImmutableArray<string> GeoMapping;
         /// <summary>
+        /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         /// </summary>
         public readonly int? MinChildEndpoints;
@@ -116,6 +120,8 @@ namespace Pulumi.AzureNextGen.Network.V20180401
 
             ImmutableArray<string> geoMapping,
 
+            string? id,
+
             int? minChildEndpoints,
 
             string? name,
@@ -137,6 +143,7 @@ namespace Pulumi.AzureNextGen.Network.V20180401
             EndpointMonitorStatus = endpointMonitorStatus;
             EndpointStatus = endpointStatus;
             GeoMapping = geoMapping;
+            Id = id;
             MinChildEndpoints = minChildEndpoints;
             Name = name;
             Priority = priority;

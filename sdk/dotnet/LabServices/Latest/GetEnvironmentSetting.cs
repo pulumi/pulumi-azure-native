@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.LabServices.Latest
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Time when the template VM was last changed.
         /// </summary>
         public readonly string LastChanged;
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNextGen.LabServices.Latest
 
             string? description,
 
+            string id,
+
             string lastChanged,
 
             string lastPublished,
@@ -146,6 +152,7 @@ namespace Pulumi.AzureNextGen.LabServices.Latest
         {
             ConfigurationState = configurationState;
             Description = description;
+            Id = id;
             LastChanged = lastChanged;
             LastPublished = lastPublished;
             LatestOperationResult = latestOperationResult;

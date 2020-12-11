@@ -34,6 +34,10 @@ namespace Pulumi.AzureNextGen.Resources.V20190701
     public sealed class GetResourceGroupResult
     {
         /// <summary>
+        /// The ID of the resource group.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the resource group. It cannot be changed after the resource group has been created. It must be one of the supported Azure locations.
         /// </summary>
         public readonly string Location;
@@ -60,6 +64,8 @@ namespace Pulumi.AzureNextGen.Resources.V20190701
 
         [OutputConstructor]
         private GetResourceGroupResult(
+            string id,
+
             string location,
 
             string? managedBy,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.Resources.V20190701
 
             string type)
         {
+            Id = id;
             Location = location;
             ManagedBy = managedBy;
             Name = name;

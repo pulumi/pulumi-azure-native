@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Kusto.V20191109
         /// </summary>
         public readonly bool? EnableStreamingIngest;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the cluster, if configured.
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNextGen.Kusto.V20191109
 
             bool? enableStreamingIngest,
 
+            string id,
+
             Outputs.IdentityResponse? identity,
 
             Outputs.KeyVaultPropertiesResponse? keyVaultProperties,
@@ -153,6 +159,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20191109
             DataIngestionUri = dataIngestionUri;
             EnableDiskEncryption = enableDiskEncryption;
             EnableStreamingIngest = enableStreamingIngest;
+            Id = id;
             Identity = identity;
             KeyVaultProperties = keyVaultProperties;
             Location = location;

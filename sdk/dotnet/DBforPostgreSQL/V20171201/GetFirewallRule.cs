@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20171201
         /// </summary>
         public readonly string EndIpAddress;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20171201
         private GetFirewallRuleResult(
             string endIpAddress,
 
+            string id,
+
             string name,
 
             string startIpAddress,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.V20171201
             string type)
         {
             EndIpAddress = endIpAddress;
+            Id = id;
             Name = name;
             StartIpAddress = startIpAddress;
             Type = type;

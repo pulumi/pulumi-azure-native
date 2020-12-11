@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
         /// </summary>
         public readonly ImmutableDictionary<string, string>? DisplayName;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Interactions set for the assignment.
         /// </summary>
         public readonly Outputs.ResourceSetDescriptionResponse? Interactions;
@@ -146,6 +150,8 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
 
             ImmutableDictionary<string, string>? displayName,
 
+            string id,
+
             Outputs.ResourceSetDescriptionResponse? interactions,
 
             Outputs.ResourceSetDescriptionResponse? kpis,
@@ -185,6 +191,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
             Connectors = connectors;
             Description = description;
             DisplayName = displayName;
+            Id = id;
             Interactions = interactions;
             Kpis = kpis;
             Links = links;

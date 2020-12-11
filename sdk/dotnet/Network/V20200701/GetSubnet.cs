@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.Network.V20200701
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Array of IpAllocation which reference this subnet.
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> IpAllocations;
@@ -142,6 +146,8 @@ namespace Pulumi.AzureNextGen.Network.V20200701
 
             string etag,
 
+            string? id,
+
             ImmutableArray<Outputs.SubResourceResponse> ipAllocations,
 
             ImmutableArray<Outputs.IPConfigurationProfileResponse> ipConfigurationProfiles,
@@ -178,6 +184,7 @@ namespace Pulumi.AzureNextGen.Network.V20200701
             AddressPrefixes = addressPrefixes;
             Delegations = delegations;
             Etag = etag;
+            Id = id;
             IpAllocations = ipAllocations;
             IpConfigurationProfiles = ipConfigurationProfiles;
             IpConfigurations = ipConfigurations;

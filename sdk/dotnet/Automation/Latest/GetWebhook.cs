@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Automation.Latest
         /// </summary>
         public readonly string? ExpiryTime;
         /// <summary>
+        /// Fully qualified resource Id for the resource
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Gets or sets the value of the enabled flag of the webhook.
         /// </summary>
         public readonly bool? IsEnabled;
@@ -106,6 +110,8 @@ namespace Pulumi.AzureNextGen.Automation.Latest
 
             string? expiryTime,
 
+            string id,
+
             bool? isEnabled,
 
             string? lastInvokedTime,
@@ -129,6 +135,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
             CreationTime = creationTime;
             Description = description;
             ExpiryTime = expiryTime;
+            Id = id;
             IsEnabled = isEnabled;
             LastInvokedTime = lastInvokedTime;
             LastModifiedBy = lastModifiedBy;

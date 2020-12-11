@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
     public sealed class GetManagementPolicyResult
     {
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Returns the date and time the ManagementPolicies was last modified.
         /// </summary>
         public readonly string LastModifiedTime;
@@ -64,6 +68,8 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
 
         [OutputConstructor]
         private GetManagementPolicyResult(
+            string id,
+
             string lastModifiedTime,
 
             string name,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.Storage.V20190601
 
             string type)
         {
+            Id = id;
             LastModifiedTime = lastModifiedTime;
             Name = name;
             Policy = policy;

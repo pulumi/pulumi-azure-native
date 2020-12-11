@@ -76,6 +76,10 @@ namespace Pulumi.AzureNextGen.Network.V20180201
         /// </summary>
         public readonly int? FrontendPort;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
         /// </summary>
         public readonly int? IdleTimeoutInMinutes;
@@ -106,6 +110,8 @@ namespace Pulumi.AzureNextGen.Network.V20180201
 
             int? frontendPort,
 
+            string? id,
+
             int? idleTimeoutInMinutes,
 
             string? name,
@@ -120,6 +126,7 @@ namespace Pulumi.AzureNextGen.Network.V20180201
             Etag = etag;
             FrontendIPConfiguration = frontendIPConfiguration;
             FrontendPort = frontendPort;
+            Id = id;
             IdleTimeoutInMinutes = idleTimeoutInMinutes;
             Name = name;
             Protocol = protocol;

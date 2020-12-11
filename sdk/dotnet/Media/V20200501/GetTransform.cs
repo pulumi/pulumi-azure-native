@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The UTC date and time when the Transform was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
         /// </summary>
         public readonly string LastModified;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.Media.V20200501
 
             string? description,
 
+            string id,
+
             string lastModified,
 
             string name,
@@ -86,6 +92,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         {
             Created = created;
             Description = description;
+            Id = id;
             LastModified = lastModified;
             Name = name;
             Outputs = outputs;

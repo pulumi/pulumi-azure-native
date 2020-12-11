@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Kusto.Latest
     public sealed class GetClusterPrincipalAssignmentResult
     {
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNextGen.Kusto.Latest
 
         [OutputConstructor]
         private GetClusterPrincipalAssignmentResult(
+            string id,
+
             string name,
 
             string principalId,
@@ -102,6 +108,7 @@ namespace Pulumi.AzureNextGen.Kusto.Latest
 
             string type)
         {
+            Id = id;
             Name = name;
             PrincipalId = principalId;
             PrincipalName = principalName;

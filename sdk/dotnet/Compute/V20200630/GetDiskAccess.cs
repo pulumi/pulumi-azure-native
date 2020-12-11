@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Compute.V20200630
     public sealed class GetDiskAccessResult
     {
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -70,6 +74,8 @@ namespace Pulumi.AzureNextGen.Compute.V20200630
 
         [OutputConstructor]
         private GetDiskAccessResult(
+            string id,
+
             string location,
 
             string name,
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200630
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             PrivateEndpointConnections = privateEndpointConnections;

@@ -42,6 +42,10 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview
         /// </summary>
         public readonly Outputs.HybridComputeSettingsPropertiesResponse? HybridComputeSettings;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
@@ -56,12 +60,15 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview
 
             Outputs.HybridComputeSettingsPropertiesResponse? hybridComputeSettings,
 
+            string id,
+
             string name,
 
             string type)
         {
             AuthenticationDetails = authenticationDetails;
             HybridComputeSettings = hybridComputeSettings;
+            Id = id;
             Name = name;
             Type = type;
         }

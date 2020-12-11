@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Latest
         /// </summary>
         public readonly string CreationDate;
         /// <summary>
+        /// The resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
         public readonly string Location;
@@ -98,6 +102,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Latest
 
             string creationDate,
 
+            string id,
+
             string location,
 
             string loginServer,
@@ -122,6 +128,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.Latest
         {
             AdminUserEnabled = adminUserEnabled;
             CreationDate = creationDate;
+            Id = id;
             Location = location;
             LoginServer = loginServer;
             Name = name;

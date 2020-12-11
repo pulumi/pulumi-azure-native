@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.Consumption.V20180630
         /// </summary>
         public readonly Outputs.FiltersResponse? Filters;
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.Consumption.V20180630
 
             Outputs.FiltersResponse? filters,
 
+            string id,
+
             string name,
 
             ImmutableDictionary<string, Outputs.NotificationResponse>? notifications,
@@ -107,6 +113,7 @@ namespace Pulumi.AzureNextGen.Consumption.V20180630
             CurrentSpend = currentSpend;
             ETag = eTag;
             Filters = filters;
+            Id = id;
             Name = name;
             Notifications = notifications;
             TimeGrain = timeGrain;

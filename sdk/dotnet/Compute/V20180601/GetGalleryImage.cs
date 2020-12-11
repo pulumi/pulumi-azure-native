@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.Compute.V20180601
         /// </summary>
         public readonly string? Eula;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// This is the gallery Image Definition identifier.
         /// </summary>
         public readonly Outputs.GalleryImageIdentifierResponse Identifier;
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNextGen.Compute.V20180601
 
             string? eula,
 
+            string id,
+
             Outputs.GalleryImageIdentifierResponse identifier,
 
             string location,
@@ -148,6 +154,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180601
             Disallowed = disallowed;
             EndOfLifeDate = endOfLifeDate;
             Eula = eula;
+            Id = id;
             Identifier = identifier;
             Location = location;
             Name = name;

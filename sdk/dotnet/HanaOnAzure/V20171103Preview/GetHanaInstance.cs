@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20171103Preview
         /// </summary>
         public readonly string HwRevision;
         /// <summary>
+        /// Resource ID
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string? Location;
@@ -104,6 +108,8 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20171103Preview
 
             string hwRevision,
 
+            string id,
+
             string? location,
 
             string name,
@@ -129,6 +135,7 @@ namespace Pulumi.AzureNextGen.HanaOnAzure.V20171103Preview
             HanaInstanceId = hanaInstanceId;
             HardwareProfile = hardwareProfile;
             HwRevision = hwRevision;
+            Id = id;
             Location = location;
             Name = name;
             NetworkProfile = networkProfile;

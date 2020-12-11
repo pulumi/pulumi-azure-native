@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Notebooks.V20191011Preview
         /// </summary>
         public readonly string? Hostname;
         /// <summary>
+        /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -60,6 +64,8 @@ namespace Pulumi.AzureNextGen.Notebooks.V20191011Preview
         private GetNotebookProxyResult(
             string? hostname,
 
+            string id,
+
             string name,
 
             string resourceId,
@@ -67,6 +73,7 @@ namespace Pulumi.AzureNextGen.Notebooks.V20191011Preview
             string type)
         {
             Hostname = hostname;
+            Id = id;
             Name = name;
             ResourceId = resourceId;
             Type = type;

@@ -53,6 +53,10 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest
         /// The elliptic curve name. For valid values, see JsonWebKeyCurveName.
         /// </summary>
         public readonly string? CurveName;
+        /// <summary>
+        /// Fully qualified identifier of the key vault resource.
+        /// </summary>
+        public readonly string Id;
         public readonly ImmutableArray<string> KeyOps;
         /// <summary>
         /// The key size in bits. For example: 2048, 3072, or 4096 for RSA.
@@ -93,6 +97,8 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest
 
             string? curveName,
 
+            string id,
+
             ImmutableArray<string> keyOps,
 
             int? keySize,
@@ -113,6 +119,7 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest
         {
             Attributes = attributes;
             CurveName = curveName;
+            Id = id;
             KeyOps = keyOps;
             KeySize = keySize;
             KeyUri = keyUri;

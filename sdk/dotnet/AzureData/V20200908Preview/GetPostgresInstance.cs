@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.AzureData.V20200908Preview
         /// </summary>
         public readonly string? DataControllerId;
         /// <summary>
+        /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The raw kubernetes information
         /// </summary>
         public readonly object? K8sRaw;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNextGen.AzureData.V20200908Preview
 
             string? dataControllerId,
 
+            string id,
+
             object? k8sRaw,
 
             string? lastUploadedDate,
@@ -98,6 +104,7 @@ namespace Pulumi.AzureNextGen.AzureData.V20200908Preview
         {
             Admin = admin;
             DataControllerId = dataControllerId;
+            Id = id;
             K8sRaw = k8sRaw;
             LastUploadedDate = lastUploadedDate;
             Location = location;

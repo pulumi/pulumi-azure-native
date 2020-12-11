@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20190802Preview
         /// </summary>
         public readonly string? ForceUpdateTag;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The machine extension instance view.
         /// </summary>
         public readonly Outputs.MachineExtensionInstanceViewResponse? InstanceView;
@@ -108,6 +112,8 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20190802Preview
 
             string? forceUpdateTag,
 
+            string id,
+
             Outputs.MachineExtensionInstanceViewResponse? instanceView,
 
             string location,
@@ -134,6 +140,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20190802Preview
         {
             AutoUpgradeMinorVersion = autoUpgradeMinorVersion;
             ForceUpdateTag = forceUpdateTag;
+            Id = id;
             InstanceView = instanceView;
             Location = location;
             Name = name;

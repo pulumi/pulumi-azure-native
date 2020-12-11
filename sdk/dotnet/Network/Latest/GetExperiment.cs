@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly Outputs.EndpointResponse? EndpointB;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             Outputs.EndpointResponse? endpointB,
 
+            string id,
+
             string? location,
 
             string name,
@@ -118,6 +124,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
             EnabledState = enabledState;
             EndpointA = endpointA;
             EndpointB = endpointB;
+            Id = id;
             Location = location;
             Name = name;
             ResourceState = resourceState;

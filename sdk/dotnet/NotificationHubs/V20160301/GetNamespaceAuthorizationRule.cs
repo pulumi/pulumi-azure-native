@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20160301
     public sealed class GetNamespaceAuthorizationRuleResult
     {
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20160301
 
         [OutputConstructor]
         private GetNamespaceAuthorizationRuleResult(
+            string id,
+
             string location,
 
             string name,
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20160301
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Rights = rights;

@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
         /// </summary>
         public readonly string? Edition;
         /// <summary>
+        /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
 
             string? edition,
 
+            string id,
+
             string name,
 
             string? propertyBag,
@@ -98,6 +104,7 @@ namespace Pulumi.AzureNextGen.AzureData.V20190724Preview
         {
             Cores = cores;
             Edition = edition;
+            Id = id;
             Name = name;
             PropertyBag = propertyBag;
             RegistrationID = registrationID;

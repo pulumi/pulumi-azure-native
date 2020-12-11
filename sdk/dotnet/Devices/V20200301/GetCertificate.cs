@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Devices.V20200301
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// The resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the certificate.
         /// </summary>
         public readonly string Name;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.Devices.V20200301
         private GetCertificateResult(
             string etag,
 
+            string id,
+
             string name,
 
             Outputs.CertificatePropertiesResponse properties,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNextGen.Devices.V20200301
             string type)
         {
             Etag = etag;
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

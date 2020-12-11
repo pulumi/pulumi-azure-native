@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview
         /// </summary>
         public readonly Outputs.ControllerDetailsResponse? ControllerDetails;
         /// <summary>
+        /// An identifier that represents the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Location of the resource.
         /// </summary>
         public readonly string? Location;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview
         private GetDelegatedSubnetServiceDetailsResult(
             Outputs.ControllerDetailsResponse? controllerDetails,
 
+            string id,
+
             string? location,
 
             string name,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNextGen.DelegatedNetwork.V20200808Preview
             string type)
         {
             ControllerDetails = controllerDetails;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.StorageSync.V20170605Preview
     public sealed class GetStorageSyncServiceResult
     {
         /// <summary>
+        /// The id of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string? Location;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.StorageSync.V20170605Preview
 
         [OutputConstructor]
         private GetStorageSyncServiceResult(
+            string id,
+
             string? location,
 
             string name,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.StorageSync.V20170605Preview
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             StorageSyncServiceStatus = storageSyncServiceStatus;

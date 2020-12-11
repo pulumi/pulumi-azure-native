@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Network.V20180601
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string Location;
@@ -88,6 +92,8 @@ namespace Pulumi.AzureNextGen.Network.V20180601
 
             string etag,
 
+            string? id,
+
             string location,
 
             string name,
@@ -105,6 +111,7 @@ namespace Pulumi.AzureNextGen.Network.V20180601
             BgpSettings = bgpSettings;
             Connections = connections;
             Etag = etag;
+            Id = id;
             Location = location;
             Name = name;
             Policies = policies;

@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.Management.V20180301Preview
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
+        /// The fully qualified ID for the management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the management group. For example, 00000000-0000-0000-0000-000000000000
         /// </summary>
         public readonly string Name;
@@ -88,6 +92,8 @@ namespace Pulumi.AzureNextGen.Management.V20180301Preview
 
             string? displayName,
 
+            string id,
+
             string name,
 
             ImmutableArray<string> roles,
@@ -99,6 +105,7 @@ namespace Pulumi.AzureNextGen.Management.V20180301Preview
             Children = children;
             Details = details;
             DisplayName = displayName;
+            Id = id;
             Name = name;
             Roles = roles;
             TenantId = tenantId;

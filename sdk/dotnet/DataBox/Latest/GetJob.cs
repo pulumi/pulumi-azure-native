@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.DataBox.Latest
         /// </summary>
         public readonly Outputs.CloudErrorResponse Error;
         /// <summary>
+        /// Id of the object.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Msi identity of the resource
         /// </summary>
         public readonly Outputs.ResourceIdentityResponse? Identity;
@@ -134,6 +138,8 @@ namespace Pulumi.AzureNextGen.DataBox.Latest
 
             Outputs.CloudErrorResponse error,
 
+            string id,
+
             Outputs.ResourceIdentityResponse? identity,
 
             bool isCancellable,
@@ -167,6 +173,7 @@ namespace Pulumi.AzureNextGen.DataBox.Latest
             DeliveryType = deliveryType;
             Details = details;
             Error = error;
+            Id = id;
             Identity = identity;
             IsCancellable = isCancellable;
             IsCancellableWithoutFee = isCancellableWithoutFee;

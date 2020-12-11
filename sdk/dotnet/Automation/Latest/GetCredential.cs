@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.Automation.Latest
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Fully qualified resource Id for the resource
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Gets the last modified time.
         /// </summary>
         public readonly string LastModifiedTime;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.Automation.Latest
 
             string? description,
 
+            string id,
+
             string lastModifiedTime,
 
             string name,
@@ -86,6 +92,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
         {
             CreationTime = creationTime;
             Description = description;
+            Id = id;
             LastModifiedTime = lastModifiedTime;
             Name = name;
             Type = type;

@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.VisualStudio.V20140401Preview
     public sealed class GetExtensionResult
     {
         /// <summary>
+        /// Unique identifier of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.VisualStudio.V20140401Preview
 
         [OutputConstructor]
         private GetExtensionResult(
+            string id,
+
             string? location,
 
             string name,
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNextGen.VisualStudio.V20140401Preview
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Plan = plan;

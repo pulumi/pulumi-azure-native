@@ -132,6 +132,10 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// </summary>
         public readonly string? FinishedTimeStamp;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Kind of resource
         /// </summary>
         public readonly string? Kind;
@@ -192,6 +196,8 @@ namespace Pulumi.AzureNextGen.Web.V20150801
 
             string? finishedTimeStamp,
 
+            string? id,
+
             string? kind,
 
             string? lastRestoreTimeStamp,
@@ -221,6 +227,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
             Created = created;
             Databases = databases;
             FinishedTimeStamp = finishedTimeStamp;
+            Id = id;
             Kind = kind;
             LastRestoreTimeStamp = lastRestoreTimeStamp;
             Location = location;

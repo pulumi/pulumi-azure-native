@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// </summary>
         public readonly string? EnvironmentStatus;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Number of ip ssl addresses reserved for the managed hosting environment
         /// </summary>
         public readonly int? IpsslAddressCount;
@@ -111,6 +115,8 @@ namespace Pulumi.AzureNextGen.Web.Latest
 
             string? environmentStatus,
 
+            string? id,
+
             int? ipsslAddressCount,
 
             string? kind,
@@ -137,6 +143,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
             DnsSuffix = dnsSuffix;
             EnvironmentIsHealthy = environmentIsHealthy;
             EnvironmentStatus = environmentStatus;
+            Id = id;
             IpsslAddressCount = ipsslAddressCount;
             Kind = kind;
             Location = location;

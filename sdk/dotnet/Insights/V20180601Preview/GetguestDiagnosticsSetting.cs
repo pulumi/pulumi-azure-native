@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Insights.V20180601Preview
         /// </summary>
         public readonly ImmutableArray<Outputs.DataSourceResponse> DataSources;
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -69,6 +73,8 @@ namespace Pulumi.AzureNextGen.Insights.V20180601Preview
         private GetguestDiagnosticsSettingResult(
             ImmutableArray<Outputs.DataSourceResponse> dataSources,
 
+            string id,
+
             string location,
 
             string name,
@@ -82,6 +88,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180601Preview
             string type)
         {
             DataSources = dataSources;
+            Id = id;
             Location = location;
             Name = name;
             OsType = osType;

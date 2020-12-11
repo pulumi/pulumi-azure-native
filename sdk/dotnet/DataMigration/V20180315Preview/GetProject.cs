@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180315Preview
         /// </summary>
         public readonly ImmutableArray<Outputs.DatabaseInfoResponse> DatabasesInfo;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string Location;
@@ -96,6 +100,8 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180315Preview
 
             ImmutableArray<Outputs.DatabaseInfoResponse> databasesInfo,
 
+            string id,
+
             string location,
 
             string name,
@@ -116,6 +122,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180315Preview
         {
             CreationTime = creationTime;
             DatabasesInfo = databasesInfo;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

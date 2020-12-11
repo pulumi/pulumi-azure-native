@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         /// </summary>
         public readonly ImmutableArray<Outputs.EventResponse> Events;
         /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string? Location;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
 
             ImmutableArray<Outputs.EventResponse> events,
 
+            string id,
+
             string? location,
 
             string name,
@@ -117,6 +123,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
             CreatedDate = createdDate;
             Description = description;
             Events = events;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
         /// </summary>
         public readonly Outputs.HubBillingInfoFormatResponse? HubBillingInfo;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
 
             Outputs.HubBillingInfoFormatResponse? hubBillingInfo,
 
+            string id,
+
             string? location,
 
             string name,
@@ -98,6 +104,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.V20170101
         {
             ApiEndpoint = apiEndpoint;
             HubBillingInfo = hubBillingInfo;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

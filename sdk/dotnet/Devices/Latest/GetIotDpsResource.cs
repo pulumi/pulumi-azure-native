@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Devices.Latest
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// The resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string Location;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.Devices.Latest
         private GetIotDpsResourceResult(
             string? etag,
 
+            string id,
+
             string location,
 
             string name,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.Devices.Latest
             string type)
         {
             Etag = etag;
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

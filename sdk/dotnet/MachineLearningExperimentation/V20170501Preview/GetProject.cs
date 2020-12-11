@@ -72,6 +72,10 @@ namespace Pulumi.AzureNextGen.MachineLearningExperimentation.V20170501Preview
         /// </summary>
         public readonly string? Gitrepo;
         /// <summary>
+        /// The resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
         public readonly string Location;
@@ -112,6 +116,8 @@ namespace Pulumi.AzureNextGen.MachineLearningExperimentation.V20170501Preview
 
             string? gitrepo,
 
+            string id,
+
             string location,
 
             string name,
@@ -131,6 +137,7 @@ namespace Pulumi.AzureNextGen.MachineLearningExperimentation.V20170501Preview
             Description = description;
             FriendlyName = friendlyName;
             Gitrepo = gitrepo;
+            Id = id;
             Location = location;
             Name = name;
             ProjectId = projectId;

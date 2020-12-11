@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20180820Preview
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// The resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The kind of the service. Valid values are: fhir, fhir-Stu3 and fhir-R4.
         /// </summary>
         public readonly string Kind;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20180820Preview
         private GetServiceResult(
             string? etag,
 
+            string id,
+
             string kind,
 
             string location,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.HealthcareApis.V20180820Preview
             string type)
         {
             Etag = etag;
+            Id = id;
             Kind = kind;
             Location = location;
             Name = name;

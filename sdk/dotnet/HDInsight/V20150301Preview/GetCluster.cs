@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.HDInsight.V20150301Preview
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Fully qualified resource Id for the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the cluster, if configured.
         /// </summary>
         public readonly Outputs.ClusterIdentityResponse? Identity;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.HDInsight.V20150301Preview
         private GetClusterResult(
             string? etag,
 
+            string id,
+
             Outputs.ClusterIdentityResponse? identity,
 
             string? location,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.HDInsight.V20150301Preview
             string type)
         {
             Etag = etag;
+            Id = id;
             Identity = identity;
             Location = location;
             Name = name;

@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         /// </summary>
         public readonly string? ErrorBlobUri;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The virtual machine run command instance view.
         /// </summary>
         public readonly Outputs.VirtualMachineRunCommandInstanceViewResponse InstanceView;
@@ -124,6 +128,8 @@ namespace Pulumi.AzureNextGen.Compute.Latest
 
             string? errorBlobUri,
 
+            string id,
+
             Outputs.VirtualMachineRunCommandInstanceViewResponse instanceView,
 
             string location,
@@ -152,6 +158,7 @@ namespace Pulumi.AzureNextGen.Compute.Latest
         {
             AsyncExecution = asyncExecution;
             ErrorBlobUri = errorBlobUri;
+            Id = id;
             InstanceView = instanceView;
             Location = location;
             Name = name;

@@ -42,6 +42,10 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview
         /// </summary>
         public readonly string? Emails;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
@@ -64,6 +68,8 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview
 
             string? emails,
 
+            string id,
+
             string name,
 
             Outputs.SecurityContactPropertiesResponseNotificationsByRole? notificationsByRole,
@@ -74,6 +80,7 @@ namespace Pulumi.AzureNextGen.Security.V20200101Preview
         {
             AlertNotifications = alertNotifications;
             Emails = emails;
+            Id = id;
             Name = name;
             NotificationsByRole = notificationsByRole;
             Phone = phone;

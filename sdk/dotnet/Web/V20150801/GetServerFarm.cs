@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// </summary>
         public readonly Outputs.HostingEnvironmentProfileResponse? HostingEnvironmentProfile;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Kind of resource
         /// </summary>
         public readonly string? Kind;
@@ -117,6 +121,8 @@ namespace Pulumi.AzureNextGen.Web.V20150801
 
             Outputs.HostingEnvironmentProfileResponse? hostingEnvironmentProfile,
 
+            string? id,
+
             string? kind,
 
             string location,
@@ -148,6 +154,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
             AdminSiteName = adminSiteName;
             GeoRegion = geoRegion;
             HostingEnvironmentProfile = hostingEnvironmentProfile;
+            Id = id;
             Kind = kind;
             Location = location;
             MaximumNumberOfWorkers = maximumNumberOfWorkers;

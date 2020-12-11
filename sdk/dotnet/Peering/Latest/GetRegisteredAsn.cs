@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Peering.Latest
         /// </summary>
         public readonly int? Asn;
         /// <summary>
+        /// The ID of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
@@ -70,6 +74,8 @@ namespace Pulumi.AzureNextGen.Peering.Latest
         private GetRegisteredAsnResult(
             int? asn,
 
+            string id,
+
             string name,
 
             string peeringServicePrefixKey,
@@ -79,6 +85,7 @@ namespace Pulumi.AzureNextGen.Peering.Latest
             string type)
         {
             Asn = asn;
+            Id = id;
             Name = name;
             PeeringServicePrefixKey = peeringServicePrefixKey;
             ProvisioningState = provisioningState;

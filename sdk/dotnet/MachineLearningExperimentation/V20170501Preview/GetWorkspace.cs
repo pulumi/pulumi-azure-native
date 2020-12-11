@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.MachineLearningExperimentation.V20170501Preview
         /// </summary>
         public readonly string FriendlyName;
         /// <summary>
+        /// The resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
         public readonly string Location;
@@ -96,6 +100,8 @@ namespace Pulumi.AzureNextGen.MachineLearningExperimentation.V20170501Preview
 
             string friendlyName,
 
+            string id,
+
             string location,
 
             string name,
@@ -112,6 +118,7 @@ namespace Pulumi.AzureNextGen.MachineLearningExperimentation.V20170501Preview
             CreationDate = creationDate;
             Description = description;
             FriendlyName = friendlyName;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

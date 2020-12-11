@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.AadIam.V20200701Preview
     public sealed class GetazureADMetricResult
     {
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -59,6 +63,8 @@ namespace Pulumi.AzureNextGen.AadIam.V20200701Preview
 
         [OutputConstructor]
         private GetazureADMetricResult(
+            string id,
+
             string location,
 
             string name,
@@ -69,6 +75,7 @@ namespace Pulumi.AzureNextGen.AadIam.V20200701Preview
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

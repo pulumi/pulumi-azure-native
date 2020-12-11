@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.VisualStudio.V20171101Preview
     public sealed class GetAccountResult
     {
         /// <summary>
+        /// Unique identifier of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -62,6 +66,8 @@ namespace Pulumi.AzureNextGen.VisualStudio.V20171101Preview
 
         [OutputConstructor]
         private GetAccountResult(
+            string id,
+
             string? location,
 
             string name,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.VisualStudio.V20171101Preview
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

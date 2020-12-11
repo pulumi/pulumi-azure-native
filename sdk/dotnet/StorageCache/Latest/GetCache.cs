@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
         /// </summary>
         public readonly Outputs.CacheHealthResponse Health;
         /// <summary>
+        /// Resource ID of the Cache.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the cache, if configured.
         /// </summary>
         public readonly Outputs.CacheIdentityResponse? Identity;
@@ -112,6 +116,8 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
 
             Outputs.CacheHealthResponse health,
 
+            string id,
+
             Outputs.CacheIdentityResponse? identity,
 
             string? location,
@@ -141,6 +147,7 @@ namespace Pulumi.AzureNextGen.StorageCache.Latest
             CacheSizeGB = cacheSizeGB;
             EncryptionSettings = encryptionSettings;
             Health = health;
+            Id = id;
             Identity = identity;
             Location = location;
             MountAddresses = mountAddresses;

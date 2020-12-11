@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.CognitiveServices.Latest
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// The id of the created account
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of Cognitive Services account.
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
@@ -80,6 +84,8 @@ namespace Pulumi.AzureNextGen.CognitiveServices.Latest
         private GetAccountResult(
             string etag,
 
+            string id,
+
             Outputs.IdentityResponse? identity,
 
             string? kind,
@@ -97,6 +103,7 @@ namespace Pulumi.AzureNextGen.CognitiveServices.Latest
             string type)
         {
             Etag = etag;
+            Id = id;
             Identity = identity;
             Kind = kind;
             Location = location;

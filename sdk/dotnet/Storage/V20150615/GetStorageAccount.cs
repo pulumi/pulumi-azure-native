@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Storage.V20150615
         /// </summary>
         public readonly Outputs.CustomDomainResponse? CustomDomain;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
         /// </summary>
         public readonly string? LastGeoFailoverTime;
@@ -108,6 +112,8 @@ namespace Pulumi.AzureNextGen.Storage.V20150615
 
             Outputs.CustomDomainResponse? customDomain,
 
+            string id,
+
             string? lastGeoFailoverTime,
 
             string? location,
@@ -135,6 +141,7 @@ namespace Pulumi.AzureNextGen.Storage.V20150615
             AccountType = accountType;
             CreationTime = creationTime;
             CustomDomain = customDomain;
+            Id = id;
             LastGeoFailoverTime = lastGeoFailoverTime;
             Location = location;
             Name = name;

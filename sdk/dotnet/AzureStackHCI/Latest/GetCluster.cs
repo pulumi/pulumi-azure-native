@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.AzureStackHCI.Latest
         /// </summary>
         public readonly string CloudId;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Most recent billing meter timestamp.
         /// </summary>
         public readonly string LastBillingTimestamp;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNextGen.AzureStackHCI.Latest
 
             string cloudId,
 
+            string id,
+
             string lastBillingTimestamp,
 
             string lastSyncTimestamp,
@@ -136,6 +142,7 @@ namespace Pulumi.AzureNextGen.AzureStackHCI.Latest
             AadTenantId = aadTenantId;
             BillingModel = billingModel;
             CloudId = cloudId;
+            Id = id;
             LastBillingTimestamp = lastBillingTimestamp;
             LastSyncTimestamp = lastSyncTimestamp;
             Location = location;

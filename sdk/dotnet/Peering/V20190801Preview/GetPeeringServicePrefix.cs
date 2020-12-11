@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Peering.V20190801Preview
     public sealed class GetPeeringServicePrefixResult
     {
         /// <summary>
+        /// The ID of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The prefix learned type
         /// </summary>
         public readonly string? LearnedType;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.Peering.V20190801Preview
 
         [OutputConstructor]
         private GetPeeringServicePrefixResult(
+            string id,
+
             string? learnedType,
 
             string name,
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNextGen.Peering.V20190801Preview
 
             string type)
         {
+            Id = id;
             LearnedType = learnedType;
             Name = name;
             Prefix = prefix;

@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest
         /// </summary>
         public readonly string Endpoint;
         /// <summary>
+        /// Fully qualified identifier of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
         /// </summary>
         public readonly ImmutableArray<Outputs.InboundIpRuleResponse> InboundIpRules;
@@ -93,6 +97,8 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest
         private GetDomainResult(
             string endpoint,
 
+            string id,
+
             ImmutableArray<Outputs.InboundIpRuleResponse> inboundIpRules,
 
             string? inputSchema,
@@ -116,6 +122,7 @@ namespace Pulumi.AzureNextGen.EventGrid.Latest
             string type)
         {
             Endpoint = endpoint;
+            Id = id;
             InboundIpRules = inboundIpRules;
             InputSchema = inputSchema;
             InputSchemaMapping = inputSchemaMapping;

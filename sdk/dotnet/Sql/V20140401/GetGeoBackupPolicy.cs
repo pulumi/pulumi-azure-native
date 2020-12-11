@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
     public sealed class GetGeoBackupPolicyResult
     {
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Kind of geo backup policy.  This is metadata used for the Azure portal experience.
         /// </summary>
         public readonly string Kind;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
 
         [OutputConstructor]
         private GetGeoBackupPolicyResult(
+            string id,
+
             string kind,
 
             string location,
@@ -90,6 +96,7 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
 
             string type)
         {
+            Id = id;
             Kind = kind;
             Location = location;
             Name = name;

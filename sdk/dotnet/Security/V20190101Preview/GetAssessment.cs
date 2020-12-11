@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Links relevant to the assessment
         /// </summary>
         public readonly Outputs.AssessmentLinksResponse Links;
@@ -80,6 +84,8 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
 
             string displayName,
 
+            string id,
+
             Outputs.AssessmentLinksResponse links,
 
             string name,
@@ -92,6 +98,7 @@ namespace Pulumi.AzureNextGen.Security.V20190101Preview
         {
             AdditionalData = additionalData;
             DisplayName = displayName;
+            Id = id;
             Links = links;
             Name = name;
             ResourceDetails = resourceDetails;

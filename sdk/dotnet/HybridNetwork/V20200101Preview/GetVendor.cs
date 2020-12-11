@@ -34,6 +34,10 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
     public sealed class GetVendorResult
     {
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -52,6 +56,8 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
 
         [OutputConstructor]
         private GetVendorResult(
+            string id,
+
             string name,
 
             string provisioningState,
@@ -60,6 +66,7 @@ namespace Pulumi.AzureNextGen.HybridNetwork.V20200101Preview
 
             string type)
         {
+            Id = id;
             Name = name;
             ProvisioningState = provisioningState;
             Skus = skus;

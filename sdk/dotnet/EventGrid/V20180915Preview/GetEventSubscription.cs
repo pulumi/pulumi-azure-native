@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.EventGrid.V20180915Preview
         /// </summary>
         public readonly Outputs.EventSubscriptionFilterResponse? Filter;
         /// <summary>
+        /// Fully qualified identifier of the resource
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// List of user defined labels.
         /// </summary>
         public readonly ImmutableArray<string> Labels;
@@ -96,6 +100,8 @@ namespace Pulumi.AzureNextGen.EventGrid.V20180915Preview
 
             Outputs.EventSubscriptionFilterResponse? filter,
 
+            string id,
+
             ImmutableArray<string> labels,
 
             string name,
@@ -113,6 +119,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20180915Preview
             EventDeliverySchema = eventDeliverySchema;
             ExpirationTimeUtc = expirationTimeUtc;
             Filter = filter;
+            Id = id;
             Labels = labels;
             Name = name;
             ProvisioningState = provisioningState;

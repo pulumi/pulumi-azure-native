@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20190801Preview
         /// </summary>
         public readonly string DataSourceType;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20190801Preview
         private GetLinkedStorageAccountResult(
             string dataSourceType,
 
+            string id,
+
             string name,
 
             ImmutableArray<string> storageAccountIds,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20190801Preview
             string type)
         {
             DataSourceType = dataSourceType;
+            Id = id;
             Name = name;
             StorageAccountIds = storageAccountIds;
             Type = type;

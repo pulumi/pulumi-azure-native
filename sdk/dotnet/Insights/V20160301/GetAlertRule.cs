@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Insights.V20160301
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// the flag that indicates whether the alert rule is enabled.
         /// </summary>
         public readonly bool IsEnabled;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNextGen.Insights.V20160301
 
             string? description,
 
+            string id,
+
             bool isEnabled,
 
             string lastUpdatedTime,
@@ -99,6 +105,7 @@ namespace Pulumi.AzureNextGen.Insights.V20160301
             Actions = actions;
             Condition = condition;
             Description = description;
+            Id = id;
             IsEnabled = isEnabled;
             LastUpdatedTime = lastUpdatedTime;
             Location = location;

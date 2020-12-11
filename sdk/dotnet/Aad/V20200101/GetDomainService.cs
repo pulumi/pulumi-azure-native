@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.Aad.V20200101
         /// </summary>
         public readonly string? FilteredSync;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Secure LDAP Settings
         /// </summary>
         public readonly Outputs.LdapsSettingsResponse? LdapsSettings;
@@ -134,6 +138,8 @@ namespace Pulumi.AzureNextGen.Aad.V20200101
 
             string? filteredSync,
 
+            string id,
+
             Outputs.LdapsSettingsResponse? ldapsSettings,
 
             string? location,
@@ -168,6 +174,7 @@ namespace Pulumi.AzureNextGen.Aad.V20200101
             DomainSecuritySettings = domainSecuritySettings;
             Etag = etag;
             FilteredSync = filteredSync;
+            Id = id;
             LdapsSettings = ldapsSettings;
             Location = location;
             MigrationProperties = migrationProperties;

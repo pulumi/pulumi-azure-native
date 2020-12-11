@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Resources.V20151101
     public sealed class GetDeploymentResult
     {
         /// <summary>
+        /// Gets or sets the ID of the deployment.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Gets or sets the name of the deployment.
         /// </summary>
         public readonly string Name;
@@ -50,10 +54,13 @@ namespace Pulumi.AzureNextGen.Resources.V20151101
 
         [OutputConstructor]
         private GetDeploymentResult(
+            string id,
+
             string name,
 
             Outputs.DeploymentPropertiesExtendedResponse properties)
         {
+            Id = id;
             Name = name;
             Properties = properties;
         }

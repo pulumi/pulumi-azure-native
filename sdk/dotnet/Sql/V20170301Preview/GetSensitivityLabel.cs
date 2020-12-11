@@ -70,6 +70,10 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
     public sealed class GetSensitivityLabelResult
     {
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The information type.
         /// </summary>
         public readonly string? InformationType;
@@ -101,6 +105,8 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
 
         [OutputConstructor]
         private GetSensitivityLabelResult(
+            string id,
+
             string? informationType,
 
             string? informationTypeId,
@@ -117,6 +123,7 @@ namespace Pulumi.AzureNextGen.Sql.V20170301Preview
 
             string type)
         {
+            Id = id;
             InformationType = informationType;
             InformationTypeId = informationTypeId;
             IsDisabled = isDisabled;

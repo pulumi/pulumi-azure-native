@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Fully qualified resource ID for the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The last modified date of the Asset.
         /// </summary>
         public readonly string LastModified;
@@ -98,6 +102,8 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview
 
             string? description,
 
+            string id,
+
             string lastModified,
 
             string name,
@@ -113,6 +119,7 @@ namespace Pulumi.AzureNextGen.Media.V20180330Preview
             Container = container;
             Created = created;
             Description = description;
+            Id = id;
             LastModified = lastModified;
             Name = name;
             StorageAccountName = storageAccountName;

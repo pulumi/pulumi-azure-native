@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Metadata endpoint URI.
         /// </summary>
         public readonly string MetadataEndpoint;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
 
             string displayName,
 
+            string id,
+
             string metadataEndpoint,
 
             string name,
@@ -94,6 +100,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
             ClientSecret = clientSecret;
             Description = description;
             DisplayName = displayName;
+            Id = id;
             MetadataEndpoint = metadataEndpoint;
             Name = name;
             Type = type;

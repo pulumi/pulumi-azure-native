@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.AzureActiveDirectory.V20200501Preview
     public sealed class GetGuestUsageResult
     {
         /// <summary>
+        /// An identifier that represents the Guest Usages resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Location of the Guest Usages resource.
         /// </summary>
         public readonly string? Location;
@@ -62,6 +66,8 @@ namespace Pulumi.AzureNextGen.AzureActiveDirectory.V20200501Preview
 
         [OutputConstructor]
         private GetGuestUsageResult(
+            string id,
+
             string? location,
 
             string name,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.AzureActiveDirectory.V20200501Preview
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Tags = tags;

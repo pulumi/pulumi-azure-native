@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.Network.V20200301
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// ID of the connection monitor.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Connection monitor location.
         /// </summary>
         public readonly string? Location;
@@ -130,6 +134,8 @@ namespace Pulumi.AzureNextGen.Network.V20200301
 
             string etag,
 
+            string id,
+
             string? location,
 
             int? monitoringIntervalInSeconds,
@@ -161,6 +167,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301
             Destination = destination;
             Endpoints = endpoints;
             Etag = etag;
+            Id = id;
             Location = location;
             MonitoringIntervalInSeconds = monitoringIntervalInSeconds;
             MonitoringStatus = monitoringStatus;

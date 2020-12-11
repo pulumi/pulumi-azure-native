@@ -65,6 +65,10 @@ namespace Pulumi.AzureNextGen.Batch.V20200501
         /// </summary>
         public readonly Outputs.EncryptionPropertiesResponse Encryption;
         /// <summary>
+        /// The ID of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the Batch account.
         /// </summary>
         public readonly Outputs.BatchAccountIdentityResponse? Identity;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNextGen.Batch.V20200501
 
             Outputs.EncryptionPropertiesResponse encryption,
 
+            string id,
+
             Outputs.BatchAccountIdentityResponse? identity,
 
             Outputs.KeyVaultReferenceResponse keyVaultReference,
@@ -157,6 +163,7 @@ namespace Pulumi.AzureNextGen.Batch.V20200501
             DedicatedCoreQuotaPerVMFamily = dedicatedCoreQuotaPerVMFamily;
             DedicatedCoreQuotaPerVMFamilyEnforced = dedicatedCoreQuotaPerVMFamilyEnforced;
             Encryption = encryption;
+            Id = id;
             Identity = identity;
             KeyVaultReference = keyVaultReference;
             Location = location;

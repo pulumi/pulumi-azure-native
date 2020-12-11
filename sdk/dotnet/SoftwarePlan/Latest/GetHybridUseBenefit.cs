@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.SoftwarePlan.Latest
         /// </summary>
         public readonly int Etag;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Last updated date
         /// </summary>
         public readonly string LastUpdatedDate;
@@ -74,6 +78,8 @@ namespace Pulumi.AzureNextGen.SoftwarePlan.Latest
 
             int etag,
 
+            string id,
+
             string lastUpdatedDate,
 
             string name,
@@ -86,6 +92,7 @@ namespace Pulumi.AzureNextGen.SoftwarePlan.Latest
         {
             CreatedDate = createdDate;
             Etag = etag;
+            Id = id;
             LastUpdatedDate = lastUpdatedDate;
             Name = name;
             ProvisioningState = provisioningState;

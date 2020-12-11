@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.OffAzure.V20200101
         /// </summary>
         public readonly string? ETag;
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Azure location in which Sites is created.
         /// </summary>
         public readonly string? Location;
@@ -65,6 +69,8 @@ namespace Pulumi.AzureNextGen.OffAzure.V20200101
         private GetHyperVSiteResult(
             string? eTag,
 
+            string id,
+
             string? location,
 
             string? name,
@@ -76,6 +82,7 @@ namespace Pulumi.AzureNextGen.OffAzure.V20200101
             string type)
         {
             ETag = eTag;
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

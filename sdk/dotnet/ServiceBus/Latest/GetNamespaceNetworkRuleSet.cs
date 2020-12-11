@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
         /// </summary>
         public readonly string? DefaultAction;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// List of IpRules
         /// </summary>
         public readonly ImmutableArray<Outputs.NWRuleSetIpRulesResponse> IpRules;
@@ -64,6 +68,8 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
         private GetNamespaceNetworkRuleSetResult(
             string? defaultAction,
 
+            string id,
+
             ImmutableArray<Outputs.NWRuleSetIpRulesResponse> ipRules,
 
             string name,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
             ImmutableArray<Outputs.NWRuleSetVirtualNetworkRulesResponse> virtualNetworkRules)
         {
             DefaultAction = defaultAction;
+            Id = id;
             IpRules = ipRules;
             Name = name;
             Type = type;

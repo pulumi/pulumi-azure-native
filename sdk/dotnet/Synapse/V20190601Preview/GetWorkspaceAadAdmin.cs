@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         /// </summary>
         public readonly string? AdministratorType;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Login of the workspace active directory administrator
         /// </summary>
         public readonly string? Login;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
         private GetWorkspaceAadAdminResult(
             string? administratorType,
 
+            string id,
+
             string? login,
 
             string name,
@@ -79,6 +85,7 @@ namespace Pulumi.AzureNextGen.Synapse.V20190601Preview
             string type)
         {
             AdministratorType = administratorType;
+            Id = id;
             Login = login;
             Name = name;
             Sid = sid;

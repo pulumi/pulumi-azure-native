@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// </summary>
         public readonly Outputs.LabVirtualMachineResponse? FormulaContent;
         /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string? Location;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
 
             Outputs.LabVirtualMachineResponse? formulaContent,
 
+            string? id,
+
             string? location,
 
             string? name,
@@ -118,6 +124,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
             CreationDate = creationDate;
             Description = description;
             FormulaContent = formulaContent;
+            Id = id;
             Location = location;
             Name = name;
             OsType = osType;

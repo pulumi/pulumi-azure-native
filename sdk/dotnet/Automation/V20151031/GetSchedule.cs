@@ -70,6 +70,10 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
         /// </summary>
         public readonly string? Frequency;
         /// <summary>
+        /// Fully qualified resource Id for the resource
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Gets or sets the interval of the schedule.
         /// </summary>
         public readonly object? Interval;
@@ -124,6 +128,8 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
 
             string? frequency,
 
+            string id,
+
             object? interval,
 
             bool? isEnabled,
@@ -150,6 +156,7 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
             ExpiryTime = expiryTime;
             ExpiryTimeOffsetMinutes = expiryTimeOffsetMinutes;
             Frequency = frequency;
+            Id = id;
             Interval = interval;
             IsEnabled = isEnabled;
             LastModifiedTime = lastModifiedTime;

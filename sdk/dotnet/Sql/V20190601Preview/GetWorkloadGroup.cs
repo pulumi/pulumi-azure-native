@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
     public sealed class GetWorkloadGroupResult
     {
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The workload group importance level.
         /// </summary>
         public readonly string? Importance;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
 
         [OutputConstructor]
         private GetWorkloadGroupResult(
+            string id,
+
             string? importance,
 
             int maxResourcePercent,
@@ -102,6 +108,7 @@ namespace Pulumi.AzureNextGen.Sql.V20190601Preview
 
             string type)
         {
+            Id = id;
             Importance = importance;
             MaxResourcePercent = maxResourcePercent;
             MaxResourcePercentPerRequest = maxResourcePercentPerRequest;

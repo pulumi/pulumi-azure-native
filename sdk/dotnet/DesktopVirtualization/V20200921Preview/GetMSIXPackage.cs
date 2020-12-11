@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20200921Preview
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// VHD/CIM image path on Network Share.
         /// </summary>
         public readonly string? ImagePath;
@@ -102,6 +106,8 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20200921Preview
         private GetMSIXPackageResult(
             string? displayName,
 
+            string id,
+
             string? imagePath,
 
             bool? isActive,
@@ -127,6 +133,7 @@ namespace Pulumi.AzureNextGen.DesktopVirtualization.V20200921Preview
             string? version)
         {
             DisplayName = displayName;
+            Id = id;
             ImagePath = imagePath;
             IsActive = isActive;
             IsRegularRegistration = isRegularRegistration;

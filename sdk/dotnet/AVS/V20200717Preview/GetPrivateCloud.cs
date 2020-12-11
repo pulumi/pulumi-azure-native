@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// </summary>
         public readonly Outputs.EndpointsResponse Endpoints;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// vCenter Single Sign On Identity Sources
         /// </summary>
         public readonly ImmutableArray<Outputs.IdentitySourceResponse> IdentitySources;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
 
             Outputs.EndpointsResponse endpoints,
 
+            string id,
+
             ImmutableArray<Outputs.IdentitySourceResponse> identitySources,
 
             string? internet,
@@ -158,6 +164,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         {
             Circuit = circuit;
             Endpoints = endpoints;
+            Id = id;
             IdentitySources = identitySources;
             Internet = internet;
             Location = location;

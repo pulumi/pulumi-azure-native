@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Network.V20170601
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.Network.V20170601
 
             string etag,
 
+            string? id,
+
             string? location,
 
             string? name,
@@ -99,6 +105,7 @@ namespace Pulumi.AzureNextGen.Network.V20170601
             Access = access;
             Communities = communities;
             Etag = etag;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

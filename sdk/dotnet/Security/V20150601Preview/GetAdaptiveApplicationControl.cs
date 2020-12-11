@@ -47,6 +47,10 @@ namespace Pulumi.AzureNextGen.Security.V20150601Preview
         /// The application control policy enforcement/protection mode of the VM/server group
         /// </summary>
         public readonly string? EnforcementMode;
+        /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
         public readonly ImmutableArray<Outputs.AppWhitelistingIssueSummaryResponse> Issues;
         /// <summary>
         /// Location where the resource is stored
@@ -81,6 +85,8 @@ namespace Pulumi.AzureNextGen.Security.V20150601Preview
 
             string? enforcementMode,
 
+            string id,
+
             ImmutableArray<Outputs.AppWhitelistingIssueSummaryResponse> issues,
 
             string location,
@@ -101,6 +107,7 @@ namespace Pulumi.AzureNextGen.Security.V20150601Preview
         {
             ConfigurationStatus = configurationStatus;
             EnforcementMode = enforcementMode;
+            Id = id;
             Issues = issues;
             Location = location;
             Name = name;

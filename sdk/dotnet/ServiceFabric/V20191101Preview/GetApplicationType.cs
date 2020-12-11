@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20191101Preview
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Azure resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// It will be deprecated in New API, resource location depends on the parent resource.
         /// </summary>
         public readonly string? Location;
@@ -74,6 +78,8 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20191101Preview
         private GetApplicationTypeResult(
             string etag,
 
+            string id,
+
             string? location,
 
             string name,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20191101Preview
             string type)
         {
             Etag = etag;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

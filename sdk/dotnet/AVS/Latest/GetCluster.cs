@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.AVS.Latest
         /// </summary>
         public readonly ImmutableArray<string> Hosts;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNextGen.AVS.Latest
 
             ImmutableArray<string> hosts,
 
+            string id,
+
             string name,
 
             string provisioningState,
@@ -93,6 +99,7 @@ namespace Pulumi.AzureNextGen.AVS.Latest
             ClusterId = clusterId;
             ClusterSize = clusterSize;
             Hosts = hosts;
+            Id = id;
             Name = name;
             ProvisioningState = provisioningState;
             Sku = sku;

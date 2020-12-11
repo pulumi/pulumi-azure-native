@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
         /// </summary>
         public readonly string CreatedTime;
         /// <summary>
+        /// The resource id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The key details in the key vault.
         /// </summary>
         public readonly Outputs.KeyVaultKeyReferenceResponse? Key;
@@ -88,6 +92,8 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
 
             string createdTime,
 
+            string id,
+
             Outputs.KeyVaultKeyReferenceResponse? key,
 
             string? location,
@@ -104,6 +110,7 @@ namespace Pulumi.AzureNextGen.Logic.V20180701Preview
         {
             ChangedTime = changedTime;
             CreatedTime = createdTime;
+            Id = id;
             Key = key;
             Location = location;
             Metadata = metadata;

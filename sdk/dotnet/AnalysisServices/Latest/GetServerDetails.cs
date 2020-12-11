@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.AnalysisServices.Latest
         /// </summary>
         public readonly Outputs.GatewayDetailsResponse? GatewayDetails;
         /// <summary>
+        /// An identifier that represents the Analysis Services resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The firewall settings for the AS server.
         /// </summary>
         public readonly Outputs.IPv4FirewallSettingsResponse? IpV4FirewallSettings;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.AnalysisServices.Latest
 
             Outputs.GatewayDetailsResponse? gatewayDetails,
 
+            string id,
+
             Outputs.IPv4FirewallSettingsResponse? ipV4FirewallSettings,
 
             string location,
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNextGen.AnalysisServices.Latest
             AsAdministrators = asAdministrators;
             BackupBlobContainerUri = backupBlobContainerUri;
             GatewayDetails = gatewayDetails;
+            Id = id;
             IpV4FirewallSettings = ipV4FirewallSettings;
             Location = location;
             Name = name;

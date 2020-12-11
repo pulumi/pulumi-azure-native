@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Kusto.V20200918
     public sealed class GetDataConnectionResult
     {
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Kind of the endpoint for the data connection
         /// </summary>
         public readonly string Kind;
@@ -70,6 +74,8 @@ namespace Pulumi.AzureNextGen.Kusto.V20200918
 
         [OutputConstructor]
         private GetDataConnectionResult(
+            string id,
+
             string kind,
 
             string? location,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20200918
 
             string type)
         {
+            Id = id;
             Kind = kind;
             Location = location;
             Name = name;

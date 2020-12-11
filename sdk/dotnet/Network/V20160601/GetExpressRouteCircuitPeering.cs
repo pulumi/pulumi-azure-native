@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Network.V20160601
         /// </summary>
         public readonly string? GatewayManagerEtag;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Gets whether the provider or the customer last modified the peering
         /// </summary>
         public readonly string? LastModifiedBy;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNextGen.Network.V20160601
 
             string? gatewayManagerEtag,
 
+            string? id,
+
             string? lastModifiedBy,
 
             Outputs.ExpressRouteCircuitPeeringConfigResponse? microsoftPeeringConfig,
@@ -153,6 +159,7 @@ namespace Pulumi.AzureNextGen.Network.V20160601
             AzureASN = azureASN;
             Etag = etag;
             GatewayManagerEtag = gatewayManagerEtag;
+            Id = id;
             LastModifiedBy = lastModifiedBy;
             MicrosoftPeeringConfig = microsoftPeeringConfig;
             Name = name;

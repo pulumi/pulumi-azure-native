@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// </summary>
         public readonly ImmutableArray<string> Actions;
         /// <summary>
+        /// The resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
         public readonly string Location;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         private GetWebhookResult(
             ImmutableArray<string> actions,
 
+            string id,
+
             string location,
 
             string name,
@@ -103,6 +109,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
             string type)
         {
             Actions = actions;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

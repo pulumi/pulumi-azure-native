@@ -61,6 +61,10 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         public readonly ImmutableArray<Union<Outputs.DeliveryRuleCookiesConditionResponse, Union<Outputs.DeliveryRuleHttpVersionConditionResponse, Union<Outputs.DeliveryRuleIsDeviceConditionResponse, Union<Outputs.DeliveryRulePostArgsConditionResponse, Union<Outputs.DeliveryRuleQueryStringConditionResponse, Union<Outputs.DeliveryRuleRemoteAddressConditionResponse, Union<Outputs.DeliveryRuleRequestBodyConditionResponse, Union<Outputs.DeliveryRuleRequestHeaderConditionResponse, Union<Outputs.DeliveryRuleRequestMethodConditionResponse, Union<Outputs.DeliveryRuleRequestSchemeConditionResponse, Union<Outputs.DeliveryRuleRequestUriConditionResponse, Union<Outputs.DeliveryRuleUrlFileExtensionConditionResponse, Union<Outputs.DeliveryRuleUrlFileNameConditionResponse, Outputs.DeliveryRuleUrlPathConditionResponse>>>>>>>>>>>>>> Conditions;
         public readonly string DeploymentStatus;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
         /// </summary>
         public readonly string? MatchProcessingBehavior;
@@ -93,6 +97,8 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
 
             string deploymentStatus,
 
+            string id,
+
             string? matchProcessingBehavior,
 
             string name,
@@ -108,6 +114,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
             Actions = actions;
             Conditions = conditions;
             DeploymentStatus = deploymentStatus;
+            Id = id;
             MatchProcessingBehavior = matchProcessingBehavior;
             Name = name;
             Order = order;

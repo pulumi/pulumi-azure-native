@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
         /// </summary>
         public readonly ImmutableArray<Outputs.PredictionResponseGrades> Grades;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Interaction types involved in the prediction.
         /// </summary>
         public readonly ImmutableArray<string> InvolvedInteractionTypes;
@@ -132,6 +136,8 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
 
             ImmutableArray<Outputs.PredictionResponseGrades> grades,
 
+            string id,
+
             ImmutableArray<string> involvedInteractionTypes,
 
             ImmutableArray<string> involvedKpiTypes,
@@ -166,6 +172,7 @@ namespace Pulumi.AzureNextGen.CustomerInsights.Latest
             Description = description;
             DisplayName = displayName;
             Grades = grades;
+            Id = id;
             InvolvedInteractionTypes = involvedInteractionTypes;
             InvolvedKpiTypes = involvedKpiTypes;
             InvolvedRelationships = involvedRelationships;

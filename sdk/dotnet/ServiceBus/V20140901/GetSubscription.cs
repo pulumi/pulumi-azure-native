@@ -88,6 +88,10 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20140901
         /// </summary>
         public readonly string? EntityAvailabilityStatus;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Value that indicates whether the entity description is read-only.
         /// </summary>
         public readonly bool? IsReadOnly;
@@ -148,6 +152,8 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20140901
 
             string? entityAvailabilityStatus,
 
+            string id,
+
             bool? isReadOnly,
 
             string? location,
@@ -177,6 +183,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20140901
             DefaultMessageTimeToLive = defaultMessageTimeToLive;
             EnableBatchedOperations = enableBatchedOperations;
             EntityAvailabilityStatus = entityAvailabilityStatus;
+            Id = id;
             IsReadOnly = isReadOnly;
             Location = location;
             LockDuration = lockDuration;

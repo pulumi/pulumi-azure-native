@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Billing.V20191001Preview
         /// </summary>
         public readonly string CreatedOn;
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -98,6 +102,8 @@ namespace Pulumi.AzureNextGen.Billing.V20191001Preview
 
             string createdOn,
 
+            string id,
+
             string name,
 
             string? principalId,
@@ -118,6 +124,7 @@ namespace Pulumi.AzureNextGen.Billing.V20191001Preview
             CreatedByPrincipalTenantId = createdByPrincipalTenantId;
             CreatedByUserEmailAddress = createdByUserEmailAddress;
             CreatedOn = createdOn;
+            Id = id;
             Name = name;
             PrincipalId = principalId;
             PrincipalTenantId = principalTenantId;

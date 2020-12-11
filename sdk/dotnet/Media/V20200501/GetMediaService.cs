@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         /// </summary>
         public readonly Outputs.AccountEncryptionResponse? Encryption;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The Managed Identity for the Media Services account.
         /// </summary>
         public readonly Outputs.MediaServiceIdentityResponse? Identity;
@@ -77,6 +81,8 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         private GetMediaServiceResult(
             Outputs.AccountEncryptionResponse? encryption,
 
+            string id,
+
             Outputs.MediaServiceIdentityResponse? identity,
 
             string location,
@@ -94,6 +100,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501
             string type)
         {
             Encryption = encryption;
+            Id = id;
             Identity = identity;
             Location = location;
             MediaServiceId = mediaServiceId;

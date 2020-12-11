@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.AVS.V20190809Preview
     public sealed class GetClusterResult
     {
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -60,12 +64,15 @@ namespace Pulumi.AzureNextGen.AVS.V20190809Preview
 
         [OutputConstructor]
         private GetClusterResult(
+            string id,
+
             string name,
 
             Outputs.ClusterPropertiesResponse properties,
 
             string type)
         {
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

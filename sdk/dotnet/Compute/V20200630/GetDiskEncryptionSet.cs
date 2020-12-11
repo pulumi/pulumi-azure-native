@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.Compute.V20200630
         /// </summary>
         public readonly string? EncryptionType;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
         /// </summary>
         public readonly Outputs.EncryptionSetIdentityResponse? Identity;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNextGen.Compute.V20200630
 
             string? encryptionType,
 
+            string id,
+
             Outputs.EncryptionSetIdentityResponse? identity,
 
             string location,
@@ -98,6 +104,7 @@ namespace Pulumi.AzureNextGen.Compute.V20200630
         {
             ActiveKey = activeKey;
             EncryptionType = encryptionType;
+            Id = id;
             Identity = identity;
             Location = location;
             Name = name;

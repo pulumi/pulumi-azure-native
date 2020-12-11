@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Relay.V20160701
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The number of listeners for this HybridConnection. min : 1 and max:25 supported
         /// </summary>
         public readonly int ListenerCount;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.Relay.V20160701
         private GetHybridConnectionResult(
             string createdAt,
 
+            string id,
+
             int listenerCount,
 
             string name,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNextGen.Relay.V20160701
             string? userMetadata)
         {
             CreatedAt = createdAt;
+            Id = id;
             ListenerCount = listenerCount;
             Name = name;
             RequiresClientAuthorization = requiresClientAuthorization;

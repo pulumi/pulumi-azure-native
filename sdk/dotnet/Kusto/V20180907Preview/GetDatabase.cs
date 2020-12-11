@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.Kusto.V20180907Preview
         /// </summary>
         public readonly int? HotCachePeriodInDays;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -88,6 +92,8 @@ namespace Pulumi.AzureNextGen.Kusto.V20180907Preview
 
             int? hotCachePeriodInDays,
 
+            string id,
+
             string location,
 
             string name,
@@ -104,6 +110,7 @@ namespace Pulumi.AzureNextGen.Kusto.V20180907Preview
         {
             Etag = etag;
             HotCachePeriodInDays = hotCachePeriodInDays;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

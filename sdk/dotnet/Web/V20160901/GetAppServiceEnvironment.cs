@@ -93,6 +93,10 @@ namespace Pulumi.AzureNextGen.Web.V20160901
         /// </summary>
         public readonly int? FrontEndScaleFactor;
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
         /// </summary>
         public readonly string? InternalLoadBalancingMode;
@@ -226,6 +230,8 @@ namespace Pulumi.AzureNextGen.Web.V20160901
 
             int? frontEndScaleFactor,
 
+            string id,
+
             string? internalLoadBalancingMode,
 
             int? ipsslAddressCount,
@@ -291,6 +297,7 @@ namespace Pulumi.AzureNextGen.Web.V20160901
             EnvironmentIsHealthy = environmentIsHealthy;
             EnvironmentStatus = environmentStatus;
             FrontEndScaleFactor = frontEndScaleFactor;
+            Id = id;
             InternalLoadBalancingMode = internalLoadBalancingMode;
             IpsslAddressCount = ipsslAddressCount;
             Kind = kind;

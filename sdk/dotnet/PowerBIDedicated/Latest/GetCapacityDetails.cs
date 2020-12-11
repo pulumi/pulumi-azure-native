@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.PowerBIDedicated.Latest
         /// </summary>
         public readonly Outputs.DedicatedCapacityAdministratorsResponse? Administration;
         /// <summary>
+        /// An identifier that represents the PowerBI Dedicated resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Location of the PowerBI Dedicated resource.
         /// </summary>
         public readonly string Location;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.PowerBIDedicated.Latest
         private GetCapacityDetailsResult(
             Outputs.DedicatedCapacityAdministratorsResponse? administration,
 
+            string id,
+
             string location,
 
             string name,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNextGen.PowerBIDedicated.Latest
             string type)
         {
             Administration = administration;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

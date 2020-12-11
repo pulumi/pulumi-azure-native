@@ -70,6 +70,10 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
         /// </summary>
         public readonly Outputs.HourDetailsResponse? HourlyRecurrence;
         /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string? Location;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
 
             Outputs.HourDetailsResponse? hourlyRecurrence,
 
+            string id,
+
             string? location,
 
             string name,
@@ -153,6 +159,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20160515
             CreatedDate = createdDate;
             DailyRecurrence = dailyRecurrence;
             HourlyRecurrence = hourlyRecurrence;
+            Id = id;
             Location = location;
             Name = name;
             NotificationSettings = notificationSettings;

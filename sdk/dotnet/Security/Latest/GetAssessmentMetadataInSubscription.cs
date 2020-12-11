@@ -47,6 +47,10 @@ namespace Pulumi.AzureNextGen.Security.Latest
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The implementation effort required to remediate this assessment
         /// </summary>
         public readonly string? ImplementationEffort;
@@ -94,6 +98,8 @@ namespace Pulumi.AzureNextGen.Security.Latest
 
             string displayName,
 
+            string id,
+
             string? implementationEffort,
 
             string name,
@@ -118,6 +124,7 @@ namespace Pulumi.AzureNextGen.Security.Latest
             Category = category;
             Description = description;
             DisplayName = displayName;
+            Id = id;
             ImplementationEffort = implementationEffort;
             Name = name;
             PartnerData = partnerData;

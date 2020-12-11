@@ -72,6 +72,10 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Whether or not the custom images underlying offer/plan has been enabled for programmatic deployment
         /// </summary>
         public readonly bool? IsPlanAuthorized;
@@ -128,6 +132,8 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
 
             string? description,
 
+            string id,
+
             bool? isPlanAuthorized,
 
             string? location,
@@ -155,6 +161,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20180915
             CustomImagePlan = customImagePlan;
             DataDiskStorageInfo = dataDiskStorageInfo;
             Description = description;
+            Id = id;
             IsPlanAuthorized = isPlanAuthorized;
             Location = location;
             ManagedImageId = managedImageId;

@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Peering.V20200101Preview
         /// </summary>
         public readonly string ErrorMessage;
         /// <summary>
+        /// The ID of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.Peering.V20200101Preview
         private GetRegisteredPrefixResult(
             string errorMessage,
 
+            string id,
+
             string name,
 
             string peeringServicePrefixKey,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNextGen.Peering.V20200101Preview
             string type)
         {
             ErrorMessage = errorMessage;
+            Id = id;
             Name = name;
             PeeringServicePrefixKey = peeringServicePrefixKey;
             Prefix = prefix;

@@ -70,6 +70,10 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
         /// </summary>
         public readonly Outputs.PipelineResponseFolder? Folder;
         /// <summary>
+        /// The resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The resource name.
         /// </summary>
         public readonly string Name;
@@ -104,6 +108,8 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
 
             Outputs.PipelineResponseFolder? folder,
 
+            string id,
+
             string name,
 
             ImmutableDictionary<string, Outputs.ParameterSpecificationResponse>? parameters,
@@ -120,6 +126,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
             Description = description;
             Etag = etag;
             Folder = folder;
+            Id = id;
             Name = name;
             Parameters = parameters;
             RunDimensions = runDimensions;

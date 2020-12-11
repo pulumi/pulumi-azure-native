@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Compute.V20190701
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceReadOnlyResponse> Hosts;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.Compute.V20190701
         private GetDedicatedHostGroupResult(
             ImmutableArray<Outputs.SubResourceReadOnlyResponse> hosts,
 
+            string id,
+
             string location,
 
             string name,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.Compute.V20190701
             ImmutableArray<string> zones)
         {
             Hosts = hosts;
+            Id = id;
             Location = location;
             Name = name;
             PlatformFaultDomainCount = platformFaultDomainCount;

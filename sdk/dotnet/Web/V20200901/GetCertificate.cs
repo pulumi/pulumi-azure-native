@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.Web.V20200901
         /// </summary>
         public readonly Outputs.HostingEnvironmentProfileResponse HostingEnvironmentProfile;
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Certificate issue Date.
         /// </summary>
         public readonly string IssueDate;
@@ -158,6 +162,8 @@ namespace Pulumi.AzureNextGen.Web.V20200901
 
             Outputs.HostingEnvironmentProfileResponse hostingEnvironmentProfile,
 
+            string id,
+
             string issueDate,
 
             string issuer,
@@ -204,6 +210,7 @@ namespace Pulumi.AzureNextGen.Web.V20200901
             FriendlyName = friendlyName;
             HostNames = hostNames;
             HostingEnvironmentProfile = hostingEnvironmentProfile;
+            Id = id;
             IssueDate = issueDate;
             Issuer = issuer;
             KeyVaultId = keyVaultId;

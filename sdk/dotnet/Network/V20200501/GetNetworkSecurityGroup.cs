@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Network.V20200501
         /// </summary>
         public readonly ImmutableArray<Outputs.FlowLogResponse> FlowLogs;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -102,6 +106,8 @@ namespace Pulumi.AzureNextGen.Network.V20200501
 
             ImmutableArray<Outputs.FlowLogResponse> flowLogs,
 
+            string? id,
+
             string? location,
 
             string name,
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNextGen.Network.V20200501
             DefaultSecurityRules = defaultSecurityRules;
             Etag = etag;
             FlowLogs = flowLogs;
+            Id = id;
             Location = location;
             Name = name;
             NetworkInterfaces = networkInterfaces;

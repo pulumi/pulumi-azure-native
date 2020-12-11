@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
     public sealed class GetBackupScheduleGroupResult
     {
         /// <summary>
+        /// The identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name.
         /// </summary>
         public readonly string Name;
@@ -66,12 +70,15 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
 
         [OutputConstructor]
         private GetBackupScheduleGroupResult(
+            string id,
+
             string name,
 
             Outputs.TimeResponse startTime,
 
             string type)
         {
+            Id = id;
             Name = name;
             StartTime = startTime;
             Type = type;

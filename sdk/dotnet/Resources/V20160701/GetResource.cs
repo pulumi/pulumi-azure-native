@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Resources.V20160701
     public sealed class GetResourceResult
     {
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.Resources.V20160701
 
         [OutputConstructor]
         private GetResourceResult(
+            string id,
+
             Outputs.IdentityResponse? identity,
 
             string? kind,
@@ -120,6 +126,7 @@ namespace Pulumi.AzureNextGen.Resources.V20160701
 
             string type)
         {
+            Id = id;
             Identity = identity;
             Kind = kind;
             Location = location;

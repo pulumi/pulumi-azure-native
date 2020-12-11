@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
     public sealed class GetIntegrationAccountAssemblyResult
     {
         /// <summary>
+        /// The resource id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string? Location;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
 
         [OutputConstructor]
         private GetIntegrationAccountAssemblyResult(
+            string id,
+
             string? location,
 
             string name,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

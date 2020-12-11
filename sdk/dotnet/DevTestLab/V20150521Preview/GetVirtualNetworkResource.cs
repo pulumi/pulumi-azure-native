@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// </summary>
         public readonly string? ExternalProviderResourceId;
         /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string? Location;
@@ -90,6 +94,8 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
 
             string? externalProviderResourceId,
 
+            string? id,
+
             string? location,
 
             string? name,
@@ -105,6 +111,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
             AllowedSubnets = allowedSubnets;
             Description = description;
             ExternalProviderResourceId = externalProviderResourceId;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

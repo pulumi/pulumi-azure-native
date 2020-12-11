@@ -34,6 +34,10 @@ namespace Pulumi.AzureNextGen.Subscription.V20191001Preview
     public sealed class GetSubscriptionAliasResult
     {
         /// <summary>
+        /// Fully qualified ID for the alias resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Alias ID.
         /// </summary>
         public readonly string Name;
@@ -48,12 +52,15 @@ namespace Pulumi.AzureNextGen.Subscription.V20191001Preview
 
         [OutputConstructor]
         private GetSubscriptionAliasResult(
+            string id,
+
             string name,
 
             Outputs.PutAliasResponsePropertiesResponse properties,
 
             string type)
         {
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

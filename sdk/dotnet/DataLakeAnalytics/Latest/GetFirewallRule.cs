@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
         /// </summary>
         public readonly string EndIpAddress;
         /// <summary>
+        /// The resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The resource name.
         /// </summary>
         public readonly string Name;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
         private GetFirewallRuleResult(
             string endIpAddress,
 
+            string id,
+
             string name,
 
             string startIpAddress,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNextGen.DataLakeAnalytics.Latest
             string type)
         {
             EndIpAddress = endIpAddress;
+            Id = id;
             Name = name;
             StartIpAddress = startIpAddress;
             Type = type;

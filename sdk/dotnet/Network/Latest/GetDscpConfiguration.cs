@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             string etag,
 
+            string? id,
+
             string? location,
 
             ImmutableArray<int> markings,
@@ -136,6 +142,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
             DestinationIpRanges = destinationIpRanges;
             DestinationPortRanges = destinationPortRanges;
             Etag = etag;
+            Id = id;
             Location = location;
             Markings = markings;
             Name = name;

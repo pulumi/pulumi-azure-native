@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Web.Latest
         /// </summary>
         public readonly string? Hostname;
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
@@ -105,6 +109,8 @@ namespace Pulumi.AzureNextGen.Web.Latest
         private GetWebAppHybridConnectionResult(
             string? hostname,
 
+            string id,
+
             string? kind,
 
             string name,
@@ -128,6 +134,7 @@ namespace Pulumi.AzureNextGen.Web.Latest
             string type)
         {
             Hostname = hostname;
+            Id = id;
             Kind = kind;
             Name = name;
             Port = port;

@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Configuration for public connectivity for this network.
         /// </summary>
         public readonly Outputs.IngressConfigResponse? IngressConfig;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview
 
             string? description,
 
+            string id,
+
             Outputs.IngressConfigResponse? ingressConfig,
 
             string location,
@@ -92,6 +98,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180701Preview
         {
             AddressPrefix = addressPrefix;
             Description = description;
+            Id = id;
             IngressConfig = ingressConfig;
             Location = location;
             Name = name;

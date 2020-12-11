@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// </summary>
         public readonly Outputs.EncryptionPropertyResponse? Encryption;
         /// <summary>
+        /// The resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the container registry.
         /// </summary>
         public readonly Outputs.IdentityPropertiesResponse? Identity;
@@ -140,6 +144,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
 
             Outputs.EncryptionPropertyResponse? encryption,
 
+            string id,
+
             Outputs.IdentityPropertiesResponse? identity,
 
             string location,
@@ -179,6 +185,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
             DataEndpointEnabled = dataEndpointEnabled;
             DataEndpointHostNames = dataEndpointHostNames;
             Encryption = encryption;
+            Id = id;
             Identity = identity;
             Location = location;
             LoginServer = loginServer;

@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Compute.V20180401
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> AvailabilitySets;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.Compute.V20180401
         private GetProximityPlacementGroupResult(
             ImmutableArray<Outputs.SubResourceResponse> availabilitySets,
 
+            string id,
+
             string location,
 
             string name,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180401
             ImmutableArray<Outputs.SubResourceResponse> virtualMachines)
         {
             AvailabilitySets = availabilitySets;
+            Id = id;
             Location = location;
             Name = name;
             ProximityPlacementGroupType = proximityPlacementGroupType;

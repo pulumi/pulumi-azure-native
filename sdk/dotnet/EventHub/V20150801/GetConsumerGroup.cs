@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.EventHub.V20150801
         /// </summary>
         public readonly string EventHubPath;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string? Location;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.EventHub.V20150801
 
             string eventHubPath,
 
+            string id,
+
             string? location,
 
             string name,
@@ -98,6 +104,7 @@ namespace Pulumi.AzureNextGen.EventHub.V20150801
         {
             CreatedAt = createdAt;
             EventHubPath = eventHubPath;
+            Id = id;
             Location = location;
             Name = name;
             Type = type;

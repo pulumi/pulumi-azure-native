@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20151106
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// The unique resource identifier of the database account.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the resource group to which the resource belongs.
         /// </summary>
         public readonly string? Location;
@@ -88,6 +92,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20151106
 
             string? etag,
 
+            string id,
+
             string? location,
 
             string name,
@@ -104,6 +110,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20151106
         {
             Colls = colls;
             Etag = etag;
+            Id = id;
             Location = location;
             Name = name;
             Rid = rid;

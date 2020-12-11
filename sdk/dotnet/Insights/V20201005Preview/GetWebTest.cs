@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.Insights.V20201005Preview
         /// </summary>
         public readonly int? Frequency;
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// When set, validation will ignore the status code.
         /// </summary>
         public readonly bool? IgnoreHttpsStatusCode;
@@ -142,6 +146,8 @@ namespace Pulumi.AzureNextGen.Insights.V20201005Preview
 
             int? frequency,
 
+            string id,
+
             bool? ignoreHttpsStatusCode,
 
             string? kind,
@@ -180,6 +186,7 @@ namespace Pulumi.AzureNextGen.Insights.V20201005Preview
             Enabled = enabled;
             ExpectedHttpStatusCode = expectedHttpStatusCode;
             Frequency = frequency;
+            Id = id;
             IgnoreHttpsStatusCode = ignoreHttpsStatusCode;
             Kind = kind;
             Location = location;

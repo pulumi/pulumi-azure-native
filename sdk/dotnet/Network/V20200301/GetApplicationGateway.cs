@@ -96,6 +96,10 @@ namespace Pulumi.AzureNextGen.Network.V20200301
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationGatewayHttpListenerResponse> HttpListeners;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The identity of the application gateway, if configured.
         /// </summary>
         public readonly Outputs.ManagedServiceIdentityResponse? Identity;
@@ -202,6 +206,8 @@ namespace Pulumi.AzureNextGen.Network.V20200301
 
             ImmutableArray<Outputs.ApplicationGatewayHttpListenerResponse> httpListeners,
 
+            string? id,
+
             Outputs.ManagedServiceIdentityResponse? identity,
 
             string? location,
@@ -254,6 +260,7 @@ namespace Pulumi.AzureNextGen.Network.V20200301
             FrontendPorts = frontendPorts;
             GatewayIPConfigurations = gatewayIPConfigurations;
             HttpListeners = httpListeners;
+            Id = id;
             Identity = identity;
             Location = location;
             Name = name;

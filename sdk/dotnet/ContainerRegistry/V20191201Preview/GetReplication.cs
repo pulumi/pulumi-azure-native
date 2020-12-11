@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
     public sealed class GetReplicationResult
     {
         /// <summary>
+        /// The resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
         public readonly string Location;
@@ -80,6 +84,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
 
         [OutputConstructor]
         private GetReplicationResult(
+            string id,
+
             string location,
 
             string name,
@@ -96,6 +102,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20191201Preview
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

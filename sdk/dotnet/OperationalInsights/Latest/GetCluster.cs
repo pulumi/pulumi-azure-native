@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         /// </summary>
         public readonly string CreatedDate;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
@@ -116,6 +120,8 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
 
             string createdDate,
 
+            string id,
+
             Outputs.IdentityResponse? identity,
 
             bool? isAvailabilityZonesEnabled,
@@ -143,6 +149,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
             CapacityReservationProperties = capacityReservationProperties;
             ClusterId = clusterId;
             CreatedDate = createdDate;
+            Id = id;
             Identity = identity;
             IsAvailabilityZonesEnabled = isAvailabilityZonesEnabled;
             IsDoubleEncryptionEnabled = isDoubleEncryptionEnabled;

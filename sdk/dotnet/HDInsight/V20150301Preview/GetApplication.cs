@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.HDInsight.V20150301Preview
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Fully qualified resource Id for the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -70,6 +74,8 @@ namespace Pulumi.AzureNextGen.HDInsight.V20150301Preview
         private GetApplicationResult(
             string? etag,
 
+            string id,
+
             string name,
 
             Outputs.ApplicationPropertiesResponse properties,
@@ -79,6 +85,7 @@ namespace Pulumi.AzureNextGen.HDInsight.V20150301Preview
             string type)
         {
             Etag = etag;
+            Id = id;
             Name = name;
             Properties = properties;
             Tags = tags;

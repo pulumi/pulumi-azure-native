@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301
         /// </summary>
         public readonly ImmutableArray<Outputs.GroupContractResponse> Groups;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Collection of user identities.
         /// </summary>
         public readonly ImmutableArray<Outputs.UserIdentityContractResponse> Identities;
@@ -94,6 +98,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301
 
             ImmutableArray<Outputs.GroupContractResponse> groups,
 
+            string id,
+
             ImmutableArray<Outputs.UserIdentityContractResponse> identities,
 
             string? lastName,
@@ -111,6 +117,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301
             Email = email;
             FirstName = firstName;
             Groups = groups;
+            Id = id;
             Identities = identities;
             LastName = lastName;
             Name = name;

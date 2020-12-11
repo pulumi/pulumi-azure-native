@@ -84,6 +84,10 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// </summary>
         public readonly string? FirstActivityTimeUtc;
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// A sequential number
         /// </summary>
         public readonly int IncidentNumber;
@@ -150,6 +154,8 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
 
             string? firstActivityTimeUtc,
 
+            string id,
+
             int incidentNumber,
 
             string incidentUrl,
@@ -182,6 +188,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
             Description = description;
             Etag = etag;
             FirstActivityTimeUtc = firstActivityTimeUtc;
+            Id = id;
             IncidentNumber = incidentNumber;
             IncidentUrl = incidentUrl;
             Labels = labels;

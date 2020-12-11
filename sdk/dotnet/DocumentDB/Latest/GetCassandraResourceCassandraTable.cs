@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
     public sealed class GetCassandraResourceCassandraTableResult
     {
         /// <summary>
+        /// The unique resource identifier of the ARM resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the resource group to which the resource belongs.
         /// </summary>
         public readonly string? Location;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
 
         [OutputConstructor]
         private GetCassandraResourceCassandraTableResult(
+            string id,
+
             string? location,
 
             string name,
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Options = options;

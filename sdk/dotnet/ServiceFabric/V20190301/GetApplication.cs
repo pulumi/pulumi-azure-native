@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20190301
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Azure resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// It will be deprecated in New API, resource location depends on the parent resource.
         /// </summary>
         public readonly string? Location;
@@ -106,6 +110,8 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20190301
         private GetApplicationResult(
             string etag,
 
+            string id,
+
             string? location,
 
             int? maximumNodes,
@@ -133,6 +139,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20190301
             Outputs.ApplicationUpgradePolicyResponse? upgradePolicy)
         {
             Etag = etag;
+            Id = id;
             Location = location;
             MaximumNodes = maximumNodes;
             Metrics = metrics;

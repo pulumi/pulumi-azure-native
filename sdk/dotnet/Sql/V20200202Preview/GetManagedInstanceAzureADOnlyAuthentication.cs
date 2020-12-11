@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// </summary>
         public readonly bool AzureADOnlyAuthentication;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -62,11 +66,14 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         private GetManagedInstanceAzureADOnlyAuthenticationResult(
             bool azureADOnlyAuthentication,
 
+            string id,
+
             string name,
 
             string type)
         {
             AzureADOnlyAuthentication = azureADOnlyAuthentication;
+            Id = id;
             Name = name;
             Type = type;
         }

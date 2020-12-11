@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20170701Preview
         /// </summary>
         public readonly ImmutableDictionary<string, string> DefaultParameterList;
         /// <summary>
+        /// Azure resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Azure resource location.
         /// </summary>
         public readonly string? Location;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20170701Preview
 
             ImmutableDictionary<string, string> defaultParameterList,
 
+            string id,
+
             string? location,
 
             string name,
@@ -92,6 +98,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20170701Preview
         {
             AppPackageUrl = appPackageUrl;
             DefaultParameterList = defaultParameterList;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

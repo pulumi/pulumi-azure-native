@@ -76,6 +76,10 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20160319
         /// </summary>
         public readonly ImmutableArray<Outputs.FailoverPolicyResponse> FailoverPolicies;
         /// <summary>
+        /// The unique resource identifier of the database account.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Cosmos DB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
         /// </summary>
         public readonly string? IpRangeFilter;
@@ -140,6 +144,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20160319
 
             ImmutableArray<Outputs.FailoverPolicyResponse> failoverPolicies,
 
+            string id,
+
             string? ipRangeFilter,
 
             bool? isVirtualNetworkFilterEnabled,
@@ -171,6 +177,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20160319
             EnableCassandraConnector = enableCassandraConnector;
             EnableMultipleWriteLocations = enableMultipleWriteLocations;
             FailoverPolicies = failoverPolicies;
+            Id = id;
             IpRangeFilter = ipRangeFilter;
             IsVirtualNetworkFilterEnabled = isVirtualNetworkFilterEnabled;
             Kind = kind;

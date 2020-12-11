@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Network.V20180301Preview
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.Network.V20180301Preview
         private GetZoneResult(
             string? etag,
 
+            string id,
+
             string location,
 
             int maxNumberOfRecordSets,
@@ -115,6 +121,7 @@ namespace Pulumi.AzureNextGen.Network.V20180301Preview
             string? zoneType)
         {
             Etag = etag;
+            Id = id;
             Location = location;
             MaxNumberOfRecordSets = maxNumberOfRecordSets;
             MaxNumberOfRecordsPerRecordSet = maxNumberOfRecordsPerRecordSet;

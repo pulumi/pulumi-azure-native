@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
         /// </summary>
         public readonly string FailoverPolicy;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Location of the server that contains this disaster recovery configuration.
         /// </summary>
         public readonly string Location;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
 
             string failoverPolicy,
 
+            string id,
+
             string location,
 
             string logicalServerName,
@@ -110,6 +116,7 @@ namespace Pulumi.AzureNextGen.Sql.V20140401
         {
             AutoFailover = autoFailover;
             FailoverPolicy = failoverPolicy;
+            Id = id;
             Location = location;
             LogicalServerName = logicalServerName;
             Name = name;

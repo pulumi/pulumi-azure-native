@@ -34,6 +34,10 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
     public sealed class GetManagementLockAtSubscriptionLevelResult
     {
         /// <summary>
+        /// The resource ID of the lock.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
         /// </summary>
         public readonly string Level;
@@ -56,6 +60,8 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
 
         [OutputConstructor]
         private GetManagementLockAtSubscriptionLevelResult(
+            string id,
+
             string level,
 
             string name,
@@ -66,6 +72,7 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
 
             string type)
         {
+            Id = id;
             Level = level;
             Name = name;
             Notes = notes;

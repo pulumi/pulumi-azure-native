@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
         /// </summary>
         public readonly Outputs.PropertiesResponseEncryption? Encryption;
         /// <summary>
+        /// ARM resource id of the EnterprisePolicy.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the EnterprisePolicy.
         /// </summary>
         public readonly Outputs.EnterprisePolicyIdentityResponse? Identity;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
         private GetEnterprisePolicyResult(
             Outputs.PropertiesResponseEncryption? encryption,
 
+            string id,
+
             Outputs.EnterprisePolicyIdentityResponse? identity,
 
             string location,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNextGen.PowerPlatform.V20201030Preview
             string type)
         {
             Encryption = encryption;
+            Id = id;
             Identity = identity;
             Location = location;
             Lockbox = lockbox;

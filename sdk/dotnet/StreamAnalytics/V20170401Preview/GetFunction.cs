@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
     public sealed class GetFunctionResult
     {
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string? Name;
@@ -60,12 +64,15 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20170401Preview
 
         [OutputConstructor]
         private GetFunctionResult(
+            string id,
+
             string? name,
 
             Union<Outputs.AggregateFunctionPropertiesResponse, Outputs.ScalarFunctionPropertiesResponse> properties,
 
             string type)
         {
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

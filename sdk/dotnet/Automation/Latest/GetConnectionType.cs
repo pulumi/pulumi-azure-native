@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Automation.Latest
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.FieldDefinitionResponse> FieldDefinitions;
         /// <summary>
+        /// Gets the id of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Gets or sets a Boolean value to indicate if the connection type is global.
         /// </summary>
         public readonly bool? IsGlobal;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNextGen.Automation.Latest
 
             ImmutableDictionary<string, Outputs.FieldDefinitionResponse> fieldDefinitions,
 
+            string id,
+
             bool? isGlobal,
 
             string? lastModifiedTime,
@@ -93,6 +99,7 @@ namespace Pulumi.AzureNextGen.Automation.Latest
             CreationTime = creationTime;
             Description = description;
             FieldDefinitions = fieldDefinitions;
+            Id = id;
             IsGlobal = isGlobal;
             LastModifiedTime = lastModifiedTime;
             Name = name;

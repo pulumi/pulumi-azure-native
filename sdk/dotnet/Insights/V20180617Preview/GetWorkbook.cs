@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.Insights.V20180617Preview
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The kind of workbook. Choices are user and shared.
         /// </summary>
         public readonly string? Kind;
@@ -94,6 +98,8 @@ namespace Pulumi.AzureNextGen.Insights.V20180617Preview
 
             string displayName,
 
+            string id,
+
             string? kind,
 
             string location,
@@ -116,6 +122,7 @@ namespace Pulumi.AzureNextGen.Insights.V20180617Preview
         {
             Category = category;
             DisplayName = displayName;
+            Id = id;
             Kind = kind;
             Location = location;
             Name = name;

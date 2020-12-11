@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Devices.V20200710Preview
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// The resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The managed identities for the IotHub.
         /// </summary>
         public readonly Outputs.ArmIdentityResponse? Identity;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.Devices.V20200710Preview
         private GetIotHubResourceResult(
             string? etag,
 
+            string id,
+
             Outputs.ArmIdentityResponse? identity,
 
             string location,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNextGen.Devices.V20200710Preview
             string type)
         {
             Etag = etag;
+            Id = id;
             Identity = identity;
             Location = location;
             Name = name;

@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
         /// </summary>
         public readonly string? HttpCorrelationProtocol;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource Id of a target logger.
         /// </summary>
         public readonly string LoggerId;
@@ -98,6 +102,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
 
             string? httpCorrelationProtocol,
 
+            string id,
+
             string loggerId,
 
             string name,
@@ -113,6 +119,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20190101
             EnableHttpCorrelationHeaders = enableHttpCorrelationHeaders;
             Frontend = frontend;
             HttpCorrelationProtocol = httpCorrelationProtocol;
+            Id = id;
             LoggerId = loggerId;
             Name = name;
             Sampling = sampling;

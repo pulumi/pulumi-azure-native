@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.KeyVault.V20200401Preview
     public sealed class GetManagedHsmResult
     {
         /// <summary>
+        /// The Azure Resource Manager resource ID for the managed HSM Pool.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The supported Azure location where the managed HSM Pool should be created.
         /// </summary>
         public readonly string? Location;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.KeyVault.V20200401Preview
 
         [OutputConstructor]
         private GetManagedHsmResult(
+            string id,
+
             string? location,
 
             string name,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.KeyVault.V20200401Preview
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

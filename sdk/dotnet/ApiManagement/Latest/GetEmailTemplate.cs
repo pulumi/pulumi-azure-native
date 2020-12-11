@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Whether the template is the default template provided by Api Management or has been edited.
         /// </summary>
         public readonly bool IsDefault;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
 
             string? description,
 
+            string id,
+
             bool isDefault,
 
             string name,
@@ -98,6 +104,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         {
             Body = body;
             Description = description;
+            Id = id;
             IsDefault = isDefault;
             Name = name;
             Parameters = parameters;

@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest
     public sealed class GetPrivateEndpointConnectionResult
     {
         /// <summary>
+        /// Fully qualified identifier of the key vault resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Azure location of the key vault resource.
         /// </summary>
         public readonly string Location;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest
 
         [OutputConstructor]
         private GetPrivateEndpointConnectionResult(
+            string id,
+
             string location,
 
             string name,
@@ -90,6 +96,7 @@ namespace Pulumi.AzureNextGen.KeyVault.Latest
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             PrivateEndpoint = privateEndpoint;

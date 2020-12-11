@@ -90,6 +90,10 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         /// </summary>
         public readonly string HostName;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The exact time the streaming endpoint was last modified.
         /// </summary>
         public readonly string LastModified;
@@ -150,6 +154,8 @@ namespace Pulumi.AzureNextGen.Media.V20200501
 
             string hostName,
 
+            string id,
+
             string lastModified,
 
             string location,
@@ -179,6 +185,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501
             Description = description;
             FreeTrialEndTime = freeTrialEndTime;
             HostName = hostName;
+            Id = id;
             LastModified = lastModified;
             Location = location;
             MaxCacheAge = maxCacheAge;

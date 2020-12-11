@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
         /// </summary>
         public readonly string Endpoint;
         /// <summary>
+        /// Fully qualified identifier of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Identity information for the resource.
         /// </summary>
         public readonly Outputs.IdentityInfoResponse? Identity;
@@ -98,6 +102,8 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
         private GetTopicResult(
             string endpoint,
 
+            string id,
+
             Outputs.IdentityInfoResponse? identity,
 
             ImmutableArray<Outputs.InboundIpRuleResponse> inboundIpRules,
@@ -125,6 +131,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20200401Preview
             string type)
         {
             Endpoint = endpoint;
+            Id = id;
             Identity = identity;
             InboundIpRules = inboundIpRules;
             InputSchema = inputSchema;

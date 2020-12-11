@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string? Name;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
 
             string etag,
 
+            string id,
+
             string? name,
 
             Union<Outputs.AvroSerializationResponse, Union<Outputs.CsvSerializationResponse, Outputs.JsonSerializationResponse>>? serialization,
@@ -87,6 +93,7 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
             Datasource = datasource;
             Diagnostics = diagnostics;
             Etag = etag;
+            Id = id;
             Name = name;
             Serialization = serialization;
             Type = type;

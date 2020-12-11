@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.DevSpaces.V20190401
         /// </summary>
         public readonly string HostSuffix;
         /// <summary>
+        /// Fully qualified resource Id for the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Region where the Azure resource is located.
         /// </summary>
         public readonly string Location;
@@ -90,6 +94,8 @@ namespace Pulumi.AzureNextGen.DevSpaces.V20190401
 
             string hostSuffix,
 
+            string id,
+
             string location,
 
             string name,
@@ -110,6 +116,7 @@ namespace Pulumi.AzureNextGen.DevSpaces.V20190401
         {
             DataPlaneFqdn = dataPlaneFqdn;
             HostSuffix = hostSuffix;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

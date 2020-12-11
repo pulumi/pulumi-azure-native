@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.Peering.V20201001
         /// </summary>
         public readonly Outputs.PeeringPropertiesExchangeResponse? Exchange;
         /// <summary>
+        /// The ID of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The kind of the peering.
         /// </summary>
         public readonly string Kind;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.Peering.V20201001
 
             Outputs.PeeringPropertiesExchangeResponse? exchange,
 
+            string id,
+
             string kind,
 
             string location,
@@ -104,6 +110,7 @@ namespace Pulumi.AzureNextGen.Peering.V20201001
         {
             Direct = direct;
             Exchange = exchange;
+            Id = id;
             Kind = kind;
             Location = location;
             Name = name;

@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// The resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The resource name.
         /// </summary>
         public readonly string Name;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
         private GetLinkedServiceResult(
             string etag,
 
+            string id,
+
             string name,
 
             Union<Outputs.AmazonMWSLinkedServiceResponse, Union<Outputs.AmazonRedshiftLinkedServiceResponse, Union<Outputs.AmazonS3LinkedServiceResponse, Union<Outputs.AzureBatchLinkedServiceResponse, Union<Outputs.AzureBlobFSLinkedServiceResponse, Union<Outputs.AzureBlobStorageLinkedServiceResponse, Union<Outputs.AzureDataExplorerLinkedServiceResponse, Union<Outputs.AzureDataLakeAnalyticsLinkedServiceResponse, Union<Outputs.AzureDataLakeStoreLinkedServiceResponse, Union<Outputs.AzureDatabricksDeltaLakeLinkedServiceResponse, Union<Outputs.AzureDatabricksLinkedServiceResponse, Union<Outputs.AzureFileStorageLinkedServiceResponse, Union<Outputs.AzureFunctionLinkedServiceResponse, Union<Outputs.AzureKeyVaultLinkedServiceResponse, Union<Outputs.AzureMLLinkedServiceResponse, Union<Outputs.AzureMLServiceLinkedServiceResponse, Union<Outputs.AzureMariaDBLinkedServiceResponse, Union<Outputs.AzureMySqlLinkedServiceResponse, Union<Outputs.AzurePostgreSqlLinkedServiceResponse, Union<Outputs.AzureSearchLinkedServiceResponse, Union<Outputs.AzureSqlDWLinkedServiceResponse, Union<Outputs.AzureSqlDatabaseLinkedServiceResponse, Union<Outputs.AzureSqlMILinkedServiceResponse, Union<Outputs.AzureStorageLinkedServiceResponse, Union<Outputs.AzureTableStorageLinkedServiceResponse, Union<Outputs.CassandraLinkedServiceResponse, Union<Outputs.CommonDataServiceForAppsLinkedServiceResponse, Union<Outputs.ConcurLinkedServiceResponse, Union<Outputs.CosmosDbLinkedServiceResponse, Union<Outputs.CosmosDbMongoDbApiLinkedServiceResponse, Union<Outputs.CouchbaseLinkedServiceResponse, Union<Outputs.CustomDataSourceLinkedServiceResponse, Union<Outputs.Db2LinkedServiceResponse, Union<Outputs.DrillLinkedServiceResponse, Union<Outputs.DynamicsAXLinkedServiceResponse, Union<Outputs.DynamicsCrmLinkedServiceResponse, Union<Outputs.DynamicsLinkedServiceResponse, Union<Outputs.EloquaLinkedServiceResponse, Union<Outputs.FileServerLinkedServiceResponse, Union<Outputs.FtpServerLinkedServiceResponse, Union<Outputs.GoogleAdWordsLinkedServiceResponse, Union<Outputs.GoogleBigQueryLinkedServiceResponse, Union<Outputs.GoogleCloudStorageLinkedServiceResponse, Union<Outputs.GreenplumLinkedServiceResponse, Union<Outputs.HBaseLinkedServiceResponse, Union<Outputs.HDInsightLinkedServiceResponse, Union<Outputs.HDInsightOnDemandLinkedServiceResponse, Union<Outputs.HdfsLinkedServiceResponse, Union<Outputs.HiveLinkedServiceResponse, Union<Outputs.HttpLinkedServiceResponse, Union<Outputs.HubspotLinkedServiceResponse, Union<Outputs.ImpalaLinkedServiceResponse, Union<Outputs.InformixLinkedServiceResponse, Union<Outputs.JiraLinkedServiceResponse, Union<Outputs.MagentoLinkedServiceResponse, Union<Outputs.MariaDBLinkedServiceResponse, Union<Outputs.MarketoLinkedServiceResponse, Union<Outputs.MicrosoftAccessLinkedServiceResponse, Union<Outputs.MongoDbAtlasLinkedServiceResponse, Union<Outputs.MongoDbLinkedServiceResponse, Union<Outputs.MongoDbV2LinkedServiceResponse, Union<Outputs.MySqlLinkedServiceResponse, Union<Outputs.NetezzaLinkedServiceResponse, Union<Outputs.ODataLinkedServiceResponse, Union<Outputs.OdbcLinkedServiceResponse, Union<Outputs.Office365LinkedServiceResponse, Union<Outputs.OracleLinkedServiceResponse, Union<Outputs.OracleServiceCloudLinkedServiceResponse, Union<Outputs.PaypalLinkedServiceResponse, Union<Outputs.PhoenixLinkedServiceResponse, Union<Outputs.PostgreSqlLinkedServiceResponse, Union<Outputs.PrestoLinkedServiceResponse, Union<Outputs.QuickBooksLinkedServiceResponse, Union<Outputs.ResponsysLinkedServiceResponse, Union<Outputs.RestServiceLinkedServiceResponse, Union<Outputs.SalesforceLinkedServiceResponse, Union<Outputs.SalesforceMarketingCloudLinkedServiceResponse, Union<Outputs.SalesforceServiceCloudLinkedServiceResponse, Union<Outputs.SapBWLinkedServiceResponse, Union<Outputs.SapCloudForCustomerLinkedServiceResponse, Union<Outputs.SapEccLinkedServiceResponse, Union<Outputs.SapHanaLinkedServiceResponse, Union<Outputs.SapOpenHubLinkedServiceResponse, Union<Outputs.SapTableLinkedServiceResponse, Union<Outputs.ServiceNowLinkedServiceResponse, Union<Outputs.SftpServerLinkedServiceResponse, Union<Outputs.SharePointOnlineListLinkedServiceResponse, Union<Outputs.ShopifyLinkedServiceResponse, Union<Outputs.SnowflakeLinkedServiceResponse, Union<Outputs.SparkLinkedServiceResponse, Union<Outputs.SqlServerLinkedServiceResponse, Union<Outputs.SquareLinkedServiceResponse, Union<Outputs.SybaseLinkedServiceResponse, Union<Outputs.TeradataLinkedServiceResponse, Union<Outputs.VerticaLinkedServiceResponse, Union<Outputs.WebLinkedServiceResponse, Union<Outputs.XeroLinkedServiceResponse, Outputs.ZohoLinkedServiceResponse>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> properties,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNextGen.DataFactory.V20180601
             string type)
         {
             Etag = etag;
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

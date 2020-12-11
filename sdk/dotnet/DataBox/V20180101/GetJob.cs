@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.DataBox.V20180101
         /// </summary>
         public readonly Outputs.ErrorResponse Error;
         /// <summary>
+        /// Id of the object.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Describes whether the job is cancellable or not.
         /// </summary>
         public readonly bool IsCancellable;
@@ -106,6 +110,8 @@ namespace Pulumi.AzureNextGen.DataBox.V20180101
 
             Outputs.ErrorResponse error,
 
+            string id,
+
             bool isCancellable,
 
             bool isDeletable,
@@ -129,6 +135,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20180101
             CancellationReason = cancellationReason;
             Details = details;
             Error = error;
+            Id = id;
             IsCancellable = isCancellable;
             IsDeletable = isDeletable;
             IsShippingAddressEditable = isShippingAddressEditable;

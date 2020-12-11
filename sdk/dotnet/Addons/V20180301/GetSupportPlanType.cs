@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Addons.V20180301
     public sealed class GetSupportPlanTypeResult
     {
         /// <summary>
+        /// The id of the ARM resource, e.g. "/subscriptions/{id}/providers/Microsoft.Addons/supportProvider/{supportProviderName}/supportPlanTypes/{planTypeName}".
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the Canonical support plan, i.e. "essential", "standard" or "advanced".
         /// </summary>
         public readonly string Name;
@@ -54,12 +58,15 @@ namespace Pulumi.AzureNextGen.Addons.V20180301
 
         [OutputConstructor]
         private GetSupportPlanTypeResult(
+            string id,
+
             string name,
 
             string? provisioningState,
 
             string type)
         {
+            Id = id;
             Name = name;
             ProvisioningState = provisioningState;
             Type = type;

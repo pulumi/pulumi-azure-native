@@ -82,6 +82,10 @@ namespace Pulumi.AzureNextGen.Web.V20200901
         /// </summary>
         public readonly string? IconUrl;
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Installed timestamp.
         /// </summary>
         public readonly string? InstalledDateTime;
@@ -159,6 +163,8 @@ namespace Pulumi.AzureNextGen.Web.V20200901
 
             string? iconUrl,
 
+            string id,
+
             string? installedDateTime,
 
             string? installerCommandLineParams,
@@ -198,6 +204,7 @@ namespace Pulumi.AzureNextGen.Web.V20200901
             ExtensionUrl = extensionUrl;
             FeedUrl = feedUrl;
             IconUrl = iconUrl;
+            Id = id;
             InstalledDateTime = installedDateTime;
             InstallerCommandLineParams = installerCommandLineParams;
             Kind = kind;

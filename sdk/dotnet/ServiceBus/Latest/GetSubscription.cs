@@ -96,6 +96,10 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
         /// </summary>
         public readonly string? ForwardTo;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
         /// </summary>
         public readonly string? LockDuration;
@@ -152,6 +156,8 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
 
             string? forwardTo,
 
+            string id,
+
             string? lockDuration,
 
             int? maxDeliveryCount,
@@ -179,6 +185,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
             EnableBatchedOperations = enableBatchedOperations;
             ForwardDeadLetteredMessagesTo = forwardDeadLetteredMessagesTo;
             ForwardTo = forwardTo;
+            Id = id;
             LockDuration = lockDuration;
             MaxDeliveryCount = maxDeliveryCount;
             MessageCount = messageCount;

@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         /// </summary>
         public readonly bool? DeploymentRollbackEnabled;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Whether to manual or continuous integration
         /// </summary>
         public readonly bool? IsManualIntegration;
@@ -92,6 +96,8 @@ namespace Pulumi.AzureNextGen.Web.V20150801
 
             bool? deploymentRollbackEnabled,
 
+            string? id,
+
             bool? isManualIntegration,
 
             bool? isMercurial,
@@ -110,6 +116,7 @@ namespace Pulumi.AzureNextGen.Web.V20150801
         {
             Branch = branch;
             DeploymentRollbackEnabled = deploymentRollbackEnabled;
+            Id = id;
             IsManualIntegration = isManualIntegration;
             IsMercurial = isMercurial;
             Kind = kind;

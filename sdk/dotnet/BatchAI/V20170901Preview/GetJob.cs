@@ -91,6 +91,10 @@ namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview
         /// Describe the experiment information of the job
         /// </summary>
         public readonly string? ExperimentName;
+        /// <summary>
+        /// The ID of the resource
+        /// </summary>
+        public readonly string Id;
         public readonly ImmutableArray<Outputs.InputDirectoryResponse> InputDirectories;
         /// <summary>
         /// The specified actions will run on all the nodes that are part of the job
@@ -170,6 +174,8 @@ namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview
 
             string? experimentName,
 
+            string id,
+
             ImmutableArray<Outputs.InputDirectoryResponse> inputDirectories,
 
             Outputs.JobPreparationResponse? jobPreparation,
@@ -211,6 +217,7 @@ namespace Pulumi.AzureNextGen.BatchAI.V20170901Preview
             ExecutionState = executionState;
             ExecutionStateTransitionTime = executionStateTransitionTime;
             ExperimentName = experimentName;
+            Id = id;
             InputDirectories = inputDirectories;
             JobPreparation = jobPreparation;
             Location = location;

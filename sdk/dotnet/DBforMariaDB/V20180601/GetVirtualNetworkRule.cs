@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601
     public sealed class GetVirtualNetworkRuleResult
     {
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Create firewall rule before the virtual network has vnet service endpoint enabled.
         /// </summary>
         public readonly bool? IgnoreMissingVnetServiceEndpoint;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601
 
         [OutputConstructor]
         private GetVirtualNetworkRuleResult(
+            string id,
+
             bool? ignoreMissingVnetServiceEndpoint,
 
             string name,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.DBforMariaDB.V20180601
 
             string virtualNetworkSubnetId)
         {
+            Id = id;
             IgnoreMissingVnetServiceEndpoint = ignoreMissingVnetServiceEndpoint;
             Name = name;
             State = state;

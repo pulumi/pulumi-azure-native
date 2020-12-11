@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// The unique resource identifier of the database account.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the resource group to which the resource belongs.
         /// </summary>
         public readonly string? Location;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
         private GetDatabaseAccountGremlinDatabaseResult(
             string? etag,
 
+            string id,
+
             string? location,
 
             string name,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.Latest
             string type)
         {
             Etag = etag;
+            Id = id;
             Location = location;
             Name = name;
             Rid = rid;

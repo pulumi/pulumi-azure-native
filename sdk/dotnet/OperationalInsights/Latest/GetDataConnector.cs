@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The data connector kind
         /// </summary>
         public readonly string Kind;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
         private GetDataConnectorResult(
             string? etag,
 
+            string id,
+
             string kind,
 
             string name,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.Latest
             string type)
         {
             Etag = etag;
+            Id = id;
             Kind = kind;
             Name = name;
             Type = type;

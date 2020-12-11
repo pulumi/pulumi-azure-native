@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
     public sealed class GetInputResult
     {
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string? Name;
@@ -60,12 +64,15 @@ namespace Pulumi.AzureNextGen.StreamAnalytics.V20160301
 
         [OutputConstructor]
         private GetInputResult(
+            string id,
+
             string? name,
 
             Union<Outputs.ReferenceInputPropertiesResponse, Outputs.StreamInputPropertiesResponse> properties,
 
             string type)
         {
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

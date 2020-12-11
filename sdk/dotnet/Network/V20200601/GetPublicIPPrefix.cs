@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The allocated Prefix.
         /// </summary>
         public readonly string IpPrefix;
@@ -116,6 +120,8 @@ namespace Pulumi.AzureNextGen.Network.V20200601
 
             string etag,
 
+            string? id,
+
             string ipPrefix,
 
             ImmutableArray<Outputs.IpTagResponse> ipTags,
@@ -146,6 +152,7 @@ namespace Pulumi.AzureNextGen.Network.V20200601
         {
             CustomIPPrefix = customIPPrefix;
             Etag = etag;
+            Id = id;
             IpPrefix = ipPrefix;
             IpTags = ipTags;
             LoadBalancerFrontendIpConfiguration = loadBalancerFrontendIpConfiguration;

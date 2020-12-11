@@ -43,6 +43,10 @@ namespace Pulumi.AzureNextGen.Web.V20200901
     public sealed class GetWebAppPrivateEndpointConnectionResult
     {
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
@@ -70,6 +74,8 @@ namespace Pulumi.AzureNextGen.Web.V20200901
 
         [OutputConstructor]
         private GetWebAppPrivateEndpointConnectionResult(
+            string id,
+
             string? kind,
 
             string name,
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNextGen.Web.V20200901
 
             string type)
         {
+            Id = id;
             Kind = kind;
             Name = name;
             PrivateEndpoint = privateEndpoint;

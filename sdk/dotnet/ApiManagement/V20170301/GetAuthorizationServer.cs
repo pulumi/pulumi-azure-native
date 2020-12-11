@@ -90,6 +90,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301
         /// </summary>
         public readonly ImmutableArray<string> GrantTypes;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -142,6 +146,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301
 
             ImmutableArray<string> grantTypes,
 
+            string id,
+
             string name,
 
             string? resourceOwnerPassword,
@@ -167,6 +173,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20170301
             Description = description;
             DisplayName = displayName;
             GrantTypes = grantTypes;
+            Id = id;
             Name = name;
             ResourceOwnerPassword = resourceOwnerPassword;
             ResourceOwnerUsername = resourceOwnerUsername;

@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Insights.V20191017Preview
     public sealed class GetPrivateLinkScopeResult
     {
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.Insights.V20191017Preview
 
         [OutputConstructor]
         private GetPrivateLinkScopeResult(
+            string id,
+
             string location,
 
             string name,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.Insights.V20191017Preview
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             PrivateEndpointConnections = privateEndpointConnections;

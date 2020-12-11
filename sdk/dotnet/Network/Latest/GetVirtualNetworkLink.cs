@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Fully qualified resource Id for the resource. Example - '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateDnsZoneName}'.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The Azure Region where the resource lives
         /// </summary>
         public readonly string? Location;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
         private GetVirtualNetworkLinkResult(
             string? etag,
 
+            string id,
+
             string? location,
 
             string name,
@@ -103,6 +109,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
             string virtualNetworkLinkState)
         {
             Etag = etag;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.IoTSpaces.V20171001Preview
     public sealed class GetIoTSpaceResult
     {
         /// <summary>
+        /// The resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string Location;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.IoTSpaces.V20171001Preview
 
         [OutputConstructor]
         private GetIoTSpaceResult(
+            string id,
+
             string location,
 
             string name,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.IoTSpaces.V20171001Preview
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

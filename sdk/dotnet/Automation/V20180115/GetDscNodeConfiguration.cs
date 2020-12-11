@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.Automation.V20180115
         /// </summary>
         public readonly string? CreationTime;
         /// <summary>
+        /// Fully qualified resource Id for the resource
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// If a new build version of NodeConfiguration is required.
         /// </summary>
         public readonly bool? IncrementNodeConfigurationBuild;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNextGen.Automation.V20180115
 
             string? creationTime,
 
+            string id,
+
             bool? incrementNodeConfigurationBuild,
 
             string? lastModifiedTime,
@@ -98,6 +104,7 @@ namespace Pulumi.AzureNextGen.Automation.V20180115
         {
             Configuration = configuration;
             CreationTime = creationTime;
+            Id = id;
             IncrementNodeConfigurationBuild = incrementNodeConfigurationBuild;
             LastModifiedTime = lastModifiedTime;
             Name = name;

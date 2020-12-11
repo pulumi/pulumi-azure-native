@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
+        /// String Id used to locate any resource on Azure.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Name of this resource.
         /// </summary>
         public readonly string Name;
@@ -96,6 +100,8 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
 
             string? displayName,
 
+            string id,
+
             string name,
 
             ImmutableDictionary<string, Outputs.ParameterDefinitionResponse>? parameters,
@@ -112,6 +118,7 @@ namespace Pulumi.AzureNextGen.Blueprint.V20181101Preview
             ChangeNotes = changeNotes;
             Description = description;
             DisplayName = displayName;
+            Id = id;
             Name = name;
             Parameters = parameters;
             ResourceGroups = resourceGroups;

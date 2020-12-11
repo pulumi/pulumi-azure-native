@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
         /// </summary>
         public readonly string? ClientSecret;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
 
             string? clientSecret,
 
+            string id,
+
             string name,
 
             string? passwordResetPolicyName,
@@ -118,6 +124,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20191201Preview
             Authority = authority;
             ClientId = clientId;
             ClientSecret = clientSecret;
+            Id = id;
             Name = name;
             PasswordResetPolicyName = passwordResetPolicyName;
             ProfileEditingPolicyName = profileEditingPolicyName;

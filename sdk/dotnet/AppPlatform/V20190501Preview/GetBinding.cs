@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20190501Preview
     public sealed class GetBindingResult
     {
         /// <summary>
+        /// Fully qualified resource Id for the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
@@ -66,12 +70,15 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20190501Preview
 
         [OutputConstructor]
         private GetBindingResult(
+            string id,
+
             string name,
 
             Outputs.BindingResourcePropertiesResponse properties,
 
             string type)
         {
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

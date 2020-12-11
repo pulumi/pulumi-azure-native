@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190301
     public sealed class GetRoleResult
     {
         /// <summary>
+        /// The path ID that uniquely identifies the object.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Role type.
         /// </summary>
         public readonly string Kind;
@@ -60,12 +64,15 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190301
 
         [OutputConstructor]
         private GetRoleResult(
+            string id,
+
             string kind,
 
             string name,
 
             string type)
         {
+            Id = id;
             Kind = kind;
             Name = name;
             Type = type;

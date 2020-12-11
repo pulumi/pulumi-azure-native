@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.Network.V20180201
         /// </summary>
         public readonly ImmutableArray<Outputs.EndpointResponse> Endpoints;
         /// <summary>
+        /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The Azure Region where the resource lives
         /// </summary>
         public readonly string? Location;
@@ -86,6 +90,8 @@ namespace Pulumi.AzureNextGen.Network.V20180201
 
             ImmutableArray<Outputs.EndpointResponse> endpoints,
 
+            string id,
+
             string? location,
 
             Outputs.MonitorConfigResponse? monitorConfig,
@@ -104,6 +110,7 @@ namespace Pulumi.AzureNextGen.Network.V20180201
         {
             DnsConfig = dnsConfig;
             Endpoints = endpoints;
+            Id = id;
             Location = location;
             MonitorConfig = monitorConfig;
             Name = name;

@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.Network.V20180801
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// An array of references to interface endpoints 
         /// </summary>
         public readonly ImmutableArray<Outputs.InterfaceEndpointResponse> InterfaceEndpoints;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNextGen.Network.V20180801
 
             string? etag,
 
+            string? id,
+
             ImmutableArray<Outputs.InterfaceEndpointResponse> interfaceEndpoints,
 
             ImmutableArray<Outputs.IPConfigurationProfileResponse> ipConfigurationProfiles,
@@ -154,6 +160,7 @@ namespace Pulumi.AzureNextGen.Network.V20180801
             AddressPrefixes = addressPrefixes;
             Delegations = delegations;
             Etag = etag;
+            Id = id;
             InterfaceEndpoints = interfaceEndpoints;
             IpConfigurationProfiles = ipConfigurationProfiles;
             IpConfigurations = ipConfigurations;

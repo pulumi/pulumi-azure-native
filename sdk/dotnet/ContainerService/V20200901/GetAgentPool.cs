@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.ContainerService.V20200901
         /// </summary>
         public readonly bool? EnableNodePublicIP;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Maximum number of nodes for auto-scaling
         /// </summary>
         public readonly int? MaxCount;
@@ -164,6 +168,8 @@ namespace Pulumi.AzureNextGen.ContainerService.V20200901
 
             bool? enableNodePublicIP,
 
+            string id,
+
             int? maxCount,
 
             int? maxPods,
@@ -214,6 +220,7 @@ namespace Pulumi.AzureNextGen.ContainerService.V20200901
             Count = count;
             EnableAutoScaling = enableAutoScaling;
             EnableNodePublicIP = enableNodePublicIP;
+            Id = id;
             MaxCount = maxCount;
             MaxPods = maxPods;
             MinCount = minCount;

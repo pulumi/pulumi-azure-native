@@ -74,6 +74,10 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// </summary>
         public readonly string ColumnName;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The information type.
         /// </summary>
         public readonly string? InformationType;
@@ -119,6 +123,8 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         private GetManagedDatabaseSensitivityLabelResult(
             string columnName,
 
+            string id,
+
             string? informationType,
 
             string? informationTypeId,
@@ -142,6 +148,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
             string type)
         {
             ColumnName = columnName;
+            Id = id;
             InformationType = informationType;
             InformationTypeId = informationTypeId;
             IsDisabled = isDisabled;

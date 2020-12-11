@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180419
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180419
         private GetTaskResult(
             string? etag,
 
+            string id,
+
             string name,
 
             Union<Outputs.ConnectToSourcePostgreSqlSyncTaskPropertiesResponse, Union<Outputs.ConnectToSourceSqlServerSyncTaskPropertiesResponse, Union<Outputs.ConnectToSourceSqlServerTaskPropertiesResponse, Union<Outputs.ConnectToTargetAzureDbForMySqlTaskPropertiesResponse, Union<Outputs.ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponse, Union<Outputs.ConnectToTargetSqlDbTaskPropertiesResponse, Union<Outputs.ConnectToTargetSqlMISyncTaskPropertiesResponse, Union<Outputs.ConnectToTargetSqlMITaskPropertiesResponse, Union<Outputs.ConnectToTargetSqlSqlDbSyncTaskPropertiesResponse, Union<Outputs.GetTdeCertificatesSqlTaskPropertiesResponse, Union<Outputs.GetUserTablesSqlSyncTaskPropertiesResponse, Union<Outputs.GetUserTablesSqlTaskPropertiesResponse, Union<Outputs.MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponse, Union<Outputs.MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse, Union<Outputs.MigrateSqlServerSqlDbSyncTaskPropertiesResponse, Union<Outputs.MigrateSqlServerSqlDbTaskPropertiesResponse, Union<Outputs.MigrateSqlServerSqlMISyncTaskPropertiesResponse, Union<Outputs.MigrateSqlServerSqlMITaskPropertiesResponse, Union<Outputs.ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponse, Union<Outputs.ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponse, Outputs.ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse>>>>>>>>>>>>>>>>>>>> properties,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.DataMigration.V20180419
             string type)
         {
             Etag = etag;
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

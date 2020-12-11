@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.GlobalParameterSpecificationResponse>? GlobalParameters;
         /// <summary>
+        /// The resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Managed service identity of the factory.
         /// </summary>
         public readonly Outputs.FactoryIdentityResponse? Identity;
@@ -102,6 +106,8 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
 
             ImmutableDictionary<string, Outputs.GlobalParameterSpecificationResponse>? globalParameters,
 
+            string id,
+
             Outputs.FactoryIdentityResponse? identity,
 
             string? location,
@@ -124,6 +130,7 @@ namespace Pulumi.AzureNextGen.DataFactory.Latest
             ETag = eTag;
             Encryption = encryption;
             GlobalParameters = globalParameters;
+            Id = id;
             Identity = identity;
             Location = location;
             Name = name;

@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Network.V20150615
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Resource Identifier.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -94,6 +98,8 @@ namespace Pulumi.AzureNextGen.Network.V20150615
 
             string? etag,
 
+            string? id,
+
             string? location,
 
             string name,
@@ -111,6 +117,7 @@ namespace Pulumi.AzureNextGen.Network.V20150615
             AddressSpace = addressSpace;
             DhcpOptions = dhcpOptions;
             Etag = etag;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

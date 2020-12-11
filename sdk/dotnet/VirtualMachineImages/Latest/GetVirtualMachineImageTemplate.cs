@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.Latest
         /// </summary>
         public readonly ImmutableArray<Union<Outputs.ImageTemplateManagedImageDistributorResponse, Union<Outputs.ImageTemplateSharedImageDistributorResponse, Outputs.ImageTemplateVhdDistributorResponse>>> Distribute;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the image template, if configured.
         /// </summary>
         public readonly Outputs.ImageTemplateIdentityResponse Identity;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.Latest
 
             ImmutableArray<Union<Outputs.ImageTemplateManagedImageDistributorResponse, Union<Outputs.ImageTemplateSharedImageDistributorResponse, Outputs.ImageTemplateVhdDistributorResponse>>> distribute,
 
+            string id,
+
             Outputs.ImageTemplateIdentityResponse identity,
 
             Outputs.ImageTemplateLastRunStatusResponse lastRunStatus,
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNextGen.VirtualMachineImages.Latest
             BuildTimeoutInMinutes = buildTimeoutInMinutes;
             Customize = customize;
             Distribute = distribute;
+            Id = id;
             Identity = identity;
             LastRunStatus = lastRunStatus;
             Location = location;

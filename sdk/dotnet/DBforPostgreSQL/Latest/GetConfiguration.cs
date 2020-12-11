@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest
         /// </summary>
         public readonly string Description;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -88,6 +92,8 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest
 
             string description,
 
+            string id,
+
             string name,
 
             string? source,
@@ -100,6 +106,7 @@ namespace Pulumi.AzureNextGen.DBforPostgreSQL.Latest
             DataType = dataType;
             DefaultValue = defaultValue;
             Description = description;
+            Id = id;
             Name = name;
             Source = source;
             Type = type;

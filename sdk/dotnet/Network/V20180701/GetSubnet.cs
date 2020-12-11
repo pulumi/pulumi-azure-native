@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.Network.V20180701
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Gets an array of references to the network interface IP configurations using subnet.
         /// </summary>
         public readonly ImmutableArray<Outputs.IPConfigurationResponse> IpConfigurations;
@@ -98,6 +102,8 @@ namespace Pulumi.AzureNextGen.Network.V20180701
 
             string? etag,
 
+            string? id,
+
             ImmutableArray<Outputs.IPConfigurationResponse> ipConfigurations,
 
             string? name,
@@ -116,6 +122,7 @@ namespace Pulumi.AzureNextGen.Network.V20180701
         {
             AddressPrefix = addressPrefix;
             Etag = etag;
+            Id = id;
             IpConfigurations = ipConfigurations;
             Name = name;
             NetworkSecurityGroup = networkSecurityGroup;

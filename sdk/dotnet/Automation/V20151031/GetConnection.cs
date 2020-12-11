@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
         /// </summary>
         public readonly ImmutableDictionary<string, string> FieldDefinitionValues;
         /// <summary>
+        /// Fully qualified resource Id for the resource
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Gets the last modified time.
         /// </summary>
         public readonly string LastModifiedTime;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
 
             ImmutableDictionary<string, string> fieldDefinitionValues,
 
+            string id,
+
             string lastModifiedTime,
 
             string name,
@@ -94,6 +100,7 @@ namespace Pulumi.AzureNextGen.Automation.V20151031
             CreationTime = creationTime;
             Description = description;
             FieldDefinitionValues = fieldDefinitionValues;
+            Id = id;
             LastModifiedTime = lastModifiedTime;
             Name = name;
             Type = type;

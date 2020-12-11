@@ -116,6 +116,10 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
         /// </summary>
         public readonly Outputs.GalleryImageReferenceResponse? GalleryImageReference;
         /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Indicates whether this virtual machine uses an SSH key for authentication.
         /// </summary>
         public readonly bool? IsAuthenticationWithSshKey;
@@ -242,6 +246,8 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
 
             Outputs.GalleryImageReferenceResponse? galleryImageReference,
 
+            string id,
+
             bool? isAuthenticationWithSshKey,
 
             string? labSubnetName,
@@ -304,6 +310,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.Latest
             ExpirationDate = expirationDate;
             Fqdn = fqdn;
             GalleryImageReference = galleryImageReference;
+            Id = id;
             IsAuthenticationWithSshKey = isAuthenticationWithSshKey;
             LabSubnetName = labSubnetName;
             LabVirtualNetworkId = labVirtualNetworkId;

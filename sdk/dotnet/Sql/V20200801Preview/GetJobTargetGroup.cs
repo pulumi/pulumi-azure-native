@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
     public sealed class GetJobTargetGroupResult
     {
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Members of the target group.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobTargetResponse> Members;
@@ -66,12 +70,15 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
 
         [OutputConstructor]
         private GetJobTargetGroupResult(
+            string id,
+
             ImmutableArray<Outputs.JobTargetResponse> members,
 
             string name,
 
             string type)
         {
+            Id = id;
             Members = members;
             Name = name;
             Type = type;

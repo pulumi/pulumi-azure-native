@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Gets name of the peering unique to VirtualRouter. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
@@ -74,6 +78,8 @@ namespace Pulumi.AzureNextGen.Network.V20190801
         private GetVirtualRouterPeeringResult(
             string etag,
 
+            string? id,
+
             string? name,
 
             int? peerAsn,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.Network.V20190801
             string type)
         {
             Etag = etag;
+            Id = id;
             Name = name;
             PeerAsn = peerAsn;
             PeerIp = peerIp;

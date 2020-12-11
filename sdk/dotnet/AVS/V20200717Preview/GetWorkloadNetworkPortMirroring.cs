@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -90,6 +94,8 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
 
             string? displayName,
 
+            string id,
+
             string name,
 
             string provisioningState,
@@ -105,6 +111,7 @@ namespace Pulumi.AzureNextGen.AVS.V20200717Preview
             Destination = destination;
             Direction = direction;
             DisplayName = displayName;
+            Id = id;
             Name = name;
             ProvisioningState = provisioningState;
             Revision = revision;

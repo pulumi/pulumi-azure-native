@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801
         /// </summary>
         public readonly string DataFormat;
         /// <summary>
+        /// The path ID that uniquely identifies the object.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The object name.
         /// </summary>
         public readonly string Name;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801
 
             string dataFormat,
 
+            string id,
+
             string name,
 
             Outputs.RefreshDetailsResponse refreshDetails,
@@ -93,6 +99,7 @@ namespace Pulumi.AzureNextGen.DataBoxEdge.V20190801
             ContainerStatus = containerStatus;
             CreatedDateTime = createdDateTime;
             DataFormat = dataFormat;
+            Id = id;
             Name = name;
             RefreshDetails = refreshDetails;
             Type = type;

@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.HybridData.V20190601
         /// </summary>
         public readonly object? ExtendedProperties;
         /// <summary>
+        /// Id of the object.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Name of the object.
         /// </summary>
         public readonly string Name;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNextGen.HybridData.V20190601
 
             object? extendedProperties,
 
+            string id,
+
             string name,
 
             string? repositoryId,
@@ -93,6 +99,7 @@ namespace Pulumi.AzureNextGen.HybridData.V20190601
             CustomerSecrets = customerSecrets;
             DataStoreTypeId = dataStoreTypeId;
             ExtendedProperties = extendedProperties;
+            Id = id;
             Name = name;
             RepositoryId = repositoryId;
             State = state;

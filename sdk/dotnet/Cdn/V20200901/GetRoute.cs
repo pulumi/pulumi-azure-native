@@ -73,6 +73,10 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// </summary>
         public readonly string? HttpsRedirect;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// whether this route will be linked to the default endpoint domain.
         /// </summary>
         public readonly string? LinkToDefaultDomain;
@@ -135,6 +139,8 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
 
             string? httpsRedirect,
 
+            string id,
+
             string? linkToDefaultDomain,
 
             string name,
@@ -165,6 +171,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
             EnabledState = enabledState;
             ForwardingProtocol = forwardingProtocol;
             HttpsRedirect = httpsRedirect;
+            Id = id;
             LinkToDefaultDomain = linkToDefaultDomain;
             Name = name;
             OptimizationType = optimizationType;

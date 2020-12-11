@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
     public sealed class GetSyncGroupResult
     {
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -64,6 +68,8 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
 
         [OutputConstructor]
         private GetSyncGroupResult(
+            string id,
+
             string name,
 
             string syncGroupStatus,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.StorageSync.Latest
 
             string uniqueId)
         {
+            Id = id;
             Name = name;
             SyncGroupStatus = syncGroupStatus;
             Type = type;

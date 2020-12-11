@@ -56,6 +56,10 @@ namespace Pulumi.AzureNextGen.Devices.V20191104
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// The Event Hub-compatible consumer group identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The Event Hub-compatible consumer group name.
         /// </summary>
         public readonly string Name;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.Devices.V20191104
         private GetIotHubResourceEventHubConsumerGroupResult(
             string etag,
 
+            string id,
+
             string name,
 
             ImmutableDictionary<string, string> properties,
@@ -79,6 +85,7 @@ namespace Pulumi.AzureNextGen.Devices.V20191104
             string type)
         {
             Etag = etag;
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

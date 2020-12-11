@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.EnterpriseKnowledgeGraph.V20181203
     public sealed class GetEnterpriseKnowledgeGraphResult
     {
         /// <summary>
+        /// Specifies the resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Specifies the location of the resource.
         /// </summary>
         public readonly string? Location;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.EnterpriseKnowledgeGraph.V20181203
 
         [OutputConstructor]
         private GetEnterpriseKnowledgeGraphResult(
+            string id,
+
             string? location,
 
             string name,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.EnterpriseKnowledgeGraph.V20181203
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

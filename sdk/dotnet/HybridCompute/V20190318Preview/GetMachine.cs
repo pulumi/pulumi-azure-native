@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20190318Preview
         /// </summary>
         public readonly ImmutableArray<Outputs.ErrorDetailResponse> ErrorDetails;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The time of the last status change.
         /// </summary>
         public readonly string LastStatusChange;
@@ -132,6 +136,8 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20190318Preview
 
             ImmutableArray<Outputs.ErrorDetailResponse> errorDetails,
 
+            string id,
+
             string lastStatusChange,
 
             string location,
@@ -166,6 +172,7 @@ namespace Pulumi.AzureNextGen.HybridCompute.V20190318Preview
             ClientPublicKey = clientPublicKey;
             DisplayName = displayName;
             ErrorDetails = errorDetails;
+            Id = id;
             LastStatusChange = lastStatusChange;
             Location = location;
             MachineFqdn = machineFqdn;

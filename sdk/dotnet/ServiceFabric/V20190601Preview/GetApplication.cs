@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20190601Preview
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// Azure resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Describes the managed identities for an Azure resource.
         /// </summary>
         public readonly Outputs.ManagedIdentityResponse? Identity;
@@ -114,6 +118,8 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20190601Preview
         private GetApplicationResult(
             string etag,
 
+            string id,
+
             Outputs.ManagedIdentityResponse? identity,
 
             string? location,
@@ -145,6 +151,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20190601Preview
             Outputs.ApplicationUpgradePolicyResponse? upgradePolicy)
         {
             Etag = etag;
+            Id = id;
             Identity = identity;
             Location = location;
             ManagedIdentities = managedIdentities;

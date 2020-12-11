@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// </summary>
         public readonly ImmutableArray<string> Databases;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string Location;
@@ -90,6 +94,8 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         private GetFailoverGroupResult(
             ImmutableArray<string> databases,
 
+            string id,
+
             string location,
 
             string name,
@@ -109,6 +115,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
             string type)
         {
             Databases = databases;
+            Id = id;
             Location = location;
             Name = name;
             PartnerServers = partnerServers;

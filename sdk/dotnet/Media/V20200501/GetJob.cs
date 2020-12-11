@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.Media.V20200501
         /// </summary>
         public readonly string EndTime;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The inputs for the Job.
         /// </summary>
         public readonly Union<Outputs.JobInputClipResponse, Outputs.JobInputsResponse> Input;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNextGen.Media.V20200501
 
             string endTime,
 
+            string id,
+
             Union<Outputs.JobInputClipResponse, Outputs.JobInputsResponse> input,
 
             string lastModified,
@@ -130,6 +136,7 @@ namespace Pulumi.AzureNextGen.Media.V20200501
             Created = created;
             Description = description;
             EndTime = endTime;
+            Id = id;
             Input = input;
             LastModified = lastModified;
             Name = name;

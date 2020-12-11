@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Compute.V20180601
     public sealed class GetVirtualMachineScaleSetResult
     {
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the virtual machine scale set, if configured.
         /// </summary>
         public readonly Outputs.VirtualMachineScaleSetIdentityResponse? Identity;
@@ -110,6 +114,8 @@ namespace Pulumi.AzureNextGen.Compute.V20180601
 
         [OutputConstructor]
         private GetVirtualMachineScaleSetResult(
+            string id,
+
             Outputs.VirtualMachineScaleSetIdentityResponse? identity,
 
             string location,
@@ -144,6 +150,7 @@ namespace Pulumi.AzureNextGen.Compute.V20180601
 
             ImmutableArray<string> zones)
         {
+            Id = id;
             Identity = identity;
             Location = location;
             Name = name;

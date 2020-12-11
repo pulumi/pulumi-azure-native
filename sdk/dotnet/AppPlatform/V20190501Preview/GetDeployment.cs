@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20190501Preview
     public sealed class GetDeploymentResult
     {
         /// <summary>
+        /// Fully qualified resource Id for the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
@@ -70,6 +74,8 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20190501Preview
 
         [OutputConstructor]
         private GetDeploymentResult(
+            string id,
+
             string name,
 
             Outputs.DeploymentResourcePropertiesResponse properties,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20190501Preview
 
             string type)
         {
+            Id = id;
             Name = name;
             Properties = properties;
             Sku = sku;

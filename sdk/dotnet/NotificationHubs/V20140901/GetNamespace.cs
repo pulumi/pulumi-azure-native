@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20140901
     public sealed class GetNamespaceResult
     {
         /// <summary>
+        /// Gets or sets the id of the created Namespace.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Gets or sets datacenter location of the Namespace.
         /// </summary>
         public readonly string? Location;
@@ -62,6 +66,8 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20140901
 
         [OutputConstructor]
         private GetNamespaceResult(
+            string? id,
+
             string? location,
 
             string? name,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.NotificationHubs.V20140901
 
             string? type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

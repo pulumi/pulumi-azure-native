@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Sql.V20171001Preview
         /// </summary>
         public readonly string CreationDate;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Kind of elastic pool. This is metadata used for the Azure portal experience.
         /// </summary>
         public readonly string Kind;
@@ -104,6 +108,8 @@ namespace Pulumi.AzureNextGen.Sql.V20171001Preview
         private GetElasticPoolResult(
             string creationDate,
 
+            string id,
+
             string kind,
 
             string? licenseType,
@@ -127,6 +133,7 @@ namespace Pulumi.AzureNextGen.Sql.V20171001Preview
             bool? zoneRedundant)
         {
             CreationDate = creationDate;
+            Id = id;
             Kind = kind;
             LicenseType = licenseType;
             Location = location;

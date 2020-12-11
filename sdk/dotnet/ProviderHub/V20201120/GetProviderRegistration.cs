@@ -34,6 +34,10 @@ namespace Pulumi.AzureNextGen.ProviderHub.V20201120
     public sealed class GetProviderRegistrationResult
     {
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -45,12 +49,15 @@ namespace Pulumi.AzureNextGen.ProviderHub.V20201120
 
         [OutputConstructor]
         private GetProviderRegistrationResult(
+            string id,
+
             string name,
 
             Outputs.ProviderRegistrationResponseProperties properties,
 
             string type)
         {
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

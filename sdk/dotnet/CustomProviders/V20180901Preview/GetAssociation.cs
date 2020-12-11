@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.CustomProviders.V20180901Preview
     public sealed class GetAssociationResult
     {
         /// <summary>
+        /// The association id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The association name.
         /// </summary>
         public readonly string Name;
@@ -58,6 +62,8 @@ namespace Pulumi.AzureNextGen.CustomProviders.V20180901Preview
 
         [OutputConstructor]
         private GetAssociationResult(
+            string id,
+
             string name,
 
             string provisioningState,
@@ -66,6 +72,7 @@ namespace Pulumi.AzureNextGen.CustomProviders.V20180901Preview
 
             string type)
         {
+            Id = id;
             Name = name;
             ProvisioningState = provisioningState;
             TargetResourceId = targetResourceId;

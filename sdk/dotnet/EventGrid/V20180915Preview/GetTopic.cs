@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.EventGrid.V20180915Preview
         /// </summary>
         public readonly string Endpoint;
         /// <summary>
+        /// Fully qualified identifier of the resource
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// This determines the format that Event Grid should expect for incoming events published to the topic.
         /// </summary>
         public readonly string? InputSchema;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.EventGrid.V20180915Preview
         private GetTopicResult(
             string endpoint,
 
+            string id,
+
             string? inputSchema,
 
             Outputs.JsonInputSchemaMappingResponse? inputSchemaMapping,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNextGen.EventGrid.V20180915Preview
             string type)
         {
             Endpoint = endpoint;
+            Id = id;
             InputSchema = inputSchema;
             InputSchemaMapping = inputSchemaMapping;
             Location = location;

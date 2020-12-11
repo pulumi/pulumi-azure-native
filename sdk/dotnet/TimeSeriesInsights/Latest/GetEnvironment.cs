@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest
     public sealed class GetEnvironmentResult
     {
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The kind of the environment.
         /// </summary>
         public readonly string Kind;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest
 
         [OutputConstructor]
         private GetEnvironmentResult(
+            string id,
+
             string kind,
 
             string location,
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.Latest
 
             string type)
         {
+            Id = id;
             Kind = kind;
             Location = location;
             Name = name;

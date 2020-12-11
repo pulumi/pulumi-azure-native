@@ -70,6 +70,10 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The time the comment was updated
         /// </summary>
         public readonly string LastModifiedTimeUtc;
@@ -94,6 +98,8 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
 
             string? etag,
 
+            string id,
+
             string lastModifiedTimeUtc,
 
             string message,
@@ -105,6 +111,7 @@ namespace Pulumi.AzureNextGen.SecurityInsights.V20190101Preview
             Author = author;
             CreatedTimeUtc = createdTimeUtc;
             Etag = etag;
+            Id = id;
             LastModifiedTimeUtc = lastModifiedTimeUtc;
             Message = message;
             Name = name;

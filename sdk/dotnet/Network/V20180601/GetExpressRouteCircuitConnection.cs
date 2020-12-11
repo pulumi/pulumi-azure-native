@@ -72,6 +72,10 @@ namespace Pulumi.AzureNextGen.Network.V20180601
         /// </summary>
         public readonly Outputs.SubResourceResponse? ExpressRouteCircuitPeering;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
@@ -96,6 +100,8 @@ namespace Pulumi.AzureNextGen.Network.V20180601
 
             Outputs.SubResourceResponse? expressRouteCircuitPeering,
 
+            string? id,
+
             string? name,
 
             Outputs.SubResourceResponse? peerExpressRouteCircuitPeering,
@@ -107,6 +113,7 @@ namespace Pulumi.AzureNextGen.Network.V20180601
             CircuitConnectionStatus = circuitConnectionStatus;
             Etag = etag;
             ExpressRouteCircuitPeering = expressRouteCircuitPeering;
+            Id = id;
             Name = name;
             PeerExpressRouteCircuitPeering = peerExpressRouteCircuitPeering;
             ProvisioningState = provisioningState;

@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200801
         /// </summary>
         public readonly string DataSourceType;
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200801
         private GetLinkedStorageAccountResult(
             string dataSourceType,
 
+            string id,
+
             string name,
 
             ImmutableArray<string> storageAccountIds,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNextGen.OperationalInsights.V20200801
             string type)
         {
             DataSourceType = dataSourceType;
+            Id = id;
             Name = name;
             StorageAccountIds = storageAccountIds;
             Type = type;

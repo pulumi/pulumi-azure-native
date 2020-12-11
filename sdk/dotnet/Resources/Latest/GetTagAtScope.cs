@@ -34,6 +34,10 @@ namespace Pulumi.AzureNextGen.Resources.Latest
     public sealed class GetTagAtScopeResult
     {
         /// <summary>
+        /// The ID of the tags wrapper resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the tags wrapper resource.
         /// </summary>
         public readonly string Name;
@@ -48,12 +52,15 @@ namespace Pulumi.AzureNextGen.Resources.Latest
 
         [OutputConstructor]
         private GetTagAtScopeResult(
+            string id,
+
             string name,
 
             Outputs.TagsResponse properties,
 
             string type)
         {
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20151106
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// The unique resource identifier of the database account.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
         /// </summary>
         public readonly Outputs.IndexingPolicyResponse? IndexingPolicy;
@@ -108,6 +112,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20151106
 
             string? etag,
 
+            string id,
+
             Outputs.IndexingPolicyResponse? indexingPolicy,
 
             string? location,
@@ -129,6 +135,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20151106
             ConflictResolutionPolicy = conflictResolutionPolicy;
             DefaultTtl = defaultTtl;
             Etag = etag;
+            Id = id;
             IndexingPolicy = indexingPolicy;
             Location = location;
             Name = name;

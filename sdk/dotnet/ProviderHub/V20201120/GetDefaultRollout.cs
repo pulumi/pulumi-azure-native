@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.ProviderHub.V20201120
     public sealed class GetDefaultRolloutResult
     {
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -53,6 +57,8 @@ namespace Pulumi.AzureNextGen.ProviderHub.V20201120
 
         [OutputConstructor]
         private GetDefaultRolloutResult(
+            string id,
+
             string name,
 
             string? provisioningState,
@@ -63,6 +69,7 @@ namespace Pulumi.AzureNextGen.ProviderHub.V20201120
 
             string type)
         {
+            Id = id;
             Name = name;
             ProvisioningState = provisioningState;
             Specification = specification;

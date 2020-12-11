@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Solutions.V20160901Preview
         /// </summary>
         public readonly string? ApplianceDefinitionId;
         /// <summary>
+        /// Resource ID
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
@@ -104,6 +108,8 @@ namespace Pulumi.AzureNextGen.Solutions.V20160901Preview
         private GetApplianceResult(
             string? applianceDefinitionId,
 
+            string id,
+
             Outputs.IdentityResponse? identity,
 
             string? kind,
@@ -133,6 +139,7 @@ namespace Pulumi.AzureNextGen.Solutions.V20160901Preview
             string? uiDefinitionUri)
         {
             ApplianceDefinitionId = applianceDefinitionId;
+            Id = id;
             Identity = identity;
             Kind = kind;
             Location = location;

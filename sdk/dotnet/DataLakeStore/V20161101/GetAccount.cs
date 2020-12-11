@@ -84,6 +84,10 @@ namespace Pulumi.AzureNextGen.DataLakeStore.V20161101
         /// </summary>
         public readonly string FirewallState;
         /// <summary>
+        /// The resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The Key Vault encryption identity, if any.
         /// </summary>
         public readonly Outputs.EncryptionIdentityResponse Identity;
@@ -156,6 +160,8 @@ namespace Pulumi.AzureNextGen.DataLakeStore.V20161101
 
             string firewallState,
 
+            string id,
+
             Outputs.EncryptionIdentityResponse identity,
 
             string lastModifiedTime,
@@ -191,6 +197,7 @@ namespace Pulumi.AzureNextGen.DataLakeStore.V20161101
             FirewallAllowAzureIps = firewallAllowAzureIps;
             FirewallRules = firewallRules;
             FirewallState = firewallState;
+            Id = id;
             Identity = identity;
             LastModifiedTime = lastModifiedTime;
             Location = location;

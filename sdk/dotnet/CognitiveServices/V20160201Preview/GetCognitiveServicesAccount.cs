@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.CognitiveServices.V20160201Preview
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// The id of the created account
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Type of cognitive service account.
         /// </summary>
         public readonly string? Kind;
@@ -82,6 +86,8 @@ namespace Pulumi.AzureNextGen.CognitiveServices.V20160201Preview
 
             string? etag,
 
+            string? id,
+
             string? kind,
 
             string? location,
@@ -98,6 +104,7 @@ namespace Pulumi.AzureNextGen.CognitiveServices.V20160201Preview
         {
             Endpoint = endpoint;
             Etag = etag;
+            Id = id;
             Kind = kind;
             Location = location;
             Name = name;

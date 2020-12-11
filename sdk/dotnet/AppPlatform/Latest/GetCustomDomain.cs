@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.AppPlatform.Latest
     public sealed class GetCustomDomainResult
     {
         /// <summary>
+        /// Fully qualified resource Id for the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
@@ -66,12 +70,15 @@ namespace Pulumi.AzureNextGen.AppPlatform.Latest
 
         [OutputConstructor]
         private GetCustomDomainResult(
+            string id,
+
             string name,
 
             Outputs.CustomDomainPropertiesResponse properties,
 
             string type)
         {
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

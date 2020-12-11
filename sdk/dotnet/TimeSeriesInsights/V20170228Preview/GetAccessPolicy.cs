@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20170228Preview
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
@@ -70,6 +74,8 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20170228Preview
         private GetAccessPolicyResult(
             string? description,
 
+            string id,
+
             string name,
 
             string? principalObjectId,
@@ -79,6 +85,7 @@ namespace Pulumi.AzureNextGen.TimeSeriesInsights.V20170228Preview
             string type)
         {
             Description = description;
+            Id = id;
             Name = name;
             PrincipalObjectId = principalObjectId;
             Roles = roles;

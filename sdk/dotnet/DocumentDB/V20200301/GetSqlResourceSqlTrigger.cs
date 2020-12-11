@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200301
     public sealed class GetSqlResourceSqlTriggerResult
     {
         /// <summary>
+        /// The unique resource identifier of the ARM resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The location of the resource group to which the resource belongs.
         /// </summary>
         public readonly string? Location;
@@ -77,6 +81,8 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200301
 
         [OutputConstructor]
         private GetSqlResourceSqlTriggerResult(
+            string id,
+
             string? location,
 
             string name,
@@ -87,6 +93,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200301
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Resource = resource;

@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.NetApp.V20200501
         /// </summary>
         public readonly Outputs.HourlyScheduleResponse? HourlySchedule;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -94,6 +98,8 @@ namespace Pulumi.AzureNextGen.NetApp.V20200501
 
             Outputs.HourlyScheduleResponse? hourlySchedule,
 
+            string id,
+
             string location,
 
             Outputs.MonthlyScheduleResponse? monthlySchedule,
@@ -111,6 +117,7 @@ namespace Pulumi.AzureNextGen.NetApp.V20200501
             DailySchedule = dailySchedule;
             Enabled = enabled;
             HourlySchedule = hourlySchedule;
+            Id = id;
             Location = location;
             MonthlySchedule = monthlySchedule;
             Name = name;

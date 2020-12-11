@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview
         /// </summary>
         public readonly ImmutableArray<Outputs.HttpConfigResponse> Http;
         /// <summary>
+        /// Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// IP address of the gateway. This is populated in the response and is ignored for incoming requests.
         /// </summary>
         public readonly string IpAddress;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview
 
             ImmutableArray<Outputs.HttpConfigResponse> http,
 
+            string id,
+
             string ipAddress,
 
             string location,
@@ -123,6 +129,7 @@ namespace Pulumi.AzureNextGen.ServiceFabricMesh.V20180901Preview
             Description = description;
             DestinationNetwork = destinationNetwork;
             Http = http;
+            Id = id;
             IpAddress = ipAddress;
             Location = location;
             Name = name;

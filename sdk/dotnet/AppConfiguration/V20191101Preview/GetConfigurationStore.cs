@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20191101Preview
         /// </summary>
         public readonly string Endpoint;
         /// <summary>
+        /// The resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The managed identity information, if configured.
         /// </summary>
         public readonly Outputs.ResourceIdentityResponse? Identity;
@@ -96,6 +100,8 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20191101Preview
 
             string endpoint,
 
+            string id,
+
             Outputs.ResourceIdentityResponse? identity,
 
             string location,
@@ -117,6 +123,7 @@ namespace Pulumi.AzureNextGen.AppConfiguration.V20191101Preview
             CreationDate = creationDate;
             Encryption = encryption;
             Endpoint = endpoint;
+            Id = id;
             Identity = identity;
             Location = location;
             Name = name;

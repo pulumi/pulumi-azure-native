@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Web.V20181101
     public sealed class GetWebAppSwiftVirtualNetworkConnectionSlotResult
     {
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.Web.V20181101
 
         [OutputConstructor]
         private GetWebAppSwiftVirtualNetworkConnectionSlotResult(
+            string id,
+
             string? kind,
 
             string name,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.Web.V20181101
 
             string type)
         {
+            Id = id;
             Kind = kind;
             Name = name;
             SubnetResourceId = subnetResourceId;

@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
     public sealed class GetBlobInventoryPolicyResult
     {
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Returns the last modified date and time of the blob inventory policy.
         /// </summary>
         public readonly string LastModifiedTime;
@@ -68,6 +72,8 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
 
         [OutputConstructor]
         private GetBlobInventoryPolicyResult(
+            string id,
+
             string lastModifiedTime,
 
             string name,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.Storage.V20200801Preview
 
             string type)
         {
+            Id = id;
             LastModifiedTime = lastModifiedTime;
             Name = name;
             Policy = policy;

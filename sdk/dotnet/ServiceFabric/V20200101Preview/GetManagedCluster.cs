@@ -118,6 +118,10 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview
         /// </summary>
         public readonly int? HttpGatewayConnectionPort;
         /// <summary>
+        /// Azure resource identifier.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Describes load balancing rules.
         /// </summary>
         public readonly ImmutableArray<Outputs.LoadBalancingRuleResponse> LoadBalancingRules;
@@ -180,6 +184,8 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview
 
             int? httpGatewayConnectionPort,
 
+            string id,
+
             ImmutableArray<Outputs.LoadBalancingRuleResponse> loadBalancingRules,
 
             string location,
@@ -210,6 +216,7 @@ namespace Pulumi.AzureNextGen.ServiceFabric.V20200101Preview
             FabricSettings = fabricSettings;
             Fqdn = fqdn;
             HttpGatewayConnectionPort = httpGatewayConnectionPort;
+            Id = id;
             LoadBalancingRules = loadBalancingRules;
             Location = location;
             Name = name;

@@ -62,6 +62,10 @@ namespace Pulumi.AzureNextGen.Batch.V20200501
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// The ID of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
@@ -80,6 +84,8 @@ namespace Pulumi.AzureNextGen.Batch.V20200501
 
             string etag,
 
+            string id,
+
             string name,
 
             string type)
@@ -88,6 +94,7 @@ namespace Pulumi.AzureNextGen.Batch.V20200501
             DefaultVersion = defaultVersion;
             DisplayName = displayName;
             Etag = etag;
+            Id = id;
             Name = name;
             Type = type;
         }

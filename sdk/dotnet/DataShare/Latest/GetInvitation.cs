@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
     public sealed class GetInvitationResult
     {
         /// <summary>
+        /// The resource id of the azure resource
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// unique invitation id
         /// </summary>
         public readonly string InvitationId;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
 
         [OutputConstructor]
         private GetInvitationResult(
+            string id,
+
             string invitationId,
 
             string invitationStatus,
@@ -122,6 +128,7 @@ namespace Pulumi.AzureNextGen.DataShare.Latest
 
             string userName)
         {
+            Id = id;
             InvitationId = invitationId;
             InvitationStatus = invitationStatus;
             Name = name;

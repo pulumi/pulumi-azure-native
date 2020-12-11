@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         /// </summary>
         public readonly string DistributedAvailabilityGroupId;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -90,6 +94,8 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
         private GetHybridLinkResult(
             string distributedAvailabilityGroupId,
 
+            string id,
+
             string name,
 
             string? primaryAvailabilityGroupName,
@@ -109,6 +115,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
             string type)
         {
             DistributedAvailabilityGroupId = distributedAvailabilityGroupId;
+            Id = id;
             Name = name;
             PrimaryAvailabilityGroupName = primaryAvailabilityGroupName;
             ReplicationMode = replicationMode;

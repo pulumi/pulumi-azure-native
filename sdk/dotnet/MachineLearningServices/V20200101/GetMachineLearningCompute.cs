@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200101
     public sealed class GetMachineLearningComputeResult
     {
         /// <summary>
+        /// Specifies the resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         public readonly Outputs.IdentityResponse? Identity;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200101
 
         [OutputConstructor]
         private GetMachineLearningComputeResult(
+            string id,
+
             Outputs.IdentityResponse? identity,
 
             string? location,
@@ -90,6 +96,7 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.V20200101
 
             string type)
         {
+            Id = id;
             Identity = identity;
             Location = location;
             Name = name;

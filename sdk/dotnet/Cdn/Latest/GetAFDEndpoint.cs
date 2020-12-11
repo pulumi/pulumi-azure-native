@@ -55,6 +55,10 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         /// </summary>
         public readonly string HostName;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string Location;
@@ -91,6 +95,8 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
 
             string hostName,
 
+            string id,
+
             string location,
 
             string name,
@@ -108,6 +114,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
             DeploymentStatus = deploymentStatus;
             EnabledState = enabledState;
             HostName = hostName;
+            Id = id;
             Location = location;
             Name = name;
             OriginResponseTimeoutSeconds = originResponseTimeoutSeconds;

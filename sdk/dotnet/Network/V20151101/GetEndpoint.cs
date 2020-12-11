@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.Network.V20151101
         /// </summary>
         public readonly string? EndpointStatus;
         /// <summary>
+        /// Gets or sets the ID of the Traffic Manager endpoint.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// Gets or sets the minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         /// </summary>
         public readonly int? MinChildEndpoints;
@@ -100,6 +104,8 @@ namespace Pulumi.AzureNextGen.Network.V20151101
 
             string? endpointStatus,
 
+            string? id,
+
             int? minChildEndpoints,
 
             string? name,
@@ -117,6 +123,7 @@ namespace Pulumi.AzureNextGen.Network.V20151101
             EndpointLocation = endpointLocation;
             EndpointMonitorStatus = endpointMonitorStatus;
             EndpointStatus = endpointStatus;
+            Id = id;
             MinChildEndpoints = minChildEndpoints;
             Name = name;
             Priority = priority;

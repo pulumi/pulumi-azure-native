@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.EventHub.V20170401
     public sealed class GetEventHubAuthorizationRuleResult
     {
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -66,12 +70,15 @@ namespace Pulumi.AzureNextGen.EventHub.V20170401
 
         [OutputConstructor]
         private GetEventHubAuthorizationRuleResult(
+            string id,
+
             string name,
 
             ImmutableArray<string> rights,
 
             string type)
         {
+            Id = id;
             Name = name;
             Rights = rights;
             Type = type;

@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Gateway location.
         /// </summary>
         public readonly Outputs.ResourceLocationDataContractResponse? LocationData;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
         private GetGatewayResult(
             string? description,
 
+            string id,
+
             Outputs.ResourceLocationDataContractResponse? locationData,
 
             string name,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.Latest
             string type)
         {
             Description = description;
+            Id = id;
             LocationData = locationData;
             Name = name;
             Type = type;

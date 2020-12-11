@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.ImportExport.V20200801
     public sealed class GetJobResult
     {
         /// <summary>
+        /// Specifies the resource identifier of the job.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Specifies the job identity details
         /// </summary>
         public readonly Outputs.IdentityDetailsResponse? Identity;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.ImportExport.V20200801
 
         [OutputConstructor]
         private GetJobResult(
+            string id,
+
             Outputs.IdentityDetailsResponse? identity,
 
             string? location,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.ImportExport.V20200801
 
             string type)
         {
+            Id = id;
             Identity = identity;
             Location = location;
             Name = name;

@@ -82,6 +82,10 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// </summary>
         public readonly Outputs.GalleryImageReferenceResponse? GalleryImageReference;
         /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// A value indicating whether this virtual machine uses an SSH key for authentication.
         /// </summary>
         public readonly bool? IsAuthenticationWithSshKey;
@@ -162,6 +166,8 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
 
             Outputs.GalleryImageReferenceResponse? galleryImageReference,
 
+            string? id,
+
             bool? isAuthenticationWithSshKey,
 
             string? labSubnetName,
@@ -201,6 +207,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
             DisallowPublicIpAddress = disallowPublicIpAddress;
             Fqdn = fqdn;
             GalleryImageReference = galleryImageReference;
+            Id = id;
             IsAuthenticationWithSshKey = isAuthenticationWithSshKey;
             LabSubnetName = labSubnetName;
             LabVirtualNetworkId = labVirtualNetworkId;

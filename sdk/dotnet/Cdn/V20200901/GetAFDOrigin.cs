@@ -73,6 +73,10 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
         /// </summary>
         public readonly int? HttpsPort;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
@@ -119,6 +123,8 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
 
             int? httpsPort,
 
+            string id,
+
             string name,
 
             string? originHostHeader,
@@ -141,6 +147,7 @@ namespace Pulumi.AzureNextGen.Cdn.V20200901
             HostName = hostName;
             HttpPort = httpPort;
             HttpsPort = httpsPort;
+            Id = id;
             Name = name;
             OriginHostHeader = originHostHeader;
             Priority = priority;

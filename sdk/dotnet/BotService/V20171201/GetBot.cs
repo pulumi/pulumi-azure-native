@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.BotService.V20171201
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Specifies the resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Required. Gets or sets the Kind of the resource.
         /// </summary>
         public readonly string? Kind;
@@ -76,6 +80,8 @@ namespace Pulumi.AzureNextGen.BotService.V20171201
         private GetBotResult(
             string? etag,
 
+            string id,
+
             string? kind,
 
             string? location,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNextGen.BotService.V20171201
             string type)
         {
             Etag = etag;
+            Id = id;
             Kind = kind;
             Location = location;
             Name = name;

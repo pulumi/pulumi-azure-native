@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20200701
     public sealed class GetServiceResult
     {
         /// <summary>
+        /// Fully qualified resource Id for the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The GEO location of the resource.
         /// </summary>
         public readonly string? Location;
@@ -66,6 +70,8 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20200701
 
         [OutputConstructor]
         private GetServiceResult(
+            string id,
+
             string? location,
 
             string name,
@@ -78,6 +84,7 @@ namespace Pulumi.AzureNextGen.AppPlatform.V20200701
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

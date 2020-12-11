@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Confluent.V20200301Preview
         /// </summary>
         public readonly string CreatedTime;
         /// <summary>
+        /// The ARM id of the resource.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Location of Organization resource
         /// </summary>
         public readonly string? Location;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNextGen.Confluent.V20200301Preview
         private GetOrganizationResult(
             string createdTime,
 
+            string id,
+
             string? location,
 
             string name,
@@ -103,6 +109,7 @@ namespace Pulumi.AzureNextGen.Confluent.V20200301Preview
             Outputs.OrganizationResourcePropertiesResponseUserDetail? userDetail)
         {
             CreatedTime = createdTime;
+            Id = id;
             Location = location;
             Name = name;
             OfferDetail = offerDetail;

@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
     public sealed class GetLinkedWorkspaceResult
     {
         /// <summary>
+        /// ResourceId of the link of the linked workspace.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Friendly name of the linked workspace.
         /// </summary>
         public readonly string Name;
@@ -60,12 +64,15 @@ namespace Pulumi.AzureNextGen.MachineLearningServices.Latest
 
         [OutputConstructor]
         private GetLinkedWorkspaceResult(
+            string id,
+
             string name,
 
             Outputs.LinkedWorkspacePropsResponse properties,
 
             string type)
         {
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

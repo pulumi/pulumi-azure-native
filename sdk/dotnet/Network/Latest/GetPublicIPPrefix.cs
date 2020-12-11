@@ -58,6 +58,10 @@ namespace Pulumi.AzureNextGen.Network.Latest
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The allocated Prefix.
         /// </summary>
         public readonly string IpPrefix;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNextGen.Network.Latest
 
             Outputs.ExtendedLocationResponse? extendedLocation,
 
+            string? id,
+
             string ipPrefix,
 
             ImmutableArray<Outputs.IpTagResponse> ipTags,
@@ -153,6 +159,7 @@ namespace Pulumi.AzureNextGen.Network.Latest
             CustomIPPrefix = customIPPrefix;
             Etag = etag;
             ExtendedLocation = extendedLocation;
+            Id = id;
             IpPrefix = ipPrefix;
             IpTags = ipTags;
             LoadBalancerFrontendIpConfiguration = loadBalancerFrontendIpConfiguration;

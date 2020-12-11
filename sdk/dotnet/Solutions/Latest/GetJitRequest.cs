@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.Solutions.Latest
         /// </summary>
         public readonly Outputs.ApplicationClientDetailsResponse CreatedBy;
         /// <summary>
+        /// Resource ID
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The JIT authorization policies.
         /// </summary>
         public readonly ImmutableArray<Outputs.JitAuthorizationPoliciesResponse> JitAuthorizationPolicies;
@@ -94,6 +98,8 @@ namespace Pulumi.AzureNextGen.Solutions.Latest
 
             Outputs.ApplicationClientDetailsResponse createdBy,
 
+            string id,
+
             ImmutableArray<Outputs.JitAuthorizationPoliciesResponse> jitAuthorizationPolicies,
 
             string jitRequestState,
@@ -116,6 +122,7 @@ namespace Pulumi.AzureNextGen.Solutions.Latest
         {
             ApplicationResourceId = applicationResourceId;
             CreatedBy = createdBy;
+            Id = id;
             JitAuthorizationPolicies = jitAuthorizationPolicies;
             JitRequestState = jitRequestState;
             JitSchedulingPolicy = jitSchedulingPolicy;

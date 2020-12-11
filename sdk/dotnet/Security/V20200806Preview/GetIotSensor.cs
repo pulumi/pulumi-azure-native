@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
         /// </summary>
         public readonly bool DynamicLearning;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Learning mode status of the IoT sensor
         /// </summary>
         public readonly bool LearningMode;
@@ -96,6 +100,8 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
 
             bool dynamicLearning,
 
+            string id,
+
             bool learningMode,
 
             string name,
@@ -117,6 +123,7 @@ namespace Pulumi.AzureNextGen.Security.V20200806Preview
             ConnectivityTime = connectivityTime;
             CreationTime = creationTime;
             DynamicLearning = dynamicLearning;
+            Id = id;
             LearningMode = learningMode;
             Name = name;
             SensorStatus = sensorStatus;

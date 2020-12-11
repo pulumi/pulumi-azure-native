@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.DataBox.V20190901
         /// </summary>
         public readonly Outputs.ErrorResponse Error;
         /// <summary>
+        /// Id of the object.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Describes whether the job is cancellable or not.
         /// </summary>
         public readonly bool IsCancellable;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNextGen.DataBox.V20190901
 
             Outputs.ErrorResponse error,
 
+            string id,
+
             bool isCancellable,
 
             bool isCancellableWithoutFee,
@@ -149,6 +155,7 @@ namespace Pulumi.AzureNextGen.DataBox.V20190901
             DeliveryType = deliveryType;
             Details = details;
             Error = error;
+            Id = id;
             IsCancellable = isCancellable;
             IsCancellableWithoutFee = isCancellableWithoutFee;
             IsDeletable = isDeletable;

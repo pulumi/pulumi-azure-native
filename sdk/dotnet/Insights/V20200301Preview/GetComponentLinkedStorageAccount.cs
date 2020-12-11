@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.Insights.V20200301Preview
     public sealed class GetComponentLinkedStorageAccountResult
     {
         /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Linked storage account resource ID
         /// </summary>
         public readonly string? LinkedStorageAccount;
@@ -60,12 +64,15 @@ namespace Pulumi.AzureNextGen.Insights.V20200301Preview
 
         [OutputConstructor]
         private GetComponentLinkedStorageAccountResult(
+            string id,
+
             string? linkedStorageAccount,
 
             string name,
 
             string type)
         {
+            Id = id;
             LinkedStorageAccount = linkedStorageAccount;
             Name = name;
             Type = type;

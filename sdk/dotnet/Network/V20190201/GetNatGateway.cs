@@ -50,6 +50,10 @@ namespace Pulumi.AzureNextGen.Network.V20190201
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The idle timeout of the nat gateway.
         /// </summary>
         public readonly int? IdleTimeoutInMinutes;
@@ -98,6 +102,8 @@ namespace Pulumi.AzureNextGen.Network.V20190201
         private GetNatGatewayResult(
             string? etag,
 
+            string? id,
+
             int? idleTimeoutInMinutes,
 
             string? location,
@@ -121,6 +127,7 @@ namespace Pulumi.AzureNextGen.Network.V20190201
             string type)
         {
             Etag = etag;
+            Id = id;
             IdleTimeoutInMinutes = idleTimeoutInMinutes;
             Location = location;
             Name = name;

@@ -44,6 +44,10 @@ namespace Pulumi.AzureNextGen.Authorization.V20180901Preview
         /// </summary>
         public readonly bool? CanDelegate;
         /// <summary>
+        /// The role assignment ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The role assignment name.
         /// </summary>
         public readonly string Name;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.Authorization.V20180901Preview
         private GetRoleAssignmentResult(
             bool? canDelegate,
 
+            string id,
+
             string name,
 
             string? principalId,
@@ -85,6 +91,7 @@ namespace Pulumi.AzureNextGen.Authorization.V20180901Preview
             string type)
         {
             CanDelegate = canDelegate;
+            Id = id;
             Name = name;
             PrincipalId = principalId;
             PrincipalType = principalType;

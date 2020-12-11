@@ -42,6 +42,10 @@ namespace Pulumi.AzureNextGen.AadIam.V20170401
         /// </summary>
         public readonly string? EventHubName;
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The list of logs settings.
         /// </summary>
         public readonly ImmutableArray<Outputs.LogSettingsResponse> Logs;
@@ -72,6 +76,8 @@ namespace Pulumi.AzureNextGen.AadIam.V20170401
 
             string? eventHubName,
 
+            string id,
+
             ImmutableArray<Outputs.LogSettingsResponse> logs,
 
             string name,
@@ -86,6 +92,7 @@ namespace Pulumi.AzureNextGen.AadIam.V20170401
         {
             EventHubAuthorizationRuleId = eventHubAuthorizationRuleId;
             EventHubName = eventHubName;
+            Id = id;
             Logs = logs;
             Name = name;
             ServiceBusRuleId = serviceBusRuleId;

@@ -66,6 +66,10 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
         /// </summary>
         public readonly string? HyperVGeneration;
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// This is the gallery Image Definition identifier.
         /// </summary>
         public readonly Outputs.GalleryImageIdentifierResponse Identifier;
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
 
             string? hyperVGeneration,
 
+            string id,
+
             Outputs.GalleryImageIdentifierResponse identifier,
 
             string location,
@@ -155,6 +161,7 @@ namespace Pulumi.AzureNextGen.Compute.V20191201
             EndOfLifeDate = endOfLifeDate;
             Eula = eula;
             HyperVGeneration = hyperVGeneration;
+            Id = id;
             Identifier = identifier;
             Location = location;
             Name = name;

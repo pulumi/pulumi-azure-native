@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
     public sealed class GetIntegrationAccountResult
     {
         /// <summary>
+        /// The resource id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The integration service environment.
         /// </summary>
         public readonly Outputs.IntegrationServiceEnvironmentResponse? IntegrationServiceEnvironment;
@@ -70,6 +74,8 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
 
         [OutputConstructor]
         private GetIntegrationAccountResult(
+            string id,
+
             Outputs.IntegrationServiceEnvironmentResponse? integrationServiceEnvironment,
 
             string? location,
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNextGen.Logic.V20190501
 
             string type)
         {
+            Id = id;
             IntegrationServiceEnvironment = integrationServiceEnvironment;
             Location = location;
             Name = name;

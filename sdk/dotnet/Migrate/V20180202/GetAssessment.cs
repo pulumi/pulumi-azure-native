@@ -92,6 +92,10 @@ namespace Pulumi.AzureNextGen.Migrate.V20180202
         /// </summary>
         public readonly string? ETag;
         /// <summary>
+        /// Path reference to this assessment. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessment/{assessmentName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Monthly network cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
         /// </summary>
         public readonly double MonthlyBandwidthCost;
@@ -170,6 +174,8 @@ namespace Pulumi.AzureNextGen.Migrate.V20180202
 
             string? eTag,
 
+            string id,
+
             double monthlyBandwidthCost,
 
             double monthlyComputeCost,
@@ -208,6 +214,7 @@ namespace Pulumi.AzureNextGen.Migrate.V20180202
             Currency = currency;
             DiscountPercentage = discountPercentage;
             ETag = eTag;
+            Id = id;
             MonthlyBandwidthCost = monthlyBandwidthCost;
             MonthlyComputeCost = monthlyComputeCost;
             MonthlyStorageCost = monthlyStorageCost;

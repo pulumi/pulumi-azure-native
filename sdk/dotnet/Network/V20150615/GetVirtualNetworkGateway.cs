@@ -60,6 +60,10 @@ namespace Pulumi.AzureNextGen.Network.V20150615
         /// </summary>
         public readonly string? GatewayType;
         /// <summary>
+        /// Resource Identifier.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// IP configurations for virtual network gateway.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualNetworkGatewayIPConfigurationResponse> IpConfigurations;
@@ -112,6 +116,8 @@ namespace Pulumi.AzureNextGen.Network.V20150615
 
             string? gatewayType,
 
+            string? id,
+
             ImmutableArray<Outputs.VirtualNetworkGatewayIPConfigurationResponse> ipConfigurations,
 
             string? location,
@@ -137,6 +143,7 @@ namespace Pulumi.AzureNextGen.Network.V20150615
             Etag = etag;
             GatewayDefaultSite = gatewayDefaultSite;
             GatewayType = gatewayType;
+            Id = id;
             IpConfigurations = ipConfigurations;
             Location = location;
             Name = name;

@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// The resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The geo location of the resource.
         /// </summary>
         public readonly string Location;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
 
             string? etag,
 
+            string id,
+
             string location,
 
             string name,
@@ -92,6 +98,7 @@ namespace Pulumi.AzureNextGen.StorSimple.Latest
         {
             CisIntrinsicSettings = cisIntrinsicSettings;
             Etag = etag;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

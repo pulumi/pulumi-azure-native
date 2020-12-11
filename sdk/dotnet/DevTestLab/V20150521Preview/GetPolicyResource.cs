@@ -68,6 +68,10 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
         /// </summary>
         public readonly string? FactName;
         /// <summary>
+        /// The identifier of the resource.
+        /// </summary>
+        public readonly string? Id;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string? Location;
@@ -106,6 +110,8 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
 
             string? factName,
 
+            string? id,
+
             string? location,
 
             string? name,
@@ -124,6 +130,7 @@ namespace Pulumi.AzureNextGen.DevTestLab.V20150521Preview
             EvaluatorType = evaluatorType;
             FactData = factData;
             FactName = factName;
+            Id = id;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

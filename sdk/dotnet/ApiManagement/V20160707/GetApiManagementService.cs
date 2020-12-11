@@ -64,6 +64,10 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20160707
         /// </summary>
         public readonly ImmutableArray<Outputs.HostnameConfigurationResponse> HostnameConfigurations;
         /// <summary>
+        /// The ID of the created API Management service.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Datacenter location of the API Management service.
         /// </summary>
         public readonly string Location;
@@ -142,6 +146,8 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20160707
 
             ImmutableArray<Outputs.HostnameConfigurationResponse> hostnameConfigurations,
 
+            string id,
+
             string location,
 
             string managementApiUrl,
@@ -180,6 +186,7 @@ namespace Pulumi.AzureNextGen.ApiManagement.V20160707
             CustomProperties = customProperties;
             Etag = etag;
             HostnameConfigurations = hostnameConfigurations;
+            Id = id;
             Location = location;
             ManagementApiUrl = managementApiUrl;
             Name = name;

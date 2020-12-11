@@ -46,6 +46,10 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
     public sealed class GetReplicationPolicyResult
     {
         /// <summary>
+        /// Resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource Location
         /// </summary>
         public readonly string? Location;
@@ -64,6 +68,8 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
 
         [OutputConstructor]
         private GetReplicationPolicyResult(
+            string id,
+
             string? location,
 
             string name,
@@ -72,6 +78,7 @@ namespace Pulumi.AzureNextGen.RecoveryServices.Latest
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             Properties = properties;

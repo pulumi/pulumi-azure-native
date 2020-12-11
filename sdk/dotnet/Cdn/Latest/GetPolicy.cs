@@ -52,6 +52,10 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string Location;
@@ -101,6 +105,8 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
 
             string? etag,
 
+            string id,
+
             string location,
 
             Outputs.ManagedRuleSetListResponse? managedRules,
@@ -126,6 +132,7 @@ namespace Pulumi.AzureNextGen.Cdn.Latest
             CustomRules = customRules;
             EndpointLinks = endpointLinks;
             Etag = etag;
+            Id = id;
             Location = location;
             ManagedRules = managedRules;
             Name = name;

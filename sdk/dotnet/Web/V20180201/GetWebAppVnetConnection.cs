@@ -59,6 +59,10 @@ namespace Pulumi.AzureNextGen.Web.V20180201
         /// </summary>
         public readonly string? DnsServers;
         /// <summary>
+        /// Resource Id.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Flag that is used to denote if this is VNET injection
         /// </summary>
         public readonly bool? IsSwift;
@@ -95,6 +99,8 @@ namespace Pulumi.AzureNextGen.Web.V20180201
 
             string? dnsServers,
 
+            string id,
+
             bool? isSwift,
 
             string? kind,
@@ -112,6 +118,7 @@ namespace Pulumi.AzureNextGen.Web.V20180201
             CertBlob = certBlob;
             CertThumbprint = certThumbprint;
             DnsServers = dnsServers;
+            Id = id;
             IsSwift = isSwift;
             Kind = kind;
             Name = name;

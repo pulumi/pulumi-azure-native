@@ -54,6 +54,10 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         /// </summary>
         public readonly Outputs.TokenCredentialsPropertiesResponse? Credentials;
         /// <summary>
+        /// The resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
@@ -84,6 +88,8 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
 
             Outputs.TokenCredentialsPropertiesResponse? credentials,
 
+            string id,
+
             string name,
 
             string provisioningState,
@@ -98,6 +104,7 @@ namespace Pulumi.AzureNextGen.ContainerRegistry.V20201101Preview
         {
             CreationDate = creationDate;
             Credentials = credentials;
+            Id = id;
             Name = name;
             ProvisioningState = provisioningState;
             ScopeMapId = scopeMapId;

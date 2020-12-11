@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
     public sealed class GetRoleAssignmentResult
     {
         /// <summary>
+        /// The role assignment ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The role assignment name.
         /// </summary>
         public readonly string Name;
@@ -54,12 +58,15 @@ namespace Pulumi.AzureNextGen.Authorization.Latest
 
         [OutputConstructor]
         private GetRoleAssignmentResult(
+            string id,
+
             string name,
 
             Outputs.RoleAssignmentPropertiesWithScopeResponse properties,
 
             string type)
         {
+            Id = id;
             Name = name;
             Properties = properties;
             Type = type;

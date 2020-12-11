@@ -40,6 +40,10 @@ namespace Pulumi.AzureNextGen.AzureData.V20170301Preview
     public sealed class GetSqlServerRegistrationResult
     {
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string Location;
@@ -70,6 +74,8 @@ namespace Pulumi.AzureNextGen.AzureData.V20170301Preview
 
         [OutputConstructor]
         private GetSqlServerRegistrationResult(
+            string id,
+
             string location,
 
             string name,
@@ -84,6 +90,7 @@ namespace Pulumi.AzureNextGen.AzureData.V20170301Preview
 
             string type)
         {
+            Id = id;
             Location = location;
             Name = name;
             PropertyBag = propertyBag;

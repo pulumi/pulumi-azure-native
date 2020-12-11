@@ -37,6 +37,10 @@ namespace Pulumi.AzureNextGen.AzureData.V20200908Preview
     public sealed class GetDataControllerResult
     {
         /// <summary>
+        /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The raw kubernetes information
         /// </summary>
         public readonly object? K8sRaw;
@@ -71,6 +75,8 @@ namespace Pulumi.AzureNextGen.AzureData.V20200908Preview
 
         [OutputConstructor]
         private GetDataControllerResult(
+            string id,
+
             object? k8sRaw,
 
             string? lastUploadedDate,
@@ -87,6 +93,7 @@ namespace Pulumi.AzureNextGen.AzureData.V20200908Preview
 
             string type)
         {
+            Id = id;
             K8sRaw = k8sRaw;
             LastUploadedDate = lastUploadedDate;
             Location = location;
