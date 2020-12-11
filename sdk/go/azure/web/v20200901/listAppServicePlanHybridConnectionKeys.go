@@ -29,6 +29,8 @@ type ListAppServicePlanHybridConnectionKeysArgs struct {
 
 // Hybrid Connection key contract. This has the send key name and value for a Hybrid Connection.
 type ListAppServicePlanHybridConnectionKeysResult struct {
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.

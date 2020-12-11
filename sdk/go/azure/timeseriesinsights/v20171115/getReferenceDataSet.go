@@ -31,6 +31,8 @@ type LookupReferenceDataSetResult struct {
 	CreationTime string `pulumi:"creationTime"`
 	// The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
 	DataStringComparisonBehavior *string `pulumi:"dataStringComparisonBehavior"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// The list of key properties for the reference data set.
 	KeyProperties []ReferenceDataSetKeyPropertyResponse `pulumi:"keyProperties"`
 	// Resource location

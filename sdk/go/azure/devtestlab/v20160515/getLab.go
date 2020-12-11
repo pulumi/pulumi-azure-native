@@ -35,6 +35,8 @@ type LookupLabResult struct {
 	DefaultPremiumStorageAccount string `pulumi:"defaultPremiumStorageAccount"`
 	// The lab's default storage account.
 	DefaultStorageAccount string `pulumi:"defaultStorageAccount"`
+	// The identifier of the resource.
+	Id string `pulumi:"id"`
 	// Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
 	LabStorageType *string `pulumi:"labStorageType"`
 	// The location of the resource.

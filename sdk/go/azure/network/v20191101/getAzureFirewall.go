@@ -35,6 +35,8 @@ type LookupAzureFirewallResult struct {
 	FirewallPolicy *SubResourceResponse `pulumi:"firewallPolicy"`
 	// IP addresses associated with AzureFirewall.
 	HubIpAddresses HubIPAddressesResponse `pulumi:"hubIpAddresses"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// IP configuration of the Azure Firewall resource.
 	IpConfigurations []AzureFirewallIPConfigurationResponse `pulumi:"ipConfigurations"`
 	// IpGroups associated with AzureFirewall.

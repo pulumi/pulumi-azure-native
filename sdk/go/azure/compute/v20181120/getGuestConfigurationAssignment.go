@@ -27,6 +27,8 @@ type LookupGuestConfigurationAssignmentArgs struct {
 
 // Guest configuration assignment is an association between a machine and guest configuration.
 type LookupGuestConfigurationAssignmentResult struct {
+	// ARM resource id of the guest configuration assignment.
+	Id string `pulumi:"id"`
 	// Region where the VM is located.
 	Location *string `pulumi:"location"`
 	// Name of the guest configuration assignment.

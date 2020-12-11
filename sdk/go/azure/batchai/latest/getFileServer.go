@@ -31,6 +31,8 @@ type LookupFileServerResult struct {
 	CreationTime string `pulumi:"creationTime"`
 	// Information about disks attached to File Server VM.
 	DataDisks *DataDisksResponse `pulumi:"dataDisks"`
+	// The ID of the resource.
+	Id string `pulumi:"id"`
 	// File Server mount settings.
 	MountSettings MountSettingsResponse `pulumi:"mountSettings"`
 	// The name of the resource.

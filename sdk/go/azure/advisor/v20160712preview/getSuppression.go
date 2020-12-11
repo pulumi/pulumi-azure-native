@@ -27,6 +27,8 @@ type LookupSuppressionArgs struct {
 
 // The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
 type LookupSuppressionResult struct {
+	// The resource ID.
+	Id string `pulumi:"id"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location *string `pulumi:"location"`
 	// The name of the resource.

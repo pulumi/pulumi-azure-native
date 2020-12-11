@@ -35,6 +35,8 @@ type LookupFileServerResult struct {
 	Description *string `pulumi:"description"`
 	// Domain of the file server
 	DomainName string `pulumi:"domainName"`
+	// The identifier.
+	Id string `pulumi:"id"`
 	// The name.
 	Name string `pulumi:"name"`
 	// The storage domain id.

@@ -27,6 +27,8 @@ type LookupNotebookWorkspaceArgs struct {
 
 // A notebook workspace resource
 type LookupNotebookWorkspaceResult struct {
+	// The unique resource identifier of the database account.
+	Id string `pulumi:"id"`
 	// The name of the database account.
 	Name string `pulumi:"name"`
 	// Specifies the endpoint of Notebook server.

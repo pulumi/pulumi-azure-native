@@ -29,6 +29,8 @@ type LookupWorkloadNetworkVMGroupArgs struct {
 type LookupWorkloadNetworkVMGroupResult struct {
 	// Display name of the VM group.
 	DisplayName *string `pulumi:"displayName"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Virtual machine members of this group.
 	Members []string `pulumi:"members"`
 	// Resource name.

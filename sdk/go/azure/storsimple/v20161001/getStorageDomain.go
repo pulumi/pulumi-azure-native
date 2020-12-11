@@ -31,6 +31,8 @@ type LookupStorageDomainResult struct {
 	EncryptionKey *AsymmetricEncryptedSecretResponse `pulumi:"encryptionKey"`
 	// The encryption status "Enabled | Disabled".
 	EncryptionStatus string `pulumi:"encryptionStatus"`
+	// The identifier.
+	Id string `pulumi:"id"`
 	// The name.
 	Name string `pulumi:"name"`
 	// The storage account credentials.

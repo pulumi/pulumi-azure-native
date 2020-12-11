@@ -29,6 +29,8 @@ type LookupPrivateDnsZoneGroupArgs struct {
 type LookupPrivateDnsZoneGroupResult struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// Name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// A collection of private dns zone configurations of the private dns zone group.

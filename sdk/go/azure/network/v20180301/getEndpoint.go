@@ -39,6 +39,8 @@ type LookupEndpointResult struct {
 	EndpointStatus *string `pulumi:"endpointStatus"`
 	// The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
 	GeoMapping []string `pulumi:"geoMapping"`
+	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
+	Id *string `pulumi:"id"`
 	// The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
 	MinChildEndpoints *int `pulumi:"minChildEndpoints"`
 	// The name of the resource

@@ -39,6 +39,8 @@ type LookupGalleryImageResult struct {
 	Features []GalleryImageFeatureResponse `pulumi:"features"`
 	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// This is the gallery image definition identifier.
 	Identifier GalleryImageIdentifierResponse `pulumi:"identifier"`
 	// Resource location

@@ -29,6 +29,8 @@ type LookupCertificateArgs struct {
 type LookupCertificateResult struct {
 	// Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
 	ExpirationDate string `pulumi:"expirationDate"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// KeyVault location details of the certificate.
 	KeyVault *KeyVaultContractPropertiesResponse `pulumi:"keyVault"`
 	// Resource name.

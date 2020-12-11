@@ -47,6 +47,8 @@ type LookupDeviceResult struct {
 	Etag *string `pulumi:"etag"`
 	// The Data Box Edge/Gateway device name.
 	FriendlyName *string `pulumi:"friendlyName"`
+	// The path ID that uniquely identifies the object.
+	Id string `pulumi:"id"`
 	// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
 	Location string `pulumi:"location"`
 	// The description of the Data Box Edge/Gateway device model.

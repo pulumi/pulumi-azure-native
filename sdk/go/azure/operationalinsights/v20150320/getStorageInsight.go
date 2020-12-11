@@ -31,6 +31,8 @@ type LookupStorageInsightResult struct {
 	Containers []string `pulumi:"containers"`
 	// The ETag of the storage insight.
 	ETag *string `pulumi:"eTag"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The status of the storage insight

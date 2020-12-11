@@ -27,6 +27,8 @@ type LookupExportPipelineArgs struct {
 
 // An object that represents an export pipeline for a container registry.
 type LookupExportPipelineResult struct {
+	// The resource ID.
+	Id string `pulumi:"id"`
 	// The identity of the export pipeline.
 	Identity *IdentityPropertiesResponse `pulumi:"identity"`
 	// The location of the export pipeline.

@@ -47,6 +47,8 @@ type LookupApplicationResult struct {
 	IconIndex *int `pulumi:"iconIndex"`
 	// Path to icon.
 	IconPath *string `pulumi:"iconPath"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// Specifies the package application Id for MSIX applications
 	MsixPackageApplicationId *string `pulumi:"msixPackageApplicationId"`
 	// Specifies the package family name for MSIX applications

@@ -28,6 +28,8 @@ type LookupSkusNestedResourceTypeFirstArgs struct {
 }
 
 type LookupSkusNestedResourceTypeFirstResult struct {
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The name of the resource
 	Name       string                        `pulumi:"name"`
 	Properties SkuResourceResponseProperties `pulumi:"properties"`

@@ -33,6 +33,8 @@ type LookupSavedSearchResult struct {
 	DisplayName string `pulumi:"displayName"`
 	// The ETag of the saved search.
 	ETag *string `pulumi:"eTag"`
+	// The id of the saved search.
+	Id string `pulumi:"id"`
 	// The name of the saved search.
 	Name string `pulumi:"name"`
 	// The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.

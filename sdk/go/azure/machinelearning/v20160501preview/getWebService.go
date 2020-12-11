@@ -25,6 +25,8 @@ type LookupWebServiceArgs struct {
 
 // Instance of an Azure ML web service resource.
 type LookupWebServiceResult struct {
+	// Specifies the resource ID.
+	Id string `pulumi:"id"`
 	// Specifies the location of the resource.
 	Location string `pulumi:"location"`
 	// Specifies the name of the resource.

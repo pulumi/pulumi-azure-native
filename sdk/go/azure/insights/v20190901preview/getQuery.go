@@ -35,6 +35,8 @@ type LookupQueryResult struct {
 	Description *string `pulumi:"description"`
 	// Unique display name for your query within the Query Pack.
 	DisplayName string `pulumi:"displayName"`
+	// Azure resource Id
+	Id string `pulumi:"id"`
 	// Azure resource name
 	Name string `pulumi:"name"`
 	// Additional properties that can be set for the query.

@@ -31,6 +31,8 @@ type LookupShareResult struct {
 	CreatedAt string `pulumi:"createdAt"`
 	// Share description.
 	Description *string `pulumi:"description"`
+	// The resource id of the azure resource
+	Id string `pulumi:"id"`
 	// Name of the azure resource
 	Name string `pulumi:"name"`
 	// Gets or sets the provisioning state

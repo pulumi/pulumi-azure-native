@@ -33,6 +33,8 @@ type LookupRouteFilterRuleResult struct {
 	Communities []string `pulumi:"communities"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.

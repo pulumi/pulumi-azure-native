@@ -25,6 +25,8 @@ type LookupIotSiteArgs struct {
 type LookupIotSiteResult struct {
 	// Display name of the IoT site
 	DisplayName string `pulumi:"displayName"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// Tags of the IoT site

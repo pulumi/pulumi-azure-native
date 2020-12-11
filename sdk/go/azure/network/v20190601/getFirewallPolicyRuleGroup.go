@@ -29,6 +29,8 @@ type LookupFirewallPolicyRuleGroupArgs struct {
 type LookupFirewallPolicyRuleGroupResult struct {
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// Priority of the Firewall Policy Rule Group resource.

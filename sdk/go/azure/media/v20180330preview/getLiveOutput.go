@@ -39,6 +39,8 @@ type LookupLiveOutputResult struct {
 	Description *string `pulumi:"description"`
 	// The HLS configuration.
 	Hls *HlsResponse `pulumi:"hls"`
+	// Fully qualified resource ID for the resource.
+	Id string `pulumi:"id"`
 	// The exact time the Live Output was last modified.
 	LastModified string `pulumi:"lastModified"`
 	// The manifest file name.

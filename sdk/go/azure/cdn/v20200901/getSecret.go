@@ -28,6 +28,8 @@ type LookupSecretArgs struct {
 // Friendly Secret name mapping to the any Secret or secret related information.
 type LookupSecretResult struct {
 	DeploymentStatus string `pulumi:"deploymentStatus"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// object which contains secret parameters

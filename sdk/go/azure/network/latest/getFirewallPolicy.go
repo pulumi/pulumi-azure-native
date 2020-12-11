@@ -37,6 +37,8 @@ type LookupFirewallPolicyResult struct {
 	Etag string `pulumi:"etag"`
 	// List of references to Azure Firewalls that this Firewall Policy is associated with.
 	Firewalls []SubResourceResponse `pulumi:"firewalls"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// The identity of the firewall policy.
 	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
 	// The configuration for Intrusion detection.

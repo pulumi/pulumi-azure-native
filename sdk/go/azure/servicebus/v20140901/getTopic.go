@@ -49,6 +49,8 @@ type LookupTopicResult struct {
 	EntityAvailabilityStatus *string `pulumi:"entityAvailabilityStatus"`
 	// Whether messages should be filtered before publishing.
 	FilteringMessagesBeforePublishing *bool `pulumi:"filteringMessagesBeforePublishing"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Value that indicates whether the message is accessible anonymously.
 	IsAnonymousAccessible *bool `pulumi:"isAnonymousAccessible"`
 	IsExpress             *bool `pulumi:"isExpress"`

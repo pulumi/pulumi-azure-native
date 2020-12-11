@@ -29,6 +29,8 @@ type LookupStorageTargetArgs struct {
 type LookupStorageTargetResult struct {
 	// Properties when targetType is clfs.
 	Clfs *ClfsTargetResponse `pulumi:"clfs"`
+	// Resource ID of the Storage Target.
+	Id string `pulumi:"id"`
 	// List of Cache namespace junctions to target for namespace associations.
 	Junctions []NamespaceJunctionResponse `pulumi:"junctions"`
 	// Region name string.

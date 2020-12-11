@@ -30,6 +30,8 @@ type LookupTaskRunArgs struct {
 type LookupTaskRunResult struct {
 	// How the run should be forced to rerun even if the run request configuration has not changed
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
+	// The resource ID.
+	Id string `pulumi:"id"`
 	// Identity for the resource.
 	Identity *IdentityPropertiesResponse `pulumi:"identity"`
 	// The location of the resource

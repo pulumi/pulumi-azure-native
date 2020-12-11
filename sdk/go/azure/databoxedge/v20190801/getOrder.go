@@ -31,6 +31,8 @@ type LookupOrderResult struct {
 	CurrentStatus *OrderStatusResponse `pulumi:"currentStatus"`
 	// Tracking information for the package delivered to the customer whether it has an original or a replacement device.
 	DeliveryTrackingInfo []TrackingInfoResponse `pulumi:"deliveryTrackingInfo"`
+	// The path ID that uniquely identifies the object.
+	Id string `pulumi:"id"`
 	// The object name.
 	Name string `pulumi:"name"`
 	// List of status changes in the order.

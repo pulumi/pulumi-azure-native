@@ -33,6 +33,8 @@ type LookupApiIssueCommentArgs struct {
 type LookupApiIssueCommentResult struct {
 	// Date and time when the comment was created.
 	CreatedDate *string `pulumi:"createdDate"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Comment text.

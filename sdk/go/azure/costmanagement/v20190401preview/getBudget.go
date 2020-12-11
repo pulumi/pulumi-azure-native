@@ -35,6 +35,8 @@ type LookupBudgetResult struct {
 	ETag *string `pulumi:"eTag"`
 	// May be used to filter budgets.
 	Filter *ReportConfigFilterResponse `pulumi:"filter"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Dictionary of notifications associated with the budget. Budget can have up to five notifications.

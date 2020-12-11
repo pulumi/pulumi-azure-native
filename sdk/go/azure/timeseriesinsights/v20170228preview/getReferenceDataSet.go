@@ -29,6 +29,8 @@ type LookupReferenceDataSetArgs struct {
 type LookupReferenceDataSetResult struct {
 	// The time the resource was created.
 	CreationTime string `pulumi:"creationTime"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// The list of key properties for the reference data set.
 	KeyProperties []ReferenceDataSetKeyPropertyResponse `pulumi:"keyProperties"`
 	// Resource location

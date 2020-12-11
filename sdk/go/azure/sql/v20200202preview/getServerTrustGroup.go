@@ -29,6 +29,8 @@ type LookupServerTrustGroupArgs struct {
 type LookupServerTrustGroupResult struct {
 	// Group members information for the server trust group.
 	GroupMembers []ServerInfoResponse `pulumi:"groupMembers"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Trust scope of the server trust group.

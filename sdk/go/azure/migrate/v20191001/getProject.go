@@ -27,6 +27,8 @@ type LookupProjectArgs struct {
 type LookupProjectResult struct {
 	// For optimistic concurrency control.
 	ETag *string `pulumi:"eTag"`
+	// Path reference to this project /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}
+	Id string `pulumi:"id"`
 	// Azure location in which project is created.
 	Location *string `pulumi:"location"`
 	// Name of the project.

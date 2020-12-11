@@ -37,6 +37,8 @@ type LookupClusterResult struct {
 	CurrentNodeCount int `pulumi:"currentNodeCount"`
 	// Collection of errors encountered by various compute nodes during node setup.
 	Errors []BatchAIErrorResponse `pulumi:"errors"`
+	// The ID of the resource.
+	Id string `pulumi:"id"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// Setup (mount file systems, performance counters settings and custom setup task) to be performed on each compute node in the cluster.

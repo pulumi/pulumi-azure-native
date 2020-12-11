@@ -29,6 +29,8 @@ type LookupManagerResult struct {
 	CisIntrinsicSettings *ManagerIntrinsicSettingsResponse `pulumi:"cisIntrinsicSettings"`
 	// ETag of the Manager
 	Etag *string `pulumi:"etag"`
+	// The Resource Id
+	Id string `pulumi:"id"`
 	// The Geo location of the Manager
 	Location string `pulumi:"location"`
 	// The Resource Name

@@ -35,6 +35,8 @@ type LookupVirtualMachineResult struct {
 	DiagnosticsProfile *DiagnosticsProfileResponse `pulumi:"diagnosticsProfile"`
 	// Specifies the hardware settings for the virtual machine.
 	HardwareProfile *HardwareProfileResponse `pulumi:"hardwareProfile"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// The identity of the virtual machine, if configured.
 	Identity *VirtualMachineIdentityResponse `pulumi:"identity"`
 	// The virtual machine instance view.

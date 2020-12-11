@@ -27,6 +27,8 @@ type LookupCustomApiArgs struct {
 type LookupCustomApiResult struct {
 	// Resource ETag
 	Etag *string `pulumi:"etag"`
+	// Resource id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name

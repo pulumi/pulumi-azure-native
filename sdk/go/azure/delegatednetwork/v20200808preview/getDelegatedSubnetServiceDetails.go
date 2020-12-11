@@ -27,6 +27,8 @@ type LookupDelegatedSubnetServiceDetailsArgs struct {
 type LookupDelegatedSubnetServiceDetailsResult struct {
 	// controller details
 	ControllerDetails *ControllerDetailsResponse `pulumi:"controllerDetails"`
+	// An identifier that represents the resource.
+	Id string `pulumi:"id"`
 	// Location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.

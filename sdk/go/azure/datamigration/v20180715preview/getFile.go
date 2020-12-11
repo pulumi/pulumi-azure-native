@@ -31,6 +31,8 @@ type LookupFileArgs struct {
 type LookupFileResult struct {
 	// HTTP strong entity tag value. This is ignored if submitted.
 	Etag *string `pulumi:"etag"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Custom file properties

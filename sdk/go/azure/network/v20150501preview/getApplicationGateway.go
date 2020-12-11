@@ -39,6 +39,8 @@ type LookupApplicationGatewayResult struct {
 	GatewayIPConfigurations []ApplicationGatewayIPConfigurationResponse `pulumi:"gatewayIPConfigurations"`
 	// Gets or sets HTTP listeners of application gateway resource
 	HttpListeners []ApplicationGatewayHttpListenerResponse `pulumi:"httpListeners"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name

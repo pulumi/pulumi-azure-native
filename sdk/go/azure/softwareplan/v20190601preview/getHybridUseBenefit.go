@@ -29,6 +29,8 @@ type LookupHybridUseBenefitResult struct {
 	CreatedDate string `pulumi:"createdDate"`
 	// Indicates the revision of the hybrid use benefit
 	Etag int `pulumi:"etag"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// Last updated date
 	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
 	// The name of the resource

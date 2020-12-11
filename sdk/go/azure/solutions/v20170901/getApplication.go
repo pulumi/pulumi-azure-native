@@ -27,6 +27,8 @@ type LookupApplicationArgs struct {
 type LookupApplicationResult struct {
 	// The fully qualified path of managed application definition Id.
 	ApplicationDefinitionId *string `pulumi:"applicationDefinitionId"`
+	// Resource ID
+	Id string `pulumi:"id"`
 	// The identity of the resource.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.

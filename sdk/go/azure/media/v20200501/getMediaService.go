@@ -27,6 +27,8 @@ type LookupMediaServiceArgs struct {
 type LookupMediaServiceResult struct {
 	// The account encryption properties.
 	Encryption *AccountEncryptionResponse `pulumi:"encryption"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The Managed Identity for the Media Services account.
 	Identity *MediaServiceIdentityResponse `pulumi:"identity"`
 	// The geo-location where the resource lives

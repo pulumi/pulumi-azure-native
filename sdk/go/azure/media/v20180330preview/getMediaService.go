@@ -25,6 +25,8 @@ type LookupMediaServiceArgs struct {
 
 // A Media Services account.
 type LookupMediaServiceResult struct {
+	// Fully qualified resource ID for the resource.
+	Id string `pulumi:"id"`
 	// The Azure Region of the resource.
 	Location *string `pulumi:"location"`
 	// The Media Services account ID.

@@ -37,6 +37,8 @@ type LookupRoleAssignmentResult struct {
 	Description map[string]string `pulumi:"description"`
 	// Localized display names for the metadata.
 	DisplayName map[string]string `pulumi:"displayName"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Interactions set for the assignment.
 	Interactions *ResourceSetDescriptionResponse `pulumi:"interactions"`
 	// Kpis set for the assignment.

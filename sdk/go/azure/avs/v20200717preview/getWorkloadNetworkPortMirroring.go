@@ -33,6 +33,8 @@ type LookupWorkloadNetworkPortMirroringResult struct {
 	Direction *string `pulumi:"direction"`
 	// Display name of the port mirroring profile.
 	DisplayName *string `pulumi:"displayName"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The provisioning state

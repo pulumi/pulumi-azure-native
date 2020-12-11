@@ -25,6 +25,8 @@ type ListSiteConnectionStringsArgs struct {
 
 // String dictionary resource
 type ListSiteConnectionStringsResult struct {
+	// Resource Id
+	Id *string `pulumi:"id"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location

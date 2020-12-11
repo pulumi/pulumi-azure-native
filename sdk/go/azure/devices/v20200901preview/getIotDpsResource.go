@@ -27,6 +27,8 @@ type LookupIotDpsResourceArgs struct {
 type LookupIotDpsResourceResult struct {
 	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
 	Etag *string `pulumi:"etag"`
+	// The resource identifier.
+	Id string `pulumi:"id"`
 	// The resource location.
 	Location string `pulumi:"location"`
 	// The resource name.

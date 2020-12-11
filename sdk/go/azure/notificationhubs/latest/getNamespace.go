@@ -33,6 +33,8 @@ type LookupNamespaceResult struct {
 	DataCenter *string `pulumi:"dataCenter"`
 	// Whether or not the namespace is currently enabled.
 	Enabled *bool `pulumi:"enabled"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Identifier for Azure Insights metrics

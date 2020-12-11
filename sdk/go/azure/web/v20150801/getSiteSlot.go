@@ -60,6 +60,8 @@ type LookupSiteSlotResult struct {
 	HostNamesDisabled *bool `pulumi:"hostNamesDisabled"`
 	// Specification for the hosting environment (App Service Environment) to use for the web app
 	HostingEnvironmentProfile *HostingEnvironmentProfileResponse `pulumi:"hostingEnvironmentProfile"`
+	// Resource Id
+	Id *string `pulumi:"id"`
 	// Site is a default container
 	IsDefaultContainer bool `pulumi:"isDefaultContainer"`
 	// Kind of resource

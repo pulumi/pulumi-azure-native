@@ -31,6 +31,8 @@ type LookupAssessmentResult struct {
 	AdditionalData map[string]string `pulumi:"additionalData"`
 	// User friendly display name of the assessment
 	DisplayName string `pulumi:"displayName"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Links relevant to the assessment
 	Links AssessmentLinksResponse `pulumi:"links"`
 	// Describes properties of an assessment metadata.

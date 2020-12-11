@@ -25,6 +25,8 @@ type ListAccountKeysArgs struct {
 
 // The set of keys which can be used to access the Maps REST APIs. Two keys are provided for key rotation without interruption.
 type ListAccountKeysResult struct {
+	// The full Azure resource identifier of the Maps Account.
+	Id string `pulumi:"id"`
 	// The primary key for accessing the Maps REST APIs.
 	PrimaryKey string `pulumi:"primaryKey"`
 	// The secondary key for accessing the Maps REST APIs.

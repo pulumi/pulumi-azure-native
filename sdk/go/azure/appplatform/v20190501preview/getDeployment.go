@@ -29,6 +29,8 @@ type LookupDeploymentArgs struct {
 
 // Deployment resource payload
 type LookupDeploymentResult struct {
+	// Fully qualified resource Id for the resource.
+	Id string `pulumi:"id"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// Properties of the Deployment resource

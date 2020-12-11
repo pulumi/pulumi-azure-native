@@ -27,6 +27,8 @@ type LookupInputArgs struct {
 
 // An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
 type LookupInputResult struct {
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource name
 	Name *string `pulumi:"name"`
 	// The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.

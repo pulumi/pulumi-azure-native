@@ -31,6 +31,8 @@ type LookupVirtualMachineImageTemplateResult struct {
 	Customize []interface{} `pulumi:"customize"`
 	// The distribution targets where the image output needs to go to.
 	Distribute []interface{} `pulumi:"distribute"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// The identity of the image template, if configured.
 	Identity *ImageTemplateIdentityResponse `pulumi:"identity"`
 	// State of 'run' that is currently executing or was last executed.

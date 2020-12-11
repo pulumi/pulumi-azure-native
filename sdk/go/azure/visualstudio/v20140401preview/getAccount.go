@@ -25,6 +25,8 @@ type LookupAccountArgs struct {
 
 // The response to an account resource GET request.
 type LookupAccountResult struct {
+	// Unique identifier of the resource.
+	Id string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.

@@ -29,6 +29,8 @@ type LookupDedicatedHostGroupArgs struct {
 type LookupDedicatedHostGroupResult struct {
 	// A list of references to all dedicated hosts in the dedicated host group.
 	Hosts []SubResourceReadOnlyResponse `pulumi:"hosts"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// The dedicated host group instance view, which has the list of instance view of the dedicated hosts under the dedicated host group.
 	InstanceView DedicatedHostGroupInstanceViewResponse `pulumi:"instanceView"`
 	// Resource location

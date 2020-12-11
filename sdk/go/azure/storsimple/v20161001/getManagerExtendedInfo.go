@@ -33,6 +33,8 @@ type LookupManagerExtendedInfoResult struct {
 	EncryptionKeyThumbprint *string `pulumi:"encryptionKeyThumbprint"`
 	// ETag of the Resource
 	Etag *string `pulumi:"etag"`
+	// The identifier.
+	Id string `pulumi:"id"`
 	// Represents the CIK of the resource
 	IntegrityKey string `pulumi:"integrityKey"`
 	// The name.

@@ -23,6 +23,8 @@ type LookupManagementLockArgs struct {
 
 // Management lock information.
 type LookupManagementLockResult struct {
+	// The Id of the lock.
+	Id string `pulumi:"id"`
 	// The lock level of the management lock.
 	Level *string `pulumi:"level"`
 	// The name of the lock.

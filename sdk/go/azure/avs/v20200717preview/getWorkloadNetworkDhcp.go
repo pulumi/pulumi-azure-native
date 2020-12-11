@@ -31,6 +31,8 @@ type LookupWorkloadNetworkDhcpResult struct {
 	DhcpType string `pulumi:"dhcpType"`
 	// Display name of the DHCP entity.
 	DisplayName *string `pulumi:"displayName"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The provisioning state

@@ -29,6 +29,8 @@ type LookupWorkspaceResult struct {
 	CustomerId string `pulumi:"customerId"`
 	// The ETag of the workspace.
 	ETag *string `pulumi:"eTag"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name

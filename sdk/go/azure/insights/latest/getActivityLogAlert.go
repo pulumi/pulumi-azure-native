@@ -33,6 +33,8 @@ type LookupActivityLogAlertResult struct {
 	Description *string `pulumi:"description"`
 	// Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
 	Enabled *bool `pulumi:"enabled"`
+	// Azure resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Azure resource name

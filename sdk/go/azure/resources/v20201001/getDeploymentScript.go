@@ -25,6 +25,8 @@ type LookupDeploymentScriptArgs struct {
 
 // Deployment script object.
 type LookupDeploymentScriptResult struct {
+	// String Id used to locate any resource on Azure.
+	Id string `pulumi:"id"`
 	// Optional property. Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
 	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
 	// Type of the script.

@@ -31,6 +31,8 @@ type LookupContainerGroupResult struct {
 	Diagnostics *ContainerGroupDiagnosticsResponse `pulumi:"diagnostics"`
 	// The DNS config information for a container group.
 	DnsConfig *DnsConfigurationResponse `pulumi:"dnsConfig"`
+	// The resource id.
+	Id string `pulumi:"id"`
 	// The identity of the container group, if configured.
 	Identity *ContainerGroupIdentityResponse `pulumi:"identity"`
 	// The image registry credentials by which the container group is created from.

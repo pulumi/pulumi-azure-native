@@ -29,6 +29,8 @@ type LookupAccountFilterArgs struct {
 type LookupAccountFilterResult struct {
 	// The first quality.
 	FirstQuality *FirstQualityResponse `pulumi:"firstQuality"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The presentation time range.

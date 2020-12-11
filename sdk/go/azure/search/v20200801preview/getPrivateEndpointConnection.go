@@ -27,6 +27,8 @@ type LookupPrivateEndpointConnectionArgs struct {
 
 // Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
 type LookupPrivateEndpointConnectionResult struct {
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.

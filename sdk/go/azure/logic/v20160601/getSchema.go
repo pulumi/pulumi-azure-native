@@ -41,6 +41,8 @@ type LookupSchemaResult struct {
 	DocumentName *string `pulumi:"documentName"`
 	// The file name.
 	FileName *string `pulumi:"fileName"`
+	// The resource id.
+	Id string `pulumi:"id"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The metadata.

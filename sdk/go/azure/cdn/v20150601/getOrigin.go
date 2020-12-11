@@ -35,6 +35,8 @@ type LookupOriginResult struct {
 	HttpPort *int `pulumi:"httpPort"`
 	// The value of the https port. Must be between 1 and 65535.
 	HttpsPort *int `pulumi:"httpsPort"`
+	// Resource ID
+	Id string `pulumi:"id"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// Provisioning status of the origin.

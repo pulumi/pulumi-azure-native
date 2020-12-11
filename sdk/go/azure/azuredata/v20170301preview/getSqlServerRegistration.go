@@ -25,6 +25,8 @@ type LookupSqlServerRegistrationArgs struct {
 
 // A SQL server registration.
 type LookupSqlServerRegistrationResult struct {
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// Resource name.

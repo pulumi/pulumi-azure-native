@@ -29,6 +29,8 @@ type LookupApplicationArgs struct {
 type LookupApplicationResult struct {
 	// The ETag for the application
 	Etag *string `pulumi:"etag"`
+	// Fully qualified resource Id for the resource.
+	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The properties of the application.

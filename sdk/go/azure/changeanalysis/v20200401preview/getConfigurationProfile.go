@@ -23,6 +23,8 @@ type LookupConfigurationProfileArgs struct {
 
 // A profile object that contains change analysis configuration, such as notification settings, for this subscription
 type LookupConfigurationProfileResult struct {
+	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}.
+	Id string `pulumi:"id"`
 	// The identity block returned by ARM resource that supports managed identity.
 	Identity *ResourceIdentityResponse `pulumi:"identity"`
 	// The name of the resource.

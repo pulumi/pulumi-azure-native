@@ -27,6 +27,8 @@ type LookupDomainArgs struct {
 type LookupDomainResult struct {
 	// Endpoint for the domain.
 	Endpoint string `pulumi:"endpoint"`
+	// Fully qualified identifier of the resource.
+	Id string `pulumi:"id"`
 	// Location of the resource.
 	Location string `pulumi:"location"`
 	// Name of the resource.

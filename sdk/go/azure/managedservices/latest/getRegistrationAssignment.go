@@ -27,6 +27,8 @@ type LookupRegistrationAssignmentArgs struct {
 
 // Registration assignment.
 type LookupRegistrationAssignmentResult struct {
+	// The fully qualified path of the registration assignment.
+	Id string `pulumi:"id"`
 	// Name of the registration assignment.
 	Name string `pulumi:"name"`
 	// Properties of a registration assignment.

@@ -31,6 +31,8 @@ type LookupDscNodeConfigurationResult struct {
 	Configuration *DscConfigurationAssociationPropertyResponse `pulumi:"configuration"`
 	// Gets or sets creation time.
 	CreationTime *string `pulumi:"creationTime"`
+	// Fully qualified resource Id for the resource
+	Id string `pulumi:"id"`
 	// If a new build version of NodeConfiguration is required.
 	IncrementNodeConfigurationBuild *bool `pulumi:"incrementNodeConfigurationBuild"`
 	// Gets or sets the last modified time.

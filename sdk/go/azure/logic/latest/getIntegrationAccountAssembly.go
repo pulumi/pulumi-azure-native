@@ -27,6 +27,8 @@ type LookupIntegrationAccountAssemblyArgs struct {
 
 // The assembly definition.
 type LookupIntegrationAccountAssemblyResult struct {
+	// The resource id.
+	Id string `pulumi:"id"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// Gets the resource name.

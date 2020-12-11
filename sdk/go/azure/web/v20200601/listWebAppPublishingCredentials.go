@@ -25,6 +25,8 @@ type ListWebAppPublishingCredentialsArgs struct {
 
 // User credentials used for publishing activity.
 type ListWebAppPublishingCredentialsResult struct {
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.

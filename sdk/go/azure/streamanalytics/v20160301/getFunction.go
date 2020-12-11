@@ -27,6 +27,8 @@ type LookupFunctionArgs struct {
 
 // A function object, containing all information associated with the named function. All functions are contained under a streaming job.
 type LookupFunctionResult struct {
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource name
 	Name *string `pulumi:"name"`
 	// The properties that are associated with a function.

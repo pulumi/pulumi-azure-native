@@ -27,6 +27,8 @@ type LookupAutoscaleSettingArgs struct {
 type LookupAutoscaleSettingResult struct {
 	// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
 	Enabled *bool `pulumi:"enabled"`
+	// Azure resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Azure resource name

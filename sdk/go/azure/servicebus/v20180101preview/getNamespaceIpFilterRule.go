@@ -31,6 +31,8 @@ type LookupNamespaceIpFilterRuleResult struct {
 	Action *string `pulumi:"action"`
 	// IP Filter name
 	FilterName *string `pulumi:"filterName"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// IP Mask
 	IpMask *string `pulumi:"ipMask"`
 	// Resource name

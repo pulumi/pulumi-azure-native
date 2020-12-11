@@ -39,6 +39,8 @@ type LookupCustomImageResult struct {
 	DataDiskStorageInfo []DataDiskStorageTypeInfoResponse `pulumi:"dataDiskStorageInfo"`
 	// The description of the custom image.
 	Description *string `pulumi:"description"`
+	// The identifier of the resource.
+	Id string `pulumi:"id"`
 	// Whether or not the custom images underlying offer/plan has been enabled for programmatic deployment
 	IsPlanAuthorized *bool `pulumi:"isPlanAuthorized"`
 	// The location of the resource.

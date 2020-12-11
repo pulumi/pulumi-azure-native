@@ -27,6 +27,8 @@ type LookupBlobInventoryPolicyArgs struct {
 
 // The storage account blob inventory policy.
 type LookupBlobInventoryPolicyResult struct {
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// Returns the last modified date and time of the blob inventory policy.
 	LastModifiedTime string `pulumi:"lastModifiedTime"`
 	// The name of the resource

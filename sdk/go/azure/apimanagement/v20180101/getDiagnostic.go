@@ -29,6 +29,8 @@ type LookupDiagnosticArgs struct {
 type LookupDiagnosticResult struct {
 	// Indicates whether a diagnostic should receive data or not.
 	Enabled bool `pulumi:"enabled"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Resource type for API Management resource.

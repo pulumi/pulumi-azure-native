@@ -27,6 +27,8 @@ type LookupEnterprisePolicyArgs struct {
 type LookupEnterprisePolicyResult struct {
 	// The encryption settings for a configuration store.
 	Encryption *PropertiesResponseEncryption `pulumi:"encryption"`
+	// ARM resource id of the EnterprisePolicy.
+	Id string `pulumi:"id"`
 	// The identity of the EnterprisePolicy.
 	Identity *EnterprisePolicyIdentityResponse `pulumi:"identity"`
 	// Region where the EnterprisePolicy is located.

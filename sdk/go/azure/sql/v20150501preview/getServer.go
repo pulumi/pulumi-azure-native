@@ -31,6 +31,8 @@ type LookupServerResult struct {
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
 	// The fully qualified domain name of the server.
 	FullyQualifiedDomainName string `pulumi:"fullyQualifiedDomainName"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// The Azure Active Directory identity of the server.
 	Identity *ResourceIdentityResponse `pulumi:"identity"`
 	// Kind of sql server. This is metadata used for the Azure portal experience.

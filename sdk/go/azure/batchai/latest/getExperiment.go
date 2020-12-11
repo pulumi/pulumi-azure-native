@@ -29,6 +29,8 @@ type LookupExperimentArgs struct {
 type LookupExperimentResult struct {
 	// Time when the Experiment was created.
 	CreationTime string `pulumi:"creationTime"`
+	// The ID of the resource.
+	Id string `pulumi:"id"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The provisioned state of the experiment

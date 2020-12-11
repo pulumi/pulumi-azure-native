@@ -29,6 +29,8 @@ type LookupSpatialAnchorsAccountResult struct {
 	AccountDomain string `pulumi:"accountDomain"`
 	// unique id of certain Spatial Anchors Account data contract.
 	AccountId string `pulumi:"accountId"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The identity associated with this account
 	Identity *IdentityResponse `pulumi:"identity"`
 	// The geo-location where the resource lives

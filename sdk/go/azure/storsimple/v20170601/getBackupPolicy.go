@@ -31,6 +31,8 @@ type LookupBackupPolicyArgs struct {
 type LookupBackupPolicyResult struct {
 	// The backup policy creation type. Indicates whether this was created through SaaS or through StorSimple Snapshot Manager.
 	BackupPolicyCreationType string `pulumi:"backupPolicyCreationType"`
+	// The path ID that uniquely identifies the object.
+	Id string `pulumi:"id"`
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind *string `pulumi:"kind"`
 	// The time of the last backup for the backup policy.

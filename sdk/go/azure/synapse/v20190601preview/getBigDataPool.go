@@ -37,6 +37,8 @@ type LookupBigDataPoolResult struct {
 	DefaultSparkLogFolder *string `pulumi:"defaultSparkLogFolder"`
 	// Whether library requirements changed.
 	HaveLibraryRequirementsChanged *bool `pulumi:"haveLibraryRequirementsChanged"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// Whether compute isolation is required or not.
 	IsComputeIsolationEnabled *bool `pulumi:"isComputeIsolationEnabled"`
 	// Library version requirements

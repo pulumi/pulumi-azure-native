@@ -27,6 +27,8 @@ type LookupNamespaceAuthorizationRuleArgs struct {
 
 // Single item in a List or Get AuthorizationRule operation
 type LookupNamespaceAuthorizationRuleResult struct {
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name

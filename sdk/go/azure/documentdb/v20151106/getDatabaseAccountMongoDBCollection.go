@@ -29,6 +29,8 @@ type LookupDatabaseAccountMongoDBCollectionArgs struct {
 
 // An Azure Cosmos DB MongoDB collection.
 type LookupDatabaseAccountMongoDBCollectionResult struct {
+	// The unique resource identifier of the database account.
+	Id string `pulumi:"id"`
 	// List of index keys
 	Indexes []MongoIndexResponse `pulumi:"indexes"`
 	// The location of the resource group to which the resource belongs.

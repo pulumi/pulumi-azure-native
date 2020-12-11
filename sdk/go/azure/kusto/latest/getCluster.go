@@ -37,6 +37,8 @@ type LookupClusterResult struct {
 	EnableStreamingIngest *bool `pulumi:"enableStreamingIngest"`
 	// The engine type
 	EngineType *string `pulumi:"engineType"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The identity of the cluster, if configured.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// KeyVault properties for the cluster encryption.

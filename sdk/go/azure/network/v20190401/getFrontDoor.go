@@ -39,6 +39,8 @@ type LookupFrontDoorResult struct {
 	FrontendEndpoints []FrontendEndpointResponse `pulumi:"frontendEndpoints"`
 	// Health probe settings associated with this Front Door instance.
 	HealthProbeSettings []HealthProbeSettingsModelResponse `pulumi:"healthProbeSettings"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Load balancing settings associated with this Front Door instance.
 	LoadBalancingSettings []LoadBalancingSettingsModelResponse `pulumi:"loadBalancingSettings"`
 	// Resource location.

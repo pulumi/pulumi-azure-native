@@ -41,6 +41,8 @@ type LookupVpnConnectionResult struct {
 	EnableRateLimiting *bool `pulumi:"enableRateLimiting"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// Ingress bytes transferred.
 	IngressBytesTransferred int `pulumi:"ingressBytesTransferred"`
 	// The IPSec Policies to be considered by this connection.

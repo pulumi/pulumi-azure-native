@@ -33,6 +33,8 @@ type LookupBillingRoleAssignmentByBillingAccountResult struct {
 	CreatedByUserEmailAddress string `pulumi:"createdByUserEmailAddress"`
 	// The date the role assignment was created.
 	CreatedOn string `pulumi:"createdOn"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The principal id of the user to whom the role was assigned.

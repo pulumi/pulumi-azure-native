@@ -39,6 +39,8 @@ type LookupRecordSetResult struct {
 	Etag *string `pulumi:"etag"`
 	// Fully qualified domain name of the record set.
 	Fqdn string `pulumi:"fqdn"`
+	// Fully qualified resource Id for the resource. Example - '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateDnsZoneName}'.
+	Id string `pulumi:"id"`
 	// Is the record set auto-registered in the Private DNS zone through a virtual network link?
 	IsAutoRegistered bool `pulumi:"isAutoRegistered"`
 	// The metadata attached to the record set.

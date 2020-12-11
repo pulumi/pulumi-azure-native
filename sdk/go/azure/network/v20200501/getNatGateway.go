@@ -29,6 +29,8 @@ type LookupNatGatewayArgs struct {
 type LookupNatGatewayResult struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// The idle timeout of the nat gateway.
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
 	// Resource location.

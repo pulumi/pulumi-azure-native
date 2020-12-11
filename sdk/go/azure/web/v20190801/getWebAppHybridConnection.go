@@ -31,6 +31,8 @@ type LookupWebAppHybridConnectionArgs struct {
 type LookupWebAppHybridConnectionResult struct {
 	// The hostname of the endpoint.
 	Hostname *string `pulumi:"hostname"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.

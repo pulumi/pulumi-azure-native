@@ -35,6 +35,8 @@ type LookupAttachedDatabaseConfigurationResult struct {
 	DatabaseName string `pulumi:"databaseName"`
 	// The default principals modification kind
 	DefaultPrincipalsModificationKind string `pulumi:"defaultPrincipalsModificationKind"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the resource

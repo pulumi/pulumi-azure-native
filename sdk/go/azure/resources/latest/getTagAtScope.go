@@ -23,6 +23,8 @@ type LookupTagAtScopeArgs struct {
 
 // Wrapper resource for tags API requests and responses.
 type LookupTagAtScopeResult struct {
+	// The ID of the tags wrapper resource.
+	Id string `pulumi:"id"`
 	// The name of the tags wrapper resource.
 	Name string `pulumi:"name"`
 	// The set of tags.

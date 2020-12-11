@@ -37,6 +37,8 @@ type LookupMachineResult struct {
 	ErrorDetails []ErrorDetailResponse `pulumi:"errorDetails"`
 	// Machine Extensions information
 	Extensions []MachineExtensionInstanceViewResponse `pulumi:"extensions"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// The time of the last status change.
 	LastStatusChange string `pulumi:"lastStatusChange"`
 	// Resource location

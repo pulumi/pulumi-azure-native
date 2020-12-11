@@ -32,6 +32,8 @@ type LookupLoggerResult struct {
 	Credentials map[string]string `pulumi:"credentials"`
 	// Logger description.
 	Description *string `pulumi:"description"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Whether records are buffered in the logger before publishing. Default is assumed to be true.
 	IsBuffered *bool `pulumi:"isBuffered"`
 	// Logger type.

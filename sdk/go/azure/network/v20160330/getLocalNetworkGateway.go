@@ -31,6 +31,8 @@ type LookupLocalNetworkGatewayResult struct {
 	Etag *string `pulumi:"etag"`
 	// IP address of local network gateway.
 	GatewayIpAddress *string `pulumi:"gatewayIpAddress"`
+	// Resource Id
+	Id *string `pulumi:"id"`
 	// Local network site Address space
 	LocalNetworkAddressSpace *AddressSpaceResponse `pulumi:"localNetworkAddressSpace"`
 	// Resource location

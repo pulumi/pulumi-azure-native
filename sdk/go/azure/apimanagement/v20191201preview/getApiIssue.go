@@ -37,6 +37,8 @@ type LookupApiIssueResult struct {
 	CreatedDate *string `pulumi:"createdDate"`
 	// Text describing the issue.
 	Description string `pulumi:"description"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Status of the issue.

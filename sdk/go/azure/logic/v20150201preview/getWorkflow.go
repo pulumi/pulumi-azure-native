@@ -34,6 +34,8 @@ type LookupWorkflowResult struct {
 	Definition interface{} `pulumi:"definition"`
 	// Gets or sets the link to definition.
 	DefinitionLink *ContentLinkResponse `pulumi:"definitionLink"`
+	// Gets or sets the resource id.
+	Id *string `pulumi:"id"`
 	// Gets or sets the resource location.
 	Location *string `pulumi:"location"`
 	// Gets the resource name.

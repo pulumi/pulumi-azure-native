@@ -37,6 +37,8 @@ type LookupSubnetResult struct {
 	Delegations []DelegationResponse `pulumi:"delegations"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// Array of IP configuration profiles which reference this subnet.
 	IpConfigurationProfiles []IPConfigurationProfileResponse `pulumi:"ipConfigurationProfiles"`
 	// An array of references to the network interface IP configurations using subnet.

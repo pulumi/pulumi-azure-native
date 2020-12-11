@@ -31,6 +31,8 @@ type LookupProximityPlacementGroupResult struct {
 	AvailabilitySets []SubResourceWithColocationStatusResponse `pulumi:"availabilitySets"`
 	// Describes colocation status of the Proximity Placement Group.
 	ColocationStatus *InstanceViewStatusResponse `pulumi:"colocationStatus"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name

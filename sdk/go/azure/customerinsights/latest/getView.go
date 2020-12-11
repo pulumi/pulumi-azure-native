@@ -37,6 +37,8 @@ type LookupViewResult struct {
 	Definition string `pulumi:"definition"`
 	// Localized display name for the view.
 	DisplayName map[string]string `pulumi:"displayName"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// the hub name.

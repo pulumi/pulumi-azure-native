@@ -31,6 +31,8 @@ type LookupEventHubResult struct {
 	CaptureDescription *CaptureDescriptionResponse `pulumi:"captureDescription"`
 	// Exact time the Event Hub was created.
 	CreatedAt string `pulumi:"createdAt"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Number of days to retain the events for this Event Hub, value should be 1 to 7 days
 	MessageRetentionInDays *int `pulumi:"messageRetentionInDays"`
 	// Resource name.

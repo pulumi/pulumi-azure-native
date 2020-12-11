@@ -27,6 +27,8 @@ type LookupInstanceFailoverGroupArgs struct {
 
 // An instance failover group.
 type LookupInstanceFailoverGroupResult struct {
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// List of managed instance pairs in the failover group.
 	ManagedInstancePairs []ManagedInstancePairInfoResponse `pulumi:"managedInstancePairs"`
 	// Resource name.

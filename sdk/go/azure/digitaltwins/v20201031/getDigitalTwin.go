@@ -29,6 +29,8 @@ type LookupDigitalTwinResult struct {
 	CreatedTime string `pulumi:"createdTime"`
 	// Api endpoint to work with DigitalTwinsInstance.
 	HostName string `pulumi:"hostName"`
+	// The resource identifier.
+	Id string `pulumi:"id"`
 	// Time when DigitalTwinsInstance was updated.
 	LastUpdatedTime string `pulumi:"lastUpdatedTime"`
 	// The resource location.

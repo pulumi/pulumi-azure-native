@@ -31,6 +31,8 @@ type LookupClusterResult struct {
 	EnableDiskEncryption *bool `pulumi:"enableDiskEncryption"`
 	// A boolean value that indicates if the streaming ingest is enabled.
 	EnableStreamingIngest *bool `pulumi:"enableStreamingIngest"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The identity of the cluster, if configured.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// KeyVault properties for the cluster encryption.

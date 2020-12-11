@@ -39,6 +39,8 @@ type LookupExpressRouteCircuitConnectionResult struct {
 	Etag string `pulumi:"etag"`
 	// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
 	ExpressRouteCircuitPeering *SubResourceResponse `pulumi:"expressRouteCircuitPeering"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// IPv6 Address PrefixProperties of the express route circuit connection.
 	Ipv6CircuitConnectionConfig *Ipv6CircuitConnectionConfigResponse `pulumi:"ipv6CircuitConnectionConfig"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.

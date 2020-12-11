@@ -35,6 +35,8 @@ type LookupRunbookResult struct {
 	Draft *RunbookDraftResponse `pulumi:"draft"`
 	// Gets or sets the etag of the resource.
 	Etag *string `pulumi:"etag"`
+	// Fully qualified resource Id for the resource
+	Id string `pulumi:"id"`
 	// Gets or sets the job count of the runbook.
 	JobCount *int `pulumi:"jobCount"`
 	// Gets or sets the last modified by.

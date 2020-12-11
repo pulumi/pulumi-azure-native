@@ -39,6 +39,8 @@ type LookupWebAppHostNameBindingSlotResult struct {
 	DomainId *string `pulumi:"domainId"`
 	// Hostname type.
 	HostNameType *string `pulumi:"hostNameType"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.

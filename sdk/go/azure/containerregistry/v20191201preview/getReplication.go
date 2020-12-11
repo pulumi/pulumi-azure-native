@@ -27,6 +27,8 @@ type LookupReplicationArgs struct {
 
 // An object that represents a replication for a container registry.
 type LookupReplicationResult struct {
+	// The resource ID.
+	Id string `pulumi:"id"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location string `pulumi:"location"`
 	// The name of the resource.

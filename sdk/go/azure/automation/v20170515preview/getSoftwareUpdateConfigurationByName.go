@@ -33,6 +33,8 @@ type LookupSoftwareUpdateConfigurationByNameResult struct {
 	CreationTime string `pulumi:"creationTime"`
 	// Details of provisioning error
 	Error *ErrorResponseResponse `pulumi:"error"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// LastModifiedBy property, which only appears in the response.
 	LastModifiedBy string `pulumi:"lastModifiedBy"`
 	// Last time resource was modified, which only appears in the response.

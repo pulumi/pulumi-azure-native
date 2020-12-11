@@ -33,6 +33,8 @@ type LookupVirtualMachineScaleSetResult struct {
 	DoNotRunExtensionsOnOverprovisionedVMs *bool `pulumi:"doNotRunExtensionsOnOverprovisionedVMs"`
 	// Specifies information about the dedicated host group that the virtual machine scale set resides in. <br><br>Minimum api-version: 2020-06-01.
 	HostGroup *SubResourceResponse `pulumi:"hostGroup"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// The identity of the virtual machine scale set, if configured.
 	Identity *VirtualMachineScaleSetIdentityResponse `pulumi:"identity"`
 	// Resource location

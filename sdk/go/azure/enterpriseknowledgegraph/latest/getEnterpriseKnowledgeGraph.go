@@ -25,6 +25,8 @@ type LookupEnterpriseKnowledgeGraphArgs struct {
 
 // EnterpriseKnowledgeGraph resource definition
 type LookupEnterpriseKnowledgeGraphResult struct {
+	// Specifies the resource ID.
+	Id string `pulumi:"id"`
 	// Specifies the location of the resource.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the resource.

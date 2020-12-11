@@ -37,6 +37,8 @@ type LookupPrivateLinkServiceResult struct {
 	Etag string `pulumi:"etag"`
 	// The list of Fqdn.
 	Fqdns []string `pulumi:"fqdns"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// An array of private link service IP configurations.
 	IpConfigurations []PrivateLinkServiceIpConfigurationResponse `pulumi:"ipConfigurations"`
 	// An array of references to the load balancer IP configurations.

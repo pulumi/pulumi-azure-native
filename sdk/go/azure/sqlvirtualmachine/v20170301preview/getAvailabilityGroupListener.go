@@ -31,6 +31,8 @@ type LookupAvailabilityGroupListenerResult struct {
 	AvailabilityGroupName *string `pulumi:"availabilityGroupName"`
 	// Create a default availability group if it does not exist.
 	CreateDefaultAvailabilityGroupIfNotExist *bool `pulumi:"createDefaultAvailabilityGroupIfNotExist"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// List of load balancer configurations for an availability group listener.
 	LoadBalancerConfigurations []LoadBalancerConfigurationResponse `pulumi:"loadBalancerConfigurations"`
 	// Resource name.

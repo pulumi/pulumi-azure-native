@@ -35,6 +35,8 @@ type LookupIdentityProviderResult struct {
 	ClientId string `pulumi:"clientId"`
 	// Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
 	ClientSecret *string `pulumi:"clientSecret"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Password Reset Policy Name. Only applies to AAD B2C Identity Provider.

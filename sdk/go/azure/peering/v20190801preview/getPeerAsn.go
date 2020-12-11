@@ -23,6 +23,8 @@ type LookupPeerAsnArgs struct {
 
 // The essential information related to the peer's ASN.
 type LookupPeerAsnResult struct {
+	// The ID of the resource.
+	Id string `pulumi:"id"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The Autonomous System Number (ASN) of the peer.

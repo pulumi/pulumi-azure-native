@@ -27,8 +27,10 @@ type LookupAdaptiveApplicationControlResult struct {
 	// The configuration status of the VM/server group or machine or rule on the machine
 	ConfigurationStatus *string `pulumi:"configurationStatus"`
 	// The application control policy enforcement/protection mode of the VM/server group
-	EnforcementMode *string                               `pulumi:"enforcementMode"`
-	Issues          []AppWhitelistingIssueSummaryResponse `pulumi:"issues"`
+	EnforcementMode *string `pulumi:"enforcementMode"`
+	// Resource Id
+	Id     string                                `pulumi:"id"`
+	Issues []AppWhitelistingIssueSummaryResponse `pulumi:"issues"`
 	// Location where the resource is stored
 	Location string `pulumi:"location"`
 	// Resource name

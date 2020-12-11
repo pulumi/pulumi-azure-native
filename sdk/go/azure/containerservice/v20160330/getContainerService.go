@@ -29,6 +29,8 @@ type LookupContainerServiceResult struct {
 	AgentPoolProfiles []ContainerServiceAgentPoolProfileResponse `pulumi:"agentPoolProfiles"`
 	// Properties of the diagnostic agent.
 	DiagnosticsProfile *ContainerServiceDiagnosticsProfileResponse `pulumi:"diagnosticsProfile"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Properties of Linux VMs.
 	LinuxProfile ContainerServiceLinuxProfileResponse `pulumi:"linuxProfile"`
 	// Resource location

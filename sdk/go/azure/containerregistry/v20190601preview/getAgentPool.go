@@ -30,6 +30,8 @@ type LookupAgentPoolArgs struct {
 type LookupAgentPoolResult struct {
 	// The count of agent machine
 	Count *int `pulumi:"count"`
+	// The resource ID.
+	Id string `pulumi:"id"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location string `pulumi:"location"`
 	// The name of the resource.

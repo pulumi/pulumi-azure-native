@@ -28,6 +28,8 @@ type LookupQueueArgs struct {
 type LookupQueueResult struct {
 	// Integer indicating an approximate number of messages in the queue. This number is not lower than the actual number of messages in the queue, but could be higher.
 	ApproximateMessageCount int `pulumi:"approximateMessageCount"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// A name-value pair that represents queue metadata.
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the resource

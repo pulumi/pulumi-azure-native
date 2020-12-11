@@ -27,6 +27,8 @@ type LookupSecurityContactResult struct {
 	AlertNotifications *SecurityContactPropertiesResponseAlertNotifications `pulumi:"alertNotifications"`
 	// List of email addresses which will get notifications from Azure Security Center by the configurations defined in this security contact.
 	Emails *string `pulumi:"emails"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// Defines whether to send email notifications from Azure Security Center to persons with specific RBAC roles on the subscription.

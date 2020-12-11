@@ -43,6 +43,8 @@ type LookupWorkspaceResult struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
 	HbiWorkspace *bool `pulumi:"hbiWorkspace"`
+	// Specifies the resource ID.
+	Id string `pulumi:"id"`
 	// The identity of the resource.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// The compute name for image build

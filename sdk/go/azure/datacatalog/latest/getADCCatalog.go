@@ -31,6 +31,8 @@ type LookupADCCatalogResult struct {
 	EnableAutomaticUnitAdjustment *bool `pulumi:"enableAutomaticUnitAdjustment"`
 	// Resource etag
 	Etag *string `pulumi:"etag"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name

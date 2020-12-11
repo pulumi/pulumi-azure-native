@@ -33,6 +33,8 @@ type LookupFactoryResult struct {
 	Encryption *EncryptionConfigurationResponse `pulumi:"encryption"`
 	// List of parameters for factory.
 	GlobalParameters map[string]GlobalParameterSpecificationResponse `pulumi:"globalParameters"`
+	// The resource identifier.
+	Id string `pulumi:"id"`
 	// Managed service identity of the factory.
 	Identity *FactoryIdentityResponse `pulumi:"identity"`
 	// The resource location.

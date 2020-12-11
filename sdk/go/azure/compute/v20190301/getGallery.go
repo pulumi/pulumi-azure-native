@@ -27,6 +27,8 @@ type LookupGalleryArgs struct {
 type LookupGalleryResult struct {
 	// The description of this Shared Image Gallery resource. This property is updatable.
 	Description *string `pulumi:"description"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Describes the gallery unique name.
 	Identifier *GalleryIdentifierResponse `pulumi:"identifier"`
 	// Resource location

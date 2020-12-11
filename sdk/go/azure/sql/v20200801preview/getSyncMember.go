@@ -35,6 +35,8 @@ type LookupSyncMemberResult struct {
 	DatabaseName *string `pulumi:"databaseName"`
 	// Database type of the sync member.
 	DatabaseType *string `pulumi:"databaseType"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Password of the member database in the sync member.

@@ -27,6 +27,8 @@ type LookupBandwidthSettingArgs struct {
 
 // The bandwidth setting.
 type LookupBandwidthSettingResult struct {
+	// The path ID that uniquely identifies the object.
+	Id string `pulumi:"id"`
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind *string `pulumi:"kind"`
 	// The name of the object.

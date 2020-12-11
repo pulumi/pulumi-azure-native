@@ -31,6 +31,8 @@ type LookupRelationshipLinkResult struct {
 	Description map[string]string `pulumi:"description"`
 	// Localized display name for the Relationship Link.
 	DisplayName map[string]string `pulumi:"displayName"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// The InteractionType associated with the Relationship Link.
 	InteractionType string `pulumi:"interactionType"`
 	// The name of the Relationship Link.

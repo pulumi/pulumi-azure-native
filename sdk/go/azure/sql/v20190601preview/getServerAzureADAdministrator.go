@@ -31,6 +31,8 @@ type LookupServerAzureADAdministratorResult struct {
 	AdministratorType string `pulumi:"administratorType"`
 	// Azure Active Directory only Authentication enabled.
 	AzureADOnlyAuthentication bool `pulumi:"azureADOnlyAuthentication"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Login name of the server administrator.
 	Login string `pulumi:"login"`
 	// Resource name.

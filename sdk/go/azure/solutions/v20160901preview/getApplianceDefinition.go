@@ -33,6 +33,8 @@ type LookupApplianceDefinitionResult struct {
 	Description *string `pulumi:"description"`
 	// The appliance definition display name.
 	DisplayName *string `pulumi:"displayName"`
+	// Resource ID
+	Id string `pulumi:"id"`
 	// The identity of the resource.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// Resource location

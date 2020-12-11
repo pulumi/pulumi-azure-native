@@ -41,6 +41,8 @@ type LookupPolicyResult struct {
 	FactData *string `pulumi:"factData"`
 	// The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
 	FactName *string `pulumi:"factName"`
+	// The identifier of the resource.
+	Id string `pulumi:"id"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.

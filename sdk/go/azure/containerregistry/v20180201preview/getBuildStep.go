@@ -29,6 +29,8 @@ type LookupBuildStepArgs struct {
 
 // Build step resource properties
 type LookupBuildStepResult struct {
+	// The resource ID.
+	Id string `pulumi:"id"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The properties of a build step.

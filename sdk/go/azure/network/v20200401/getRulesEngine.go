@@ -27,6 +27,8 @@ type LookupRulesEngineArgs struct {
 
 // A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
 type LookupRulesEngineResult struct {
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Resource status.

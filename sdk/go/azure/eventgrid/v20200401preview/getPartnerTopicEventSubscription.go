@@ -45,6 +45,8 @@ type LookupPartnerTopicEventSubscriptionResult struct {
 	ExpirationTimeUtc *string `pulumi:"expirationTimeUtc"`
 	// Information about the filter for the event subscription.
 	Filter *EventSubscriptionFilterResponse `pulumi:"filter"`
+	// Fully qualified identifier of the resource.
+	Id string `pulumi:"id"`
 	// List of user defined labels.
 	Labels []string `pulumi:"labels"`
 	// Name of the resource

@@ -51,6 +51,8 @@ type LookupPoolResult struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The ETag of the resource, used for concurrency statements.
 	Etag string `pulumi:"etag"`
+	// The ID of the resource.
+	Id string `pulumi:"id"`
 	// This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
 	InterNodeCommunication *string `pulumi:"interNodeCommunication"`
 	// This is the last time at which the pool level data, such as the targetDedicatedNodes or autoScaleSettings, changed. It does not factor in node-level changes such as a compute node changing state.

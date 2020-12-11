@@ -35,6 +35,8 @@ type LookupContainerResult struct {
 	CreatedDateTime string `pulumi:"createdDateTime"`
 	// DataFormat for Container
 	DataFormat string `pulumi:"dataFormat"`
+	// The path ID that uniquely identifies the object.
+	Id string `pulumi:"id"`
 	// The object name.
 	Name string `pulumi:"name"`
 	// Details of the refresh job on this container.

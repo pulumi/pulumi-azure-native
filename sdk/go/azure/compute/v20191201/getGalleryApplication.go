@@ -33,6 +33,8 @@ type LookupGalleryApplicationResult struct {
 	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
 	// The Eula agreement for the gallery Application Definition.
 	Eula *string `pulumi:"eula"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name

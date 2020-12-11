@@ -35,6 +35,8 @@ type LookupEventHubConnectionResult struct {
 	DataFormat *string `pulumi:"dataFormat"`
 	// The resource ID of the event hub to be used to create a data connection.
 	EventHubResourceId string `pulumi:"eventHubResourceId"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.

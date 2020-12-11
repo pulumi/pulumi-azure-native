@@ -31,6 +31,8 @@ type LookupPrivateStoreOfferResult struct {
 	ETag *string `pulumi:"eTag"`
 	// Icon File Uris
 	IconFileUris map[string]string `pulumi:"iconFileUris"`
+	// The resource ID.
+	Id string `pulumi:"id"`
 	// Private store offer modification date
 	ModifiedAt string `pulumi:"modifiedAt"`
 	// The name of the resource.

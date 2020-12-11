@@ -35,6 +35,8 @@ type LookupBackupResult struct {
 	BackupType string `pulumi:"backupType"`
 	// The creation date of the backup
 	CreationDate string `pulumi:"creationDate"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Label for backup
 	Label *string `pulumi:"label"`
 	// Resource location

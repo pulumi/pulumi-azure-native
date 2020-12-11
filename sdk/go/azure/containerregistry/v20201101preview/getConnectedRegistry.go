@@ -33,6 +33,8 @@ type LookupConnectedRegistryResult struct {
 	ClientTokenIds []string `pulumi:"clientTokenIds"`
 	// The current connection state of the connected registry.
 	ConnectionState string `pulumi:"connectionState"`
+	// The resource ID.
+	Id string `pulumi:"id"`
 	// The last activity time of the connected registry.
 	LastActivityTime string `pulumi:"lastActivityTime"`
 	// The logging properties of the connected registry.

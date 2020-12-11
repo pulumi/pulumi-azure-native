@@ -33,6 +33,8 @@ type LookupConnectionTypeResult struct {
 	Description *string `pulumi:"description"`
 	// Gets the field definitions of the connection type.
 	FieldDefinitions map[string]FieldDefinitionResponse `pulumi:"fieldDefinitions"`
+	// Gets the id of the resource.
+	Id string `pulumi:"id"`
 	// Gets or sets a Boolean value to indicate if the connection type is global.
 	IsGlobal *bool `pulumi:"isGlobal"`
 	// Gets or sets the last modified time.

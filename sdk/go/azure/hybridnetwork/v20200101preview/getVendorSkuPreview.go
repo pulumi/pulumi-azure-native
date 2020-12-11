@@ -27,6 +27,8 @@ type LookupVendorSkuPreviewArgs struct {
 
 // Customer subscription which can use a sku.
 type LookupVendorSkuPreviewResult struct {
+	// The ARM ID of the resource.
+	Id string `pulumi:"id"`
 	// The preview subscription ID.
 	Name string `pulumi:"name"`
 	// The type of the resource.

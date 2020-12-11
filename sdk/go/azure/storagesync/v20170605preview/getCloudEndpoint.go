@@ -33,6 +33,8 @@ type LookupCloudEndpointResult struct {
 	BackupEnabled bool `pulumi:"backupEnabled"`
 	// Friendly Name
 	FriendlyName *string `pulumi:"friendlyName"`
+	// The id of the resource.
+	Id string `pulumi:"id"`
 	// CloudEndpoint lastWorkflowId
 	LastWorkflowId *string `pulumi:"lastWorkflowId"`
 	// The name of the resource.

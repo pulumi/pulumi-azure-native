@@ -105,6 +105,8 @@ type ListWebAppAuthSettingsSlotResult struct {
 	// This setting is optional. If not specified, "openid", "profile", and "email" are used as default scopes.
 	// Google Sign-In documentation: https://developers.google.com/identity/sign-in/web/
 	GoogleOAuthScopes []string `pulumi:"googleOAuthScopes"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// "true" if the auth config settings should be read from a file,
 	// "false" otherwise
 	IsAuthFromFile *string `pulumi:"isAuthFromFile"`

@@ -43,6 +43,8 @@ type LookupAgreementResult struct {
 	HostIdentity BusinessIdentityResponse `pulumi:"hostIdentity"`
 	// The integration account partner that is set as host partner for this agreement.
 	HostPartner string `pulumi:"hostPartner"`
+	// The resource id.
+	Id string `pulumi:"id"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The metadata.

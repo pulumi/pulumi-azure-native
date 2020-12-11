@@ -29,6 +29,8 @@ type LookupProtectionPolicyArgs struct {
 type LookupProtectionPolicyResult struct {
 	// Optional ETag.
 	ETag *string `pulumi:"eTag"`
+	// Resource Id represents the complete path to the resource.
+	Id string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name associated with the resource.

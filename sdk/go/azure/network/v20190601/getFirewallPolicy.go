@@ -35,6 +35,8 @@ type LookupFirewallPolicyResult struct {
 	Etag string `pulumi:"etag"`
 	// List of references to Azure Firewalls that this Firewall Policy is associated with
 	Firewalls []SubResourceResponse `pulumi:"firewalls"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.

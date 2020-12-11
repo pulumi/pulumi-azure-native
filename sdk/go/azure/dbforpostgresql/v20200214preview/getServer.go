@@ -44,6 +44,8 @@ type LookupServerResult struct {
 	HaEnabled *string `pulumi:"haEnabled"`
 	// A state of a HA server that is visible to user.
 	HaState string `pulumi:"haState"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The Azure Active Directory identity of the server.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// The geo-location where the resource lives

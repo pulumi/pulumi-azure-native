@@ -31,6 +31,8 @@ type LookupAutomationResult struct {
 	Description *string `pulumi:"description"`
 	// Entity tag is used for comparing two or more entities from the same requested resource.
 	Etag *string `pulumi:"etag"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Indicates whether the security automation is enabled.
 	IsEnabled *bool `pulumi:"isEnabled"`
 	// Kind of the resource

@@ -29,6 +29,8 @@ type LookupSqlPoolsV3Args struct {
 type LookupSqlPoolsV3Result struct {
 	// The current service level objective name of the sql pool.
 	CurrentServiceObjectiveName string `pulumi:"currentServiceObjectiveName"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// Kind of SqlPool.
 	Kind string `pulumi:"kind"`
 	// The geo-location where the resource lives

@@ -23,6 +23,8 @@ type LookupOnPremiseIotSensorArgs struct {
 
 // On-premise IoT sensor
 type LookupOnPremiseIotSensorResult struct {
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// Resource type

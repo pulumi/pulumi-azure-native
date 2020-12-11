@@ -31,6 +31,8 @@ type LookupCertificateResult struct {
 	ChangedTime string `pulumi:"changedTime"`
 	// The created time.
 	CreatedTime string `pulumi:"createdTime"`
+	// The resource id.
+	Id string `pulumi:"id"`
 	// The key details in the key vault.
 	Key *KeyVaultKeyReferenceResponse `pulumi:"key"`
 	// The resource location.

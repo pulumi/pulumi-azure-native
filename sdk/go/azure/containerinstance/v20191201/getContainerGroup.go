@@ -33,6 +33,8 @@ type LookupContainerGroupResult struct {
 	DnsConfig *DnsConfigurationResponse `pulumi:"dnsConfig"`
 	// The encryption properties for a container group.
 	EncryptionProperties *EncryptionPropertiesResponse `pulumi:"encryptionProperties"`
+	// The resource id.
+	Id string `pulumi:"id"`
 	// The identity of the container group, if configured.
 	Identity *ContainerGroupIdentityResponse `pulumi:"identity"`
 	// The image registry credentials by which the container group is created from.

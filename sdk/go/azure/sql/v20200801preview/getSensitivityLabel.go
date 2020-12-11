@@ -37,6 +37,8 @@ type LookupSensitivityLabelArgs struct {
 type LookupSensitivityLabelResult struct {
 	// The column name.
 	ColumnName string `pulumi:"columnName"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// The information type.
 	InformationType *string `pulumi:"informationType"`
 	// The information type ID.

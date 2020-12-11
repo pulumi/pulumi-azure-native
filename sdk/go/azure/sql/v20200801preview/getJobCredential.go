@@ -29,6 +29,8 @@ type LookupJobCredentialArgs struct {
 
 // A stored credential that can be used by a job to connect to target databases.
 type LookupJobCredentialResult struct {
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The credential password.

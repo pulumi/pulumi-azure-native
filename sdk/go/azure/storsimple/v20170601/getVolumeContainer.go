@@ -37,6 +37,8 @@ type LookupVolumeContainerResult struct {
 	EncryptionKey *AsymmetricEncryptedSecretResponse `pulumi:"encryptionKey"`
 	// The flag to denote whether encryption is enabled or not.
 	EncryptionStatus string `pulumi:"encryptionStatus"`
+	// The path ID that uniquely identifies the object.
+	Id string `pulumi:"id"`
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind *string `pulumi:"kind"`
 	// The name of the object.

@@ -31,6 +31,8 @@ type LookupAutomationAccountResult struct {
 	Description *string `pulumi:"description"`
 	// Gets or sets the etag of the resource.
 	Etag *string `pulumi:"etag"`
+	// Fully qualified resource Id for the resource
+	Id string `pulumi:"id"`
 	// Gets or sets the last modified by.
 	LastModifiedBy *string `pulumi:"lastModifiedBy"`
 	// Gets the last modified time.

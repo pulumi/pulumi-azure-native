@@ -37,6 +37,8 @@ type LookupGalleryImageResult struct {
 	Eula *string `pulumi:"eula"`
 	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// This is the gallery Image Definition identifier.
 	Identifier GalleryImageIdentifierResponse `pulumi:"identifier"`
 	// Resource location

@@ -27,6 +27,8 @@ type LookupArtifactArgs struct {
 
 // Represents a Blueprint artifact.
 type LookupArtifactResult struct {
+	// String Id used to locate any resource on Azure.
+	Id string `pulumi:"id"`
 	// Specifies the kind of Blueprint artifact.
 	Kind string `pulumi:"kind"`
 	// Name of this resource.

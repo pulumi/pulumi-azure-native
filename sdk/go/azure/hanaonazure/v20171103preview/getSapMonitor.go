@@ -43,6 +43,8 @@ type LookupSapMonitorResult struct {
 	HanaHostname *string `pulumi:"hanaHostname"`
 	// Specifies the SAP monitor unique ID.
 	HanaSubnet *string `pulumi:"hanaSubnet"`
+	// Resource ID
+	Id string `pulumi:"id"`
 	// Key Vault ID containing customer's HANA credentials.
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// Resource location

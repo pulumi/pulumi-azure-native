@@ -31,6 +31,8 @@ type LookupEndpointResult struct {
 	ContentTypesToCompress []string `pulumi:"contentTypesToCompress"`
 	// The host name of the endpoint {endpointName}.{DNSZone}
 	HostName string `pulumi:"hostName"`
+	// Resource ID
+	Id string `pulumi:"id"`
 	// Indicates whether the compression is enabled. Default value is false. If compression is enabled, the content transferred from cdn endpoint to end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.
 	IsCompressionEnabled *bool `pulumi:"isCompressionEnabled"`
 	// Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.

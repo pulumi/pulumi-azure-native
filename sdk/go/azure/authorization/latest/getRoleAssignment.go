@@ -25,6 +25,8 @@ type LookupRoleAssignmentArgs struct {
 
 // Role Assignments
 type LookupRoleAssignmentResult struct {
+	// The role assignment ID.
+	Id string `pulumi:"id"`
 	// The role assignment name.
 	Name string `pulumi:"name"`
 	// Role assignment properties.

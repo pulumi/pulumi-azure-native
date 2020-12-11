@@ -31,6 +31,8 @@ type LookupControllerDetailsResult struct {
 	DncEndpoint string `pulumi:"dncEndpoint"`
 	// tenant id of dnc application id
 	DncTenantId string `pulumi:"dncTenantId"`
+	// An identifier that represents the resource.
+	Id string `pulumi:"id"`
 	// Location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the resource.

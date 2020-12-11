@@ -38,6 +38,8 @@ type LookupSignalRResult struct {
 	Features []SignalRFeatureResponse `pulumi:"features"`
 	// FQDN of the SignalR service instance. Format: xxx.service.signalr.net
 	HostName string `pulumi:"hostName"`
+	// Fully qualified resource Id for the resource.
+	Id string `pulumi:"id"`
 	// The managed identity response
 	Identity *ManagedIdentityResponse `pulumi:"identity"`
 	// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"

@@ -27,6 +27,8 @@ type LookupRoleAssignmentArgs struct {
 type LookupRoleAssignmentResult struct {
 	// The Delegation flag for the role assignment
 	CanDelegate *bool `pulumi:"canDelegate"`
+	// The role assignment ID.
+	Id string `pulumi:"id"`
 	// The role assignment name.
 	Name string `pulumi:"name"`
 	// The principal ID.

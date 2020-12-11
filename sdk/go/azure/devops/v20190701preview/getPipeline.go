@@ -27,6 +27,8 @@ type LookupPipelineArgs struct {
 type LookupPipelineResult struct {
 	// Configuration used to bootstrap the Pipeline.
 	BootstrapConfiguration BootstrapConfigurationResponse `pulumi:"bootstrapConfiguration"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource Location
 	Location *string `pulumi:"location"`
 	// Resource Name

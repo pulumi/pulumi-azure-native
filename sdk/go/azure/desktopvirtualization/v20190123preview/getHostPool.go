@@ -35,6 +35,8 @@ type LookupHostPoolResult struct {
 	FriendlyName *string `pulumi:"friendlyName"`
 	// HostPool type for desktop.
 	HostPoolType string `pulumi:"hostPoolType"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The type of the load balancer.
 	LoadBalancerType string `pulumi:"loadBalancerType"`
 	// The geo-location where the resource lives

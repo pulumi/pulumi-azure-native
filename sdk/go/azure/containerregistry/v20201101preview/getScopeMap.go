@@ -35,6 +35,8 @@ type LookupScopeMapResult struct {
 	CreationDate string `pulumi:"creationDate"`
 	// The user friendly description of the scope map.
 	Description *string `pulumi:"description"`
+	// The resource ID.
+	Id string `pulumi:"id"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// Provisioning state of the resource.

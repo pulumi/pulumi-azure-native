@@ -27,6 +27,8 @@ type LookupLinkedWorkspaceArgs struct {
 
 // Linked workspace.
 type LookupLinkedWorkspaceResult struct {
+	// ResourceId of the link of the linked workspace.
+	Id string `pulumi:"id"`
 	// Friendly name of the linked workspace.
 	Name string `pulumi:"name"`
 	// LinkedWorkspace specific properties.

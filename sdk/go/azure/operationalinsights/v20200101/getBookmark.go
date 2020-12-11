@@ -35,6 +35,8 @@ type LookupBookmarkResult struct {
 	DisplayName string `pulumi:"displayName"`
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
+	// Azure resource Id
+	Id string `pulumi:"id"`
 	// Describes an incident that relates to bookmark
 	IncidentInfo *IncidentInfoResponse `pulumi:"incidentInfo"`
 	// List of labels relevant to this bookmark

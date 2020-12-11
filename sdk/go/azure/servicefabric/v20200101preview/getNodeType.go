@@ -35,6 +35,8 @@ type LookupNodeTypeResult struct {
 	DataDiskSizeGB int `pulumi:"dataDiskSizeGB"`
 	// The range of ephemeral ports that nodes in this node type should be configured with.
 	EphemeralPorts *EndpointRangeDescriptionResponse `pulumi:"ephemeralPorts"`
+	// Azure resource identifier.
+	Id string `pulumi:"id"`
 	// The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
 	IsPrimary bool `pulumi:"isPrimary"`
 	// Azure resource name.

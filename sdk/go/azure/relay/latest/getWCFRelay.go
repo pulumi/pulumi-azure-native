@@ -29,6 +29,8 @@ type LookupWCFRelayArgs struct {
 type LookupWCFRelayResult struct {
 	// The time the WCF relay was created.
 	CreatedAt string `pulumi:"createdAt"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Returns true if the relay is dynamic; otherwise, false.
 	IsDynamic bool `pulumi:"isDynamic"`
 	// The number of listeners for this relay. Note that min :1 and max:25 are supported.

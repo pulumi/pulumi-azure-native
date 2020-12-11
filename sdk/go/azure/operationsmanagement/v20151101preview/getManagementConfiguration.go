@@ -25,6 +25,8 @@ type LookupManagementConfigurationArgs struct {
 
 // The container for solution.
 type LookupManagementConfigurationResult struct {
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name.

@@ -31,6 +31,8 @@ type LookupContentKeyPolicyResult struct {
 	Created string `pulumi:"created"`
 	// A description for the Policy.
 	Description *string `pulumi:"description"`
+	// Fully qualified resource ID for the resource.
+	Id string `pulumi:"id"`
 	// The last modified date of the Policy
 	LastModified string `pulumi:"lastModified"`
 	// The name of the resource.

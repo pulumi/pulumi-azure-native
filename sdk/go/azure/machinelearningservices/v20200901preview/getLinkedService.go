@@ -27,6 +27,8 @@ type LookupLinkedServiceArgs struct {
 
 // Linked service.
 type LookupLinkedServiceResult struct {
+	// ResourceId of the link of the linked service.
+	Id string `pulumi:"id"`
 	// Identity for the resource.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// location of the linked service.

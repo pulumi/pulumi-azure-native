@@ -37,6 +37,8 @@ type LookupManagedInstanceResult struct {
 	DnsZonePartner *string `pulumi:"dnsZonePartner"`
 	// The fully qualified domain name of the managed instance.
 	FullyQualifiedDomainName string `pulumi:"fullyQualifiedDomainName"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// The Azure Active Directory identity of the managed instance.
 	Identity *ResourceIdentityResponse `pulumi:"identity"`
 	// The Id of the instance pool this managed server belongs to.

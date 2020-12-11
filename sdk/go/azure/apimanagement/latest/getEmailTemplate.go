@@ -31,6 +31,8 @@ type LookupEmailTemplateResult struct {
 	Body string `pulumi:"body"`
 	// Description of the Email Template.
 	Description *string `pulumi:"description"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Whether the template is the default template provided by Api Management or has been edited.
 	IsDefault bool `pulumi:"isDefault"`
 	// Resource name.

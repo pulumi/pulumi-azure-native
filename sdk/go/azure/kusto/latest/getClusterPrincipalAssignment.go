@@ -27,6 +27,8 @@ type LookupClusterPrincipalAssignmentArgs struct {
 
 // Class representing a cluster principal assignment.
 type LookupClusterPrincipalAssignmentResult struct {
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.

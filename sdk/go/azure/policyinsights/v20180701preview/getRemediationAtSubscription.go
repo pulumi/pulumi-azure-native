@@ -29,6 +29,8 @@ type LookupRemediationAtSubscriptionResult struct {
 	DeploymentStatus *RemediationDeploymentSummaryResponse `pulumi:"deploymentStatus"`
 	// The filters that will be applied to determine which resources to remediate.
 	Filters *RemediationFiltersResponse `pulumi:"filters"`
+	// The ID of the remediation.
+	Id string `pulumi:"id"`
 	// The time at which the remediation was last updated.
 	LastUpdatedOn string `pulumi:"lastUpdatedOn"`
 	// The name of the remediation.

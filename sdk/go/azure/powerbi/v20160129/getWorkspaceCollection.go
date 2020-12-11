@@ -24,6 +24,8 @@ type LookupWorkspaceCollectionArgs struct {
 }
 
 type LookupWorkspaceCollectionResult struct {
+	// Resource id
+	Id *string `pulumi:"id"`
 	// Azure location
 	Location *string `pulumi:"location"`
 	// Workspace collection name

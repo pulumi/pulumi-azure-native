@@ -45,6 +45,8 @@ type LookupIncidentResult struct {
 	Etag *string `pulumi:"etag"`
 	// The time of the first activity in the incident
 	FirstActivityTimeUtc *string `pulumi:"firstActivityTimeUtc"`
+	// Azure resource Id
+	Id string `pulumi:"id"`
 	// A sequential number
 	IncidentNumber int `pulumi:"incidentNumber"`
 	// The deep-link url to the incident in Azure portal

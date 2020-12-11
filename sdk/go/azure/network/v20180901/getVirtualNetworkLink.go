@@ -29,6 +29,8 @@ type LookupVirtualNetworkLinkArgs struct {
 type LookupVirtualNetworkLinkResult struct {
 	// The ETag of the virtual network link.
 	Etag *string `pulumi:"etag"`
+	// Fully qualified resource Id for the resource. Example - '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateDnsZoneName}'.
+	Id string `pulumi:"id"`
 	// The Azure Region where the resource lives
 	Location *string `pulumi:"location"`
 	// The name of the resource

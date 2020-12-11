@@ -29,6 +29,8 @@ type LookupHybridLinkArgs struct {
 type LookupHybridLinkResult struct {
 	// The distributed availability group id
 	DistributedAvailabilityGroupId string `pulumi:"distributedAvailabilityGroupId"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The primary availability group name

@@ -33,6 +33,8 @@ type LookupAnalyticsItemArgs struct {
 type LookupAnalyticsItemResult struct {
 	// The content of this item
 	Content *string `pulumi:"content"`
+	// Internally assigned unique id of the item definition.
+	Id *string `pulumi:"id"`
 	// The user-defined name of the item.
 	Name *string `pulumi:"name"`
 	// A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.

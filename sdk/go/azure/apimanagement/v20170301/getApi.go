@@ -43,6 +43,8 @@ type LookupApiResult struct {
 	Description *string `pulumi:"description"`
 	// API name.
 	DisplayName *string `pulumi:"displayName"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Indicates if API revision is current api revision.
 	IsCurrent bool `pulumi:"isCurrent"`
 	// Indicates if API revision is accessible via the gateway.

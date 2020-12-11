@@ -25,6 +25,8 @@ type LookupCostAllocationRuleArgs struct {
 
 // The cost allocation rule model definition
 type LookupCostAllocationRuleResult struct {
+	// Azure Resource Manager Id for the rule. This is a read ony value.
+	Id string `pulumi:"id"`
 	// Name of the rule. This is a read only value.
 	Name string `pulumi:"name"`
 	// Cost allocation rule properties

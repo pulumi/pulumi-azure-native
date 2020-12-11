@@ -41,6 +41,8 @@ type LookupWebAppSiteExtensionResult struct {
 	FeedUrl *string `pulumi:"feedUrl"`
 	// Icon URL.
 	IconUrl *string `pulumi:"iconUrl"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Installer command line parameters.
 	InstallationArgs *string `pulumi:"installationArgs"`
 	// Installed timestamp.

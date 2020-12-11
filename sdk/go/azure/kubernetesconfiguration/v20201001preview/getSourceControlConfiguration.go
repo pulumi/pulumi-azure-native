@@ -39,6 +39,8 @@ type LookupSourceControlConfigurationResult struct {
 	EnableHelmOperator *bool `pulumi:"enableHelmOperator"`
 	// Properties for Helm operator.
 	HelmOperatorProperties *HelmOperatorPropertiesResponse `pulumi:"helmOperatorProperties"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// Instance name of the operator - identifying the specific configuration.

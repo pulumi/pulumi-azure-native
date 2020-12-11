@@ -28,6 +28,8 @@ type LookupRuleSetArgs struct {
 // Friendly RuleSet name mapping to the any RuleSet or secret related information.
 type LookupRuleSetResult struct {
 	DeploymentStatus string `pulumi:"deploymentStatus"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Provisioning status

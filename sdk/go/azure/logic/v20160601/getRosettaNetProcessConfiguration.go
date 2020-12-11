@@ -35,6 +35,8 @@ type LookupRosettaNetProcessConfigurationResult struct {
 	CreatedTime string `pulumi:"createdTime"`
 	// The integration account RosettaNet ProcessConfiguration properties.
 	Description *string `pulumi:"description"`
+	// The resource id.
+	Id string `pulumi:"id"`
 	// The RosettaNet initiator role settings.
 	InitiatorRoleSettings RosettaNetPipRoleSettingsResponse `pulumi:"initiatorRoleSettings"`
 	// The resource location.

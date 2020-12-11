@@ -37,6 +37,8 @@ type LookupApiManagementServiceResult struct {
 	Etag *string `pulumi:"etag"`
 	// Custom hostname configuration of the API Management service.
 	HostnameConfigurations []HostnameConfigurationResponse `pulumi:"hostnameConfigurations"`
+	// The ID of the created API Management service.
+	Id string `pulumi:"id"`
 	// Datacenter location of the API Management service.
 	Location string `pulumi:"location"`
 	// Management API endpoint URL of the API Management service.

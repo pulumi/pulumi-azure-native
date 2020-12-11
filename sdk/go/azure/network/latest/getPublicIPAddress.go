@@ -35,6 +35,8 @@ type LookupPublicIPAddressResult struct {
 	Etag string `pulumi:"etag"`
 	// The extended location of the public ip address.
 	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// The idle timeout of the public IP address.
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
 	// The IP address associated with the public IP address resource.

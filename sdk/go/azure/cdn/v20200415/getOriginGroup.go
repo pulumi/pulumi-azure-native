@@ -31,6 +31,8 @@ type LookupOriginGroupArgs struct {
 type LookupOriginGroupResult struct {
 	// Health probe settings to the origin that is used to determine the health of the origin.
 	HealthProbeSettings *HealthProbeParametersResponse `pulumi:"healthProbeSettings"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The source of the content being delivered via CDN within given origin group.

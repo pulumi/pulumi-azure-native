@@ -25,6 +25,8 @@ type GetgetbotArgs struct {
 
 // Bot resource definition
 type GetgetbotResult struct {
+	// Fully qualified resource Id for the resource.
+	Id string `pulumi:"id"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the resource

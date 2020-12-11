@@ -25,6 +25,8 @@ type LookupTenantConfigurationArgs struct {
 type LookupTenantConfigurationResult struct {
 	// When flag is set to true Markdown tile will require external storage configuration (URI). The inline content configuration will be prohibited.
 	EnforcePrivateMarkdownStorage *bool `pulumi:"enforcePrivateMarkdownStorage"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

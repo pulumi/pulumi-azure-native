@@ -31,4 +31,6 @@ type GetGlobalUserPersonalPreferencesArgs struct {
 type GetGlobalUserPersonalPreferencesResult struct {
 	// Array of favorite lab resource ids
 	FavoriteLabResourceIds []string `pulumi:"favoriteLabResourceIds"`
+	// Id to be used by the cache orchestrator
+	Id *string `pulumi:"id"`
 }

@@ -27,6 +27,8 @@ type ListWebAppSitePushSettingsArgs struct {
 type ListWebAppSitePushSettingsResult struct {
 	// Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
 	DynamicTagsJson *string `pulumi:"dynamicTagsJson"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Gets or sets a flag indicating whether the Push endpoint is enabled.
 	IsPushEnabled bool `pulumi:"isPushEnabled"`
 	// Kind of resource.

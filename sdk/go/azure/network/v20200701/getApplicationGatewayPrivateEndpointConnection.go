@@ -29,6 +29,8 @@ type LookupApplicationGatewayPrivateEndpointConnectionArgs struct {
 type LookupApplicationGatewayPrivateEndpointConnectionResult struct {
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// The consumer link id.
 	LinkIdentifier string `pulumi:"linkIdentifier"`
 	// Name of the private endpoint connection on an application gateway.

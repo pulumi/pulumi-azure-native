@@ -33,6 +33,8 @@ type LookupPublicIPPrefixResult struct {
 	Etag string `pulumi:"etag"`
 	// The extended location of the public ip address.
 	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// The allocated Prefix.
 	IpPrefix string `pulumi:"ipPrefix"`
 	// The list of tags associated with the public IP prefix.

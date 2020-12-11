@@ -37,6 +37,8 @@ type LookupNetworkVirtualApplianceResult struct {
 	CloudInitConfigurationBlobs []string `pulumi:"cloudInitConfigurationBlobs"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// The service principal that has read access to cloud-init and config blob.
 	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
 	// List of references to InboundSecurityRules.

@@ -29,6 +29,8 @@ type LookupSynchronizationSettingArgs struct {
 
 // A Synchronization Setting data transfer object.
 type LookupSynchronizationSettingResult struct {
+	// The resource id of the azure resource
+	Id string `pulumi:"id"`
 	// Kind of synchronization
 	Kind string `pulumi:"kind"`
 	// Name of the azure resource

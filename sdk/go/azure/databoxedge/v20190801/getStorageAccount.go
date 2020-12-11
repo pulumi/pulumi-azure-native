@@ -35,6 +35,8 @@ type LookupStorageAccountResult struct {
 	DataPolicy *string `pulumi:"dataPolicy"`
 	// Description for the storage Account.
 	Description *string `pulumi:"description"`
+	// The path ID that uniquely identifies the object.
+	Id string `pulumi:"id"`
 	// The object name.
 	Name string `pulumi:"name"`
 	// Storage Account Credential Id

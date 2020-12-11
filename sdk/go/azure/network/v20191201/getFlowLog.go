@@ -35,6 +35,8 @@ type LookupFlowLogResult struct {
 	FlowAnalyticsConfiguration *TrafficAnalyticsPropertiesResponse `pulumi:"flowAnalyticsConfiguration"`
 	// Parameters that define the flow log format.
 	Format *FlowLogFormatParametersResponse `pulumi:"format"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.

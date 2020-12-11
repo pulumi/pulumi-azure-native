@@ -31,6 +31,8 @@ type LookupPublicIPAddressResult struct {
 	DnsSettings *PublicIPAddressDnsSettingsResponse `pulumi:"dnsSettings"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// Resource Identifier.
+	Id *string `pulumi:"id"`
 	// The idle timeout of the public IP address.
 	IdleTimeoutInMinutes *int    `pulumi:"idleTimeoutInMinutes"`
 	IpAddress            *string `pulumi:"ipAddress"`

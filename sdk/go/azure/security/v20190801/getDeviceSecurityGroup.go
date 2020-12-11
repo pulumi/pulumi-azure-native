@@ -29,6 +29,8 @@ type LookupDeviceSecurityGroupResult struct {
 	AllowlistRules []AllowlistCustomAlertRuleResponse `pulumi:"allowlistRules"`
 	// The deny-list custom alert rules.
 	DenylistRules []DenylistCustomAlertRuleResponse `pulumi:"denylistRules"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// The list of custom alert threshold rules.

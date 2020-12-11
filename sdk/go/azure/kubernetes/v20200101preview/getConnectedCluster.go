@@ -35,6 +35,8 @@ type LookupConnectedClusterResult struct {
 	ConnectivityStatus *string `pulumi:"connectivityStatus"`
 	// The Kubernetes distribution running on this connected cluster.
 	Distribution *string `pulumi:"distribution"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The identity of the connected cluster.
 	Identity ConnectedClusterIdentityResponse `pulumi:"identity"`
 	// The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.

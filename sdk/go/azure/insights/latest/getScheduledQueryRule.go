@@ -31,6 +31,8 @@ type LookupScheduledQueryRuleResult struct {
 	Description *string `pulumi:"description"`
 	// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
 	Enabled *string `pulumi:"enabled"`
+	// Azure resource Id
+	Id string `pulumi:"id"`
 	// Last time the rule was updated in IS08601 format.
 	LastUpdatedTime string `pulumi:"lastUpdatedTime"`
 	// Resource location

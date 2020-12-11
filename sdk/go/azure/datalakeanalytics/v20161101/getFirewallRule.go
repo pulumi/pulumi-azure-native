@@ -29,6 +29,8 @@ type LookupFirewallRuleArgs struct {
 type LookupFirewallRuleResult struct {
 	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
 	EndIpAddress string `pulumi:"endIpAddress"`
+	// The resource identifier.
+	Id string `pulumi:"id"`
 	// The resource name.
 	Name string `pulumi:"name"`
 	// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.

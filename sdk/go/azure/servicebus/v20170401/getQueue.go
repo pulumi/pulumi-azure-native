@@ -51,6 +51,8 @@ type LookupQueueResult struct {
 	ForwardDeadLetteredMessagesTo *string `pulumi:"forwardDeadLetteredMessagesTo"`
 	// Queue/Topic name to forward the messages
 	ForwardTo *string `pulumi:"forwardTo"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
 	LockDuration *string `pulumi:"lockDuration"`
 	// The maximum delivery count. A message is automatically deadlettered after this number of deliveries. default value is 10.

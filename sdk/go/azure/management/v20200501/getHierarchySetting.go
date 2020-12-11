@@ -25,6 +25,8 @@ type LookupHierarchySettingArgs struct {
 type LookupHierarchySettingResult struct {
 	// Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
 	DefaultManagementGroup *string `pulumi:"defaultManagementGroup"`
+	// The fully qualified ID for the settings object.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000/settings/default.
+	Id string `pulumi:"id"`
 	// The name of the object. In this case, default.
 	Name string `pulumi:"name"`
 	// Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.

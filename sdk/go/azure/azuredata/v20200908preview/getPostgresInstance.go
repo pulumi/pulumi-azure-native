@@ -29,6 +29,8 @@ type LookupPostgresInstanceResult struct {
 	Admin *string `pulumi:"admin"`
 	// The data controller id
 	DataControllerId *string `pulumi:"dataControllerId"`
+	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The raw kubernetes information
 	K8sRaw interface{} `pulumi:"k8sRaw"`
 	// Last uploaded date from on premise cluster. Defaults to current date time

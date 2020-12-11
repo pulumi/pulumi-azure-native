@@ -29,6 +29,8 @@ type LookupTopicAuthorizationRuleArgs struct {
 
 // Description of a namespace authorization rule.
 type LookupTopicAuthorizationRuleResult struct {
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// The rights associated with the rule.

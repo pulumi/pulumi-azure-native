@@ -35,6 +35,8 @@ type LookupSqlPoolWorkloadClassifierResult struct {
 	Context *string `pulumi:"context"`
 	// The workload classifier end time for classification.
 	EndTime *string `pulumi:"endTime"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The workload classifier importance.
 	Importance *string `pulumi:"importance"`
 	// The workload classifier label.

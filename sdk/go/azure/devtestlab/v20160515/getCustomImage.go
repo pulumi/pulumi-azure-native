@@ -35,6 +35,8 @@ type LookupCustomImageResult struct {
 	CreationDate string `pulumi:"creationDate"`
 	// The description of the custom image.
 	Description *string `pulumi:"description"`
+	// The identifier of the resource.
+	Id string `pulumi:"id"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The Managed Image Id backing the custom image.

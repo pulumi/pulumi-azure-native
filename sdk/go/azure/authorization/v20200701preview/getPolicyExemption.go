@@ -33,6 +33,8 @@ type LookupPolicyExemptionResult struct {
 	ExemptionCategory string `pulumi:"exemptionCategory"`
 	// The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
 	ExpiresOn *string `pulumi:"expiresOn"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
 	Metadata interface{} `pulumi:"metadata"`
 	// The name of the resource

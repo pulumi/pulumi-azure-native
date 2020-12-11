@@ -29,6 +29,8 @@ type LookupIntegrationRuntimeArgs struct {
 type LookupIntegrationRuntimeResult struct {
 	// Etag identifies change in the resource.
 	Etag string `pulumi:"etag"`
+	// The resource identifier.
+	Id string `pulumi:"id"`
 	// The resource name.
 	Name string `pulumi:"name"`
 	// Integration runtime properties.

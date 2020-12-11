@@ -27,6 +27,8 @@ type LookupNamespaceArgs struct {
 type LookupNamespaceResult struct {
 	// The time the namespace was created
 	CreatedAt string `pulumi:"createdAt"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Enumerates the possible value of keySource for Encryption
 	KeySource *string `pulumi:"keySource"`
 	// Properties of KeyVault

@@ -30,6 +30,8 @@ type LookupAssessmentsMetadataSubscriptionResult struct {
 	Description *string `pulumi:"description"`
 	// User friendly display name of the assessment
 	DisplayName string `pulumi:"displayName"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// The implementation effort required to remediate this assessment
 	ImplementationEffort *string `pulumi:"implementationEffort"`
 	// Resource name

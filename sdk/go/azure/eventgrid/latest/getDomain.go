@@ -27,6 +27,8 @@ type LookupDomainArgs struct {
 type LookupDomainResult struct {
 	// Endpoint for the domain.
 	Endpoint string `pulumi:"endpoint"`
+	// Fully qualified identifier of the resource.
+	Id string `pulumi:"id"`
 	// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
 	InboundIpRules []InboundIpRuleResponse `pulumi:"inboundIpRules"`
 	// This determines the format that Event Grid should expect for incoming events published to the domain.

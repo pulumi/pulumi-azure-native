@@ -37,6 +37,8 @@ type LookupVolumeResult struct {
 	BackupPolicyIds []string `pulumi:"backupPolicyIds"`
 	// The backup status of the volume.
 	BackupStatus string `pulumi:"backupStatus"`
+	// The path ID that uniquely identifies the object.
+	Id string `pulumi:"id"`
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind *string `pulumi:"kind"`
 	// The monitoring status of the volume.

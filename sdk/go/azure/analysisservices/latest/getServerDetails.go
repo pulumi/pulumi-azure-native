@@ -31,6 +31,8 @@ type LookupServerDetailsResult struct {
 	BackupBlobContainerUri *string `pulumi:"backupBlobContainerUri"`
 	// The gateway details configured for the AS server.
 	GatewayDetails *GatewayDetailsResponse `pulumi:"gatewayDetails"`
+	// An identifier that represents the Analysis Services resource.
+	Id string `pulumi:"id"`
 	// The firewall settings for the AS server.
 	IpV4FirewallSettings *IPv4FirewallSettingsResponse `pulumi:"ipV4FirewallSettings"`
 	// Location of the Analysis Services resource.

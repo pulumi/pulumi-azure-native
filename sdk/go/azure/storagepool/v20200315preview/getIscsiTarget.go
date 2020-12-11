@@ -27,6 +27,8 @@ type LookupIscsiTargetArgs struct {
 
 // Payload for iSCSI Target Create or Update requests.
 type LookupIscsiTargetResult struct {
+	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// State of the operation on the resource

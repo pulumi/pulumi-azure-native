@@ -33,6 +33,8 @@ type LookupApiOperationResult struct {
 	Description *string `pulumi:"description"`
 	// Operation Name.
 	DisplayName string `pulumi:"displayName"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
 	Method string `pulumi:"method"`
 	// Resource name.

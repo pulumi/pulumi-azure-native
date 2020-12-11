@@ -33,6 +33,8 @@ type LookupProductResult struct {
 	Description *string `pulumi:"description"`
 	// Product name.
 	DisplayName string `pulumi:"displayName"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.

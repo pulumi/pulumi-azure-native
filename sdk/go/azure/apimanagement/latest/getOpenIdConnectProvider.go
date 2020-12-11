@@ -35,6 +35,8 @@ type LookupOpenIdConnectProviderResult struct {
 	Description *string `pulumi:"description"`
 	// User-friendly OpenID Connect Provider name.
 	DisplayName string `pulumi:"displayName"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Metadata endpoint URI.
 	MetadataEndpoint string `pulumi:"metadataEndpoint"`
 	// Resource name.

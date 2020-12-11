@@ -33,6 +33,8 @@ type LookupDataStoreResult struct {
 	DataStoreTypeId string `pulumi:"dataStoreTypeId"`
 	// A generic json used differently by each data source type.
 	ExtendedProperties interface{} `pulumi:"extendedProperties"`
+	// Id of the object.
+	Id string `pulumi:"id"`
 	// Name of the object.
 	Name string `pulumi:"name"`
 	// Arm Id for the manager resource to which the data source is associated. This is optional.

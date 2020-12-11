@@ -29,6 +29,8 @@ type LookupAccessPolicyArgs struct {
 type LookupAccessPolicyResult struct {
 	// An description of the access policy.
 	Description *string `pulumi:"description"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// The objectId of the principal in Azure Active Directory.

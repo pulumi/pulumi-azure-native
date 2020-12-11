@@ -33,6 +33,8 @@ type LookupSnapshotArgs struct {
 type LookupSnapshotResult struct {
 	// The creation date of the snapshot
 	Created string `pulumi:"created"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name

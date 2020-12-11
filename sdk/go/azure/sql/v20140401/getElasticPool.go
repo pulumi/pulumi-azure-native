@@ -37,6 +37,8 @@ type LookupElasticPoolResult struct {
 	Dtu *int `pulumi:"dtu"`
 	// The edition of the elastic pool.
 	Edition *string `pulumi:"edition"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Kind of elastic pool.  This is metadata used for the Azure portal experience.
 	Kind string `pulumi:"kind"`
 	// Resource location.

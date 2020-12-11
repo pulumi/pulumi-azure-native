@@ -27,6 +27,8 @@ type LookupComputePolicyArgs struct {
 
 // Data Lake Analytics compute policy information.
 type LookupComputePolicyResult struct {
+	// The resource identifier.
+	Id string `pulumi:"id"`
 	// The maximum degree of parallelism per job this user can use to submit jobs.
 	MaxDegreeOfParallelismPerJob int `pulumi:"maxDegreeOfParallelismPerJob"`
 	// The minimum priority per job this user can use to submit jobs.

@@ -25,6 +25,8 @@ type LookupManagedHsmArgs struct {
 
 // Resource information with extended details.
 type LookupManagedHsmResult struct {
+	// The Azure Resource Manager resource ID for the managed HSM Pool.
+	Id string `pulumi:"id"`
 	// The supported Azure location where the managed HSM Pool should be created.
 	Location *string `pulumi:"location"`
 	// The name of the managed HSM Pool.

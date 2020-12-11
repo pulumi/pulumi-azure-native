@@ -33,6 +33,8 @@ type LookupIpGroupResult struct {
 	FirewallPolicies []SubResourceResponse `pulumi:"firewallPolicies"`
 	// List of references to Firewall resources that this IpGroups is associated with.
 	Firewalls []SubResourceResponse `pulumi:"firewalls"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// IpAddresses/IpAddressPrefixes in the IpGroups resource.
 	IpAddresses []string `pulumi:"ipAddresses"`
 	// Resource location.

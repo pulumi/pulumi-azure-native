@@ -27,6 +27,8 @@ type LookupMaintenanceConfigurationArgs struct {
 type LookupMaintenanceConfigurationResult struct {
 	// Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
 	ExtensionProperties map[string]string `pulumi:"extensionProperties"`
+	// Fully qualified identifier of the resource
+	Id string `pulumi:"id"`
 	// Gets or sets location of the resource
 	Location *string `pulumi:"location"`
 	// Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance

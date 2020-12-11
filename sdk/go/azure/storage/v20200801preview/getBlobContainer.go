@@ -41,6 +41,8 @@ type LookupBlobContainerResult struct {
 	HasImmutabilityPolicy bool `pulumi:"hasImmutabilityPolicy"`
 	// The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
 	HasLegalHold bool `pulumi:"hasLegalHold"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The ImmutabilityPolicy property of the container.
 	ImmutabilityPolicy ImmutabilityPolicyPropertiesResponse `pulumi:"immutabilityPolicy"`
 	// Returns the date and time the container was last modified.

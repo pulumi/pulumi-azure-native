@@ -29,6 +29,8 @@ type LookupElasticPoolArgs struct {
 type LookupElasticPoolResult struct {
 	// The creation date of the elastic pool (ISO8601 format).
 	CreationDate string `pulumi:"creationDate"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Kind of elastic pool. This is metadata used for the Azure portal experience.
 	Kind string `pulumi:"kind"`
 	// The license type to apply for this elastic pool.

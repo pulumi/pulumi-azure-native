@@ -33,6 +33,8 @@ type LookupNetworkSecurityGroupResult struct {
 	Etag string `pulumi:"etag"`
 	// A collection of references to flow log resources.
 	FlowLogs []FlowLogResponse `pulumi:"flowLogs"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.

@@ -27,6 +27,8 @@ type LookupMachineLearningComputeArgs struct {
 
 // Machine Learning compute object wrapped into ARM resource envelope.
 type LookupMachineLearningComputeResult struct {
+	// Specifies the resource ID.
+	Id string `pulumi:"id"`
 	// The identity of the resource.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// Specifies the location of the resource.

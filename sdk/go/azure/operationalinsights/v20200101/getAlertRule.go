@@ -29,6 +29,8 @@ type LookupAlertRuleArgs struct {
 type LookupAlertRuleResult struct {
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
+	// Azure resource Id
+	Id string `pulumi:"id"`
 	// The alert rule kind
 	Kind string `pulumi:"kind"`
 	// Azure resource name

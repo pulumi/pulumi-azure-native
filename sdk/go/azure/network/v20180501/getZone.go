@@ -27,6 +27,8 @@ type LookupZoneArgs struct {
 type LookupZoneResult struct {
 	// The etag of the zone.
 	Etag *string `pulumi:"etag"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.

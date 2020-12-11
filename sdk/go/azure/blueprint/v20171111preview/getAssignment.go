@@ -29,6 +29,8 @@ type LookupAssignmentResult struct {
 	Description *string `pulumi:"description"`
 	// One-liner string explain this resource.
 	DisplayName *string `pulumi:"displayName"`
+	// String Id used to locate any resource on Azure.
+	Id string `pulumi:"id"`
 	// Managed Service Identity for this Blueprint assignment
 	Identity ManagedServiceIdentityResponse `pulumi:"identity"`
 	// The location of this Blueprint assignment.

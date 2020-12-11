@@ -25,6 +25,8 @@ type LookupDeploymentAtScopeArgs struct {
 
 // Deployment information.
 type LookupDeploymentAtScopeResult struct {
+	// The ID of the deployment.
+	Id string `pulumi:"id"`
 	// the location of the deployment.
 	Location *string `pulumi:"location"`
 	// The name of the deployment.

@@ -29,6 +29,8 @@ type LookupDisasterRecoveryConfigArgs struct {
 type LookupDisasterRecoveryConfigResult struct {
 	// Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
 	AlternateName *string `pulumi:"alternateName"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource name
 	Name string `pulumi:"name"`
 	// ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing

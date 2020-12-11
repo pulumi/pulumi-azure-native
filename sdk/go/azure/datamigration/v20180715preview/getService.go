@@ -27,6 +27,8 @@ type LookupServiceArgs struct {
 type LookupServiceResult struct {
 	// HTTP strong entity tag value. Ignored if submitted
 	Etag *string `pulumi:"etag"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// The resource kind. Only 'vm' (the default) is supported.
 	Kind *string `pulumi:"kind"`
 	// Resource location.

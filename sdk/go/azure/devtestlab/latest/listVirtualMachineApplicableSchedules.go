@@ -27,6 +27,8 @@ type ListVirtualMachineApplicableSchedulesArgs struct {
 
 // Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab level.
 type ListVirtualMachineApplicableSchedulesResult struct {
+	// The identifier of the resource.
+	Id string `pulumi:"id"`
 	// The auto-shutdown schedule, if one has been set at the lab or lab resource level.
 	LabVmsShutdown *ScheduleResponse `pulumi:"labVmsShutdown"`
 	// The auto-startup schedule, if one has been set at the lab or lab resource level.

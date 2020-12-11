@@ -43,6 +43,8 @@ type LookupManagedDatabaseResult struct {
 	EarliestRestorePoint string `pulumi:"earliestRestorePoint"`
 	// Instance Failover Group resource identifier that this managed database belongs to.
 	FailoverGroupId string `pulumi:"failoverGroupId"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Last backup file name for restore of this managed database.
 	LastBackupName *string `pulumi:"lastBackupName"`
 	// Resource location.

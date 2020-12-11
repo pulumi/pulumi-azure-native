@@ -29,6 +29,8 @@ type LookupHybridConnectionArgs struct {
 type LookupHybridConnectionResult struct {
 	// The time the hybrid connection was created.
 	CreatedAt string `pulumi:"createdAt"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// The number of listeners for this hybrid connection. Note that min : 1 and max:25 are supported.
 	ListenerCount int `pulumi:"listenerCount"`
 	// Resource name.

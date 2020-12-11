@@ -29,6 +29,8 @@ type LookupCognitiveServicesAccountResult struct {
 	Endpoint *string `pulumi:"endpoint"`
 	// Entity Tag
 	Etag *string `pulumi:"etag"`
+	// The id of the created account
+	Id *string `pulumi:"id"`
 	// Type of cognitive service account.
 	Kind *string `pulumi:"kind"`
 	// The location of the resource

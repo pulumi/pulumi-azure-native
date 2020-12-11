@@ -40,6 +40,8 @@ type LookupRouteResult struct {
 	ForwardingProtocol *string `pulumi:"forwardingProtocol"`
 	// Whether to automatically redirect HTTP traffic to HTTPS traffic. Note that this is a easy way to set up this rule and it will be the first rule that gets executed.
 	HttpsRedirect *string `pulumi:"httpsRedirect"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// whether this route will be linked to the default endpoint domain.
 	LinkToDefaultDomain *string `pulumi:"linkToDefaultDomain"`
 	// Resource name.

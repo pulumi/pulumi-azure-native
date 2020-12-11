@@ -27,6 +27,8 @@ type LookupDatabaseArgs struct {
 
 // Class representing a Kusto database.
 type LookupDatabaseResult struct {
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// Kind of the database
 	Kind *string `pulumi:"kind"`
 	// Resource location.

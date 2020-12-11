@@ -27,6 +27,8 @@ type LookupDomainOwnershipIdentifierArgs struct {
 
 // Domain ownership Identifier.
 type LookupDomainOwnershipIdentifierResult struct {
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.

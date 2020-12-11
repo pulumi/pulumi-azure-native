@@ -35,6 +35,8 @@ type LookupWorkloadNetworkDnsServiceResult struct {
 	DnsServiceIp *string `pulumi:"dnsServiceIp"`
 	// FQDN zones of the DNS Service.
 	FqdnZones []string `pulumi:"fqdnZones"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// DNS Service log level.
 	LogLevel *string `pulumi:"logLevel"`
 	// Resource name.

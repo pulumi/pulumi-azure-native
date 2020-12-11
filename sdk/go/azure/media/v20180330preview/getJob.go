@@ -33,6 +33,8 @@ type LookupJobResult struct {
 	Created string `pulumi:"created"`
 	// Optional customer supplied description of the Job.
 	Description *string `pulumi:"description"`
+	// Fully qualified resource ID for the resource.
+	Id string `pulumi:"id"`
 	// The inputs for the Job.
 	Input interface{} `pulumi:"input"`
 	// The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.

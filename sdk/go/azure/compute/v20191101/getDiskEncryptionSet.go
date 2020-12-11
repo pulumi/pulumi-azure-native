@@ -27,6 +27,8 @@ type LookupDiskEncryptionSetArgs struct {
 type LookupDiskEncryptionSetResult struct {
 	// The key vault key which is currently used by this disk encryption set.
 	ActiveKey *KeyVaultAndKeyReferenceResponse `pulumi:"activeKey"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
 	Identity *EncryptionSetIdentityResponse `pulumi:"identity"`
 	// Resource location

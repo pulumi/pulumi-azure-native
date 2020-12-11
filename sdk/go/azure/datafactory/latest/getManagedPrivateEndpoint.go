@@ -31,6 +31,8 @@ type LookupManagedPrivateEndpointArgs struct {
 type LookupManagedPrivateEndpointResult struct {
 	// Etag identifies change in the resource.
 	Etag string `pulumi:"etag"`
+	// The resource identifier.
+	Id string `pulumi:"id"`
 	// The resource name.
 	Name string `pulumi:"name"`
 	// Managed private endpoint properties.

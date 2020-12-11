@@ -41,6 +41,8 @@ type LookupLabResult struct {
 	EnvironmentPermission *string `pulumi:"environmentPermission"`
 	// Extended properties of the lab used for experimental features
 	ExtendedProperties map[string]string `pulumi:"extendedProperties"`
+	// The identifier of the resource.
+	Id string `pulumi:"id"`
 	// Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
 	LabStorageType *string `pulumi:"labStorageType"`
 	// The load balancer used to for lab VMs that use shared IP address.

@@ -31,6 +31,8 @@ type LookupExpressRouteConnectionResult struct {
 	AuthorizationKey *string `pulumi:"authorizationKey"`
 	// The ExpressRoute circuit peering.
 	ExpressRouteCircuitPeering ExpressRouteCircuitPeeringIdResponse `pulumi:"expressRouteCircuitPeering"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The provisioning state of the express route connection resource.

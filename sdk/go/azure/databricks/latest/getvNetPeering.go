@@ -37,6 +37,8 @@ type GetvNetPeeringResult struct {
 	DatabricksAddressSpace *AddressSpaceResponse `pulumi:"databricksAddressSpace"`
 	//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
 	DatabricksVirtualNetwork *VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetwork `pulumi:"databricksVirtualNetwork"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Name of the virtual network peering resource
 	Name string `pulumi:"name"`
 	// The status of the virtual network peering.

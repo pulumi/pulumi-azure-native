@@ -41,6 +41,8 @@ type LookupNetworkInterfaceResult struct {
 	ExtendedLocation *ExtendedLocationResponse `pulumi:"extendedLocation"`
 	// A list of references to linked BareMetal resources.
 	HostedWorkloads []string `pulumi:"hostedWorkloads"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// A list of IPConfigurations of the network interface.
 	IpConfigurations []NetworkInterfaceIPConfigurationResponse `pulumi:"ipConfigurations"`
 	// Resource location.

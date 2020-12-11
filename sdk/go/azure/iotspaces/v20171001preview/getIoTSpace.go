@@ -25,6 +25,8 @@ type LookupIoTSpaceArgs struct {
 
 // The description of the IoTSpaces service.
 type LookupIoTSpaceResult struct {
+	// The resource identifier.
+	Id string `pulumi:"id"`
 	// The resource location.
 	Location string `pulumi:"location"`
 	// The resource name.

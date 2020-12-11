@@ -27,6 +27,8 @@ type LookupSyncGroupArgs struct {
 
 // Sync Group object.
 type LookupSyncGroupResult struct {
+	// The id of the resource.
+	Id string `pulumi:"id"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// Sync group status

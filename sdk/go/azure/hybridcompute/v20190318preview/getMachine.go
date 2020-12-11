@@ -35,6 +35,8 @@ type LookupMachineResult struct {
 	DisplayName string `pulumi:"displayName"`
 	// Details about the error state.
 	ErrorDetails []ErrorDetailResponse `pulumi:"errorDetails"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// The time of the last status change.
 	LastStatusChange string `pulumi:"lastStatusChange"`
 	// Resource location

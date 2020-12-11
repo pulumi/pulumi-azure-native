@@ -32,6 +32,8 @@ type LookupClusterResult struct {
 	CurrentNodeCount              int    `pulumi:"currentNodeCount"`
 	// This element contains all the errors encountered by various compute nodes during node setup.
 	Errors []BatchAIErrorResponse `pulumi:"errors"`
+	// The ID of the resource
+	Id string `pulumi:"id"`
 	// The location of the resource
 	Location string `pulumi:"location"`
 	// The name of the resource

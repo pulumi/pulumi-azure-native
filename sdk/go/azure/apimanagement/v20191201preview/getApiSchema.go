@@ -33,6 +33,8 @@ type LookupApiSchemaResult struct {
 	ContentType string `pulumi:"contentType"`
 	// Types definitions. Used for Swagger/OpenAPI schemas only, null otherwise.
 	Definitions interface{} `pulumi:"definitions"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Resource type for API Management resource.

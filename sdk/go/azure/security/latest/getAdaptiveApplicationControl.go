@@ -27,8 +27,10 @@ type LookupAdaptiveApplicationControlResult struct {
 	// The configuration status of the machines group or machine or rule
 	ConfigurationStatus string `pulumi:"configurationStatus"`
 	// The application control policy enforcement/protection mode of the machine group
-	EnforcementMode *string                                          `pulumi:"enforcementMode"`
-	Issues          []AdaptiveApplicationControlIssueSummaryResponse `pulumi:"issues"`
+	EnforcementMode *string `pulumi:"enforcementMode"`
+	// Resource Id
+	Id     string                                           `pulumi:"id"`
+	Issues []AdaptiveApplicationControlIssueSummaryResponse `pulumi:"issues"`
 	// Location where the resource is stored
 	Location string `pulumi:"location"`
 	// Resource name

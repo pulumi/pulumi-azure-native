@@ -43,6 +43,8 @@ type LookupWatchlistResult struct {
 	DisplayName string `pulumi:"displayName"`
 	// Etag of the azure resource
 	Etag *string `pulumi:"etag"`
+	// Azure resource Id
+	Id string `pulumi:"id"`
 	// A flag that indicates if the watchlist is deleted or not
 	IsDeleted *bool `pulumi:"isDeleted"`
 	// List of labels relevant to this watchlist

@@ -37,6 +37,8 @@ type LookupMetricAlertResult struct {
 	Enabled bool `pulumi:"enabled"`
 	// how often the metric alert is evaluated represented in ISO 8601 duration format.
 	EvaluationFrequency string `pulumi:"evaluationFrequency"`
+	// Azure resource Id
+	Id string `pulumi:"id"`
 	// Last time the rule was updated in ISO8601 format.
 	LastUpdatedTime string `pulumi:"lastUpdatedTime"`
 	// Resource location

@@ -34,6 +34,8 @@ type LookupAFDCustomDomainResult struct {
 	DomainValidationState string `pulumi:"domainValidationState"`
 	// The host name of the domain. Must be a domain name.
 	HostName string `pulumi:"hostName"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Provisioning status

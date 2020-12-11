@@ -33,6 +33,8 @@ type LookupApiSchemaResult struct {
 	ContentType string `pulumi:"contentType"`
 	// Properties of the Schema Document.
 	Document interface{} `pulumi:"document"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Resource type for API Management resource.

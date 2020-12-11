@@ -29,6 +29,8 @@ type LookupServerKeyArgs struct {
 type LookupServerKeyResult struct {
 	// The server key creation date.
 	CreationDate string `pulumi:"creationDate"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Kind of encryption protector. This is metadata used for the Azure portal experience.
 	Kind string `pulumi:"kind"`
 	// Resource location.

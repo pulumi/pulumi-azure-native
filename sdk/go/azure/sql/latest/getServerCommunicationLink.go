@@ -27,6 +27,8 @@ type LookupServerCommunicationLinkArgs struct {
 
 // Server communication link.
 type LookupServerCommunicationLinkResult struct {
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Communication link kind.  This property is used for Azure Portal metadata.
 	Kind string `pulumi:"kind"`
 	// Communication link location.

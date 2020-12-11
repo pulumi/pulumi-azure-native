@@ -37,6 +37,8 @@ type LookupApiDiagnosticResult struct {
 	Frontend *PipelineDiagnosticSettingsResponse `pulumi:"frontend"`
 	// Sets correlation protocol to use for Application Insights diagnostics.
 	HttpCorrelationProtocol *string `pulumi:"httpCorrelationProtocol"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Log the ClientIP. Default is false.
 	LogClientIp *bool `pulumi:"logClientIp"`
 	// Resource Id of a target logger.

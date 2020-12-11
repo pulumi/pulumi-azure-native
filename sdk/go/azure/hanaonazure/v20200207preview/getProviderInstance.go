@@ -27,6 +27,8 @@ type LookupProviderInstanceArgs struct {
 
 // A provider instance associated with a SAP monitor.
 type LookupProviderInstanceResult struct {
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// A JSON string containing metadata of the provider instance.
 	Metadata *string `pulumi:"metadata"`
 	// The name of the resource

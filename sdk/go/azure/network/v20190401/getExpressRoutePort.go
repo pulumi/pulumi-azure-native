@@ -37,6 +37,8 @@ type LookupExpressRoutePortResult struct {
 	Etag string `pulumi:"etag"`
 	// Ether type of the physical port.
 	EtherType string `pulumi:"etherType"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// The set of physical links of the ExpressRoutePort resource.
 	Links []ExpressRouteLinkResponse `pulumi:"links"`
 	// Resource location.

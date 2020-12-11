@@ -33,6 +33,8 @@ type LookupLoadBalancerResult struct {
 	Etag *string `pulumi:"etag"`
 	// Gets or sets frontend IP addresses of the load balancer
 	FrontendIPConfigurations []FrontendIPConfigurationResponse `pulumi:"frontendIPConfigurations"`
+	// Resource Id
+	Id *string `pulumi:"id"`
 	// Gets or sets inbound NAT pools
 	InboundNatPools []InboundNatPoolResponse `pulumi:"inboundNatPools"`
 	// Gets or sets list of inbound rules

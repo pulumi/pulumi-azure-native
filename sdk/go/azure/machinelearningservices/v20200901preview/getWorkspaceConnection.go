@@ -31,6 +31,8 @@ type LookupWorkspaceConnectionResult struct {
 	AuthType *string `pulumi:"authType"`
 	// Category of the workspace connection.
 	Category *string `pulumi:"category"`
+	// ResourceId of the workspace connection.
+	Id string `pulumi:"id"`
 	// Friendly name of the workspace connection.
 	Name string `pulumi:"name"`
 	// Target of the workspace connection.

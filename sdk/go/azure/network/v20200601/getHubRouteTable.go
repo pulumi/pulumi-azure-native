@@ -31,6 +31,8 @@ type LookupHubRouteTableResult struct {
 	AssociatedConnections []string `pulumi:"associatedConnections"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// List of labels associated with this route table.
 	Labels []string `pulumi:"labels"`
 	// The name of the resource that is unique within a resource group. This name can be used to access the resource.

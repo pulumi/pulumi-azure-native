@@ -35,6 +35,8 @@ type LookupIscsiServerResult struct {
 	ChapId *string `pulumi:"chapId"`
 	// The description.
 	Description *string `pulumi:"description"`
+	// The identifier.
+	Id string `pulumi:"id"`
 	// The name.
 	Name string `pulumi:"name"`
 	// The reverse chap id.

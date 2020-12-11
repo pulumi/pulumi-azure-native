@@ -27,6 +27,8 @@ type LookupTriggerArgs struct {
 
 // Trigger details.
 type LookupTriggerResult struct {
+	// The path ID that uniquely identifies the object.
+	Id string `pulumi:"id"`
 	// Trigger Kind.
 	Kind string `pulumi:"kind"`
 	// The object name.

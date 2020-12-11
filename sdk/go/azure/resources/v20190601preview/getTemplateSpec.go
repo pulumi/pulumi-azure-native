@@ -31,6 +31,8 @@ type LookupTemplateSpecResult struct {
 	Description *string `pulumi:"description"`
 	// Template Spec display name.
 	DisplayName *string `pulumi:"displayName"`
+	// String Id used to locate any resource on Azure.
+	Id string `pulumi:"id"`
 	// The location of the Template Spec. It cannot be changed after Template Spec creation. It must be one of the supported Azure locations.
 	Location string `pulumi:"location"`
 	// Name of this resource.

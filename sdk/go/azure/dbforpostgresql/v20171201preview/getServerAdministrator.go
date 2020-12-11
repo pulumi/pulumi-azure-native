@@ -27,6 +27,8 @@ type LookupServerAdministratorArgs struct {
 type LookupServerAdministratorResult struct {
 	// The type of administrator.
 	AdministratorType string `pulumi:"administratorType"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The server administrator login account name.
 	Login string `pulumi:"login"`
 	// The name of the resource

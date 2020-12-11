@@ -29,6 +29,8 @@ type LookupInvitationArgs struct {
 
 // A Invitation data transfer object.
 type LookupInvitationResult struct {
+	// The resource id of the azure resource
+	Id string `pulumi:"id"`
 	// unique invitation id
 	InvitationId string `pulumi:"invitationId"`
 	// The status of the invitation.

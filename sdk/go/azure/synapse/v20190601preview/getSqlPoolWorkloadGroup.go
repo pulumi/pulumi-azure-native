@@ -29,6 +29,8 @@ type LookupSqlPoolWorkloadGroupArgs struct {
 
 // Workload group operations for a sql pool
 type LookupSqlPoolWorkloadGroupResult struct {
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The workload group importance level.
 	Importance *string `pulumi:"importance"`
 	// The workload group cap percentage resource.

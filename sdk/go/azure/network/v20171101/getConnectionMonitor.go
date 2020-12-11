@@ -32,6 +32,8 @@ type LookupConnectionMonitorResult struct {
 	// Describes the destination of connection monitor.
 	Destination ConnectionMonitorDestinationResponse `pulumi:"destination"`
 	Etag        *string                              `pulumi:"etag"`
+	// ID of the connection monitor.
+	Id string `pulumi:"id"`
 	// Connection monitor location.
 	Location *string `pulumi:"location"`
 	// Monitoring interval in seconds.

@@ -27,6 +27,8 @@ type ListWebAppSyncFunctionTriggersSlotArgs struct {
 
 // Function secrets.
 type ListWebAppSyncFunctionTriggersSlotResult struct {
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Secret key.
 	Key *string `pulumi:"key"`
 	// Kind of resource.

@@ -29,6 +29,8 @@ type LookupNetworkResult struct {
 	AddressPrefix string `pulumi:"addressPrefix"`
 	// User readable description of the network.
 	Description *string `pulumi:"description"`
+	// Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// Configuration for public connectivity for this network.
 	IngressConfig *IngressConfigResponse `pulumi:"ingressConfig"`
 	// The geo-location where the resource lives

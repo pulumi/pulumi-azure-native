@@ -35,6 +35,8 @@ type ListWebAppBackupConfigurationSlotResult struct {
 	Databases []DatabaseBackupSettingResponse `pulumi:"databases"`
 	// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
 	Enabled *bool `pulumi:"enabled"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.

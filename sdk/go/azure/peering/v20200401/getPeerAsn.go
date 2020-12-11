@@ -25,6 +25,8 @@ type LookupPeerAsnArgs struct {
 type LookupPeerAsnResult struct {
 	// The error message for the validation state
 	ErrorMessage string `pulumi:"errorMessage"`
+	// The ID of the resource.
+	Id string `pulumi:"id"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The Autonomous System Number (ASN) of the peer.

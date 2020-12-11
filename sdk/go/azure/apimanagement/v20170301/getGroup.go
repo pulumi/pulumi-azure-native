@@ -35,6 +35,8 @@ type LookupGroupResult struct {
 	DisplayName string `pulumi:"displayName"`
 	// For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.
 	ExternalId *string `pulumi:"externalId"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Resource type for API Management resource.

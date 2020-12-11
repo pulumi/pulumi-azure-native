@@ -31,6 +31,8 @@ type LookupWebAppPublicCertificateSlotArgs struct {
 type LookupWebAppPublicCertificateSlotResult struct {
 	// Public Certificate byte array
 	Blob *string `pulumi:"blob"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.

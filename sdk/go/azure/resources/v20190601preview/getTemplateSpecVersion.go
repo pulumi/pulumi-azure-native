@@ -31,6 +31,8 @@ type LookupTemplateSpecVersionResult struct {
 	Artifacts []TemplateSpecTemplateArtifactResponse `pulumi:"artifacts"`
 	// Template Spec version description.
 	Description *string `pulumi:"description"`
+	// String Id used to locate any resource on Azure.
+	Id string `pulumi:"id"`
 	// The location of the Template Spec Version. It must match the location of the parent Template Spec.
 	Location string `pulumi:"location"`
 	// Name of this resource.

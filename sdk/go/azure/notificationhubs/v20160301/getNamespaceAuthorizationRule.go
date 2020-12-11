@@ -27,6 +27,8 @@ type LookupNamespaceAuthorizationRuleArgs struct {
 
 // Description of a Namespace AuthorizationRules.
 type LookupNamespaceAuthorizationRuleResult struct {
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name

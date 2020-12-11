@@ -43,6 +43,8 @@ type LookupComponentResult struct {
 	HockeyAppId *string `pulumi:"hockeyAppId"`
 	// Token used to authenticate communications with between Application Insights and HockeyApp.
 	HockeyAppToken string `pulumi:"hockeyAppToken"`
+	// Azure resource Id
+	Id string `pulumi:"id"`
 	// Purge data immediately after 30 days.
 	ImmediatePurgeDataOn30Days *bool `pulumi:"immediatePurgeDataOn30Days"`
 	// Indicates the flow of the ingestion.

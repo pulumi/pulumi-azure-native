@@ -33,6 +33,8 @@ type LookupDatabaseResult struct {
 	ClusteringPolicy *string `pulumi:"clusteringPolicy"`
 	// Redis eviction policy - default is VolatileLRU
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// Optional set of redis modules to enable in this database - modules can only be added at creation time.
 	Modules []ModuleResponse `pulumi:"modules"`
 	// The name of the resource

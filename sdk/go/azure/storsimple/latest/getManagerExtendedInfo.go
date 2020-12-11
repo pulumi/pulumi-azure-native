@@ -33,6 +33,8 @@ type LookupManagerExtendedInfoResult struct {
 	EncryptionKeyThumbprint *string `pulumi:"encryptionKeyThumbprint"`
 	// The etag of the resource.
 	Etag *string `pulumi:"etag"`
+	// The path ID that uniquely identifies the object.
+	Id string `pulumi:"id"`
 	// Represents the CIK of the resource.
 	IntegrityKey string `pulumi:"integrityKey"`
 	// The Kind of the object. Currently only Series8000 is supported

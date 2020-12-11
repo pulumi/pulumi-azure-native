@@ -27,6 +27,8 @@ type LookupZoneArgs struct {
 type LookupZoneResult struct {
 	// Gets or sets the ETag of the zone that is being updated, as received from a Get operation.
 	Etag *string `pulumi:"etag"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the resource

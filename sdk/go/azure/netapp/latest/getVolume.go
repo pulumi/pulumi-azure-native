@@ -41,6 +41,8 @@ type LookupVolumeResult struct {
 	ExportPolicy *VolumePropertiesResponseExportPolicy `pulumi:"exportPolicy"`
 	// Unique FileSystem Identifier.
 	FileSystemId string `pulumi:"fileSystemId"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Restoring
 	IsRestoring *bool `pulumi:"isRestoring"`
 	// Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later

@@ -45,6 +45,8 @@ type LookupTopicResult struct {
 	EnableExpress *bool `pulumi:"enableExpress"`
 	// Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
 	MaxSizeInMegabytes *int `pulumi:"maxSizeInMegabytes"`
 	// Resource name

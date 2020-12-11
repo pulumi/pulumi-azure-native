@@ -25,6 +25,8 @@ type LookupJobArgs struct {
 
 // Contains the job information.
 type LookupJobResult struct {
+	// Specifies the resource identifier of the job.
+	Id string `pulumi:"id"`
 	// Specifies the job identity details
 	Identity *IdentityDetailsResponse `pulumi:"identity"`
 	// Specifies the Azure location where the job is created.

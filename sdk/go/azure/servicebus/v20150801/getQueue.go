@@ -49,6 +49,8 @@ type LookupQueueResult struct {
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
 	// Entity availability status for the queue.
 	EntityAvailabilityStatus *string `pulumi:"entityAvailabilityStatus"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// A value that indicates whether the message is accessible anonymously.
 	IsAnonymousAccessible *bool `pulumi:"isAnonymousAccessible"`
 	// Resource location.

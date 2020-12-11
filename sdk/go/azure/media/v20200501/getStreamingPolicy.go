@@ -37,6 +37,8 @@ type LookupStreamingPolicyResult struct {
 	DefaultContentKeyPolicyName *string `pulumi:"defaultContentKeyPolicyName"`
 	// Configuration of EnvelopeEncryption
 	EnvelopeEncryption *EnvelopeEncryptionResponse `pulumi:"envelopeEncryption"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Configurations of NoEncryption

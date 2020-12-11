@@ -35,6 +35,8 @@ type LookupActionGroupResult struct {
 	Enabled bool `pulumi:"enabled"`
 	// The short name of the action group. This will be used in SMS messages.
 	GroupShortName string `pulumi:"groupShortName"`
+	// Azure resource Id
+	Id string `pulumi:"id"`
 	// The list of ITSM receivers that are part of this action group.
 	ItsmReceivers []ItsmReceiverResponse `pulumi:"itsmReceivers"`
 	// Resource location

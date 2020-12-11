@@ -25,6 +25,8 @@ type LookupIntegrationServiceEnvironmentArgs struct {
 
 // The integration service environment.
 type LookupIntegrationServiceEnvironmentResult struct {
+	// The resource id.
+	Id string `pulumi:"id"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// Gets the resource name.

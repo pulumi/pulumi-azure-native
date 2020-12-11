@@ -36,6 +36,8 @@ type LookupSiteVNETConnectionSlotResult struct {
 	CertThumbprint *string `pulumi:"certThumbprint"`
 	// Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
 	DnsServers *string `pulumi:"dnsServers"`
+	// Resource Id
+	Id *string `pulumi:"id"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location

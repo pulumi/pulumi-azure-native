@@ -27,6 +27,8 @@ type LookupClusterArgs struct {
 type LookupClusterResult struct {
 	// The ETag for the resource
 	Etag *string `pulumi:"etag"`
+	// Fully qualified resource Id for the resource.
+	Id string `pulumi:"id"`
 	// The identity of the cluster, if configured.
 	Identity *ClusterIdentityResponse `pulumi:"identity"`
 	// The Azure Region where the resource lives

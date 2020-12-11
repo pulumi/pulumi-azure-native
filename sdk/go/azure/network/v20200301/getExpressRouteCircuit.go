@@ -41,6 +41,8 @@ type LookupExpressRouteCircuitResult struct {
 	GatewayManagerEtag *string `pulumi:"gatewayManagerEtag"`
 	// Flag denoting global reach status.
 	GlobalReachEnabled *bool `pulumi:"globalReachEnabled"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Resource name.

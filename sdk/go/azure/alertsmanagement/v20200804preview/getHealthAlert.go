@@ -33,6 +33,8 @@ type LookupHealthAlertResult struct {
 	Description string `pulumi:"description"`
 	// the flag that indicates whether the health alert is enabled.
 	Enabled bool `pulumi:"enabled"`
+	// Azure resource Id
+	Id string `pulumi:"id"`
 	// Last time the rule was updated in ISO8601 format.
 	LastUpdatedTime string `pulumi:"lastUpdatedTime"`
 	// Resource location

@@ -29,6 +29,8 @@ type LookupRoleDefinitionResult struct {
 	AssignableScopes []string `pulumi:"assignableScopes"`
 	// The role definition description.
 	Description *string `pulumi:"description"`
+	// The role definition ID.
+	Id string `pulumi:"id"`
 	// The role definition name.
 	Name string `pulumi:"name"`
 	// Role definition permissions.

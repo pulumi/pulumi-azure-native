@@ -35,6 +35,8 @@ type LookupStorageAccountCredentialResult struct {
 	EnableSSL string `pulumi:"enableSSL"`
 	// The storage endpoint
 	EndPoint string `pulumi:"endPoint"`
+	// The identifier.
+	Id string `pulumi:"id"`
 	// The storage account's geo location
 	Location *string `pulumi:"location"`
 	// The storage account login

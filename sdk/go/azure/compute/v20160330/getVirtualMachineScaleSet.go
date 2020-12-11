@@ -25,6 +25,8 @@ type LookupVirtualMachineScaleSetArgs struct {
 
 // Describes a Virtual Machine Scale Set.
 type LookupVirtualMachineScaleSetResult struct {
+	// Resource Id
+	Id string `pulumi:"id"`
 	// The identity of the virtual machine scale set, if configured.
 	Identity *VirtualMachineScaleSetIdentityResponse `pulumi:"identity"`
 	// Resource location

@@ -28,8 +28,10 @@ type LookupRemoteRenderingAccountResult struct {
 	// Correspond domain name of certain Spatial Anchors Account
 	AccountDomain string `pulumi:"accountDomain"`
 	// unique id of certain account.
-	AccountId string                                  `pulumi:"accountId"`
-	Identity  *RemoteRenderingAccountResponseIdentity `pulumi:"identity"`
+	AccountId string `pulumi:"accountId"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id       string                                  `pulumi:"id"`
+	Identity *RemoteRenderingAccountResponseIdentity `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the resource

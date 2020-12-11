@@ -27,6 +27,8 @@ type LookupMaintenanceConfigurationArgs struct {
 type LookupMaintenanceConfigurationResult struct {
 	// Gets or sets extensionProperties of the maintenanceConfiguration
 	ExtensionProperties map[string]string `pulumi:"extensionProperties"`
+	// Fully qualified identifier of the resource
+	Id string `pulumi:"id"`
 	// Gets or sets location of the resource
 	Location *string `pulumi:"location"`
 	// Gets or sets maintenanceScope of the configuration

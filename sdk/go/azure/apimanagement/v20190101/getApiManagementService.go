@@ -45,6 +45,8 @@ type LookupApiManagementServiceResult struct {
 	GatewayUrl string `pulumi:"gatewayUrl"`
 	// Custom hostname configuration of the API Management service.
 	HostnameConfigurations []HostnameConfigurationResponse `pulumi:"hostnameConfigurations"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Managed service identity of the Api Management service.
 	Identity *ApiManagementServiceIdentityResponse `pulumi:"identity"`
 	// Resource location.

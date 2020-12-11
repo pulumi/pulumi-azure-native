@@ -25,6 +25,8 @@ type LookupSupportPlanTypeArgs struct {
 
 // The status of the Canonical support plan.
 type LookupSupportPlanTypeResult struct {
+	// The id of the ARM resource, e.g. "/subscriptions/{id}/providers/Microsoft.Addons/supportProvider/{supportProviderName}/supportPlanTypes/{planTypeName}".
+	Id string `pulumi:"id"`
 	// The name of the Canonical support plan, i.e. "essential", "standard" or "advanced".
 	Name string `pulumi:"name"`
 	// The provisioning state of the resource.

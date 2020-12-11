@@ -33,6 +33,8 @@ type LookupBackupScheduleArgs struct {
 type LookupBackupScheduleResult struct {
 	// The type of backup which needs to be taken.
 	BackupType string `pulumi:"backupType"`
+	// The path ID that uniquely identifies the object.
+	Id string `pulumi:"id"`
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind *string `pulumi:"kind"`
 	// The last successful backup run which was triggered for the schedule.

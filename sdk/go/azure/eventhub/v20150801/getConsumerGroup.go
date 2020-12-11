@@ -33,6 +33,8 @@ type LookupConsumerGroupResult struct {
 	CreatedAt string `pulumi:"createdAt"`
 	// The path of the Event Hub.
 	EventHubPath string `pulumi:"eventHubPath"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// Resource name

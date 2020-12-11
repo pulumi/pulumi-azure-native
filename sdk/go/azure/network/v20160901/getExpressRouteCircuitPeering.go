@@ -33,6 +33,8 @@ type LookupExpressRouteCircuitPeeringResult struct {
 	Etag *string `pulumi:"etag"`
 	// The GatewayManager Etag.
 	GatewayManagerEtag *string `pulumi:"gatewayManagerEtag"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// Gets whether the provider or the customer last modified the peering.
 	LastModifiedBy *string `pulumi:"lastModifiedBy"`
 	// The Microsoft peering configuration.

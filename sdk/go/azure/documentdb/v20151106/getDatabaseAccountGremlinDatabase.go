@@ -29,6 +29,8 @@ type LookupDatabaseAccountGremlinDatabaseArgs struct {
 type LookupDatabaseAccountGremlinDatabaseResult struct {
 	// A system generated property representing the resource etag required for optimistic concurrency control.
 	Etag *string `pulumi:"etag"`
+	// The unique resource identifier of the database account.
+	Id string `pulumi:"id"`
 	// The location of the resource group to which the resource belongs.
 	Location *string `pulumi:"location"`
 	// The name of the database account.

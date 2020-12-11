@@ -27,6 +27,8 @@ type LookupStorageAccountManagementPoliciesArgs struct {
 
 // The Get Storage Account ManagementPolicies operation response.
 type LookupStorageAccountManagementPoliciesResult struct {
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// Returns the date and time the ManagementPolicies was last modified.
 	LastModifiedTime string `pulumi:"lastModifiedTime"`
 	// The name of the resource

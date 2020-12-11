@@ -53,6 +53,8 @@ type LookupKpiResult struct {
 	GroupBy []string `pulumi:"groupBy"`
 	// The KPI GroupByMetadata.
 	GroupByMetadata []KpiGroupByMetadataResponse `pulumi:"groupByMetadata"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// The KPI name.
 	KpiName string `pulumi:"kpiName"`
 	// Resource name.

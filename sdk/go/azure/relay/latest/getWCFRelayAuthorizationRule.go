@@ -29,6 +29,8 @@ type LookupWCFRelayAuthorizationRuleArgs struct {
 
 // Description of a namespace authorization rule.
 type LookupWCFRelayAuthorizationRuleResult struct {
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// The rights associated with the rule.

@@ -37,6 +37,8 @@ type LookupWorkflowResult struct {
 	Definition interface{} `pulumi:"definition"`
 	// The endpoints configuration.
 	EndpointsConfiguration *FlowEndpointsConfigurationResponse `pulumi:"endpointsConfiguration"`
+	// The resource id.
+	Id string `pulumi:"id"`
 	// The integration account.
 	IntegrationAccount *ResourceReferenceResponse `pulumi:"integrationAccount"`
 	// The integration service environment.

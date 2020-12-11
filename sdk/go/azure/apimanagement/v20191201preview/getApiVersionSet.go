@@ -31,6 +31,8 @@ type LookupApiVersionSetResult struct {
 	Description *string `pulumi:"description"`
 	// Name of API Version Set
 	DisplayName string `pulumi:"displayName"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Resource type for API Management resource.

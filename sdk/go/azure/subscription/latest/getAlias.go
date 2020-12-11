@@ -23,6 +23,8 @@ type LookupAliasArgs struct {
 
 // Subscription Information with the alias.
 type LookupAliasResult struct {
+	// Fully qualified ID for the alias resource.
+	Id string `pulumi:"id"`
 	// Alias ID.
 	Name string `pulumi:"name"`
 	// Put Alias response properties.

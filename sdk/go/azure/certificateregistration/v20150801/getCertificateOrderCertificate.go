@@ -27,6 +27,8 @@ type LookupCertificateOrderCertificateArgs struct {
 
 // Class representing the Key Vault container for certificate purchased through Azure
 type LookupCertificateOrderCertificateResult struct {
+	// Resource Id
+	Id *string `pulumi:"id"`
 	// Key Vault Csm resource Id
 	KeyVaultId *string `pulumi:"keyVaultId"`
 	// Key Vault secret name

@@ -35,6 +35,8 @@ type LookupPredictionResult struct {
 	DisplayName map[string]string `pulumi:"displayName"`
 	// The prediction grades.
 	Grades []PredictionResponseGrades `pulumi:"grades"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Interaction types involved in the prediction.
 	InvolvedInteractionTypes []string `pulumi:"involvedInteractionTypes"`
 	// KPI types involved in the prediction.

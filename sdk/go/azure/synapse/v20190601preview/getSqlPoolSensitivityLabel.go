@@ -35,6 +35,8 @@ type LookupSqlPoolSensitivityLabelArgs struct {
 
 // A sensitivity label.
 type LookupSqlPoolSensitivityLabelResult struct {
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The information type.
 	InformationType *string `pulumi:"informationType"`
 	// The information type ID.

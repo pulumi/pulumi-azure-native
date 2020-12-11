@@ -33,6 +33,8 @@ type LookupBatchAccountResult struct {
 	AutoStorage *AutoStoragePropertiesResponse `pulumi:"autoStorage"`
 	// The core quota for this Batch account.
 	CoreQuota int `pulumi:"coreQuota"`
+	// The ID of the resource
+	Id string `pulumi:"id"`
 	// The location of the resource
 	Location *string `pulumi:"location"`
 	// The name of the resource

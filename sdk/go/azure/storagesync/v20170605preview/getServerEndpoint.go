@@ -39,6 +39,8 @@ type LookupServerEndpointResult struct {
 	CurrentProgressType *string `pulumi:"currentProgressType"`
 	// Friendly Name
 	FriendlyName *string `pulumi:"friendlyName"`
+	// The id of the resource.
+	Id string `pulumi:"id"`
 	// Item download error count.
 	ItemDownloadErrorCount *int `pulumi:"itemDownloadErrorCount"`
 	// Item Progress Count

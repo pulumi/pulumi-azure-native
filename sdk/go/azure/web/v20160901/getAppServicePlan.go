@@ -31,6 +31,8 @@ type LookupAppServicePlanResult struct {
 	GeoRegion string `pulumi:"geoRegion"`
 	// Specification for the App Service Environment to use for the App Service plan.
 	HostingEnvironmentProfile *HostingEnvironmentProfileResponse `pulumi:"hostingEnvironmentProfile"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// If <code>true</code>, this App Service Plan owns spot instances.
 	IsSpot *bool `pulumi:"isSpot"`
 	// Kind of resource.

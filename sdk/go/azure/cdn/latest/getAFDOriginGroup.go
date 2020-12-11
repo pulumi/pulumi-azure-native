@@ -30,6 +30,8 @@ type LookupAFDOriginGroupResult struct {
 	DeploymentStatus string `pulumi:"deploymentStatus"`
 	// Health probe settings to the origin that is used to determine the health of the origin.
 	HealthProbeSettings *HealthProbeParametersResponse `pulumi:"healthProbeSettings"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Load balancing settings for a backend pool
 	LoadBalancingSettings *LoadBalancingSettingsParametersResponse `pulumi:"loadBalancingSettings"`
 	// Resource name.

@@ -37,6 +37,8 @@ type LookupJobStepResult struct {
 	Credential string `pulumi:"credential"`
 	// Execution options for the job step.
 	ExecutionOptions *JobStepExecutionOptionsResponse `pulumi:"executionOptions"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Output destination properties of the job step.

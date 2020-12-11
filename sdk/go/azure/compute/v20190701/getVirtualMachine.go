@@ -41,6 +41,8 @@ type LookupVirtualMachineResult struct {
 	HardwareProfile *HardwareProfileResponse `pulumi:"hardwareProfile"`
 	// Specifies information about the dedicated host that the virtual machine resides in. <br><br>Minimum api-version: 2018-10-01.
 	Host *SubResourceResponse `pulumi:"host"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// The identity of the virtual machine, if configured.
 	Identity *VirtualMachineIdentityResponse `pulumi:"identity"`
 	// The virtual machine instance view.

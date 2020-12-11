@@ -25,6 +25,8 @@ type LookupActionRuleByNameArgs struct {
 
 // Action rule object containing target scope, conditions and suppression logic
 type LookupActionRuleByNameResult struct {
+	// Azure resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Azure resource name

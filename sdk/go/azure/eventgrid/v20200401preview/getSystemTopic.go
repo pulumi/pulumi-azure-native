@@ -25,6 +25,8 @@ type LookupSystemTopicArgs struct {
 
 // EventGrid System Topic.
 type LookupSystemTopicResult struct {
+	// Fully qualified identifier of the resource.
+	Id string `pulumi:"id"`
 	// Location of the resource.
 	Location string `pulumi:"location"`
 	// Metric resource id for the system topic.

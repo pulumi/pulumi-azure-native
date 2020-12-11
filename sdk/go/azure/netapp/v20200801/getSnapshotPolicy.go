@@ -33,6 +33,8 @@ type LookupSnapshotPolicyResult struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Schedule for hourly snapshots
 	HourlySchedule *HourlyScheduleResponse `pulumi:"hourlySchedule"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Schedule for monthly snapshots

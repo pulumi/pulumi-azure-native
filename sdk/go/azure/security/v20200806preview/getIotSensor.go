@@ -31,6 +31,8 @@ type LookupIotSensorResult struct {
 	CreationTime string `pulumi:"creationTime"`
 	// Dynamic mode status of the IoT sensor
 	DynamicLearning bool `pulumi:"dynamicLearning"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Learning mode status of the IoT sensor
 	LearningMode bool `pulumi:"learningMode"`
 	// Resource name

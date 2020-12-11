@@ -27,6 +27,8 @@ type LookupServiceTopologyArgs struct {
 type LookupServiceTopologyResult struct {
 	// The resource Id of the artifact source that contains the artifacts that can be referenced in the service units.
 	ArtifactSourceId *string `pulumi:"artifactSourceId"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the resource

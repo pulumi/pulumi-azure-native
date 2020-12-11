@@ -33,6 +33,8 @@ type LookupPacketCaptureResult struct {
 	Etag string `pulumi:"etag"`
 	// A list of packet capture filters.
 	Filters []PacketCaptureFilterResponse `pulumi:"filters"`
+	// ID of the packet capture operation.
+	Id string `pulumi:"id"`
 	// Name of the packet capture session.
 	Name string `pulumi:"name"`
 	// The provisioning state of the packet capture session.

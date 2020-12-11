@@ -35,6 +35,8 @@ type LookupNetworkInterfaceResult struct {
 	EnableIPForwarding *bool `pulumi:"enableIPForwarding"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// A list of IPConfigurations of the network interface.
 	IpConfigurations []NetworkInterfaceIPConfigurationResponse `pulumi:"ipConfigurations"`
 	// Resource location.

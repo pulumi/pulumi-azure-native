@@ -39,6 +39,8 @@ type LookupPipelineResult struct {
 	Etag string `pulumi:"etag"`
 	// The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
 	Folder *PipelineResponseFolder `pulumi:"folder"`
+	// The resource identifier.
+	Id string `pulumi:"id"`
 	// The resource name.
 	Name string `pulumi:"name"`
 	// List of parameters for pipeline.

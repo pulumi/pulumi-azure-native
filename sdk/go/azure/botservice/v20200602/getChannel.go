@@ -29,6 +29,8 @@ type LookupChannelArgs struct {
 type LookupChannelResult struct {
 	// Entity Tag
 	Etag *string `pulumi:"etag"`
+	// Specifies the resource ID.
+	Id string `pulumi:"id"`
 	// Required. Gets or sets the Kind of the resource.
 	Kind *string `pulumi:"kind"`
 	// Specifies the location of the resource.

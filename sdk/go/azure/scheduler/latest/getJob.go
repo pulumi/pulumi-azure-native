@@ -26,6 +26,8 @@ type LookupJobArgs struct {
 }
 
 type LookupJobResult struct {
+	// Gets the job resource identifier.
+	Id string `pulumi:"id"`
 	// Gets the job resource name.
 	Name string `pulumi:"name"`
 	// Gets or sets the job properties.

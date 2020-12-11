@@ -31,6 +31,8 @@ type LookupReplicationStorageClassificationMappingArgs struct {
 
 // Storage mapping object.
 type LookupReplicationStorageClassificationMappingResult struct {
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource Location
 	Location *string `pulumi:"location"`
 	// Resource Name

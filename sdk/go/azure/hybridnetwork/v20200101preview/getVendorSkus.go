@@ -27,6 +27,8 @@ type LookupVendorSkusArgs struct {
 type LookupVendorSkusResult struct {
 	// The sku deployment mode.
 	DeploymentMode *string `pulumi:"deploymentMode"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The parameters for the managed application to be supplied by the vendor.
 	ManagedApplicationParameters interface{} `pulumi:"managedApplicationParameters"`
 	// The template for the managed application deployment.

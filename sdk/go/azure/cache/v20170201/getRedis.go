@@ -31,6 +31,8 @@ type LookupRedisResult struct {
 	EnableNonSslPort *bool `pulumi:"enableNonSslPort"`
 	// Redis host name.
 	HostName string `pulumi:"hostName"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// List of the linked servers associated with the cache
 	LinkedServers RedisLinkedServerListResponse `pulumi:"linkedServers"`
 	// The geo-location where the resource lives

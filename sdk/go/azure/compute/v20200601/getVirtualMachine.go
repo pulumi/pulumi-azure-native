@@ -45,6 +45,8 @@ type LookupVirtualMachineResult struct {
 	Host *SubResourceResponse `pulumi:"host"`
 	// Specifies information about the dedicated host group that the virtual machine resides in. <br><br>Minimum api-version: 2020-06-01. <br><br>NOTE: User cannot specify both host and hostGroup properties.
 	HostGroup *SubResourceResponse `pulumi:"hostGroup"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// The identity of the virtual machine, if configured.
 	Identity *VirtualMachineIdentityResponse `pulumi:"identity"`
 	// The virtual machine instance view.

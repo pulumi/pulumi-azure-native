@@ -27,6 +27,8 @@ type LookupEventSourceArgs struct {
 
 // An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
 type LookupEventSourceResult struct {
+	// Resource Id
+	Id string `pulumi:"id"`
 	// The kind of the event source.
 	Kind string `pulumi:"kind"`
 	// Resource location

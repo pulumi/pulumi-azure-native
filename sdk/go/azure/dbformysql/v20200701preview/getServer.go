@@ -45,6 +45,8 @@ type LookupServerResult struct {
 	HaEnabled *string `pulumi:"haEnabled"`
 	// The state of a HA server.
 	HaState string `pulumi:"haState"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The Azure Active Directory identity of the server.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// Status showing whether the server enabled infrastructure encryption.

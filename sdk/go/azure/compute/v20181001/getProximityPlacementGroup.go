@@ -27,6 +27,8 @@ type LookupProximityPlacementGroupArgs struct {
 type LookupProximityPlacementGroupResult struct {
 	// A list of references to all availability sets in the proximity placement group.
 	AvailabilitySets []SubResourceResponse `pulumi:"availabilitySets"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name

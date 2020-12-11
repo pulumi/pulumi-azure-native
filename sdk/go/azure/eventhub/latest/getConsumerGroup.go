@@ -31,6 +31,8 @@ type LookupConsumerGroupArgs struct {
 type LookupConsumerGroupResult struct {
 	// Exact time the message was created.
 	CreatedAt string `pulumi:"createdAt"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Resource type.

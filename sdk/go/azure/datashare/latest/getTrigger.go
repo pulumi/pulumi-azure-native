@@ -29,6 +29,8 @@ type LookupTriggerArgs struct {
 
 // A Trigger data transfer object.
 type LookupTriggerResult struct {
+	// The resource id of the azure resource
+	Id string `pulumi:"id"`
 	// Kind of synchronization
 	Kind string `pulumi:"kind"`
 	// Name of the azure resource

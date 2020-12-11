@@ -33,6 +33,8 @@ type LookupTagByOperationArgs struct {
 type LookupTagByOperationResult struct {
 	// Tag name.
 	DisplayName string `pulumi:"displayName"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Resource type for API Management resource.

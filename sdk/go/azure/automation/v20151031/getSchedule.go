@@ -39,6 +39,8 @@ type LookupScheduleResult struct {
 	ExpiryTimeOffsetMinutes *float64 `pulumi:"expiryTimeOffsetMinutes"`
 	// Gets or sets the frequency of the schedule.
 	Frequency *string `pulumi:"frequency"`
+	// Fully qualified resource Id for the resource
+	Id string `pulumi:"id"`
 	// Gets or sets the interval of the schedule.
 	Interval interface{} `pulumi:"interval"`
 	// Gets or sets a value indicating whether this schedule is enabled.

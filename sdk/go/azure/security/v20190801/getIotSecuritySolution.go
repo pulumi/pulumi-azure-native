@@ -33,6 +33,8 @@ type LookupIotSecuritySolutionResult struct {
 	DisplayName string `pulumi:"displayName"`
 	// List of additional options for exporting to workspace data.
 	Export []string `pulumi:"export"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// IoT Hub resource IDs
 	IotHubs []string `pulumi:"iotHubs"`
 	// The resource location.

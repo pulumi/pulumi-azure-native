@@ -29,6 +29,8 @@ type LookupUserArgs struct {
 type LookupUserResult struct {
 	// The password details.
 	EncryptedPassword *AsymmetricEncryptedSecretResponse `pulumi:"encryptedPassword"`
+	// The path ID that uniquely identifies the object.
+	Id string `pulumi:"id"`
 	// The object name.
 	Name string `pulumi:"name"`
 	// List of shares that the user has rights on. This field should not be specified during user creation.

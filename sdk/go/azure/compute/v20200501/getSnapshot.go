@@ -39,6 +39,8 @@ type LookupSnapshotResult struct {
 	EncryptionSettingsCollection *EncryptionSettingsCollectionResponse `pulumi:"encryptionSettingsCollection"`
 	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
 	Incremental *bool `pulumi:"incremental"`
 	// Resource location

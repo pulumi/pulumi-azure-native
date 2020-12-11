@@ -29,6 +29,8 @@ type LookupFirewallRuleArgs struct {
 type LookupFirewallRuleResult struct {
 	// The end IP address of the server firewall rule. Must be IPv4 format.
 	EndIpAddress string `pulumi:"endIpAddress"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The start IP address of the server firewall rule. Must be IPv4 format.

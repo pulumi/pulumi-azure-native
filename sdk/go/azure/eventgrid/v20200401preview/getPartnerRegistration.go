@@ -32,6 +32,8 @@ type LookupPartnerRegistrationResult struct {
 	AuthorizedAzureSubscriptionIds []string `pulumi:"authorizedAzureSubscriptionIds"`
 	// The extension of the customer service URI of the publisher.
 	CustomerServiceUri *string `pulumi:"customerServiceUri"`
+	// Fully qualified identifier of the resource.
+	Id string `pulumi:"id"`
 	// Location of the resource.
 	Location string `pulumi:"location"`
 	// URI of the logo.

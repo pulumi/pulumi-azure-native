@@ -37,6 +37,8 @@ type LookupSourceControlResult struct {
 	Description *string `pulumi:"description"`
 	// The folder path of the source control.
 	FolderPath *string `pulumi:"folderPath"`
+	// Fully qualified resource Id for the resource
+	Id string `pulumi:"id"`
 	// The last modified time.
 	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// The name of the resource

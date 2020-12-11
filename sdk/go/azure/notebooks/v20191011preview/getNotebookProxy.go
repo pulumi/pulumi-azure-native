@@ -27,6 +27,8 @@ type LookupNotebookProxyArgs struct {
 type LookupNotebookProxyResult struct {
 	// The friendly string identifier of the creator of the NotebookProxy resource.
 	Hostname *string `pulumi:"hostname"`
+	// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// The unique identifier (a GUID) generated for every resource.

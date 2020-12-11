@@ -27,6 +27,8 @@ type LookupReplicationFabricArgs struct {
 
 // Fabric definition.
 type LookupReplicationFabricResult struct {
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource Location
 	Location *string `pulumi:"location"`
 	// Resource Name

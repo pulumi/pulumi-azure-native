@@ -39,6 +39,8 @@ type LookupWebAppInstanceFunctionSlotResult struct {
 	FunctionAppId string `pulumi:"functionAppId"`
 	// Function URI.
 	Href *string `pulumi:"href"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.

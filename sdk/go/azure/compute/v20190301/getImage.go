@@ -29,6 +29,8 @@ type LookupImageArgs struct {
 type LookupImageResult struct {
 	// Gets the HyperVGenerationType of the VirtualMachine created from the image
 	HyperVGeneration *string `pulumi:"hyperVGeneration"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name

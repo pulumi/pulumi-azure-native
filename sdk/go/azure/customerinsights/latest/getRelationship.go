@@ -37,6 +37,8 @@ type LookupRelationshipResult struct {
 	ExpiryDateTimeUtc *string `pulumi:"expiryDateTimeUtc"`
 	// The properties of the Relationship.
 	Fields []PropertyDefinitionResponse `pulumi:"fields"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Optional property to be used to map fields in profile to their strong ids in related profile.
 	LookupMappings []RelationshipTypeMappingResponse `pulumi:"lookupMappings"`
 	// Resource name.

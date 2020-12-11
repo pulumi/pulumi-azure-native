@@ -31,6 +31,8 @@ type LookupVirtualApplianceSiteResult struct {
 	AddressPrefix *string `pulumi:"addressPrefix"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// Name of the virtual appliance site.
 	Name *string `pulumi:"name"`
 	// Office 365 Policy.

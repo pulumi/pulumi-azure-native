@@ -31,6 +31,8 @@ type LookupSqlResourceSqlUserDefinedFunctionArgs struct {
 
 // An Azure Cosmos DB userDefinedFunction.
 type LookupSqlResourceSqlUserDefinedFunctionResult struct {
+	// The unique resource identifier of the ARM resource.
+	Id string `pulumi:"id"`
 	// Identity for the resource.
 	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
 	// The location of the resource group to which the resource belongs.

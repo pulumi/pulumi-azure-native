@@ -29,6 +29,8 @@ type LookupJitRequestResult struct {
 	ApplicationResourceId string `pulumi:"applicationResourceId"`
 	// The client entity that created the JIT request.
 	CreatedBy ApplicationClientDetailsResponse `pulumi:"createdBy"`
+	// Resource ID
+	Id string `pulumi:"id"`
 	// The JIT authorization policies.
 	JitAuthorizationPolicies []JitAuthorizationPoliciesResponse `pulumi:"jitAuthorizationPolicies"`
 	// The JIT request state.

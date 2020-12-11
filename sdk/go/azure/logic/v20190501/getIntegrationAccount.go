@@ -25,6 +25,8 @@ type LookupIntegrationAccountArgs struct {
 
 // The integration account.
 type LookupIntegrationAccountResult struct {
+	// The resource id.
+	Id string `pulumi:"id"`
 	// The integration service environment.
 	IntegrationServiceEnvironment *IntegrationServiceEnvironmentResponse `pulumi:"integrationServiceEnvironment"`
 	// The resource location.

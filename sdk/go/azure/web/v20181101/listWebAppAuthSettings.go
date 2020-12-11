@@ -79,6 +79,8 @@ type ListWebAppAuthSettingsResult struct {
 	// This setting is optional. If not specified, "openid", "profile", and "email" are used as default scopes.
 	// Google Sign-In documentation: https://developers.google.com/identity/sign-in/web/
 	GoogleOAuthScopes []string `pulumi:"googleOAuthScopes"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
 	// When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
 	// This URI is a case-sensitive identifier for the token issuer.

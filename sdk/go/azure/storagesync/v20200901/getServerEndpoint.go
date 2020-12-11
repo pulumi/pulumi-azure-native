@@ -35,6 +35,8 @@ type LookupServerEndpointResult struct {
 	CloudTieringStatus ServerEndpointCloudTieringStatusResponse `pulumi:"cloudTieringStatus"`
 	// Friendly Name
 	FriendlyName *string `pulumi:"friendlyName"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// Policy for how namespace and files are recalled during FastDr.
 	InitialDownloadPolicy *string `pulumi:"initialDownloadPolicy"`
 	// Resource Last Operation Name

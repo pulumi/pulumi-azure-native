@@ -33,6 +33,8 @@ type LookupVirtualMachineScaleSetVMResult struct {
 	DiagnosticsProfile *DiagnosticsProfileResponse `pulumi:"diagnosticsProfile"`
 	// Specifies the hardware settings for the virtual machine.
 	HardwareProfile *HardwareProfileResponse `pulumi:"hardwareProfile"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// The virtual machine instance ID.
 	InstanceId string `pulumi:"instanceId"`
 	// The virtual machine instance view.

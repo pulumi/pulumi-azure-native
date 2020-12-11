@@ -27,6 +27,8 @@ type LookupPartnerNamespaceArgs struct {
 type LookupPartnerNamespaceResult struct {
 	// Endpoint for the partner namespace.
 	Endpoint string `pulumi:"endpoint"`
+	// Fully qualified identifier of the resource.
+	Id string `pulumi:"id"`
 	// Location of the resource.
 	Location string `pulumi:"location"`
 	// Name of the resource

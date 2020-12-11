@@ -35,6 +35,8 @@ type LookupSnapshotResult struct {
 	CreationDate string `pulumi:"creationDate"`
 	// UUID v4 used to identify the FileSystem
 	FileSystemId *string `pulumi:"fileSystemId"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// Resource name

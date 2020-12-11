@@ -27,6 +27,8 @@ type LookupImportPipelineArgs struct {
 
 // An object that represents an import pipeline for a container registry.
 type LookupImportPipelineResult struct {
+	// The resource ID.
+	Id string `pulumi:"id"`
 	// The identity of the import pipeline.
 	Identity *IdentityPropertiesResponse `pulumi:"identity"`
 	// The location of the import pipeline.

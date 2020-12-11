@@ -29,6 +29,8 @@ type LookupCacheResult struct {
 	CacheSizeGB *int `pulumi:"cacheSizeGB"`
 	// Health of the cache.
 	Health CacheHealthResponse `pulumi:"health"`
+	// Fully qualified URL of the cache.
+	Id string `pulumi:"id"`
 	// Region name string.
 	Location *string `pulumi:"location"`
 	// Array of IP addresses that can be used by clients mounting this Cache.

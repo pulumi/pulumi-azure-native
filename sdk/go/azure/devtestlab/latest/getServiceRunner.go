@@ -27,6 +27,8 @@ type LookupServiceRunnerArgs struct {
 
 // A container for a managed identity to execute DevTest lab services.
 type LookupServiceRunnerResult struct {
+	// The identifier of the resource.
+	Id string `pulumi:"id"`
 	// The identity of the resource.
 	Identity *IdentityPropertiesResponse `pulumi:"identity"`
 	// The location of the resource.

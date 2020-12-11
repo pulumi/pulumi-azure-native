@@ -29,6 +29,8 @@ type LookupRedisFirewallRuleArgs struct {
 type LookupRedisFirewallRuleResult struct {
 	// highest IP address included in the range
 	EndIP string `pulumi:"endIP"`
+	// resource ID (of the firewall rule)
+	Id string `pulumi:"id"`
 	// name of the firewall rule
 	Name string `pulumi:"name"`
 	// lowest IP address included in the range

@@ -50,7 +50,9 @@ type LookupJobResult struct {
 	// The time at which the job entered its current execution state.
 	ExecutionStateTransitionTime string `pulumi:"executionStateTransitionTime"`
 	// Describe the experiment information of the job
-	ExperimentName   *string                  `pulumi:"experimentName"`
+	ExperimentName *string `pulumi:"experimentName"`
+	// The ID of the resource
+	Id               string                   `pulumi:"id"`
 	InputDirectories []InputDirectoryResponse `pulumi:"inputDirectories"`
 	// The specified actions will run on all the nodes that are part of the job
 	JobPreparation *JobPreparationResponse `pulumi:"jobPreparation"`

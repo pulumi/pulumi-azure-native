@@ -27,6 +27,8 @@ type LookupSharedPrivateLinkResourceArgs struct {
 
 // Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
 type LookupSharedPrivateLinkResourceResult struct {
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.

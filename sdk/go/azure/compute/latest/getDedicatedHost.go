@@ -33,6 +33,8 @@ type LookupDedicatedHostResult struct {
 	AutoReplaceOnFailure *bool `pulumi:"autoReplaceOnFailure"`
 	// A unique id generated and assigned to the dedicated host by the platform. <br><br> Does not change throughout the lifetime of the host.
 	HostId string `pulumi:"hostId"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// The dedicated host instance view.
 	InstanceView DedicatedHostInstanceViewResponse `pulumi:"instanceView"`
 	// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**

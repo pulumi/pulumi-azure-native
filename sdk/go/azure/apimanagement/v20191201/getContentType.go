@@ -29,6 +29,8 @@ type LookupContentTypeArgs struct {
 type LookupContentTypeResult struct {
 	// Content type description.
 	Description *string `pulumi:"description"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Content type schema.

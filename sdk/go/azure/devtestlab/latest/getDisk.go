@@ -43,6 +43,8 @@ type LookupDiskResult struct {
 	DiskUri *string `pulumi:"diskUri"`
 	// The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
 	HostCaching *string `pulumi:"hostCaching"`
+	// The identifier of the resource.
+	Id string `pulumi:"id"`
 	// The resource ID of the VM to which this disk is leased.
 	LeasedByLabVmId *string `pulumi:"leasedByLabVmId"`
 	// The location of the resource.

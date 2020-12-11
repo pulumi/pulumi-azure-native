@@ -31,6 +31,8 @@ type LookupPacketCaptureResult struct {
 	BytesToCapturePerPacket *int                          `pulumi:"bytesToCapturePerPacket"`
 	Etag                    *string                       `pulumi:"etag"`
 	Filters                 []PacketCaptureFilterResponse `pulumi:"filters"`
+	// ID of the packet capture operation.
+	Id string `pulumi:"id"`
 	// Name of the packet capture session.
 	Name string `pulumi:"name"`
 	// The provisioning state of the packet capture session.

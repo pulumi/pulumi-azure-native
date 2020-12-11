@@ -29,6 +29,8 @@ type LookupP2sVpnGatewayResult struct {
 	CustomDnsServers []string `pulumi:"customDnsServers"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
+	// Resource ID.
+	Id *string `pulumi:"id"`
 	// Enable Routing Preference property for the Public IP Interface of the P2SVpnGateway.
 	IsRoutingPreferenceInternet *bool `pulumi:"isRoutingPreferenceInternet"`
 	// Resource location.

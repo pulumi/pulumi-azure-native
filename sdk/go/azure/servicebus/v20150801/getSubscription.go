@@ -47,6 +47,8 @@ type LookupSubscriptionResult struct {
 	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
 	// Entity availability status for the topic.
 	EntityAvailabilityStatus *string `pulumi:"entityAvailabilityStatus"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Value that indicates whether the entity description is read-only.
 	IsReadOnly *bool `pulumi:"isReadOnly"`
 	// Resource location.

@@ -27,6 +27,8 @@ type LookupMachineLearningDatastoreArgs struct {
 
 // Machine Learning datastore object wrapped into ARM resource envelope.
 type LookupMachineLearningDatastoreResult struct {
+	// Specifies the resource ID.
+	Id string `pulumi:"id"`
 	// The identity of the resource.
 	Identity *IdentityResponse `pulumi:"identity"`
 	// Specifies the location of the resource.

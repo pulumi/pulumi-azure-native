@@ -35,6 +35,8 @@ type LookupAgentPoolResult struct {
 	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
 	// Enable public IP for nodes
 	EnableNodePublicIP *bool `pulumi:"enableNodePublicIP"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Maximum number of nodes for auto-scaling
 	MaxCount *int `pulumi:"maxCount"`
 	// Maximum number of pods that can run on a node.

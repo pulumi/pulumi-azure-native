@@ -35,6 +35,8 @@ type LookupConnectionResult struct {
 	Description *string `pulumi:"description"`
 	// Gets the field definition values of the connection.
 	FieldDefinitionValues map[string]string `pulumi:"fieldDefinitionValues"`
+	// Fully qualified resource Id for the resource
+	Id string `pulumi:"id"`
 	// Gets the last modified time.
 	LastModifiedTime string `pulumi:"lastModifiedTime"`
 	// The name of the resource

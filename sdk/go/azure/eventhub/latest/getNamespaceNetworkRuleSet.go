@@ -27,6 +27,8 @@ type LookupNamespaceNetworkRuleSetArgs struct {
 type LookupNamespaceNetworkRuleSetResult struct {
 	// Default Action for Network Rule Set
 	DefaultAction *string `pulumi:"defaultAction"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// List of IpRules
 	IpRules []NWRuleSetIpRulesResponse `pulumi:"ipRules"`
 	// Resource name.

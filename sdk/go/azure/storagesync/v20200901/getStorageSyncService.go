@@ -25,6 +25,8 @@ type LookupStorageSyncServiceArgs struct {
 
 // Storage Sync Service object.
 type LookupStorageSyncServiceResult struct {
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// Incoming Traffic Policy
 	IncomingTrafficPolicy *string `pulumi:"incomingTrafficPolicy"`
 	// Resource Last Operation Name

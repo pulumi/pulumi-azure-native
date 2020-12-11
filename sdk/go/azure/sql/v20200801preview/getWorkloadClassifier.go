@@ -35,6 +35,8 @@ type LookupWorkloadClassifierResult struct {
 	Context *string `pulumi:"context"`
 	// The workload classifier end time for classification.
 	EndTime *string `pulumi:"endTime"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// The workload classifier importance.
 	Importance *string `pulumi:"importance"`
 	// The workload classifier label.

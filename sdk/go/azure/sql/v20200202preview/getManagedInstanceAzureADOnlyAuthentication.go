@@ -29,6 +29,8 @@ type LookupManagedInstanceAzureADOnlyAuthenticationArgs struct {
 type LookupManagedInstanceAzureADOnlyAuthenticationResult struct {
 	// Azure Active Directory only Authentication enabled.
 	AzureADOnlyAuthentication bool `pulumi:"azureADOnlyAuthentication"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Resource type.

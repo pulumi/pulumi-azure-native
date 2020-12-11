@@ -25,6 +25,8 @@ type LookupLogProfileArgs struct {
 type LookupLogProfileResult struct {
 	// the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
 	Categories []string `pulumi:"categories"`
+	// Azure resource Id
+	Id string `pulumi:"id"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.

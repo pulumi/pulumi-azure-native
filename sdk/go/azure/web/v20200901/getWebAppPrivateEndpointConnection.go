@@ -26,6 +26,8 @@ type LookupWebAppPrivateEndpointConnectionArgs struct {
 
 // Private Endpoint Connection ARM resource.
 type LookupWebAppPrivateEndpointConnectionResult struct {
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Name.

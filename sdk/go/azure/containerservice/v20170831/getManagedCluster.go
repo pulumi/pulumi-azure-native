@@ -31,6 +31,8 @@ type LookupManagedClusterResult struct {
 	DnsPrefix *string `pulumi:"dnsPrefix"`
 	// FQDN for the master pool.
 	Fqdn string `pulumi:"fqdn"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// Version of Kubernetes specified when creating the managed cluster.
 	KubernetesVersion *string `pulumi:"kubernetesVersion"`
 	// Profile for Linux VMs in the container service cluster.

@@ -31,6 +31,8 @@ type LookupOrchestratorInstanceServiceDetailsResult struct {
 	ClusterRootCA *string `pulumi:"clusterRootCA"`
 	// controller details
 	ControllerDetails ControllerDetailsResponse `pulumi:"controllerDetails"`
+	// An identifier that represents the resource.
+	Id string `pulumi:"id"`
 	// The identity of the orchestrator
 	Identity *OrchestratorIdentityResponse `pulumi:"identity"`
 	// The kind of workbook. Choices are user and shared.

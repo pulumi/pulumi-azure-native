@@ -29,6 +29,8 @@ type LookupSqlPoolTransparentDataEncryptionArgs struct {
 
 // Represents a Sql pool transparent data encryption configuration.
 type LookupSqlPoolTransparentDataEncryptionResult struct {
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// The name of the resource

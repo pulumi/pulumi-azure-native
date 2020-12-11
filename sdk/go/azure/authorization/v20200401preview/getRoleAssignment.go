@@ -39,6 +39,8 @@ type LookupRoleAssignmentResult struct {
 	DelegatedManagedIdentityResourceId *string `pulumi:"delegatedManagedIdentityResourceId"`
 	// Description of role assignment
 	Description *string `pulumi:"description"`
+	// The role assignment ID.
+	Id string `pulumi:"id"`
 	// The role assignment name.
 	Name string `pulumi:"name"`
 	// The principal ID.

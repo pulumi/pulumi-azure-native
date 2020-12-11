@@ -29,6 +29,8 @@ type LookupContainerGroupResult struct {
 	Containers []ContainerResponse `pulumi:"containers"`
 	// The diagnostic information for a container group.
 	Diagnostics *ContainerGroupDiagnosticsResponse `pulumi:"diagnostics"`
+	// The resource id.
+	Id string `pulumi:"id"`
 	// The image registry credentials by which the container group is created from.
 	ImageRegistryCredentials []ImageRegistryCredentialResponse `pulumi:"imageRegistryCredentials"`
 	// The instance view of the container group. Only valid in response.

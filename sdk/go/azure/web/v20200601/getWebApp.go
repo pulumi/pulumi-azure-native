@@ -67,6 +67,8 @@ type LookupWebAppResult struct {
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// Hyper-V sandbox.
 	HyperV *bool `pulumi:"hyperV"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Managed service identity.
 	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
 	// Specifies an operation id if this site has a pending operation.

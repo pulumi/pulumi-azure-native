@@ -31,6 +31,8 @@ type LookupAssetFilterArgs struct {
 type LookupAssetFilterResult struct {
 	// The first quality.
 	FirstQuality *FirstQualityResponse `pulumi:"firstQuality"`
+	// Fully qualified resource ID for the resource.
+	Id string `pulumi:"id"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// The presentation time range.

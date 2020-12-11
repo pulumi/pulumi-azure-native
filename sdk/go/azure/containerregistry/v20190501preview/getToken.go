@@ -31,6 +31,8 @@ type LookupTokenResult struct {
 	CreationDate string `pulumi:"creationDate"`
 	// The credentials that can be used for authenticating the token.
 	Credentials *TokenCredentialsPropertiesResponse `pulumi:"credentials"`
+	// The resource ID.
+	Id string `pulumi:"id"`
 	// The name of the resource.
 	Name string `pulumi:"name"`
 	// Provisioning state of the resource.

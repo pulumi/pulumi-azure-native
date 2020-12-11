@@ -39,6 +39,8 @@ type LookupMachineGroupResult struct {
 	Etag *string `pulumi:"etag"`
 	// Type of the machine group
 	GroupType *string `pulumi:"groupType"`
+	// Resource identifier.
+	Id string `pulumi:"id"`
 	// Additional resource type qualifier.
 	Kind string `pulumi:"kind"`
 	// References of the machines in this group. The hints within each reference do not represent the current value of the corresponding fields. They are a snapshot created during the last time the machine group was updated.

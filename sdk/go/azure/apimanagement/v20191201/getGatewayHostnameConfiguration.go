@@ -33,6 +33,8 @@ type LookupGatewayHostnameConfigurationResult struct {
 	CertificateId *string `pulumi:"certificateId"`
 	// Hostname value. Supports valid domain name, partial or full wildcard
 	Hostname *string `pulumi:"hostname"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Determines whether gateway requests client certificate

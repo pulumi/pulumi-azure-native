@@ -29,6 +29,8 @@ type LookupReportConfigResult struct {
 	DeliveryInfo ReportConfigDeliveryInfoResponse `pulumi:"deliveryInfo"`
 	// The format of the report being delivered.
 	Format *string `pulumi:"format"`
+	// Resource Id.
+	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Has schedule information for the report config.

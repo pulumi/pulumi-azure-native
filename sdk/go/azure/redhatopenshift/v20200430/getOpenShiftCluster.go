@@ -31,6 +31,8 @@ type LookupOpenShiftClusterResult struct {
 	ClusterProfile *ClusterProfileResponse `pulumi:"clusterProfile"`
 	// The console profile.
 	ConsoleProfile *ConsoleProfileResponse `pulumi:"consoleProfile"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// The cluster ingress profiles.
 	IngressProfiles []IngressProfileResponse `pulumi:"ingressProfiles"`
 	// The geo-location where the resource lives

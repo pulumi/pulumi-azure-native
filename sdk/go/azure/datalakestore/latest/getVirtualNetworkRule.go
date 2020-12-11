@@ -27,6 +27,8 @@ type LookupVirtualNetworkRuleArgs struct {
 
 // Data Lake Store virtual network rule information.
 type LookupVirtualNetworkRuleResult struct {
+	// The resource identifier.
+	Id string `pulumi:"id"`
 	// The resource name.
 	Name string `pulumi:"name"`
 	// The resource identifier for the subnet.

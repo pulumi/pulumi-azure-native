@@ -24,6 +24,8 @@ type LookupJobCollectionArgs struct {
 }
 
 type LookupJobCollectionResult struct {
+	// Gets the job collection resource identifier.
+	Id string `pulumi:"id"`
 	// Gets or sets the storage account location.
 	Location *string `pulumi:"location"`
 	// Gets or sets the job collection resource name.

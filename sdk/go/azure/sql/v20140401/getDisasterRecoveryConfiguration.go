@@ -31,6 +31,8 @@ type LookupDisasterRecoveryConfigurationResult struct {
 	AutoFailover string `pulumi:"autoFailover"`
 	// How aggressive the automatic failover should be.
 	FailoverPolicy string `pulumi:"failoverPolicy"`
+	// Resource ID.
+	Id string `pulumi:"id"`
 	// Location of the server that contains this disaster recovery configuration.
 	Location string `pulumi:"location"`
 	// Logical name of the server.

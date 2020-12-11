@@ -35,6 +35,8 @@ type LookupVirtualMachineScaleSetVMRunCommandResult struct {
 	AsyncExecution *bool `pulumi:"asyncExecution"`
 	// Specifies the Azure storage blob where script error stream will be uploaded.
 	ErrorBlobUri *string `pulumi:"errorBlobUri"`
+	// Resource Id
+	Id string `pulumi:"id"`
 	// The virtual machine run command instance view.
 	InstanceView VirtualMachineRunCommandInstanceViewResponse `pulumi:"instanceView"`
 	// Resource location
