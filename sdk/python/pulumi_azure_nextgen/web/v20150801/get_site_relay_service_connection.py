@@ -19,7 +19,7 @@ class GetSiteRelayServiceConnectionResult:
     """
     Class that represents a BizTalk Hybrid Connection
     """
-    def __init__(__self__, biztalk_uri=None, entity_connection_string=None, entity_name=None, hostname=None, kind=None, location=None, name=None, port=None, resource_connection_string=None, resource_type=None, tags=None, type=None):
+    def __init__(__self__, biztalk_uri=None, entity_connection_string=None, entity_name=None, hostname=None, id=None, kind=None, location=None, name=None, port=None, resource_connection_string=None, resource_type=None, tags=None, type=None):
         if biztalk_uri and not isinstance(biztalk_uri, str):
             raise TypeError("Expected argument 'biztalk_uri' to be a str")
         pulumi.set(__self__, "biztalk_uri", biztalk_uri)
@@ -32,6 +32,9 @@ class GetSiteRelayServiceConnectionResult:
         if hostname and not isinstance(hostname, str):
             raise TypeError("Expected argument 'hostname' to be a str")
         pulumi.set(__self__, "hostname", hostname)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -76,6 +79,14 @@ class GetSiteRelayServiceConnectionResult:
     @pulumi.getter
     def hostname(self) -> Optional[str]:
         return pulumi.get(self, "hostname")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -143,6 +154,7 @@ class AwaitableGetSiteRelayServiceConnectionResult(GetSiteRelayServiceConnection
             entity_connection_string=self.entity_connection_string,
             entity_name=self.entity_name,
             hostname=self.hostname,
+            id=self.id,
             kind=self.kind,
             location=self.location,
             name=self.name,
@@ -179,6 +191,7 @@ def get_site_relay_service_connection(entity_name: Optional[str] = None,
         entity_connection_string=__ret__.entity_connection_string,
         entity_name=__ret__.entity_name,
         hostname=__ret__.hostname,
+        id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,

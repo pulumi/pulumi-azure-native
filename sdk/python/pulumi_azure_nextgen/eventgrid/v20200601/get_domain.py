@@ -20,10 +20,13 @@ class GetDomainResult:
     """
     EventGrid Domain.
     """
-    def __init__(__self__, endpoint=None, inbound_ip_rules=None, input_schema=None, input_schema_mapping=None, location=None, metric_resource_id=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, tags=None, type=None):
+    def __init__(__self__, endpoint=None, id=None, inbound_ip_rules=None, input_schema=None, input_schema_mapping=None, location=None, metric_resource_id=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, tags=None, type=None):
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if inbound_ip_rules and not isinstance(inbound_ip_rules, list):
             raise TypeError("Expected argument 'inbound_ip_rules' to be a list")
         pulumi.set(__self__, "inbound_ip_rules", inbound_ip_rules)
@@ -65,6 +68,14 @@ class GetDomainResult:
         Endpoint for the domain.
         """
         return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified identifier of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="inboundIpRules")
@@ -163,6 +174,7 @@ class AwaitableGetDomainResult(GetDomainResult):
             yield self
         return GetDomainResult(
             endpoint=self.endpoint,
+            id=self.id,
             inbound_ip_rules=self.inbound_ip_rules,
             input_schema=self.input_schema,
             input_schema_mapping=self.input_schema_mapping,
@@ -196,6 +208,7 @@ def get_domain(domain_name: Optional[str] = None,
 
     return AwaitableGetDomainResult(
         endpoint=__ret__.endpoint,
+        id=__ret__.id,
         inbound_ip_rules=__ret__.inbound_ip_rules,
         input_schema=__ret__.input_schema,
         input_schema_mapping=__ret__.input_schema_mapping,

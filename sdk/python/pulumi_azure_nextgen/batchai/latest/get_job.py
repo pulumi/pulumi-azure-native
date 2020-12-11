@@ -20,7 +20,7 @@ class GetJobResult:
     """
     Information about a Job.
     """
-    def __init__(__self__, caffe2_settings=None, caffe_settings=None, chainer_settings=None, cluster=None, cntk_settings=None, constraints=None, container_settings=None, creation_time=None, custom_mpi_settings=None, custom_toolkit_settings=None, environment_variables=None, execution_info=None, execution_state=None, execution_state_transition_time=None, horovod_settings=None, input_directories=None, job_output_directory_path_segment=None, job_preparation=None, mount_volumes=None, name=None, node_count=None, output_directories=None, provisioning_state=None, provisioning_state_transition_time=None, py_torch_settings=None, scheduling_priority=None, secrets=None, std_out_err_path_prefix=None, tensor_flow_settings=None, tool_type=None, type=None):
+    def __init__(__self__, caffe2_settings=None, caffe_settings=None, chainer_settings=None, cluster=None, cntk_settings=None, constraints=None, container_settings=None, creation_time=None, custom_mpi_settings=None, custom_toolkit_settings=None, environment_variables=None, execution_info=None, execution_state=None, execution_state_transition_time=None, horovod_settings=None, id=None, input_directories=None, job_output_directory_path_segment=None, job_preparation=None, mount_volumes=None, name=None, node_count=None, output_directories=None, provisioning_state=None, provisioning_state_transition_time=None, py_torch_settings=None, scheduling_priority=None, secrets=None, std_out_err_path_prefix=None, tensor_flow_settings=None, tool_type=None, type=None):
         if caffe2_settings and not isinstance(caffe2_settings, dict):
             raise TypeError("Expected argument 'caffe2_settings' to be a dict")
         pulumi.set(__self__, "caffe2_settings", caffe2_settings)
@@ -66,6 +66,9 @@ class GetJobResult:
         if horovod_settings and not isinstance(horovod_settings, dict):
             raise TypeError("Expected argument 'horovod_settings' to be a dict")
         pulumi.set(__self__, "horovod_settings", horovod_settings)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if input_directories and not isinstance(input_directories, list):
             raise TypeError("Expected argument 'input_directories' to be a list")
         pulumi.set(__self__, "input_directories", input_directories)
@@ -236,6 +239,14 @@ class GetJobResult:
         return pulumi.get(self, "horovod_settings")
 
     @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the resource.
+        """
+        return pulumi.get(self, "id")
+
+    @property
     @pulumi.getter(name="inputDirectories")
     def input_directories(self) -> Optional[Sequence['outputs.InputDirectoryResponse']]:
         """
@@ -385,6 +396,7 @@ class AwaitableGetJobResult(GetJobResult):
             execution_state=self.execution_state,
             execution_state_transition_time=self.execution_state_transition_time,
             horovod_settings=self.horovod_settings,
+            id=self.id,
             input_directories=self.input_directories,
             job_output_directory_path_segment=self.job_output_directory_path_segment,
             job_preparation=self.job_preparation,
@@ -443,6 +455,7 @@ def get_job(experiment_name: Optional[str] = None,
         execution_state=__ret__.execution_state,
         execution_state_transition_time=__ret__.execution_state_transition_time,
         horovod_settings=__ret__.horovod_settings,
+        id=__ret__.id,
         input_directories=__ret__.input_directories,
         job_output_directory_path_segment=__ret__.job_output_directory_path_segment,
         job_preparation=__ret__.job_preparation,

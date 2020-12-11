@@ -20,10 +20,13 @@ class GetContainerGroupResult:
     """
     A container group.
     """
-    def __init__(__self__, containers=None, image_registry_credentials=None, instance_view=None, ip_address=None, location=None, name=None, os_type=None, provisioning_state=None, restart_policy=None, tags=None, type=None, volumes=None):
+    def __init__(__self__, containers=None, id=None, image_registry_credentials=None, instance_view=None, ip_address=None, location=None, name=None, os_type=None, provisioning_state=None, restart_policy=None, tags=None, type=None, volumes=None):
         if containers and not isinstance(containers, list):
             raise TypeError("Expected argument 'containers' to be a list")
         pulumi.set(__self__, "containers", containers)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if image_registry_credentials and not isinstance(image_registry_credentials, list):
             raise TypeError("Expected argument 'image_registry_credentials' to be a list")
         pulumi.set(__self__, "image_registry_credentials", image_registry_credentials)
@@ -65,6 +68,14 @@ class GetContainerGroupResult:
         The containers within the container group.
         """
         return pulumi.get(self, "containers")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="imageRegistryCredentials")
@@ -165,6 +176,7 @@ class AwaitableGetContainerGroupResult(GetContainerGroupResult):
             yield self
         return GetContainerGroupResult(
             containers=self.containers,
+            id=self.id,
             image_registry_credentials=self.image_registry_credentials,
             instance_view=self.instance_view,
             ip_address=self.ip_address,
@@ -198,6 +210,7 @@ def get_container_group(container_group_name: Optional[str] = None,
 
     return AwaitableGetContainerGroupResult(
         containers=__ret__.containers,
+        id=__ret__.id,
         image_registry_credentials=__ret__.image_registry_credentials,
         instance_view=__ret__.instance_view,
         ip_address=__ret__.ip_address,

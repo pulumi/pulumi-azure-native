@@ -19,7 +19,7 @@ class GetSiteInstanceDeploymentSlotResult:
     """
     Represents user credentials used for publishing activity
     """
-    def __init__(__self__, active=None, author=None, author_email=None, deployer=None, details=None, end_time=None, kind=None, location=None, message=None, name=None, start_time=None, status=None, tags=None, type=None):
+    def __init__(__self__, active=None, author=None, author_email=None, deployer=None, details=None, end_time=None, id=None, kind=None, location=None, message=None, name=None, start_time=None, status=None, tags=None, type=None):
         if active and not isinstance(active, bool):
             raise TypeError("Expected argument 'active' to be a bool")
         pulumi.set(__self__, "active", active)
@@ -38,6 +38,9 @@ class GetSiteInstanceDeploymentSlotResult:
         if end_time and not isinstance(end_time, str):
             raise TypeError("Expected argument 'end_time' to be a str")
         pulumi.set(__self__, "end_time", end_time)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -110,6 +113,14 @@ class GetSiteInstanceDeploymentSlotResult:
         EndTime
         """
         return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -188,6 +199,7 @@ class AwaitableGetSiteInstanceDeploymentSlotResult(GetSiteInstanceDeploymentSlot
             deployer=self.deployer,
             details=self.details,
             end_time=self.end_time,
+            id=self.id,
             kind=self.kind,
             location=self.location,
             message=self.message,
@@ -232,6 +244,7 @@ def get_site_instance_deployment_slot(id: Optional[str] = None,
         deployer=__ret__.deployer,
         details=__ret__.details,
         end_time=__ret__.end_time,
+        id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
         message=__ret__.message,

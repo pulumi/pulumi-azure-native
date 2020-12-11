@@ -20,7 +20,7 @@ class GetPublishedBlueprintResult:
     """
     Represents a published blueprint.
     """
-    def __init__(__self__, blueprint_name=None, change_notes=None, description=None, display_name=None, name=None, parameters=None, resource_groups=None, status=None, target_scope=None, type=None):
+    def __init__(__self__, blueprint_name=None, change_notes=None, description=None, display_name=None, id=None, name=None, parameters=None, resource_groups=None, status=None, target_scope=None, type=None):
         if blueprint_name and not isinstance(blueprint_name, str):
             raise TypeError("Expected argument 'blueprint_name' to be a str")
         pulumi.set(__self__, "blueprint_name", blueprint_name)
@@ -33,6 +33,9 @@ class GetPublishedBlueprintResult:
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -83,6 +86,14 @@ class GetPublishedBlueprintResult:
         One-liner string explain this resource.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        String Id used to locate any resource on Azure.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -143,6 +154,7 @@ class AwaitableGetPublishedBlueprintResult(GetPublishedBlueprintResult):
             change_notes=self.change_notes,
             description=self.description,
             display_name=self.display_name,
+            id=self.id,
             name=self.name,
             parameters=self.parameters,
             resource_groups=self.resource_groups,
@@ -177,6 +189,7 @@ def get_published_blueprint(blueprint_name: Optional[str] = None,
         change_notes=__ret__.change_notes,
         description=__ret__.description,
         display_name=__ret__.display_name,
+        id=__ret__.id,
         name=__ret__.name,
         parameters=__ret__.parameters,
         resource_groups=__ret__.resource_groups,

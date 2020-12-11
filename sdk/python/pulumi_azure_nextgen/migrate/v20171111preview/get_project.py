@@ -19,7 +19,7 @@ class GetProjectResult:
     """
     Azure Migrate Project.
     """
-    def __init__(__self__, created_timestamp=None, customer_workspace_id=None, discovery_status=None, e_tag=None, location=None, name=None, number_of_assessments=None, number_of_groups=None, number_of_machines=None, provisioning_state=None, tags=None, type=None, updated_timestamp=None):
+    def __init__(__self__, created_timestamp=None, customer_workspace_id=None, discovery_status=None, e_tag=None, id=None, location=None, name=None, number_of_assessments=None, number_of_groups=None, number_of_machines=None, provisioning_state=None, tags=None, type=None, updated_timestamp=None):
         if created_timestamp and not isinstance(created_timestamp, str):
             raise TypeError("Expected argument 'created_timestamp' to be a str")
         pulumi.set(__self__, "created_timestamp", created_timestamp)
@@ -32,6 +32,9 @@ class GetProjectResult:
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -91,6 +94,14 @@ class GetProjectResult:
         For optimistic concurrency control.
         """
         return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Path reference to this project /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -175,6 +186,7 @@ class AwaitableGetProjectResult(GetProjectResult):
             customer_workspace_id=self.customer_workspace_id,
             discovery_status=self.discovery_status,
             e_tag=self.e_tag,
+            id=self.id,
             location=self.location,
             name=self.name,
             number_of_assessments=self.number_of_assessments,
@@ -209,6 +221,7 @@ def get_project(project_name: Optional[str] = None,
         customer_workspace_id=__ret__.customer_workspace_id,
         discovery_status=__ret__.discovery_status,
         e_tag=__ret__.e_tag,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         number_of_assessments=__ret__.number_of_assessments,

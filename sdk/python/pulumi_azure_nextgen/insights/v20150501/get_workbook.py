@@ -19,10 +19,13 @@ class GetWorkbookResult:
     """
     An Application Insights workbook definition.
     """
-    def __init__(__self__, category=None, kind=None, location=None, name=None, serialized_data=None, shared_type_kind=None, source_resource_id=None, tags=None, time_modified=None, type=None, user_id=None, version=None, workbook_id=None):
+    def __init__(__self__, category=None, id=None, kind=None, location=None, name=None, serialized_data=None, shared_type_kind=None, source_resource_id=None, tags=None, time_modified=None, type=None, user_id=None, version=None, workbook_id=None):
         if category and not isinstance(category, str):
             raise TypeError("Expected argument 'category' to be a str")
         pulumi.set(__self__, "category", category)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -67,6 +70,14 @@ class GetWorkbookResult:
         Workbook category, as defined by the user at creation time.
         """
         return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -172,6 +183,7 @@ class AwaitableGetWorkbookResult(GetWorkbookResult):
             yield self
         return GetWorkbookResult(
             category=self.category,
+            id=self.id,
             kind=self.kind,
             location=self.location,
             name=self.name,
@@ -206,6 +218,7 @@ def get_workbook(resource_group_name: Optional[str] = None,
 
     return AwaitableGetWorkbookResult(
         category=__ret__.category,
+        id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,

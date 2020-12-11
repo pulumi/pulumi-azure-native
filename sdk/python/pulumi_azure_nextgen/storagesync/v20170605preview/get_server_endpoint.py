@@ -19,7 +19,7 @@ class GetServerEndpointResult:
     """
     Server Endpoint object.
     """
-    def __init__(__self__, byte_progress=None, byte_total=None, cloud_tiering=None, current_progress_type=None, friendly_name=None, item_download_error_count=None, item_progress_count=None, item_total_count=None, item_upload_error_count=None, last_sync_success=None, last_workflow_id=None, name=None, provisioning_state=None, server_local_path=None, server_resource_id=None, sync_error_context=None, sync_error_direction=None, sync_error_state=None, sync_error_state_timestamp=None, total_progress=None, type=None, volume_free_space_percent=None):
+    def __init__(__self__, byte_progress=None, byte_total=None, cloud_tiering=None, current_progress_type=None, friendly_name=None, id=None, item_download_error_count=None, item_progress_count=None, item_total_count=None, item_upload_error_count=None, last_sync_success=None, last_workflow_id=None, name=None, provisioning_state=None, server_local_path=None, server_resource_id=None, sync_error_context=None, sync_error_direction=None, sync_error_state=None, sync_error_state_timestamp=None, total_progress=None, type=None, volume_free_space_percent=None):
         if byte_progress and not isinstance(byte_progress, int):
             raise TypeError("Expected argument 'byte_progress' to be a int")
         pulumi.set(__self__, "byte_progress", byte_progress)
@@ -35,6 +35,9 @@ class GetServerEndpointResult:
         if friendly_name and not isinstance(friendly_name, str):
             raise TypeError("Expected argument 'friendly_name' to be a str")
         pulumi.set(__self__, "friendly_name", friendly_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if item_download_error_count and not isinstance(item_download_error_count, int):
             raise TypeError("Expected argument 'item_download_error_count' to be a int")
         pulumi.set(__self__, "item_download_error_count", item_download_error_count)
@@ -126,6 +129,14 @@ class GetServerEndpointResult:
         Friendly Name
         """
         return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The id of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="itemDownloadErrorCount")
@@ -275,6 +286,7 @@ class AwaitableGetServerEndpointResult(GetServerEndpointResult):
             cloud_tiering=self.cloud_tiering,
             current_progress_type=self.current_progress_type,
             friendly_name=self.friendly_name,
+            id=self.id,
             item_download_error_count=self.item_download_error_count,
             item_progress_count=self.item_progress_count,
             item_total_count=self.item_total_count,
@@ -324,6 +336,7 @@ def get_server_endpoint(resource_group_name: Optional[str] = None,
         cloud_tiering=__ret__.cloud_tiering,
         current_progress_type=__ret__.current_progress_type,
         friendly_name=__ret__.friendly_name,
+        id=__ret__.id,
         item_download_error_count=__ret__.item_download_error_count,
         item_progress_count=__ret__.item_progress_count,
         item_total_count=__ret__.item_total_count,

@@ -20,7 +20,7 @@ class GetSiteSlotResult:
     """
     Represents a web app
     """
-    def __init__(__self__, availability_state=None, client_affinity_enabled=None, client_cert_enabled=None, cloning_info=None, container_size=None, default_host_name=None, enabled=None, enabled_host_names=None, gateway_site_name=None, host_name_ssl_states=None, host_names=None, host_names_disabled=None, hosting_environment_profile=None, is_default_container=None, kind=None, last_modified_time_utc=None, location=None, max_number_of_workers=None, micro_service=None, name=None, outbound_ip_addresses=None, premium_app_deployed=None, repository_site_name=None, resource_group=None, scm_site_also_stopped=None, server_farm_id=None, site_config=None, state=None, tags=None, target_swap_slot=None, traffic_manager_host_names=None, type=None, usage_state=None):
+    def __init__(__self__, availability_state=None, client_affinity_enabled=None, client_cert_enabled=None, cloning_info=None, container_size=None, default_host_name=None, enabled=None, enabled_host_names=None, gateway_site_name=None, host_name_ssl_states=None, host_names=None, host_names_disabled=None, hosting_environment_profile=None, id=None, is_default_container=None, kind=None, last_modified_time_utc=None, location=None, max_number_of_workers=None, micro_service=None, name=None, outbound_ip_addresses=None, premium_app_deployed=None, repository_site_name=None, resource_group=None, scm_site_also_stopped=None, server_farm_id=None, site_config=None, state=None, tags=None, target_swap_slot=None, traffic_manager_host_names=None, type=None, usage_state=None):
         if availability_state and not isinstance(availability_state, str):
             raise TypeError("Expected argument 'availability_state' to be a str")
         pulumi.set(__self__, "availability_state", availability_state)
@@ -60,6 +60,9 @@ class GetSiteSlotResult:
         if hosting_environment_profile and not isinstance(hosting_environment_profile, dict):
             raise TypeError("Expected argument 'hosting_environment_profile' to be a dict")
         pulumi.set(__self__, "hosting_environment_profile", hosting_environment_profile)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_default_container and not isinstance(is_default_container, bool):
             raise TypeError("Expected argument 'is_default_container' to be a bool")
         pulumi.set(__self__, "is_default_container", is_default_container)
@@ -229,6 +232,14 @@ class GetSiteSlotResult:
         Specification for the hosting environment (App Service Environment) to use for the web app
         """
         return pulumi.get(self, "hosting_environment_profile")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isDefaultContainer")
@@ -405,6 +416,7 @@ class AwaitableGetSiteSlotResult(GetSiteSlotResult):
             host_names=self.host_names,
             host_names_disabled=self.host_names_disabled,
             hosting_environment_profile=self.hosting_environment_profile,
+            id=self.id,
             is_default_container=self.is_default_container,
             kind=self.kind,
             last_modified_time_utc=self.last_modified_time_utc,
@@ -465,6 +477,7 @@ def get_site_slot(name: Optional[str] = None,
         host_names=__ret__.host_names,
         host_names_disabled=__ret__.host_names_disabled,
         hosting_environment_profile=__ret__.hosting_environment_profile,
+        id=__ret__.id,
         is_default_container=__ret__.is_default_container,
         kind=__ret__.kind,
         last_modified_time_utc=__ret__.last_modified_time_utc,

@@ -19,7 +19,7 @@ class GetConnectorResult:
     """
     The connector resource format.
     """
-    def __init__(__self__, connector_id=None, connector_name=None, connector_properties=None, connector_type=None, created=None, description=None, display_name=None, is_internal=None, last_modified=None, name=None, state=None, tenant_id=None, type=None):
+    def __init__(__self__, connector_id=None, connector_name=None, connector_properties=None, connector_type=None, created=None, description=None, display_name=None, id=None, is_internal=None, last_modified=None, name=None, state=None, tenant_id=None, type=None):
         if connector_id and not isinstance(connector_id, int):
             raise TypeError("Expected argument 'connector_id' to be a int")
         pulumi.set(__self__, "connector_id", connector_id)
@@ -41,6 +41,9 @@ class GetConnectorResult:
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_internal and not isinstance(is_internal, bool):
             raise TypeError("Expected argument 'is_internal' to be a bool")
         pulumi.set(__self__, "is_internal", is_internal)
@@ -117,6 +120,14 @@ class GetConnectorResult:
         return pulumi.get(self, "display_name")
 
     @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
     @pulumi.getter(name="isInternal")
     def is_internal(self) -> Optional[bool]:
         """
@@ -178,6 +189,7 @@ class AwaitableGetConnectorResult(GetConnectorResult):
             created=self.created,
             description=self.description,
             display_name=self.display_name,
+            id=self.id,
             is_internal=self.is_internal,
             last_modified=self.last_modified,
             name=self.name,
@@ -215,6 +227,7 @@ def get_connector(connector_name: Optional[str] = None,
         created=__ret__.created,
         description=__ret__.description,
         display_name=__ret__.display_name,
+        id=__ret__.id,
         is_internal=__ret__.is_internal,
         last_modified=__ret__.last_modified,
         name=__ret__.name,

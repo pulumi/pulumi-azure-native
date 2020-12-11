@@ -20,7 +20,7 @@ class GetStorageAccountCredentialResult:
     """
     The storage account credential
     """
-    def __init__(__self__, access_key=None, cloud_type=None, enable_ssl=None, end_point=None, location=None, login=None, name=None, type=None):
+    def __init__(__self__, access_key=None, cloud_type=None, enable_ssl=None, end_point=None, id=None, location=None, login=None, name=None, type=None):
         if access_key and not isinstance(access_key, dict):
             raise TypeError("Expected argument 'access_key' to be a dict")
         pulumi.set(__self__, "access_key", access_key)
@@ -33,6 +33,9 @@ class GetStorageAccountCredentialResult:
         if end_point and not isinstance(end_point, str):
             raise TypeError("Expected argument 'end_point' to be a str")
         pulumi.set(__self__, "end_point", end_point)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -80,6 +83,14 @@ class GetStorageAccountCredentialResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[str]:
         """
         The storage account's geo location
@@ -121,6 +132,7 @@ class AwaitableGetStorageAccountCredentialResult(GetStorageAccountCredentialResu
             cloud_type=self.cloud_type,
             enable_ssl=self.enable_ssl,
             end_point=self.end_point,
+            id=self.id,
             location=self.location,
             login=self.login,
             name=self.name,
@@ -153,6 +165,7 @@ def get_storage_account_credential(credential_name: Optional[str] = None,
         cloud_type=__ret__.cloud_type,
         enable_ssl=__ret__.enable_ssl,
         end_point=__ret__.end_point,
+        id=__ret__.id,
         location=__ret__.location,
         login=__ret__.login,
         name=__ret__.name,

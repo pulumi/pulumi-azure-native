@@ -20,7 +20,7 @@ class GetSiteVNETConnectionResult:
     """
     VNETInfo contract. This contract is public and is a stripped down version of VNETInfoInternal
     """
-    def __init__(__self__, cert_blob=None, cert_thumbprint=None, dns_servers=None, kind=None, location=None, name=None, resync_required=None, routes=None, tags=None, type=None, vnet_resource_id=None):
+    def __init__(__self__, cert_blob=None, cert_thumbprint=None, dns_servers=None, id=None, kind=None, location=None, name=None, resync_required=None, routes=None, tags=None, type=None, vnet_resource_id=None):
         if cert_blob and not isinstance(cert_blob, str):
             raise TypeError("Expected argument 'cert_blob' to be a str")
         pulumi.set(__self__, "cert_blob", cert_blob)
@@ -30,6 +30,9 @@ class GetSiteVNETConnectionResult:
         if dns_servers and not isinstance(dns_servers, str):
             raise TypeError("Expected argument 'dns_servers' to be a str")
         pulumi.set(__self__, "dns_servers", dns_servers)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -79,6 +82,14 @@ class GetSiteVNETConnectionResult:
         Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
         """
         return pulumi.get(self, "dns_servers")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -154,6 +165,7 @@ class AwaitableGetSiteVNETConnectionResult(GetSiteVNETConnectionResult):
             cert_blob=self.cert_blob,
             cert_thumbprint=self.cert_thumbprint,
             dns_servers=self.dns_servers,
+            id=self.id,
             kind=self.kind,
             location=self.location,
             name=self.name,
@@ -189,6 +201,7 @@ def get_site_vnet_connection(name: Optional[str] = None,
         cert_blob=__ret__.cert_blob,
         cert_thumbprint=__ret__.cert_thumbprint,
         dns_servers=__ret__.dns_servers,
+        id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,

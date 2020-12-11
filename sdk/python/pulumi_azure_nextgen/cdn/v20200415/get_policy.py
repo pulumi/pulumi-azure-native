@@ -20,7 +20,7 @@ class GetPolicyResult:
     """
     Defines web application firewall policy for Azure CDN.
     """
-    def __init__(__self__, custom_rules=None, endpoint_links=None, etag=None, location=None, managed_rules=None, name=None, policy_settings=None, provisioning_state=None, rate_limit_rules=None, resource_state=None, sku=None, tags=None, type=None):
+    def __init__(__self__, custom_rules=None, endpoint_links=None, etag=None, id=None, location=None, managed_rules=None, name=None, policy_settings=None, provisioning_state=None, rate_limit_rules=None, resource_state=None, sku=None, tags=None, type=None):
         if custom_rules and not isinstance(custom_rules, dict):
             raise TypeError("Expected argument 'custom_rules' to be a dict")
         pulumi.set(__self__, "custom_rules", custom_rules)
@@ -30,6 +30,9 @@ class GetPolicyResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -84,6 +87,14 @@ class GetPolicyResult:
         Gets a unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -172,6 +183,7 @@ class AwaitableGetPolicyResult(GetPolicyResult):
             custom_rules=self.custom_rules,
             endpoint_links=self.endpoint_links,
             etag=self.etag,
+            id=self.id,
             location=self.location,
             managed_rules=self.managed_rules,
             name=self.name,
@@ -206,6 +218,7 @@ def get_policy(policy_name: Optional[str] = None,
         custom_rules=__ret__.custom_rules,
         endpoint_links=__ret__.endpoint_links,
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         managed_rules=__ret__.managed_rules,
         name=__ret__.name,

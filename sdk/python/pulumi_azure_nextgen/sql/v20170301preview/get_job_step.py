@@ -20,7 +20,7 @@ class GetJobStepResult:
     """
     A job step.
     """
-    def __init__(__self__, action=None, credential=None, execution_options=None, name=None, output=None, step_id=None, target_group=None, type=None):
+    def __init__(__self__, action=None, credential=None, execution_options=None, id=None, name=None, output=None, step_id=None, target_group=None, type=None):
         if action and not isinstance(action, dict):
             raise TypeError("Expected argument 'action' to be a dict")
         pulumi.set(__self__, "action", action)
@@ -30,6 +30,9 @@ class GetJobStepResult:
         if execution_options and not isinstance(execution_options, dict):
             raise TypeError("Expected argument 'execution_options' to be a dict")
         pulumi.set(__self__, "execution_options", execution_options)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -69,6 +72,14 @@ class GetJobStepResult:
         Execution options for the job step.
         """
         return pulumi.get(self, "execution_options")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -120,6 +131,7 @@ class AwaitableGetJobStepResult(GetJobStepResult):
             action=self.action,
             credential=self.credential,
             execution_options=self.execution_options,
+            id=self.id,
             name=self.name,
             output=self.output,
             step_id=self.step_id,
@@ -158,6 +170,7 @@ def get_job_step(job_agent_name: Optional[str] = None,
         action=__ret__.action,
         credential=__ret__.credential,
         execution_options=__ret__.execution_options,
+        id=__ret__.id,
         name=__ret__.name,
         output=__ret__.output,
         step_id=__ret__.step_id,

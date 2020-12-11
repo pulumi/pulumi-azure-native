@@ -20,7 +20,7 @@ class GetLoadBalancerResult:
     """
     LoadBalancer resource
     """
-    def __init__(__self__, backend_address_pools=None, etag=None, frontend_ip_configurations=None, inbound_nat_pools=None, inbound_nat_rules=None, load_balancing_rules=None, location=None, name=None, outbound_rules=None, probes=None, provisioning_state=None, resource_guid=None, sku=None, tags=None, type=None):
+    def __init__(__self__, backend_address_pools=None, etag=None, frontend_ip_configurations=None, id=None, inbound_nat_pools=None, inbound_nat_rules=None, load_balancing_rules=None, location=None, name=None, outbound_rules=None, probes=None, provisioning_state=None, resource_guid=None, sku=None, tags=None, type=None):
         if backend_address_pools and not isinstance(backend_address_pools, list):
             raise TypeError("Expected argument 'backend_address_pools' to be a list")
         pulumi.set(__self__, "backend_address_pools", backend_address_pools)
@@ -30,6 +30,9 @@ class GetLoadBalancerResult:
         if frontend_ip_configurations and not isinstance(frontend_ip_configurations, list):
             raise TypeError("Expected argument 'frontend_ip_configurations' to be a list")
         pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if inbound_nat_pools and not isinstance(inbound_nat_pools, list):
             raise TypeError("Expected argument 'inbound_nat_pools' to be a list")
         pulumi.set(__self__, "inbound_nat_pools", inbound_nat_pools)
@@ -90,6 +93,14 @@ class GetLoadBalancerResult:
         Object representing the frontend IPs to be used for the load balancer
         """
         return pulumi.get(self, "frontend_ip_configurations")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="inboundNatPools")
@@ -197,6 +208,7 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             backend_address_pools=self.backend_address_pools,
             etag=self.etag,
             frontend_ip_configurations=self.frontend_ip_configurations,
+            id=self.id,
             inbound_nat_pools=self.inbound_nat_pools,
             inbound_nat_rules=self.inbound_nat_rules,
             load_balancing_rules=self.load_balancing_rules,
@@ -236,6 +248,7 @@ def get_load_balancer(expand: Optional[str] = None,
         backend_address_pools=__ret__.backend_address_pools,
         etag=__ret__.etag,
         frontend_ip_configurations=__ret__.frontend_ip_configurations,
+        id=__ret__.id,
         inbound_nat_pools=__ret__.inbound_nat_pools,
         inbound_nat_rules=__ret__.inbound_nat_rules,
         load_balancing_rules=__ret__.load_balancing_rules,

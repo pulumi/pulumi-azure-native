@@ -19,7 +19,7 @@ class GetSapMonitorResult:
     """
     SAP monitor info on Azure (ARM properties and SAP monitor properties)
     """
-    def __init__(__self__, enable_customer_analytics=None, hana_db_credentials_msi_id=None, hana_db_name=None, hana_db_password=None, hana_db_password_key_vault_url=None, hana_db_sql_port=None, hana_db_username=None, hana_hostname=None, hana_subnet=None, key_vault_id=None, location=None, log_analytics_workspace_arm_id=None, log_analytics_workspace_id=None, log_analytics_workspace_shared_key=None, managed_resource_group_name=None, name=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, enable_customer_analytics=None, hana_db_credentials_msi_id=None, hana_db_name=None, hana_db_password=None, hana_db_password_key_vault_url=None, hana_db_sql_port=None, hana_db_username=None, hana_hostname=None, hana_subnet=None, id=None, key_vault_id=None, location=None, log_analytics_workspace_arm_id=None, log_analytics_workspace_id=None, log_analytics_workspace_shared_key=None, managed_resource_group_name=None, name=None, provisioning_state=None, tags=None, type=None):
         if enable_customer_analytics and not isinstance(enable_customer_analytics, bool):
             raise TypeError("Expected argument 'enable_customer_analytics' to be a bool")
         pulumi.set(__self__, "enable_customer_analytics", enable_customer_analytics)
@@ -47,6 +47,9 @@ class GetSapMonitorResult:
         if hana_subnet and not isinstance(hana_subnet, str):
             raise TypeError("Expected argument 'hana_subnet' to be a str")
         pulumi.set(__self__, "hana_subnet", hana_subnet)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if key_vault_id and not isinstance(key_vault_id, str):
             raise TypeError("Expected argument 'key_vault_id' to be a str")
         pulumi.set(__self__, "key_vault_id", key_vault_id)
@@ -151,6 +154,14 @@ class GetSapMonitorResult:
         return pulumi.get(self, "hana_subnet")
 
     @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID
+        """
+        return pulumi.get(self, "id")
+
+    @property
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> Optional[str]:
         """
@@ -246,6 +257,7 @@ class AwaitableGetSapMonitorResult(GetSapMonitorResult):
             hana_db_username=self.hana_db_username,
             hana_hostname=self.hana_hostname,
             hana_subnet=self.hana_subnet,
+            id=self.id,
             key_vault_id=self.key_vault_id,
             location=self.location,
             log_analytics_workspace_arm_id=self.log_analytics_workspace_arm_id,
@@ -286,6 +298,7 @@ def get_sap_monitor(resource_group_name: Optional[str] = None,
         hana_db_username=__ret__.hana_db_username,
         hana_hostname=__ret__.hana_hostname,
         hana_subnet=__ret__.hana_subnet,
+        id=__ret__.id,
         key_vault_id=__ret__.key_vault_id,
         location=__ret__.location,
         log_analytics_workspace_arm_id=__ret__.log_analytics_workspace_arm_id,

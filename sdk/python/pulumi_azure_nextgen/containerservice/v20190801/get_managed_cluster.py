@@ -20,7 +20,7 @@ class GetManagedClusterResult:
     """
     Managed cluster.
     """
-    def __init__(__self__, aad_profile=None, addon_profiles=None, agent_pool_profiles=None, api_server_access_profile=None, dns_prefix=None, enable_pod_security_policy=None, enable_rbac=None, fqdn=None, identity=None, kubernetes_version=None, linux_profile=None, location=None, max_agent_pools=None, name=None, network_profile=None, node_resource_group=None, provisioning_state=None, service_principal_profile=None, tags=None, type=None, windows_profile=None):
+    def __init__(__self__, aad_profile=None, addon_profiles=None, agent_pool_profiles=None, api_server_access_profile=None, dns_prefix=None, enable_pod_security_policy=None, enable_rbac=None, fqdn=None, id=None, identity=None, kubernetes_version=None, linux_profile=None, location=None, max_agent_pools=None, name=None, network_profile=None, node_resource_group=None, provisioning_state=None, service_principal_profile=None, tags=None, type=None, windows_profile=None):
         if aad_profile and not isinstance(aad_profile, dict):
             raise TypeError("Expected argument 'aad_profile' to be a dict")
         pulumi.set(__self__, "aad_profile", aad_profile)
@@ -45,6 +45,9 @@ class GetManagedClusterResult:
         if fqdn and not isinstance(fqdn, str):
             raise TypeError("Expected argument 'fqdn' to be a str")
         pulumi.set(__self__, "fqdn", fqdn)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -148,6 +151,14 @@ class GetManagedClusterResult:
         FQDN for the master pool.
         """
         return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -268,6 +279,7 @@ class AwaitableGetManagedClusterResult(GetManagedClusterResult):
             enable_pod_security_policy=self.enable_pod_security_policy,
             enable_rbac=self.enable_rbac,
             fqdn=self.fqdn,
+            id=self.id,
             identity=self.identity,
             kubernetes_version=self.kubernetes_version,
             linux_profile=self.linux_profile,
@@ -310,6 +322,7 @@ def get_managed_cluster(resource_group_name: Optional[str] = None,
         enable_pod_security_policy=__ret__.enable_pod_security_policy,
         enable_rbac=__ret__.enable_rbac,
         fqdn=__ret__.fqdn,
+        id=__ret__.id,
         identity=__ret__.identity,
         kubernetes_version=__ret__.kubernetes_version,
         linux_profile=__ret__.linux_profile,

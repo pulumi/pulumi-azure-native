@@ -19,7 +19,10 @@ class GetWebAppDomainOwnershipIdentifierSlotResult:
     """
     A domain specific resource identifier.
     """
-    def __init__(__self__, kind=None, name=None, type=None):
+    def __init__(__self__, id=None, kind=None, name=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -29,6 +32,14 @@ class GetWebAppDomainOwnershipIdentifierSlotResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -61,6 +72,7 @@ class AwaitableGetWebAppDomainOwnershipIdentifierSlotResult(GetWebAppDomainOwner
         if False:
             yield self
         return GetWebAppDomainOwnershipIdentifierSlotResult(
+            id=self.id,
             kind=self.kind,
             name=self.name,
             type=self.type)
@@ -91,6 +103,7 @@ def get_web_app_domain_ownership_identifier_slot(domain_ownership_identifier_nam
     __ret__ = pulumi.runtime.invoke('azure-nextgen:web/v20181101:getWebAppDomainOwnershipIdentifierSlot', __args__, opts=opts, typ=GetWebAppDomainOwnershipIdentifierSlotResult).value
 
     return AwaitableGetWebAppDomainOwnershipIdentifierSlotResult(
+        id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
         type=__ret__.type)

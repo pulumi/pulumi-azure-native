@@ -20,10 +20,13 @@ class GetSqlResourceSqlRoleDefinitionResult:
     """
     An Azure Cosmos DB SQL Role Definition.
     """
-    def __init__(__self__, assignable_scopes=None, name=None, permissions=None, role_name=None, type=None):
+    def __init__(__self__, assignable_scopes=None, id=None, name=None, permissions=None, role_name=None, type=None):
         if assignable_scopes and not isinstance(assignable_scopes, list):
             raise TypeError("Expected argument 'assignable_scopes' to be a list")
         pulumi.set(__self__, "assignable_scopes", assignable_scopes)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -44,6 +47,14 @@ class GetSqlResourceSqlRoleDefinitionResult:
         A set of fully qualified Scopes at or below which Role Assignments may be created using this Role Definition. This will allow application of this Role Definition on the entire database account or any underlying Database / Collection. Must have at least one element. Scopes higher than Database account are not enforceable as assignable Scopes. Note that resources referenced in assignable Scopes need not exist.
         """
         return pulumi.get(self, "assignable_scopes")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The unique resource identifier of the database account.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -85,6 +96,7 @@ class AwaitableGetSqlResourceSqlRoleDefinitionResult(GetSqlResourceSqlRoleDefini
             yield self
         return GetSqlResourceSqlRoleDefinitionResult(
             assignable_scopes=self.assignable_scopes,
+            id=self.id,
             name=self.name,
             permissions=self.permissions,
             role_name=self.role_name,
@@ -114,6 +126,7 @@ def get_sql_resource_sql_role_definition(account_name: Optional[str] = None,
 
     return AwaitableGetSqlResourceSqlRoleDefinitionResult(
         assignable_scopes=__ret__.assignable_scopes,
+        id=__ret__.id,
         name=__ret__.name,
         permissions=__ret__.permissions,
         role_name=__ret__.role_name,

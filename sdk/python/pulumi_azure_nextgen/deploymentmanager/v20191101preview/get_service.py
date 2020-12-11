@@ -19,7 +19,10 @@ class GetServiceResult:
     """
     The resource representation of a service in a service topology.
     """
-    def __init__(__self__, location=None, name=None, tags=None, target_location=None, target_subscription_id=None, type=None):
+    def __init__(__self__, id=None, location=None, name=None, tags=None, target_location=None, target_subscription_id=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -38,6 +41,14 @@ class GetServiceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -94,6 +105,7 @@ class AwaitableGetServiceResult(GetServiceResult):
         if False:
             yield self
         return GetServiceResult(
+            id=self.id,
             location=self.location,
             name=self.name,
             tags=self.tags,
@@ -124,6 +136,7 @@ def get_service(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:deploymentmanager/v20191101preview:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         tags=__ret__.tags,

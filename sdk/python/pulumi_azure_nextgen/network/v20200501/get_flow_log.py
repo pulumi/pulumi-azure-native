@@ -20,7 +20,7 @@ class GetFlowLogResult:
     """
     A flow log resource.
     """
-    def __init__(__self__, enabled=None, etag=None, flow_analytics_configuration=None, format=None, location=None, name=None, provisioning_state=None, retention_policy=None, storage_id=None, tags=None, target_resource_guid=None, target_resource_id=None, type=None):
+    def __init__(__self__, enabled=None, etag=None, flow_analytics_configuration=None, format=None, id=None, location=None, name=None, provisioning_state=None, retention_policy=None, storage_id=None, tags=None, target_resource_guid=None, target_resource_id=None, type=None):
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
@@ -33,6 +33,9 @@ class GetFlowLogResult:
         if format and not isinstance(format, dict):
             raise TypeError("Expected argument 'format' to be a dict")
         pulumi.set(__self__, "format", format)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -92,6 +95,14 @@ class GetFlowLogResult:
         Parameters that define the flow log format.
         """
         return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -176,6 +187,7 @@ class AwaitableGetFlowLogResult(GetFlowLogResult):
             etag=self.etag,
             flow_analytics_configuration=self.flow_analytics_configuration,
             format=self.format,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -213,6 +225,7 @@ def get_flow_log(flow_log_name: Optional[str] = None,
         etag=__ret__.etag,
         flow_analytics_configuration=__ret__.flow_analytics_configuration,
         format=__ret__.format,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

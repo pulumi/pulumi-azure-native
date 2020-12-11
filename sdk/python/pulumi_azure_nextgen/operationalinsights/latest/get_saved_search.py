@@ -20,7 +20,7 @@ class GetSavedSearchResult:
     """
     Value object for saved search results.
     """
-    def __init__(__self__, category=None, display_name=None, etag=None, function_alias=None, function_parameters=None, name=None, query=None, tags=None, type=None, version=None):
+    def __init__(__self__, category=None, display_name=None, etag=None, function_alias=None, function_parameters=None, id=None, name=None, query=None, tags=None, type=None, version=None):
         if category and not isinstance(category, str):
             raise TypeError("Expected argument 'category' to be a str")
         pulumi.set(__self__, "category", category)
@@ -36,6 +36,9 @@ class GetSavedSearchResult:
         if function_parameters and not isinstance(function_parameters, str):
             raise TypeError("Expected argument 'function_parameters' to be a str")
         pulumi.set(__self__, "function_parameters", function_parameters)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -94,6 +97,14 @@ class GetSavedSearchResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         The name of the resource
@@ -144,6 +155,7 @@ class AwaitableGetSavedSearchResult(GetSavedSearchResult):
             etag=self.etag,
             function_alias=self.function_alias,
             function_parameters=self.function_parameters,
+            id=self.id,
             name=self.name,
             query=self.query,
             tags=self.tags,
@@ -178,6 +190,7 @@ def get_saved_search(resource_group_name: Optional[str] = None,
         etag=__ret__.etag,
         function_alias=__ret__.function_alias,
         function_parameters=__ret__.function_parameters,
+        id=__ret__.id,
         name=__ret__.name,
         query=__ret__.query,
         tags=__ret__.tags,

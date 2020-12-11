@@ -19,7 +19,7 @@ class GetApiTagDescriptionResult:
     """
     Contract details.
     """
-    def __init__(__self__, description=None, display_name=None, external_docs_description=None, external_docs_url=None, name=None, type=None):
+    def __init__(__self__, description=None, display_name=None, external_docs_description=None, external_docs_url=None, id=None, name=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -32,6 +32,9 @@ class GetApiTagDescriptionResult:
         if external_docs_url and not isinstance(external_docs_url, str):
             raise TypeError("Expected argument 'external_docs_url' to be a str")
         pulumi.set(__self__, "external_docs_url", external_docs_url)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -73,6 +76,14 @@ class GetApiTagDescriptionResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         Resource name.
@@ -98,6 +109,7 @@ class AwaitableGetApiTagDescriptionResult(GetApiTagDescriptionResult):
             display_name=self.display_name,
             external_docs_description=self.external_docs_description,
             external_docs_url=self.external_docs_url,
+            id=self.id,
             name=self.name,
             type=self.type)
 
@@ -131,5 +143,6 @@ def get_api_tag_description(api_id: Optional[str] = None,
         display_name=__ret__.display_name,
         external_docs_description=__ret__.external_docs_description,
         external_docs_url=__ret__.external_docs_url,
+        id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type)

@@ -20,7 +20,7 @@ class GetCertificateResult:
     """
     Contains information about a certificate.
     """
-    def __init__(__self__, delete_certificate_error=None, etag=None, format=None, name=None, previous_provisioning_state=None, previous_provisioning_state_transition_time=None, provisioning_state=None, provisioning_state_transition_time=None, public_data=None, thumbprint=None, thumbprint_algorithm=None, type=None):
+    def __init__(__self__, delete_certificate_error=None, etag=None, format=None, id=None, name=None, previous_provisioning_state=None, previous_provisioning_state_transition_time=None, provisioning_state=None, provisioning_state_transition_time=None, public_data=None, thumbprint=None, thumbprint_algorithm=None, type=None):
         if delete_certificate_error and not isinstance(delete_certificate_error, dict):
             raise TypeError("Expected argument 'delete_certificate_error' to be a dict")
         pulumi.set(__self__, "delete_certificate_error", delete_certificate_error)
@@ -30,6 +30,9 @@ class GetCertificateResult:
         if format and not isinstance(format, str):
             raise TypeError("Expected argument 'format' to be a str")
         pulumi.set(__self__, "format", format)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -81,6 +84,14 @@ class GetCertificateResult:
         The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
         """
         return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -155,6 +166,7 @@ class AwaitableGetCertificateResult(GetCertificateResult):
             delete_certificate_error=self.delete_certificate_error,
             etag=self.etag,
             format=self.format,
+            id=self.id,
             name=self.name,
             previous_provisioning_state=self.previous_provisioning_state,
             previous_provisioning_state_transition_time=self.previous_provisioning_state_transition_time,
@@ -191,6 +203,7 @@ def get_certificate(account_name: Optional[str] = None,
         delete_certificate_error=__ret__.delete_certificate_error,
         etag=__ret__.etag,
         format=__ret__.format,
+        id=__ret__.id,
         name=__ret__.name,
         previous_provisioning_state=__ret__.previous_provisioning_state,
         previous_provisioning_state_transition_time=__ret__.previous_provisioning_state_transition_time,

@@ -19,13 +19,16 @@ class GetWebAppSourceControlSlotResult:
     """
     Source control configuration for an app.
     """
-    def __init__(__self__, branch=None, deployment_rollback_enabled=None, is_manual_integration=None, is_mercurial=None, kind=None, name=None, repo_url=None, type=None):
+    def __init__(__self__, branch=None, deployment_rollback_enabled=None, id=None, is_manual_integration=None, is_mercurial=None, kind=None, name=None, repo_url=None, type=None):
         if branch and not isinstance(branch, str):
             raise TypeError("Expected argument 'branch' to be a str")
         pulumi.set(__self__, "branch", branch)
         if deployment_rollback_enabled and not isinstance(deployment_rollback_enabled, bool):
             raise TypeError("Expected argument 'deployment_rollback_enabled' to be a bool")
         pulumi.set(__self__, "deployment_rollback_enabled", deployment_rollback_enabled)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_manual_integration and not isinstance(is_manual_integration, bool):
             raise TypeError("Expected argument 'is_manual_integration' to be a bool")
         pulumi.set(__self__, "is_manual_integration", is_manual_integration)
@@ -60,6 +63,14 @@ class GetWebAppSourceControlSlotResult:
         <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
         """
         return pulumi.get(self, "deployment_rollback_enabled")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isManualIntegration")
@@ -118,6 +129,7 @@ class AwaitableGetWebAppSourceControlSlotResult(GetWebAppSourceControlSlotResult
         return GetWebAppSourceControlSlotResult(
             branch=self.branch,
             deployment_rollback_enabled=self.deployment_rollback_enabled,
+            id=self.id,
             is_manual_integration=self.is_manual_integration,
             is_mercurial=self.is_mercurial,
             kind=self.kind,
@@ -150,6 +162,7 @@ def get_web_app_source_control_slot(name: Optional[str] = None,
     return AwaitableGetWebAppSourceControlSlotResult(
         branch=__ret__.branch,
         deployment_rollback_enabled=__ret__.deployment_rollback_enabled,
+        id=__ret__.id,
         is_manual_integration=__ret__.is_manual_integration,
         is_mercurial=__ret__.is_mercurial,
         kind=__ret__.kind,

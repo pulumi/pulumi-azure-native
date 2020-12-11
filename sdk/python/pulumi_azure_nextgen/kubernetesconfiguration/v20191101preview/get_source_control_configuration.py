@@ -20,7 +20,7 @@ class GetSourceControlConfigurationResult:
     """
     The SourceControl Configuration object.
     """
-    def __init__(__self__, compliance_status=None, enable_helm_operator=None, helm_operator_properties=None, name=None, operator_instance_name=None, operator_namespace=None, operator_params=None, operator_scope=None, operator_type=None, provisioning_state=None, repository_public_key=None, repository_url=None, type=None):
+    def __init__(__self__, compliance_status=None, enable_helm_operator=None, helm_operator_properties=None, id=None, name=None, operator_instance_name=None, operator_namespace=None, operator_params=None, operator_scope=None, operator_type=None, provisioning_state=None, repository_public_key=None, repository_url=None, type=None):
         if compliance_status and not isinstance(compliance_status, dict):
             raise TypeError("Expected argument 'compliance_status' to be a dict")
         pulumi.set(__self__, "compliance_status", compliance_status)
@@ -30,6 +30,9 @@ class GetSourceControlConfigurationResult:
         if helm_operator_properties and not isinstance(helm_operator_properties, dict):
             raise TypeError("Expected argument 'helm_operator_properties' to be a dict")
         pulumi.set(__self__, "helm_operator_properties", helm_operator_properties)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -84,6 +87,14 @@ class GetSourceControlConfigurationResult:
         Properties for Helm operator.
         """
         return pulumi.get(self, "helm_operator_properties")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -175,6 +186,7 @@ class AwaitableGetSourceControlConfigurationResult(GetSourceControlConfiguration
             compliance_status=self.compliance_status,
             enable_helm_operator=self.enable_helm_operator,
             helm_operator_properties=self.helm_operator_properties,
+            id=self.id,
             name=self.name,
             operator_instance_name=self.operator_instance_name,
             operator_namespace=self.operator_namespace,
@@ -218,6 +230,7 @@ def get_source_control_configuration(cluster_name: Optional[str] = None,
         compliance_status=__ret__.compliance_status,
         enable_helm_operator=__ret__.enable_helm_operator,
         helm_operator_properties=__ret__.helm_operator_properties,
+        id=__ret__.id,
         name=__ret__.name,
         operator_instance_name=__ret__.operator_instance_name,
         operator_namespace=__ret__.operator_namespace,

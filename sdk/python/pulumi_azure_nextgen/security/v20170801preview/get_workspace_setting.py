@@ -19,7 +19,10 @@ class GetWorkspaceSettingResult:
     """
     Configures where to store the OMS agent data for workspaces under a scope
     """
-    def __init__(__self__, name=None, scope=None, type=None, workspace_id=None):
+    def __init__(__self__, id=None, name=None, scope=None, type=None, workspace_id=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -32,6 +35,14 @@ class GetWorkspaceSettingResult:
         if workspace_id and not isinstance(workspace_id, str):
             raise TypeError("Expected argument 'workspace_id' to be a str")
         pulumi.set(__self__, "workspace_id", workspace_id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -72,6 +83,7 @@ class AwaitableGetWorkspaceSettingResult(GetWorkspaceSettingResult):
         if False:
             yield self
         return GetWorkspaceSettingResult(
+            id=self.id,
             name=self.name,
             scope=self.scope,
             type=self.type,
@@ -94,6 +106,7 @@ def get_workspace_setting(workspace_setting_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:security/v20170801preview:getWorkspaceSetting', __args__, opts=opts, typ=GetWorkspaceSettingResult).value
 
     return AwaitableGetWorkspaceSettingResult(
+        id=__ret__.id,
         name=__ret__.name,
         scope=__ret__.scope,
         type=__ret__.type,

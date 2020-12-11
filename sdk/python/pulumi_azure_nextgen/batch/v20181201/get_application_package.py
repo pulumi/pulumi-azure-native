@@ -19,13 +19,16 @@ class GetApplicationPackageResult:
     """
     An application package which represents a particular version of an application.
     """
-    def __init__(__self__, etag=None, format=None, last_activation_time=None, name=None, state=None, storage_url=None, storage_url_expiry=None, type=None):
+    def __init__(__self__, etag=None, format=None, id=None, last_activation_time=None, name=None, state=None, storage_url=None, storage_url_expiry=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
         if format and not isinstance(format, str):
             raise TypeError("Expected argument 'format' to be a str")
         pulumi.set(__self__, "format", format)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_activation_time and not isinstance(last_activation_time, str):
             raise TypeError("Expected argument 'last_activation_time' to be a str")
         pulumi.set(__self__, "last_activation_time", last_activation_time)
@@ -60,6 +63,14 @@ class GetApplicationPackageResult:
         The format of the application package, if the package is active.
         """
         return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastActivationTime")
@@ -118,6 +129,7 @@ class AwaitableGetApplicationPackageResult(GetApplicationPackageResult):
         return GetApplicationPackageResult(
             etag=self.etag,
             format=self.format,
+            id=self.id,
             last_activation_time=self.last_activation_time,
             name=self.name,
             state=self.state,
@@ -153,6 +165,7 @@ def get_application_package(account_name: Optional[str] = None,
     return AwaitableGetApplicationPackageResult(
         etag=__ret__.etag,
         format=__ret__.format,
+        id=__ret__.id,
         last_activation_time=__ret__.last_activation_time,
         name=__ret__.name,
         state=__ret__.state,

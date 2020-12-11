@@ -20,13 +20,16 @@ class GetContainerGroupResult:
     """
     A container group.
     """
-    def __init__(__self__, containers=None, diagnostics=None, image_registry_credentials=None, instance_view=None, ip_address=None, location=None, name=None, os_type=None, provisioning_state=None, restart_policy=None, tags=None, type=None, volumes=None):
+    def __init__(__self__, containers=None, diagnostics=None, id=None, image_registry_credentials=None, instance_view=None, ip_address=None, location=None, name=None, os_type=None, provisioning_state=None, restart_policy=None, tags=None, type=None, volumes=None):
         if containers and not isinstance(containers, list):
             raise TypeError("Expected argument 'containers' to be a list")
         pulumi.set(__self__, "containers", containers)
         if diagnostics and not isinstance(diagnostics, dict):
             raise TypeError("Expected argument 'diagnostics' to be a dict")
         pulumi.set(__self__, "diagnostics", diagnostics)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if image_registry_credentials and not isinstance(image_registry_credentials, list):
             raise TypeError("Expected argument 'image_registry_credentials' to be a list")
         pulumi.set(__self__, "image_registry_credentials", image_registry_credentials)
@@ -76,6 +79,14 @@ class GetContainerGroupResult:
         The diagnostic information for a container group.
         """
         return pulumi.get(self, "diagnostics")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="imageRegistryCredentials")
@@ -177,6 +188,7 @@ class AwaitableGetContainerGroupResult(GetContainerGroupResult):
         return GetContainerGroupResult(
             containers=self.containers,
             diagnostics=self.diagnostics,
+            id=self.id,
             image_registry_credentials=self.image_registry_credentials,
             instance_view=self.instance_view,
             ip_address=self.ip_address,
@@ -211,6 +223,7 @@ def get_container_group(container_group_name: Optional[str] = None,
     return AwaitableGetContainerGroupResult(
         containers=__ret__.containers,
         diagnostics=__ret__.diagnostics,
+        id=__ret__.id,
         image_registry_credentials=__ret__.image_registry_credentials,
         instance_view=__ret__.instance_view,
         ip_address=__ret__.ip_address,

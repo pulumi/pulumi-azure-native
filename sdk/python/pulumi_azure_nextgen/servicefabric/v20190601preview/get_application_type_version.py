@@ -19,7 +19,7 @@ class GetApplicationTypeVersionResult:
     """
     An application type version resource for the specified application type name resource.
     """
-    def __init__(__self__, app_package_url=None, default_parameter_list=None, etag=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, app_package_url=None, default_parameter_list=None, etag=None, id=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
         if app_package_url and not isinstance(app_package_url, str):
             raise TypeError("Expected argument 'app_package_url' to be a str")
         pulumi.set(__self__, "app_package_url", app_package_url)
@@ -29,6 +29,9 @@ class GetApplicationTypeVersionResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -68,6 +71,14 @@ class GetApplicationTypeVersionResult:
         Azure resource etag.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource identifier.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -119,6 +130,7 @@ class AwaitableGetApplicationTypeVersionResult(GetApplicationTypeVersionResult):
             app_package_url=self.app_package_url,
             default_parameter_list=self.default_parameter_list,
             etag=self.etag,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -154,6 +166,7 @@ def get_application_type_version(application_type_name: Optional[str] = None,
         app_package_url=__ret__.app_package_url,
         default_parameter_list=__ret__.default_parameter_list,
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

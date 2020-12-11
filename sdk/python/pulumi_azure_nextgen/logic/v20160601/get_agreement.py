@@ -20,7 +20,7 @@ class GetAgreementResult:
     """
     The integration account agreement.
     """
-    def __init__(__self__, agreement_type=None, changed_time=None, content=None, created_time=None, guest_identity=None, guest_partner=None, host_identity=None, host_partner=None, location=None, metadata=None, name=None, tags=None, type=None):
+    def __init__(__self__, agreement_type=None, changed_time=None, content=None, created_time=None, guest_identity=None, guest_partner=None, host_identity=None, host_partner=None, id=None, location=None, metadata=None, name=None, tags=None, type=None):
         if agreement_type and not isinstance(agreement_type, str):
             raise TypeError("Expected argument 'agreement_type' to be a str")
         pulumi.set(__self__, "agreement_type", agreement_type)
@@ -45,6 +45,9 @@ class GetAgreementResult:
         if host_partner and not isinstance(host_partner, str):
             raise TypeError("Expected argument 'host_partner' to be a str")
         pulumi.set(__self__, "host_partner", host_partner)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -127,6 +130,14 @@ class GetAgreementResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[str]:
         """
         The resource location.
@@ -180,6 +191,7 @@ class AwaitableGetAgreementResult(GetAgreementResult):
             guest_partner=self.guest_partner,
             host_identity=self.host_identity,
             host_partner=self.host_partner,
+            id=self.id,
             location=self.location,
             metadata=self.metadata,
             name=self.name,
@@ -217,6 +229,7 @@ def get_agreement(agreement_name: Optional[str] = None,
         guest_partner=__ret__.guest_partner,
         host_identity=__ret__.host_identity,
         host_partner=__ret__.host_partner,
+        id=__ret__.id,
         location=__ret__.location,
         metadata=__ret__.metadata,
         name=__ret__.name,

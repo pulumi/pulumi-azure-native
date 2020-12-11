@@ -20,10 +20,13 @@ class GetStorageTargetResult:
     """
     Type of the Storage Target.
     """
-    def __init__(__self__, clfs=None, junctions=None, location=None, name=None, nfs3=None, provisioning_state=None, system_data=None, target_type=None, type=None, unknown=None):
+    def __init__(__self__, clfs=None, id=None, junctions=None, location=None, name=None, nfs3=None, provisioning_state=None, system_data=None, target_type=None, type=None, unknown=None):
         if clfs and not isinstance(clfs, dict):
             raise TypeError("Expected argument 'clfs' to be a dict")
         pulumi.set(__self__, "clfs", clfs)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if junctions and not isinstance(junctions, list):
             raise TypeError("Expected argument 'junctions' to be a list")
         pulumi.set(__self__, "junctions", junctions)
@@ -59,6 +62,14 @@ class GetStorageTargetResult:
         Properties when targetType is clfs.
         """
         return pulumi.get(self, "clfs")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID of the Storage Target.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -140,6 +151,7 @@ class AwaitableGetStorageTargetResult(GetStorageTargetResult):
             yield self
         return GetStorageTargetResult(
             clfs=self.clfs,
+            id=self.id,
             junctions=self.junctions,
             location=self.location,
             name=self.name,
@@ -174,6 +186,7 @@ def get_storage_target(cache_name: Optional[str] = None,
 
     return AwaitableGetStorageTargetResult(
         clfs=__ret__.clfs,
+        id=__ret__.id,
         junctions=__ret__.junctions,
         location=__ret__.location,
         name=__ret__.name,

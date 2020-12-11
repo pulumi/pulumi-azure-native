@@ -19,10 +19,13 @@ class GetLinkedStorageAccountResult:
     """
     Linked storage accounts top level resource container.
     """
-    def __init__(__self__, data_source_type=None, name=None, storage_account_ids=None, type=None):
+    def __init__(__self__, data_source_type=None, id=None, name=None, storage_account_ids=None, type=None):
         if data_source_type and not isinstance(data_source_type, str):
             raise TypeError("Expected argument 'data_source_type' to be a str")
         pulumi.set(__self__, "data_source_type", data_source_type)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -40,6 +43,14 @@ class GetLinkedStorageAccountResult:
         Linked storage accounts type.
         """
         return pulumi.get(self, "data_source_type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -73,6 +84,7 @@ class AwaitableGetLinkedStorageAccountResult(GetLinkedStorageAccountResult):
             yield self
         return GetLinkedStorageAccountResult(
             data_source_type=self.data_source_type,
+            id=self.id,
             name=self.name,
             storage_account_ids=self.storage_account_ids,
             type=self.type)
@@ -101,6 +113,7 @@ def get_linked_storage_account(data_source_type: Optional[str] = None,
 
     return AwaitableGetLinkedStorageAccountResult(
         data_source_type=__ret__.data_source_type,
+        id=__ret__.id,
         name=__ret__.name,
         storage_account_ids=__ret__.storage_account_ids,
         type=__ret__.type)

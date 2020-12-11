@@ -19,7 +19,7 @@ class GetLabResult:
     """
     A lab.
     """
-    def __init__(__self__, artifacts_storage_account=None, created_date=None, default_premium_storage_account=None, default_storage_account=None, lab_storage_type=None, location=None, name=None, premium_data_disk_storage_account=None, premium_data_disks=None, provisioning_state=None, tags=None, type=None, unique_identifier=None, vault_name=None):
+    def __init__(__self__, artifacts_storage_account=None, created_date=None, default_premium_storage_account=None, default_storage_account=None, id=None, lab_storage_type=None, location=None, name=None, premium_data_disk_storage_account=None, premium_data_disks=None, provisioning_state=None, tags=None, type=None, unique_identifier=None, vault_name=None):
         if artifacts_storage_account and not isinstance(artifacts_storage_account, str):
             raise TypeError("Expected argument 'artifacts_storage_account' to be a str")
         pulumi.set(__self__, "artifacts_storage_account", artifacts_storage_account)
@@ -32,6 +32,9 @@ class GetLabResult:
         if default_storage_account and not isinstance(default_storage_account, str):
             raise TypeError("Expected argument 'default_storage_account' to be a str")
         pulumi.set(__self__, "default_storage_account", default_storage_account)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if lab_storage_type and not isinstance(lab_storage_type, str):
             raise TypeError("Expected argument 'lab_storage_type' to be a str")
         pulumi.set(__self__, "lab_storage_type", lab_storage_type)
@@ -94,6 +97,14 @@ class GetLabResult:
         The lab's default storage account.
         """
         return pulumi.get(self, "default_storage_account")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="labStorageType")
@@ -188,6 +199,7 @@ class AwaitableGetLabResult(GetLabResult):
             created_date=self.created_date,
             default_premium_storage_account=self.default_premium_storage_account,
             default_storage_account=self.default_storage_account,
+            id=self.id,
             lab_storage_type=self.lab_storage_type,
             location=self.location,
             name=self.name,
@@ -226,6 +238,7 @@ def get_lab(expand: Optional[str] = None,
         created_date=__ret__.created_date,
         default_premium_storage_account=__ret__.default_premium_storage_account,
         default_storage_account=__ret__.default_storage_account,
+        id=__ret__.id,
         lab_storage_type=__ret__.lab_storage_type,
         location=__ret__.location,
         name=__ret__.name,

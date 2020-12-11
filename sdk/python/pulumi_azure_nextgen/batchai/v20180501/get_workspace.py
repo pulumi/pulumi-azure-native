@@ -19,10 +19,13 @@ class GetWorkspaceResult:
     """
     Batch AI Workspace information.
     """
-    def __init__(__self__, creation_time=None, location=None, name=None, provisioning_state=None, provisioning_state_transition_time=None, tags=None, type=None):
+    def __init__(__self__, creation_time=None, id=None, location=None, name=None, provisioning_state=None, provisioning_state_transition_time=None, tags=None, type=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -49,6 +52,14 @@ class GetWorkspaceResult:
         Time when the Workspace was created.
         """
         return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the resource
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -106,6 +117,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             yield self
         return GetWorkspaceResult(
             creation_time=self.creation_time,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -134,6 +146,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
 
     return AwaitableGetWorkspaceResult(
         creation_time=__ret__.creation_time,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

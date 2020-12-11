@@ -20,10 +20,13 @@ class GetOriginGroupResult:
     """
     Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
     """
-    def __init__(__self__, health_probe_settings=None, name=None, origins=None, provisioning_state=None, resource_state=None, response_based_origin_error_detection_settings=None, traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=None, type=None):
+    def __init__(__self__, health_probe_settings=None, id=None, name=None, origins=None, provisioning_state=None, resource_state=None, response_based_origin_error_detection_settings=None, traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=None, type=None):
         if health_probe_settings and not isinstance(health_probe_settings, dict):
             raise TypeError("Expected argument 'health_probe_settings' to be a dict")
         pulumi.set(__self__, "health_probe_settings", health_probe_settings)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -53,6 +56,14 @@ class GetOriginGroupResult:
         Health probe settings to the origin that is used to determine the health of the origin.
         """
         return pulumi.get(self, "health_probe_settings")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -118,6 +129,7 @@ class AwaitableGetOriginGroupResult(GetOriginGroupResult):
             yield self
         return GetOriginGroupResult(
             health_probe_settings=self.health_probe_settings,
+            id=self.id,
             name=self.name,
             origins=self.origins,
             provisioning_state=self.provisioning_state,
@@ -153,6 +165,7 @@ def get_origin_group(endpoint_name: Optional[str] = None,
 
     return AwaitableGetOriginGroupResult(
         health_probe_settings=__ret__.health_probe_settings,
+        id=__ret__.id,
         name=__ret__.name,
         origins=__ret__.origins,
         provisioning_state=__ret__.provisioning_state,

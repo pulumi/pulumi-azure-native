@@ -19,7 +19,7 @@ class GetApplicationResult:
     """
     Schema for Application properties.
     """
-    def __init__(__self__, application_type=None, command_line_arguments=None, command_line_setting=None, description=None, file_path=None, friendly_name=None, icon_content=None, icon_hash=None, icon_index=None, icon_path=None, msix_package_application_id=None, msix_package_family_name=None, name=None, show_in_portal=None, type=None):
+    def __init__(__self__, application_type=None, command_line_arguments=None, command_line_setting=None, description=None, file_path=None, friendly_name=None, icon_content=None, icon_hash=None, icon_index=None, icon_path=None, id=None, msix_package_application_id=None, msix_package_family_name=None, name=None, show_in_portal=None, type=None):
         if application_type and not isinstance(application_type, str):
             raise TypeError("Expected argument 'application_type' to be a str")
         pulumi.set(__self__, "application_type", application_type)
@@ -50,6 +50,9 @@ class GetApplicationResult:
         if icon_path and not isinstance(icon_path, str):
             raise TypeError("Expected argument 'icon_path' to be a str")
         pulumi.set(__self__, "icon_path", icon_path)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if msix_package_application_id and not isinstance(msix_package_application_id, str):
             raise TypeError("Expected argument 'msix_package_application_id' to be a str")
         pulumi.set(__self__, "msix_package_application_id", msix_package_application_id)
@@ -147,6 +150,14 @@ class GetApplicationResult:
         return pulumi.get(self, "icon_path")
 
     @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
     @pulumi.getter(name="msixPackageApplicationId")
     def msix_package_application_id(self) -> Optional[str]:
         """
@@ -203,6 +214,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             icon_hash=self.icon_hash,
             icon_index=self.icon_index,
             icon_path=self.icon_path,
+            id=self.id,
             msix_package_application_id=self.msix_package_application_id,
             msix_package_family_name=self.msix_package_family_name,
             name=self.name,
@@ -242,6 +254,7 @@ def get_application(application_group_name: Optional[str] = None,
         icon_hash=__ret__.icon_hash,
         icon_index=__ret__.icon_index,
         icon_path=__ret__.icon_path,
+        id=__ret__.id,
         msix_package_application_id=__ret__.msix_package_application_id,
         msix_package_family_name=__ret__.msix_package_family_name,
         name=__ret__.name,

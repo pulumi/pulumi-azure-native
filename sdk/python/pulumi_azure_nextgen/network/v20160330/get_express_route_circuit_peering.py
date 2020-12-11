@@ -20,13 +20,16 @@ class GetExpressRouteCircuitPeeringResult:
     """
     Peering in a ExpressRouteCircuit resource
     """
-    def __init__(__self__, azure_asn=None, etag=None, microsoft_peering_config=None, name=None, peer_asn=None, peering_type=None, primary_azure_port=None, primary_peer_address_prefix=None, provisioning_state=None, secondary_azure_port=None, secondary_peer_address_prefix=None, shared_key=None, state=None, stats=None, vlan_id=None):
+    def __init__(__self__, azure_asn=None, etag=None, id=None, microsoft_peering_config=None, name=None, peer_asn=None, peering_type=None, primary_azure_port=None, primary_peer_address_prefix=None, provisioning_state=None, secondary_azure_port=None, secondary_peer_address_prefix=None, shared_key=None, state=None, stats=None, vlan_id=None):
         if azure_asn and not isinstance(azure_asn, int):
             raise TypeError("Expected argument 'azure_asn' to be a int")
         pulumi.set(__self__, "azure_asn", azure_asn)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if microsoft_peering_config and not isinstance(microsoft_peering_config, dict):
             raise TypeError("Expected argument 'microsoft_peering_config' to be a dict")
         pulumi.set(__self__, "microsoft_peering_config", microsoft_peering_config)
@@ -82,6 +85,14 @@ class GetExpressRouteCircuitPeeringResult:
         A unique read-only string that changes whenever the resource is updated
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="microsoftPeeringConfig")
@@ -196,6 +207,7 @@ class AwaitableGetExpressRouteCircuitPeeringResult(GetExpressRouteCircuitPeering
         return GetExpressRouteCircuitPeeringResult(
             azure_asn=self.azure_asn,
             etag=self.etag,
+            id=self.id,
             microsoft_peering_config=self.microsoft_peering_config,
             name=self.name,
             peer_asn=self.peer_asn,
@@ -235,6 +247,7 @@ def get_express_route_circuit_peering(circuit_name: Optional[str] = None,
     return AwaitableGetExpressRouteCircuitPeeringResult(
         azure_asn=__ret__.azure_asn,
         etag=__ret__.etag,
+        id=__ret__.id,
         microsoft_peering_config=__ret__.microsoft_peering_config,
         name=__ret__.name,
         peer_asn=__ret__.peer_asn,

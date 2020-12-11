@@ -20,10 +20,13 @@ class GetAutoscaleSettingResult:
     """
     The autoscale setting resource.
     """
-    def __init__(__self__, enabled=None, location=None, name=None, notifications=None, profiles=None, tags=None, target_resource_uri=None, type=None):
+    def __init__(__self__, enabled=None, id=None, location=None, name=None, notifications=None, profiles=None, tags=None, target_resource_uri=None, type=None):
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -53,6 +56,14 @@ class GetAutoscaleSettingResult:
         the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -118,6 +129,7 @@ class AwaitableGetAutoscaleSettingResult(GetAutoscaleSettingResult):
             yield self
         return GetAutoscaleSettingResult(
             enabled=self.enabled,
+            id=self.id,
             location=self.location,
             name=self.name,
             notifications=self.notifications,
@@ -147,6 +159,7 @@ def get_autoscale_setting(autoscale_setting_name: Optional[str] = None,
 
     return AwaitableGetAutoscaleSettingResult(
         enabled=__ret__.enabled,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         notifications=__ret__.notifications,

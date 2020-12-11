@@ -19,13 +19,16 @@ class GetBlobContainerImmutabilityPolicyResult:
     """
     The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
     """
-    def __init__(__self__, allow_protected_append_writes=None, etag=None, immutability_period_since_creation_in_days=None, name=None, state=None, type=None):
+    def __init__(__self__, allow_protected_append_writes=None, etag=None, id=None, immutability_period_since_creation_in_days=None, name=None, state=None, type=None):
         if allow_protected_append_writes and not isinstance(allow_protected_append_writes, bool):
             raise TypeError("Expected argument 'allow_protected_append_writes' to be a bool")
         pulumi.set(__self__, "allow_protected_append_writes", allow_protected_append_writes)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if immutability_period_since_creation_in_days and not isinstance(immutability_period_since_creation_in_days, int):
             raise TypeError("Expected argument 'immutability_period_since_creation_in_days' to be a int")
         pulumi.set(__self__, "immutability_period_since_creation_in_days", immutability_period_since_creation_in_days)
@@ -54,6 +57,14 @@ class GetBlobContainerImmutabilityPolicyResult:
         Resource Etag.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="immutabilityPeriodSinceCreationInDays")
@@ -96,6 +107,7 @@ class AwaitableGetBlobContainerImmutabilityPolicyResult(GetBlobContainerImmutabi
         return GetBlobContainerImmutabilityPolicyResult(
             allow_protected_append_writes=self.allow_protected_append_writes,
             etag=self.etag,
+            id=self.id,
             immutability_period_since_creation_in_days=self.immutability_period_since_creation_in_days,
             name=self.name,
             state=self.state,
@@ -129,6 +141,7 @@ def get_blob_container_immutability_policy(account_name: Optional[str] = None,
     return AwaitableGetBlobContainerImmutabilityPolicyResult(
         allow_protected_append_writes=__ret__.allow_protected_append_writes,
         etag=__ret__.etag,
+        id=__ret__.id,
         immutability_period_since_creation_in_days=__ret__.immutability_period_since_creation_in_days,
         name=__ret__.name,
         state=__ret__.state,

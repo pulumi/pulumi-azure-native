@@ -19,10 +19,13 @@ class GetHierarchySettingResult:
     """
     Settings defined at the Management Group scope.
     """
-    def __init__(__self__, default_management_group=None, name=None, require_authorization_for_group_creation=None, tenant_id=None, type=None):
+    def __init__(__self__, default_management_group=None, id=None, name=None, require_authorization_for_group_creation=None, tenant_id=None, type=None):
         if default_management_group and not isinstance(default_management_group, str):
             raise TypeError("Expected argument 'default_management_group' to be a str")
         pulumi.set(__self__, "default_management_group", default_management_group)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -43,6 +46,14 @@ class GetHierarchySettingResult:
         Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
         """
         return pulumi.get(self, "default_management_group")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The fully qualified ID for the settings object.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000/settings/default.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -84,6 +95,7 @@ class AwaitableGetHierarchySettingResult(GetHierarchySettingResult):
             yield self
         return GetHierarchySettingResult(
             default_management_group=self.default_management_group,
+            id=self.id,
             name=self.name,
             require_authorization_for_group_creation=self.require_authorization_for_group_creation,
             tenant_id=self.tenant_id,
@@ -107,6 +119,7 @@ def get_hierarchy_setting(group_id: Optional[str] = None,
 
     return AwaitableGetHierarchySettingResult(
         default_management_group=__ret__.default_management_group,
+        id=__ret__.id,
         name=__ret__.name,
         require_authorization_for_group_creation=__ret__.require_authorization_for_group_creation,
         tenant_id=__ret__.tenant_id,

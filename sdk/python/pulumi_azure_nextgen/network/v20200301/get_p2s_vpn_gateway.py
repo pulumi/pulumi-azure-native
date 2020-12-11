@@ -20,10 +20,13 @@ class GetP2sVpnGatewayResult:
     """
     P2SVpnGateway Resource.
     """
-    def __init__(__self__, etag=None, location=None, name=None, p2_s_connection_configurations=None, provisioning_state=None, tags=None, type=None, virtual_hub=None, vpn_client_connection_health=None, vpn_gateway_scale_unit=None, vpn_server_configuration=None):
+    def __init__(__self__, etag=None, id=None, location=None, name=None, p2_s_connection_configurations=None, provisioning_state=None, tags=None, type=None, virtual_hub=None, vpn_client_connection_health=None, vpn_gateway_scale_unit=None, vpn_server_configuration=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -62,6 +65,14 @@ class GetP2sVpnGatewayResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -151,6 +162,7 @@ class AwaitableGetP2sVpnGatewayResult(GetP2sVpnGatewayResult):
             yield self
         return GetP2sVpnGatewayResult(
             etag=self.etag,
+            id=self.id,
             location=self.location,
             name=self.name,
             p2_s_connection_configurations=self.p2_s_connection_configurations,
@@ -183,6 +195,7 @@ def get_p2s_vpn_gateway(gateway_name: Optional[str] = None,
 
     return AwaitableGetP2sVpnGatewayResult(
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         p2_s_connection_configurations=__ret__.p2_s_connection_configurations,

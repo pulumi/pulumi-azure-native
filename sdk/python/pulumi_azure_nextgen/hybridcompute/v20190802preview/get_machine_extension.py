@@ -20,13 +20,16 @@ class GetMachineExtensionResult:
     """
     Describes a Machine Extension.
     """
-    def __init__(__self__, auto_upgrade_minor_version=None, force_update_tag=None, instance_view=None, location=None, name=None, principal_id=None, protected_settings=None, provisioning_state=None, publisher=None, settings=None, tags=None, tenant_id=None, type=None, type_handler_version=None):
+    def __init__(__self__, auto_upgrade_minor_version=None, force_update_tag=None, id=None, instance_view=None, location=None, name=None, principal_id=None, protected_settings=None, provisioning_state=None, publisher=None, settings=None, tags=None, tenant_id=None, type=None, type_handler_version=None):
         if auto_upgrade_minor_version and not isinstance(auto_upgrade_minor_version, bool):
             raise TypeError("Expected argument 'auto_upgrade_minor_version' to be a bool")
         pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
         if force_update_tag and not isinstance(force_update_tag, str):
             raise TypeError("Expected argument 'force_update_tag' to be a str")
         pulumi.set(__self__, "force_update_tag", force_update_tag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if instance_view and not isinstance(instance_view, dict):
             raise TypeError("Expected argument 'instance_view' to be a dict")
         pulumi.set(__self__, "instance_view", instance_view)
@@ -79,6 +82,14 @@ class GetMachineExtensionResult:
         How the extension handler should be forced to update even if the extension configuration has not changed.
         """
         return pulumi.get(self, "force_update_tag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="instanceView")
@@ -185,6 +196,7 @@ class AwaitableGetMachineExtensionResult(GetMachineExtensionResult):
         return GetMachineExtensionResult(
             auto_upgrade_minor_version=self.auto_upgrade_minor_version,
             force_update_tag=self.force_update_tag,
+            id=self.id,
             instance_view=self.instance_view,
             location=self.location,
             name=self.name,
@@ -223,6 +235,7 @@ def get_machine_extension(extension_name: Optional[str] = None,
     return AwaitableGetMachineExtensionResult(
         auto_upgrade_minor_version=__ret__.auto_upgrade_minor_version,
         force_update_tag=__ret__.force_update_tag,
+        id=__ret__.id,
         instance_view=__ret__.instance_view,
         location=__ret__.location,
         name=__ret__.name,

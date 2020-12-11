@@ -19,7 +19,10 @@ class ListWebAppPublishingCredentialsSlotResult:
     """
     User credentials used for publishing activity.
     """
-    def __init__(__self__, kind=None, name=None, publishing_password=None, publishing_password_hash=None, publishing_password_hash_salt=None, publishing_user_name=None, type=None, user_name=None):
+    def __init__(__self__, id=None, kind=None, name=None, publishing_password=None, publishing_password_hash=None, publishing_password_hash_salt=None, publishing_user_name=None, type=None, user_name=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -44,6 +47,14 @@ class ListWebAppPublishingCredentialsSlotResult:
         if user_name and not isinstance(user_name, str):
             raise TypeError("Expected argument 'user_name' to be a str")
         pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -116,6 +127,7 @@ class AwaitableListWebAppPublishingCredentialsSlotResult(ListWebAppPublishingCre
         if False:
             yield self
         return ListWebAppPublishingCredentialsSlotResult(
+            id=self.id,
             kind=self.kind,
             name=self.name,
             publishing_password=self.publishing_password,
@@ -148,6 +160,7 @@ def list_web_app_publishing_credentials_slot(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:web/v20160801:listWebAppPublishingCredentialsSlot', __args__, opts=opts, typ=ListWebAppPublishingCredentialsSlotResult).value
 
     return AwaitableListWebAppPublishingCredentialsSlotResult(
+        id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
         publishing_password=__ret__.publishing_password,

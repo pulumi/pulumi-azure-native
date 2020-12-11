@@ -20,7 +20,7 @@ class GetDatabaseResult:
     """
     A database resource.
     """
-    def __init__(__self__, auto_pause_delay=None, catalog_collation=None, collation=None, create_mode=None, creation_date=None, current_service_objective_name=None, current_sku=None, database_id=None, default_secondary_location=None, earliest_restore_date=None, elastic_pool_id=None, failover_group_id=None, kind=None, license_type=None, location=None, long_term_retention_backup_resource_id=None, managed_by=None, max_log_size_bytes=None, max_size_bytes=None, min_capacity=None, name=None, paused_date=None, read_replica_count=None, read_scale=None, recoverable_database_id=None, recovery_services_recovery_point_id=None, requested_service_objective_name=None, restorable_dropped_database_id=None, restore_point_in_time=None, resumed_date=None, sample_name=None, sku=None, source_database_deletion_date=None, source_database_id=None, status=None, tags=None, type=None, zone_redundant=None):
+    def __init__(__self__, auto_pause_delay=None, catalog_collation=None, collation=None, create_mode=None, creation_date=None, current_service_objective_name=None, current_sku=None, database_id=None, default_secondary_location=None, earliest_restore_date=None, elastic_pool_id=None, failover_group_id=None, id=None, kind=None, license_type=None, location=None, long_term_retention_backup_resource_id=None, managed_by=None, max_log_size_bytes=None, max_size_bytes=None, min_capacity=None, name=None, paused_date=None, read_replica_count=None, read_scale=None, recoverable_database_id=None, recovery_services_recovery_point_id=None, requested_service_objective_name=None, restorable_dropped_database_id=None, restore_point_in_time=None, resumed_date=None, sample_name=None, sku=None, source_database_deletion_date=None, source_database_id=None, status=None, tags=None, type=None, zone_redundant=None):
         if auto_pause_delay and not isinstance(auto_pause_delay, int):
             raise TypeError("Expected argument 'auto_pause_delay' to be a int")
         pulumi.set(__self__, "auto_pause_delay", auto_pause_delay)
@@ -57,6 +57,9 @@ class GetDatabaseResult:
         if failover_group_id and not isinstance(failover_group_id, str):
             raise TypeError("Expected argument 'failover_group_id' to be a str")
         pulumi.set(__self__, "failover_group_id", failover_group_id)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -247,6 +250,14 @@ class GetDatabaseResult:
         Failover Group resource identifier that this database belongs to.
         """
         return pulumi.get(self, "failover_group_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -485,6 +496,7 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
             earliest_restore_date=self.earliest_restore_date,
             elastic_pool_id=self.elastic_pool_id,
             failover_group_id=self.failover_group_id,
+            id=self.id,
             kind=self.kind,
             license_type=self.license_type,
             location=self.location,
@@ -547,6 +559,7 @@ def get_database(database_name: Optional[str] = None,
         earliest_restore_date=__ret__.earliest_restore_date,
         elastic_pool_id=__ret__.elastic_pool_id,
         failover_group_id=__ret__.failover_group_id,
+        id=__ret__.id,
         kind=__ret__.kind,
         license_type=__ret__.license_type,
         location=__ret__.location,

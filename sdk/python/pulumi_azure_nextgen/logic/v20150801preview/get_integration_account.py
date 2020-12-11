@@ -17,7 +17,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetIntegrationAccountResult:
-    def __init__(__self__, location=None, name=None, sku=None, tags=None, type=None):
+    def __init__(__self__, id=None, location=None, name=None, sku=None, tags=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -33,6 +36,14 @@ class GetIntegrationAccountResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The resource id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -81,6 +92,7 @@ class AwaitableGetIntegrationAccountResult(GetIntegrationAccountResult):
         if False:
             yield self
         return GetIntegrationAccountResult(
+            id=self.id,
             location=self.location,
             name=self.name,
             sku=self.sku,
@@ -107,6 +119,7 @@ def get_integration_account(integration_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:logic/v20150801preview:getIntegrationAccount', __args__, opts=opts, typ=GetIntegrationAccountResult).value
 
     return AwaitableGetIntegrationAccountResult(
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         sku=__ret__.sku,

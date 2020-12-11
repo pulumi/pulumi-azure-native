@@ -20,7 +20,7 @@ class GetVirtualNetworkGatewayConnectionResult:
     """
     A common class for general resource information
     """
-    def __init__(__self__, authorization_key=None, connection_status=None, connection_type=None, egress_bytes_transferred=None, enable_bgp=None, etag=None, ingress_bytes_transferred=None, local_network_gateway2=None, location=None, name=None, peer=None, provisioning_state=None, resource_guid=None, routing_weight=None, shared_key=None, tags=None, type=None, virtual_network_gateway1=None, virtual_network_gateway2=None):
+    def __init__(__self__, authorization_key=None, connection_status=None, connection_type=None, egress_bytes_transferred=None, enable_bgp=None, etag=None, id=None, ingress_bytes_transferred=None, local_network_gateway2=None, location=None, name=None, peer=None, provisioning_state=None, resource_guid=None, routing_weight=None, shared_key=None, tags=None, type=None, virtual_network_gateway1=None, virtual_network_gateway2=None):
         if authorization_key and not isinstance(authorization_key, str):
             raise TypeError("Expected argument 'authorization_key' to be a str")
         pulumi.set(__self__, "authorization_key", authorization_key)
@@ -39,6 +39,9 @@ class GetVirtualNetworkGatewayConnectionResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if ingress_bytes_transferred and not isinstance(ingress_bytes_transferred, int):
             raise TypeError("Expected argument 'ingress_bytes_transferred' to be a int")
         pulumi.set(__self__, "ingress_bytes_transferred", ingress_bytes_transferred)
@@ -126,6 +129,14 @@ class GetVirtualNetworkGatewayConnectionResult:
         Gets a unique read-only string that changes whenever the resource is updated
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ingressBytesTransferred")
@@ -244,6 +255,7 @@ class AwaitableGetVirtualNetworkGatewayConnectionResult(GetVirtualNetworkGateway
             egress_bytes_transferred=self.egress_bytes_transferred,
             enable_bgp=self.enable_bgp,
             etag=self.etag,
+            id=self.id,
             ingress_bytes_transferred=self.ingress_bytes_transferred,
             local_network_gateway2=self.local_network_gateway2,
             location=self.location,
@@ -284,6 +296,7 @@ def get_virtual_network_gateway_connection(resource_group_name: Optional[str] = 
         egress_bytes_transferred=__ret__.egress_bytes_transferred,
         enable_bgp=__ret__.enable_bgp,
         etag=__ret__.etag,
+        id=__ret__.id,
         ingress_bytes_transferred=__ret__.ingress_bytes_transferred,
         local_network_gateway2=__ret__.local_network_gateway2,
         location=__ret__.location,

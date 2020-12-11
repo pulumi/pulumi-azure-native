@@ -20,10 +20,13 @@ class GetRuleSetResult:
     """
     Friendly RuleSet name mapping to the any RuleSet or secret related information.
     """
-    def __init__(__self__, deployment_status=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, deployment_status=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
         if deployment_status and not isinstance(deployment_status, str):
             raise TypeError("Expected argument 'deployment_status' to be a str")
         pulumi.set(__self__, "deployment_status", deployment_status)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -41,6 +44,14 @@ class GetRuleSetResult:
     @pulumi.getter(name="deploymentStatus")
     def deployment_status(self) -> str:
         return pulumi.get(self, "deployment_status")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -82,6 +93,7 @@ class AwaitableGetRuleSetResult(GetRuleSetResult):
             yield self
         return GetRuleSetResult(
             deployment_status=self.deployment_status,
+            id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
             system_data=self.system_data,
@@ -111,6 +123,7 @@ def get_rule_set(profile_name: Optional[str] = None,
 
     return AwaitableGetRuleSetResult(
         deployment_status=__ret__.deployment_status,
+        id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         system_data=__ret__.system_data,

@@ -20,13 +20,16 @@ class GetDeviceResult:
     """
     Device resource.
     """
-    def __init__(__self__, azure_stack_edge=None, device_type=None, location=None, name=None, network_functions=None, provisioning_state=None, status=None, tags=None, type=None):
+    def __init__(__self__, azure_stack_edge=None, device_type=None, id=None, location=None, name=None, network_functions=None, provisioning_state=None, status=None, tags=None, type=None):
         if azure_stack_edge and not isinstance(azure_stack_edge, dict):
             raise TypeError("Expected argument 'azure_stack_edge' to be a dict")
         pulumi.set(__self__, "azure_stack_edge", azure_stack_edge)
         if device_type and not isinstance(device_type, str):
             raise TypeError("Expected argument 'device_type' to be a str")
         pulumi.set(__self__, "device_type", device_type)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -64,6 +67,14 @@ class GetDeviceResult:
         The type of the device.
         """
         return pulumi.get(self, "device_type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -130,6 +141,7 @@ class AwaitableGetDeviceResult(GetDeviceResult):
         return GetDeviceResult(
             azure_stack_edge=self.azure_stack_edge,
             device_type=self.device_type,
+            id=self.id,
             location=self.location,
             name=self.name,
             network_functions=self.network_functions,
@@ -160,6 +172,7 @@ def get_device(device_name: Optional[str] = None,
     return AwaitableGetDeviceResult(
         azure_stack_edge=__ret__.azure_stack_edge,
         device_type=__ret__.device_type,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         network_functions=__ret__.network_functions,

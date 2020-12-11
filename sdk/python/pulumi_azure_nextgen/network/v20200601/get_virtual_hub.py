@@ -20,7 +20,7 @@ class GetVirtualHubResult:
     """
     VirtualHub Resource.
     """
-    def __init__(__self__, address_prefix=None, azure_firewall=None, bgp_connections=None, enable_virtual_router_route_propogation=None, etag=None, express_route_gateway=None, ip_configurations=None, location=None, name=None, p2_s_vpn_gateway=None, provisioning_state=None, route_table=None, routing_state=None, security_partner_provider=None, security_provider_name=None, sku=None, tags=None, type=None, virtual_hub_route_table_v2s=None, virtual_router_asn=None, virtual_router_ips=None, virtual_wan=None, vpn_gateway=None):
+    def __init__(__self__, address_prefix=None, azure_firewall=None, bgp_connections=None, enable_virtual_router_route_propogation=None, etag=None, express_route_gateway=None, id=None, ip_configurations=None, location=None, name=None, p2_s_vpn_gateway=None, provisioning_state=None, route_table=None, routing_state=None, security_partner_provider=None, security_provider_name=None, sku=None, tags=None, type=None, virtual_hub_route_table_v2s=None, virtual_router_asn=None, virtual_router_ips=None, virtual_wan=None, vpn_gateway=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
         pulumi.set(__self__, "address_prefix", address_prefix)
@@ -39,6 +39,9 @@ class GetVirtualHubResult:
         if express_route_gateway and not isinstance(express_route_gateway, dict):
             raise TypeError("Expected argument 'express_route_gateway' to be a dict")
         pulumi.set(__self__, "express_route_gateway", express_route_gateway)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if ip_configurations and not isinstance(ip_configurations, list):
             raise TypeError("Expected argument 'ip_configurations' to be a list")
         pulumi.set(__self__, "ip_configurations", ip_configurations)
@@ -138,6 +141,14 @@ class GetVirtualHubResult:
         The expressRouteGateway associated with this VirtualHub.
         """
         return pulumi.get(self, "express_route_gateway")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ipConfigurations")
@@ -288,6 +299,7 @@ class AwaitableGetVirtualHubResult(GetVirtualHubResult):
             enable_virtual_router_route_propogation=self.enable_virtual_router_route_propogation,
             etag=self.etag,
             express_route_gateway=self.express_route_gateway,
+            id=self.id,
             ip_configurations=self.ip_configurations,
             location=self.location,
             name=self.name,
@@ -332,6 +344,7 @@ def get_virtual_hub(resource_group_name: Optional[str] = None,
         enable_virtual_router_route_propogation=__ret__.enable_virtual_router_route_propogation,
         etag=__ret__.etag,
         express_route_gateway=__ret__.express_route_gateway,
+        id=__ret__.id,
         ip_configurations=__ret__.ip_configurations,
         location=__ret__.location,
         name=__ret__.name,

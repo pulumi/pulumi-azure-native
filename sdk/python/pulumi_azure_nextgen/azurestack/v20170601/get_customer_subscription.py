@@ -19,10 +19,13 @@ class GetCustomerSubscriptionResult:
     """
     Customer subscription.
     """
-    def __init__(__self__, etag=None, name=None, tenant_id=None, type=None):
+    def __init__(__self__, etag=None, id=None, name=None, tenant_id=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -40,6 +43,14 @@ class GetCustomerSubscriptionResult:
         The entity tag used for optimistic concurrency when modifying the resource.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        ID of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -73,6 +84,7 @@ class AwaitableGetCustomerSubscriptionResult(GetCustomerSubscriptionResult):
             yield self
         return GetCustomerSubscriptionResult(
             etag=self.etag,
+            id=self.id,
             name=self.name,
             tenant_id=self.tenant_id,
             type=self.type)
@@ -101,6 +113,7 @@ def get_customer_subscription(customer_subscription_name: Optional[str] = None,
 
     return AwaitableGetCustomerSubscriptionResult(
         etag=__ret__.etag,
+        id=__ret__.id,
         name=__ret__.name,
         tenant_id=__ret__.tenant_id,
         type=__ret__.type)

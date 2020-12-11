@@ -20,7 +20,7 @@ class GetContainerGroupResult:
     """
     A container group.
     """
-    def __init__(__self__, containers=None, diagnostics=None, dns_config=None, encryption_properties=None, identity=None, image_registry_credentials=None, init_containers=None, instance_view=None, ip_address=None, location=None, name=None, network_profile=None, os_type=None, provisioning_state=None, restart_policy=None, sku=None, tags=None, type=None, volumes=None):
+    def __init__(__self__, containers=None, diagnostics=None, dns_config=None, encryption_properties=None, id=None, identity=None, image_registry_credentials=None, init_containers=None, instance_view=None, ip_address=None, location=None, name=None, network_profile=None, os_type=None, provisioning_state=None, restart_policy=None, sku=None, tags=None, type=None, volumes=None):
         if containers and not isinstance(containers, list):
             raise TypeError("Expected argument 'containers' to be a list")
         pulumi.set(__self__, "containers", containers)
@@ -33,6 +33,9 @@ class GetContainerGroupResult:
         if encryption_properties and not isinstance(encryption_properties, dict):
             raise TypeError("Expected argument 'encryption_properties' to be a dict")
         pulumi.set(__self__, "encryption_properties", encryption_properties)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -110,6 +113,14 @@ class GetContainerGroupResult:
         The encryption properties for a container group.
         """
         return pulumi.get(self, "encryption_properties")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -245,6 +256,7 @@ class AwaitableGetContainerGroupResult(GetContainerGroupResult):
             diagnostics=self.diagnostics,
             dns_config=self.dns_config,
             encryption_properties=self.encryption_properties,
+            id=self.id,
             identity=self.identity,
             image_registry_credentials=self.image_registry_credentials,
             init_containers=self.init_containers,
@@ -285,6 +297,7 @@ def get_container_group(container_group_name: Optional[str] = None,
         diagnostics=__ret__.diagnostics,
         dns_config=__ret__.dns_config,
         encryption_properties=__ret__.encryption_properties,
+        id=__ret__.id,
         identity=__ret__.identity,
         image_registry_credentials=__ret__.image_registry_credentials,
         init_containers=__ret__.init_containers,

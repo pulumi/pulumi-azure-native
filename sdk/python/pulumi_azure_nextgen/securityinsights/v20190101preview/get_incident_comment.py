@@ -20,7 +20,7 @@ class GetIncidentCommentResult:
     """
     Represents an incident comment
     """
-    def __init__(__self__, author=None, created_time_utc=None, etag=None, last_modified_time_utc=None, message=None, name=None, type=None):
+    def __init__(__self__, author=None, created_time_utc=None, etag=None, id=None, last_modified_time_utc=None, message=None, name=None, type=None):
         if author and not isinstance(author, dict):
             raise TypeError("Expected argument 'author' to be a dict")
         pulumi.set(__self__, "author", author)
@@ -30,6 +30,9 @@ class GetIncidentCommentResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_modified_time_utc and not isinstance(last_modified_time_utc, str):
             raise TypeError("Expected argument 'last_modified_time_utc' to be a str")
         pulumi.set(__self__, "last_modified_time_utc", last_modified_time_utc)
@@ -66,6 +69,14 @@ class GetIncidentCommentResult:
         Etag of the azure resource
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastModifiedTimeUtc")
@@ -109,6 +120,7 @@ class AwaitableGetIncidentCommentResult(GetIncidentCommentResult):
             author=self.author,
             created_time_utc=self.created_time_utc,
             etag=self.etag,
+            id=self.id,
             last_modified_time_utc=self.last_modified_time_utc,
             message=self.message,
             name=self.name,
@@ -146,6 +158,7 @@ def get_incident_comment(incident_comment_id: Optional[str] = None,
         author=__ret__.author,
         created_time_utc=__ret__.created_time_utc,
         etag=__ret__.etag,
+        id=__ret__.id,
         last_modified_time_utc=__ret__.last_modified_time_utc,
         message=__ret__.message,
         name=__ret__.name,

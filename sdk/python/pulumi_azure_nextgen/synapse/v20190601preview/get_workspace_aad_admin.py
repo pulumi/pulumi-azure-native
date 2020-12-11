@@ -19,10 +19,13 @@ class GetWorkspaceAadAdminResult:
     """
     Workspace active directory administrator
     """
-    def __init__(__self__, administrator_type=None, login=None, name=None, sid=None, tenant_id=None, type=None):
+    def __init__(__self__, administrator_type=None, id=None, login=None, name=None, sid=None, tenant_id=None, type=None):
         if administrator_type and not isinstance(administrator_type, str):
             raise TypeError("Expected argument 'administrator_type' to be a str")
         pulumi.set(__self__, "administrator_type", administrator_type)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if login and not isinstance(login, str):
             raise TypeError("Expected argument 'login' to be a str")
         pulumi.set(__self__, "login", login)
@@ -46,6 +49,14 @@ class GetWorkspaceAadAdminResult:
         Workspace active directory administrator type
         """
         return pulumi.get(self, "administrator_type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -95,6 +106,7 @@ class AwaitableGetWorkspaceAadAdminResult(GetWorkspaceAadAdminResult):
             yield self
         return GetWorkspaceAadAdminResult(
             administrator_type=self.administrator_type,
+            id=self.id,
             login=self.login,
             name=self.name,
             sid=self.sid,
@@ -122,6 +134,7 @@ def get_workspace_aad_admin(resource_group_name: Optional[str] = None,
 
     return AwaitableGetWorkspaceAadAdminResult(
         administrator_type=__ret__.administrator_type,
+        id=__ret__.id,
         login=__ret__.login,
         name=__ret__.name,
         sid=__ret__.sid,

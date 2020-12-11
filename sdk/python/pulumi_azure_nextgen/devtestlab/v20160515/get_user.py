@@ -20,10 +20,13 @@ class GetUserResult:
     """
     Profile of a lab user.
     """
-    def __init__(__self__, created_date=None, identity=None, location=None, name=None, provisioning_state=None, secret_store=None, tags=None, type=None, unique_identifier=None):
+    def __init__(__self__, created_date=None, id=None, identity=None, location=None, name=None, provisioning_state=None, secret_store=None, tags=None, type=None, unique_identifier=None):
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -56,6 +59,14 @@ class GetUserResult:
         The creation date of the user profile.
         """
         return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -129,6 +140,7 @@ class AwaitableGetUserResult(GetUserResult):
             yield self
         return GetUserResult(
             created_date=self.created_date,
+            id=self.id,
             identity=self.identity,
             location=self.location,
             name=self.name,
@@ -165,6 +177,7 @@ def get_user(expand: Optional[str] = None,
 
     return AwaitableGetUserResult(
         created_date=__ret__.created_date,
+        id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,

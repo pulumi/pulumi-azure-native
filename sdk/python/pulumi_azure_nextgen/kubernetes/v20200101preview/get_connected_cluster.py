@@ -20,7 +20,7 @@ class GetConnectedClusterResult:
     """
     Represents a connected cluster.
     """
-    def __init__(__self__, aad_profile=None, agent_public_key_certificate=None, agent_version=None, connectivity_status=None, distribution=None, identity=None, infrastructure=None, kubernetes_version=None, last_connectivity_time=None, location=None, managed_identity_certificate_expiration_time=None, name=None, offering=None, provisioning_state=None, tags=None, total_core_count=None, total_node_count=None, type=None):
+    def __init__(__self__, aad_profile=None, agent_public_key_certificate=None, agent_version=None, connectivity_status=None, distribution=None, id=None, identity=None, infrastructure=None, kubernetes_version=None, last_connectivity_time=None, location=None, managed_identity_certificate_expiration_time=None, name=None, offering=None, provisioning_state=None, tags=None, total_core_count=None, total_node_count=None, type=None):
         if aad_profile and not isinstance(aad_profile, dict):
             raise TypeError("Expected argument 'aad_profile' to be a dict")
         pulumi.set(__self__, "aad_profile", aad_profile)
@@ -36,6 +36,9 @@ class GetConnectedClusterResult:
         if distribution and not isinstance(distribution, str):
             raise TypeError("Expected argument 'distribution' to be a str")
         pulumi.set(__self__, "distribution", distribution)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -115,6 +118,14 @@ class GetConnectedClusterResult:
         The Kubernetes distribution running on this connected cluster.
         """
         return pulumi.get(self, "distribution")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -232,6 +243,7 @@ class AwaitableGetConnectedClusterResult(GetConnectedClusterResult):
             agent_version=self.agent_version,
             connectivity_status=self.connectivity_status,
             distribution=self.distribution,
+            id=self.id,
             identity=self.identity,
             infrastructure=self.infrastructure,
             kubernetes_version=self.kubernetes_version,
@@ -271,6 +283,7 @@ def get_connected_cluster(cluster_name: Optional[str] = None,
         agent_version=__ret__.agent_version,
         connectivity_status=__ret__.connectivity_status,
         distribution=__ret__.distribution,
+        id=__ret__.id,
         identity=__ret__.identity,
         infrastructure=__ret__.infrastructure,
         kubernetes_version=__ret__.kubernetes_version,

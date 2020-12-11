@@ -19,10 +19,13 @@ class GetHcxEnterpriseSiteResult:
     """
     An HCX Enterprise Site resource
     """
-    def __init__(__self__, activation_key=None, name=None, status=None, type=None):
+    def __init__(__self__, activation_key=None, id=None, name=None, status=None, type=None):
         if activation_key and not isinstance(activation_key, str):
             raise TypeError("Expected argument 'activation_key' to be a str")
         pulumi.set(__self__, "activation_key", activation_key)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -40,6 +43,14 @@ class GetHcxEnterpriseSiteResult:
         The activation key
         """
         return pulumi.get(self, "activation_key")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -73,6 +84,7 @@ class AwaitableGetHcxEnterpriseSiteResult(GetHcxEnterpriseSiteResult):
             yield self
         return GetHcxEnterpriseSiteResult(
             activation_key=self.activation_key,
+            id=self.id,
             name=self.name,
             status=self.status,
             type=self.type)
@@ -101,6 +113,7 @@ def get_hcx_enterprise_site(hcx_enterprise_site_name: Optional[str] = None,
 
     return AwaitableGetHcxEnterpriseSiteResult(
         activation_key=__ret__.activation_key,
+        id=__ret__.id,
         name=__ret__.name,
         status=__ret__.status,
         type=__ret__.type)

@@ -20,13 +20,16 @@ class GetVpnServerConfigurationResult:
     """
     VpnServerConfiguration Resource.
     """
-    def __init__(__self__, aad_authentication_parameters=None, etag=None, location=None, name=None, p2_s_vpn_gateways=None, provisioning_state=None, radius_client_root_certificates=None, radius_server_address=None, radius_server_root_certificates=None, radius_server_secret=None, tags=None, type=None, vpn_authentication_types=None, vpn_client_ipsec_policies=None, vpn_client_revoked_certificates=None, vpn_client_root_certificates=None, vpn_protocols=None):
+    def __init__(__self__, aad_authentication_parameters=None, etag=None, id=None, location=None, name=None, p2_s_vpn_gateways=None, provisioning_state=None, radius_client_root_certificates=None, radius_server_address=None, radius_server_root_certificates=None, radius_server_secret=None, tags=None, type=None, vpn_authentication_types=None, vpn_client_ipsec_policies=None, vpn_client_revoked_certificates=None, vpn_client_root_certificates=None, vpn_protocols=None):
         if aad_authentication_parameters and not isinstance(aad_authentication_parameters, dict):
             raise TypeError("Expected argument 'aad_authentication_parameters' to be a dict")
         pulumi.set(__self__, "aad_authentication_parameters", aad_authentication_parameters)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -88,6 +91,14 @@ class GetVpnServerConfigurationResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -218,6 +229,7 @@ class AwaitableGetVpnServerConfigurationResult(GetVpnServerConfigurationResult):
         return GetVpnServerConfigurationResult(
             aad_authentication_parameters=self.aad_authentication_parameters,
             etag=self.etag,
+            id=self.id,
             location=self.location,
             name=self.name,
             p2_s_vpn_gateways=self.p2_s_vpn_gateways,
@@ -256,6 +268,7 @@ def get_vpn_server_configuration(resource_group_name: Optional[str] = None,
     return AwaitableGetVpnServerConfigurationResult(
         aad_authentication_parameters=__ret__.aad_authentication_parameters,
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         p2_s_vpn_gateways=__ret__.p2_s_vpn_gateways,

@@ -20,13 +20,16 @@ class GetNetworkFunctionResult:
     """
     Network function resource response.
     """
-    def __init__(__self__, device=None, etag=None, location=None, managed_application=None, managed_application_parameters=None, name=None, network_function_user_configurations=None, provisioning_state=None, service_key=None, sku_name=None, sku_type=None, tags=None, type=None, vendor_name=None, vendor_provisioning_state=None):
+    def __init__(__self__, device=None, etag=None, id=None, location=None, managed_application=None, managed_application_parameters=None, name=None, network_function_user_configurations=None, provisioning_state=None, service_key=None, sku_name=None, sku_type=None, tags=None, type=None, vendor_name=None, vendor_provisioning_state=None):
         if device and not isinstance(device, dict):
             raise TypeError("Expected argument 'device' to be a dict")
         pulumi.set(__self__, "device", device)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -82,6 +85,14 @@ class GetNetworkFunctionResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -196,6 +207,7 @@ class AwaitableGetNetworkFunctionResult(GetNetworkFunctionResult):
         return GetNetworkFunctionResult(
             device=self.device,
             etag=self.etag,
+            id=self.id,
             location=self.location,
             managed_application=self.managed_application,
             managed_application_parameters=self.managed_application_parameters,
@@ -232,6 +244,7 @@ def get_network_function(network_function_name: Optional[str] = None,
     return AwaitableGetNetworkFunctionResult(
         device=__ret__.device,
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         managed_application=__ret__.managed_application,
         managed_application_parameters=__ret__.managed_application_parameters,

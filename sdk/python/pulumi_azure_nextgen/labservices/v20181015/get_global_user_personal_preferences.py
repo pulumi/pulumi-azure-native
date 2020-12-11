@@ -20,10 +20,13 @@ class GetGlobalUserPersonalPreferencesResult:
     """
     Represents the PersonalPreferences for the user
     """
-    def __init__(__self__, favorite_lab_resource_ids=None):
+    def __init__(__self__, favorite_lab_resource_ids=None, id=None):
         if favorite_lab_resource_ids and not isinstance(favorite_lab_resource_ids, list):
             raise TypeError("Expected argument 'favorite_lab_resource_ids' to be a list")
         pulumi.set(__self__, "favorite_lab_resource_ids", favorite_lab_resource_ids)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter(name="favoriteLabResourceIds")
@@ -33,6 +36,14 @@ class GetGlobalUserPersonalPreferencesResult:
         """
         return pulumi.get(self, "favorite_lab_resource_ids")
 
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Id to be used by the cache orchestrator
+        """
+        return pulumi.get(self, "id")
+
 
 class AwaitableGetGlobalUserPersonalPreferencesResult(GetGlobalUserPersonalPreferencesResult):
     # pylint: disable=using-constant-test
@@ -40,7 +51,8 @@ class AwaitableGetGlobalUserPersonalPreferencesResult(GetGlobalUserPersonalPrefe
         if False:
             yield self
         return GetGlobalUserPersonalPreferencesResult(
-            favorite_lab_resource_ids=self.favorite_lab_resource_ids)
+            favorite_lab_resource_ids=self.favorite_lab_resource_ids,
+            id=self.id)
 
 
 def get_global_user_personal_preferences(add_remove: Optional[Union[str, 'AddRemove']] = None,
@@ -68,4 +80,5 @@ def get_global_user_personal_preferences(add_remove: Optional[Union[str, 'AddRem
     __ret__ = pulumi.runtime.invoke('azure-nextgen:labservices/v20181015:getGlobalUserPersonalPreferences', __args__, opts=opts, typ=GetGlobalUserPersonalPreferencesResult).value
 
     return AwaitableGetGlobalUserPersonalPreferencesResult(
-        favorite_lab_resource_ids=__ret__.favorite_lab_resource_ids)
+        favorite_lab_resource_ids=__ret__.favorite_lab_resource_ids,
+        id=__ret__.id)

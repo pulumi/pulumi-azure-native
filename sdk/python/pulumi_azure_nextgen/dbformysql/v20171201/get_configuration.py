@@ -19,7 +19,7 @@ class GetConfigurationResult:
     """
     Represents a Configuration.
     """
-    def __init__(__self__, allowed_values=None, data_type=None, default_value=None, description=None, name=None, source=None, type=None, value=None):
+    def __init__(__self__, allowed_values=None, data_type=None, default_value=None, description=None, id=None, name=None, source=None, type=None, value=None):
         if allowed_values and not isinstance(allowed_values, str):
             raise TypeError("Expected argument 'allowed_values' to be a str")
         pulumi.set(__self__, "allowed_values", allowed_values)
@@ -32,6 +32,9 @@ class GetConfigurationResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -79,6 +82,14 @@ class GetConfigurationResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         The name of the resource
@@ -120,6 +131,7 @@ class AwaitableGetConfigurationResult(GetConfigurationResult):
             data_type=self.data_type,
             default_value=self.default_value,
             description=self.description,
+            id=self.id,
             name=self.name,
             source=self.source,
             type=self.type,
@@ -152,6 +164,7 @@ def get_configuration(configuration_name: Optional[str] = None,
         data_type=__ret__.data_type,
         default_value=__ret__.default_value,
         description=__ret__.description,
+        id=__ret__.id,
         name=__ret__.name,
         source=__ret__.source,
         type=__ret__.type,

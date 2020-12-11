@@ -19,7 +19,10 @@ class GetCertificateOrderCertificateResult:
     """
     Class representing the Key Vault container for certificate purchased through Azure
     """
-    def __init__(__self__, key_vault_id=None, key_vault_secret_name=None, kind=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, id=None, key_vault_id=None, key_vault_secret_name=None, kind=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if key_vault_id and not isinstance(key_vault_id, str):
             raise TypeError("Expected argument 'key_vault_id' to be a str")
         pulumi.set(__self__, "key_vault_id", key_vault_id)
@@ -44,6 +47,14 @@ class GetCertificateOrderCertificateResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="keyVaultId")
@@ -116,6 +127,7 @@ class AwaitableGetCertificateOrderCertificateResult(GetCertificateOrderCertifica
         if False:
             yield self
         return GetCertificateOrderCertificateResult(
+            id=self.id,
             key_vault_id=self.key_vault_id,
             key_vault_secret_name=self.key_vault_secret_name,
             kind=self.kind,
@@ -148,6 +160,7 @@ def get_certificate_order_certificate(certificate_order_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-nextgen:certificateregistration/v20150801:getCertificateOrderCertificate', __args__, opts=opts, typ=GetCertificateOrderCertificateResult).value
 
     return AwaitableGetCertificateOrderCertificateResult(
+        id=__ret__.id,
         key_vault_id=__ret__.key_vault_id,
         key_vault_secret_name=__ret__.key_vault_secret_name,
         kind=__ret__.kind,

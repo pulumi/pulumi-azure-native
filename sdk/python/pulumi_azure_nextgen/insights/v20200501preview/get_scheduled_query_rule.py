@@ -20,7 +20,7 @@ class GetScheduledQueryRuleResult:
     """
     The scheduled query rule resource.
     """
-    def __init__(__self__, actions=None, criteria=None, description=None, enabled=None, evaluation_frequency=None, location=None, mute_actions_duration=None, name=None, scopes=None, severity=None, tags=None, target_resource_types=None, type=None, window_size=None):
+    def __init__(__self__, actions=None, criteria=None, description=None, enabled=None, evaluation_frequency=None, id=None, location=None, mute_actions_duration=None, name=None, scopes=None, severity=None, tags=None, target_resource_types=None, type=None, window_size=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
@@ -36,6 +36,9 @@ class GetScheduledQueryRuleResult:
         if evaluation_frequency and not isinstance(evaluation_frequency, str):
             raise TypeError("Expected argument 'evaluation_frequency' to be a str")
         pulumi.set(__self__, "evaluation_frequency", evaluation_frequency)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -100,6 +103,14 @@ class GetScheduledQueryRuleResult:
         How often the scheduled query rule is evaluated represented in ISO 8601 duration format.
         """
         return pulumi.get(self, "evaluation_frequency")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -185,6 +196,7 @@ class AwaitableGetScheduledQueryRuleResult(GetScheduledQueryRuleResult):
             description=self.description,
             enabled=self.enabled,
             evaluation_frequency=self.evaluation_frequency,
+            id=self.id,
             location=self.location,
             mute_actions_duration=self.mute_actions_duration,
             name=self.name,
@@ -220,6 +232,7 @@ def get_scheduled_query_rule(resource_group_name: Optional[str] = None,
         description=__ret__.description,
         enabled=__ret__.enabled,
         evaluation_frequency=__ret__.evaluation_frequency,
+        id=__ret__.id,
         location=__ret__.location,
         mute_actions_duration=__ret__.mute_actions_duration,
         name=__ret__.name,

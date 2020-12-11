@@ -20,7 +20,7 @@ class GetSmartDetectorAlertRuleResult:
     """
     The alert rule information
     """
-    def __init__(__self__, action_groups=None, description=None, detector=None, frequency=None, name=None, scope=None, severity=None, state=None, throttling=None, type=None):
+    def __init__(__self__, action_groups=None, description=None, detector=None, frequency=None, id=None, name=None, scope=None, severity=None, state=None, throttling=None, type=None):
         if action_groups and not isinstance(action_groups, dict):
             raise TypeError("Expected argument 'action_groups' to be a dict")
         pulumi.set(__self__, "action_groups", action_groups)
@@ -33,6 +33,9 @@ class GetSmartDetectorAlertRuleResult:
         if frequency and not isinstance(frequency, str):
             raise TypeError("Expected argument 'frequency' to be a str")
         pulumi.set(__self__, "frequency", frequency)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -83,6 +86,14 @@ class GetSmartDetectorAlertRuleResult:
         The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
         """
         return pulumi.get(self, "frequency")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -143,6 +154,7 @@ class AwaitableGetSmartDetectorAlertRuleResult(GetSmartDetectorAlertRuleResult):
             description=self.description,
             detector=self.detector,
             frequency=self.frequency,
+            id=self.id,
             name=self.name,
             scope=self.scope,
             severity=self.severity,
@@ -177,6 +189,7 @@ def get_smart_detector_alert_rule(alert_rule_name: Optional[str] = None,
         description=__ret__.description,
         detector=__ret__.detector,
         frequency=__ret__.frequency,
+        id=__ret__.id,
         name=__ret__.name,
         scope=__ret__.scope,
         severity=__ret__.severity,

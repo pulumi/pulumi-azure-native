@@ -20,7 +20,7 @@ class GetConnectionTypeResult:
     """
     Definition of the connection type.
     """
-    def __init__(__self__, creation_time=None, description=None, field_definitions=None, is_global=None, last_modified_time=None, name=None, type=None):
+    def __init__(__self__, creation_time=None, description=None, field_definitions=None, id=None, is_global=None, last_modified_time=None, name=None, type=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -30,6 +30,9 @@ class GetConnectionTypeResult:
         if field_definitions and not isinstance(field_definitions, dict):
             raise TypeError("Expected argument 'field_definitions' to be a dict")
         pulumi.set(__self__, "field_definitions", field_definitions)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_global and not isinstance(is_global, bool):
             raise TypeError("Expected argument 'is_global' to be a bool")
         pulumi.set(__self__, "is_global", is_global)
@@ -66,6 +69,14 @@ class GetConnectionTypeResult:
         Gets the field definitions of the connection type.
         """
         return pulumi.get(self, "field_definitions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Gets the id of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isGlobal")
@@ -109,6 +120,7 @@ class AwaitableGetConnectionTypeResult(GetConnectionTypeResult):
             creation_time=self.creation_time,
             description=self.description,
             field_definitions=self.field_definitions,
+            id=self.id,
             is_global=self.is_global,
             last_modified_time=self.last_modified_time,
             name=self.name,
@@ -140,6 +152,7 @@ def get_connection_type(automation_account_name: Optional[str] = None,
         creation_time=__ret__.creation_time,
         description=__ret__.description,
         field_definitions=__ret__.field_definitions,
+        id=__ret__.id,
         is_global=__ret__.is_global,
         last_modified_time=__ret__.last_modified_time,
         name=__ret__.name,

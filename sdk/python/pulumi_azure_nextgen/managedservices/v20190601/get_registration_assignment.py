@@ -20,7 +20,10 @@ class GetRegistrationAssignmentResult:
     """
     Registration assignment.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, id=None, name=None, properties=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -30,6 +33,14 @@ class GetRegistrationAssignmentResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The fully qualified path of the registration assignment.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -62,6 +73,7 @@ class AwaitableGetRegistrationAssignmentResult(GetRegistrationAssignmentResult):
         if False:
             yield self
         return GetRegistrationAssignmentResult(
+            id=self.id,
             name=self.name,
             properties=self.properties,
             type=self.type)
@@ -89,6 +101,7 @@ def get_registration_assignment(expand_registration_definition: Optional[bool] =
     __ret__ = pulumi.runtime.invoke('azure-nextgen:managedservices/v20190601:getRegistrationAssignment', __args__, opts=opts, typ=GetRegistrationAssignmentResult).value
 
     return AwaitableGetRegistrationAssignmentResult(
+        id=__ret__.id,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)

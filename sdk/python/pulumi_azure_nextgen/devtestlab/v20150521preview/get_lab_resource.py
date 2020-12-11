@@ -19,7 +19,7 @@ class GetLabResourceResult:
     """
     A lab.
     """
-    def __init__(__self__, artifacts_storage_account=None, created_date=None, default_storage_account=None, default_virtual_network_id=None, lab_storage_type=None, location=None, name=None, provisioning_state=None, storage_accounts=None, tags=None, type=None, vault_name=None):
+    def __init__(__self__, artifacts_storage_account=None, created_date=None, default_storage_account=None, default_virtual_network_id=None, id=None, lab_storage_type=None, location=None, name=None, provisioning_state=None, storage_accounts=None, tags=None, type=None, vault_name=None):
         if artifacts_storage_account and not isinstance(artifacts_storage_account, str):
             raise TypeError("Expected argument 'artifacts_storage_account' to be a str")
         pulumi.set(__self__, "artifacts_storage_account", artifacts_storage_account)
@@ -32,6 +32,9 @@ class GetLabResourceResult:
         if default_virtual_network_id and not isinstance(default_virtual_network_id, str):
             raise TypeError("Expected argument 'default_virtual_network_id' to be a str")
         pulumi.set(__self__, "default_virtual_network_id", default_virtual_network_id)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if lab_storage_type and not isinstance(lab_storage_type, str):
             raise TypeError("Expected argument 'lab_storage_type' to be a str")
         pulumi.set(__self__, "lab_storage_type", lab_storage_type)
@@ -88,6 +91,14 @@ class GetLabResourceResult:
         The default virtual network identifier of the lab.
         """
         return pulumi.get(self, "default_virtual_network_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The identifier of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="labStorageType")
@@ -164,6 +175,7 @@ class AwaitableGetLabResourceResult(GetLabResourceResult):
             created_date=self.created_date,
             default_storage_account=self.default_storage_account,
             default_virtual_network_id=self.default_virtual_network_id,
+            id=self.id,
             lab_storage_type=self.lab_storage_type,
             location=self.location,
             name=self.name,
@@ -197,6 +209,7 @@ def get_lab_resource(name: Optional[str] = None,
         created_date=__ret__.created_date,
         default_storage_account=__ret__.default_storage_account,
         default_virtual_network_id=__ret__.default_virtual_network_id,
+        id=__ret__.id,
         lab_storage_type=__ret__.lab_storage_type,
         location=__ret__.location,
         name=__ret__.name,

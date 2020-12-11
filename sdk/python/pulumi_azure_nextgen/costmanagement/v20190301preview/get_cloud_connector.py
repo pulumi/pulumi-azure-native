@@ -20,7 +20,7 @@ class GetCloudConnectorResult:
     """
     The Connector model definition
     """
-    def __init__(__self__, billing_model=None, collection_info=None, created_on=None, credentials_key=None, credentials_secret=None, days_trial_remaining=None, default_management_group_id=None, display_name=None, external_billing_account_id=None, kind=None, modified_on=None, name=None, provider_billing_account_display_name=None, provider_billing_account_id=None, report_id=None, status=None, subscription_id=None, type=None):
+    def __init__(__self__, billing_model=None, collection_info=None, created_on=None, credentials_key=None, credentials_secret=None, days_trial_remaining=None, default_management_group_id=None, display_name=None, external_billing_account_id=None, id=None, kind=None, modified_on=None, name=None, provider_billing_account_display_name=None, provider_billing_account_id=None, report_id=None, status=None, subscription_id=None, type=None):
         if billing_model and not isinstance(billing_model, str):
             raise TypeError("Expected argument 'billing_model' to be a str")
         pulumi.set(__self__, "billing_model", billing_model)
@@ -48,6 +48,9 @@ class GetCloudConnectorResult:
         if external_billing_account_id and not isinstance(external_billing_account_id, str):
             raise TypeError("Expected argument 'external_billing_account_id' to be a str")
         pulumi.set(__self__, "external_billing_account_id", external_billing_account_id)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -150,6 +153,14 @@ class GetCloudConnectorResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        Connector id
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def kind(self) -> Optional[str]:
         """
         Connector kind (eg aws)
@@ -236,6 +247,7 @@ class AwaitableGetCloudConnectorResult(GetCloudConnectorResult):
             default_management_group_id=self.default_management_group_id,
             display_name=self.display_name,
             external_billing_account_id=self.external_billing_account_id,
+            id=self.id,
             kind=self.kind,
             modified_on=self.modified_on,
             name=self.name,
@@ -275,6 +287,7 @@ def get_cloud_connector(connector_name: Optional[str] = None,
         default_management_group_id=__ret__.default_management_group_id,
         display_name=__ret__.display_name,
         external_billing_account_id=__ret__.external_billing_account_id,
+        id=__ret__.id,
         kind=__ret__.kind,
         modified_on=__ret__.modified_on,
         name=__ret__.name,

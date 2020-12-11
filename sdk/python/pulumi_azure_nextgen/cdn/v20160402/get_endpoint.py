@@ -20,13 +20,16 @@ class GetEndpointResult:
     """
     CDN endpoint is the entity within a CDN profile containing configuration information regarding caching behaviors and origins. The CDN endpoint is exposed using the URL format <endpointname>.azureedge.net by default, but custom domains can also be created.
     """
-    def __init__(__self__, content_types_to_compress=None, host_name=None, is_compression_enabled=None, is_http_allowed=None, is_https_allowed=None, location=None, name=None, origin_host_header=None, origin_path=None, origins=None, provisioning_state=None, query_string_caching_behavior=None, resource_state=None, tags=None, type=None):
+    def __init__(__self__, content_types_to_compress=None, host_name=None, id=None, is_compression_enabled=None, is_http_allowed=None, is_https_allowed=None, location=None, name=None, origin_host_header=None, origin_path=None, origins=None, provisioning_state=None, query_string_caching_behavior=None, resource_state=None, tags=None, type=None):
         if content_types_to_compress and not isinstance(content_types_to_compress, list):
             raise TypeError("Expected argument 'content_types_to_compress' to be a list")
         pulumi.set(__self__, "content_types_to_compress", content_types_to_compress)
         if host_name and not isinstance(host_name, str):
             raise TypeError("Expected argument 'host_name' to be a str")
         pulumi.set(__self__, "host_name", host_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_compression_enabled and not isinstance(is_compression_enabled, bool):
             raise TypeError("Expected argument 'is_compression_enabled' to be a bool")
         pulumi.set(__self__, "is_compression_enabled", is_compression_enabled)
@@ -82,6 +85,14 @@ class GetEndpointResult:
         The host name of the endpoint {endpointName}.{DNSZone}
         """
         return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isCompressionEnabled")
@@ -196,6 +207,7 @@ class AwaitableGetEndpointResult(GetEndpointResult):
         return GetEndpointResult(
             content_types_to_compress=self.content_types_to_compress,
             host_name=self.host_name,
+            id=self.id,
             is_compression_enabled=self.is_compression_enabled,
             is_http_allowed=self.is_http_allowed,
             is_https_allowed=self.is_https_allowed,
@@ -235,6 +247,7 @@ def get_endpoint(endpoint_name: Optional[str] = None,
     return AwaitableGetEndpointResult(
         content_types_to_compress=__ret__.content_types_to_compress,
         host_name=__ret__.host_name,
+        id=__ret__.id,
         is_compression_enabled=__ret__.is_compression_enabled,
         is_http_allowed=__ret__.is_http_allowed,
         is_https_allowed=__ret__.is_https_allowed,

@@ -19,7 +19,7 @@ class GetStorageAccountResult:
     """
     Represents a Storage Account on the  Data Box Edge/Gateway device.
     """
-    def __init__(__self__, blob_endpoint=None, container_count=None, data_policy=None, description=None, name=None, storage_account_credential_id=None, storage_account_status=None, type=None):
+    def __init__(__self__, blob_endpoint=None, container_count=None, data_policy=None, description=None, id=None, name=None, storage_account_credential_id=None, storage_account_status=None, type=None):
         if blob_endpoint and not isinstance(blob_endpoint, str):
             raise TypeError("Expected argument 'blob_endpoint' to be a str")
         pulumi.set(__self__, "blob_endpoint", blob_endpoint)
@@ -32,6 +32,9 @@ class GetStorageAccountResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -79,6 +82,14 @@ class GetStorageAccountResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        The path ID that uniquely identifies the object.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         The object name.
@@ -120,6 +131,7 @@ class AwaitableGetStorageAccountResult(GetStorageAccountResult):
             container_count=self.container_count,
             data_policy=self.data_policy,
             description=self.description,
+            id=self.id,
             name=self.name,
             storage_account_credential_id=self.storage_account_credential_id,
             storage_account_status=self.storage_account_status,
@@ -152,6 +164,7 @@ def get_storage_account(device_name: Optional[str] = None,
         container_count=__ret__.container_count,
         data_policy=__ret__.data_policy,
         description=__ret__.description,
+        id=__ret__.id,
         name=__ret__.name,
         storage_account_credential_id=__ret__.storage_account_credential_id,
         storage_account_status=__ret__.storage_account_status,

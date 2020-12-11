@@ -20,7 +20,7 @@ class GetDedicatedCloudNodeResult:
     """
     Dedicated cloud node model
     """
-    def __init__(__self__, availability_zone_id=None, availability_zone_name=None, cloud_rack_name=None, created=None, location=None, name=None, nodes_count=None, placement_group_id=None, placement_group_name=None, private_cloud_id=None, private_cloud_name=None, provisioning_state=None, purchase_id=None, sku=None, status=None, tags=None, type=None, vmware_cluster_name=None):
+    def __init__(__self__, availability_zone_id=None, availability_zone_name=None, cloud_rack_name=None, created=None, id=None, location=None, name=None, nodes_count=None, placement_group_id=None, placement_group_name=None, private_cloud_id=None, private_cloud_name=None, provisioning_state=None, purchase_id=None, sku=None, status=None, tags=None, type=None, vmware_cluster_name=None):
         if availability_zone_id and not isinstance(availability_zone_id, str):
             raise TypeError("Expected argument 'availability_zone_id' to be a str")
         pulumi.set(__self__, "availability_zone_id", availability_zone_id)
@@ -33,6 +33,9 @@ class GetDedicatedCloudNodeResult:
         if created and not isinstance(created, dict):
             raise TypeError("Expected argument 'created' to be a dict")
         pulumi.set(__self__, "created", created)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -107,6 +110,14 @@ class GetDedicatedCloudNodeResult:
         date time the resource was created
         """
         return pulumi.get(self, "created")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        SKU's id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -231,6 +242,7 @@ class AwaitableGetDedicatedCloudNodeResult(GetDedicatedCloudNodeResult):
             availability_zone_name=self.availability_zone_name,
             cloud_rack_name=self.cloud_rack_name,
             created=self.created,
+            id=self.id,
             location=self.location,
             name=self.name,
             nodes_count=self.nodes_count,
@@ -270,6 +282,7 @@ def get_dedicated_cloud_node(dedicated_cloud_node_name: Optional[str] = None,
         availability_zone_name=__ret__.availability_zone_name,
         cloud_rack_name=__ret__.cloud_rack_name,
         created=__ret__.created,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         nodes_count=__ret__.nodes_count,

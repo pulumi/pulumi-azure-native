@@ -20,7 +20,7 @@ class GetDatabaseResult:
     """
     A database resource.
     """
-    def __init__(__self__, auto_pause_delay=None, catalog_collation=None, collation=None, create_mode=None, creation_date=None, current_service_objective_name=None, current_sku=None, database_id=None, default_secondary_location=None, earliest_restore_date=None, elastic_pool_id=None, failover_group_id=None, high_availability_replica_count=None, kind=None, license_type=None, location=None, long_term_retention_backup_resource_id=None, maintenance_configuration_id=None, managed_by=None, max_log_size_bytes=None, max_size_bytes=None, min_capacity=None, name=None, paused_date=None, read_scale=None, recoverable_database_id=None, recovery_services_recovery_point_id=None, requested_service_objective_name=None, restorable_dropped_database_id=None, restore_point_in_time=None, resumed_date=None, sample_name=None, secondary_type=None, sku=None, source_database_deletion_date=None, source_database_id=None, status=None, storage_account_type=None, tags=None, type=None, zone_redundant=None):
+    def __init__(__self__, auto_pause_delay=None, catalog_collation=None, collation=None, create_mode=None, creation_date=None, current_service_objective_name=None, current_sku=None, database_id=None, default_secondary_location=None, earliest_restore_date=None, elastic_pool_id=None, failover_group_id=None, high_availability_replica_count=None, id=None, kind=None, license_type=None, location=None, long_term_retention_backup_resource_id=None, maintenance_configuration_id=None, managed_by=None, max_log_size_bytes=None, max_size_bytes=None, min_capacity=None, name=None, paused_date=None, read_scale=None, recoverable_database_id=None, recovery_services_recovery_point_id=None, requested_service_objective_name=None, restorable_dropped_database_id=None, restore_point_in_time=None, resumed_date=None, sample_name=None, secondary_type=None, sku=None, source_database_deletion_date=None, source_database_id=None, status=None, storage_account_type=None, tags=None, type=None, zone_redundant=None):
         if auto_pause_delay and not isinstance(auto_pause_delay, int):
             raise TypeError("Expected argument 'auto_pause_delay' to be a int")
         pulumi.set(__self__, "auto_pause_delay", auto_pause_delay)
@@ -60,6 +60,9 @@ class GetDatabaseResult:
         if high_availability_replica_count and not isinstance(high_availability_replica_count, int):
             raise TypeError("Expected argument 'high_availability_replica_count' to be a int")
         pulumi.set(__self__, "high_availability_replica_count", high_availability_replica_count)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -264,6 +267,14 @@ class GetDatabaseResult:
         The number of secondary replicas associated with the database that are used to provide high availability.
         """
         return pulumi.get(self, "high_availability_replica_count")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -519,6 +530,7 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
             elastic_pool_id=self.elastic_pool_id,
             failover_group_id=self.failover_group_id,
             high_availability_replica_count=self.high_availability_replica_count,
+            id=self.id,
             kind=self.kind,
             license_type=self.license_type,
             location=self.location,
@@ -584,6 +596,7 @@ def get_database(database_name: Optional[str] = None,
         elastic_pool_id=__ret__.elastic_pool_id,
         failover_group_id=__ret__.failover_group_id,
         high_availability_replica_count=__ret__.high_availability_replica_count,
+        id=__ret__.id,
         kind=__ret__.kind,
         license_type=__ret__.license_type,
         location=__ret__.location,

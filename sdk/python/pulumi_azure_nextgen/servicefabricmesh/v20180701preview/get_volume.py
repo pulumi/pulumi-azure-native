@@ -20,13 +20,16 @@ class GetVolumeResult:
     """
     This type describes a volume resource.
     """
-    def __init__(__self__, azure_file_parameters=None, description=None, location=None, name=None, provider=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, azure_file_parameters=None, description=None, id=None, location=None, name=None, provider=None, provisioning_state=None, tags=None, type=None):
         if azure_file_parameters and not isinstance(azure_file_parameters, dict):
             raise TypeError("Expected argument 'azure_file_parameters' to be a dict")
         pulumi.set(__self__, "azure_file_parameters", azure_file_parameters)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -61,6 +64,14 @@ class GetVolumeResult:
         User readable description of the volume.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -119,6 +130,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
         return GetVolumeResult(
             azure_file_parameters=self.azure_file_parameters,
             description=self.description,
+            id=self.id,
             location=self.location,
             name=self.name,
             provider=self.provider,
@@ -148,6 +160,7 @@ def get_volume(resource_group_name: Optional[str] = None,
     return AwaitableGetVolumeResult(
         azure_file_parameters=__ret__.azure_file_parameters,
         description=__ret__.description,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provider=__ret__.provider,

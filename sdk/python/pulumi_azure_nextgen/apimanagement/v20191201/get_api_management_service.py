@@ -20,7 +20,7 @@ class GetApiManagementServiceResult:
     """
     A single API Management service resource in List or Get response.
     """
-    def __init__(__self__, additional_locations=None, api_version_constraint=None, certificates=None, created_at_utc=None, custom_properties=None, developer_portal_url=None, disable_gateway=None, enable_client_certificate=None, etag=None, gateway_regional_url=None, gateway_url=None, hostname_configurations=None, identity=None, location=None, management_api_url=None, name=None, notification_sender_email=None, portal_url=None, private_ip_addresses=None, provisioning_state=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, scm_url=None, sku=None, tags=None, target_provisioning_state=None, type=None, virtual_network_configuration=None, virtual_network_type=None):
+    def __init__(__self__, additional_locations=None, api_version_constraint=None, certificates=None, created_at_utc=None, custom_properties=None, developer_portal_url=None, disable_gateway=None, enable_client_certificate=None, etag=None, gateway_regional_url=None, gateway_url=None, hostname_configurations=None, id=None, identity=None, location=None, management_api_url=None, name=None, notification_sender_email=None, portal_url=None, private_ip_addresses=None, provisioning_state=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, scm_url=None, sku=None, tags=None, target_provisioning_state=None, type=None, virtual_network_configuration=None, virtual_network_type=None):
         if additional_locations and not isinstance(additional_locations, list):
             raise TypeError("Expected argument 'additional_locations' to be a list")
         pulumi.set(__self__, "additional_locations", additional_locations)
@@ -57,6 +57,9 @@ class GetApiManagementServiceResult:
         if hostname_configurations and not isinstance(hostname_configurations, list):
             raise TypeError("Expected argument 'hostname_configurations' to be a list")
         pulumi.set(__self__, "hostname_configurations", hostname_configurations)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -207,6 +210,14 @@ class GetApiManagementServiceResult:
         Custom hostname configuration of the API Management service.
         """
         return pulumi.get(self, "hostname_configurations")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -371,6 +382,7 @@ class AwaitableGetApiManagementServiceResult(GetApiManagementServiceResult):
             gateway_regional_url=self.gateway_regional_url,
             gateway_url=self.gateway_url,
             hostname_configurations=self.hostname_configurations,
+            id=self.id,
             identity=self.identity,
             location=self.location,
             management_api_url=self.management_api_url,
@@ -422,6 +434,7 @@ def get_api_management_service(resource_group_name: Optional[str] = None,
         gateway_regional_url=__ret__.gateway_regional_url,
         gateway_url=__ret__.gateway_url,
         hostname_configurations=__ret__.hostname_configurations,
+        id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
         management_api_url=__ret__.management_api_url,

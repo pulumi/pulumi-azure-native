@@ -19,7 +19,10 @@ class GetJobCredentialResult:
     """
     A stored credential that can be used by a job to connect to target databases.
     """
-    def __init__(__self__, name=None, password=None, type=None, username=None):
+    def __init__(__self__, id=None, name=None, password=None, type=None, username=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -32,6 +35,14 @@ class GetJobCredentialResult:
         if username and not isinstance(username, str):
             raise TypeError("Expected argument 'username' to be a str")
         pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -72,6 +83,7 @@ class AwaitableGetJobCredentialResult(GetJobCredentialResult):
         if False:
             yield self
         return GetJobCredentialResult(
+            id=self.id,
             name=self.name,
             password=self.password,
             type=self.type,
@@ -103,6 +115,7 @@ def get_job_credential(credential_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:sql/v20200801preview:getJobCredential', __args__, opts=opts, typ=GetJobCredentialResult).value
 
     return AwaitableGetJobCredentialResult(
+        id=__ret__.id,
         name=__ret__.name,
         password=__ret__.password,
         type=__ret__.type,

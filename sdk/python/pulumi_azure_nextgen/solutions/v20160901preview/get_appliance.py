@@ -20,10 +20,13 @@ class GetApplianceResult:
     """
     Information about appliance.
     """
-    def __init__(__self__, appliance_definition_id=None, identity=None, kind=None, location=None, managed_by=None, managed_resource_group_id=None, name=None, outputs=None, parameters=None, plan=None, provisioning_state=None, sku=None, tags=None, type=None, ui_definition_uri=None):
+    def __init__(__self__, appliance_definition_id=None, id=None, identity=None, kind=None, location=None, managed_by=None, managed_resource_group_id=None, name=None, outputs=None, parameters=None, plan=None, provisioning_state=None, sku=None, tags=None, type=None, ui_definition_uri=None):
         if appliance_definition_id and not isinstance(appliance_definition_id, str):
             raise TypeError("Expected argument 'appliance_definition_id' to be a str")
         pulumi.set(__self__, "appliance_definition_id", appliance_definition_id)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -74,6 +77,14 @@ class GetApplianceResult:
         The fully qualified path of appliance definition Id.
         """
         return pulumi.get(self, "appliance_definition_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -195,6 +206,7 @@ class AwaitableGetApplianceResult(GetApplianceResult):
             yield self
         return GetApplianceResult(
             appliance_definition_id=self.appliance_definition_id,
+            id=self.id,
             identity=self.identity,
             kind=self.kind,
             location=self.location,
@@ -231,6 +243,7 @@ def get_appliance(appliance_name: Optional[str] = None,
 
     return AwaitableGetApplianceResult(
         appliance_definition_id=__ret__.appliance_definition_id,
+        id=__ret__.id,
         identity=__ret__.identity,
         kind=__ret__.kind,
         location=__ret__.location,

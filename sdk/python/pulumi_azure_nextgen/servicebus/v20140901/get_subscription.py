@@ -20,7 +20,7 @@ class GetSubscriptionResult:
     """
     Description of subscription resource.
     """
-    def __init__(__self__, accessed_at=None, auto_delete_on_idle=None, count_details=None, created_at=None, dead_lettering_on_filter_evaluation_exceptions=None, dead_lettering_on_message_expiration=None, default_message_time_to_live=None, enable_batched_operations=None, entity_availability_status=None, is_read_only=None, location=None, lock_duration=None, max_delivery_count=None, message_count=None, name=None, requires_session=None, status=None, type=None, updated_at=None):
+    def __init__(__self__, accessed_at=None, auto_delete_on_idle=None, count_details=None, created_at=None, dead_lettering_on_filter_evaluation_exceptions=None, dead_lettering_on_message_expiration=None, default_message_time_to_live=None, enable_batched_operations=None, entity_availability_status=None, id=None, is_read_only=None, location=None, lock_duration=None, max_delivery_count=None, message_count=None, name=None, requires_session=None, status=None, type=None, updated_at=None):
         if accessed_at and not isinstance(accessed_at, str):
             raise TypeError("Expected argument 'accessed_at' to be a str")
         pulumi.set(__self__, "accessed_at", accessed_at)
@@ -48,6 +48,9 @@ class GetSubscriptionResult:
         if entity_availability_status and not isinstance(entity_availability_status, str):
             raise TypeError("Expected argument 'entity_availability_status' to be a str")
         pulumi.set(__self__, "entity_availability_status", entity_availability_status)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_read_only and not isinstance(is_read_only, bool):
             raise TypeError("Expected argument 'is_read_only' to be a bool")
         pulumi.set(__self__, "is_read_only", is_read_only)
@@ -152,6 +155,14 @@ class GetSubscriptionResult:
         return pulumi.get(self, "entity_availability_status")
 
     @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
+
+    @property
     @pulumi.getter(name="isReadOnly")
     def is_read_only(self) -> Optional[bool]:
         """
@@ -247,6 +258,7 @@ class AwaitableGetSubscriptionResult(GetSubscriptionResult):
             default_message_time_to_live=self.default_message_time_to_live,
             enable_batched_operations=self.enable_batched_operations,
             entity_availability_status=self.entity_availability_status,
+            id=self.id,
             is_read_only=self.is_read_only,
             location=self.location,
             lock_duration=self.lock_duration,
@@ -293,6 +305,7 @@ def get_subscription(namespace_name: Optional[str] = None,
         default_message_time_to_live=__ret__.default_message_time_to_live,
         enable_batched_operations=__ret__.enable_batched_operations,
         entity_availability_status=__ret__.entity_availability_status,
+        id=__ret__.id,
         is_read_only=__ret__.is_read_only,
         location=__ret__.location,
         lock_duration=__ret__.lock_duration,

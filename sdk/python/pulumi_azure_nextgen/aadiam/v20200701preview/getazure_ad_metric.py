@@ -20,7 +20,10 @@ class GetazureADMetricResult:
     """
     AzureADMetrics resource.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, id=None, location=None, name=None, properties=None, tags=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -36,6 +39,14 @@ class GetazureADMetricResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -81,6 +92,7 @@ class AwaitableGetazureADMetricResult(GetazureADMetricResult):
         if False:
             yield self
         return GetazureADMetricResult(
+            id=self.id,
             location=self.location,
             name=self.name,
             properties=self.properties,
@@ -107,6 +119,7 @@ def getazure_ad_metric(azure_ad_metrics_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:aadiam/v20200701preview:getazureADMetric', __args__, opts=opts, typ=GetazureADMetricResult).value
 
     return AwaitableGetazureADMetricResult(
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         properties=__ret__.properties,

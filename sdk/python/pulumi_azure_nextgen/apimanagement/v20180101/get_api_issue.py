@@ -19,7 +19,7 @@ class GetApiIssueResult:
     """
     Issue Contract details.
     """
-    def __init__(__self__, api_id=None, created_date=None, description=None, name=None, state=None, title=None, type=None, user_id=None):
+    def __init__(__self__, api_id=None, created_date=None, description=None, id=None, name=None, state=None, title=None, type=None, user_id=None):
         if api_id and not isinstance(api_id, str):
             raise TypeError("Expected argument 'api_id' to be a str")
         pulumi.set(__self__, "api_id", api_id)
@@ -29,6 +29,9 @@ class GetApiIssueResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -68,6 +71,14 @@ class GetApiIssueResult:
         Text describing the issue.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -119,6 +130,7 @@ class AwaitableGetApiIssueResult(GetApiIssueResult):
             api_id=self.api_id,
             created_date=self.created_date,
             description=self.description,
+            id=self.id,
             name=self.name,
             state=self.state,
             title=self.title,
@@ -154,6 +166,7 @@ def get_api_issue(api_id: Optional[str] = None,
         api_id=__ret__.api_id,
         created_date=__ret__.created_date,
         description=__ret__.description,
+        id=__ret__.id,
         name=__ret__.name,
         state=__ret__.state,
         title=__ret__.title,

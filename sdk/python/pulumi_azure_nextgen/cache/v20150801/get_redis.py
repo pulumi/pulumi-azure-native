@@ -20,13 +20,16 @@ class GetRedisResult:
     """
     A single Redis item in List or Get Operation.
     """
-    def __init__(__self__, enable_non_ssl_port=None, host_name=None, location=None, name=None, port=None, provisioning_state=None, redis_configuration=None, redis_version=None, shard_count=None, sku=None, ssl_port=None, static_ip=None, subnet=None, tags=None, tenant_settings=None, type=None, virtual_network=None):
+    def __init__(__self__, enable_non_ssl_port=None, host_name=None, id=None, location=None, name=None, port=None, provisioning_state=None, redis_configuration=None, redis_version=None, shard_count=None, sku=None, ssl_port=None, static_ip=None, subnet=None, tags=None, tenant_settings=None, type=None, virtual_network=None):
         if enable_non_ssl_port and not isinstance(enable_non_ssl_port, bool):
             raise TypeError("Expected argument 'enable_non_ssl_port' to be a bool")
         pulumi.set(__self__, "enable_non_ssl_port", enable_non_ssl_port)
         if host_name and not isinstance(host_name, str):
             raise TypeError("Expected argument 'host_name' to be a str")
         pulumi.set(__self__, "host_name", host_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -88,6 +91,14 @@ class GetRedisResult:
         Redis host name.
         """
         return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -218,6 +229,7 @@ class AwaitableGetRedisResult(GetRedisResult):
         return GetRedisResult(
             enable_non_ssl_port=self.enable_non_ssl_port,
             host_name=self.host_name,
+            id=self.id,
             location=self.location,
             name=self.name,
             port=self.port,
@@ -256,6 +268,7 @@ def get_redis(name: Optional[str] = None,
     return AwaitableGetRedisResult(
         enable_non_ssl_port=__ret__.enable_non_ssl_port,
         host_name=__ret__.host_name,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         port=__ret__.port,

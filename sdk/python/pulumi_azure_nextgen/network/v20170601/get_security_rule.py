@@ -19,7 +19,7 @@ class GetSecurityRuleResult:
     """
     Network security rule.
     """
-    def __init__(__self__, access=None, description=None, destination_address_prefix=None, destination_address_prefixes=None, destination_port_range=None, destination_port_ranges=None, direction=None, etag=None, name=None, priority=None, protocol=None, provisioning_state=None, source_address_prefix=None, source_address_prefixes=None, source_port_range=None, source_port_ranges=None):
+    def __init__(__self__, access=None, description=None, destination_address_prefix=None, destination_address_prefixes=None, destination_port_range=None, destination_port_ranges=None, direction=None, etag=None, id=None, name=None, priority=None, protocol=None, provisioning_state=None, source_address_prefix=None, source_address_prefixes=None, source_port_range=None, source_port_ranges=None):
         if access and not isinstance(access, str):
             raise TypeError("Expected argument 'access' to be a str")
         pulumi.set(__self__, "access", access)
@@ -44,6 +44,9 @@ class GetSecurityRuleResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -135,6 +138,14 @@ class GetSecurityRuleResult:
 
     @property
     @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def name(self) -> Optional[str]:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -212,6 +223,7 @@ class AwaitableGetSecurityRuleResult(GetSecurityRuleResult):
             destination_port_ranges=self.destination_port_ranges,
             direction=self.direction,
             etag=self.etag,
+            id=self.id,
             name=self.name,
             priority=self.priority,
             protocol=self.protocol,
@@ -252,6 +264,7 @@ def get_security_rule(network_security_group_name: Optional[str] = None,
         destination_port_ranges=__ret__.destination_port_ranges,
         direction=__ret__.direction,
         etag=__ret__.etag,
+        id=__ret__.id,
         name=__ret__.name,
         priority=__ret__.priority,
         protocol=__ret__.protocol,

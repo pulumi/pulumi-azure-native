@@ -19,7 +19,7 @@ class GetBackupResult:
     """
     Backup of a Volume
     """
-    def __init__(__self__, backup_id=None, backup_type=None, creation_date=None, label=None, location=None, name=None, provisioning_state=None, size=None, type=None):
+    def __init__(__self__, backup_id=None, backup_type=None, creation_date=None, id=None, label=None, location=None, name=None, provisioning_state=None, size=None, type=None):
         if backup_id and not isinstance(backup_id, str):
             raise TypeError("Expected argument 'backup_id' to be a str")
         pulumi.set(__self__, "backup_id", backup_id)
@@ -29,6 +29,9 @@ class GetBackupResult:
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if label and not isinstance(label, str):
             raise TypeError("Expected argument 'label' to be a str")
         pulumi.set(__self__, "label", label)
@@ -71,6 +74,14 @@ class GetBackupResult:
         The creation date of the backup
         """
         return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -130,6 +141,7 @@ class AwaitableGetBackupResult(GetBackupResult):
             backup_id=self.backup_id,
             backup_type=self.backup_type,
             creation_date=self.creation_date,
+            id=self.id,
             label=self.label,
             location=self.location,
             name=self.name,
@@ -169,6 +181,7 @@ def get_backup(account_name: Optional[str] = None,
         backup_id=__ret__.backup_id,
         backup_type=__ret__.backup_type,
         creation_date=__ret__.creation_date,
+        id=__ret__.id,
         label=__ret__.label,
         location=__ret__.location,
         name=__ret__.name,

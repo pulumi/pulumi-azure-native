@@ -19,13 +19,24 @@ class GetVendorSkuPreviewResult:
     """
     Customer subscription which can use a sku.
     """
-    def __init__(__self__, name=None, type=None):
+    def __init__(__self__, id=None, name=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ARM ID of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -50,6 +61,7 @@ class AwaitableGetVendorSkuPreviewResult(GetVendorSkuPreviewResult):
         if False:
             yield self
         return GetVendorSkuPreviewResult(
+            id=self.id,
             name=self.name,
             type=self.type)
 
@@ -76,5 +88,6 @@ def get_vendor_sku_preview(preview_subscription: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:hybridnetwork/v20200101preview:getVendorSkuPreview', __args__, opts=opts, typ=GetVendorSkuPreviewResult).value
 
     return AwaitableGetVendorSkuPreviewResult(
+        id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type)

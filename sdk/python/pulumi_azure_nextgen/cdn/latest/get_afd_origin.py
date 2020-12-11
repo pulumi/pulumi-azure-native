@@ -20,7 +20,7 @@ class GetAFDOriginResult:
     """
     CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
     """
-    def __init__(__self__, azure_origin=None, deployment_status=None, enabled_state=None, host_name=None, http_port=None, https_port=None, name=None, origin_host_header=None, priority=None, provisioning_state=None, shared_private_link_resource=None, system_data=None, type=None, weight=None):
+    def __init__(__self__, azure_origin=None, deployment_status=None, enabled_state=None, host_name=None, http_port=None, https_port=None, id=None, name=None, origin_host_header=None, priority=None, provisioning_state=None, shared_private_link_resource=None, system_data=None, type=None, weight=None):
         if azure_origin and not isinstance(azure_origin, dict):
             raise TypeError("Expected argument 'azure_origin' to be a dict")
         pulumi.set(__self__, "azure_origin", azure_origin)
@@ -39,6 +39,9 @@ class GetAFDOriginResult:
         if https_port and not isinstance(https_port, int):
             raise TypeError("Expected argument 'https_port' to be a int")
         pulumi.set(__self__, "https_port", https_port)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -108,6 +111,14 @@ class GetAFDOriginResult:
         The value of the HTTPS port. Must be between 1 and 65535.
         """
         return pulumi.get(self, "https_port")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -186,6 +197,7 @@ class AwaitableGetAFDOriginResult(GetAFDOriginResult):
             host_name=self.host_name,
             http_port=self.http_port,
             https_port=self.https_port,
+            id=self.id,
             name=self.name,
             origin_host_header=self.origin_host_header,
             priority=self.priority,
@@ -227,6 +239,7 @@ def get_afd_origin(origin_group_name: Optional[str] = None,
         host_name=__ret__.host_name,
         http_port=__ret__.http_port,
         https_port=__ret__.https_port,
+        id=__ret__.id,
         name=__ret__.name,
         origin_host_header=__ret__.origin_host_header,
         priority=__ret__.priority,

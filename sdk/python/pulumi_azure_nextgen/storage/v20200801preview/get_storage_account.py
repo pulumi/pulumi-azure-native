@@ -20,7 +20,7 @@ class GetStorageAccountResult:
     """
     The storage account.
     """
-    def __init__(__self__, access_tier=None, allow_blob_public_access=None, azure_files_identity_based_authentication=None, blob_restore_status=None, creation_time=None, custom_domain=None, enable_https_traffic_only=None, encryption=None, extended_location=None, failover_in_progress=None, geo_replication_stats=None, identity=None, is_hns_enabled=None, kind=None, large_file_shares_state=None, last_geo_failover_time=None, location=None, minimum_tls_version=None, name=None, network_rule_set=None, primary_endpoints=None, primary_location=None, private_endpoint_connections=None, provisioning_state=None, routing_preference=None, secondary_endpoints=None, secondary_location=None, sku=None, status_of_primary=None, status_of_secondary=None, tags=None, type=None):
+    def __init__(__self__, access_tier=None, allow_blob_public_access=None, azure_files_identity_based_authentication=None, blob_restore_status=None, creation_time=None, custom_domain=None, enable_https_traffic_only=None, encryption=None, extended_location=None, failover_in_progress=None, geo_replication_stats=None, id=None, identity=None, is_hns_enabled=None, kind=None, large_file_shares_state=None, last_geo_failover_time=None, location=None, minimum_tls_version=None, name=None, network_rule_set=None, primary_endpoints=None, primary_location=None, private_endpoint_connections=None, provisioning_state=None, routing_preference=None, secondary_endpoints=None, secondary_location=None, sku=None, status_of_primary=None, status_of_secondary=None, tags=None, type=None):
         if access_tier and not isinstance(access_tier, str):
             raise TypeError("Expected argument 'access_tier' to be a str")
         pulumi.set(__self__, "access_tier", access_tier)
@@ -54,6 +54,9 @@ class GetStorageAccountResult:
         if geo_replication_stats and not isinstance(geo_replication_stats, dict):
             raise TypeError("Expected argument 'geo_replication_stats' to be a dict")
         pulumi.set(__self__, "geo_replication_stats", geo_replication_stats)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -205,6 +208,14 @@ class GetStorageAccountResult:
         Geo Replication Stats
         """
         return pulumi.get(self, "geo_replication_stats")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -392,6 +403,7 @@ class AwaitableGetStorageAccountResult(GetStorageAccountResult):
             extended_location=self.extended_location,
             failover_in_progress=self.failover_in_progress,
             geo_replication_stats=self.geo_replication_stats,
+            id=self.id,
             identity=self.identity,
             is_hns_enabled=self.is_hns_enabled,
             kind=self.kind,
@@ -448,6 +460,7 @@ def get_storage_account(account_name: Optional[str] = None,
         extended_location=__ret__.extended_location,
         failover_in_progress=__ret__.failover_in_progress,
         geo_replication_stats=__ret__.geo_replication_stats,
+        id=__ret__.id,
         identity=__ret__.identity,
         is_hns_enabled=__ret__.is_hns_enabled,
         kind=__ret__.kind,

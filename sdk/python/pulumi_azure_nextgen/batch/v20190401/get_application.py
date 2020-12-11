@@ -19,7 +19,7 @@ class GetApplicationResult:
     """
     Contains information about an application in a Batch account.
     """
-    def __init__(__self__, allow_updates=None, default_version=None, display_name=None, etag=None, name=None, type=None):
+    def __init__(__self__, allow_updates=None, default_version=None, display_name=None, etag=None, id=None, name=None, type=None):
         if allow_updates and not isinstance(allow_updates, bool):
             raise TypeError("Expected argument 'allow_updates' to be a bool")
         pulumi.set(__self__, "allow_updates", allow_updates)
@@ -32,6 +32,9 @@ class GetApplicationResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -73,6 +76,14 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the resource.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         The name of the resource.
@@ -98,6 +109,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             default_version=self.default_version,
             display_name=self.display_name,
             etag=self.etag,
+            id=self.id,
             name=self.name,
             type=self.type)
 
@@ -128,5 +140,6 @@ def get_application(account_name: Optional[str] = None,
         default_version=__ret__.default_version,
         display_name=__ret__.display_name,
         etag=__ret__.etag,
+        id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type)

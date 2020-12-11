@@ -20,10 +20,13 @@ class GetVirtualNetworkLinkResult:
     """
     Describes a link to virtual network for a Private DNS zone.
     """
-    def __init__(__self__, etag=None, location=None, name=None, provisioning_state=None, registration_enabled=None, tags=None, type=None, virtual_network=None, virtual_network_link_state=None):
+    def __init__(__self__, etag=None, id=None, location=None, name=None, provisioning_state=None, registration_enabled=None, tags=None, type=None, virtual_network=None, virtual_network_link_state=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -56,6 +59,14 @@ class GetVirtualNetworkLinkResult:
         The ETag of the virtual network link.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource. Example - '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateDnsZoneName}'.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -129,6 +140,7 @@ class AwaitableGetVirtualNetworkLinkResult(GetVirtualNetworkLinkResult):
             yield self
         return GetVirtualNetworkLinkResult(
             etag=self.etag,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -162,6 +174,7 @@ def get_virtual_network_link(private_zone_name: Optional[str] = None,
 
     return AwaitableGetVirtualNetworkLinkResult(
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

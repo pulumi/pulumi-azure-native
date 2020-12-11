@@ -20,7 +20,7 @@ class GetStorageAccountResult:
     """
     The storage account.
     """
-    def __init__(__self__, access_tier=None, creation_time=None, custom_domain=None, encryption=None, kind=None, last_geo_failover_time=None, location=None, name=None, primary_endpoints=None, primary_location=None, provisioning_state=None, secondary_endpoints=None, secondary_location=None, sku=None, status_of_primary=None, status_of_secondary=None, tags=None, type=None):
+    def __init__(__self__, access_tier=None, creation_time=None, custom_domain=None, encryption=None, id=None, kind=None, last_geo_failover_time=None, location=None, name=None, primary_endpoints=None, primary_location=None, provisioning_state=None, secondary_endpoints=None, secondary_location=None, sku=None, status_of_primary=None, status_of_secondary=None, tags=None, type=None):
         if access_tier and not isinstance(access_tier, str):
             raise TypeError("Expected argument 'access_tier' to be a str")
         pulumi.set(__self__, "access_tier", access_tier)
@@ -33,6 +33,9 @@ class GetStorageAccountResult:
         if encryption and not isinstance(encryption, dict):
             raise TypeError("Expected argument 'encryption' to be a dict")
         pulumi.set(__self__, "encryption", encryption)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -107,6 +110,14 @@ class GetStorageAccountResult:
         Gets the encryption settings on the account. If unspecified, the account is unencrypted.
         """
         return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -231,6 +242,7 @@ class AwaitableGetStorageAccountResult(GetStorageAccountResult):
             creation_time=self.creation_time,
             custom_domain=self.custom_domain,
             encryption=self.encryption,
+            id=self.id,
             kind=self.kind,
             last_geo_failover_time=self.last_geo_failover_time,
             location=self.location,
@@ -270,6 +282,7 @@ def get_storage_account(account_name: Optional[str] = None,
         creation_time=__ret__.creation_time,
         custom_domain=__ret__.custom_domain,
         encryption=__ret__.encryption,
+        id=__ret__.id,
         kind=__ret__.kind,
         last_geo_failover_time=__ret__.last_geo_failover_time,
         location=__ret__.location,

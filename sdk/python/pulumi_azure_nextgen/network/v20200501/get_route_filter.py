@@ -20,10 +20,13 @@ class GetRouteFilterResult:
     """
     Route Filter Resource.
     """
-    def __init__(__self__, etag=None, ipv6_peerings=None, location=None, name=None, peerings=None, provisioning_state=None, rules=None, tags=None, type=None):
+    def __init__(__self__, etag=None, id=None, ipv6_peerings=None, location=None, name=None, peerings=None, provisioning_state=None, rules=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if ipv6_peerings and not isinstance(ipv6_peerings, list):
             raise TypeError("Expected argument 'ipv6_peerings' to be a list")
         pulumi.set(__self__, "ipv6_peerings", ipv6_peerings)
@@ -56,6 +59,14 @@ class GetRouteFilterResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ipv6Peerings")
@@ -129,6 +140,7 @@ class AwaitableGetRouteFilterResult(GetRouteFilterResult):
             yield self
         return GetRouteFilterResult(
             etag=self.etag,
+            id=self.id,
             ipv6_peerings=self.ipv6_peerings,
             location=self.location,
             name=self.name,
@@ -162,6 +174,7 @@ def get_route_filter(expand: Optional[str] = None,
 
     return AwaitableGetRouteFilterResult(
         etag=__ret__.etag,
+        id=__ret__.id,
         ipv6_peerings=__ret__.ipv6_peerings,
         location=__ret__.location,
         name=__ret__.name,

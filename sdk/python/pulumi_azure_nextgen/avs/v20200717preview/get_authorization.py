@@ -19,13 +19,16 @@ class GetAuthorizationResult:
     """
     ExpressRoute Circuit Authorization
     """
-    def __init__(__self__, express_route_authorization_id=None, express_route_authorization_key=None, name=None, provisioning_state=None, type=None):
+    def __init__(__self__, express_route_authorization_id=None, express_route_authorization_key=None, id=None, name=None, provisioning_state=None, type=None):
         if express_route_authorization_id and not isinstance(express_route_authorization_id, str):
             raise TypeError("Expected argument 'express_route_authorization_id' to be a str")
         pulumi.set(__self__, "express_route_authorization_id", express_route_authorization_id)
         if express_route_authorization_key and not isinstance(express_route_authorization_key, str):
             raise TypeError("Expected argument 'express_route_authorization_key' to be a str")
         pulumi.set(__self__, "express_route_authorization_key", express_route_authorization_key)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -51,6 +54,14 @@ class GetAuthorizationResult:
         The key of the ExpressRoute Circuit Authorization
         """
         return pulumi.get(self, "express_route_authorization_key")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -85,6 +96,7 @@ class AwaitableGetAuthorizationResult(GetAuthorizationResult):
         return GetAuthorizationResult(
             express_route_authorization_id=self.express_route_authorization_id,
             express_route_authorization_key=self.express_route_authorization_key,
+            id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
             type=self.type)
@@ -114,6 +126,7 @@ def get_authorization(authorization_name: Optional[str] = None,
     return AwaitableGetAuthorizationResult(
         express_route_authorization_id=__ret__.express_route_authorization_id,
         express_route_authorization_key=__ret__.express_route_authorization_key,
+        id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         type=__ret__.type)

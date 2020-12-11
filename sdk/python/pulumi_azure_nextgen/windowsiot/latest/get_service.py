@@ -19,7 +19,7 @@ class GetServiceResult:
     """
     The description of the Windows IoT Device Service.
     """
-    def __init__(__self__, admin_domain_name=None, billing_domain_name=None, etag=None, location=None, name=None, notes=None, quantity=None, start_date=None, tags=None, type=None):
+    def __init__(__self__, admin_domain_name=None, billing_domain_name=None, etag=None, id=None, location=None, name=None, notes=None, quantity=None, start_date=None, tags=None, type=None):
         if admin_domain_name and not isinstance(admin_domain_name, str):
             raise TypeError("Expected argument 'admin_domain_name' to be a str")
         pulumi.set(__self__, "admin_domain_name", admin_domain_name)
@@ -29,6 +29,9 @@ class GetServiceResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -74,6 +77,14 @@ class GetServiceResult:
         The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -141,6 +152,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             admin_domain_name=self.admin_domain_name,
             billing_domain_name=self.billing_domain_name,
             etag=self.etag,
+            id=self.id,
             location=self.location,
             name=self.name,
             notes=self.notes,
@@ -172,6 +184,7 @@ def get_service(device_name: Optional[str] = None,
         admin_domain_name=__ret__.admin_domain_name,
         billing_domain_name=__ret__.billing_domain_name,
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         notes=__ret__.notes,

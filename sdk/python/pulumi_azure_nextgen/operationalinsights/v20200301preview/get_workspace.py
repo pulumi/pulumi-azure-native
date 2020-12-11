@@ -20,13 +20,16 @@ class GetWorkspaceResult:
     """
     The top level Workspace resource container.
     """
-    def __init__(__self__, customer_id=None, e_tag=None, location=None, name=None, private_link_scoped_resources=None, provisioning_state=None, public_network_access_for_ingestion=None, public_network_access_for_query=None, retention_in_days=None, sku=None, tags=None, type=None, workspace_capping=None):
+    def __init__(__self__, customer_id=None, e_tag=None, id=None, location=None, name=None, private_link_scoped_resources=None, provisioning_state=None, public_network_access_for_ingestion=None, public_network_access_for_query=None, retention_in_days=None, sku=None, tags=None, type=None, workspace_capping=None):
         if customer_id and not isinstance(customer_id, str):
             raise TypeError("Expected argument 'customer_id' to be a str")
         pulumi.set(__self__, "customer_id", customer_id)
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -76,6 +79,14 @@ class GetWorkspaceResult:
         The ETag of the workspace.
         """
         return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -174,6 +185,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
         return GetWorkspaceResult(
             customer_id=self.customer_id,
             e_tag=self.e_tag,
+            id=self.id,
             location=self.location,
             name=self.name,
             private_link_scoped_resources=self.private_link_scoped_resources,
@@ -208,6 +220,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
     return AwaitableGetWorkspaceResult(
         customer_id=__ret__.customer_id,
         e_tag=__ret__.e_tag,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         private_link_scoped_resources=__ret__.private_link_scoped_resources,

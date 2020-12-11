@@ -19,7 +19,10 @@ class GetPeeringServicePrefixResult:
     """
     The peering service prefix class.
     """
-    def __init__(__self__, learned_type=None, name=None, prefix=None, prefix_validation_state=None, provisioning_state=None, type=None):
+    def __init__(__self__, id=None, learned_type=None, name=None, prefix=None, prefix_validation_state=None, provisioning_state=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if learned_type and not isinstance(learned_type, str):
             raise TypeError("Expected argument 'learned_type' to be a str")
         pulumi.set(__self__, "learned_type", learned_type)
@@ -38,6 +41,14 @@ class GetPeeringServicePrefixResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="learnedType")
@@ -94,6 +105,7 @@ class AwaitableGetPeeringServicePrefixResult(GetPeeringServicePrefixResult):
         if False:
             yield self
         return GetPeeringServicePrefixResult(
+            id=self.id,
             learned_type=self.learned_type,
             name=self.name,
             prefix=self.prefix,
@@ -124,6 +136,7 @@ def get_peering_service_prefix(peering_service_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:peering/v20190801preview:getPeeringServicePrefix', __args__, opts=opts, typ=GetPeeringServicePrefixResult).value
 
     return AwaitableGetPeeringServicePrefixResult(
+        id=__ret__.id,
         learned_type=__ret__.learned_type,
         name=__ret__.name,
         prefix=__ret__.prefix,

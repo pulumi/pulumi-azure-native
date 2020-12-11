@@ -20,13 +20,16 @@ class GetEventSubscriptionResult:
     """
     Event Subscription
     """
-    def __init__(__self__, destination=None, filter=None, labels=None, name=None, provisioning_state=None, topic=None, type=None):
+    def __init__(__self__, destination=None, filter=None, id=None, labels=None, name=None, provisioning_state=None, topic=None, type=None):
         if destination and not isinstance(destination, dict):
             raise TypeError("Expected argument 'destination' to be a dict")
         pulumi.set(__self__, "destination", destination)
         if filter and not isinstance(filter, dict):
             raise TypeError("Expected argument 'filter' to be a dict")
         pulumi.set(__self__, "filter", filter)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if labels and not isinstance(labels, list):
             raise TypeError("Expected argument 'labels' to be a list")
         pulumi.set(__self__, "labels", labels)
@@ -58,6 +61,14 @@ class GetEventSubscriptionResult:
         Information about the filter for the event subscription.
         """
         return pulumi.get(self, "filter")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified identifier of the resource
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -108,6 +119,7 @@ class AwaitableGetEventSubscriptionResult(GetEventSubscriptionResult):
         return GetEventSubscriptionResult(
             destination=self.destination,
             filter=self.filter,
+            id=self.id,
             labels=self.labels,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -136,6 +148,7 @@ def get_event_subscription(event_subscription_name: Optional[str] = None,
     return AwaitableGetEventSubscriptionResult(
         destination=__ret__.destination,
         filter=__ret__.filter,
+        id=__ret__.id,
         labels=__ret__.labels,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

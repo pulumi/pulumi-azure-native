@@ -20,7 +20,7 @@ class GetJobDefinitionResult:
     """
     Job Definition.
     """
-    def __init__(__self__, customer_secrets=None, data_service_input=None, data_sink_id=None, data_source_id=None, last_modified_time=None, name=None, run_location=None, schedules=None, state=None, type=None, user_confirmation=None):
+    def __init__(__self__, customer_secrets=None, data_service_input=None, data_sink_id=None, data_source_id=None, id=None, last_modified_time=None, name=None, run_location=None, schedules=None, state=None, type=None, user_confirmation=None):
         if customer_secrets and not isinstance(customer_secrets, list):
             raise TypeError("Expected argument 'customer_secrets' to be a list")
         pulumi.set(__self__, "customer_secrets", customer_secrets)
@@ -33,6 +33,9 @@ class GetJobDefinitionResult:
         if data_source_id and not isinstance(data_source_id, str):
             raise TypeError("Expected argument 'data_source_id' to be a str")
         pulumi.set(__self__, "data_source_id", data_source_id)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_modified_time and not isinstance(last_modified_time, str):
             raise TypeError("Expected argument 'last_modified_time' to be a str")
         pulumi.set(__self__, "last_modified_time", last_modified_time)
@@ -86,6 +89,14 @@ class GetJobDefinitionResult:
         Data Source Id associated to the job definition.
         """
         return pulumi.get(self, "data_source_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Id of the object.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
@@ -154,6 +165,7 @@ class AwaitableGetJobDefinitionResult(GetJobDefinitionResult):
             data_service_input=self.data_service_input,
             data_sink_id=self.data_sink_id,
             data_source_id=self.data_source_id,
+            id=self.id,
             last_modified_time=self.last_modified_time,
             name=self.name,
             run_location=self.run_location,
@@ -192,6 +204,7 @@ def get_job_definition(data_manager_name: Optional[str] = None,
         data_service_input=__ret__.data_service_input,
         data_sink_id=__ret__.data_sink_id,
         data_source_id=__ret__.data_source_id,
+        id=__ret__.id,
         last_modified_time=__ret__.last_modified_time,
         name=__ret__.name,
         run_location=__ret__.run_location,

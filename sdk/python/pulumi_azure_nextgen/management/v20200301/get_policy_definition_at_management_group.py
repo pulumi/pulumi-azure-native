@@ -20,13 +20,16 @@ class GetPolicyDefinitionAtManagementGroupResult:
     """
     The policy definition.
     """
-    def __init__(__self__, description=None, display_name=None, metadata=None, mode=None, name=None, parameters=None, policy_rule=None, policy_type=None, type=None):
+    def __init__(__self__, description=None, display_name=None, id=None, metadata=None, mode=None, name=None, parameters=None, policy_rule=None, policy_type=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if metadata and not isinstance(metadata, dict):
             raise TypeError("Expected argument 'metadata' to be a dict")
         pulumi.set(__self__, "metadata", metadata)
@@ -64,6 +67,14 @@ class GetPolicyDefinitionAtManagementGroupResult:
         The display name of the policy definition.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the policy definition.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -130,6 +141,7 @@ class AwaitableGetPolicyDefinitionAtManagementGroupResult(GetPolicyDefinitionAtM
         return GetPolicyDefinitionAtManagementGroupResult(
             description=self.description,
             display_name=self.display_name,
+            id=self.id,
             metadata=self.metadata,
             mode=self.mode,
             name=self.name,
@@ -160,6 +172,7 @@ def get_policy_definition_at_management_group(management_group_id: Optional[str]
     return AwaitableGetPolicyDefinitionAtManagementGroupResult(
         description=__ret__.description,
         display_name=__ret__.display_name,
+        id=__ret__.id,
         metadata=__ret__.metadata,
         mode=__ret__.mode,
         name=__ret__.name,

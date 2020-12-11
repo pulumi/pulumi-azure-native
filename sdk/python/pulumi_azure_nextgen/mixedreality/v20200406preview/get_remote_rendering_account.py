@@ -20,13 +20,16 @@ class GetRemoteRenderingAccountResult:
     """
     RemoteRenderingAccount Response.
     """
-    def __init__(__self__, account_domain=None, account_id=None, identity=None, location=None, name=None, tags=None, type=None):
+    def __init__(__self__, account_domain=None, account_id=None, id=None, identity=None, location=None, name=None, tags=None, type=None):
         if account_domain and not isinstance(account_domain, str):
             raise TypeError("Expected argument 'account_domain' to be a str")
         pulumi.set(__self__, "account_domain", account_domain)
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -58,6 +61,14 @@ class GetRemoteRenderingAccountResult:
         unique id of certain account.
         """
         return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -105,6 +116,7 @@ class AwaitableGetRemoteRenderingAccountResult(GetRemoteRenderingAccountResult):
         return GetRemoteRenderingAccountResult(
             account_domain=self.account_domain,
             account_id=self.account_id,
+            id=self.id,
             identity=self.identity,
             location=self.location,
             name=self.name,
@@ -133,6 +145,7 @@ def get_remote_rendering_account(account_name: Optional[str] = None,
     return AwaitableGetRemoteRenderingAccountResult(
         account_domain=__ret__.account_domain,
         account_id=__ret__.account_id,
+        id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,

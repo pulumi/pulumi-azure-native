@@ -20,7 +20,7 @@ class GetAppServicePlanResult:
     """
     App Service plan.
     """
-    def __init__(__self__, free_offer_expiration_time=None, geo_region=None, hosting_environment_profile=None, hyper_v=None, is_spot=None, is_xenon=None, kind=None, location=None, maximum_elastic_worker_count=None, maximum_number_of_workers=None, name=None, number_of_sites=None, per_site_scaling=None, provisioning_state=None, reserved=None, resource_group=None, sku=None, spot_expiration_time=None, status=None, subscription=None, tags=None, target_worker_count=None, target_worker_size_id=None, type=None, worker_tier_name=None):
+    def __init__(__self__, free_offer_expiration_time=None, geo_region=None, hosting_environment_profile=None, hyper_v=None, id=None, is_spot=None, is_xenon=None, kind=None, location=None, maximum_elastic_worker_count=None, maximum_number_of_workers=None, name=None, number_of_sites=None, per_site_scaling=None, provisioning_state=None, reserved=None, resource_group=None, sku=None, spot_expiration_time=None, status=None, subscription=None, tags=None, target_worker_count=None, target_worker_size_id=None, type=None, worker_tier_name=None):
         if free_offer_expiration_time and not isinstance(free_offer_expiration_time, str):
             raise TypeError("Expected argument 'free_offer_expiration_time' to be a str")
         pulumi.set(__self__, "free_offer_expiration_time", free_offer_expiration_time)
@@ -33,6 +33,9 @@ class GetAppServicePlanResult:
         if hyper_v and not isinstance(hyper_v, bool):
             raise TypeError("Expected argument 'hyper_v' to be a bool")
         pulumi.set(__self__, "hyper_v", hyper_v)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_spot and not isinstance(is_spot, bool):
             raise TypeError("Expected argument 'is_spot' to be a bool")
         pulumi.set(__self__, "is_spot", is_spot)
@@ -128,6 +131,14 @@ class GetAppServicePlanResult:
         If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
         """
         return pulumi.get(self, "hyper_v")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isSpot")
@@ -309,6 +320,7 @@ class AwaitableGetAppServicePlanResult(GetAppServicePlanResult):
             geo_region=self.geo_region,
             hosting_environment_profile=self.hosting_environment_profile,
             hyper_v=self.hyper_v,
+            id=self.id,
             is_spot=self.is_spot,
             is_xenon=self.is_xenon,
             kind=self.kind,
@@ -355,6 +367,7 @@ def get_app_service_plan(name: Optional[str] = None,
         geo_region=__ret__.geo_region,
         hosting_environment_profile=__ret__.hosting_environment_profile,
         hyper_v=__ret__.hyper_v,
+        id=__ret__.id,
         is_spot=__ret__.is_spot,
         is_xenon=__ret__.is_xenon,
         kind=__ret__.kind,

@@ -20,7 +20,7 @@ class GetClusterResult:
     """
     The top level Log Analytics cluster resource container.
     """
-    def __init__(__self__, associated_workspaces=None, billing_type=None, capacity_reservation_properties=None, cluster_id=None, created_date=None, identity=None, is_availability_zones_enabled=None, is_double_encryption_enabled=None, key_vault_properties=None, last_modified_date=None, location=None, name=None, provisioning_state=None, sku=None, tags=None, type=None):
+    def __init__(__self__, associated_workspaces=None, billing_type=None, capacity_reservation_properties=None, cluster_id=None, created_date=None, id=None, identity=None, is_availability_zones_enabled=None, is_double_encryption_enabled=None, key_vault_properties=None, last_modified_date=None, location=None, name=None, provisioning_state=None, sku=None, tags=None, type=None):
         if associated_workspaces and not isinstance(associated_workspaces, list):
             raise TypeError("Expected argument 'associated_workspaces' to be a list")
         pulumi.set(__self__, "associated_workspaces", associated_workspaces)
@@ -36,6 +36,9 @@ class GetClusterResult:
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -109,6 +112,14 @@ class GetClusterResult:
         The cluster creation time
         """
         return pulumi.get(self, "created_date")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -210,6 +221,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             capacity_reservation_properties=self.capacity_reservation_properties,
             cluster_id=self.cluster_id,
             created_date=self.created_date,
+            id=self.id,
             identity=self.identity,
             is_availability_zones_enabled=self.is_availability_zones_enabled,
             is_double_encryption_enabled=self.is_double_encryption_enabled,
@@ -247,6 +259,7 @@ def get_cluster(cluster_name: Optional[str] = None,
         capacity_reservation_properties=__ret__.capacity_reservation_properties,
         cluster_id=__ret__.cluster_id,
         created_date=__ret__.created_date,
+        id=__ret__.id,
         identity=__ret__.identity,
         is_availability_zones_enabled=__ret__.is_availability_zones_enabled,
         is_double_encryption_enabled=__ret__.is_double_encryption_enabled,

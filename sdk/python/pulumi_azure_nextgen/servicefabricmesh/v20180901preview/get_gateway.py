@@ -20,7 +20,7 @@ class GetGatewayResult:
     """
     This type describes a gateway resource.
     """
-    def __init__(__self__, description=None, destination_network=None, http=None, ip_address=None, location=None, name=None, provisioning_state=None, source_network=None, status=None, status_details=None, tags=None, tcp=None, type=None):
+    def __init__(__self__, description=None, destination_network=None, http=None, id=None, ip_address=None, location=None, name=None, provisioning_state=None, source_network=None, status=None, status_details=None, tags=None, tcp=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -30,6 +30,9 @@ class GetGatewayResult:
         if http and not isinstance(http, list):
             raise TypeError("Expected argument 'http' to be a list")
         pulumi.set(__self__, "http", http)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if ip_address and not isinstance(ip_address, str):
             raise TypeError("Expected argument 'ip_address' to be a str")
         pulumi.set(__self__, "ip_address", ip_address)
@@ -84,6 +87,14 @@ class GetGatewayResult:
         Configuration for http connectivity for this gateway.
         """
         return pulumi.get(self, "http")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ipAddress")
@@ -175,6 +186,7 @@ class AwaitableGetGatewayResult(GetGatewayResult):
             description=self.description,
             destination_network=self.destination_network,
             http=self.http,
+            id=self.id,
             ip_address=self.ip_address,
             location=self.location,
             name=self.name,
@@ -209,6 +221,7 @@ def get_gateway(gateway_resource_name: Optional[str] = None,
         description=__ret__.description,
         destination_network=__ret__.destination_network,
         http=__ret__.http,
+        id=__ret__.id,
         ip_address=__ret__.ip_address,
         location=__ret__.location,
         name=__ret__.name,

@@ -19,7 +19,7 @@ class GetPolicyResult:
     """
     A Policy.
     """
-    def __init__(__self__, created_date=None, description=None, evaluator_type=None, fact_data=None, fact_name=None, location=None, name=None, provisioning_state=None, status=None, tags=None, threshold=None, type=None, unique_identifier=None):
+    def __init__(__self__, created_date=None, description=None, evaluator_type=None, fact_data=None, fact_name=None, id=None, location=None, name=None, provisioning_state=None, status=None, tags=None, threshold=None, type=None, unique_identifier=None):
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
@@ -35,6 +35,9 @@ class GetPolicyResult:
         if fact_name and not isinstance(fact_name, str):
             raise TypeError("Expected argument 'fact_name' to be a str")
         pulumi.set(__self__, "fact_name", fact_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -99,6 +102,14 @@ class GetPolicyResult:
         The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
         """
         return pulumi.get(self, "fact_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -176,6 +187,7 @@ class AwaitableGetPolicyResult(GetPolicyResult):
             evaluator_type=self.evaluator_type,
             fact_data=self.fact_data,
             fact_name=self.fact_name,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -219,6 +231,7 @@ def get_policy(expand: Optional[str] = None,
         evaluator_type=__ret__.evaluator_type,
         fact_data=__ret__.fact_data,
         fact_name=__ret__.fact_name,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

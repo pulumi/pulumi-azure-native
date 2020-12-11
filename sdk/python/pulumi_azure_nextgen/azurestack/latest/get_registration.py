@@ -19,7 +19,7 @@ class GetRegistrationResult:
     """
     Registration information.
     """
-    def __init__(__self__, billing_model=None, cloud_id=None, etag=None, location=None, name=None, object_id=None, tags=None, type=None):
+    def __init__(__self__, billing_model=None, cloud_id=None, etag=None, id=None, location=None, name=None, object_id=None, tags=None, type=None):
         if billing_model and not isinstance(billing_model, str):
             raise TypeError("Expected argument 'billing_model' to be a str")
         pulumi.set(__self__, "billing_model", billing_model)
@@ -29,6 +29,9 @@ class GetRegistrationResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -68,6 +71,14 @@ class GetRegistrationResult:
         The entity tag used for optimistic concurrency when modifying the resource.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        ID of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -119,6 +130,7 @@ class AwaitableGetRegistrationResult(GetRegistrationResult):
             billing_model=self.billing_model,
             cloud_id=self.cloud_id,
             etag=self.etag,
+            id=self.id,
             location=self.location,
             name=self.name,
             object_id=self.object_id,
@@ -148,6 +160,7 @@ def get_registration(registration_name: Optional[str] = None,
         billing_model=__ret__.billing_model,
         cloud_id=__ret__.cloud_id,
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         object_id=__ret__.object_id,

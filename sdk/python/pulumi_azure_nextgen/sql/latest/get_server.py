@@ -19,7 +19,7 @@ class GetServerResult:
     """
     Represents a server.
     """
-    def __init__(__self__, administrator_login=None, administrator_login_password=None, external_administrator_login=None, external_administrator_sid=None, fully_qualified_domain_name=None, kind=None, location=None, name=None, state=None, tags=None, type=None, version=None):
+    def __init__(__self__, administrator_login=None, administrator_login_password=None, external_administrator_login=None, external_administrator_sid=None, fully_qualified_domain_name=None, id=None, kind=None, location=None, name=None, state=None, tags=None, type=None, version=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
@@ -35,6 +35,9 @@ class GetServerResult:
         if fully_qualified_domain_name and not isinstance(fully_qualified_domain_name, str):
             raise TypeError("Expected argument 'fully_qualified_domain_name' to be a str")
         pulumi.set(__self__, "fully_qualified_domain_name", fully_qualified_domain_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -96,6 +99,14 @@ class GetServerResult:
         The fully qualified domain name of the server.
         """
         return pulumi.get(self, "fully_qualified_domain_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -165,6 +176,7 @@ class AwaitableGetServerResult(GetServerResult):
             external_administrator_login=self.external_administrator_login,
             external_administrator_sid=self.external_administrator_sid,
             fully_qualified_domain_name=self.fully_qualified_domain_name,
+            id=self.id,
             kind=self.kind,
             location=self.location,
             name=self.name,
@@ -198,6 +210,7 @@ def get_server(resource_group_name: Optional[str] = None,
         external_administrator_login=__ret__.external_administrator_login,
         external_administrator_sid=__ret__.external_administrator_sid,
         fully_qualified_domain_name=__ret__.fully_qualified_domain_name,
+        id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,

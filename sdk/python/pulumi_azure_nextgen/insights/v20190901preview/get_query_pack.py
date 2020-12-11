@@ -19,7 +19,10 @@ class GetQueryPackResult:
     """
     An Log Analytics QueryPack definition.
     """
-    def __init__(__self__, location=None, name=None, provisioning_state=None, query_pack_id=None, tags=None, time_created=None, time_modified=None, type=None):
+    def __init__(__self__, id=None, location=None, name=None, provisioning_state=None, query_pack_id=None, tags=None, time_created=None, time_modified=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -44,6 +47,14 @@ class GetQueryPackResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -116,6 +127,7 @@ class AwaitableGetQueryPackResult(GetQueryPackResult):
         if False:
             yield self
         return GetQueryPackResult(
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -145,6 +157,7 @@ def get_query_pack(query_pack_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:insights/v20190901preview:getQueryPack', __args__, opts=opts, typ=GetQueryPackResult).value
 
     return AwaitableGetQueryPackResult(
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

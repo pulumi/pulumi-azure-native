@@ -20,10 +20,13 @@ class GetServiceResult:
     """
     Describes an Azure Cognitive Search service and its current state.
     """
-    def __init__(__self__, hosting_mode=None, identity=None, location=None, name=None, network_rule_set=None, partition_count=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, replica_count=None, sku=None, status=None, status_details=None, tags=None, type=None):
+    def __init__(__self__, hosting_mode=None, id=None, identity=None, location=None, name=None, network_rule_set=None, partition_count=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, replica_count=None, sku=None, status=None, status_details=None, tags=None, type=None):
         if hosting_mode and not isinstance(hosting_mode, str):
             raise TypeError("Expected argument 'hosting_mode' to be a str")
         pulumi.set(__self__, "hosting_mode", hosting_mode)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -74,6 +77,14 @@ class GetServiceResult:
         Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
         """
         return pulumi.get(self, "hosting_mode")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the resource. This can be used with the Azure Resource Manager to link resources together.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -195,6 +206,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             yield self
         return GetServiceResult(
             hosting_mode=self.hosting_mode,
+            id=self.id,
             identity=self.identity,
             location=self.location,
             name=self.name,
@@ -231,6 +243,7 @@ def get_service(resource_group_name: Optional[str] = None,
 
     return AwaitableGetServiceResult(
         hosting_mode=__ret__.hosting_mode,
+        id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,

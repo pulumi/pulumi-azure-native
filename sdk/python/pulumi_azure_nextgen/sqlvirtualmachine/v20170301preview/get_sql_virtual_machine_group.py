@@ -20,13 +20,16 @@ class GetSqlVirtualMachineGroupResult:
     """
     A SQL virtual machine group.
     """
-    def __init__(__self__, cluster_configuration=None, cluster_manager_type=None, location=None, name=None, provisioning_state=None, scale_type=None, sql_image_offer=None, sql_image_sku=None, tags=None, type=None, wsfc_domain_profile=None):
+    def __init__(__self__, cluster_configuration=None, cluster_manager_type=None, id=None, location=None, name=None, provisioning_state=None, scale_type=None, sql_image_offer=None, sql_image_sku=None, tags=None, type=None, wsfc_domain_profile=None):
         if cluster_configuration and not isinstance(cluster_configuration, str):
             raise TypeError("Expected argument 'cluster_configuration' to be a str")
         pulumi.set(__self__, "cluster_configuration", cluster_configuration)
         if cluster_manager_type and not isinstance(cluster_manager_type, str):
             raise TypeError("Expected argument 'cluster_manager_type' to be a str")
         pulumi.set(__self__, "cluster_manager_type", cluster_manager_type)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -70,6 +73,14 @@ class GetSqlVirtualMachineGroupResult:
         Type of cluster manager: Windows Server Failover Cluster (WSFC), implied by the scale type of the group and the OS type.
         """
         return pulumi.get(self, "cluster_manager_type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -152,6 +163,7 @@ class AwaitableGetSqlVirtualMachineGroupResult(GetSqlVirtualMachineGroupResult):
         return GetSqlVirtualMachineGroupResult(
             cluster_configuration=self.cluster_configuration,
             cluster_manager_type=self.cluster_manager_type,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -184,6 +196,7 @@ def get_sql_virtual_machine_group(resource_group_name: Optional[str] = None,
     return AwaitableGetSqlVirtualMachineGroupResult(
         cluster_configuration=__ret__.cluster_configuration,
         cluster_manager_type=__ret__.cluster_manager_type,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

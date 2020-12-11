@@ -20,7 +20,7 @@ class GetProfileResult:
     """
     The profile resource format.
     """
-    def __init__(__self__, api_entity_set_name=None, attributes=None, description=None, display_name=None, entity_type=None, fields=None, instances_count=None, large_image=None, last_changed_utc=None, localized_attributes=None, medium_image=None, name=None, provisioning_state=None, schema_item_type_link=None, small_image=None, strong_ids=None, tenant_id=None, timestamp_field_name=None, type=None, type_name=None):
+    def __init__(__self__, api_entity_set_name=None, attributes=None, description=None, display_name=None, entity_type=None, fields=None, id=None, instances_count=None, large_image=None, last_changed_utc=None, localized_attributes=None, medium_image=None, name=None, provisioning_state=None, schema_item_type_link=None, small_image=None, strong_ids=None, tenant_id=None, timestamp_field_name=None, type=None, type_name=None):
         if api_entity_set_name and not isinstance(api_entity_set_name, str):
             raise TypeError("Expected argument 'api_entity_set_name' to be a str")
         pulumi.set(__self__, "api_entity_set_name", api_entity_set_name)
@@ -39,6 +39,9 @@ class GetProfileResult:
         if fields and not isinstance(fields, list):
             raise TypeError("Expected argument 'fields' to be a list")
         pulumi.set(__self__, "fields", fields)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if instances_count and not isinstance(instances_count, int):
             raise TypeError("Expected argument 'instances_count' to be a int")
         pulumi.set(__self__, "instances_count", instances_count)
@@ -129,6 +132,14 @@ class GetProfileResult:
         The properties of the Profile.
         """
         return pulumi.get(self, "fields")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="instancesCount")
@@ -255,6 +266,7 @@ class AwaitableGetProfileResult(GetProfileResult):
             display_name=self.display_name,
             entity_type=self.entity_type,
             fields=self.fields,
+            id=self.id,
             instances_count=self.instances_count,
             large_image=self.large_image,
             last_changed_utc=self.last_changed_utc,
@@ -302,6 +314,7 @@ def get_profile(hub_name: Optional[str] = None,
         display_name=__ret__.display_name,
         entity_type=__ret__.entity_type,
         fields=__ret__.fields,
+        id=__ret__.id,
         instances_count=__ret__.instances_count,
         large_image=__ret__.large_image,
         last_changed_utc=__ret__.last_changed_utc,

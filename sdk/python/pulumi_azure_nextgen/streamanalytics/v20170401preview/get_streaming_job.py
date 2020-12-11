@@ -20,7 +20,7 @@ class GetStreamingJobResult:
     """
     A streaming job object, containing all information associated with the named streaming job.
     """
-    def __init__(__self__, cluster=None, compatibility_level=None, content_storage_policy=None, created_date=None, data_locale=None, etag=None, events_late_arrival_max_delay_in_seconds=None, events_out_of_order_max_delay_in_seconds=None, events_out_of_order_policy=None, externals=None, functions=None, identity=None, inputs=None, job_id=None, job_state=None, job_storage_account=None, job_type=None, last_output_event_time=None, location=None, name=None, output_error_policy=None, output_start_mode=None, output_start_time=None, outputs=None, provisioning_state=None, sku=None, tags=None, transformation=None, type=None):
+    def __init__(__self__, cluster=None, compatibility_level=None, content_storage_policy=None, created_date=None, data_locale=None, etag=None, events_late_arrival_max_delay_in_seconds=None, events_out_of_order_max_delay_in_seconds=None, events_out_of_order_policy=None, externals=None, functions=None, id=None, identity=None, inputs=None, job_id=None, job_state=None, job_storage_account=None, job_type=None, last_output_event_time=None, location=None, name=None, output_error_policy=None, output_start_mode=None, output_start_time=None, outputs=None, provisioning_state=None, sku=None, tags=None, transformation=None, type=None):
         if cluster and not isinstance(cluster, dict):
             raise TypeError("Expected argument 'cluster' to be a dict")
         pulumi.set(__self__, "cluster", cluster)
@@ -54,6 +54,9 @@ class GetStreamingJobResult:
         if functions and not isinstance(functions, list):
             raise TypeError("Expected argument 'functions' to be a list")
         pulumi.set(__self__, "functions", functions)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -196,6 +199,14 @@ class GetStreamingJobResult:
         A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
         """
         return pulumi.get(self, "functions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -359,6 +370,7 @@ class AwaitableGetStreamingJobResult(GetStreamingJobResult):
             events_out_of_order_policy=self.events_out_of_order_policy,
             externals=self.externals,
             functions=self.functions,
+            id=self.id,
             identity=self.identity,
             inputs=self.inputs,
             job_id=self.job_id,
@@ -412,6 +424,7 @@ def get_streaming_job(expand: Optional[str] = None,
         events_out_of_order_policy=__ret__.events_out_of_order_policy,
         externals=__ret__.externals,
         functions=__ret__.functions,
+        id=__ret__.id,
         identity=__ret__.identity,
         inputs=__ret__.inputs,
         job_id=__ret__.job_id,

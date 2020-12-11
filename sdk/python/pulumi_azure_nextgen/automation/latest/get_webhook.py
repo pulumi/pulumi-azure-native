@@ -20,7 +20,7 @@ class GetWebhookResult:
     """
     Definition of the webhook type.
     """
-    def __init__(__self__, creation_time=None, description=None, expiry_time=None, is_enabled=None, last_invoked_time=None, last_modified_by=None, last_modified_time=None, name=None, parameters=None, run_on=None, runbook=None, type=None, uri=None):
+    def __init__(__self__, creation_time=None, description=None, expiry_time=None, id=None, is_enabled=None, last_invoked_time=None, last_modified_by=None, last_modified_time=None, name=None, parameters=None, run_on=None, runbook=None, type=None, uri=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -30,6 +30,9 @@ class GetWebhookResult:
         if expiry_time and not isinstance(expiry_time, str):
             raise TypeError("Expected argument 'expiry_time' to be a str")
         pulumi.set(__self__, "expiry_time", expiry_time)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_enabled and not isinstance(is_enabled, bool):
             raise TypeError("Expected argument 'is_enabled' to be a bool")
         pulumi.set(__self__, "is_enabled", is_enabled)
@@ -84,6 +87,14 @@ class GetWebhookResult:
         Gets or sets the expiry time.
         """
         return pulumi.get(self, "expiry_time")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -175,6 +186,7 @@ class AwaitableGetWebhookResult(GetWebhookResult):
             creation_time=self.creation_time,
             description=self.description,
             expiry_time=self.expiry_time,
+            id=self.id,
             is_enabled=self.is_enabled,
             last_invoked_time=self.last_invoked_time,
             last_modified_by=self.last_modified_by,
@@ -212,6 +224,7 @@ def get_webhook(automation_account_name: Optional[str] = None,
         creation_time=__ret__.creation_time,
         description=__ret__.description,
         expiry_time=__ret__.expiry_time,
+        id=__ret__.id,
         is_enabled=__ret__.is_enabled,
         last_invoked_time=__ret__.last_invoked_time,
         last_modified_by=__ret__.last_modified_by,

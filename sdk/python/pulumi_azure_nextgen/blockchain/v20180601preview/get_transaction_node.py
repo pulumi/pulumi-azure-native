@@ -20,13 +20,16 @@ class GetTransactionNodeResult:
     """
     Payload of the transaction node which is the request/response of the resource provider.
     """
-    def __init__(__self__, dns=None, firewall_rules=None, location=None, name=None, password=None, provisioning_state=None, public_key=None, type=None, user_name=None):
+    def __init__(__self__, dns=None, firewall_rules=None, id=None, location=None, name=None, password=None, provisioning_state=None, public_key=None, type=None, user_name=None):
         if dns and not isinstance(dns, str):
             raise TypeError("Expected argument 'dns' to be a str")
         pulumi.set(__self__, "dns", dns)
         if firewall_rules and not isinstance(firewall_rules, list):
             raise TypeError("Expected argument 'firewall_rules' to be a list")
         pulumi.set(__self__, "firewall_rules", firewall_rules)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -64,6 +67,14 @@ class GetTransactionNodeResult:
         Gets or sets the firewall rules.
         """
         return pulumi.get(self, "firewall_rules")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -130,6 +141,7 @@ class AwaitableGetTransactionNodeResult(GetTransactionNodeResult):
         return GetTransactionNodeResult(
             dns=self.dns,
             firewall_rules=self.firewall_rules,
+            id=self.id,
             location=self.location,
             name=self.name,
             password=self.password,
@@ -163,6 +175,7 @@ def get_transaction_node(blockchain_member_name: Optional[str] = None,
     return AwaitableGetTransactionNodeResult(
         dns=__ret__.dns,
         firewall_rules=__ret__.firewall_rules,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         password=__ret__.password,

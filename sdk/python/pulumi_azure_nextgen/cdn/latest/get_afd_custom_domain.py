@@ -20,7 +20,7 @@ class GetAFDCustomDomainResult:
     """
     Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
     """
-    def __init__(__self__, azure_dns_zone=None, deployment_status=None, domain_validation_state=None, host_name=None, name=None, provisioning_state=None, system_data=None, tls_settings=None, type=None, validation_properties=None):
+    def __init__(__self__, azure_dns_zone=None, deployment_status=None, domain_validation_state=None, host_name=None, id=None, name=None, provisioning_state=None, system_data=None, tls_settings=None, type=None, validation_properties=None):
         if azure_dns_zone and not isinstance(azure_dns_zone, dict):
             raise TypeError("Expected argument 'azure_dns_zone' to be a dict")
         pulumi.set(__self__, "azure_dns_zone", azure_dns_zone)
@@ -33,6 +33,9 @@ class GetAFDCustomDomainResult:
         if host_name and not isinstance(host_name, str):
             raise TypeError("Expected argument 'host_name' to be a str")
         pulumi.set(__self__, "host_name", host_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -80,6 +83,14 @@ class GetAFDCustomDomainResult:
         The host name of the domain. Must be a domain name.
         """
         return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -140,6 +151,7 @@ class AwaitableGetAFDCustomDomainResult(GetAFDCustomDomainResult):
             deployment_status=self.deployment_status,
             domain_validation_state=self.domain_validation_state,
             host_name=self.host_name,
+            id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
             system_data=self.system_data,
@@ -174,6 +186,7 @@ def get_afd_custom_domain(custom_domain_name: Optional[str] = None,
         deployment_status=__ret__.deployment_status,
         domain_validation_state=__ret__.domain_validation_state,
         host_name=__ret__.host_name,
+        id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         system_data=__ret__.system_data,

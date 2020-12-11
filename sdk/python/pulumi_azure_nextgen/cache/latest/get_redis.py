@@ -20,7 +20,7 @@ class GetRedisResult:
     """
     A single Redis item in List or Get Operation.
     """
-    def __init__(__self__, access_keys=None, enable_non_ssl_port=None, host_name=None, instances=None, linked_servers=None, location=None, minimum_tls_version=None, name=None, port=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, redis_configuration=None, redis_version=None, replicas_per_master=None, shard_count=None, sku=None, ssl_port=None, static_ip=None, subnet_id=None, tags=None, tenant_settings=None, type=None, zones=None):
+    def __init__(__self__, access_keys=None, enable_non_ssl_port=None, host_name=None, id=None, instances=None, linked_servers=None, location=None, minimum_tls_version=None, name=None, port=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, redis_configuration=None, redis_version=None, replicas_per_master=None, shard_count=None, sku=None, ssl_port=None, static_ip=None, subnet_id=None, tags=None, tenant_settings=None, type=None, zones=None):
         if access_keys and not isinstance(access_keys, dict):
             raise TypeError("Expected argument 'access_keys' to be a dict")
         pulumi.set(__self__, "access_keys", access_keys)
@@ -30,6 +30,9 @@ class GetRedisResult:
         if host_name and not isinstance(host_name, str):
             raise TypeError("Expected argument 'host_name' to be a str")
         pulumi.set(__self__, "host_name", host_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if instances and not isinstance(instances, list):
             raise TypeError("Expected argument 'instances' to be a list")
         pulumi.set(__self__, "instances", instances)
@@ -117,6 +120,14 @@ class GetRedisResult:
         Redis host name.
         """
         return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -296,6 +307,7 @@ class AwaitableGetRedisResult(GetRedisResult):
             access_keys=self.access_keys,
             enable_non_ssl_port=self.enable_non_ssl_port,
             host_name=self.host_name,
+            id=self.id,
             instances=self.instances,
             linked_servers=self.linked_servers,
             location=self.location,
@@ -341,6 +353,7 @@ def get_redis(name: Optional[str] = None,
         access_keys=__ret__.access_keys,
         enable_non_ssl_port=__ret__.enable_non_ssl_port,
         host_name=__ret__.host_name,
+        id=__ret__.id,
         instances=__ret__.instances,
         linked_servers=__ret__.linked_servers,
         location=__ret__.location,

@@ -19,13 +19,16 @@ class GetApiReleaseResult:
     """
     ApiRelease details.
     """
-    def __init__(__self__, api_id=None, created_date_time=None, name=None, notes=None, type=None, updated_date_time=None):
+    def __init__(__self__, api_id=None, created_date_time=None, id=None, name=None, notes=None, type=None, updated_date_time=None):
         if api_id and not isinstance(api_id, str):
             raise TypeError("Expected argument 'api_id' to be a str")
         pulumi.set(__self__, "api_id", api_id)
         if created_date_time and not isinstance(created_date_time, str):
             raise TypeError("Expected argument 'created_date_time' to be a str")
         pulumi.set(__self__, "created_date_time", created_date_time)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -54,6 +57,14 @@ class GetApiReleaseResult:
         The time the API was released. The date conforms to the following format: yyyy-MM-ddTHH:mm:ssZ as specified by the ISO 8601 standard.
         """
         return pulumi.get(self, "created_date_time")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -96,6 +107,7 @@ class AwaitableGetApiReleaseResult(GetApiReleaseResult):
         return GetApiReleaseResult(
             api_id=self.api_id,
             created_date_time=self.created_date_time,
+            id=self.id,
             name=self.name,
             notes=self.notes,
             type=self.type,
@@ -129,6 +141,7 @@ def get_api_release(api_id: Optional[str] = None,
     return AwaitableGetApiReleaseResult(
         api_id=__ret__.api_id,
         created_date_time=__ret__.created_date_time,
+        id=__ret__.id,
         name=__ret__.name,
         notes=__ret__.notes,
         type=__ret__.type,

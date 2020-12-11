@@ -19,7 +19,10 @@ class GetWebAppSwiftVirtualNetworkConnectionResult:
     """
     Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
     """
-    def __init__(__self__, kind=None, name=None, subnet_resource_id=None, swift_supported=None, type=None):
+    def __init__(__self__, id=None, kind=None, name=None, subnet_resource_id=None, swift_supported=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -35,6 +38,14 @@ class GetWebAppSwiftVirtualNetworkConnectionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -83,6 +94,7 @@ class AwaitableGetWebAppSwiftVirtualNetworkConnectionResult(GetWebAppSwiftVirtua
         if False:
             yield self
         return GetWebAppSwiftVirtualNetworkConnectionResult(
+            id=self.id,
             kind=self.kind,
             name=self.name,
             subnet_resource_id=self.subnet_resource_id,
@@ -109,6 +121,7 @@ def get_web_app_swift_virtual_network_connection(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:web/v20181101:getWebAppSwiftVirtualNetworkConnection', __args__, opts=opts, typ=GetWebAppSwiftVirtualNetworkConnectionResult).value
 
     return AwaitableGetWebAppSwiftVirtualNetworkConnectionResult(
+        id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
         subnet_resource_id=__ret__.subnet_resource_id,

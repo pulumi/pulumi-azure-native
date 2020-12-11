@@ -19,13 +19,24 @@ class GetIotHubResourceEventHubConsumerGroupResult:
     """
     The properties of the EventHubConsumerGroupInfo object.
     """
-    def __init__(__self__, name=None, tags=None):
+    def __init__(__self__, id=None, name=None, tags=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The Event Hub-compatible consumer group identifier.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -50,6 +61,7 @@ class AwaitableGetIotHubResourceEventHubConsumerGroupResult(GetIotHubResourceEve
         if False:
             yield self
         return GetIotHubResourceEventHubConsumerGroupResult(
+            id=self.id,
             name=self.name,
             tags=self.tags)
 
@@ -79,5 +91,6 @@ def get_iot_hub_resource_event_hub_consumer_group(event_hub_endpoint_name: Optio
     __ret__ = pulumi.runtime.invoke('azure-nextgen:devices/v20170701:getIotHubResourceEventHubConsumerGroup', __args__, opts=opts, typ=GetIotHubResourceEventHubConsumerGroupResult).value
 
     return AwaitableGetIotHubResourceEventHubConsumerGroupResult(
+        id=__ret__.id,
         name=__ret__.name,
         tags=__ret__.tags)

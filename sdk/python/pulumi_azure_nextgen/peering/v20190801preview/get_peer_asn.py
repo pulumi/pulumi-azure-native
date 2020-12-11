@@ -20,7 +20,10 @@ class GetPeerAsnResult:
     """
     The essential information related to the peer's ASN.
     """
-    def __init__(__self__, name=None, peer_asn=None, peer_contact_info=None, peer_name=None, type=None, validation_state=None):
+    def __init__(__self__, id=None, name=None, peer_asn=None, peer_contact_info=None, peer_name=None, type=None, validation_state=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -39,6 +42,14 @@ class GetPeerAsnResult:
         if validation_state and not isinstance(validation_state, str):
             raise TypeError("Expected argument 'validation_state' to be a str")
         pulumi.set(__self__, "validation_state", validation_state)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -95,6 +106,7 @@ class AwaitableGetPeerAsnResult(GetPeerAsnResult):
         if False:
             yield self
         return GetPeerAsnResult(
+            id=self.id,
             name=self.name,
             peer_asn=self.peer_asn,
             peer_contact_info=self.peer_contact_info,
@@ -119,6 +131,7 @@ def get_peer_asn(peer_asn_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:peering/v20190801preview:getPeerAsn', __args__, opts=opts, typ=GetPeerAsnResult).value
 
     return AwaitableGetPeerAsnResult(
+        id=__ret__.id,
         name=__ret__.name,
         peer_asn=__ret__.peer_asn,
         peer_contact_info=__ret__.peer_contact_info,

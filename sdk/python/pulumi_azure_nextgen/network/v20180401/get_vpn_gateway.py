@@ -20,7 +20,7 @@ class GetVpnGatewayResult:
     """
     VpnGateway Resource.
     """
-    def __init__(__self__, bgp_settings=None, connections=None, etag=None, location=None, name=None, policies=None, provisioning_state=None, tags=None, type=None, virtual_hub=None):
+    def __init__(__self__, bgp_settings=None, connections=None, etag=None, id=None, location=None, name=None, policies=None, provisioning_state=None, tags=None, type=None, virtual_hub=None):
         if bgp_settings and not isinstance(bgp_settings, dict):
             raise TypeError("Expected argument 'bgp_settings' to be a dict")
         pulumi.set(__self__, "bgp_settings", bgp_settings)
@@ -30,6 +30,9 @@ class GetVpnGatewayResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -75,6 +78,14 @@ class GetVpnGatewayResult:
         Gets a unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -142,6 +153,7 @@ class AwaitableGetVpnGatewayResult(GetVpnGatewayResult):
             bgp_settings=self.bgp_settings,
             connections=self.connections,
             etag=self.etag,
+            id=self.id,
             location=self.location,
             name=self.name,
             policies=self.policies,
@@ -173,6 +185,7 @@ def get_vpn_gateway(gateway_name: Optional[str] = None,
         bgp_settings=__ret__.bgp_settings,
         connections=__ret__.connections,
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         policies=__ret__.policies,

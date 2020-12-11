@@ -20,7 +20,7 @@ class GetConnectorResult:
     """
     The Connector model definition
     """
-    def __init__(__self__, collection=None, created_on=None, credentials_key=None, credentials_secret=None, display_name=None, kind=None, location=None, modified_on=None, name=None, provider_account_id=None, report_id=None, status=None, tags=None, type=None):
+    def __init__(__self__, collection=None, created_on=None, credentials_key=None, credentials_secret=None, display_name=None, id=None, kind=None, location=None, modified_on=None, name=None, provider_account_id=None, report_id=None, status=None, tags=None, type=None):
         if collection and not isinstance(collection, dict):
             raise TypeError("Expected argument 'collection' to be a dict")
         pulumi.set(__self__, "collection", collection)
@@ -36,6 +36,9 @@ class GetConnectorResult:
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -103,6 +106,14 @@ class GetConnectorResult:
         Connector DisplayName (defaults to Name)
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Connector id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -188,6 +199,7 @@ class AwaitableGetConnectorResult(GetConnectorResult):
             credentials_key=self.credentials_key,
             credentials_secret=self.credentials_secret,
             display_name=self.display_name,
+            id=self.id,
             kind=self.kind,
             location=self.location,
             modified_on=self.modified_on,
@@ -223,6 +235,7 @@ def get_connector(connector_name: Optional[str] = None,
         credentials_key=__ret__.credentials_key,
         credentials_secret=__ret__.credentials_secret,
         display_name=__ret__.display_name,
+        id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
         modified_on=__ret__.modified_on,

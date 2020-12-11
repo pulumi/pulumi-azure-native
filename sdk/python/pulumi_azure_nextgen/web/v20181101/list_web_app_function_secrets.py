@@ -19,7 +19,10 @@ class ListWebAppFunctionSecretsResult:
     """
     Function secrets.
     """
-    def __init__(__self__, key=None, kind=None, name=None, trigger_url=None, type=None):
+    def __init__(__self__, id=None, key=None, kind=None, name=None, trigger_url=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if key and not isinstance(key, str):
             raise TypeError("Expected argument 'key' to be a str")
         pulumi.set(__self__, "key", key)
@@ -35,6 +38,14 @@ class ListWebAppFunctionSecretsResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -83,6 +94,7 @@ class AwaitableListWebAppFunctionSecretsResult(ListWebAppFunctionSecretsResult):
         if False:
             yield self
         return ListWebAppFunctionSecretsResult(
+            id=self.id,
             key=self.key,
             kind=self.kind,
             name=self.name,
@@ -112,6 +124,7 @@ def list_web_app_function_secrets(function_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:web/v20181101:listWebAppFunctionSecrets', __args__, opts=opts, typ=ListWebAppFunctionSecretsResult).value
 
     return AwaitableListWebAppFunctionSecretsResult(
+        id=__ret__.id,
         key=__ret__.key,
         kind=__ret__.kind,
         name=__ret__.name,

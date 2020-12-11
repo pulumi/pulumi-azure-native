@@ -20,10 +20,13 @@ class GetMediaServiceResult:
     """
     The properties of a Media Service resource.
     """
-    def __init__(__self__, api_endpoints=None, location=None, name=None, storage_accounts=None, tags=None, type=None):
+    def __init__(__self__, api_endpoints=None, id=None, location=None, name=None, storage_accounts=None, tags=None, type=None):
         if api_endpoints and not isinstance(api_endpoints, list):
             raise TypeError("Expected argument 'api_endpoints' to be a list")
         pulumi.set(__self__, "api_endpoints", api_endpoints)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -47,6 +50,14 @@ class GetMediaServiceResult:
         Read-only property that lists the Media Services REST API endpoints for this resource. If supplied on a PUT or PATCH, the value will be ignored.
         """
         return pulumi.get(self, "api_endpoints")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The id of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -96,6 +107,7 @@ class AwaitableGetMediaServiceResult(GetMediaServiceResult):
             yield self
         return GetMediaServiceResult(
             api_endpoints=self.api_endpoints,
+            id=self.id,
             location=self.location,
             name=self.name,
             storage_accounts=self.storage_accounts,
@@ -123,6 +135,7 @@ def get_media_service(media_service_name: Optional[str] = None,
 
     return AwaitableGetMediaServiceResult(
         api_endpoints=__ret__.api_endpoints,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         storage_accounts=__ret__.storage_accounts,

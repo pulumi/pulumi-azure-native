@@ -20,13 +20,16 @@ class GetMediaGraphResult:
     """
     The Media Graph.
     """
-    def __init__(__self__, created=None, description=None, last_modified=None, name=None, sinks=None, sources=None, state=None, type=None):
+    def __init__(__self__, created=None, description=None, id=None, last_modified=None, name=None, sinks=None, sources=None, state=None, type=None):
         if created and not isinstance(created, str):
             raise TypeError("Expected argument 'created' to be a str")
         pulumi.set(__self__, "created", created)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_modified and not isinstance(last_modified, str):
             raise TypeError("Expected argument 'last_modified' to be a str")
         pulumi.set(__self__, "last_modified", last_modified)
@@ -61,6 +64,14 @@ class GetMediaGraphResult:
         Media Graph description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastModified")
@@ -119,6 +130,7 @@ class AwaitableGetMediaGraphResult(GetMediaGraphResult):
         return GetMediaGraphResult(
             created=self.created,
             description=self.description,
+            id=self.id,
             last_modified=self.last_modified,
             name=self.name,
             sinks=self.sinks,
@@ -151,6 +163,7 @@ def get_media_graph(account_name: Optional[str] = None,
     return AwaitableGetMediaGraphResult(
         created=__ret__.created,
         description=__ret__.description,
+        id=__ret__.id,
         last_modified=__ret__.last_modified,
         name=__ret__.name,
         sinks=__ret__.sinks,

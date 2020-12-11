@@ -20,7 +20,7 @@ class GetWebAppResult:
     """
     A web app, a mobile app backend, or an API app.
     """
-    def __init__(__self__, availability_state=None, client_affinity_enabled=None, client_cert_enabled=None, client_cert_exclusion_paths=None, client_cert_mode=None, cloning_info=None, container_size=None, custom_domain_verification_id=None, daily_memory_time_quota=None, default_host_name=None, enabled=None, enabled_host_names=None, host_name_ssl_states=None, host_names=None, host_names_disabled=None, hosting_environment_profile=None, https_only=None, hyper_v=None, identity=None, in_progress_operation_id=None, is_default_container=None, is_xenon=None, kind=None, last_modified_time_utc=None, location=None, max_number_of_workers=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, redundancy_mode=None, repository_site_name=None, reserved=None, resource_group=None, scm_site_also_stopped=None, server_farm_id=None, site_config=None, slot_swap_status=None, state=None, suspended_till=None, system_data=None, tags=None, target_swap_slot=None, traffic_manager_host_names=None, type=None, usage_state=None):
+    def __init__(__self__, availability_state=None, client_affinity_enabled=None, client_cert_enabled=None, client_cert_exclusion_paths=None, client_cert_mode=None, cloning_info=None, container_size=None, custom_domain_verification_id=None, daily_memory_time_quota=None, default_host_name=None, enabled=None, enabled_host_names=None, host_name_ssl_states=None, host_names=None, host_names_disabled=None, hosting_environment_profile=None, https_only=None, hyper_v=None, id=None, identity=None, in_progress_operation_id=None, is_default_container=None, is_xenon=None, kind=None, last_modified_time_utc=None, location=None, max_number_of_workers=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, redundancy_mode=None, repository_site_name=None, reserved=None, resource_group=None, scm_site_also_stopped=None, server_farm_id=None, site_config=None, slot_swap_status=None, state=None, suspended_till=None, system_data=None, tags=None, target_swap_slot=None, traffic_manager_host_names=None, type=None, usage_state=None):
         if availability_state and not isinstance(availability_state, str):
             raise TypeError("Expected argument 'availability_state' to be a str")
         pulumi.set(__self__, "availability_state", availability_state)
@@ -75,6 +75,9 @@ class GetWebAppResult:
         if hyper_v and not isinstance(hyper_v, bool):
             raise TypeError("Expected argument 'hyper_v' to be a bool")
         pulumi.set(__self__, "hyper_v", hyper_v)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -306,6 +309,14 @@ class GetWebAppResult:
         Hyper-V sandbox.
         """
         return pulumi.get(self, "hyper_v")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -549,6 +560,7 @@ class AwaitableGetWebAppResult(GetWebAppResult):
             hosting_environment_profile=self.hosting_environment_profile,
             https_only=self.https_only,
             hyper_v=self.hyper_v,
+            id=self.id,
             identity=self.identity,
             in_progress_operation_id=self.in_progress_operation_id,
             is_default_container=self.is_default_container,
@@ -615,6 +627,7 @@ def get_web_app(name: Optional[str] = None,
         hosting_environment_profile=__ret__.hosting_environment_profile,
         https_only=__ret__.https_only,
         hyper_v=__ret__.hyper_v,
+        id=__ret__.id,
         identity=__ret__.identity,
         in_progress_operation_id=__ret__.in_progress_operation_id,
         is_default_container=__ret__.is_default_container,

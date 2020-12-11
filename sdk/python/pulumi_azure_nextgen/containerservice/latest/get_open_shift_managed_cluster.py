@@ -20,7 +20,7 @@ class GetOpenShiftManagedClusterResult:
     """
     OpenShift Managed cluster.
     """
-    def __init__(__self__, agent_pool_profiles=None, auth_profile=None, cluster_version=None, fqdn=None, location=None, master_pool_profile=None, name=None, network_profile=None, open_shift_version=None, plan=None, provisioning_state=None, public_hostname=None, router_profiles=None, tags=None, type=None):
+    def __init__(__self__, agent_pool_profiles=None, auth_profile=None, cluster_version=None, fqdn=None, id=None, location=None, master_pool_profile=None, name=None, network_profile=None, open_shift_version=None, plan=None, provisioning_state=None, public_hostname=None, router_profiles=None, tags=None, type=None):
         if agent_pool_profiles and not isinstance(agent_pool_profiles, list):
             raise TypeError("Expected argument 'agent_pool_profiles' to be a list")
         pulumi.set(__self__, "agent_pool_profiles", agent_pool_profiles)
@@ -33,6 +33,9 @@ class GetOpenShiftManagedClusterResult:
         if fqdn and not isinstance(fqdn, str):
             raise TypeError("Expected argument 'fqdn' to be a str")
         pulumi.set(__self__, "fqdn", fqdn)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -98,6 +101,14 @@ class GetOpenShiftManagedClusterResult:
         Service generated FQDN for OpenShift API server loadbalancer internal hostname.
         """
         return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -198,6 +209,7 @@ class AwaitableGetOpenShiftManagedClusterResult(GetOpenShiftManagedClusterResult
             auth_profile=self.auth_profile,
             cluster_version=self.cluster_version,
             fqdn=self.fqdn,
+            id=self.id,
             location=self.location,
             master_pool_profile=self.master_pool_profile,
             name=self.name,
@@ -234,6 +246,7 @@ def get_open_shift_managed_cluster(resource_group_name: Optional[str] = None,
         auth_profile=__ret__.auth_profile,
         cluster_version=__ret__.cluster_version,
         fqdn=__ret__.fqdn,
+        id=__ret__.id,
         location=__ret__.location,
         master_pool_profile=__ret__.master_pool_profile,
         name=__ret__.name,

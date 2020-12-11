@@ -20,13 +20,16 @@ class GetAFDOriginGroupResult:
     """
     AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
     """
-    def __init__(__self__, deployment_status=None, health_probe_settings=None, load_balancing_settings=None, name=None, provisioning_state=None, response_based_afd_origin_error_detection_settings=None, session_affinity_state=None, system_data=None, traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=None, type=None):
+    def __init__(__self__, deployment_status=None, health_probe_settings=None, id=None, load_balancing_settings=None, name=None, provisioning_state=None, response_based_afd_origin_error_detection_settings=None, session_affinity_state=None, system_data=None, traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=None, type=None):
         if deployment_status and not isinstance(deployment_status, str):
             raise TypeError("Expected argument 'deployment_status' to be a str")
         pulumi.set(__self__, "deployment_status", deployment_status)
         if health_probe_settings and not isinstance(health_probe_settings, dict):
             raise TypeError("Expected argument 'health_probe_settings' to be a dict")
         pulumi.set(__self__, "health_probe_settings", health_probe_settings)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if load_balancing_settings and not isinstance(load_balancing_settings, dict):
             raise TypeError("Expected argument 'load_balancing_settings' to be a dict")
         pulumi.set(__self__, "load_balancing_settings", load_balancing_settings)
@@ -64,6 +67,14 @@ class GetAFDOriginGroupResult:
         Health probe settings to the origin that is used to determine the health of the origin.
         """
         return pulumi.get(self, "health_probe_settings")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="loadBalancingSettings")
@@ -138,6 +149,7 @@ class AwaitableGetAFDOriginGroupResult(GetAFDOriginGroupResult):
         return GetAFDOriginGroupResult(
             deployment_status=self.deployment_status,
             health_probe_settings=self.health_probe_settings,
+            id=self.id,
             load_balancing_settings=self.load_balancing_settings,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -172,6 +184,7 @@ def get_afd_origin_group(origin_group_name: Optional[str] = None,
     return AwaitableGetAFDOriginGroupResult(
         deployment_status=__ret__.deployment_status,
         health_probe_settings=__ret__.health_probe_settings,
+        id=__ret__.id,
         load_balancing_settings=__ret__.load_balancing_settings,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

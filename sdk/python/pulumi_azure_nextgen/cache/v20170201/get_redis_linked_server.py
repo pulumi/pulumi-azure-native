@@ -19,7 +19,10 @@ class GetRedisLinkedServerResult:
     """
     Response to put/get linked server (with properties) for Redis cache.
     """
-    def __init__(__self__, linked_redis_cache_id=None, linked_redis_cache_location=None, name=None, provisioning_state=None, server_role=None, type=None):
+    def __init__(__self__, id=None, linked_redis_cache_id=None, linked_redis_cache_location=None, name=None, provisioning_state=None, server_role=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if linked_redis_cache_id and not isinstance(linked_redis_cache_id, str):
             raise TypeError("Expected argument 'linked_redis_cache_id' to be a str")
         pulumi.set(__self__, "linked_redis_cache_id", linked_redis_cache_id)
@@ -38,6 +41,14 @@ class GetRedisLinkedServerResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="linkedRedisCacheId")
@@ -94,6 +105,7 @@ class AwaitableGetRedisLinkedServerResult(GetRedisLinkedServerResult):
         if False:
             yield self
         return GetRedisLinkedServerResult(
+            id=self.id,
             linked_redis_cache_id=self.linked_redis_cache_id,
             linked_redis_cache_location=self.linked_redis_cache_location,
             name=self.name,
@@ -124,6 +136,7 @@ def get_redis_linked_server(linked_server_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:cache/v20170201:getRedisLinkedServer', __args__, opts=opts, typ=GetRedisLinkedServerResult).value
 
     return AwaitableGetRedisLinkedServerResult(
+        id=__ret__.id,
         linked_redis_cache_id=__ret__.linked_redis_cache_id,
         linked_redis_cache_location=__ret__.linked_redis_cache_location,
         name=__ret__.name,

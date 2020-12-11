@@ -20,10 +20,13 @@ class GetPipelineResult:
     """
     Azure DevOps Pipeline used to configure Continuous Integration (CI) & Continuous Delivery (CD) for Azure resources.
     """
-    def __init__(__self__, bootstrap_configuration=None, location=None, name=None, organization=None, pipeline_id=None, project=None, tags=None, type=None):
+    def __init__(__self__, bootstrap_configuration=None, id=None, location=None, name=None, organization=None, pipeline_id=None, project=None, tags=None, type=None):
         if bootstrap_configuration and not isinstance(bootstrap_configuration, dict):
             raise TypeError("Expected argument 'bootstrap_configuration' to be a dict")
         pulumi.set(__self__, "bootstrap_configuration", bootstrap_configuration)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -53,6 +56,14 @@ class GetPipelineResult:
         Configuration used to bootstrap the Pipeline.
         """
         return pulumi.get(self, "bootstrap_configuration")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -118,6 +129,7 @@ class AwaitableGetPipelineResult(GetPipelineResult):
             yield self
         return GetPipelineResult(
             bootstrap_configuration=self.bootstrap_configuration,
+            id=self.id,
             location=self.location,
             name=self.name,
             organization=self.organization,
@@ -147,6 +159,7 @@ def get_pipeline(pipeline_name: Optional[str] = None,
 
     return AwaitableGetPipelineResult(
         bootstrap_configuration=__ret__.bootstrap_configuration,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         organization=__ret__.organization,

@@ -20,10 +20,13 @@ class GetMediaServiceResult:
     """
     A Media Services account.
     """
-    def __init__(__self__, encryption=None, identity=None, location=None, media_service_id=None, name=None, storage_accounts=None, storage_authentication=None, tags=None, type=None):
+    def __init__(__self__, encryption=None, id=None, identity=None, location=None, media_service_id=None, name=None, storage_accounts=None, storage_authentication=None, tags=None, type=None):
         if encryption and not isinstance(encryption, dict):
             raise TypeError("Expected argument 'encryption' to be a dict")
         pulumi.set(__self__, "encryption", encryption)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -56,6 +59,14 @@ class GetMediaServiceResult:
         The account encryption properties.
         """
         return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -126,6 +137,7 @@ class AwaitableGetMediaServiceResult(GetMediaServiceResult):
             yield self
         return GetMediaServiceResult(
             encryption=self.encryption,
+            id=self.id,
             identity=self.identity,
             location=self.location,
             media_service_id=self.media_service_id,
@@ -156,6 +168,7 @@ def get_media_service(account_name: Optional[str] = None,
 
     return AwaitableGetMediaServiceResult(
         encryption=__ret__.encryption,
+        id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
         media_service_id=__ret__.media_service_id,

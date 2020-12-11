@@ -20,13 +20,16 @@ class GetEnvironmentSettingResult:
     """
     Represents settings of an environment, from which environment instances would be created
     """
-    def __init__(__self__, configuration_state=None, description=None, last_changed=None, last_published=None, latest_operation_result=None, location=None, name=None, provisioning_state=None, publishing_state=None, resource_settings=None, tags=None, title=None, type=None, unique_identifier=None):
+    def __init__(__self__, configuration_state=None, description=None, id=None, last_changed=None, last_published=None, latest_operation_result=None, location=None, name=None, provisioning_state=None, publishing_state=None, resource_settings=None, tags=None, title=None, type=None, unique_identifier=None):
         if configuration_state and not isinstance(configuration_state, str):
             raise TypeError("Expected argument 'configuration_state' to be a str")
         pulumi.set(__self__, "configuration_state", configuration_state)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_changed and not isinstance(last_changed, str):
             raise TypeError("Expected argument 'last_changed' to be a str")
         pulumi.set(__self__, "last_changed", last_changed)
@@ -79,6 +82,14 @@ class GetEnvironmentSettingResult:
         Describes the environment and its resource settings
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastChanged")
@@ -185,6 +196,7 @@ class AwaitableGetEnvironmentSettingResult(GetEnvironmentSettingResult):
         return GetEnvironmentSettingResult(
             configuration_state=self.configuration_state,
             description=self.description,
+            id=self.id,
             last_changed=self.last_changed,
             last_published=self.last_published,
             latest_operation_result=self.latest_operation_result,
@@ -229,6 +241,7 @@ def get_environment_setting(environment_setting_name: Optional[str] = None,
     return AwaitableGetEnvironmentSettingResult(
         configuration_state=__ret__.configuration_state,
         description=__ret__.description,
+        id=__ret__.id,
         last_changed=__ret__.last_changed,
         last_published=__ret__.last_published,
         latest_operation_result=__ret__.latest_operation_result,

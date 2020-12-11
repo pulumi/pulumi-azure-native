@@ -20,7 +20,7 @@ class GetCertificateOrderResult:
     """
     Certificate purchase order
     """
-    def __init__(__self__, auto_renew=None, certificates=None, csr=None, distinguished_name=None, domain_verification_token=None, expiration_time=None, intermediate=None, key_size=None, kind=None, last_certificate_issuance_time=None, location=None, name=None, product_type=None, provisioning_state=None, root=None, serial_number=None, signed_certificate=None, status=None, tags=None, type=None, validity_in_years=None):
+    def __init__(__self__, auto_renew=None, certificates=None, csr=None, distinguished_name=None, domain_verification_token=None, expiration_time=None, id=None, intermediate=None, key_size=None, kind=None, last_certificate_issuance_time=None, location=None, name=None, product_type=None, provisioning_state=None, root=None, serial_number=None, signed_certificate=None, status=None, tags=None, type=None, validity_in_years=None):
         if auto_renew and not isinstance(auto_renew, bool):
             raise TypeError("Expected argument 'auto_renew' to be a bool")
         pulumi.set(__self__, "auto_renew", auto_renew)
@@ -39,6 +39,9 @@ class GetCertificateOrderResult:
         if expiration_time and not isinstance(expiration_time, str):
             raise TypeError("Expected argument 'expiration_time' to be a str")
         pulumi.set(__self__, "expiration_time", expiration_time)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if intermediate and not isinstance(intermediate, dict):
             raise TypeError("Expected argument 'intermediate' to be a dict")
         pulumi.set(__self__, "intermediate", intermediate)
@@ -132,6 +135,14 @@ class GetCertificateOrderResult:
         Certificate expiration time
         """
         return pulumi.get(self, "expiration_time")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -266,6 +277,7 @@ class AwaitableGetCertificateOrderResult(GetCertificateOrderResult):
             distinguished_name=self.distinguished_name,
             domain_verification_token=self.domain_verification_token,
             expiration_time=self.expiration_time,
+            id=self.id,
             intermediate=self.intermediate,
             key_size=self.key_size,
             kind=self.kind,
@@ -308,6 +320,7 @@ def get_certificate_order(name: Optional[str] = None,
         distinguished_name=__ret__.distinguished_name,
         domain_verification_token=__ret__.domain_verification_token,
         expiration_time=__ret__.expiration_time,
+        id=__ret__.id,
         intermediate=__ret__.intermediate,
         key_size=__ret__.key_size,
         kind=__ret__.kind,

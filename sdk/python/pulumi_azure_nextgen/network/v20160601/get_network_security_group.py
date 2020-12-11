@@ -20,13 +20,16 @@ class GetNetworkSecurityGroupResult:
     """
     NetworkSecurityGroup resource
     """
-    def __init__(__self__, default_security_rules=None, etag=None, location=None, name=None, network_interfaces=None, provisioning_state=None, resource_guid=None, security_rules=None, subnets=None, tags=None, type=None):
+    def __init__(__self__, default_security_rules=None, etag=None, id=None, location=None, name=None, network_interfaces=None, provisioning_state=None, resource_guid=None, security_rules=None, subnets=None, tags=None, type=None):
         if default_security_rules and not isinstance(default_security_rules, list):
             raise TypeError("Expected argument 'default_security_rules' to be a list")
         pulumi.set(__self__, "default_security_rules", default_security_rules)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -70,6 +73,14 @@ class GetNetworkSecurityGroupResult:
         Gets a unique read-only string that changes whenever the resource is updated
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -152,6 +163,7 @@ class AwaitableGetNetworkSecurityGroupResult(GetNetworkSecurityGroupResult):
         return GetNetworkSecurityGroupResult(
             default_security_rules=self.default_security_rules,
             etag=self.etag,
+            id=self.id,
             location=self.location,
             name=self.name,
             network_interfaces=self.network_interfaces,
@@ -187,6 +199,7 @@ def get_network_security_group(expand: Optional[str] = None,
     return AwaitableGetNetworkSecurityGroupResult(
         default_security_rules=__ret__.default_security_rules,
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         network_interfaces=__ret__.network_interfaces,

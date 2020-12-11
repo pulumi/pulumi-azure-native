@@ -20,7 +20,7 @@ class GetSqlManagedInstanceResult:
     """
     A SqlManagedInstance.
     """
-    def __init__(__self__, admin=None, data_controller_id=None, end_time=None, instance_endpoint=None, location=None, name=None, start_time=None, system_data=None, tags=None, type=None, v_core=None):
+    def __init__(__self__, admin=None, data_controller_id=None, end_time=None, id=None, instance_endpoint=None, location=None, name=None, start_time=None, system_data=None, tags=None, type=None, v_core=None):
         if admin and not isinstance(admin, str):
             raise TypeError("Expected argument 'admin' to be a str")
         pulumi.set(__self__, "admin", admin)
@@ -30,6 +30,9 @@ class GetSqlManagedInstanceResult:
         if end_time and not isinstance(end_time, str):
             raise TypeError("Expected argument 'end_time' to be a str")
         pulumi.set(__self__, "end_time", end_time)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if instance_endpoint and not isinstance(instance_endpoint, str):
             raise TypeError("Expected argument 'instance_endpoint' to be a str")
         pulumi.set(__self__, "instance_endpoint", instance_endpoint)
@@ -78,6 +81,14 @@ class GetSqlManagedInstanceResult:
         The instance end time
         """
         return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="instanceEndpoint")
@@ -153,6 +164,7 @@ class AwaitableGetSqlManagedInstanceResult(GetSqlManagedInstanceResult):
             admin=self.admin,
             data_controller_id=self.data_controller_id,
             end_time=self.end_time,
+            id=self.id,
             instance_endpoint=self.instance_endpoint,
             location=self.location,
             name=self.name,
@@ -185,6 +197,7 @@ def get_sql_managed_instance(resource_group_name: Optional[str] = None,
         admin=__ret__.admin,
         data_controller_id=__ret__.data_controller_id,
         end_time=__ret__.end_time,
+        id=__ret__.id,
         instance_endpoint=__ret__.instance_endpoint,
         location=__ret__.location,
         name=__ret__.name,

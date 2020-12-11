@@ -19,7 +19,10 @@ class GetComputePolicyResult:
     """
     Data Lake Analytics compute policy information.
     """
-    def __init__(__self__, max_degree_of_parallelism_per_job=None, min_priority_per_job=None, name=None, object_id=None, object_type=None, type=None):
+    def __init__(__self__, id=None, max_degree_of_parallelism_per_job=None, min_priority_per_job=None, name=None, object_id=None, object_type=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if max_degree_of_parallelism_per_job and not isinstance(max_degree_of_parallelism_per_job, int):
             raise TypeError("Expected argument 'max_degree_of_parallelism_per_job' to be a int")
         pulumi.set(__self__, "max_degree_of_parallelism_per_job", max_degree_of_parallelism_per_job)
@@ -38,6 +41,14 @@ class GetComputePolicyResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource identifier.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="maxDegreeOfParallelismPerJob")
@@ -94,6 +105,7 @@ class AwaitableGetComputePolicyResult(GetComputePolicyResult):
         if False:
             yield self
         return GetComputePolicyResult(
+            id=self.id,
             max_degree_of_parallelism_per_job=self.max_degree_of_parallelism_per_job,
             min_priority_per_job=self.min_priority_per_job,
             name=self.name,
@@ -124,6 +136,7 @@ def get_compute_policy(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:datalakeanalytics/v20161101:getComputePolicy', __args__, opts=opts, typ=GetComputePolicyResult).value
 
     return AwaitableGetComputePolicyResult(
+        id=__ret__.id,
         max_degree_of_parallelism_per_job=__ret__.max_degree_of_parallelism_per_job,
         min_priority_per_job=__ret__.min_priority_per_job,
         name=__ret__.name,

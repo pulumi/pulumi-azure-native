@@ -20,7 +20,10 @@ class GetEnterpriseKnowledgeGraphResult:
     """
     EnterpriseKnowledgeGraph resource definition
     """
-    def __init__(__self__, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, id=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -39,6 +42,14 @@ class GetEnterpriseKnowledgeGraphResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Specifies the resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -95,6 +106,7 @@ class AwaitableGetEnterpriseKnowledgeGraphResult(GetEnterpriseKnowledgeGraphResu
         if False:
             yield self
         return GetEnterpriseKnowledgeGraphResult(
+            id=self.id,
             location=self.location,
             name=self.name,
             properties=self.properties,
@@ -122,6 +134,7 @@ def get_enterprise_knowledge_graph(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:enterpriseknowledgegraph/v20181203:getEnterpriseKnowledgeGraph', __args__, opts=opts, typ=GetEnterpriseKnowledgeGraphResult).value
 
     return AwaitableGetEnterpriseKnowledgeGraphResult(
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         properties=__ret__.properties,

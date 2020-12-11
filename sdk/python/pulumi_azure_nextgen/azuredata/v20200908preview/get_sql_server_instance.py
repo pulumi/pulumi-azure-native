@@ -20,7 +20,7 @@ class GetSqlServerInstanceResult:
     """
     A SqlServerInstance.
     """
-    def __init__(__self__, container_resource_id=None, create_time=None, edition=None, location=None, name=None, status=None, system_data=None, tags=None, type=None, update_time=None, v_core=None, version=None):
+    def __init__(__self__, container_resource_id=None, create_time=None, edition=None, id=None, location=None, name=None, status=None, system_data=None, tags=None, type=None, update_time=None, v_core=None, version=None):
         if container_resource_id and not isinstance(container_resource_id, str):
             raise TypeError("Expected argument 'container_resource_id' to be a str")
         pulumi.set(__self__, "container_resource_id", container_resource_id)
@@ -30,6 +30,9 @@ class GetSqlServerInstanceResult:
         if edition and not isinstance(edition, str):
             raise TypeError("Expected argument 'edition' to be a str")
         pulumi.set(__self__, "edition", edition)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -81,6 +84,14 @@ class GetSqlServerInstanceResult:
         SQL Server edition.
         """
         return pulumi.get(self, "edition")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -164,6 +175,7 @@ class AwaitableGetSqlServerInstanceResult(GetSqlServerInstanceResult):
             container_resource_id=self.container_resource_id,
             create_time=self.create_time,
             edition=self.edition,
+            id=self.id,
             location=self.location,
             name=self.name,
             status=self.status,
@@ -197,6 +209,7 @@ def get_sql_server_instance(resource_group_name: Optional[str] = None,
         container_resource_id=__ret__.container_resource_id,
         create_time=__ret__.create_time,
         edition=__ret__.edition,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         status=__ret__.status,

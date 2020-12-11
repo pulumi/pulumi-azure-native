@@ -20,7 +20,7 @@ class GetMachineResult:
     """
     Describes a hybrid machine.
     """
-    def __init__(__self__, agent_version=None, client_public_key=None, display_name=None, error_details=None, extensions=None, identity=None, last_status_change=None, location=None, location_data=None, machine_fqdn=None, name=None, os_name=None, os_profile=None, os_version=None, provisioning_state=None, status=None, tags=None, type=None, vm_id=None):
+    def __init__(__self__, agent_version=None, client_public_key=None, display_name=None, error_details=None, extensions=None, id=None, identity=None, last_status_change=None, location=None, location_data=None, machine_fqdn=None, name=None, os_name=None, os_profile=None, os_version=None, provisioning_state=None, status=None, tags=None, type=None, vm_id=None):
         if agent_version and not isinstance(agent_version, str):
             raise TypeError("Expected argument 'agent_version' to be a str")
         pulumi.set(__self__, "agent_version", agent_version)
@@ -36,6 +36,9 @@ class GetMachineResult:
         if extensions and not isinstance(extensions, list):
             raise TypeError("Expected argument 'extensions' to be a list")
         pulumi.set(__self__, "extensions", extensions)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -118,6 +121,14 @@ class GetMachineResult:
         Machine Extensions information
         """
         return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -240,6 +251,7 @@ class AwaitableGetMachineResult(GetMachineResult):
             display_name=self.display_name,
             error_details=self.error_details,
             extensions=self.extensions,
+            id=self.id,
             identity=self.identity,
             last_status_change=self.last_status_change,
             location=self.location,
@@ -283,6 +295,7 @@ def get_machine(expand: Optional[str] = None,
         display_name=__ret__.display_name,
         error_details=__ret__.error_details,
         extensions=__ret__.extensions,
+        id=__ret__.id,
         identity=__ret__.identity,
         last_status_change=__ret__.last_status_change,
         location=__ret__.location,

@@ -20,13 +20,16 @@ class GetHubResult:
     """
     Hub resource.
     """
-    def __init__(__self__, api_endpoint=None, hub_billing_info=None, location=None, name=None, provisioning_state=None, tags=None, tenant_features=None, type=None, web_endpoint=None):
+    def __init__(__self__, api_endpoint=None, hub_billing_info=None, id=None, location=None, name=None, provisioning_state=None, tags=None, tenant_features=None, type=None, web_endpoint=None):
         if api_endpoint and not isinstance(api_endpoint, str):
             raise TypeError("Expected argument 'api_endpoint' to be a str")
         pulumi.set(__self__, "api_endpoint", api_endpoint)
         if hub_billing_info and not isinstance(hub_billing_info, dict):
             raise TypeError("Expected argument 'hub_billing_info' to be a dict")
         pulumi.set(__self__, "hub_billing_info", hub_billing_info)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -64,6 +67,14 @@ class GetHubResult:
         Billing settings of the hub.
         """
         return pulumi.get(self, "hub_billing_info")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -130,6 +141,7 @@ class AwaitableGetHubResult(GetHubResult):
         return GetHubResult(
             api_endpoint=self.api_endpoint,
             hub_billing_info=self.hub_billing_info,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -160,6 +172,7 @@ def get_hub(hub_name: Optional[str] = None,
     return AwaitableGetHubResult(
         api_endpoint=__ret__.api_endpoint,
         hub_billing_info=__ret__.hub_billing_info,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

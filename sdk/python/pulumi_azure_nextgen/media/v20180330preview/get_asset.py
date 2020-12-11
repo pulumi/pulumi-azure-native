@@ -19,7 +19,7 @@ class GetAssetResult:
     """
     An Asset.
     """
-    def __init__(__self__, alternate_id=None, asset_id=None, container=None, created=None, description=None, last_modified=None, name=None, storage_account_name=None, storage_encryption_format=None, type=None):
+    def __init__(__self__, alternate_id=None, asset_id=None, container=None, created=None, description=None, id=None, last_modified=None, name=None, storage_account_name=None, storage_encryption_format=None, type=None):
         if alternate_id and not isinstance(alternate_id, str):
             raise TypeError("Expected argument 'alternate_id' to be a str")
         pulumi.set(__self__, "alternate_id", alternate_id)
@@ -35,6 +35,9 @@ class GetAssetResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_modified and not isinstance(last_modified, str):
             raise TypeError("Expected argument 'last_modified' to be a str")
         pulumi.set(__self__, "last_modified", last_modified)
@@ -92,6 +95,14 @@ class GetAssetResult:
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource.
+        """
+        return pulumi.get(self, "id")
+
+    @property
     @pulumi.getter(name="lastModified")
     def last_modified(self) -> str:
         """
@@ -143,6 +154,7 @@ class AwaitableGetAssetResult(GetAssetResult):
             container=self.container,
             created=self.created,
             description=self.description,
+            id=self.id,
             last_modified=self.last_modified,
             name=self.name,
             storage_account_name=self.storage_account_name,
@@ -177,6 +189,7 @@ def get_asset(account_name: Optional[str] = None,
         container=__ret__.container,
         created=__ret__.created,
         description=__ret__.description,
+        id=__ret__.id,
         last_modified=__ret__.last_modified,
         name=__ret__.name,
         storage_account_name=__ret__.storage_account_name,

@@ -19,7 +19,7 @@ class GetIdentityProviderResult:
     """
     Identity Provider details.
     """
-    def __init__(__self__, allowed_tenants=None, authority=None, client_id=None, client_secret=None, name=None, password_reset_policy_name=None, profile_editing_policy_name=None, signin_policy_name=None, signin_tenant=None, signup_policy_name=None, type=None):
+    def __init__(__self__, allowed_tenants=None, authority=None, client_id=None, client_secret=None, id=None, name=None, password_reset_policy_name=None, profile_editing_policy_name=None, signin_policy_name=None, signin_tenant=None, signup_policy_name=None, type=None):
         if allowed_tenants and not isinstance(allowed_tenants, list):
             raise TypeError("Expected argument 'allowed_tenants' to be a list")
         pulumi.set(__self__, "allowed_tenants", allowed_tenants)
@@ -32,6 +32,9 @@ class GetIdentityProviderResult:
         if client_secret and not isinstance(client_secret, str):
             raise TypeError("Expected argument 'client_secret' to be a str")
         pulumi.set(__self__, "client_secret", client_secret)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -85,6 +88,14 @@ class GetIdentityProviderResult:
         Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft.
         """
         return pulumi.get(self, "client_secret")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -153,6 +164,7 @@ class AwaitableGetIdentityProviderResult(GetIdentityProviderResult):
             authority=self.authority,
             client_id=self.client_id,
             client_secret=self.client_secret,
+            id=self.id,
             name=self.name,
             password_reset_policy_name=self.password_reset_policy_name,
             profile_editing_policy_name=self.profile_editing_policy_name,
@@ -188,6 +200,7 @@ def get_identity_provider(identity_provider_name: Optional[str] = None,
         authority=__ret__.authority,
         client_id=__ret__.client_id,
         client_secret=__ret__.client_secret,
+        id=__ret__.id,
         name=__ret__.name,
         password_reset_policy_name=__ret__.password_reset_policy_name,
         profile_editing_policy_name=__ret__.profile_editing_policy_name,

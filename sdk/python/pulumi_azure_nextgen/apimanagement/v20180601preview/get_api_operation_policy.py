@@ -19,10 +19,13 @@ class GetApiOperationPolicyResult:
     """
     Policy Contract details.
     """
-    def __init__(__self__, content_format=None, name=None, policy_content=None, type=None):
+    def __init__(__self__, content_format=None, id=None, name=None, policy_content=None, type=None):
         if content_format and not isinstance(content_format, str):
             raise TypeError("Expected argument 'content_format' to be a str")
         pulumi.set(__self__, "content_format", content_format)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -40,6 +43,14 @@ class GetApiOperationPolicyResult:
         Format of the policyContent.
         """
         return pulumi.get(self, "content_format")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -73,6 +84,7 @@ class AwaitableGetApiOperationPolicyResult(GetApiOperationPolicyResult):
             yield self
         return GetApiOperationPolicyResult(
             content_format=self.content_format,
+            id=self.id,
             name=self.name,
             policy_content=self.policy_content,
             type=self.type)
@@ -107,6 +119,7 @@ def get_api_operation_policy(api_id: Optional[str] = None,
 
     return AwaitableGetApiOperationPolicyResult(
         content_format=__ret__.content_format,
+        id=__ret__.id,
         name=__ret__.name,
         policy_content=__ret__.policy_content,
         type=__ret__.type)

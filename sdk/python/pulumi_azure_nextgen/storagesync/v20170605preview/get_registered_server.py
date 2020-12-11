@@ -19,7 +19,7 @@ class GetRegisteredServerResult:
     """
     Registered Server resource.
     """
-    def __init__(__self__, agent_version=None, cluster_id=None, cluster_name=None, last_heart_beat=None, last_workflow_id=None, name=None, provisioning_state=None, server_certificate=None, server_id=None, server_managementt_error_code=None, server_os_version=None, server_role=None, storage_sync_service_uid=None, type=None):
+    def __init__(__self__, agent_version=None, cluster_id=None, cluster_name=None, id=None, last_heart_beat=None, last_workflow_id=None, name=None, provisioning_state=None, server_certificate=None, server_id=None, server_managementt_error_code=None, server_os_version=None, server_role=None, storage_sync_service_uid=None, type=None):
         if agent_version and not isinstance(agent_version, str):
             raise TypeError("Expected argument 'agent_version' to be a str")
         pulumi.set(__self__, "agent_version", agent_version)
@@ -29,6 +29,9 @@ class GetRegisteredServerResult:
         if cluster_name and not isinstance(cluster_name, str):
             raise TypeError("Expected argument 'cluster_name' to be a str")
         pulumi.set(__self__, "cluster_name", cluster_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_heart_beat and not isinstance(last_heart_beat, str):
             raise TypeError("Expected argument 'last_heart_beat' to be a str")
         pulumi.set(__self__, "last_heart_beat", last_heart_beat)
@@ -86,6 +89,14 @@ class GetRegisteredServerResult:
         Registered Server clusterName
         """
         return pulumi.get(self, "cluster_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastHeartBeat")
@@ -185,6 +196,7 @@ class AwaitableGetRegisteredServerResult(GetRegisteredServerResult):
             agent_version=self.agent_version,
             cluster_id=self.cluster_id,
             cluster_name=self.cluster_name,
+            id=self.id,
             last_heart_beat=self.last_heart_beat,
             last_workflow_id=self.last_workflow_id,
             name=self.name,
@@ -223,6 +235,7 @@ def get_registered_server(resource_group_name: Optional[str] = None,
         agent_version=__ret__.agent_version,
         cluster_id=__ret__.cluster_id,
         cluster_name=__ret__.cluster_name,
+        id=__ret__.id,
         last_heart_beat=__ret__.last_heart_beat,
         last_workflow_id=__ret__.last_workflow_id,
         name=__ret__.name,

@@ -20,7 +20,7 @@ class GetvNetPeeringResult:
     """
     Peerings in a VirtualNetwork resource
     """
-    def __init__(__self__, allow_forwarded_traffic=None, allow_gateway_transit=None, allow_virtual_network_access=None, databricks_address_space=None, databricks_virtual_network=None, name=None, peering_state=None, provisioning_state=None, remote_address_space=None, remote_virtual_network=None, type=None, use_remote_gateways=None):
+    def __init__(__self__, allow_forwarded_traffic=None, allow_gateway_transit=None, allow_virtual_network_access=None, databricks_address_space=None, databricks_virtual_network=None, id=None, name=None, peering_state=None, provisioning_state=None, remote_address_space=None, remote_virtual_network=None, type=None, use_remote_gateways=None):
         if allow_forwarded_traffic and not isinstance(allow_forwarded_traffic, bool):
             raise TypeError("Expected argument 'allow_forwarded_traffic' to be a bool")
         pulumi.set(__self__, "allow_forwarded_traffic", allow_forwarded_traffic)
@@ -36,6 +36,9 @@ class GetvNetPeeringResult:
         if databricks_virtual_network and not isinstance(databricks_virtual_network, dict):
             raise TypeError("Expected argument 'databricks_virtual_network' to be a dict")
         pulumi.set(__self__, "databricks_virtual_network", databricks_virtual_network)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -97,6 +100,14 @@ class GetvNetPeeringResult:
          The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
         """
         return pulumi.get(self, "databricks_virtual_network")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -166,6 +177,7 @@ class AwaitableGetvNetPeeringResult(GetvNetPeeringResult):
             allow_virtual_network_access=self.allow_virtual_network_access,
             databricks_address_space=self.databricks_address_space,
             databricks_virtual_network=self.databricks_virtual_network,
+            id=self.id,
             name=self.name,
             peering_state=self.peering_state,
             provisioning_state=self.provisioning_state,
@@ -202,6 +214,7 @@ def getv_net_peering(peering_name: Optional[str] = None,
         allow_virtual_network_access=__ret__.allow_virtual_network_access,
         databricks_address_space=__ret__.databricks_address_space,
         databricks_virtual_network=__ret__.databricks_virtual_network,
+        id=__ret__.id,
         name=__ret__.name,
         peering_state=__ret__.peering_state,
         provisioning_state=__ret__.provisioning_state,

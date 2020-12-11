@@ -20,7 +20,7 @@ class GetFrontDoorResult:
     """
     Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
     """
-    def __init__(__self__, backend_pools=None, backend_pools_settings=None, cname=None, enabled_state=None, friendly_name=None, frontdoor_id=None, frontend_endpoints=None, health_probe_settings=None, load_balancing_settings=None, location=None, name=None, provisioning_state=None, resource_state=None, routing_rules=None, rules_engines=None, tags=None, type=None):
+    def __init__(__self__, backend_pools=None, backend_pools_settings=None, cname=None, enabled_state=None, friendly_name=None, frontdoor_id=None, frontend_endpoints=None, health_probe_settings=None, id=None, load_balancing_settings=None, location=None, name=None, provisioning_state=None, resource_state=None, routing_rules=None, rules_engines=None, tags=None, type=None):
         if backend_pools and not isinstance(backend_pools, list):
             raise TypeError("Expected argument 'backend_pools' to be a list")
         pulumi.set(__self__, "backend_pools", backend_pools)
@@ -45,6 +45,9 @@ class GetFrontDoorResult:
         if health_probe_settings and not isinstance(health_probe_settings, list):
             raise TypeError("Expected argument 'health_probe_settings' to be a list")
         pulumi.set(__self__, "health_probe_settings", health_probe_settings)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if load_balancing_settings and not isinstance(load_balancing_settings, list):
             raise TypeError("Expected argument 'load_balancing_settings' to be a list")
         pulumi.set(__self__, "load_balancing_settings", load_balancing_settings)
@@ -138,6 +141,14 @@ class GetFrontDoorResult:
         return pulumi.get(self, "health_probe_settings")
 
     @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
     @pulumi.getter(name="loadBalancingSettings")
     def load_balancing_settings(self) -> Optional[Sequence['outputs.LoadBalancingSettingsModelResponse']]:
         """
@@ -224,6 +235,7 @@ class AwaitableGetFrontDoorResult(GetFrontDoorResult):
             frontdoor_id=self.frontdoor_id,
             frontend_endpoints=self.frontend_endpoints,
             health_probe_settings=self.health_probe_settings,
+            id=self.id,
             load_balancing_settings=self.load_balancing_settings,
             location=self.location,
             name=self.name,
@@ -262,6 +274,7 @@ def get_front_door(front_door_name: Optional[str] = None,
         frontdoor_id=__ret__.frontdoor_id,
         frontend_endpoints=__ret__.frontend_endpoints,
         health_probe_settings=__ret__.health_probe_settings,
+        id=__ret__.id,
         load_balancing_settings=__ret__.load_balancing_settings,
         location=__ret__.location,
         name=__ret__.name,

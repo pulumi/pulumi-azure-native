@@ -19,13 +19,16 @@ class GetVariableResult:
     """
     Definition of the variable.
     """
-    def __init__(__self__, creation_time=None, description=None, is_encrypted=None, last_modified_time=None, name=None, type=None, value=None):
+    def __init__(__self__, creation_time=None, description=None, id=None, is_encrypted=None, last_modified_time=None, name=None, type=None, value=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_encrypted and not isinstance(is_encrypted, bool):
             raise TypeError("Expected argument 'is_encrypted' to be a bool")
         pulumi.set(__self__, "is_encrypted", is_encrypted)
@@ -57,6 +60,14 @@ class GetVariableResult:
         Gets or sets the description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isEncrypted")
@@ -107,6 +118,7 @@ class AwaitableGetVariableResult(GetVariableResult):
         return GetVariableResult(
             creation_time=self.creation_time,
             description=self.description,
+            id=self.id,
             is_encrypted=self.is_encrypted,
             last_modified_time=self.last_modified_time,
             name=self.name,
@@ -138,6 +150,7 @@ def get_variable(automation_account_name: Optional[str] = None,
     return AwaitableGetVariableResult(
         creation_time=__ret__.creation_time,
         description=__ret__.description,
+        id=__ret__.id,
         is_encrypted=__ret__.is_encrypted,
         last_modified_time=__ret__.last_modified_time,
         name=__ret__.name,

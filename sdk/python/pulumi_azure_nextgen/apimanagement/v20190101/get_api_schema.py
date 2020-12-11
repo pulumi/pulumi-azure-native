@@ -19,13 +19,16 @@ class GetApiSchemaResult:
     """
     Schema Contract details.
     """
-    def __init__(__self__, content_type=None, document=None, name=None, type=None):
+    def __init__(__self__, content_type=None, document=None, id=None, name=None, type=None):
         if content_type and not isinstance(content_type, str):
             raise TypeError("Expected argument 'content_type' to be a str")
         pulumi.set(__self__, "content_type", content_type)
         if document and not isinstance(document, dict):
             raise TypeError("Expected argument 'document' to be a dict")
         pulumi.set(__self__, "document", document)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -48,6 +51,14 @@ class GetApiSchemaResult:
         Properties of the Schema Document.
         """
         return pulumi.get(self, "document")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -74,6 +85,7 @@ class AwaitableGetApiSchemaResult(GetApiSchemaResult):
         return GetApiSchemaResult(
             content_type=self.content_type,
             document=self.document,
+            id=self.id,
             name=self.name,
             type=self.type)
 
@@ -105,5 +117,6 @@ def get_api_schema(api_id: Optional[str] = None,
     return AwaitableGetApiSchemaResult(
         content_type=__ret__.content_type,
         document=__ret__.document,
+        id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type)

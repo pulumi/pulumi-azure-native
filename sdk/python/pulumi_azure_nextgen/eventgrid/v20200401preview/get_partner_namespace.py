@@ -19,10 +19,13 @@ class GetPartnerNamespaceResult:
     """
     EventGrid Partner Namespace.
     """
-    def __init__(__self__, endpoint=None, location=None, name=None, partner_registration_fully_qualified_id=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, endpoint=None, id=None, location=None, name=None, partner_registration_fully_qualified_id=None, provisioning_state=None, tags=None, type=None):
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -49,6 +52,14 @@ class GetPartnerNamespaceResult:
         Endpoint for the partner namespace.
         """
         return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified identifier of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -107,6 +118,7 @@ class AwaitableGetPartnerNamespaceResult(GetPartnerNamespaceResult):
             yield self
         return GetPartnerNamespaceResult(
             endpoint=self.endpoint,
+            id=self.id,
             location=self.location,
             name=self.name,
             partner_registration_fully_qualified_id=self.partner_registration_fully_qualified_id,
@@ -135,6 +147,7 @@ def get_partner_namespace(partner_namespace_name: Optional[str] = None,
 
     return AwaitableGetPartnerNamespaceResult(
         endpoint=__ret__.endpoint,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         partner_registration_fully_qualified_id=__ret__.partner_registration_fully_qualified_id,

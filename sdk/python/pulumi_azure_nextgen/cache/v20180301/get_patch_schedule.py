@@ -20,7 +20,10 @@ class GetPatchScheduleResult:
     """
     Response to put/get patch schedules for Redis cache.
     """
-    def __init__(__self__, name=None, schedule_entries=None, type=None):
+    def __init__(__self__, id=None, name=None, schedule_entries=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -30,6 +33,14 @@ class GetPatchScheduleResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -62,6 +73,7 @@ class AwaitableGetPatchScheduleResult(GetPatchScheduleResult):
         if False:
             yield self
         return GetPatchScheduleResult(
+            id=self.id,
             name=self.name,
             schedule_entries=self.schedule_entries,
             type=self.type)
@@ -89,6 +101,7 @@ def get_patch_schedule(default: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:cache/v20180301:getPatchSchedule', __args__, opts=opts, typ=GetPatchScheduleResult).value
 
     return AwaitableGetPatchScheduleResult(
+        id=__ret__.id,
         name=__ret__.name,
         schedule_entries=__ret__.schedule_entries,
         type=__ret__.type)

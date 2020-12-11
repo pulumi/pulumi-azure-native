@@ -20,7 +20,7 @@ class GetDiagnosticResult:
     """
     Diagnostic details.
     """
-    def __init__(__self__, always_log=None, backend=None, frontend=None, http_correlation_protocol=None, log_client_ip=None, logger_id=None, name=None, operation_name_format=None, sampling=None, type=None, verbosity=None):
+    def __init__(__self__, always_log=None, backend=None, frontend=None, http_correlation_protocol=None, id=None, log_client_ip=None, logger_id=None, name=None, operation_name_format=None, sampling=None, type=None, verbosity=None):
         if always_log and not isinstance(always_log, str):
             raise TypeError("Expected argument 'always_log' to be a str")
         pulumi.set(__self__, "always_log", always_log)
@@ -33,6 +33,9 @@ class GetDiagnosticResult:
         if http_correlation_protocol and not isinstance(http_correlation_protocol, str):
             raise TypeError("Expected argument 'http_correlation_protocol' to be a str")
         pulumi.set(__self__, "http_correlation_protocol", http_correlation_protocol)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if log_client_ip and not isinstance(log_client_ip, bool):
             raise TypeError("Expected argument 'log_client_ip' to be a bool")
         pulumi.set(__self__, "log_client_ip", log_client_ip)
@@ -86,6 +89,14 @@ class GetDiagnosticResult:
         Sets correlation protocol to use for Application Insights diagnostics.
         """
         return pulumi.get(self, "http_correlation_protocol")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="logClientIp")
@@ -154,6 +165,7 @@ class AwaitableGetDiagnosticResult(GetDiagnosticResult):
             backend=self.backend,
             frontend=self.frontend,
             http_correlation_protocol=self.http_correlation_protocol,
+            id=self.id,
             log_client_ip=self.log_client_ip,
             logger_id=self.logger_id,
             name=self.name,
@@ -189,6 +201,7 @@ def get_diagnostic(diagnostic_id: Optional[str] = None,
         backend=__ret__.backend,
         frontend=__ret__.frontend,
         http_correlation_protocol=__ret__.http_correlation_protocol,
+        id=__ret__.id,
         log_client_ip=__ret__.log_client_ip,
         logger_id=__ret__.logger_id,
         name=__ret__.name,

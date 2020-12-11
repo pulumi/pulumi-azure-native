@@ -20,7 +20,7 @@ class GetScalingPlanResult:
     """
     Represents a scaling plan definition.
     """
-    def __init__(__self__, description=None, exclusion_tag=None, friendly_name=None, host_pool_references=None, host_pool_type=None, location=None, name=None, schedules=None, tags=None, time_zone=None, type=None):
+    def __init__(__self__, description=None, exclusion_tag=None, friendly_name=None, host_pool_references=None, host_pool_type=None, id=None, location=None, name=None, schedules=None, tags=None, time_zone=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -36,6 +36,9 @@ class GetScalingPlanResult:
         if host_pool_type and not isinstance(host_pool_type, str):
             raise TypeError("Expected argument 'host_pool_type' to be a str")
         pulumi.set(__self__, "host_pool_type", host_pool_type)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -97,6 +100,14 @@ class GetScalingPlanResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def location(self) -> str:
         """
         The geo-location where the resource lives
@@ -155,6 +166,7 @@ class AwaitableGetScalingPlanResult(GetScalingPlanResult):
             friendly_name=self.friendly_name,
             host_pool_references=self.host_pool_references,
             host_pool_type=self.host_pool_type,
+            id=self.id,
             location=self.location,
             name=self.name,
             schedules=self.schedules,
@@ -187,6 +199,7 @@ def get_scaling_plan(resource_group_name: Optional[str] = None,
         friendly_name=__ret__.friendly_name,
         host_pool_references=__ret__.host_pool_references,
         host_pool_type=__ret__.host_pool_type,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         schedules=__ret__.schedules,

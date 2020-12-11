@@ -20,7 +20,7 @@ class GetExpressRouteCircuitResult:
     """
     ExpressRouteCircuit resource
     """
-    def __init__(__self__, authorizations=None, circuit_provisioning_state=None, etag=None, location=None, name=None, peerings=None, provisioning_state=None, service_key=None, service_provider_notes=None, service_provider_properties=None, service_provider_provisioning_state=None, sku=None, tags=None, type=None):
+    def __init__(__self__, authorizations=None, circuit_provisioning_state=None, etag=None, id=None, location=None, name=None, peerings=None, provisioning_state=None, service_key=None, service_provider_notes=None, service_provider_properties=None, service_provider_provisioning_state=None, sku=None, tags=None, type=None):
         if authorizations and not isinstance(authorizations, list):
             raise TypeError("Expected argument 'authorizations' to be a list")
         pulumi.set(__self__, "authorizations", authorizations)
@@ -30,6 +30,9 @@ class GetExpressRouteCircuitResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -87,6 +90,14 @@ class GetExpressRouteCircuitResult:
         Gets a unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource Identifier.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -186,6 +197,7 @@ class AwaitableGetExpressRouteCircuitResult(GetExpressRouteCircuitResult):
             authorizations=self.authorizations,
             circuit_provisioning_state=self.circuit_provisioning_state,
             etag=self.etag,
+            id=self.id,
             location=self.location,
             name=self.name,
             peerings=self.peerings,
@@ -221,6 +233,7 @@ def get_express_route_circuit(circuit_name: Optional[str] = None,
         authorizations=__ret__.authorizations,
         circuit_provisioning_state=__ret__.circuit_provisioning_state,
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         peerings=__ret__.peerings,

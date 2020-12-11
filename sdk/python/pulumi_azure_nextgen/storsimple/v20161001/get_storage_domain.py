@@ -20,13 +20,16 @@ class GetStorageDomainResult:
     """
     The storage domain.
     """
-    def __init__(__self__, encryption_key=None, encryption_status=None, name=None, storage_account_credential_ids=None, type=None):
+    def __init__(__self__, encryption_key=None, encryption_status=None, id=None, name=None, storage_account_credential_ids=None, type=None):
         if encryption_key and not isinstance(encryption_key, dict):
             raise TypeError("Expected argument 'encryption_key' to be a dict")
         pulumi.set(__self__, "encryption_key", encryption_key)
         if encryption_status and not isinstance(encryption_status, str):
             raise TypeError("Expected argument 'encryption_status' to be a str")
         pulumi.set(__self__, "encryption_status", encryption_status)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -52,6 +55,14 @@ class GetStorageDomainResult:
         The encryption status "Enabled | Disabled".
         """
         return pulumi.get(self, "encryption_status")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -86,6 +97,7 @@ class AwaitableGetStorageDomainResult(GetStorageDomainResult):
         return GetStorageDomainResult(
             encryption_key=self.encryption_key,
             encryption_status=self.encryption_status,
+            id=self.id,
             name=self.name,
             storage_account_credential_ids=self.storage_account_credential_ids,
             type=self.type)
@@ -115,6 +127,7 @@ def get_storage_domain(manager_name: Optional[str] = None,
     return AwaitableGetStorageDomainResult(
         encryption_key=__ret__.encryption_key,
         encryption_status=__ret__.encryption_status,
+        id=__ret__.id,
         name=__ret__.name,
         storage_account_credential_ids=__ret__.storage_account_credential_ids,
         type=__ret__.type)

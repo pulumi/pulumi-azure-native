@@ -19,13 +19,16 @@ class GetLoggerResult:
     """
     Logger details.
     """
-    def __init__(__self__, credentials=None, description=None, is_buffered=None, logger_type=None, name=None, resource_id=None, type=None):
+    def __init__(__self__, credentials=None, description=None, id=None, is_buffered=None, logger_type=None, name=None, resource_id=None, type=None):
         if credentials and not isinstance(credentials, dict):
             raise TypeError("Expected argument 'credentials' to be a dict")
         pulumi.set(__self__, "credentials", credentials)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_buffered and not isinstance(is_buffered, bool):
             raise TypeError("Expected argument 'is_buffered' to be a bool")
         pulumi.set(__self__, "is_buffered", is_buffered)
@@ -58,6 +61,14 @@ class GetLoggerResult:
         Logger description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isBuffered")
@@ -108,6 +119,7 @@ class AwaitableGetLoggerResult(GetLoggerResult):
         return GetLoggerResult(
             credentials=self.credentials,
             description=self.description,
+            id=self.id,
             is_buffered=self.is_buffered,
             logger_type=self.logger_type,
             name=self.name,
@@ -139,6 +151,7 @@ def get_logger(logger_id: Optional[str] = None,
     return AwaitableGetLoggerResult(
         credentials=__ret__.credentials,
         description=__ret__.description,
+        id=__ret__.id,
         is_buffered=__ret__.is_buffered,
         logger_type=__ret__.logger_type,
         name=__ret__.name,

@@ -20,7 +20,10 @@ class GetReplicationResult:
     """
     An object that represents a replication for a container registry.
     """
-    def __init__(__self__, location=None, name=None, provisioning_state=None, region_endpoint_enabled=None, status=None, system_data=None, tags=None, type=None, zone_redundancy=None):
+    def __init__(__self__, id=None, location=None, name=None, provisioning_state=None, region_endpoint_enabled=None, status=None, system_data=None, tags=None, type=None, zone_redundancy=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -48,6 +51,14 @@ class GetReplicationResult:
         if zone_redundancy and not isinstance(zone_redundancy, str):
             raise TypeError("Expected argument 'zone_redundancy' to be a str")
         pulumi.set(__self__, "zone_redundancy", zone_redundancy)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -128,6 +139,7 @@ class AwaitableGetReplicationResult(GetReplicationResult):
         if False:
             yield self
         return GetReplicationResult(
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -161,6 +173,7 @@ def get_replication(registry_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:containerregistry/v20201101preview:getReplication', __args__, opts=opts, typ=GetReplicationResult).value
 
     return AwaitableGetReplicationResult(
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

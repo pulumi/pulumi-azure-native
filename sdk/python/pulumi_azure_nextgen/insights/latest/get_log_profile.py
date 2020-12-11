@@ -20,10 +20,13 @@ class GetLogProfileResult:
     """
     The log profile resource.
     """
-    def __init__(__self__, categories=None, location=None, locations=None, name=None, retention_policy=None, service_bus_rule_id=None, storage_account_id=None, tags=None, type=None):
+    def __init__(__self__, categories=None, id=None, location=None, locations=None, name=None, retention_policy=None, service_bus_rule_id=None, storage_account_id=None, tags=None, type=None):
         if categories and not isinstance(categories, list):
             raise TypeError("Expected argument 'categories' to be a list")
         pulumi.set(__self__, "categories", categories)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -56,6 +59,14 @@ class GetLogProfileResult:
         the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
         """
         return pulumi.get(self, "categories")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -129,6 +140,7 @@ class AwaitableGetLogProfileResult(GetLogProfileResult):
             yield self
         return GetLogProfileResult(
             categories=self.categories,
+            id=self.id,
             location=self.location,
             locations=self.locations,
             name=self.name,
@@ -156,6 +168,7 @@ def get_log_profile(log_profile_name: Optional[str] = None,
 
     return AwaitableGetLogProfileResult(
         categories=__ret__.categories,
+        id=__ret__.id,
         location=__ret__.location,
         locations=__ret__.locations,
         name=__ret__.name,

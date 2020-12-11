@@ -20,7 +20,7 @@ class GetBlobContainerResult:
     """
     Properties of the blob container, including Id, resource name, resource type, Etag.
     """
-    def __init__(__self__, default_encryption_scope=None, deleted=None, deleted_time=None, deny_encryption_scope_override=None, etag=None, has_immutability_policy=None, has_legal_hold=None, immutability_policy=None, last_modified_time=None, lease_duration=None, lease_state=None, lease_status=None, legal_hold=None, metadata=None, name=None, public_access=None, remaining_retention_days=None, type=None, version=None):
+    def __init__(__self__, default_encryption_scope=None, deleted=None, deleted_time=None, deny_encryption_scope_override=None, etag=None, has_immutability_policy=None, has_legal_hold=None, id=None, immutability_policy=None, last_modified_time=None, lease_duration=None, lease_state=None, lease_status=None, legal_hold=None, metadata=None, name=None, public_access=None, remaining_retention_days=None, type=None, version=None):
         if default_encryption_scope and not isinstance(default_encryption_scope, str):
             raise TypeError("Expected argument 'default_encryption_scope' to be a str")
         pulumi.set(__self__, "default_encryption_scope", default_encryption_scope)
@@ -42,6 +42,9 @@ class GetBlobContainerResult:
         if has_legal_hold and not isinstance(has_legal_hold, bool):
             raise TypeError("Expected argument 'has_legal_hold' to be a bool")
         pulumi.set(__self__, "has_legal_hold", has_legal_hold)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if immutability_policy and not isinstance(immutability_policy, dict):
             raise TypeError("Expected argument 'immutability_policy' to be a dict")
         pulumi.set(__self__, "immutability_policy", immutability_policy)
@@ -134,6 +137,14 @@ class GetBlobContainerResult:
         The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
         """
         return pulumi.get(self, "has_legal_hold")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="immutabilityPolicy")
@@ -245,6 +256,7 @@ class AwaitableGetBlobContainerResult(GetBlobContainerResult):
             etag=self.etag,
             has_immutability_policy=self.has_immutability_policy,
             has_legal_hold=self.has_legal_hold,
+            id=self.id,
             immutability_policy=self.immutability_policy,
             last_modified_time=self.last_modified_time,
             lease_duration=self.lease_duration,
@@ -288,6 +300,7 @@ def get_blob_container(account_name: Optional[str] = None,
         etag=__ret__.etag,
         has_immutability_policy=__ret__.has_immutability_policy,
         has_legal_hold=__ret__.has_legal_hold,
+        id=__ret__.id,
         immutability_policy=__ret__.immutability_policy,
         last_modified_time=__ret__.last_modified_time,
         lease_duration=__ret__.lease_duration,

@@ -20,7 +20,7 @@ class GetSchemaResult:
     """
     The integration account schema.
     """
-    def __init__(__self__, changed_time=None, content=None, content_link=None, content_type=None, created_time=None, document_name=None, file_name=None, location=None, metadata=None, name=None, schema_type=None, tags=None, target_namespace=None, type=None):
+    def __init__(__self__, changed_time=None, content=None, content_link=None, content_type=None, created_time=None, document_name=None, file_name=None, id=None, location=None, metadata=None, name=None, schema_type=None, tags=None, target_namespace=None, type=None):
         if changed_time and not isinstance(changed_time, str):
             raise TypeError("Expected argument 'changed_time' to be a str")
         pulumi.set(__self__, "changed_time", changed_time)
@@ -42,6 +42,9 @@ class GetSchemaResult:
         if file_name and not isinstance(file_name, str):
             raise TypeError("Expected argument 'file_name' to be a str")
         pulumi.set(__self__, "file_name", file_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -122,6 +125,14 @@ class GetSchemaResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[str]:
         """
         The resource location.
@@ -190,6 +201,7 @@ class AwaitableGetSchemaResult(GetSchemaResult):
             created_time=self.created_time,
             document_name=self.document_name,
             file_name=self.file_name,
+            id=self.id,
             location=self.location,
             metadata=self.metadata,
             name=self.name,
@@ -228,6 +240,7 @@ def get_schema(integration_account_name: Optional[str] = None,
         created_time=__ret__.created_time,
         document_name=__ret__.document_name,
         file_name=__ret__.file_name,
+        id=__ret__.id,
         location=__ret__.location,
         metadata=__ret__.metadata,
         name=__ret__.name,

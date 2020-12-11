@@ -20,13 +20,16 @@ class GetServiceUnitResult:
     """
     Represents the response of a service unit resource.
     """
-    def __init__(__self__, artifacts=None, deployment_mode=None, location=None, name=None, tags=None, target_resource_group=None, type=None):
+    def __init__(__self__, artifacts=None, deployment_mode=None, id=None, location=None, name=None, tags=None, target_resource_group=None, type=None):
         if artifacts and not isinstance(artifacts, dict):
             raise TypeError("Expected argument 'artifacts' to be a dict")
         pulumi.set(__self__, "artifacts", artifacts)
         if deployment_mode and not isinstance(deployment_mode, str):
             raise TypeError("Expected argument 'deployment_mode' to be a str")
         pulumi.set(__self__, "deployment_mode", deployment_mode)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -58,6 +61,14 @@ class GetServiceUnitResult:
         Describes the type of ARM deployment to be performed on the resource.
         """
         return pulumi.get(self, "deployment_mode")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -108,6 +119,7 @@ class AwaitableGetServiceUnitResult(GetServiceUnitResult):
         return GetServiceUnitResult(
             artifacts=self.artifacts,
             deployment_mode=self.deployment_mode,
+            id=self.id,
             location=self.location,
             name=self.name,
             tags=self.tags,
@@ -142,6 +154,7 @@ def get_service_unit(resource_group_name: Optional[str] = None,
     return AwaitableGetServiceUnitResult(
         artifacts=__ret__.artifacts,
         deployment_mode=__ret__.deployment_mode,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         tags=__ret__.tags,

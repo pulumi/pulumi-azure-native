@@ -20,7 +20,7 @@ class GetRuleResult:
     """
     Friendly Rules name mapping to the any Rules or secret related information.
     """
-    def __init__(__self__, actions=None, conditions=None, deployment_status=None, match_processing_behavior=None, name=None, order=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, actions=None, conditions=None, deployment_status=None, id=None, match_processing_behavior=None, name=None, order=None, provisioning_state=None, system_data=None, type=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
@@ -30,6 +30,9 @@ class GetRuleResult:
         if deployment_status and not isinstance(deployment_status, str):
             raise TypeError("Expected argument 'deployment_status' to be a str")
         pulumi.set(__self__, "deployment_status", deployment_status)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if match_processing_behavior and not isinstance(match_processing_behavior, str):
             raise TypeError("Expected argument 'match_processing_behavior' to be a str")
         pulumi.set(__self__, "match_processing_behavior", match_processing_behavior)
@@ -69,6 +72,14 @@ class GetRuleResult:
     @pulumi.getter(name="deploymentStatus")
     def deployment_status(self) -> str:
         return pulumi.get(self, "deployment_status")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="matchProcessingBehavior")
@@ -128,6 +139,7 @@ class AwaitableGetRuleResult(GetRuleResult):
             actions=self.actions,
             conditions=self.conditions,
             deployment_status=self.deployment_status,
+            id=self.id,
             match_processing_behavior=self.match_processing_behavior,
             name=self.name,
             order=self.order,
@@ -164,6 +176,7 @@ def get_rule(profile_name: Optional[str] = None,
         actions=__ret__.actions,
         conditions=__ret__.conditions,
         deployment_status=__ret__.deployment_status,
+        id=__ret__.id,
         match_processing_behavior=__ret__.match_processing_behavior,
         name=__ret__.name,
         order=__ret__.order,

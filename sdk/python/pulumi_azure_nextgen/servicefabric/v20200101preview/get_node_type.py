@@ -20,7 +20,7 @@ class GetNodeTypeResult:
     """
     Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
     """
-    def __init__(__self__, application_ports=None, capacities=None, data_disk_size_gb=None, ephemeral_ports=None, is_primary=None, name=None, placement_properties=None, provisioning_state=None, tags=None, type=None, vm_extensions=None, vm_image_offer=None, vm_image_publisher=None, vm_image_sku=None, vm_image_version=None, vm_instance_count=None, vm_secrets=None, vm_size=None):
+    def __init__(__self__, application_ports=None, capacities=None, data_disk_size_gb=None, ephemeral_ports=None, id=None, is_primary=None, name=None, placement_properties=None, provisioning_state=None, tags=None, type=None, vm_extensions=None, vm_image_offer=None, vm_image_publisher=None, vm_image_sku=None, vm_image_version=None, vm_instance_count=None, vm_secrets=None, vm_size=None):
         if application_ports and not isinstance(application_ports, dict):
             raise TypeError("Expected argument 'application_ports' to be a dict")
         pulumi.set(__self__, "application_ports", application_ports)
@@ -33,6 +33,9 @@ class GetNodeTypeResult:
         if ephemeral_ports and not isinstance(ephemeral_ports, dict):
             raise TypeError("Expected argument 'ephemeral_ports' to be a dict")
         pulumi.set(__self__, "ephemeral_ports", ephemeral_ports)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_primary and not isinstance(is_primary, bool):
             raise TypeError("Expected argument 'is_primary' to be a bool")
         pulumi.set(__self__, "is_primary", is_primary)
@@ -107,6 +110,14 @@ class GetNodeTypeResult:
         The range of ephemeral ports that nodes in this node type should be configured with.
         """
         return pulumi.get(self, "ephemeral_ports")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource identifier.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isPrimary")
@@ -231,6 +242,7 @@ class AwaitableGetNodeTypeResult(GetNodeTypeResult):
             capacities=self.capacities,
             data_disk_size_gb=self.data_disk_size_gb,
             ephemeral_ports=self.ephemeral_ports,
+            id=self.id,
             is_primary=self.is_primary,
             name=self.name,
             placement_properties=self.placement_properties,
@@ -273,6 +285,7 @@ def get_node_type(cluster_name: Optional[str] = None,
         capacities=__ret__.capacities,
         data_disk_size_gb=__ret__.data_disk_size_gb,
         ephemeral_ports=__ret__.ephemeral_ports,
+        id=__ret__.id,
         is_primary=__ret__.is_primary,
         name=__ret__.name,
         placement_properties=__ret__.placement_properties,

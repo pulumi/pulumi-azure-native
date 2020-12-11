@@ -20,10 +20,13 @@ class GetAccountResult:
     """
     An account data transfer object.
     """
-    def __init__(__self__, created_at=None, identity=None, location=None, name=None, provisioning_state=None, tags=None, type=None, user_email=None, user_name=None):
+    def __init__(__self__, created_at=None, id=None, identity=None, location=None, name=None, provisioning_state=None, tags=None, type=None, user_email=None, user_name=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -56,6 +59,14 @@ class GetAccountResult:
         Time at which the account was created.
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource id of the azure resource
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -129,6 +140,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             yield self
         return GetAccountResult(
             created_at=self.created_at,
+            id=self.id,
             identity=self.identity,
             location=self.location,
             name=self.name,
@@ -159,6 +171,7 @@ def get_account(account_name: Optional[str] = None,
 
     return AwaitableGetAccountResult(
         created_at=__ret__.created_at,
+        id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,

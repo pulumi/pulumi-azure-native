@@ -19,7 +19,10 @@ class GetSqlResourceSqlRoleAssignmentResult:
     """
     An Azure Cosmos DB Role Assignment
     """
-    def __init__(__self__, name=None, principal_id=None, role_definition_id=None, scope=None, type=None):
+    def __init__(__self__, id=None, name=None, principal_id=None, role_definition_id=None, scope=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -35,6 +38,14 @@ class GetSqlResourceSqlRoleAssignmentResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The unique resource identifier of the database account.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -83,6 +94,7 @@ class AwaitableGetSqlResourceSqlRoleAssignmentResult(GetSqlResourceSqlRoleAssign
         if False:
             yield self
         return GetSqlResourceSqlRoleAssignmentResult(
+            id=self.id,
             name=self.name,
             principal_id=self.principal_id,
             role_definition_id=self.role_definition_id,
@@ -112,6 +124,7 @@ def get_sql_resource_sql_role_assignment(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:documentdb/v20200601preview:getSqlResourceSqlRoleAssignment', __args__, opts=opts, typ=GetSqlResourceSqlRoleAssignmentResult).value
 
     return AwaitableGetSqlResourceSqlRoleAssignmentResult(
+        id=__ret__.id,
         name=__ret__.name,
         principal_id=__ret__.principal_id,
         role_definition_id=__ret__.role_definition_id,

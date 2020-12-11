@@ -20,7 +20,10 @@ class GetDeploymentResult:
     """
     Deployment resource payload
     """
-    def __init__(__self__, name=None, properties=None, sku=None, type=None):
+    def __init__(__self__, id=None, name=None, properties=None, sku=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -33,6 +36,14 @@ class GetDeploymentResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -73,6 +84,7 @@ class AwaitableGetDeploymentResult(GetDeploymentResult):
         if False:
             yield self
         return GetDeploymentResult(
+            id=self.id,
             name=self.name,
             properties=self.properties,
             sku=self.sku,
@@ -104,6 +116,7 @@ def get_deployment(app_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:appplatform/v20190501preview:getDeployment', __args__, opts=opts, typ=GetDeploymentResult).value
 
     return AwaitableGetDeploymentResult(
+        id=__ret__.id,
         name=__ret__.name,
         properties=__ret__.properties,
         sku=__ret__.sku,

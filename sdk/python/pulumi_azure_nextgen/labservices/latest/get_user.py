@@ -20,7 +20,7 @@ class GetUserResult:
     """
     The User registered to a lab
     """
-    def __init__(__self__, email=None, family_name=None, given_name=None, latest_operation_result=None, location=None, name=None, provisioning_state=None, tags=None, tenant_id=None, total_usage=None, type=None, unique_identifier=None):
+    def __init__(__self__, email=None, family_name=None, given_name=None, id=None, latest_operation_result=None, location=None, name=None, provisioning_state=None, tags=None, tenant_id=None, total_usage=None, type=None, unique_identifier=None):
         if email and not isinstance(email, str):
             raise TypeError("Expected argument 'email' to be a str")
         pulumi.set(__self__, "email", email)
@@ -30,6 +30,9 @@ class GetUserResult:
         if given_name and not isinstance(given_name, str):
             raise TypeError("Expected argument 'given_name' to be a str")
         pulumi.set(__self__, "given_name", given_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if latest_operation_result and not isinstance(latest_operation_result, dict):
             raise TypeError("Expected argument 'latest_operation_result' to be a dict")
         pulumi.set(__self__, "latest_operation_result", latest_operation_result)
@@ -81,6 +84,14 @@ class GetUserResult:
         The user given name, as it was specified during registration.
         """
         return pulumi.get(self, "given_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="latestOperationResult")
@@ -164,6 +175,7 @@ class AwaitableGetUserResult(GetUserResult):
             email=self.email,
             family_name=self.family_name,
             given_name=self.given_name,
+            id=self.id,
             latest_operation_result=self.latest_operation_result,
             location=self.location,
             name=self.name,
@@ -206,6 +218,7 @@ def get_user(expand: Optional[str] = None,
         email=__ret__.email,
         family_name=__ret__.family_name,
         given_name=__ret__.given_name,
+        id=__ret__.id,
         latest_operation_result=__ret__.latest_operation_result,
         location=__ret__.location,
         name=__ret__.name,

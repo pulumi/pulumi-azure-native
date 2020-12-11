@@ -19,7 +19,10 @@ class GetSqlServerRegistrationResult:
     """
     A SQL server registration.
     """
-    def __init__(__self__, location=None, name=None, property_bag=None, resource_group=None, subscription_id=None, tags=None, type=None):
+    def __init__(__self__, id=None, location=None, name=None, property_bag=None, resource_group=None, subscription_id=None, tags=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -41,6 +44,14 @@ class GetSqlServerRegistrationResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -105,6 +116,7 @@ class AwaitableGetSqlServerRegistrationResult(GetSqlServerRegistrationResult):
         if False:
             yield self
         return GetSqlServerRegistrationResult(
+            id=self.id,
             location=self.location,
             name=self.name,
             property_bag=self.property_bag,
@@ -133,6 +145,7 @@ def get_sql_server_registration(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:azuredata/v20170301preview:getSqlServerRegistration', __args__, opts=opts, typ=GetSqlServerRegistrationResult).value
 
     return AwaitableGetSqlServerRegistrationResult(
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         property_bag=__ret__.property_bag,

@@ -21,7 +21,7 @@ class GetTaskResult:
     The task that has the ARM resource and task properties. 
     The task will have all information to schedule a run against it.
     """
-    def __init__(__self__, agent_configuration=None, creation_date=None, credentials=None, location=None, name=None, platform=None, provisioning_state=None, status=None, step=None, tags=None, timeout=None, trigger=None, type=None):
+    def __init__(__self__, agent_configuration=None, creation_date=None, credentials=None, id=None, location=None, name=None, platform=None, provisioning_state=None, status=None, step=None, tags=None, timeout=None, trigger=None, type=None):
         if agent_configuration and not isinstance(agent_configuration, dict):
             raise TypeError("Expected argument 'agent_configuration' to be a dict")
         pulumi.set(__self__, "agent_configuration", agent_configuration)
@@ -31,6 +31,9 @@ class GetTaskResult:
         if credentials and not isinstance(credentials, dict):
             raise TypeError("Expected argument 'credentials' to be a dict")
         pulumi.set(__self__, "credentials", credentials)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -85,6 +88,14 @@ class GetTaskResult:
         The properties that describes a set of credentials that will be used when this run is invoked.
         """
         return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -176,6 +187,7 @@ class AwaitableGetTaskResult(GetTaskResult):
             agent_configuration=self.agent_configuration,
             creation_date=self.creation_date,
             credentials=self.credentials,
+            id=self.id,
             location=self.location,
             name=self.name,
             platform=self.platform,
@@ -213,6 +225,7 @@ def get_task(registry_name: Optional[str] = None,
         agent_configuration=__ret__.agent_configuration,
         creation_date=__ret__.creation_date,
         credentials=__ret__.credentials,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         platform=__ret__.platform,

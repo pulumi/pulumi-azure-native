@@ -20,13 +20,16 @@ class GetTransformResult:
     """
     A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
     """
-    def __init__(__self__, created=None, description=None, last_modified=None, name=None, outputs=None, type=None):
+    def __init__(__self__, created=None, description=None, id=None, last_modified=None, name=None, outputs=None, type=None):
         if created and not isinstance(created, str):
             raise TypeError("Expected argument 'created' to be a str")
         pulumi.set(__self__, "created", created)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_modified and not isinstance(last_modified, str):
             raise TypeError("Expected argument 'last_modified' to be a str")
         pulumi.set(__self__, "last_modified", last_modified)
@@ -55,6 +58,14 @@ class GetTransformResult:
         An optional verbose description of the Transform.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastModified")
@@ -97,6 +108,7 @@ class AwaitableGetTransformResult(GetTransformResult):
         return GetTransformResult(
             created=self.created,
             description=self.description,
+            id=self.id,
             last_modified=self.last_modified,
             name=self.name,
             outputs=self.outputs,
@@ -127,6 +139,7 @@ def get_transform(account_name: Optional[str] = None,
     return AwaitableGetTransformResult(
         created=__ret__.created,
         description=__ret__.description,
+        id=__ret__.id,
         last_modified=__ret__.last_modified,
         name=__ret__.name,
         outputs=__ret__.outputs,

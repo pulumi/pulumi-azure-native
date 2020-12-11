@@ -16,7 +16,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetWorkflowAccessKeyResult:
-    def __init__(__self__, name=None, not_after=None, not_before=None, type=None):
+    def __init__(__self__, id=None, name=None, not_after=None, not_before=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -29,6 +32,14 @@ class GetWorkflowAccessKeyResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Gets or sets the resource id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -69,6 +80,7 @@ class AwaitableGetWorkflowAccessKeyResult(GetWorkflowAccessKeyResult):
         if False:
             yield self
         return GetWorkflowAccessKeyResult(
+            id=self.id,
             name=self.name,
             not_after=self.not_after,
             not_before=self.not_before,
@@ -97,6 +109,7 @@ def get_workflow_access_key(access_key_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:logic/v20150201preview:getWorkflowAccessKey', __args__, opts=opts, typ=GetWorkflowAccessKeyResult).value
 
     return AwaitableGetWorkflowAccessKeyResult(
+        id=__ret__.id,
         name=__ret__.name,
         not_after=__ret__.not_after,
         not_before=__ret__.not_before,

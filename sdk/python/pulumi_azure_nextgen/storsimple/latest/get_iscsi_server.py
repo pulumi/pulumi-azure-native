@@ -19,7 +19,7 @@ class GetIscsiServerResult:
     """
     The iSCSI server.
     """
-    def __init__(__self__, backup_schedule_group_id=None, chap_id=None, description=None, name=None, reverse_chap_id=None, storage_domain_id=None, type=None):
+    def __init__(__self__, backup_schedule_group_id=None, chap_id=None, description=None, id=None, name=None, reverse_chap_id=None, storage_domain_id=None, type=None):
         if backup_schedule_group_id and not isinstance(backup_schedule_group_id, str):
             raise TypeError("Expected argument 'backup_schedule_group_id' to be a str")
         pulumi.set(__self__, "backup_schedule_group_id", backup_schedule_group_id)
@@ -29,6 +29,9 @@ class GetIscsiServerResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -65,6 +68,14 @@ class GetIscsiServerResult:
         The description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -108,6 +119,7 @@ class AwaitableGetIscsiServerResult(GetIscsiServerResult):
             backup_schedule_group_id=self.backup_schedule_group_id,
             chap_id=self.chap_id,
             description=self.description,
+            id=self.id,
             name=self.name,
             reverse_chap_id=self.reverse_chap_id,
             storage_domain_id=self.storage_domain_id,
@@ -142,6 +154,7 @@ def get_iscsi_server(device_name: Optional[str] = None,
         backup_schedule_group_id=__ret__.backup_schedule_group_id,
         chap_id=__ret__.chap_id,
         description=__ret__.description,
+        id=__ret__.id,
         name=__ret__.name,
         reverse_chap_id=__ret__.reverse_chap_id,
         storage_domain_id=__ret__.storage_domain_id,

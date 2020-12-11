@@ -20,10 +20,13 @@ class GetIntegrationRuntimeResult:
     """
     Integration runtime resource type.
     """
-    def __init__(__self__, etag=None, name=None, properties=None, type=None):
+    def __init__(__self__, etag=None, id=None, name=None, properties=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -41,6 +44,14 @@ class GetIntegrationRuntimeResult:
         Resource Etag.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -74,6 +85,7 @@ class AwaitableGetIntegrationRuntimeResult(GetIntegrationRuntimeResult):
             yield self
         return GetIntegrationRuntimeResult(
             etag=self.etag,
+            id=self.id,
             name=self.name,
             properties=self.properties,
             type=self.type)
@@ -102,6 +114,7 @@ def get_integration_runtime(integration_runtime_name: Optional[str] = None,
 
     return AwaitableGetIntegrationRuntimeResult(
         etag=__ret__.etag,
+        id=__ret__.id,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)

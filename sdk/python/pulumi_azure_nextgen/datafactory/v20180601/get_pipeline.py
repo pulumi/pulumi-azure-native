@@ -20,7 +20,7 @@ class GetPipelineResult:
     """
     Pipeline resource type.
     """
-    def __init__(__self__, activities=None, annotations=None, concurrency=None, description=None, etag=None, folder=None, name=None, parameters=None, run_dimensions=None, type=None, variables=None):
+    def __init__(__self__, activities=None, annotations=None, concurrency=None, description=None, etag=None, folder=None, id=None, name=None, parameters=None, run_dimensions=None, type=None, variables=None):
         if activities and not isinstance(activities, list):
             raise TypeError("Expected argument 'activities' to be a list")
         pulumi.set(__self__, "activities", activities)
@@ -39,6 +39,9 @@ class GetPipelineResult:
         if folder and not isinstance(folder, dict):
             raise TypeError("Expected argument 'folder' to be a dict")
         pulumi.set(__self__, "folder", folder)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -105,6 +108,14 @@ class GetPipelineResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource identifier.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         The resource name.
@@ -156,6 +167,7 @@ class AwaitableGetPipelineResult(GetPipelineResult):
             description=self.description,
             etag=self.etag,
             folder=self.folder,
+            id=self.id,
             name=self.name,
             parameters=self.parameters,
             run_dimensions=self.run_dimensions,
@@ -191,6 +203,7 @@ def get_pipeline(factory_name: Optional[str] = None,
         description=__ret__.description,
         etag=__ret__.etag,
         folder=__ret__.folder,
+        id=__ret__.id,
         name=__ret__.name,
         parameters=__ret__.parameters,
         run_dimensions=__ret__.run_dimensions,

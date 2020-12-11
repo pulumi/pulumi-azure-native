@@ -20,10 +20,13 @@ class GetZoneResult:
     """
     Describes a DNS zone.
     """
-    def __init__(__self__, etag=None, location=None, max_number_of_record_sets=None, max_number_of_records_per_record_set=None, name=None, name_servers=None, number_of_record_sets=None, registration_virtual_networks=None, resolution_virtual_networks=None, tags=None, type=None, zone_type=None):
+    def __init__(__self__, etag=None, id=None, location=None, max_number_of_record_sets=None, max_number_of_records_per_record_set=None, name=None, name_servers=None, number_of_record_sets=None, registration_virtual_networks=None, resolution_virtual_networks=None, tags=None, type=None, zone_type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -65,6 +68,14 @@ class GetZoneResult:
         The etag of the zone.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -162,6 +173,7 @@ class AwaitableGetZoneResult(GetZoneResult):
             yield self
         return GetZoneResult(
             etag=self.etag,
+            id=self.id,
             location=self.location,
             max_number_of_record_sets=self.max_number_of_record_sets,
             max_number_of_records_per_record_set=self.max_number_of_records_per_record_set,
@@ -195,6 +207,7 @@ def get_zone(resource_group_name: Optional[str] = None,
 
     return AwaitableGetZoneResult(
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         max_number_of_record_sets=__ret__.max_number_of_record_sets,
         max_number_of_records_per_record_set=__ret__.max_number_of_records_per_record_set,

@@ -20,7 +20,7 @@ class GetBatchAccountResult:
     """
     Contains information about an Azure Batch account.
     """
-    def __init__(__self__, account_endpoint=None, active_job_and_job_schedule_quota=None, auto_storage=None, dedicated_core_quota=None, dedicated_core_quota_per_vm_family=None, dedicated_core_quota_per_vm_family_enforced=None, key_vault_reference=None, location=None, low_priority_core_quota=None, name=None, pool_allocation_mode=None, pool_quota=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, account_endpoint=None, active_job_and_job_schedule_quota=None, auto_storage=None, dedicated_core_quota=None, dedicated_core_quota_per_vm_family=None, dedicated_core_quota_per_vm_family_enforced=None, id=None, key_vault_reference=None, location=None, low_priority_core_quota=None, name=None, pool_allocation_mode=None, pool_quota=None, provisioning_state=None, tags=None, type=None):
         if account_endpoint and not isinstance(account_endpoint, str):
             raise TypeError("Expected argument 'account_endpoint' to be a str")
         pulumi.set(__self__, "account_endpoint", account_endpoint)
@@ -39,6 +39,9 @@ class GetBatchAccountResult:
         if dedicated_core_quota_per_vm_family_enforced and not isinstance(dedicated_core_quota_per_vm_family_enforced, bool):
             raise TypeError("Expected argument 'dedicated_core_quota_per_vm_family_enforced' to be a bool")
         pulumi.set(__self__, "dedicated_core_quota_per_vm_family_enforced", dedicated_core_quota_per_vm_family_enforced)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if key_vault_reference and not isinstance(key_vault_reference, dict):
             raise TypeError("Expected argument 'key_vault_reference' to be a dict")
         pulumi.set(__self__, "key_vault_reference", key_vault_reference)
@@ -111,6 +114,14 @@ class GetBatchAccountResult:
         Batch is transitioning its core quota system for dedicated cores to be enforced per Virtual Machine family. During this transitional phase, the dedicated core quota per Virtual Machine family may not yet be enforced. If this flag is false, dedicated core quota is enforced via the old dedicatedCoreQuota property on the account and does not consider Virtual Machine family. If this flag is true, dedicated core quota is enforced via the dedicatedCoreQuotaPerVMFamily property on the account, and the old dedicatedCoreQuota does not apply.
         """
         return pulumi.get(self, "dedicated_core_quota_per_vm_family_enforced")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="keyVaultReference")
@@ -194,6 +205,7 @@ class AwaitableGetBatchAccountResult(GetBatchAccountResult):
             dedicated_core_quota=self.dedicated_core_quota,
             dedicated_core_quota_per_vm_family=self.dedicated_core_quota_per_vm_family,
             dedicated_core_quota_per_vm_family_enforced=self.dedicated_core_quota_per_vm_family_enforced,
+            id=self.id,
             key_vault_reference=self.key_vault_reference,
             location=self.location,
             low_priority_core_quota=self.low_priority_core_quota,
@@ -230,6 +242,7 @@ def get_batch_account(account_name: Optional[str] = None,
         dedicated_core_quota=__ret__.dedicated_core_quota,
         dedicated_core_quota_per_vm_family=__ret__.dedicated_core_quota_per_vm_family,
         dedicated_core_quota_per_vm_family_enforced=__ret__.dedicated_core_quota_per_vm_family_enforced,
+        id=__ret__.id,
         key_vault_reference=__ret__.key_vault_reference,
         location=__ret__.location,
         low_priority_core_quota=__ret__.low_priority_core_quota,

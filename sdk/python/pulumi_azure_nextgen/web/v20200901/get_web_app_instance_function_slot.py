@@ -20,7 +20,7 @@ class GetWebAppInstanceFunctionSlotResult:
     """
     Function information.
     """
-    def __init__(__self__, config=None, config_href=None, files=None, function_app_id=None, href=None, invoke_url_template=None, is_disabled=None, kind=None, language=None, name=None, script_href=None, script_root_path_href=None, secrets_file_href=None, system_data=None, test_data=None, test_data_href=None, type=None):
+    def __init__(__self__, config=None, config_href=None, files=None, function_app_id=None, href=None, id=None, invoke_url_template=None, is_disabled=None, kind=None, language=None, name=None, script_href=None, script_root_path_href=None, secrets_file_href=None, system_data=None, test_data=None, test_data_href=None, type=None):
         if config and not isinstance(config, dict):
             raise TypeError("Expected argument 'config' to be a dict")
         pulumi.set(__self__, "config", config)
@@ -36,6 +36,9 @@ class GetWebAppInstanceFunctionSlotResult:
         if href and not isinstance(href, str):
             raise TypeError("Expected argument 'href' to be a str")
         pulumi.set(__self__, "href", href)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if invoke_url_template and not isinstance(invoke_url_template, str):
             raise TypeError("Expected argument 'invoke_url_template' to be a str")
         pulumi.set(__self__, "invoke_url_template", invoke_url_template)
@@ -112,6 +115,14 @@ class GetWebAppInstanceFunctionSlotResult:
         Function URI.
         """
         return pulumi.get(self, "href")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="invokeUrlTemplate")
@@ -221,6 +232,7 @@ class AwaitableGetWebAppInstanceFunctionSlotResult(GetWebAppInstanceFunctionSlot
             files=self.files,
             function_app_id=self.function_app_id,
             href=self.href,
+            id=self.id,
             invoke_url_template=self.invoke_url_template,
             is_disabled=self.is_disabled,
             kind=self.kind,
@@ -265,6 +277,7 @@ def get_web_app_instance_function_slot(function_name: Optional[str] = None,
         files=__ret__.files,
         function_app_id=__ret__.function_app_id,
         href=__ret__.href,
+        id=__ret__.id,
         invoke_url_template=__ret__.invoke_url_template,
         is_disabled=__ret__.is_disabled,
         kind=__ret__.kind,

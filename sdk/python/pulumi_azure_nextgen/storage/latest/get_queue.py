@@ -16,10 +16,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetQueueResult:
-    def __init__(__self__, approximate_message_count=None, metadata=None, name=None, type=None):
+    def __init__(__self__, approximate_message_count=None, id=None, metadata=None, name=None, type=None):
         if approximate_message_count and not isinstance(approximate_message_count, int):
             raise TypeError("Expected argument 'approximate_message_count' to be a int")
         pulumi.set(__self__, "approximate_message_count", approximate_message_count)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if metadata and not isinstance(metadata, dict):
             raise TypeError("Expected argument 'metadata' to be a dict")
         pulumi.set(__self__, "metadata", metadata)
@@ -37,6 +40,14 @@ class GetQueueResult:
         Integer indicating an approximate number of messages in the queue. This number is not lower than the actual number of messages in the queue, but could be higher.
         """
         return pulumi.get(self, "approximate_message_count")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -70,6 +81,7 @@ class AwaitableGetQueueResult(GetQueueResult):
             yield self
         return GetQueueResult(
             approximate_message_count=self.approximate_message_count,
+            id=self.id,
             metadata=self.metadata,
             name=self.name,
             type=self.type)
@@ -98,6 +110,7 @@ def get_queue(account_name: Optional[str] = None,
 
     return AwaitableGetQueueResult(
         approximate_message_count=__ret__.approximate_message_count,
+        id=__ret__.id,
         metadata=__ret__.metadata,
         name=__ret__.name,
         type=__ret__.type)

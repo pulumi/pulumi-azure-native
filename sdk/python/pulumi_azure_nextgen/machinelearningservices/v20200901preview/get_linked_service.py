@@ -20,7 +20,10 @@ class GetLinkedServiceResult:
     """
     Linked service.
     """
-    def __init__(__self__, identity=None, location=None, name=None, properties=None, type=None):
+    def __init__(__self__, id=None, identity=None, location=None, name=None, properties=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -36,6 +39,14 @@ class GetLinkedServiceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        ResourceId of the link of the linked service.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -84,6 +95,7 @@ class AwaitableGetLinkedServiceResult(GetLinkedServiceResult):
         if False:
             yield self
         return GetLinkedServiceResult(
+            id=self.id,
             identity=self.identity,
             location=self.location,
             name=self.name,
@@ -113,6 +125,7 @@ def get_linked_service(link_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:machinelearningservices/v20200901preview:getLinkedService', __args__, opts=opts, typ=GetLinkedServiceResult).value
 
     return AwaitableGetLinkedServiceResult(
+        id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,

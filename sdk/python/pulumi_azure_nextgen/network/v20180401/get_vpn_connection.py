@@ -20,7 +20,7 @@ class GetVpnConnectionResult:
     """
     VpnConnection Resource.
     """
-    def __init__(__self__, connection_bandwidth=None, connection_status=None, egress_bytes_transferred=None, enable_bgp=None, etag=None, ingress_bytes_transferred=None, ipsec_policies=None, name=None, provisioning_state=None, remote_vpn_site=None, routing_weight=None, shared_key=None):
+    def __init__(__self__, connection_bandwidth=None, connection_status=None, egress_bytes_transferred=None, enable_bgp=None, etag=None, id=None, ingress_bytes_transferred=None, ipsec_policies=None, name=None, provisioning_state=None, remote_vpn_site=None, routing_weight=None, shared_key=None):
         if connection_bandwidth and not isinstance(connection_bandwidth, int):
             raise TypeError("Expected argument 'connection_bandwidth' to be a int")
         pulumi.set(__self__, "connection_bandwidth", connection_bandwidth)
@@ -36,6 +36,9 @@ class GetVpnConnectionResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if ingress_bytes_transferred and not isinstance(ingress_bytes_transferred, int):
             raise TypeError("Expected argument 'ingress_bytes_transferred' to be a int")
         pulumi.set(__self__, "ingress_bytes_transferred", ingress_bytes_transferred)
@@ -97,6 +100,14 @@ class GetVpnConnectionResult:
         Gets a unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ingressBytesTransferred")
@@ -166,6 +177,7 @@ class AwaitableGetVpnConnectionResult(GetVpnConnectionResult):
             egress_bytes_transferred=self.egress_bytes_transferred,
             enable_bgp=self.enable_bgp,
             etag=self.etag,
+            id=self.id,
             ingress_bytes_transferred=self.ingress_bytes_transferred,
             ipsec_policies=self.ipsec_policies,
             name=self.name,
@@ -202,6 +214,7 @@ def get_vpn_connection(connection_name: Optional[str] = None,
         egress_bytes_transferred=__ret__.egress_bytes_transferred,
         enable_bgp=__ret__.enable_bgp,
         etag=__ret__.etag,
+        id=__ret__.id,
         ingress_bytes_transferred=__ret__.ingress_bytes_transferred,
         ipsec_policies=__ret__.ipsec_policies,
         name=__ret__.name,

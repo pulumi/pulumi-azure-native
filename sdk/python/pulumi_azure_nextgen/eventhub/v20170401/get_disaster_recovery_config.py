@@ -19,10 +19,13 @@ class GetDisasterRecoveryConfigResult:
     """
     Single item in List or Get Alias(Disaster Recovery configuration) operation
     """
-    def __init__(__self__, alternate_name=None, name=None, partner_namespace=None, pending_replication_operations_count=None, provisioning_state=None, role=None, type=None):
+    def __init__(__self__, alternate_name=None, id=None, name=None, partner_namespace=None, pending_replication_operations_count=None, provisioning_state=None, role=None, type=None):
         if alternate_name and not isinstance(alternate_name, str):
             raise TypeError("Expected argument 'alternate_name' to be a str")
         pulumi.set(__self__, "alternate_name", alternate_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -49,6 +52,14 @@ class GetDisasterRecoveryConfigResult:
         Alternate name specified when alias and namespace names are same.
         """
         return pulumi.get(self, "alternate_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -106,6 +117,7 @@ class AwaitableGetDisasterRecoveryConfigResult(GetDisasterRecoveryConfigResult):
             yield self
         return GetDisasterRecoveryConfigResult(
             alternate_name=self.alternate_name,
+            id=self.id,
             name=self.name,
             partner_namespace=self.partner_namespace,
             pending_replication_operations_count=self.pending_replication_operations_count,
@@ -137,6 +149,7 @@ def get_disaster_recovery_config(alias: Optional[str] = None,
 
     return AwaitableGetDisasterRecoveryConfigResult(
         alternate_name=__ret__.alternate_name,
+        id=__ret__.id,
         name=__ret__.name,
         partner_namespace=__ret__.partner_namespace,
         pending_replication_operations_count=__ret__.pending_replication_operations_count,

@@ -20,13 +20,16 @@ class GetLinkResult:
     """
     The link resource format.
     """
-    def __init__(__self__, description=None, display_name=None, link_name=None, mappings=None, name=None, operation_type=None, participant_property_references=None, provisioning_state=None, reference_only=None, source_entity_type=None, source_entity_type_name=None, target_entity_type=None, target_entity_type_name=None, tenant_id=None, type=None):
+    def __init__(__self__, description=None, display_name=None, id=None, link_name=None, mappings=None, name=None, operation_type=None, participant_property_references=None, provisioning_state=None, reference_only=None, source_entity_type=None, source_entity_type_name=None, target_entity_type=None, target_entity_type_name=None, tenant_id=None, type=None):
         if description and not isinstance(description, dict):
             raise TypeError("Expected argument 'description' to be a dict")
         pulumi.set(__self__, "description", description)
         if display_name and not isinstance(display_name, dict):
             raise TypeError("Expected argument 'display_name' to be a dict")
         pulumi.set(__self__, "display_name", display_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if link_name and not isinstance(link_name, str):
             raise TypeError("Expected argument 'link_name' to be a str")
         pulumi.set(__self__, "link_name", link_name)
@@ -82,6 +85,14 @@ class GetLinkResult:
         Localized display name for the Link.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="linkName")
@@ -196,6 +207,7 @@ class AwaitableGetLinkResult(GetLinkResult):
         return GetLinkResult(
             description=self.description,
             display_name=self.display_name,
+            id=self.id,
             link_name=self.link_name,
             mappings=self.mappings,
             name=self.name,
@@ -235,6 +247,7 @@ def get_link(hub_name: Optional[str] = None,
     return AwaitableGetLinkResult(
         description=__ret__.description,
         display_name=__ret__.display_name,
+        id=__ret__.id,
         link_name=__ret__.link_name,
         mappings=__ret__.mappings,
         name=__ret__.name,

@@ -19,7 +19,7 @@ class ListWebAppAuthSettingsSlotResult:
     """
     Configuration settings for the Azure App Service Authentication / Authorization feature.
     """
-    def __init__(__self__, additional_login_params=None, allowed_audiences=None, allowed_external_redirect_urls=None, client_id=None, client_secret=None, client_secret_certificate_thumbprint=None, default_provider=None, enabled=None, facebook_app_id=None, facebook_app_secret=None, facebook_o_auth_scopes=None, google_client_id=None, google_client_secret=None, google_o_auth_scopes=None, issuer=None, kind=None, microsoft_account_client_id=None, microsoft_account_client_secret=None, microsoft_account_o_auth_scopes=None, name=None, runtime_version=None, token_refresh_extension_hours=None, token_store_enabled=None, twitter_consumer_key=None, twitter_consumer_secret=None, type=None, unauthenticated_client_action=None, validate_issuer=None):
+    def __init__(__self__, additional_login_params=None, allowed_audiences=None, allowed_external_redirect_urls=None, client_id=None, client_secret=None, client_secret_certificate_thumbprint=None, default_provider=None, enabled=None, facebook_app_id=None, facebook_app_secret=None, facebook_o_auth_scopes=None, google_client_id=None, google_client_secret=None, google_o_auth_scopes=None, id=None, issuer=None, kind=None, microsoft_account_client_id=None, microsoft_account_client_secret=None, microsoft_account_o_auth_scopes=None, name=None, runtime_version=None, token_refresh_extension_hours=None, token_store_enabled=None, twitter_consumer_key=None, twitter_consumer_secret=None, type=None, unauthenticated_client_action=None, validate_issuer=None):
         if additional_login_params and not isinstance(additional_login_params, list):
             raise TypeError("Expected argument 'additional_login_params' to be a list")
         pulumi.set(__self__, "additional_login_params", additional_login_params)
@@ -62,6 +62,9 @@ class ListWebAppAuthSettingsSlotResult:
         if google_o_auth_scopes and not isinstance(google_o_auth_scopes, list):
             raise TypeError("Expected argument 'google_o_auth_scopes' to be a list")
         pulumi.set(__self__, "google_o_auth_scopes", google_o_auth_scopes)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if issuer and not isinstance(issuer, str):
             raise TypeError("Expected argument 'issuer' to be a str")
         pulumi.set(__self__, "issuer", issuer)
@@ -245,6 +248,14 @@ class ListWebAppAuthSettingsSlotResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def issuer(self) -> Optional[str]:
         """
         The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
@@ -392,6 +403,7 @@ class AwaitableListWebAppAuthSettingsSlotResult(ListWebAppAuthSettingsSlotResult
             google_client_id=self.google_client_id,
             google_client_secret=self.google_client_secret,
             google_o_auth_scopes=self.google_o_auth_scopes,
+            id=self.id,
             issuer=self.issuer,
             kind=self.kind,
             microsoft_account_client_id=self.microsoft_account_client_id,
@@ -444,6 +456,7 @@ def list_web_app_auth_settings_slot(name: Optional[str] = None,
         google_client_id=__ret__.google_client_id,
         google_client_secret=__ret__.google_client_secret,
         google_o_auth_scopes=__ret__.google_o_auth_scopes,
+        id=__ret__.id,
         issuer=__ret__.issuer,
         kind=__ret__.kind,
         microsoft_account_client_id=__ret__.microsoft_account_client_id,

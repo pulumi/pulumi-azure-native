@@ -20,13 +20,16 @@ class GetEventHubResult:
     """
     Single item in List or Get Event Hub operation
     """
-    def __init__(__self__, capture_description=None, created_at=None, message_retention_in_days=None, name=None, partition_count=None, partition_ids=None, status=None, type=None, updated_at=None):
+    def __init__(__self__, capture_description=None, created_at=None, id=None, message_retention_in_days=None, name=None, partition_count=None, partition_ids=None, status=None, type=None, updated_at=None):
         if capture_description and not isinstance(capture_description, dict):
             raise TypeError("Expected argument 'capture_description' to be a dict")
         pulumi.set(__self__, "capture_description", capture_description)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if message_retention_in_days and not isinstance(message_retention_in_days, int):
             raise TypeError("Expected argument 'message_retention_in_days' to be a int")
         pulumi.set(__self__, "message_retention_in_days", message_retention_in_days)
@@ -64,6 +67,14 @@ class GetEventHubResult:
         Exact time the Event Hub was created.
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="messageRetentionInDays")
@@ -130,6 +141,7 @@ class AwaitableGetEventHubResult(GetEventHubResult):
         return GetEventHubResult(
             capture_description=self.capture_description,
             created_at=self.created_at,
+            id=self.id,
             message_retention_in_days=self.message_retention_in_days,
             name=self.name,
             partition_count=self.partition_count,
@@ -163,6 +175,7 @@ def get_event_hub(event_hub_name: Optional[str] = None,
     return AwaitableGetEventHubResult(
         capture_description=__ret__.capture_description,
         created_at=__ret__.created_at,
+        id=__ret__.id,
         message_retention_in_days=__ret__.message_retention_in_days,
         name=__ret__.name,
         partition_count=__ret__.partition_count,

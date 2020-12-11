@@ -19,13 +19,16 @@ class GetDatabaseResult:
     """
     Represents a Database.
     """
-    def __init__(__self__, charset=None, collation=None, name=None, type=None):
+    def __init__(__self__, charset=None, collation=None, id=None, name=None, type=None):
         if charset and not isinstance(charset, str):
             raise TypeError("Expected argument 'charset' to be a str")
         pulumi.set(__self__, "charset", charset)
         if collation and not isinstance(collation, str):
             raise TypeError("Expected argument 'collation' to be a str")
         pulumi.set(__self__, "collation", collation)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -48,6 +51,14 @@ class GetDatabaseResult:
         The collation of the database.
         """
         return pulumi.get(self, "collation")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -74,6 +85,7 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
         return GetDatabaseResult(
             charset=self.charset,
             collation=self.collation,
+            id=self.id,
             name=self.name,
             type=self.type)
 
@@ -102,5 +114,6 @@ def get_database(database_name: Optional[str] = None,
     return AwaitableGetDatabaseResult(
         charset=__ret__.charset,
         collation=__ret__.collation,
+        id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type)

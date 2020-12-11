@@ -19,7 +19,7 @@ class GetApplicationResult:
     """
     Schema for Application properties.
     """
-    def __init__(__self__, command_line_arguments=None, command_line_setting=None, description=None, file_path=None, friendly_name=None, icon_content=None, icon_hash=None, icon_index=None, icon_path=None, name=None, show_in_portal=None, type=None):
+    def __init__(__self__, command_line_arguments=None, command_line_setting=None, description=None, file_path=None, friendly_name=None, icon_content=None, icon_hash=None, icon_index=None, icon_path=None, id=None, name=None, show_in_portal=None, type=None):
         if command_line_arguments and not isinstance(command_line_arguments, str):
             raise TypeError("Expected argument 'command_line_arguments' to be a str")
         pulumi.set(__self__, "command_line_arguments", command_line_arguments)
@@ -47,6 +47,9 @@ class GetApplicationResult:
         if icon_path and not isinstance(icon_path, str):
             raise TypeError("Expected argument 'icon_path' to be a str")
         pulumi.set(__self__, "icon_path", icon_path)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -131,6 +134,14 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         The name of the resource
@@ -169,6 +180,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             icon_hash=self.icon_hash,
             icon_index=self.icon_index,
             icon_path=self.icon_path,
+            id=self.id,
             name=self.name,
             show_in_portal=self.show_in_portal,
             type=self.type)
@@ -205,6 +217,7 @@ def get_application(application_group_name: Optional[str] = None,
         icon_hash=__ret__.icon_hash,
         icon_index=__ret__.icon_index,
         icon_path=__ret__.icon_path,
+        id=__ret__.id,
         name=__ret__.name,
         show_in_portal=__ret__.show_in_portal,
         type=__ret__.type)

@@ -20,7 +20,7 @@ class GetVirtualWanResult:
     """
     VirtualWAN Resource.
     """
-    def __init__(__self__, allow_branch_to_branch_traffic=None, allow_vnet_to_vnet_traffic=None, disable_vpn_encryption=None, etag=None, location=None, name=None, office365_local_breakout_category=None, provisioning_state=None, tags=None, type=None, virtual_hubs=None, vpn_sites=None):
+    def __init__(__self__, allow_branch_to_branch_traffic=None, allow_vnet_to_vnet_traffic=None, disable_vpn_encryption=None, etag=None, id=None, location=None, name=None, office365_local_breakout_category=None, provisioning_state=None, tags=None, type=None, virtual_hubs=None, vpn_sites=None):
         if allow_branch_to_branch_traffic and not isinstance(allow_branch_to_branch_traffic, bool):
             raise TypeError("Expected argument 'allow_branch_to_branch_traffic' to be a bool")
         pulumi.set(__self__, "allow_branch_to_branch_traffic", allow_branch_to_branch_traffic)
@@ -33,6 +33,9 @@ class GetVirtualWanResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -89,6 +92,14 @@ class GetVirtualWanResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -165,6 +176,7 @@ class AwaitableGetVirtualWanResult(GetVirtualWanResult):
             allow_vnet_to_vnet_traffic=self.allow_vnet_to_vnet_traffic,
             disable_vpn_encryption=self.disable_vpn_encryption,
             etag=self.etag,
+            id=self.id,
             location=self.location,
             name=self.name,
             office365_local_breakout_category=self.office365_local_breakout_category,
@@ -198,6 +210,7 @@ def get_virtual_wan(resource_group_name: Optional[str] = None,
         allow_vnet_to_vnet_traffic=__ret__.allow_vnet_to_vnet_traffic,
         disable_vpn_encryption=__ret__.disable_vpn_encryption,
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         office365_local_breakout_category=__ret__.office365_local_breakout_category,

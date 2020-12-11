@@ -19,7 +19,7 @@ class GetElasticPoolResult:
     """
     Represents a database elastic pool.
     """
-    def __init__(__self__, creation_date=None, database_dtu_max=None, database_dtu_min=None, dtu=None, edition=None, kind=None, location=None, name=None, state=None, storage_mb=None, tags=None, type=None, zone_redundant=None):
+    def __init__(__self__, creation_date=None, database_dtu_max=None, database_dtu_min=None, dtu=None, edition=None, id=None, kind=None, location=None, name=None, state=None, storage_mb=None, tags=None, type=None, zone_redundant=None):
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
@@ -35,6 +35,9 @@ class GetElasticPoolResult:
         if edition and not isinstance(edition, str):
             raise TypeError("Expected argument 'edition' to be a str")
         pulumi.set(__self__, "edition", edition)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -99,6 +102,14 @@ class GetElasticPoolResult:
         The edition of the elastic pool.
         """
         return pulumi.get(self, "edition")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -176,6 +187,7 @@ class AwaitableGetElasticPoolResult(GetElasticPoolResult):
             database_dtu_min=self.database_dtu_min,
             dtu=self.dtu,
             edition=self.edition,
+            id=self.id,
             kind=self.kind,
             location=self.location,
             name=self.name,
@@ -213,6 +225,7 @@ def get_elastic_pool(elastic_pool_name: Optional[str] = None,
         database_dtu_min=__ret__.database_dtu_min,
         dtu=__ret__.dtu,
         edition=__ret__.edition,
+        id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,

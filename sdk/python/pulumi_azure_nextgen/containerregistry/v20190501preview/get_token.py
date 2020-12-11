@@ -20,13 +20,16 @@ class GetTokenResult:
     """
     An object that represents a token for a container registry.
     """
-    def __init__(__self__, creation_date=None, credentials=None, name=None, provisioning_state=None, scope_map_id=None, status=None, system_data=None, type=None):
+    def __init__(__self__, creation_date=None, credentials=None, id=None, name=None, provisioning_state=None, scope_map_id=None, status=None, system_data=None, type=None):
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
         if credentials and not isinstance(credentials, dict):
             raise TypeError("Expected argument 'credentials' to be a dict")
         pulumi.set(__self__, "credentials", credentials)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -61,6 +64,14 @@ class GetTokenResult:
         The credentials that can be used for authenticating the token.
         """
         return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -119,6 +130,7 @@ class AwaitableGetTokenResult(GetTokenResult):
         return GetTokenResult(
             creation_date=self.creation_date,
             credentials=self.credentials,
+            id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
             scope_map_id=self.scope_map_id,
@@ -151,6 +163,7 @@ def get_token(registry_name: Optional[str] = None,
     return AwaitableGetTokenResult(
         creation_date=__ret__.creation_date,
         credentials=__ret__.credentials,
+        id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         scope_map_id=__ret__.scope_map_id,

@@ -20,10 +20,13 @@ class GetLabAccountResult:
     """
     Represents a lab account.
     """
-    def __init__(__self__, enabled_region_selection=None, latest_operation_result=None, location=None, name=None, provisioning_state=None, size_configuration=None, tags=None, type=None, unique_identifier=None):
+    def __init__(__self__, enabled_region_selection=None, id=None, latest_operation_result=None, location=None, name=None, provisioning_state=None, size_configuration=None, tags=None, type=None, unique_identifier=None):
         if enabled_region_selection and not isinstance(enabled_region_selection, bool):
             raise TypeError("Expected argument 'enabled_region_selection' to be a bool")
         pulumi.set(__self__, "enabled_region_selection", enabled_region_selection)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if latest_operation_result and not isinstance(latest_operation_result, dict):
             raise TypeError("Expected argument 'latest_operation_result' to be a dict")
         pulumi.set(__self__, "latest_operation_result", latest_operation_result)
@@ -56,6 +59,14 @@ class GetLabAccountResult:
         Represents if region selection is enabled
         """
         return pulumi.get(self, "enabled_region_selection")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="latestOperationResult")
@@ -129,6 +140,7 @@ class AwaitableGetLabAccountResult(GetLabAccountResult):
             yield self
         return GetLabAccountResult(
             enabled_region_selection=self.enabled_region_selection,
+            id=self.id,
             latest_operation_result=self.latest_operation_result,
             location=self.location,
             name=self.name,
@@ -162,6 +174,7 @@ def get_lab_account(expand: Optional[str] = None,
 
     return AwaitableGetLabAccountResult(
         enabled_region_selection=__ret__.enabled_region_selection,
+        id=__ret__.id,
         latest_operation_result=__ret__.latest_operation_result,
         location=__ret__.location,
         name=__ret__.name,

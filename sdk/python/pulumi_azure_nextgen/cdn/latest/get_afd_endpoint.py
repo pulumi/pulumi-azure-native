@@ -20,7 +20,7 @@ class GetAFDEndpointResult:
     """
     CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format <endpointname>.azureedge.net.
     """
-    def __init__(__self__, deployment_status=None, enabled_state=None, host_name=None, location=None, name=None, origin_response_timeout_seconds=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, deployment_status=None, enabled_state=None, host_name=None, id=None, location=None, name=None, origin_response_timeout_seconds=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if deployment_status and not isinstance(deployment_status, str):
             raise TypeError("Expected argument 'deployment_status' to be a str")
         pulumi.set(__self__, "deployment_status", deployment_status)
@@ -30,6 +30,9 @@ class GetAFDEndpointResult:
         if host_name and not isinstance(host_name, str):
             raise TypeError("Expected argument 'host_name' to be a str")
         pulumi.set(__self__, "host_name", host_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -72,6 +75,14 @@ class GetAFDEndpointResult:
         The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
         """
         return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -139,6 +150,7 @@ class AwaitableGetAFDEndpointResult(GetAFDEndpointResult):
             deployment_status=self.deployment_status,
             enabled_state=self.enabled_state,
             host_name=self.host_name,
+            id=self.id,
             location=self.location,
             name=self.name,
             origin_response_timeout_seconds=self.origin_response_timeout_seconds,
@@ -173,6 +185,7 @@ def get_afd_endpoint(endpoint_name: Optional[str] = None,
         deployment_status=__ret__.deployment_status,
         enabled_state=__ret__.enabled_state,
         host_name=__ret__.host_name,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         origin_response_timeout_seconds=__ret__.origin_response_timeout_seconds,

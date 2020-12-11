@@ -20,7 +20,7 @@ class GetFirewallPolicyResult:
     """
     FirewallPolicy Resource.
     """
-    def __init__(__self__, base_policy=None, child_policies=None, etag=None, firewalls=None, location=None, name=None, provisioning_state=None, rule_groups=None, tags=None, threat_intel_mode=None, threat_intel_whitelist=None, type=None):
+    def __init__(__self__, base_policy=None, child_policies=None, etag=None, firewalls=None, id=None, location=None, name=None, provisioning_state=None, rule_groups=None, tags=None, threat_intel_mode=None, threat_intel_whitelist=None, type=None):
         if base_policy and not isinstance(base_policy, dict):
             raise TypeError("Expected argument 'base_policy' to be a dict")
         pulumi.set(__self__, "base_policy", base_policy)
@@ -33,6 +33,9 @@ class GetFirewallPolicyResult:
         if firewalls and not isinstance(firewalls, list):
             raise TypeError("Expected argument 'firewalls' to be a list")
         pulumi.set(__self__, "firewalls", firewalls)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -89,6 +92,14 @@ class GetFirewallPolicyResult:
         List of references to Azure Firewalls that this Firewall Policy is associated with.
         """
         return pulumi.get(self, "firewalls")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -165,6 +176,7 @@ class AwaitableGetFirewallPolicyResult(GetFirewallPolicyResult):
             child_policies=self.child_policies,
             etag=self.etag,
             firewalls=self.firewalls,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -201,6 +213,7 @@ def get_firewall_policy(expand: Optional[str] = None,
         child_policies=__ret__.child_policies,
         etag=__ret__.etag,
         firewalls=__ret__.firewalls,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

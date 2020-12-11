@@ -20,7 +20,7 @@ class GetAutomationAccountResult:
     """
     Definition of the automation account type.
     """
-    def __init__(__self__, creation_time=None, description=None, etag=None, last_modified_by=None, last_modified_time=None, location=None, name=None, sku=None, state=None, tags=None, type=None):
+    def __init__(__self__, creation_time=None, description=None, etag=None, id=None, last_modified_by=None, last_modified_time=None, location=None, name=None, sku=None, state=None, tags=None, type=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -30,6 +30,9 @@ class GetAutomationAccountResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_modified_by and not isinstance(last_modified_by, str):
             raise TypeError("Expected argument 'last_modified_by' to be a str")
         pulumi.set(__self__, "last_modified_by", last_modified_by)
@@ -78,6 +81,14 @@ class GetAutomationAccountResult:
         Gets or sets the etag of the resource.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastModifiedBy")
@@ -153,6 +164,7 @@ class AwaitableGetAutomationAccountResult(GetAutomationAccountResult):
             creation_time=self.creation_time,
             description=self.description,
             etag=self.etag,
+            id=self.id,
             last_modified_by=self.last_modified_by,
             last_modified_time=self.last_modified_time,
             location=self.location,
@@ -185,6 +197,7 @@ def get_automation_account(automation_account_name: Optional[str] = None,
         creation_time=__ret__.creation_time,
         description=__ret__.description,
         etag=__ret__.etag,
+        id=__ret__.id,
         last_modified_by=__ret__.last_modified_by,
         last_modified_time=__ret__.last_modified_time,
         location=__ret__.location,

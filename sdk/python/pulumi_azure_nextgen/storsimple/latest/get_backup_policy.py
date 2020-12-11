@@ -19,10 +19,13 @@ class GetBackupPolicyResult:
     """
     The backup policy.
     """
-    def __init__(__self__, backup_policy_creation_type=None, kind=None, last_backup_time=None, name=None, next_backup_time=None, scheduled_backup_status=None, schedules_count=None, ssm_host_name=None, type=None, volume_ids=None):
+    def __init__(__self__, backup_policy_creation_type=None, id=None, kind=None, last_backup_time=None, name=None, next_backup_time=None, scheduled_backup_status=None, schedules_count=None, ssm_host_name=None, type=None, volume_ids=None):
         if backup_policy_creation_type and not isinstance(backup_policy_creation_type, str):
             raise TypeError("Expected argument 'backup_policy_creation_type' to be a str")
         pulumi.set(__self__, "backup_policy_creation_type", backup_policy_creation_type)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -58,6 +61,14 @@ class GetBackupPolicyResult:
         The backup policy creation type. Indicates whether this was created through SaaS or through StorSimple Snapshot Manager.
         """
         return pulumi.get(self, "backup_policy_creation_type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The path ID that uniquely identifies the object.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -139,6 +150,7 @@ class AwaitableGetBackupPolicyResult(GetBackupPolicyResult):
             yield self
         return GetBackupPolicyResult(
             backup_policy_creation_type=self.backup_policy_creation_type,
+            id=self.id,
             kind=self.kind,
             last_backup_time=self.last_backup_time,
             name=self.name,
@@ -176,6 +188,7 @@ def get_backup_policy(backup_policy_name: Optional[str] = None,
 
     return AwaitableGetBackupPolicyResult(
         backup_policy_creation_type=__ret__.backup_policy_creation_type,
+        id=__ret__.id,
         kind=__ret__.kind,
         last_backup_time=__ret__.last_backup_time,
         name=__ret__.name,

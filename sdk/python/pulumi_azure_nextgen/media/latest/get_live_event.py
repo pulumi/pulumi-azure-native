@@ -20,7 +20,7 @@ class GetLiveEventResult:
     """
     The live event.
     """
-    def __init__(__self__, created=None, cross_site_access_policies=None, description=None, encoding=None, hostname_prefix=None, input=None, last_modified=None, location=None, name=None, preview=None, provisioning_state=None, resource_state=None, stream_options=None, tags=None, transcriptions=None, type=None, use_static_hostname=None):
+    def __init__(__self__, created=None, cross_site_access_policies=None, description=None, encoding=None, hostname_prefix=None, id=None, input=None, last_modified=None, location=None, name=None, preview=None, provisioning_state=None, resource_state=None, stream_options=None, tags=None, transcriptions=None, type=None, use_static_hostname=None):
         if created and not isinstance(created, str):
             raise TypeError("Expected argument 'created' to be a str")
         pulumi.set(__self__, "created", created)
@@ -36,6 +36,9 @@ class GetLiveEventResult:
         if hostname_prefix and not isinstance(hostname_prefix, str):
             raise TypeError("Expected argument 'hostname_prefix' to be a str")
         pulumi.set(__self__, "hostname_prefix", hostname_prefix)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if input and not isinstance(input, dict):
             raise TypeError("Expected argument 'input' to be a dict")
         pulumi.set(__self__, "input", input)
@@ -112,6 +115,14 @@ class GetLiveEventResult:
         When useStaticHostname is set to true, the hostnamePrefix specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center.
         """
         return pulumi.get(self, "hostname_prefix")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -221,6 +232,7 @@ class AwaitableGetLiveEventResult(GetLiveEventResult):
             description=self.description,
             encoding=self.encoding,
             hostname_prefix=self.hostname_prefix,
+            id=self.id,
             input=self.input,
             last_modified=self.last_modified,
             location=self.location,
@@ -262,6 +274,7 @@ def get_live_event(account_name: Optional[str] = None,
         description=__ret__.description,
         encoding=__ret__.encoding,
         hostname_prefix=__ret__.hostname_prefix,
+        id=__ret__.id,
         input=__ret__.input,
         last_modified=__ret__.last_modified,
         location=__ret__.location,

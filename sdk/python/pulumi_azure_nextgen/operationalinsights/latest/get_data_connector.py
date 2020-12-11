@@ -19,10 +19,13 @@ class GetDataConnectorResult:
     """
     Data connector.
     """
-    def __init__(__self__, etag=None, kind=None, name=None, type=None):
+    def __init__(__self__, etag=None, id=None, kind=None, name=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -40,6 +43,14 @@ class GetDataConnectorResult:
         Etag of the azure resource
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -73,6 +84,7 @@ class AwaitableGetDataConnectorResult(GetDataConnectorResult):
             yield self
         return GetDataConnectorResult(
             etag=self.etag,
+            id=self.id,
             kind=self.kind,
             name=self.name,
             type=self.type)
@@ -101,6 +113,7 @@ def get_data_connector(data_connector_id: Optional[str] = None,
 
     return AwaitableGetDataConnectorResult(
         etag=__ret__.etag,
+        id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
         type=__ret__.type)

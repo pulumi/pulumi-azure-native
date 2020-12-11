@@ -19,7 +19,7 @@ class GetProjectResult:
     """
     An object that represents a machine learning project.
     """
-    def __init__(__self__, account_id=None, creation_date=None, description=None, friendly_name=None, gitrepo=None, location=None, name=None, project_id=None, provisioning_state=None, tags=None, type=None, workspace_id=None):
+    def __init__(__self__, account_id=None, creation_date=None, description=None, friendly_name=None, gitrepo=None, id=None, location=None, name=None, project_id=None, provisioning_state=None, tags=None, type=None, workspace_id=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
@@ -35,6 +35,9 @@ class GetProjectResult:
         if gitrepo and not isinstance(gitrepo, str):
             raise TypeError("Expected argument 'gitrepo' to be a str")
         pulumi.set(__self__, "gitrepo", gitrepo)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -96,6 +99,14 @@ class GetProjectResult:
         The reference to git repo for this project.
         """
         return pulumi.get(self, "gitrepo")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -165,6 +176,7 @@ class AwaitableGetProjectResult(GetProjectResult):
             description=self.description,
             friendly_name=self.friendly_name,
             gitrepo=self.gitrepo,
+            id=self.id,
             location=self.location,
             name=self.name,
             project_id=self.project_id,
@@ -204,6 +216,7 @@ def get_project(account_name: Optional[str] = None,
         description=__ret__.description,
         friendly_name=__ret__.friendly_name,
         gitrepo=__ret__.gitrepo,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         project_id=__ret__.project_id,

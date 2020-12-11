@@ -20,10 +20,13 @@ class GetDelegatedSubnetServiceDetailsResult:
     """
     Represents an instance of a orchestrator.
     """
-    def __init__(__self__, controller_details=None, location=None, name=None, provisioning_state=None, resource_guid=None, subnet_details=None, tags=None, type=None):
+    def __init__(__self__, controller_details=None, id=None, location=None, name=None, provisioning_state=None, resource_guid=None, subnet_details=None, tags=None, type=None):
         if controller_details and not isinstance(controller_details, dict):
             raise TypeError("Expected argument 'controller_details' to be a dict")
         pulumi.set(__self__, "controller_details", controller_details)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -53,6 +56,14 @@ class GetDelegatedSubnetServiceDetailsResult:
         controller details
         """
         return pulumi.get(self, "controller_details")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        An identifier that represents the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -118,6 +129,7 @@ class AwaitableGetDelegatedSubnetServiceDetailsResult(GetDelegatedSubnetServiceD
             yield self
         return GetDelegatedSubnetServiceDetailsResult(
             controller_details=self.controller_details,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -147,6 +159,7 @@ def get_delegated_subnet_service_details(resource_group_name: Optional[str] = No
 
     return AwaitableGetDelegatedSubnetServiceDetailsResult(
         controller_details=__ret__.controller_details,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

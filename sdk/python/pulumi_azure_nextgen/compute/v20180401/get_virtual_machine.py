@@ -20,7 +20,7 @@ class GetVirtualMachineResult:
     """
     Describes a Virtual Machine.
     """
-    def __init__(__self__, availability_set=None, diagnostics_profile=None, hardware_profile=None, identity=None, instance_view=None, license_type=None, location=None, name=None, network_profile=None, os_profile=None, plan=None, provisioning_state=None, proximity_placement_group=None, resources=None, storage_profile=None, tags=None, type=None, vm_id=None, zones=None):
+    def __init__(__self__, availability_set=None, diagnostics_profile=None, hardware_profile=None, id=None, identity=None, instance_view=None, license_type=None, location=None, name=None, network_profile=None, os_profile=None, plan=None, provisioning_state=None, proximity_placement_group=None, resources=None, storage_profile=None, tags=None, type=None, vm_id=None, zones=None):
         if availability_set and not isinstance(availability_set, dict):
             raise TypeError("Expected argument 'availability_set' to be a dict")
         pulumi.set(__self__, "availability_set", availability_set)
@@ -30,6 +30,9 @@ class GetVirtualMachineResult:
         if hardware_profile and not isinstance(hardware_profile, dict):
             raise TypeError("Expected argument 'hardware_profile' to be a dict")
         pulumi.set(__self__, "hardware_profile", hardware_profile)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -102,6 +105,14 @@ class GetVirtualMachineResult:
         Specifies the hardware settings for the virtual machine.
         """
         return pulumi.get(self, "hardware_profile")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -241,6 +252,7 @@ class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
             availability_set=self.availability_set,
             diagnostics_profile=self.diagnostics_profile,
             hardware_profile=self.hardware_profile,
+            id=self.id,
             identity=self.identity,
             instance_view=self.instance_view,
             license_type=self.license_type,
@@ -284,6 +296,7 @@ def get_virtual_machine(expand: Optional[str] = None,
         availability_set=__ret__.availability_set,
         diagnostics_profile=__ret__.diagnostics_profile,
         hardware_profile=__ret__.hardware_profile,
+        id=__ret__.id,
         identity=__ret__.identity,
         instance_view=__ret__.instance_view,
         license_type=__ret__.license_type,

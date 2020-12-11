@@ -20,7 +20,10 @@ class GetWebAppPrivateEndpointConnectionResult:
     """
     Private Endpoint Connection ARM resource.
     """
-    def __init__(__self__, kind=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
+    def __init__(__self__, id=None, kind=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -39,6 +42,14 @@ class GetWebAppPrivateEndpointConnectionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -92,6 +103,7 @@ class AwaitableGetWebAppPrivateEndpointConnectionResult(GetWebAppPrivateEndpoint
         if False:
             yield self
         return GetWebAppPrivateEndpointConnectionResult(
+            id=self.id,
             kind=self.kind,
             name=self.name,
             private_endpoint=self.private_endpoint,
@@ -121,6 +133,7 @@ def get_web_app_private_endpoint_connection(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:web/v20200601:getWebAppPrivateEndpointConnection', __args__, opts=opts, typ=GetWebAppPrivateEndpointConnectionResult).value
 
     return AwaitableGetWebAppPrivateEndpointConnectionResult(
+        id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
         private_endpoint=__ret__.private_endpoint,

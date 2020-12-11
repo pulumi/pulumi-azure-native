@@ -19,10 +19,13 @@ class GetHybridConnectionResult:
     """
     Description of HybridConnection Resource.
     """
-    def __init__(__self__, created_at=None, listener_count=None, name=None, requires_client_authorization=None, type=None, updated_at=None, user_metadata=None):
+    def __init__(__self__, created_at=None, id=None, listener_count=None, name=None, requires_client_authorization=None, type=None, updated_at=None, user_metadata=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if listener_count and not isinstance(listener_count, int):
             raise TypeError("Expected argument 'listener_count' to be a int")
         pulumi.set(__self__, "listener_count", listener_count)
@@ -49,6 +52,14 @@ class GetHybridConnectionResult:
         The time the HybridConnection was created.
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="listenerCount")
@@ -106,6 +117,7 @@ class AwaitableGetHybridConnectionResult(GetHybridConnectionResult):
             yield self
         return GetHybridConnectionResult(
             created_at=self.created_at,
+            id=self.id,
             listener_count=self.listener_count,
             name=self.name,
             requires_client_authorization=self.requires_client_authorization,
@@ -137,6 +149,7 @@ def get_hybrid_connection(hybrid_connection_name: Optional[str] = None,
 
     return AwaitableGetHybridConnectionResult(
         created_at=__ret__.created_at,
+        id=__ret__.id,
         listener_count=__ret__.listener_count,
         name=__ret__.name,
         requires_client_authorization=__ret__.requires_client_authorization,

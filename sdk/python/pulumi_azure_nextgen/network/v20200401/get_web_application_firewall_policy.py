@@ -20,7 +20,7 @@ class GetWebApplicationFirewallPolicyResult:
     """
     Defines web application firewall policy.
     """
-    def __init__(__self__, application_gateways=None, custom_rules=None, etag=None, http_listeners=None, location=None, managed_rules=None, name=None, path_based_rules=None, policy_settings=None, provisioning_state=None, resource_state=None, tags=None, type=None):
+    def __init__(__self__, application_gateways=None, custom_rules=None, etag=None, http_listeners=None, id=None, location=None, managed_rules=None, name=None, path_based_rules=None, policy_settings=None, provisioning_state=None, resource_state=None, tags=None, type=None):
         if application_gateways and not isinstance(application_gateways, list):
             raise TypeError("Expected argument 'application_gateways' to be a list")
         pulumi.set(__self__, "application_gateways", application_gateways)
@@ -33,6 +33,9 @@ class GetWebApplicationFirewallPolicyResult:
         if http_listeners and not isinstance(http_listeners, list):
             raise TypeError("Expected argument 'http_listeners' to be a list")
         pulumi.set(__self__, "http_listeners", http_listeners)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -92,6 +95,14 @@ class GetWebApplicationFirewallPolicyResult:
         A collection of references to application gateway http listeners.
         """
         return pulumi.get(self, "http_listeners")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -176,6 +187,7 @@ class AwaitableGetWebApplicationFirewallPolicyResult(GetWebApplicationFirewallPo
             custom_rules=self.custom_rules,
             etag=self.etag,
             http_listeners=self.http_listeners,
+            id=self.id,
             location=self.location,
             managed_rules=self.managed_rules,
             name=self.name,
@@ -210,6 +222,7 @@ def get_web_application_firewall_policy(policy_name: Optional[str] = None,
         custom_rules=__ret__.custom_rules,
         etag=__ret__.etag,
         http_listeners=__ret__.http_listeners,
+        id=__ret__.id,
         location=__ret__.location,
         managed_rules=__ret__.managed_rules,
         name=__ret__.name,

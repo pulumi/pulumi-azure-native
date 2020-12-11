@@ -20,7 +20,7 @@ class GetServerEndpointResult:
     """
     Server Endpoint object.
     """
-    def __init__(__self__, cloud_tiering=None, cloud_tiering_status=None, friendly_name=None, initial_download_policy=None, last_operation_name=None, last_workflow_id=None, local_cache_mode=None, name=None, offline_data_transfer=None, offline_data_transfer_share_name=None, offline_data_transfer_storage_account_resource_id=None, offline_data_transfer_storage_account_tenant_id=None, provisioning_state=None, recall_status=None, server_local_path=None, server_name=None, server_resource_id=None, sync_status=None, tier_files_older_than_days=None, type=None, volume_free_space_percent=None):
+    def __init__(__self__, cloud_tiering=None, cloud_tiering_status=None, friendly_name=None, id=None, initial_download_policy=None, last_operation_name=None, last_workflow_id=None, local_cache_mode=None, name=None, offline_data_transfer=None, offline_data_transfer_share_name=None, offline_data_transfer_storage_account_resource_id=None, offline_data_transfer_storage_account_tenant_id=None, provisioning_state=None, recall_status=None, server_local_path=None, server_name=None, server_resource_id=None, sync_status=None, tier_files_older_than_days=None, type=None, volume_free_space_percent=None):
         if cloud_tiering and not isinstance(cloud_tiering, str):
             raise TypeError("Expected argument 'cloud_tiering' to be a str")
         pulumi.set(__self__, "cloud_tiering", cloud_tiering)
@@ -30,6 +30,9 @@ class GetServerEndpointResult:
         if friendly_name and not isinstance(friendly_name, str):
             raise TypeError("Expected argument 'friendly_name' to be a str")
         pulumi.set(__self__, "friendly_name", friendly_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if initial_download_policy and not isinstance(initial_download_policy, str):
             raise TypeError("Expected argument 'initial_download_policy' to be a str")
         pulumi.set(__self__, "initial_download_policy", initial_download_policy)
@@ -108,6 +111,14 @@ class GetServerEndpointResult:
         Friendly Name
         """
         return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="initialDownloadPolicy")
@@ -263,6 +274,7 @@ class AwaitableGetServerEndpointResult(GetServerEndpointResult):
             cloud_tiering=self.cloud_tiering,
             cloud_tiering_status=self.cloud_tiering_status,
             friendly_name=self.friendly_name,
+            id=self.id,
             initial_download_policy=self.initial_download_policy,
             last_operation_name=self.last_operation_name,
             last_workflow_id=self.last_workflow_id,
@@ -311,6 +323,7 @@ def get_server_endpoint(resource_group_name: Optional[str] = None,
         cloud_tiering=__ret__.cloud_tiering,
         cloud_tiering_status=__ret__.cloud_tiering_status,
         friendly_name=__ret__.friendly_name,
+        id=__ret__.id,
         initial_download_policy=__ret__.initial_download_policy,
         last_operation_name=__ret__.last_operation_name,
         last_workflow_id=__ret__.last_workflow_id,

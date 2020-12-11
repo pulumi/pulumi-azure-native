@@ -20,7 +20,7 @@ class GetJobResult:
     """
     A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
     """
-    def __init__(__self__, correlation_data=None, created=None, description=None, end_time=None, input=None, last_modified=None, name=None, outputs=None, priority=None, start_time=None, state=None, type=None):
+    def __init__(__self__, correlation_data=None, created=None, description=None, end_time=None, id=None, input=None, last_modified=None, name=None, outputs=None, priority=None, start_time=None, state=None, type=None):
         if correlation_data and not isinstance(correlation_data, dict):
             raise TypeError("Expected argument 'correlation_data' to be a dict")
         pulumi.set(__self__, "correlation_data", correlation_data)
@@ -33,6 +33,9 @@ class GetJobResult:
         if end_time and not isinstance(end_time, str):
             raise TypeError("Expected argument 'end_time' to be a str")
         pulumi.set(__self__, "end_time", end_time)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if input and not isinstance(input, dict):
             raise TypeError("Expected argument 'input' to be a dict")
         pulumi.set(__self__, "input", input)
@@ -89,6 +92,14 @@ class GetJobResult:
         The UTC date and time at which this Job finished processing.
         """
         return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -165,6 +176,7 @@ class AwaitableGetJobResult(GetJobResult):
             created=self.created,
             description=self.description,
             end_time=self.end_time,
+            id=self.id,
             input=self.input,
             last_modified=self.last_modified,
             name=self.name,
@@ -204,6 +216,7 @@ def get_job(account_name: Optional[str] = None,
         created=__ret__.created,
         description=__ret__.description,
         end_time=__ret__.end_time,
+        id=__ret__.id,
         input=__ret__.input,
         last_modified=__ret__.last_modified,
         name=__ret__.name,

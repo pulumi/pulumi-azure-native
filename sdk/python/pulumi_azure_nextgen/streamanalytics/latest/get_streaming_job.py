@@ -20,7 +20,7 @@ class GetStreamingJobResult:
     """
     A streaming job object, containing all information associated with the named streaming job.
     """
-    def __init__(__self__, compatibility_level=None, created_date=None, data_locale=None, etag=None, events_late_arrival_max_delay_in_seconds=None, events_out_of_order_max_delay_in_seconds=None, events_out_of_order_policy=None, functions=None, inputs=None, job_id=None, job_state=None, last_output_event_time=None, location=None, name=None, output_error_policy=None, output_start_mode=None, output_start_time=None, outputs=None, provisioning_state=None, sku=None, tags=None, transformation=None, type=None):
+    def __init__(__self__, compatibility_level=None, created_date=None, data_locale=None, etag=None, events_late_arrival_max_delay_in_seconds=None, events_out_of_order_max_delay_in_seconds=None, events_out_of_order_policy=None, functions=None, id=None, inputs=None, job_id=None, job_state=None, last_output_event_time=None, location=None, name=None, output_error_policy=None, output_start_mode=None, output_start_time=None, outputs=None, provisioning_state=None, sku=None, tags=None, transformation=None, type=None):
         if compatibility_level and not isinstance(compatibility_level, str):
             raise TypeError("Expected argument 'compatibility_level' to be a str")
         pulumi.set(__self__, "compatibility_level", compatibility_level)
@@ -45,6 +45,9 @@ class GetStreamingJobResult:
         if functions and not isinstance(functions, list):
             raise TypeError("Expected argument 'functions' to be a list")
         pulumi.set(__self__, "functions", functions)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if inputs and not isinstance(inputs, list):
             raise TypeError("Expected argument 'inputs' to be a list")
         pulumi.set(__self__, "inputs", inputs)
@@ -154,6 +157,14 @@ class GetStreamingJobResult:
         A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
         """
         return pulumi.get(self, "functions")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -290,6 +301,7 @@ class AwaitableGetStreamingJobResult(GetStreamingJobResult):
             events_out_of_order_max_delay_in_seconds=self.events_out_of_order_max_delay_in_seconds,
             events_out_of_order_policy=self.events_out_of_order_policy,
             functions=self.functions,
+            id=self.id,
             inputs=self.inputs,
             job_id=self.job_id,
             job_state=self.job_state,
@@ -337,6 +349,7 @@ def get_streaming_job(expand: Optional[str] = None,
         events_out_of_order_max_delay_in_seconds=__ret__.events_out_of_order_max_delay_in_seconds,
         events_out_of_order_policy=__ret__.events_out_of_order_policy,
         functions=__ret__.functions,
+        id=__ret__.id,
         inputs=__ret__.inputs,
         job_id=__ret__.job_id,
         job_state=__ret__.job_state,

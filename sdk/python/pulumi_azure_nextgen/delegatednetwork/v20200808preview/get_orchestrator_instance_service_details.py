@@ -20,7 +20,7 @@ class GetOrchestratorInstanceServiceDetailsResult:
     """
     Represents an instance of a orchestrator.
     """
-    def __init__(__self__, api_server_endpoint=None, cluster_root_ca=None, controller_details=None, identity=None, kind=None, location=None, name=None, orchestrator_app_id=None, orchestrator_tenant_id=None, provisioning_state=None, resource_guid=None, tags=None, type=None):
+    def __init__(__self__, api_server_endpoint=None, cluster_root_ca=None, controller_details=None, id=None, identity=None, kind=None, location=None, name=None, orchestrator_app_id=None, orchestrator_tenant_id=None, provisioning_state=None, resource_guid=None, tags=None, type=None):
         if api_server_endpoint and not isinstance(api_server_endpoint, str):
             raise TypeError("Expected argument 'api_server_endpoint' to be a str")
         pulumi.set(__self__, "api_server_endpoint", api_server_endpoint)
@@ -30,6 +30,9 @@ class GetOrchestratorInstanceServiceDetailsResult:
         if controller_details and not isinstance(controller_details, dict):
             raise TypeError("Expected argument 'controller_details' to be a dict")
         pulumi.set(__self__, "controller_details", controller_details)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -84,6 +87,14 @@ class GetOrchestratorInstanceServiceDetailsResult:
         controller details
         """
         return pulumi.get(self, "controller_details")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        An identifier that represents the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -175,6 +186,7 @@ class AwaitableGetOrchestratorInstanceServiceDetailsResult(GetOrchestratorInstan
             api_server_endpoint=self.api_server_endpoint,
             cluster_root_ca=self.cluster_root_ca,
             controller_details=self.controller_details,
+            id=self.id,
             identity=self.identity,
             kind=self.kind,
             location=self.location,
@@ -209,6 +221,7 @@ def get_orchestrator_instance_service_details(resource_group_name: Optional[str]
         api_server_endpoint=__ret__.api_server_endpoint,
         cluster_root_ca=__ret__.cluster_root_ca,
         controller_details=__ret__.controller_details,
+        id=__ret__.id,
         identity=__ret__.identity,
         kind=__ret__.kind,
         location=__ret__.location,

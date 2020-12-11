@@ -20,7 +20,7 @@ class GetOutputResult:
     """
     An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
     """
-    def __init__(__self__, datasource=None, diagnostics=None, etag=None, name=None, serialization=None, size_window=None, time_window=None, type=None):
+    def __init__(__self__, datasource=None, diagnostics=None, etag=None, id=None, name=None, serialization=None, size_window=None, time_window=None, type=None):
         if datasource and not isinstance(datasource, dict):
             raise TypeError("Expected argument 'datasource' to be a dict")
         pulumi.set(__self__, "datasource", datasource)
@@ -30,6 +30,9 @@ class GetOutputResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -69,6 +72,14 @@ class GetOutputResult:
         The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -114,6 +125,7 @@ class AwaitableGetOutputResult(GetOutputResult):
             datasource=self.datasource,
             diagnostics=self.diagnostics,
             etag=self.etag,
+            id=self.id,
             name=self.name,
             serialization=self.serialization,
             size_window=self.size_window,
@@ -146,6 +158,7 @@ def get_output(job_name: Optional[str] = None,
         datasource=__ret__.datasource,
         diagnostics=__ret__.diagnostics,
         etag=__ret__.etag,
+        id=__ret__.id,
         name=__ret__.name,
         serialization=__ret__.serialization,
         size_window=__ret__.size_window,

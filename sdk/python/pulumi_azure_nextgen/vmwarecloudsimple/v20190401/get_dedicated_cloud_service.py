@@ -19,10 +19,13 @@ class GetDedicatedCloudServiceResult:
     """
     Dedicated cloud service model
     """
-    def __init__(__self__, gateway_subnet=None, is_account_onboarded=None, location=None, name=None, nodes=None, service_url=None, tags=None, type=None):
+    def __init__(__self__, gateway_subnet=None, id=None, is_account_onboarded=None, location=None, name=None, nodes=None, service_url=None, tags=None, type=None):
         if gateway_subnet and not isinstance(gateway_subnet, str):
             raise TypeError("Expected argument 'gateway_subnet' to be a str")
         pulumi.set(__self__, "gateway_subnet", gateway_subnet)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_account_onboarded and not isinstance(is_account_onboarded, str):
             raise TypeError("Expected argument 'is_account_onboarded' to be a str")
         pulumi.set(__self__, "is_account_onboarded", is_account_onboarded)
@@ -52,6 +55,14 @@ class GetDedicatedCloudServiceResult:
         gateway Subnet for the account. It will collect the subnet address and always treat it as /28
         """
         return pulumi.get(self, "gateway_subnet")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/dedicatedCloudServices/{dedicatedCloudServiceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isAccountOnboarded")
@@ -117,6 +128,7 @@ class AwaitableGetDedicatedCloudServiceResult(GetDedicatedCloudServiceResult):
             yield self
         return GetDedicatedCloudServiceResult(
             gateway_subnet=self.gateway_subnet,
+            id=self.id,
             is_account_onboarded=self.is_account_onboarded,
             location=self.location,
             name=self.name,
@@ -146,6 +158,7 @@ def get_dedicated_cloud_service(dedicated_cloud_service_name: Optional[str] = No
 
     return AwaitableGetDedicatedCloudServiceResult(
         gateway_subnet=__ret__.gateway_subnet,
+        id=__ret__.id,
         is_account_onboarded=__ret__.is_account_onboarded,
         location=__ret__.location,
         name=__ret__.name,

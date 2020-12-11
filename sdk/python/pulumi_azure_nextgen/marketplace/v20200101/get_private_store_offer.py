@@ -20,7 +20,7 @@ class GetPrivateStoreOfferResult:
     """
     The privateStore offer data structure.
     """
-    def __init__(__self__, created_at=None, e_tag=None, icon_file_uris=None, modified_at=None, name=None, offer_display_name=None, plans=None, private_store_id=None, publisher_display_name=None, specific_plan_ids_limitation=None, type=None, unique_offer_id=None, update_suppressed_due_idempotence=None):
+    def __init__(__self__, created_at=None, e_tag=None, icon_file_uris=None, id=None, modified_at=None, name=None, offer_display_name=None, plans=None, private_store_id=None, publisher_display_name=None, specific_plan_ids_limitation=None, type=None, unique_offer_id=None, update_suppressed_due_idempotence=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -30,6 +30,9 @@ class GetPrivateStoreOfferResult:
         if icon_file_uris and not isinstance(icon_file_uris, dict):
             raise TypeError("Expected argument 'icon_file_uris' to be a dict")
         pulumi.set(__self__, "icon_file_uris", icon_file_uris)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if modified_at and not isinstance(modified_at, str):
             raise TypeError("Expected argument 'modified_at' to be a str")
         pulumi.set(__self__, "modified_at", modified_at)
@@ -84,6 +87,14 @@ class GetPrivateStoreOfferResult:
         Icon File Uris
         """
         return pulumi.get(self, "icon_file_uris")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="modifiedAt")
@@ -175,6 +186,7 @@ class AwaitableGetPrivateStoreOfferResult(GetPrivateStoreOfferResult):
             created_at=self.created_at,
             e_tag=self.e_tag,
             icon_file_uris=self.icon_file_uris,
+            id=self.id,
             modified_at=self.modified_at,
             name=self.name,
             offer_display_name=self.offer_display_name,
@@ -209,6 +221,7 @@ def get_private_store_offer(offer_id: Optional[str] = None,
         created_at=__ret__.created_at,
         e_tag=__ret__.e_tag,
         icon_file_uris=__ret__.icon_file_uris,
+        id=__ret__.id,
         modified_at=__ret__.modified_at,
         name=__ret__.name,
         offer_display_name=__ret__.offer_display_name,

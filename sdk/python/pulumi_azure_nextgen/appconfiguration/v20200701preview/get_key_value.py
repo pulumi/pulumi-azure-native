@@ -19,13 +19,16 @@ class GetKeyValueResult:
     """
     The key-value resource along with all resource properties.
     """
-    def __init__(__self__, content_type=None, e_tag=None, key=None, label=None, last_modified=None, locked=None, name=None, tags=None, type=None, value=None):
+    def __init__(__self__, content_type=None, e_tag=None, id=None, key=None, label=None, last_modified=None, locked=None, name=None, tags=None, type=None, value=None):
         if content_type and not isinstance(content_type, str):
             raise TypeError("Expected argument 'content_type' to be a str")
         pulumi.set(__self__, "content_type", content_type)
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if key and not isinstance(key, str):
             raise TypeError("Expected argument 'key' to be a str")
         pulumi.set(__self__, "key", key)
@@ -67,6 +70,14 @@ class GetKeyValueResult:
         An ETag indicating the state of a key-value within a configuration store.
         """
         return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -144,6 +155,7 @@ class AwaitableGetKeyValueResult(GetKeyValueResult):
         return GetKeyValueResult(
             content_type=self.content_type,
             e_tag=self.e_tag,
+            id=self.id,
             key=self.key,
             label=self.label,
             last_modified=self.last_modified,
@@ -178,6 +190,7 @@ def get_key_value(config_store_name: Optional[str] = None,
     return AwaitableGetKeyValueResult(
         content_type=__ret__.content_type,
         e_tag=__ret__.e_tag,
+        id=__ret__.id,
         key=__ret__.key,
         label=__ret__.label,
         last_modified=__ret__.last_modified,

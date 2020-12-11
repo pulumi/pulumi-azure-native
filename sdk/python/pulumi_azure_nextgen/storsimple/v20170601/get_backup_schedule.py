@@ -20,10 +20,13 @@ class GetBackupScheduleResult:
     """
     The backup schedule.
     """
-    def __init__(__self__, backup_type=None, kind=None, last_successful_run=None, name=None, retention_count=None, schedule_recurrence=None, schedule_status=None, start_time=None, type=None):
+    def __init__(__self__, backup_type=None, id=None, kind=None, last_successful_run=None, name=None, retention_count=None, schedule_recurrence=None, schedule_status=None, start_time=None, type=None):
         if backup_type and not isinstance(backup_type, str):
             raise TypeError("Expected argument 'backup_type' to be a str")
         pulumi.set(__self__, "backup_type", backup_type)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -56,6 +59,14 @@ class GetBackupScheduleResult:
         The type of backup which needs to be taken.
         """
         return pulumi.get(self, "backup_type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The path ID that uniquely identifies the object.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -129,6 +140,7 @@ class AwaitableGetBackupScheduleResult(GetBackupScheduleResult):
             yield self
         return GetBackupScheduleResult(
             backup_type=self.backup_type,
+            id=self.id,
             kind=self.kind,
             last_successful_run=self.last_successful_run,
             name=self.name,
@@ -168,6 +180,7 @@ def get_backup_schedule(backup_policy_name: Optional[str] = None,
 
     return AwaitableGetBackupScheduleResult(
         backup_type=__ret__.backup_type,
+        id=__ret__.id,
         kind=__ret__.kind,
         last_successful_run=__ret__.last_successful_run,
         name=__ret__.name,

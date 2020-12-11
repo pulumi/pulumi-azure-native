@@ -20,10 +20,13 @@ class GetNatGatewayResult:
     """
     Nat Gateway resource.
     """
-    def __init__(__self__, etag=None, idle_timeout_in_minutes=None, location=None, name=None, provisioning_state=None, public_ip_addresses=None, public_ip_prefixes=None, resource_guid=None, sku=None, subnets=None, tags=None, type=None, zones=None):
+    def __init__(__self__, etag=None, id=None, idle_timeout_in_minutes=None, location=None, name=None, provisioning_state=None, public_ip_addresses=None, public_ip_prefixes=None, resource_guid=None, sku=None, subnets=None, tags=None, type=None, zones=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if idle_timeout_in_minutes and not isinstance(idle_timeout_in_minutes, int):
             raise TypeError("Expected argument 'idle_timeout_in_minutes' to be a int")
         pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
@@ -68,6 +71,14 @@ class GetNatGatewayResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="idleTimeoutInMinutes")
@@ -173,6 +184,7 @@ class AwaitableGetNatGatewayResult(GetNatGatewayResult):
             yield self
         return GetNatGatewayResult(
             etag=self.etag,
+            id=self.id,
             idle_timeout_in_minutes=self.idle_timeout_in_minutes,
             location=self.location,
             name=self.name,
@@ -210,6 +222,7 @@ def get_nat_gateway(expand: Optional[str] = None,
 
     return AwaitableGetNatGatewayResult(
         etag=__ret__.etag,
+        id=__ret__.id,
         idle_timeout_in_minutes=__ret__.idle_timeout_in_minutes,
         location=__ret__.location,
         name=__ret__.name,

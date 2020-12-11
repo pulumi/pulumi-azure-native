@@ -20,7 +20,7 @@ class GetDomainResult:
     """
     Information about a domain.
     """
-    def __init__(__self__, auth_code=None, auto_renew=None, consent=None, contact_admin=None, contact_billing=None, contact_registrant=None, contact_tech=None, created_time=None, dns_type=None, dns_zone_id=None, domain_not_renewable_reasons=None, expiration_time=None, kind=None, last_renewed_time=None, location=None, managed_host_names=None, name=None, name_servers=None, privacy=None, provisioning_state=None, ready_for_dns_record_management=None, registration_status=None, system_data=None, tags=None, target_dns_type=None, type=None):
+    def __init__(__self__, auth_code=None, auto_renew=None, consent=None, contact_admin=None, contact_billing=None, contact_registrant=None, contact_tech=None, created_time=None, dns_type=None, dns_zone_id=None, domain_not_renewable_reasons=None, expiration_time=None, id=None, kind=None, last_renewed_time=None, location=None, managed_host_names=None, name=None, name_servers=None, privacy=None, provisioning_state=None, ready_for_dns_record_management=None, registration_status=None, system_data=None, tags=None, target_dns_type=None, type=None):
         if auth_code and not isinstance(auth_code, str):
             raise TypeError("Expected argument 'auth_code' to be a str")
         pulumi.set(__self__, "auth_code", auth_code)
@@ -57,6 +57,9 @@ class GetDomainResult:
         if expiration_time and not isinstance(expiration_time, str):
             raise TypeError("Expected argument 'expiration_time' to be a str")
         pulumi.set(__self__, "expiration_time", expiration_time)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -195,6 +198,14 @@ class GetDomainResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def kind(self) -> Optional[str]:
         """
         Kind of resource.
@@ -325,6 +336,7 @@ class AwaitableGetDomainResult(GetDomainResult):
             dns_zone_id=self.dns_zone_id,
             domain_not_renewable_reasons=self.domain_not_renewable_reasons,
             expiration_time=self.expiration_time,
+            id=self.id,
             kind=self.kind,
             last_renewed_time=self.last_renewed_time,
             location=self.location,
@@ -372,6 +384,7 @@ def get_domain(domain_name: Optional[str] = None,
         dns_zone_id=__ret__.dns_zone_id,
         domain_not_renewable_reasons=__ret__.domain_not_renewable_reasons,
         expiration_time=__ret__.expiration_time,
+        id=__ret__.id,
         kind=__ret__.kind,
         last_renewed_time=__ret__.last_renewed_time,
         location=__ret__.location,

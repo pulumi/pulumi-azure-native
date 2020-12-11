@@ -19,7 +19,10 @@ class GetSyncGroupResult:
     """
     Sync Group object.
     """
-    def __init__(__self__, name=None, sync_group_status=None, type=None, unique_id=None):
+    def __init__(__self__, id=None, name=None, sync_group_status=None, type=None, unique_id=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -32,6 +35,14 @@ class GetSyncGroupResult:
         if unique_id and not isinstance(unique_id, str):
             raise TypeError("Expected argument 'unique_id' to be a str")
         pulumi.set(__self__, "unique_id", unique_id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -72,6 +83,7 @@ class AwaitableGetSyncGroupResult(GetSyncGroupResult):
         if False:
             yield self
         return GetSyncGroupResult(
+            id=self.id,
             name=self.name,
             sync_group_status=self.sync_group_status,
             type=self.type,
@@ -100,6 +112,7 @@ def get_sync_group(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:storagesync/v20190601:getSyncGroup', __args__, opts=opts, typ=GetSyncGroupResult).value
 
     return AwaitableGetSyncGroupResult(
+        id=__ret__.id,
         name=__ret__.name,
         sync_group_status=__ret__.sync_group_status,
         type=__ret__.type,

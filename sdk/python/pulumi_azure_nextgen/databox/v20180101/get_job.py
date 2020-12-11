@@ -20,7 +20,7 @@ class GetJobResult:
     """
     Job Resource.
     """
-    def __init__(__self__, cancellation_reason=None, details=None, error=None, is_cancellable=None, is_deletable=None, is_shipping_address_editable=None, location=None, name=None, sku=None, start_time=None, status=None, tags=None, type=None):
+    def __init__(__self__, cancellation_reason=None, details=None, error=None, id=None, is_cancellable=None, is_deletable=None, is_shipping_address_editable=None, location=None, name=None, sku=None, start_time=None, status=None, tags=None, type=None):
         if cancellation_reason and not isinstance(cancellation_reason, str):
             raise TypeError("Expected argument 'cancellation_reason' to be a str")
         pulumi.set(__self__, "cancellation_reason", cancellation_reason)
@@ -30,6 +30,9 @@ class GetJobResult:
         if error and not isinstance(error, dict):
             raise TypeError("Expected argument 'error' to be a dict")
         pulumi.set(__self__, "error", error)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_cancellable and not isinstance(is_cancellable, bool):
             raise TypeError("Expected argument 'is_cancellable' to be a bool")
         pulumi.set(__self__, "is_cancellable", is_cancellable)
@@ -84,6 +87,14 @@ class GetJobResult:
         Top level error for the job.
         """
         return pulumi.get(self, "error")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Id of the object.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isCancellable")
@@ -175,6 +186,7 @@ class AwaitableGetJobResult(GetJobResult):
             cancellation_reason=self.cancellation_reason,
             details=self.details,
             error=self.error,
+            id=self.id,
             is_cancellable=self.is_cancellable,
             is_deletable=self.is_deletable,
             is_shipping_address_editable=self.is_shipping_address_editable,
@@ -212,6 +224,7 @@ def get_job(expand: Optional[str] = None,
         cancellation_reason=__ret__.cancellation_reason,
         details=__ret__.details,
         error=__ret__.error,
+        id=__ret__.id,
         is_cancellable=__ret__.is_cancellable,
         is_deletable=__ret__.is_deletable,
         is_shipping_address_editable=__ret__.is_shipping_address_editable,

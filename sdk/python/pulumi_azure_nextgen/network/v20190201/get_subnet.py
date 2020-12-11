@@ -20,7 +20,7 @@ class GetSubnetResult:
     """
     Subnet in a virtual network resource.
     """
-    def __init__(__self__, address_prefix=None, address_prefixes=None, delegations=None, etag=None, interface_endpoints=None, ip_configuration_profiles=None, ip_configurations=None, name=None, nat_gateway=None, network_security_group=None, provisioning_state=None, purpose=None, resource_navigation_links=None, route_table=None, service_association_links=None, service_endpoint_policies=None, service_endpoints=None):
+    def __init__(__self__, address_prefix=None, address_prefixes=None, delegations=None, etag=None, id=None, interface_endpoints=None, ip_configuration_profiles=None, ip_configurations=None, name=None, nat_gateway=None, network_security_group=None, provisioning_state=None, purpose=None, resource_navigation_links=None, route_table=None, service_association_links=None, service_endpoint_policies=None, service_endpoints=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
         pulumi.set(__self__, "address_prefix", address_prefix)
@@ -33,6 +33,9 @@ class GetSubnetResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if interface_endpoints and not isinstance(interface_endpoints, list):
             raise TypeError("Expected argument 'interface_endpoints' to be a list")
         pulumi.set(__self__, "interface_endpoints", interface_endpoints)
@@ -104,6 +107,14 @@ class GetSubnetResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="interfaceEndpoints")
@@ -220,6 +231,7 @@ class AwaitableGetSubnetResult(GetSubnetResult):
             address_prefixes=self.address_prefixes,
             delegations=self.delegations,
             etag=self.etag,
+            id=self.id,
             interface_endpoints=self.interface_endpoints,
             ip_configuration_profiles=self.ip_configuration_profiles,
             ip_configurations=self.ip_configurations,
@@ -264,6 +276,7 @@ def get_subnet(expand: Optional[str] = None,
         address_prefixes=__ret__.address_prefixes,
         delegations=__ret__.delegations,
         etag=__ret__.etag,
+        id=__ret__.id,
         interface_endpoints=__ret__.interface_endpoints,
         ip_configuration_profiles=__ret__.ip_configuration_profiles,
         ip_configurations=__ret__.ip_configurations,

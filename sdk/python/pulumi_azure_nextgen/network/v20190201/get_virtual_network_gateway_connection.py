@@ -20,7 +20,7 @@ class GetVirtualNetworkGatewayConnectionResult:
     """
     A common class for general resource information
     """
-    def __init__(__self__, authorization_key=None, connection_protocol=None, connection_status=None, connection_type=None, egress_bytes_transferred=None, enable_bgp=None, etag=None, express_route_gateway_bypass=None, ingress_bytes_transferred=None, ipsec_policies=None, local_network_gateway2=None, location=None, name=None, peer=None, provisioning_state=None, resource_guid=None, routing_weight=None, shared_key=None, tags=None, tunnel_connection_status=None, type=None, use_policy_based_traffic_selectors=None, virtual_network_gateway1=None, virtual_network_gateway2=None):
+    def __init__(__self__, authorization_key=None, connection_protocol=None, connection_status=None, connection_type=None, egress_bytes_transferred=None, enable_bgp=None, etag=None, express_route_gateway_bypass=None, id=None, ingress_bytes_transferred=None, ipsec_policies=None, local_network_gateway2=None, location=None, name=None, peer=None, provisioning_state=None, resource_guid=None, routing_weight=None, shared_key=None, tags=None, tunnel_connection_status=None, type=None, use_policy_based_traffic_selectors=None, virtual_network_gateway1=None, virtual_network_gateway2=None):
         if authorization_key and not isinstance(authorization_key, str):
             raise TypeError("Expected argument 'authorization_key' to be a str")
         pulumi.set(__self__, "authorization_key", authorization_key)
@@ -45,6 +45,9 @@ class GetVirtualNetworkGatewayConnectionResult:
         if express_route_gateway_bypass and not isinstance(express_route_gateway_bypass, bool):
             raise TypeError("Expected argument 'express_route_gateway_bypass' to be a bool")
         pulumi.set(__self__, "express_route_gateway_bypass", express_route_gateway_bypass)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if ingress_bytes_transferred and not isinstance(ingress_bytes_transferred, int):
             raise TypeError("Expected argument 'ingress_bytes_transferred' to be a int")
         pulumi.set(__self__, "ingress_bytes_transferred", ingress_bytes_transferred)
@@ -157,6 +160,14 @@ class GetVirtualNetworkGatewayConnectionResult:
         Bypass ExpressRoute Gateway for data forwarding
         """
         return pulumi.get(self, "express_route_gateway_bypass")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ingressBytesTransferred")
@@ -301,6 +312,7 @@ class AwaitableGetVirtualNetworkGatewayConnectionResult(GetVirtualNetworkGateway
             enable_bgp=self.enable_bgp,
             etag=self.etag,
             express_route_gateway_bypass=self.express_route_gateway_bypass,
+            id=self.id,
             ingress_bytes_transferred=self.ingress_bytes_transferred,
             ipsec_policies=self.ipsec_policies,
             local_network_gateway2=self.local_network_gateway2,
@@ -346,6 +358,7 @@ def get_virtual_network_gateway_connection(resource_group_name: Optional[str] = 
         enable_bgp=__ret__.enable_bgp,
         etag=__ret__.etag,
         express_route_gateway_bypass=__ret__.express_route_gateway_bypass,
+        id=__ret__.id,
         ingress_bytes_transferred=__ret__.ingress_bytes_transferred,
         ipsec_policies=__ret__.ipsec_policies,
         local_network_gateway2=__ret__.local_network_gateway2,

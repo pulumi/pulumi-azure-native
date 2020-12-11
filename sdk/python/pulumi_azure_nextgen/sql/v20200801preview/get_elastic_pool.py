@@ -20,10 +20,13 @@ class GetElasticPoolResult:
     """
     An elastic pool.
     """
-    def __init__(__self__, creation_date=None, kind=None, license_type=None, location=None, maintenance_configuration_id=None, max_size_bytes=None, name=None, per_database_settings=None, sku=None, state=None, tags=None, type=None, zone_redundant=None):
+    def __init__(__self__, creation_date=None, id=None, kind=None, license_type=None, location=None, maintenance_configuration_id=None, max_size_bytes=None, name=None, per_database_settings=None, sku=None, state=None, tags=None, type=None, zone_redundant=None):
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -68,6 +71,14 @@ class GetElasticPoolResult:
         The creation date of the elastic pool (ISO8601 format).
         """
         return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -179,6 +190,7 @@ class AwaitableGetElasticPoolResult(GetElasticPoolResult):
             yield self
         return GetElasticPoolResult(
             creation_date=self.creation_date,
+            id=self.id,
             kind=self.kind,
             license_type=self.license_type,
             location=self.location,
@@ -216,6 +228,7 @@ def get_elastic_pool(elastic_pool_name: Optional[str] = None,
 
     return AwaitableGetElasticPoolResult(
         creation_date=__ret__.creation_date,
+        id=__ret__.id,
         kind=__ret__.kind,
         license_type=__ret__.license_type,
         location=__ret__.location,

@@ -20,10 +20,13 @@ class GetApplicationResult:
     """
     The HDInsight cluster application
     """
-    def __init__(__self__, etag=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, etag=None, id=None, name=None, properties=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -44,6 +47,14 @@ class GetApplicationResult:
         The ETag for the application
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -85,6 +96,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             yield self
         return GetApplicationResult(
             etag=self.etag,
+            id=self.id,
             name=self.name,
             properties=self.properties,
             tags=self.tags,
@@ -114,6 +126,7 @@ def get_application(application_name: Optional[str] = None,
 
     return AwaitableGetApplicationResult(
         etag=__ret__.etag,
+        id=__ret__.id,
         name=__ret__.name,
         properties=__ret__.properties,
         tags=__ret__.tags,

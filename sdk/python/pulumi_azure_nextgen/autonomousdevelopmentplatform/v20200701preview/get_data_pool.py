@@ -20,10 +20,13 @@ class GetDataPoolResult:
     """
     An ADP Data Pool.
     """
-    def __init__(__self__, data_pool_id=None, locations=None, name=None, provisioning_state=None, type=None):
+    def __init__(__self__, data_pool_id=None, id=None, locations=None, name=None, provisioning_state=None, type=None):
         if data_pool_id and not isinstance(data_pool_id, str):
             raise TypeError("Expected argument 'data_pool_id' to be a str")
         pulumi.set(__self__, "data_pool_id", data_pool_id)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if locations and not isinstance(locations, list):
             raise TypeError("Expected argument 'locations' to be a list")
         pulumi.set(__self__, "locations", locations)
@@ -44,6 +47,14 @@ class GetDataPoolResult:
         The Data Pool's data-plane ID
         """
         return pulumi.get(self, "data_pool_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -85,6 +96,7 @@ class AwaitableGetDataPoolResult(GetDataPoolResult):
             yield self
         return GetDataPoolResult(
             data_pool_id=self.data_pool_id,
+            id=self.id,
             locations=self.locations,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -114,6 +126,7 @@ def get_data_pool(account_name: Optional[str] = None,
 
     return AwaitableGetDataPoolResult(
         data_pool_id=__ret__.data_pool_id,
+        id=__ret__.id,
         locations=__ret__.locations,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

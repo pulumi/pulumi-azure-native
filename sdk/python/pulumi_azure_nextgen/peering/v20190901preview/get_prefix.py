@@ -20,13 +20,16 @@ class GetPrefixResult:
     """
     The peering service prefix class.
     """
-    def __init__(__self__, error_message=None, events=None, learned_type=None, name=None, prefix=None, prefix_validation_state=None, provisioning_state=None, type=None):
+    def __init__(__self__, error_message=None, events=None, id=None, learned_type=None, name=None, prefix=None, prefix_validation_state=None, provisioning_state=None, type=None):
         if error_message and not isinstance(error_message, str):
             raise TypeError("Expected argument 'error_message' to be a str")
         pulumi.set(__self__, "error_message", error_message)
         if events and not isinstance(events, list):
             raise TypeError("Expected argument 'events' to be a list")
         pulumi.set(__self__, "events", events)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if learned_type and not isinstance(learned_type, str):
             raise TypeError("Expected argument 'learned_type' to be a str")
         pulumi.set(__self__, "learned_type", learned_type)
@@ -61,6 +64,14 @@ class GetPrefixResult:
         The list of events for peering service prefix
         """
         return pulumi.get(self, "events")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="learnedType")
@@ -119,6 +130,7 @@ class AwaitableGetPrefixResult(GetPrefixResult):
         return GetPrefixResult(
             error_message=self.error_message,
             events=self.events,
+            id=self.id,
             learned_type=self.learned_type,
             name=self.name,
             prefix=self.prefix,
@@ -154,6 +166,7 @@ def get_prefix(expand: Optional[str] = None,
     return AwaitableGetPrefixResult(
         error_message=__ret__.error_message,
         events=__ret__.events,
+        id=__ret__.id,
         learned_type=__ret__.learned_type,
         name=__ret__.name,
         prefix=__ret__.prefix,

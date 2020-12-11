@@ -20,7 +20,7 @@ class GetPipelineResult:
     """
     Pipeline resource type.
     """
-    def __init__(__self__, activities=None, annotations=None, concurrency=None, description=None, etag=None, name=None, parameters=None, type=None):
+    def __init__(__self__, activities=None, annotations=None, concurrency=None, description=None, etag=None, id=None, name=None, parameters=None, type=None):
         if activities and not isinstance(activities, list):
             raise TypeError("Expected argument 'activities' to be a list")
         pulumi.set(__self__, "activities", activities)
@@ -36,6 +36,9 @@ class GetPipelineResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -88,6 +91,14 @@ class GetPipelineResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource identifier.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         The resource name.
@@ -122,6 +133,7 @@ class AwaitableGetPipelineResult(GetPipelineResult):
             concurrency=self.concurrency,
             description=self.description,
             etag=self.etag,
+            id=self.id,
             name=self.name,
             parameters=self.parameters,
             type=self.type)
@@ -154,6 +166,7 @@ def get_pipeline(factory_name: Optional[str] = None,
         concurrency=__ret__.concurrency,
         description=__ret__.description,
         etag=__ret__.etag,
+        id=__ret__.id,
         name=__ret__.name,
         parameters=__ret__.parameters,
         type=__ret__.type)

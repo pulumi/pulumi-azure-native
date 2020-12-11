@@ -19,10 +19,13 @@ class GetSnapshotResult:
     """
     Snapshot of a Volume
     """
-    def __init__(__self__, created=None, location=None, name=None, provisioning_state=None, snapshot_id=None, type=None):
+    def __init__(__self__, created=None, id=None, location=None, name=None, provisioning_state=None, snapshot_id=None, type=None):
         if created and not isinstance(created, str):
             raise TypeError("Expected argument 'created' to be a str")
         pulumi.set(__self__, "created", created)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -46,6 +49,14 @@ class GetSnapshotResult:
         The creation date of the snapshot
         """
         return pulumi.get(self, "created")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -95,6 +106,7 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
             yield self
         return GetSnapshotResult(
             created=self.created,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -131,6 +143,7 @@ def get_snapshot(account_name: Optional[str] = None,
 
     return AwaitableGetSnapshotResult(
         created=__ret__.created,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

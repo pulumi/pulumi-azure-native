@@ -19,7 +19,7 @@ class GetWorkloadNetworkDnsServiceResult:
     """
     NSX DNS Service
     """
-    def __init__(__self__, default_dns_zone=None, display_name=None, dns_service_ip=None, fqdn_zones=None, log_level=None, name=None, provisioning_state=None, revision=None, status=None, type=None):
+    def __init__(__self__, default_dns_zone=None, display_name=None, dns_service_ip=None, fqdn_zones=None, id=None, log_level=None, name=None, provisioning_state=None, revision=None, status=None, type=None):
         if default_dns_zone and not isinstance(default_dns_zone, str):
             raise TypeError("Expected argument 'default_dns_zone' to be a str")
         pulumi.set(__self__, "default_dns_zone", default_dns_zone)
@@ -32,6 +32,9 @@ class GetWorkloadNetworkDnsServiceResult:
         if fqdn_zones and not isinstance(fqdn_zones, list):
             raise TypeError("Expected argument 'fqdn_zones' to be a list")
         pulumi.set(__self__, "fqdn_zones", fqdn_zones)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if log_level and not isinstance(log_level, str):
             raise TypeError("Expected argument 'log_level' to be a str")
         pulumi.set(__self__, "log_level", log_level)
@@ -82,6 +85,14 @@ class GetWorkloadNetworkDnsServiceResult:
         FQDN zones of the DNS Service.
         """
         return pulumi.get(self, "fqdn_zones")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="logLevel")
@@ -142,6 +153,7 @@ class AwaitableGetWorkloadNetworkDnsServiceResult(GetWorkloadNetworkDnsServiceRe
             display_name=self.display_name,
             dns_service_ip=self.dns_service_ip,
             fqdn_zones=self.fqdn_zones,
+            id=self.id,
             log_level=self.log_level,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -176,6 +188,7 @@ def get_workload_network_dns_service(dns_service_id: Optional[str] = None,
         display_name=__ret__.display_name,
         dns_service_ip=__ret__.dns_service_ip,
         fqdn_zones=__ret__.fqdn_zones,
+        id=__ret__.id,
         log_level=__ret__.log_level,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

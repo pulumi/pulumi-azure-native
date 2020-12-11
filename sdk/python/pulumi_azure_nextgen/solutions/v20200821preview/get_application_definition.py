@@ -20,7 +20,7 @@ class GetApplicationDefinitionResult:
     """
     Information about managed application definition.
     """
-    def __init__(__self__, artifacts=None, authorizations=None, create_ui_definition=None, deployment_policy=None, description=None, display_name=None, is_enabled=None, location=None, lock_level=None, locking_policy=None, main_template=None, managed_by=None, management_policy=None, name=None, notification_policy=None, package_file_uri=None, policies=None, sku=None, storage_account_id=None, tags=None, type=None):
+    def __init__(__self__, artifacts=None, authorizations=None, create_ui_definition=None, deployment_policy=None, description=None, display_name=None, id=None, is_enabled=None, location=None, lock_level=None, locking_policy=None, main_template=None, managed_by=None, management_policy=None, name=None, notification_policy=None, package_file_uri=None, policies=None, sku=None, storage_account_id=None, tags=None, type=None):
         if artifacts and not isinstance(artifacts, list):
             raise TypeError("Expected argument 'artifacts' to be a list")
         pulumi.set(__self__, "artifacts", artifacts)
@@ -39,6 +39,9 @@ class GetApplicationDefinitionResult:
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_enabled and not isinstance(is_enabled, bool):
             raise TypeError("Expected argument 'is_enabled' to be a bool")
         pulumi.set(__self__, "is_enabled", is_enabled)
@@ -132,6 +135,14 @@ class GetApplicationDefinitionResult:
         The managed application definition display name.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -266,6 +277,7 @@ class AwaitableGetApplicationDefinitionResult(GetApplicationDefinitionResult):
             deployment_policy=self.deployment_policy,
             description=self.description,
             display_name=self.display_name,
+            id=self.id,
             is_enabled=self.is_enabled,
             location=self.location,
             lock_level=self.lock_level,
@@ -308,6 +320,7 @@ def get_application_definition(application_definition_name: Optional[str] = None
         deployment_policy=__ret__.deployment_policy,
         description=__ret__.description,
         display_name=__ret__.display_name,
+        id=__ret__.id,
         is_enabled=__ret__.is_enabled,
         location=__ret__.location,
         lock_level=__ret__.lock_level,

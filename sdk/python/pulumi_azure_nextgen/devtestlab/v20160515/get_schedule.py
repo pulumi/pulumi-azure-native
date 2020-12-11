@@ -20,7 +20,7 @@ class GetScheduleResult:
     """
     A schedule.
     """
-    def __init__(__self__, created_date=None, daily_recurrence=None, hourly_recurrence=None, location=None, name=None, notification_settings=None, provisioning_state=None, status=None, tags=None, target_resource_id=None, task_type=None, time_zone_id=None, type=None, unique_identifier=None, weekly_recurrence=None):
+    def __init__(__self__, created_date=None, daily_recurrence=None, hourly_recurrence=None, id=None, location=None, name=None, notification_settings=None, provisioning_state=None, status=None, tags=None, target_resource_id=None, task_type=None, time_zone_id=None, type=None, unique_identifier=None, weekly_recurrence=None):
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
@@ -30,6 +30,9 @@ class GetScheduleResult:
         if hourly_recurrence and not isinstance(hourly_recurrence, dict):
             raise TypeError("Expected argument 'hourly_recurrence' to be a dict")
         pulumi.set(__self__, "hourly_recurrence", hourly_recurrence)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -90,6 +93,14 @@ class GetScheduleResult:
         If the schedule will occur multiple times a day, specify the hourly recurrence.
         """
         return pulumi.get(self, "hourly_recurrence")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -197,6 +208,7 @@ class AwaitableGetScheduleResult(GetScheduleResult):
             created_date=self.created_date,
             daily_recurrence=self.daily_recurrence,
             hourly_recurrence=self.hourly_recurrence,
+            id=self.id,
             location=self.location,
             name=self.name,
             notification_settings=self.notification_settings,
@@ -239,6 +251,7 @@ def get_schedule(expand: Optional[str] = None,
         created_date=__ret__.created_date,
         daily_recurrence=__ret__.daily_recurrence,
         hourly_recurrence=__ret__.hourly_recurrence,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         notification_settings=__ret__.notification_settings,

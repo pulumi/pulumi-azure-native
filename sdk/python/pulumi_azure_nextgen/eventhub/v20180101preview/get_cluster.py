@@ -20,10 +20,13 @@ class GetClusterResult:
     """
     Single Event Hubs Cluster resource in List or Get operations.
     """
-    def __init__(__self__, created_at=None, location=None, metric_id=None, name=None, sku=None, status=None, tags=None, type=None, updated_at=None):
+    def __init__(__self__, created_at=None, id=None, location=None, metric_id=None, name=None, sku=None, status=None, tags=None, type=None, updated_at=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -56,6 +59,14 @@ class GetClusterResult:
         The UTC time when the Event Hubs Cluster was created.
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -129,6 +140,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             yield self
         return GetClusterResult(
             created_at=self.created_at,
+            id=self.id,
             location=self.location,
             metric_id=self.metric_id,
             name=self.name,
@@ -159,6 +171,7 @@ def get_cluster(cluster_name: Optional[str] = None,
 
     return AwaitableGetClusterResult(
         created_at=__ret__.created_at,
+        id=__ret__.id,
         location=__ret__.location,
         metric_id=__ret__.metric_id,
         name=__ret__.name,

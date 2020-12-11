@@ -20,7 +20,10 @@ class GetResourceGroupResult:
     """
     Resource group information.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None):
+    def __init__(__self__, id=None, location=None, name=None, properties=None, tags=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -33,6 +36,14 @@ class GetResourceGroupResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the resource group.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -73,6 +84,7 @@ class AwaitableGetResourceGroupResult(GetResourceGroupResult):
         if False:
             yield self
         return GetResourceGroupResult(
+            id=self.id,
             location=self.location,
             name=self.name,
             properties=self.properties,
@@ -95,6 +107,7 @@ def get_resource_group(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:resources/v20160201:getResourceGroup', __args__, opts=opts, typ=GetResourceGroupResult).value
 
     return AwaitableGetResourceGroupResult(
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         properties=__ret__.properties,

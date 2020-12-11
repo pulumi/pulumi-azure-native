@@ -20,7 +20,7 @@ class GetNetworkSecurityGroupResult:
     """
     NetworkSecurityGroup resource.
     """
-    def __init__(__self__, default_security_rules=None, etag=None, flow_logs=None, location=None, name=None, network_interfaces=None, provisioning_state=None, resource_guid=None, security_rules=None, subnets=None, tags=None, type=None):
+    def __init__(__self__, default_security_rules=None, etag=None, flow_logs=None, id=None, location=None, name=None, network_interfaces=None, provisioning_state=None, resource_guid=None, security_rules=None, subnets=None, tags=None, type=None):
         if default_security_rules and not isinstance(default_security_rules, list):
             raise TypeError("Expected argument 'default_security_rules' to be a list")
         pulumi.set(__self__, "default_security_rules", default_security_rules)
@@ -30,6 +30,9 @@ class GetNetworkSecurityGroupResult:
         if flow_logs and not isinstance(flow_logs, list):
             raise TypeError("Expected argument 'flow_logs' to be a list")
         pulumi.set(__self__, "flow_logs", flow_logs)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -81,6 +84,14 @@ class GetNetworkSecurityGroupResult:
         A collection of references to flow log resources.
         """
         return pulumi.get(self, "flow_logs")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -164,6 +175,7 @@ class AwaitableGetNetworkSecurityGroupResult(GetNetworkSecurityGroupResult):
             default_security_rules=self.default_security_rules,
             etag=self.etag,
             flow_logs=self.flow_logs,
+            id=self.id,
             location=self.location,
             name=self.name,
             network_interfaces=self.network_interfaces,
@@ -200,6 +212,7 @@ def get_network_security_group(expand: Optional[str] = None,
         default_security_rules=__ret__.default_security_rules,
         etag=__ret__.etag,
         flow_logs=__ret__.flow_logs,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         network_interfaces=__ret__.network_interfaces,

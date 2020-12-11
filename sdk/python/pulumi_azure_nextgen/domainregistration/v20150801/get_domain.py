@@ -20,7 +20,7 @@ class GetDomainResult:
     """
     Represents a domain
     """
-    def __init__(__self__, auto_renew=None, consent=None, contact_admin=None, contact_billing=None, contact_registrant=None, contact_tech=None, created_time=None, domain_not_renewable_reasons=None, expiration_time=None, kind=None, last_renewed_time=None, location=None, managed_host_names=None, name=None, name_servers=None, privacy=None, provisioning_state=None, ready_for_dns_record_management=None, registration_status=None, tags=None, type=None):
+    def __init__(__self__, auto_renew=None, consent=None, contact_admin=None, contact_billing=None, contact_registrant=None, contact_tech=None, created_time=None, domain_not_renewable_reasons=None, expiration_time=None, id=None, kind=None, last_renewed_time=None, location=None, managed_host_names=None, name=None, name_servers=None, privacy=None, provisioning_state=None, ready_for_dns_record_management=None, registration_status=None, tags=None, type=None):
         if auto_renew and not isinstance(auto_renew, bool):
             raise TypeError("Expected argument 'auto_renew' to be a bool")
         pulumi.set(__self__, "auto_renew", auto_renew)
@@ -48,6 +48,9 @@ class GetDomainResult:
         if expiration_time and not isinstance(expiration_time, str):
             raise TypeError("Expected argument 'expiration_time' to be a str")
         pulumi.set(__self__, "expiration_time", expiration_time)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -156,6 +159,14 @@ class GetDomainResult:
         Domain expiration timestamp
         """
         return pulumi.get(self, "expiration_time")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -269,6 +280,7 @@ class AwaitableGetDomainResult(GetDomainResult):
             created_time=self.created_time,
             domain_not_renewable_reasons=self.domain_not_renewable_reasons,
             expiration_time=self.expiration_time,
+            id=self.id,
             kind=self.kind,
             last_renewed_time=self.last_renewed_time,
             location=self.location,
@@ -311,6 +323,7 @@ def get_domain(domain_name: Optional[str] = None,
         created_time=__ret__.created_time,
         domain_not_renewable_reasons=__ret__.domain_not_renewable_reasons,
         expiration_time=__ret__.expiration_time,
+        id=__ret__.id,
         kind=__ret__.kind,
         last_renewed_time=__ret__.last_renewed_time,
         location=__ret__.location,

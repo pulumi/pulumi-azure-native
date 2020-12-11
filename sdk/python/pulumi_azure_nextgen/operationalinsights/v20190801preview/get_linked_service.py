@@ -19,7 +19,10 @@ class GetLinkedServiceResult:
     """
     The top level Linked service resource container.
     """
-    def __init__(__self__, name=None, resource_id=None, type=None, write_access_resource_id=None):
+    def __init__(__self__, id=None, name=None, resource_id=None, type=None, write_access_resource_id=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -32,6 +35,14 @@ class GetLinkedServiceResult:
         if write_access_resource_id and not isinstance(write_access_resource_id, str):
             raise TypeError("Expected argument 'write_access_resource_id' to be a str")
         pulumi.set(__self__, "write_access_resource_id", write_access_resource_id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -72,6 +83,7 @@ class AwaitableGetLinkedServiceResult(GetLinkedServiceResult):
         if False:
             yield self
         return GetLinkedServiceResult(
+            id=self.id,
             name=self.name,
             resource_id=self.resource_id,
             type=self.type,
@@ -100,6 +112,7 @@ def get_linked_service(linked_service_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:operationalinsights/v20190801preview:getLinkedService', __args__, opts=opts, typ=GetLinkedServiceResult).value
 
     return AwaitableGetLinkedServiceResult(
+        id=__ret__.id,
         name=__ret__.name,
         resource_id=__ret__.resource_id,
         type=__ret__.type,

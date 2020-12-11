@@ -20,7 +20,7 @@ class GetScopeMapResult:
     """
     An object that represents a scope map for a container registry.
     """
-    def __init__(__self__, actions=None, creation_date=None, description=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, actions=None, creation_date=None, description=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
@@ -30,6 +30,9 @@ class GetScopeMapResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -68,6 +71,14 @@ class GetScopeMapResult:
         The user friendly description of the scope map.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -111,6 +122,7 @@ class AwaitableGetScopeMapResult(GetScopeMapResult):
             actions=self.actions,
             creation_date=self.creation_date,
             description=self.description,
+            id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
             system_data=self.system_data,
@@ -142,6 +154,7 @@ def get_scope_map(registry_name: Optional[str] = None,
         actions=__ret__.actions,
         creation_date=__ret__.creation_date,
         description=__ret__.description,
+        id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         system_data=__ret__.system_data,

@@ -20,13 +20,16 @@ class GetLoadBalancerBackendAddressPoolResult:
     """
     Pool of backend IP addresses.
     """
-    def __init__(__self__, backend_ip_configurations=None, etag=None, load_balancer_backend_addresses=None, load_balancing_rules=None, name=None, outbound_rule=None, outbound_rules=None, provisioning_state=None, type=None):
+    def __init__(__self__, backend_ip_configurations=None, etag=None, id=None, load_balancer_backend_addresses=None, load_balancing_rules=None, name=None, outbound_rule=None, outbound_rules=None, provisioning_state=None, type=None):
         if backend_ip_configurations and not isinstance(backend_ip_configurations, list):
             raise TypeError("Expected argument 'backend_ip_configurations' to be a list")
         pulumi.set(__self__, "backend_ip_configurations", backend_ip_configurations)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if load_balancer_backend_addresses and not isinstance(load_balancer_backend_addresses, list):
             raise TypeError("Expected argument 'load_balancer_backend_addresses' to be a list")
         pulumi.set(__self__, "load_balancer_backend_addresses", load_balancer_backend_addresses)
@@ -64,6 +67,14 @@ class GetLoadBalancerBackendAddressPoolResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="loadBalancerBackendAddresses")
@@ -130,6 +141,7 @@ class AwaitableGetLoadBalancerBackendAddressPoolResult(GetLoadBalancerBackendAdd
         return GetLoadBalancerBackendAddressPoolResult(
             backend_ip_configurations=self.backend_ip_configurations,
             etag=self.etag,
+            id=self.id,
             load_balancer_backend_addresses=self.load_balancer_backend_addresses,
             load_balancing_rules=self.load_balancing_rules,
             name=self.name,
@@ -163,6 +175,7 @@ def get_load_balancer_backend_address_pool(backend_address_pool_name: Optional[s
     return AwaitableGetLoadBalancerBackendAddressPoolResult(
         backend_ip_configurations=__ret__.backend_ip_configurations,
         etag=__ret__.etag,
+        id=__ret__.id,
         load_balancer_backend_addresses=__ret__.load_balancer_backend_addresses,
         load_balancing_rules=__ret__.load_balancing_rules,
         name=__ret__.name,

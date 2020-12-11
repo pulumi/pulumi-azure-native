@@ -20,7 +20,7 @@ class GetJobResult:
     """
     Contains information about the job.
     """
-    def __init__(__self__, caffe_settings=None, chainer_settings=None, cluster=None, cntk_settings=None, constraints=None, container_settings=None, creation_time=None, custom_toolkit_settings=None, environment_variables=None, execution_info=None, execution_state=None, execution_state_transition_time=None, experiment_name=None, input_directories=None, job_preparation=None, location=None, name=None, node_count=None, output_directories=None, priority=None, provisioning_state=None, provisioning_state_transition_time=None, std_out_err_path_prefix=None, tags=None, tensor_flow_settings=None, tool_type=None, type=None):
+    def __init__(__self__, caffe_settings=None, chainer_settings=None, cluster=None, cntk_settings=None, constraints=None, container_settings=None, creation_time=None, custom_toolkit_settings=None, environment_variables=None, execution_info=None, execution_state=None, execution_state_transition_time=None, experiment_name=None, id=None, input_directories=None, job_preparation=None, location=None, name=None, node_count=None, output_directories=None, priority=None, provisioning_state=None, provisioning_state_transition_time=None, std_out_err_path_prefix=None, tags=None, tensor_flow_settings=None, tool_type=None, type=None):
         if caffe_settings and not isinstance(caffe_settings, dict):
             raise TypeError("Expected argument 'caffe_settings' to be a dict")
         pulumi.set(__self__, "caffe_settings", caffe_settings)
@@ -60,6 +60,9 @@ class GetJobResult:
         if experiment_name and not isinstance(experiment_name, str):
             raise TypeError("Expected argument 'experiment_name' to be a str")
         pulumi.set(__self__, "experiment_name", experiment_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if input_directories and not isinstance(input_directories, list):
             raise TypeError("Expected argument 'input_directories' to be a list")
         pulumi.set(__self__, "input_directories", input_directories)
@@ -208,6 +211,14 @@ class GetJobResult:
         return pulumi.get(self, "experiment_name")
 
     @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the resource
+        """
+        return pulumi.get(self, "id")
+
+    @property
     @pulumi.getter(name="inputDirectories")
     def input_directories(self) -> Optional[Sequence['outputs.InputDirectoryResponse']]:
         return pulumi.get(self, "input_directories")
@@ -333,6 +344,7 @@ class AwaitableGetJobResult(GetJobResult):
             execution_state=self.execution_state,
             execution_state_transition_time=self.execution_state_transition_time,
             experiment_name=self.experiment_name,
+            id=self.id,
             input_directories=self.input_directories,
             job_preparation=self.job_preparation,
             location=self.location,
@@ -381,6 +393,7 @@ def get_job(job_name: Optional[str] = None,
         execution_state=__ret__.execution_state,
         execution_state_transition_time=__ret__.execution_state_transition_time,
         experiment_name=__ret__.experiment_name,
+        id=__ret__.id,
         input_directories=__ret__.input_directories,
         job_preparation=__ret__.job_preparation,
         location=__ret__.location,

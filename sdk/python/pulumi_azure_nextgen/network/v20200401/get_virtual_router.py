@@ -20,7 +20,7 @@ class GetVirtualRouterResult:
     """
     VirtualRouter Resource.
     """
-    def __init__(__self__, etag=None, hosted_gateway=None, hosted_subnet=None, location=None, name=None, peerings=None, provisioning_state=None, tags=None, type=None, virtual_router_asn=None, virtual_router_ips=None):
+    def __init__(__self__, etag=None, hosted_gateway=None, hosted_subnet=None, id=None, location=None, name=None, peerings=None, provisioning_state=None, tags=None, type=None, virtual_router_asn=None, virtual_router_ips=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -30,6 +30,9 @@ class GetVirtualRouterResult:
         if hosted_subnet and not isinstance(hosted_subnet, dict):
             raise TypeError("Expected argument 'hosted_subnet' to be a dict")
         pulumi.set(__self__, "hosted_subnet", hosted_subnet)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -78,6 +81,14 @@ class GetVirtualRouterResult:
         The Subnet on which VirtualRouter is hosted.
         """
         return pulumi.get(self, "hosted_subnet")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -153,6 +164,7 @@ class AwaitableGetVirtualRouterResult(GetVirtualRouterResult):
             etag=self.etag,
             hosted_gateway=self.hosted_gateway,
             hosted_subnet=self.hosted_subnet,
+            id=self.id,
             location=self.location,
             name=self.name,
             peerings=self.peerings,
@@ -188,6 +200,7 @@ def get_virtual_router(expand: Optional[str] = None,
         etag=__ret__.etag,
         hosted_gateway=__ret__.hosted_gateway,
         hosted_subnet=__ret__.hosted_subnet,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         peerings=__ret__.peerings,

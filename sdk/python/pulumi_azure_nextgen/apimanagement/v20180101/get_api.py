@@ -20,7 +20,7 @@ class GetApiResult:
     """
     API details.
     """
-    def __init__(__self__, api_revision=None, api_revision_description=None, api_type=None, api_version=None, api_version_description=None, api_version_set=None, api_version_set_id=None, authentication_settings=None, description=None, display_name=None, is_current=None, is_online=None, name=None, path=None, protocols=None, service_url=None, subscription_key_parameter_names=None, type=None):
+    def __init__(__self__, api_revision=None, api_revision_description=None, api_type=None, api_version=None, api_version_description=None, api_version_set=None, api_version_set_id=None, authentication_settings=None, description=None, display_name=None, id=None, is_current=None, is_online=None, name=None, path=None, protocols=None, service_url=None, subscription_key_parameter_names=None, type=None):
         if api_revision and not isinstance(api_revision, str):
             raise TypeError("Expected argument 'api_revision' to be a str")
         pulumi.set(__self__, "api_revision", api_revision)
@@ -51,6 +51,9 @@ class GetApiResult:
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_current and not isinstance(is_current, bool):
             raise TypeError("Expected argument 'is_current' to be a bool")
         pulumi.set(__self__, "is_current", is_current)
@@ -157,6 +160,14 @@ class GetApiResult:
         return pulumi.get(self, "display_name")
 
     @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
     @pulumi.getter(name="isCurrent")
     def is_current(self) -> bool:
         """
@@ -237,6 +248,7 @@ class AwaitableGetApiResult(GetApiResult):
             authentication_settings=self.authentication_settings,
             description=self.description,
             display_name=self.display_name,
+            id=self.id,
             is_current=self.is_current,
             is_online=self.is_online,
             name=self.name,
@@ -279,6 +291,7 @@ def get_api(api_id: Optional[str] = None,
         authentication_settings=__ret__.authentication_settings,
         description=__ret__.description,
         display_name=__ret__.display_name,
+        id=__ret__.id,
         is_current=__ret__.is_current,
         is_online=__ret__.is_online,
         name=__ret__.name,

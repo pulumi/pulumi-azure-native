@@ -20,7 +20,7 @@ class GetHostingEnvironmentResult:
     """
     Description of an hostingEnvironment (App Service Environment)
     """
-    def __init__(__self__, allowed_multi_sizes=None, allowed_worker_sizes=None, api_management_account_id=None, cluster_settings=None, database_edition=None, database_service_objective=None, dns_suffix=None, environment_capacities=None, environment_is_healthy=None, environment_status=None, internal_load_balancing_mode=None, ipssl_address_count=None, kind=None, last_action=None, last_action_result=None, location=None, maximum_number_of_machines=None, multi_role_count=None, multi_size=None, name=None, network_access_control_list=None, provisioning_state=None, resource_group=None, status=None, subscription_id=None, suspended=None, tags=None, type=None, upgrade_domains=None, vip_mappings=None, virtual_network=None, vnet_name=None, vnet_resource_group_name=None, vnet_subnet_name=None, worker_pools=None):
+    def __init__(__self__, allowed_multi_sizes=None, allowed_worker_sizes=None, api_management_account_id=None, cluster_settings=None, database_edition=None, database_service_objective=None, dns_suffix=None, environment_capacities=None, environment_is_healthy=None, environment_status=None, id=None, internal_load_balancing_mode=None, ipssl_address_count=None, kind=None, last_action=None, last_action_result=None, location=None, maximum_number_of_machines=None, multi_role_count=None, multi_size=None, name=None, network_access_control_list=None, provisioning_state=None, resource_group=None, status=None, subscription_id=None, suspended=None, tags=None, type=None, upgrade_domains=None, vip_mappings=None, virtual_network=None, vnet_name=None, vnet_resource_group_name=None, vnet_subnet_name=None, worker_pools=None):
         if allowed_multi_sizes and not isinstance(allowed_multi_sizes, str):
             raise TypeError("Expected argument 'allowed_multi_sizes' to be a str")
         pulumi.set(__self__, "allowed_multi_sizes", allowed_multi_sizes)
@@ -51,6 +51,9 @@ class GetHostingEnvironmentResult:
         if environment_status and not isinstance(environment_status, str):
             raise TypeError("Expected argument 'environment_status' to be a str")
         pulumi.set(__self__, "environment_status", environment_status)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if internal_load_balancing_mode and not isinstance(internal_load_balancing_mode, str):
             raise TypeError("Expected argument 'internal_load_balancing_mode' to be a str")
         pulumi.set(__self__, "internal_load_balancing_mode", internal_load_balancing_mode)
@@ -206,6 +209,14 @@ class GetHostingEnvironmentResult:
         Detailed message about with results of the last check of the hostingEnvironment (App Service Environment)
         """
         return pulumi.get(self, "environment_status")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="internalLoadBalancingMode")
@@ -425,6 +436,7 @@ class AwaitableGetHostingEnvironmentResult(GetHostingEnvironmentResult):
             environment_capacities=self.environment_capacities,
             environment_is_healthy=self.environment_is_healthy,
             environment_status=self.environment_status,
+            id=self.id,
             internal_load_balancing_mode=self.internal_load_balancing_mode,
             ipssl_address_count=self.ipssl_address_count,
             kind=self.kind,
@@ -481,6 +493,7 @@ def get_hosting_environment(name: Optional[str] = None,
         environment_capacities=__ret__.environment_capacities,
         environment_is_healthy=__ret__.environment_is_healthy,
         environment_status=__ret__.environment_status,
+        id=__ret__.id,
         internal_load_balancing_mode=__ret__.internal_load_balancing_mode,
         ipssl_address_count=__ret__.ipssl_address_count,
         kind=__ret__.kind,

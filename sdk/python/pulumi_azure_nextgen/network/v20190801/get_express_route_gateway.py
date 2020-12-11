@@ -20,7 +20,7 @@ class GetExpressRouteGatewayResult:
     """
     ExpressRoute gateway resource.
     """
-    def __init__(__self__, auto_scale_configuration=None, etag=None, express_route_connections=None, location=None, name=None, provisioning_state=None, tags=None, type=None, virtual_hub=None):
+    def __init__(__self__, auto_scale_configuration=None, etag=None, express_route_connections=None, id=None, location=None, name=None, provisioning_state=None, tags=None, type=None, virtual_hub=None):
         if auto_scale_configuration and not isinstance(auto_scale_configuration, dict):
             raise TypeError("Expected argument 'auto_scale_configuration' to be a dict")
         pulumi.set(__self__, "auto_scale_configuration", auto_scale_configuration)
@@ -30,6 +30,9 @@ class GetExpressRouteGatewayResult:
         if express_route_connections and not isinstance(express_route_connections, list):
             raise TypeError("Expected argument 'express_route_connections' to be a list")
         pulumi.set(__self__, "express_route_connections", express_route_connections)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -72,6 +75,14 @@ class GetExpressRouteGatewayResult:
         List of ExpressRoute connections to the ExpressRoute gateway.
         """
         return pulumi.get(self, "express_route_connections")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -131,6 +142,7 @@ class AwaitableGetExpressRouteGatewayResult(GetExpressRouteGatewayResult):
             auto_scale_configuration=self.auto_scale_configuration,
             etag=self.etag,
             express_route_connections=self.express_route_connections,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -161,6 +173,7 @@ def get_express_route_gateway(express_route_gateway_name: Optional[str] = None,
         auto_scale_configuration=__ret__.auto_scale_configuration,
         etag=__ret__.etag,
         express_route_connections=__ret__.express_route_connections,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

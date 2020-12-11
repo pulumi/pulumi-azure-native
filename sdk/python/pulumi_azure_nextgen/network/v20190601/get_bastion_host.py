@@ -20,13 +20,16 @@ class GetBastionHostResult:
     """
     Bastion Host resource.
     """
-    def __init__(__self__, dns_name=None, etag=None, ip_configurations=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, dns_name=None, etag=None, id=None, ip_configurations=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
         if dns_name and not isinstance(dns_name, str):
             raise TypeError("Expected argument 'dns_name' to be a str")
         pulumi.set(__self__, "dns_name", dns_name)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if ip_configurations and not isinstance(ip_configurations, list):
             raise TypeError("Expected argument 'ip_configurations' to be a list")
         pulumi.set(__self__, "ip_configurations", ip_configurations)
@@ -61,6 +64,14 @@ class GetBastionHostResult:
         Gets a unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ipConfigurations")
@@ -119,6 +130,7 @@ class AwaitableGetBastionHostResult(GetBastionHostResult):
         return GetBastionHostResult(
             dns_name=self.dns_name,
             etag=self.etag,
+            id=self.id,
             ip_configurations=self.ip_configurations,
             location=self.location,
             name=self.name,
@@ -148,6 +160,7 @@ def get_bastion_host(bastion_host_name: Optional[str] = None,
     return AwaitableGetBastionHostResult(
         dns_name=__ret__.dns_name,
         etag=__ret__.etag,
+        id=__ret__.id,
         ip_configurations=__ret__.ip_configurations,
         location=__ret__.location,
         name=__ret__.name,

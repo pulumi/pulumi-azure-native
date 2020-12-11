@@ -19,7 +19,10 @@ class GetSqlPoolSensitivityLabelResult:
     """
     A sensitivity label.
     """
-    def __init__(__self__, information_type=None, information_type_id=None, is_disabled=None, label_id=None, label_name=None, name=None, type=None):
+    def __init__(__self__, id=None, information_type=None, information_type_id=None, is_disabled=None, label_id=None, label_name=None, name=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if information_type and not isinstance(information_type, str):
             raise TypeError("Expected argument 'information_type' to be a str")
         pulumi.set(__self__, "information_type", information_type)
@@ -41,6 +44,14 @@ class GetSqlPoolSensitivityLabelResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="informationType")
@@ -105,6 +116,7 @@ class AwaitableGetSqlPoolSensitivityLabelResult(GetSqlPoolSensitivityLabelResult
         if False:
             yield self
         return GetSqlPoolSensitivityLabelResult(
+            id=self.id,
             information_type=self.information_type,
             information_type_id=self.information_type_id,
             is_disabled=self.is_disabled,
@@ -148,6 +160,7 @@ def get_sql_pool_sensitivity_label(column_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:synapse/v20190601preview:getSqlPoolSensitivityLabel', __args__, opts=opts, typ=GetSqlPoolSensitivityLabelResult).value
 
     return AwaitableGetSqlPoolSensitivityLabelResult(
+        id=__ret__.id,
         information_type=__ret__.information_type,
         information_type_id=__ret__.information_type_id,
         is_disabled=__ret__.is_disabled,

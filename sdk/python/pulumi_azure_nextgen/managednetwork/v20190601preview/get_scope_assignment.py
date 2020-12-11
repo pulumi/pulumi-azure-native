@@ -19,13 +19,16 @@ class GetScopeAssignmentResult:
     """
     The Managed Network resource
     """
-    def __init__(__self__, assigned_managed_network=None, etag=None, location=None, name=None, provisioning_state=None, type=None):
+    def __init__(__self__, assigned_managed_network=None, etag=None, id=None, location=None, name=None, provisioning_state=None, type=None):
         if assigned_managed_network and not isinstance(assigned_managed_network, str):
             raise TypeError("Expected argument 'assigned_managed_network' to be a str")
         pulumi.set(__self__, "assigned_managed_network", assigned_managed_network)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -54,6 +57,14 @@ class GetScopeAssignmentResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -96,6 +107,7 @@ class AwaitableGetScopeAssignmentResult(GetScopeAssignmentResult):
         return GetScopeAssignmentResult(
             assigned_managed_network=self.assigned_managed_network,
             etag=self.etag,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -123,6 +135,7 @@ def get_scope_assignment(scope: Optional[str] = None,
     return AwaitableGetScopeAssignmentResult(
         assigned_managed_network=__ret__.assigned_managed_network,
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

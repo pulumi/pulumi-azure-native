@@ -20,7 +20,7 @@ class GetIpGroupResult:
     """
     The IpGroups resource information.
     """
-    def __init__(__self__, etag=None, firewall_policies=None, firewalls=None, ip_addresses=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, etag=None, firewall_policies=None, firewalls=None, id=None, ip_addresses=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -30,6 +30,9 @@ class GetIpGroupResult:
         if firewalls and not isinstance(firewalls, list):
             raise TypeError("Expected argument 'firewalls' to be a list")
         pulumi.set(__self__, "firewalls", firewalls)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if ip_addresses and not isinstance(ip_addresses, list):
             raise TypeError("Expected argument 'ip_addresses' to be a list")
         pulumi.set(__self__, "ip_addresses", ip_addresses)
@@ -72,6 +75,14 @@ class GetIpGroupResult:
         List of references to Firewall resources that this IpGroups is associated with.
         """
         return pulumi.get(self, "firewalls")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ipAddresses")
@@ -131,6 +142,7 @@ class AwaitableGetIpGroupResult(GetIpGroupResult):
             etag=self.etag,
             firewall_policies=self.firewall_policies,
             firewalls=self.firewalls,
+            id=self.id,
             ip_addresses=self.ip_addresses,
             location=self.location,
             name=self.name,
@@ -164,6 +176,7 @@ def get_ip_group(expand: Optional[str] = None,
         etag=__ret__.etag,
         firewall_policies=__ret__.firewall_policies,
         firewalls=__ret__.firewalls,
+        id=__ret__.id,
         ip_addresses=__ret__.ip_addresses,
         location=__ret__.location,
         name=__ret__.name,

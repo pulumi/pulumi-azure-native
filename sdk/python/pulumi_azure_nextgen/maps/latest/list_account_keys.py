@@ -19,13 +19,24 @@ class ListAccountKeysResult:
     """
     The set of keys which can be used to access the Maps REST APIs. Two keys are provided for key rotation without interruption.
     """
-    def __init__(__self__, primary_key=None, secondary_key=None):
+    def __init__(__self__, id=None, primary_key=None, secondary_key=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if primary_key and not isinstance(primary_key, str):
             raise TypeError("Expected argument 'primary_key' to be a str")
         pulumi.set(__self__, "primary_key", primary_key)
         if secondary_key and not isinstance(secondary_key, str):
             raise TypeError("Expected argument 'secondary_key' to be a str")
         pulumi.set(__self__, "secondary_key", secondary_key)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The full Azure resource identifier of the Maps Account.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="primaryKey")
@@ -50,6 +61,7 @@ class AwaitableListAccountKeysResult(ListAccountKeysResult):
         if False:
             yield self
         return ListAccountKeysResult(
+            id=self.id,
             primary_key=self.primary_key,
             secondary_key=self.secondary_key)
 
@@ -73,5 +85,6 @@ def list_account_keys(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:maps/latest:listAccountKeys', __args__, opts=opts, typ=ListAccountKeysResult).value
 
     return AwaitableListAccountKeysResult(
+        id=__ret__.id,
         primary_key=__ret__.primary_key,
         secondary_key=__ret__.secondary_key)

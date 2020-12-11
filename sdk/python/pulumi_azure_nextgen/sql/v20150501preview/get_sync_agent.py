@@ -19,10 +19,13 @@ class GetSyncAgentResult:
     """
     An Azure SQL Database sync agent.
     """
-    def __init__(__self__, expiry_time=None, is_up_to_date=None, last_alive_time=None, name=None, state=None, sync_database_id=None, type=None, version=None):
+    def __init__(__self__, expiry_time=None, id=None, is_up_to_date=None, last_alive_time=None, name=None, state=None, sync_database_id=None, type=None, version=None):
         if expiry_time and not isinstance(expiry_time, str):
             raise TypeError("Expected argument 'expiry_time' to be a str")
         pulumi.set(__self__, "expiry_time", expiry_time)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_up_to_date and not isinstance(is_up_to_date, bool):
             raise TypeError("Expected argument 'is_up_to_date' to be a bool")
         pulumi.set(__self__, "is_up_to_date", is_up_to_date)
@@ -52,6 +55,14 @@ class GetSyncAgentResult:
         Expiration time of the sync agent version.
         """
         return pulumi.get(self, "expiry_time")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isUpToDate")
@@ -117,6 +128,7 @@ class AwaitableGetSyncAgentResult(GetSyncAgentResult):
             yield self
         return GetSyncAgentResult(
             expiry_time=self.expiry_time,
+            id=self.id,
             is_up_to_date=self.is_up_to_date,
             last_alive_time=self.last_alive_time,
             name=self.name,
@@ -149,6 +161,7 @@ def get_sync_agent(resource_group_name: Optional[str] = None,
 
     return AwaitableGetSyncAgentResult(
         expiry_time=__ret__.expiry_time,
+        id=__ret__.id,
         is_up_to_date=__ret__.is_up_to_date,
         last_alive_time=__ret__.last_alive_time,
         name=__ret__.name,

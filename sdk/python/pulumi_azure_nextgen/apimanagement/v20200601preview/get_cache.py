@@ -19,13 +19,16 @@ class GetCacheResult:
     """
     Cache details.
     """
-    def __init__(__self__, connection_string=None, description=None, name=None, resource_id=None, type=None, use_from_location=None):
+    def __init__(__self__, connection_string=None, description=None, id=None, name=None, resource_id=None, type=None, use_from_location=None):
         if connection_string and not isinstance(connection_string, str):
             raise TypeError("Expected argument 'connection_string' to be a str")
         pulumi.set(__self__, "connection_string", connection_string)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -54,6 +57,14 @@ class GetCacheResult:
         Cache description
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -96,6 +107,7 @@ class AwaitableGetCacheResult(GetCacheResult):
         return GetCacheResult(
             connection_string=self.connection_string,
             description=self.description,
+            id=self.id,
             name=self.name,
             resource_id=self.resource_id,
             type=self.type,
@@ -126,6 +138,7 @@ def get_cache(cache_id: Optional[str] = None,
     return AwaitableGetCacheResult(
         connection_string=__ret__.connection_string,
         description=__ret__.description,
+        id=__ret__.id,
         name=__ret__.name,
         resource_id=__ret__.resource_id,
         type=__ret__.type,

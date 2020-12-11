@@ -20,7 +20,7 @@ class GetBlobServicePropertiesResult:
     """
     The properties of a storage account’s Blob service.
     """
-    def __init__(__self__, automatic_snapshot_policy_enabled=None, change_feed=None, container_delete_retention_policy=None, cors=None, default_service_version=None, delete_retention_policy=None, is_versioning_enabled=None, last_access_time_tracking_policy=None, name=None, restore_policy=None, sku=None, type=None):
+    def __init__(__self__, automatic_snapshot_policy_enabled=None, change_feed=None, container_delete_retention_policy=None, cors=None, default_service_version=None, delete_retention_policy=None, id=None, is_versioning_enabled=None, last_access_time_tracking_policy=None, name=None, restore_policy=None, sku=None, type=None):
         if automatic_snapshot_policy_enabled and not isinstance(automatic_snapshot_policy_enabled, bool):
             raise TypeError("Expected argument 'automatic_snapshot_policy_enabled' to be a bool")
         pulumi.set(__self__, "automatic_snapshot_policy_enabled", automatic_snapshot_policy_enabled)
@@ -39,6 +39,9 @@ class GetBlobServicePropertiesResult:
         if delete_retention_policy and not isinstance(delete_retention_policy, dict):
             raise TypeError("Expected argument 'delete_retention_policy' to be a dict")
         pulumi.set(__self__, "delete_retention_policy", delete_retention_policy)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_versioning_enabled and not isinstance(is_versioning_enabled, bool):
             raise TypeError("Expected argument 'is_versioning_enabled' to be a bool")
         pulumi.set(__self__, "is_versioning_enabled", is_versioning_enabled)
@@ -107,6 +110,14 @@ class GetBlobServicePropertiesResult:
         return pulumi.get(self, "delete_retention_policy")
 
     @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
     @pulumi.getter(name="isVersioningEnabled")
     def is_versioning_enabled(self) -> Optional[bool]:
         """
@@ -167,6 +178,7 @@ class AwaitableGetBlobServicePropertiesResult(GetBlobServicePropertiesResult):
             cors=self.cors,
             default_service_version=self.default_service_version,
             delete_retention_policy=self.delete_retention_policy,
+            id=self.id,
             is_versioning_enabled=self.is_versioning_enabled,
             last_access_time_tracking_policy=self.last_access_time_tracking_policy,
             name=self.name,
@@ -203,6 +215,7 @@ def get_blob_service_properties(account_name: Optional[str] = None,
         cors=__ret__.cors,
         default_service_version=__ret__.default_service_version,
         delete_retention_policy=__ret__.delete_retention_policy,
+        id=__ret__.id,
         is_versioning_enabled=__ret__.is_versioning_enabled,
         last_access_time_tracking_policy=__ret__.last_access_time_tracking_policy,
         name=__ret__.name,

@@ -19,10 +19,13 @@ class GetCustomDomainResult:
     """
     CDN CustomDomain represents a mapping between a user specified domain name and a CDN endpoint. This is to use custom domain names to represent the URLs for branding purposes.
     """
-    def __init__(__self__, host_name=None, name=None, provisioning_state=None, resource_state=None, type=None):
+    def __init__(__self__, host_name=None, id=None, name=None, provisioning_state=None, resource_state=None, type=None):
         if host_name and not isinstance(host_name, str):
             raise TypeError("Expected argument 'host_name' to be a str")
         pulumi.set(__self__, "host_name", host_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -43,6 +46,14 @@ class GetCustomDomainResult:
         The host name of the custom domain. Must be a domain name.
         """
         return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -84,6 +95,7 @@ class AwaitableGetCustomDomainResult(GetCustomDomainResult):
             yield self
         return GetCustomDomainResult(
             host_name=self.host_name,
+            id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
             resource_state=self.resource_state,
@@ -116,6 +128,7 @@ def get_custom_domain(custom_domain_name: Optional[str] = None,
 
     return AwaitableGetCustomDomainResult(
         host_name=__ret__.host_name,
+        id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         resource_state=__ret__.resource_state,

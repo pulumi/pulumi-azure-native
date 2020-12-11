@@ -20,7 +20,7 @@ class GetMachineResult:
     """
     Describes a hybrid machine.
     """
-    def __init__(__self__, agent_version=None, client_public_key=None, display_name=None, error_details=None, last_status_change=None, location=None, machine_fqdn=None, name=None, os_name=None, os_profile=None, os_version=None, physical_location=None, principal_id=None, provisioning_state=None, status=None, tags=None, tenant_id=None, type=None, vm_id=None):
+    def __init__(__self__, agent_version=None, client_public_key=None, display_name=None, error_details=None, id=None, last_status_change=None, location=None, machine_fqdn=None, name=None, os_name=None, os_profile=None, os_version=None, physical_location=None, principal_id=None, provisioning_state=None, status=None, tags=None, tenant_id=None, type=None, vm_id=None):
         if agent_version and not isinstance(agent_version, str):
             raise TypeError("Expected argument 'agent_version' to be a str")
         pulumi.set(__self__, "agent_version", agent_version)
@@ -33,6 +33,9 @@ class GetMachineResult:
         if error_details and not isinstance(error_details, list):
             raise TypeError("Expected argument 'error_details' to be a list")
         pulumi.set(__self__, "error_details", error_details)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_status_change and not isinstance(last_status_change, str):
             raise TypeError("Expected argument 'last_status_change' to be a str")
         pulumi.set(__self__, "last_status_change", last_status_change)
@@ -110,6 +113,14 @@ class GetMachineResult:
         Details about the error state.
         """
         return pulumi.get(self, "error_details")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastStatusChange")
@@ -242,6 +253,7 @@ class AwaitableGetMachineResult(GetMachineResult):
             client_public_key=self.client_public_key,
             display_name=self.display_name,
             error_details=self.error_details,
+            id=self.id,
             last_status_change=self.last_status_change,
             location=self.location,
             machine_fqdn=self.machine_fqdn,
@@ -285,6 +297,7 @@ def get_machine(expand: Optional[str] = None,
         client_public_key=__ret__.client_public_key,
         display_name=__ret__.display_name,
         error_details=__ret__.error_details,
+        id=__ret__.id,
         last_status_change=__ret__.last_status_change,
         location=__ret__.location,
         machine_fqdn=__ret__.machine_fqdn,

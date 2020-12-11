@@ -20,7 +20,7 @@ class GetMachineGroupResult:
     """
     A user-defined logical grouping of machines.
     """
-    def __init__(__self__, count=None, display_name=None, etag=None, group_type=None, kind=None, machines=None, name=None, type=None):
+    def __init__(__self__, count=None, display_name=None, etag=None, group_type=None, id=None, kind=None, machines=None, name=None, type=None):
         if count and not isinstance(count, int):
             raise TypeError("Expected argument 'count' to be a int")
         pulumi.set(__self__, "count", count)
@@ -33,6 +33,9 @@ class GetMachineGroupResult:
         if group_type and not isinstance(group_type, str):
             raise TypeError("Expected argument 'group_type' to be a str")
         pulumi.set(__self__, "group_type", group_type)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -80,6 +83,14 @@ class GetMachineGroupResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource identifier.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def kind(self) -> str:
         """
         Additional resource type qualifier.
@@ -121,6 +132,7 @@ class AwaitableGetMachineGroupResult(GetMachineGroupResult):
             display_name=self.display_name,
             etag=self.etag,
             group_type=self.group_type,
+            id=self.id,
             kind=self.kind,
             machines=self.machines,
             name=self.name,
@@ -159,6 +171,7 @@ def get_machine_group(end_time: Optional[str] = None,
         display_name=__ret__.display_name,
         etag=__ret__.etag,
         group_type=__ret__.group_type,
+        id=__ret__.id,
         kind=__ret__.kind,
         machines=__ret__.machines,
         name=__ret__.name,

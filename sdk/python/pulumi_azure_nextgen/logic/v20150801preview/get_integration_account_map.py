@@ -17,7 +17,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetIntegrationAccountMapResult:
-    def __init__(__self__, changed_time=None, content=None, content_link=None, content_type=None, created_time=None, location=None, map_type=None, metadata=None, name=None, tags=None, type=None):
+    def __init__(__self__, changed_time=None, content=None, content_link=None, content_type=None, created_time=None, id=None, location=None, map_type=None, metadata=None, name=None, tags=None, type=None):
         if changed_time and not isinstance(changed_time, str):
             raise TypeError("Expected argument 'changed_time' to be a str")
         pulumi.set(__self__, "changed_time", changed_time)
@@ -33,6 +33,9 @@ class GetIntegrationAccountMapResult:
         if created_time and not isinstance(created_time, str):
             raise TypeError("Expected argument 'created_time' to be a str")
         pulumi.set(__self__, "created_time", created_time)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -94,6 +97,14 @@ class GetIntegrationAccountMapResult:
 
     @property
     @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The resource id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[str]:
         """
         The resource location.
@@ -152,6 +163,7 @@ class AwaitableGetIntegrationAccountMapResult(GetIntegrationAccountMapResult):
             content_link=self.content_link,
             content_type=self.content_type,
             created_time=self.created_time,
+            id=self.id,
             location=self.location,
             map_type=self.map_type,
             metadata=self.metadata,
@@ -187,6 +199,7 @@ def get_integration_account_map(integration_account_name: Optional[str] = None,
         content_link=__ret__.content_link,
         content_type=__ret__.content_type,
         created_time=__ret__.created_time,
+        id=__ret__.id,
         location=__ret__.location,
         map_type=__ret__.map_type,
         metadata=__ret__.metadata,

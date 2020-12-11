@@ -20,10 +20,13 @@ class GetCertificateResult:
     """
     Certificate details.
     """
-    def __init__(__self__, expiration_date=None, key_vault=None, name=None, subject=None, thumbprint=None, type=None):
+    def __init__(__self__, expiration_date=None, id=None, key_vault=None, name=None, subject=None, thumbprint=None, type=None):
         if expiration_date and not isinstance(expiration_date, str):
             raise TypeError("Expected argument 'expiration_date' to be a str")
         pulumi.set(__self__, "expiration_date", expiration_date)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if key_vault and not isinstance(key_vault, dict):
             raise TypeError("Expected argument 'key_vault' to be a dict")
         pulumi.set(__self__, "key_vault", key_vault)
@@ -47,6 +50,14 @@ class GetCertificateResult:
         Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
         """
         return pulumi.get(self, "expiration_date")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="keyVault")
@@ -96,6 +107,7 @@ class AwaitableGetCertificateResult(GetCertificateResult):
             yield self
         return GetCertificateResult(
             expiration_date=self.expiration_date,
+            id=self.id,
             key_vault=self.key_vault,
             name=self.name,
             subject=self.subject,
@@ -126,6 +138,7 @@ def get_certificate(certificate_id: Optional[str] = None,
 
     return AwaitableGetCertificateResult(
         expiration_date=__ret__.expiration_date,
+        id=__ret__.id,
         key_vault=__ret__.key_vault,
         name=__ret__.name,
         subject=__ret__.subject,

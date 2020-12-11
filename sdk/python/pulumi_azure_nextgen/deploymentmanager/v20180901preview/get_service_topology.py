@@ -19,10 +19,13 @@ class GetServiceTopologyResult:
     """
     The resource representation of a service topology.
     """
-    def __init__(__self__, artifact_source_id=None, location=None, name=None, tags=None, type=None):
+    def __init__(__self__, artifact_source_id=None, id=None, location=None, name=None, tags=None, type=None):
         if artifact_source_id and not isinstance(artifact_source_id, str):
             raise TypeError("Expected argument 'artifact_source_id' to be a str")
         pulumi.set(__self__, "artifact_source_id", artifact_source_id)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -43,6 +46,14 @@ class GetServiceTopologyResult:
         The resource Id of the artifact source that contains the artifacts that can be referenced in the service units.
         """
         return pulumi.get(self, "artifact_source_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -84,6 +95,7 @@ class AwaitableGetServiceTopologyResult(GetServiceTopologyResult):
             yield self
         return GetServiceTopologyResult(
             artifact_source_id=self.artifact_source_id,
+            id=self.id,
             location=self.location,
             name=self.name,
             tags=self.tags,
@@ -110,6 +122,7 @@ def get_service_topology(resource_group_name: Optional[str] = None,
 
     return AwaitableGetServiceTopologyResult(
         artifact_source_id=__ret__.artifact_source_id,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         tags=__ret__.tags,

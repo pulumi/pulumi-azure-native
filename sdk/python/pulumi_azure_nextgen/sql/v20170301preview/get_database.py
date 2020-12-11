@@ -20,7 +20,7 @@ class GetDatabaseResult:
     """
     A database resource.
     """
-    def __init__(__self__, catalog_collation=None, collation=None, create_mode=None, creation_date=None, current_service_objective_name=None, database_id=None, default_secondary_location=None, elastic_pool_id=None, failover_group_id=None, kind=None, location=None, long_term_retention_backup_resource_id=None, max_size_bytes=None, name=None, recoverable_database_id=None, recovery_services_recovery_point_id=None, restorable_dropped_database_id=None, restore_point_in_time=None, sample_name=None, sku=None, source_database_deletion_date=None, source_database_id=None, status=None, tags=None, type=None, zone_redundant=None):
+    def __init__(__self__, catalog_collation=None, collation=None, create_mode=None, creation_date=None, current_service_objective_name=None, database_id=None, default_secondary_location=None, elastic_pool_id=None, failover_group_id=None, id=None, kind=None, location=None, long_term_retention_backup_resource_id=None, max_size_bytes=None, name=None, recoverable_database_id=None, recovery_services_recovery_point_id=None, restorable_dropped_database_id=None, restore_point_in_time=None, sample_name=None, sku=None, source_database_deletion_date=None, source_database_id=None, status=None, tags=None, type=None, zone_redundant=None):
         if catalog_collation and not isinstance(catalog_collation, str):
             raise TypeError("Expected argument 'catalog_collation' to be a str")
         pulumi.set(__self__, "catalog_collation", catalog_collation)
@@ -48,6 +48,9 @@ class GetDatabaseResult:
         if failover_group_id and not isinstance(failover_group_id, str):
             raise TypeError("Expected argument 'failover_group_id' to be a str")
         pulumi.set(__self__, "failover_group_id", failover_group_id)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -187,6 +190,14 @@ class GetDatabaseResult:
         Failover Group resource identifier that this database belongs to.
         """
         return pulumi.get(self, "failover_group_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -340,6 +351,7 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
             default_secondary_location=self.default_secondary_location,
             elastic_pool_id=self.elastic_pool_id,
             failover_group_id=self.failover_group_id,
+            id=self.id,
             kind=self.kind,
             location=self.location,
             long_term_retention_backup_resource_id=self.long_term_retention_backup_resource_id,
@@ -390,6 +402,7 @@ def get_database(database_name: Optional[str] = None,
         default_secondary_location=__ret__.default_secondary_location,
         elastic_pool_id=__ret__.elastic_pool_id,
         failover_group_id=__ret__.failover_group_id,
+        id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
         long_term_retention_backup_resource_id=__ret__.long_term_retention_backup_resource_id,

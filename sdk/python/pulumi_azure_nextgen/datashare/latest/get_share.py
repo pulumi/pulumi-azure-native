@@ -19,13 +19,16 @@ class GetShareResult:
     """
     A share data transfer object.
     """
-    def __init__(__self__, created_at=None, description=None, name=None, provisioning_state=None, share_kind=None, terms=None, type=None, user_email=None, user_name=None):
+    def __init__(__self__, created_at=None, description=None, id=None, name=None, provisioning_state=None, share_kind=None, terms=None, type=None, user_email=None, user_name=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -63,6 +66,14 @@ class GetShareResult:
         Share description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource id of the azure resource
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -129,6 +140,7 @@ class AwaitableGetShareResult(GetShareResult):
         return GetShareResult(
             created_at=self.created_at,
             description=self.description,
+            id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
             share_kind=self.share_kind,
@@ -162,6 +174,7 @@ def get_share(account_name: Optional[str] = None,
     return AwaitableGetShareResult(
         created_at=__ret__.created_at,
         description=__ret__.description,
+        id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         share_kind=__ret__.share_kind,

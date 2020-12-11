@@ -20,13 +20,16 @@ class GetExpressRouteConnectionResult:
     """
     ExpressRouteConnection resource.
     """
-    def __init__(__self__, authorization_key=None, express_route_circuit_peering=None, name=None, provisioning_state=None, routing_weight=None):
+    def __init__(__self__, authorization_key=None, express_route_circuit_peering=None, id=None, name=None, provisioning_state=None, routing_weight=None):
         if authorization_key and not isinstance(authorization_key, str):
             raise TypeError("Expected argument 'authorization_key' to be a str")
         pulumi.set(__self__, "authorization_key", authorization_key)
         if express_route_circuit_peering and not isinstance(express_route_circuit_peering, dict):
             raise TypeError("Expected argument 'express_route_circuit_peering' to be a dict")
         pulumi.set(__self__, "express_route_circuit_peering", express_route_circuit_peering)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -52,6 +55,14 @@ class GetExpressRouteConnectionResult:
         The ExpressRoute circuit peering.
         """
         return pulumi.get(self, "express_route_circuit_peering")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -86,6 +97,7 @@ class AwaitableGetExpressRouteConnectionResult(GetExpressRouteConnectionResult):
         return GetExpressRouteConnectionResult(
             authorization_key=self.authorization_key,
             express_route_circuit_peering=self.express_route_circuit_peering,
+            id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
             routing_weight=self.routing_weight)
@@ -115,6 +127,7 @@ def get_express_route_connection(connection_name: Optional[str] = None,
     return AwaitableGetExpressRouteConnectionResult(
         authorization_key=__ret__.authorization_key,
         express_route_circuit_peering=__ret__.express_route_circuit_peering,
+        id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         routing_weight=__ret__.routing_weight)

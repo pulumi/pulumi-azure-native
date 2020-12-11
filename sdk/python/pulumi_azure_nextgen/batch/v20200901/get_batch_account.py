@@ -20,7 +20,7 @@ class GetBatchAccountResult:
     """
     Contains information about an Azure Batch account.
     """
-    def __init__(__self__, account_endpoint=None, active_job_and_job_schedule_quota=None, auto_storage=None, dedicated_core_quota=None, dedicated_core_quota_per_vm_family=None, dedicated_core_quota_per_vm_family_enforced=None, encryption=None, identity=None, key_vault_reference=None, location=None, low_priority_core_quota=None, name=None, pool_allocation_mode=None, pool_quota=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, tags=None, type=None):
+    def __init__(__self__, account_endpoint=None, active_job_and_job_schedule_quota=None, auto_storage=None, dedicated_core_quota=None, dedicated_core_quota_per_vm_family=None, dedicated_core_quota_per_vm_family_enforced=None, encryption=None, id=None, identity=None, key_vault_reference=None, location=None, low_priority_core_quota=None, name=None, pool_allocation_mode=None, pool_quota=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, tags=None, type=None):
         if account_endpoint and not isinstance(account_endpoint, str):
             raise TypeError("Expected argument 'account_endpoint' to be a str")
         pulumi.set(__self__, "account_endpoint", account_endpoint)
@@ -42,6 +42,9 @@ class GetBatchAccountResult:
         if encryption and not isinstance(encryption, dict):
             raise TypeError("Expected argument 'encryption' to be a dict")
         pulumi.set(__self__, "encryption", encryption)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -131,6 +134,14 @@ class GetBatchAccountResult:
         Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
         """
         return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -239,6 +250,7 @@ class AwaitableGetBatchAccountResult(GetBatchAccountResult):
             dedicated_core_quota_per_vm_family=self.dedicated_core_quota_per_vm_family,
             dedicated_core_quota_per_vm_family_enforced=self.dedicated_core_quota_per_vm_family_enforced,
             encryption=self.encryption,
+            id=self.id,
             identity=self.identity,
             key_vault_reference=self.key_vault_reference,
             location=self.location,
@@ -279,6 +291,7 @@ def get_batch_account(account_name: Optional[str] = None,
         dedicated_core_quota_per_vm_family=__ret__.dedicated_core_quota_per_vm_family,
         dedicated_core_quota_per_vm_family_enforced=__ret__.dedicated_core_quota_per_vm_family_enforced,
         encryption=__ret__.encryption,
+        id=__ret__.id,
         identity=__ret__.identity,
         key_vault_reference=__ret__.key_vault_reference,
         location=__ret__.location,

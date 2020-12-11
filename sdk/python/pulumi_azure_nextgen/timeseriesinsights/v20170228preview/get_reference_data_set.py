@@ -20,10 +20,13 @@ class GetReferenceDataSetResult:
     """
     A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
     """
-    def __init__(__self__, creation_time=None, key_properties=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, creation_time=None, id=None, key_properties=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if key_properties and not isinstance(key_properties, list):
             raise TypeError("Expected argument 'key_properties' to be a list")
         pulumi.set(__self__, "key_properties", key_properties)
@@ -50,6 +53,14 @@ class GetReferenceDataSetResult:
         The time the resource was created.
         """
         return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="keyProperties")
@@ -107,6 +118,7 @@ class AwaitableGetReferenceDataSetResult(GetReferenceDataSetResult):
             yield self
         return GetReferenceDataSetResult(
             creation_time=self.creation_time,
+            id=self.id,
             key_properties=self.key_properties,
             location=self.location,
             name=self.name,
@@ -138,6 +150,7 @@ def get_reference_data_set(environment_name: Optional[str] = None,
 
     return AwaitableGetReferenceDataSetResult(
         creation_time=__ret__.creation_time,
+        id=__ret__.id,
         key_properties=__ret__.key_properties,
         location=__ret__.location,
         name=__ret__.name,

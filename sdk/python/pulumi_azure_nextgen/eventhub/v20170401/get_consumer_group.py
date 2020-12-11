@@ -19,10 +19,13 @@ class GetConsumerGroupResult:
     """
     Single item in List or Get Consumer group operation
     """
-    def __init__(__self__, created_at=None, name=None, type=None, updated_at=None, user_metadata=None):
+    def __init__(__self__, created_at=None, id=None, name=None, type=None, updated_at=None, user_metadata=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -43,6 +46,14 @@ class GetConsumerGroupResult:
         Exact time the message was created.
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -84,6 +95,7 @@ class AwaitableGetConsumerGroupResult(GetConsumerGroupResult):
             yield self
         return GetConsumerGroupResult(
             created_at=self.created_at,
+            id=self.id,
             name=self.name,
             type=self.type,
             updated_at=self.updated_at,
@@ -116,6 +128,7 @@ def get_consumer_group(consumer_group_name: Optional[str] = None,
 
     return AwaitableGetConsumerGroupResult(
         created_at=__ret__.created_at,
+        id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type,
         updated_at=__ret__.updated_at,

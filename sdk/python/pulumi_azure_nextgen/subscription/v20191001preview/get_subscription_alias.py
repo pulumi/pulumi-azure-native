@@ -20,7 +20,10 @@ class GetSubscriptionAliasResult:
     """
     Subscription Information with the alias.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, id=None, name=None, properties=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -30,6 +33,14 @@ class GetSubscriptionAliasResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified ID for the alias resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -62,6 +73,7 @@ class AwaitableGetSubscriptionAliasResult(GetSubscriptionAliasResult):
         if False:
             yield self
         return GetSubscriptionAliasResult(
+            id=self.id,
             name=self.name,
             properties=self.properties,
             type=self.type)
@@ -83,6 +95,7 @@ def get_subscription_alias(alias_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:subscription/v20191001preview:getSubscriptionAlias', __args__, opts=opts, typ=GetSubscriptionAliasResult).value
 
     return AwaitableGetSubscriptionAliasResult(
+        id=__ret__.id,
         name=__ret__.name,
         properties=__ret__.properties,
         type=__ret__.type)

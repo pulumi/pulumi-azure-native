@@ -17,7 +17,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetIntegrationAccountPartnerResult:
-    def __init__(__self__, changed_time=None, content=None, created_time=None, location=None, metadata=None, name=None, partner_type=None, tags=None, type=None):
+    def __init__(__self__, changed_time=None, content=None, created_time=None, id=None, location=None, metadata=None, name=None, partner_type=None, tags=None, type=None):
         if changed_time and not isinstance(changed_time, str):
             raise TypeError("Expected argument 'changed_time' to be a str")
         pulumi.set(__self__, "changed_time", changed_time)
@@ -27,6 +27,9 @@ class GetIntegrationAccountPartnerResult:
         if created_time and not isinstance(created_time, str):
             raise TypeError("Expected argument 'created_time' to be a str")
         pulumi.set(__self__, "created_time", created_time)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -69,6 +72,14 @@ class GetIntegrationAccountPartnerResult:
         The created time.
         """
         return pulumi.get(self, "created_time")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The resource id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -128,6 +139,7 @@ class AwaitableGetIntegrationAccountPartnerResult(GetIntegrationAccountPartnerRe
             changed_time=self.changed_time,
             content=self.content,
             created_time=self.created_time,
+            id=self.id,
             location=self.location,
             metadata=self.metadata,
             name=self.name,
@@ -161,6 +173,7 @@ def get_integration_account_partner(integration_account_name: Optional[str] = No
         changed_time=__ret__.changed_time,
         content=__ret__.content,
         created_time=__ret__.created_time,
+        id=__ret__.id,
         location=__ret__.location,
         metadata=__ret__.metadata,
         name=__ret__.name,

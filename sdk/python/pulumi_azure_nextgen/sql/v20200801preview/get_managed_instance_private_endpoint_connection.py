@@ -20,7 +20,10 @@ class GetManagedInstancePrivateEndpointConnectionResult:
     """
     A private endpoint connection
     """
-    def __init__(__self__, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
+    def __init__(__self__, id=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -36,6 +39,14 @@ class GetManagedInstancePrivateEndpointConnectionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -84,6 +95,7 @@ class AwaitableGetManagedInstancePrivateEndpointConnectionResult(GetManagedInsta
         if False:
             yield self
         return GetManagedInstancePrivateEndpointConnectionResult(
+            id=self.id,
             name=self.name,
             private_endpoint=self.private_endpoint,
             private_link_service_connection_state=self.private_link_service_connection_state,
@@ -113,6 +125,7 @@ def get_managed_instance_private_endpoint_connection(managed_instance_name: Opti
     __ret__ = pulumi.runtime.invoke('azure-nextgen:sql/v20200801preview:getManagedInstancePrivateEndpointConnection', __args__, opts=opts, typ=GetManagedInstancePrivateEndpointConnectionResult).value
 
     return AwaitableGetManagedInstancePrivateEndpointConnectionResult(
+        id=__ret__.id,
         name=__ret__.name,
         private_endpoint=__ret__.private_endpoint,
         private_link_service_connection_state=__ret__.private_link_service_connection_state,

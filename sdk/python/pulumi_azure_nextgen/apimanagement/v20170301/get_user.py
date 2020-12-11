@@ -20,7 +20,7 @@ class GetUserResult:
     """
     User details.
     """
-    def __init__(__self__, email=None, first_name=None, groups=None, identities=None, last_name=None, name=None, note=None, registration_date=None, state=None, type=None):
+    def __init__(__self__, email=None, first_name=None, groups=None, id=None, identities=None, last_name=None, name=None, note=None, registration_date=None, state=None, type=None):
         if email and not isinstance(email, str):
             raise TypeError("Expected argument 'email' to be a str")
         pulumi.set(__self__, "email", email)
@@ -30,6 +30,9 @@ class GetUserResult:
         if groups and not isinstance(groups, list):
             raise TypeError("Expected argument 'groups' to be a list")
         pulumi.set(__self__, "groups", groups)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identities and not isinstance(identities, list):
             raise TypeError("Expected argument 'identities' to be a list")
         pulumi.set(__self__, "identities", identities)
@@ -75,6 +78,14 @@ class GetUserResult:
         Collection of groups user is part of.
         """
         return pulumi.get(self, "groups")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -142,6 +153,7 @@ class AwaitableGetUserResult(GetUserResult):
             email=self.email,
             first_name=self.first_name,
             groups=self.groups,
+            id=self.id,
             identities=self.identities,
             last_name=self.last_name,
             name=self.name,
@@ -176,6 +188,7 @@ def get_user(resource_group_name: Optional[str] = None,
         email=__ret__.email,
         first_name=__ret__.first_name,
         groups=__ret__.groups,
+        id=__ret__.id,
         identities=__ret__.identities,
         last_name=__ret__.last_name,
         name=__ret__.name,

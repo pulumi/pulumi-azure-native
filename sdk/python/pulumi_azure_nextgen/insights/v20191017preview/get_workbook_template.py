@@ -20,13 +20,16 @@ class GetWorkbookTemplateResult:
     """
     An Application Insights workbook template definition.
     """
-    def __init__(__self__, author=None, galleries=None, localized=None, location=None, name=None, priority=None, tags=None, template_data=None, type=None):
+    def __init__(__self__, author=None, galleries=None, id=None, localized=None, location=None, name=None, priority=None, tags=None, template_data=None, type=None):
         if author and not isinstance(author, str):
             raise TypeError("Expected argument 'author' to be a str")
         pulumi.set(__self__, "author", author)
         if galleries and not isinstance(galleries, list):
             raise TypeError("Expected argument 'galleries' to be a list")
         pulumi.set(__self__, "galleries", galleries)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if localized and not isinstance(localized, dict):
             raise TypeError("Expected argument 'localized' to be a dict")
         pulumi.set(__self__, "localized", localized)
@@ -64,6 +67,14 @@ class GetWorkbookTemplateResult:
         Workbook galleries supported by the template.
         """
         return pulumi.get(self, "galleries")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -130,6 +141,7 @@ class AwaitableGetWorkbookTemplateResult(GetWorkbookTemplateResult):
         return GetWorkbookTemplateResult(
             author=self.author,
             galleries=self.galleries,
+            id=self.id,
             localized=self.localized,
             location=self.location,
             name=self.name,
@@ -160,6 +172,7 @@ def get_workbook_template(resource_group_name: Optional[str] = None,
     return AwaitableGetWorkbookTemplateResult(
         author=__ret__.author,
         galleries=__ret__.galleries,
+        id=__ret__.id,
         localized=__ret__.localized,
         location=__ret__.location,
         name=__ret__.name,

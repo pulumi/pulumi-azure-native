@@ -20,7 +20,7 @@ class GetLabResult:
     """
     A lab.
     """
-    def __init__(__self__, announcement=None, artifacts_storage_account=None, created_date=None, default_premium_storage_account=None, default_storage_account=None, environment_permission=None, extended_properties=None, lab_storage_type=None, load_balancer_id=None, location=None, mandatory_artifacts_resource_ids_linux=None, mandatory_artifacts_resource_ids_windows=None, name=None, network_security_group_id=None, premium_data_disk_storage_account=None, premium_data_disks=None, provisioning_state=None, public_ip_id=None, support=None, tags=None, type=None, unique_identifier=None, vault_name=None, vm_creation_resource_group=None):
+    def __init__(__self__, announcement=None, artifacts_storage_account=None, created_date=None, default_premium_storage_account=None, default_storage_account=None, environment_permission=None, extended_properties=None, id=None, lab_storage_type=None, load_balancer_id=None, location=None, mandatory_artifacts_resource_ids_linux=None, mandatory_artifacts_resource_ids_windows=None, name=None, network_security_group_id=None, premium_data_disk_storage_account=None, premium_data_disks=None, provisioning_state=None, public_ip_id=None, support=None, tags=None, type=None, unique_identifier=None, vault_name=None, vm_creation_resource_group=None):
         if announcement and not isinstance(announcement, dict):
             raise TypeError("Expected argument 'announcement' to be a dict")
         pulumi.set(__self__, "announcement", announcement)
@@ -42,6 +42,9 @@ class GetLabResult:
         if extended_properties and not isinstance(extended_properties, dict):
             raise TypeError("Expected argument 'extended_properties' to be a dict")
         pulumi.set(__self__, "extended_properties", extended_properties)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if lab_storage_type and not isinstance(lab_storage_type, str):
             raise TypeError("Expected argument 'lab_storage_type' to be a str")
         pulumi.set(__self__, "lab_storage_type", lab_storage_type)
@@ -149,6 +152,14 @@ class GetLabResult:
         Extended properties of the lab used for experimental features
         """
         return pulumi.get(self, "extended_properties")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="labStorageType")
@@ -302,6 +313,7 @@ class AwaitableGetLabResult(GetLabResult):
             default_storage_account=self.default_storage_account,
             environment_permission=self.environment_permission,
             extended_properties=self.extended_properties,
+            id=self.id,
             lab_storage_type=self.lab_storage_type,
             load_balancer_id=self.load_balancer_id,
             location=self.location,
@@ -350,6 +362,7 @@ def get_lab(expand: Optional[str] = None,
         default_storage_account=__ret__.default_storage_account,
         environment_permission=__ret__.environment_permission,
         extended_properties=__ret__.extended_properties,
+        id=__ret__.id,
         lab_storage_type=__ret__.lab_storage_type,
         load_balancer_id=__ret__.load_balancer_id,
         location=__ret__.location,

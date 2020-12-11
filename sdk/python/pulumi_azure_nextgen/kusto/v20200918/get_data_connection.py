@@ -19,7 +19,10 @@ class GetDataConnectionResult:
     """
     Class representing an data connection.
     """
-    def __init__(__self__, kind=None, location=None, name=None, type=None):
+    def __init__(__self__, id=None, kind=None, location=None, name=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -32,6 +35,14 @@ class GetDataConnectionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -72,6 +83,7 @@ class AwaitableGetDataConnectionResult(GetDataConnectionResult):
         if False:
             yield self
         return GetDataConnectionResult(
+            id=self.id,
             kind=self.kind,
             location=self.location,
             name=self.name,
@@ -103,6 +115,7 @@ def get_data_connection(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:kusto/v20200918:getDataConnection', __args__, opts=opts, typ=GetDataConnectionResult).value
 
     return AwaitableGetDataConnectionResult(
+        id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,

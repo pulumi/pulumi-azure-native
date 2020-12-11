@@ -20,7 +20,7 @@ class GetManagementGroupResult:
     """
     The management group details.
     """
-    def __init__(__self__, children=None, details=None, display_name=None, name=None, tenant_id=None, type=None):
+    def __init__(__self__, children=None, details=None, display_name=None, id=None, name=None, tenant_id=None, type=None):
         if children and not isinstance(children, list):
             raise TypeError("Expected argument 'children' to be a list")
         pulumi.set(__self__, "children", children)
@@ -30,6 +30,9 @@ class GetManagementGroupResult:
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -66,6 +69,14 @@ class GetManagementGroupResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        The fully qualified ID for the management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         The name of the management group. For example, 00000000-0000-0000-0000-000000000000
@@ -98,6 +109,7 @@ class AwaitableGetManagementGroupResult(GetManagementGroupResult):
             children=self.children,
             details=self.details,
             display_name=self.display_name,
+            id=self.id,
             name=self.name,
             tenant_id=self.tenant_id,
             type=self.type)
@@ -128,6 +140,7 @@ def get_management_group(expand: Optional[str] = None,
         children=__ret__.children,
         details=__ret__.details,
         display_name=__ret__.display_name,
+        id=__ret__.id,
         name=__ret__.name,
         tenant_id=__ret__.tenant_id,
         type=__ret__.type)

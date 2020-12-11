@@ -20,10 +20,13 @@ class GetVendorSkusResult:
     """
     Sku sub resource.
     """
-    def __init__(__self__, deployment_mode=None, managed_application_parameters=None, managed_application_template=None, name=None, network_function_template=None, preview=None, provisioning_state=None, sku_type=None, type=None):
+    def __init__(__self__, deployment_mode=None, id=None, managed_application_parameters=None, managed_application_template=None, name=None, network_function_template=None, preview=None, provisioning_state=None, sku_type=None, type=None):
         if deployment_mode and not isinstance(deployment_mode, str):
             raise TypeError("Expected argument 'deployment_mode' to be a str")
         pulumi.set(__self__, "deployment_mode", deployment_mode)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if managed_application_parameters and not isinstance(managed_application_parameters, dict):
             raise TypeError("Expected argument 'managed_application_parameters' to be a dict")
         pulumi.set(__self__, "managed_application_parameters", managed_application_parameters)
@@ -56,6 +59,14 @@ class GetVendorSkusResult:
         The sku deployment mode.
         """
         return pulumi.get(self, "deployment_mode")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="managedApplicationParameters")
@@ -129,6 +140,7 @@ class AwaitableGetVendorSkusResult(GetVendorSkusResult):
             yield self
         return GetVendorSkusResult(
             deployment_mode=self.deployment_mode,
+            id=self.id,
             managed_application_parameters=self.managed_application_parameters,
             managed_application_template=self.managed_application_template,
             name=self.name,
@@ -159,6 +171,7 @@ def get_vendor_skus(sku_name: Optional[str] = None,
 
     return AwaitableGetVendorSkusResult(
         deployment_mode=__ret__.deployment_mode,
+        id=__ret__.id,
         managed_application_parameters=__ret__.managed_application_parameters,
         managed_application_template=__ret__.managed_application_template,
         name=__ret__.name,

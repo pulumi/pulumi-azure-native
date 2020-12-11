@@ -20,13 +20,16 @@ class GetScheduleResourceResult:
     """
     A schedule.
     """
-    def __init__(__self__, daily_recurrence=None, hourly_recurrence=None, location=None, name=None, provisioning_state=None, status=None, tags=None, task_type=None, time_zone_id=None, type=None, weekly_recurrence=None):
+    def __init__(__self__, daily_recurrence=None, hourly_recurrence=None, id=None, location=None, name=None, provisioning_state=None, status=None, tags=None, task_type=None, time_zone_id=None, type=None, weekly_recurrence=None):
         if daily_recurrence and not isinstance(daily_recurrence, dict):
             raise TypeError("Expected argument 'daily_recurrence' to be a dict")
         pulumi.set(__self__, "daily_recurrence", daily_recurrence)
         if hourly_recurrence and not isinstance(hourly_recurrence, dict):
             raise TypeError("Expected argument 'hourly_recurrence' to be a dict")
         pulumi.set(__self__, "hourly_recurrence", hourly_recurrence)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -70,6 +73,14 @@ class GetScheduleResourceResult:
         The hourly recurrence of the schedule.
         """
         return pulumi.get(self, "hourly_recurrence")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The identifier of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -152,6 +163,7 @@ class AwaitableGetScheduleResourceResult(GetScheduleResourceResult):
         return GetScheduleResourceResult(
             daily_recurrence=self.daily_recurrence,
             hourly_recurrence=self.hourly_recurrence,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -187,6 +199,7 @@ def get_schedule_resource(lab_name: Optional[str] = None,
     return AwaitableGetScheduleResourceResult(
         daily_recurrence=__ret__.daily_recurrence,
         hourly_recurrence=__ret__.hourly_recurrence,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

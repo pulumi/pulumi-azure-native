@@ -20,10 +20,13 @@ class GetQueueServicePropertiesResult:
     """
     The properties of a storage account’s Queue service.
     """
-    def __init__(__self__, cors=None, name=None, type=None):
+    def __init__(__self__, cors=None, id=None, name=None, type=None):
         if cors and not isinstance(cors, dict):
             raise TypeError("Expected argument 'cors' to be a dict")
         pulumi.set(__self__, "cors", cors)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -38,6 +41,14 @@ class GetQueueServicePropertiesResult:
         Specifies CORS rules for the Queue service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Queue service.
         """
         return pulumi.get(self, "cors")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -63,6 +74,7 @@ class AwaitableGetQueueServicePropertiesResult(GetQueueServicePropertiesResult):
             yield self
         return GetQueueServicePropertiesResult(
             cors=self.cors,
+            id=self.id,
             name=self.name,
             type=self.type)
 
@@ -90,5 +102,6 @@ def get_queue_service_properties(account_name: Optional[str] = None,
 
     return AwaitableGetQueueServicePropertiesResult(
         cors=__ret__.cors,
+        id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type)

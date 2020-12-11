@@ -20,7 +20,7 @@ class GetAccountResult:
     """
     An object that represents a machine learning team account.
     """
-    def __init__(__self__, account_id=None, creation_date=None, description=None, discovery_uri=None, friendly_name=None, key_vault_id=None, location=None, name=None, provisioning_state=None, seats=None, storage_account=None, tags=None, type=None, vso_account_id=None):
+    def __init__(__self__, account_id=None, creation_date=None, description=None, discovery_uri=None, friendly_name=None, id=None, key_vault_id=None, location=None, name=None, provisioning_state=None, seats=None, storage_account=None, tags=None, type=None, vso_account_id=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
@@ -36,6 +36,9 @@ class GetAccountResult:
         if friendly_name and not isinstance(friendly_name, str):
             raise TypeError("Expected argument 'friendly_name' to be a str")
         pulumi.set(__self__, "friendly_name", friendly_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if key_vault_id and not isinstance(key_vault_id, str):
             raise TypeError("Expected argument 'key_vault_id' to be a str")
         pulumi.set(__self__, "key_vault_id", key_vault_id)
@@ -103,6 +106,14 @@ class GetAccountResult:
         The friendly name for this workspace. This will be the workspace name in the arm id when the workspace object gets created
         """
         return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="keyVaultId")
@@ -188,6 +199,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             description=self.description,
             discovery_uri=self.discovery_uri,
             friendly_name=self.friendly_name,
+            id=self.id,
             key_vault_id=self.key_vault_id,
             location=self.location,
             name=self.name,
@@ -223,6 +235,7 @@ def get_account(account_name: Optional[str] = None,
         description=__ret__.description,
         discovery_uri=__ret__.discovery_uri,
         friendly_name=__ret__.friendly_name,
+        id=__ret__.id,
         key_vault_id=__ret__.key_vault_id,
         location=__ret__.location,
         name=__ret__.name,

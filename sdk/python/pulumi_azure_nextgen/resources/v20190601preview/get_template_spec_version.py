@@ -20,13 +20,16 @@ class GetTemplateSpecVersionResult:
     """
     Template Spec Version object.
     """
-    def __init__(__self__, artifacts=None, description=None, location=None, name=None, system_data=None, tags=None, template=None, type=None):
+    def __init__(__self__, artifacts=None, description=None, id=None, location=None, name=None, system_data=None, tags=None, template=None, type=None):
         if artifacts and not isinstance(artifacts, list):
             raise TypeError("Expected argument 'artifacts' to be a list")
         pulumi.set(__self__, "artifacts", artifacts)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -61,6 +64,14 @@ class GetTemplateSpecVersionResult:
         Template Spec version description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        String Id used to locate any resource on Azure.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -119,6 +130,7 @@ class AwaitableGetTemplateSpecVersionResult(GetTemplateSpecVersionResult):
         return GetTemplateSpecVersionResult(
             artifacts=self.artifacts,
             description=self.description,
+            id=self.id,
             location=self.location,
             name=self.name,
             system_data=self.system_data,
@@ -151,6 +163,7 @@ def get_template_spec_version(resource_group_name: Optional[str] = None,
     return AwaitableGetTemplateSpecVersionResult(
         artifacts=__ret__.artifacts,
         description=__ret__.description,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         system_data=__ret__.system_data,

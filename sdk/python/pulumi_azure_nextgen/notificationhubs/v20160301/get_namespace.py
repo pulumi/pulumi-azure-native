@@ -20,7 +20,7 @@ class GetNamespaceResult:
     """
     Description of a Namespace resource.
     """
-    def __init__(__self__, created_at=None, critical=None, enabled=None, location=None, name=None, namespace_type=None, provisioning_state=None, region=None, scale_unit=None, service_bus_endpoint=None, sku=None, status=None, subscription_id=None, tags=None, type=None):
+    def __init__(__self__, created_at=None, critical=None, enabled=None, id=None, location=None, name=None, namespace_type=None, provisioning_state=None, region=None, scale_unit=None, service_bus_endpoint=None, sku=None, status=None, subscription_id=None, tags=None, type=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -30,6 +30,9 @@ class GetNamespaceResult:
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -90,6 +93,14 @@ class GetNamespaceResult:
         Whether or not the namespace is currently enabled.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -197,6 +208,7 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
             created_at=self.created_at,
             critical=self.critical,
             enabled=self.enabled,
+            id=self.id,
             location=self.location,
             name=self.name,
             namespace_type=self.namespace_type,
@@ -233,6 +245,7 @@ def get_namespace(namespace_name: Optional[str] = None,
         created_at=__ret__.created_at,
         critical=__ret__.critical,
         enabled=__ret__.enabled,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         namespace_type=__ret__.namespace_type,

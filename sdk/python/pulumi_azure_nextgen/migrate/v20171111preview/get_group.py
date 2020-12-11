@@ -19,7 +19,7 @@ class GetGroupResult:
     """
     A group created in a Migration project.
     """
-    def __init__(__self__, assessments=None, created_timestamp=None, e_tag=None, machines=None, name=None, type=None, updated_timestamp=None):
+    def __init__(__self__, assessments=None, created_timestamp=None, e_tag=None, id=None, machines=None, name=None, type=None, updated_timestamp=None):
         if assessments and not isinstance(assessments, list):
             raise TypeError("Expected argument 'assessments' to be a list")
         pulumi.set(__self__, "assessments", assessments)
@@ -29,6 +29,9 @@ class GetGroupResult:
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if machines and not isinstance(machines, list):
             raise TypeError("Expected argument 'machines' to be a list")
         pulumi.set(__self__, "machines", machines)
@@ -65,6 +68,14 @@ class GetGroupResult:
         For optimistic concurrency control.
         """
         return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Path reference to this group. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -108,6 +119,7 @@ class AwaitableGetGroupResult(GetGroupResult):
             assessments=self.assessments,
             created_timestamp=self.created_timestamp,
             e_tag=self.e_tag,
+            id=self.id,
             machines=self.machines,
             name=self.name,
             type=self.type,
@@ -139,6 +151,7 @@ def get_group(group_name: Optional[str] = None,
         assessments=__ret__.assessments,
         created_timestamp=__ret__.created_timestamp,
         e_tag=__ret__.e_tag,
+        id=__ret__.id,
         machines=__ret__.machines,
         name=__ret__.name,
         type=__ret__.type,

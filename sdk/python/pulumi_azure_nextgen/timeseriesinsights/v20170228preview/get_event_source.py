@@ -19,7 +19,10 @@ class GetEventSourceResult:
     """
     An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
     """
-    def __init__(__self__, kind=None, location=None, name=None, tags=None, type=None):
+    def __init__(__self__, id=None, kind=None, location=None, name=None, tags=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -35,6 +38,14 @@ class GetEventSourceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -83,6 +94,7 @@ class AwaitableGetEventSourceResult(GetEventSourceResult):
         if False:
             yield self
         return GetEventSourceResult(
+            id=self.id,
             kind=self.kind,
             location=self.location,
             name=self.name,
@@ -112,6 +124,7 @@ def get_event_source(environment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:timeseriesinsights/v20170228preview:getEventSource', __args__, opts=opts, typ=GetEventSourceResult).value
 
     return AwaitableGetEventSourceResult(
+        id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,

@@ -20,7 +20,7 @@ class GetSnapshotResult:
     """
     Snapshot resource.
     """
-    def __init__(__self__, account_type=None, creation_data=None, disk_size_gb=None, encryption_settings=None, location=None, name=None, os_type=None, owner_id=None, provisioning_state=None, tags=None, time_created=None, type=None):
+    def __init__(__self__, account_type=None, creation_data=None, disk_size_gb=None, encryption_settings=None, id=None, location=None, name=None, os_type=None, owner_id=None, provisioning_state=None, tags=None, time_created=None, type=None):
         if account_type and not isinstance(account_type, str):
             raise TypeError("Expected argument 'account_type' to be a str")
         pulumi.set(__self__, "account_type", account_type)
@@ -33,6 +33,9 @@ class GetSnapshotResult:
         if encryption_settings and not isinstance(encryption_settings, dict):
             raise TypeError("Expected argument 'encryption_settings' to be a dict")
         pulumi.set(__self__, "encryption_settings", encryption_settings)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -89,6 +92,14 @@ class GetSnapshotResult:
         Encryption settings for disk or snapshot
         """
         return pulumi.get(self, "encryption_settings")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -165,6 +176,7 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
             creation_data=self.creation_data,
             disk_size_gb=self.disk_size_gb,
             encryption_settings=self.encryption_settings,
+            id=self.id,
             location=self.location,
             name=self.name,
             os_type=self.os_type,
@@ -198,6 +210,7 @@ def get_snapshot(resource_group_name: Optional[str] = None,
         creation_data=__ret__.creation_data,
         disk_size_gb=__ret__.disk_size_gb,
         encryption_settings=__ret__.encryption_settings,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         os_type=__ret__.os_type,

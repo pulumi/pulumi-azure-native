@@ -20,10 +20,13 @@ class GetManagedNetworkGroupResult:
     """
     The Managed Network Group resource
     """
-    def __init__(__self__, etag=None, kind=None, location=None, management_groups=None, name=None, provisioning_state=None, subnets=None, subscriptions=None, type=None, virtual_networks=None):
+    def __init__(__self__, etag=None, id=None, kind=None, location=None, management_groups=None, name=None, provisioning_state=None, subnets=None, subscriptions=None, type=None, virtual_networks=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -59,6 +62,14 @@ class GetManagedNetworkGroupResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -140,6 +151,7 @@ class AwaitableGetManagedNetworkGroupResult(GetManagedNetworkGroupResult):
             yield self
         return GetManagedNetworkGroupResult(
             etag=self.etag,
+            id=self.id,
             kind=self.kind,
             location=self.location,
             management_groups=self.management_groups,
@@ -174,6 +186,7 @@ def get_managed_network_group(managed_network_group_name: Optional[str] = None,
 
     return AwaitableGetManagedNetworkGroupResult(
         etag=__ret__.etag,
+        id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
         management_groups=__ret__.management_groups,

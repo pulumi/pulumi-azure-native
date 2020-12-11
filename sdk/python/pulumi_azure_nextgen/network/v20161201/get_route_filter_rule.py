@@ -19,7 +19,7 @@ class GetRouteFilterRuleResult:
     """
     Route Filter Rule Resource
     """
-    def __init__(__self__, access=None, communities=None, etag=None, location=None, name=None, provisioning_state=None, route_filter_rule_type=None, tags=None):
+    def __init__(__self__, access=None, communities=None, etag=None, id=None, location=None, name=None, provisioning_state=None, route_filter_rule_type=None, tags=None):
         if access and not isinstance(access, str):
             raise TypeError("Expected argument 'access' to be a str")
         pulumi.set(__self__, "access", access)
@@ -29,6 +29,9 @@ class GetRouteFilterRuleResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -68,6 +71,14 @@ class GetRouteFilterRuleResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -119,6 +130,7 @@ class AwaitableGetRouteFilterRuleResult(GetRouteFilterRuleResult):
             access=self.access,
             communities=self.communities,
             etag=self.etag,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -151,6 +163,7 @@ def get_route_filter_rule(resource_group_name: Optional[str] = None,
         access=__ret__.access,
         communities=__ret__.communities,
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

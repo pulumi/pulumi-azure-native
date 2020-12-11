@@ -19,7 +19,7 @@ class GetWebAppSiteExtensionResult:
     """
     Site Extension Information.
     """
-    def __init__(__self__, authors=None, comment=None, description=None, download_count=None, extension_url=None, feed_url=None, icon_url=None, installation_args=None, installed_date_time=None, kind=None, license_url=None, local_is_latest_version=None, local_path=None, name=None, project_url=None, provisioning_state=None, published_date_time=None, summary=None, title=None, type=None, version=None):
+    def __init__(__self__, authors=None, comment=None, description=None, download_count=None, extension_url=None, feed_url=None, icon_url=None, id=None, installation_args=None, installed_date_time=None, kind=None, license_url=None, local_is_latest_version=None, local_path=None, name=None, project_url=None, provisioning_state=None, published_date_time=None, summary=None, title=None, type=None, version=None):
         if authors and not isinstance(authors, list):
             raise TypeError("Expected argument 'authors' to be a list")
         pulumi.set(__self__, "authors", authors)
@@ -41,6 +41,9 @@ class GetWebAppSiteExtensionResult:
         if icon_url and not isinstance(icon_url, str):
             raise TypeError("Expected argument 'icon_url' to be a str")
         pulumi.set(__self__, "icon_url", icon_url)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if installation_args and not isinstance(installation_args, str):
             raise TypeError("Expected argument 'installation_args' to be a str")
         pulumi.set(__self__, "installation_args", installation_args)
@@ -139,6 +142,14 @@ class GetWebAppSiteExtensionResult:
         Icon URL.
         """
         return pulumi.get(self, "icon_url")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="installationArgs")
@@ -266,6 +277,7 @@ class AwaitableGetWebAppSiteExtensionResult(GetWebAppSiteExtensionResult):
             extension_url=self.extension_url,
             feed_url=self.feed_url,
             icon_url=self.icon_url,
+            id=self.id,
             installation_args=self.installation_args,
             installed_date_time=self.installed_date_time,
             kind=self.kind,
@@ -311,6 +323,7 @@ def get_web_app_site_extension(name: Optional[str] = None,
         extension_url=__ret__.extension_url,
         feed_url=__ret__.feed_url,
         icon_url=__ret__.icon_url,
+        id=__ret__.id,
         installation_args=__ret__.installation_args,
         installed_date_time=__ret__.installed_date_time,
         kind=__ret__.kind,

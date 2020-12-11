@@ -20,7 +20,10 @@ class ListWebAppPublishingCredentialsResult:
     """
     User credentials used for publishing activity.
     """
-    def __init__(__self__, kind=None, name=None, publishing_password=None, publishing_password_hash=None, publishing_password_hash_salt=None, publishing_user_name=None, scm_uri=None, system_data=None, type=None):
+    def __init__(__self__, id=None, kind=None, name=None, publishing_password=None, publishing_password_hash=None, publishing_password_hash_salt=None, publishing_user_name=None, scm_uri=None, system_data=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -48,6 +51,14 @@ class ListWebAppPublishingCredentialsResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -128,6 +139,7 @@ class AwaitableListWebAppPublishingCredentialsResult(ListWebAppPublishingCredent
         if False:
             yield self
         return ListWebAppPublishingCredentialsResult(
+            id=self.id,
             kind=self.kind,
             name=self.name,
             publishing_password=self.publishing_password,
@@ -158,6 +170,7 @@ def list_web_app_publishing_credentials(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:web/v20200901:listWebAppPublishingCredentials', __args__, opts=opts, typ=ListWebAppPublishingCredentialsResult).value
 
     return AwaitableListWebAppPublishingCredentialsResult(
+        id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
         publishing_password=__ret__.publishing_password,

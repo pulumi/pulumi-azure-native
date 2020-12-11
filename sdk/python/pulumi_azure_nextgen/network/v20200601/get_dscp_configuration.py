@@ -20,7 +20,7 @@ class GetDscpConfigurationResult:
     """
     DSCP Configuration in a resource group.
     """
-    def __init__(__self__, associated_network_interfaces=None, destination_ip_ranges=None, destination_port_ranges=None, etag=None, location=None, markings=None, name=None, protocol=None, provisioning_state=None, qos_collection_id=None, resource_guid=None, source_ip_ranges=None, source_port_ranges=None, tags=None, type=None):
+    def __init__(__self__, associated_network_interfaces=None, destination_ip_ranges=None, destination_port_ranges=None, etag=None, id=None, location=None, markings=None, name=None, protocol=None, provisioning_state=None, qos_collection_id=None, resource_guid=None, source_ip_ranges=None, source_port_ranges=None, tags=None, type=None):
         if associated_network_interfaces and not isinstance(associated_network_interfaces, list):
             raise TypeError("Expected argument 'associated_network_interfaces' to be a list")
         pulumi.set(__self__, "associated_network_interfaces", associated_network_interfaces)
@@ -33,6 +33,9 @@ class GetDscpConfigurationResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -98,6 +101,14 @@ class GetDscpConfigurationResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -198,6 +209,7 @@ class AwaitableGetDscpConfigurationResult(GetDscpConfigurationResult):
             destination_ip_ranges=self.destination_ip_ranges,
             destination_port_ranges=self.destination_port_ranges,
             etag=self.etag,
+            id=self.id,
             location=self.location,
             markings=self.markings,
             name=self.name,
@@ -234,6 +246,7 @@ def get_dscp_configuration(dscp_configuration_name: Optional[str] = None,
         destination_ip_ranges=__ret__.destination_ip_ranges,
         destination_port_ranges=__ret__.destination_port_ranges,
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         markings=__ret__.markings,
         name=__ret__.name,

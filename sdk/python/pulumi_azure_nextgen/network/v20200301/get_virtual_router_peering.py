@@ -19,10 +19,13 @@ class GetVirtualRouterPeeringResult:
     """
     Virtual Router Peering resource.
     """
-    def __init__(__self__, etag=None, name=None, peer_asn=None, peer_ip=None, provisioning_state=None, type=None):
+    def __init__(__self__, etag=None, id=None, name=None, peer_asn=None, peer_ip=None, provisioning_state=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -46,6 +49,14 @@ class GetVirtualRouterPeeringResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -95,6 +106,7 @@ class AwaitableGetVirtualRouterPeeringResult(GetVirtualRouterPeeringResult):
             yield self
         return GetVirtualRouterPeeringResult(
             etag=self.etag,
+            id=self.id,
             name=self.name,
             peer_asn=self.peer_asn,
             peer_ip=self.peer_ip,
@@ -125,6 +137,7 @@ def get_virtual_router_peering(peering_name: Optional[str] = None,
 
     return AwaitableGetVirtualRouterPeeringResult(
         etag=__ret__.etag,
+        id=__ret__.id,
         name=__ret__.name,
         peer_asn=__ret__.peer_asn,
         peer_ip=__ret__.peer_ip,

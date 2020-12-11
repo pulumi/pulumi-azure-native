@@ -20,7 +20,7 @@ class GetDatabaseAccountResult:
     """
     An Azure Cosmos DB database account.
     """
-    def __init__(__self__, api_properties=None, backup_policy=None, capabilities=None, connector_offer=None, consistency_policy=None, cors=None, create_mode=None, database_account_offer_type=None, disable_key_based_metadata_write_access=None, document_endpoint=None, enable_analytical_storage=None, enable_automatic_failover=None, enable_cassandra_connector=None, enable_free_tier=None, enable_multiple_write_locations=None, failover_policies=None, identity=None, instance_id=None, ip_rules=None, is_virtual_network_filter_enabled=None, key_vault_key_uri=None, kind=None, location=None, locations=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, read_locations=None, restore_parameters=None, system_data=None, tags=None, type=None, virtual_network_rules=None, write_locations=None):
+    def __init__(__self__, api_properties=None, backup_policy=None, capabilities=None, connector_offer=None, consistency_policy=None, cors=None, create_mode=None, database_account_offer_type=None, disable_key_based_metadata_write_access=None, document_endpoint=None, enable_analytical_storage=None, enable_automatic_failover=None, enable_cassandra_connector=None, enable_free_tier=None, enable_multiple_write_locations=None, failover_policies=None, id=None, identity=None, instance_id=None, ip_rules=None, is_virtual_network_filter_enabled=None, key_vault_key_uri=None, kind=None, location=None, locations=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, read_locations=None, restore_parameters=None, system_data=None, tags=None, type=None, virtual_network_rules=None, write_locations=None):
         if api_properties and not isinstance(api_properties, dict):
             raise TypeError("Expected argument 'api_properties' to be a dict")
         pulumi.set(__self__, "api_properties", api_properties)
@@ -69,6 +69,9 @@ class GetDatabaseAccountResult:
         if failover_policies and not isinstance(failover_policies, list):
             raise TypeError("Expected argument 'failover_policies' to be a list")
         pulumi.set(__self__, "failover_policies", failover_policies)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -257,6 +260,14 @@ class GetDatabaseAccountResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        The unique resource identifier of the ARM resource.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
         """
         Identity for the resource.
@@ -430,6 +441,7 @@ class AwaitableGetDatabaseAccountResult(GetDatabaseAccountResult):
             enable_free_tier=self.enable_free_tier,
             enable_multiple_write_locations=self.enable_multiple_write_locations,
             failover_policies=self.failover_policies,
+            id=self.id,
             identity=self.identity,
             instance_id=self.instance_id,
             ip_rules=self.ip_rules,
@@ -486,6 +498,7 @@ def get_database_account(account_name: Optional[str] = None,
         enable_free_tier=__ret__.enable_free_tier,
         enable_multiple_write_locations=__ret__.enable_multiple_write_locations,
         failover_policies=__ret__.failover_policies,
+        id=__ret__.id,
         identity=__ret__.identity,
         instance_id=__ret__.instance_id,
         ip_rules=__ret__.ip_rules,

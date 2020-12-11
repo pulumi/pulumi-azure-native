@@ -20,7 +20,7 @@ class GetNetworkInterfaceResult:
     """
     A network interface in a resource group.
     """
-    def __init__(__self__, dns_settings=None, enable_accelerated_networking=None, enable_ip_forwarding=None, etag=None, ip_configurations=None, location=None, mac_address=None, name=None, network_security_group=None, primary=None, provisioning_state=None, resource_guid=None, tags=None, type=None, virtual_machine=None):
+    def __init__(__self__, dns_settings=None, enable_accelerated_networking=None, enable_ip_forwarding=None, etag=None, id=None, ip_configurations=None, location=None, mac_address=None, name=None, network_security_group=None, primary=None, provisioning_state=None, resource_guid=None, tags=None, type=None, virtual_machine=None):
         if dns_settings and not isinstance(dns_settings, dict):
             raise TypeError("Expected argument 'dns_settings' to be a dict")
         pulumi.set(__self__, "dns_settings", dns_settings)
@@ -33,6 +33,9 @@ class GetNetworkInterfaceResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if ip_configurations and not isinstance(ip_configurations, list):
             raise TypeError("Expected argument 'ip_configurations' to be a list")
         pulumi.set(__self__, "ip_configurations", ip_configurations)
@@ -98,6 +101,14 @@ class GetNetworkInterfaceResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ipConfigurations")
@@ -198,6 +209,7 @@ class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
             enable_accelerated_networking=self.enable_accelerated_networking,
             enable_ip_forwarding=self.enable_ip_forwarding,
             etag=self.etag,
+            id=self.id,
             ip_configurations=self.ip_configurations,
             location=self.location,
             mac_address=self.mac_address,
@@ -237,6 +249,7 @@ def get_network_interface(expand: Optional[str] = None,
         enable_accelerated_networking=__ret__.enable_accelerated_networking,
         enable_ip_forwarding=__ret__.enable_ip_forwarding,
         etag=__ret__.etag,
+        id=__ret__.id,
         ip_configurations=__ret__.ip_configurations,
         location=__ret__.location,
         mac_address=__ret__.mac_address,

@@ -20,10 +20,13 @@ class GetVaultResult:
     """
     Resource information, as returned by the resource provider.
     """
-    def __init__(__self__, e_tag=None, identity=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, e_tag=None, id=None, identity=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -53,6 +56,14 @@ class GetVaultResult:
         Optional ETag.
         """
         return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id represents the complete path to the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -118,6 +129,7 @@ class AwaitableGetVaultResult(GetVaultResult):
             yield self
         return GetVaultResult(
             e_tag=self.e_tag,
+            id=self.id,
             identity=self.identity,
             location=self.location,
             name=self.name,
@@ -147,6 +159,7 @@ def get_vault(resource_group_name: Optional[str] = None,
 
     return AwaitableGetVaultResult(
         e_tag=__ret__.e_tag,
+        id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,

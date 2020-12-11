@@ -20,10 +20,13 @@ class GetPrivateLinkServicePrivateEndpointConnectionResult:
     """
     PrivateEndpointConnection resource.
     """
-    def __init__(__self__, etag=None, link_identifier=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
+    def __init__(__self__, etag=None, id=None, link_identifier=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if link_identifier and not isinstance(link_identifier, str):
             raise TypeError("Expected argument 'link_identifier' to be a str")
         pulumi.set(__self__, "link_identifier", link_identifier)
@@ -50,6 +53,14 @@ class GetPrivateLinkServicePrivateEndpointConnectionResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="linkIdentifier")
@@ -107,6 +118,7 @@ class AwaitableGetPrivateLinkServicePrivateEndpointConnectionResult(GetPrivateLi
             yield self
         return GetPrivateLinkServicePrivateEndpointConnectionResult(
             etag=self.etag,
+            id=self.id,
             link_identifier=self.link_identifier,
             name=self.name,
             private_endpoint=self.private_endpoint,
@@ -141,6 +153,7 @@ def get_private_link_service_private_endpoint_connection(expand: Optional[str] =
 
     return AwaitableGetPrivateLinkServicePrivateEndpointConnectionResult(
         etag=__ret__.etag,
+        id=__ret__.id,
         link_identifier=__ret__.link_identifier,
         name=__ret__.name,
         private_endpoint=__ret__.private_endpoint,

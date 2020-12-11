@@ -20,10 +20,13 @@ class GetDiskEncryptionSetResult:
     """
     disk encryption set resource.
     """
-    def __init__(__self__, active_key=None, identity=None, location=None, name=None, previous_keys=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, active_key=None, id=None, identity=None, location=None, name=None, previous_keys=None, provisioning_state=None, tags=None, type=None):
         if active_key and not isinstance(active_key, dict):
             raise TypeError("Expected argument 'active_key' to be a dict")
         pulumi.set(__self__, "active_key", active_key)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -53,6 +56,14 @@ class GetDiskEncryptionSetResult:
         The key vault key which is currently used by this disk encryption set.
         """
         return pulumi.get(self, "active_key")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -118,6 +129,7 @@ class AwaitableGetDiskEncryptionSetResult(GetDiskEncryptionSetResult):
             yield self
         return GetDiskEncryptionSetResult(
             active_key=self.active_key,
+            id=self.id,
             identity=self.identity,
             location=self.location,
             name=self.name,
@@ -147,6 +159,7 @@ def get_disk_encryption_set(disk_encryption_set_name: Optional[str] = None,
 
     return AwaitableGetDiskEncryptionSetResult(
         active_key=__ret__.active_key,
+        id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,

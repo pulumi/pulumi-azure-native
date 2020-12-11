@@ -20,13 +20,16 @@ class GetPeeringResult:
     """
     Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
     """
-    def __init__(__self__, direct=None, exchange=None, kind=None, location=None, name=None, peering_location=None, provisioning_state=None, sku=None, tags=None, type=None):
+    def __init__(__self__, direct=None, exchange=None, id=None, kind=None, location=None, name=None, peering_location=None, provisioning_state=None, sku=None, tags=None, type=None):
         if direct and not isinstance(direct, dict):
             raise TypeError("Expected argument 'direct' to be a dict")
         pulumi.set(__self__, "direct", direct)
         if exchange and not isinstance(exchange, dict):
             raise TypeError("Expected argument 'exchange' to be a dict")
         pulumi.set(__self__, "exchange", exchange)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -67,6 +70,14 @@ class GetPeeringResult:
         The properties that define an exchange peering.
         """
         return pulumi.get(self, "exchange")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -141,6 +152,7 @@ class AwaitableGetPeeringResult(GetPeeringResult):
         return GetPeeringResult(
             direct=self.direct,
             exchange=self.exchange,
+            id=self.id,
             kind=self.kind,
             location=self.location,
             name=self.name,
@@ -172,6 +184,7 @@ def get_peering(peering_name: Optional[str] = None,
     return AwaitableGetPeeringResult(
         direct=__ret__.direct,
         exchange=__ret__.exchange,
+        id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,

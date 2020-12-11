@@ -19,7 +19,7 @@ class GetAssessmentResult:
     """
     An assessment created for a group in the Migration project.
     """
-    def __init__(__self__, azure_hybrid_use_benefit=None, azure_location=None, azure_offer_code=None, azure_pricing_tier=None, azure_storage_redundancy=None, created_timestamp=None, currency=None, discount_percentage=None, e_tag=None, monthly_bandwidth_cost=None, monthly_compute_cost=None, monthly_storage_cost=None, name=None, number_of_machines=None, percentile=None, prices_timestamp=None, scaling_factor=None, stage=None, status=None, time_range=None, type=None, updated_timestamp=None):
+    def __init__(__self__, azure_hybrid_use_benefit=None, azure_location=None, azure_offer_code=None, azure_pricing_tier=None, azure_storage_redundancy=None, created_timestamp=None, currency=None, discount_percentage=None, e_tag=None, id=None, monthly_bandwidth_cost=None, monthly_compute_cost=None, monthly_storage_cost=None, name=None, number_of_machines=None, percentile=None, prices_timestamp=None, scaling_factor=None, stage=None, status=None, time_range=None, type=None, updated_timestamp=None):
         if azure_hybrid_use_benefit and not isinstance(azure_hybrid_use_benefit, str):
             raise TypeError("Expected argument 'azure_hybrid_use_benefit' to be a str")
         pulumi.set(__self__, "azure_hybrid_use_benefit", azure_hybrid_use_benefit)
@@ -47,6 +47,9 @@ class GetAssessmentResult:
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if monthly_bandwidth_cost and not isinstance(monthly_bandwidth_cost, float):
             raise TypeError("Expected argument 'monthly_bandwidth_cost' to be a float")
         pulumi.set(__self__, "monthly_bandwidth_cost", monthly_bandwidth_cost)
@@ -158,6 +161,14 @@ class GetAssessmentResult:
         For optimistic concurrency control.
         """
         return pulumi.get(self, "e_tag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Path reference to this assessment. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessment/{assessmentName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="monthlyBandwidthCost")
@@ -279,6 +290,7 @@ class AwaitableGetAssessmentResult(GetAssessmentResult):
             currency=self.currency,
             discount_percentage=self.discount_percentage,
             e_tag=self.e_tag,
+            id=self.id,
             monthly_bandwidth_cost=self.monthly_bandwidth_cost,
             monthly_compute_cost=self.monthly_compute_cost,
             monthly_storage_cost=self.monthly_storage_cost,
@@ -328,6 +340,7 @@ def get_assessment(assessment_name: Optional[str] = None,
         currency=__ret__.currency,
         discount_percentage=__ret__.discount_percentage,
         e_tag=__ret__.e_tag,
+        id=__ret__.id,
         monthly_bandwidth_cost=__ret__.monthly_bandwidth_cost,
         monthly_compute_cost=__ret__.monthly_compute_cost,
         monthly_storage_cost=__ret__.monthly_storage_cost,

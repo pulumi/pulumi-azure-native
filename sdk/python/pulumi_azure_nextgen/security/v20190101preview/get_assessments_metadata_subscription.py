@@ -19,7 +19,7 @@ class GetAssessmentsMetadataSubscriptionResult:
     """
     Security assessment metadata
     """
-    def __init__(__self__, assessment_type=None, category=None, description=None, display_name=None, implementation_effort=None, name=None, policy_definition_id=None, preview=None, remediation_description=None, severity=None, threats=None, type=None, user_impact=None):
+    def __init__(__self__, assessment_type=None, category=None, description=None, display_name=None, id=None, implementation_effort=None, name=None, policy_definition_id=None, preview=None, remediation_description=None, severity=None, threats=None, type=None, user_impact=None):
         if assessment_type and not isinstance(assessment_type, str):
             raise TypeError("Expected argument 'assessment_type' to be a str")
         pulumi.set(__self__, "assessment_type", assessment_type)
@@ -32,6 +32,9 @@ class GetAssessmentsMetadataSubscriptionResult:
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if implementation_effort and not isinstance(implementation_effort, str):
             raise TypeError("Expected argument 'implementation_effort' to be a str")
         pulumi.set(__self__, "implementation_effort", implementation_effort)
@@ -88,6 +91,14 @@ class GetAssessmentsMetadataSubscriptionResult:
         User friendly display name of the assessment
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="implementationEffort")
@@ -169,6 +180,7 @@ class AwaitableGetAssessmentsMetadataSubscriptionResult(GetAssessmentsMetadataSu
             category=self.category,
             description=self.description,
             display_name=self.display_name,
+            id=self.id,
             implementation_effort=self.implementation_effort,
             name=self.name,
             policy_definition_id=self.policy_definition_id,
@@ -200,6 +212,7 @@ def get_assessments_metadata_subscription(assessment_metadata_name: Optional[str
         category=__ret__.category,
         description=__ret__.description,
         display_name=__ret__.display_name,
+        id=__ret__.id,
         implementation_effort=__ret__.implementation_effort,
         name=__ret__.name,
         policy_definition_id=__ret__.policy_definition_id,

@@ -20,7 +20,10 @@ class GetJobScheduleResult:
     """
     Definition of the job schedule.
     """
-    def __init__(__self__, job_schedule_id=None, name=None, parameters=None, run_on=None, runbook=None, schedule=None, type=None):
+    def __init__(__self__, id=None, job_schedule_id=None, name=None, parameters=None, run_on=None, runbook=None, schedule=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if job_schedule_id and not isinstance(job_schedule_id, str):
             raise TypeError("Expected argument 'job_schedule_id' to be a str")
         pulumi.set(__self__, "job_schedule_id", job_schedule_id)
@@ -42,6 +45,14 @@ class GetJobScheduleResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Gets the id of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="jobScheduleId")
@@ -106,6 +117,7 @@ class AwaitableGetJobScheduleResult(GetJobScheduleResult):
         if False:
             yield self
         return GetJobScheduleResult(
+            id=self.id,
             job_schedule_id=self.job_schedule_id,
             name=self.name,
             parameters=self.parameters,
@@ -137,6 +149,7 @@ def get_job_schedule(automation_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:automation/latest:getJobSchedule', __args__, opts=opts, typ=GetJobScheduleResult).value
 
     return AwaitableGetJobScheduleResult(
+        id=__ret__.id,
         job_schedule_id=__ret__.job_schedule_id,
         name=__ret__.name,
         parameters=__ret__.parameters,

@@ -20,7 +20,7 @@ class GetContainerGroupResult:
     """
     A container group.
     """
-    def __init__(__self__, containers=None, diagnostics=None, dns_config=None, identity=None, image_registry_credentials=None, instance_view=None, ip_address=None, location=None, name=None, network_profile=None, os_type=None, provisioning_state=None, restart_policy=None, tags=None, type=None, volumes=None):
+    def __init__(__self__, containers=None, diagnostics=None, dns_config=None, id=None, identity=None, image_registry_credentials=None, instance_view=None, ip_address=None, location=None, name=None, network_profile=None, os_type=None, provisioning_state=None, restart_policy=None, tags=None, type=None, volumes=None):
         if containers and not isinstance(containers, list):
             raise TypeError("Expected argument 'containers' to be a list")
         pulumi.set(__self__, "containers", containers)
@@ -30,6 +30,9 @@ class GetContainerGroupResult:
         if dns_config and not isinstance(dns_config, dict):
             raise TypeError("Expected argument 'dns_config' to be a dict")
         pulumi.set(__self__, "dns_config", dns_config)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -93,6 +96,14 @@ class GetContainerGroupResult:
         The DNS config information for a container group.
         """
         return pulumi.get(self, "dns_config")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -211,6 +222,7 @@ class AwaitableGetContainerGroupResult(GetContainerGroupResult):
             containers=self.containers,
             diagnostics=self.diagnostics,
             dns_config=self.dns_config,
+            id=self.id,
             identity=self.identity,
             image_registry_credentials=self.image_registry_credentials,
             instance_view=self.instance_view,
@@ -248,6 +260,7 @@ def get_container_group(container_group_name: Optional[str] = None,
         containers=__ret__.containers,
         diagnostics=__ret__.diagnostics,
         dns_config=__ret__.dns_config,
+        id=__ret__.id,
         identity=__ret__.identity,
         image_registry_credentials=__ret__.image_registry_credentials,
         instance_view=__ret__.instance_view,

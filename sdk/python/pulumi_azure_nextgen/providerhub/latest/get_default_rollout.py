@@ -20,7 +20,10 @@ class GetDefaultRolloutResult:
     """
     Default rollout definition.
     """
-    def __init__(__self__, name=None, provisioning_state=None, specification=None, status=None, type=None):
+    def __init__(__self__, id=None, name=None, provisioning_state=None, specification=None, status=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -36,6 +39,14 @@ class GetDefaultRolloutResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -75,6 +86,7 @@ class AwaitableGetDefaultRolloutResult(GetDefaultRolloutResult):
         if False:
             yield self
         return GetDefaultRolloutResult(
+            id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
             specification=self.specification,
@@ -101,6 +113,7 @@ def get_default_rollout(provider_namespace: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:providerhub/latest:getDefaultRollout', __args__, opts=opts, typ=GetDefaultRolloutResult).value
 
     return AwaitableGetDefaultRolloutResult(
+        id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         specification=__ret__.specification,

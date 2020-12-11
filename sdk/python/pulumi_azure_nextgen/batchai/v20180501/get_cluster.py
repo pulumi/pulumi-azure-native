@@ -20,7 +20,7 @@ class GetClusterResult:
     """
     Information about a Cluster.
     """
-    def __init__(__self__, allocation_state=None, allocation_state_transition_time=None, creation_time=None, current_node_count=None, errors=None, name=None, node_setup=None, node_state_counts=None, provisioning_state=None, provisioning_state_transition_time=None, scale_settings=None, subnet=None, type=None, user_account_settings=None, virtual_machine_configuration=None, vm_priority=None, vm_size=None):
+    def __init__(__self__, allocation_state=None, allocation_state_transition_time=None, creation_time=None, current_node_count=None, errors=None, id=None, name=None, node_setup=None, node_state_counts=None, provisioning_state=None, provisioning_state_transition_time=None, scale_settings=None, subnet=None, type=None, user_account_settings=None, virtual_machine_configuration=None, vm_priority=None, vm_size=None):
         if allocation_state and not isinstance(allocation_state, str):
             raise TypeError("Expected argument 'allocation_state' to be a str")
         pulumi.set(__self__, "allocation_state", allocation_state)
@@ -36,6 +36,9 @@ class GetClusterResult:
         if errors and not isinstance(errors, list):
             raise TypeError("Expected argument 'errors' to be a list")
         pulumi.set(__self__, "errors", errors)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -112,6 +115,14 @@ class GetClusterResult:
         Collection of errors encountered by various compute nodes during node setup.
         """
         return pulumi.get(self, "errors")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -221,6 +232,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             creation_time=self.creation_time,
             current_node_count=self.current_node_count,
             errors=self.errors,
+            id=self.id,
             name=self.name,
             node_setup=self.node_setup,
             node_state_counts=self.node_state_counts,
@@ -262,6 +274,7 @@ def get_cluster(cluster_name: Optional[str] = None,
         creation_time=__ret__.creation_time,
         current_node_count=__ret__.current_node_count,
         errors=__ret__.errors,
+        id=__ret__.id,
         name=__ret__.name,
         node_setup=__ret__.node_setup,
         node_state_counts=__ret__.node_state_counts,

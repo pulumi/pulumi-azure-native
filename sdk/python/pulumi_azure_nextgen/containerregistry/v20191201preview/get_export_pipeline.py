@@ -20,7 +20,10 @@ class GetExportPipelineResult:
     """
     An object that represents an export pipeline for a container registry.
     """
-    def __init__(__self__, identity=None, location=None, name=None, options=None, provisioning_state=None, system_data=None, target=None, type=None):
+    def __init__(__self__, id=None, identity=None, location=None, name=None, options=None, provisioning_state=None, system_data=None, target=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -45,6 +48,14 @@ class GetExportPipelineResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -117,6 +128,7 @@ class AwaitableGetExportPipelineResult(GetExportPipelineResult):
         if False:
             yield self
         return GetExportPipelineResult(
+            id=self.id,
             identity=self.identity,
             location=self.location,
             name=self.name,
@@ -149,6 +161,7 @@ def get_export_pipeline(export_pipeline_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:containerregistry/v20191201preview:getExportPipeline', __args__, opts=opts, typ=GetExportPipelineResult).value
 
     return AwaitableGetExportPipelineResult(
+        id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,

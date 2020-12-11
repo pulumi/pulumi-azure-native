@@ -20,7 +20,7 @@ class GetAlertRuleResult:
     """
     The alert rule resource.
     """
-    def __init__(__self__, actions=None, condition=None, description=None, is_enabled=None, last_updated_time=None, location=None, name=None, tags=None, type=None):
+    def __init__(__self__, actions=None, condition=None, description=None, id=None, is_enabled=None, last_updated_time=None, location=None, name=None, tags=None, type=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
@@ -30,6 +30,9 @@ class GetAlertRuleResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_enabled and not isinstance(is_enabled, bool):
             raise TypeError("Expected argument 'is_enabled' to be a bool")
         pulumi.set(__self__, "is_enabled", is_enabled)
@@ -72,6 +75,14 @@ class GetAlertRuleResult:
         the description of the alert rule that will be included in the alert email.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isEnabled")
@@ -131,6 +142,7 @@ class AwaitableGetAlertRuleResult(GetAlertRuleResult):
             actions=self.actions,
             condition=self.condition,
             description=self.description,
+            id=self.id,
             is_enabled=self.is_enabled,
             last_updated_time=self.last_updated_time,
             location=self.location,
@@ -161,6 +173,7 @@ def get_alert_rule(resource_group_name: Optional[str] = None,
         actions=__ret__.actions,
         condition=__ret__.condition,
         description=__ret__.description,
+        id=__ret__.id,
         is_enabled=__ret__.is_enabled,
         last_updated_time=__ret__.last_updated_time,
         location=__ret__.location,

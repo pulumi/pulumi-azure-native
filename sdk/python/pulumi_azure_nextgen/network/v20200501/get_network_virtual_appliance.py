@@ -20,7 +20,7 @@ class GetNetworkVirtualApplianceResult:
     """
     NetworkVirtualAppliance Resource.
     """
-    def __init__(__self__, boot_strap_configuration_blobs=None, cloud_init_configuration=None, cloud_init_configuration_blobs=None, etag=None, identity=None, location=None, name=None, nva_sku=None, provisioning_state=None, tags=None, type=None, virtual_appliance_asn=None, virtual_appliance_nics=None, virtual_appliance_sites=None, virtual_hub=None):
+    def __init__(__self__, boot_strap_configuration_blobs=None, cloud_init_configuration=None, cloud_init_configuration_blobs=None, etag=None, id=None, identity=None, location=None, name=None, nva_sku=None, provisioning_state=None, tags=None, type=None, virtual_appliance_asn=None, virtual_appliance_nics=None, virtual_appliance_sites=None, virtual_hub=None):
         if boot_strap_configuration_blobs and not isinstance(boot_strap_configuration_blobs, list):
             raise TypeError("Expected argument 'boot_strap_configuration_blobs' to be a list")
         pulumi.set(__self__, "boot_strap_configuration_blobs", boot_strap_configuration_blobs)
@@ -33,6 +33,9 @@ class GetNetworkVirtualApplianceResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -98,6 +101,14 @@ class GetNetworkVirtualApplianceResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -198,6 +209,7 @@ class AwaitableGetNetworkVirtualApplianceResult(GetNetworkVirtualApplianceResult
             cloud_init_configuration=self.cloud_init_configuration,
             cloud_init_configuration_blobs=self.cloud_init_configuration_blobs,
             etag=self.etag,
+            id=self.id,
             identity=self.identity,
             location=self.location,
             name=self.name,
@@ -237,6 +249,7 @@ def get_network_virtual_appliance(expand: Optional[str] = None,
         cloud_init_configuration=__ret__.cloud_init_configuration,
         cloud_init_configuration_blobs=__ret__.cloud_init_configuration_blobs,
         etag=__ret__.etag,
+        id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,

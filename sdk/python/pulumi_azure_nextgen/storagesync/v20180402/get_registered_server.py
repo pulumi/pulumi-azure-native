@@ -19,7 +19,7 @@ class GetRegisteredServerResult:
     """
     Registered Server resource.
     """
-    def __init__(__self__, agent_version=None, cluster_id=None, cluster_name=None, discovery_endpoint_uri=None, friendly_name=None, last_heart_beat=None, last_operation_name=None, last_workflow_id=None, management_endpoint_uri=None, name=None, provisioning_state=None, resource_location=None, server_certificate=None, server_id=None, server_managementt_error_code=None, server_os_version=None, server_role=None, service_location=None, storage_sync_service_uid=None, type=None):
+    def __init__(__self__, agent_version=None, cluster_id=None, cluster_name=None, discovery_endpoint_uri=None, friendly_name=None, id=None, last_heart_beat=None, last_operation_name=None, last_workflow_id=None, management_endpoint_uri=None, name=None, provisioning_state=None, resource_location=None, server_certificate=None, server_id=None, server_managementt_error_code=None, server_os_version=None, server_role=None, service_location=None, storage_sync_service_uid=None, type=None):
         if agent_version and not isinstance(agent_version, str):
             raise TypeError("Expected argument 'agent_version' to be a str")
         pulumi.set(__self__, "agent_version", agent_version)
@@ -35,6 +35,9 @@ class GetRegisteredServerResult:
         if friendly_name and not isinstance(friendly_name, str):
             raise TypeError("Expected argument 'friendly_name' to be a str")
         pulumi.set(__self__, "friendly_name", friendly_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_heart_beat and not isinstance(last_heart_beat, str):
             raise TypeError("Expected argument 'last_heart_beat' to be a str")
         pulumi.set(__self__, "last_heart_beat", last_heart_beat)
@@ -120,6 +123,14 @@ class GetRegisteredServerResult:
         Friendly Name
         """
         return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastHeartBeat")
@@ -253,6 +264,7 @@ class AwaitableGetRegisteredServerResult(GetRegisteredServerResult):
             cluster_name=self.cluster_name,
             discovery_endpoint_uri=self.discovery_endpoint_uri,
             friendly_name=self.friendly_name,
+            id=self.id,
             last_heart_beat=self.last_heart_beat,
             last_operation_name=self.last_operation_name,
             last_workflow_id=self.last_workflow_id,
@@ -297,6 +309,7 @@ def get_registered_server(resource_group_name: Optional[str] = None,
         cluster_name=__ret__.cluster_name,
         discovery_endpoint_uri=__ret__.discovery_endpoint_uri,
         friendly_name=__ret__.friendly_name,
+        id=__ret__.id,
         last_heart_beat=__ret__.last_heart_beat,
         last_operation_name=__ret__.last_operation_name,
         last_workflow_id=__ret__.last_workflow_id,

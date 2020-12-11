@@ -20,7 +20,7 @@ class GetVirtualMachineResult:
     """
     Virtual machine model
     """
-    def __init__(__self__, amount_of_ram=None, controllers=None, customization=None, disks=None, dnsname=None, expose_to_guest_vm=None, folder=None, guest_os=None, guest_os_type=None, location=None, name=None, nics=None, number_of_cores=None, password=None, private_cloud_id=None, provisioning_state=None, public_ip=None, resource_pool=None, status=None, tags=None, template_id=None, type=None, username=None, v_sphere_networks=None, vm_id=None, vmwaretools=None):
+    def __init__(__self__, amount_of_ram=None, controllers=None, customization=None, disks=None, dnsname=None, expose_to_guest_vm=None, folder=None, guest_os=None, guest_os_type=None, id=None, location=None, name=None, nics=None, number_of_cores=None, password=None, private_cloud_id=None, provisioning_state=None, public_ip=None, resource_pool=None, status=None, tags=None, template_id=None, type=None, username=None, v_sphere_networks=None, vm_id=None, vmwaretools=None):
         if amount_of_ram and not isinstance(amount_of_ram, int):
             raise TypeError("Expected argument 'amount_of_ram' to be a int")
         pulumi.set(__self__, "amount_of_ram", amount_of_ram)
@@ -48,6 +48,9 @@ class GetVirtualMachineResult:
         if guest_os_type and not isinstance(guest_os_type, str):
             raise TypeError("Expected argument 'guest_os_type' to be a str")
         pulumi.set(__self__, "guest_os_type", guest_os_type)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -171,6 +174,14 @@ class GetVirtualMachineResult:
         The Guest OS type
         """
         return pulumi.get(self, "guest_os_type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/virtualMachines/{virtualMachineName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -324,6 +335,7 @@ class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
             folder=self.folder,
             guest_os=self.guest_os,
             guest_os_type=self.guest_os_type,
+            id=self.id,
             location=self.location,
             name=self.name,
             nics=self.nics,
@@ -371,6 +383,7 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
         folder=__ret__.folder,
         guest_os=__ret__.guest_os,
         guest_os_type=__ret__.guest_os_type,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         nics=__ret__.nics,

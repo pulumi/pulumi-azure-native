@@ -20,7 +20,7 @@ class GetWebAppDiagnosticLogsConfigurationResult:
     """
     Configuration of App Service site logs.
     """
-    def __init__(__self__, application_logs=None, detailed_error_messages=None, failed_requests_tracing=None, http_logs=None, kind=None, name=None, system_data=None, type=None):
+    def __init__(__self__, application_logs=None, detailed_error_messages=None, failed_requests_tracing=None, http_logs=None, id=None, kind=None, name=None, system_data=None, type=None):
         if application_logs and not isinstance(application_logs, dict):
             raise TypeError("Expected argument 'application_logs' to be a dict")
         pulumi.set(__self__, "application_logs", application_logs)
@@ -33,6 +33,9 @@ class GetWebAppDiagnosticLogsConfigurationResult:
         if http_logs and not isinstance(http_logs, dict):
             raise TypeError("Expected argument 'http_logs' to be a dict")
         pulumi.set(__self__, "http_logs", http_logs)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -80,6 +83,14 @@ class GetWebAppDiagnosticLogsConfigurationResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def kind(self) -> Optional[str]:
         """
         Kind of resource.
@@ -121,6 +132,7 @@ class AwaitableGetWebAppDiagnosticLogsConfigurationResult(GetWebAppDiagnosticLog
             detailed_error_messages=self.detailed_error_messages,
             failed_requests_tracing=self.failed_requests_tracing,
             http_logs=self.http_logs,
+            id=self.id,
             kind=self.kind,
             name=self.name,
             system_data=self.system_data,
@@ -150,6 +162,7 @@ def get_web_app_diagnostic_logs_configuration(name: Optional[str] = None,
         detailed_error_messages=__ret__.detailed_error_messages,
         failed_requests_tracing=__ret__.failed_requests_tracing,
         http_logs=__ret__.http_logs,
+        id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
         system_data=__ret__.system_data,

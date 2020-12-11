@@ -19,13 +19,16 @@ class GetCommunicationServiceResult:
     """
     A class representing a CommunicationService resource.
     """
-    def __init__(__self__, data_location=None, host_name=None, immutable_resource_id=None, location=None, name=None, notification_hub_id=None, provisioning_state=None, tags=None, type=None, version=None):
+    def __init__(__self__, data_location=None, host_name=None, id=None, immutable_resource_id=None, location=None, name=None, notification_hub_id=None, provisioning_state=None, tags=None, type=None, version=None):
         if data_location and not isinstance(data_location, str):
             raise TypeError("Expected argument 'data_location' to be a str")
         pulumi.set(__self__, "data_location", data_location)
         if host_name and not isinstance(host_name, str):
             raise TypeError("Expected argument 'host_name' to be a str")
         pulumi.set(__self__, "host_name", host_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if immutable_resource_id and not isinstance(immutable_resource_id, str):
             raise TypeError("Expected argument 'immutable_resource_id' to be a str")
         pulumi.set(__self__, "immutable_resource_id", immutable_resource_id)
@@ -66,6 +69,14 @@ class GetCommunicationServiceResult:
         FQDN of the CommunicationService instance.
         """
         return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="immutableResourceId")
@@ -140,6 +151,7 @@ class AwaitableGetCommunicationServiceResult(GetCommunicationServiceResult):
         return GetCommunicationServiceResult(
             data_location=self.data_location,
             host_name=self.host_name,
+            id=self.id,
             immutable_resource_id=self.immutable_resource_id,
             location=self.location,
             name=self.name,
@@ -171,6 +183,7 @@ def get_communication_service(communication_service_name: Optional[str] = None,
     return AwaitableGetCommunicationServiceResult(
         data_location=__ret__.data_location,
         host_name=__ret__.host_name,
+        id=__ret__.id,
         immutable_resource_id=__ret__.immutable_resource_id,
         location=__ret__.location,
         name=__ret__.name,

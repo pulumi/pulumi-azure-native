@@ -19,10 +19,13 @@ class ListWebAppSitePushSettingsSlotResult:
     """
     Push settings for the App.
     """
-    def __init__(__self__, dynamic_tags_json=None, is_push_enabled=None, kind=None, name=None, tag_whitelist_json=None, tags_requiring_auth=None, type=None):
+    def __init__(__self__, dynamic_tags_json=None, id=None, is_push_enabled=None, kind=None, name=None, tag_whitelist_json=None, tags_requiring_auth=None, type=None):
         if dynamic_tags_json and not isinstance(dynamic_tags_json, str):
             raise TypeError("Expected argument 'dynamic_tags_json' to be a str")
         pulumi.set(__self__, "dynamic_tags_json", dynamic_tags_json)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_push_enabled and not isinstance(is_push_enabled, bool):
             raise TypeError("Expected argument 'is_push_enabled' to be a bool")
         pulumi.set(__self__, "is_push_enabled", is_push_enabled)
@@ -49,6 +52,14 @@ class ListWebAppSitePushSettingsSlotResult:
         Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
         """
         return pulumi.get(self, "dynamic_tags_json")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isPushEnabled")
@@ -109,6 +120,7 @@ class AwaitableListWebAppSitePushSettingsSlotResult(ListWebAppSitePushSettingsSl
             yield self
         return ListWebAppSitePushSettingsSlotResult(
             dynamic_tags_json=self.dynamic_tags_json,
+            id=self.id,
             is_push_enabled=self.is_push_enabled,
             kind=self.kind,
             name=self.name,
@@ -140,6 +152,7 @@ def list_web_app_site_push_settings_slot(name: Optional[str] = None,
 
     return AwaitableListWebAppSitePushSettingsSlotResult(
         dynamic_tags_json=__ret__.dynamic_tags_json,
+        id=__ret__.id,
         is_push_enabled=__ret__.is_push_enabled,
         kind=__ret__.kind,
         name=__ret__.name,

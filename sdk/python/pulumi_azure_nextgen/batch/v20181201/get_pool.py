@@ -20,7 +20,7 @@ class GetPoolResult:
     """
     Contains information about a pool.
     """
-    def __init__(__self__, allocation_state=None, allocation_state_transition_time=None, application_licenses=None, application_packages=None, auto_scale_run=None, certificates=None, creation_time=None, current_dedicated_nodes=None, current_low_priority_nodes=None, deployment_configuration=None, display_name=None, etag=None, inter_node_communication=None, last_modified=None, max_tasks_per_node=None, metadata=None, name=None, network_configuration=None, provisioning_state=None, provisioning_state_transition_time=None, resize_operation_status=None, scale_settings=None, start_task=None, task_scheduling_policy=None, type=None, user_accounts=None, vm_size=None):
+    def __init__(__self__, allocation_state=None, allocation_state_transition_time=None, application_licenses=None, application_packages=None, auto_scale_run=None, certificates=None, creation_time=None, current_dedicated_nodes=None, current_low_priority_nodes=None, deployment_configuration=None, display_name=None, etag=None, id=None, inter_node_communication=None, last_modified=None, max_tasks_per_node=None, metadata=None, name=None, network_configuration=None, provisioning_state=None, provisioning_state_transition_time=None, resize_operation_status=None, scale_settings=None, start_task=None, task_scheduling_policy=None, type=None, user_accounts=None, vm_size=None):
         if allocation_state and not isinstance(allocation_state, str):
             raise TypeError("Expected argument 'allocation_state' to be a str")
         pulumi.set(__self__, "allocation_state", allocation_state)
@@ -57,6 +57,9 @@ class GetPoolResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if inter_node_communication and not isinstance(inter_node_communication, str):
             raise TypeError("Expected argument 'inter_node_communication' to be a str")
         pulumi.set(__self__, "inter_node_communication", inter_node_communication)
@@ -185,6 +188,14 @@ class GetPoolResult:
         return pulumi.get(self, "etag")
 
     @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the resource.
+        """
+        return pulumi.get(self, "id")
+
+    @property
     @pulumi.getter(name="interNodeCommunication")
     def inter_node_communication(self) -> Optional[str]:
         """
@@ -308,6 +319,7 @@ class AwaitableGetPoolResult(GetPoolResult):
             deployment_configuration=self.deployment_configuration,
             display_name=self.display_name,
             etag=self.etag,
+            id=self.id,
             inter_node_communication=self.inter_node_communication,
             last_modified=self.last_modified,
             max_tasks_per_node=self.max_tasks_per_node,
@@ -359,6 +371,7 @@ def get_pool(account_name: Optional[str] = None,
         deployment_configuration=__ret__.deployment_configuration,
         display_name=__ret__.display_name,
         etag=__ret__.etag,
+        id=__ret__.id,
         inter_node_communication=__ret__.inter_node_communication,
         last_modified=__ret__.last_modified,
         max_tasks_per_node=__ret__.max_tasks_per_node,

@@ -20,7 +20,7 @@ class GetRoleAssignmentResult:
     """
     The Role Assignment resource format.
     """
-    def __init__(__self__, assignment_name=None, conflation_policies=None, connectors=None, description=None, display_name=None, interactions=None, kpis=None, links=None, name=None, principals=None, profiles=None, provisioning_state=None, relationship_links=None, relationships=None, role=None, role_assignments=None, sas_policies=None, segments=None, tenant_id=None, type=None, views=None, widget_types=None):
+    def __init__(__self__, assignment_name=None, conflation_policies=None, connectors=None, description=None, display_name=None, id=None, interactions=None, kpis=None, links=None, name=None, principals=None, profiles=None, provisioning_state=None, relationship_links=None, relationships=None, role=None, role_assignments=None, sas_policies=None, segments=None, tenant_id=None, type=None, views=None, widget_types=None):
         if assignment_name and not isinstance(assignment_name, str):
             raise TypeError("Expected argument 'assignment_name' to be a str")
         pulumi.set(__self__, "assignment_name", assignment_name)
@@ -36,6 +36,9 @@ class GetRoleAssignmentResult:
         if display_name and not isinstance(display_name, dict):
             raise TypeError("Expected argument 'display_name' to be a dict")
         pulumi.set(__self__, "display_name", display_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if interactions and not isinstance(interactions, dict):
             raise TypeError("Expected argument 'interactions' to be a dict")
         pulumi.set(__self__, "interactions", interactions)
@@ -127,6 +130,14 @@ class GetRoleAssignmentResult:
         Localized display names for the metadata.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -276,6 +287,7 @@ class AwaitableGetRoleAssignmentResult(GetRoleAssignmentResult):
             connectors=self.connectors,
             description=self.description,
             display_name=self.display_name,
+            id=self.id,
             interactions=self.interactions,
             kpis=self.kpis,
             links=self.links,
@@ -322,6 +334,7 @@ def get_role_assignment(assignment_name: Optional[str] = None,
         connectors=__ret__.connectors,
         description=__ret__.description,
         display_name=__ret__.display_name,
+        id=__ret__.id,
         interactions=__ret__.interactions,
         kpis=__ret__.kpis,
         links=__ret__.links,

@@ -19,7 +19,10 @@ class GetSecretValueResult:
     """
     This type describes a value of a secret resource. The name of this resource is the version identifier corresponding to this secret value.
     """
-    def __init__(__self__, location=None, name=None, provisioning_state=None, tags=None, type=None, value=None):
+    def __init__(__self__, id=None, location=None, name=None, provisioning_state=None, tags=None, type=None, value=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -38,6 +41,14 @@ class GetSecretValueResult:
         if value and not isinstance(value, str):
             raise TypeError("Expected argument 'value' to be a str")
         pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified identifier for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -94,6 +105,7 @@ class AwaitableGetSecretValueResult(GetSecretValueResult):
         if False:
             yield self
         return GetSecretValueResult(
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -124,6 +136,7 @@ def get_secret_value(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:servicefabricmesh/v20180901preview:getSecretValue', __args__, opts=opts, typ=GetSecretValueResult).value
 
     return AwaitableGetSecretValueResult(
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

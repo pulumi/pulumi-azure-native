@@ -20,10 +20,13 @@ class GetCommitmentPlanResult:
     """
     An Azure ML commitment plan resource.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, etag=None, id=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -50,6 +53,14 @@ class GetCommitmentPlanResult:
         An entity tag used to enforce optimistic concurrency.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -107,6 +118,7 @@ class AwaitableGetCommitmentPlanResult(GetCommitmentPlanResult):
             yield self
         return GetCommitmentPlanResult(
             etag=self.etag,
+            id=self.id,
             location=self.location,
             name=self.name,
             properties=self.properties,
@@ -135,6 +147,7 @@ def get_commitment_plan(commitment_plan_name: Optional[str] = None,
 
     return AwaitableGetCommitmentPlanResult(
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         properties=__ret__.properties,

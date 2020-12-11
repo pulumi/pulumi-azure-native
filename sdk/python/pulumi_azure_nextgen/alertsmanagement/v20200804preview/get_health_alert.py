@@ -20,7 +20,7 @@ class GetHealthAlertResult:
     """
     The health alert resource.
     """
-    def __init__(__self__, actions=None, criteria=None, description=None, enabled=None, last_updated_time=None, location=None, name=None, scopes=None, tags=None, type=None):
+    def __init__(__self__, actions=None, criteria=None, description=None, enabled=None, id=None, last_updated_time=None, location=None, name=None, scopes=None, tags=None, type=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
@@ -33,6 +33,9 @@ class GetHealthAlertResult:
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_updated_time and not isinstance(last_updated_time, str):
             raise TypeError("Expected argument 'last_updated_time' to be a str")
         pulumi.set(__self__, "last_updated_time", last_updated_time)
@@ -83,6 +86,14 @@ class GetHealthAlertResult:
         the flag that indicates whether the health alert is enabled.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
@@ -143,6 +154,7 @@ class AwaitableGetHealthAlertResult(GetHealthAlertResult):
             criteria=self.criteria,
             description=self.description,
             enabled=self.enabled,
+            id=self.id,
             last_updated_time=self.last_updated_time,
             location=self.location,
             name=self.name,
@@ -174,6 +186,7 @@ def get_health_alert(resource_group_name: Optional[str] = None,
         criteria=__ret__.criteria,
         description=__ret__.description,
         enabled=__ret__.enabled,
+        id=__ret__.id,
         last_updated_time=__ret__.last_updated_time,
         location=__ret__.location,
         name=__ret__.name,

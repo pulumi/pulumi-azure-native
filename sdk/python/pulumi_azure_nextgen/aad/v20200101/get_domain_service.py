@@ -20,7 +20,7 @@ class GetDomainServiceResult:
     """
     Domain service.
     """
-    def __init__(__self__, deployment_id=None, domain_configuration_type=None, domain_name=None, domain_security_settings=None, etag=None, filtered_sync=None, ldaps_settings=None, location=None, migration_properties=None, name=None, notification_settings=None, provisioning_state=None, replica_sets=None, resource_forest_settings=None, sku=None, sync_owner=None, tags=None, tenant_id=None, type=None, version=None):
+    def __init__(__self__, deployment_id=None, domain_configuration_type=None, domain_name=None, domain_security_settings=None, etag=None, filtered_sync=None, id=None, ldaps_settings=None, location=None, migration_properties=None, name=None, notification_settings=None, provisioning_state=None, replica_sets=None, resource_forest_settings=None, sku=None, sync_owner=None, tags=None, tenant_id=None, type=None, version=None):
         if deployment_id and not isinstance(deployment_id, str):
             raise TypeError("Expected argument 'deployment_id' to be a str")
         pulumi.set(__self__, "deployment_id", deployment_id)
@@ -39,6 +39,9 @@ class GetDomainServiceResult:
         if filtered_sync and not isinstance(filtered_sync, str):
             raise TypeError("Expected argument 'filtered_sync' to be a str")
         pulumi.set(__self__, "filtered_sync", filtered_sync)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if ldaps_settings and not isinstance(ldaps_settings, dict):
             raise TypeError("Expected argument 'ldaps_settings' to be a dict")
         pulumi.set(__self__, "ldaps_settings", ldaps_settings)
@@ -129,6 +132,14 @@ class GetDomainServiceResult:
         Enabled or Disabled flag to turn on Group-based filtered sync
         """
         return pulumi.get(self, "filtered_sync")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ldapsSettings")
@@ -255,6 +266,7 @@ class AwaitableGetDomainServiceResult(GetDomainServiceResult):
             domain_security_settings=self.domain_security_settings,
             etag=self.etag,
             filtered_sync=self.filtered_sync,
+            id=self.id,
             ldaps_settings=self.ldaps_settings,
             location=self.location,
             migration_properties=self.migration_properties,
@@ -296,6 +308,7 @@ def get_domain_service(domain_service_name: Optional[str] = None,
         domain_security_settings=__ret__.domain_security_settings,
         etag=__ret__.etag,
         filtered_sync=__ret__.filtered_sync,
+        id=__ret__.id,
         ldaps_settings=__ret__.ldaps_settings,
         location=__ret__.location,
         migration_properties=__ret__.migration_properties,

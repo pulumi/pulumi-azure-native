@@ -20,10 +20,13 @@ class GetTopicResult:
     """
     EventGrid Topic
     """
-    def __init__(__self__, endpoint=None, identity=None, inbound_ip_rules=None, input_schema=None, input_schema_mapping=None, location=None, metric_resource_id=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, tags=None, type=None):
+    def __init__(__self__, endpoint=None, id=None, identity=None, inbound_ip_rules=None, input_schema=None, input_schema_mapping=None, location=None, metric_resource_id=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, sku=None, tags=None, type=None):
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -71,6 +74,14 @@ class GetTopicResult:
         Endpoint for the topic.
         """
         return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified identifier of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -182,6 +193,7 @@ class AwaitableGetTopicResult(GetTopicResult):
             yield self
         return GetTopicResult(
             endpoint=self.endpoint,
+            id=self.id,
             identity=self.identity,
             inbound_ip_rules=self.inbound_ip_rules,
             input_schema=self.input_schema,
@@ -217,6 +229,7 @@ def get_topic(resource_group_name: Optional[str] = None,
 
     return AwaitableGetTopicResult(
         endpoint=__ret__.endpoint,
+        id=__ret__.id,
         identity=__ret__.identity,
         inbound_ip_rules=__ret__.inbound_ip_rules,
         input_schema=__ret__.input_schema,

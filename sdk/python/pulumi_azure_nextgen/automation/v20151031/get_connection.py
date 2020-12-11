@@ -20,7 +20,7 @@ class GetConnectionResult:
     """
     Definition of the connection.
     """
-    def __init__(__self__, connection_type=None, creation_time=None, description=None, field_definition_values=None, last_modified_time=None, name=None, type=None):
+    def __init__(__self__, connection_type=None, creation_time=None, description=None, field_definition_values=None, id=None, last_modified_time=None, name=None, type=None):
         if connection_type and not isinstance(connection_type, dict):
             raise TypeError("Expected argument 'connection_type' to be a dict")
         pulumi.set(__self__, "connection_type", connection_type)
@@ -33,6 +33,9 @@ class GetConnectionResult:
         if field_definition_values and not isinstance(field_definition_values, dict):
             raise TypeError("Expected argument 'field_definition_values' to be a dict")
         pulumi.set(__self__, "field_definition_values", field_definition_values)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_modified_time and not isinstance(last_modified_time, str):
             raise TypeError("Expected argument 'last_modified_time' to be a str")
         pulumi.set(__self__, "last_modified_time", last_modified_time)
@@ -76,6 +79,14 @@ class GetConnectionResult:
         return pulumi.get(self, "field_definition_values")
 
     @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource
+        """
+        return pulumi.get(self, "id")
+
+    @property
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> str:
         """
@@ -110,6 +121,7 @@ class AwaitableGetConnectionResult(GetConnectionResult):
             creation_time=self.creation_time,
             description=self.description,
             field_definition_values=self.field_definition_values,
+            id=self.id,
             last_modified_time=self.last_modified_time,
             name=self.name,
             type=self.type)
@@ -141,6 +153,7 @@ def get_connection(automation_account_name: Optional[str] = None,
         creation_time=__ret__.creation_time,
         description=__ret__.description,
         field_definition_values=__ret__.field_definition_values,
+        id=__ret__.id,
         last_modified_time=__ret__.last_modified_time,
         name=__ret__.name,
         type=__ret__.type)

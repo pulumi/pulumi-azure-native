@@ -20,7 +20,10 @@ class GetJobTargetGroupResult:
     """
     A group of job targets.
     """
-    def __init__(__self__, members=None, name=None, type=None):
+    def __init__(__self__, id=None, members=None, name=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if members and not isinstance(members, list):
             raise TypeError("Expected argument 'members' to be a list")
         pulumi.set(__self__, "members", members)
@@ -30,6 +33,14 @@ class GetJobTargetGroupResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -62,6 +73,7 @@ class AwaitableGetJobTargetGroupResult(GetJobTargetGroupResult):
         if False:
             yield self
         return GetJobTargetGroupResult(
+            id=self.id,
             members=self.members,
             name=self.name,
             type=self.type)
@@ -92,6 +104,7 @@ def get_job_target_group(job_agent_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:sql/v20170301preview:getJobTargetGroup', __args__, opts=opts, typ=GetJobTargetGroupResult).value
 
     return AwaitableGetJobTargetGroupResult(
+        id=__ret__.id,
         members=__ret__.members,
         name=__ret__.name,
         type=__ret__.type)

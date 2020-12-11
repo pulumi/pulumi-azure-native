@@ -20,7 +20,10 @@ class GetChapSettingResult:
     """
     Challenge-Handshake Authentication Protocol (CHAP) setting
     """
-    def __init__(__self__, name=None, password=None, type=None):
+    def __init__(__self__, id=None, name=None, password=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -30,6 +33,14 @@ class GetChapSettingResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -62,6 +73,7 @@ class AwaitableGetChapSettingResult(GetChapSettingResult):
         if False:
             yield self
         return GetChapSettingResult(
+            id=self.id,
             name=self.name,
             password=self.password,
             type=self.type)
@@ -92,6 +104,7 @@ def get_chap_setting(chap_user_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:storsimple/latest:getChapSetting', __args__, opts=opts, typ=GetChapSettingResult).value
 
     return AwaitableGetChapSettingResult(
+        id=__ret__.id,
         name=__ret__.name,
         password=__ret__.password,
         type=__ret__.type)

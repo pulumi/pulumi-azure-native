@@ -19,10 +19,13 @@ class GetIotDefenderSettingResult:
     """
     IoT Defender settings
     """
-    def __init__(__self__, device_quota=None, name=None, sentinel_workspace_resource_ids=None, type=None):
+    def __init__(__self__, device_quota=None, id=None, name=None, sentinel_workspace_resource_ids=None, type=None):
         if device_quota and not isinstance(device_quota, int):
             raise TypeError("Expected argument 'device_quota' to be a int")
         pulumi.set(__self__, "device_quota", device_quota)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -40,6 +43,14 @@ class GetIotDefenderSettingResult:
         Size of the device quota (as a opposed to a Pay as You Go billing model). Value is required to be in multiples of 1000.
         """
         return pulumi.get(self, "device_quota")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -73,6 +84,7 @@ class AwaitableGetIotDefenderSettingResult(GetIotDefenderSettingResult):
             yield self
         return GetIotDefenderSettingResult(
             device_quota=self.device_quota,
+            id=self.id,
             name=self.name,
             sentinel_workspace_resource_ids=self.sentinel_workspace_resource_ids,
             type=self.type)
@@ -91,6 +103,7 @@ def get_iot_defender_setting(opts: Optional[pulumi.InvokeOptions] = None) -> Awa
 
     return AwaitableGetIotDefenderSettingResult(
         device_quota=__ret__.device_quota,
+        id=__ret__.id,
         name=__ret__.name,
         sentinel_workspace_resource_ids=__ret__.sentinel_workspace_resource_ids,
         type=__ret__.type)

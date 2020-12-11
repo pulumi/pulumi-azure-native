@@ -20,7 +20,7 @@ class GetPacketCaptureResult:
     """
     Information about packet capture session.
     """
-    def __init__(__self__, bytes_to_capture_per_packet=None, etag=None, filters=None, name=None, provisioning_state=None, storage_location=None, target=None, time_limit_in_seconds=None, total_bytes_per_session=None):
+    def __init__(__self__, bytes_to_capture_per_packet=None, etag=None, filters=None, id=None, name=None, provisioning_state=None, storage_location=None, target=None, time_limit_in_seconds=None, total_bytes_per_session=None):
         if bytes_to_capture_per_packet and not isinstance(bytes_to_capture_per_packet, int):
             raise TypeError("Expected argument 'bytes_to_capture_per_packet' to be a int")
         pulumi.set(__self__, "bytes_to_capture_per_packet", bytes_to_capture_per_packet)
@@ -30,6 +30,9 @@ class GetPacketCaptureResult:
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -66,6 +69,14 @@ class GetPacketCaptureResult:
     @pulumi.getter
     def filters(self) -> Optional[Sequence['outputs.PacketCaptureFilterResponse']]:
         return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        ID of the packet capture operation.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -125,6 +136,7 @@ class AwaitableGetPacketCaptureResult(GetPacketCaptureResult):
             bytes_to_capture_per_packet=self.bytes_to_capture_per_packet,
             etag=self.etag,
             filters=self.filters,
+            id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
             storage_location=self.storage_location,
@@ -158,6 +170,7 @@ def get_packet_capture(network_watcher_name: Optional[str] = None,
         bytes_to_capture_per_packet=__ret__.bytes_to_capture_per_packet,
         etag=__ret__.etag,
         filters=__ret__.filters,
+        id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         storage_location=__ret__.storage_location,

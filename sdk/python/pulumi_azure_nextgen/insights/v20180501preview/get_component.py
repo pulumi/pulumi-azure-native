@@ -20,7 +20,7 @@ class GetComponentResult:
     """
     An Application Insights component definition.
     """
-    def __init__(__self__, app_id=None, application_id=None, application_type=None, connection_string=None, creation_date=None, disable_ip_masking=None, flow_type=None, hockey_app_id=None, hockey_app_token=None, immediate_purge_data_on30_days=None, ingestion_mode=None, instrumentation_key=None, kind=None, location=None, name=None, private_link_scoped_resources=None, provisioning_state=None, public_network_access_for_ingestion=None, public_network_access_for_query=None, request_source=None, retention_in_days=None, sampling_percentage=None, tags=None, tenant_id=None, type=None):
+    def __init__(__self__, app_id=None, application_id=None, application_type=None, connection_string=None, creation_date=None, disable_ip_masking=None, flow_type=None, hockey_app_id=None, hockey_app_token=None, id=None, immediate_purge_data_on30_days=None, ingestion_mode=None, instrumentation_key=None, kind=None, location=None, name=None, private_link_scoped_resources=None, provisioning_state=None, public_network_access_for_ingestion=None, public_network_access_for_query=None, request_source=None, retention_in_days=None, sampling_percentage=None, tags=None, tenant_id=None, type=None):
         if app_id and not isinstance(app_id, str):
             raise TypeError("Expected argument 'app_id' to be a str")
         pulumi.set(__self__, "app_id", app_id)
@@ -48,6 +48,9 @@ class GetComponentResult:
         if hockey_app_token and not isinstance(hockey_app_token, str):
             raise TypeError("Expected argument 'hockey_app_token' to be a str")
         pulumi.set(__self__, "hockey_app_token", hockey_app_token)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if immediate_purge_data_on30_days and not isinstance(immediate_purge_data_on30_days, bool):
             raise TypeError("Expected argument 'immediate_purge_data_on30_days' to be a bool")
         pulumi.set(__self__, "immediate_purge_data_on30_days", immediate_purge_data_on30_days)
@@ -168,6 +171,14 @@ class GetComponentResult:
         Token used to authenticate communications with between Application Insights and HockeyApp.
         """
         return pulumi.get(self, "hockey_app_token")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="immediatePurgeDataOn30Days")
@@ -313,6 +324,7 @@ class AwaitableGetComponentResult(GetComponentResult):
             flow_type=self.flow_type,
             hockey_app_id=self.hockey_app_id,
             hockey_app_token=self.hockey_app_token,
+            id=self.id,
             immediate_purge_data_on30_days=self.immediate_purge_data_on30_days,
             ingestion_mode=self.ingestion_mode,
             instrumentation_key=self.instrumentation_key,
@@ -359,6 +371,7 @@ def get_component(resource_group_name: Optional[str] = None,
         flow_type=__ret__.flow_type,
         hockey_app_id=__ret__.hockey_app_id,
         hockey_app_token=__ret__.hockey_app_token,
+        id=__ret__.id,
         immediate_purge_data_on30_days=__ret__.immediate_purge_data_on30_days,
         ingestion_mode=__ret__.ingestion_mode,
         instrumentation_key=__ret__.instrumentation_key,

@@ -20,7 +20,7 @@ class GetVirtualMachineResult:
     """
     Describes a Virtual Machine.
     """
-    def __init__(__self__, additional_capabilities=None, availability_set=None, billing_profile=None, diagnostics_profile=None, eviction_policy=None, hardware_profile=None, host=None, identity=None, instance_view=None, license_type=None, location=None, name=None, network_profile=None, os_profile=None, plan=None, priority=None, provisioning_state=None, proximity_placement_group=None, resources=None, storage_profile=None, tags=None, type=None, virtual_machine_scale_set=None, vm_id=None, zones=None):
+    def __init__(__self__, additional_capabilities=None, availability_set=None, billing_profile=None, diagnostics_profile=None, eviction_policy=None, hardware_profile=None, host=None, id=None, identity=None, instance_view=None, license_type=None, location=None, name=None, network_profile=None, os_profile=None, plan=None, priority=None, provisioning_state=None, proximity_placement_group=None, resources=None, storage_profile=None, tags=None, type=None, virtual_machine_scale_set=None, vm_id=None, zones=None):
         if additional_capabilities and not isinstance(additional_capabilities, dict):
             raise TypeError("Expected argument 'additional_capabilities' to be a dict")
         pulumi.set(__self__, "additional_capabilities", additional_capabilities)
@@ -42,6 +42,9 @@ class GetVirtualMachineResult:
         if host and not isinstance(host, dict):
             raise TypeError("Expected argument 'host' to be a dict")
         pulumi.set(__self__, "host", host)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -152,6 +155,14 @@ class GetVirtualMachineResult:
         Specifies information about the dedicated host that the virtual machine resides in. <br><br>Minimum api-version: 2018-10-01.
         """
         return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -311,6 +322,7 @@ class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
             eviction_policy=self.eviction_policy,
             hardware_profile=self.hardware_profile,
             host=self.host,
+            id=self.id,
             identity=self.identity,
             instance_view=self.instance_view,
             license_type=self.license_type,
@@ -360,6 +372,7 @@ def get_virtual_machine(expand: Optional[str] = None,
         eviction_policy=__ret__.eviction_policy,
         hardware_profile=__ret__.hardware_profile,
         host=__ret__.host,
+        id=__ret__.id,
         identity=__ret__.identity,
         instance_view=__ret__.instance_view,
         license_type=__ret__.license_type,

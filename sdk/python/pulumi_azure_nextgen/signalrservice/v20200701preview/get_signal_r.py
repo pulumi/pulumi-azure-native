@@ -20,7 +20,7 @@ class GetSignalRResult:
     """
     A class represent a SignalR service resource.
     """
-    def __init__(__self__, cors=None, external_ip=None, features=None, host_name=None, identity=None, kind=None, location=None, name=None, network_acls=None, private_endpoint_connections=None, provisioning_state=None, public_port=None, server_port=None, sku=None, tags=None, tls=None, type=None, upstream=None, version=None):
+    def __init__(__self__, cors=None, external_ip=None, features=None, host_name=None, id=None, identity=None, kind=None, location=None, name=None, network_acls=None, private_endpoint_connections=None, provisioning_state=None, public_port=None, server_port=None, sku=None, tags=None, tls=None, type=None, upstream=None, version=None):
         if cors and not isinstance(cors, dict):
             raise TypeError("Expected argument 'cors' to be a dict")
         pulumi.set(__self__, "cors", cors)
@@ -33,6 +33,9 @@ class GetSignalRResult:
         if host_name and not isinstance(host_name, str):
             raise TypeError("Expected argument 'host_name' to be a str")
         pulumi.set(__self__, "host_name", host_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -115,6 +118,14 @@ class GetSignalRResult:
         FQDN of the SignalR service instance. Format: xxx.service.signalr.net
         """
         return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -247,6 +258,7 @@ class AwaitableGetSignalRResult(GetSignalRResult):
             external_ip=self.external_ip,
             features=self.features,
             host_name=self.host_name,
+            id=self.id,
             identity=self.identity,
             kind=self.kind,
             location=self.location,
@@ -287,6 +299,7 @@ def get_signal_r(resource_group_name: Optional[str] = None,
         external_ip=__ret__.external_ip,
         features=__ret__.features,
         host_name=__ret__.host_name,
+        id=__ret__.id,
         identity=__ret__.identity,
         kind=__ret__.kind,
         location=__ret__.location,

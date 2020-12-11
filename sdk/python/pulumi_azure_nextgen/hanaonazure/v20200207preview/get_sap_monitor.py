@@ -19,10 +19,13 @@ class GetSapMonitorResult:
     """
     SAP monitor info on Azure (ARM properties and SAP monitor properties)
     """
-    def __init__(__self__, enable_customer_analytics=None, location=None, log_analytics_workspace_arm_id=None, log_analytics_workspace_id=None, log_analytics_workspace_shared_key=None, managed_resource_group_name=None, monitor_subnet=None, name=None, provisioning_state=None, sap_monitor_collector_version=None, tags=None, type=None):
+    def __init__(__self__, enable_customer_analytics=None, id=None, location=None, log_analytics_workspace_arm_id=None, log_analytics_workspace_id=None, log_analytics_workspace_shared_key=None, managed_resource_group_name=None, monitor_subnet=None, name=None, provisioning_state=None, sap_monitor_collector_version=None, tags=None, type=None):
         if enable_customer_analytics and not isinstance(enable_customer_analytics, bool):
             raise TypeError("Expected argument 'enable_customer_analytics' to be a bool")
         pulumi.set(__self__, "enable_customer_analytics", enable_customer_analytics)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -64,6 +67,14 @@ class GetSapMonitorResult:
         The value indicating whether to send analytics to Microsoft
         """
         return pulumi.get(self, "enable_customer_analytics")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -161,6 +172,7 @@ class AwaitableGetSapMonitorResult(GetSapMonitorResult):
             yield self
         return GetSapMonitorResult(
             enable_customer_analytics=self.enable_customer_analytics,
+            id=self.id,
             location=self.location,
             log_analytics_workspace_arm_id=self.log_analytics_workspace_arm_id,
             log_analytics_workspace_id=self.log_analytics_workspace_id,
@@ -194,6 +206,7 @@ def get_sap_monitor(resource_group_name: Optional[str] = None,
 
     return AwaitableGetSapMonitorResult(
         enable_customer_analytics=__ret__.enable_customer_analytics,
+        id=__ret__.id,
         location=__ret__.location,
         log_analytics_workspace_arm_id=__ret__.log_analytics_workspace_arm_id,
         log_analytics_workspace_id=__ret__.log_analytics_workspace_id,

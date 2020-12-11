@@ -20,13 +20,16 @@ class GetArtifactSourceResult:
     """
     The resource that defines the source location where the artifacts are located.
     """
-    def __init__(__self__, artifact_root=None, authentication=None, location=None, name=None, source_type=None, tags=None, type=None):
+    def __init__(__self__, artifact_root=None, authentication=None, id=None, location=None, name=None, source_type=None, tags=None, type=None):
         if artifact_root and not isinstance(artifact_root, str):
             raise TypeError("Expected argument 'artifact_root' to be a str")
         pulumi.set(__self__, "artifact_root", artifact_root)
         if authentication and not isinstance(authentication, dict):
             raise TypeError("Expected argument 'authentication' to be a dict")
         pulumi.set(__self__, "authentication", authentication)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -58,6 +61,14 @@ class GetArtifactSourceResult:
         The authentication method to use to access the artifact source.
         """
         return pulumi.get(self, "authentication")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -108,6 +119,7 @@ class AwaitableGetArtifactSourceResult(GetArtifactSourceResult):
         return GetArtifactSourceResult(
             artifact_root=self.artifact_root,
             authentication=self.authentication,
+            id=self.id,
             location=self.location,
             name=self.name,
             source_type=self.source_type,
@@ -136,6 +148,7 @@ def get_artifact_source(artifact_source_name: Optional[str] = None,
     return AwaitableGetArtifactSourceResult(
         artifact_root=__ret__.artifact_root,
         authentication=__ret__.authentication,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         source_type=__ret__.source_type,

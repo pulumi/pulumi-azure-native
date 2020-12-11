@@ -19,7 +19,7 @@ class GetWorkspaceResult:
     """
     Represents a Workspace definition.
     """
-    def __init__(__self__, application_group_references=None, description=None, friendly_name=None, location=None, name=None, tags=None, type=None):
+    def __init__(__self__, application_group_references=None, description=None, friendly_name=None, id=None, location=None, name=None, tags=None, type=None):
         if application_group_references and not isinstance(application_group_references, list):
             raise TypeError("Expected argument 'application_group_references' to be a list")
         pulumi.set(__self__, "application_group_references", application_group_references)
@@ -29,6 +29,9 @@ class GetWorkspaceResult:
         if friendly_name and not isinstance(friendly_name, str):
             raise TypeError("Expected argument 'friendly_name' to be a str")
         pulumi.set(__self__, "friendly_name", friendly_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -65,6 +68,14 @@ class GetWorkspaceResult:
         Friendly name of Workspace.
         """
         return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -108,6 +119,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             application_group_references=self.application_group_references,
             description=self.description,
             friendly_name=self.friendly_name,
+            id=self.id,
             location=self.location,
             name=self.name,
             tags=self.tags,
@@ -136,6 +148,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
         application_group_references=__ret__.application_group_references,
         description=__ret__.description,
         friendly_name=__ret__.friendly_name,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         tags=__ret__.tags,

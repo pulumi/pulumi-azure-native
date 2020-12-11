@@ -19,10 +19,13 @@ class GetAccessPolicyResult:
     """
     An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
     """
-    def __init__(__self__, description=None, name=None, principal_object_id=None, roles=None, type=None):
+    def __init__(__self__, description=None, id=None, name=None, principal_object_id=None, roles=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -43,6 +46,14 @@ class GetAccessPolicyResult:
         An description of the access policy.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -84,6 +95,7 @@ class AwaitableGetAccessPolicyResult(GetAccessPolicyResult):
             yield self
         return GetAccessPolicyResult(
             description=self.description,
+            id=self.id,
             name=self.name,
             principal_object_id=self.principal_object_id,
             roles=self.roles,
@@ -113,6 +125,7 @@ def get_access_policy(access_policy_name: Optional[str] = None,
 
     return AwaitableGetAccessPolicyResult(
         description=__ret__.description,
+        id=__ret__.id,
         name=__ret__.name,
         principal_object_id=__ret__.principal_object_id,
         roles=__ret__.roles,

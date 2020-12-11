@@ -20,7 +20,7 @@ class GetAccountResult:
     """
     A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
     """
-    def __init__(__self__, account_id=None, compute_policies=None, creation_time=None, current_tier=None, data_lake_store_accounts=None, default_data_lake_store_account=None, endpoint=None, firewall_allow_azure_ips=None, firewall_rules=None, firewall_state=None, last_modified_time=None, location=None, max_degree_of_parallelism=None, max_degree_of_parallelism_per_job=None, max_job_count=None, min_priority_per_job=None, name=None, new_tier=None, provisioning_state=None, query_store_retention=None, state=None, storage_accounts=None, system_max_degree_of_parallelism=None, system_max_job_count=None, tags=None, type=None):
+    def __init__(__self__, account_id=None, compute_policies=None, creation_time=None, current_tier=None, data_lake_store_accounts=None, default_data_lake_store_account=None, endpoint=None, firewall_allow_azure_ips=None, firewall_rules=None, firewall_state=None, id=None, last_modified_time=None, location=None, max_degree_of_parallelism=None, max_degree_of_parallelism_per_job=None, max_job_count=None, min_priority_per_job=None, name=None, new_tier=None, provisioning_state=None, query_store_retention=None, state=None, storage_accounts=None, system_max_degree_of_parallelism=None, system_max_job_count=None, tags=None, type=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
@@ -51,6 +51,9 @@ class GetAccountResult:
         if firewall_state and not isinstance(firewall_state, str):
             raise TypeError("Expected argument 'firewall_state' to be a str")
         pulumi.set(__self__, "firewall_state", firewall_state)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_modified_time and not isinstance(last_modified_time, str):
             raise TypeError("Expected argument 'last_modified_time' to be a str")
         pulumi.set(__self__, "last_modified_time", last_modified_time)
@@ -179,6 +182,14 @@ class GetAccountResult:
         The current state of the IP address firewall for this account.
         """
         return pulumi.get(self, "firewall_state")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource identifer.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastModifiedTime")
@@ -325,6 +336,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             firewall_allow_azure_ips=self.firewall_allow_azure_ips,
             firewall_rules=self.firewall_rules,
             firewall_state=self.firewall_state,
+            id=self.id,
             last_modified_time=self.last_modified_time,
             location=self.location,
             max_degree_of_parallelism=self.max_degree_of_parallelism,
@@ -372,6 +384,7 @@ def get_account(account_name: Optional[str] = None,
         firewall_allow_azure_ips=__ret__.firewall_allow_azure_ips,
         firewall_rules=__ret__.firewall_rules,
         firewall_state=__ret__.firewall_state,
+        id=__ret__.id,
         last_modified_time=__ret__.last_modified_time,
         location=__ret__.location,
         max_degree_of_parallelism=__ret__.max_degree_of_parallelism,

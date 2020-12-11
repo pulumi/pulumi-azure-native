@@ -20,13 +20,16 @@ class GetBackupPolicyResult:
     """
     Backup policy information
     """
-    def __init__(__self__, daily_backups_to_keep=None, enabled=None, location=None, monthly_backups_to_keep=None, name=None, provisioning_state=None, tags=None, type=None, volume_backups=None, volumes_assigned=None, weekly_backups_to_keep=None, yearly_backups_to_keep=None):
+    def __init__(__self__, daily_backups_to_keep=None, enabled=None, id=None, location=None, monthly_backups_to_keep=None, name=None, provisioning_state=None, tags=None, type=None, volume_backups=None, volumes_assigned=None, weekly_backups_to_keep=None, yearly_backups_to_keep=None):
         if daily_backups_to_keep and not isinstance(daily_backups_to_keep, int):
             raise TypeError("Expected argument 'daily_backups_to_keep' to be a int")
         pulumi.set(__self__, "daily_backups_to_keep", daily_backups_to_keep)
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -73,6 +76,14 @@ class GetBackupPolicyResult:
         The property to decide policy is enabled or not
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -163,6 +174,7 @@ class AwaitableGetBackupPolicyResult(GetBackupPolicyResult):
         return GetBackupPolicyResult(
             daily_backups_to_keep=self.daily_backups_to_keep,
             enabled=self.enabled,
+            id=self.id,
             location=self.location,
             monthly_backups_to_keep=self.monthly_backups_to_keep,
             name=self.name,
@@ -199,6 +211,7 @@ def get_backup_policy(account_name: Optional[str] = None,
     return AwaitableGetBackupPolicyResult(
         daily_backups_to_keep=__ret__.daily_backups_to_keep,
         enabled=__ret__.enabled,
+        id=__ret__.id,
         location=__ret__.location,
         monthly_backups_to_keep=__ret__.monthly_backups_to_keep,
         name=__ret__.name,

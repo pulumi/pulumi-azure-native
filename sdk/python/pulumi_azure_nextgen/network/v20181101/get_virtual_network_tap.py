@@ -20,7 +20,7 @@ class GetVirtualNetworkTapResult:
     """
     Virtual Network Tap resource
     """
-    def __init__(__self__, destination_load_balancer_front_end_ip_configuration=None, destination_network_interface_ip_configuration=None, destination_port=None, etag=None, location=None, name=None, network_interface_tap_configurations=None, provisioning_state=None, resource_guid=None, tags=None, type=None):
+    def __init__(__self__, destination_load_balancer_front_end_ip_configuration=None, destination_network_interface_ip_configuration=None, destination_port=None, etag=None, id=None, location=None, name=None, network_interface_tap_configurations=None, provisioning_state=None, resource_guid=None, tags=None, type=None):
         if destination_load_balancer_front_end_ip_configuration and not isinstance(destination_load_balancer_front_end_ip_configuration, dict):
             raise TypeError("Expected argument 'destination_load_balancer_front_end_ip_configuration' to be a dict")
         pulumi.set(__self__, "destination_load_balancer_front_end_ip_configuration", destination_load_balancer_front_end_ip_configuration)
@@ -33,6 +33,9 @@ class GetVirtualNetworkTapResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -86,6 +89,14 @@ class GetVirtualNetworkTapResult:
         Gets a unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -154,6 +165,7 @@ class AwaitableGetVirtualNetworkTapResult(GetVirtualNetworkTapResult):
             destination_network_interface_ip_configuration=self.destination_network_interface_ip_configuration,
             destination_port=self.destination_port,
             etag=self.etag,
+            id=self.id,
             location=self.location,
             name=self.name,
             network_interface_tap_configurations=self.network_interface_tap_configurations,
@@ -186,6 +198,7 @@ def get_virtual_network_tap(resource_group_name: Optional[str] = None,
         destination_network_interface_ip_configuration=__ret__.destination_network_interface_ip_configuration,
         destination_port=__ret__.destination_port,
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         network_interface_tap_configurations=__ret__.network_interface_tap_configurations,

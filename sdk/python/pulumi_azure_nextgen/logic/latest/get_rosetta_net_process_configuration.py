@@ -20,7 +20,7 @@ class GetRosettaNetProcessConfigurationResult:
     """
     The integration account RosettaNet process configuration.
     """
-    def __init__(__self__, activity_settings=None, changed_time=None, created_time=None, description=None, initiator_role_settings=None, location=None, metadata=None, name=None, process_code=None, process_name=None, process_version=None, responder_role_settings=None, tags=None, type=None):
+    def __init__(__self__, activity_settings=None, changed_time=None, created_time=None, description=None, id=None, initiator_role_settings=None, location=None, metadata=None, name=None, process_code=None, process_name=None, process_version=None, responder_role_settings=None, tags=None, type=None):
         if activity_settings and not isinstance(activity_settings, dict):
             raise TypeError("Expected argument 'activity_settings' to be a dict")
         pulumi.set(__self__, "activity_settings", activity_settings)
@@ -33,6 +33,9 @@ class GetRosettaNetProcessConfigurationResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if initiator_role_settings and not isinstance(initiator_role_settings, dict):
             raise TypeError("Expected argument 'initiator_role_settings' to be a dict")
         pulumi.set(__self__, "initiator_role_settings", initiator_role_settings)
@@ -95,6 +98,14 @@ class GetRosettaNetProcessConfigurationResult:
         The integration account RosettaNet ProcessConfiguration properties.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="initiatorRoleSettings")
@@ -187,6 +198,7 @@ class AwaitableGetRosettaNetProcessConfigurationResult(GetRosettaNetProcessConfi
             changed_time=self.changed_time,
             created_time=self.created_time,
             description=self.description,
+            id=self.id,
             initiator_role_settings=self.initiator_role_settings,
             location=self.location,
             metadata=self.metadata,
@@ -225,6 +237,7 @@ def get_rosetta_net_process_configuration(integration_account_name: Optional[str
         changed_time=__ret__.changed_time,
         created_time=__ret__.created_time,
         description=__ret__.description,
+        id=__ret__.id,
         initiator_role_settings=__ret__.initiator_role_settings,
         location=__ret__.location,
         metadata=__ret__.metadata,

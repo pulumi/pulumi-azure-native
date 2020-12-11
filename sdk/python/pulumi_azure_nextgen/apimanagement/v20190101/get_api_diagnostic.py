@@ -20,7 +20,7 @@ class GetApiDiagnosticResult:
     """
     Diagnostic details.
     """
-    def __init__(__self__, always_log=None, backend=None, enable_http_correlation_headers=None, frontend=None, http_correlation_protocol=None, logger_id=None, name=None, sampling=None, type=None, verbosity=None):
+    def __init__(__self__, always_log=None, backend=None, enable_http_correlation_headers=None, frontend=None, http_correlation_protocol=None, id=None, logger_id=None, name=None, sampling=None, type=None, verbosity=None):
         if always_log and not isinstance(always_log, str):
             raise TypeError("Expected argument 'always_log' to be a str")
         pulumi.set(__self__, "always_log", always_log)
@@ -36,6 +36,9 @@ class GetApiDiagnosticResult:
         if http_correlation_protocol and not isinstance(http_correlation_protocol, str):
             raise TypeError("Expected argument 'http_correlation_protocol' to be a str")
         pulumi.set(__self__, "http_correlation_protocol", http_correlation_protocol)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if logger_id and not isinstance(logger_id, str):
             raise TypeError("Expected argument 'logger_id' to be a str")
         pulumi.set(__self__, "logger_id", logger_id)
@@ -93,6 +96,14 @@ class GetApiDiagnosticResult:
         return pulumi.get(self, "http_correlation_protocol")
 
     @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
     @pulumi.getter(name="loggerId")
     def logger_id(self) -> str:
         """
@@ -144,6 +155,7 @@ class AwaitableGetApiDiagnosticResult(GetApiDiagnosticResult):
             enable_http_correlation_headers=self.enable_http_correlation_headers,
             frontend=self.frontend,
             http_correlation_protocol=self.http_correlation_protocol,
+            id=self.id,
             logger_id=self.logger_id,
             name=self.name,
             sampling=self.sampling,
@@ -181,6 +193,7 @@ def get_api_diagnostic(api_id: Optional[str] = None,
         enable_http_correlation_headers=__ret__.enable_http_correlation_headers,
         frontend=__ret__.frontend,
         http_correlation_protocol=__ret__.http_correlation_protocol,
+        id=__ret__.id,
         logger_id=__ret__.logger_id,
         name=__ret__.name,
         sampling=__ret__.sampling,

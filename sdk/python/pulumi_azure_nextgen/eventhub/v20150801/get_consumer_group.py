@@ -19,13 +19,16 @@ class GetConsumerGroupResult:
     """
     Single item in List or Get Consumer group operation
     """
-    def __init__(__self__, created_at=None, event_hub_path=None, location=None, name=None, type=None, updated_at=None, user_metadata=None):
+    def __init__(__self__, created_at=None, event_hub_path=None, id=None, location=None, name=None, type=None, updated_at=None, user_metadata=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
         if event_hub_path and not isinstance(event_hub_path, str):
             raise TypeError("Expected argument 'event_hub_path' to be a str")
         pulumi.set(__self__, "event_hub_path", event_hub_path)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -57,6 +60,14 @@ class GetConsumerGroupResult:
         The path of the Event Hub.
         """
         return pulumi.get(self, "event_hub_path")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -107,6 +118,7 @@ class AwaitableGetConsumerGroupResult(GetConsumerGroupResult):
         return GetConsumerGroupResult(
             created_at=self.created_at,
             event_hub_path=self.event_hub_path,
+            id=self.id,
             location=self.location,
             name=self.name,
             type=self.type,
@@ -141,6 +153,7 @@ def get_consumer_group(consumer_group_name: Optional[str] = None,
     return AwaitableGetConsumerGroupResult(
         created_at=__ret__.created_at,
         event_hub_path=__ret__.event_hub_path,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         type=__ret__.type,

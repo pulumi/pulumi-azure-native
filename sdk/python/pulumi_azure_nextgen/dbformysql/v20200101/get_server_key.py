@@ -19,10 +19,13 @@ class GetServerKeyResult:
     """
     A MySQL Server key.
     """
-    def __init__(__self__, creation_date=None, kind=None, name=None, server_key_type=None, type=None, uri=None):
+    def __init__(__self__, creation_date=None, id=None, kind=None, name=None, server_key_type=None, type=None, uri=None):
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -46,6 +49,14 @@ class GetServerKeyResult:
         The key creation date.
         """
         return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -95,6 +106,7 @@ class AwaitableGetServerKeyResult(GetServerKeyResult):
             yield self
         return GetServerKeyResult(
             creation_date=self.creation_date,
+            id=self.id,
             kind=self.kind,
             name=self.name,
             server_key_type=self.server_key_type,
@@ -125,6 +137,7 @@ def get_server_key(key_name: Optional[str] = None,
 
     return AwaitableGetServerKeyResult(
         creation_date=__ret__.creation_date,
+        id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
         server_key_type=__ret__.server_key_type,

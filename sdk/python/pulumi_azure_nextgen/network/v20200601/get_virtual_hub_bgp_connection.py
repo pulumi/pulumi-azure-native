@@ -19,13 +19,16 @@ class GetVirtualHubBgpConnectionResult:
     """
     Virtual Appliance Site resource.
     """
-    def __init__(__self__, connection_state=None, etag=None, name=None, peer_asn=None, peer_ip=None, provisioning_state=None, type=None):
+    def __init__(__self__, connection_state=None, etag=None, id=None, name=None, peer_asn=None, peer_ip=None, provisioning_state=None, type=None):
         if connection_state and not isinstance(connection_state, str):
             raise TypeError("Expected argument 'connection_state' to be a str")
         pulumi.set(__self__, "connection_state", connection_state)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -57,6 +60,14 @@ class GetVirtualHubBgpConnectionResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -107,6 +118,7 @@ class AwaitableGetVirtualHubBgpConnectionResult(GetVirtualHubBgpConnectionResult
         return GetVirtualHubBgpConnectionResult(
             connection_state=self.connection_state,
             etag=self.etag,
+            id=self.id,
             name=self.name,
             peer_asn=self.peer_asn,
             peer_ip=self.peer_ip,
@@ -138,6 +150,7 @@ def get_virtual_hub_bgp_connection(connection_name: Optional[str] = None,
     return AwaitableGetVirtualHubBgpConnectionResult(
         connection_state=__ret__.connection_state,
         etag=__ret__.etag,
+        id=__ret__.id,
         name=__ret__.name,
         peer_asn=__ret__.peer_asn,
         peer_ip=__ret__.peer_ip,

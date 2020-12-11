@@ -20,13 +20,16 @@ class GetIpAllocationResult:
     """
     IpAllocation resource.
     """
-    def __init__(__self__, allocation_tags=None, etag=None, ipam_allocation_id=None, location=None, name=None, prefix=None, prefix_length=None, prefix_type=None, subnet=None, tags=None, type=None, virtual_network=None):
+    def __init__(__self__, allocation_tags=None, etag=None, id=None, ipam_allocation_id=None, location=None, name=None, prefix=None, prefix_length=None, prefix_type=None, subnet=None, tags=None, type=None, virtual_network=None):
         if allocation_tags and not isinstance(allocation_tags, dict):
             raise TypeError("Expected argument 'allocation_tags' to be a dict")
         pulumi.set(__self__, "allocation_tags", allocation_tags)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if ipam_allocation_id and not isinstance(ipam_allocation_id, str):
             raise TypeError("Expected argument 'ipam_allocation_id' to be a str")
         pulumi.set(__self__, "ipam_allocation_id", ipam_allocation_id)
@@ -73,6 +76,14 @@ class GetIpAllocationResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ipamAllocationId")
@@ -163,6 +174,7 @@ class AwaitableGetIpAllocationResult(GetIpAllocationResult):
         return GetIpAllocationResult(
             allocation_tags=self.allocation_tags,
             etag=self.etag,
+            id=self.id,
             ipam_allocation_id=self.ipam_allocation_id,
             location=self.location,
             name=self.name,
@@ -199,6 +211,7 @@ def get_ip_allocation(expand: Optional[str] = None,
     return AwaitableGetIpAllocationResult(
         allocation_tags=__ret__.allocation_tags,
         etag=__ret__.etag,
+        id=__ret__.id,
         ipam_allocation_id=__ret__.ipam_allocation_id,
         location=__ret__.location,
         name=__ret__.name,

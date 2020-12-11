@@ -20,7 +20,7 @@ class GetGalleryImageResult:
     """
     Represents an image from the Azure Marketplace
     """
-    def __init__(__self__, author=None, created_date=None, description=None, icon=None, image_reference=None, is_enabled=None, is_override=None, is_plan_authorized=None, latest_operation_result=None, location=None, name=None, plan_id=None, provisioning_state=None, tags=None, type=None, unique_identifier=None):
+    def __init__(__self__, author=None, created_date=None, description=None, icon=None, id=None, image_reference=None, is_enabled=None, is_override=None, is_plan_authorized=None, latest_operation_result=None, location=None, name=None, plan_id=None, provisioning_state=None, tags=None, type=None, unique_identifier=None):
         if author and not isinstance(author, str):
             raise TypeError("Expected argument 'author' to be a str")
         pulumi.set(__self__, "author", author)
@@ -33,6 +33,9 @@ class GetGalleryImageResult:
         if icon and not isinstance(icon, str):
             raise TypeError("Expected argument 'icon' to be a str")
         pulumi.set(__self__, "icon", icon)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if image_reference and not isinstance(image_reference, dict):
             raise TypeError("Expected argument 'image_reference' to be a dict")
         pulumi.set(__self__, "image_reference", image_reference)
@@ -101,6 +104,14 @@ class GetGalleryImageResult:
         The icon of the gallery image.
         """
         return pulumi.get(self, "icon")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="imageReference")
@@ -209,6 +220,7 @@ class AwaitableGetGalleryImageResult(GetGalleryImageResult):
             created_date=self.created_date,
             description=self.description,
             icon=self.icon,
+            id=self.id,
             image_reference=self.image_reference,
             is_enabled=self.is_enabled,
             is_override=self.is_override,
@@ -252,6 +264,7 @@ def get_gallery_image(expand: Optional[str] = None,
         created_date=__ret__.created_date,
         description=__ret__.description,
         icon=__ret__.icon,
+        id=__ret__.id,
         image_reference=__ret__.image_reference,
         is_enabled=__ret__.is_enabled,
         is_override=__ret__.is_override,

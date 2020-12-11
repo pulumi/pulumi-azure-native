@@ -20,7 +20,7 @@ class GetLiveOutputResult:
     """
     The Live Output.
     """
-    def __init__(__self__, archive_window_length=None, asset_name=None, created=None, description=None, hls=None, last_modified=None, manifest_name=None, name=None, output_snap_time=None, provisioning_state=None, resource_state=None, type=None):
+    def __init__(__self__, archive_window_length=None, asset_name=None, created=None, description=None, hls=None, id=None, last_modified=None, manifest_name=None, name=None, output_snap_time=None, provisioning_state=None, resource_state=None, type=None):
         if archive_window_length and not isinstance(archive_window_length, str):
             raise TypeError("Expected argument 'archive_window_length' to be a str")
         pulumi.set(__self__, "archive_window_length", archive_window_length)
@@ -36,6 +36,9 @@ class GetLiveOutputResult:
         if hls and not isinstance(hls, dict):
             raise TypeError("Expected argument 'hls' to be a dict")
         pulumi.set(__self__, "hls", hls)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_modified and not isinstance(last_modified, str):
             raise TypeError("Expected argument 'last_modified' to be a str")
         pulumi.set(__self__, "last_modified", last_modified)
@@ -97,6 +100,14 @@ class GetLiveOutputResult:
         HTTP Live Streaming (HLS) packing setting for the live output.
         """
         return pulumi.get(self, "hls")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastModified")
@@ -166,6 +177,7 @@ class AwaitableGetLiveOutputResult(GetLiveOutputResult):
             created=self.created,
             description=self.description,
             hls=self.hls,
+            id=self.id,
             last_modified=self.last_modified,
             manifest_name=self.manifest_name,
             name=self.name,
@@ -205,6 +217,7 @@ def get_live_output(account_name: Optional[str] = None,
         created=__ret__.created,
         description=__ret__.description,
         hls=__ret__.hls,
+        id=__ret__.id,
         last_modified=__ret__.last_modified,
         manifest_name=__ret__.manifest_name,
         name=__ret__.name,

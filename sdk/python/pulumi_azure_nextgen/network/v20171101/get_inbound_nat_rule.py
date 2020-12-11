@@ -20,7 +20,7 @@ class GetInboundNatRuleResult:
     """
     Inbound NAT rule of the load balancer.
     """
-    def __init__(__self__, backend_ip_configuration=None, backend_port=None, enable_floating_ip=None, etag=None, frontend_ip_configuration=None, frontend_port=None, idle_timeout_in_minutes=None, name=None, protocol=None, provisioning_state=None):
+    def __init__(__self__, backend_ip_configuration=None, backend_port=None, enable_floating_ip=None, etag=None, frontend_ip_configuration=None, frontend_port=None, id=None, idle_timeout_in_minutes=None, name=None, protocol=None, provisioning_state=None):
         if backend_ip_configuration and not isinstance(backend_ip_configuration, dict):
             raise TypeError("Expected argument 'backend_ip_configuration' to be a dict")
         pulumi.set(__self__, "backend_ip_configuration", backend_ip_configuration)
@@ -39,6 +39,9 @@ class GetInboundNatRuleResult:
         if frontend_port and not isinstance(frontend_port, int):
             raise TypeError("Expected argument 'frontend_port' to be a int")
         pulumi.set(__self__, "frontend_port", frontend_port)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if idle_timeout_in_minutes and not isinstance(idle_timeout_in_minutes, int):
             raise TypeError("Expected argument 'idle_timeout_in_minutes' to be a int")
         pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
@@ -101,6 +104,14 @@ class GetInboundNatRuleResult:
         return pulumi.get(self, "frontend_port")
 
     @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
     @pulumi.getter(name="idleTimeoutInMinutes")
     def idle_timeout_in_minutes(self) -> Optional[int]:
         """
@@ -145,6 +156,7 @@ class AwaitableGetInboundNatRuleResult(GetInboundNatRuleResult):
             etag=self.etag,
             frontend_ip_configuration=self.frontend_ip_configuration,
             frontend_port=self.frontend_port,
+            id=self.id,
             idle_timeout_in_minutes=self.idle_timeout_in_minutes,
             name=self.name,
             protocol=self.protocol,
@@ -182,6 +194,7 @@ def get_inbound_nat_rule(expand: Optional[str] = None,
         etag=__ret__.etag,
         frontend_ip_configuration=__ret__.frontend_ip_configuration,
         frontend_port=__ret__.frontend_port,
+        id=__ret__.id,
         idle_timeout_in_minutes=__ret__.idle_timeout_in_minutes,
         name=__ret__.name,
         protocol=__ret__.protocol,

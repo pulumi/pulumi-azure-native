@@ -20,13 +20,16 @@ class GetEmailTemplateResult:
     """
     Email Template details.
     """
-    def __init__(__self__, body=None, description=None, is_default=None, name=None, parameters=None, subject=None, title=None, type=None):
+    def __init__(__self__, body=None, description=None, id=None, is_default=None, name=None, parameters=None, subject=None, title=None, type=None):
         if body and not isinstance(body, str):
             raise TypeError("Expected argument 'body' to be a str")
         pulumi.set(__self__, "body", body)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_default and not isinstance(is_default, bool):
             raise TypeError("Expected argument 'is_default' to be a bool")
         pulumi.set(__self__, "is_default", is_default)
@@ -61,6 +64,14 @@ class GetEmailTemplateResult:
         Description of the Email Template.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isDefault")
@@ -119,6 +130,7 @@ class AwaitableGetEmailTemplateResult(GetEmailTemplateResult):
         return GetEmailTemplateResult(
             body=self.body,
             description=self.description,
+            id=self.id,
             is_default=self.is_default,
             name=self.name,
             parameters=self.parameters,
@@ -151,6 +163,7 @@ def get_email_template(resource_group_name: Optional[str] = None,
     return AwaitableGetEmailTemplateResult(
         body=__ret__.body,
         description=__ret__.description,
+        id=__ret__.id,
         is_default=__ret__.is_default,
         name=__ret__.name,
         parameters=__ret__.parameters,

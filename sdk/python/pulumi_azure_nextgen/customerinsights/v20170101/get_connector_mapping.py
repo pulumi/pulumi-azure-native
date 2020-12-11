@@ -20,7 +20,7 @@ class GetConnectorMappingResult:
     """
     The connector mapping resource format.
     """
-    def __init__(__self__, connector_mapping_name=None, connector_name=None, connector_type=None, created=None, data_format_id=None, description=None, display_name=None, entity_type=None, entity_type_name=None, last_modified=None, mapping_properties=None, name=None, next_run_time=None, run_id=None, state=None, tenant_id=None, type=None):
+    def __init__(__self__, connector_mapping_name=None, connector_name=None, connector_type=None, created=None, data_format_id=None, description=None, display_name=None, entity_type=None, entity_type_name=None, id=None, last_modified=None, mapping_properties=None, name=None, next_run_time=None, run_id=None, state=None, tenant_id=None, type=None):
         if connector_mapping_name and not isinstance(connector_mapping_name, str):
             raise TypeError("Expected argument 'connector_mapping_name' to be a str")
         pulumi.set(__self__, "connector_mapping_name", connector_mapping_name)
@@ -48,6 +48,9 @@ class GetConnectorMappingResult:
         if entity_type_name and not isinstance(entity_type_name, str):
             raise TypeError("Expected argument 'entity_type_name' to be a str")
         pulumi.set(__self__, "entity_type_name", entity_type_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_modified and not isinstance(last_modified, str):
             raise TypeError("Expected argument 'last_modified' to be a str")
         pulumi.set(__self__, "last_modified", last_modified)
@@ -146,6 +149,14 @@ class GetConnectorMappingResult:
         return pulumi.get(self, "entity_type_name")
 
     @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
     @pulumi.getter(name="lastModified")
     def last_modified(self) -> str:
         """
@@ -225,6 +236,7 @@ class AwaitableGetConnectorMappingResult(GetConnectorMappingResult):
             display_name=self.display_name,
             entity_type=self.entity_type,
             entity_type_name=self.entity_type_name,
+            id=self.id,
             last_modified=self.last_modified,
             mapping_properties=self.mapping_properties,
             name=self.name,
@@ -269,6 +281,7 @@ def get_connector_mapping(connector_name: Optional[str] = None,
         display_name=__ret__.display_name,
         entity_type=__ret__.entity_type,
         entity_type_name=__ret__.entity_type_name,
+        id=__ret__.id,
         last_modified=__ret__.last_modified,
         mapping_properties=__ret__.mapping_properties,
         name=__ret__.name,

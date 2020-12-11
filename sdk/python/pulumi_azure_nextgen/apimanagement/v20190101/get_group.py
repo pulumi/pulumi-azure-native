@@ -19,7 +19,7 @@ class GetGroupResult:
     """
     Contract details.
     """
-    def __init__(__self__, built_in=None, description=None, display_name=None, external_id=None, name=None, type=None):
+    def __init__(__self__, built_in=None, description=None, display_name=None, external_id=None, id=None, name=None, type=None):
         if built_in and not isinstance(built_in, bool):
             raise TypeError("Expected argument 'built_in' to be a bool")
         pulumi.set(__self__, "built_in", built_in)
@@ -32,6 +32,9 @@ class GetGroupResult:
         if external_id and not isinstance(external_id, str):
             raise TypeError("Expected argument 'external_id' to be a str")
         pulumi.set(__self__, "external_id", external_id)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -73,6 +76,14 @@ class GetGroupResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         Resource name.
@@ -98,6 +109,7 @@ class AwaitableGetGroupResult(GetGroupResult):
             description=self.description,
             display_name=self.display_name,
             external_id=self.external_id,
+            id=self.id,
             name=self.name,
             type=self.type)
 
@@ -128,5 +140,6 @@ def get_group(group_id: Optional[str] = None,
         description=__ret__.description,
         display_name=__ret__.display_name,
         external_id=__ret__.external_id,
+        id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type)

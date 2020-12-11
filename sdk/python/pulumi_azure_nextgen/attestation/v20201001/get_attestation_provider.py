@@ -20,10 +20,13 @@ class GetAttestationProviderResult:
     """
     Attestation service response message.
     """
-    def __init__(__self__, attest_uri=None, location=None, name=None, status=None, system_data=None, tags=None, trust_model=None, type=None):
+    def __init__(__self__, attest_uri=None, id=None, location=None, name=None, status=None, system_data=None, tags=None, trust_model=None, type=None):
         if attest_uri and not isinstance(attest_uri, str):
             raise TypeError("Expected argument 'attest_uri' to be a str")
         pulumi.set(__self__, "attest_uri", attest_uri)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -53,6 +56,14 @@ class GetAttestationProviderResult:
         Gets the uri of attestation service
         """
         return pulumi.get(self, "attest_uri")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -118,6 +129,7 @@ class AwaitableGetAttestationProviderResult(GetAttestationProviderResult):
             yield self
         return GetAttestationProviderResult(
             attest_uri=self.attest_uri,
+            id=self.id,
             location=self.location,
             name=self.name,
             status=self.status,
@@ -147,6 +159,7 @@ def get_attestation_provider(provider_name: Optional[str] = None,
 
     return AwaitableGetAttestationProviderResult(
         attest_uri=__ret__.attest_uri,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         status=__ret__.status,

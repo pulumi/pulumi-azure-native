@@ -20,7 +20,7 @@ class GetManagedClusterResult:
     """
     The manged cluster resource
     """
-    def __init__(__self__, admin_password=None, admin_user_name=None, azure_active_directory=None, client_connection_port=None, clients=None, cluster_certificate_thumbprint=None, cluster_code_version=None, cluster_id=None, cluster_state=None, cluster_upgrade_description=None, cluster_upgrade_mode=None, dns_name=None, etag=None, fabric_settings=None, fqdn=None, http_gateway_connection_port=None, load_balancing_rules=None, location=None, name=None, provisioning_state=None, sku=None, tags=None, type=None):
+    def __init__(__self__, admin_password=None, admin_user_name=None, azure_active_directory=None, client_connection_port=None, clients=None, cluster_certificate_thumbprint=None, cluster_code_version=None, cluster_id=None, cluster_state=None, cluster_upgrade_description=None, cluster_upgrade_mode=None, dns_name=None, etag=None, fabric_settings=None, fqdn=None, http_gateway_connection_port=None, id=None, load_balancing_rules=None, location=None, name=None, provisioning_state=None, sku=None, tags=None, type=None):
         if admin_password and not isinstance(admin_password, str):
             raise TypeError("Expected argument 'admin_password' to be a str")
         pulumi.set(__self__, "admin_password", admin_password)
@@ -69,6 +69,9 @@ class GetManagedClusterResult:
         if http_gateway_connection_port and not isinstance(http_gateway_connection_port, int):
             raise TypeError("Expected argument 'http_gateway_connection_port' to be a int")
         pulumi.set(__self__, "http_gateway_connection_port", http_gateway_connection_port)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if load_balancing_rules and not isinstance(load_balancing_rules, list):
             raise TypeError("Expected argument 'load_balancing_rules' to be a list")
         pulumi.set(__self__, "load_balancing_rules", load_balancing_rules)
@@ -234,6 +237,14 @@ class GetManagedClusterResult:
         return pulumi.get(self, "http_gateway_connection_port")
 
     @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource identifier.
+        """
+        return pulumi.get(self, "id")
+
+    @property
     @pulumi.getter(name="loadBalancingRules")
     def load_balancing_rules(self) -> Optional[Sequence['outputs.LoadBalancingRuleResponse']]:
         """
@@ -312,6 +323,7 @@ class AwaitableGetManagedClusterResult(GetManagedClusterResult):
             fabric_settings=self.fabric_settings,
             fqdn=self.fqdn,
             http_gateway_connection_port=self.http_gateway_connection_port,
+            id=self.id,
             load_balancing_rules=self.load_balancing_rules,
             location=self.location,
             name=self.name,
@@ -356,6 +368,7 @@ def get_managed_cluster(cluster_name: Optional[str] = None,
         fabric_settings=__ret__.fabric_settings,
         fqdn=__ret__.fqdn,
         http_gateway_connection_port=__ret__.http_gateway_connection_port,
+        id=__ret__.id,
         load_balancing_rules=__ret__.load_balancing_rules,
         location=__ret__.location,
         name=__ret__.name,

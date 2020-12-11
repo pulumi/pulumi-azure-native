@@ -20,7 +20,7 @@ class GetLocalNetworkGatewayResult:
     """
     A common class for general resource information.
     """
-    def __init__(__self__, bgp_settings=None, etag=None, fqdn=None, gateway_ip_address=None, local_network_address_space=None, location=None, name=None, provisioning_state=None, resource_guid=None, tags=None, type=None):
+    def __init__(__self__, bgp_settings=None, etag=None, fqdn=None, gateway_ip_address=None, id=None, local_network_address_space=None, location=None, name=None, provisioning_state=None, resource_guid=None, tags=None, type=None):
         if bgp_settings and not isinstance(bgp_settings, dict):
             raise TypeError("Expected argument 'bgp_settings' to be a dict")
         pulumi.set(__self__, "bgp_settings", bgp_settings)
@@ -33,6 +33,9 @@ class GetLocalNetworkGatewayResult:
         if gateway_ip_address and not isinstance(gateway_ip_address, str):
             raise TypeError("Expected argument 'gateway_ip_address' to be a str")
         pulumi.set(__self__, "gateway_ip_address", gateway_ip_address)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if local_network_address_space and not isinstance(local_network_address_space, dict):
             raise TypeError("Expected argument 'local_network_address_space' to be a dict")
         pulumi.set(__self__, "local_network_address_space", local_network_address_space)
@@ -86,6 +89,14 @@ class GetLocalNetworkGatewayResult:
         IP address of local network gateway.
         """
         return pulumi.get(self, "gateway_ip_address")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="localNetworkAddressSpace")
@@ -154,6 +165,7 @@ class AwaitableGetLocalNetworkGatewayResult(GetLocalNetworkGatewayResult):
             etag=self.etag,
             fqdn=self.fqdn,
             gateway_ip_address=self.gateway_ip_address,
+            id=self.id,
             local_network_address_space=self.local_network_address_space,
             location=self.location,
             name=self.name,
@@ -186,6 +198,7 @@ def get_local_network_gateway(local_network_gateway_name: Optional[str] = None,
         etag=__ret__.etag,
         fqdn=__ret__.fqdn,
         gateway_ip_address=__ret__.gateway_ip_address,
+        id=__ret__.id,
         local_network_address_space=__ret__.local_network_address_space,
         location=__ret__.location,
         name=__ret__.name,

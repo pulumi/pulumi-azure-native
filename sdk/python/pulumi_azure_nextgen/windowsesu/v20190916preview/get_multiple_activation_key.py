@@ -19,13 +19,16 @@ class GetMultipleActivationKeyResult:
     """
     MAK key details.
     """
-    def __init__(__self__, agreement_number=None, expiration_date=None, installed_server_number=None, is_eligible=None, location=None, multiple_activation_key=None, name=None, os_type=None, provisioning_state=None, support_type=None, tags=None, type=None):
+    def __init__(__self__, agreement_number=None, expiration_date=None, id=None, installed_server_number=None, is_eligible=None, location=None, multiple_activation_key=None, name=None, os_type=None, provisioning_state=None, support_type=None, tags=None, type=None):
         if agreement_number and not isinstance(agreement_number, str):
             raise TypeError("Expected argument 'agreement_number' to be a str")
         pulumi.set(__self__, "agreement_number", agreement_number)
         if expiration_date and not isinstance(expiration_date, str):
             raise TypeError("Expected argument 'expiration_date' to be a str")
         pulumi.set(__self__, "expiration_date", expiration_date)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if installed_server_number and not isinstance(installed_server_number, int):
             raise TypeError("Expected argument 'installed_server_number' to be a int")
         pulumi.set(__self__, "installed_server_number", installed_server_number)
@@ -72,6 +75,14 @@ class GetMultipleActivationKeyResult:
         End of support of security updates activated by the MAK key.
         """
         return pulumi.get(self, "expiration_date")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="installedServerNumber")
@@ -159,6 +170,7 @@ class AwaitableGetMultipleActivationKeyResult(GetMultipleActivationKeyResult):
         return GetMultipleActivationKeyResult(
             agreement_number=self.agreement_number,
             expiration_date=self.expiration_date,
+            id=self.id,
             installed_server_number=self.installed_server_number,
             is_eligible=self.is_eligible,
             location=self.location,
@@ -192,6 +204,7 @@ def get_multiple_activation_key(multiple_activation_key_name: Optional[str] = No
     return AwaitableGetMultipleActivationKeyResult(
         agreement_number=__ret__.agreement_number,
         expiration_date=__ret__.expiration_date,
+        id=__ret__.id,
         installed_server_number=__ret__.installed_server_number,
         is_eligible=__ret__.is_eligible,
         location=__ret__.location,

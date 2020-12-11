@@ -19,7 +19,7 @@ class GetManagerExtendedInfoResult:
     """
     The extended info of the manager.
     """
-    def __init__(__self__, algorithm=None, encryption_key=None, encryption_key_thumbprint=None, etag=None, integrity_key=None, name=None, portal_certificate_thumbprint=None, type=None, version=None):
+    def __init__(__self__, algorithm=None, encryption_key=None, encryption_key_thumbprint=None, etag=None, id=None, integrity_key=None, name=None, portal_certificate_thumbprint=None, type=None, version=None):
         if algorithm and not isinstance(algorithm, str):
             raise TypeError("Expected argument 'algorithm' to be a str")
         pulumi.set(__self__, "algorithm", algorithm)
@@ -32,6 +32,9 @@ class GetManagerExtendedInfoResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if integrity_key and not isinstance(integrity_key, str):
             raise TypeError("Expected argument 'integrity_key' to be a str")
         pulumi.set(__self__, "integrity_key", integrity_key)
@@ -79,6 +82,14 @@ class GetManagerExtendedInfoResult:
         ETag of the Resource
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="integrityKey")
@@ -131,6 +142,7 @@ class AwaitableGetManagerExtendedInfoResult(GetManagerExtendedInfoResult):
             encryption_key=self.encryption_key,
             encryption_key_thumbprint=self.encryption_key_thumbprint,
             etag=self.etag,
+            id=self.id,
             integrity_key=self.integrity_key,
             name=self.name,
             portal_certificate_thumbprint=self.portal_certificate_thumbprint,
@@ -161,6 +173,7 @@ def get_manager_extended_info(manager_name: Optional[str] = None,
         encryption_key=__ret__.encryption_key,
         encryption_key_thumbprint=__ret__.encryption_key_thumbprint,
         etag=__ret__.etag,
+        id=__ret__.id,
         integrity_key=__ret__.integrity_key,
         name=__ret__.name,
         portal_certificate_thumbprint=__ret__.portal_certificate_thumbprint,

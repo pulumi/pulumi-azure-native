@@ -20,7 +20,7 @@ class GetClusterResult:
     """
     A cluster resource
     """
-    def __init__(__self__, cluster_id=None, cluster_size=None, hosts=None, name=None, provisioning_state=None, sku=None, type=None):
+    def __init__(__self__, cluster_id=None, cluster_size=None, hosts=None, id=None, name=None, provisioning_state=None, sku=None, type=None):
         if cluster_id and not isinstance(cluster_id, int):
             raise TypeError("Expected argument 'cluster_id' to be a int")
         pulumi.set(__self__, "cluster_id", cluster_id)
@@ -30,6 +30,9 @@ class GetClusterResult:
         if hosts and not isinstance(hosts, list):
             raise TypeError("Expected argument 'hosts' to be a list")
         pulumi.set(__self__, "hosts", hosts)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -66,6 +69,14 @@ class GetClusterResult:
         The hosts
         """
         return pulumi.get(self, "hosts")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -109,6 +120,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             cluster_id=self.cluster_id,
             cluster_size=self.cluster_size,
             hosts=self.hosts,
+            id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
             sku=self.sku,
@@ -140,6 +152,7 @@ def get_cluster(cluster_name: Optional[str] = None,
         cluster_id=__ret__.cluster_id,
         cluster_size=__ret__.cluster_size,
         hosts=__ret__.hosts,
+        id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         sku=__ret__.sku,

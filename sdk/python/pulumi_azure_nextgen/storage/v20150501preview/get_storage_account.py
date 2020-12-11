@@ -20,7 +20,7 @@ class GetStorageAccountResult:
     """
     The storage account.
     """
-    def __init__(__self__, account_type=None, creation_time=None, custom_domain=None, last_geo_failover_time=None, location=None, name=None, primary_endpoints=None, primary_location=None, provisioning_state=None, secondary_endpoints=None, secondary_location=None, status_of_primary=None, status_of_secondary=None, tags=None, type=None):
+    def __init__(__self__, account_type=None, creation_time=None, custom_domain=None, id=None, last_geo_failover_time=None, location=None, name=None, primary_endpoints=None, primary_location=None, provisioning_state=None, secondary_endpoints=None, secondary_location=None, status_of_primary=None, status_of_secondary=None, tags=None, type=None):
         if account_type and not isinstance(account_type, str):
             raise TypeError("Expected argument 'account_type' to be a str")
         pulumi.set(__self__, "account_type", account_type)
@@ -30,6 +30,9 @@ class GetStorageAccountResult:
         if custom_domain and not isinstance(custom_domain, dict):
             raise TypeError("Expected argument 'custom_domain' to be a dict")
         pulumi.set(__self__, "custom_domain", custom_domain)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_geo_failover_time and not isinstance(last_geo_failover_time, str):
             raise TypeError("Expected argument 'last_geo_failover_time' to be a str")
         pulumi.set(__self__, "last_geo_failover_time", last_geo_failover_time)
@@ -90,6 +93,14 @@ class GetStorageAccountResult:
         Gets the user assigned custom domain assigned to this storage account.
         """
         return pulumi.get(self, "custom_domain")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastGeoFailoverTime")
@@ -197,6 +208,7 @@ class AwaitableGetStorageAccountResult(GetStorageAccountResult):
             account_type=self.account_type,
             creation_time=self.creation_time,
             custom_domain=self.custom_domain,
+            id=self.id,
             last_geo_failover_time=self.last_geo_failover_time,
             location=self.location,
             name=self.name,
@@ -233,6 +245,7 @@ def get_storage_account(account_name: Optional[str] = None,
         account_type=__ret__.account_type,
         creation_time=__ret__.creation_time,
         custom_domain=__ret__.custom_domain,
+        id=__ret__.id,
         last_geo_failover_time=__ret__.last_geo_failover_time,
         location=__ret__.location,
         name=__ret__.name,

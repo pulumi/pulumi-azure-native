@@ -20,7 +20,7 @@ class GetServerResult:
     """
     Represents a server.
     """
-    def __init__(__self__, administrator_login=None, byok_enforcement=None, earliest_restore_date=None, fully_qualified_domain_name=None, identity=None, infrastructure_encryption=None, location=None, master_server_id=None, minimal_tls_version=None, name=None, private_endpoint_connections=None, public_network_access=None, replica_capacity=None, replication_role=None, sku=None, ssl_enforcement=None, storage_profile=None, tags=None, type=None, user_visible_state=None, version=None):
+    def __init__(__self__, administrator_login=None, byok_enforcement=None, earliest_restore_date=None, fully_qualified_domain_name=None, id=None, identity=None, infrastructure_encryption=None, location=None, master_server_id=None, minimal_tls_version=None, name=None, private_endpoint_connections=None, public_network_access=None, replica_capacity=None, replication_role=None, sku=None, ssl_enforcement=None, storage_profile=None, tags=None, type=None, user_visible_state=None, version=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
@@ -33,6 +33,9 @@ class GetServerResult:
         if fully_qualified_domain_name and not isinstance(fully_qualified_domain_name, str):
             raise TypeError("Expected argument 'fully_qualified_domain_name' to be a str")
         pulumi.set(__self__, "fully_qualified_domain_name", fully_qualified_domain_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -116,6 +119,14 @@ class GetServerResult:
         The fully qualified domain name of a server.
         """
         return pulumi.get(self, "fully_qualified_domain_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -264,6 +275,7 @@ class AwaitableGetServerResult(GetServerResult):
             byok_enforcement=self.byok_enforcement,
             earliest_restore_date=self.earliest_restore_date,
             fully_qualified_domain_name=self.fully_qualified_domain_name,
+            id=self.id,
             identity=self.identity,
             infrastructure_encryption=self.infrastructure_encryption,
             location=self.location,
@@ -306,6 +318,7 @@ def get_server(resource_group_name: Optional[str] = None,
         byok_enforcement=__ret__.byok_enforcement,
         earliest_restore_date=__ret__.earliest_restore_date,
         fully_qualified_domain_name=__ret__.fully_qualified_domain_name,
+        id=__ret__.id,
         identity=__ret__.identity,
         infrastructure_encryption=__ret__.infrastructure_encryption,
         location=__ret__.location,

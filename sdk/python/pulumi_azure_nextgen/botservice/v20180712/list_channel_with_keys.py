@@ -20,10 +20,13 @@ class ListChannelWithKeysResult:
     """
     Bot channel resource definition
     """
-    def __init__(__self__, etag=None, kind=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, etag=None, id=None, kind=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -53,6 +56,14 @@ class ListChannelWithKeysResult:
         Entity Tag
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Specifies the resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -118,6 +129,7 @@ class AwaitableListChannelWithKeysResult(ListChannelWithKeysResult):
             yield self
         return ListChannelWithKeysResult(
             etag=self.etag,
+            id=self.id,
             kind=self.kind,
             location=self.location,
             name=self.name,
@@ -150,6 +162,7 @@ def list_channel_with_keys(channel_name: Optional[str] = None,
 
     return AwaitableListChannelWithKeysResult(
         etag=__ret__.etag,
+        id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,

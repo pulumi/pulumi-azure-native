@@ -20,7 +20,7 @@ class GetCustomImageResult:
     """
     A custom image.
     """
-    def __init__(__self__, author=None, creation_date=None, description=None, location=None, managed_image_id=None, name=None, provisioning_state=None, tags=None, type=None, unique_identifier=None, vhd=None, vm=None):
+    def __init__(__self__, author=None, creation_date=None, description=None, id=None, location=None, managed_image_id=None, name=None, provisioning_state=None, tags=None, type=None, unique_identifier=None, vhd=None, vm=None):
         if author and not isinstance(author, str):
             raise TypeError("Expected argument 'author' to be a str")
         pulumi.set(__self__, "author", author)
@@ -30,6 +30,9 @@ class GetCustomImageResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -81,6 +84,14 @@ class GetCustomImageResult:
         The description of the custom image.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -164,6 +175,7 @@ class AwaitableGetCustomImageResult(GetCustomImageResult):
             author=self.author,
             creation_date=self.creation_date,
             description=self.description,
+            id=self.id,
             location=self.location,
             managed_image_id=self.managed_image_id,
             name=self.name,
@@ -203,6 +215,7 @@ def get_custom_image(expand: Optional[str] = None,
         author=__ret__.author,
         creation_date=__ret__.creation_date,
         description=__ret__.description,
+        id=__ret__.id,
         location=__ret__.location,
         managed_image_id=__ret__.managed_image_id,
         name=__ret__.name,

@@ -19,7 +19,7 @@ class GetMaintenanceConfigurationResult:
     """
     Maintenance configuration record type
     """
-    def __init__(__self__, duration=None, expiration_date_time=None, extension_properties=None, location=None, maintenance_scope=None, name=None, namespace=None, recur_every=None, start_date_time=None, tags=None, time_zone=None, type=None, visibility=None):
+    def __init__(__self__, duration=None, expiration_date_time=None, extension_properties=None, id=None, location=None, maintenance_scope=None, name=None, namespace=None, recur_every=None, start_date_time=None, tags=None, time_zone=None, type=None, visibility=None):
         if duration and not isinstance(duration, str):
             raise TypeError("Expected argument 'duration' to be a str")
         pulumi.set(__self__, "duration", duration)
@@ -29,6 +29,9 @@ class GetMaintenanceConfigurationResult:
         if extension_properties and not isinstance(extension_properties, dict):
             raise TypeError("Expected argument 'extension_properties' to be a dict")
         pulumi.set(__self__, "extension_properties", extension_properties)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -83,6 +86,14 @@ class GetMaintenanceConfigurationResult:
         Gets or sets extensionProperties of the maintenanceConfiguration
         """
         return pulumi.get(self, "extension_properties")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified identifier of the resource
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -174,6 +185,7 @@ class AwaitableGetMaintenanceConfigurationResult(GetMaintenanceConfigurationResu
             duration=self.duration,
             expiration_date_time=self.expiration_date_time,
             extension_properties=self.extension_properties,
+            id=self.id,
             location=self.location,
             maintenance_scope=self.maintenance_scope,
             name=self.name,
@@ -208,6 +220,7 @@ def get_maintenance_configuration(resource_group_name: Optional[str] = None,
         duration=__ret__.duration,
         expiration_date_time=__ret__.expiration_date_time,
         extension_properties=__ret__.extension_properties,
+        id=__ret__.id,
         location=__ret__.location,
         maintenance_scope=__ret__.maintenance_scope,
         name=__ret__.name,

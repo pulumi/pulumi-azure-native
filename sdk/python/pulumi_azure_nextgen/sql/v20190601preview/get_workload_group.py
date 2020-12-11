@@ -19,7 +19,10 @@ class GetWorkloadGroupResult:
     """
     Workload group operations for a data warehouse
     """
-    def __init__(__self__, importance=None, max_resource_percent=None, max_resource_percent_per_request=None, min_resource_percent=None, min_resource_percent_per_request=None, name=None, query_execution_timeout=None, type=None):
+    def __init__(__self__, id=None, importance=None, max_resource_percent=None, max_resource_percent_per_request=None, min_resource_percent=None, min_resource_percent_per_request=None, name=None, query_execution_timeout=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if importance and not isinstance(importance, str):
             raise TypeError("Expected argument 'importance' to be a str")
         pulumi.set(__self__, "importance", importance)
@@ -44,6 +47,14 @@ class GetWorkloadGroupResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -116,6 +127,7 @@ class AwaitableGetWorkloadGroupResult(GetWorkloadGroupResult):
         if False:
             yield self
         return GetWorkloadGroupResult(
+            id=self.id,
             importance=self.importance,
             max_resource_percent=self.max_resource_percent,
             max_resource_percent_per_request=self.max_resource_percent_per_request,
@@ -151,6 +163,7 @@ def get_workload_group(database_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:sql/v20190601preview:getWorkloadGroup', __args__, opts=opts, typ=GetWorkloadGroupResult).value
 
     return AwaitableGetWorkloadGroupResult(
+        id=__ret__.id,
         importance=__ret__.importance,
         max_resource_percent=__ret__.max_resource_percent,
         max_resource_percent_per_request=__ret__.max_resource_percent_per_request,

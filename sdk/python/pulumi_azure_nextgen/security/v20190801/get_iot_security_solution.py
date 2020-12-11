@@ -20,7 +20,7 @@ class GetIotSecuritySolutionResult:
     """
     IoT Security solution configuration and resource information.
     """
-    def __init__(__self__, auto_discovered_resources=None, disabled_data_sources=None, display_name=None, export=None, iot_hubs=None, location=None, name=None, recommendations_configuration=None, status=None, tags=None, type=None, unmasked_ip_logging_status=None, user_defined_resources=None, workspace=None):
+    def __init__(__self__, auto_discovered_resources=None, disabled_data_sources=None, display_name=None, export=None, id=None, iot_hubs=None, location=None, name=None, recommendations_configuration=None, status=None, tags=None, type=None, unmasked_ip_logging_status=None, user_defined_resources=None, workspace=None):
         if auto_discovered_resources and not isinstance(auto_discovered_resources, list):
             raise TypeError("Expected argument 'auto_discovered_resources' to be a list")
         pulumi.set(__self__, "auto_discovered_resources", auto_discovered_resources)
@@ -33,6 +33,9 @@ class GetIotSecuritySolutionResult:
         if export and not isinstance(export, list):
             raise TypeError("Expected argument 'export' to be a list")
         pulumi.set(__self__, "export", export)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if iot_hubs and not isinstance(iot_hubs, list):
             raise TypeError("Expected argument 'iot_hubs' to be a list")
         pulumi.set(__self__, "iot_hubs", iot_hubs)
@@ -95,6 +98,14 @@ class GetIotSecuritySolutionResult:
         List of additional options for exporting to workspace data.
         """
         return pulumi.get(self, "export")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="iotHubs")
@@ -187,6 +198,7 @@ class AwaitableGetIotSecuritySolutionResult(GetIotSecuritySolutionResult):
             disabled_data_sources=self.disabled_data_sources,
             display_name=self.display_name,
             export=self.export,
+            id=self.id,
             iot_hubs=self.iot_hubs,
             location=self.location,
             name=self.name,
@@ -222,6 +234,7 @@ def get_iot_security_solution(resource_group_name: Optional[str] = None,
         disabled_data_sources=__ret__.disabled_data_sources,
         display_name=__ret__.display_name,
         export=__ret__.export,
+        id=__ret__.id,
         iot_hubs=__ret__.iot_hubs,
         location=__ret__.location,
         name=__ret__.name,

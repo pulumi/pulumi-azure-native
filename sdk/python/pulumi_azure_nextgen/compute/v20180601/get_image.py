@@ -20,7 +20,10 @@ class GetImageResult:
     """
     The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
     """
-    def __init__(__self__, location=None, name=None, provisioning_state=None, source_virtual_machine=None, storage_profile=None, tags=None, type=None):
+    def __init__(__self__, id=None, location=None, name=None, provisioning_state=None, source_virtual_machine=None, storage_profile=None, tags=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -42,6 +45,14 @@ class GetImageResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -106,6 +117,7 @@ class AwaitableGetImageResult(GetImageResult):
         if False:
             yield self
         return GetImageResult(
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -137,6 +149,7 @@ def get_image(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:compute/v20180601:getImage', __args__, opts=opts, typ=GetImageResult).value
 
     return AwaitableGetImageResult(
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

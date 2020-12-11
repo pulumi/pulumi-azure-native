@@ -19,7 +19,7 @@ class GetAgentPoolResult:
     """
     Agent Pool.
     """
-    def __init__(__self__, availability_zones=None, count=None, enable_auto_scaling=None, max_count=None, max_pods=None, min_count=None, name=None, orchestrator_version=None, os_disk_size_gb=None, os_type=None, provisioning_state=None, type=None, vm_size=None, vnet_subnet_id=None):
+    def __init__(__self__, availability_zones=None, count=None, enable_auto_scaling=None, id=None, max_count=None, max_pods=None, min_count=None, name=None, orchestrator_version=None, os_disk_size_gb=None, os_type=None, provisioning_state=None, type=None, vm_size=None, vnet_subnet_id=None):
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
@@ -29,6 +29,9 @@ class GetAgentPoolResult:
         if enable_auto_scaling and not isinstance(enable_auto_scaling, bool):
             raise TypeError("Expected argument 'enable_auto_scaling' to be a bool")
         pulumi.set(__self__, "enable_auto_scaling", enable_auto_scaling)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if max_count and not isinstance(max_count, int):
             raise TypeError("Expected argument 'max_count' to be a int")
         pulumi.set(__self__, "max_count", max_count)
@@ -86,6 +89,14 @@ class GetAgentPoolResult:
         Whether to enable auto-scaler
         """
         return pulumi.get(self, "enable_auto_scaling")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="maxCount")
@@ -185,6 +196,7 @@ class AwaitableGetAgentPoolResult(GetAgentPoolResult):
             availability_zones=self.availability_zones,
             count=self.count,
             enable_auto_scaling=self.enable_auto_scaling,
+            id=self.id,
             max_count=self.max_count,
             max_pods=self.max_pods,
             min_count=self.min_count,
@@ -223,6 +235,7 @@ def get_agent_pool(agent_pool_name: Optional[str] = None,
         availability_zones=__ret__.availability_zones,
         count=__ret__.count,
         enable_auto_scaling=__ret__.enable_auto_scaling,
+        id=__ret__.id,
         max_count=__ret__.max_count,
         max_pods=__ret__.max_pods,
         min_count=__ret__.min_count,

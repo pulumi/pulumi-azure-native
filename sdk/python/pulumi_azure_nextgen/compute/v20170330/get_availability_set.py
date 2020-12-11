@@ -20,7 +20,10 @@ class GetAvailabilitySetResult:
     """
     Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
     """
-    def __init__(__self__, location=None, name=None, platform_fault_domain_count=None, platform_update_domain_count=None, sku=None, statuses=None, tags=None, type=None, virtual_machines=None):
+    def __init__(__self__, id=None, location=None, name=None, platform_fault_domain_count=None, platform_update_domain_count=None, sku=None, statuses=None, tags=None, type=None, virtual_machines=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -48,6 +51,14 @@ class GetAvailabilitySetResult:
         if virtual_machines and not isinstance(virtual_machines, list):
             raise TypeError("Expected argument 'virtual_machines' to be a list")
         pulumi.set(__self__, "virtual_machines", virtual_machines)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -128,6 +139,7 @@ class AwaitableGetAvailabilitySetResult(GetAvailabilitySetResult):
         if False:
             yield self
         return GetAvailabilitySetResult(
+            id=self.id,
             location=self.location,
             name=self.name,
             platform_fault_domain_count=self.platform_fault_domain_count,
@@ -158,6 +170,7 @@ def get_availability_set(availability_set_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:compute/v20170330:getAvailabilitySet', __args__, opts=opts, typ=GetAvailabilitySetResult).value
 
     return AwaitableGetAvailabilitySetResult(
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         platform_fault_domain_count=__ret__.platform_fault_domain_count,

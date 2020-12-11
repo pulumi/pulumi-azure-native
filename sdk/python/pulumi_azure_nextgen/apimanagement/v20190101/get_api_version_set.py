@@ -19,13 +19,16 @@ class GetApiVersionSetResult:
     """
     Api Version Set Contract details.
     """
-    def __init__(__self__, description=None, display_name=None, name=None, type=None, version_header_name=None, version_query_name=None, versioning_scheme=None):
+    def __init__(__self__, description=None, display_name=None, id=None, name=None, type=None, version_header_name=None, version_query_name=None, versioning_scheme=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -57,6 +60,14 @@ class GetApiVersionSetResult:
         Name of API Version Set
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -107,6 +118,7 @@ class AwaitableGetApiVersionSetResult(GetApiVersionSetResult):
         return GetApiVersionSetResult(
             description=self.description,
             display_name=self.display_name,
+            id=self.id,
             name=self.name,
             type=self.type,
             version_header_name=self.version_header_name,
@@ -138,6 +150,7 @@ def get_api_version_set(resource_group_name: Optional[str] = None,
     return AwaitableGetApiVersionSetResult(
         description=__ret__.description,
         display_name=__ret__.display_name,
+        id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type,
         version_header_name=__ret__.version_header_name,

@@ -19,10 +19,13 @@ class GetApiSchemaResult:
     """
     Schema Contract details.
     """
-    def __init__(__self__, content_type=None, name=None, type=None, value=None):
+    def __init__(__self__, content_type=None, id=None, name=None, type=None, value=None):
         if content_type and not isinstance(content_type, str):
             raise TypeError("Expected argument 'content_type' to be a str")
         pulumi.set(__self__, "content_type", content_type)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -40,6 +43,14 @@ class GetApiSchemaResult:
         Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml).
         """
         return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -73,6 +84,7 @@ class AwaitableGetApiSchemaResult(GetApiSchemaResult):
             yield self
         return GetApiSchemaResult(
             content_type=self.content_type,
+            id=self.id,
             name=self.name,
             type=self.type,
             value=self.value)
@@ -104,6 +116,7 @@ def get_api_schema(api_id: Optional[str] = None,
 
     return AwaitableGetApiSchemaResult(
         content_type=__ret__.content_type,
+        id=__ret__.id,
         name=__ret__.name,
         type=__ret__.type,
         value=__ret__.value)

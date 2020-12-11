@@ -20,13 +20,16 @@ class GetSqlDatabaseResult:
     """
     A sql database resource.
     """
-    def __init__(__self__, collation=None, database_guid=None, location=None, max_size_bytes=None, name=None, status=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, collation=None, database_guid=None, id=None, location=None, max_size_bytes=None, name=None, status=None, system_data=None, tags=None, type=None):
         if collation and not isinstance(collation, str):
             raise TypeError("Expected argument 'collation' to be a str")
         pulumi.set(__self__, "collation", collation)
         if database_guid and not isinstance(database_guid, str):
             raise TypeError("Expected argument 'database_guid' to be a str")
         pulumi.set(__self__, "database_guid", database_guid)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -64,6 +67,14 @@ class GetSqlDatabaseResult:
         The Guid of the database.
         """
         return pulumi.get(self, "database_guid")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -130,6 +141,7 @@ class AwaitableGetSqlDatabaseResult(GetSqlDatabaseResult):
         return GetSqlDatabaseResult(
             collation=self.collation,
             database_guid=self.database_guid,
+            id=self.id,
             location=self.location,
             max_size_bytes=self.max_size_bytes,
             name=self.name,
@@ -163,6 +175,7 @@ def get_sql_database(resource_group_name: Optional[str] = None,
     return AwaitableGetSqlDatabaseResult(
         collation=__ret__.collation,
         database_guid=__ret__.database_guid,
+        id=__ret__.id,
         location=__ret__.location,
         max_size_bytes=__ret__.max_size_bytes,
         name=__ret__.name,

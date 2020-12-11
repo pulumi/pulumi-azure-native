@@ -20,7 +20,7 @@ class GetConnectedRegistryResult:
     """
     An object that represents a connected registry for a container registry.
     """
-    def __init__(__self__, activation=None, client_token_ids=None, connection_state=None, last_activity_time=None, logging=None, login_server=None, mode=None, name=None, parent=None, provisioning_state=None, status_details=None, system_data=None, type=None, version=None):
+    def __init__(__self__, activation=None, client_token_ids=None, connection_state=None, id=None, last_activity_time=None, logging=None, login_server=None, mode=None, name=None, parent=None, provisioning_state=None, status_details=None, system_data=None, type=None, version=None):
         if activation and not isinstance(activation, dict):
             raise TypeError("Expected argument 'activation' to be a dict")
         pulumi.set(__self__, "activation", activation)
@@ -30,6 +30,9 @@ class GetConnectedRegistryResult:
         if connection_state and not isinstance(connection_state, str):
             raise TypeError("Expected argument 'connection_state' to be a str")
         pulumi.set(__self__, "connection_state", connection_state)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_activity_time and not isinstance(last_activity_time, str):
             raise TypeError("Expected argument 'last_activity_time' to be a str")
         pulumi.set(__self__, "last_activity_time", last_activity_time)
@@ -87,6 +90,14 @@ class GetConnectedRegistryResult:
         The current connection state of the connected registry.
         """
         return pulumi.get(self, "connection_state")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="lastActivityTime")
@@ -186,6 +197,7 @@ class AwaitableGetConnectedRegistryResult(GetConnectedRegistryResult):
             activation=self.activation,
             client_token_ids=self.client_token_ids,
             connection_state=self.connection_state,
+            id=self.id,
             last_activity_time=self.last_activity_time,
             logging=self.logging,
             login_server=self.login_server,
@@ -224,6 +236,7 @@ def get_connected_registry(connected_registry_name: Optional[str] = None,
         activation=__ret__.activation,
         client_token_ids=__ret__.client_token_ids,
         connection_state=__ret__.connection_state,
+        id=__ret__.id,
         last_activity_time=__ret__.last_activity_time,
         logging=__ret__.logging,
         login_server=__ret__.login_server,

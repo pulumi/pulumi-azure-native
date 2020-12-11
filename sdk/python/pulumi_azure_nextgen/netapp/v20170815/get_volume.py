@@ -20,7 +20,7 @@ class GetVolumeResult:
     """
     Volume resource
     """
-    def __init__(__self__, creation_token=None, export_policy=None, file_system_id=None, location=None, name=None, provisioning_state=None, service_level=None, subnet_id=None, tags=None, type=None, usage_threshold=None):
+    def __init__(__self__, creation_token=None, export_policy=None, file_system_id=None, id=None, location=None, name=None, provisioning_state=None, service_level=None, subnet_id=None, tags=None, type=None, usage_threshold=None):
         if creation_token and not isinstance(creation_token, str):
             raise TypeError("Expected argument 'creation_token' to be a str")
         pulumi.set(__self__, "creation_token", creation_token)
@@ -30,6 +30,9 @@ class GetVolumeResult:
         if file_system_id and not isinstance(file_system_id, str):
             raise TypeError("Expected argument 'file_system_id' to be a str")
         pulumi.set(__self__, "file_system_id", file_system_id)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -78,6 +81,14 @@ class GetVolumeResult:
         Unique FileSystem Identifier.
         """
         return pulumi.get(self, "file_system_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -153,6 +164,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             creation_token=self.creation_token,
             export_policy=self.export_policy,
             file_system_id=self.file_system_id,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -191,6 +203,7 @@ def get_volume(account_name: Optional[str] = None,
         creation_token=__ret__.creation_token,
         export_policy=__ret__.export_policy,
         file_system_id=__ret__.file_system_id,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

@@ -19,7 +19,7 @@ class GetWorkloadNetworkDnsZoneResult:
     """
     NSX DNS Zone
     """
-    def __init__(__self__, display_name=None, dns_server_ips=None, dns_services=None, domain=None, name=None, provisioning_state=None, revision=None, source_ip=None, type=None):
+    def __init__(__self__, display_name=None, dns_server_ips=None, dns_services=None, domain=None, id=None, name=None, provisioning_state=None, revision=None, source_ip=None, type=None):
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -32,6 +32,9 @@ class GetWorkloadNetworkDnsZoneResult:
         if domain and not isinstance(domain, list):
             raise TypeError("Expected argument 'domain' to be a list")
         pulumi.set(__self__, "domain", domain)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -79,6 +82,14 @@ class GetWorkloadNetworkDnsZoneResult:
         Domain names of the DNS Zone.
         """
         return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -131,6 +142,7 @@ class AwaitableGetWorkloadNetworkDnsZoneResult(GetWorkloadNetworkDnsZoneResult):
             dns_server_ips=self.dns_server_ips,
             dns_services=self.dns_services,
             domain=self.domain,
+            id=self.id,
             name=self.name,
             provisioning_state=self.provisioning_state,
             revision=self.revision,
@@ -164,6 +176,7 @@ def get_workload_network_dns_zone(dns_zone_id: Optional[str] = None,
         dns_server_ips=__ret__.dns_server_ips,
         dns_services=__ret__.dns_services,
         domain=__ret__.domain,
+        id=__ret__.id,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         revision=__ret__.revision,

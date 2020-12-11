@@ -19,10 +19,13 @@ class GetRedisFirewallRuleResult:
     """
     A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
     """
-    def __init__(__self__, end_ip=None, name=None, start_ip=None, type=None):
+    def __init__(__self__, end_ip=None, id=None, name=None, start_ip=None, type=None):
         if end_ip and not isinstance(end_ip, str):
             raise TypeError("Expected argument 'end_ip' to be a str")
         pulumi.set(__self__, "end_ip", end_ip)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -40,6 +43,14 @@ class GetRedisFirewallRuleResult:
         highest IP address included in the range
         """
         return pulumi.get(self, "end_ip")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        resource ID (of the firewall rule)
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -73,6 +84,7 @@ class AwaitableGetRedisFirewallRuleResult(GetRedisFirewallRuleResult):
             yield self
         return GetRedisFirewallRuleResult(
             end_ip=self.end_ip,
+            id=self.id,
             name=self.name,
             start_ip=self.start_ip,
             type=self.type)
@@ -101,6 +113,7 @@ def get_redis_firewall_rule(cache_name: Optional[str] = None,
 
     return AwaitableGetRedisFirewallRuleResult(
         end_ip=__ret__.end_ip,
+        id=__ret__.id,
         name=__ret__.name,
         start_ip=__ret__.start_ip,
         type=__ret__.type)

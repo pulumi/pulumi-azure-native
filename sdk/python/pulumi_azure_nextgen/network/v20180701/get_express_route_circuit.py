@@ -20,7 +20,7 @@ class GetExpressRouteCircuitResult:
     """
     ExpressRouteCircuit resource
     """
-    def __init__(__self__, allow_classic_operations=None, allow_global_reach=None, authorizations=None, circuit_provisioning_state=None, etag=None, gateway_manager_etag=None, location=None, name=None, peerings=None, provisioning_state=None, service_key=None, service_provider_notes=None, service_provider_properties=None, service_provider_provisioning_state=None, sku=None, tags=None, type=None):
+    def __init__(__self__, allow_classic_operations=None, allow_global_reach=None, authorizations=None, circuit_provisioning_state=None, etag=None, gateway_manager_etag=None, id=None, location=None, name=None, peerings=None, provisioning_state=None, service_key=None, service_provider_notes=None, service_provider_properties=None, service_provider_provisioning_state=None, sku=None, tags=None, type=None):
         if allow_classic_operations and not isinstance(allow_classic_operations, bool):
             raise TypeError("Expected argument 'allow_classic_operations' to be a bool")
         pulumi.set(__self__, "allow_classic_operations", allow_classic_operations)
@@ -39,6 +39,9 @@ class GetExpressRouteCircuitResult:
         if gateway_manager_etag and not isinstance(gateway_manager_etag, str):
             raise TypeError("Expected argument 'gateway_manager_etag' to be a str")
         pulumi.set(__self__, "gateway_manager_etag", gateway_manager_etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -120,6 +123,14 @@ class GetExpressRouteCircuitResult:
         The GatewayManager Etag.
         """
         return pulumi.get(self, "gateway_manager_etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -222,6 +233,7 @@ class AwaitableGetExpressRouteCircuitResult(GetExpressRouteCircuitResult):
             circuit_provisioning_state=self.circuit_provisioning_state,
             etag=self.etag,
             gateway_manager_etag=self.gateway_manager_etag,
+            id=self.id,
             location=self.location,
             name=self.name,
             peerings=self.peerings,
@@ -260,6 +272,7 @@ def get_express_route_circuit(circuit_name: Optional[str] = None,
         circuit_provisioning_state=__ret__.circuit_provisioning_state,
         etag=__ret__.etag,
         gateway_manager_etag=__ret__.gateway_manager_etag,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         peerings=__ret__.peerings,

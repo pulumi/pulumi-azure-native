@@ -20,13 +20,16 @@ class GetSecurityPartnerProviderResult:
     """
     Security Partner Provider resource.
     """
-    def __init__(__self__, connection_status=None, etag=None, location=None, name=None, provisioning_state=None, security_provider_name=None, tags=None, type=None, virtual_hub=None):
+    def __init__(__self__, connection_status=None, etag=None, id=None, location=None, name=None, provisioning_state=None, security_provider_name=None, tags=None, type=None, virtual_hub=None):
         if connection_status and not isinstance(connection_status, str):
             raise TypeError("Expected argument 'connection_status' to be a str")
         pulumi.set(__self__, "connection_status", connection_status)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -64,6 +67,14 @@ class GetSecurityPartnerProviderResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -130,6 +141,7 @@ class AwaitableGetSecurityPartnerProviderResult(GetSecurityPartnerProviderResult
         return GetSecurityPartnerProviderResult(
             connection_status=self.connection_status,
             etag=self.etag,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -160,6 +172,7 @@ def get_security_partner_provider(resource_group_name: Optional[str] = None,
     return AwaitableGetSecurityPartnerProviderResult(
         connection_status=__ret__.connection_status,
         etag=__ret__.etag,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

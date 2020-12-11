@@ -20,7 +20,7 @@ class GetCustomImageResult:
     """
     A custom image.
     """
-    def __init__(__self__, author=None, creation_date=None, custom_image_plan=None, data_disk_storage_info=None, description=None, is_plan_authorized=None, location=None, managed_image_id=None, managed_snapshot_id=None, name=None, provisioning_state=None, tags=None, type=None, unique_identifier=None, vhd=None, vm=None):
+    def __init__(__self__, author=None, creation_date=None, custom_image_plan=None, data_disk_storage_info=None, description=None, id=None, is_plan_authorized=None, location=None, managed_image_id=None, managed_snapshot_id=None, name=None, provisioning_state=None, tags=None, type=None, unique_identifier=None, vhd=None, vm=None):
         if author and not isinstance(author, str):
             raise TypeError("Expected argument 'author' to be a str")
         pulumi.set(__self__, "author", author)
@@ -36,6 +36,9 @@ class GetCustomImageResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_plan_authorized and not isinstance(is_plan_authorized, bool):
             raise TypeError("Expected argument 'is_plan_authorized' to be a bool")
         pulumi.set(__self__, "is_plan_authorized", is_plan_authorized)
@@ -109,6 +112,14 @@ class GetCustomImageResult:
         The description of the custom image.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isPlanAuthorized")
@@ -210,6 +221,7 @@ class AwaitableGetCustomImageResult(GetCustomImageResult):
             custom_image_plan=self.custom_image_plan,
             data_disk_storage_info=self.data_disk_storage_info,
             description=self.description,
+            id=self.id,
             is_plan_authorized=self.is_plan_authorized,
             location=self.location,
             managed_image_id=self.managed_image_id,
@@ -253,6 +265,7 @@ def get_custom_image(expand: Optional[str] = None,
         custom_image_plan=__ret__.custom_image_plan,
         data_disk_storage_info=__ret__.data_disk_storage_info,
         description=__ret__.description,
+        id=__ret__.id,
         is_plan_authorized=__ret__.is_plan_authorized,
         location=__ret__.location,
         managed_image_id=__ret__.managed_image_id,

@@ -19,7 +19,10 @@ class GetComponentLinkedStorageAccountResult:
     """
     An Application Insights component linked storage accounts
     """
-    def __init__(__self__, linked_storage_account=None, name=None, type=None):
+    def __init__(__self__, id=None, linked_storage_account=None, name=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if linked_storage_account and not isinstance(linked_storage_account, str):
             raise TypeError("Expected argument 'linked_storage_account' to be a str")
         pulumi.set(__self__, "linked_storage_account", linked_storage_account)
@@ -29,6 +32,14 @@ class GetComponentLinkedStorageAccountResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="linkedStorageAccount")
@@ -61,6 +72,7 @@ class AwaitableGetComponentLinkedStorageAccountResult(GetComponentLinkedStorageA
         if False:
             yield self
         return GetComponentLinkedStorageAccountResult(
+            id=self.id,
             linked_storage_account=self.linked_storage_account,
             name=self.name,
             type=self.type)
@@ -88,6 +100,7 @@ def get_component_linked_storage_account(resource_group_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-nextgen:insights/v20200301preview:getComponentLinkedStorageAccount', __args__, opts=opts, typ=GetComponentLinkedStorageAccountResult).value
 
     return AwaitableGetComponentLinkedStorageAccountResult(
+        id=__ret__.id,
         linked_storage_account=__ret__.linked_storage_account,
         name=__ret__.name,
         type=__ret__.type)

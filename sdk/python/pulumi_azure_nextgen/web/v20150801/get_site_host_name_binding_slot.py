@@ -19,7 +19,7 @@ class GetSiteHostNameBindingSlotResult:
     """
     A host name binding object
     """
-    def __init__(__self__, azure_resource_name=None, azure_resource_type=None, custom_host_name_dns_record_type=None, domain_id=None, host_name_type=None, kind=None, location=None, name=None, site_name=None, tags=None, type=None):
+    def __init__(__self__, azure_resource_name=None, azure_resource_type=None, custom_host_name_dns_record_type=None, domain_id=None, host_name_type=None, id=None, kind=None, location=None, name=None, site_name=None, tags=None, type=None):
         if azure_resource_name and not isinstance(azure_resource_name, str):
             raise TypeError("Expected argument 'azure_resource_name' to be a str")
         pulumi.set(__self__, "azure_resource_name", azure_resource_name)
@@ -35,6 +35,9 @@ class GetSiteHostNameBindingSlotResult:
         if host_name_type and not isinstance(host_name_type, str):
             raise TypeError("Expected argument 'host_name_type' to be a str")
         pulumi.set(__self__, "host_name_type", host_name_type)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -96,6 +99,14 @@ class GetSiteHostNameBindingSlotResult:
 
     @property
     @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def kind(self) -> Optional[str]:
         """
         Kind of resource
@@ -154,6 +165,7 @@ class AwaitableGetSiteHostNameBindingSlotResult(GetSiteHostNameBindingSlotResult
             custom_host_name_dns_record_type=self.custom_host_name_dns_record_type,
             domain_id=self.domain_id,
             host_name_type=self.host_name_type,
+            id=self.id,
             kind=self.kind,
             location=self.location,
             name=self.name,
@@ -192,6 +204,7 @@ def get_site_host_name_binding_slot(host_name: Optional[str] = None,
         custom_host_name_dns_record_type=__ret__.custom_host_name_dns_record_type,
         domain_id=__ret__.domain_id,
         host_name_type=__ret__.host_name_type,
+        id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,

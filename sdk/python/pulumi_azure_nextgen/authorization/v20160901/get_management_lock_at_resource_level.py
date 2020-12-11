@@ -20,7 +20,10 @@ class GetManagementLockAtResourceLevelResult:
     """
     The lock information.
     """
-    def __init__(__self__, level=None, name=None, notes=None, owners=None, type=None):
+    def __init__(__self__, id=None, level=None, name=None, notes=None, owners=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if level and not isinstance(level, str):
             raise TypeError("Expected argument 'level' to be a str")
         pulumi.set(__self__, "level", level)
@@ -36,6 +39,14 @@ class GetManagementLockAtResourceLevelResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID of the lock.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -84,6 +95,7 @@ class AwaitableGetManagementLockAtResourceLevelResult(GetManagementLockAtResourc
         if False:
             yield self
         return GetManagementLockAtResourceLevelResult(
+            id=self.id,
             level=self.level,
             name=self.name,
             notes=self.notes,
@@ -122,6 +134,7 @@ def get_management_lock_at_resource_level(lock_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:authorization/v20160901:getManagementLockAtResourceLevel', __args__, opts=opts, typ=GetManagementLockAtResourceLevelResult).value
 
     return AwaitableGetManagementLockAtResourceLevelResult(
+        id=__ret__.id,
         level=__ret__.level,
         name=__ret__.name,
         notes=__ret__.notes,

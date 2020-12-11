@@ -20,13 +20,16 @@ class GetSqlVirtualMachineResult:
     """
     A SQL virtual machine.
     """
-    def __init__(__self__, auto_backup_settings=None, auto_patching_settings=None, identity=None, key_vault_credential_settings=None, location=None, name=None, provisioning_state=None, server_configurations_management_settings=None, sql_image_offer=None, sql_image_sku=None, sql_management=None, sql_server_license_type=None, sql_virtual_machine_group_resource_id=None, storage_configuration_settings=None, tags=None, type=None, virtual_machine_resource_id=None, wsfc_domain_credentials=None):
+    def __init__(__self__, auto_backup_settings=None, auto_patching_settings=None, id=None, identity=None, key_vault_credential_settings=None, location=None, name=None, provisioning_state=None, server_configurations_management_settings=None, sql_image_offer=None, sql_image_sku=None, sql_management=None, sql_server_license_type=None, sql_virtual_machine_group_resource_id=None, storage_configuration_settings=None, tags=None, type=None, virtual_machine_resource_id=None, wsfc_domain_credentials=None):
         if auto_backup_settings and not isinstance(auto_backup_settings, dict):
             raise TypeError("Expected argument 'auto_backup_settings' to be a dict")
         pulumi.set(__self__, "auto_backup_settings", auto_backup_settings)
         if auto_patching_settings and not isinstance(auto_patching_settings, dict):
             raise TypeError("Expected argument 'auto_patching_settings' to be a dict")
         pulumi.set(__self__, "auto_patching_settings", auto_patching_settings)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -91,6 +94,14 @@ class GetSqlVirtualMachineResult:
         Auto patching settings for applying critical security updates to SQL virtual machine.
         """
         return pulumi.get(self, "auto_patching_settings")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -229,6 +240,7 @@ class AwaitableGetSqlVirtualMachineResult(GetSqlVirtualMachineResult):
         return GetSqlVirtualMachineResult(
             auto_backup_settings=self.auto_backup_settings,
             auto_patching_settings=self.auto_patching_settings,
+            id=self.id,
             identity=self.identity,
             key_vault_credential_settings=self.key_vault_credential_settings,
             location=self.location,
@@ -271,6 +283,7 @@ def get_sql_virtual_machine(expand: Optional[str] = None,
     return AwaitableGetSqlVirtualMachineResult(
         auto_backup_settings=__ret__.auto_backup_settings,
         auto_patching_settings=__ret__.auto_patching_settings,
+        id=__ret__.id,
         identity=__ret__.identity,
         key_vault_credential_settings=__ret__.key_vault_credential_settings,
         location=__ret__.location,

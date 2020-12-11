@@ -19,10 +19,13 @@ class GetWebAppPublicCertificateSlotResult:
     """
     Public certificate object
     """
-    def __init__(__self__, blob=None, kind=None, name=None, public_certificate_location=None, thumbprint=None, type=None):
+    def __init__(__self__, blob=None, id=None, kind=None, name=None, public_certificate_location=None, thumbprint=None, type=None):
         if blob and not isinstance(blob, str):
             raise TypeError("Expected argument 'blob' to be a str")
         pulumi.set(__self__, "blob", blob)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -46,6 +49,14 @@ class GetWebAppPublicCertificateSlotResult:
         Public Certificate byte array
         """
         return pulumi.get(self, "blob")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -95,6 +106,7 @@ class AwaitableGetWebAppPublicCertificateSlotResult(GetWebAppPublicCertificateSl
             yield self
         return GetWebAppPublicCertificateSlotResult(
             blob=self.blob,
+            id=self.id,
             kind=self.kind,
             name=self.name,
             public_certificate_location=self.public_certificate_location,
@@ -128,6 +140,7 @@ def get_web_app_public_certificate_slot(name: Optional[str] = None,
 
     return AwaitableGetWebAppPublicCertificateSlotResult(
         blob=__ret__.blob,
+        id=__ret__.id,
         kind=__ret__.kind,
         name=__ret__.name,
         public_certificate_location=__ret__.public_certificate_location,

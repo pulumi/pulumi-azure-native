@@ -20,7 +20,7 @@ class GetContainerResult:
     """
     Represents a container on the  Data Box Edge/Gateway device.
     """
-    def __init__(__self__, container_status=None, created_date_time=None, data_format=None, name=None, refresh_details=None, type=None):
+    def __init__(__self__, container_status=None, created_date_time=None, data_format=None, id=None, name=None, refresh_details=None, type=None):
         if container_status and not isinstance(container_status, str):
             raise TypeError("Expected argument 'container_status' to be a str")
         pulumi.set(__self__, "container_status", container_status)
@@ -30,6 +30,9 @@ class GetContainerResult:
         if data_format and not isinstance(data_format, str):
             raise TypeError("Expected argument 'data_format' to be a str")
         pulumi.set(__self__, "data_format", data_format)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -66,6 +69,14 @@ class GetContainerResult:
 
     @property
     @pulumi.getter
+    def id(self) -> str:
+        """
+        The path ID that uniquely identifies the object.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         The object name.
@@ -98,6 +109,7 @@ class AwaitableGetContainerResult(GetContainerResult):
             container_status=self.container_status,
             created_date_time=self.created_date_time,
             data_format=self.data_format,
+            id=self.id,
             name=self.name,
             refresh_details=self.refresh_details,
             type=self.type)
@@ -131,6 +143,7 @@ def get_container(container_name: Optional[str] = None,
         container_status=__ret__.container_status,
         created_date_time=__ret__.created_date_time,
         data_format=__ret__.data_format,
+        id=__ret__.id,
         name=__ret__.name,
         refresh_details=__ret__.refresh_details,
         type=__ret__.type)

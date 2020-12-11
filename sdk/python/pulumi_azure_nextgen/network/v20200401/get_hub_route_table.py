@@ -20,13 +20,16 @@ class GetHubRouteTableResult:
     """
     RouteTable resource in a virtual hub.
     """
-    def __init__(__self__, associated_connections=None, etag=None, labels=None, name=None, propagating_connections=None, provisioning_state=None, routes=None, type=None):
+    def __init__(__self__, associated_connections=None, etag=None, id=None, labels=None, name=None, propagating_connections=None, provisioning_state=None, routes=None, type=None):
         if associated_connections and not isinstance(associated_connections, list):
             raise TypeError("Expected argument 'associated_connections' to be a list")
         pulumi.set(__self__, "associated_connections", associated_connections)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if labels and not isinstance(labels, list):
             raise TypeError("Expected argument 'labels' to be a list")
         pulumi.set(__self__, "labels", labels)
@@ -61,6 +64,14 @@ class GetHubRouteTableResult:
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -119,6 +130,7 @@ class AwaitableGetHubRouteTableResult(GetHubRouteTableResult):
         return GetHubRouteTableResult(
             associated_connections=self.associated_connections,
             etag=self.etag,
+            id=self.id,
             labels=self.labels,
             name=self.name,
             propagating_connections=self.propagating_connections,
@@ -151,6 +163,7 @@ def get_hub_route_table(resource_group_name: Optional[str] = None,
     return AwaitableGetHubRouteTableResult(
         associated_connections=__ret__.associated_connections,
         etag=__ret__.etag,
+        id=__ret__.id,
         labels=__ret__.labels,
         name=__ret__.name,
         propagating_connections=__ret__.propagating_connections,

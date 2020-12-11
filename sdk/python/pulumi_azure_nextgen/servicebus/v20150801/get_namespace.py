@@ -20,7 +20,7 @@ class GetNamespaceResult:
     """
     Description of a namespace resource.
     """
-    def __init__(__self__, create_acs_namespace=None, created_at=None, enabled=None, location=None, name=None, provisioning_state=None, service_bus_endpoint=None, sku=None, status=None, tags=None, type=None, updated_at=None):
+    def __init__(__self__, create_acs_namespace=None, created_at=None, enabled=None, id=None, location=None, name=None, provisioning_state=None, service_bus_endpoint=None, sku=None, status=None, tags=None, type=None, updated_at=None):
         if create_acs_namespace and not isinstance(create_acs_namespace, bool):
             raise TypeError("Expected argument 'create_acs_namespace' to be a bool")
         pulumi.set(__self__, "create_acs_namespace", create_acs_namespace)
@@ -30,6 +30,9 @@ class GetNamespaceResult:
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -81,6 +84,14 @@ class GetNamespaceResult:
         Specifies whether this instance is enabled.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -164,6 +175,7 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
             create_acs_namespace=self.create_acs_namespace,
             created_at=self.created_at,
             enabled=self.enabled,
+            id=self.id,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -197,6 +209,7 @@ def get_namespace(namespace_name: Optional[str] = None,
         create_acs_namespace=__ret__.create_acs_namespace,
         created_at=__ret__.created_at,
         enabled=__ret__.enabled,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,

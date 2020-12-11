@@ -19,7 +19,7 @@ class GetCertificateResult:
     """
     Definition of the certificate.
     """
-    def __init__(__self__, creation_time=None, description=None, expiry_time=None, is_exportable=None, last_modified_time=None, name=None, thumbprint=None, type=None):
+    def __init__(__self__, creation_time=None, description=None, expiry_time=None, id=None, is_exportable=None, last_modified_time=None, name=None, thumbprint=None, type=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -29,6 +29,9 @@ class GetCertificateResult:
         if expiry_time and not isinstance(expiry_time, str):
             raise TypeError("Expected argument 'expiry_time' to be a str")
         pulumi.set(__self__, "expiry_time", expiry_time)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if is_exportable and not isinstance(is_exportable, bool):
             raise TypeError("Expected argument 'is_exportable' to be a bool")
         pulumi.set(__self__, "is_exportable", is_exportable)
@@ -68,6 +71,14 @@ class GetCertificateResult:
         Gets the expiry time of the certificate.
         """
         return pulumi.get(self, "expiry_time")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource Id for the resource
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="isExportable")
@@ -119,6 +130,7 @@ class AwaitableGetCertificateResult(GetCertificateResult):
             creation_time=self.creation_time,
             description=self.description,
             expiry_time=self.expiry_time,
+            id=self.id,
             is_exportable=self.is_exportable,
             last_modified_time=self.last_modified_time,
             name=self.name,
@@ -151,6 +163,7 @@ def get_certificate(automation_account_name: Optional[str] = None,
         creation_time=__ret__.creation_time,
         description=__ret__.description,
         expiry_time=__ret__.expiry_time,
+        id=__ret__.id,
         is_exportable=__ret__.is_exportable,
         last_modified_time=__ret__.last_modified_time,
         name=__ret__.name,

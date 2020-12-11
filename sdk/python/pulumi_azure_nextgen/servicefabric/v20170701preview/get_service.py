@@ -20,13 +20,16 @@ class GetServiceResult:
     """
     The service resource.
     """
-    def __init__(__self__, correlation_scheme=None, default_move_cost=None, location=None, name=None, partition_description=None, placement_constraints=None, provisioning_state=None, service_kind=None, service_load_metrics=None, service_placement_policies=None, service_type_name=None, type=None):
+    def __init__(__self__, correlation_scheme=None, default_move_cost=None, id=None, location=None, name=None, partition_description=None, placement_constraints=None, provisioning_state=None, service_kind=None, service_load_metrics=None, service_placement_policies=None, service_type_name=None, type=None):
         if correlation_scheme and not isinstance(correlation_scheme, list):
             raise TypeError("Expected argument 'correlation_scheme' to be a list")
         pulumi.set(__self__, "correlation_scheme", correlation_scheme)
         if default_move_cost and not isinstance(default_move_cost, str):
             raise TypeError("Expected argument 'default_move_cost' to be a str")
         pulumi.set(__self__, "default_move_cost", default_move_cost)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -73,6 +76,14 @@ class GetServiceResult:
         Specifies the move cost for the service.
         """
         return pulumi.get(self, "default_move_cost")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource identifier.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -163,6 +174,7 @@ class AwaitableGetServiceResult(GetServiceResult):
         return GetServiceResult(
             correlation_scheme=self.correlation_scheme,
             default_move_cost=self.default_move_cost,
+            id=self.id,
             location=self.location,
             name=self.name,
             partition_description=self.partition_description,
@@ -202,6 +214,7 @@ def get_service(application_name: Optional[str] = None,
     return AwaitableGetServiceResult(
         correlation_scheme=__ret__.correlation_scheme,
         default_move_cost=__ret__.default_move_cost,
+        id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         partition_description=__ret__.partition_description,

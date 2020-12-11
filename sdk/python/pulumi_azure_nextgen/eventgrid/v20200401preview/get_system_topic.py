@@ -19,7 +19,10 @@ class GetSystemTopicResult:
     """
     EventGrid System Topic.
     """
-    def __init__(__self__, location=None, metric_resource_id=None, name=None, provisioning_state=None, source=None, tags=None, topic_type=None, type=None):
+    def __init__(__self__, id=None, location=None, metric_resource_id=None, name=None, provisioning_state=None, source=None, tags=None, topic_type=None, type=None):
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -44,6 +47,14 @@ class GetSystemTopicResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified identifier of the resource.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -116,6 +127,7 @@ class AwaitableGetSystemTopicResult(GetSystemTopicResult):
         if False:
             yield self
         return GetSystemTopicResult(
+            id=self.id,
             location=self.location,
             metric_resource_id=self.metric_resource_id,
             name=self.name,
@@ -145,6 +157,7 @@ def get_system_topic(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-nextgen:eventgrid/v20200401preview:getSystemTopic', __args__, opts=opts, typ=GetSystemTopicResult).value
 
     return AwaitableGetSystemTopicResult(
+        id=__ret__.id,
         location=__ret__.location,
         metric_resource_id=__ret__.metric_resource_id,
         name=__ret__.name,

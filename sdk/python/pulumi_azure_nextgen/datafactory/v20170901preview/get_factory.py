@@ -20,10 +20,13 @@ class GetFactoryResult:
     """
     Factory resource type.
     """
-    def __init__(__self__, create_time=None, identity=None, location=None, name=None, provisioning_state=None, tags=None, type=None, version=None, vsts_configuration=None):
+    def __init__(__self__, create_time=None, id=None, identity=None, location=None, name=None, provisioning_state=None, tags=None, type=None, version=None, vsts_configuration=None):
         if create_time and not isinstance(create_time, str):
             raise TypeError("Expected argument 'create_time' to be a str")
         pulumi.set(__self__, "create_time", create_time)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -56,6 +59,14 @@ class GetFactoryResult:
         Time the factory was created in ISO8601 format.
         """
         return pulumi.get(self, "create_time")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource identifier.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -129,6 +140,7 @@ class AwaitableGetFactoryResult(GetFactoryResult):
             yield self
         return GetFactoryResult(
             create_time=self.create_time,
+            id=self.id,
             identity=self.identity,
             location=self.location,
             name=self.name,
@@ -159,6 +171,7 @@ def get_factory(factory_name: Optional[str] = None,
 
     return AwaitableGetFactoryResult(
         create_time=__ret__.create_time,
+        id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,

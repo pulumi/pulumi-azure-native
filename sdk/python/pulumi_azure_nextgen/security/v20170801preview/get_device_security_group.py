@@ -20,13 +20,16 @@ class GetDeviceSecurityGroupResult:
     """
     The device security group resource
     """
-    def __init__(__self__, allowlist_rules=None, denylist_rules=None, name=None, threshold_rules=None, time_window_rules=None, type=None):
+    def __init__(__self__, allowlist_rules=None, denylist_rules=None, id=None, name=None, threshold_rules=None, time_window_rules=None, type=None):
         if allowlist_rules and not isinstance(allowlist_rules, list):
             raise TypeError("Expected argument 'allowlist_rules' to be a list")
         pulumi.set(__self__, "allowlist_rules", allowlist_rules)
         if denylist_rules and not isinstance(denylist_rules, list):
             raise TypeError("Expected argument 'denylist_rules' to be a list")
         pulumi.set(__self__, "denylist_rules", denylist_rules)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -55,6 +58,14 @@ class GetDeviceSecurityGroupResult:
         The deny-list custom alert rules.
         """
         return pulumi.get(self, "denylist_rules")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -97,6 +108,7 @@ class AwaitableGetDeviceSecurityGroupResult(GetDeviceSecurityGroupResult):
         return GetDeviceSecurityGroupResult(
             allowlist_rules=self.allowlist_rules,
             denylist_rules=self.denylist_rules,
+            id=self.id,
             name=self.name,
             threshold_rules=self.threshold_rules,
             time_window_rules=self.time_window_rules,
@@ -124,6 +136,7 @@ def get_device_security_group(device_security_group_name: Optional[str] = None,
     return AwaitableGetDeviceSecurityGroupResult(
         allowlist_rules=__ret__.allowlist_rules,
         denylist_rules=__ret__.denylist_rules,
+        id=__ret__.id,
         name=__ret__.name,
         threshold_rules=__ret__.threshold_rules,
         time_window_rules=__ret__.time_window_rules,

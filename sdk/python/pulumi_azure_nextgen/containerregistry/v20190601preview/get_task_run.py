@@ -21,10 +21,13 @@ class GetTaskRunResult:
     The task run that has the ARM resource and properties. 
     The task run will have the information of request and result of a run.
     """
-    def __init__(__self__, force_update_tag=None, identity=None, location=None, name=None, provisioning_state=None, run_request=None, run_result=None, system_data=None, type=None):
+    def __init__(__self__, force_update_tag=None, id=None, identity=None, location=None, name=None, provisioning_state=None, run_request=None, run_result=None, system_data=None, type=None):
         if force_update_tag and not isinstance(force_update_tag, str):
             raise TypeError("Expected argument 'force_update_tag' to be a str")
         pulumi.set(__self__, "force_update_tag", force_update_tag)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
@@ -57,6 +60,14 @@ class GetTaskRunResult:
         How the run should be forced to rerun even if the run request configuration has not changed
         """
         return pulumi.get(self, "force_update_tag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
@@ -130,6 +141,7 @@ class AwaitableGetTaskRunResult(GetTaskRunResult):
             yield self
         return GetTaskRunResult(
             force_update_tag=self.force_update_tag,
+            id=self.id,
             identity=self.identity,
             location=self.location,
             name=self.name,
@@ -163,6 +175,7 @@ def get_task_run(registry_name: Optional[str] = None,
 
     return AwaitableGetTaskRunResult(
         force_update_tag=__ret__.force_update_tag,
+        id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,
