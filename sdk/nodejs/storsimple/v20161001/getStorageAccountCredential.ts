@@ -56,6 +56,10 @@ export interface GetStorageAccountCredentialResult {
      */
     readonly endPoint: string;
     /**
+     * The identifier.
+     */
+    readonly id: string;
+    /**
      * The storage account's geo location
      */
     readonly location?: string;

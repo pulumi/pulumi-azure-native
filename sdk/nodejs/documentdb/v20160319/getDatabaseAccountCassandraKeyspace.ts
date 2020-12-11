@@ -40,6 +40,10 @@ export interface GetDatabaseAccountCassandraKeyspaceArgs {
  */
 export interface GetDatabaseAccountCassandraKeyspaceResult {
     /**
+     * The unique resource identifier of the database account.
+     */
+    readonly id: string;
+    /**
      * The location of the resource group to which the resource belongs.
      */
     readonly location?: string;

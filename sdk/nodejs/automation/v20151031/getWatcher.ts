@@ -56,6 +56,10 @@ export interface GetWatcherResult {
      */
     readonly executionFrequencyInSeconds?: number;
     /**
+     * Fully qualified resource Id for the resource
+     */
+    readonly id: string;
+    /**
      * Details of the user who last modified the watcher.
      */
     readonly lastModifiedBy: string;

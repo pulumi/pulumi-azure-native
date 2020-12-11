@@ -61,6 +61,10 @@ export interface GetGalleryImageResult {
      */
     readonly icon: string;
     /**
+     * The identifier of the resource.
+     */
+    readonly id: string;
+    /**
      * The image reference of the gallery image.
      */
     readonly imageReference: outputs.labservices.latest.GalleryImageReferenceResponse;

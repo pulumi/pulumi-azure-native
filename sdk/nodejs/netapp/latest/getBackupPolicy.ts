@@ -48,6 +48,10 @@ export interface GetBackupPolicyResult {
      */
     readonly enabled?: boolean;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

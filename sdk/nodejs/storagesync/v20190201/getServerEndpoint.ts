@@ -53,6 +53,10 @@ export interface GetServerEndpointResult {
      */
     readonly friendlyName?: string;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * Resource Last Operation Name
      */
     readonly lastOperationName: string;

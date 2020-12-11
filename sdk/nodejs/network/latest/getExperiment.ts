@@ -56,6 +56,10 @@ export interface GetExperimentResult {
      */
     readonly endpointB?: outputs.network.latest.EndpointResponse;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource location.
      */
     readonly location?: string;

@@ -51,6 +51,10 @@ export interface GetProjectResult {
      */
     readonly eTag?: string;
     /**
+     * Path reference to this project /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}
+     */
+    readonly id: string;
+    /**
      * Azure location in which project is created.
      */
     readonly location?: string;

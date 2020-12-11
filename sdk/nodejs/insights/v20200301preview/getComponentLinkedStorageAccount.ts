@@ -40,6 +40,10 @@ export interface GetComponentLinkedStorageAccountArgs {
  */
 export interface GetComponentLinkedStorageAccountResult {
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * Linked storage account resource ID
      */
     readonly linkedStorageAccount?: string;

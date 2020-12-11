@@ -43,6 +43,10 @@ export interface GetP2sVpnGatewayP2sVpnConnectionHealthResult {
      */
     readonly etag: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * Enable Routing Preference property for the Public IP Interface of the P2SVpnGateway.
      */
     readonly isRoutingPreferenceInternet?: boolean;

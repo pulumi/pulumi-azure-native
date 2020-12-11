@@ -55,6 +55,10 @@ export interface GetAzureFirewallResult {
      */
     readonly hubIPAddresses?: outputs.network.v20200601.HubIPAddressesResponse;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * IP configuration of the Azure Firewall resource.
      */
     readonly ipConfigurations?: outputs.network.v20200601.AzureFirewallIPConfigurationResponse[];

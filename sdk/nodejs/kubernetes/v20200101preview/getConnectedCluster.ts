@@ -55,6 +55,10 @@ export interface GetConnectedClusterResult {
      */
     readonly distribution?: string;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * The identity of the connected cluster.
      */
     readonly identity: outputs.kubernetes.v20200101preview.ConnectedClusterIdentityResponse;

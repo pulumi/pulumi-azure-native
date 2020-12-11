@@ -52,6 +52,10 @@ export interface GetWebhookResult {
      */
     readonly expiryTime?: string;
     /**
+     * Fully qualified resource Id for the resource
+     */
+    readonly id: string;
+    /**
      * Gets or sets the value of the enabled flag of the webhook.
      */
     readonly isEnabled?: boolean;

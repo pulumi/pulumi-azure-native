@@ -39,6 +39,10 @@ export interface GetNamespaceResult {
      */
     readonly createdAt: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Enumerates the possible value of keySource for Encryption
      */
     readonly keySource?: string;

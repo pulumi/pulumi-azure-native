@@ -44,6 +44,10 @@ export interface GetFileShareResult {
      */
     readonly etag: string;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * Returns the date and time the share was last modified.
      */
     readonly lastModifiedTime: string;

@@ -51,6 +51,10 @@ export interface GetActivityLogAlertResult {
      */
     readonly enabled?: boolean;
     /**
+     * Azure resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

@@ -45,6 +45,10 @@ export interface GetJobTargetGroupArgs {
  */
 export interface GetJobTargetGroupResult {
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Members of the target group.
      */
     readonly members: outputs.sql.v20170301preview.JobTargetResponse[];

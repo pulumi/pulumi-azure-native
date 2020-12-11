@@ -40,6 +40,10 @@ export interface GetPatchScheduleArgs {
  */
 export interface GetPatchScheduleResult {
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

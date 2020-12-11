@@ -48,6 +48,10 @@ export interface GetWebAppSourceControlSlotResult {
      */
     readonly deploymentRollbackEnabled?: boolean;
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * <code>true</code> if this is deployed via GitHub action.
      */
     readonly isGitHubAction?: boolean;

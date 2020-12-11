@@ -60,6 +60,10 @@ export interface GetBatchAccountResult {
      */
     readonly encryption: outputs.batch.latest.EncryptionPropertiesResponse;
     /**
+     * The ID of the resource.
+     */
+    readonly id: string;
+    /**
      * The identity of the Batch account.
      */
     readonly identity?: outputs.batch.latest.BatchAccountIdentityResponse;

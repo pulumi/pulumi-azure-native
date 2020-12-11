@@ -35,6 +35,10 @@ export interface GetIntegrationAccountArgs {
  */
 export interface GetIntegrationAccountResult {
     /**
+     * The resource id.
+     */
+    readonly id: string;
+    /**
      * The integration service environment.
      */
     readonly integrationServiceEnvironment?: outputs.logic.latest.IntegrationServiceEnvironmentResponse;

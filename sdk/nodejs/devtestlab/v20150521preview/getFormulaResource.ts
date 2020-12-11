@@ -56,6 +56,10 @@ export interface GetFormulaResourceResult {
      */
     readonly formulaContent?: outputs.devtestlab.v20150521preview.LabVirtualMachineResponse;
     /**
+     * The identifier of the resource.
+     */
+    readonly id?: string;
+    /**
      * The location of the resource.
      */
     readonly location?: string;

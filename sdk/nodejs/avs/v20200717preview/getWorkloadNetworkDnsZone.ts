@@ -56,6 +56,10 @@ export interface GetWorkloadNetworkDnsZoneResult {
      */
     readonly domain?: string[];
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

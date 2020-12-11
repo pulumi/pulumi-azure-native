@@ -59,6 +59,10 @@ export interface GetWebTestResult {
      */
     readonly frequency?: number;
     /**
+     * Azure resource Id
+     */
+    readonly id: string;
+    /**
      * When set, validation will ignore the status code.
      */
     readonly ignoreHttpsStatusCode?: boolean;

@@ -49,6 +49,10 @@ export interface GetSiteRelayServiceConnectionSlotResult {
     readonly entityName?: string;
     readonly hostname?: string;
     /**
+     * Resource Id
+     */
+    readonly id?: string;
+    /**
      * Kind of resource
      */
     readonly kind?: string;

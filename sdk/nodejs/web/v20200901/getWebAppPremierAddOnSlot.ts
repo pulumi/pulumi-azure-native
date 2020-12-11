@@ -45,6 +45,10 @@ export interface GetWebAppPremierAddOnSlotArgs {
  */
 export interface GetWebAppPremierAddOnSlotResult {
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;

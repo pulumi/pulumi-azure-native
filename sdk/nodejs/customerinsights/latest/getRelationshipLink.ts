@@ -48,6 +48,10 @@ export interface GetRelationshipLinkResult {
      */
     readonly displayName?: {[key: string]: string};
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * The InteractionType associated with the Relationship Link.
      */
     readonly interactionType: string;

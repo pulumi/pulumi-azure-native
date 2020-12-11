@@ -44,6 +44,10 @@ export interface GetRegisteredPrefixResult {
      */
     readonly errorMessage: string;
     /**
+     * The ID of the resource.
+     */
+    readonly id: string;
+    /**
      * The name of the resource.
      */
     readonly name: string;

@@ -94,6 +94,10 @@ export interface GetWebAppResult {
      */
     readonly httpsOnly?: boolean;
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Managed service identity.
      */
     readonly identity?: outputs.web.v20160801.ManagedServiceIdentityResponse;

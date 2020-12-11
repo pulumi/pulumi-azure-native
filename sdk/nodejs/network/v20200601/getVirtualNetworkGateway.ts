@@ -71,6 +71,10 @@ export interface GetVirtualNetworkGatewayResult {
      */
     readonly gatewayType?: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * The IP address allocated by the gateway to which dns requests can be sent.
      */
     readonly inboundDnsForwardingEndpoint: string;

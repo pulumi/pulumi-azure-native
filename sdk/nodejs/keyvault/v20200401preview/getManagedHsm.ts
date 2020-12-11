@@ -35,6 +35,10 @@ export interface GetManagedHsmArgs {
  */
 export interface GetManagedHsmResult {
     /**
+     * The Azure Resource Manager resource ID for the managed HSM Pool.
+     */
+    readonly id: string;
+    /**
      * The supported Azure location where the managed HSM Pool should be created.
      */
     readonly location?: string;

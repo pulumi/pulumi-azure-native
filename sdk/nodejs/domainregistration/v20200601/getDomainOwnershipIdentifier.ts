@@ -40,6 +40,10 @@ export interface GetDomainOwnershipIdentifierArgs {
  */
 export interface GetDomainOwnershipIdentifierResult {
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;

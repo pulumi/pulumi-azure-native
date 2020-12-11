@@ -52,6 +52,10 @@ export interface GetJobResult {
      */
     readonly error: outputs.databox.v20180101.ErrorResponse;
     /**
+     * Id of the object.
+     */
+    readonly id: string;
+    /**
      * Describes whether the job is cancellable or not.
      */
     readonly isCancellable: boolean;

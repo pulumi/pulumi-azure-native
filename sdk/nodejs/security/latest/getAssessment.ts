@@ -48,6 +48,10 @@ export interface GetAssessmentResult {
      */
     readonly displayName: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Links relevant to the assessment
      */
     readonly links: outputs.security.latest.AssessmentLinksResponse;

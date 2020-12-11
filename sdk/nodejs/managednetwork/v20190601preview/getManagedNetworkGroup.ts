@@ -44,6 +44,10 @@ export interface GetManagedNetworkGroupResult {
      */
     readonly etag: string;
     /**
+     * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * Responsibility role under which this Managed Network Group will be created
      */
     readonly kind?: string;

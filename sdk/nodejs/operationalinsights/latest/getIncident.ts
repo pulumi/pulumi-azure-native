@@ -72,6 +72,10 @@ export interface GetIncidentResult {
      */
     readonly firstActivityTimeUtc?: string;
     /**
+     * Azure resource Id
+     */
+    readonly id: string;
+    /**
      * A sequential number
      */
     readonly incidentNumber: number;

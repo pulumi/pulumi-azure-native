@@ -47,6 +47,10 @@ export interface GetRedisResult {
      */
     readonly hostName: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * List of the linked servers associated with the cache
      */
     readonly linkedServers: outputs.cache.v20180301.RedisLinkedServerResponse[];

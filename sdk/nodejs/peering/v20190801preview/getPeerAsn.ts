@@ -30,6 +30,10 @@ export interface GetPeerAsnArgs {
  */
 export interface GetPeerAsnResult {
     /**
+     * The ID of the resource.
+     */
+    readonly id: string;
+    /**
      * The name of the resource.
      */
     readonly name: string;

@@ -35,6 +35,10 @@ export interface GetMediaServiceArgs {
  */
 export interface GetMediaServiceResult {
     /**
+     * Fully qualified resource ID for the resource.
+     */
+    readonly id: string;
+    /**
      * The Azure Region of the resource.
      */
     readonly location?: string;

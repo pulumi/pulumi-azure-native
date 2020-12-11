@@ -60,6 +60,10 @@ export interface GetWebAppFunctionResult {
      */
     readonly href?: string;
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * The invocation URL
      */
     readonly invokeUrlTemplate?: string;

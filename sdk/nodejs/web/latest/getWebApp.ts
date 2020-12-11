@@ -113,6 +113,10 @@ export interface GetWebAppResult {
      */
     readonly hyperV?: boolean;
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Managed service identity.
      */
     readonly identity?: outputs.web.latest.ManagedServiceIdentityResponse;

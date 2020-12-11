@@ -49,6 +49,10 @@ export interface GetAlertRuleResult {
      */
     readonly etag?: string;
     /**
+     * Azure resource Id
+     */
+    readonly id: string;
+    /**
      * The kind of the alert rule
      */
     readonly kind: string;

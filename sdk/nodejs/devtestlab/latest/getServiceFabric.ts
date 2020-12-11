@@ -62,6 +62,10 @@ export interface GetServiceFabricResult {
      */
     readonly externalServiceFabricId?: string;
     /**
+     * The identifier of the resource.
+     */
+    readonly id: string;
+    /**
      * The location of the resource.
      */
     readonly location?: string;

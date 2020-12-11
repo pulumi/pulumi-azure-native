@@ -35,6 +35,10 @@ export interface ListStaticSiteSecretsArgs {
  */
 export interface ListStaticSiteSecretsResult {
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;

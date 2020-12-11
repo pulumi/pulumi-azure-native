@@ -40,6 +40,10 @@ export interface GetImageArgs {
  */
 export interface GetImageResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

@@ -44,6 +44,10 @@ export interface GetNamedValueResult {
      */
     readonly displayName: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * KeyVault location details of the namedValue.
      */
     readonly keyVault?: outputs.apimanagement.v20200601preview.KeyVaultContractPropertiesResponse;

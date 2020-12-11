@@ -75,6 +75,10 @@ export interface GetHostingEnvironmentResult {
      */
     readonly environmentStatus?: string;
     /**
+     * Resource Id
+     */
+    readonly id?: string;
+    /**
      * Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
      */
     readonly internalLoadBalancingMode?: string;

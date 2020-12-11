@@ -38,6 +38,10 @@ export interface GetPartnerResult {
      */
     readonly etag?: number;
     /**
+     * Identifier of the partner
+     */
+    readonly id: string;
+    /**
      * Name of the partner
      */
     readonly name: string;

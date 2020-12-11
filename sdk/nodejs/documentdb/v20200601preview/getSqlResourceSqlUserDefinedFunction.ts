@@ -50,6 +50,10 @@ export interface GetSqlResourceSqlUserDefinedFunctionArgs {
  */
 export interface GetSqlResourceSqlUserDefinedFunctionResult {
     /**
+     * The unique resource identifier of the ARM resource.
+     */
+    readonly id: string;
+    /**
      * Identity for the resource.
      */
     readonly identity?: outputs.documentdb.v20200601preview.ManagedServiceIdentityResponse;

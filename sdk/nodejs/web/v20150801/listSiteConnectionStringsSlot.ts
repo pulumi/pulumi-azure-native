@@ -40,6 +40,10 @@ export interface ListSiteConnectionStringsSlotArgs {
  */
 export interface ListSiteConnectionStringsSlotResult {
     /**
+     * Resource Id
+     */
+    readonly id?: string;
+    /**
      * Kind of resource
      */
     readonly kind?: string;

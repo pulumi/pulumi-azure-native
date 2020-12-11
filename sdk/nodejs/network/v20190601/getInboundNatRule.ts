@@ -73,6 +73,10 @@ export interface GetInboundNatRuleResult {
      */
     readonly frontendPort?: number;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
      */
     readonly idleTimeoutInMinutes?: number;

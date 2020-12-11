@@ -67,6 +67,10 @@ export interface GetEnvironmentResult {
      */
     readonly claimedByUserPrincipalId: string;
     /**
+     * The identifier of the resource.
+     */
+    readonly id: string;
+    /**
      * Is the environment claimed or not
      */
     readonly isClaimed: boolean;

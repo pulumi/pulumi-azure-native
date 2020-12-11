@@ -44,6 +44,10 @@ export interface GetWCFRelayResult {
      */
     readonly createdAt: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Returns true if the relay is dynamic; otherwise, false.
      */
     readonly isDynamic: boolean;

@@ -76,6 +76,10 @@ export interface GetWebAppSiteExtensionResult {
      */
     readonly iconUrl?: string;
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Installed timestamp.
      */
     readonly installedDateTime?: string;

@@ -30,6 +30,10 @@ export interface GetManagementLockArgs {
  */
 export interface GetManagementLockResult {
     /**
+     * The Id of the lock.
+     */
+    readonly id: string;
+    /**
      * The lock level of the management lock.
      */
     readonly level?: string;

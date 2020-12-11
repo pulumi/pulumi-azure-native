@@ -40,6 +40,10 @@ export interface GetTrustedIdProviderArgs {
  */
 export interface GetTrustedIdProviderResult {
     /**
+     * The resource identifier.
+     */
+    readonly id: string;
+    /**
      * The URL of this trusted identity provider.
      */
     readonly idProvider: string;

@@ -39,6 +39,10 @@ export interface GetTopicResult {
      */
     readonly endpoint: string;
     /**
+     * Fully qualified identifier of the resource
+     */
+    readonly id: string;
+    /**
      * This determines the format that Event Grid should expect for incoming events published to the topic.
      */
     readonly inputSchema?: string;

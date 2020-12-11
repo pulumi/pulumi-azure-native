@@ -63,6 +63,10 @@ export interface GetAppServiceCertificateOrderResult {
      */
     readonly expirationTime: string;
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Intermediate certificate.
      */
     readonly intermediate: outputs.certificateregistration.latest.CertificateDetailsResponse;

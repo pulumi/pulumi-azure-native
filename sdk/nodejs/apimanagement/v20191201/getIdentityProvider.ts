@@ -56,6 +56,10 @@ export interface GetIdentityProviderResult {
      */
     readonly clientSecret?: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

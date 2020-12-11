@@ -39,6 +39,10 @@ export interface GetRoleAssignmentResult {
      */
     readonly canDelegate?: boolean;
     /**
+     * The role assignment ID.
+     */
+    readonly id: string;
+    /**
      * The role assignment name.
      */
     readonly name: string;

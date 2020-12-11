@@ -51,6 +51,10 @@ export interface GetIotSecuritySolutionResult {
      */
     readonly export?: string[];
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * IoT Hub resource IDs
      */
     readonly iotHubs: string[];

@@ -54,6 +54,10 @@ export interface GetAnalyticsItemResult {
      */
     readonly content?: string;
     /**
+     * Internally assigned unique id of the item definition.
+     */
+    readonly id?: string;
+    /**
      * The user-defined name of the item.
      */
     readonly name?: string;

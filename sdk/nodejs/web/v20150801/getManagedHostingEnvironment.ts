@@ -51,6 +51,10 @@ export interface GetManagedHostingEnvironmentResult {
      */
     readonly environmentStatus?: string;
     /**
+     * Resource Id
+     */
+    readonly id?: string;
+    /**
      * Number of ip ssl addresses reserved for the managed hosting environment
      */
     readonly ipsslAddressCount?: number;

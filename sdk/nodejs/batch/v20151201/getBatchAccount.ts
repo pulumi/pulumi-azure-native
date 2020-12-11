@@ -51,6 +51,10 @@ export interface GetBatchAccountResult {
      */
     readonly coreQuota: number;
     /**
+     * The ID of the resource
+     */
+    readonly id: string;
+    /**
      * The location of the resource
      */
     readonly location?: string;

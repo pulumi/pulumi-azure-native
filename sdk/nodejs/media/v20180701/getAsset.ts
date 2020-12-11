@@ -60,6 +60,10 @@ export interface GetAssetResult {
      */
     readonly description?: string;
     /**
+     * Fully qualified resource ID for the resource.
+     */
+    readonly id: string;
+    /**
      * The last modified date of the Asset.
      */
     readonly lastModified: string;

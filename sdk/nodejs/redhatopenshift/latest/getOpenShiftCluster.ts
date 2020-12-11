@@ -47,6 +47,10 @@ export interface GetOpenShiftClusterResult {
      */
     readonly consoleProfile?: outputs.redhatopenshift.latest.ConsoleProfileResponse;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * The cluster ingress profiles.
      */
     readonly ingressProfiles?: outputs.redhatopenshift.latest.IngressProfileResponse[];

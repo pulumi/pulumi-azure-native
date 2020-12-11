@@ -43,6 +43,10 @@ export interface GetSiteSourceControlResult {
      */
     readonly deploymentRollbackEnabled?: boolean;
     /**
+     * Resource Id
+     */
+    readonly id?: string;
+    /**
      * Whether to manual or continuous integration
      */
     readonly isManualIntegration?: boolean;

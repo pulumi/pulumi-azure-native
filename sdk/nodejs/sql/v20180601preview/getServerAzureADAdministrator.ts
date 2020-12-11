@@ -44,6 +44,10 @@ export interface GetServerAzureADAdministratorResult {
      */
     readonly administratorType: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Login name of the server administrator.
      */
     readonly login: string;

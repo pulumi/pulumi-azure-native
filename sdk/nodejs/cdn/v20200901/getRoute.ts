@@ -66,6 +66,10 @@ export interface GetRouteResult {
      */
     readonly httpsRedirect?: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * whether this route will be linked to the default endpoint domain.
      */
     readonly linkToDefaultDomain?: string;

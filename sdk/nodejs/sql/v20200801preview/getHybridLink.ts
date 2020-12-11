@@ -44,6 +44,10 @@ export interface GetHybridLinkResult {
      */
     readonly distributedAvailabilityGroupId: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

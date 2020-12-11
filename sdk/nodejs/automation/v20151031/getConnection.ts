@@ -56,6 +56,10 @@ export interface GetConnectionResult {
      */
     readonly fieldDefinitionValues: {[key: string]: string};
     /**
+     * Fully qualified resource Id for the resource
+     */
+    readonly id: string;
+    /**
      * Gets the last modified time.
      */
     readonly lastModifiedTime: string;

@@ -52,6 +52,10 @@ export interface GetAgentPoolResult {
      */
     readonly enableAutoScaling?: boolean;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Maximum number of nodes for auto-scaling
      */
     readonly maxCount?: number;

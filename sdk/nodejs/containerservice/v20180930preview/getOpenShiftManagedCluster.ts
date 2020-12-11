@@ -47,6 +47,10 @@ export interface GetOpenShiftManagedClusterResult {
      */
     readonly fqdn?: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

@@ -66,6 +66,10 @@ export interface GetSourceControlConfigurationResult {
      */
     readonly helmOperatorProperties?: outputs.kubernetesconfiguration.v20201001preview.HelmOperatorPropertiesResponse;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource name
      */
     readonly name: string;

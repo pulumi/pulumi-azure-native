@@ -55,6 +55,10 @@ export interface GetProjectResult {
      */
     readonly eTag?: string;
     /**
+     * Path reference to this project /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}
+     */
+    readonly id: string;
+    /**
      * Time when last assessment was created. Date-Time represented in ISO-8601 format. This value will be null until assessment is created.
      */
     readonly lastAssessmentTimestamp: string;

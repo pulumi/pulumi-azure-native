@@ -35,6 +35,10 @@ export interface GetVirtualMachineScaleSetArgs {
  */
 export interface GetVirtualMachineScaleSetResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

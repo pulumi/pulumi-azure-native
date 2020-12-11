@@ -52,6 +52,10 @@ export interface GetCertificateResult {
      */
     readonly expiryTime: string;
     /**
+     * Fully qualified resource Id for the resource
+     */
+    readonly id: string;
+    /**
      * Gets the is exportable flag of the certificate.
      */
     readonly isExportable: boolean;

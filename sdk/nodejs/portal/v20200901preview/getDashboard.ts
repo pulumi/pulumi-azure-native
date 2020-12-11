@@ -35,6 +35,10 @@ export interface GetDashboardArgs {
  */
 export interface GetDashboardResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * The dashboard lenses.
      */
     readonly lenses?: outputs.portal.v20200901preview.DashboardLensResponse[];

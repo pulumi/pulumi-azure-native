@@ -47,6 +47,10 @@ export interface GetAppServicePlanResult {
      */
     readonly hostingEnvironmentProfile?: outputs.web.v20160901.HostingEnvironmentProfileResponse;
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * If <code>true</code>, this App Service Plan owns spot instances.
      */
     readonly isSpot?: boolean;

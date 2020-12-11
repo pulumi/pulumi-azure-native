@@ -47,6 +47,10 @@ export interface GetVirtualMachineScaleSetResult {
      */
     readonly doNotRunExtensionsOnOverprovisionedVMs?: boolean;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * The identity of the virtual machine scale set, if configured.
      */
     readonly identity?: outputs.compute.v20190701.VirtualMachineScaleSetIdentityResponse;

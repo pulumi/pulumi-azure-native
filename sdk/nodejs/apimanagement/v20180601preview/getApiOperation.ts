@@ -53,6 +53,10 @@ export interface GetApiOperationResult {
      */
     readonly displayName: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
      */
     readonly method: string;

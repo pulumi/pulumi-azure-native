@@ -45,6 +45,10 @@ export interface GetDataSetArgs {
  */
 export interface GetDataSetResult {
     /**
+     * The resource id of the azure resource
+     */
+    readonly id: string;
+    /**
      * Kind of data set.
      */
     readonly kind: string;

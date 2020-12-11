@@ -52,6 +52,10 @@ export interface GetDataStoreResult {
      */
     readonly extendedProperties?: any;
     /**
+     * Id of the object.
+     */
+    readonly id: string;
+    /**
      * Name of the object.
      */
     readonly name: string;

@@ -51,6 +51,10 @@ export interface GetWorkspaceResult {
      */
     readonly extraProperties: {[key: string]: any};
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * Identity of the workspace
      */
     readonly identity?: outputs.synapse.v20190601preview.ManagedIdentityResponse;

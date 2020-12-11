@@ -49,6 +49,10 @@ export interface GetAssessmentResult {
      */
     readonly eTag?: string;
     /**
+     * Path reference to this assessment. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}/assessment/{assessmentName}
+     */
+    readonly id: string;
+    /**
      * Unique name of an assessment.
      */
     readonly name: string;

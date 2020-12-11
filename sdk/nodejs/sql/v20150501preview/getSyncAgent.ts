@@ -44,6 +44,10 @@ export interface GetSyncAgentResult {
      */
     readonly expiryTime: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * If the sync agent version is up to date.
      */
     readonly isUpToDate: boolean;

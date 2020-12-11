@@ -40,6 +40,10 @@ export interface GetMigrationConfigArgs {
  */
 export interface GetMigrationConfigResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * State in which Standard to Premium Migration is, possible values : Unknown, Reverting, Completing, Initiating, Syncing, Active
      */
     readonly migrationState: string;

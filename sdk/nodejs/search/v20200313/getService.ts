@@ -39,6 +39,10 @@ export interface GetServiceResult {
      */
     readonly hostingMode?: string;
     /**
+     * The ID of the resource. This can be used with the Azure Resource Manager to link resources together.
+     */
+    readonly id: string;
+    /**
      * The identity of the resource.
      */
     readonly identity?: outputs.search.v20200313.IdentityResponse;

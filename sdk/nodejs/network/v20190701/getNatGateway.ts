@@ -44,6 +44,10 @@ export interface GetNatGatewayResult {
      */
     readonly etag?: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * The idle timeout of the nat gateway.
      */
     readonly idleTimeoutInMinutes?: number;

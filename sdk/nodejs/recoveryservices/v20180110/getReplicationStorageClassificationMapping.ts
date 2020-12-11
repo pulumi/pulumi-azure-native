@@ -50,6 +50,10 @@ export interface GetReplicationStorageClassificationMappingArgs {
  */
 export interface GetReplicationStorageClassificationMappingResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource Location
      */
     readonly location?: string;

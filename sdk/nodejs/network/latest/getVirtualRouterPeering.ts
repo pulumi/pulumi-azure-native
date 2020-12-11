@@ -44,6 +44,10 @@ export interface GetVirtualRouterPeeringResult {
      */
     readonly etag: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * Name of the virtual router peering that is unique within a virtual router.
      */
     readonly name?: string;

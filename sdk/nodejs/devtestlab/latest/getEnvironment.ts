@@ -62,6 +62,10 @@ export interface GetEnvironmentResult {
      */
     readonly deploymentProperties?: outputs.devtestlab.latest.EnvironmentDeploymentPropertiesResponse;
     /**
+     * The identifier of the resource.
+     */
+    readonly id: string;
+    /**
      * The location of the resource.
      */
     readonly location?: string;

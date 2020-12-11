@@ -47,6 +47,10 @@ export interface GetRemediationAtResourceResult {
      */
     readonly filters?: outputs.policyinsights.latest.RemediationFiltersResponse;
     /**
+     * The ID of the remediation.
+     */
+    readonly id: string;
+    /**
      * The time at which the remediation was last updated.
      */
     readonly lastUpdatedOn: string;

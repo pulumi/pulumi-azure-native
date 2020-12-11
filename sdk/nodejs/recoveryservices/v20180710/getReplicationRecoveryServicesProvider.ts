@@ -45,6 +45,10 @@ export interface GetReplicationRecoveryServicesProviderArgs {
  */
 export interface GetReplicationRecoveryServicesProviderResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource Location
      */
     readonly location?: string;

@@ -43,6 +43,10 @@ export interface GetWorkbookTemplateResult {
      */
     readonly galleries: outputs.insights.v20191017preview.WorkbookTemplateGalleryResponse[];
     /**
+     * Azure resource Id
+     */
+    readonly id: string;
+    /**
      * Key value pair of localized gallery. Each key is the locale code of languages supported by the Azure portal.
      */
     readonly localized?: {[key: string]: outputs.insights.v20191017preview.WorkbookTemplateLocalizedGalleryResponse[]};

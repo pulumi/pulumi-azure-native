@@ -57,6 +57,10 @@ export interface GetLabResult {
      */
     readonly createdDate: string;
     /**
+     * The identifier of the resource.
+     */
+    readonly id: string;
+    /**
      * Invitation code that users can use to join a lab.
      */
     readonly invitationCode: string;

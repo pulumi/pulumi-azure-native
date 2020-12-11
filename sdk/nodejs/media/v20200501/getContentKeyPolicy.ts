@@ -48,6 +48,10 @@ export interface GetContentKeyPolicyResult {
      */
     readonly description?: string;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * The last modified date of the Policy
      */
     readonly lastModified: string;

@@ -48,6 +48,10 @@ export interface GetTransformResult {
      */
     readonly description?: string;
     /**
+     * Fully qualified resource ID for the resource.
+     */
+    readonly id: string;
+    /**
      * The UTC date and time when the Transform was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
      */
     readonly lastModified: string;

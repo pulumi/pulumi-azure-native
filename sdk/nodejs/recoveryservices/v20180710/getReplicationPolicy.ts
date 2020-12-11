@@ -40,6 +40,10 @@ export interface GetReplicationPolicyArgs {
  */
 export interface GetReplicationPolicyResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource Location
      */
     readonly location?: string;

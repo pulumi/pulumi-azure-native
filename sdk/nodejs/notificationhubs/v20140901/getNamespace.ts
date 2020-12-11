@@ -35,6 +35,10 @@ export interface GetNamespaceArgs {
  */
 export interface GetNamespaceResult {
     /**
+     * Gets or sets the id of the created Namespace.
+     */
+    readonly id?: string;
+    /**
      * Gets or sets datacenter location of the Namespace.
      */
     readonly location?: string;

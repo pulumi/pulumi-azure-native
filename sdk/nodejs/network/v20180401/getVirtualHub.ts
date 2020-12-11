@@ -47,6 +47,10 @@ export interface GetVirtualHubResult {
      */
     readonly hubVirtualNetworkConnections?: outputs.network.v20180401.HubVirtualNetworkConnectionResponse[];
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * Resource location.
      */
     readonly location: string;

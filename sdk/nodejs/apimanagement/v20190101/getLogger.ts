@@ -49,6 +49,10 @@ export interface GetLoggerResult {
      */
     readonly description?: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Whether records are buffered in the logger before publishing. Default is assumed to be true.
      */
     readonly isBuffered?: boolean;

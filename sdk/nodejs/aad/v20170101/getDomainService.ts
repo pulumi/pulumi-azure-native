@@ -71,6 +71,10 @@ export interface GetDomainServiceResult {
      */
     readonly healthMonitors: outputs.aad.v20170101.HealthMonitorResponse[];
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Secure LDAP Settings
      */
     readonly ldapsSettings?: outputs.aad.v20170101.LdapsSettingsResponse;

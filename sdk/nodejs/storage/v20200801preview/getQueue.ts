@@ -41,6 +41,10 @@ export interface GetQueueResult {
      */
     readonly approximateMessageCount: number;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * A name-value pair that represents queue metadata.
      */
     readonly metadata?: {[key: string]: string};

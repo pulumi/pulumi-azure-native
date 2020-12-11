@@ -47,6 +47,10 @@ export interface GetScheduledQueryRuleResult {
      */
     readonly enabled?: string;
     /**
+     * Azure resource Id
+     */
+    readonly id: string;
+    /**
      * Last time the rule was updated in IS08601 format.
      */
     readonly lastUpdatedTime: string;

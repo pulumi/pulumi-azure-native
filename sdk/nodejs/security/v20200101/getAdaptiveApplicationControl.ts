@@ -39,6 +39,10 @@ export interface GetAdaptiveApplicationControlResult {
      * The application control policy enforcement/protection mode of the machine group
      */
     readonly enforcementMode?: string;
+    /**
+     * Resource Id
+     */
+    readonly id: string;
     readonly issues: outputs.security.v20200101.AdaptiveApplicationControlIssueSummaryResponse[];
     /**
      * Location where the resource is stored

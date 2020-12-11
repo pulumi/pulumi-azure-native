@@ -40,6 +40,10 @@ export interface GetRegistrationAssignmentArgs {
  */
 export interface GetRegistrationAssignmentResult {
     /**
+     * The fully qualified path of the registration assignment.
+     */
+    readonly id: string;
+    /**
      * Name of the registration assignment.
      */
     readonly name: string;

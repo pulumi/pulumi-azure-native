@@ -39,6 +39,10 @@ export interface GetMigrateProjectResult {
      */
     readonly eTag?: string;
     /**
+     * Gets the relative URL to get this migrate project.
+     */
+    readonly id: string;
+    /**
      * Gets or sets the Azure location in which migrate project is created.
      */
     readonly location?: string;

@@ -44,6 +44,10 @@ export interface GetPublicIPPrefixResult {
      */
     readonly etag?: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * The allocated Prefix
      */
     readonly ipPrefix?: string;

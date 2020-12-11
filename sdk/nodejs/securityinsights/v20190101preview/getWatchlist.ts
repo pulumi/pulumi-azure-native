@@ -73,6 +73,10 @@ export interface GetWatchlistResult {
      */
     readonly etag?: string;
     /**
+     * Azure resource Id
+     */
+    readonly id: string;
+    /**
      * A flag that indicates if the watchlist is deleted or not
      */
     readonly isDeleted?: boolean;

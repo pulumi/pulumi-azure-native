@@ -44,6 +44,10 @@ export interface GetGatewayResult {
      */
     readonly description?: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Gateway location.
      */
     readonly locationData?: outputs.apimanagement.v20200601preview.ResourceLocationDataContractResponse;

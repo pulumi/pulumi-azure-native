@@ -30,6 +30,10 @@ export interface GetConfigurationProfileArgs {
  */
 export interface GetConfigurationProfileResult {
     /**
+     * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}.
+     */
+    readonly id: string;
+    /**
      * The identity block returned by ARM resource that supports managed identity.
      */
     readonly identity?: outputs.changeanalysis.v20200401preview.ResourceIdentityResponse;

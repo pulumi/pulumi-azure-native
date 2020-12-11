@@ -52,6 +52,10 @@ export interface GetConnectionTypeResult {
      */
     readonly fieldDefinitions: {[key: string]: outputs.automation.v20151031.FieldDefinitionResponse};
     /**
+     * Gets the id of the resource.
+     */
+    readonly id: string;
+    /**
      * Gets or sets a Boolean value to indicate if the connection type is global.
      */
     readonly isGlobal?: boolean;

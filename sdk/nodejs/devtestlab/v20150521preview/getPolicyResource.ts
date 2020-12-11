@@ -61,6 +61,10 @@ export interface GetPolicyResourceResult {
      */
     readonly factName?: string;
     /**
+     * The identifier of the resource.
+     */
+    readonly id?: string;
+    /**
      * The location of the resource.
      */
     readonly location?: string;

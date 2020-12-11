@@ -43,6 +43,10 @@ export interface GetDigitalTwinResult {
      */
     readonly hostName: string;
     /**
+     * The resource identifier.
+     */
+    readonly id: string;
+    /**
      * Time when DigitalTwinsInstance was created.
      */
     readonly lastUpdatedTime: string;

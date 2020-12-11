@@ -80,6 +80,10 @@ export interface GetApplicationResult {
      */
     readonly iconPath?: string;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * Specifies the package application Id for MSIX applications
      */
     readonly msixPackageApplicationId?: string;

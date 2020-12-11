@@ -59,6 +59,10 @@ export interface GetVirtualNetworkGatewayConnectionResult {
      */
     readonly etag?: string;
     /**
+     * Resource Id
+     */
+    readonly id?: string;
+    /**
      * The Ingress Bytes Transferred in this connection
      */
     readonly ingressBytesTransferred?: number;

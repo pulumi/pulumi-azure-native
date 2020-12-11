@@ -50,6 +50,10 @@ export interface GetReplicationProtectionContainerMappingArgs {
  */
 export interface GetReplicationProtectionContainerMappingResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource Location
      */
     readonly location?: string;

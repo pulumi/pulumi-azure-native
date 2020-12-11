@@ -35,6 +35,10 @@ export interface GetDedicatedHsmArgs {
  */
 export interface GetDedicatedHsmResult {
     /**
+     * The Azure Resource Manager resource ID for the dedicated HSM.
+     */
+    readonly id: string;
+    /**
      * The supported Azure location where the dedicated HSM should be created.
      */
     readonly location: string;

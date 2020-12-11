@@ -45,6 +45,10 @@ export interface GetJobCredentialArgs {
  */
 export interface GetJobCredentialResult {
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

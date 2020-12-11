@@ -84,6 +84,10 @@ export interface GetAuthorizationServerResult {
      */
     readonly grantTypes: string[];
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

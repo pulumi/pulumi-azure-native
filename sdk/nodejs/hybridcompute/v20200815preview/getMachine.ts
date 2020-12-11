@@ -71,6 +71,10 @@ export interface GetMachineResult {
      * Machine Extensions information
      */
     readonly extensions?: outputs.hybridcompute.v20200815preview.MachineExtensionInstanceViewResponse[];
+    /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
     readonly identity?: outputs.hybridcompute.v20200815preview.MachineResponseIdentity;
     /**
      * The time of the last status change.

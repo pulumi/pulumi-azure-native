@@ -53,6 +53,10 @@ export interface GetVirtualMachineScaleSetExtensionResult {
      */
     readonly forceUpdateTag?: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * The name of the extension.
      */
     readonly name?: string;

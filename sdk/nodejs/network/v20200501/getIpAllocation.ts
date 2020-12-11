@@ -48,6 +48,10 @@ export interface GetIpAllocationResult {
      */
     readonly etag: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * The IPAM allocation ID.
      */
     readonly ipamAllocationId?: string;

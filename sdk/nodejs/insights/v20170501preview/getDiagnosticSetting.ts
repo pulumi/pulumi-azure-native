@@ -43,6 +43,10 @@ export interface GetDiagnosticSettingResult {
      */
     readonly eventHubName?: string;
     /**
+     * Azure resource Id
+     */
+    readonly id: string;
+    /**
      * A string indicating whether the export to Log Analytics should use the default destination type, i.e. AzureDiagnostics, or use a destination type constructed as follows: <normalized service identity>_<normalized category name>. Possible values are: Dedicated and null (null is default.)
      */
     readonly logAnalyticsDestinationType?: string;

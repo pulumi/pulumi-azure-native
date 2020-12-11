@@ -47,6 +47,10 @@ export interface GetContainerGroupResult {
      */
     readonly dnsConfig?: outputs.containerinstance.v20181001.DnsConfigurationResponse;
     /**
+     * The resource id.
+     */
+    readonly id: string;
+    /**
      * The identity of the container group, if configured.
      */
     readonly identity?: outputs.containerinstance.v20181001.ContainerGroupIdentityResponse;

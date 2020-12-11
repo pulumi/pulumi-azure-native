@@ -53,6 +53,10 @@ export interface GetApplicationTypeVersionResult {
      */
     readonly defaultParameterList: {[key: string]: string};
     /**
+     * Azure resource identifier.
+     */
+    readonly id: string;
+    /**
      * Azure resource location.
      */
     readonly location?: string;

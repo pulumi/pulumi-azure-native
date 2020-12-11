@@ -52,6 +52,10 @@ export interface GetVirtualNetworkResourceResult {
      */
     readonly externalProviderResourceId?: string;
     /**
+     * The identifier of the resource.
+     */
+    readonly id?: string;
+    /**
      * The location of the resource.
      */
     readonly location?: string;

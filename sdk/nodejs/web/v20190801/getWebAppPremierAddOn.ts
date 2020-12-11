@@ -40,6 +40,10 @@ export interface GetWebAppPremierAddOnArgs {
  */
 export interface GetWebAppPremierAddOnResult {
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;

@@ -56,6 +56,10 @@ export interface GetAttachedDatabaseConfigurationResult {
      */
     readonly defaultPrincipalsModificationKind: string;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * Resource location.
      */
     readonly location?: string;

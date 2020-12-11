@@ -88,6 +88,10 @@ export interface GetQueueResult {
      */
     readonly forwardTo?: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
      */
     readonly lockDuration?: string;

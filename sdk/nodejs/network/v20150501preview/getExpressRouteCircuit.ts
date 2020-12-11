@@ -47,6 +47,10 @@ export interface GetExpressRouteCircuitResult {
      */
     readonly etag?: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

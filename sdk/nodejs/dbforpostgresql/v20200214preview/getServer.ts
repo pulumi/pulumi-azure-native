@@ -72,6 +72,10 @@ export interface GetServerResult {
      */
     readonly haState: string;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * The Azure Active Directory identity of the server.
      */
     readonly identity?: outputs.dbforpostgresql.v20200214preview.IdentityResponse;

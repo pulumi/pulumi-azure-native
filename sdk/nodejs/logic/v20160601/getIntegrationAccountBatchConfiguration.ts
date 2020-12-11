@@ -40,6 +40,10 @@ export interface GetIntegrationAccountBatchConfigurationArgs {
  */
 export interface GetIntegrationAccountBatchConfigurationResult {
     /**
+     * The resource id.
+     */
+    readonly id: string;
+    /**
      * The resource location.
      */
     readonly location?: string;

@@ -52,6 +52,10 @@ export interface GetNamespaceAuthorizationRuleResult {
      */
     readonly createdTime: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * A string that describes the authorization rule.
      */
     readonly keyName: string;

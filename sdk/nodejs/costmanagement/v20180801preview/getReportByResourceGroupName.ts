@@ -47,6 +47,10 @@ export interface GetReportByResourceGroupNameResult {
      */
     readonly format?: string;
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

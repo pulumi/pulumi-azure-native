@@ -43,6 +43,10 @@ export interface GetWorkspaceResult {
      */
     readonly eTag?: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location?: string;

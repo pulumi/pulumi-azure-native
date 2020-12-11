@@ -56,6 +56,10 @@ export interface GetEnvironmentResult {
      */
     readonly dataRetentionTime: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

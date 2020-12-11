@@ -56,6 +56,10 @@ export interface GetDiagnosticResult {
      */
     readonly httpCorrelationProtocol?: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Log the ClientIP. Default is false.
      */
     readonly logClientIp?: boolean;

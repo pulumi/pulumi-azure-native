@@ -52,6 +52,10 @@ export interface GetPacketCaptureResult {
      */
     readonly filters?: outputs.network.v20190401.PacketCaptureFilterResponse[];
     /**
+     * ID of the packet capture operation.
+     */
+    readonly id: string;
+    /**
      * Name of the packet capture session.
      */
     readonly name: string;

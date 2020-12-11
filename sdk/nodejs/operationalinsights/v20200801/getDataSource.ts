@@ -44,6 +44,10 @@ export interface GetDataSourceResult {
      */
     readonly etag?: string;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * The kind of the DataSource.
      */
     readonly kind: string;

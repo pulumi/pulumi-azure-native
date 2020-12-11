@@ -48,6 +48,10 @@ export interface GetServerAzureADAdministratorResult {
      */
     readonly azureADOnlyAuthentication: boolean;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Login name of the server administrator.
      */
     readonly login: string;

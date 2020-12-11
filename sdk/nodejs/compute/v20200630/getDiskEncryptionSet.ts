@@ -43,6 +43,10 @@ export interface GetDiskEncryptionSetResult {
      */
     readonly encryptionType?: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
      */
     readonly identity?: outputs.compute.v20200630.EncryptionSetIdentityResponse;

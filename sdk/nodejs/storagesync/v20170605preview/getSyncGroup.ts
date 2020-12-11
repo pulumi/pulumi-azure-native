@@ -40,6 +40,10 @@ export interface GetSyncGroupArgs {
  */
 export interface GetSyncGroupResult {
     /**
+     * The id of the resource.
+     */
+    readonly id: string;
+    /**
      * The name of the resource.
      */
     readonly name: string;

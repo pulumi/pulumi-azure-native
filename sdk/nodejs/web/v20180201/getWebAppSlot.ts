@@ -111,6 +111,10 @@ export interface GetWebAppSlotResult {
      */
     readonly hyperV?: boolean;
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Managed service identity.
      */
     readonly identity?: outputs.web.v20180201.ManagedServiceIdentityResponse;

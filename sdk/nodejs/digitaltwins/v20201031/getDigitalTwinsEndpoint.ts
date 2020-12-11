@@ -40,6 +40,10 @@ export interface GetDigitalTwinsEndpointArgs {
  */
 export interface GetDigitalTwinsEndpointResult {
     /**
+     * The resource identifier.
+     */
+    readonly id: string;
+    /**
      * Extension resource name.
      */
     readonly name: string;

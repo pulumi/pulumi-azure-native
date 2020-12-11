@@ -40,6 +40,10 @@ export interface ListSiteAppSettingsSlotArgs {
  */
 export interface ListSiteAppSettingsSlotResult {
     /**
+     * Resource Id
+     */
+    readonly id?: string;
+    /**
      * Kind of resource
      */
     readonly kind?: string;

@@ -39,6 +39,10 @@ export interface GetGuestDiagnosticsSettingsAssociationResult {
      */
     readonly guestDiagnosticSettingsName: string;
     /**
+     * Azure resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

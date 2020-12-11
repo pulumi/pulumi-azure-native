@@ -40,6 +40,10 @@ export interface ListWebAppFunctionKeysArgs {
  */
 export interface ListWebAppFunctionKeysResult {
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;

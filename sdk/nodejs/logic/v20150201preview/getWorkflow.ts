@@ -52,6 +52,10 @@ export interface GetWorkflowResult {
      */
     readonly definitionLink?: outputs.logic.v20150201preview.ContentLinkResponse;
     /**
+     * Gets or sets the resource id.
+     */
+    readonly id?: string;
+    /**
      * Gets or sets the resource location.
      */
     readonly location?: string;

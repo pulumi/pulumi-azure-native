@@ -41,6 +41,10 @@ export interface GetSecurityPolicyArgs {
 export interface GetSecurityPolicyResult {
     readonly deploymentStatus: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

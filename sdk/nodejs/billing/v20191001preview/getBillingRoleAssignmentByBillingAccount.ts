@@ -51,6 +51,10 @@ export interface GetBillingRoleAssignmentByBillingAccountResult {
      */
     readonly createdOn: string;
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

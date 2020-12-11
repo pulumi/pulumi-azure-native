@@ -39,6 +39,10 @@ export interface GetWorkspaceAadAdminResult {
      */
     readonly administratorType?: string;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * Login of the workspace active directory administrator
      */
     readonly login?: string;

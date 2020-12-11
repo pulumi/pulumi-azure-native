@@ -45,6 +45,10 @@ export interface GetGeoBackupPolicyArgs {
  */
 export interface GetGeoBackupPolicyResult {
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Kind of geo backup policy.  This is metadata used for the Azure portal experience.
      */
     readonly kind: string;

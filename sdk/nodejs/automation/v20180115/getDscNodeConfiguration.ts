@@ -48,6 +48,10 @@ export interface GetDscNodeConfigurationResult {
      */
     readonly creationTime?: string;
     /**
+     * Fully qualified resource Id for the resource
+     */
+    readonly id: string;
+    /**
      * If a new build version of NodeConfiguration is required.
      */
     readonly incrementNodeConfigurationBuild?: boolean;

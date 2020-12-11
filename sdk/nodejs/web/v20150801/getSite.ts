@@ -97,6 +97,10 @@ export interface GetSiteResult {
      */
     readonly hostingEnvironmentProfile?: outputs.web.v20150801.HostingEnvironmentProfileResponse;
     /**
+     * Resource Id
+     */
+    readonly id?: string;
+    /**
      * Site is a default container
      */
     readonly isDefaultContainer: boolean;

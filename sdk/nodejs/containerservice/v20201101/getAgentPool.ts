@@ -56,6 +56,10 @@ export interface GetAgentPoolResult {
      */
     readonly enableNodePublicIP?: boolean;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * KubeletConfig specifies the configuration of kubelet on agent nodes.
      */
     readonly kubeletConfig?: outputs.containerservice.v20201101.KubeletConfigResponse;

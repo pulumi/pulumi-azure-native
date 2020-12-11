@@ -50,6 +50,10 @@ export interface GetReplicationMigrationItemArgs {
  */
 export interface GetReplicationMigrationItemResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource Location
      */
     readonly location?: string;

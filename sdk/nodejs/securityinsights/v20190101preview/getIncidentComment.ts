@@ -62,6 +62,10 @@ export interface GetIncidentCommentResult {
      */
     readonly etag?: string;
     /**
+     * Azure resource Id
+     */
+    readonly id: string;
+    /**
      * The time the comment was updated
      */
     readonly lastModifiedTimeUtc: string;

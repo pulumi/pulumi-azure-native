@@ -62,6 +62,10 @@ export interface GetBackupResult {
      */
     readonly creationDate: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Label for backup
      */
     readonly label?: string;

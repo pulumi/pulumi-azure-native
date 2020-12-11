@@ -35,6 +35,10 @@ export interface GetServiceArgs {
  */
 export interface GetServiceResult {
     /**
+     * Fully qualified resource Id for the resource.
+     */
+    readonly id: string;
+    /**
      * The GEO location of the resource.
      */
     readonly location?: string;

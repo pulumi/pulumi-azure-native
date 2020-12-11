@@ -75,6 +75,10 @@ export interface GetVirtualNetworkGatewayConnectionResult {
      */
     readonly expressRouteGatewayBypass?: boolean;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * The ingress bytes transferred in this connection.
      */
     readonly ingressBytesTransferred: number;

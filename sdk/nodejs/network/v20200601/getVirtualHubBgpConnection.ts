@@ -48,6 +48,10 @@ export interface GetVirtualHubBgpConnectionResult {
      */
     readonly etag: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * Name of the connection.
      */
     readonly name?: string;

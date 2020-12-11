@@ -43,6 +43,10 @@ export interface GetPrivateCloudResult {
      */
     readonly endpoints: outputs.avs.v20200320.EndpointsResponse;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * vCenter Single Sign On Identity Sources
      */
     readonly identitySources?: outputs.avs.v20200320.IdentitySourceResponse[];

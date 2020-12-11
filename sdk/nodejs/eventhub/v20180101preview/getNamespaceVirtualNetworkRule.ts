@@ -40,6 +40,10 @@ export interface GetNamespaceVirtualNetworkRuleArgs {
  */
 export interface GetNamespaceVirtualNetworkRuleResult {
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

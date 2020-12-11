@@ -58,6 +58,10 @@ export interface GetSqlPoolWorkloadClassifierResult {
      */
     readonly endTime?: string;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * The workload classifier importance.
      */
     readonly importance?: string;

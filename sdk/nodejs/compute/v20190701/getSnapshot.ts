@@ -59,6 +59,10 @@ export interface GetSnapshotResult {
      */
     readonly hyperVGeneration?: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
      */
     readonly incremental?: boolean;

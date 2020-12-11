@@ -40,6 +40,10 @@ export interface GetControllerResult {
      */
     readonly hostSuffix: string;
     /**
+     * Fully qualified resource Id for the resource.
+     */
+    readonly id: string;
+    /**
      * Region where the Azure resource is located.
      */
     readonly location: string;

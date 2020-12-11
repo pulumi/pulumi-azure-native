@@ -56,6 +56,10 @@ export interface GetQueryResult {
      */
     readonly displayName: string;
     /**
+     * Azure resource Id
+     */
+    readonly id: string;
+    /**
      * Azure resource name
      */
     readonly name: string;

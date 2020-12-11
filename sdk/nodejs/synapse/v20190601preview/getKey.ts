@@ -40,6 +40,10 @@ export interface GetKeyArgs {
  */
 export interface GetKeyResult {
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * Used to activate the workspace after a customer managed key is provided.
      */
     readonly isActiveCMK?: boolean;

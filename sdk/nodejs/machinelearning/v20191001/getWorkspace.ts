@@ -39,6 +39,10 @@ export interface GetWorkspaceResult {
      */
     readonly creationTime: string;
     /**
+     * The resource ID.
+     */
+    readonly id: string;
+    /**
      * The key vault identifier used for encrypted workspaces.
      */
     readonly keyVaultIdentifierId?: string;

@@ -43,6 +43,10 @@ export interface GetAzureFirewallResult {
      */
     readonly etag: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * IP configuration of the Azure Firewall resource.
      */
     readonly ipConfigurations?: outputs.network.v20180401.AzureFirewallIPConfigurationResponse[];

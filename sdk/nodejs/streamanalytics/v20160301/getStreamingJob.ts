@@ -72,6 +72,10 @@ export interface GetStreamingJobResult {
      */
     readonly functions?: outputs.streamanalytics.v20160301.FunctionResponse[];
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
      */
     readonly inputs?: outputs.streamanalytics.v20160301.InputResponse[];

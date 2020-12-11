@@ -47,6 +47,10 @@ export interface GetPolicyAssignmentResult {
      */
     readonly enforcementMode?: string;
     /**
+     * The ID of the policy assignment.
+     */
+    readonly id: string;
+    /**
      * The managed identity associated with the policy assignment.
      */
     readonly identity?: outputs.authorization.v20190601.IdentityResponse;

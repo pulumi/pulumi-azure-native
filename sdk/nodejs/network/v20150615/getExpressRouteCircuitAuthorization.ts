@@ -52,6 +52,10 @@ export interface GetExpressRouteCircuitAuthorizationResult {
      */
     readonly etag?: string;
     /**
+     * Resource Identifier.
+     */
+    readonly id?: string;
+    /**
      * Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
     readonly name?: string;

@@ -51,6 +51,10 @@ export interface GetClusterResult {
      */
     readonly cloudId: string;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * Most recent billing meter timestamp.
      */
     readonly lastBillingTimestamp: string;

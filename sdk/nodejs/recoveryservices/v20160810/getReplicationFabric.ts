@@ -40,6 +40,10 @@ export interface GetReplicationFabricArgs {
  */
 export interface GetReplicationFabricResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource Location
      */
     readonly location?: string;

@@ -48,6 +48,10 @@ export interface GetHubRouteTableResult {
      */
     readonly etag: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * List of labels associated with this route table.
      */
     readonly labels?: string[];

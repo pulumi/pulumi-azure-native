@@ -61,6 +61,10 @@ export interface GetViewResult {
      */
     readonly displayName?: {[key: string]: string};
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

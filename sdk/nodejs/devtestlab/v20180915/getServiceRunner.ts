@@ -40,6 +40,10 @@ export interface GetServiceRunnerArgs {
  */
 export interface GetServiceRunnerResult {
     /**
+     * The identifier of the resource.
+     */
+    readonly id: string;
+    /**
      * The identity of the resource.
      */
     readonly identity?: outputs.devtestlab.v20180915.IdentityPropertiesResponse;

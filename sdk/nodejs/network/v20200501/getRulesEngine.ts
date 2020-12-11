@@ -40,6 +40,10 @@ export interface GetRulesEngineArgs {
  */
 export interface GetRulesEngineResult {
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

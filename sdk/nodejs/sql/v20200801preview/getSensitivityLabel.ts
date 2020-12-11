@@ -64,6 +64,10 @@ export interface GetSensitivityLabelResult {
      */
     readonly columnName: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * The information type.
      */
     readonly informationType?: string;

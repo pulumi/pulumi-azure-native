@@ -40,6 +40,10 @@ export interface GetReplicationRecoveryPlanArgs {
  */
 export interface GetReplicationRecoveryPlanResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource Location
      */
     readonly location?: string;

@@ -45,6 +45,10 @@ export interface GetTriggerArgs {
  */
 export interface GetTriggerResult {
     /**
+     * The resource id of the azure resource
+     */
+    readonly id: string;
+    /**
      * Kind of synchronization
      */
     readonly kind: string;

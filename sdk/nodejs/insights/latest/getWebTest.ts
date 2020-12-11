@@ -51,6 +51,10 @@ export interface GetWebTestResult {
      */
     readonly frequency?: number;
     /**
+     * Azure resource Id
+     */
+    readonly id: string;
+    /**
      * The kind of web test that this web test watches. Choices are ping and multistep.
      */
     readonly kind?: string;

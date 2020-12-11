@@ -51,6 +51,10 @@ export interface GetWorkflowResult {
      */
     readonly definition?: any;
     /**
+     * The resource id.
+     */
+    readonly id: string;
+    /**
      * The integration account.
      */
     readonly integrationAccount?: outputs.logic.v20180701preview.ResourceReferenceResponse;

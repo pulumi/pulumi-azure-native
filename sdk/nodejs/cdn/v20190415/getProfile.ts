@@ -35,6 +35,10 @@ export interface GetProfileArgs {
  */
 export interface GetProfileResult {
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource location.
      */
     readonly location: string;

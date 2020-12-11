@@ -44,6 +44,10 @@ export interface GetApplicationTypeResult {
      */
     readonly etag: string;
     /**
+     * Azure resource identifier.
+     */
+    readonly id: string;
+    /**
      * It will be deprecated in New API, resource location depends on the parent resource.
      */
     readonly location?: string;

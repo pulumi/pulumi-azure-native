@@ -54,6 +54,10 @@ export interface GetScopeMapResult {
      */
     readonly description?: string;
     /**
+     * The resource ID.
+     */
+    readonly id: string;
+    /**
      * The name of the resource.
      */
     readonly name: string;

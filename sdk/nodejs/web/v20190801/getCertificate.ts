@@ -59,6 +59,10 @@ export interface GetCertificateResult {
      */
     readonly hostingEnvironmentProfile: outputs.web.v20190801.HostingEnvironmentProfileResponse;
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Certificate issue Date.
      */
     readonly issueDate: string;

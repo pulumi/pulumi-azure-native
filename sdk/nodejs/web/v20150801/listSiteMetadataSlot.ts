@@ -40,6 +40,10 @@ export interface ListSiteMetadataSlotArgs {
  */
 export interface ListSiteMetadataSlotResult {
     /**
+     * Resource Id
+     */
+    readonly id?: string;
+    /**
      * Kind of resource
      */
     readonly kind?: string;

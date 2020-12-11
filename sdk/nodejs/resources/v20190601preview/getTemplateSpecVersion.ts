@@ -48,6 +48,10 @@ export interface GetTemplateSpecVersionResult {
      */
     readonly description?: string;
     /**
+     * String Id used to locate any resource on Azure.
+     */
+    readonly id: string;
+    /**
      * The location of the Template Spec Version. It must match the location of the parent Template Spec.
      */
     readonly location: string;

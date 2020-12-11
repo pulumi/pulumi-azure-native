@@ -35,6 +35,10 @@ export interface GetJobArgs {
  */
 export interface GetJobResult {
     /**
+     * Specifies the resource identifier of the job.
+     */
+    readonly id: string;
+    /**
      * Specifies the job identity details
      */
     readonly identity?: outputs.importexport.v20200801.IdentityDetailsResponse;

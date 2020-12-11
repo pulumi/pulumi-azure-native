@@ -81,6 +81,10 @@ export interface GetSubscriptionResult {
      */
     readonly entityAvailabilityStatus?: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Value that indicates whether the entity description is read-only.
      */
     readonly isReadOnly?: boolean;

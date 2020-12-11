@@ -37,6 +37,10 @@ export interface GetJobArgs {
 
 export interface GetJobResult {
     /**
+     * Gets the job resource identifier.
+     */
+    readonly id: string;
+    /**
      * Gets the job resource name.
      */
     readonly name: string;

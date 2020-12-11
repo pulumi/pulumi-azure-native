@@ -35,6 +35,10 @@ export interface ListWebAppSyncFunctionTriggersArgs {
  */
 export interface ListWebAppSyncFunctionTriggersResult {
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Secret key.
      */
     readonly key?: string;

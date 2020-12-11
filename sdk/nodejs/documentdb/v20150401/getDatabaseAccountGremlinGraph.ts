@@ -57,6 +57,10 @@ export interface GetDatabaseAccountGremlinGraphResult {
      */
     readonly etag?: string;
     /**
+     * The unique resource identifier of the database account.
+     */
+    readonly id: string;
+    /**
      * The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
      */
     readonly indexingPolicy?: outputs.documentdb.v20150401.IndexingPolicyResponse;

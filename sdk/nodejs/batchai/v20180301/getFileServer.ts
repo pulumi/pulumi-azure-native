@@ -40,6 +40,10 @@ export interface GetFileServerResult {
      */
     readonly dataDisks?: outputs.batchai.v20180301.DataDisksResponse;
     /**
+     * The ID of the resource
+     */
+    readonly id: string;
+    /**
      * The location of the resource
      */
     readonly location: string;

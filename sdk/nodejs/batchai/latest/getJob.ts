@@ -105,6 +105,10 @@ export interface GetJobResult {
      */
     readonly horovodSettings?: outputs.batchai.latest.HorovodSettingsResponse;
     /**
+     * The ID of the resource.
+     */
+    readonly id: string;
+    /**
      * A list of input directories for the job.
      */
     readonly inputDirectories?: outputs.batchai.latest.InputDirectoryResponse[];

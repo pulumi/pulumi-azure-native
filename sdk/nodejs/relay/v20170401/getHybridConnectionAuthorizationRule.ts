@@ -45,6 +45,10 @@ export interface GetHybridConnectionAuthorizationRuleArgs {
  */
 export interface GetHybridConnectionAuthorizationRuleResult {
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

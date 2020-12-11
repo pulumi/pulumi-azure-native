@@ -40,6 +40,10 @@ export interface ListWebAppFunctionSecretsArgs {
  */
 export interface ListWebAppFunctionSecretsResult {
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Secret key.
      */
     readonly key?: string;

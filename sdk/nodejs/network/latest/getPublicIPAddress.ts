@@ -56,6 +56,10 @@ export interface GetPublicIPAddressResult {
      */
     readonly extendedLocation?: outputs.network.latest.ExtendedLocationResponse;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * The idle timeout of the public IP address.
      */
     readonly idleTimeoutInMinutes?: number;

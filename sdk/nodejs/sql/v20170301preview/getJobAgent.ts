@@ -44,6 +44,10 @@ export interface GetJobAgentResult {
      */
     readonly databaseId: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource location.
      */
     readonly location: string;

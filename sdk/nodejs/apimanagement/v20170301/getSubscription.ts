@@ -56,6 +56,10 @@ export interface GetSubscriptionResult {
      */
     readonly expirationDate?: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

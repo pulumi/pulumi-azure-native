@@ -40,6 +40,10 @@ export interface GetDomainTopicArgs {
  */
 export interface GetDomainTopicResult {
     /**
+     * Fully qualified identifier of the resource.
+     */
+    readonly id: string;
+    /**
      * Name of the resource.
      */
     readonly name: string;

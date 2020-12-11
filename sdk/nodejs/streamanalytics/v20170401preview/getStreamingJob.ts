@@ -84,6 +84,10 @@ export interface GetStreamingJobResult {
      */
     readonly functions?: outputs.streamanalytics.v20170401preview.FunctionResponse[];
     /**
+     * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * Describes the system-assigned managed identity assigned to this job that can be used to authenticate with inputs and outputs.
      */
     readonly identity?: outputs.streamanalytics.v20170401preview.IdentityResponse;

@@ -44,6 +44,10 @@ export interface GetAccessPolicyResult {
      */
     readonly description?: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource name
      */
     readonly name: string;

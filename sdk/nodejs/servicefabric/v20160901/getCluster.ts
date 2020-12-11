@@ -79,6 +79,10 @@ export interface GetClusterResult {
      */
     readonly fabricSettings?: outputs.servicefabric.v20160901.SettingsSectionDescriptionResponse[];
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource location.
      */
     readonly location: string;

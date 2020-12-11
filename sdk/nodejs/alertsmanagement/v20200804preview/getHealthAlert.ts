@@ -51,6 +51,10 @@ export interface GetHealthAlertResult {
      */
     readonly enabled: boolean;
     /**
+     * Azure resource Id
+     */
+    readonly id: string;
+    /**
      * Last time the rule was updated in ISO8601 format.
      */
     readonly lastUpdatedTime: string;

@@ -35,6 +35,10 @@ export interface GetCloudServiceArgs {
  */
 export interface GetCloudServiceResult {
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Resource location.
      */
     readonly location: string;

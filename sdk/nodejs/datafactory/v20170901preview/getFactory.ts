@@ -39,6 +39,10 @@ export interface GetFactoryResult {
      */
     readonly createTime: string;
     /**
+     * The resource identifier.
+     */
+    readonly id: string;
+    /**
      * Managed service identity of the factory.
      */
     readonly identity?: outputs.datafactory.v20170901preview.FactoryIdentityResponse;

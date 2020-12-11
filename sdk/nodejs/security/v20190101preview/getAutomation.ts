@@ -47,6 +47,10 @@ export interface GetAutomationResult {
      */
     readonly etag?: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Indicates whether the security automation is enabled.
      */
     readonly isEnabled?: boolean;

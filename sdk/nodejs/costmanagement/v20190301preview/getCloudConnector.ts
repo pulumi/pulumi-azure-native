@@ -71,6 +71,10 @@ export interface GetCloudConnectorResult {
      */
     readonly externalBillingAccountId: string;
     /**
+     * Connector id
+     */
+    readonly id: string;
+    /**
      * Connector kind (eg aws)
      */
     readonly kind?: string;

@@ -49,6 +49,10 @@ export interface GetConnectionMonitorResult {
     readonly destination: outputs.network.v20180601.ConnectionMonitorDestinationResponse;
     readonly etag?: string;
     /**
+     * ID of the connection monitor.
+     */
+    readonly id: string;
+    /**
      * Connection monitor location.
      */
     readonly location?: string;

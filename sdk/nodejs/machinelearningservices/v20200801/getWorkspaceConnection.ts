@@ -48,6 +48,10 @@ export interface GetWorkspaceConnectionResult {
      */
     readonly category?: string;
     /**
+     * ResourceId of the workspace connection.
+     */
+    readonly id: string;
+    /**
      * Friendly name of the workspace connection.
      */
     readonly name: string;

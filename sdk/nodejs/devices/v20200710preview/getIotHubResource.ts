@@ -39,6 +39,10 @@ export interface GetIotHubResourceResult {
      */
     readonly etag?: string;
     /**
+     * The resource identifier.
+     */
+    readonly id: string;
+    /**
      * The managed identities for the IotHub.
      */
     readonly identity?: outputs.devices.v20200710preview.ArmIdentityResponse;

@@ -56,6 +56,10 @@ export interface GetDataExportResult {
      */
     readonly eventHubName?: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Date and time when the export was last modified.
      */
     readonly lastModifiedDate?: string;

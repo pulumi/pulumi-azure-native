@@ -39,6 +39,10 @@ export interface GetPipelineResult {
      */
     readonly bootstrapConfiguration: outputs.devops.v20190701preview.BootstrapConfigurationResponse;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource Location
      */
     readonly location?: string;

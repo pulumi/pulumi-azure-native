@@ -48,6 +48,10 @@ export interface GetScheduleResourceResult {
      */
     readonly hourlyRecurrence?: outputs.devtestlab.v20150521preview.HourDetailsResponse;
     /**
+     * The identifier of the resource.
+     */
+    readonly id?: string;
+    /**
      * The location of the resource.
      */
     readonly location?: string;

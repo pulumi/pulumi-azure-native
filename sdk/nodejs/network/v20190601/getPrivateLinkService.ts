@@ -56,6 +56,10 @@ export interface GetPrivateLinkServiceResult {
      */
     readonly fqdns?: string[];
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * An array of references to the private link service IP configuration.
      */
     readonly ipConfigurations?: outputs.network.v20190601.PrivateLinkServiceIpConfigurationResponse[];

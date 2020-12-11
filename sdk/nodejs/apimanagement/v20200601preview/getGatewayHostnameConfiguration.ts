@@ -57,6 +57,10 @@ export interface GetGatewayHostnameConfigurationResult {
      */
     readonly http2Enabled?: boolean;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

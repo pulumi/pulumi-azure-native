@@ -30,6 +30,10 @@ export interface GetTagAtScopeArgs {
  */
 export interface GetTagAtScopeResult {
     /**
+     * The ID of the tags wrapper resource.
+     */
+    readonly id: string;
+    /**
      * The name of the tags wrapper resource.
      */
     readonly name: string;

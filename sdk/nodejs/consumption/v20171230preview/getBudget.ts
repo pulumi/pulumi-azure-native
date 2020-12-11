@@ -46,6 +46,10 @@ export interface GetBudgetResult {
      */
     readonly eTag?: string;
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

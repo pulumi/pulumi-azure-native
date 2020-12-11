@@ -56,6 +56,10 @@ export interface GetLiveEventResult {
      */
     readonly encoding?: outputs.media.v20180330preview.LiveEventEncodingResponse;
     /**
+     * Fully qualified resource ID for the resource.
+     */
+    readonly id: string;
+    /**
      * The Live Event input.
      */
     readonly input: outputs.media.v20180330preview.LiveEventInputResponse;

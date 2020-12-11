@@ -61,6 +61,10 @@ export interface GetTagDescriptionResult {
      */
     readonly externalDocsUrl?: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

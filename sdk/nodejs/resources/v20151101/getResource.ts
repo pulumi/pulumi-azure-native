@@ -50,6 +50,10 @@ export interface GetResourceArgs {
  */
 export interface GetResourceResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

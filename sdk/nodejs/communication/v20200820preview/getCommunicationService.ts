@@ -43,6 +43,10 @@ export interface GetCommunicationServiceResult {
      */
     readonly hostName: string;
     /**
+     * Fully qualified resource ID for the resource.
+     */
+    readonly id: string;
+    /**
      * The immutable resource Id of the communication service.
      */
     readonly immutableResourceId: string;

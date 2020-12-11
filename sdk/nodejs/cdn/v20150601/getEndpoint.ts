@@ -48,6 +48,10 @@ export interface GetEndpointResult {
      */
     readonly hostName: string;
     /**
+     * Resource ID
+     */
+    readonly id: string;
+    /**
      * Indicates whether the compression is enabled. Default value is false. If compression is enabled, the content transferred from cdn endpoint to end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.
      */
     readonly isCompressionEnabled?: boolean;

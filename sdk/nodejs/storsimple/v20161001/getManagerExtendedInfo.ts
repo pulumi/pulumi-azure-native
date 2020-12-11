@@ -51,6 +51,10 @@ export interface GetManagerExtendedInfoResult {
      */
     readonly etag?: string;
     /**
+     * The identifier.
+     */
+    readonly id: string;
+    /**
      * Represents the CIK of the resource
      */
     readonly integrityKey: string;

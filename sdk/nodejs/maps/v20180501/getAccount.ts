@@ -35,6 +35,10 @@ export interface GetAccountArgs {
  */
 export interface GetAccountResult {
     /**
+     * The fully qualified Maps Account resource identifier.
+     */
+    readonly id: string;
+    /**
      * The location of the resource.
      */
     readonly location: string;

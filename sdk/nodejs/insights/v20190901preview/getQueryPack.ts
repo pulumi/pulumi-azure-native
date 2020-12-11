@@ -35,6 +35,10 @@ export interface GetQueryPackArgs {
  */
 export interface GetQueryPackResult {
     /**
+     * Azure resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

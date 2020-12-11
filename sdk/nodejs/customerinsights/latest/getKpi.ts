@@ -92,6 +92,10 @@ export interface GetKpiResult {
      */
     readonly groupByMetadata: outputs.customerinsights.latest.KpiGroupByMetadataResponse[];
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * The KPI name.
      */
     readonly kpiName: string;

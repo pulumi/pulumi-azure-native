@@ -47,6 +47,10 @@ export interface GetServerResult {
      */
     readonly fullyQualifiedDomainName: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * The Azure Active Directory identity of the server.
      */
     readonly identity?: outputs.sql.v20200801preview.ResourceIdentityResponse;

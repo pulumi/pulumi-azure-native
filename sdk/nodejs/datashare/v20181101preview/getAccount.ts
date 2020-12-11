@@ -39,6 +39,10 @@ export interface GetAccountResult {
      */
     readonly createdAt: string;
     /**
+     * The resource id of the azure resource
+     */
+    readonly id: string;
+    /**
      * Identity Info on the Account
      */
     readonly identity: outputs.datashare.v20181101preview.IdentityResponse;

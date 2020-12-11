@@ -35,6 +35,10 @@ export interface GetRoleAssignmentArgs {
  */
 export interface GetRoleAssignmentResult {
     /**
+     * The role assignment ID.
+     */
+    readonly id: string;
+    /**
      * The role assignment name.
      */
     readonly name: string;

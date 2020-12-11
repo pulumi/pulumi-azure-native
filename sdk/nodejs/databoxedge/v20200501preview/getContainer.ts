@@ -57,6 +57,10 @@ export interface GetContainerResult {
      */
     readonly dataFormat: string;
     /**
+     * The path ID that uniquely identifies the object.
+     */
+    readonly id: string;
+    /**
      * The object name.
      */
     readonly name: string;

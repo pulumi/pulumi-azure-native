@@ -44,6 +44,10 @@ export interface GetMSIXPackageResult {
      */
     readonly displayName?: string;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * VHD/CIM image path on Network Share.
      */
     readonly imagePath?: string;

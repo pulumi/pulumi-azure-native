@@ -51,6 +51,10 @@ export interface GetVirtualMachineScaleSetResult {
      */
     readonly hostGroup?: outputs.compute.latest.SubResourceResponse;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * The identity of the virtual machine scale set, if configured.
      */
     readonly identity?: outputs.compute.latest.VirtualMachineScaleSetIdentityResponse;

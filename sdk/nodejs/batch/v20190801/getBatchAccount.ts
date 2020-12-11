@@ -56,6 +56,10 @@ export interface GetBatchAccountResult {
      */
     readonly dedicatedCoreQuotaPerVMFamilyEnforced: boolean;
     /**
+     * The ID of the resource.
+     */
+    readonly id: string;
+    /**
      * Identifies the Azure key vault associated with a Batch account.
      */
     readonly keyVaultReference: outputs.batch.v20190801.KeyVaultReferenceResponse;

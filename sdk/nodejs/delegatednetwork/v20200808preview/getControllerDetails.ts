@@ -47,6 +47,10 @@ export interface GetControllerDetailsResult {
      */
     readonly dncTenantId: string;
     /**
+     * An identifier that represents the resource.
+     */
+    readonly id: string;
+    /**
      * Location of the resource.
      */
     readonly location?: string;

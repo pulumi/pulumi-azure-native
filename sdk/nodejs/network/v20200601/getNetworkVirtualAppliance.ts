@@ -60,6 +60,10 @@ export interface GetNetworkVirtualApplianceResult {
      */
     readonly etag: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * The service principal that has read access to cloud-init and config blob.
      */
     readonly identity?: outputs.network.v20200601.ManagedServiceIdentityResponse;

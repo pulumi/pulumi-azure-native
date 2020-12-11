@@ -44,6 +44,10 @@ export interface GetProtectionPolicyResult {
      */
     readonly eTag?: string;
     /**
+     * Resource ID represents the complete path to the resource.
+     */
+    readonly id?: string;
+    /**
      * Resource location.
      */
     readonly location?: string;

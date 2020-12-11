@@ -51,6 +51,10 @@ export interface GetWebApplicationFirewallPolicyResult {
      */
     readonly httpListeners: outputs.network.v20200401.SubResourceResponse[];
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * Resource location.
      */
     readonly location?: string;

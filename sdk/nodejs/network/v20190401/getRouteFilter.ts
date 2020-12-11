@@ -44,6 +44,10 @@ export interface GetRouteFilterResult {
      */
     readonly etag: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * A collection of references to express route circuit ipv6 peerings.
      */
     readonly ipv6Peerings?: outputs.network.v20190401.ExpressRouteCircuitPeeringResponse[];

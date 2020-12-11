@@ -43,6 +43,10 @@ export interface GetJitRequestResult {
      */
     readonly createdBy: outputs.solutions.v20190701.ApplicationClientDetailsResponse;
     /**
+     * Resource ID
+     */
+    readonly id: string;
+    /**
      * The JIT authorization policies.
      */
     readonly jitAuthorizationPolicies: outputs.solutions.v20190701.JitAuthorizationPoliciesResponse[];

@@ -64,6 +64,10 @@ export interface GetGalleryImageResult {
      */
     readonly hyperVGeneration?: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * This is the gallery image definition identifier.
      */
     readonly identifier: outputs.compute.latest.GalleryImageIdentifierResponse;

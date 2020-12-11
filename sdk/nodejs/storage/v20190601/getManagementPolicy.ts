@@ -40,6 +40,10 @@ export interface GetManagementPolicyArgs {
  */
 export interface GetManagementPolicyResult {
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * Returns the date and time the ManagementPolicies was last modified.
      */
     readonly lastModifiedTime: string;

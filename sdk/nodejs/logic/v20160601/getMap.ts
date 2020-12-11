@@ -60,6 +60,10 @@ export interface GetMapResult {
      */
     readonly createdTime: string;
     /**
+     * The resource id.
+     */
+    readonly id: string;
+    /**
      * The resource location.
      */
     readonly location?: string;

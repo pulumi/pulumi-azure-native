@@ -40,6 +40,10 @@ export interface ListManagedClusterAccessProfileArgs {
  */
 export interface ListManagedClusterAccessProfileResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Base64-encoded Kubernetes configuration file.
      */
     readonly kubeConfig?: string;

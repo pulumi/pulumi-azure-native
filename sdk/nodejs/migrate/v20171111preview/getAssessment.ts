@@ -81,6 +81,10 @@ export interface GetAssessmentResult {
      */
     readonly eTag?: string;
     /**
+     * Path reference to this assessment. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessment/{assessmentName}
+     */
+    readonly id: string;
+    /**
      * Monthly network cost estimate for the machines that are part of this assessment as a group, for a 31-day month.
      */
     readonly monthlyBandwidthCost: number;

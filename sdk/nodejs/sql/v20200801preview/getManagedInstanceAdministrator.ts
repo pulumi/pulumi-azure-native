@@ -41,6 +41,10 @@ export interface GetManagedInstanceAdministratorResult {
      */
     readonly administratorType: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Login name of the managed instance administrator.
      */
     readonly login: string;

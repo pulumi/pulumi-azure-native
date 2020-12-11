@@ -35,6 +35,10 @@ export interface GetSqlServerRegistrationArgs {
  */
 export interface GetSqlServerRegistrationResult {
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource location.
      */
     readonly location: string;

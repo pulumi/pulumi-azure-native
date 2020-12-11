@@ -49,6 +49,10 @@ export interface GetProductSettingResult {
      */
     readonly etag?: string;
     /**
+     * Azure resource Id
+     */
+    readonly id: string;
+    /**
      * The kind of the setting
      */
     readonly kind: string;

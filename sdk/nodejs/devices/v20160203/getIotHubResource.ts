@@ -39,6 +39,10 @@ export interface GetIotHubResourceResult {
      */
     readonly etag?: string;
     /**
+     * The resource identifier.
+     */
+    readonly id: string;
+    /**
      * The resource location.
      */
     readonly location: string;

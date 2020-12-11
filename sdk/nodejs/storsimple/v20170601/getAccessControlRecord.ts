@@ -40,6 +40,10 @@ export interface GetAccessControlRecordArgs {
  */
 export interface GetAccessControlRecordResult {
     /**
+     * The path ID that uniquely identifies the object.
+     */
+    readonly id: string;
+    /**
      * The iSCSI initiator name (IQN).
      */
     readonly initiatorName: string;

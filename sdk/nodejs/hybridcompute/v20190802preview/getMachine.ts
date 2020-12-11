@@ -60,6 +60,10 @@ export interface GetMachineResult {
      */
     readonly extensions?: outputs.hybridcompute.v20190802preview.MachineExtensionInstanceViewResponse[];
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * The time of the last status change.
      */
     readonly lastStatusChange: string;

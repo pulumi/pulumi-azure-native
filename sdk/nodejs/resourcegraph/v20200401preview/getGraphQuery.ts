@@ -43,6 +43,10 @@ export interface GetGraphQueryResult {
      */
     readonly eTag?: string;
     /**
+     * Azure resource Id
+     */
+    readonly id: string;
+    /**
      * The location of the resource
      */
     readonly location: string;

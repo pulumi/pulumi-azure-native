@@ -59,6 +59,10 @@ export interface GetClusterResult {
      */
     readonly engineType?: string;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * The identity of the cluster, if configured.
      */
     readonly identity?: outputs.kusto.latest.IdentityResponse;

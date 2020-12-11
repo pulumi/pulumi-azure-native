@@ -39,6 +39,10 @@ export interface GetCustomResourceProviderResult {
      */
     readonly actions?: outputs.customproviders.v20180901preview.CustomRPActionRouteDefinitionResponse[];
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

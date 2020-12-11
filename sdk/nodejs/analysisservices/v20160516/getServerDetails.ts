@@ -43,6 +43,10 @@ export interface GetServerDetailsResult {
      */
     readonly backupBlobContainerUri?: string;
     /**
+     * An identifier that represents the Analysis Services resource.
+     */
+    readonly id: string;
+    /**
      * Location of the Analysis Services resource.
      */
     readonly location: string;

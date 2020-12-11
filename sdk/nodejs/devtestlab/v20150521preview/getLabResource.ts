@@ -51,6 +51,10 @@ export interface GetLabResourceResult {
      */
     readonly defaultVirtualNetworkId?: string;
     /**
+     * The identifier of the resource.
+     */
+    readonly id?: string;
+    /**
      * The type of the lab storage.
      */
     readonly labStorageType?: string;

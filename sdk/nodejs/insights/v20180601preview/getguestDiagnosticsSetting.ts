@@ -39,6 +39,10 @@ export interface GetguestDiagnosticsSettingResult {
      */
     readonly dataSources?: outputs.insights.v20180601preview.DataSourceResponse[];
     /**
+     * Azure resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

@@ -44,6 +44,10 @@ export interface GetRouteTableResult {
      */
     readonly etag?: string;
     /**
+     * Resource Identifier.
+     */
+    readonly id?: string;
+    /**
      * Resource location.
      */
     readonly location?: string;

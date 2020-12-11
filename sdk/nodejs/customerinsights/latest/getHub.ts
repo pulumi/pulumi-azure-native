@@ -43,6 +43,10 @@ export interface GetHubResult {
      */
     readonly hubBillingInfo?: outputs.customerinsights.latest.HubBillingInfoFormatResponse;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource location.
      */
     readonly location?: string;

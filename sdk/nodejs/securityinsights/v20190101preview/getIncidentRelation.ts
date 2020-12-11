@@ -54,6 +54,10 @@ export interface GetIncidentRelationResult {
      */
     readonly etag?: string;
     /**
+     * Azure resource Id
+     */
+    readonly id: string;
+    /**
      * Azure resource name
      */
     readonly name: string;

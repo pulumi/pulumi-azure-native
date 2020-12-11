@@ -49,6 +49,10 @@ export interface GetOriginGroupResult {
      */
     readonly healthProbeSettings?: outputs.cdn.v20200901.HealthProbeParametersResponse;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

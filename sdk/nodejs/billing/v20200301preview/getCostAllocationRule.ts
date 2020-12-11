@@ -35,6 +35,10 @@ export interface GetCostAllocationRuleArgs {
  */
 export interface GetCostAllocationRuleResult {
     /**
+     * Azure Resource Manager Id for the rule. This is a read ony value.
+     */
+    readonly id: string;
+    /**
      * Name of the rule. This is a read only value.
      */
     readonly name: string;

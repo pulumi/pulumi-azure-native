@@ -66,6 +66,10 @@ export interface GetMachineGroupResult {
      */
     readonly groupType?: string;
     /**
+     * Resource identifier.
+     */
+    readonly id: string;
+    /**
      * Additional resource type qualifier.
      */
     readonly kind: "machineGroup";

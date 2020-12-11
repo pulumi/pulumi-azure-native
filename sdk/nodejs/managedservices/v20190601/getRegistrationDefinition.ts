@@ -35,6 +35,10 @@ export interface GetRegistrationDefinitionArgs {
  */
 export interface GetRegistrationDefinitionResult {
     /**
+     * Fully qualified path of the registration definition.
+     */
+    readonly id: string;
+    /**
      * Name of the registration definition.
      */
     readonly name: string;

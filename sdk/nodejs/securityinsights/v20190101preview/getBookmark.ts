@@ -61,6 +61,10 @@ export interface GetBookmarkResult {
      */
     readonly etag?: string;
     /**
+     * Azure resource Id
+     */
+    readonly id: string;
+    /**
      * Describes an incident that relates to bookmark
      */
     readonly incidentInfo?: outputs.securityinsights.v20190101preview.IncidentInfoResponse;

@@ -40,6 +40,10 @@ export interface GetLinkedServiceArgs {
  */
 export interface GetLinkedServiceResult {
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

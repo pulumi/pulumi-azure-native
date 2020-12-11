@@ -52,6 +52,10 @@ export interface GetChannelResult {
      */
     readonly credentials?: {[key: string]: string};
     /**
+     * The ID of the resource
+     */
+    readonly id: string;
+    /**
      * The name of the resource
      */
     readonly name: string;

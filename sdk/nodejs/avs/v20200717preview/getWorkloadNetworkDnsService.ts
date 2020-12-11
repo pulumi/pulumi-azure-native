@@ -56,6 +56,10 @@ export interface GetWorkloadNetworkDnsServiceResult {
      */
     readonly fqdnZones?: string[];
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * DNS Service log level.
      */
     readonly logLevel?: string;

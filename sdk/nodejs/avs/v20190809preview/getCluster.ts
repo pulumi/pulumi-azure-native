@@ -40,6 +40,10 @@ export interface GetClusterArgs {
  */
 export interface GetClusterResult {
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

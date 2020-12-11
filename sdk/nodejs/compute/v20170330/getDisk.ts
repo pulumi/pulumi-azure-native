@@ -47,6 +47,10 @@ export interface GetDiskResult {
      */
     readonly encryptionSettings?: outputs.compute.v20170330.EncryptionSettingsResponse;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

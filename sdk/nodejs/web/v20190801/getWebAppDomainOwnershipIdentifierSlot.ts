@@ -45,6 +45,10 @@ export interface GetWebAppDomainOwnershipIdentifierSlotArgs {
  */
 export interface GetWebAppDomainOwnershipIdentifierSlotResult {
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;

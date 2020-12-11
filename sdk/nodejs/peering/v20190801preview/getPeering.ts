@@ -43,6 +43,10 @@ export interface GetPeeringResult {
      */
     readonly exchange?: outputs.peering.v20190801preview.PeeringPropertiesExchangeResponse;
     /**
+     * The ID of the resource.
+     */
+    readonly id: string;
+    /**
      * The kind of the peering.
      */
     readonly kind: string;

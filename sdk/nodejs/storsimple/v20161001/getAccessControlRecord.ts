@@ -40,6 +40,10 @@ export interface GetAccessControlRecordArgs {
  */
 export interface GetAccessControlRecordResult {
     /**
+     * The identifier.
+     */
+    readonly id: string;
+    /**
      * The Iscsi initiator name (IQN)
      */
     readonly initiatorName: string;

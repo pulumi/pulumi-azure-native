@@ -55,6 +55,10 @@ export interface GetConnectorResult {
      */
     readonly displayName?: string;
     /**
+     * Connector id
+     */
+    readonly id: string;
+    /**
      * Connector kind (eg aws)
      */
     readonly kind?: string;

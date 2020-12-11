@@ -44,6 +44,10 @@ export interface GetHybridConnectionResult {
      */
     readonly createdAt: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * The number of listeners for this HybridConnection. min : 1 and max:25 supported
      */
     readonly listenerCount: number;

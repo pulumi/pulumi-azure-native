@@ -56,6 +56,10 @@ export interface GetDiagnosticResult {
      */
     readonly frontend?: outputs.apimanagement.v20180601preview.PipelineDiagnosticSettingsResponse;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource Id of a target logger.
      */
     readonly loggerId: string;

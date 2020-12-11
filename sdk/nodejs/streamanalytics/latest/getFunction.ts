@@ -40,6 +40,10 @@ export interface GetFunctionArgs {
  */
 export interface GetFunctionResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource name
      */
     readonly name?: string;

@@ -56,6 +56,10 @@ export interface GetRunbookResult {
      */
     readonly etag?: string;
     /**
+     * Fully qualified resource Id for the resource
+     */
+    readonly id: string;
+    /**
      * Gets or sets the job count of the runbook.
      */
     readonly jobCount?: number;

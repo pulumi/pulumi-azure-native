@@ -59,6 +59,10 @@ export interface GetExpressRoutePortResult {
      */
     readonly etherType: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * The identity of ExpressRoutePort, if configured.
      */
     readonly identity?: outputs.network.v20200301.ManagedServiceIdentityResponse;

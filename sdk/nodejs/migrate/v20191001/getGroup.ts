@@ -44,6 +44,10 @@ export interface GetGroupResult {
      */
     readonly eTag?: string;
     /**
+     * Path reference to this group. /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/assessmentProjects/{projectName}/groups/{groupName}
+     */
+    readonly id: string;
+    /**
      * Name of the group.
      */
     readonly name: string;

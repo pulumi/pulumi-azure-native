@@ -53,6 +53,10 @@ export interface ListTaskDetailsResult {
      */
     readonly credentials?: outputs.containerregistry.latest.CredentialsResponse;
     /**
+     * The resource ID.
+     */
+    readonly id: string;
+    /**
      * Identity for the resource.
      */
     readonly identity?: outputs.containerregistry.latest.IdentityPropertiesResponse;

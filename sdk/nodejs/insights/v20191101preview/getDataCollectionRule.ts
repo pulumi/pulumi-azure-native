@@ -56,6 +56,10 @@ export interface GetDataCollectionRuleResult {
      */
     readonly etag: string;
     /**
+     * Fully qualified ID of the resource.
+     */
+    readonly id: string;
+    /**
      * The geo-location where the resource lives.
      */
     readonly location: string;

@@ -50,6 +50,10 @@ export interface ListWebAppHybridConnectionKeysSlotArgs {
  */
 export interface ListWebAppHybridConnectionKeysSlotResult {
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;

@@ -71,6 +71,10 @@ export interface GetDomainResult {
      */
     readonly expirationTime?: string;
     /**
+     * Resource Id
+     */
+    readonly id?: string;
+    /**
      * Kind of resource
      */
     readonly kind?: string;

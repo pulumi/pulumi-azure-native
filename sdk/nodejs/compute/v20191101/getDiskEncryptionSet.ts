@@ -39,6 +39,10 @@ export interface GetDiskEncryptionSetResult {
      */
     readonly activeKey?: outputs.compute.v20191101.KeyVaultAndKeyReferenceResponse;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
      */
     readonly identity?: outputs.compute.v20191101.EncryptionSetIdentityResponse;

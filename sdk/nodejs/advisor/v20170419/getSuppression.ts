@@ -40,6 +40,10 @@ export interface GetSuppressionArgs {
  */
 export interface GetSuppressionResult {
     /**
+     * The resource ID.
+     */
+    readonly id: string;
+    /**
      * The name of the resource.
      */
     readonly name: string;

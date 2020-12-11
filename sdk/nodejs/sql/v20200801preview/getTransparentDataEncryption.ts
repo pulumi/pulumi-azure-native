@@ -45,6 +45,10 @@ export interface GetTransparentDataEncryptionArgs {
  */
 export interface GetTransparentDataEncryptionResult {
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

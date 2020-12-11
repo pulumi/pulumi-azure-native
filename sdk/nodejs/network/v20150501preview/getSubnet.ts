@@ -48,6 +48,10 @@ export interface GetSubnetResult {
      */
     readonly etag?: string;
     /**
+     * Resource Id
+     */
+    readonly id?: string;
+    /**
      * Gets array of references to the network interface IP configurations using subnet
      */
     readonly ipConfigurations?: outputs.network.v20150501preview.SubResourceResponse[];

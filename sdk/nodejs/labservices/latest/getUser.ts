@@ -62,6 +62,10 @@ export interface GetUserResult {
      */
     readonly givenName: string;
     /**
+     * The identifier of the resource.
+     */
+    readonly id: string;
+    /**
      * The details of the latest operation. ex: status, error
      */
     readonly latestOperationResult: outputs.labservices.latest.LatestOperationResultResponse;

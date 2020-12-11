@@ -57,6 +57,10 @@ export interface GetSyncGroupResult {
      */
     readonly hubDatabaseUserName?: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Sync interval of the sync group.
      */
     readonly interval?: number;

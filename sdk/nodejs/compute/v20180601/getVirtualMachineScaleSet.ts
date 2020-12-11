@@ -35,6 +35,10 @@ export interface GetVirtualMachineScaleSetArgs {
  */
 export interface GetVirtualMachineScaleSetResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * The identity of the virtual machine scale set, if configured.
      */
     readonly identity?: outputs.compute.v20180601.VirtualMachineScaleSetIdentityResponse;

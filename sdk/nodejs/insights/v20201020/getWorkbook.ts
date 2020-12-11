@@ -43,6 +43,10 @@ export interface GetWorkbookResult {
      */
     readonly displayName: string;
     /**
+     * Azure resource Id
+     */
+    readonly id: string;
+    /**
      * Identity used for BYOS
      */
     readonly identity?: outputs.insights.v20201020.ManagedIdentityResponse;

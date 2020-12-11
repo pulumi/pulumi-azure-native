@@ -66,6 +66,10 @@ export interface GetAFDOriginResult {
      */
     readonly httpsPort?: number;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

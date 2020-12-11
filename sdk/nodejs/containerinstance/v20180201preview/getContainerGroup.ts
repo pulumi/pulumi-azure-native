@@ -39,6 +39,10 @@ export interface GetContainerGroupResult {
      */
     readonly containers: outputs.containerinstance.v20180201preview.ContainerResponse[];
     /**
+     * The resource id.
+     */
+    readonly id: string;
+    /**
      * The image registry credentials by which the container group is created from.
      */
     readonly imageRegistryCredentials?: outputs.containerinstance.v20180201preview.ImageRegistryCredentialResponse[];

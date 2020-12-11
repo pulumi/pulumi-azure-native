@@ -65,6 +65,10 @@ export interface GetRecordSetResult {
      */
     readonly fqdn: string;
     /**
+     * The ID of the record set.
+     */
+    readonly id?: string;
+    /**
      * The metadata attached to the record set.
      */
     readonly metadata?: {[key: string]: string};

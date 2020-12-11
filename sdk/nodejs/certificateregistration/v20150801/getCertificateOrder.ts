@@ -59,6 +59,10 @@ export interface GetCertificateOrderResult {
      */
     readonly expirationTime?: string;
     /**
+     * Resource Id
+     */
+    readonly id?: string;
+    /**
      * Intermediate certificate
      */
     readonly intermediate?: outputs.certificateregistration.v20150801.CertificateDetailsResponse;

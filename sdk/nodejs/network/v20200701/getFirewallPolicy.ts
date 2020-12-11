@@ -60,6 +60,10 @@ export interface GetFirewallPolicyResult {
      */
     readonly firewalls: outputs.network.v20200701.SubResourceResponse[];
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * The identity of the firewall policy.
      */
     readonly identity?: outputs.network.v20200701.ManagedServiceIdentityResponse;

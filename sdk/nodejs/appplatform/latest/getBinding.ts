@@ -45,6 +45,10 @@ export interface GetBindingArgs {
  */
 export interface GetBindingResult {
     /**
+     * Fully qualified resource Id for the resource.
+     */
+    readonly id: string;
+    /**
      * The name of the resource.
      */
     readonly name: string;

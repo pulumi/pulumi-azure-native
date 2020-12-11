@@ -50,6 +50,10 @@ export interface GetResourceArgs {
  */
 export interface GetResourceResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * The identity of the resource.
      */
     readonly identity?: outputs.resources.v20160201.IdentityResponse;

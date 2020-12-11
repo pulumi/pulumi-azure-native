@@ -40,6 +40,10 @@ export interface GetPrivateEndpointConnectionArgs {
  */
 export interface GetPrivateEndpointConnectionResult {
     /**
+     * The ID of the private endpoint connection.
+     */
+    readonly id: string;
+    /**
      * The name of the private endpoint connection.
      */
     readonly name: string;

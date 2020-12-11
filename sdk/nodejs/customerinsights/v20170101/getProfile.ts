@@ -69,6 +69,10 @@ export interface GetProfileResult {
      */
     readonly fields?: outputs.customerinsights.v20170101.PropertyDefinitionResponse[];
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * The instance count.
      */
     readonly instancesCount?: number;

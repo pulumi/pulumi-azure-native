@@ -43,6 +43,10 @@ export interface GetBastionHostResult {
      */
     readonly etag: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * IP configuration of the Bastion Host resource.
      */
     readonly ipConfigurations?: outputs.network.v20200601.BastionHostIPConfigurationResponse[];

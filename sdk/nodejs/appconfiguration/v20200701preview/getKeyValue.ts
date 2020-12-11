@@ -49,6 +49,10 @@ export interface GetKeyValueResult {
      */
     readonly eTag: string;
     /**
+     * The resource ID.
+     */
+    readonly id: string;
+    /**
      * The primary identifier of a key-value.
      * The key is used in unison with the label to uniquely identify a key-value.
      */

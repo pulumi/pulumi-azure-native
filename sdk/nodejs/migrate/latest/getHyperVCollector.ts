@@ -37,6 +37,7 @@ export interface GetHyperVCollectorArgs {
 
 export interface GetHyperVCollectorResult {
     readonly eTag?: string;
+    readonly id: string;
     readonly name: string;
     readonly properties: outputs.migrate.latest.CollectorPropertiesResponse;
     readonly type: string;

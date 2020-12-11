@@ -44,6 +44,10 @@ export interface GetStorageTargetResult {
      */
     readonly clfs?: outputs.storagecache.v20190801preview.ClfsTargetResponse;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * List of cache namespace to target namespace associations.
      */
     readonly junctions?: outputs.storagecache.v20190801preview.NamespaceJunctionResponse[];

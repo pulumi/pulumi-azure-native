@@ -44,6 +44,10 @@ export interface GetHcxEnterpriseSiteResult {
      */
     readonly activationKey: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

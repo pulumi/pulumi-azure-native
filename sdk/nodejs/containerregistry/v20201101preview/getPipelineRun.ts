@@ -44,6 +44,10 @@ export interface GetPipelineRunResult {
      */
     readonly forceUpdateTag?: string;
     /**
+     * The resource ID.
+     */
+    readonly id: string;
+    /**
      * The name of the resource.
      */
     readonly name: string;

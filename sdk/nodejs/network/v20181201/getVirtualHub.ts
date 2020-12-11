@@ -47,6 +47,10 @@ export interface GetVirtualHubResult {
      */
     readonly expressRouteGateway?: outputs.network.v20181201.SubResourceResponse;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * Resource location.
      */
     readonly location: string;

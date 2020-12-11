@@ -47,6 +47,10 @@ export interface GetVirtualMachineImageTemplateResult {
      */
     readonly distribute: outputs.virtualmachineimages.v20190501preview.ImageTemplateManagedImageDistributorResponse | outputs.virtualmachineimages.v20190501preview.ImageTemplateSharedImageDistributorResponse | outputs.virtualmachineimages.v20190501preview.ImageTemplateVhdDistributorResponse[];
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * The identity of the image template, if configured.
      */
     readonly identity?: outputs.virtualmachineimages.v20190501preview.ImageTemplateIdentityResponse;

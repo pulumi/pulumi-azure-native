@@ -51,6 +51,10 @@ export interface GetSiteLogsConfigResult {
      */
     readonly httpLogs?: outputs.web.v20150801.HttpLogsConfigResponse;
     /**
+     * Resource Id
+     */
+    readonly id?: string;
+    /**
      * Kind of resource
      */
     readonly kind?: string;

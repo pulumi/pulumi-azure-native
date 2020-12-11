@@ -55,6 +55,10 @@ export interface GetAccountResult {
      */
     readonly friendlyName?: string;
     /**
+     * The resource ID.
+     */
+    readonly id: string;
+    /**
      * The fully qualified arm id of the user key vault.
      */
     readonly keyVaultId: string;

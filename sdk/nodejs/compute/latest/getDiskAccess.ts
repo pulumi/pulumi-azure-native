@@ -35,6 +35,10 @@ export interface GetDiskAccessArgs {
  */
 export interface GetDiskAccessResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

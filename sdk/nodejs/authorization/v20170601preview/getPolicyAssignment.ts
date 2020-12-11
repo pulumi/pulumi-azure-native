@@ -43,6 +43,10 @@ export interface GetPolicyAssignmentResult {
      */
     readonly displayName?: string;
     /**
+     * The ID of the policy assignment.
+     */
+    readonly id: string;
+    /**
      * The policy assignment metadata.
      */
     readonly metadata?: any;

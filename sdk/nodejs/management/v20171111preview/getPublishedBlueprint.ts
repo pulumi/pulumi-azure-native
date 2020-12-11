@@ -56,6 +56,10 @@ export interface GetPublishedBlueprintResult {
      */
     readonly displayName?: string;
     /**
+     * String Id used to locate any resource on Azure.
+     */
+    readonly id: string;
+    /**
      * Name of this resource.
      */
     readonly name: string;

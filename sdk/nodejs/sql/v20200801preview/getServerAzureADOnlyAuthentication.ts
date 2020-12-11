@@ -44,6 +44,10 @@ export interface GetServerAzureADOnlyAuthenticationResult {
      */
     readonly azureADOnlyAuthentication: boolean;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

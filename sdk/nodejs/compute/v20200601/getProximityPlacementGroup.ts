@@ -48,6 +48,10 @@ export interface GetProximityPlacementGroupResult {
      */
     readonly colocationStatus?: outputs.compute.v20200601.InstanceViewStatusResponse;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

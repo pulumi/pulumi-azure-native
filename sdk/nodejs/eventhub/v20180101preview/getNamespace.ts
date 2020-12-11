@@ -43,6 +43,10 @@ export interface GetNamespaceResult {
      */
     readonly createdAt: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Value that indicates whether AutoInflate is enabled for eventhub namespace.
      */
     readonly isAutoInflateEnabled?: boolean;

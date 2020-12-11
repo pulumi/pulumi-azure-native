@@ -50,6 +50,10 @@ export interface GetReplicationNetworkMappingArgs {
  */
 export interface GetReplicationNetworkMappingResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource Location
      */
     readonly location?: string;

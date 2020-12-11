@@ -44,6 +44,10 @@ export interface GetReferenceDataSetResult {
      */
     readonly creationTime: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * The list of key properties for the reference data set.
      */
     readonly keyProperties: outputs.timeseriesinsights.v20170228preview.ReferenceDataSetKeyPropertyResponse[];

@@ -52,6 +52,10 @@ export interface GetGalleryApplicationResult {
      */
     readonly eula?: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

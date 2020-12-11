@@ -71,6 +71,10 @@ export interface GetSapMonitorResult {
      */
     readonly hanaSubnet?: string;
     /**
+     * Resource ID
+     */
+    readonly id: string;
+    /**
      * Key Vault ID containing customer's HANA credentials.
      */
     readonly keyVaultId?: string;

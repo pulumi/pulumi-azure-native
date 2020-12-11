@@ -40,6 +40,10 @@ export interface GetWebServiceArgs {
  */
 export interface GetWebServiceResult {
     /**
+     * Specifies the resource ID.
+     */
+    readonly id: string;
+    /**
      * Specifies the location of the resource.
      */
     readonly location: string;

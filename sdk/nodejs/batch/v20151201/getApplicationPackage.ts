@@ -49,6 +49,10 @@ export interface GetApplicationPackageResult {
      */
     readonly format?: string;
     /**
+     * The ID of the application.
+     */
+    readonly id?: string;
+    /**
      * The time at which the package was last activated, if the package is active.
      */
     readonly lastActivationTime?: string;

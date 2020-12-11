@@ -106,6 +106,10 @@ export interface GetClusterResult {
      */
     readonly fabricSettings?: outputs.servicefabric.v20190301.SettingsSectionDescriptionResponse[];
     /**
+     * Azure resource identifier.
+     */
+    readonly id: string;
+    /**
      * Azure resource location.
      */
     readonly location: string;

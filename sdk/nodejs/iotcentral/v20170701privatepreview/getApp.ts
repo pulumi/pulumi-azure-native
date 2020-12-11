@@ -43,6 +43,10 @@ export interface GetAppResult {
      */
     readonly displayName?: string;
     /**
+     * The ARM resource identifier.
+     */
+    readonly id: string;
+    /**
      * The resource location.
      */
     readonly location: string;

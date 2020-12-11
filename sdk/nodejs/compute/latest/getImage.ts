@@ -44,6 +44,10 @@ export interface GetImageResult {
      */
     readonly hyperVGeneration?: string;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

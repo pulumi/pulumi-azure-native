@@ -35,6 +35,10 @@ export interface GetSystemTopicArgs {
  */
 export interface GetSystemTopicResult {
     /**
+     * Fully qualified identifier of the resource.
+     */
+    readonly id: string;
+    /**
      * Location of the resource.
      */
     readonly location: string;

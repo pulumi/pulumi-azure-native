@@ -48,6 +48,10 @@ export interface GetSqlVirtualMachineResult {
      */
     readonly autoPatchingSettings?: outputs.sqlvirtualmachine.v20170301preview.AutoPatchingSettingsResponse;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Azure Active Directory identity of the server.
      */
     readonly identity?: outputs.sqlvirtualmachine.v20170301preview.ResourceIdentityResponse;

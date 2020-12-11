@@ -40,6 +40,10 @@ export interface GetInputArgs {
  */
 export interface GetInputResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource name
      */
     readonly name?: string;

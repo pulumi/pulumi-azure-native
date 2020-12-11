@@ -49,6 +49,10 @@ export interface GetUserResult {
      */
     readonly createdDate: string;
     /**
+     * The identifier of the resource.
+     */
+    readonly id: string;
+    /**
      * The identity of the user.
      */
     readonly identity?: outputs.devtestlab.v20160515.UserIdentityResponse;

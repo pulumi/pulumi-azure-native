@@ -44,6 +44,10 @@ export interface GetDataPoolResult {
      */
     readonly dataPoolId: string;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * Gets or sets the collection of locations where Data Pool resources should be created.
      */
     readonly locations: outputs.autonomousdevelopmentplatform.v20200701preview.DataPoolLocationResponse[];

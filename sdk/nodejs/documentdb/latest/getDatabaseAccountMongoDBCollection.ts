@@ -45,6 +45,10 @@ export interface GetDatabaseAccountMongoDBCollectionArgs {
  */
 export interface GetDatabaseAccountMongoDBCollectionResult {
     /**
+     * The unique resource identifier of the database account.
+     */
+    readonly id: string;
+    /**
      * List of index keys
      */
     readonly indexes?: outputs.documentdb.latest.MongoIndexResponse[];

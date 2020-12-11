@@ -60,6 +60,10 @@ export interface GetRelationshipResult {
      */
     readonly fields?: outputs.customerinsights.v20170101.PropertyDefinitionResponse[];
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Optional property to be used to map fields in profile to their strong ids in related profile.
      */
     readonly lookupMappings?: outputs.customerinsights.v20170101.RelationshipTypeMappingResponse[];

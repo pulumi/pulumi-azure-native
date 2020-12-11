@@ -55,6 +55,10 @@ export interface GetHostPoolResult {
      */
     readonly hostPoolType: string;
     /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
      * The type of the load balancer.
      */
     readonly loadBalancerType: string;

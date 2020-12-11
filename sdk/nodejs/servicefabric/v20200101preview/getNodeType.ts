@@ -56,6 +56,10 @@ export interface GetNodeTypeResult {
      */
     readonly ephemeralPorts?: outputs.servicefabric.v20200101preview.EndpointRangeDescriptionResponse;
     /**
+     * Azure resource identifier.
+     */
+    readonly id: string;
+    /**
      * The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.
      */
     readonly isPrimary: boolean;

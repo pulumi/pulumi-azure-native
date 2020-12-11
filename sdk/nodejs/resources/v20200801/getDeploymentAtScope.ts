@@ -35,6 +35,10 @@ export interface GetDeploymentAtScopeArgs {
  */
 export interface GetDeploymentAtScopeResult {
     /**
+     * The ID of the deployment.
+     */
+    readonly id: string;
+    /**
      * the location of the deployment.
      */
     readonly location?: string;

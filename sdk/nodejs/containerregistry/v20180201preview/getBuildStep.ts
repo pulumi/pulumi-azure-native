@@ -45,6 +45,10 @@ export interface GetBuildStepArgs {
  */
 export interface GetBuildStepResult {
     /**
+     * The resource ID.
+     */
+    readonly id: string;
+    /**
      * The name of the resource.
      */
     readonly name: string;

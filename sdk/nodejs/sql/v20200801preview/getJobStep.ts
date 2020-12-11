@@ -62,6 +62,10 @@ export interface GetJobStepResult {
      */
     readonly executionOptions?: outputs.sql.v20200801preview.JobStepExecutionOptionsResponse;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

@@ -47,6 +47,10 @@ export interface GetConfigurationStoreResult {
      */
     readonly endpoint: string;
     /**
+     * The resource ID.
+     */
+    readonly id: string;
+    /**
      * The managed identity information, if configured.
      */
     readonly identity?: outputs.appconfiguration.v20200701preview.ResourceIdentityResponse;

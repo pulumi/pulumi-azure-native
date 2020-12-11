@@ -52,6 +52,10 @@ export interface GetExpressRouteCircuitPeeringResult {
      */
     readonly gatewayManagerEtag?: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * Gets whether the provider or the customer last modified the peering.
      */
     readonly lastModifiedBy?: string;

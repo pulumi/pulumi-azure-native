@@ -37,6 +37,10 @@ export interface GetWebAppPrivateEndpointConnectionArgs {
  */
 export interface GetWebAppPrivateEndpointConnectionResult {
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * Kind of resource.
      */
     readonly kind?: string;

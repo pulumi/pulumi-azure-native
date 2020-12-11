@@ -37,6 +37,10 @@ export interface GetJitNetworkAccessPolicyArgs {
 
 export interface GetJitNetworkAccessPolicyResult {
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Kind of the resource
      */
     readonly kind?: string;

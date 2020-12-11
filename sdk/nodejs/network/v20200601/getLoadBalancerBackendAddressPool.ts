@@ -48,6 +48,10 @@ export interface GetLoadBalancerBackendAddressPoolResult {
      */
     readonly etag: string;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * An array of backend addresses.
      */
     readonly loadBalancerBackendAddresses?: outputs.network.v20200601.LoadBalancerBackendAddressResponse[];

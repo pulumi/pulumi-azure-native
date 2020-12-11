@@ -39,6 +39,10 @@ export interface GetServiceResult {
      */
     readonly etag?: string;
     /**
+     * The resource identifier.
+     */
+    readonly id: string;
+    /**
      * The kind of the service. Valid values are: fhir, fhir-Stu3 and fhir-R4.
      */
     readonly kind: string;

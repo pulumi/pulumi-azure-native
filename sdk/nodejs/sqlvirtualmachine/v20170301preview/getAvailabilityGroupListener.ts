@@ -48,6 +48,10 @@ export interface GetAvailabilityGroupListenerResult {
      */
     readonly createDefaultAvailabilityGroupIfNotExist?: boolean;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * List of load balancer configurations for an availability group listener.
      */
     readonly loadBalancerConfigurations?: outputs.sqlvirtualmachine.v20170301preview.LoadBalancerConfigurationResponse[];

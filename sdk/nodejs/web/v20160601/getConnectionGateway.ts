@@ -39,6 +39,10 @@ export interface GetConnectionGatewayResult {
      */
     readonly etag?: string;
     /**
+     * Resource id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location?: string;

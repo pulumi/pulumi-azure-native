@@ -40,6 +40,10 @@ export interface GetLinkedWorkspaceArgs {
  */
 export interface GetLinkedWorkspaceResult {
     /**
+     * ResourceId of the link of the linked workspace.
+     */
+    readonly id: string;
+    /**
      * Friendly name of the linked workspace.
      */
     readonly name: string;

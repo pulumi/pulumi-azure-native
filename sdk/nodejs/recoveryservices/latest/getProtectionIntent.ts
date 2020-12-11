@@ -49,6 +49,10 @@ export interface GetProtectionIntentResult {
      */
     readonly eTag?: string;
     /**
+     * Resource Id represents the complete path to the resource.
+     */
+    readonly id: string;
+    /**
      * Resource location.
      */
     readonly location?: string;

@@ -42,6 +42,10 @@ export interface GetRemediationAtSubscriptionResult {
      */
     readonly filters?: outputs.policyinsights.v20180701preview.RemediationFiltersResponse;
     /**
+     * The ID of the remediation.
+     */
+    readonly id: string;
+    /**
      * The time at which the remediation was last updated.
      */
     readonly lastUpdatedOn: string;

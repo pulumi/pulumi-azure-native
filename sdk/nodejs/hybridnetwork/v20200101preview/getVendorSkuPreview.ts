@@ -40,6 +40,10 @@ export interface GetVendorSkuPreviewArgs {
  */
 export interface GetVendorSkuPreviewResult {
     /**
+     * The ARM ID of the resource.
+     */
+    readonly id: string;
+    /**
      * The preview subscription ID.
      */
     readonly name: string;

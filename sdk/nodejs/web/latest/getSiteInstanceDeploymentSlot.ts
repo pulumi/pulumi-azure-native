@@ -74,6 +74,10 @@ export interface GetSiteInstanceDeploymentSlotResult {
      */
     readonly endTime?: string;
     /**
+     * Resource Id
+     */
+    readonly id?: string;
+    /**
      * Kind of resource
      */
     readonly kind?: string;

@@ -39,6 +39,10 @@ export interface GetClusterResult {
      */
     readonly etag?: string;
     /**
+     * Fully qualified resource Id for the resource.
+     */
+    readonly id: string;
+    /**
      * The identity of the cluster, if configured.
      */
     readonly identity?: outputs.hdinsight.v20150301preview.ClusterIdentityResponse;

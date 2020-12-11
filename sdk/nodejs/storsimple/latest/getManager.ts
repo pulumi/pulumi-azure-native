@@ -43,6 +43,10 @@ export interface GetManagerResult {
      */
     readonly etag?: string;
     /**
+     * The resource ID.
+     */
+    readonly id: string;
+    /**
      * The geo location of the resource.
      */
     readonly location: string;

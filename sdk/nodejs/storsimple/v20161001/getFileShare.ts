@@ -62,6 +62,10 @@ export interface GetFileShareResult {
      */
     readonly description?: string;
     /**
+     * The identifier.
+     */
+    readonly id: string;
+    /**
      * The local used capacity in Bytes.
      */
     readonly localUsedCapacityInBytes: number;

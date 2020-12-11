@@ -43,6 +43,10 @@ export interface GetBlueprintResult {
      */
     readonly displayName?: string;
     /**
+     * String Id used to locate any resource on Azure.
+     */
+    readonly id: string;
+    /**
      * Layout view of the blueprint definition for UI reference.
      */
     readonly layout?: any;

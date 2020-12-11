@@ -45,6 +45,10 @@ export interface GetContentItemArgs {
  */
 export interface GetContentItemResult {
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

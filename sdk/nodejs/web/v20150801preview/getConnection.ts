@@ -59,6 +59,10 @@ export interface GetConnectionResult {
      */
     readonly firstExpirationTime?: string;
     /**
+     * Resource Id
+     */
+    readonly id?: string;
+    /**
      * List of Keywords that tag the acl
      */
     readonly keywords?: string[];

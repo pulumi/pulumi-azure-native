@@ -48,6 +48,10 @@ export interface GetWebAppSourceControlSlotResult {
      */
     readonly deploymentRollbackEnabled?: boolean;
     /**
+     * Resource Id.
+     */
+    readonly id: string;
+    /**
      * <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
      */
     readonly isManualIntegration?: boolean;

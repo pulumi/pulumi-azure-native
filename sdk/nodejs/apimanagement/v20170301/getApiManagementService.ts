@@ -67,6 +67,10 @@ export interface GetApiManagementServiceResult {
      */
     readonly hostnameConfigurations?: outputs.apimanagement.v20170301.HostnameConfigurationResponse[];
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Managed service identity of the Api Management service.
      */
     readonly identity?: outputs.apimanagement.v20170301.ApiManagementServiceIdentityResponse;

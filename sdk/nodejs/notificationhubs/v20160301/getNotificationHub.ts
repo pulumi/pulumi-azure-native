@@ -60,6 +60,10 @@ export interface GetNotificationHubResult {
      */
     readonly gcmCredential?: outputs.notificationhubs.v20160301.GcmCredentialResponse;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource location
      */
     readonly location: string;

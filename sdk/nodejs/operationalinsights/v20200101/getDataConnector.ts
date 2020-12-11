@@ -44,6 +44,10 @@ export interface GetDataConnectorResult {
      */
     readonly etag?: string;
     /**
+     * Azure resource Id
+     */
+    readonly id: string;
+    /**
      * The data connector kind
      */
     readonly kind: string;

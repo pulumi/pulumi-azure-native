@@ -47,6 +47,10 @@ export interface GetExpressRouteGatewayResult {
      */
     readonly expressRouteConnections: outputs.network.v20190901.ExpressRouteConnectionResponse[];
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * Resource location.
      */
     readonly location?: string;

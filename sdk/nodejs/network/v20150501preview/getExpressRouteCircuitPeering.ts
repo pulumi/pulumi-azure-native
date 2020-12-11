@@ -48,6 +48,10 @@ export interface GetExpressRouteCircuitPeeringResult {
      */
     readonly etag?: string;
     /**
+     * Resource Id
+     */
+    readonly id?: string;
+    /**
      * Gets or sets the Microsoft peering config
      */
     readonly microsoftPeeringConfig?: outputs.network.v20150501preview.ExpressRouteCircuitPeeringConfigResponse;

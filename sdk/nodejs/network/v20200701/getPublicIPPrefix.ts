@@ -52,6 +52,10 @@ export interface GetPublicIPPrefixResult {
      */
     readonly extendedLocation?: outputs.network.v20200701.ExtendedLocationResponse;
     /**
+     * Resource ID.
+     */
+    readonly id?: string;
+    /**
      * The allocated Prefix.
      */
     readonly ipPrefix: string;

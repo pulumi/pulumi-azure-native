@@ -43,6 +43,10 @@ export interface GetEventSubscriptionResult {
      */
     readonly filter?: outputs.eventgrid.v20170615preview.EventSubscriptionFilterResponse;
     /**
+     * Fully qualified identifier of the resource
+     */
+    readonly id: string;
+    /**
      * List of user defined labels.
      */
     readonly labels?: string[];

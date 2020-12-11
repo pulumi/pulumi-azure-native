@@ -30,6 +30,10 @@ export interface GetIotDefenderSettingResult {
      */
     readonly deviceQuota: number;
     /**
+     * Resource Id
+     */
+    readonly id: string;
+    /**
      * Resource name
      */
     readonly name: string;

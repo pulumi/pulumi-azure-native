@@ -44,6 +44,10 @@ export interface GetDpsCertificateResult {
      */
     readonly etag: string;
     /**
+     * The resource identifier.
+     */
+    readonly id: string;
+    /**
      * The name of the certificate.
      */
     readonly name: string;

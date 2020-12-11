@@ -47,6 +47,10 @@ export interface GetRegistrationResult {
      */
     readonly etag?: string;
     /**
+     * ID of the resource.
+     */
+    readonly id: string;
+    /**
      * Location of the resource.
      */
     readonly location: string;

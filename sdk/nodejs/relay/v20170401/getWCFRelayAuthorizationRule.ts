@@ -45,6 +45,10 @@ export interface GetWCFRelayAuthorizationRuleArgs {
  */
 export interface GetWCFRelayAuthorizationRuleResult {
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Resource name.
      */
     readonly name: string;

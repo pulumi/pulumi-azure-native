@@ -56,6 +56,10 @@ export interface GetOpenIdConnectProviderResult {
      */
     readonly displayName: string;
     /**
+     * Resource ID.
+     */
+    readonly id: string;
+    /**
      * Metadata endpoint URI.
      */
     readonly metadataEndpoint: string;

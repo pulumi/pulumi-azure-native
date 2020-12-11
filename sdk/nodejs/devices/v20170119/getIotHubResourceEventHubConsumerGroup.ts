@@ -45,6 +45,10 @@ export interface GetIotHubResourceEventHubConsumerGroupArgs {
  */
 export interface GetIotHubResourceEventHubConsumerGroupResult {
     /**
+     * The Event Hub-compatible consumer group identifier.
+     */
+    readonly id?: string;
+    /**
      * The Event Hub-compatible consumer group name.
      */
     readonly name?: string;

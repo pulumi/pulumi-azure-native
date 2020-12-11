@@ -40,6 +40,10 @@ export interface GetIntegrationAccountAssemblyArgs {
  */
 export interface GetIntegrationAccountAssemblyResult {
     /**
+     * The resource id.
+     */
+    readonly id: string;
+    /**
      * The resource location.
      */
     readonly location?: string;

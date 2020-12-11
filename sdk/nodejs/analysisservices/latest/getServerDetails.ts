@@ -47,6 +47,10 @@ export interface GetServerDetailsResult {
      */
     readonly gatewayDetails?: outputs.analysisservices.latest.GatewayDetailsResponse;
     /**
+     * An identifier that represents the Analysis Services resource.
+     */
+    readonly id: string;
+    /**
      * The firewall settings for the AS server.
      */
     readonly ipV4FirewallSettings?: outputs.analysisservices.latest.IPv4FirewallSettingsResponse;
