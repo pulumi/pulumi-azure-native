@@ -971,15 +971,15 @@ func (k *azureNextGenProvider) azureDelete(ctx context.Context, id string, apiVe
 	if asyncStyle != "" {
 		future, err := azure.NewFutureFromResponse(resp)
 		if err != nil {
-			return err
+			return errors.Wrapf(err, "NewFutureFromResponse Status %v Headers %+v", resp.StatusCode, resp.Header)
 		}
 		err = future.WaitForCompletionRef(ctx, k.client)
 		if err != nil {
-			return err
+			return errors.Wrapf(err, "WaitForCompletionRef Status %v Headers %+v", resp.StatusCode, resp.Header)
 		}
 		resp, err = future.GetResult(k.client)
 		if err != nil {
-			return err
+			return errors.Wrapf(err, "GetResult Status %v Headers %+v", resp.StatusCode, resp.Header)
 		}
 	}
 
@@ -992,7 +992,7 @@ func (k *azureNextGenProvider) azureDelete(ctx context.Context, id string, apiVe
 		autorest.ByClosing(),
 	)
 	if err != nil {
-		return err
+		return errors.Wrapf(err, "Respond Status %v Headers %+v", resp.StatusCode, resp.Header)
 	}
 	return nil
 }
