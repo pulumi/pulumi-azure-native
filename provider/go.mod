@@ -4,7 +4,7 @@ go 1.15
 
 require (
 	github.com/Azure/azure-sdk-for-go v37.1.0+incompatible
-	github.com/Azure/go-autorest/autorest v0.10.0
+	github.com/Azure/go-autorest/autorest v0.11.13
 	github.com/blang/semver v3.5.1+incompatible
 	github.com/gedex/inflector v0.0.0-20170307190818-16278e9db813
 	github.com/go-openapi/jsonreference v0.19.2
@@ -21,10 +21,4 @@ require (
 	github.com/sourcegraph/jsonx v0.0.0-20200629203448-1a936bd500cf
 	github.com/stretchr/testify v1.6.1
 	github.com/zclconf/go-cty v1.3.1
-)
-
-replace (
-	github.com/Azure/go-autorest => github.com/tombuildsstuff/go-autorest v14.0.1-0.20200416184303-d4e299a3c04a+incompatible
-	github.com/Azure/go-autorest/autorest => github.com/tombuildsstuff/go-autorest/autorest v0.10.1-0.20200416184303-d4e299a3c04a
-	github.com/Azure/go-autorest/autorest/azure/auth => github.com/tombuildsstuff/go-autorest/autorest/azure/auth v0.4.3-0.20200416184303-d4e299a3c04a
 )
