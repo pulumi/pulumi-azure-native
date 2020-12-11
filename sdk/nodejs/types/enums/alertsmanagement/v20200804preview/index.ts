@@ -3,10 +3,20 @@
 
 
 export const HealthAlertsNamespace = {
-    VmGuestHealth: "VmGuestHealth",
+    GuestVmHealth: "GuestVmHealth",
 } as const;
 
 /**
  * specifies the type of the alert criterion.
  */
 export type HealthAlertsNamespace = (typeof HealthAlertsNamespace)[keyof typeof HealthAlertsNamespace];
+
+export const HealthStateName = {
+    Warning: "Warning",
+    Critical: "Critical",
+} as const;
+
+/**
+ * Health state name
+ */
+export type HealthStateName = (typeof HealthStateName)[keyof typeof HealthStateName];

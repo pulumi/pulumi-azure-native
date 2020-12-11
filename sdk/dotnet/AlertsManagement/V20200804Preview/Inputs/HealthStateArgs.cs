@@ -16,16 +16,16 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20200804Preview.Inputs
     public sealed class HealthStateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Health state
+        /// Health state name
         /// </summary>
         [Input("healthStateName", required: true)]
-        public Input<string> HealthStateName { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNextGen.AlertsManagement.V20200804Preview.HealthStateName> HealthStateName { get; set; } = null!;
 
         /// <summary>
         /// Severity of alert fired
         /// </summary>
         [Input("severity", required: true)]
-        public Input<string> Severity { get; set; } = null!;
+        public Input<int> Severity { get; set; } = null!;
 
         public HealthStateArgs()
         {

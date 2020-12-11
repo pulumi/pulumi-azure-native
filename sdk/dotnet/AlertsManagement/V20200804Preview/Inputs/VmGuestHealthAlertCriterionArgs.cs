@@ -15,13 +15,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20200804Preview.Inputs
     /// </summary>
     public sealed class VmGuestHealthAlertCriterionArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of health monitor on which to define alert
-        /// </summary>
-        [Input("healthMonitorName", required: true)]
-        public Input<string> HealthMonitorName { get; set; } = null!;
-
-        [Input("healthStates")]
+        [Input("healthStates", required: true)]
         private InputList<Inputs.HealthStateArgs>? _healthStates;
 
         /// <summary>
@@ -31,6 +25,30 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20200804Preview.Inputs
         {
             get => _healthStates ?? (_healthStates = new InputList<Inputs.HealthStateArgs>());
             set => _healthStates = value;
+        }
+
+        [Input("monitorNames")]
+        private InputList<string>? _monitorNames;
+
+        /// <summary>
+        /// Names of health monitor on which to define alert
+        /// </summary>
+        public InputList<string> MonitorNames
+        {
+            get => _monitorNames ?? (_monitorNames = new InputList<string>());
+            set => _monitorNames = value;
+        }
+
+        [Input("monitorTypes")]
+        private InputList<string>? _monitorTypes;
+
+        /// <summary>
+        /// Names of health monitor type on which to define alert
+        /// </summary>
+        public InputList<string> MonitorTypes
+        {
+            get => _monitorTypes ?? (_monitorTypes = new InputList<string>());
+            set => _monitorTypes = value;
         }
 
         /// <summary>

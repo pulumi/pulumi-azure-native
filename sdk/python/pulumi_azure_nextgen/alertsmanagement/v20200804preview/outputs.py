@@ -88,11 +88,11 @@ class HealthStateResponse(dict):
     """
     def __init__(__self__, *,
                  health_state_name: str,
-                 severity: str):
+                 severity: int):
         """
         Specifies the health state to alert on and the corresponding severity
-        :param str health_state_name: Health state
-        :param str severity: Severity of alert fired
+        :param str health_state_name: Health state name
+        :param int severity: Severity of alert fired
         """
         pulumi.set(__self__, "health_state_name", health_state_name)
         pulumi.set(__self__, "severity", severity)
@@ -101,13 +101,13 @@ class HealthStateResponse(dict):
     @pulumi.getter(name="healthStateName")
     def health_state_name(self) -> str:
         """
-        Health state
+        Health state name
         """
         return pulumi.get(self, "health_state_name")
 
     @property
     @pulumi.getter
-    def severity(self) -> str:
+    def severity(self) -> int:
         """
         Severity of alert fired
         """
@@ -123,27 +123,31 @@ class VmGuestHealthAlertCriterionResponse(dict):
     Specifies the health alert criteria to alert on.
     """
     def __init__(__self__, *,
-                 health_monitor_name: str,
+                 health_states: Sequence['outputs.HealthStateResponse'],
                  namespace: str,
-                 health_states: Optional[Sequence['outputs.HealthStateResponse']] = None):
+                 monitor_names: Optional[Sequence[str]] = None,
+                 monitor_types: Optional[Sequence[str]] = None):
         """
         Specifies the health alert criteria to alert on.
-        :param str health_monitor_name: Name of health monitor on which to define alert
-        :param str namespace: specifies the type of the alert criterion.
         :param Sequence['HealthStateResponseArgs'] health_states: Health states to alert on
+        :param str namespace: specifies the type of the alert criterion.
+        :param Sequence[str] monitor_names: Names of health monitor on which to define alert
+        :param Sequence[str] monitor_types: Names of health monitor type on which to define alert
         """
-        pulumi.set(__self__, "health_monitor_name", health_monitor_name)
-        pulumi.set(__self__, "namespace", 'VmGuestHealth')
-        if health_states is not None:
-            pulumi.set(__self__, "health_states", health_states)
+        pulumi.set(__self__, "health_states", health_states)
+        pulumi.set(__self__, "namespace", 'GuestVmHealth')
+        if monitor_names is not None:
+            pulumi.set(__self__, "monitor_names", monitor_names)
+        if monitor_types is not None:
+            pulumi.set(__self__, "monitor_types", monitor_types)
 
     @property
-    @pulumi.getter(name="healthMonitorName")
-    def health_monitor_name(self) -> str:
+    @pulumi.getter(name="healthStates")
+    def health_states(self) -> Sequence['outputs.HealthStateResponse']:
         """
-        Name of health monitor on which to define alert
+        Health states to alert on
         """
-        return pulumi.get(self, "health_monitor_name")
+        return pulumi.get(self, "health_states")
 
     @property
     @pulumi.getter
@@ -154,12 +158,20 @@ class VmGuestHealthAlertCriterionResponse(dict):
         return pulumi.get(self, "namespace")
 
     @property
-    @pulumi.getter(name="healthStates")
-    def health_states(self) -> Optional[Sequence['outputs.HealthStateResponse']]:
+    @pulumi.getter(name="monitorNames")
+    def monitor_names(self) -> Optional[Sequence[str]]:
         """
-        Health states to alert on
+        Names of health monitor on which to define alert
         """
-        return pulumi.get(self, "health_states")
+        return pulumi.get(self, "monitor_names")
+
+    @property
+    @pulumi.getter(name="monitorTypes")
+    def monitor_types(self) -> Optional[Sequence[str]]:
+        """
+        Names of health monitor type on which to define alert
+        """
+        return pulumi.get(self, "monitor_types")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -831,8 +831,8 @@ class DatabaseRestoreResourceResponse(dict):
                  database_name: Optional[str] = None):
         """
         Specific Databases to restore.
-        :param Sequence[str] collection_names: The names of the collections to restore.
-        :param str database_name: The name of the database to restore.
+        :param Sequence[str] collection_names: The names of the collections available for restore.
+        :param str database_name: The name of the database available for restore.
         """
         if collection_names is not None:
             pulumi.set(__self__, "collection_names", collection_names)
@@ -843,7 +843,7 @@ class DatabaseRestoreResourceResponse(dict):
     @pulumi.getter(name="collectionNames")
     def collection_names(self) -> Optional[Sequence[str]]:
         """
-        The names of the collections to restore.
+        The names of the collections available for restore.
         """
         return pulumi.get(self, "collection_names")
 
@@ -851,7 +851,7 @@ class DatabaseRestoreResourceResponse(dict):
     @pulumi.getter(name="databaseName")
     def database_name(self) -> Optional[str]:
         """
-        The name of the database to restore.
+        The name of the database available for restore.
         """
         return pulumi.get(self, "database_name")
 
@@ -2114,7 +2114,7 @@ class RestoreParametersResponse(dict):
                  restore_timestamp_in_utc: Optional[str] = None):
         """
         Parameters to indicate the information about the restore.
-        :param Sequence['DatabaseRestoreResourceResponseArgs'] databases_to_restore: List of specific databases to restore.
+        :param Sequence['DatabaseRestoreResourceResponseArgs'] databases_to_restore: List of specific databases available for restore.
         :param str restore_mode: Describes the mode of the restore.
         :param str restore_source: The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
         :param str restore_timestamp_in_utc: Time to which the account has to be restored (ISO-8601 format).
@@ -2132,7 +2132,7 @@ class RestoreParametersResponse(dict):
     @pulumi.getter(name="databasesToRestore")
     def databases_to_restore(self) -> Optional[Sequence['outputs.DatabaseRestoreResourceResponse']]:
         """
-        List of specific databases to restore.
+        List of specific databases available for restore.
         """
         return pulumi.get(self, "databases_to_restore")
 

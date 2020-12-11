@@ -14,19 +14,19 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20200804Preview.Outputs
     public sealed class HealthStateResponse
     {
         /// <summary>
-        /// Health state
+        /// Health state name
         /// </summary>
         public readonly string HealthStateName;
         /// <summary>
         /// Severity of alert fired
         /// </summary>
-        public readonly string Severity;
+        public readonly int Severity;
 
         [OutputConstructor]
         private HealthStateResponse(
             string healthStateName,
 
-            string severity)
+            int severity)
         {
             HealthStateName = healthStateName;
             Severity = severity;

@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'HealthAlertsNamespace',
+    'HealthStateName',
 ]
 
 
@@ -13,4 +14,12 @@ class HealthAlertsNamespace(str, Enum):
     """
     specifies the type of the alert criterion.
     """
-    VM_GUEST_HEALTH = "VmGuestHealth"
+    GUEST_VM_HEALTH = "GuestVmHealth"
+
+
+class HealthStateName(str, Enum):
+    """
+    Health state name
+    """
+    WARNING = "Warning"
+    CRITICAL = "Critical"
