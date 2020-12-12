@@ -87,7 +87,7 @@ class Server(pulumi.CustomResource):
             __props__['state'] = None
             __props__['type'] = None
             __props__['workspace_feature'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/latest:Server"), pulumi.Alias(type_="azure-nextgen:sql/v20140401:Server"), pulumi.Alias(type_="azure-nextgen:sql/v20150501preview:Server"), pulumi.Alias(type_="azure-nextgen:sql/v20190601preview:Server")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/latest:Server"), pulumi.Alias(type_="azure-nextgen:sql/v20140401:Server"), pulumi.Alias(type_="azure-nextgen:sql/v20150501preview:Server"), pulumi.Alias(type_="azure-nextgen:sql/v20190601preview:Server"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:Server")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Server, __self__).__init__(
             'azure-nextgen:sql/v20200801preview:Server',

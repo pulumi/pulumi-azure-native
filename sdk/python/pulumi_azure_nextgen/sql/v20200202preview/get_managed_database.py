@@ -303,7 +303,7 @@ def get_managed_database(database_name: Optional[str] = None,
 
     :param str database_name: The name of the database.
     :param str managed_instance_name: The name of the managed instance.
-    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     """
     __args__ = dict()
     __args__['databaseName'] = database_name

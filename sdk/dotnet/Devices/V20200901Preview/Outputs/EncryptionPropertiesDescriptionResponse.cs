@@ -14,20 +14,27 @@ namespace Pulumi.AzureNextGen.Devices.V20200901Preview.Outputs
     public sealed class EncryptionPropertiesDescriptionResponse
     {
         /// <summary>
-        /// The source of the key.
+        /// The identity used to access the encryption key in KeyVault.
+        /// </summary>
+        public readonly Outputs.EncryptionKeyIdentityResponse? Identity;
+        /// <summary>
+        /// The source of the encryption key. Typically, Microsoft.KeyVault
         /// </summary>
         public readonly string? KeySource;
         /// <summary>
-        /// The properties of the KeyVault key.
+        /// The properties of the encryption key configured in KeyVault.
         /// </summary>
         public readonly ImmutableArray<Outputs.KeyVaultKeyPropertiesResponse> KeyVaultProperties;
 
         [OutputConstructor]
         private EncryptionPropertiesDescriptionResponse(
+            Outputs.EncryptionKeyIdentityResponse? identity,
+
             string? keySource,
 
             ImmutableArray<Outputs.KeyVaultKeyPropertiesResponse> keyVaultProperties)
         {
+            Identity = identity;
             KeySource = keySource;
             KeyVaultProperties = keyVaultProperties;
         }

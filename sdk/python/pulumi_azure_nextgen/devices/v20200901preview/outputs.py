@@ -11,7 +11,10 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ArmIdentityResponse',
+    'ArmUserIdentityResponse',
     'CertificatePropertiesResponse',
+    'EncryptionKeyIdentityResponse',
     'EncryptionPropertiesDescriptionResponse',
     'IotDpsPropertiesDescriptionResponse',
     'IotDpsSkuInfoResponse',
@@ -24,6 +27,102 @@ __all__ = [
     'PrivateLinkServiceConnectionStateResponse',
     'SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponse',
 ]
+
+@pulumi.output_type
+class ArmIdentityResponse(dict):
+    """
+    The set of ARM identities associated with the IoT DPS resource.
+    """
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 identity_type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.ArmUserIdentityResponse']] = None):
+        """
+        The set of ARM identities associated with the IoT DPS resource.
+        :param str principal_id: Principal Id
+        :param str tenant_id: Tenant Id
+        :param str identity_type: Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.
+        :param Mapping[str, 'ArmUserIdentityResponseArgs'] user_assigned_identities: The set of UserAssigned identities associated with the IoT DPS resource.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if identity_type is not None:
+            pulumi.set(__self__, "identity_type", identity_type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        Principal Id
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        Tenant Id
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter(name="identityType")
+    def identity_type(self) -> Optional[str]:
+        """
+        Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.
+        """
+        return pulumi.get(self, "identity_type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.ArmUserIdentityResponse']]:
+        """
+        The set of UserAssigned identities associated with the IoT DPS resource.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ArmUserIdentityResponse(dict):
+    """
+    The ARM UserAssigned identity information
+    """
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        The ARM UserAssigned identity information
+        :param str client_id: Client Id
+        :param str principal_id: Principal Id
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        Client Id
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        Principal Id
+        """
+        return pulumi.get(self, "principal_id")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
 
 @pulumi.output_type
 class CertificatePropertiesResponse(dict):
@@ -106,28 +205,66 @@ class CertificatePropertiesResponse(dict):
 
 
 @pulumi.output_type
-class EncryptionPropertiesDescriptionResponse(dict):
+class EncryptionKeyIdentityResponse(dict):
     """
-    The encryption properties for the IoT DPS instance.
+    The properties of the identity used to access the key encryption key in KeyVault.
     """
     def __init__(__self__, *,
+                 user_assigned_identity: Optional[str] = None):
+        """
+        The properties of the identity used to access the key encryption key in KeyVault.
+        :param str user_assigned_identity: The user assigned identity.
+        """
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[str]:
+        """
+        The user assigned identity.
+        """
+        return pulumi.get(self, "user_assigned_identity")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class EncryptionPropertiesDescriptionResponse(dict):
+    """
+    The customer-managed encryption key (CMK) properties for the IoT DPS instance.
+    """
+    def __init__(__self__, *,
+                 identity: Optional['outputs.EncryptionKeyIdentityResponse'] = None,
                  key_source: Optional[str] = None,
                  key_vault_properties: Optional[Sequence['outputs.KeyVaultKeyPropertiesResponse']] = None):
         """
-        The encryption properties for the IoT DPS instance.
-        :param str key_source: The source of the key.
-        :param Sequence['KeyVaultKeyPropertiesResponseArgs'] key_vault_properties: The properties of the KeyVault key.
+        The customer-managed encryption key (CMK) properties for the IoT DPS instance.
+        :param 'EncryptionKeyIdentityResponseArgs' identity: The identity used to access the encryption key in KeyVault.
+        :param str key_source: The source of the encryption key. Typically, Microsoft.KeyVault
+        :param Sequence['KeyVaultKeyPropertiesResponseArgs'] key_vault_properties: The properties of the encryption key configured in KeyVault.
         """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if key_source is not None:
             pulumi.set(__self__, "key_source", key_source)
         if key_vault_properties is not None:
             pulumi.set(__self__, "key_vault_properties", key_vault_properties)
 
     @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.EncryptionKeyIdentityResponse']:
+        """
+        The identity used to access the encryption key in KeyVault.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
     @pulumi.getter(name="keySource")
     def key_source(self) -> Optional[str]:
         """
-        The source of the key.
+        The source of the encryption key. Typically, Microsoft.KeyVault
         """
         return pulumi.get(self, "key_source")
 
@@ -135,7 +272,7 @@ class EncryptionPropertiesDescriptionResponse(dict):
     @pulumi.getter(name="keyVaultProperties")
     def key_vault_properties(self) -> Optional[Sequence['outputs.KeyVaultKeyPropertiesResponse']]:
         """
-        The properties of the KeyVault key.
+        The properties of the encryption key configured in KeyVault.
         """
         return pulumi.get(self, "key_vault_properties")
 

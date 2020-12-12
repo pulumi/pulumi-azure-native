@@ -20,7 +20,7 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20200804Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static HealthAlertsNamespace VmGuestHealth { get; } = new HealthAlertsNamespace("VmGuestHealth");
+        public static HealthAlertsNamespace GuestVmHealth { get; } = new HealthAlertsNamespace("GuestVmHealth");
 
         public static bool operator ==(HealthAlertsNamespace left, HealthAlertsNamespace right) => left.Equals(right);
         public static bool operator !=(HealthAlertsNamespace left, HealthAlertsNamespace right) => !left.Equals(right);
@@ -30,6 +30,37 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20200804Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is HealthAlertsNamespace other && Equals(other);
         public bool Equals(HealthAlertsNamespace other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Health state name
+    /// </summary>
+    [EnumType]
+    public readonly struct HealthStateName : IEquatable<HealthStateName>
+    {
+        private readonly string _value;
+
+        private HealthStateName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HealthStateName Warning { get; } = new HealthStateName("Warning");
+        public static HealthStateName Critical { get; } = new HealthStateName("Critical");
+
+        public static bool operator ==(HealthStateName left, HealthStateName right) => left.Equals(right);
+        public static bool operator !=(HealthStateName left, HealthStateName right) => !left.Equals(right);
+
+        public static explicit operator string(HealthStateName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HealthStateName other && Equals(other);
+        public bool Equals(HealthStateName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

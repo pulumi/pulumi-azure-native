@@ -50,6 +50,9 @@ func NewJob(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20170301preview:Job"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:sql/v20200202preview:Job"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Job

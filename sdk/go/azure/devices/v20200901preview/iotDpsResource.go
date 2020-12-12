@@ -17,6 +17,8 @@ type IotDpsResource struct {
 
 	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
+	// The managed identities for the IotDps instance.
+	Identity ArmIdentityResponsePtrOutput `pulumi:"identity"`
 	// The resource location.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The resource name.
@@ -98,6 +100,8 @@ func GetIotDpsResource(ctx *pulumi.Context,
 type iotDpsResourceState struct {
 	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
 	Etag *string `pulumi:"etag"`
+	// The managed identities for the IotDps instance.
+	Identity *ArmIdentityResponse `pulumi:"identity"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The resource name.
@@ -115,6 +119,8 @@ type iotDpsResourceState struct {
 type IotDpsResourceState struct {
 	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
 	Etag pulumi.StringPtrInput
+	// The managed identities for the IotDps instance.
+	Identity ArmIdentityResponsePtrInput
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The resource name.
@@ -136,6 +142,8 @@ func (IotDpsResourceState) ElementType() reflect.Type {
 type iotDpsResourceArgs struct {
 	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
 	Etag *string `pulumi:"etag"`
+	// The managed identities for the IotDps instance.
+	Identity *ArmIdentity `pulumi:"identity"`
 	// The resource location.
 	Location string `pulumi:"location"`
 	// Service specific properties for a provisioning service
@@ -154,6 +162,8 @@ type iotDpsResourceArgs struct {
 type IotDpsResourceArgs struct {
 	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
 	Etag pulumi.StringPtrInput
+	// The managed identities for the IotDps instance.
+	Identity ArmIdentityPtrInput
 	// The resource location.
 	Location pulumi.StringInput
 	// Service specific properties for a provisioning service

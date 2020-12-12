@@ -98,6 +98,10 @@ export interface GetManagedInstanceResult {
      * Resource name.
      */
     readonly name: string;
+    /**
+     * List of private endpoint connections on a managed instance.
+     */
+    readonly privateEndpointConnections: outputs.sql.v20200202preview.ManagedInstancePecPropertyResponse[];
     readonly provisioningState: string;
     /**
      * Connection type used for connecting to the instance.
@@ -156,4 +160,8 @@ export interface GetManagedInstanceResult {
      * The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80.
      */
     readonly vCores?: number;
+    /**
+     * Whether or not the multi-az is enabled.
+     */
+    readonly zoneRedundant?: boolean;
 }

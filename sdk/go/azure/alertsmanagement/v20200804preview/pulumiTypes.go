@@ -498,10 +498,10 @@ func (o HealthAlertCriteriaResponsePtrOutput) AllOf() VmGuestHealthAlertCriterio
 
 // Specifies the health state to alert on and the corresponding severity
 type HealthState struct {
-	// Health state
+	// Health state name
 	HealthStateName string `pulumi:"healthStateName"`
 	// Severity of alert fired
-	Severity string `pulumi:"severity"`
+	Severity int `pulumi:"severity"`
 }
 
 // HealthStateInput is an input type that accepts HealthStateArgs and HealthStateOutput values.
@@ -517,10 +517,10 @@ type HealthStateInput interface {
 
 // Specifies the health state to alert on and the corresponding severity
 type HealthStateArgs struct {
-	// Health state
+	// Health state name
 	HealthStateName pulumi.StringInput `pulumi:"healthStateName"`
 	// Severity of alert fired
-	Severity pulumi.StringInput `pulumi:"severity"`
+	Severity pulumi.IntInput `pulumi:"severity"`
 }
 
 func (HealthStateArgs) ElementType() reflect.Type {
@@ -575,14 +575,14 @@ func (o HealthStateOutput) ToHealthStateOutputWithContext(ctx context.Context) H
 	return o
 }
 
-// Health state
+// Health state name
 func (o HealthStateOutput) HealthStateName() pulumi.StringOutput {
 	return o.ApplyT(func(v HealthState) string { return v.HealthStateName }).(pulumi.StringOutput)
 }
 
 // Severity of alert fired
-func (o HealthStateOutput) Severity() pulumi.StringOutput {
-	return o.ApplyT(func(v HealthState) string { return v.Severity }).(pulumi.StringOutput)
+func (o HealthStateOutput) Severity() pulumi.IntOutput {
+	return o.ApplyT(func(v HealthState) int { return v.Severity }).(pulumi.IntOutput)
 }
 
 type HealthStateArrayOutput struct{ *pulumi.OutputState }
@@ -607,10 +607,10 @@ func (o HealthStateArrayOutput) Index(i pulumi.IntInput) HealthStateOutput {
 
 // Specifies the health state to alert on and the corresponding severity
 type HealthStateResponse struct {
-	// Health state
+	// Health state name
 	HealthStateName string `pulumi:"healthStateName"`
 	// Severity of alert fired
-	Severity string `pulumi:"severity"`
+	Severity int `pulumi:"severity"`
 }
 
 // HealthStateResponseInput is an input type that accepts HealthStateResponseArgs and HealthStateResponseOutput values.
@@ -626,10 +626,10 @@ type HealthStateResponseInput interface {
 
 // Specifies the health state to alert on and the corresponding severity
 type HealthStateResponseArgs struct {
-	// Health state
+	// Health state name
 	HealthStateName pulumi.StringInput `pulumi:"healthStateName"`
 	// Severity of alert fired
-	Severity pulumi.StringInput `pulumi:"severity"`
+	Severity pulumi.IntInput `pulumi:"severity"`
 }
 
 func (HealthStateResponseArgs) ElementType() reflect.Type {
@@ -684,14 +684,14 @@ func (o HealthStateResponseOutput) ToHealthStateResponseOutputWithContext(ctx co
 	return o
 }
 
-// Health state
+// Health state name
 func (o HealthStateResponseOutput) HealthStateName() pulumi.StringOutput {
 	return o.ApplyT(func(v HealthStateResponse) string { return v.HealthStateName }).(pulumi.StringOutput)
 }
 
 // Severity of alert fired
-func (o HealthStateResponseOutput) Severity() pulumi.StringOutput {
-	return o.ApplyT(func(v HealthStateResponse) string { return v.Severity }).(pulumi.StringOutput)
+func (o HealthStateResponseOutput) Severity() pulumi.IntOutput {
+	return o.ApplyT(func(v HealthStateResponse) int { return v.Severity }).(pulumi.IntOutput)
 }
 
 type HealthStateResponseArrayOutput struct{ *pulumi.OutputState }
@@ -716,10 +716,12 @@ func (o HealthStateResponseArrayOutput) Index(i pulumi.IntInput) HealthStateResp
 
 // Specifies the health alert criteria to alert on.
 type VmGuestHealthAlertCriterion struct {
-	// Name of health monitor on which to define alert
-	HealthMonitorName string `pulumi:"healthMonitorName"`
 	// Health states to alert on
 	HealthStates []HealthState `pulumi:"healthStates"`
+	// Names of health monitor on which to define alert
+	MonitorNames []string `pulumi:"monitorNames"`
+	// Names of health monitor type on which to define alert
+	MonitorTypes []string `pulumi:"monitorTypes"`
 	// specifies the type of the alert criterion.
 	Namespace string `pulumi:"namespace"`
 }
@@ -737,10 +739,12 @@ type VmGuestHealthAlertCriterionInput interface {
 
 // Specifies the health alert criteria to alert on.
 type VmGuestHealthAlertCriterionArgs struct {
-	// Name of health monitor on which to define alert
-	HealthMonitorName pulumi.StringInput `pulumi:"healthMonitorName"`
 	// Health states to alert on
 	HealthStates HealthStateArrayInput `pulumi:"healthStates"`
+	// Names of health monitor on which to define alert
+	MonitorNames pulumi.StringArrayInput `pulumi:"monitorNames"`
+	// Names of health monitor type on which to define alert
+	MonitorTypes pulumi.StringArrayInput `pulumi:"monitorTypes"`
 	// specifies the type of the alert criterion.
 	Namespace pulumi.StringInput `pulumi:"namespace"`
 }
@@ -797,14 +801,19 @@ func (o VmGuestHealthAlertCriterionOutput) ToVmGuestHealthAlertCriterionOutputWi
 	return o
 }
 
-// Name of health monitor on which to define alert
-func (o VmGuestHealthAlertCriterionOutput) HealthMonitorName() pulumi.StringOutput {
-	return o.ApplyT(func(v VmGuestHealthAlertCriterion) string { return v.HealthMonitorName }).(pulumi.StringOutput)
-}
-
 // Health states to alert on
 func (o VmGuestHealthAlertCriterionOutput) HealthStates() HealthStateArrayOutput {
 	return o.ApplyT(func(v VmGuestHealthAlertCriterion) []HealthState { return v.HealthStates }).(HealthStateArrayOutput)
+}
+
+// Names of health monitor on which to define alert
+func (o VmGuestHealthAlertCriterionOutput) MonitorNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VmGuestHealthAlertCriterion) []string { return v.MonitorNames }).(pulumi.StringArrayOutput)
+}
+
+// Names of health monitor type on which to define alert
+func (o VmGuestHealthAlertCriterionOutput) MonitorTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VmGuestHealthAlertCriterion) []string { return v.MonitorTypes }).(pulumi.StringArrayOutput)
 }
 
 // specifies the type of the alert criterion.
@@ -834,10 +843,12 @@ func (o VmGuestHealthAlertCriterionArrayOutput) Index(i pulumi.IntInput) VmGuest
 
 // Specifies the health alert criteria to alert on.
 type VmGuestHealthAlertCriterionResponse struct {
-	// Name of health monitor on which to define alert
-	HealthMonitorName string `pulumi:"healthMonitorName"`
 	// Health states to alert on
 	HealthStates []HealthStateResponse `pulumi:"healthStates"`
+	// Names of health monitor on which to define alert
+	MonitorNames []string `pulumi:"monitorNames"`
+	// Names of health monitor type on which to define alert
+	MonitorTypes []string `pulumi:"monitorTypes"`
 	// specifies the type of the alert criterion.
 	Namespace string `pulumi:"namespace"`
 }
@@ -855,10 +866,12 @@ type VmGuestHealthAlertCriterionResponseInput interface {
 
 // Specifies the health alert criteria to alert on.
 type VmGuestHealthAlertCriterionResponseArgs struct {
-	// Name of health monitor on which to define alert
-	HealthMonitorName pulumi.StringInput `pulumi:"healthMonitorName"`
 	// Health states to alert on
 	HealthStates HealthStateResponseArrayInput `pulumi:"healthStates"`
+	// Names of health monitor on which to define alert
+	MonitorNames pulumi.StringArrayInput `pulumi:"monitorNames"`
+	// Names of health monitor type on which to define alert
+	MonitorTypes pulumi.StringArrayInput `pulumi:"monitorTypes"`
 	// specifies the type of the alert criterion.
 	Namespace pulumi.StringInput `pulumi:"namespace"`
 }
@@ -915,14 +928,19 @@ func (o VmGuestHealthAlertCriterionResponseOutput) ToVmGuestHealthAlertCriterion
 	return o
 }
 
-// Name of health monitor on which to define alert
-func (o VmGuestHealthAlertCriterionResponseOutput) HealthMonitorName() pulumi.StringOutput {
-	return o.ApplyT(func(v VmGuestHealthAlertCriterionResponse) string { return v.HealthMonitorName }).(pulumi.StringOutput)
-}
-
 // Health states to alert on
 func (o VmGuestHealthAlertCriterionResponseOutput) HealthStates() HealthStateResponseArrayOutput {
 	return o.ApplyT(func(v VmGuestHealthAlertCriterionResponse) []HealthStateResponse { return v.HealthStates }).(HealthStateResponseArrayOutput)
+}
+
+// Names of health monitor on which to define alert
+func (o VmGuestHealthAlertCriterionResponseOutput) MonitorNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VmGuestHealthAlertCriterionResponse) []string { return v.MonitorNames }).(pulumi.StringArrayOutput)
+}
+
+// Names of health monitor type on which to define alert
+func (o VmGuestHealthAlertCriterionResponseOutput) MonitorTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VmGuestHealthAlertCriterionResponse) []string { return v.MonitorTypes }).(pulumi.StringArrayOutput)
 }
 
 // specifies the type of the alert criterion.

@@ -53,6 +53,12 @@ func NewHybridLink(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:sql/v20200202preview:HybridLink"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource HybridLink
 	err := ctx.RegisterResource("azure-nextgen:sql/v20200801preview:HybridLink", name, args, &resource, opts...)
 	if err != nil {

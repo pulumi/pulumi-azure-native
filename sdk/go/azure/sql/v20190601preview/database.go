@@ -146,6 +146,9 @@ func NewDatabase(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:sql/v20171001preview:Database"),
 		},
 		{
+			Type: pulumi.String("azure-nextgen:sql/v20200202preview:Database"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20200801preview:Database"),
 		},
 	})

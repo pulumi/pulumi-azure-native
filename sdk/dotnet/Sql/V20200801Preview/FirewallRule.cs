@@ -66,6 +66,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
                     new Pulumi.Alias { Type = "azure-nextgen:sql/latest:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:FirewallRule"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20150501preview:FirewallRule"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

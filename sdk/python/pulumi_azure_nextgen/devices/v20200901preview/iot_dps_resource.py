@@ -19,6 +19,7 @@ class IotDpsResource(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  etag: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ArmIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['IotDpsPropertiesDescriptionArgs']]] = None,
                  provisioning_service_name: Optional[pulumi.Input[str]] = None,
@@ -34,6 +35,7 @@ class IotDpsResource(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
+        :param pulumi.Input[pulumi.InputType['ArmIdentityArgs']] identity: The managed identities for the IotDps instance.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[pulumi.InputType['IotDpsPropertiesDescriptionArgs']] properties: Service specific properties for a provisioning service
         :param pulumi.Input[str] provisioning_service_name: Name of provisioning service to create or update.
@@ -59,6 +61,7 @@ class IotDpsResource(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['etag'] = etag
+            __props__['identity'] = identity
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
@@ -110,6 +113,14 @@ class IotDpsResource(pulumi.CustomResource):
         The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ArmIdentityResponse']]:
+        """
+        The managed identities for the IotDps instance.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter

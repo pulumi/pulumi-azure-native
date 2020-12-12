@@ -118,7 +118,7 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/latest:ServerAzureADAdministrator" }, { type: "azure-nextgen:sql/v20140401:ServerAzureADAdministrator" }, { type: "azure-nextgen:sql/v20180601preview:ServerAzureADAdministrator" }, { type: "azure-nextgen:sql/v20200801preview:ServerAzureADAdministrator" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/latest:ServerAzureADAdministrator" }, { type: "azure-nextgen:sql/v20140401:ServerAzureADAdministrator" }, { type: "azure-nextgen:sql/v20180601preview:ServerAzureADAdministrator" }, { type: "azure-nextgen:sql/v20200202preview:ServerAzureADAdministrator" }, { type: "azure-nextgen:sql/v20200801preview:ServerAzureADAdministrator" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ServerAzureADAdministrator.__pulumiType, name, inputs, opts);
     }

@@ -54,6 +54,9 @@ func NewManagedInstanceKey(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20171001preview:ManagedInstanceKey"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:sql/v20200202preview:ManagedInstanceKey"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ManagedInstanceKey

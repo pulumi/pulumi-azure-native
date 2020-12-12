@@ -102,6 +102,12 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// List of private endpoint connections on a managed instance.
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.ManagedInstancePecPropertyResponse>> PrivateEndpointConnections { get; private set; } = null!;
+
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 
@@ -187,6 +193,12 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// </summary>
         [Output("vCores")]
         public Output<int?> VCores { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether or not the multi-az is enabled.
+        /// </summary>
+        [Output("zoneRedundant")]
+        public Output<bool?> ZoneRedundant { get; private set; } = null!;
 
 
         /// <summary>
@@ -397,6 +409,12 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// </summary>
         [Input("vCores")]
         public Input<int>? VCores { get; set; }
+
+        /// <summary>
+        /// Whether or not the multi-az is enabled.
+        /// </summary>
+        [Input("zoneRedundant")]
+        public Input<bool>? ZoneRedundant { get; set; }
 
         public ManagedInstanceArgs()
         {

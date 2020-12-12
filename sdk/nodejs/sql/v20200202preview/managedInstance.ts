@@ -95,6 +95,10 @@ export class ManagedInstance extends pulumi.CustomResource {
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * List of private endpoint connections on a managed instance.
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.sql.v20200202preview.ManagedInstancePecPropertyResponse[]>;
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Connection type used for connecting to the instance.
@@ -153,6 +157,10 @@ export class ManagedInstance extends pulumi.CustomResource {
      * The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80.
      */
     public readonly vCores!: pulumi.Output<number | undefined>;
+    /**
+     * Whether or not the multi-az is enabled.
+     */
+    public readonly zoneRedundant!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a ManagedInstance resource with the given unique name, arguments, and options.
@@ -197,9 +205,11 @@ export class ManagedInstance extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["timezoneId"] = args ? args.timezoneId : undefined;
             inputs["vCores"] = args ? args.vCores : undefined;
+            inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
             inputs["dnsZone"] = undefined /*out*/;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -218,6 +228,7 @@ export class ManagedInstance extends pulumi.CustomResource {
             inputs["managedInstanceCreateMode"] = undefined /*out*/;
             inputs["minimalTlsVersion"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
+            inputs["privateEndpointConnections"] = undefined /*out*/;
             inputs["provisioningState"] = undefined /*out*/;
             inputs["proxyOverride"] = undefined /*out*/;
             inputs["publicDataEndpointEnabled"] = undefined /*out*/;
@@ -232,6 +243,7 @@ export class ManagedInstance extends pulumi.CustomResource {
             inputs["timezoneId"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
             inputs["vCores"] = undefined /*out*/;
+            inputs["zoneRedundant"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -355,4 +367,8 @@ export interface ManagedInstanceArgs {
      * The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80.
      */
     readonly vCores?: pulumi.Input<number>;
+    /**
+     * Whether or not the multi-az is enabled.
+     */
+    readonly zoneRedundant?: pulumi.Input<boolean>;
 }

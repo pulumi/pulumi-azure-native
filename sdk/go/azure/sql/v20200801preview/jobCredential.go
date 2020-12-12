@@ -54,6 +54,9 @@ func NewJobCredential(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20170301preview:JobCredential"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:sql/v20200202preview:JobCredential"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource JobCredential

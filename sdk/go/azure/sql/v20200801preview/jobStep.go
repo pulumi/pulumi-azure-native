@@ -68,6 +68,9 @@ func NewJobStep(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20170301preview:JobStep"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:sql/v20200202preview:JobStep"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource JobStep

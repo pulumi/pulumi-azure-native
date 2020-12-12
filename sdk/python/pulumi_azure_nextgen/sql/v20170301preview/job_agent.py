@@ -77,7 +77,7 @@ class JobAgent(pulumi.CustomResource):
             __props__['name'] = None
             __props__['state'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:JobAgent")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:JobAgent"), pulumi.Alias(type_="azure-nextgen:sql/v20200801preview:JobAgent")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(JobAgent, __self__).__init__(
             'azure-nextgen:sql/v20170301preview:JobAgent',

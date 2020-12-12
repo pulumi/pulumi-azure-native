@@ -51,7 +51,7 @@ class ManagedDatabase(pulumi.CustomResource):
         :param pulumi.Input[str] long_term_retention_backup_resource_id: The name of the Long Term Retention backup to be used for restore of this managed database.
         :param pulumi.Input[str] managed_instance_name: The name of the managed instance.
         :param pulumi.Input[str] recoverable_database_id: The resource identifier of the recoverable database associated with create operation of this database.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] restorable_dropped_database_id: The restorable dropped database resource id to restore when creating this database.
         :param pulumi.Input[str] restore_point_in_time: Conditional. If createMode is PointInTimeRestore, this value is required. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
         :param pulumi.Input[str] source_database_id: The resource identifier of the source database associated with create operation of this database.

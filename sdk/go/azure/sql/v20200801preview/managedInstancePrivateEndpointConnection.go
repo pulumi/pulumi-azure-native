@@ -43,6 +43,12 @@ func NewManagedInstancePrivateEndpointConnection(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-nextgen:sql/v20200202preview:ManagedInstancePrivateEndpointConnection"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ManagedInstancePrivateEndpointConnection
 	err := ctx.RegisterResource("azure-nextgen:sql/v20200801preview:ManagedInstancePrivateEndpointConnection", name, args, &resource, opts...)
 	if err != nil {

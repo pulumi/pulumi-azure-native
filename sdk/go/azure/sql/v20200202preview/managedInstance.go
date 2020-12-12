@@ -46,8 +46,10 @@ type ManagedInstance struct {
 	// Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
 	MinimalTlsVersion pulumi.StringPtrOutput `pulumi:"minimalTlsVersion"`
 	// Resource name.
-	Name              pulumi.StringOutput `pulumi:"name"`
-	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// List of private endpoint connections on a managed instance.
+	PrivateEndpointConnections ManagedInstancePecPropertyResponseArrayOutput `pulumi:"privateEndpointConnections"`
+	ProvisioningState          pulumi.StringOutput                           `pulumi:"provisioningState"`
 	// Connection type used for connecting to the instance.
 	ProxyOverride pulumi.StringPtrOutput `pulumi:"proxyOverride"`
 	// Whether or not the public data endpoint is enabled.
@@ -79,6 +81,8 @@ type ManagedInstance struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80.
 	VCores pulumi.IntPtrOutput `pulumi:"vCores"`
+	// Whether or not the multi-az is enabled.
+	ZoneRedundant pulumi.BoolPtrOutput `pulumi:"zoneRedundant"`
 }
 
 // NewManagedInstance registers a new resource with the given unique name, arguments, and options.
@@ -162,8 +166,10 @@ type managedInstanceState struct {
 	// Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
 	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
 	// Resource name.
-	Name              *string `pulumi:"name"`
-	ProvisioningState *string `pulumi:"provisioningState"`
+	Name *string `pulumi:"name"`
+	// List of private endpoint connections on a managed instance.
+	PrivateEndpointConnections []ManagedInstancePecPropertyResponse `pulumi:"privateEndpointConnections"`
+	ProvisioningState          *string                              `pulumi:"provisioningState"`
 	// Connection type used for connecting to the instance.
 	ProxyOverride *string `pulumi:"proxyOverride"`
 	// Whether or not the public data endpoint is enabled.
@@ -195,6 +201,8 @@ type managedInstanceState struct {
 	Type *string `pulumi:"type"`
 	// The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80.
 	VCores *int `pulumi:"vCores"`
+	// Whether or not the multi-az is enabled.
+	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 type ManagedInstanceState struct {
@@ -229,8 +237,10 @@ type ManagedInstanceState struct {
 	// Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
 	MinimalTlsVersion pulumi.StringPtrInput
 	// Resource name.
-	Name              pulumi.StringPtrInput
-	ProvisioningState pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// List of private endpoint connections on a managed instance.
+	PrivateEndpointConnections ManagedInstancePecPropertyResponseArrayInput
+	ProvisioningState          pulumi.StringPtrInput
 	// Connection type used for connecting to the instance.
 	ProxyOverride pulumi.StringPtrInput
 	// Whether or not the public data endpoint is enabled.
@@ -262,6 +272,8 @@ type ManagedInstanceState struct {
 	Type pulumi.StringPtrInput
 	// The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80.
 	VCores pulumi.IntPtrInput
+	// Whether or not the multi-az is enabled.
+	ZoneRedundant pulumi.BoolPtrInput
 }
 
 func (ManagedInstanceState) ElementType() reflect.Type {
@@ -326,6 +338,8 @@ type managedInstanceArgs struct {
 	TimezoneId *string `pulumi:"timezoneId"`
 	// The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80.
 	VCores *int `pulumi:"vCores"`
+	// Whether or not the multi-az is enabled.
+	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
 // The set of arguments for constructing a ManagedInstance resource.
@@ -387,6 +401,8 @@ type ManagedInstanceArgs struct {
 	TimezoneId pulumi.StringPtrInput
 	// The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80.
 	VCores pulumi.IntPtrInput
+	// Whether or not the multi-az is enabled.
+	ZoneRedundant pulumi.BoolPtrInput
 }
 
 func (ManagedInstanceArgs) ElementType() reflect.Type {

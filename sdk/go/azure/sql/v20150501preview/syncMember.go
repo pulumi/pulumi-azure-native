@@ -66,6 +66,9 @@ func NewSyncMember(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:sql/v20190601preview:SyncMember"),
 		},
 		{
+			Type: pulumi.String("azure-nextgen:sql/v20200202preview:SyncMember"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20200801preview:SyncMember"),
 		},
 	})

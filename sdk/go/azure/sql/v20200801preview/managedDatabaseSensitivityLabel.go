@@ -72,6 +72,9 @@ func NewManagedDatabaseSensitivityLabel(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20180601preview:ManagedDatabaseSensitivityLabel"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:sql/v20200202preview:ManagedDatabaseSensitivityLabel"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ManagedDatabaseSensitivityLabel

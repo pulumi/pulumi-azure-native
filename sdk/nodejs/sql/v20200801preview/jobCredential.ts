@@ -100,7 +100,7 @@ export class JobCredential extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20170301preview:JobCredential" }] };
+        const aliasOpts = { aliases: [{ type: "azure-nextgen:sql/v20170301preview:JobCredential" }, { type: "azure-nextgen:sql/v20200202preview:JobCredential" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(JobCredential.__pulumiType, name, inputs, opts);
     }

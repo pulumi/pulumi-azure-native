@@ -14,13 +14,17 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20200804Preview.Outputs
     public sealed class VmGuestHealthAlertCriterionResponse
     {
         /// <summary>
-        /// Name of health monitor on which to define alert
-        /// </summary>
-        public readonly string HealthMonitorName;
-        /// <summary>
         /// Health states to alert on
         /// </summary>
         public readonly ImmutableArray<Outputs.HealthStateResponse> HealthStates;
+        /// <summary>
+        /// Names of health monitor on which to define alert
+        /// </summary>
+        public readonly ImmutableArray<string> MonitorNames;
+        /// <summary>
+        /// Names of health monitor type on which to define alert
+        /// </summary>
+        public readonly ImmutableArray<string> MonitorTypes;
         /// <summary>
         /// specifies the type of the alert criterion.
         /// </summary>
@@ -28,14 +32,17 @@ namespace Pulumi.AzureNextGen.AlertsManagement.V20200804Preview.Outputs
 
         [OutputConstructor]
         private VmGuestHealthAlertCriterionResponse(
-            string healthMonitorName,
-
             ImmutableArray<Outputs.HealthStateResponse> healthStates,
+
+            ImmutableArray<string> monitorNames,
+
+            ImmutableArray<string> monitorTypes,
 
             string @namespace)
         {
-            HealthMonitorName = healthMonitorName;
             HealthStates = healthStates;
+            MonitorNames = monitorNames;
+            MonitorTypes = monitorTypes;
             Namespace = @namespace;
         }
     }
