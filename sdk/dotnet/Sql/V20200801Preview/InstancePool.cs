@@ -88,6 +88,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20180601preview:InstancePool"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:InstancePool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

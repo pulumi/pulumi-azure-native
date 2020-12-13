@@ -19,7 +19,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview.Inputs
         private InputList<Inputs.DatabaseRestoreResourceArgs>? _databasesToRestore;
 
         /// <summary>
-        /// List of specific databases to restore.
+        /// List of specific databases available for restore.
         /// </summary>
         public InputList<Inputs.DatabaseRestoreResourceArgs> DatabasesToRestore
         {

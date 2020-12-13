@@ -10,6 +10,459 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// The set of ARM identities associated with the IoT DPS resource.
+type ArmIdentity struct {
+	// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.
+	IdentityType *string `pulumi:"identityType"`
+	// The set of UserAssigned identities associated with the IoT DPS resource.
+	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+}
+
+// ArmIdentityInput is an input type that accepts ArmIdentityArgs and ArmIdentityOutput values.
+// You can construct a concrete instance of `ArmIdentityInput` via:
+//
+//          ArmIdentityArgs{...}
+type ArmIdentityInput interface {
+	pulumi.Input
+
+	ToArmIdentityOutput() ArmIdentityOutput
+	ToArmIdentityOutputWithContext(context.Context) ArmIdentityOutput
+}
+
+// The set of ARM identities associated with the IoT DPS resource.
+type ArmIdentityArgs struct {
+	// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.
+	IdentityType pulumi.StringPtrInput `pulumi:"identityType"`
+	// The set of UserAssigned identities associated with the IoT DPS resource.
+	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+}
+
+func (ArmIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArmIdentity)(nil)).Elem()
+}
+
+func (i ArmIdentityArgs) ToArmIdentityOutput() ArmIdentityOutput {
+	return i.ToArmIdentityOutputWithContext(context.Background())
+}
+
+func (i ArmIdentityArgs) ToArmIdentityOutputWithContext(ctx context.Context) ArmIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArmIdentityOutput)
+}
+
+func (i ArmIdentityArgs) ToArmIdentityPtrOutput() ArmIdentityPtrOutput {
+	return i.ToArmIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ArmIdentityArgs) ToArmIdentityPtrOutputWithContext(ctx context.Context) ArmIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArmIdentityOutput).ToArmIdentityPtrOutputWithContext(ctx)
+}
+
+// ArmIdentityPtrInput is an input type that accepts ArmIdentityArgs, ArmIdentityPtr and ArmIdentityPtrOutput values.
+// You can construct a concrete instance of `ArmIdentityPtrInput` via:
+//
+//          ArmIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type ArmIdentityPtrInput interface {
+	pulumi.Input
+
+	ToArmIdentityPtrOutput() ArmIdentityPtrOutput
+	ToArmIdentityPtrOutputWithContext(context.Context) ArmIdentityPtrOutput
+}
+
+type armIdentityPtrType ArmIdentityArgs
+
+func ArmIdentityPtr(v *ArmIdentityArgs) ArmIdentityPtrInput {
+	return (*armIdentityPtrType)(v)
+}
+
+func (*armIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArmIdentity)(nil)).Elem()
+}
+
+func (i *armIdentityPtrType) ToArmIdentityPtrOutput() ArmIdentityPtrOutput {
+	return i.ToArmIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *armIdentityPtrType) ToArmIdentityPtrOutputWithContext(ctx context.Context) ArmIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArmIdentityPtrOutput)
+}
+
+// The set of ARM identities associated with the IoT DPS resource.
+type ArmIdentityOutput struct{ *pulumi.OutputState }
+
+func (ArmIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArmIdentity)(nil)).Elem()
+}
+
+func (o ArmIdentityOutput) ToArmIdentityOutput() ArmIdentityOutput {
+	return o
+}
+
+func (o ArmIdentityOutput) ToArmIdentityOutputWithContext(ctx context.Context) ArmIdentityOutput {
+	return o
+}
+
+func (o ArmIdentityOutput) ToArmIdentityPtrOutput() ArmIdentityPtrOutput {
+	return o.ToArmIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ArmIdentityOutput) ToArmIdentityPtrOutputWithContext(ctx context.Context) ArmIdentityPtrOutput {
+	return o.ApplyT(func(v ArmIdentity) *ArmIdentity {
+		return &v
+	}).(ArmIdentityPtrOutput)
+}
+
+// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.
+func (o ArmIdentityOutput) IdentityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArmIdentity) *string { return v.IdentityType }).(pulumi.StringPtrOutput)
+}
+
+// The set of UserAssigned identities associated with the IoT DPS resource.
+func (o ArmIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v ArmIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+}
+
+type ArmIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ArmIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArmIdentity)(nil)).Elem()
+}
+
+func (o ArmIdentityPtrOutput) ToArmIdentityPtrOutput() ArmIdentityPtrOutput {
+	return o
+}
+
+func (o ArmIdentityPtrOutput) ToArmIdentityPtrOutputWithContext(ctx context.Context) ArmIdentityPtrOutput {
+	return o
+}
+
+func (o ArmIdentityPtrOutput) Elem() ArmIdentityOutput {
+	return o.ApplyT(func(v *ArmIdentity) ArmIdentity { return *v }).(ArmIdentityOutput)
+}
+
+// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.
+func (o ArmIdentityPtrOutput) IdentityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArmIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The set of UserAssigned identities associated with the IoT DPS resource.
+func (o ArmIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v *ArmIdentity) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.MapOutput)
+}
+
+// The set of ARM identities associated with the IoT DPS resource.
+type ArmIdentityResponse struct {
+	// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.
+	IdentityType *string `pulumi:"identityType"`
+	// Principal Id
+	PrincipalId string `pulumi:"principalId"`
+	// Tenant Id
+	TenantId string `pulumi:"tenantId"`
+	// The set of UserAssigned identities associated with the IoT DPS resource.
+	UserAssignedIdentities map[string]ArmUserIdentityResponse `pulumi:"userAssignedIdentities"`
+}
+
+// ArmIdentityResponseInput is an input type that accepts ArmIdentityResponseArgs and ArmIdentityResponseOutput values.
+// You can construct a concrete instance of `ArmIdentityResponseInput` via:
+//
+//          ArmIdentityResponseArgs{...}
+type ArmIdentityResponseInput interface {
+	pulumi.Input
+
+	ToArmIdentityResponseOutput() ArmIdentityResponseOutput
+	ToArmIdentityResponseOutputWithContext(context.Context) ArmIdentityResponseOutput
+}
+
+// The set of ARM identities associated with the IoT DPS resource.
+type ArmIdentityResponseArgs struct {
+	// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.
+	IdentityType pulumi.StringPtrInput `pulumi:"identityType"`
+	// Principal Id
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// Tenant Id
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The set of UserAssigned identities associated with the IoT DPS resource.
+	UserAssignedIdentities ArmUserIdentityResponseMapInput `pulumi:"userAssignedIdentities"`
+}
+
+func (ArmIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArmIdentityResponse)(nil)).Elem()
+}
+
+func (i ArmIdentityResponseArgs) ToArmIdentityResponseOutput() ArmIdentityResponseOutput {
+	return i.ToArmIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i ArmIdentityResponseArgs) ToArmIdentityResponseOutputWithContext(ctx context.Context) ArmIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArmIdentityResponseOutput)
+}
+
+func (i ArmIdentityResponseArgs) ToArmIdentityResponsePtrOutput() ArmIdentityResponsePtrOutput {
+	return i.ToArmIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ArmIdentityResponseArgs) ToArmIdentityResponsePtrOutputWithContext(ctx context.Context) ArmIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArmIdentityResponseOutput).ToArmIdentityResponsePtrOutputWithContext(ctx)
+}
+
+// ArmIdentityResponsePtrInput is an input type that accepts ArmIdentityResponseArgs, ArmIdentityResponsePtr and ArmIdentityResponsePtrOutput values.
+// You can construct a concrete instance of `ArmIdentityResponsePtrInput` via:
+//
+//          ArmIdentityResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ArmIdentityResponsePtrInput interface {
+	pulumi.Input
+
+	ToArmIdentityResponsePtrOutput() ArmIdentityResponsePtrOutput
+	ToArmIdentityResponsePtrOutputWithContext(context.Context) ArmIdentityResponsePtrOutput
+}
+
+type armIdentityResponsePtrType ArmIdentityResponseArgs
+
+func ArmIdentityResponsePtr(v *ArmIdentityResponseArgs) ArmIdentityResponsePtrInput {
+	return (*armIdentityResponsePtrType)(v)
+}
+
+func (*armIdentityResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArmIdentityResponse)(nil)).Elem()
+}
+
+func (i *armIdentityResponsePtrType) ToArmIdentityResponsePtrOutput() ArmIdentityResponsePtrOutput {
+	return i.ToArmIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *armIdentityResponsePtrType) ToArmIdentityResponsePtrOutputWithContext(ctx context.Context) ArmIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArmIdentityResponsePtrOutput)
+}
+
+// The set of ARM identities associated with the IoT DPS resource.
+type ArmIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (ArmIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArmIdentityResponse)(nil)).Elem()
+}
+
+func (o ArmIdentityResponseOutput) ToArmIdentityResponseOutput() ArmIdentityResponseOutput {
+	return o
+}
+
+func (o ArmIdentityResponseOutput) ToArmIdentityResponseOutputWithContext(ctx context.Context) ArmIdentityResponseOutput {
+	return o
+}
+
+func (o ArmIdentityResponseOutput) ToArmIdentityResponsePtrOutput() ArmIdentityResponsePtrOutput {
+	return o.ToArmIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ArmIdentityResponseOutput) ToArmIdentityResponsePtrOutputWithContext(ctx context.Context) ArmIdentityResponsePtrOutput {
+	return o.ApplyT(func(v ArmIdentityResponse) *ArmIdentityResponse {
+		return &v
+	}).(ArmIdentityResponsePtrOutput)
+}
+
+// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.
+func (o ArmIdentityResponseOutput) IdentityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ArmIdentityResponse) *string { return v.IdentityType }).(pulumi.StringPtrOutput)
+}
+
+// Principal Id
+func (o ArmIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ArmIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// Tenant Id
+func (o ArmIdentityResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ArmIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The set of UserAssigned identities associated with the IoT DPS resource.
+func (o ArmIdentityResponseOutput) UserAssignedIdentities() ArmUserIdentityResponseMapOutput {
+	return o.ApplyT(func(v ArmIdentityResponse) map[string]ArmUserIdentityResponse { return v.UserAssignedIdentities }).(ArmUserIdentityResponseMapOutput)
+}
+
+type ArmIdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ArmIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ArmIdentityResponse)(nil)).Elem()
+}
+
+func (o ArmIdentityResponsePtrOutput) ToArmIdentityResponsePtrOutput() ArmIdentityResponsePtrOutput {
+	return o
+}
+
+func (o ArmIdentityResponsePtrOutput) ToArmIdentityResponsePtrOutputWithContext(ctx context.Context) ArmIdentityResponsePtrOutput {
+	return o
+}
+
+func (o ArmIdentityResponsePtrOutput) Elem() ArmIdentityResponseOutput {
+	return o.ApplyT(func(v *ArmIdentityResponse) ArmIdentityResponse { return *v }).(ArmIdentityResponseOutput)
+}
+
+// Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.
+func (o ArmIdentityResponsePtrOutput) IdentityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArmIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Principal Id
+func (o ArmIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArmIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Tenant Id
+func (o ArmIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ArmIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The set of UserAssigned identities associated with the IoT DPS resource.
+func (o ArmIdentityResponsePtrOutput) UserAssignedIdentities() ArmUserIdentityResponseMapOutput {
+	return o.ApplyT(func(v *ArmIdentityResponse) map[string]ArmUserIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(ArmUserIdentityResponseMapOutput)
+}
+
+// The ARM UserAssigned identity information
+type ArmUserIdentityResponse struct {
+	// Client Id
+	ClientId string `pulumi:"clientId"`
+	// Principal Id
+	PrincipalId string `pulumi:"principalId"`
+}
+
+// ArmUserIdentityResponseInput is an input type that accepts ArmUserIdentityResponseArgs and ArmUserIdentityResponseOutput values.
+// You can construct a concrete instance of `ArmUserIdentityResponseInput` via:
+//
+//          ArmUserIdentityResponseArgs{...}
+type ArmUserIdentityResponseInput interface {
+	pulumi.Input
+
+	ToArmUserIdentityResponseOutput() ArmUserIdentityResponseOutput
+	ToArmUserIdentityResponseOutputWithContext(context.Context) ArmUserIdentityResponseOutput
+}
+
+// The ARM UserAssigned identity information
+type ArmUserIdentityResponseArgs struct {
+	// Client Id
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// Principal Id
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+}
+
+func (ArmUserIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArmUserIdentityResponse)(nil)).Elem()
+}
+
+func (i ArmUserIdentityResponseArgs) ToArmUserIdentityResponseOutput() ArmUserIdentityResponseOutput {
+	return i.ToArmUserIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i ArmUserIdentityResponseArgs) ToArmUserIdentityResponseOutputWithContext(ctx context.Context) ArmUserIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArmUserIdentityResponseOutput)
+}
+
+// ArmUserIdentityResponseMapInput is an input type that accepts ArmUserIdentityResponseMap and ArmUserIdentityResponseMapOutput values.
+// You can construct a concrete instance of `ArmUserIdentityResponseMapInput` via:
+//
+//          ArmUserIdentityResponseMap{ "key": ArmUserIdentityResponseArgs{...} }
+type ArmUserIdentityResponseMapInput interface {
+	pulumi.Input
+
+	ToArmUserIdentityResponseMapOutput() ArmUserIdentityResponseMapOutput
+	ToArmUserIdentityResponseMapOutputWithContext(context.Context) ArmUserIdentityResponseMapOutput
+}
+
+type ArmUserIdentityResponseMap map[string]ArmUserIdentityResponseInput
+
+func (ArmUserIdentityResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ArmUserIdentityResponse)(nil)).Elem()
+}
+
+func (i ArmUserIdentityResponseMap) ToArmUserIdentityResponseMapOutput() ArmUserIdentityResponseMapOutput {
+	return i.ToArmUserIdentityResponseMapOutputWithContext(context.Background())
+}
+
+func (i ArmUserIdentityResponseMap) ToArmUserIdentityResponseMapOutputWithContext(ctx context.Context) ArmUserIdentityResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArmUserIdentityResponseMapOutput)
+}
+
+// The ARM UserAssigned identity information
+type ArmUserIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (ArmUserIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ArmUserIdentityResponse)(nil)).Elem()
+}
+
+func (o ArmUserIdentityResponseOutput) ToArmUserIdentityResponseOutput() ArmUserIdentityResponseOutput {
+	return o
+}
+
+func (o ArmUserIdentityResponseOutput) ToArmUserIdentityResponseOutputWithContext(ctx context.Context) ArmUserIdentityResponseOutput {
+	return o
+}
+
+// Client Id
+func (o ArmUserIdentityResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v ArmUserIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// Principal Id
+func (o ArmUserIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ArmUserIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type ArmUserIdentityResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ArmUserIdentityResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ArmUserIdentityResponse)(nil)).Elem()
+}
+
+func (o ArmUserIdentityResponseMapOutput) ToArmUserIdentityResponseMapOutput() ArmUserIdentityResponseMapOutput {
+	return o
+}
+
+func (o ArmUserIdentityResponseMapOutput) ToArmUserIdentityResponseMapOutputWithContext(ctx context.Context) ArmUserIdentityResponseMapOutput {
+	return o
+}
+
+func (o ArmUserIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) ArmUserIdentityResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ArmUserIdentityResponse {
+		return vs[0].(map[string]ArmUserIdentityResponse)[vs[1].(string)]
+	}).(ArmUserIdentityResponseOutput)
+}
+
 // The description of an X509 CA Certificate.
 type CertificatePropertiesResponse struct {
 	// The certificate's creation date and time.
@@ -239,11 +692,281 @@ func (o CertificatePropertiesResponsePtrOutput) Updated() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The encryption properties for the IoT DPS instance.
+// The properties of the identity used to access the key encryption key in KeyVault.
+type EncryptionKeyIdentity struct {
+	// The user assigned identity.
+	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
+}
+
+// EncryptionKeyIdentityInput is an input type that accepts EncryptionKeyIdentityArgs and EncryptionKeyIdentityOutput values.
+// You can construct a concrete instance of `EncryptionKeyIdentityInput` via:
+//
+//          EncryptionKeyIdentityArgs{...}
+type EncryptionKeyIdentityInput interface {
+	pulumi.Input
+
+	ToEncryptionKeyIdentityOutput() EncryptionKeyIdentityOutput
+	ToEncryptionKeyIdentityOutputWithContext(context.Context) EncryptionKeyIdentityOutput
+}
+
+// The properties of the identity used to access the key encryption key in KeyVault.
+type EncryptionKeyIdentityArgs struct {
+	// The user assigned identity.
+	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
+}
+
+func (EncryptionKeyIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionKeyIdentity)(nil)).Elem()
+}
+
+func (i EncryptionKeyIdentityArgs) ToEncryptionKeyIdentityOutput() EncryptionKeyIdentityOutput {
+	return i.ToEncryptionKeyIdentityOutputWithContext(context.Background())
+}
+
+func (i EncryptionKeyIdentityArgs) ToEncryptionKeyIdentityOutputWithContext(ctx context.Context) EncryptionKeyIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionKeyIdentityOutput)
+}
+
+func (i EncryptionKeyIdentityArgs) ToEncryptionKeyIdentityPtrOutput() EncryptionKeyIdentityPtrOutput {
+	return i.ToEncryptionKeyIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionKeyIdentityArgs) ToEncryptionKeyIdentityPtrOutputWithContext(ctx context.Context) EncryptionKeyIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionKeyIdentityOutput).ToEncryptionKeyIdentityPtrOutputWithContext(ctx)
+}
+
+// EncryptionKeyIdentityPtrInput is an input type that accepts EncryptionKeyIdentityArgs, EncryptionKeyIdentityPtr and EncryptionKeyIdentityPtrOutput values.
+// You can construct a concrete instance of `EncryptionKeyIdentityPtrInput` via:
+//
+//          EncryptionKeyIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionKeyIdentityPtrInput interface {
+	pulumi.Input
+
+	ToEncryptionKeyIdentityPtrOutput() EncryptionKeyIdentityPtrOutput
+	ToEncryptionKeyIdentityPtrOutputWithContext(context.Context) EncryptionKeyIdentityPtrOutput
+}
+
+type encryptionKeyIdentityPtrType EncryptionKeyIdentityArgs
+
+func EncryptionKeyIdentityPtr(v *EncryptionKeyIdentityArgs) EncryptionKeyIdentityPtrInput {
+	return (*encryptionKeyIdentityPtrType)(v)
+}
+
+func (*encryptionKeyIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionKeyIdentity)(nil)).Elem()
+}
+
+func (i *encryptionKeyIdentityPtrType) ToEncryptionKeyIdentityPtrOutput() EncryptionKeyIdentityPtrOutput {
+	return i.ToEncryptionKeyIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionKeyIdentityPtrType) ToEncryptionKeyIdentityPtrOutputWithContext(ctx context.Context) EncryptionKeyIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionKeyIdentityPtrOutput)
+}
+
+// The properties of the identity used to access the key encryption key in KeyVault.
+type EncryptionKeyIdentityOutput struct{ *pulumi.OutputState }
+
+func (EncryptionKeyIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionKeyIdentity)(nil)).Elem()
+}
+
+func (o EncryptionKeyIdentityOutput) ToEncryptionKeyIdentityOutput() EncryptionKeyIdentityOutput {
+	return o
+}
+
+func (o EncryptionKeyIdentityOutput) ToEncryptionKeyIdentityOutputWithContext(ctx context.Context) EncryptionKeyIdentityOutput {
+	return o
+}
+
+func (o EncryptionKeyIdentityOutput) ToEncryptionKeyIdentityPtrOutput() EncryptionKeyIdentityPtrOutput {
+	return o.ToEncryptionKeyIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionKeyIdentityOutput) ToEncryptionKeyIdentityPtrOutputWithContext(ctx context.Context) EncryptionKeyIdentityPtrOutput {
+	return o.ApplyT(func(v EncryptionKeyIdentity) *EncryptionKeyIdentity {
+		return &v
+	}).(EncryptionKeyIdentityPtrOutput)
+}
+
+// The user assigned identity.
+func (o EncryptionKeyIdentityOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionKeyIdentity) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
+}
+
+type EncryptionKeyIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionKeyIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionKeyIdentity)(nil)).Elem()
+}
+
+func (o EncryptionKeyIdentityPtrOutput) ToEncryptionKeyIdentityPtrOutput() EncryptionKeyIdentityPtrOutput {
+	return o
+}
+
+func (o EncryptionKeyIdentityPtrOutput) ToEncryptionKeyIdentityPtrOutputWithContext(ctx context.Context) EncryptionKeyIdentityPtrOutput {
+	return o
+}
+
+func (o EncryptionKeyIdentityPtrOutput) Elem() EncryptionKeyIdentityOutput {
+	return o.ApplyT(func(v *EncryptionKeyIdentity) EncryptionKeyIdentity { return *v }).(EncryptionKeyIdentityOutput)
+}
+
+// The user assigned identity.
+func (o EncryptionKeyIdentityPtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionKeyIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+// The properties of the identity used to access the key encryption key in KeyVault.
+type EncryptionKeyIdentityResponse struct {
+	// The user assigned identity.
+	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
+}
+
+// EncryptionKeyIdentityResponseInput is an input type that accepts EncryptionKeyIdentityResponseArgs and EncryptionKeyIdentityResponseOutput values.
+// You can construct a concrete instance of `EncryptionKeyIdentityResponseInput` via:
+//
+//          EncryptionKeyIdentityResponseArgs{...}
+type EncryptionKeyIdentityResponseInput interface {
+	pulumi.Input
+
+	ToEncryptionKeyIdentityResponseOutput() EncryptionKeyIdentityResponseOutput
+	ToEncryptionKeyIdentityResponseOutputWithContext(context.Context) EncryptionKeyIdentityResponseOutput
+}
+
+// The properties of the identity used to access the key encryption key in KeyVault.
+type EncryptionKeyIdentityResponseArgs struct {
+	// The user assigned identity.
+	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
+}
+
+func (EncryptionKeyIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionKeyIdentityResponse)(nil)).Elem()
+}
+
+func (i EncryptionKeyIdentityResponseArgs) ToEncryptionKeyIdentityResponseOutput() EncryptionKeyIdentityResponseOutput {
+	return i.ToEncryptionKeyIdentityResponseOutputWithContext(context.Background())
+}
+
+func (i EncryptionKeyIdentityResponseArgs) ToEncryptionKeyIdentityResponseOutputWithContext(ctx context.Context) EncryptionKeyIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionKeyIdentityResponseOutput)
+}
+
+func (i EncryptionKeyIdentityResponseArgs) ToEncryptionKeyIdentityResponsePtrOutput() EncryptionKeyIdentityResponsePtrOutput {
+	return i.ToEncryptionKeyIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i EncryptionKeyIdentityResponseArgs) ToEncryptionKeyIdentityResponsePtrOutputWithContext(ctx context.Context) EncryptionKeyIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionKeyIdentityResponseOutput).ToEncryptionKeyIdentityResponsePtrOutputWithContext(ctx)
+}
+
+// EncryptionKeyIdentityResponsePtrInput is an input type that accepts EncryptionKeyIdentityResponseArgs, EncryptionKeyIdentityResponsePtr and EncryptionKeyIdentityResponsePtrOutput values.
+// You can construct a concrete instance of `EncryptionKeyIdentityResponsePtrInput` via:
+//
+//          EncryptionKeyIdentityResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type EncryptionKeyIdentityResponsePtrInput interface {
+	pulumi.Input
+
+	ToEncryptionKeyIdentityResponsePtrOutput() EncryptionKeyIdentityResponsePtrOutput
+	ToEncryptionKeyIdentityResponsePtrOutputWithContext(context.Context) EncryptionKeyIdentityResponsePtrOutput
+}
+
+type encryptionKeyIdentityResponsePtrType EncryptionKeyIdentityResponseArgs
+
+func EncryptionKeyIdentityResponsePtr(v *EncryptionKeyIdentityResponseArgs) EncryptionKeyIdentityResponsePtrInput {
+	return (*encryptionKeyIdentityResponsePtrType)(v)
+}
+
+func (*encryptionKeyIdentityResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionKeyIdentityResponse)(nil)).Elem()
+}
+
+func (i *encryptionKeyIdentityResponsePtrType) ToEncryptionKeyIdentityResponsePtrOutput() EncryptionKeyIdentityResponsePtrOutput {
+	return i.ToEncryptionKeyIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *encryptionKeyIdentityResponsePtrType) ToEncryptionKeyIdentityResponsePtrOutputWithContext(ctx context.Context) EncryptionKeyIdentityResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EncryptionKeyIdentityResponsePtrOutput)
+}
+
+// The properties of the identity used to access the key encryption key in KeyVault.
+type EncryptionKeyIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (EncryptionKeyIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EncryptionKeyIdentityResponse)(nil)).Elem()
+}
+
+func (o EncryptionKeyIdentityResponseOutput) ToEncryptionKeyIdentityResponseOutput() EncryptionKeyIdentityResponseOutput {
+	return o
+}
+
+func (o EncryptionKeyIdentityResponseOutput) ToEncryptionKeyIdentityResponseOutputWithContext(ctx context.Context) EncryptionKeyIdentityResponseOutput {
+	return o
+}
+
+func (o EncryptionKeyIdentityResponseOutput) ToEncryptionKeyIdentityResponsePtrOutput() EncryptionKeyIdentityResponsePtrOutput {
+	return o.ToEncryptionKeyIdentityResponsePtrOutputWithContext(context.Background())
+}
+
+func (o EncryptionKeyIdentityResponseOutput) ToEncryptionKeyIdentityResponsePtrOutputWithContext(ctx context.Context) EncryptionKeyIdentityResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionKeyIdentityResponse) *EncryptionKeyIdentityResponse {
+		return &v
+	}).(EncryptionKeyIdentityResponsePtrOutput)
+}
+
+// The user assigned identity.
+func (o EncryptionKeyIdentityResponseOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EncryptionKeyIdentityResponse) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
+}
+
+type EncryptionKeyIdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EncryptionKeyIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EncryptionKeyIdentityResponse)(nil)).Elem()
+}
+
+func (o EncryptionKeyIdentityResponsePtrOutput) ToEncryptionKeyIdentityResponsePtrOutput() EncryptionKeyIdentityResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionKeyIdentityResponsePtrOutput) ToEncryptionKeyIdentityResponsePtrOutputWithContext(ctx context.Context) EncryptionKeyIdentityResponsePtrOutput {
+	return o
+}
+
+func (o EncryptionKeyIdentityResponsePtrOutput) Elem() EncryptionKeyIdentityResponseOutput {
+	return o.ApplyT(func(v *EncryptionKeyIdentityResponse) EncryptionKeyIdentityResponse { return *v }).(EncryptionKeyIdentityResponseOutput)
+}
+
+// The user assigned identity.
+func (o EncryptionKeyIdentityResponsePtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EncryptionKeyIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+// The customer-managed encryption key (CMK) properties for the IoT DPS instance.
 type EncryptionPropertiesDescription struct {
-	// The source of the key.
+	// The identity used to access the encryption key in KeyVault.
+	Identity *EncryptionKeyIdentity `pulumi:"identity"`
+	// The source of the encryption key. Typically, Microsoft.KeyVault
 	KeySource *string `pulumi:"keySource"`
-	// The properties of the KeyVault key.
+	// The properties of the encryption key configured in KeyVault.
 	KeyVaultProperties []KeyVaultKeyProperties `pulumi:"keyVaultProperties"`
 }
 
@@ -258,11 +981,13 @@ type EncryptionPropertiesDescriptionInput interface {
 	ToEncryptionPropertiesDescriptionOutputWithContext(context.Context) EncryptionPropertiesDescriptionOutput
 }
 
-// The encryption properties for the IoT DPS instance.
+// The customer-managed encryption key (CMK) properties for the IoT DPS instance.
 type EncryptionPropertiesDescriptionArgs struct {
-	// The source of the key.
+	// The identity used to access the encryption key in KeyVault.
+	Identity EncryptionKeyIdentityPtrInput `pulumi:"identity"`
+	// The source of the encryption key. Typically, Microsoft.KeyVault
 	KeySource pulumi.StringPtrInput `pulumi:"keySource"`
-	// The properties of the KeyVault key.
+	// The properties of the encryption key configured in KeyVault.
 	KeyVaultProperties KeyVaultKeyPropertiesArrayInput `pulumi:"keyVaultProperties"`
 }
 
@@ -319,7 +1044,7 @@ func (i *encryptionPropertiesDescriptionPtrType) ToEncryptionPropertiesDescripti
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertiesDescriptionPtrOutput)
 }
 
-// The encryption properties for the IoT DPS instance.
+// The customer-managed encryption key (CMK) properties for the IoT DPS instance.
 type EncryptionPropertiesDescriptionOutput struct{ *pulumi.OutputState }
 
 func (EncryptionPropertiesDescriptionOutput) ElementType() reflect.Type {
@@ -344,12 +1069,17 @@ func (o EncryptionPropertiesDescriptionOutput) ToEncryptionPropertiesDescription
 	}).(EncryptionPropertiesDescriptionPtrOutput)
 }
 
-// The source of the key.
+// The identity used to access the encryption key in KeyVault.
+func (o EncryptionPropertiesDescriptionOutput) Identity() EncryptionKeyIdentityPtrOutput {
+	return o.ApplyT(func(v EncryptionPropertiesDescription) *EncryptionKeyIdentity { return v.Identity }).(EncryptionKeyIdentityPtrOutput)
+}
+
+// The source of the encryption key. Typically, Microsoft.KeyVault
 func (o EncryptionPropertiesDescriptionOutput) KeySource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionPropertiesDescription) *string { return v.KeySource }).(pulumi.StringPtrOutput)
 }
 
-// The properties of the KeyVault key.
+// The properties of the encryption key configured in KeyVault.
 func (o EncryptionPropertiesDescriptionOutput) KeyVaultProperties() KeyVaultKeyPropertiesArrayOutput {
 	return o.ApplyT(func(v EncryptionPropertiesDescription) []KeyVaultKeyProperties { return v.KeyVaultProperties }).(KeyVaultKeyPropertiesArrayOutput)
 }
@@ -372,7 +1102,17 @@ func (o EncryptionPropertiesDescriptionPtrOutput) Elem() EncryptionPropertiesDes
 	return o.ApplyT(func(v *EncryptionPropertiesDescription) EncryptionPropertiesDescription { return *v }).(EncryptionPropertiesDescriptionOutput)
 }
 
-// The source of the key.
+// The identity used to access the encryption key in KeyVault.
+func (o EncryptionPropertiesDescriptionPtrOutput) Identity() EncryptionKeyIdentityPtrOutput {
+	return o.ApplyT(func(v *EncryptionPropertiesDescription) *EncryptionKeyIdentity {
+		if v == nil {
+			return nil
+		}
+		return v.Identity
+	}).(EncryptionKeyIdentityPtrOutput)
+}
+
+// The source of the encryption key. Typically, Microsoft.KeyVault
 func (o EncryptionPropertiesDescriptionPtrOutput) KeySource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionPropertiesDescription) *string {
 		if v == nil {
@@ -382,7 +1122,7 @@ func (o EncryptionPropertiesDescriptionPtrOutput) KeySource() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of the KeyVault key.
+// The properties of the encryption key configured in KeyVault.
 func (o EncryptionPropertiesDescriptionPtrOutput) KeyVaultProperties() KeyVaultKeyPropertiesArrayOutput {
 	return o.ApplyT(func(v *EncryptionPropertiesDescription) []KeyVaultKeyProperties {
 		if v == nil {
@@ -392,11 +1132,13 @@ func (o EncryptionPropertiesDescriptionPtrOutput) KeyVaultProperties() KeyVaultK
 	}).(KeyVaultKeyPropertiesArrayOutput)
 }
 
-// The encryption properties for the IoT DPS instance.
+// The customer-managed encryption key (CMK) properties for the IoT DPS instance.
 type EncryptionPropertiesDescriptionResponse struct {
-	// The source of the key.
+	// The identity used to access the encryption key in KeyVault.
+	Identity *EncryptionKeyIdentityResponse `pulumi:"identity"`
+	// The source of the encryption key. Typically, Microsoft.KeyVault
 	KeySource *string `pulumi:"keySource"`
-	// The properties of the KeyVault key.
+	// The properties of the encryption key configured in KeyVault.
 	KeyVaultProperties []KeyVaultKeyPropertiesResponse `pulumi:"keyVaultProperties"`
 }
 
@@ -411,11 +1153,13 @@ type EncryptionPropertiesDescriptionResponseInput interface {
 	ToEncryptionPropertiesDescriptionResponseOutputWithContext(context.Context) EncryptionPropertiesDescriptionResponseOutput
 }
 
-// The encryption properties for the IoT DPS instance.
+// The customer-managed encryption key (CMK) properties for the IoT DPS instance.
 type EncryptionPropertiesDescriptionResponseArgs struct {
-	// The source of the key.
+	// The identity used to access the encryption key in KeyVault.
+	Identity EncryptionKeyIdentityResponsePtrInput `pulumi:"identity"`
+	// The source of the encryption key. Typically, Microsoft.KeyVault
 	KeySource pulumi.StringPtrInput `pulumi:"keySource"`
-	// The properties of the KeyVault key.
+	// The properties of the encryption key configured in KeyVault.
 	KeyVaultProperties KeyVaultKeyPropertiesResponseArrayInput `pulumi:"keyVaultProperties"`
 }
 
@@ -472,7 +1216,7 @@ func (i *encryptionPropertiesDescriptionResponsePtrType) ToEncryptionPropertiesD
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionPropertiesDescriptionResponsePtrOutput)
 }
 
-// The encryption properties for the IoT DPS instance.
+// The customer-managed encryption key (CMK) properties for the IoT DPS instance.
 type EncryptionPropertiesDescriptionResponseOutput struct{ *pulumi.OutputState }
 
 func (EncryptionPropertiesDescriptionResponseOutput) ElementType() reflect.Type {
@@ -497,12 +1241,17 @@ func (o EncryptionPropertiesDescriptionResponseOutput) ToEncryptionPropertiesDes
 	}).(EncryptionPropertiesDescriptionResponsePtrOutput)
 }
 
-// The source of the key.
+// The identity used to access the encryption key in KeyVault.
+func (o EncryptionPropertiesDescriptionResponseOutput) Identity() EncryptionKeyIdentityResponsePtrOutput {
+	return o.ApplyT(func(v EncryptionPropertiesDescriptionResponse) *EncryptionKeyIdentityResponse { return v.Identity }).(EncryptionKeyIdentityResponsePtrOutput)
+}
+
+// The source of the encryption key. Typically, Microsoft.KeyVault
 func (o EncryptionPropertiesDescriptionResponseOutput) KeySource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EncryptionPropertiesDescriptionResponse) *string { return v.KeySource }).(pulumi.StringPtrOutput)
 }
 
-// The properties of the KeyVault key.
+// The properties of the encryption key configured in KeyVault.
 func (o EncryptionPropertiesDescriptionResponseOutput) KeyVaultProperties() KeyVaultKeyPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v EncryptionPropertiesDescriptionResponse) []KeyVaultKeyPropertiesResponse {
 		return v.KeyVaultProperties
@@ -527,7 +1276,17 @@ func (o EncryptionPropertiesDescriptionResponsePtrOutput) Elem() EncryptionPrope
 	return o.ApplyT(func(v *EncryptionPropertiesDescriptionResponse) EncryptionPropertiesDescriptionResponse { return *v }).(EncryptionPropertiesDescriptionResponseOutput)
 }
 
-// The source of the key.
+// The identity used to access the encryption key in KeyVault.
+func (o EncryptionPropertiesDescriptionResponsePtrOutput) Identity() EncryptionKeyIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *EncryptionPropertiesDescriptionResponse) *EncryptionKeyIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Identity
+	}).(EncryptionKeyIdentityResponsePtrOutput)
+}
+
+// The source of the encryption key. Typically, Microsoft.KeyVault
 func (o EncryptionPropertiesDescriptionResponsePtrOutput) KeySource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EncryptionPropertiesDescriptionResponse) *string {
 		if v == nil {
@@ -537,7 +1296,7 @@ func (o EncryptionPropertiesDescriptionResponsePtrOutput) KeySource() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of the KeyVault key.
+// The properties of the encryption key configured in KeyVault.
 func (o EncryptionPropertiesDescriptionResponsePtrOutput) KeyVaultProperties() KeyVaultKeyPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v *EncryptionPropertiesDescriptionResponse) []KeyVaultKeyPropertiesResponse {
 		if v == nil {
@@ -3487,8 +4246,18 @@ func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseArr
 }
 
 func init() {
+	pulumi.RegisterOutputType(ArmIdentityOutput{})
+	pulumi.RegisterOutputType(ArmIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ArmIdentityResponseOutput{})
+	pulumi.RegisterOutputType(ArmIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(ArmUserIdentityResponseOutput{})
+	pulumi.RegisterOutputType(ArmUserIdentityResponseMapOutput{})
 	pulumi.RegisterOutputType(CertificatePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CertificatePropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(EncryptionKeyIdentityOutput{})
+	pulumi.RegisterOutputType(EncryptionKeyIdentityPtrOutput{})
+	pulumi.RegisterOutputType(EncryptionKeyIdentityResponseOutput{})
+	pulumi.RegisterOutputType(EncryptionKeyIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionPropertiesDescriptionOutput{})
 	pulumi.RegisterOutputType(EncryptionPropertiesDescriptionPtrOutput{})
 	pulumi.RegisterOutputType(EncryptionPropertiesDescriptionResponseOutput{})

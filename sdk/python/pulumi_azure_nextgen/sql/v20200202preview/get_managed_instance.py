@@ -20,7 +20,7 @@ class GetManagedInstanceResult:
     """
     An Azure SQL managed instance.
     """
-    def __init__(__self__, administrator_login=None, administrator_login_password=None, collation=None, dns_zone=None, dns_zone_partner=None, fully_qualified_domain_name=None, id=None, identity=None, instance_pool_id=None, license_type=None, location=None, maintenance_configuration_id=None, managed_instance_create_mode=None, minimal_tls_version=None, name=None, provisioning_state=None, proxy_override=None, public_data_endpoint_enabled=None, restore_point_in_time=None, sku=None, source_managed_instance_id=None, state=None, storage_account_type=None, storage_size_in_gb=None, subnet_id=None, tags=None, timezone_id=None, type=None, v_cores=None):
+    def __init__(__self__, administrator_login=None, administrator_login_password=None, collation=None, dns_zone=None, dns_zone_partner=None, fully_qualified_domain_name=None, id=None, identity=None, instance_pool_id=None, license_type=None, location=None, maintenance_configuration_id=None, managed_instance_create_mode=None, minimal_tls_version=None, name=None, private_endpoint_connections=None, provisioning_state=None, proxy_override=None, public_data_endpoint_enabled=None, restore_point_in_time=None, sku=None, source_managed_instance_id=None, state=None, storage_account_type=None, storage_size_in_gb=None, subnet_id=None, tags=None, timezone_id=None, type=None, v_cores=None, zone_redundant=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
@@ -66,6 +66,9 @@ class GetManagedInstanceResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -108,6 +111,9 @@ class GetManagedInstanceResult:
         if v_cores and not isinstance(v_cores, int):
             raise TypeError("Expected argument 'v_cores' to be a int")
         pulumi.set(__self__, "v_cores", v_cores)
+        if zone_redundant and not isinstance(zone_redundant, bool):
+            raise TypeError("Expected argument 'zone_redundant' to be a bool")
+        pulumi.set(__self__, "zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="administratorLogin")
@@ -234,6 +240,14 @@ class GetManagedInstanceResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.ManagedInstancePecPropertyResponse']:
+        """
+        List of private endpoint connections on a managed instance.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         return pulumi.get(self, "provisioning_state")
@@ -347,6 +361,14 @@ class GetManagedInstanceResult:
         """
         return pulumi.get(self, "v_cores")
 
+    @property
+    @pulumi.getter(name="zoneRedundant")
+    def zone_redundant(self) -> Optional[bool]:
+        """
+        Whether or not the multi-az is enabled.
+        """
+        return pulumi.get(self, "zone_redundant")
+
 
 class AwaitableGetManagedInstanceResult(GetManagedInstanceResult):
     # pylint: disable=using-constant-test
@@ -369,6 +391,7 @@ class AwaitableGetManagedInstanceResult(GetManagedInstanceResult):
             managed_instance_create_mode=self.managed_instance_create_mode,
             minimal_tls_version=self.minimal_tls_version,
             name=self.name,
+            private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
             proxy_override=self.proxy_override,
             public_data_endpoint_enabled=self.public_data_endpoint_enabled,
@@ -382,7 +405,8 @@ class AwaitableGetManagedInstanceResult(GetManagedInstanceResult):
             tags=self.tags,
             timezone_id=self.timezone_id,
             type=self.type,
-            v_cores=self.v_cores)
+            v_cores=self.v_cores,
+            zone_redundant=self.zone_redundant)
 
 
 def get_managed_instance(managed_instance_name: Optional[str] = None,
@@ -419,6 +443,7 @@ def get_managed_instance(managed_instance_name: Optional[str] = None,
         managed_instance_create_mode=__ret__.managed_instance_create_mode,
         minimal_tls_version=__ret__.minimal_tls_version,
         name=__ret__.name,
+        private_endpoint_connections=__ret__.private_endpoint_connections,
         provisioning_state=__ret__.provisioning_state,
         proxy_override=__ret__.proxy_override,
         public_data_endpoint_enabled=__ret__.public_data_endpoint_enabled,
@@ -432,4 +457,5 @@ def get_managed_instance(managed_instance_name: Optional[str] = None,
         tags=__ret__.tags,
         timezone_id=__ret__.timezone_id,
         type=__ret__.type,
-        v_cores=__ret__.v_cores)
+        v_cores=__ret__.v_cores,
+        zone_redundant=__ret__.zone_redundant)

@@ -103,6 +103,10 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// Resource name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// List of private endpoint connections on a managed instance.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ManagedInstancePecPropertyResponse> PrivateEndpointConnections;
         public readonly string ProvisioningState;
         /// <summary>
         /// Connection type used for connecting to the instance.
@@ -161,6 +165,10 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
         /// The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80.
         /// </summary>
         public readonly int? VCores;
+        /// <summary>
+        /// Whether or not the multi-az is enabled.
+        /// </summary>
+        public readonly bool? ZoneRedundant;
 
         [OutputConstructor]
         private GetManagedInstanceResult(
@@ -194,6 +202,8 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
 
             string name,
 
+            ImmutableArray<Outputs.ManagedInstancePecPropertyResponse> privateEndpointConnections,
+
             string provisioningState,
 
             string? proxyOverride,
@@ -220,7 +230,9 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
 
             string type,
 
-            int? vCores)
+            int? vCores,
+
+            bool? zoneRedundant)
         {
             AdministratorLogin = administratorLogin;
             AdministratorLoginPassword = administratorLoginPassword;
@@ -237,6 +249,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
             ManagedInstanceCreateMode = managedInstanceCreateMode;
             MinimalTlsVersion = minimalTlsVersion;
             Name = name;
+            PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
             ProxyOverride = proxyOverride;
             PublicDataEndpointEnabled = publicDataEndpointEnabled;
@@ -251,6 +264,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200202Preview
             TimezoneId = timezoneId;
             Type = type;
             VCores = vCores;
+            ZoneRedundant = zoneRedundant;
         }
     }
 }

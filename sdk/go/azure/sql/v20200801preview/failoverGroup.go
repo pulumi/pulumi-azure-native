@@ -63,6 +63,9 @@ func NewFailoverGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20150501preview:FailoverGroup"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:sql/v20200202preview:FailoverGroup"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource FailoverGroup

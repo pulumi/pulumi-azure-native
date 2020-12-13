@@ -10,6 +10,8 @@ from ... import _utilities, _tables
 from ._enums import *
 
 __all__ = [
+    'ArmIdentityArgs',
+    'EncryptionKeyIdentityArgs',
     'EncryptionPropertiesDescriptionArgs',
     'IotDpsPropertiesDescriptionArgs',
     'IotDpsSkuInfoArgs',
@@ -23,25 +25,105 @@ __all__ = [
 ]
 
 @pulumi.input_type
+class ArmIdentityArgs:
+    def __init__(__self__, *,
+                 identity_type: Optional[pulumi.Input[str]] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+        """
+        The set of ARM identities associated with the IoT DPS resource.
+        :param pulumi.Input[str] identity_type: Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.
+        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The set of UserAssigned identities associated with the IoT DPS resource.
+        """
+        if identity_type is not None:
+            pulumi.set(__self__, "identity_type", identity_type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="identityType")
+    def identity_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.
+        """
+        return pulumi.get(self, "identity_type")
+
+    @identity_type.setter
+    def identity_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        The set of UserAssigned identities associated with the IoT DPS resource.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
+
+@pulumi.input_type
+class EncryptionKeyIdentityArgs:
+    def __init__(__self__, *,
+                 user_assigned_identity: Optional[pulumi.Input[str]] = None):
+        """
+        The properties of the identity used to access the key encryption key in KeyVault.
+        :param pulumi.Input[str] user_assigned_identity: The user assigned identity.
+        """
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user assigned identity.
+        """
+        return pulumi.get(self, "user_assigned_identity")
+
+    @user_assigned_identity.setter
+    def user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity", value)
+
+
+@pulumi.input_type
 class EncryptionPropertiesDescriptionArgs:
     def __init__(__self__, *,
+                 identity: Optional[pulumi.Input['EncryptionKeyIdentityArgs']] = None,
                  key_source: Optional[pulumi.Input[str]] = None,
                  key_vault_properties: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultKeyPropertiesArgs']]]] = None):
         """
-        The encryption properties for the IoT DPS instance.
-        :param pulumi.Input[str] key_source: The source of the key.
-        :param pulumi.Input[Sequence[pulumi.Input['KeyVaultKeyPropertiesArgs']]] key_vault_properties: The properties of the KeyVault key.
+        The customer-managed encryption key (CMK) properties for the IoT DPS instance.
+        :param pulumi.Input['EncryptionKeyIdentityArgs'] identity: The identity used to access the encryption key in KeyVault.
+        :param pulumi.Input[str] key_source: The source of the encryption key. Typically, Microsoft.KeyVault
+        :param pulumi.Input[Sequence[pulumi.Input['KeyVaultKeyPropertiesArgs']]] key_vault_properties: The properties of the encryption key configured in KeyVault.
         """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if key_source is not None:
             pulumi.set(__self__, "key_source", key_source)
         if key_vault_properties is not None:
             pulumi.set(__self__, "key_vault_properties", key_vault_properties)
 
     @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['EncryptionKeyIdentityArgs']]:
+        """
+        The identity used to access the encryption key in KeyVault.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['EncryptionKeyIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
     @pulumi.getter(name="keySource")
     def key_source(self) -> Optional[pulumi.Input[str]]:
         """
-        The source of the key.
+        The source of the encryption key. Typically, Microsoft.KeyVault
         """
         return pulumi.get(self, "key_source")
 
@@ -53,7 +135,7 @@ class EncryptionPropertiesDescriptionArgs:
     @pulumi.getter(name="keyVaultProperties")
     def key_vault_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultKeyPropertiesArgs']]]]:
         """
-        The properties of the KeyVault key.
+        The properties of the encryption key configured in KeyVault.
         """
         return pulumi.get(self, "key_vault_properties")
 

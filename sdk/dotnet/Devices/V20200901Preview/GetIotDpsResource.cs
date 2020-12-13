@@ -48,6 +48,10 @@ namespace Pulumi.AzureNextGen.Devices.V20200901Preview
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The managed identities for the IotDps instance.
+        /// </summary>
+        public readonly Outputs.ArmIdentityResponse? Identity;
+        /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string Location;
@@ -78,6 +82,8 @@ namespace Pulumi.AzureNextGen.Devices.V20200901Preview
 
             string id,
 
+            Outputs.ArmIdentityResponse? identity,
+
             string location,
 
             string name,
@@ -92,6 +98,7 @@ namespace Pulumi.AzureNextGen.Devices.V20200901Preview
         {
             Etag = etag;
             Id = id;
+            Identity = identity;
             Location = location;
             Name = name;
             Properties = properties;

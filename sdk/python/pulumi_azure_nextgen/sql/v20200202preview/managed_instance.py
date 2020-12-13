@@ -42,6 +42,7 @@ class ManagedInstance(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone_id: Optional[pulumi.Input[str]] = None,
                  v_cores: Optional[pulumi.Input[int]] = None,
+                 zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -83,6 +84,7 @@ class ManagedInstance(pulumi.CustomResource):
                List of Ids can also be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell.
                An example of valid timezone id is "Pacific Standard Time" or "W. Europe Standard Time".
         :param pulumi.Input[int] v_cores: The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80.
+        :param pulumi.Input[bool] zone_redundant: Whether or not the multi-az is enabled.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -131,9 +133,11 @@ class ManagedInstance(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['timezone_id'] = timezone_id
             __props__['v_cores'] = v_cores
+            __props__['zone_redundant'] = zone_redundant
             __props__['dns_zone'] = None
             __props__['fully_qualified_domain_name'] = None
             __props__['name'] = None
+            __props__['private_endpoint_connections'] = None
             __props__['provisioning_state'] = None
             __props__['state'] = None
             __props__['type'] = None
@@ -280,6 +284,14 @@ class ManagedInstance(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.ManagedInstancePecPropertyResponse']]:
+        """
+        List of private endpoint connections on a managed instance.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         return pulumi.get(self, "provisioning_state")
@@ -392,6 +404,14 @@ class ManagedInstance(pulumi.CustomResource):
         The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80.
         """
         return pulumi.get(self, "v_cores")
+
+    @property
+    @pulumi.getter(name="zoneRedundant")
+    def zone_redundant(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether or not the multi-az is enabled.
+        """
+        return pulumi.get(self, "zone_redundant")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
