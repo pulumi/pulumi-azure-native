@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/arm2pulumi"
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/provider"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v2/codegen/schema"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -20,10 +20,10 @@ var renderOptionsOverride = map[string][]arm2pulumi.RenderOption{
 	"../testdata/armexport/rancher.json": {arm2pulumi.DisableResourceLinking()},
 }
 
-func loadMetadata(t *testing.T) *provider.AzureAPIMetadata {
+func loadMetadata(t *testing.T) *resources.AzureAPIMetadata {
 	bytes, err := ioutil.ReadFile("../../../../cmd/pulumi-resource-azure-nextgen/metadata.json")
 	require.NoError(t, err)
-	var metadata provider.AzureAPIMetadata
+	var metadata resources.AzureAPIMetadata
 	require.NoError(t, json.Unmarshal(bytes, &metadata))
 	return &metadata
 }

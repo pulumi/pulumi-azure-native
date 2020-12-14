@@ -2,7 +2,7 @@ package arm2pulumi
 
 import (
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/openapi"
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/provider"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v2/codegen"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/util/contract"
 	"path/filepath"
@@ -14,7 +14,7 @@ var stripScopeRegex = regexp.MustCompile(`.*providers/`)
 
 var isLatestRegex = regexp.MustCompile(`azure-nextgen:.*/latest:.*`)
 
-func newResourceTokenConverter(metadata *provider.AzureAPIMetadata) *resourceTokenConverter {
+func newResourceTokenConverter(metadata *resources.AzureAPIMetadata) *resourceTokenConverter {
 	stableResourceTypeToTokenWrapperSet := map[string]map[string]tokenWrapper{}
 	previewResourceTypeToTokenWrapperSet := map[string]map[string]tokenWrapper{}
 	for k, v := range metadata.Resources {

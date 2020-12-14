@@ -3,6 +3,7 @@
 package provider
 
 import (
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v2/codegen"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
 	rpc "github.com/pulumi/pulumi/sdk/v2/proto/go"
@@ -12,7 +13,7 @@ const body = "body"
 
 // calculateDetailedDiff produced a property diff for a given object diff and a resource definition. It inspects
 // the schema of the resource to find out if the requested diff can be performed in-place or requires a replacement.
-func calculateDetailedDiff(resource *AzureAPIResource,
+func calculateDetailedDiff(resource *resources.AzureAPIResource,
 	diff *resource.ObjectDiff) (map[string]*rpc.PropertyDiff, error) {
 	replaceKeys := codegen.NewStringSet()
 

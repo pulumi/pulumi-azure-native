@@ -1,4 +1,4 @@
-package provider
+package resources
 
 import (
 	"context"
@@ -13,9 +13,9 @@ import (
 
 // customResource is a manual SDK-based implementation of a (part of) resource when Azure API is missing some
 // crucial operations.
-type customResource struct {
+type CustomResource struct {
 	path   string
-	delete func(context.Context, resource.PropertyMap) error
+	Delete func(context.Context, resource.PropertyMap) error
 }
 
 func reportDeletionError(err error) error {
@@ -26,10 +26,10 @@ func reportDeletionError(err error) error {
 }
 
 // keyVaultSecret creates a custom resource for Azure KeyVault Secret.
-func keyVaultSecret(keyVaultDNSSuffix string, kvClient *keyvault.BaseClient) *customResource {
-	return &customResource{
+func keyVaultSecret(keyVaultDNSSuffix string, kvClient *keyvault.BaseClient) *CustomResource {
+	return &CustomResource{
 		path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/secrets/{secretName}",
-		delete: func(ctx context.Context, properties resource.PropertyMap) error {
+		Delete: func(ctx context.Context, properties resource.PropertyMap) error {
 			vaultName := properties["vaultName"]
 			if !vaultName.HasValue() || !vaultName.IsString() {
 				return errors.New("vaultName not found in resource state")
@@ -47,10 +47,10 @@ func keyVaultSecret(keyVaultDNSSuffix string, kvClient *keyvault.BaseClient) *cu
 }
 
 // keyVaultKey creates a custom resource for Azure KeyVault Key.
-func keyVaultKey(keyVaultDNSSuffix string, kvClient *keyvault.BaseClient) *customResource {
-	return &customResource{
+func keyVaultKey(keyVaultDNSSuffix string, kvClient *keyvault.BaseClient) *CustomResource {
+	return &CustomResource{
 		path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/keys/{keyName}",
-		delete: func(ctx context.Context, properties resource.PropertyMap) error {
+		Delete: func(ctx context.Context, properties resource.PropertyMap) error {
 			vaultName := properties["vaultName"]
 			if !vaultName.HasValue() || !vaultName.IsString() {
 				return errors.New("vaultName not found in resource state")
@@ -67,22 +67,22 @@ func keyVaultKey(keyVaultDNSSuffix string, kvClient *keyvault.BaseClient) *custo
 	}
 }
 
-// buildCustomResources creates a map of custom resources for given environment parameters.
-func buildCustomResources(env *azure.Environment, bearerAuth autorest.Authorizer,
-	userAgent string) map[string]*customResource {
+// BuildCustomResources creates a map of custom resources for given environment parameters.
+func BuildCustomResources(env *azure.Environment, bearerAuth autorest.Authorizer,
+	userAgent string) map[string]*CustomResource {
 
 	kvClient := keyvault.New()
 	kvClient.Authorizer = bearerAuth
 	kvClient.UserAgent = userAgent
 
-	resources := []*customResource{
+	resources := []*CustomResource{
 		// Azure KeyVault resources
 		keyVaultSecret(env.KeyVaultDNSSuffix, &kvClient),
 		// Doesn't work yet in our tests. We need to figure this out with Azure before publishing.
 		keyVaultKey(env.KeyVaultDNSSuffix, &kvClient),
 	}
 
-	result := map[string]*customResource{}
+	result := map[string]*CustomResource{}
 	for _, r := range resources {
 		result[r.path] = r
 	}
@@ -90,12 +90,12 @@ func buildCustomResources(env *azure.Environment, bearerAuth autorest.Authorizer
 }
 
 // featureLookup is a map of custom resource to lookup their capabilities.
-var featureLookup = buildCustomResources(&azure.Environment{}, nil, "")
+var featureLookup = BuildCustomResources(&azure.Environment{}, nil, "")
 
 // HasCustomDelete returns true if a custom DELETE operation is defined for a given API path.
 func HasCustomDelete(path string) bool {
 	if res, ok := featureLookup[path]; ok {
-		return res.delete != nil
+		return res.Delete != nil
 	}
 	return false
 }

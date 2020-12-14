@@ -12,7 +12,7 @@ import (
 
 	"github.com/gedex/inflector"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/pcl"
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/provider"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v2/codegen"
 	"github.com/pulumi/pulumi/pkg/v2/codegen/hcl2/model"
 	"github.com/pulumi/pulumi/pkg/v2/codegen/hcl2/syntax"
@@ -43,7 +43,7 @@ type implicitVariables interface {
 }
 
 type pclRenderContext struct {
-	metadata               *provider.AzureAPIMetadata
+	metadata               *resources.AzureAPIMetadata
 	pkgSpec                *schema.PackageSpec
 	dep                    *dependencyTracking
 	resourceTokenConverter *resourceTokenConverter
@@ -611,7 +611,7 @@ func (t *TemplateElements) GetDiagnostics() map[string][]Diagnostic {
 	return t.diagnostics
 }
 
-func (t *TemplateElements) Validate(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata) error {
+func (t *TemplateElements) Validate(pkgSpec *schema.PackageSpec, metadata *resources.AzureAPIMetadata) error {
 	resourceTokenConverter := newResourceTokenConverter(metadata)
 	for i := range t.elements {
 		el := t.elements[i]
@@ -656,7 +656,7 @@ func (t *TemplateElements) Validate(pkgSpec *schema.PackageSpec, metadata *provi
 }
 
 func (t *TemplateElements) RenderPCL(
-	metadata *provider.AzureAPIMetadata,
+	metadata *resources.AzureAPIMetadata,
 	pkgSpec *schema.PackageSpec,
 ) (*model.Body, error) {
 	resourceTokenConverter := newResourceTokenConverter(metadata)

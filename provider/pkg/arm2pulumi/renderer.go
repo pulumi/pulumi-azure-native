@@ -5,7 +5,7 @@ import (
 	"github.com/hashicorp/hcl/v2"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/debug"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/gen"
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/provider"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v2/codegen/dotnet"
 	gogen "github.com/pulumi/pulumi/pkg/v2/codegen/go"
 	"github.com/pulumi/pulumi/pkg/v2/codegen/hcl2"
@@ -27,7 +27,7 @@ import (
 
 type Renderer struct {
 	pkgSpec  *schema.PackageSpec
-	metadata *provider.AzureAPIMetadata
+	metadata *resources.AzureAPIMetadata
 }
 
 type renderOptions struct {
@@ -57,7 +57,7 @@ func DisableResourceLinking() RenderOption {
 
 // NewRenderer creates a new Renderer which can be used to
 // generate Pulumi programs from ARM templates.
-func NewRenderer(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata) *Renderer {
+func NewRenderer(pkgSpec *schema.PackageSpec, metadata *resources.AzureAPIMetadata) *Renderer {
 	return &Renderer{
 		pkgSpec:  pkgSpec,
 		metadata: metadata,
@@ -159,7 +159,7 @@ func (r *Renderer) RenderFileIR(path string, options ...RenderOption) (*model.Bo
 // keyed by the element name.
 func renderTemplate(
 	pkgSpec *schema.PackageSpec,
-	metadata *provider.AzureAPIMetadata,
+	metadata *resources.AzureAPIMetadata,
 	templates map[string]*jsonx.Node,
 	options ...RenderOption,
 ) (*model.Body, map[string][]Diagnostic, error) {

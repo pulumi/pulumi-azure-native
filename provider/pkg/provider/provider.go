@@ -25,6 +25,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/sender"
 	"github.com/pkg/errors"
 
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/version"
 	"github.com/pulumi/pulumi/pkg/v2/resource/provider"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/diag"
@@ -45,11 +46,11 @@ type azureNextGenProvider struct {
 	subscriptionID  string
 	environment     azure.Environment
 	client          autorest.Client
-	resourceMap     *AzureAPIMetadata
+	resourceMap     *resources.AzureAPIMetadata
 	config          map[string]string
 	schemaBytes     []byte
-	converter       *SdkShapeConverter
-	customResources map[string]*customResource
+	converter       *resources.SdkShapeConverter
+	customResources map[string]*resources.CustomResource
 }
 
 func makeProvider(host *provider.HostClient, name, version string, schemaBytes []byte,
@@ -88,14 +89,14 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 		resourceMap: resourceMap,
 		config:      map[string]string{},
 		schemaBytes: buf.Bytes(),
-		converter:   &SdkShapeConverter{Types: resourceMap.Types},
+		converter:   &resources.SdkShapeConverter{Types: resourceMap.Types},
 	}, nil
 }
 
 // LoadMetadata deserializes the provided compressed json byte array into
 // an AzureAPIMetadata in memory
-func LoadMetadata(azureAPIResourcesBytes []byte) (*AzureAPIMetadata, error) {
-	var resourceMap AzureAPIMetadata
+func LoadMetadata(azureAPIResourcesBytes []byte) (*resources.AzureAPIMetadata, error) {
+	var resourceMap resources.AzureAPIMetadata
 
 	uncompressed, err := gzip.NewReader(bytes.NewReader(azureAPIResourcesBytes))
 	if err != nil {
@@ -147,7 +148,7 @@ func (k *azureNextGenProvider) Configure(ctx context.Context,
 	k.client.Authorizer = tokenAuth
 	k.client.UserAgent = k.getUserAgent()
 
-	k.customResources = buildCustomResources(&env, bearerAuth, k.client.UserAgent)
+	k.customResources = resources.BuildCustomResources(&env, bearerAuth, k.client.UserAgent)
 
 	return &rpc.ConfigureResponse{
 		SupportsPreview: true,
@@ -286,7 +287,7 @@ func (k *azureNextGenProvider) Check(_ context.Context, req *rpc.CheckRequest) (
 }
 
 // validateType checks the all properties and required properties of the given type and value map.
-func (k *azureNextGenProvider) validateType(ctx string, typ *AzureAPIType,
+func (k *azureNextGenProvider) validateType(ctx string, typ *resources.AzureAPIType,
 	values map[string]interface{}) []*rpc.CheckFailure {
 	var failures []*rpc.CheckFailure
 
@@ -326,7 +327,7 @@ func (k *azureNextGenProvider) validateType(ctx string, typ *AzureAPIType,
 }
 
 // validateProperty checks the property value against its metadata.
-func (k *azureNextGenProvider) validateProperty(ctx string, prop *AzureAPIProperty,
+func (k *azureNextGenProvider) validateProperty(ctx string, prop *resources.AzureAPIProperty,
 	value interface{}) []*rpc.CheckFailure {
 	var failures []*rpc.CheckFailure
 
@@ -674,7 +675,7 @@ func (k *azureNextGenProvider) Read(ctx context.Context, req *rpc.ReadRequest) (
 	if inputs == nil {
 		// There may be no old state (i.e., importing a new resource).
 		// Extract inputs from resource's ID and response body.
-		pathItems, err := parseResourceID(id, res.Path)
+		pathItems, err := resources.ParseResourceID(id, res.Path)
 		if err != nil {
 			return nil, err
 		}
@@ -825,7 +826,7 @@ func (k *azureNextGenProvider) Delete(ctx context.Context, req *rpc.DeleteReques
 	customRes, isCustom := k.customResources[res.Path]
 
 	switch {
-	case isCustom && customRes.delete != nil:
+	case isCustom && customRes.Delete != nil:
 		state, err := plugin.UnmarshalProperties(req.GetProperties(), plugin.MarshalOptions{
 			Label: fmt.Sprintf("%s.olds", label), KeepUnknowns: false, SkipNulls: true, KeepSecrets: false,
 		})
@@ -837,7 +838,7 @@ func (k *azureNextGenProvider) Delete(ctx context.Context, req *rpc.DeleteReques
 			return nil, errors.Wrapf(err, "resource %s inputs are empty", label)
 		}
 		// Our hand-crafted implementation of DELETE operation.
-		err = customRes.delete(ctx, inputs)
+		err = customRes.Delete(ctx, inputs)
 		if err != nil {
 			return nil, err
 		}
@@ -999,7 +1000,7 @@ func (k *azureNextGenProvider) azureDelete(ctx context.Context, id string, apiVe
 
 // azureCanCreate asserts that a resource with a given ID and API version can be created
 // or returns an error otherwise.
-func (k *azureNextGenProvider) azureCanCreate(ctx context.Context, id string, res *AzureAPIResource) error {
+func (k *azureNextGenProvider) azureCanCreate(ctx context.Context, id string, res *resources.AzureAPIResource) error {
 	queryParameters := map[string]interface{}{
 		"api-version": res.APIVersion,
 	}
@@ -1043,7 +1044,7 @@ func (k *azureNextGenProvider) azureCanCreate(ctx context.Context, id string, re
 		if err != nil {
 			return err
 		}
-		if !k.converter.isDefaultResponse(res.PutParameters, outputs, res.DefaultBody) {
+		if !k.converter.IsDefaultResponse(res.PutParameters, outputs, res.DefaultBody) {
 			return fmt.Errorf("cannot create already existing subresource '%s'", id)
 		}
 		return nil
@@ -1155,7 +1156,7 @@ func (k *azureNextGenProvider) azurePost(
 	return outputs, nil
 }
 
-func (k *azureNextGenProvider) prepareAzureRESTInputs(path string, parameters []AzureAPIParameter, methodInputs,
+func (k *azureNextGenProvider) prepareAzureRESTInputs(path string, parameters []resources.AzureAPIParameter, methodInputs,
 	clientInputs map[string]interface{}) (string, map[string]interface{}, map[string]interface{}, error) {
 	// Schema-driven mapping of inputs into Autorest id/body/query
 	params := map[string]map[string]interface{}{

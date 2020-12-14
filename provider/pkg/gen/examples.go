@@ -11,7 +11,7 @@ import (
 	"github.com/hashicorp/hcl/v2"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/debug"
 	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/pcl"
-	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/provider"
+	"github.com/pulumi/pulumi-azure-nextgen-provider/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v2/codegen"
 	"github.com/pulumi/pulumi/pkg/v2/codegen/dotnet"
 	gogen "github.com/pulumi/pulumi/pkg/v2/codegen/go"
@@ -38,8 +38,8 @@ type resourceExamplesRenderData struct {
 }
 
 // Examples renders Azure API examples to the pkgSpec for the specified list of languages.
-func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata,
-	resExamples map[string][]provider.AzureAPIExample, languages []string) error {
+func Examples(pkgSpec *schema.PackageSpec, metadata *resources.AzureAPIMetadata,
+	resExamples map[string][]resources.AzureAPIExample, languages []string) error {
 	sortedKeys := codegen.SortedKeys(pkgSpec.Resources) // To generate in deterministic order
 
 	// Use a progress bar to show progress since this can be a long running process
@@ -101,7 +101,7 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata,
 				return fmt.Errorf("example %s missing expected key: 'parameters'", example.Location)
 			}
 
-			resourceParams := map[string]provider.AzureAPIParameter{}
+			resourceParams := map[string]resources.AzureAPIParameter{}
 			for _, param := range resource.PutParameters {
 				resourceParams[param.Name] = param
 			}
@@ -165,7 +165,7 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *provider.AzureAPIMetadata,
 
 type programGenFn func(*hcl2.Program) (map[string][]byte, hcl.Diagnostics, error)
 
-func generateExamplePrograms(example provider.AzureAPIExample, body *model.Body, languages []string,
+func generateExamplePrograms(example resources.AzureAPIExample, body *model.Body, languages []string,
 	bindOptions ...hcl2.BindOption) (languageToExampleProgram, error) {
 	programBody := fmt.Sprintf("%v", body)
 	debug.Log(programBody)

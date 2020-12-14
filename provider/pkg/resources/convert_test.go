@@ -1,6 +1,6 @@
 // Copyright 2016-2020, Pulumi Corporation.
 
-package provider
+package resources
 
 import (
 	"testing"
@@ -8,163 +8,162 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-var p = &azureNextGenProvider{
-	resourceMap: &AzureAPIMetadata{
-		Types: map[string]AzureAPIType{
-			"azure-nextgen:testing:Structure": {
-				Properties: map[string]AzureAPIProperty{
-					"v1": {},
-					"v2": {},
-					"v3-odd": {
-						SdkName: "v3",
-					},
-					"v4-nested": {
-						SdkName:    "v4",
-						Containers: []string{"props"},
-					},
+var resourceMap = &AzureAPIMetadata{
+	Types: map[string]AzureAPIType{
+		"azure-nextgen:testing:Structure": {
+			Properties: map[string]AzureAPIProperty{
+				"v1": {},
+				"v2": {},
+				"v3-odd": {
+					SdkName: "v3",
+				},
+				"v4-nested": {
+					SdkName:    "v4",
+					Containers: []string{"props"},
 				},
 			},
-			"azure-nextgen:testing:StructureResponse": {
-				Properties: map[string]AzureAPIProperty{
-					"v1": {},
-					"v2": {},
-					"v3-odd": {
-						SdkName: "v3",
-					},
-					"v4-nested": {
-						SdkName:    "v4",
-						Containers: []string{"props"},
-					},
-					"v5ReadOnly": {},
+		},
+		"azure-nextgen:testing:StructureResponse": {
+			Properties: map[string]AzureAPIProperty{
+				"v1": {},
+				"v2": {},
+				"v3-odd": {
+					SdkName: "v3",
 				},
-			},
-			"azure-nextgen:testing:More": {
-				Properties: map[string]AzureAPIProperty{
-					"items": {
-						Items: &AzureAPIProperty{
-							Ref: "#/types/azure-nextgen:testing:MoreItem",
-						},
-					},
+				"v4-nested": {
+					SdkName:    "v4",
+					Containers: []string{"props"},
 				},
+				"v5ReadOnly": {},
 			},
-			"azure-nextgen:testing:MoreItem": {
-				Properties: map[string]AzureAPIProperty{
-					"aaa": {
-						SdkName: "Aaa",
-					},
-					"bbb": {
-						Containers: []string{"ccc"},
-					},
-				},
-			},
-			"azure-nextgen:testing:OptionA": {
-				Properties: map[string]AzureAPIProperty{
-					"type": {
-						Const: "AAA",
-					},
-					"a": {
-						Containers: []string{"aa"},
-					},
-				},
-			},
-			"azure-nextgen:testing:OptionB": {
-				Properties: map[string]AzureAPIProperty{
-					"type": {
-						Const: "BBB",
-					},
-					"b": {
-						Containers: []string{"bb"},
+		},
+		"azure-nextgen:testing:More": {
+			Properties: map[string]AzureAPIProperty{
+				"items": {
+					Items: &AzureAPIProperty{
+						Ref: "#/types/azure-nextgen:testing:MoreItem",
 					},
 				},
 			},
 		},
-		Resources: map[string]AzureAPIResource{
-			"r1": {
-				PutParameters: []AzureAPIParameter{
-					{
-						Location: "body",
-						Body: &AzureAPIType{
-							Properties: map[string]AzureAPIProperty{
-								"name": {},
-								"x-threshold": {
-									SdkName: "threshold",
-								},
-								"structure": {
-									Ref: "#/types/azure-nextgen:testing:Structure",
-								},
-								"p1": {
-									Containers: []string{"properties"},
-								},
-								"p2": {
-									Containers: []string{"properties"},
-								},
-								"p3": {
-									Containers: []string{"properties", "document", "body"},
-								},
-								"more": {
-									Containers: []string{"properties"},
-									Ref:        "#/types/azure-nextgen:testing:More",
-								},
-								"union": {
-									OneOf: []string{"#/types/azure-nextgen:testing:OptionA", "#/types/azure-nextgen:testing:OptionB"},
-								},
-								"tags":         {},
-								"untypedArray": {},
-								"untypedDict": {
-									Ref: "pulumi.json#/Any",
-								},
-							},
-						},
-					},
-					{
-						Location: "path",
-						Name:     "subscriptionId",
-					},
-					{
-						Location: "path",
-						Name:     "resourceGroupName",
-					},
-					{
-						Location: "path",
-						Name:     "networkInterfaceName",
-					},
+		"azure-nextgen:testing:MoreItem": {
+			Properties: map[string]AzureAPIProperty{
+				"aaa": {
+					SdkName: "Aaa",
 				},
-				Response: map[string]AzureAPIProperty{
-					"name": {},
-					"x-threshold": {
-						SdkName: "threshold",
-					},
-					"structure": {
-						Ref: "#/types/azure-nextgen:testing:StructureResponse",
-					},
-					"p1": {
-						Containers: []string{"properties"},
-					},
-					"p2": {
-						Containers: []string{"properties"},
-					},
-					"p3": {
-						Containers: []string{"properties", "document", "body"},
-					},
-					"more": {
-						Containers: []string{"properties"},
-						Ref:        "#/types/azure-nextgen:testing:More",
-					},
-					"union": {
-						OneOf: []string{"#/types/azure-nextgen:testing:OptionA", "#/types/azure-nextgen:testing:OptionB"},
-					},
-					"tags":         {},
-					"untypedArray": {},
-					"untypedDict": {
-						Ref: "pulumi.json#/Any",
-					},
-					"readOnly": {},
+				"bbb": {
+					Containers: []string{"ccc"},
+				},
+			},
+		},
+		"azure-nextgen:testing:OptionA": {
+			Properties: map[string]AzureAPIProperty{
+				"type": {
+					Const: "AAA",
+				},
+				"a": {
+					Containers: []string{"aa"},
+				},
+			},
+		},
+		"azure-nextgen:testing:OptionB": {
+			Properties: map[string]AzureAPIProperty{
+				"type": {
+					Const: "BBB",
+				},
+				"b": {
+					Containers: []string{"bb"},
 				},
 			},
 		},
 	},
+	Resources: map[string]AzureAPIResource{
+		"r1": {
+			PutParameters: []AzureAPIParameter{
+				{
+					Location: "body",
+					Body: &AzureAPIType{
+						Properties: map[string]AzureAPIProperty{
+							"name": {},
+							"x-threshold": {
+								SdkName: "threshold",
+							},
+							"structure": {
+								Ref: "#/types/azure-nextgen:testing:Structure",
+							},
+							"p1": {
+								Containers: []string{"properties"},
+							},
+							"p2": {
+								Containers: []string{"properties"},
+							},
+							"p3": {
+								Containers: []string{"properties", "document", "body"},
+							},
+							"more": {
+								Containers: []string{"properties"},
+								Ref:        "#/types/azure-nextgen:testing:More",
+							},
+							"union": {
+								OneOf: []string{"#/types/azure-nextgen:testing:OptionA", "#/types/azure-nextgen:testing:OptionB"},
+							},
+							"tags":         {},
+							"untypedArray": {},
+							"untypedDict": {
+								Ref: "pulumi.json#/Any",
+							},
+						},
+					},
+				},
+				{
+					Location: "path",
+					Name:     "subscriptionId",
+				},
+				{
+					Location: "path",
+					Name:     "resourceGroupName",
+				},
+				{
+					Location: "path",
+					Name:     "networkInterfaceName",
+				},
+			},
+			Response: map[string]AzureAPIProperty{
+				"name": {},
+				"x-threshold": {
+					SdkName: "threshold",
+				},
+				"structure": {
+					Ref: "#/types/azure-nextgen:testing:StructureResponse",
+				},
+				"p1": {
+					Containers: []string{"properties"},
+				},
+				"p2": {
+					Containers: []string{"properties"},
+				},
+				"p3": {
+					Containers: []string{"properties", "document", "body"},
+				},
+				"more": {
+					Containers: []string{"properties"},
+					Ref:        "#/types/azure-nextgen:testing:More",
+				},
+				"union": {
+					OneOf: []string{"#/types/azure-nextgen:testing:OptionA", "#/types/azure-nextgen:testing:OptionB"},
+				},
+				"tags":         {},
+				"untypedArray": {},
+				"untypedDict": {
+					Ref: "pulumi.json#/Any",
+				},
+				"readOnly": {},
+			},
+		},
+	},
 }
-var c = SdkShapeConverter{Types: p.resourceMap.Types}
+
+var c = SdkShapeConverter{Types: resourceMap.Types}
 
 var sampleAPIPackage = map[string]interface{}{
 	"name":        "MyResource",
@@ -248,12 +247,12 @@ var sampleSdkProps = map[string]interface{}{
 }
 
 func TestResponseToSdkOutputs(t *testing.T) {
-	outputs := c.BodyPropertiesToSDK(p.resourceMap.Resources["r1"].Response, sampleAPIPackage)
+	outputs := c.BodyPropertiesToSDK(resourceMap.Resources["r1"].Response, sampleAPIPackage)
 	assert.Equal(t, sampleSdkProps, outputs)
 }
 
 func TestSdkPropertiesToRequestBody(t *testing.T) {
-	bodyProperties := p.resourceMap.Resources["r1"].PutParameters[0].Body.Properties
+	bodyProperties := resourceMap.Resources["r1"].PutParameters[0].Body.Properties
 	data := c.SdkPropertiesToRequestBody(bodyProperties, sampleSdkProps)
 	assert.Equal(t, sampleAPIPackage, data)
 }
@@ -273,7 +272,7 @@ func TestParseInvalidResourceID(t *testing.T) {
 		{"/resourceGroup/myrg/foo/mycdn", "/resourceGroup/{resourceGroup}/bar/{cdn}"},
 	}
 	for _, testCase := range cases {
-		_, err := parseResourceID(testCase.id, testCase.path)
+		_, err := ParseResourceID(testCase.id, testCase.path)
 		assert.Error(t, err)
 	}
 }
@@ -281,7 +280,7 @@ func TestParseInvalidResourceID(t *testing.T) {
 func TestParseFullResourceID(t *testing.T) {
 	id := "/subscriptions/0282681f-7a9e-123b-40b2-96babd57a8a1/resourcegroups/pulumi-name/providers/Microsoft.Network/networkInterfaces/pulumi-nic/ipConfigurations/ipconfig1"
 	path := "/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces/{networkInterfaceName}/ipConfigurations/{ipConfigurationName}"
-	actual, err := parseResourceID(id, path)
+	actual, err := ParseResourceID(id, path)
 	assert.NoError(t, err)
 	expected := map[string]string{
 		"subscriptionID":       "0282681f-7a9e-123b-40b2-96babd57a8a1",
@@ -295,7 +294,7 @@ func TestParseFullResourceID(t *testing.T) {
 func TestParseScopedResourceID(t *testing.T) {
 	id := "/subscriptions/1200b1c8-3c58-42db-b33a-304a75913333/resourceGroups/devops-dev/providers/Microsoft.Authorization/roleAssignments/2a88abc7-f599-0eba-a21f-a1817e597115"
 	path := "/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}"
-	actual, err := parseResourceID(id, path)
+	actual, err := ParseResourceID(id, path)
 	assert.NoError(t, err)
 	expected := map[string]string{
 		"scope":              "subscriptions/1200b1c8-3c58-42db-b33a-304a75913333/resourceGroups/devops-dev",
@@ -377,7 +376,7 @@ func TestResponseToSdkInputs(t *testing.T) {
 		"resourceGroupName":    "rg-name",
 		"networkInterfaceName": "nic-name",
 	}
-	inputs := c.ResponseToSdkInputs(p.resourceMap.Resources["r1"].PutParameters, pathValues, responseForInputCalculation)
+	inputs := c.ResponseToSdkInputs(resourceMap.Resources["r1"].PutParameters, pathValues, responseForInputCalculation)
 	assert.Equal(t, calculatedInputs, inputs)
 }
 
@@ -420,6 +419,6 @@ func TestSDKOutputsToSDKInputs(t *testing.T) {
 		},
 		"readOnly": 12345,
 	}
-	inputs := c.SDKOutputsToSDKInputs(p.resourceMap.Resources["r1"].PutParameters, outputs)
+	inputs := c.SDKOutputsToSDKInputs(resourceMap.Resources["r1"].PutParameters, outputs)
 	assert.Equal(t, sampleSdkProps, inputs)
 }
