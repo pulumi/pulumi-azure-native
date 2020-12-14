@@ -28,6 +28,12 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Inputs
         public Input<string>? ClusterVersion { get; set; }
 
         /// <summary>
+        /// The compute isolation properties.
+        /// </summary>
+        [Input("computeIsolationProperties")]
+        public Input<Inputs.ComputeIsolationPropertiesArgs>? ComputeIsolationProperties { get; set; }
+
+        /// <summary>
         /// The compute profile.
         /// </summary>
         [Input("computeProfile")]

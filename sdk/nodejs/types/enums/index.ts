@@ -13,6 +13,7 @@ import * as authorization from "./authorization";
 import * as automanage from "./automanage";
 import * as automation from "./automation";
 import * as avs from "./avs";
+import * as azureactivedirectory from "./azureactivedirectory";
 import * as azurestack from "./azurestack";
 import * as batch from "./batch";
 import * as batchai from "./batchai";
@@ -138,6 +139,7 @@ export {
     automanage,
     automation,
     avs,
+    azureactivedirectory,
     azurestack,
     batch,
     batchai,
