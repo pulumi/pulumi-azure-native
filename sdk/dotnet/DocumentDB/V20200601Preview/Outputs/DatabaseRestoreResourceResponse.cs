@@ -14,11 +14,11 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview.Outputs
     public sealed class DatabaseRestoreResourceResponse
     {
         /// <summary>
-        /// The names of the collections to restore.
+        /// The names of the collections available for restore.
         /// </summary>
         public readonly ImmutableArray<string> CollectionNames;
         /// <summary>
-        /// The name of the database to restore.
+        /// The name of the database available for restore.
         /// </summary>
         public readonly string? DatabaseName;
 

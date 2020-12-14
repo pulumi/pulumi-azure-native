@@ -64,6 +64,7 @@ namespace Pulumi.AzureNextGen.Sql.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20140401:TransparentDataEncryption"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:TransparentDataEncryption"},
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20200801preview:TransparentDataEncryption"},
                 },
             };

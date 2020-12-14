@@ -4674,9 +4674,9 @@ func (o DatabaseAccountConnectionStringResponseArrayOutput) Index(i pulumi.IntIn
 
 // Specific Databases to restore.
 type DatabaseRestoreResource struct {
-	// The names of the collections to restore.
+	// The names of the collections available for restore.
 	CollectionNames []string `pulumi:"collectionNames"`
-	// The name of the database to restore.
+	// The name of the database available for restore.
 	DatabaseName *string `pulumi:"databaseName"`
 }
 
@@ -4693,9 +4693,9 @@ type DatabaseRestoreResourceInput interface {
 
 // Specific Databases to restore.
 type DatabaseRestoreResourceArgs struct {
-	// The names of the collections to restore.
+	// The names of the collections available for restore.
 	CollectionNames pulumi.StringArrayInput `pulumi:"collectionNames"`
-	// The name of the database to restore.
+	// The name of the database available for restore.
 	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
 }
 
@@ -4751,12 +4751,12 @@ func (o DatabaseRestoreResourceOutput) ToDatabaseRestoreResourceOutputWithContex
 	return o
 }
 
-// The names of the collections to restore.
+// The names of the collections available for restore.
 func (o DatabaseRestoreResourceOutput) CollectionNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DatabaseRestoreResource) []string { return v.CollectionNames }).(pulumi.StringArrayOutput)
 }
 
-// The name of the database to restore.
+// The name of the database available for restore.
 func (o DatabaseRestoreResourceOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseRestoreResource) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
 }
@@ -4783,9 +4783,9 @@ func (o DatabaseRestoreResourceArrayOutput) Index(i pulumi.IntInput) DatabaseRes
 
 // Specific Databases to restore.
 type DatabaseRestoreResourceResponse struct {
-	// The names of the collections to restore.
+	// The names of the collections available for restore.
 	CollectionNames []string `pulumi:"collectionNames"`
-	// The name of the database to restore.
+	// The name of the database available for restore.
 	DatabaseName *string `pulumi:"databaseName"`
 }
 
@@ -4802,9 +4802,9 @@ type DatabaseRestoreResourceResponseInput interface {
 
 // Specific Databases to restore.
 type DatabaseRestoreResourceResponseArgs struct {
-	// The names of the collections to restore.
+	// The names of the collections available for restore.
 	CollectionNames pulumi.StringArrayInput `pulumi:"collectionNames"`
-	// The name of the database to restore.
+	// The name of the database available for restore.
 	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
 }
 
@@ -4860,12 +4860,12 @@ func (o DatabaseRestoreResourceResponseOutput) ToDatabaseRestoreResourceResponse
 	return o
 }
 
-// The names of the collections to restore.
+// The names of the collections available for restore.
 func (o DatabaseRestoreResourceResponseOutput) CollectionNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DatabaseRestoreResourceResponse) []string { return v.CollectionNames }).(pulumi.StringArrayOutput)
 }
 
-// The name of the database to restore.
+// The name of the database available for restore.
 func (o DatabaseRestoreResourceResponseOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatabaseRestoreResourceResponse) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
 }
@@ -11349,7 +11349,7 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pul
 
 // Parameters to indicate the information about the restore.
 type RestoreParameters struct {
-	// List of specific databases to restore.
+	// List of specific databases available for restore.
 	DatabasesToRestore []DatabaseRestoreResource `pulumi:"databasesToRestore"`
 	// Describes the mode of the restore.
 	RestoreMode *string `pulumi:"restoreMode"`
@@ -11372,7 +11372,7 @@ type RestoreParametersInput interface {
 
 // Parameters to indicate the information about the restore.
 type RestoreParametersArgs struct {
-	// List of specific databases to restore.
+	// List of specific databases available for restore.
 	DatabasesToRestore DatabaseRestoreResourceArrayInput `pulumi:"databasesToRestore"`
 	// Describes the mode of the restore.
 	RestoreMode pulumi.StringPtrInput `pulumi:"restoreMode"`
@@ -11460,7 +11460,7 @@ func (o RestoreParametersOutput) ToRestoreParametersPtrOutputWithContext(ctx con
 	}).(RestoreParametersPtrOutput)
 }
 
-// List of specific databases to restore.
+// List of specific databases available for restore.
 func (o RestoreParametersOutput) DatabasesToRestore() DatabaseRestoreResourceArrayOutput {
 	return o.ApplyT(func(v RestoreParameters) []DatabaseRestoreResource { return v.DatabasesToRestore }).(DatabaseRestoreResourceArrayOutput)
 }
@@ -11498,7 +11498,7 @@ func (o RestoreParametersPtrOutput) Elem() RestoreParametersOutput {
 	return o.ApplyT(func(v *RestoreParameters) RestoreParameters { return *v }).(RestoreParametersOutput)
 }
 
-// List of specific databases to restore.
+// List of specific databases available for restore.
 func (o RestoreParametersPtrOutput) DatabasesToRestore() DatabaseRestoreResourceArrayOutput {
 	return o.ApplyT(func(v *RestoreParameters) []DatabaseRestoreResource {
 		if v == nil {
@@ -11540,7 +11540,7 @@ func (o RestoreParametersPtrOutput) RestoreTimestampInUtc() pulumi.StringPtrOutp
 
 // Parameters to indicate the information about the restore.
 type RestoreParametersResponse struct {
-	// List of specific databases to restore.
+	// List of specific databases available for restore.
 	DatabasesToRestore []DatabaseRestoreResourceResponse `pulumi:"databasesToRestore"`
 	// Describes the mode of the restore.
 	RestoreMode *string `pulumi:"restoreMode"`
@@ -11563,7 +11563,7 @@ type RestoreParametersResponseInput interface {
 
 // Parameters to indicate the information about the restore.
 type RestoreParametersResponseArgs struct {
-	// List of specific databases to restore.
+	// List of specific databases available for restore.
 	DatabasesToRestore DatabaseRestoreResourceResponseArrayInput `pulumi:"databasesToRestore"`
 	// Describes the mode of the restore.
 	RestoreMode pulumi.StringPtrInput `pulumi:"restoreMode"`
@@ -11651,7 +11651,7 @@ func (o RestoreParametersResponseOutput) ToRestoreParametersResponsePtrOutputWit
 	}).(RestoreParametersResponsePtrOutput)
 }
 
-// List of specific databases to restore.
+// List of specific databases available for restore.
 func (o RestoreParametersResponseOutput) DatabasesToRestore() DatabaseRestoreResourceResponseArrayOutput {
 	return o.ApplyT(func(v RestoreParametersResponse) []DatabaseRestoreResourceResponse { return v.DatabasesToRestore }).(DatabaseRestoreResourceResponseArrayOutput)
 }
@@ -11689,7 +11689,7 @@ func (o RestoreParametersResponsePtrOutput) Elem() RestoreParametersResponseOutp
 	return o.ApplyT(func(v *RestoreParametersResponse) RestoreParametersResponse { return *v }).(RestoreParametersResponseOutput)
 }
 
-// List of specific databases to restore.
+// List of specific databases available for restore.
 func (o RestoreParametersResponsePtrOutput) DatabasesToRestore() DatabaseRestoreResourceResponseArrayOutput {
 	return o.ApplyT(func(v *RestoreParametersResponse) []DatabaseRestoreResourceResponse {
 		if v == nil {

@@ -109,6 +109,7 @@ namespace Pulumi.AzureNextGen.Sql.V20200801Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:sql/v20170301preview:SensitivityLabel"},
+                    new Pulumi.Alias { Type = "azure-nextgen:sql/v20200202preview:SensitivityLabel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -58,8 +58,10 @@ type LookupManagedInstanceResult struct {
 	// Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
 	MinimalTlsVersion *string `pulumi:"minimalTlsVersion"`
 	// Resource name.
-	Name              string `pulumi:"name"`
-	ProvisioningState string `pulumi:"provisioningState"`
+	Name string `pulumi:"name"`
+	// List of private endpoint connections on a managed instance.
+	PrivateEndpointConnections []ManagedInstancePecPropertyResponse `pulumi:"privateEndpointConnections"`
+	ProvisioningState          string                               `pulumi:"provisioningState"`
 	// Connection type used for connecting to the instance.
 	ProxyOverride *string `pulumi:"proxyOverride"`
 	// Whether or not the public data endpoint is enabled.
@@ -91,4 +93,6 @@ type LookupManagedInstanceResult struct {
 	Type string `pulumi:"type"`
 	// The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80.
 	VCores *int `pulumi:"vCores"`
+	// Whether or not the multi-az is enabled.
+	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }

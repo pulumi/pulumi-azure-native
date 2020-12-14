@@ -71,7 +71,7 @@ class JobTargetGroup(pulumi.CustomResource):
             __props__['target_group_name'] = target_group_name
             __props__['name'] = None
             __props__['type'] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20170301preview:JobTargetGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-nextgen:sql/v20170301preview:JobTargetGroup"), pulumi.Alias(type_="azure-nextgen:sql/v20200202preview:JobTargetGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(JobTargetGroup, __self__).__init__(
             'azure-nextgen:sql/v20200801preview:JobTargetGroup',

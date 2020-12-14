@@ -20,13 +20,16 @@ class GetIotDpsResourceResult:
     """
     The description of the provisioning service.
     """
-    def __init__(__self__, etag=None, id=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, etag=None, id=None, identity=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -61,6 +64,14 @@ class GetIotDpsResourceResult:
         The resource identifier.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ArmIdentityResponse']:
+        """
+        The managed identities for the IotDps instance.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -119,6 +130,7 @@ class AwaitableGetIotDpsResourceResult(GetIotDpsResourceResult):
         return GetIotDpsResourceResult(
             etag=self.etag,
             id=self.id,
+            identity=self.identity,
             location=self.location,
             name=self.name,
             properties=self.properties,
@@ -148,6 +160,7 @@ def get_iot_dps_resource(provisioning_service_name: Optional[str] = None,
     return AwaitableGetIotDpsResourceResult(
         etag=__ret__.etag,
         id=__ret__.id,
+        identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,
         properties=__ret__.properties,

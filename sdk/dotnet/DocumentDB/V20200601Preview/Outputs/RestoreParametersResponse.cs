@@ -14,7 +14,7 @@ namespace Pulumi.AzureNextGen.DocumentDB.V20200601Preview.Outputs
     public sealed class RestoreParametersResponse
     {
         /// <summary>
-        /// List of specific databases to restore.
+        /// List of specific databases available for restore.
         /// </summary>
         public readonly ImmutableArray<Outputs.DatabaseRestoreResourceResponse> DatabasesToRestore;
         /// <summary>

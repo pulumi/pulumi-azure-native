@@ -5,41 +5,216 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export * from "./database";
+export * from "./databaseVulnerabilityAssessment";
+export * from "./databaseVulnerabilityAssessmentRuleBaseline";
+export * from "./elasticPool";
+export * from "./failoverGroup";
+export * from "./firewallRule";
+export * from "./getDatabase";
+export * from "./getDatabaseVulnerabilityAssessment";
+export * from "./getDatabaseVulnerabilityAssessmentRuleBaseline";
+export * from "./getElasticPool";
+export * from "./getFailoverGroup";
+export * from "./getFirewallRule";
+export * from "./getHybridLink";
+export * from "./getInstanceFailoverGroup";
+export * from "./getInstancePool";
+export * from "./getJob";
+export * from "./getJobAgent";
+export * from "./getJobCredential";
+export * from "./getJobStep";
+export * from "./getJobTargetGroup";
 export * from "./getManagedDatabase";
+export * from "./getManagedDatabaseSensitivityLabel";
+export * from "./getManagedDatabaseVulnerabilityAssessment";
+export * from "./getManagedDatabaseVulnerabilityAssessmentRuleBaseline";
 export * from "./getManagedInstance";
+export * from "./getManagedInstanceAdministrator";
 export * from "./getManagedInstanceAzureADOnlyAuthentication";
+export * from "./getManagedInstanceKey";
+export * from "./getManagedInstancePrivateEndpointConnection";
+export * from "./getManagedInstanceVulnerabilityAssessment";
+export * from "./getPrivateEndpointConnection";
+export * from "./getSensitivityLabel";
+export * from "./getServer";
+export * from "./getServerAzureADAdministrator";
 export * from "./getServerAzureADOnlyAuthentication";
+export * from "./getServerDnsAlias";
+export * from "./getServerKey";
 export * from "./getServerTrustGroup";
+export * from "./getServerVulnerabilityAssessment";
+export * from "./getSyncAgent";
+export * from "./getSyncGroup";
+export * from "./getSyncMember";
+export * from "./getTransparentDataEncryption";
+export * from "./getVirtualNetworkRule";
+export * from "./getWorkloadClassifier";
+export * from "./getWorkloadGroup";
+export * from "./hybridLink";
+export * from "./instanceFailoverGroup";
+export * from "./instancePool";
+export * from "./job";
+export * from "./jobAgent";
+export * from "./jobCredential";
+export * from "./jobStep";
+export * from "./jobTargetGroup";
 export * from "./managedDatabase";
+export * from "./managedDatabaseSensitivityLabel";
+export * from "./managedDatabaseVulnerabilityAssessment";
+export * from "./managedDatabaseVulnerabilityAssessmentRuleBaseline";
 export * from "./managedInstance";
+export * from "./managedInstanceAdministrator";
 export * from "./managedInstanceAzureADOnlyAuthentication";
+export * from "./managedInstanceKey";
+export * from "./managedInstancePrivateEndpointConnection";
+export * from "./managedInstanceVulnerabilityAssessment";
+export * from "./privateEndpointConnection";
+export * from "./sensitivityLabel";
+export * from "./server";
+export * from "./serverAzureADAdministrator";
 export * from "./serverAzureADOnlyAuthentication";
+export * from "./serverDnsAlias";
+export * from "./serverKey";
 export * from "./serverTrustGroup";
+export * from "./serverVulnerabilityAssessment";
+export * from "./syncAgent";
+export * from "./syncGroup";
+export * from "./syncMember";
+export * from "./transparentDataEncryption";
+export * from "./virtualNetworkRule";
+export * from "./workloadClassifier";
+export * from "./workloadGroup";
 
 // Export enums:
 export * from "../../types/enums/sql/v20200202preview";
 
 // Import resources to register:
+import { Database } from "./database";
+import { DatabaseVulnerabilityAssessment } from "./databaseVulnerabilityAssessment";
+import { DatabaseVulnerabilityAssessmentRuleBaseline } from "./databaseVulnerabilityAssessmentRuleBaseline";
+import { ElasticPool } from "./elasticPool";
+import { FailoverGroup } from "./failoverGroup";
+import { FirewallRule } from "./firewallRule";
+import { HybridLink } from "./hybridLink";
+import { InstanceFailoverGroup } from "./instanceFailoverGroup";
+import { InstancePool } from "./instancePool";
+import { Job } from "./job";
+import { JobAgent } from "./jobAgent";
+import { JobCredential } from "./jobCredential";
+import { JobStep } from "./jobStep";
+import { JobTargetGroup } from "./jobTargetGroup";
 import { ManagedDatabase } from "./managedDatabase";
+import { ManagedDatabaseSensitivityLabel } from "./managedDatabaseSensitivityLabel";
+import { ManagedDatabaseVulnerabilityAssessment } from "./managedDatabaseVulnerabilityAssessment";
+import { ManagedDatabaseVulnerabilityAssessmentRuleBaseline } from "./managedDatabaseVulnerabilityAssessmentRuleBaseline";
 import { ManagedInstance } from "./managedInstance";
+import { ManagedInstanceAdministrator } from "./managedInstanceAdministrator";
 import { ManagedInstanceAzureADOnlyAuthentication } from "./managedInstanceAzureADOnlyAuthentication";
+import { ManagedInstanceKey } from "./managedInstanceKey";
+import { ManagedInstancePrivateEndpointConnection } from "./managedInstancePrivateEndpointConnection";
+import { ManagedInstanceVulnerabilityAssessment } from "./managedInstanceVulnerabilityAssessment";
+import { PrivateEndpointConnection } from "./privateEndpointConnection";
+import { SensitivityLabel } from "./sensitivityLabel";
+import { Server } from "./server";
+import { ServerAzureADAdministrator } from "./serverAzureADAdministrator";
 import { ServerAzureADOnlyAuthentication } from "./serverAzureADOnlyAuthentication";
+import { ServerDnsAlias } from "./serverDnsAlias";
+import { ServerKey } from "./serverKey";
 import { ServerTrustGroup } from "./serverTrustGroup";
+import { ServerVulnerabilityAssessment } from "./serverVulnerabilityAssessment";
+import { SyncAgent } from "./syncAgent";
+import { SyncGroup } from "./syncGroup";
+import { SyncMember } from "./syncMember";
+import { TransparentDataEncryption } from "./transparentDataEncryption";
+import { VirtualNetworkRule } from "./virtualNetworkRule";
+import { WorkloadClassifier } from "./workloadClassifier";
+import { WorkloadGroup } from "./workloadGroup";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-nextgen:sql/v20200202preview:Database":
+                return new Database(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:DatabaseVulnerabilityAssessment":
+                return new DatabaseVulnerabilityAssessment(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:DatabaseVulnerabilityAssessmentRuleBaseline":
+                return new DatabaseVulnerabilityAssessmentRuleBaseline(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:ElasticPool":
+                return new ElasticPool(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:FailoverGroup":
+                return new FailoverGroup(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:FirewallRule":
+                return new FirewallRule(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:HybridLink":
+                return new HybridLink(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:InstanceFailoverGroup":
+                return new InstanceFailoverGroup(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:InstancePool":
+                return new InstancePool(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:Job":
+                return new Job(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:JobAgent":
+                return new JobAgent(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:JobCredential":
+                return new JobCredential(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:JobStep":
+                return new JobStep(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:JobTargetGroup":
+                return new JobTargetGroup(name, <any>undefined, { urn })
             case "azure-nextgen:sql/v20200202preview:ManagedDatabase":
                 return new ManagedDatabase(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:ManagedDatabaseSensitivityLabel":
+                return new ManagedDatabaseSensitivityLabel(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:ManagedDatabaseVulnerabilityAssessment":
+                return new ManagedDatabaseVulnerabilityAssessment(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:ManagedDatabaseVulnerabilityAssessmentRuleBaseline":
+                return new ManagedDatabaseVulnerabilityAssessmentRuleBaseline(name, <any>undefined, { urn })
             case "azure-nextgen:sql/v20200202preview:ManagedInstance":
                 return new ManagedInstance(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:ManagedInstanceAdministrator":
+                return new ManagedInstanceAdministrator(name, <any>undefined, { urn })
             case "azure-nextgen:sql/v20200202preview:ManagedInstanceAzureADOnlyAuthentication":
                 return new ManagedInstanceAzureADOnlyAuthentication(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:ManagedInstanceKey":
+                return new ManagedInstanceKey(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:ManagedInstancePrivateEndpointConnection":
+                return new ManagedInstancePrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:ManagedInstanceVulnerabilityAssessment":
+                return new ManagedInstanceVulnerabilityAssessment(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:PrivateEndpointConnection":
+                return new PrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:SensitivityLabel":
+                return new SensitivityLabel(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:Server":
+                return new Server(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:ServerAzureADAdministrator":
+                return new ServerAzureADAdministrator(name, <any>undefined, { urn })
             case "azure-nextgen:sql/v20200202preview:ServerAzureADOnlyAuthentication":
                 return new ServerAzureADOnlyAuthentication(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:ServerDnsAlias":
+                return new ServerDnsAlias(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:ServerKey":
+                return new ServerKey(name, <any>undefined, { urn })
             case "azure-nextgen:sql/v20200202preview:ServerTrustGroup":
                 return new ServerTrustGroup(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:ServerVulnerabilityAssessment":
+                return new ServerVulnerabilityAssessment(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:SyncAgent":
+                return new SyncAgent(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:SyncGroup":
+                return new SyncGroup(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:SyncMember":
+                return new SyncMember(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:TransparentDataEncryption":
+                return new TransparentDataEncryption(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:VirtualNetworkRule":
+                return new VirtualNetworkRule(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:WorkloadClassifier":
+                return new WorkloadClassifier(name, <any>undefined, { urn })
+            case "azure-nextgen:sql/v20200202preview:WorkloadGroup":
+                return new WorkloadGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

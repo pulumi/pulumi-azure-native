@@ -76,6 +76,9 @@ func NewServer(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20190601preview:Server"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:sql/v20200202preview:Server"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Server

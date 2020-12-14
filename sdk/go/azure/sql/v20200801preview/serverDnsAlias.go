@@ -43,6 +43,9 @@ func NewServerDnsAlias(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:sql/v20170301preview:ServerDnsAlias"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:sql/v20200202preview:ServerDnsAlias"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ServerDnsAlias

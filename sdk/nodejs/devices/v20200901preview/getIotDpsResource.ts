@@ -43,6 +43,10 @@ export interface GetIotDpsResourceResult {
      */
     readonly id: string;
     /**
+     * The managed identities for the IotDps instance.
+     */
+    readonly identity?: outputs.devices.v20200901preview.ArmIdentityResponse;
+    /**
      * The resource location.
      */
     readonly location: string;

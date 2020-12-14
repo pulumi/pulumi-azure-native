@@ -21,7 +21,7 @@ type LookupManagedDatabaseArgs struct {
 	DatabaseName string `pulumi:"databaseName"`
 	// The name of the managed instance.
 	ManagedInstanceName string `pulumi:"managedInstanceName"`
-	// The name of the resource group. The name is case insensitive.
+	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 

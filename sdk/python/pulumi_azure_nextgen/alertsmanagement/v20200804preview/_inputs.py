@@ -83,69 +83,73 @@ class HealthAlertCriteriaArgs:
 @pulumi.input_type
 class HealthStateArgs:
     def __init__(__self__, *,
-                 health_state_name: pulumi.Input[str],
-                 severity: pulumi.Input[str]):
+                 health_state_name: pulumi.Input[Union[str, 'HealthStateName']],
+                 severity: pulumi.Input[int]):
         """
         Specifies the health state to alert on and the corresponding severity
-        :param pulumi.Input[str] health_state_name: Health state
-        :param pulumi.Input[str] severity: Severity of alert fired
+        :param pulumi.Input[Union[str, 'HealthStateName']] health_state_name: Health state name
+        :param pulumi.Input[int] severity: Severity of alert fired
         """
         pulumi.set(__self__, "health_state_name", health_state_name)
         pulumi.set(__self__, "severity", severity)
 
     @property
     @pulumi.getter(name="healthStateName")
-    def health_state_name(self) -> pulumi.Input[str]:
+    def health_state_name(self) -> pulumi.Input[Union[str, 'HealthStateName']]:
         """
-        Health state
+        Health state name
         """
         return pulumi.get(self, "health_state_name")
 
     @health_state_name.setter
-    def health_state_name(self, value: pulumi.Input[str]):
+    def health_state_name(self, value: pulumi.Input[Union[str, 'HealthStateName']]):
         pulumi.set(self, "health_state_name", value)
 
     @property
     @pulumi.getter
-    def severity(self) -> pulumi.Input[str]:
+    def severity(self) -> pulumi.Input[int]:
         """
         Severity of alert fired
         """
         return pulumi.get(self, "severity")
 
     @severity.setter
-    def severity(self, value: pulumi.Input[str]):
+    def severity(self, value: pulumi.Input[int]):
         pulumi.set(self, "severity", value)
 
 
 @pulumi.input_type
 class VmGuestHealthAlertCriterionArgs:
     def __init__(__self__, *,
-                 health_monitor_name: pulumi.Input[str],
+                 health_states: pulumi.Input[Sequence[pulumi.Input['HealthStateArgs']]],
                  namespace: pulumi.Input[str],
-                 health_states: Optional[pulumi.Input[Sequence[pulumi.Input['HealthStateArgs']]]] = None):
+                 monitor_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 monitor_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Specifies the health alert criteria to alert on.
-        :param pulumi.Input[str] health_monitor_name: Name of health monitor on which to define alert
-        :param pulumi.Input[str] namespace: specifies the type of the alert criterion.
         :param pulumi.Input[Sequence[pulumi.Input['HealthStateArgs']]] health_states: Health states to alert on
+        :param pulumi.Input[str] namespace: specifies the type of the alert criterion.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] monitor_names: Names of health monitor on which to define alert
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] monitor_types: Names of health monitor type on which to define alert
         """
-        pulumi.set(__self__, "health_monitor_name", health_monitor_name)
-        pulumi.set(__self__, "namespace", 'VmGuestHealth')
-        if health_states is not None:
-            pulumi.set(__self__, "health_states", health_states)
+        pulumi.set(__self__, "health_states", health_states)
+        pulumi.set(__self__, "namespace", 'GuestVmHealth')
+        if monitor_names is not None:
+            pulumi.set(__self__, "monitor_names", monitor_names)
+        if monitor_types is not None:
+            pulumi.set(__self__, "monitor_types", monitor_types)
 
     @property
-    @pulumi.getter(name="healthMonitorName")
-    def health_monitor_name(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="healthStates")
+    def health_states(self) -> pulumi.Input[Sequence[pulumi.Input['HealthStateArgs']]]:
         """
-        Name of health monitor on which to define alert
+        Health states to alert on
         """
-        return pulumi.get(self, "health_monitor_name")
+        return pulumi.get(self, "health_states")
 
-    @health_monitor_name.setter
-    def health_monitor_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "health_monitor_name", value)
+    @health_states.setter
+    def health_states(self, value: pulumi.Input[Sequence[pulumi.Input['HealthStateArgs']]]):
+        pulumi.set(self, "health_states", value)
 
     @property
     @pulumi.getter
@@ -160,15 +164,27 @@ class VmGuestHealthAlertCriterionArgs:
         pulumi.set(self, "namespace", value)
 
     @property
-    @pulumi.getter(name="healthStates")
-    def health_states(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HealthStateArgs']]]]:
+    @pulumi.getter(name="monitorNames")
+    def monitor_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Health states to alert on
+        Names of health monitor on which to define alert
         """
-        return pulumi.get(self, "health_states")
+        return pulumi.get(self, "monitor_names")
 
-    @health_states.setter
-    def health_states(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HealthStateArgs']]]]):
-        pulumi.set(self, "health_states", value)
+    @monitor_names.setter
+    def monitor_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "monitor_names", value)
+
+    @property
+    @pulumi.getter(name="monitorTypes")
+    def monitor_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Names of health monitor type on which to define alert
+        """
+        return pulumi.get(self, "monitor_types")
+
+    @monitor_types.setter
+    def monitor_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "monitor_types", value)
 
 

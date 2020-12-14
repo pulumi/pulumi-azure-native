@@ -29,6 +29,8 @@ type LookupIotDpsResourceResult struct {
 	Etag *string `pulumi:"etag"`
 	// The resource identifier.
 	Id string `pulumi:"id"`
+	// The managed identities for the IotDps instance.
+	Identity *ArmIdentityResponse `pulumi:"identity"`
 	// The resource location.
 	Location string `pulumi:"location"`
 	// The resource name.

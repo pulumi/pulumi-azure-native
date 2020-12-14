@@ -70,6 +70,9 @@ func NewElasticPool(ctx *pulumi.Context,
 			Type: pulumi.String("azure-nextgen:sql/v20140401:ElasticPool"),
 		},
 		{
+			Type: pulumi.String("azure-nextgen:sql/v20200202preview:ElasticPool"),
+		},
+		{
 			Type: pulumi.String("azure-nextgen:sql/v20200801preview:ElasticPool"),
 		},
 	})

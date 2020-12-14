@@ -11,12 +11,18 @@ namespace Pulumi.AzureNextGen.Devices.V20200901Preview.Inputs
 {
 
     /// <summary>
-    /// The encryption properties for the IoT DPS instance.
+    /// The customer-managed encryption key (CMK) properties for the IoT DPS instance.
     /// </summary>
     public sealed class EncryptionPropertiesDescriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The source of the key.
+        /// The identity used to access the encryption key in KeyVault.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.EncryptionKeyIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// The source of the encryption key. Typically, Microsoft.KeyVault
         /// </summary>
         [Input("keySource")]
         public Input<string>? KeySource { get; set; }
@@ -25,7 +31,7 @@ namespace Pulumi.AzureNextGen.Devices.V20200901Preview.Inputs
         private InputList<Inputs.KeyVaultKeyPropertiesArgs>? _keyVaultProperties;
 
         /// <summary>
-        /// The properties of the KeyVault key.
+        /// The properties of the encryption key configured in KeyVault.
         /// </summary>
         public InputList<Inputs.KeyVaultKeyPropertiesArgs> KeyVaultProperties
         {
