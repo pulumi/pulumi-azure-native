@@ -26,7 +26,7 @@ type resource struct {
 	resourceToken  string // initial guess at pulumi resource token
 	resourceParams map[string]interface{}
 	dependsOn      []model.Expression
-	resource       *provider.AzureAPIResource
+	resource       *resources.AzureAPIResource
 	exclude        bool
 }
 
