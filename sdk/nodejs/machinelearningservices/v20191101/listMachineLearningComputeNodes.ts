@@ -41,6 +41,7 @@ export interface ListMachineLearningComputeNodesArgs {
 export interface ListMachineLearningComputeNodesResult {
     /**
      * The type of compute
+     * Expected value is 'AmlCompute'.
      */
     readonly computeType: "AmlCompute";
     /**

@@ -71,6 +71,7 @@ export interface GetMachineGroupResult {
     readonly id: string;
     /**
      * Additional resource type qualifier.
+     * Expected value is 'machineGroup'.
      */
     readonly kind: "machineGroup";
     /**

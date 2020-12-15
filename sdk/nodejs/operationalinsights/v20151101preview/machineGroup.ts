@@ -53,6 +53,7 @@ export class MachineGroup extends pulumi.CustomResource {
     public readonly groupType!: pulumi.Output<string | undefined>;
     /**
      * Additional resource type qualifier.
+     * Expected value is 'machineGroup'.
      */
     public readonly kind!: pulumi.Output<"machineGroup">;
     /**
@@ -147,6 +148,7 @@ export interface MachineGroupArgs {
     readonly groupType?: pulumi.Input<string | enums.operationalinsights.v20151101preview.MachineGroupType>;
     /**
      * Additional resource type qualifier.
+     * Expected value is 'machineGroup'.
      */
     readonly kind: pulumi.Input<"machineGroup">;
     /**
