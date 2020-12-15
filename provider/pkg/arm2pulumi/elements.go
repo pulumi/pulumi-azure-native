@@ -47,7 +47,6 @@ type pclRenderContext struct {
 	pkgSpec                *schema.PackageSpec
 	dep                    *dependencyTracking
 	resourceTokenConverter *resourceTokenConverter
-	resourceIdMap          map[string]resourceIdTargetEntry
 }
 
 func newParameter(name string, rawBody map[string]interface{}) *parameter {
@@ -276,6 +275,7 @@ type TemplateElements struct {
 type resourceIdTargetEntry struct {
 	variableExpression model.Expression
 	targetElementName  string
+	RawName            interface{}
 }
 
 func (t *TemplateElements) lookup(name string) *dependencyTracking {
@@ -287,6 +287,19 @@ func (t *TemplateElements) lookup(name string) *dependencyTracking {
 	_, ok := t.canonicalNames[cname]
 	if ok {
 		return t.elements[cname]
+	}
+	return nil
+}
+
+func (t *TemplateElements) lookupResourceByRawName(name string) *resource {
+	for _, dep := range t.elements {
+		resource, ok := dep.TemplateElement.(*resource)
+		if !ok {
+			continue
+		}
+		if resource.rawName() == name {
+			return resource
+		}
 	}
 	return nil
 }
@@ -620,7 +633,6 @@ func (t *TemplateElements) Validate(pkgSpec *schema.PackageSpec, metadata *resou
 			pkgSpec:                pkgSpec,
 			dep:                    el,
 			resourceTokenConverter: resourceTokenConverter,
-			resourceIdMap:          t.resourceIdMap,
 		}
 		if err := el.TemplateElement.IntrospectElement(&ctx, t); err != nil {
 			diag := &Diagnostic{}
@@ -643,7 +655,6 @@ func (t *TemplateElements) Validate(pkgSpec *schema.PackageSpec, metadata *resou
 			pkgSpec:                pkgSpec,
 			dep:                    el,
 			resourceTokenConverter: resourceTokenConverter,
-			resourceIdMap:          t.resourceIdMap,
 		}
 		if err := el.TemplateElement.LinkElements(&ctx, t); err != nil {
 			diag := &Diagnostic{}
@@ -677,7 +688,6 @@ func (t *TemplateElements) RenderPCL(
 			pkgSpec:                pkgSpec,
 			dep:                    el,
 			resourceTokenConverter: resourceTokenConverter,
-			resourceIdMap:          t.resourceIdMap,
 		}
 		bodyItems, err := el.PCLExpression(&ctx)
 		if err != nil {
