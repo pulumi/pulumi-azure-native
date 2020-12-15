@@ -24,6 +24,8 @@ const componentResource = new azure_nextgen.insights.v20200202preview.Component(
     resourceGroupName: resourceGroupNameParam,
     resourceName: applicationInsightsNameParam,
     workspaceResourceId: workspaceResource.id,
+}, {
+    dependsOn: [workspaceResource],
 });
 const emailActionGroup = new azure_nextgen.insights.v20190601.ActionGroup("emailActionGroup", {
     actionGroupName: "emailActionGroup",
@@ -63,4 +65,9 @@ const metricAlertResource = new azure_nextgen.insights.v20180301.MetricAlert("me
     scopes: [componentResource.id],
     severity: 0,
     windowSize: "PT5M",
+}, {
+    dependsOn: [
+        componentResource,
+        emailActionGroup,
+    ],
 });

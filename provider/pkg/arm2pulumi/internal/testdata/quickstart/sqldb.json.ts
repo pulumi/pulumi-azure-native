@@ -11,20 +11,20 @@ const resourceGroupVar = azure_nextgen.resources.latest.getResourceGroup({
 const locationParam = config.get("locationParam") || resourceGroupVar.then(resourceGroupVar => resourceGroupVar.location);
 const serverNameParam = config.get("serverNameParam") || "[uniqueString('sql', resourceGroup().id)]";
 const sqlDBNameParam = config.get("sqlDBNameParam") || "SampleDB";
-const databaseResource = new azure_nextgen.sql.v20190601preview.Database("databaseResource", {
-    databaseName: `${serverNameParam}/${sqlDBNameParam}`,
-    location: locationParam,
-    resourceGroupName: resourceGroupNameParam,
-    serverName: serverNameParam,
-    sku: {
-        name: "Standard",
-        tier: "Standard",
-    },
-});
 const serverResource = new azure_nextgen.sql.v20190601preview.Server("serverResource", {
     administratorLogin: administratorLoginParam,
     administratorLoginPassword: administratorLoginPasswordParam,
     location: locationParam,
     resourceGroupName: resourceGroupNameParam,
     serverName: serverNameParam,
+});
+const databaseResource = new azure_nextgen.sql.v20190601preview.Database("databaseResource", {
+    databaseName: `${serverNameParam}/${sqlDBNameParam}`,
+    location: locationParam,
+    resourceGroupName: resourceGroupNameParam,
+    serverName: serverResource.name,
+    sku: {
+        name: "Standard",
+        tier: "Standard",
+    },
 });
