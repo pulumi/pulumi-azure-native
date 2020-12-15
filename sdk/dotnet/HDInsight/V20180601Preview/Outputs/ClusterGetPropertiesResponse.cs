@@ -30,6 +30,10 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Outputs
         /// </summary>
         public readonly string? ClusterVersion;
         /// <summary>
+        /// The compute isolation properties.
+        /// </summary>
+        public readonly Outputs.ComputeIsolationPropertiesResponse? ComputeIsolationProperties;
+        /// <summary>
         /// The compute profile.
         /// </summary>
         public readonly Outputs.ComputeProfileResponse? ComputeProfile;
@@ -96,6 +100,8 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Outputs
 
             string? clusterVersion,
 
+            Outputs.ComputeIsolationPropertiesResponse? computeIsolationProperties,
+
             Outputs.ComputeProfileResponse? computeProfile,
 
             ImmutableArray<Outputs.ConnectivityEndpointResponse> connectivityEndpoints,
@@ -128,6 +134,7 @@ namespace Pulumi.AzureNextGen.HDInsight.V20180601Preview.Outputs
             ClusterId = clusterId;
             ClusterState = clusterState;
             ClusterVersion = clusterVersion;
+            ComputeIsolationProperties = computeIsolationProperties;
             ComputeProfile = computeProfile;
             ConnectivityEndpoints = connectivityEndpoints;
             CreatedDate = createdDate;

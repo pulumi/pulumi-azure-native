@@ -82,6 +82,7 @@ namespace Pulumi.AzureNextGen.ServiceBus.Latest
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20170401:MigrationConfig"},
+                    new Pulumi.Alias { Type = "azure-nextgen:servicebus/v20180101preview:MigrationConfig"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

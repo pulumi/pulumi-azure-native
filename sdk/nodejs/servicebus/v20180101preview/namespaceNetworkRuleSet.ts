@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
- * Description of topic resource.
+ * Description of NetworkRuleSet resource.
  */
 export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
     /**

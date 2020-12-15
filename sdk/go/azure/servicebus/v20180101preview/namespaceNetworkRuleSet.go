@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Description of topic resource.
+// Description of NetworkRuleSet resource.
 type NamespaceNetworkRuleSet struct {
 	pulumi.CustomResourceState
 

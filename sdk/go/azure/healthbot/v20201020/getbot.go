@@ -54,6 +54,12 @@ func NewGetbot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-nextgen:healthbot/v20201020preview:getbot"),
 		},
+		{
+			Type: pulumi.String("azure-nextgen:healthbot/v20201208:getbot"),
+		},
+		{
+			Type: pulumi.String("azure-nextgen:healthbot/v20201208preview:getbot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Getbot

@@ -11,12 +11,12 @@ namespace Pulumi.AzureNextGen.ServiceBus.V20180101Preview.Inputs
 {
 
     /// <summary>
-    /// The response from the List namespace operation.
+    /// Description of VirtualNetworkRules - NetworkRules resource.
     /// </summary>
     public sealed class NWRuleSetVirtualNetworkRulesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Value that indicates whether to ignore missing Vnet Service Endpoint
+        /// Value that indicates whether to ignore missing VNet Service Endpoint
         /// </summary>
         [Input("ignoreMissingVnetServiceEndpoint")]
         public Input<bool>? IgnoreMissingVnetServiceEndpoint { get; set; }

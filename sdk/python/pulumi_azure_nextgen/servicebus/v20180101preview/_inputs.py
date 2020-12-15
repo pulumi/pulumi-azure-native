@@ -10,14 +10,73 @@ from ... import _utilities, _tables
 from ._enums import *
 
 __all__ = [
+    'ActionArgs',
     'ConnectionStateArgs',
+    'CorrelationFilterArgs',
     'KeyVaultPropertiesArgs',
     'NWRuleSetIpRulesArgs',
     'NWRuleSetVirtualNetworkRulesArgs',
     'PrivateEndpointArgs',
     'SBSkuArgs',
+    'SqlFilterArgs',
     'SubnetArgs',
 ]
+
+@pulumi.input_type
+class ActionArgs:
+    def __init__(__self__, *,
+                 compatibility_level: Optional[pulumi.Input[int]] = None,
+                 requires_preprocessing: Optional[pulumi.Input[bool]] = None,
+                 sql_expression: Optional[pulumi.Input[str]] = None):
+        """
+        Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+        :param pulumi.Input[int] compatibility_level: This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+        :param pulumi.Input[bool] requires_preprocessing: Value that indicates whether the rule action requires preprocessing.
+        :param pulumi.Input[str] sql_expression: SQL expression. e.g. MyProperty='ABC'
+        """
+        if compatibility_level is not None:
+            pulumi.set(__self__, "compatibility_level", compatibility_level)
+        if requires_preprocessing is not None:
+            pulumi.set(__self__, "requires_preprocessing", requires_preprocessing)
+        if sql_expression is not None:
+            pulumi.set(__self__, "sql_expression", sql_expression)
+
+    @property
+    @pulumi.getter(name="compatibilityLevel")
+    def compatibility_level(self) -> Optional[pulumi.Input[int]]:
+        """
+        This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+        """
+        return pulumi.get(self, "compatibility_level")
+
+    @compatibility_level.setter
+    def compatibility_level(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "compatibility_level", value)
+
+    @property
+    @pulumi.getter(name="requiresPreprocessing")
+    def requires_preprocessing(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Value that indicates whether the rule action requires preprocessing.
+        """
+        return pulumi.get(self, "requires_preprocessing")
+
+    @requires_preprocessing.setter
+    def requires_preprocessing(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "requires_preprocessing", value)
+
+    @property
+    @pulumi.getter(name="sqlExpression")
+    def sql_expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        SQL expression. e.g. MyProperty='ABC'
+        """
+        return pulumi.get(self, "sql_expression")
+
+    @sql_expression.setter
+    def sql_expression(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sql_expression", value)
+
 
 @pulumi.input_type
 class ConnectionStateArgs:
@@ -57,6 +116,174 @@ class ConnectionStateArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateLinkConnectionStatus']]]):
         pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class CorrelationFilterArgs:
+    def __init__(__self__, *,
+                 content_type: Optional[pulumi.Input[str]] = None,
+                 correlation_id: Optional[pulumi.Input[str]] = None,
+                 label: Optional[pulumi.Input[str]] = None,
+                 message_id: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 reply_to: Optional[pulumi.Input[str]] = None,
+                 reply_to_session_id: Optional[pulumi.Input[str]] = None,
+                 requires_preprocessing: Optional[pulumi.Input[bool]] = None,
+                 session_id: Optional[pulumi.Input[str]] = None,
+                 to: Optional[pulumi.Input[str]] = None):
+        """
+        Represents the correlation filter expression.
+        :param pulumi.Input[str] content_type: Content type of the message.
+        :param pulumi.Input[str] correlation_id: Identifier of the correlation.
+        :param pulumi.Input[str] label: Application specific label.
+        :param pulumi.Input[str] message_id: Identifier of the message.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: dictionary object for custom filters
+        :param pulumi.Input[str] reply_to: Address of the queue to reply to.
+        :param pulumi.Input[str] reply_to_session_id: Session identifier to reply to.
+        :param pulumi.Input[bool] requires_preprocessing: Value that indicates whether the rule action requires preprocessing.
+        :param pulumi.Input[str] session_id: Session identifier.
+        :param pulumi.Input[str] to: Address to send to.
+        """
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if correlation_id is not None:
+            pulumi.set(__self__, "correlation_id", correlation_id)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if message_id is not None:
+            pulumi.set(__self__, "message_id", message_id)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if reply_to is not None:
+            pulumi.set(__self__, "reply_to", reply_to)
+        if reply_to_session_id is not None:
+            pulumi.set(__self__, "reply_to_session_id", reply_to_session_id)
+        if requires_preprocessing is not None:
+            pulumi.set(__self__, "requires_preprocessing", requires_preprocessing)
+        if session_id is not None:
+            pulumi.set(__self__, "session_id", session_id)
+        if to is not None:
+            pulumi.set(__self__, "to", to)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Content type of the message.
+        """
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_type", value)
+
+    @property
+    @pulumi.getter(name="correlationId")
+    def correlation_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier of the correlation.
+        """
+        return pulumi.get(self, "correlation_id")
+
+    @correlation_id.setter
+    def correlation_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "correlation_id", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application specific label.
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter(name="messageId")
+    def message_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier of the message.
+        """
+        return pulumi.get(self, "message_id")
+
+    @message_id.setter
+    def message_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "message_id", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        dictionary object for custom filters
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="replyTo")
+    def reply_to(self) -> Optional[pulumi.Input[str]]:
+        """
+        Address of the queue to reply to.
+        """
+        return pulumi.get(self, "reply_to")
+
+    @reply_to.setter
+    def reply_to(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "reply_to", value)
+
+    @property
+    @pulumi.getter(name="replyToSessionId")
+    def reply_to_session_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Session identifier to reply to.
+        """
+        return pulumi.get(self, "reply_to_session_id")
+
+    @reply_to_session_id.setter
+    def reply_to_session_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "reply_to_session_id", value)
+
+    @property
+    @pulumi.getter(name="requiresPreprocessing")
+    def requires_preprocessing(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Value that indicates whether the rule action requires preprocessing.
+        """
+        return pulumi.get(self, "requires_preprocessing")
+
+    @requires_preprocessing.setter
+    def requires_preprocessing(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "requires_preprocessing", value)
+
+    @property
+    @pulumi.getter(name="sessionId")
+    def session_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Session identifier.
+        """
+        return pulumi.get(self, "session_id")
+
+    @session_id.setter
+    def session_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "session_id", value)
+
+    @property
+    @pulumi.getter
+    def to(self) -> Optional[pulumi.Input[str]]:
+        """
+        Address to send to.
+        """
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "to", value)
 
 
 @pulumi.input_type
@@ -105,7 +332,7 @@ class NWRuleSetIpRulesArgs:
                  action: Optional[pulumi.Input[Union[str, 'NetworkRuleIPAction']]] = None,
                  ip_mask: Optional[pulumi.Input[str]] = None):
         """
-        The response from the List namespace operation.
+        Description of NetWorkRuleSet - IpRules resource.
         :param pulumi.Input[Union[str, 'NetworkRuleIPAction']] action: The IP Filter Action
         :param pulumi.Input[str] ip_mask: IP Mask
         """
@@ -145,8 +372,8 @@ class NWRuleSetVirtualNetworkRulesArgs:
                  ignore_missing_vnet_service_endpoint: Optional[pulumi.Input[bool]] = None,
                  subnet: Optional[pulumi.Input['SubnetArgs']] = None):
         """
-        The response from the List namespace operation.
-        :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Value that indicates whether to ignore missing Vnet Service Endpoint
+        Description of VirtualNetworkRules - NetworkRules resource.
+        :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Value that indicates whether to ignore missing VNet Service Endpoint
         :param pulumi.Input['SubnetArgs'] subnet: Subnet properties
         """
         if ignore_missing_vnet_service_endpoint is not None:
@@ -158,7 +385,7 @@ class NWRuleSetVirtualNetworkRulesArgs:
     @pulumi.getter(name="ignoreMissingVnetServiceEndpoint")
     def ignore_missing_vnet_service_endpoint(self) -> Optional[pulumi.Input[bool]]:
         """
-        Value that indicates whether to ignore missing Vnet Service Endpoint
+        Value that indicates whether to ignore missing VNet Service Endpoint
         """
         return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
 
@@ -259,26 +486,81 @@ class SBSkuArgs:
 
 
 @pulumi.input_type
+class SqlFilterArgs:
+    def __init__(__self__, *,
+                 compatibility_level: Optional[pulumi.Input[int]] = None,
+                 requires_preprocessing: Optional[pulumi.Input[bool]] = None,
+                 sql_expression: Optional[pulumi.Input[str]] = None):
+        """
+        Represents a filter which is a composition of an expression and an action that is executed in the pub/sub pipeline.
+        :param pulumi.Input[int] compatibility_level: This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+        :param pulumi.Input[bool] requires_preprocessing: Value that indicates whether the rule action requires preprocessing.
+        :param pulumi.Input[str] sql_expression: The SQL expression. e.g. MyProperty='ABC'
+        """
+        if compatibility_level is not None:
+            pulumi.set(__self__, "compatibility_level", compatibility_level)
+        if requires_preprocessing is not None:
+            pulumi.set(__self__, "requires_preprocessing", requires_preprocessing)
+        if sql_expression is not None:
+            pulumi.set(__self__, "sql_expression", sql_expression)
+
+    @property
+    @pulumi.getter(name="compatibilityLevel")
+    def compatibility_level(self) -> Optional[pulumi.Input[int]]:
+        """
+        This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+        """
+        return pulumi.get(self, "compatibility_level")
+
+    @compatibility_level.setter
+    def compatibility_level(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "compatibility_level", value)
+
+    @property
+    @pulumi.getter(name="requiresPreprocessing")
+    def requires_preprocessing(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Value that indicates whether the rule action requires preprocessing.
+        """
+        return pulumi.get(self, "requires_preprocessing")
+
+    @requires_preprocessing.setter
+    def requires_preprocessing(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "requires_preprocessing", value)
+
+    @property
+    @pulumi.getter(name="sqlExpression")
+    def sql_expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SQL expression. e.g. MyProperty='ABC'
+        """
+        return pulumi.get(self, "sql_expression")
+
+    @sql_expression.setter
+    def sql_expression(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sql_expression", value)
+
+
+@pulumi.input_type
 class SubnetArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None):
+                 id: pulumi.Input[str]):
         """
         Properties supplied for Subnet
         :param pulumi.Input[str] id: Resource ID of Virtual Network Subnet
         """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
+    def id(self) -> pulumi.Input[str]:
         """
         Resource ID of Virtual Network Subnet
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
+    def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
 
