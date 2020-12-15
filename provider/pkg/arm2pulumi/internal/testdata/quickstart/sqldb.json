@@ -56,10 +56,9 @@
             "name": "Standard",
             "tier": "Standard"
           },
-          "serverName": "[parameters('serverName')]",
           "location": "[parameters('location')]",
           "dependsOn": [
-            "[resourceId('Microsoft.Sql/servers', concat(parameters('serverName')))]"
+            "[resourceId('Microsoft.Sql/servers', parameters('serverName'))]"
           ]
         }
       ]

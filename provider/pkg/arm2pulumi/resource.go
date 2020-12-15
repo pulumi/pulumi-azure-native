@@ -25,13 +25,18 @@ type resource struct {
 	nameParam      string
 	resourceToken  string // initial guess at pulumi resource token
 	resourceParams map[string]interface{}
-	dependsOn      model.BodyItem
+	dependsOn      []model.Expression
 	resource       *resources.AzureAPIResource
 	exclude        bool
 }
 
 func (r *resource) Name() string {
 	return r.resourceName
+}
+
+func (r *resource) rawName() interface{} {
+	args := r.rawBody
+	return args["name"]
 }
 
 func (r *resource) Args() interface{} {
@@ -205,22 +210,56 @@ func (r *resource) LinkElements(ctx *pclRenderContext, elements *TemplateElement
 		}
 
 		for _, dependency := range asSlice {
-			switch dependency.(type) {
+			switch dep := dependency.(type) {
 			case string:
-				resourceId := dependency.(string)
-				if targetInfo, ok := ctx.resourceIdMap[resourceId]; ok {
-					target := elements.lookup(targetInfo.targetElementName)
-					if res, ok := target.TemplateElement.(*resource); ok {
-						for _, v := range r.resource.PutParameters {
-							_, inResourceParams := r.resourceParams[v.Name]
-							if v.Name == res.nameParam && v.IsRequired && !inResourceParams {
-								r.resourceParams[v.Name] = pcl.RelativeTraversal(targetInfo.variableExpression, "name")
-								ctx.dep.RefersTo(target)
-								break
-							}
-						}
+				targetInfo, ok := elements.resourceIdMap[dep]
+				if !ok {
+					// DependsOn can also contain a reference to the local
+					// resource name as a string (not a resourceId reference).
+					res := elements.lookupResourceByRawName(dep)
+					if res != nil {
+						target := elements.lookup(res.Name())
+						r.dependsOn = append(r.dependsOn,
+							model.VariableReference(
+								&model.Variable{
+									Name:         target.Name(),
+									VariableType: model.DynamicType,
+								},
+							))
+						ctx.dep.RefersTo(target)
+					}
+					continue
+				}
+				linked := false
+				target := elements.lookup(targetInfo.targetElementName)
+				res, ok := target.TemplateElement.(*resource)
+				if !ok {
+					continue
+				}
+				for _, v := range r.resource.PutParameters {
+					_, inResourceParams := r.resourceParams[v.Name]
+					// This is necessary to establish links to parents from sub resources.
+					// If this is a sub resource a parent link is sufficient to establish ordering.
+					if v.Name == res.nameParam && v.IsRequired && !inResourceParams {
+						r.resourceParams[v.Name] = pcl.RelativeTraversal(targetInfo.variableExpression, "name")
+						ctx.dep.RefersTo(target)
+						linked = true
+						break
 					}
 				}
+
+				// Just a regular dependsOn reference so explicitly add the dependency.
+				if !linked {
+					r.dependsOn = append(r.dependsOn,
+						model.VariableReference(
+							&model.Variable{
+								Name:         target.Name(),
+								VariableType: model.DynamicType,
+							},
+						))
+					ctx.dep.RefersTo(target)
+				}
+				break
 			}
 		}
 	}
@@ -232,7 +271,7 @@ func (r *resource) LinkElements(ctx *pclRenderContext, elements *TemplateElement
 func substituteResourceIds(ctx *pclRenderContext, params interface{}, elements *TemplateElements) interface{} {
 	switch val := params.(type) {
 	case string:
-		if targetInfo, ok := ctx.resourceIdMap[val]; ok {
+		if targetInfo, ok := elements.resourceIdMap[val]; ok {
 			params = pcl.RelativeTraversal(targetInfo.variableExpression, "id")
 			ctx.dep.RefersTo(elements.lookup(targetInfo.targetElementName))
 			return params
@@ -280,8 +319,20 @@ func (r *resource) PCLExpression(ctx *pclRenderContext) ([]model.BodyItem, error
 		})
 	}
 
-	if r.dependsOn != nil {
-		items = append(items, r.dependsOn)
+	if len(r.dependsOn) > 0 {
+		items = append(items, &model.Block{
+			Type: "options",
+			Body: &model.Body{
+				Items: []model.BodyItem{
+					&model.Attribute{
+						Name: "dependsOn",
+						Value: &model.TupleConsExpression{
+							Expressions: r.dependsOn,
+						},
+					},
+				},
+			},
+		})
 	}
 	comment := extractDescription(r.rawBody)
 	block := model.Block{

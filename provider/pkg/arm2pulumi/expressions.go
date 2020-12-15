@@ -345,37 +345,32 @@ func (t *TemplateElements) evalFunctionCall(
 				}
 			}
 
-			for k, v := range t.elements {
-				switch v.TemplateElement.(type) {
-				case *resource:
-					args := v.Args()
-					argsMap, ok := args.(map[string]interface{})
-					if !ok {
-						return fmt.Errorf("invalid payload for resource %s: %T", k, args)
-					}
-					name, ok := argsMap["name"]
-					if !ok {
-						continue
-					}
-					_, ok = argsMap["type"]
-					if !ok {
-						continue
-					}
-					if reflect.DeepEqual(name, evaledResourceName) {
-						t.resourceIdMap[expression] = resourceIdTargetEntry{
-							variableExpression: model.VariableReference(&model.Variable{
-								Name:         k,
-								VariableType: model.DynamicType,
-							}),
-							targetElementName: k,
-						}
-						break
-					}
-				}
+			res, err := t.lookupResourceByEvaledName(evaledResourceName)
+			if err != nil {
+				return err
 			}
-			// Leave the expression as is for now since we will know how to use the
-			// variable based on the context where the template is defined. This determination
-			// is done at render time.
+
+			if res == nil {
+				*target = expression
+				return nil
+			}
+
+			t.resourceIdMap[expression] = resourceIdTargetEntry{
+				variableExpression: model.VariableReference(&model.Variable{
+					Name:         res.Name(),
+					VariableType: model.DynamicType,
+				}),
+				targetElementName: res.Name(),
+				RawName:           res.rawName(),
+			}
+
+			// The intent of using resourceId is different based on context
+			// - e.g. in dependsOn resourceId should translate to reference to resource
+			// while in other contexts resourceId should actually be the resource's Id.
+			// We can't distinguish between the use cases here so store the canonical
+			// expression instead. At a later step where we have the appropriate context
+			// we will use the expression to lookup in resourceIdMap and perform the
+			// necessary translation of the value stored there.
 			*target = expression
 			return nil
 			// TODO: Add subscriptionid and resource group id to the concat list
@@ -497,6 +492,31 @@ func (t *TemplateElements) evalFunctionCall(
 
 		return nil
 	}
+}
+
+func (t *TemplateElements) lookupResourceByEvaledName(evaledResourceName interface{}) (*resource, error) {
+	for k, v := range t.elements {
+		switch typ := v.TemplateElement.(type) {
+		case *resource:
+			args := v.Args()
+			argsMap, ok := args.(map[string]interface{})
+			if !ok {
+				return nil, fmt.Errorf("invalid payload for resource %s: %T", k, args)
+			}
+			name, ok := argsMap["name"]
+			if !ok {
+				continue
+			}
+			_, ok = argsMap["type"]
+			if !ok {
+				continue
+			}
+			if reflect.DeepEqual(name, evaledResourceName) {
+				return typ, nil
+			}
+		}
+	}
+	return nil, nil
 }
 
 // getStringValue returns the literal string value of the given expression, if any.
